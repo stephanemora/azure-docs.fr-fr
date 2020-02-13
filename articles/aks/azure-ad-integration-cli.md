@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: mlearned
-ms.openlocfilehash: 5b99d76ef20c288d6ae0bd33e1e2b6a75a359d3a
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 520557c80bf2630a359188dd86ec0987e0d5326b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "67616269"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158143"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Intégrer Azure Active Directory avec Azure Kubernetes Service à l’aide d’Azure AD
 
@@ -161,7 +161,7 @@ az aks get-credentials --resource-group myResourceGroup --name $aksname --admin
 
 ## <a name="create-rbac-binding"></a>Créer une liaison RBAC
 
-Avant de pouvoir utiliser un compte Azure Active Directory avec le cluster AKS, une liaison de rôle ou une liaison de rôle de cluster doit être créée. Les *rôles*définissent les permissions à accorder, et les *liaisons*les appliquent aux utilisateurs souhaités. Ces affectations peuvent s’appliquer à un espace de noms donné ou à l’ensemble du cluster. Pour plus d’informations, voir [Utilisation de l’autorisation RBAC][rbac-authorization].
+Avant de pouvoir utiliser un compte Azure Active Directory avec le cluster AKS, une liaison de rôle ou une liaison de rôle de cluster doit être créée. Les *rôles*définissent les permissions à accorder, et les *liaisons*les appliquent aux utilisateurs souhaités. Ces affectations peuvent s’appliquer à un espace de noms donné ou à l’ensemble du cluster. Pour plus d’informations, consultez [Utilisation de l’autorisation RBAC][rbac-authorization].
 
 Obtenez le nom d’utilisateur principal (UPN) de l’utilisateur actuellement connecté à l’aide de la commande [az ad signed-in-user show][az-ad-signed-in-user-show]. Ce compte d’utilisateur est activé pour l’intégration d’Azure AD à l’étape suivante.
 
@@ -170,7 +170,7 @@ az ad signed-in-user show --query userPrincipalName -o tsv
 ```
 
 > [!IMPORTANT]
-> Si l’utilisateur pour lequel vous accordez la liaison RBAC figure dans le même locataire Azure AD, attribuez les autorisations en fonction du *userPrincipalName*. Si l’utilisateur figure dans un autre locataire Azure AD, recherchez et utilisez plutôt la propriété *objectId*.
+> Si l’utilisateur pour lequel vous accordez la liaison RBAC figure dans le même locataire Azure AD, attribuez les autorisations en fonction du *userPrincipalName*. Si l’utilisateur se trouve dans un autre locataire Azure AD, recherchez et utilisez plutôt la propriété *objectId*.
 
 Créez un manifeste YAML nommé `basic-azure-ad-binding.yaml`, et collez le contenu suivant. Sur la dernière ligne, remplacez *userPrincipalName_or_objectId* par l’UPN ou l’ID d’objet retournés par la commande précédente :
 
@@ -236,7 +236,7 @@ Si vous voyez un message d’erreur d’autorisation s’afficher après que vou
 error: You must be logged in to the server (Unauthorized)
 ```
 
-* Vous avez défini l’ID d’objet ou l’UPN appropriés, selon que le compte d’utilisateur figure dans le même locataire Azure AD ou non.
+* Vous avez défini l’ID d’objet ou l’UPN approprié, selon que le compte d’utilisateur se trouve dans le même locataire Azure AD ou non.
 * L'utilisateur n’est pas membre de plus de 200 groupes.
 * Le secret défini dans l’inscription d’application pour le serveur correspond à la valeur configurée à l’aide de `--aad-server-app-secret`
 
@@ -246,7 +246,7 @@ Pour obtenir le script complet contenant les commandes présentées dans cet art
 
 Pour utiliser des utilisateurs et des groupes Azure AD afin de contrôler l’accès aux ressources de cluster, voir [contrôler l’accès aux ressources de cluster à l’aide d’un contrôle d’accès en fonction du rôle et d’identités Azure AD dans AKS][azure-ad-rbac].
 
-Pour plus d’informations sur la sécurisation des clusters Kubernetes, voir [Options d’accès et d’identité pour Azure Kubernetes Service (AKS)][rbac-authorization].
+Pour plus d’informations sur la sécurisation des clusters Kubernetes, consultez [Options d’accès et d’identité pour Azure Kubernetes Service (AKS)][rbac-authorization].
 
 Pour découvrir les meilleures pratiques de contrôle des identités et des ressources, consultez [Meilleurs pratiques relatives à l’authentification et à l’autorisation dans Azure Kubernetes Service (AKS)][operator-best-practices-identity].
 
@@ -260,7 +260,7 @@ Pour découvrir les meilleures pratiques de contrôle des identités et des ress
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
-[open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md
+[open-id-connect]:../active-directory/develop/v2-protocols-oidc.md
 [az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show
 [az-ad-app-create]: /cli/azure/ad/app#az-ad-app-create
 [az-ad-app-update]: /cli/azure/ad/app#az-ad-app-update

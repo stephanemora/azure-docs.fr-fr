@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer Zendesk pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer Zendesk pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes d’utilisateur sur Zendesk.
 services: active-directory
 documentationcenter: ''
@@ -16,21 +16,21 @@ ms.topic: article
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f9d819533b97a126a324ab867b7185fd6415847
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a480119ee88521b920be88669f6d80e3754d24d3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851980"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062740"
 ---
-# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Didacticiel : Configurer Zendesk pour le provisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zendesk pour le provisionnement automatique d’utilisateurs
 
 Ce didacticiel montre comment procéder dans Zendesk et Azure Active Directory (Azure AD) afin de configurer Azure AD pour approvisionner et déprovisionner automatiquement des utilisateurs et des groupes sur Zendesk.
 
 > [!NOTE]
-> Ce didacticiel décrit un connecteur reposant sur le service d’approvisionnement d’utilisateurs Azure AD. Pour plus d’informations sur l’objet et le fonctionnement de ce service et pour accéder au forum aux questions, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
+> Ce didacticiel décrit un connecteur reposant sur le service d’approvisionnement d’utilisateurs Azure AD. Pour plus d’informations sur l’objet et le fonctionnement de ce service et pour accéder au forum aux questions, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -83,7 +83,7 @@ Cette section vous guide dans la procédure de configuration du service d’appr
 
 ### <a name="configure-automatic-user-provisioning-for-zendesk-in-azure-ad"></a>Configurer l’approvisionnement automatique d’utilisateurs pour Zendesk dans Azure AD
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** > **Toutes les applications** > **Zendesk**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** > **Toutes les applications** > **Zendesk**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -101,7 +101,7 @@ Cette section vous guide dans la procédure de configuration du service d’appr
 
 5. Dans la section **Informations d’identification de l’administrateur**, entrez le nom d’utilisateur de l’administrateur, le jeton secret et le domaine de votre compte Zendesk. Voici des exemples de valeurs :
 
-   * Dans la zone **Nom d’utilisateur de l’administrateur**, entrez le nom d’utilisateur du compte administrateur sur votre locataire Zendesk. Par exemple admin@contoso.com.
+   * Dans la zone **Nom d’utilisateur de l’administrateur**, entrez le nom d’utilisateur du compte administrateur sur votre locataire Zendesk. par exemple admin@contoso.com.
 
    * Dans la zone **Jeton secret**, indiquez le jeton secret comme décrit à l’étape 6.
 
@@ -139,7 +139,7 @@ Cette section vous guide dans la procédure de configuration du service d’appr
 
     ![Zendesk : mise en correspondance des attributs de groupe](./media/zendesk-provisioning-tutorial/ZenDesk13.png)
 
-14. Pour configurer des filtres d’étendue, suivez les instructions fournies dans le [didacticiel sur les filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Pour configurer des filtres d’étendue, suivez les instructions fournies dans le [didacticiel sur les filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 15. Pour activer le service d’approvisionnement Azure AD pour Zendesk, définissez **État d’attribution** sur **Activé** dans la section **Paramètres**.
 
@@ -157,7 +157,7 @@ Cette opération démarre la synchronisation initiale de tous les utilisateurs o
 
 Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers le rapport d’activité d’approvisionnement. Ce rapport décrit toutes les actions effectuées par le service d’approvisionnement Azure AD sur Zendesk.
 
-Pour avoir des informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
+Pour avoir des informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitations du connecteur
 
@@ -167,12 +167,12 @@ Pour avoir des informations sur la lecture des journaux d’activité d’approv
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion du provisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestion du provisionnement de comptes d’utilisateur pour les applications d’entreprise](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
+* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/zendesk-tutorial/tutorial_general_01.png

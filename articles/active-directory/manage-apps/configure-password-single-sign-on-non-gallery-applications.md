@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d191abafbaad123ed47f8eaae6cdd4e48478da7a
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 563bda275b73f76b042b5e57a9909ca78c504bb3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422638"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063524"
 ---
 # <a name="configure-password-single-sign-on"></a>Configurer l’authentification unique par mot de passe
 
@@ -38,7 +38,7 @@ L’authentification unique par mot de passe (SSO) est un excellent moyen pour c
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Si l’application n’a pas été ajoutée à votre locataire Azure AD, consultez [Ajouter une application de la galerie](add-gallery-app.md) ou [Ajouter une application non-galerie](add-non-gallery-app.md).
+Si l’application n’a pas été ajoutée à votre locataire Azure AD, consultez [Ajouter une application figurant dans la galerie](add-gallery-app.md) ou [Ajouter une application ne figurant pas dans la galerie](add-non-gallery-app.md).
 
 ## <a name="open-the-app-and-select-password-single-sign-on"></a>Ouvrir l'application et sélectionner l’authentification unique par mot de passe
 
@@ -95,4 +95,4 @@ Après la capture de la page de connexion, vous pouvez affecter des utilisateurs
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Affecter des utilisateurs et des groupes à l’application](methods-for-assigning-users-and-groups.md)
-- [Configurer l’approvisionnement automatique d’un compte utilisateur](configure-automatic-user-provisioning-portal.md)
+- [Configurer le provisionnement automatique d’un compte utilisateur](../app-provisioning/configure-automatic-user-provisioning-portal.md)

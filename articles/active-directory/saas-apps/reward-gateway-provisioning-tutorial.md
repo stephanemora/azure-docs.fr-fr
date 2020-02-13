@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Configurer Reward Gateway pour l'approvisionnement automatique d'utilisateurs avec Azure Active Directory | Microsoft Docs"
+title: "Tutoriel : Configurer Reward Gateway pour l'approvisionnement automatique d'utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: Apprenez à configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes d'utilisateur sur Reward Gateway.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 4d07fa66374908781fd1d637fd722fd60d1352b3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 928d48907e43de5e65ca5604ff878bfb83d5e95b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737415"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77060989"
 ---
-# <a name="tutorial-configure-reward-gateway-for-automatic-user-provisioning"></a>Didacticiel : Configurer Reward Gateway pour l'approvisionnement automatique d'utilisateurs
+# <a name="tutorial-configure-reward-gateway-for-automatic-user-provisioning"></a>Tutoriel : Configurer Reward Gateway pour l'approvisionnement automatique d'utilisateurs
 
 L'objectif de ce didacticiel est de présenter les étapes à suivre dans Reward Gateway et Azure Active Directory (Azure AD) afin de configurer Azure AD pour l'approvisionnement et le retrait automatiques d'utilisateurs et/ou de groupes sur Reward Gateway.
 
@@ -31,7 +31,7 @@ L'objectif de ce didacticiel est de présenter les étapes à suivre dans Reward
 >
 > Ce connecteur est actuellement en préversion publique. Pour plus d’informations sur les conditions d’utilisation Microsoft Azure générales relatives aux fonctionnalités d’évaluation, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
@@ -41,7 +41,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 ## <a name="assigning-users-to-reward-gateway"></a>Attribuer des utilisateurs à Reward Gateway 
 
-Azure Active Directory utilise un concept appelé *affectations* pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique d’utilisateurs, seuls les utilisateurs ou les groupes auxquels une application dans Azure AD a été attribuée sont synchronisés.
+Azure Active Directory utilise un concept appelé *affectations* pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre d’une attribution automatique d’utilisateurs, seuls les utilisateurs ou les groupes auxquels une application a été attribuée dans Azure AD sont synchronisés.
 
 Avant de configurer et d'activer l'approvisionnement automatique d'utilisateurs, vous devez déterminer quels utilisateurs et/ou groupes d'Azure AD auront besoin d'accéder à Reward Gateway. Une fois que vous avez choisi, vous pouvez attribuer ces utilisateurs et/ou groupes à Reward Gateway en suivant les instructions fournies dans [Attribuer un utilisateur ou un groupe à une application d'entreprise](../manage-apps/assign-user-or-group-access-portal.md).
 
@@ -98,7 +98,7 @@ Cette section vous guide tout au long des étapes de configuration du service d'
 
 ### <a name="to-configure-automatic-user-provisioning-for-reward-gateway-in-azure-ad"></a>Pour configurer l'approvisionnement automatique d'utilisateurs pour Reward Gateway dans Azure AD :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -132,7 +132,7 @@ Cette section vous guide tout au long des étapes de configuration du service d'
 
     ![Console d'administration Reward Gateway](media/reward-gateway-provisioning-tutorial/user-attributes.png)
 
-10. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Pour activer le service d'approvisionnement Azure AD pour Reward Gateway, définissez le paramètre **État d'approvisionnement** sur **Activé** dans la section **Paramètres**.
 
@@ -148,7 +148,7 @@ Cette section vous guide tout au long des étapes de configuration du service d'
 
 Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et les liens vers les rapports d'activité d'approvisionnement, qui décrivent toutes les actions effectuées par le service d'approvisionnement Azure AD sur Reward Gateway.
 
-Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
+Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitations du connecteur
 
@@ -156,9 +156,9 @@ Reward Gateway ne prend actuellement pas en charge l'approvisionnement de groupe
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
+[Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../app-provisioning/check-status-user-account-provisioning.md)

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: d80a58f1886ecc1ca2a735881fc5822f2fc0c53b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b38b38789edfd5a0a30fdd589849bfa345eaac9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60826147"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157854"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accéder à l’API Azure Media Services avec l’authentification Azure AD  
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
 L’API Azure Media Services est une API RESTful. Vous pouvez l’utiliser pour effectuer des opérations sur les ressources médias à l’aide d’une API REST ou à l’aide de Kits de développement logiciel (SDK) clients disponibles. Azure Media Services propose un Kit de développement logiciel (SDK) client Media Services pour Microsoft .NET. Pour être autorisé à accéder aux ressources Media Services et à l’API Media Services, vous devez tout d’abord être authentifié. 
 
@@ -95,7 +95,7 @@ Dans le diagramme précédent, les nombres représentent le flux des requêtes d
 
 Pour plus d’informations sur l’utilisation de l’authentification Azure AD dans l’optique de communiquer avec les requêtes REST par le biais du Kit de développement logiciel (SDK) client Media Services .NET, consultez [Use Azure AD authentication to access Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md) (Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec .NET). 
 
-Si vous n’utilisez pas le Kit de développement logiciel (SDK) client de Media Services .NET, vous devez créer manuellement une demande de jeton d’accès Azure AD en utilisant les paramètres décrits à l’étape 2. Pour plus d’informations, consultez [Bibliothèques d’authentification d’Azure Active Directory](../../active-directory/develop/active-directory-authentication-libraries.md).
+Si vous n’utilisez pas le Kit de développement logiciel (SDK) client de Media Services .NET, vous devez créer manuellement une demande de jeton d’accès Azure AD en utilisant les paramètres décrits à l’étape 2. Pour plus d’informations, consultez [Bibliothèques d’authentification d’Azure Active Directory](../../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ### <a name="service-principal-authentication"></a>Authentification d’un principal du service
 
@@ -137,9 +137,9 @@ Dans la figure précédente, les nombres représentent le flux des requêtes dan
 
 Pour plus d’informations sur l’utilisation de l’authentification Azure AD dans l’optique de communiquer avec les requêtes REST par le biais du Kit de développement logiciel (SDK) client Media Services .NET, consultez [Use Azure AD authentication to access Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md) (Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec .NET). 
 
-Si vous n’utilisez pas le Kit de développement logiciel (SDK) client Media Services .NET, vous devez créer manuellement une demande de jeton Azure AD en utilisant les paramètres décrits à l’étape 1. Pour plus d’informations, consultez [Bibliothèques d’authentification d’Azure Active Directory](../../active-directory/develop/active-directory-authentication-libraries.md).
+Si vous n’utilisez pas le Kit de développement logiciel (SDK) client Media Services .NET, vous devez créer manuellement une demande de jeton Azure AD en utilisant les paramètres décrits à l’étape 1. Pour plus d’informations, consultez [Bibliothèques d’authentification d’Azure Active Directory](../../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Exception : « Le serveur distant a retourné une erreur : (401) Non autorisé. »
 

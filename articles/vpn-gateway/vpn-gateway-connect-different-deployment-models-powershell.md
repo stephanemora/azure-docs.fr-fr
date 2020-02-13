@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1c11539460f1ef65f8cea3d36f1a017661133355
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 1dc0eec6178420976181b05a059e9f8b4859ec2a
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833955"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152004"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents à l’aide de PowerShell
 
@@ -166,7 +166,7 @@ Vous pouvez vérifier l’état de la passerelle à l’aide de l’applet de co
 
 ## <a name="creatermgw"></a>Section 2 - Configurer la passerelle du réseau virtuel Resource Manager
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 Les conditions préalables supposent que vous ayez déjà créé un réseau virtuel RM. Dans cette étape, vous créez une passerelle VPN pour le réseau virtuel RM. Ne commencez pas cette procédure avant d’avoir récupéré l’adresse IP publique de la passerelle du réseau virtuel classique. 
 

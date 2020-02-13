@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 9d00024351c18789e26120cc2af006b9aac4232d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 518d86fff04a23f1c1e63c44c53485b99f30637d
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75767838"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057833"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Tutoriel : Configurer Harness pour le provisionnement automatique d’utilisateurs
 
 Dans cet article, vous allez apprendre à configurer Azure Active Directory (Azure AD) pour provisionner et déprovisionner automatiquement des utilisateurs ou des groupes dans Harness.
 
 > [!NOTE]
-> Cet article décrit un connecteur qui s’appuie sur le service d’attribution d’utilisateurs Azure AD. Pour obtenir des informations importantes sur ce service, ainsi que des réponses aux questions fréquentes, consultez [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
+> Cet article décrit un connecteur qui s’appuie sur le service d’attribution d’utilisateurs Azure AD. Pour obtenir des informations importantes sur ce service, ainsi que des réponses aux questions fréquentes, consultez [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Ce connecteur est actuellement en préversion. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -156,7 +156,7 @@ Pour configurer l’attribution automatique d’utilisateurs pour Harness dans A
 
     ![Volet « Mappages d’attributs » des groupes Harness](media/harness-provisioning-tutorial/groupattributes.png)
 
-1. Pour configurer des filtres d’étendue, consultez [Provisionnement d’applications basé sur les attributs avec filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Pour configurer des filtres d’étendue, consultez [Provisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. Sous **Paramètres**, pour activer le service de provisionnement Azure AD pour Harness, basculez le commutateur **État du provisionnement** sur **Activé**.
 
@@ -172,13 +172,13 @@ Pour configurer l’attribution automatique d’utilisateurs pour Harness dans A
 
 Cette opération démarre la synchronisation initiale des utilisateurs ou des groupes que vous provisionnez. La synchronisation initiale prend plus de temps que celles ultérieures. Les synchronisations se produisent toutes les 40 minutes environ, tant que le service de provisionnement Azure AD est en cours d’exécution. Pour superviser la progression, accédez à la section **Détails de la synchronisation**. Vous pouvez également suivre les liens fournis pour accéder à un rapport d’activité de provisionnement. Ce rapport décrit toutes les actions effectuées par le service de provisionnement Azure AD dans Harness.
 
-Pour plus d’informations sur la façon de lire les journaux de provisionnement Azure AD, consultez [Générer un rapport sur le provisionnement automatique de comptes d’utilisateurs](../manage-apps/check-status-user-account-provisioning.md).
+Pour plus d’informations sur la façon de lire les journaux de provisionnement Azure AD, consultez [Générer un rapport sur le provisionnement automatique de comptes d’utilisateurs](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion du provisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestion du provisionnement de comptes d’utilisateur pour les applications d’entreprise](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
+* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../app-provisioning/check-status-user-account-provisioning.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: c937a07133dc38d2d9e1e1ef2cc324b4c8bb360e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7d32043ca73e9cf810b3eab5e65cb4b42b599d18
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845067"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152922"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspection de paquets avec Azure Network Watcher
 
@@ -39,7 +39,7 @@ Dans ce scénario, vous allez :
 
 Dans ce scénario, nous expliquons comment afficher la durée initiale des boucles d’une conversation de protocole TCP entre deux points de terminaison.
 
-Lorsqu’une connexion TCP est établie, les trois premiers paquets envoyés via la connexion suivent un modèle dit de « connexion en trois temps ». En examinant les deux premiers paquets envoyés via cette connexion, une demande initiale du client et une réponse du serveur, nous pouvons calculer la latence lors de l’établissement de cette connexion. Cette latence correspond à la durée des boucles. Pour plus d’informations sur le protocole TCP et la connexion en trois temps, reportez-vous à la ressource suivante : https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
+Lorsqu’une connexion TCP est établie, les trois premiers paquets envoyés via la connexion suivent un modèle dit de « connexion en trois temps ». En examinant les deux premiers paquets envoyés via cette connexion, une demande initiale du client et une réponse du serveur, nous pouvons calculer la latence lors de l’établissement de cette connexion. Cette latence correspond à la durée des boucles. Pour plus d’informations sur le protocole TCP et la connexion en trois temps, reportez-vous à la ressource suivante : [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip)
 
 ### <a name="step-1"></a>Étape 1
 

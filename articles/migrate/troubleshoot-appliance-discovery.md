@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: e8d0f446442db6eeb0aec38efcc69bdf09c9b56f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 37da62a4eb0f934133d6486872ba319138299614
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990706"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048701"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Résoudre les problèmes d’appliance et de découverte Azure Migrate
 
@@ -139,7 +139,7 @@ Si vous supprimez des machines virtuelles et qu’elles apparaissent toujours da
 
 Azure Migrate prend en charge la découverte des applications, des rôles et des caractéristiques à l’aide d’Azure Migrate : Server Assessment. La découverte des applications est actuellement prise en charge pour VMware uniquement. [En savoir plus](how-to-discover-applications.md) sur les exigences et les étapes de configuration de la découverte d’application.
 
-Les erreurs classiques de découverte d’application sont résumées dans le tableau.
+Les erreurs classiques de découverte d’application sont résumées dans le tableau. 
 
 **Error** | **Cause** | **Action**
 --- | --- | --- | ---

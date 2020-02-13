@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 2e72c8a363ee7f58630b1c0d8d0f00434c2e2b7e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 30e9e31c7b3f372ed252f1b81eeece02d2ca1f21
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838788"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168504"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gérer un service web à l’aide du portail des services web Azure Machine Learning Studio (classique)
 Vous pouvez gérer vos services web Machine Learning nouveaux et classiques à l’aide du portail des services web Microsoft Azure Machine Learning. Étant donné que les services web classiques et nouveaux sont basés sur des technologies différentes , les fonctionnalités de gestion diffèrent légèrement pour chacun d’eux.
@@ -33,7 +33,7 @@ Le portail des services web Azure Machine Learning vous permet d’effectuer les
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Autorisations pour gérer des services web basés sur le gestionnaire de nouvelles ressources
 
-De nouveaux services web sont déployés en tant que ressources Azure. Par conséquent, vous devez disposer des autorisations appropriées pour déployer et gérer de nouveaux services web.  Pour déployer ou gérer de nouveaux services web, vous devez avoir un rôle de contributeur ou d’administrateur dans l’abonnement dans lequel le service web est déployé. Si vous invitez un autre utilisateur à un espace de travail Machine Learning, vous devez l’affecter à un rôle de contributeur ou d’administrateur sur l’abonnement avant qu’il ne puisse déployer ou gérer des services web. 
+De nouveaux services web sont déployés en tant que ressources Azure. Par conséquent, vous devez disposer des autorisations appropriées pour déployer et gérer de nouveaux services web.  Pour déployer ou gérer de nouveaux services web, vous devez avoir un rôle de contributeur ou d’administrateur dans l’abonnement dans lequel le service web est déployé. Si vous invitez un autre utilisateur dans un espace de travail Machine Learning, vous devez l’affecter à un rôle de contributeur ou d’administrateur dans l’abonnement avant qu’il ne puisse déployer ou gérer des services web. 
 
 Si l’utilisateur n’a pas les autorisations appropriées pour accéder aux ressources dans le portail Service web Machine Learning, il recevra le message d’erreur suivant s’il tente de déployer un service web :
 
@@ -84,7 +84,7 @@ Vous pouvez mettre à jour les propriétés suivantes :
 
 * **Description** pour entrer une description du service web.
 * **Titre** pour entrer le titre du service web.
-* **Clés** pour configurer la rotation de vos clés API principales et secondaires.
+* **Clés** , configurez la rotation de vos clés API principales et secondaires.
 * **Clé du compte de stockage** pour mettre à jour la clé du compte de stockage associé aux modifications du service web. 
 * **Activer l’exemple de données** pour fournir des exemples de données que vous pouvez utiliser pour tester votre service de demande-réponse. Si vous avez créé le service web dans Machine Learning Studio (classique), les exemples de données proviennent des données utilisées pour effectuer l’apprentissage de votre modèle. Si vous avez créé le service par programme, les données proviennent des exemples de données que vous avez fournis dans le cadre du package JSON.
 
@@ -120,7 +120,7 @@ Pour gérer vos services web classiques :
 Pour gérer un Service web classique, cliquez sur **Services web classiques**. Dans la page Services web classiques, vous pouvez :
 
 * cliquer sur un service web pour afficher les points de terminaison associés ;
-* supprimer un service web.
+* Supprimer un service web.
 
 Lorsque vous gérez un service web classique, vous gérer chacun des points de terminaison séparément. Lorsque vous cliquez sur un service web dans la page Services web, la liste des points de terminaison associés au service s’ouvre. 
 

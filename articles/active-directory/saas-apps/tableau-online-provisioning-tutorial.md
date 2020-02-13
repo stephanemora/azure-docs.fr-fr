@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer Tableau Online pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer Tableau Online pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et déprovisionner automatiquement des comptes d’utilisateur sur Tableau Online.
 services: active-directory
 documentationcenter: ''
@@ -16,21 +16,21 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e203e88de8d806f489e5a7ab9bfd227c8232f84
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 5fae770950810899f7c6583fa401110c3e85022b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670912"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064210"
 ---
-# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Didacticiel : Configurer Tableau Online pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutoriel : Configurer Tableau Online pour l’approvisionnement automatique d’utilisateurs
 
 Ce tutoriel présente les étapes à effectuer dans Tableau Online et Azure Active Directory (Azure AD) afin de configurer Azure AD pour provisionner et déprovisionner automatiquement des utilisateurs et des groupes sur Tableau Online.
 
 > [!NOTE]
-> Ce tutoriel décrit un connecteur reposant sur le service de provisionnement d’utilisateurs Azure AD. Pour plus d’informations sur l’objet et le fonctionnement de ce service et pour accéder au forum aux questions, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
+> Ce didacticiel décrit un connecteur reposant sur le service d’approvisionnement d’utilisateurs Azure AD. Pour plus d’informations sur l’objet et le fonctionnement de ce service et pour accéder au forum aux questions, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -46,7 +46,7 @@ Avant de configurer Tableau Online pour l’approvisionnement automatique d’ut
 
 Pour ajouter Tableau Online à partir de la Place de marché Azure, procédez comme suit.
 
-1. Dans le volet de navigation de gauche du [Portail Azure](https://portal.azure.com), sélectionnez **Azure Active Directory**.
+1. Dans le volet de navigation de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Azure Active Directory**.
 
     ![Icône Azure Active Directory](common/select-azuread.png)
 
@@ -64,7 +64,7 @@ Pour ajouter Tableau Online à partir de la Place de marché Azure, procédez co
 
 ## <a name="assign-users-to-tableau-online"></a>Affectation d’utilisateurs à Tableau Online
 
-Azure Active Directory utilise un concept appelé *affectations* pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre du provisionnement automatique d’utilisateurs, seuls les utilisateurs ou groupes affectés à une application dans Azure AD sont synchronisés.
+Azure Active Directory utilise un concept appelé *affectations* pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique d’utilisateurs, seuls les utilisateurs ou groupes affectés à une application dans Azure AD sont synchronisés.
 
 Avant de configurer et d’activer le provisionnement automatique d’utilisateurs, identifiez les utilisateurs ou groupes dans Azure AD qui doivent accéder à Tableau Online. Pour affecter ces utilisateurs ou groupes à Tableau Online, suivez les instructions dans [Affecter un utilisateur ou un groupe à une application d’entreprise](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
@@ -76,14 +76,14 @@ Avant de configurer et d’activer le provisionnement automatique d’utilisateu
 
 ## <a name="configure-automatic-user-provisioning-to-tableau-online"></a>Configurer l’approvisionnement automatique d’utilisateurs dans Tableau Online
 
-Cette section vous guide tout au long des étapes de configuration du service d’approvisionnement Azure AD. Utilisez-le pour créer, mettre à jour et désactiver des utilisateurs ou des groupes dans Tableau Online en fonction des affectations d’utilisateurs ou de groupes dans Azure AD.
+Cette section vous guide dans la procédure de configuration du service d’approvisionnement Azure AD. Utilisez-le pour créer, mettre à jour et désactiver des utilisateurs ou des groupes dans Tableau Online en fonction des affectations d’utilisateurs ou de groupes dans Azure AD.
 
 > [!TIP]
-> Vous pouvez également activer l’authentification unique SAML pour Tableau Online. Suivez les instructions fournies dans le [tutoriel sur l’authentification unique pour Tableau Online](tableauonline-tutorial.md). L’authentification unique peut être configurée indépendamment de l’approvisionnement automatique d’utilisateurs, bien que ces deux fonctionnalités se complètent.
+> Vous pouvez également activer l’authentification unique SAML pour Tableau Online. Suivez les instructions fournies dans le [tutoriel sur l’authentification unique pour Tableau Online](tableauonline-tutorial.md). La configuration de l’authentification unique est indépendante de celle de l’approvisionnement automatique d’utilisateurs, même si ces deux fonctionnalités se complètent.
 
 ### <a name="configure-automatic-user-provisioning-for-tableau-online-in-azure-ad"></a>Configurer l’approvisionnement automatique d’utilisateurs pour Tableau Online dans Azure AD
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** > **Toutes les applications** > **Tableau Online**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise** > **Toutes les applications** > **Tableau Online**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -103,9 +103,9 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
    * Dans la zone **Domaine**, indiquez le sous-domaine en fonction de l’étape 6.
 
-   * Dans la zone **Nom d’utilisateur de l’administrateur**, indiquez le nom de l’utilisateur du compte administrateur sur votre locataire Clarizen. Par exemple admin@contoso.com.
+   * Dans la zone **Nom d’utilisateur de l’administrateur**, indiquez le nom de l’utilisateur du compte administrateur sur votre locataire Clarizen. par exemple admin@contoso.com.
 
-   * Dans la zone **Mot de passe d’administrateur**, indiquez le mot de passe du compte administrateur correspondant au nom d’utilisateur de l’administrateur.
+   * Dans la zone **Mot de passe d’administrateur**, entrez le mot de passe du compte administrateur correspondant au nom d’utilisateur de l’administrateur.
 
    * Dans la zone **URL du contenu**, indiquez le sous-domaine en fonction de l’étape 6.
 
@@ -126,7 +126,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Tableau Online : test de connexion](./media/tableau-online-provisioning-tutorial/TestConnection.png)
 
-8. Dans la zone **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe qui doit recevoir les notifications d’erreur d’approvisionnement. Cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+8. Dans la zone **E-mail de notification**, entrez l’adresse e-mail de la personne ou du groupe devant recevoir les notifications d’erreur d’approvisionnement. Cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![Tableau Online : e-mail de notification](./media/tableau-online-provisioning-tutorial/EmailNotification.png)
 
@@ -148,7 +148,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Tableau Online : mise en correspondance des attributs de groupes](./media/tableau-online-provisioning-tutorial/GroupAttributeMapping.png)
 
-14. Pour configurer des filtres d’étendue, suivez les instructions fournies dans le [tutoriel sur les filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Pour configurer des filtres d’étendue, suivez les instructions fournies dans le [didacticiel sur les filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 15. Pour activer le service d’approvisionnement Azure AD pour Tableau Online, définissez le paramètre **État d’approvisionnement** sur **Activé** dans la section **Paramètres**.
 
@@ -158,7 +158,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Tableau Online : étendue](./media/tableau-online-provisioning-tutorial/ScopeSync.png)
 
-17. Lorsque vous êtes prêt à effectuer le provisionnement, sélectionnez **Enregistrer**.
+17. Quand vous êtes prêt à effectuer l’approvisionnement, sélectionnez **Enregistrer**.
 
     ![Tableau Online : enregistrement](./media/tableau-online-provisioning-tutorial/SaveProvisioning.png)
 
@@ -166,16 +166,16 @@ Cette opération démarre la synchronisation initiale de tous les utilisateurs o
 
 Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers le rapport d’activité d’approvisionnement. Ce rapport décrit toutes les actions effectuées par le service d’approvisionnement Azure AD sur Tableau Online.
 
-Pour avoir des informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
+Pour avoir des informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion du provisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestion du provisionnement de comptes d’utilisateur pour les applications d’entreprise](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
+* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/tableau-online-provisioning-tutorial/tutorial_general_01.png

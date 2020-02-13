@@ -7,14 +7,14 @@ manager: gwallace
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 11/20/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 682ee86c373c715080ef1baf82b473242a2e43db
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8845d0f9277384c1cc32b31b5ea5151cd0668c79
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781865"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158976"
 ---
 # <a name="preview-deploy-spot-vms-using-the-azure-portal"></a>Aperçu : Déployer des machines virtuelles Spot à l’aide du portail Azure
 
@@ -28,7 +28,7 @@ Vous avez la possibilité de définir un prix maximal que vous êtes prêt à pa
 > Les instances Spot sont actuellement en préversion publique.
 > Cette préversion n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Dans la première partie de la préversion publique, les instances Spot auront un prix fixe, de sorte qu’il n’y aura aucune éviction basée sur les prix.
+
 
 ## <a name="create-the-vm"></a>Création de la machine virtuelle
 

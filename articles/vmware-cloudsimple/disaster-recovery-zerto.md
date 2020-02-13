@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1f34c4fb89d28a001a4af4d21879403a9ac5e860
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e5ee43af97e79f1e835787d61bd79cfb256ef445
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024702"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083135"
 ---
 # <a name="set-up-avs-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>Configurer un cloud privé AVS en tant que site de reprise d’activité pour les charges de travail VMware locales
 
@@ -51,7 +51,7 @@ Les sections suivantes expliquent comment déployer une solution de reprise d’
 Pour activer Zerto Virtual Replication depuis votre environnement local vers votre cloud privé AVS, vérifiez que les prérequis suivants sont respectés.
 
 1. [Configurez une connexion VPN de site à site entre votre réseau local et votre cloud privé AVS](set-up-vpn.md).
-2. [Configurez la recherche DNS afin que vos composants de gestion de cloud privé AVS soient transférés vers les serveurs DNS du cloud privé AVS](on-premises-dns-setup.md). Pour activer le transfert de la recherche DNS, créez une entrée de zone de transfert sur votre serveur DNS local pour `*.AVS.io` vers les serveurs DNS AVS.
+2. [Configurez la recherche DNS afin que vos composants de gestion de cloud privé AVS soient transférés vers les serveurs DNS du cloud privé AVS](on-premises-dns-setup.md). Pour activer le transfert de la recherche DNS, créez une entrée de zone de transfert sur votre serveur DNS local pour `*.cloudsimple.io` vers les serveurs DNS AVS.
 3. Configurez la recherche DNS afin que les composants vCenter locaux soient transférés vers des serveurs DNS locaux. Les serveurs DNS doivent être accessibles à partir de votre cloud privé AVS par le biais d’un VPN de site à site. Pour obtenir de l’aide, envoyez une [demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) et fournissez les informations suivantes. 
 
     * Nom de domaine DNS local

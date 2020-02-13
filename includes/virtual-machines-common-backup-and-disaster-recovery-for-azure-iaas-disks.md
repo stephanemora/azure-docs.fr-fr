@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cd10bd2a04bfb2a3e3316d86e64a98c75c12e36d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: aa7ddb75017a532b436b9a5cfc71d1a7c2832cb6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76530896"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77179123"
 ---
 Cet article explique comment planifier la sauvegarde et la récupération d’urgence (DR) de machines virtuelles (VM) IaaS et de disques dans Azure. Ce document couvre les disques managés et non managés.
 
@@ -103,7 +103,7 @@ Si vous utilisez des [disques SSD Premium](../articles/virtual-machines/windows/
 Pour les disques non managés, vous pouvez utiliser le type de stockage pour les disques IaaS, mais veillez à ce que Sauvegarde Azure soit activé avec l’option de stockage géoredondant pour le coffre Recovery Services.
 
 > [!NOTE]
-> Si vous utilisez l’option de [stockage géoredondant](../articles/storage/common/storage-redundancy-grs.md) ou de [stockage géoredondant avec accès en lecture](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) pour vos disques non managés, vous avez quand même besoin de captures instantanées cohérentes pour la sauvegarde et la récupération d’urgence. Utilisez [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) ou des [captures instantanées cohérentes](#alternative-solution-consistent-snapshots).
+> Si vous utilisez l’option de [stockage géoredondant](../articles/storage/common/storage-redundancy-grs.md) ou de [stockage géoredondant avec accès en lecture](../articles/storage/common/storage-redundancy.md) pour vos disques non managés, vous avez quand même besoin de captures instantanées cohérentes pour la sauvegarde et la récupération d’urgence. Utilisez [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) ou des [captures instantanées cohérentes](#alternative-solution-consistent-snapshots).
 
  Le tableau suivant résume les solutions disponibles pour la récupération d’urgence.
 
@@ -113,7 +113,7 @@ Pour les disques non managés, vous pouvez utiliser le type de stockage pour les
 | Disques managés | Local ([stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Disques de stockage localement redondants non managés | Local ([stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Disques de stockage géoredondants non managés | Inter-région ([stockage géoredondant](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Captures instantanées cohérentes](#alternative-solution-consistent-snapshots) |
-| Disques de stockage géoredondants avec accès en lecture non managés | Inter-région ([stockage géoredondant avec accès en lecture](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Captures instantanées cohérentes](#alternative-solution-consistent-snapshots) |
+| Disques de stockage géoredondants avec accès en lecture non managés | Inter-région ([stockage géoredondant avec accès en lecture](../articles/storage/common/storage-redundancy.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Captures instantanées cohérentes](#alternative-solution-consistent-snapshots) |
 
 Pour obtenir une haute disponibilité, il est conseillé d’utiliser des disques managés dans un groupe à haute disponibilité avec Sauvegarde Azure. Si vous utilisez des disques non managés, vous pouvez toujours utiliser Sauvegarde Azure pour la récupération d’urgence. Si vous ne pouvez pas utiliser Sauvegarde Azure, une solution consiste à utiliser des [captures instantanées cohérentes](#alternative-solution-consistent-snapshots), comme décrit dans une section ultérieure.
 

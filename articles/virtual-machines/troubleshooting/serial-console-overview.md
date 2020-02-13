@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 8/30/2019
+ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 20bc22661f9faad1b289dbbe7200f4f83c097f0e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 779bb88d15ea6c52f4399f17223b89916e22653d
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451239"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153857"
 ---
 # <a name="azure-serial-console"></a>Console série Azure
 
@@ -38,7 +38,7 @@ Pour accéder à la console série sur votre machine virtuelle ou instance de gr
 - Le compte Azure qui accède à la console série doit disposer du [rôle Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) pour la machine virtuelle et le compte de stockage des [diagnostics de démarrage](boot-diagnostics.md)
 
 > [!NOTE]
-> - Les déploiements classiques ne sont pas pris en charge. Votre machine virtuelle ou votre instance de groupe de machines virtuelles identiques doit utiliser le modèle de déploiement Azure Resource Manager.
+> Les déploiements classiques ne sont pas pris en charge. Votre machine virtuelle ou votre instance de groupe de machines virtuelles identiques doit utiliser le modèle de déploiement Azure Resource Manager.
 
 ## <a name="get-started-with-the-serial-console"></a>Bien démarrer avec la console série
 Pour les machines virtuelles et les groupes de machines virtuelles identiques, la console série est accessible uniquement sur le portail Azure :

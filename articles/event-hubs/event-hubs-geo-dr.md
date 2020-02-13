@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cf36c233df9f8aaf76333b0add8b1ffce869156b
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 40db6e9f429569bc19641aa5f0f371f287db7b18
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773245"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158024"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - Géorécupération d’urgence 
 
@@ -55,11 +55,11 @@ Cet article emploie les termes suivants :
 ## <a name="supported-namespace-pairs"></a>Paires d’espaces de noms prises en charge
 Les combinaisons suivantes d’espaces de noms principaux et secondaires sont prises en charge :  
 
-| Espace de noms principal | Espace de noms secondaire | Pris en charge | 
+| Espace de noms principal | Espace de noms secondaire | Prise en charge | 
 | ----------------- | -------------------- | ---------- |
-| standard | standard | OUI | 
-| standard | Dédié | OUI | 
-| Dédié | Dédié | OUI | 
+| standard | standard | Oui | 
+| standard | Dédié | Oui | 
+| Dédié | Dédié | Oui | 
 | Dédié | standard | Non | 
 
 > [!NOTE]
@@ -71,7 +71,7 @@ La section suivante présente une vue d’ensemble du processus de basculement e
 
 ![1][]
 
-### <a name="setup"></a>Paramétrage
+### <a name="setup"></a>Programme d’installation
 
 Tout d’abord, vous créez ou utilisez un espace de noms principal existant et un espace de noms secondaire, avant d’associer les deux. Cette association crée un alias qui vous servira à vous connecter. Étant donné que vous utilisez un alias, vous n’avez pas besoin de modifier les chaînes de connexion existantes. Vous pouvez uniquement ajouter de nouveaux espaces de noms à votre association de basculement. Enfin, vous devez ajouter un système de surveillance afin de détecter si un basculement est nécessaire. Dans la plupart des cas, le service fait partie d’un écosystème de grande taille. C’est pourquoi les basculements automatiques sont rarement possibles, dans la mesure où, très souvent, les basculements doivent être synchronisés avec le reste de l’infrastructure ou du sous-système.
 
@@ -94,7 +94,7 @@ Si vous lancez le basculement, deux étapes sont requises :
 
 ![2][]
 
-## <a name="management"></a>gestion
+## <a name="management"></a>Gestion
 
 Si vous avez fait une erreur (par exemple, vous avez associé les mauvaises régions lors de la configuration initiale), vous pouvez rompre le couplage des deux espaces de noms à tout moment. Si vous souhaitez utiliser les espaces de noms couplés comme des espaces de noms standard, supprimez l’alias.
 
@@ -142,7 +142,11 @@ Vous pouvez activer les Zones de disponibilité sur les nouveaux espaces de noms
 
 Pour plus d’informations sur les concentrateurs d’événements, accédez aux liens suivants :
 
-* Prise en main avec un [didacticiel des concentrateurs d’événements](event-hubs-dotnet-standard-getstarted-send.md)
+- Prise en main des hubs d’événements
+    - [.NET Core](get-started-dotnet-standard-send-v2.md)
+    - [Java](get-started-java-send-v2.md)
+    - [Python](get-started-python-send-v2.md)
+    - [JavaScript](get-started-java-send-v2.md)
 * [FAQ sur les hubs d’événements](event-hubs-faq.md)
 * [Exemples d’application complets qui utilisent des concentrateurs d’événements](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

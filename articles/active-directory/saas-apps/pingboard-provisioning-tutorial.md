@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Approvisionnement d’utilisateurs pour Pingboard – Azure AD'
+title: 'Tutoriel : Approvisionnement d’utilisateurs pour Pingboard – Azure AD'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes utilisateur sur Pingboard.
 services: active-directory
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81988f2643fd9acb911e6f70765cedbb4786f14c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c64c40d93f9b525ac6adeca276797df65f32ef3e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278257"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061273"
 ---
-# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Didacticiel : Configurer Pingboard pour le provisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutoriel : Configurer Pingboard pour le provisionnement automatique d’utilisateurs
 
 L’objectif de ce tutoriel est de vous montrer les étapes à suivre pour activer et désactiver le provisionnement automatique de comptes d’utilisateur à partir d’Azure Active Directory (Azure AD) vers Pingboard.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -47,14 +47,14 @@ Avant de configurer et d’activer le service de provisionnement, vous devez dé
 
 ### <a name="important-tips-for-assigning-users-to-pingboard"></a>Conseils importants pour l’affectation d’utilisateurs à Pingboard
 
-Nous vous recommandons d’affecter un seul utilisateur Azure AD à Pingboard pour tester la configuration du provisionnement. Les autres utilisateurs peuvent être affectés ultérieurement.
+Nous vous recommandons d’affecter un seul utilisateur Azure AD à Pingboard pour tester la configuration du provisionnement. D’autres utilisateurs pourront être affectés ultérieurement.
 
 ## <a name="configure-user-provisioning-to-pingboard"></a>Configuration du provisionnement des utilisateurs sur Pingboard 
 
 Cette section vous guide tout au long de la connexion d’Azure AD à l’API de provisionnement des comptes utilisateur de Pingboard. Vous configurez aussi le service de provisionnement pour créer, mettre à jour et désactiver les comptes d’utilisateur attribués dans Pingboard en fonction des attributions d’utilisateurs dans Azure AD.
 
 > [!TIP]
-> Pour activer l’authentification unique basée sur SAML pour Pingboard, suivez les instructions fournies sur le [portail Azure](https://portal.azure.com). L’authentification unique peut être configurée indépendamment du provisionnement automatique, bien que ces deux fonctionnalités se complètent.
+> Pour activer l’authentification unique basée sur SAML pour Pingboard, suivez les instructions fournies sur le [portail Azure](https://portal.azure.com). L’authentification unique peut être configurée indépendamment de l’attribution automatique, bien que ces deux fonctionnalités se complètent.
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-pingboard-in-azure-ad"></a>Pour configurer le provisionnement automatique de comptes utilisateur sur Pingboard dans Azure AD
 
@@ -88,7 +88,7 @@ Cette section vous guide tout au long de la connexion d’Azure AD à l’API de
 
 1. Dans la section **Mappages**, sélectionnez **Synchronize Azure Active Directory Users to Pingboard** (Synchroniser les utilisateurs Azure Active Directory avec Pingboard).
 
-1. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur à synchroniser entre Azure AD et Pingboard. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes utilisateur dans Pingboard pour les opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications. Pour plus d’informations, consultez [Personnalisation des mappages d’attributs de provisionnement d’utilisateurs](../manage-apps/customize-application-attributes.md).
+1. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur à synchroniser entre Azure AD et Pingboard. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes utilisateur dans Pingboard pour les opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications. Pour plus d’informations, consultez [Personnalisation des mappages d’attributs de provisionnement d’utilisateurs](../app-provisioning/customize-application-attributes.md).
 
 1. Pour activer le service de provisionnement Azure AD pour Pingboard, définissez le paramètre **État de provisionnement** sur **Activé** dans la section **Paramètres**.
 
@@ -96,10 +96,10 @@ Cette section vous guide tout au long de la connexion d’Azure AD à l’API de
 
 La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service est en cours d’exécution. Utilisez la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement. Les journaux d’activité décrivent toutes les actions effectuées par le service de provisionnement sur votre application Pingboard.
 
-Pour savoir plus en détail comment lire les journaux d’activité d’attribution Azure AD, consultez la section [Générer un état sur l’attribution automatique de comptes d’utilisateurs](../manage-apps/check-status-user-account-provisioning.md).
+Pour savoir plus en détail comment lire les journaux d’activité d’attribution Azure AD, consultez la section [Générer un état sur l’attribution automatique de comptes d’utilisateurs](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion du provisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestion du provisionnement de comptes d’utilisateur pour les applications d’entreprise](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 * [Configurer l’authentification unique](pingboard-tutorial.md)

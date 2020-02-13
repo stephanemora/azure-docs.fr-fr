@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 9e9dd529edea23b27de2e3841079244558d6689a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: acdf268874b1dc1c24116ba36e2b4233a2702a5f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442099"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064493"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Authentification basée sur les certificats pour une identité Azure AD pour accéder aux clés d’un compte Azure Cosmos DB
 
@@ -55,7 +55,6 @@ Dans cette étape, vous allez installer le module Azure AD PowerShell. Ce module
 1. Ouvrez Windows PowerShell ISE avec des droits d’administrateur. Si vous n’avez pas déjà fait, installez le module AZ PowerShell et connectez-vous à votre abonnement. Si vous avez plusieurs abonnements, vous pouvez définir le contexte de votre abonnement actuel, comme indiqué dans les commandes suivantes :
 
    ```powershell
-
    Install-Module -Name Az -AllowClobber
    Connect-AzAccount
 

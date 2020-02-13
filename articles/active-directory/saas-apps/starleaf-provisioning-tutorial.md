@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Configurer StarLeaf pour l'approvisionnement automatique d'utilisateurs avec Azure Active Directory | Microsoft Docs"
+title: "Tutoriel : Configurer StarLeaf pour l'approvisionnement automatique d'utilisateurs avec Azure Active Directory | Microsoft Docs"
 description: Apprenez à configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes utilisateur sur StarLeaf.
 services: active-directory
 documentationcenter: ''
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: zhchia
-ms.openlocfilehash: 0676eb2830c2e0233eb182cfec0be3f39c6a39e9
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 520373fc6a05bcaada973273e3553f9da623c669
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737375"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064289"
 ---
-# <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Didacticiel : Configurer StarLeaf pour l'approvisionnement automatique d'utilisateurs
+# <a name="tutorial-configure-starleaf-for-automatic-user-provisioning"></a>Tutoriel : Configurer StarLeaf pour l'approvisionnement automatique d'utilisateurs
 
 L'objectif de ce didacticiel est de présenter les étapes à suivre dans StarLeaf et Azure Active Directory (Azure AD) afin de configurer Azure AD pour l'approvisionnement et le retrait automatiques d'utilisateurs et/ou de groupes sur StarLeaf.
 
 > [!NOTE]
->  Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
+>  Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Ce connecteur est en préversion. Pour plus d’informations sur les conditions d’utilisation Microsoft Azure générales relatives aux fonctionnalités d’évaluation, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
@@ -40,7 +40,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 * Un compte d'utilisateur StarLeaf doté d'autorisations d'administrateur.
 
 ## <a name="assign-users-to-starleaf"></a>Attribuer des utilisateurs à StarLeaf
-Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique d’utilisateurs, seuls les utilisateurs ou les groupes auxquels une application dans Azure AD a été attribuée sont synchronisés.
+Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre d’une attribution automatique d’utilisateurs, seuls les utilisateurs ou les groupes auxquels une application a été attribuée dans Azure AD sont synchronisés.
 
 Avant de configurer et d'activer l'approvisionnement automatique d'utilisateurs, vous devez déterminer quels utilisateurs et groupes d'Azure AD auront besoin d'accéder à StarLeaf. Vous pourrez ensuite attribuer les utilisateurs et les groupes à StarLeaf en suivant [ces instructions](../manage-apps/assign-user-or-group-access-portal.md).
 
@@ -91,7 +91,7 @@ Avant de configurer StarLeaf pour l'approvisionnement automatique d'utilisateurs
 
 Cette section vous guide tout au long des étapes de configuration du service d'approvisionnement d'Azure AD pour créer, mettre à jour et désactiver des utilisateurs et/ou des groupes dans StarLeaf en fonction des attributions d'utilisateurs et/ou de groupes dans Azure AD.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -126,7 +126,7 @@ Cette section vous guide tout au long des étapes de configuration du service d'
     ![StarLeaf - Créer un jeton](media/starleaf-provisioning-tutorial/userattribute.png)
 
 
-10. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 
 11. Pour activer le service d'approvisionnement Azure AD pour StarLeaf, définissez le paramètre **État d'approvisionnement** sur **Activé** dans la section **Paramètres**.
@@ -143,7 +143,7 @@ Cette section vous guide tout au long des étapes de configuration du service d'
 
 Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour analyser la progression et suivre les liens vers les rapports d'activité d'approvisionnement, qui décrit toutes les actions effectuées par le service d'approvisionnement Azure AD sur StarLeaf.
 
-Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md)
+Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../app-provisioning/check-status-user-account-provisioning.md)
 
 ## <a name="connector-limitations"></a>Limitations du connecteur
 
@@ -152,9 +152,9 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion du provisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestion du provisionnement de comptes d’utilisateur pour les applications d’entreprise](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez comment [consulter les journaux d'activité et obtenir des rapports sur l'activité d'approvisionnement](../manage-apps/check-status-user-account-provisioning.md).
+* Découvrez comment [consulter les journaux d'activité et obtenir des rapports sur l'activité d'approvisionnement](../app-provisioning/check-status-user-account-provisioning.md).

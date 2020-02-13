@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1291db8cd895a1104183ae2b5388eb6a23305874
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 89b16a8479f8975d101b8a4e26dcb1885d9730bd
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895933"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063378"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guide de prise en main de l’intégration d’Azure Active Directory avec les applications
 
@@ -70,7 +70,7 @@ Les articles suivants traitent des différentes façons des applications de s’
 * [Utilisation d’applications dans la galerie d’applications Azure](what-is-single-sign-on.md)
 * [Liste de didacticiels sur l’intégration d’applications SaaS](../active-directory-saas-tutorial-list.md)
 
-### <a name="authentication-types"></a>Types d’authentification
+### <a name="authentication-types"></a>Types d'authentification
 Chacune de vos applications peut présenter des exigences d’authentification différentes. Avec Azure AD, la signature de certificats peut être utilisée avec des applications qui utilisent les protocoles SAML 2.0, WS-Federation ou OpenID Connect, ainsi que l’authentification unique par mot de passe. Pour plus d’informations sur les types d’authentification aux applications à utiliser avec Azure AD, consultez [Gestion des certificats pour l’authentification unique fédérée sur Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) et [Authentification unique par mot de passe](what-is-single-sign-on.md).
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Activation de l’authentification unique avec le proxy d’application Azure AD
@@ -85,7 +85,7 @@ Si vous souhaitez ajouter votre application personnalisée à la galerie d’app
 Les articles suivants décrivent des méthodes selon lesquelles vous pouvez gérer l’accès aux applications une fois qu’elles ont été intégrées avec Azure AD à l’aide des connecteurs Azure AD.
 
 * [Gestion de l’accès aux applications à l’aide d’Azure AD](what-is-access-management.md)
-* [Automatisation avec les connecteurs Azure AD](user-provisioning.md)
+* [Automatisation avec les connecteurs Azure AD](../app-provisioning/user-provisioning.md)
 * [Affectation d’utilisateurs à une application](../active-directory-applications-guiding-developers-assigning-users.md)
 * [Affectation de groupes à une application](../active-directory-applications-guiding-developers-assigning-groups.md)
 * [Partage de comptes](../active-directory-sharing-accounts.md)
@@ -95,7 +95,7 @@ Pour obtenir des informations détaillées, vous pouvez télécharger des plans 
 
 Pour télécharger un plan de déploiement à partir du portail Azure :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Applications d’entreprise** | **Sélectionner une application** | **Plan de déploiement**.
 
 Merci de nous faire part de vos commentaires sur les plans de déploiement en répondant à l’[enquête sur le plan de déploiement](https://aka.ms/DeploymentPlanFeedback).

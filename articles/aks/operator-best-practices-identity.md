@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 06d15d66df0b2ec0049d4b2fffae6a9909b05dca
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 35cded14977988c80455a9c28a0e01e7913d58f4
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549136"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069504"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives à l’authentification et à l’autorisation dans Azure Kubernetes Service (AKS)
 
@@ -122,7 +122,7 @@ Dans cet article, nous avons traité des bonnes pratiques relatives à l’authe
 
 Pour plus d’informations sur les opérations liées aux clusters dans AKS, consultez les bonnes pratiques suivantes :
 
-* [Multilocation et isolation de cluster][aks-best-practices-scheduler]
+* [Multilocation et isolation de cluster][aks-best-practices-cluster-isolation]
 * [Fonctionnalités de base du planificateur Kubernetes][aks-best-practices-scheduler]
 * [Fonctionnalités avancées du planificateur Kubernetes][aks-best-practices-advanced-scheduler]
 

@@ -16,18 +16,18 @@ ms.date: 12/03/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6da171db6535100342342571a5c1f6468abd0fc
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: b0cae5458a9b9456d26363802ee9b06aaa842e72
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712354"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063592"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problèmes et solutions connus relatifs à la conformité au protocole SCIM 2.0 du service de provisionnement des utilisateurs Azure AD
 
 Azure Active Directory (Azure AD) peut affecter automatiquement des utilisateurs et des groupes à une application ou un système avec en façade un service Web avec l’interface définie dans la [Spécification du protocole SCIM (System for Cross-Domain Identity Management) 2.0](https://tools.ietf.org/html/draft-ietf-scim-api-19). 
 
-La prise en charge Azure AD du protocole SCIM 2.0 est décrite dans l’article [Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications](use-scim-to-provision-users-and-groups.md), qui dresse la liste des parties spécifiques du protocole qu’il implémente afin d’approvisionner automatiquement les utilisateurs et groupes Azure AD aux applications qui prennent en charge le protocole SCIM 2.0.
+La prise en charge Azure AD du protocole SCIM 2.0 est décrite dans l’article [Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications](../app-provisioning/use-scim-to-provision-users-and-groups.md), qui dresse la liste des parties spécifiques du protocole qu’il implémente afin d’approvisionner automatiquement les utilisateurs et groupes Azure AD aux applications qui prennent en charge le protocole SCIM 2.0.
 
 Cet article décrit les problèmes actuels et passés concernant le respect du service d’approvisionnement d’utilisateurs Azure AD au protocole SCIM 2.0, et comment les résoudre.
 
@@ -113,5 +113,5 @@ Oui. Si vous avez codé une application sur l’ancien comportement qui existait
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-[En savoir plus sur l’approvisionnement et l’annulation de l’approvisionnement pour les applications SaaS](user-provisioning.md)
+[En savoir plus sur l’approvisionnement et l’annulation de l’approvisionnement pour les applications SaaS](../app-provisioning/user-provisioning.md)
 

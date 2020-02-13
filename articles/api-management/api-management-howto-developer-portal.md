@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 4dd026377d5824853dd713a59a86ed742990bade
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a206ef6eb529fc396ec4ecb82d468c19f9e54b8a
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898835"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108243"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Vue d’ensemble du portail des développeurs Gestion des API Azure
 
@@ -39,7 +39,7 @@ Cet article décrit les différences entre la version auto-hébergée et la vers
 Vous pouvez générer votre portail des développeurs de deux manières :
 
 - **Version managée**, via la modification et la personnalisation du portail : intégrée dans votre instance de Gestion des API et accessible via l’URL `<your-api-management-instance-name>.developer.azure-api.net` ; Pour savoir comment accéder au portail managé et le personnaliser, voir [cet article de documentation](api-management-howto-developer-portal-customize.md).
-- **version auto-hébergée**, via le déploiement et l’auto-hébergement de votre portail en dehors d’une instance de gestion des API. Cette approche vous permet de modifier la base de code du portail et d’étendre la fonctionnalité principale fournie. Vous devez également passer à la dernière version du portail par vous-même. Pour obtenir plus de détails et d’instructions, reportez-vous au [dépôt GitHub avec le code source du portail][1] et au [tutoriel sur l’implémentation d’un widget][4]. Le [tutoriel de la version managée](api-management-howto-developer-portal-customize.md) décrit le panneau d’administration du portail, qui est également proposé dans la version auto-hébergée.
+- **version auto-hébergée**, via le déploiement et l’auto-hébergement de votre portail en dehors d’une instance de gestion des API. Cette approche vous permet de modifier la base de code du portail et d’étendre la fonctionnalité principale fournie. Vous devez également passer à la dernière version du portail par vous-même. Pour obtenir plus de détails et d’instructions, reportez-vous au [dépôt GitHub avec le code source du portail][1] et au [tutoriel sur l’implémentation d’un widget][3]. Le [tutoriel de la version managée](api-management-howto-developer-portal-customize.md) décrit le panneau d’administration du portail, qui est également proposé dans la version auto-hébergée.
 
 ## <a name="portal-architectural-concepts"></a>Concepts architecturaux du portail
 
@@ -104,7 +104,7 @@ La dépréciation des portails hérités sera annoncée séparément. Si vous av
 
 ### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>Les fonctionnalités dont j’ai besoin ne sont pas prises en charge dans le portail
 
-Utilisez la version auto-hébergée et [implémentez votre propre widget][4].
+Utilisez la version auto-hébergée et [implémentez votre propre widget][3].
 
 ### <a name="how-can-i-automate-portal-deployments"></a>Comment automatiser les déploiements de portails ?
 
@@ -232,14 +232,12 @@ Découvrez le nouveau portail des développeurs :
 
 - [Accéder au portail managé des développeurs et le personnaliser](api-management-howto-developer-portal-customize.md)
 - [Configurer la version auto-hébergée du portail][2]
-- [Implémenter votre propre widget][4]
+- [Implémenter votre propre widget][3]
 
 Parcourez d’autres ressources :
 
 - [Référentiel GitHub avec le code source][1]
-- [Calendrier de lancement public du projet][3]
 
 [1]: https://aka.ms/apimdevportal
 [2]: https://github.com/Azure/api-management-developer-portal/wiki
-[3]: https://github.com/Azure/api-management-developer-portal/projects
-[4]: https://aka.ms/apimdevportal/extend
+[3]: https://aka.ms/apimdevportal/extend

@@ -1,19 +1,19 @@
 ---
 title: Résoudre des problèmes de requête lors de l’utilisation d’Azure Cosmos DB
 description: Apprenez à identifier, diagnostiquer et résoudre les problèmes de requête SQL Azure Cosmos DB.
-author: ginamr
+author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 01/14/2020
-ms.author: girobins
+ms.date: 02/10/2020
+ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 5f4728c4b604c606d12edcc7a00879b31e54bc85
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 34f5de01df72b48d275448e028ab0f8cb71e51f8
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264269"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132060"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Résoudre des problèmes de requête lors de l’utilisation d’Azure Cosmos DB
 
@@ -117,7 +117,7 @@ Votre stratégie d’indexation doit couvrir toutes les propriétés incluses da
 
 Si nous exécutons une requête simple sur le jeu de données [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json), nous constatons que les frais en RU sont plus faibles quand la propriété de la clause `WHERE` est indexée.
 
-### <a name="original"></a>Originale
+### <a name="original"></a>Original
 
 Requête :
 
@@ -193,12 +193,12 @@ D’autres parties de la requête peuvent toujours utiliser l’index, même si 
 
 Les requêtes avec un filtre et une clause `ORDER BY` utilisent normalement un index de plage, mais elles sont plus efficaces si elles peuvent être servies à partir d’un index composite. En plus de modifier la stratégie d’indexation, vous devez ajouter toutes les propriétés de l’index composite à la clause `ORDER BY`. Cette modification de requête permet de s’assurer qu’elle utilise l’index composite.  Vous pouvez observer l’impact en exécutant une requête sur le jeu de données [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
-### <a name="original"></a>Originale
+### <a name="original"></a>Original
 
 Requête :
 
 ```sql
-SELECT * FROM c WHERE c.foodGroup = “Soups, Sauces, and Gravies” ORDER BY c._ts ASC
+SELECT * FROM c WHERE c.foodGroup = "Soups, Sauces, and Gravies" ORDER BY c._ts ASC
 ```
 
 Stratégie d’indexation :
@@ -224,8 +224,8 @@ Stratégie d’indexation :
 Requête mise à jour (comprend les deux propriétés dans la clause `ORDER BY`) :
 
 ```sql
-SELECT * FROM c 
-WHERE c.foodGroup = “Soups, Sauces, and Gravies” 
+SELECT * FROM c
+WHERE c.foodGroup = “Soups, Sauces, and Gravies”
 ORDER BY c.foodGroup, c._ts ASC
 ```
 
@@ -308,14 +308,14 @@ Par exemple, si nous créons un conteneur avec la clé de partition foodGroup, l
 
 ```sql
 SELECT * FROM c
-WHERE c.foodGroup = “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
+WHERE c.foodGroup = "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
 Ces requêtes sont également optimisées en incluant la clé de partition dans la requête :
 
 ```sql
 SELECT * FROM c
-WHERE c.foodGroup IN(“Soups, Sauces, and Gravies”, “"Vegetables and Vegetable Products”) and  c.description = "Mushroom, oyster, raw"
+WHERE c.foodGroup IN("Soups, Sauces, and Gravies", "Vegetables and Vegetable Products") and c.description = "Mushroom, oyster, raw"
 ```
 
 Les requêtes qui ont des filtres de plage sur la clé de partition ou qui n’ont aucun filtre sur la clé de partition devront vérifier l’index de chaque partition physique pour obtenir les résultats.
@@ -327,7 +327,7 @@ WHERE c.description = "Mushroom, oyster, raw"
 
 ```sql
 SELECT * FROM c
-WHERE c.foodGroup > “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
+WHERE c.foodGroup > "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
 ## <a name="filters-on-multiple-properties"></a>Filtres sur plusieurs propriétés

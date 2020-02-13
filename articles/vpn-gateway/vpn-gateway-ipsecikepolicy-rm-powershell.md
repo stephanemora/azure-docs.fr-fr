@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 8ed32ccedcd6cc4ffd159069399c0417842325d8
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: eaca48fc354f1cf37635e9729b04eaaaa882ba1c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514916"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161900"
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>Configurer la stratégie IPsec/IKE pour des connexions VPN S2S ou de réseau virtuel à réseau virtuel
 
 Cet article vous guide dans les étapes de configuration de la stratégie IPsec/IKE pour la connexion VPN de site à site ou la connexion de réseau virtuel à réseau virtuel à l’aide du modèle de déploiement Resource Manager et de PowerShell.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## <a name="about"></a>À propos des paramètres de stratégie IPsec et IKE pour les passerelles VPN Azure
 La norme de protocole IPsec et IKE standard prend en charge un vaste éventail d’algorithmes de chiffrement dans différentes combinaisons. Pour découvrir comment cela peut vous aider à vous assurer que la connectivité entre sites locaux et de réseau virtuel à réseau virtuel répond à vos besoins de conformité ou de sécurité, voir [À propos des exigences de chiffrement et des passerelles VPN Azure](vpn-gateway-about-compliance-crypto.md).

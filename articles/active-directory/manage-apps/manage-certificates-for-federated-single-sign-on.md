@@ -15,12 +15,12 @@ ms.date: 04/04/2019
 ms.author: mimart
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 416e72f7e9e8622f044f7bb6430fbb36010b164e
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: de60dc5095ce4ab4d0219a388c445b08f544e1f9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67701973"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159027"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gérer des certificats pour l’authentification unique fédérée sur Azure Active Directory
 
@@ -111,4 +111,4 @@ Si un certificat est sur le point d'expirer, vous pouvez le renouveler en utilis
 - [Tutoriels pour l’intégration d’applications SaaS avec Azure Active Directory](../saas-apps/tutorial-list.md)
 - [Gestion des applications avec Azure Active Directory](what-is-application-management.md)
 - [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](what-is-single-sign-on.md)
-- [Déboguez l’authentification unique SAML aux applications dans Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md)
+- [Déboguer l’authentification unique SAML aux applications dans Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

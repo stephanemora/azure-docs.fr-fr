@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 790a948611c6cfa336964397282a38d2b9c00e11
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9e1cc9dde6bb2b6ae47affaed4c557f3746a681b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848780"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061452"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Forum Aux Questions sur la gestion des mots de passe
 
@@ -41,7 +41,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  Si j’active la réinitialisation du mot de passe pour un groupe, puis décide de l’activer pour tout le monde, mes utilisateurs doivent-ils se réenregistrer ?**
 
-  > **R :**  Non. Les utilisateurs possédant des données d’authentification renseignées ne doivent pas s’enregistrer de nouveau.
+  > **R :** Non. Les utilisateurs possédant des données d’authentification renseignées ne doivent pas s’enregistrer de nouveau.
   >
   >
 * **Q :  Puis-je définir des données de réinitialisation de mot de passe pour le compte de mes utilisateurs ?**
@@ -61,7 +61,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  Mes utilisateurs doivent-ils être inscrits avant de pouvoir utiliser la réinitialisation de mot de passe ?**
 
-  > **R :**  Non. Si vous définissez suffisamment d’informations d’authentification en leur nom, les utilisateurs n’ont pas besoin de s’inscrire. La réinitialisation de mot de passe fonctionne tant que vous disposez de données correctement formatées stockées dans les champs appropriés de l’annuaire.
+  > **R :** Non. Si vous définissez suffisamment d’informations d’authentification en leur nom, les utilisateurs n’ont pas besoin de s’inscrire. La réinitialisation de mot de passe fonctionne tant que vous disposez de données correctement formatées stockées dans les champs appropriés de l’annuaire.
   >
   >
 * **Q :  Puis-je synchroniser ou définir les champs Téléphone d’authentification, E-mail d’authentification ou Autre téléphone d’authentification pour le compte de mes utilisateurs ?**
@@ -80,7 +80,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
   >
 
-## <a name="password-reset"></a>Réinitialisation de mot de passe
+## <a name="password-reset"></a>Réinitialisation du mot de passe
 
 * **Q :  Empêchez-vous les utilisateurs d’effectuer plusieurs tentatives de réinitialisation de mot de passe dans un bref laps de temps ?**
 
@@ -114,7 +114,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  Comment puis-je informer mes utilisateurs des liens sur lesquels ils peuvent cliquer pour réinitialiser leur mot de passe ?**
 
-  > **R :** Essayez certaines des suggestions de notre [article sur le déploiement de la réinitialisation de mot de passe](howto-sspr-deployment.md#communications-plan).
+  > **R :** Essayez certaines des suggestions de notre [article sur le déploiement de la réinitialisation de mot de passe](howto-sspr-deployment.md#plan-communications).
   >
   >
 * **Q :  Puis-je utiliser cette page à partir d’un appareil mobile ?**
@@ -159,7 +159,7 @@ Ce Forum Aux Questions est organisé de la manière suivante :
   >
 * **Q :  Un utilisateur peut-il inscrire plusieurs fois la même question de sécurité ?**
 
-  > **R :**  Non. Une fois qu’un utilisateur a inscrit une question particulière, il ne peut plus inscrire cette même question une deuxième fois.
+  > **R :** Non. Une fois qu’un utilisateur a inscrit une question particulière, il ne peut plus inscrire cette même question une deuxième fois.
   >
   >
 * **Q :  Est-il possible de définir un nombre minimal de questions de sécurité pour l’inscription et la réinitialisation ?**

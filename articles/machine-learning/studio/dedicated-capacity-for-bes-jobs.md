@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: ad3ae99b04d5386172c9598f35cbe7d64fddcd36
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0bb4157ff77ef57f377ba0c6a08bfe8529f663f4
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837703"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169272"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Service Azure Batch pour les travaux Azure Machine Learning Studio (classique)
 
@@ -111,4 +111,4 @@ Nous vous recommandons d’interroger l’état des travaux pour déterminer leu
 
 | **Utilisez le traitement par pool Batch si**    | **Utilisez le traitement par lots classique si**  |
 |---|---|
-|Vous devez exécuter un grand nombre de travaux<br>Ou<br/>Vos travaux doivent s’exécuter immédiatement<br/>Ou<br/>Vous avez besoin d’un débit garanti. Par exemple, vous devez exécuter plusieurs travaux dans un laps de temps donné et souhaitez augmenter la taille des instances de vos ressources de calcul pour satisfaire à vos besoins.    | Vous exécutez quelques travaux<br/>and<br/> Vous n’avez pas besoin que les travaux s’exécutent immédiatement |
+|Vous devez exécuter un grand nombre de travaux<br>ou<br/>Vos travaux doivent s’exécuter immédiatement<br/>ou<br/>Vous avez besoin d’un débit garanti. Par exemple, vous devez exécuter plusieurs travaux dans un laps de temps donné et souhaitez augmenter la taille des instances de vos ressources de calcul pour satisfaire à vos besoins.    | Vous exécutez quelques travaux<br/>and<br/> Vous n’avez pas besoin que les travaux s’exécutent immédiatement |

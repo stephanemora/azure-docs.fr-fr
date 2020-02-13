@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6656361fd4634c46cd5216b57eb8465536319f09
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: bd5a5f100dbe09c3b82f58183a118ee3bf455f70
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062822"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063609"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>Ajouter une application non répertoriée (hors galerie) à votre organisation Azure AD
 
@@ -25,7 +25,7 @@ En plus des choix offerts dans la [galerie d’applications Azure AD](https://az
 
 - Intégration libre-service de toute application prenant en charge les fournisseurs d’identité [Security Assertion Markup Language (SAML) 2.0](https://wikipedia.org/wiki/SAML_2.0) (initiée par le fournisseur de services ou par le fournisseur d’identité fédérée)
 - Intégration libre-service de toute application Web dont la page de connexion est basée sur le HTML et utilise une [authentification unique par mot de passe](what-is-single-sign-on.md#password-based-sso)
-- Connexion libre-service des applications qui utilisent le protocole [System for Cross-Domain Identity Management (SCIM) pour l’approvisionnement d’utilisateurs](use-scim-to-provision-users-and-groups.md)
+- Connexion libre-service des applications qui utilisent le protocole [System for Cross-Domain Identity Management (SCIM) pour l’approvisionnement d’utilisateurs](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 - Possibilité d'ajouter des liens à n'importe quelle application dans le [Lanceur d'application Office 365](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) ou le [Panneau d'accès Azure AD](what-is-single-sign-on.md#linked-sign-on)
 
 Cet article explique comment ajouter une application ne figurant pas dans la galerie aux **applications d'entreprise** dans le portail Azure, sans écrire de code. Si vous recherchez plutôt des instructions destinées aux développeurs sur l’intégration d’applications personnalisées avec Azure AD, consultez [Scénarios d’authentification pour Azure AD](../develop/authentication-scenarios.md). Lorsque vous développez une application utilisant un protocole moderne comme [OpenID Connect/OAuth](../develop/active-directory-v2-protocols.md) pour authentifier les utilisateurs, vous pouvez l’inscrire auprès de la plateforme d'identité Microsoft à l'aide de l'expérience [Inscriptions d'applications](../develop/quickstart-register-app.md) du portail Azure.
@@ -74,27 +74,27 @@ Cet article explique comment ajouter une application ne figurant pas dans la gal
        |---|---|---|---|---|
        | Connexion permise pour les utilisateurs ? | Assignation requise de utilisateur ? | Visible par les utilisateurs ? | Est-ce que les utilisateurs assignés peuvent se connecter ? | Est-ce que les utilisateurs assignés peuvent voir l’application ?* |
        | Oui | Oui | Oui | Oui | Oui  |
-       | Oui | Oui | no  | Oui | no   |
-       | Oui | no  | Oui | Oui | Oui  |
-       | Oui | no  | no  | Oui | no   |
-       | no  | Oui | Oui | no  | no   |
-       | no  | Oui | no  | no  | no   |
-       | no  | no  | Oui | no  | no   |
-       | no  | no  | no  | no  | no   |
+       | Oui | Oui | non  | Oui | non   |
+       | Oui | non  | Oui | Oui | Oui  |
+       | Oui | non  | non  | Oui | non   |
+       | non  | Oui | Oui | non  | non   |
+       | non  | Oui | non  | non  | non   |
+       | non  | non  | Oui | non  | non   |
+       | non  | non  | non  | non  | non   |
 
       Comportement pour les utilisateurs **non assignés** :
 
        | Paramètres de propriété d'application | | | Expérience de l’utilisateur non assigné | |
        |---|---|---|---|---|
        | Connexion permise pour les utilisateurs ? | Assignation requise de utilisateur ? | Visible par les utilisateurs ? | Est-ce que les utilisateurs non assignés peuvent se connecter ? | Est-ce que les utilisateurs non assignés peuvent voir l’application ?* |
-       | Oui | Oui | Oui | no  | no   |
-       | Oui | Oui | no  | no  | no   |
-       | Oui | no  | Oui | Oui | no   |
-       | Oui | no  | no  | Oui | no   |
-       | no  | Oui | Oui | no  | no   |
-       | no  | Oui | no  | no  | no   |
-       | no  | no  | Oui | no  | no   |
-       | no  | no  | no  | no  | no   |
+       | Oui | Oui | Oui | non  | non   |
+       | Oui | Oui | non  | non  | non   |
+       | Oui | non  | Oui | Oui | non   |
+       | Oui | non  | non  | Oui | non   |
+       | non  | Oui | Oui | non  | non   |
+       | non  | Oui | non  | non  | non   |
+       | non  | non  | Oui | non  | non   |
+       | non  | non  | non  | non  | non   |
 
      \* Est-ce que l’utilisateur peut voir l’application dans le volet d’accès et le lanceur d’applications Office 365 ?
 

@@ -16,19 +16,19 @@ ms.date: 02/18/2019
 ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f3b2f45a808ebfa71f456c015de3dd59d60bd9
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 97954123b6fc31dce09282c08c702438cd64c476
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381365"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159248"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problèmes de connexion à une application de la galerie configurée pour l’authentification unique fédérée
 
 Pour résoudre les problèmes de connexion ci-dessous, nous vous recommandons de suivre ces suggestions afin de bénéficier du meilleur diagnostic et d’automatiser les étapes de résolution :
 
 - Installez l’[extension de navigateur sécurisée Mes applications](access-panel-extension-problem-installing.md) pour aider Azure Active Directory (Azure AD) à fournir un meilleur diagnostic et de meilleures résolutions lorsque vous utilisez l’expérience de test dans le portail Azure.
-- Reproduisez l’erreur à l’aide de l’expérience de test sur la page de configuration d’application du portail Azure. En savoir plus sur le [débogage d’applications avec authentification unique SAML](../develop/howto-v1-debug-saml-sso-issues.md)
+- Reproduisez l’erreur à l’aide de l’expérience de test sur la page de configuration d’application du portail Azure. En savoir plus sur le [débogage d’applications avec authentification unique SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
 
 
 ## <a name="application-not-found-in-directory"></a>Application introuvable dans le répertoire
@@ -41,7 +41,7 @@ L’attribut `Issuer` envoyé de l’application vers Azure AD dans la requête 
 
 **Résolution :**
 
-Vérifiez que l’attribut `Issuer` de la requête SAML correspond à la valeur de l’identificateur configurée dans Azure AD. Si vous utilisez l’[expérience de test](../develop/howto-v1-debug-saml-sso-issues.md) dans le portail Azure avec l’extension de navigateur sécurisée Mes applications, vous n’avez pas besoin de suivre ces étapes manuellement.
+Vérifiez que l’attribut `Issuer` de la requête SAML correspond à la valeur de l’identificateur configurée dans Azure AD. Si vous utilisez l’[expérience de test](../azuread-dev/howto-v1-debug-saml-sso-issues.md) dans le portail Azure avec l’extension de navigateur sécurisée Mes applications, vous n’avez pas besoin de suivre ces étapes manuellement.
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
 
@@ -71,7 +71,7 @@ La valeur `AssertionConsumerServiceURL` dans la requête SAML ne correspond pas 
 
 **Résolution :**
 
-Vérifiez que la valeur `AssertionConsumerServiceURL` de la requête SAML correspond à la valeur de l’URL de réponse configurée dans Azure AD. Si vous utilisez l’[expérience de test](../develop/howto-v1-debug-saml-sso-issues.md) dans le portail Azure avec l’extension de navigateur sécurisée Mes applications, vous n’avez pas besoin de suivre ces étapes manuellement.
+Vérifiez que la valeur `AssertionConsumerServiceURL` de la requête SAML correspond à la valeur de l’URL de réponse configurée dans Azure AD. Si vous utilisez l’[expérience de test](../azuread-dev/howto-v1-debug-saml-sso-issues.md) dans le portail Azure avec l’extension de navigateur sécurisée Mes applications, vous n’avez pas besoin de suivre ces étapes manuellement.
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
 
@@ -101,7 +101,7 @@ L’utilisateur ne dispose pas des autorisations nécessaires pour accéder à l
 
 **Résolution :**
 
-Pour affecter un ou plusieurs utilisateurs directement à une application, effectuez les étapes suivantes. Si vous utilisez l’[expérience de test](../develop/howto-v1-debug-saml-sso-issues.md) dans le portail Azure avec l’extension de navigateur sécurisée Mes applications, vous n’avez pas besoin de suivre ces étapes manuellement.
+Pour affecter un ou plusieurs utilisateurs directement à une application, effectuez les étapes suivantes. Si vous utilisez l’[expérience de test](../azuread-dev/howto-v1-debug-saml-sso-issues.md) dans le portail Azure avec l’extension de navigateur sécurisée Mes applications, vous n’avez pas besoin de suivre ces étapes manuellement.
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’administrateur général**.
 
@@ -150,7 +150,7 @@ Azure AD ne prend pas en charge les requêtes SAML envoyées par l’application
 
 **Résolution :**
 
-1. Capturez la requête SAML. Pour savoir comment capturer la requête SAML, suivez le didacticiel [Comment déboguer une authentification unique SAML pour des applications dans Azure AD](../develop/howto-v1-debug-saml-sso-issues.md).
+1. Capturez la requête SAML. Pour savoir comment capturer la requête SAML, suivez le didacticiel [Comment déboguer une authentification unique SAML pour des applications dans Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
 
 1. Contactez le fournisseur de l’application et communiquez-lui les informations suivantes :
 
@@ -170,7 +170,7 @@ L’attribut `Issuer` envoyé de l’application vers Azure AD dans la requête 
 
 **Résolution :**
 
-Vérifiez que l’attribut `Issuer` de la requête SAML correspond à la valeur de l’identificateur configurée dans Azure AD. Si vous utilisez l’[expérience de test](../develop/howto-v1-debug-saml-sso-issues.md) dans le portail Azure avec l’extension de navigateur sécurisée Mes applications, vous n’avez pas besoin de suivre ces étapes manuellement :
+Vérifiez que l’attribut `Issuer` de la requête SAML correspond à la valeur de l’identificateur configurée dans Azure AD. Si vous utilisez l’[expérience de test](../azuread-dev/howto-v1-debug-saml-sso-issues.md) dans le portail Azure avec l’extension de navigateur sécurisée Mes applications, vous n’avez pas besoin de suivre ces étapes manuellement :
 
 1.  Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant **qu’Administrateur général** ou que **Coadministrateur**.
 
@@ -271,4 +271,4 @@ Pour savoir comment personnaliser les revendications d’attribut SAML envoyées
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Comment déboguer une authentification unique SAML pour des applications dans Azure AD](../develop/howto-v1-debug-saml-sso-issues.md)
+[Comment déboguer une authentification unique SAML pour des applications dans Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 0ebf4049827a4abd9cfcb2eda354d0c796cbdbdb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 64aeaf412bc8af242a9d3184a3c1f0fa0ee4809e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039174"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161764"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Questions fréquentes sur les machines virtuelles Azure
 Cet article traite certaines questions courantes concernant les machines virtuelles Windows créées dans Azure avec le modèle de déploiement Resource Manager. Pour la version Linux de cette rubrique, consultez [Forum aux questions sur les machines virtuelles Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -61,7 +61,7 @@ Oui. Pour obtenir des instructions, consultez [Migration de machines virtuelles 
 ## <a name="can-i-resize-the-os-disk"></a>Puis-je redimensionner le disque du système d’exploitation ?
 Oui. Pour obtenir des instructions, consultez [Extension du lecteur de système d’exploitation d’une machine virtuelle dans un groupe de ressources Azure](expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="can-i-copy-or-clone-an-existing-azure-vm"></a>Puis-je copier ou cloner une machine virtuelle Azure ?
+## <a name="can-i-copy-or-clone-an-existing-azure-vm"></a>Puis-je copier ou cloner une machine virtuelle Azure ?
 Oui. À l’aide d’images gérées, vous pouvez créer une image d’une machine virtuelle, puis utiliser l’image pour générer plusieurs nouvelles machines virtuelles. Pour obtenir des instructions, consultez [Créer une image personnalisée d’une machine virtuelle](tutorial-custom-images.md).
 
 ## <a name="why-am-i-not-seeing-canada-central-and-canada-east-regions-through-azure-resource-manager"></a>Pourquoi ne vois-je pas les régions Centre et Est du Canada dans Azure Resource Manager ?
@@ -103,7 +103,7 @@ Les noms d’utilisateur suivants ne sont pas autorisés :
 Il existe différentes exigences en termes de longueur du mot de passe, selon l’outil que vous utilisez :
  - Portail : entre 12 et 72 caractères
  - PowerShell : entre 8 et 123 caractères
- - CLI - entre 12 et 123
+ - Interface CLI : entre 12 et 123 caractères
 
 * Avoir des minuscules
 * Avoir des majuscules

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: f3c2b1aa8f41b382bea96b33108d23bf09850c78
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 82ae0cab2d3dd7c65371e7a5bfec506e484fcdd2
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984759"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169789"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning ?
 
@@ -77,10 +77,6 @@ Vous pouvez également effectuer les tâches de gestion de l’espace de travail
 | Mise à jour vers l’édition Enterprise    | **&check;** | **&check;**  | |     |
 | Créer et gérer des ressources de calcul    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
 | Créer une machine virtuelle de notebooks |   | **&check;** | |     |
-
-> [!NOTE]
-> Les instances de calcul sont disponibles uniquement pour les espaces de travail dans les régions **USA Centre Nord**, **USA Est 2**, **Europe Nord** ou **Royaume-Uni Sud**, mais d’autres régions seront bientôt prises en charge.
->Si votre espace de travail se trouve dans une autre région, vous pouvez continuer à créer et à utiliser une [machine virtuelle Notebook](concept-compute-instance.md#notebookvm) à la place.
 
 ## <a name='create-workspace'></a> Créer un espace de travail
 

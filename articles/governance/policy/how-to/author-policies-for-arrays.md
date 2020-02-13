@@ -3,12 +3,12 @@ title: Créer des stratégies pour les propriétés de tableau sur des ressource
 description: Apprenez à gérer des paramètres de tableau et des expressions de langage de tableau, à évaluer l’alias [*] et à ajouter des éléments avec des règles de définition de stratégie Azure.
 ms.date: 11/26/2019
 ms.topic: how-to
-ms.openlocfilehash: 462d9acbda37bbbd007af6d6d1267e9b0e7d3e0a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023189"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77050080"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Créer des stratégies pour les propriétés de tableau sur des ressources Azure
 
@@ -140,8 +140,7 @@ Le **type** attendu de la condition `equals` est _chaîne_. Dans la mesure où *
 
 ### <a name="evaluating-the--alias"></a>Évaluation de l’alias [*]
 
-Les alias ayant **\[\*\]** attaché à leur nom indiquent que le **type** est un _tableau_. Au lieu d’évaluer la valeur de l’intégralité du tableau, **\[\*\]** permet d’évaluer chacun des éléments qu’il contient, avec un ET logique entre eux. Il existe trois scénarios standards au sein desquels cette évaluation par élément est utile : en cas de correspondance avec _aucun élément_, _n’importe quel élément_ ou _tous les éléments_.
-Pour les scénarios complexes, utilisez [count](../concepts/definition-structure.md#count).
+Les alias ayant **\[\*\]** attaché à leur nom indiquent que le **type** est un _tableau_. Au lieu d’évaluer la valeur de l’intégralité du tableau, **\[\*\]** permet d’évaluer chacun des éléments qu’il contient, avec un ET logique entre eux. Il existe trois scénarios standards au sein desquels cette évaluation par élément est utile : en cas de correspondance avec _aucun élément_, _n’importe quel élément_ ou _tous les éléments_. Pour les scénarios complexes, utilisez [count](../concepts/definition-structure.md#count).
 
 Le moteur de stratégie déclenche l’**effet** dans **then** uniquement lorsque la règle **if** est évaluée comme True.
 Il est important de comprendre ce point dans le contexte de la façon dont **\[\*\]** évalue chaque élément individuel du tableau.

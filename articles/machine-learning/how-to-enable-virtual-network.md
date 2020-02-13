@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: 3dfdbc56456ea67c830d0e1e9785b9d0032bf2cc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fd358801b5fe84aac754b5a975234688a707e544
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988213"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169961"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Sécuriser l’expérimentation Azure Machine Learning et les travaux d’inférence au sein d’un réseau virtuel Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -124,10 +124,6 @@ Pour utiliser les fonctionnalités d’expérimentation Azure Machine Learning a
 <a id="amlcompute"></a>
 
 ## <a name="compute-instance"></a>Utiliser une Capacité de calcul Machine Learning
-
-> [!NOTE]
-> Les instances de calcul (préversion) ne sont à l’heure actuelle disponibles que pour les espaces de travail des régions **USA Centre Nord** et **Royaume-Uni Sud**. D’autres régions seront bientôt prises en charge.
-> Utilisez l’une de ces régions pour créer une instance de calcul qui peut être ajoutée au réseau virtuel.
 
 Pour utiliser une instance de calcul Machine Learning Azure ou un cluster de calcul dans un réseau virtuel, les exigences réseau suivantes doivent être remplies :
 

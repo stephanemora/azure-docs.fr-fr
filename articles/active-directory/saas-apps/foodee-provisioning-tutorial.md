@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer Foodee pour le provisionnement automatique d’utilisateurs à l’aide d’Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer Foodee pour le provisionnement automatique d’utilisateurs à l’aide d’Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour provisionner et déprovisionner automatiquement des comptes d’utilisateur sur Foodee.
 services: active-directory
 documentationcenter: ''
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 97ecf3ea324f43753030f415c8a5e254b87595e5
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 2195056ec66550063aba5ce5e2b977b51a6dc5e3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170069"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057804"
 ---
-# <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Didacticiel : Configurer Foodee pour le provisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutoriel : Configurer Foodee pour le provisionnement automatique d’utilisateurs
 
 Cet article vous montre comment configurer Azure Active Directory (Azure AD) dans Foodee et Azure AD pour provisionner et déprovisionner automatiquement des utilisateurs ou des groupes dans Foodee.
 
 > [!NOTE]
-> Cet article décrit un connecteur reposant sur le service de provisionnement d’utilisateurs Azure AD. Pour plus d’informations sur le fonctionnement de ce service et obtenir des réponses aux questions fréquentes, consultez [Automatiser le provisionnement et le déprovisionnement d’utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
+> Cet article décrit un connecteur reposant sur le service de provisionnement d’utilisateurs Azure AD. Pour plus d’informations sur le fonctionnement de ce service et obtenir des réponses aux questions fréquentes, consultez [Automatiser le provisionnement et le déprovisionnement d’utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Ce connecteur est actuellement en préversion. Pour plus d’informations sur la fonctionnalité Conditions d'utilisation Azure relatives aux fonctionnalités d’évaluation, consultez [Avenant aux conditions d'utilisation pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Ce tutoriel part du principe que vous disposez des prérequis suivants :
 
@@ -150,7 +150,7 @@ Configurez le provisionnement automatique d’utilisateurs pour Foodee dans Azur
     ![Mappages d’utilisateurs Foodee](media/Foodee-provisioning-tutorial/groupattribute.png)
 
 1. Pour valider vos modifications, sélectionnez **Enregistrer**.
-1. Configurez les filtres d’étendue. Pour cette opération, reportez-vous aux instructions fournies dans le [tutoriel sur les filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Configurez les filtres d’étendue. Pour cette opération, reportez-vous aux instructions fournies dans le [tutoriel sur les filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. Pour activer le service d’approvisionnement d’Azure AD pour Foodee, dans la section **Paramètres**, définissez le paramètre **État d’approvisionnement** sur **Activé**.
 
@@ -164,15 +164,15 @@ Configurez le provisionnement automatique d’utilisateurs pour Foodee dans Azur
 
     ![Bouton Enregistrer pour la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
-L'opération précédente lance la synchronisation initiale des utilisateurs ou groupes que vous avez définis dans la liste déroulante **Étendue**. La synchronisation initiale prend plus de temps que les synchronisations ultérieures. Pour plus d'informations, voir [Combien de temps faut-il pour approvisionner des utilisateurs ?](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+L'opération précédente lance la synchronisation initiale des utilisateurs ou groupes que vous avez définis dans la liste déroulante **Étendue**. La synchronisation initiale prend plus de temps que les synchronisations ultérieures. Pour plus d'informations, voir [Combien de temps faut-il pour approvisionner des utilisateurs ?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Vous pouvez utiliser la section **État actuel** pour superviser la progression et suivre les liens vers votre rapport d’activité d’approvisionnement. Ce rapport décrit toutes les actions effectuées par le service d’approvisionnement Azure AD sur Foodee. Pour plus d’informations, consultez [Vérifier l’état de l’approvisionnement d’utilisateurs](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). Pour la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
+Vous pouvez utiliser la section **État actuel** pour superviser la progression et suivre les liens vers votre rapport d’activité d’approvisionnement. Ce rapport décrit toutes les actions effectuées par le service d’approvisionnement Azure AD sur Foodee. Pour plus d’informations, consultez [Vérifier l’état de l’approvisionnement d’utilisateurs](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Pour la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion du provisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestion du provisionnement de comptes d’utilisateur pour les applications d’entreprise](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
+* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../app-provisioning/check-status-user-account-provisioning.md)

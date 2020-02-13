@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: acd02f143fe35edd867ce26f26a4cba74bd6f10b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6439393b72eb724ca017edc17ce7a7c36c275fca
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850584"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166958"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notes développeur pour les stratégies personnalisées dans Azure Active Directory B2C
 
@@ -72,7 +72,7 @@ Les fonctionnalités de stratégie personnalisée/Identity Experience Framework 
 | OAUTH1 avec partie de confiance |  |  |  | Non pris en charge. |
 | OAUTH2 avec partie de confiance |  |  | X |  |
 | OIDC avec partie de confiance |  |  | X |  |
-| SAML avec partie de confiance | X |  |  |  |
+| SAML avec partie de confiance |  |X  |  |  |
 | WSFED avec partie de confiance | X |  |  |  |
 | API REST avec l’authentification de base et par certificat |  |  | X | Par exemple, Azure Logic Apps. |
 
@@ -85,7 +85,7 @@ Les fonctionnalités de stratégie personnalisée/Identity Experience Framework 
 | Sous-système Azure Email pour la vérification d’e-mail |  |  | X |  |
 | Prise en charge multi-langage|  |  | X |  |
 | Validations de prédicats |  |  | X | Par exemple, la complexité des mots de passe. |
-| Utilisation de fournisseurs de services d’e-mail tiers | X |  |  |  |
+| Utilisation de fournisseurs de services d’e-mail tiers |  |X  |  |  |
 
 ### <a name="content-definition"></a>Définition du contenu
 

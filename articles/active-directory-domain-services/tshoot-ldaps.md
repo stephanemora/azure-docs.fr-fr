@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 09/19/2019
+ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 96aa463441c9e0f21e2ef1aa27c566b94e1e5f4f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 22d1b6e2344256b52cfdbc48720a680a770a4216
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257873"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132166"
 ---
 # <a name="troubleshoot-secure-ldap-connectivity-issues-to-an-azure-active-directory-domain-services-managed-domain"></a>Résoudre les problèmes de connectivité LDAP sécurisé dans un domaine managé Azure Active Directory Domain Services
 
@@ -34,7 +34,7 @@ Si vous ne parvenez pas à vous connecter à un domaine managé Azure AD DS à l
     * Passez en revue les [conditions requises pour le certificat LDAP sécurisé][certs-prereqs] et créez un certificat de remplacement si nécessaire.
 * Vérifiez que le client LDAP, tel que *ldp.exe* se connecte au point de terminaison LDAP sécurisé à l’aide d’un nom DNS, et non de l’adresse IP.
     * Le certificat appliqué au domaine managé Azure AD DS n’inclut pas les adresses IP du service, mais uniquement les noms DNS.
-* Vérifiez le nom DNS auquel le client LDAP se connecte. Il doit correspondre à l’adresse IP publique pour le protocole LDAP sécurisé sur le domaine managé Azure AD DS.
+* Vérifiez le nom de DNS auquel la client LDAP se connecte. Il doit correspondre à l’adresse IP publique pour le protocole LDAP sécurisé sur le domaine managé Azure AD DS.
     * Si le nom DNS correspond à l’adresse IP interne, mettez à jour l’enregistrement DNS pour qu’il corresponde à l’adresse IP externe.
 * Pour la connectivité externe, le groupe de sécurité réseau doit inclure une règle qui autorise le trafic vers le port TCP 636 à partir d’Internet.
     * Si vous pouvez vous connecter au domaine managé Azure AD DS à l’aide du protocole LDAP sécurisé à partir de ressources directement connectées au réseau virtuel, mais pas à partir de connexions externes, veillez à [créer une règle de groupe de sécurité réseau pour autoriser le trafic LDAP sécurisé][ldaps-nsg].

@@ -9,16 +9,16 @@ ms.date: 01/30/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 88f713c5695e2453edc58d072899aa417f0514af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6554385a879b054153dcb808c3dff4b60c136458
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65147043"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120861"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Utilisation d’Azure Classic CLI avec le Stockage Azure
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Azure Classic CLI offre un ensemble de commandes multiplateforme open source à utiliser avec la plateforme Azure. Elle offre des fonctionnalités similaires à celles du [portail Azure](https://portal.azure.com) , ainsi que des fonctions étendues d’accès aux données.
 
@@ -27,7 +27,7 @@ Dans ce guide, nous découvrons comment utiliser [Azure Classic CLI](../../cli-i
 Ce guide part du principe que vous comprenez les concepts de base de Microsoft Azure Storage. Il contient un certain nombre de scripts qui illustrent l’utilisation d’Azure Classic CLI avec le Stockage Azure. N’oubliez pas de mettre à jour les variables du script en fonction de votre configuration avant d’exécuter ce dernier.
 
 > [!NOTE]
-> Le guide fournit des exemples de commande et de script Azure Classic CLI pour les comptes de stockage classiques. Consultez [Utilisation d’Azure CLI pour Mac, Linux et Windows avec Azure Resource Management](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) afin de connaître les commandes Azure Classic CLI pour les compte de stockage Resource Manager.
+> Le guide fournit des exemples de commande et de script Azure Classic CLI pour les comptes de stockage classiques. Consultez [Utilisation d’Azure CLI pour Mac, Linux et Windows avec Azure Resource Management](../../virtual-machines/azure-cli-arm-commands.md#storage-objects) afin de connaître les commandes Azure Classic CLI pour les compte de stockage Resource Manager.
 >
 >
 
@@ -133,7 +133,7 @@ azure storage container create mycontainer
 ```
 
 > [!NOTE]
-> Il existe trois niveaux d’accès en lecture anonyme : **Désactivé**, **Blob** et **Conteneur**. Pour empêcher tout accès anonyme aux objets blob, définissez le paramètre Autorisation sur **Désactivé**. Par défaut, le nouveau conteneur est privé et seul le propriétaire du compte peut y accéder. Pour autoriser les accès anonymes publics en lecture aux ressources blob, mais non aux métadonnées du conteneur ou à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Blob**. Pour autoriser les accès anonymes publics complets aux ressources blob, aux métadonnées du conteneur et à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Conteneur**. Pour plus d’informations, consultez la section [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../blobs/storage-manage-access-to-resources.md).
+> Il existe trois niveaux d’accès en lecture anonyme : **Désactivé**, **Blob** et **Conteneur**. Pour empêcher tout accès anonyme aux objets blob, définissez le paramètre Autorisation sur **Désactivé**. Par défaut, le nouveau conteneur est privé et seul le propriétaire du compte peut y accéder. Pour autoriser les accès anonymes publics en lecture aux ressources blob, mais non aux métadonnées du conteneur ou à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Blob**. Pour autoriser les accès anonymes publics complets aux ressources blob, aux métadonnées du conteneur et à la liste d’objets blob du conteneur, définissez le paramètre Autorisation sur **Conteneur**. Pour plus d’informations, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../blobs/storage-manage-access-to-resources.md).
 >
 >
 
@@ -233,7 +233,7 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 
 Les informations de référence sur les commandes Azure Classic CLI permettant d’utiliser les ressources de stockage sont disponibles ici :
 
-* [Commandes Azure Classic CLI en mode Resource Manager](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
+* [Commandes Azure Classic CLI en mode Resource Manager](../../virtual-machines/azure-cli-arm-commands.md#storage-objects)
 * [Commandes Azure Classic CLI en mode de gestion des services Azure](../../cli-install-nodejs.md)
 
 Vous pouvez aussi essayer la dernière version [d’Azure CLI](../storage-azure-cli.md) avec le modèle de déploiement Resource Manager.

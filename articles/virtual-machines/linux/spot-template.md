@@ -12,18 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 2e94c48188d0eed22b338d0d7238c0d27a5d1862
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 457f1008b75fe0605c0d2934f2de09937fac8d21
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781913"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162444"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Déployer des machines virtuelles Spot à l’aide d’un modèle Resource Manager
 
-L’utilisation de [machines virtuelles Spot](spot-vms.md) vous permet de disposer de notre capacité inutilisée en réalisant des économies significatives. Dès qu’Azure a besoin de récupérer toute la capacité, l’infrastructure Azure supprime les machines virtuelles Spot. Les machines virtuelles Spot sont donc appropriées pour les charges de travail capables de gérer les interruptions, comme les travaux de traitement par lots, les environnements de développement et de test, les charges de travail de calcul importantes, entre autres.
+L’utilisation de [machines virtuelles Spot](spot-vms.md) vous permet de tirer parti de notre capacité inutilisée en réalisant des économies significatives. Dès qu’Azure a besoin de récupérer toute la capacité, l’infrastructure Azure supprime les machines virtuelles Spot. Les machines virtuelles Spot sont donc appropriées pour les charges de travail capables de gérer les interruptions, comme les travaux de traitement par lots, les environnements de développement et de test, les charges de travail de calcul importantes, entre autres.
 
 Les tarifs des machines virtuelles Spot sont variables, en fonction de la région et de la référence SKU. Pour plus d’informations, consultez les prix des machines virtuelles pour [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) et [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
@@ -33,7 +33,7 @@ Vous avez la possibilité de définir un prix maximal que vous êtes prêt à pa
 > Les instances Spot sont actuellement en préversion publique.
 > Cette préversion n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Dans la première partie de la préversion publique, les instances Spot auront un prix fixe, de sorte qu’il n’y aura aucune éviction basée sur les prix.
+
 
 
 ## <a name="use-a-template"></a>Utiliser un modèle 
@@ -48,9 +48,6 @@ Pour les déploiements de machines virtuelles Spot à l’aide d’un modèle, u
                 }
 ```
 
-
-> [!IMPORTANT]
-> Dans la première partie de la préversion publique, vous pouvez définir un prix maximal. Toutefois, celui-ci sera ignoré. Les machines virtuelles Spot ont un prix fixe. Il n’y aura donc pas d’évictions basées sur les prix.
 
 
 Voici un exemple de modèle avec les propriétés ajoutées pour une machine virtuelle Spot. Remplacez les noms de ressources par les vôtres et `<password>` par un mot de passe du compte administrateur local sur la machine virtuelle.

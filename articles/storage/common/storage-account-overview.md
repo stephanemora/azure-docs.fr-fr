@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5034aaaee335bbd87e7ea42b448e4e8fbf6aacca
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 11fdaa0d547e588daa9d264c2393606705554a17
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274531"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157264"
 ---
 # <a name="storage-account-overview"></a>Vue d’ensemble du compte de stockage
 
@@ -115,11 +115,9 @@ En cas de changement de votre modèle d’utilisation des données, vous pouvez 
 > [!IMPORTANT]
 > Le changement du niveau d’accès pour un compte de stockage ou un objet blob existant peut entraîner des frais supplémentaires. Pour plus d’informations, consultez la section [Facturation du compte de stockage](#storage-account-billing).
 
-## <a name="replication"></a>Réplication
+## <a name="redundancy"></a>Redondance
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
-
-Pour plus d’informations sur la réplication du stockage, consultez [Réplication du stockage Azure](storage-redundancy.md).
 
 ## <a name="encryption"></a>Chiffrement
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a64627028ea4ecc732924d0c9fca196204f7951d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3e452cd548738e5f211899d3a6a676f883d800ce
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475775"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132047"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>Obtenir une imagerie par drone auprès des partenaires de drone
 
@@ -91,4 +91,4 @@ Les fichiers et images chargés par le fournisseur de drone s’affichent dans l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment utiliser les [API](references-for-azure-farmbeats.md#rest-api) FarmBeats Datahub pour obtenir vos données d’imagerie par drone.
+Découvrez comment utiliser les [API](rest-api-in-azure-farmbeats.md) FarmBeats Datahub pour obtenir vos données d’imagerie par drone.

@@ -16,18 +16,18 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9faa1fffde5553168c8b76ea40cebc001c1e27b2
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bc96c94152b39cc70cfc4553690faaa5b9cb8d20
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275525"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111576"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Activer l’accès distant à Power BI Mobile avec le proxy d’application Azure AD
 
 Cet article explique comment utiliser le proxy d’application Azure AD pour permettre à l’application mobile Power BI de se connecter à Power BI Report Server (PBIRS) et à SQL Server Reporting Services (SSRS) 2016 et versions ultérieures. Grâce à cette intégration, les utilisateurs qui se trouvent en dehors du réseau d’entreprise peuvent accéder à leurs rapports Power BI à partir de l’application mobile Power BI et être protégés par l’authentification Azure AD. Cette protection comprend des [avantages en matière de sécurité](application-proxy-security.md#security-benefits), comme l’accès conditionnel et l’authentification multifacteur.  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cet article suppose que vous avez déjà déployé Report Services et [activé le proxy d’application](application-proxy-add-on-premises-application.md).
 
@@ -35,7 +35,7 @@ Cet article suppose que vous avez déjà déployé Report Services et [activé l
 - Lors de la publication Power BI, nous vous recommandons d’utiliser les mêmes domaines interne et externe. Pour en savoir plus sur les domaines personnalisés, consultez [Utilisation des domaines personnalisés dans le proxy d’application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain).
 - Cette intégration est disponible pour l’application **Power BI Mobile iOS et Android**.
 
-## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>Étape 1 : Configurer une délégation Kerberos contrainte (KCD)
+## <a name="step-1-configure-kerberos-constrained-delegation-kcd"></a>Étape 1 : Configurer une délégation Kerberos contrainte (KCD)
 
 Pour les applications locales qui utilisent l’authentification Windows, vous pouvez obtenir l’authentification unique (SSO) à l’aide du protocole d’authentification Kerberos et d’une fonctionnalité appelée délégation Kerberos contrainte (KCD). Lorsqu’elle est configurée, la délégation KCD permet au connecteur de proxy d’application d’obtenir un jeton Windows pour un utilisateur, même si ce dernier ne s’est pas connecté directement à Windows. Pour en savoir plus sur la délégation KCD, consultez [Présentation de la délégation Kerberos contrainte](https://technet.microsoft.com/library/jj553400.aspx) et [Délégation contrainte Kerberos pour l’authentification unique à vos applications avec le proxy d’application](application-proxy-configure-single-sign-on-with-kcd.md).
 
@@ -77,7 +77,7 @@ Pour configurer la délégation KCD, répétez les étapes suivantes pour chaque
 
 Pour plus d’informations, consultez [Délégation contrainte Kerberos pour l’authentification unique à vos applications avec le proxy d’application](application-proxy-configure-single-sign-on-with-kcd.md).
 
-## <a name="step-2-publish-report-services-through-azure-ad-application-proxy"></a>Étape 2 : Publier des services de rapports via le proxy d’application Azure AD
+## <a name="step-2-publish-report-services-through-azure-ad-application-proxy"></a>Étape 2 : Publier des services de rapports via le proxy d’application Azure AD
 
 Vous êtes maintenant prêt à configurer un proxy d’application Azure AD.
 
@@ -139,9 +139,6 @@ Pour pouvoir connecter l’application mobile Power BI et accéder aux services 
 
 ## <a name="step-5-configure-intune-policy-for-managed-devices-optional"></a>Étape 5 : Configurer la stratégie Intune pour les appareils gérés (facultatif)
 
-> [!NOTE]
-> Cette fonctionnalité n’est actuellement disponible que sur iOS.
-
 Vous pouvez utiliser Microsoft Intune pour gérer les applications clientes que le personnel de votre entreprise utilise. Intune vous permet d’utiliser des fonctionnalités telles que le chiffrement des données et les exigences d’accès supplémentaires. Pour en savoir plus sur la gestion des applications par le biais d’Intune, consultez Gestion des applications Intune. Pour que l’application mobile Power BI puisse fonctionner avec la stratégie Intune, procédez comme suit.
 
 1. Allez dans **Azure Active Directory**, puis **Inscriptions d’applications**.
@@ -153,7 +150,7 @@ Vous pouvez utiliser Microsoft Intune pour gérer les applications clientes que 
 7. Cliquez sur **Accorder le consentement administrateur** pour accorder l’autorisation d’accès à l’application.
 8. Configurez la stratégie Intune souhaitée en vous référant à [Comment créer et assigner des stratégies de protection des applications](https://docs.microsoft.com/intune/app-protection-policies).
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si l’application retourne une page d’erreur après avoir essayé de charger un rapport pendant plusieurs minutes, vous devrez peut-être modifier le paramètre du délai d’expiration. Par défaut, le proxy d’application prend en charge les applications qui mettent jusqu’à 85 secondes pour répondre à une requête. Pour allonger ce paramètre à 180 secondes, sélectionnez le délai d’expiration du serveur principal **Long** dans la page des paramètres du proxy d’application pour l’application. Pour obtenir des conseils sur la création de rapports rapides et fiables, consultez [Power BI Reports Best Practices](https://docs.microsoft.com/power-bi/power-bi-reports-performance) (Meilleures pratiques de rapports Power BI).
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: ddcf5a1df31b4b36e25b2522ada21deab19fe032
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 8fd5a063683d09cb94b45205426871d880119cc2
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159880"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138018"
 ---
 # <a name="securing-paas-deployments"></a>Sécurisation des déploiements PaaS
 
@@ -36,7 +36,7 @@ Cet article fournit des informations qui vous permettent :
 ## <a name="cloud-security-advantages"></a>Avantages du cloud en matière de sécurité
 Il est important de comprendre la [répartition des responsabilités](shared-responsibility.md) entre vous et Microsoft. Localement, vous avez toute la responsabilité, mais, lorsque vous vous déplacez vers le cloud, certaines responsabilités sont transférées à Microsoft.
 
-Le cloud offre [certains avantages pour la sécurité](shared-responsibility.md#cloud security advantages). Dans un environnement local, les organisations ont probablement des obligations non respectées et des ressources limitées pour investir dans la sécurité, avec pour résultat un environnement où les pirates informatiques sont en mesure d’exploiter des vulnérabilités à tous les niveaux.
+Le cloud offre [certains avantages pour la sécurité](shared-responsibility.md#cloud-security-advantages). Dans un environnement local, les organisations ont probablement des obligations non respectées et des ressources limitées pour investir dans la sécurité, avec pour résultat un environnement où les pirates informatiques sont en mesure d’exploiter des vulnérabilités à tous les niveaux.
 
 Les organisations peuvent améliorer la détection des menaces et leur temps de réponse à l’aide de fonctionnalités de sécurité basées sur le cloud d’un fournisseur et l'intelligence du cloud.  En transférant les responsabilités au fournisseur de cloud, les organisations peuvent optimiser leur couverture de sécurité, ce qui leur permet de réaffecter des ressources de sécurité et leur budget à d'autres priorités de l’entreprise.
 
@@ -105,7 +105,7 @@ Le tableau suivant répertorie les menaces STRIDE et donne des exemples d’att�
 | Répudiation | Non-répudiation | Activez [la surveillance et les diagnostics Azure](/azure/architecture/best-practices/monitoring). |
 | Divulgation d’informations | Confidentialité | Chiffrez les données sensibles au repos à l’aide de [certificats de service](/rest/api/appservice/certificates). |
 | Denial of service (déni de service) | Disponibilité | Surveillez les mesures de performances pour des conditions potentielles de déni de service. Implémentez des filtres de connexion. |
-| Élévation de privilège | Authorization | Utilisez [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements). |
+| Élévation de privilège | Autorisation | Utilisez [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements). |
 
 ## <a name="develop-on-azure-app-service"></a>Développer sur Azure App Service
 [Azure App Service](/azure/app-service/overview) est une offre PaaS qui vous permet de créer des applications mobiles et web pour tout type d’appareil ou de plateforme, et de vous connecter à des données en tout lieu, dans le cloud ou localement. App Service inclut les fonctionnalités web et mobiles qui étaient précédemment fournies séparément dans Sites Web Azure et Azure Mobile Services. Il inclut également de nouvelles fonctionnalités d’automatisation des processus d’entreprise et d’hébergement d’API cloud. App Service est un service intégré unique qui apporte un ensemble complet de fonctionnalités pour les scénarios web, mobiles et d’intégration.

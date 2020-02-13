@@ -7,14 +7,14 @@ manager: gwallace
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 8752522e4b5a7b91778d6eb2cd8e4ba3bac95da0
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 17186d1d7b50ea872dc47eca8c2c4491787d2a38
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781889"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158942"
 ---
 # <a name="preview-deploy-spot-vms-using-azure-powershell"></a>Aperçu : Déployer des machines virtuelles Spot à l’aide d’Azure PowerShell
 
@@ -29,7 +29,7 @@ Vous avez la possibilité de définir un prix maximal que vous êtes prêt à pa
 > Les instances Spot sont actuellement en préversion publique.
 > Cette préversion n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Dans la première partie de la préversion publique, les instances Spot auront un prix fixe, de sorte qu’il n’y aura aucune éviction basée sur les prix.
+
 
 
 ## <a name="create-the-vm"></a>Création de la machine virtuelle
@@ -37,9 +37,6 @@ Vous avez la possibilité de définir un prix maximal que vous êtes prêt à pa
 Créez une machine virtuelle Spot avec [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) pour créer la configuration. Incluez `-Priority Spot` et affectez à `-MaxPrice` :
 - `-1` afin que la machine virtuelle ne soit pas supprimée en fonction du prix.
 - un montant en dollars, jusqu’à 5 chiffres. Par exemple, `-MaxPrice .98765` signifie que la machine virtuelle sera désallouée une fois que le prix d’une machine virtuelle Spot atteindra 0,98765 $ par heure.
-
-> [!IMPORTANT]
-> Dans la première partie de la préversion publique, vous pouvez définir un prix maximal. Toutefois, celui-ci sera ignoré. Les machines virtuelles Spot auront un prix fixe, de sorte qu’il n’y aura aucune éviction basée sur les prix.
 
 
 Cet exemple crée une machine virtuelle Spot qui n’est pas désallouée en fonction du prix (uniquement quand Azure a besoin de récupérer toute la capacité).

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 9502a81149df11ffa378bf8ffc2c377f4bb22d7f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 226c9ae1c42c85db57dab3fd1911943e167a6288
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177121"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133681"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Configurer un labo pour enseigner la création de scripts shell sur Linux
 Cet article vous montre comment configurer un labo pour enseigner la création de scripts shell sur Linux. Dans le cadre de l’administration système, l’écriture de scripts permet aux administrateurs d’éviter les tâches répétitives. Dans cet exemple de scénario, les scripts bash traditionnels et les scripts améliorés sont abordés. Les scripts améliorés sont des scripts qui associent des commandes bash et Ruby. Cette approche permet à Ruby de passer des données et fournit des commandes bash pour interagir avec le shell. 
@@ -32,7 +32,7 @@ Après avoir créé le compte lab, activez les paramètres suivants dans celui-c
 
 | Paramètres du compte lab | Instructions |
 | ----------- | ------------ |  
-| Images de la Place de marché | Activez l’image [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) pour l’utiliser dans votre compte lab. Pour plus d’informations, consultez [Spécifier les images de la Place de marché accessibles aux créateurs de labo](tutorial-setup-lab-account.md#specify-marketplace-images-available-to-lab-creators). | 
+| Images de la Place de marché | Activez l’image [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) pour l’utiliser dans votre compte lab. Pour plus d’informations, consultez [Spécifier les images de la Place de marché accessibles aux créateurs de labo](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators). | 
 
 Suivez [ce tutoriel](tutorial-setup-classroom-lab.md) pour créer un labo et appliquer les paramètres suivants :
 

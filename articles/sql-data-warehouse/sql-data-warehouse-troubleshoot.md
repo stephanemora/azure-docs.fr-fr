@@ -11,12 +11,12 @@ ms.date: 11/25/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ce57c48e568e840f3a651a5530f3fba6c0be60b7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4eec340a04b9cdbc85a2c8712a11d31132766206
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721045"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153364"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Résolution des problèmes d’Azure SQL Data Warehouse
 Cet article répertorie les questions de résolution de problèmes courantes.
@@ -53,7 +53,7 @@ Cet article répertorie les questions de résolution de problèmes courantes.
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Msg 40847 : Impossible d’effectuer l’opération car le serveur risque de dépasser le quota d’unité de transaction de base de données autorisé de 45 000. | Réduisez la [DWU](what-is-a-data-warehouse-unit-dwu-cdwu.md) de la base de données que vous essayez de créer ou [demandez une augmentation du quota](sql-data-warehouse-get-started-create-support-ticket.md). |
 | Examen de l’utilisation de l’espace                              | Consultez la section relative aux [tailles des tables]( ../sql-data-warehouse/sql-data-warehouse-tables-overview.md#table-size-queries) pour comprendre l’utilisation de l’espace de votre système. |
-| Aide concernant la gestion des tables                                    | Consultez l’article [Vue d'ensemble des tables][Vue d'ensemble] pour obtenir de l’aide sur la gestion de vos tables.  Cet article inclut également des liens vers des rubriques plus détaillées, notamment [Types de données de table](sql-data-warehouse-tables-data-types.md), [Distribution d’une table](sql-data-warehouse-tables-distribute.md), [Indexation d’une table](sql-data-warehouse-tables-index.md), [Partitionnement d’une table](sql-data-warehouse-tables-partition.md), [Maintenance des statistiques de table](sql-data-warehouse-tables-statistics.md) et [Tables temporaires](sql-data-warehouse-tables-temporary.md). |
+| Aide concernant la gestion des tables                                    | Consultez l’article [Vue d’ensemble des tables](../sql-data-warehouse/sql-data-warehouse-tables-overview.md) pour obtenir de l’aide concernant la gestion de vos tables.  Cet article inclut également des liens vers des rubriques plus détaillées, notamment [Types de données de table](sql-data-warehouse-tables-data-types.md), [Distribution d’une table](sql-data-warehouse-tables-distribute.md), [Indexation d’une table](sql-data-warehouse-tables-index.md), [Partitionnement d’une table](sql-data-warehouse-tables-partition.md), [Maintenance des statistiques de table](sql-data-warehouse-tables-statistics.md) et [Tables temporaires](sql-data-warehouse-tables-temporary.md). |
 | La barre de progression de TDE (Transparent Data Encryption) n’est pas mise à jour dans le portail Microsoft Azure | Vous pouvez afficher l’état de chiffrement de TDE via [PowerShell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
 

@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: 27838aae1d829598bed44a6c16f7a1d38a95b727
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: c06d1268abe8afdeb03668131c3c61cfbafa44cd
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314094"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138171"
 ---
 # <a name="score-model-module"></a>Score Model module
 
-Cet article décrit un module dans le concepteur Azure Machine Learning.
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour générer des prédictions à l’aide d’un modèle de classification ou de régression entraîné.
 
@@ -44,7 +44,7 @@ Le score, ou la valeur prédite, peut être indiqué dans différents formats en
 
 - Pour les modèles de classification, le module [Noter le modèle](./score-model.md) génère une valeur prédite pour la classe, ainsi que la probabilité de la valeur prédite.
 - Pour les modèles de régression, le module [Noter le modèle](./score-model.md) génère simplement la valeur numérique prédite.
-- Pour les modèles de classification d’image, le score peut être la classe d’objet dans l’image ou une valeur booléenne indiquant si une fonctionnalité particulière a été trouvée.
+
 
 ## <a name="publish-scores-as-a-web-service"></a>Publier des scores en tant que service web
 

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 614a90fcc0daef3eb77c43e6b56848c34d160ed5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: dc911ff06208b1fd0af7651c8274a45c958bf0cd
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274756"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159197"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Options avancées de signature de certificats dans le jeton SAML pour les applications de galerie dans Azure Active Directory
 
@@ -57,7 +57,7 @@ Pour modifier les options de signature de certificat SAML d’une application, a
 1. Dans le volet gauche, sélectionnez **Applications d’entreprise**. Une liste des applications d’entreprise de votre compte s’affiche.
 1. Sélectionnez une application. Une page de vue d’ensemble de l’application s’affiche.
 
-   ![Exemple : Page de vue d’ensemble de l’application](./media/certificate-signing-options/application-overview-page.png)
+   ![Exemple : Page de vue d’ensemble de l’application](./media/certificate-signing-options/application-overview-page.png)
 
 Ensuite, modifiez les options de signature de certificat dans le jeton SAML pour l’application :
 
@@ -67,7 +67,7 @@ Ensuite, modifiez les options de signature de certificat dans le jeton SAML pour
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**, le cas échéant. (Si la valeur **SAML** n’est pas disponible, cela signifie que l’application ne prend en charge SAML, et vous pouvez ignorer le reste de cette procédure et de cet article.)
 1. Dans la page **Configurer l’authentification unique avec SAML - Préversion**, recherchez l’en-tête **Certificat de signature SAML** et sélectionnez l’icône **Modifier** (associée à un crayon). La page **Certificat de signature SAML** s’affiche.
 
-   ![Exemple : Page du certificat de signature SAML](./media/certificate-signing-options/saml-signing-page.png)
+   ![Exemple : Page du certificat de signature SAML](./media/certificate-signing-options/saml-signing-page.png)
 
 1. Dans la liste déroulante **Option de signature**, sélectionnez **Signer la réponse SAML**, **Signer l’assertion SAML** ou **Signer la réponse et l’assertion SAML**. Vous trouverez une description de ces options dans la section [Options de signature de certificat](#certificate-signing-options) du présent article.
 1. Dans la liste déroulante **Algorithme de signature**, choisissez **SHA-1** ou **SHA-256**. Vous trouverez une description de ces options dans la section [Algorithmes de signature de certificat](#certificate-signing-algorithms) du présent article.
@@ -76,4 +76,4 @@ Ensuite, modifiez les options de signature de certificat dans le jeton SAML pour
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Configurer l’authentification unique pour les applications ne faisant pas partie de la galerie d’applications Azure Active Directory](configure-federated-single-sign-on-non-gallery-applications.md)
-* [Résoudre les erreurs d’authentification unique basée sur SAML](../develop/howto-v1-debug-saml-sso-issues.md)
+* [Résoudre les erreurs d’authentification unique basée sur SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

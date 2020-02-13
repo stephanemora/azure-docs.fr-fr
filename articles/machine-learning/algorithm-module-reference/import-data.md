@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 161c6816bbef31142c576f52fd122d9dd8af7883
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: e7aa19c1d189eb19237ea85aae1ad2441d7e98b9
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546654"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163192"
 ---
 # <a name="import-data-module"></a>Module Importer des données
 
@@ -42,7 +42,7 @@ Avant d’utiliser le stockage cloud, vous devez inscrire un magasin de données
 
 Après avoir défini les données souhaitées et une fois connecté à la source, **[Importer des données](./import-data.md)** déduit le type de données de chaque colonne en fonction des valeurs qu’elle contient et charge les données dans votre pipeline de concepteur. La sortie de **Importer des données** est un jeu de données qui peut être utilisé avec n’importe quel pipeline de concepteur.
 
-Si votre source de données change, vous pouvez actualiser le jeu de données et ajouter de nouvelles données en réexécutant [Importer des données](./import-data.md). Toutefois, si vous ne souhaitez pas relire la source chaque fois que vous exécutez le pipeline, définissez l’option **Utiliser les résultats mis en cache** sur TRUE. Lorsque cette option est sélectionnée, le module vérifie si le pipeline a déjà été exécuté avec la même source et les mêmes options d’entrée. Si une exécution précédente est trouvée, les données dans le cache sont utilisées plutôt que de recharger les données de la source.
+Si votre source de données change, vous pouvez actualiser le jeu de données et ajouter de nouvelles données en réexécutant [Importer des données](./import-data.md).
 
 ## <a name="how-to-configure-import-data"></a>Comment configurer Importer des données
 
@@ -60,11 +60,7 @@ Si votre source de données change, vous pouvez actualiser le jeu de données et
 
     ![import-data-preview](media/module/import-data.png)
 
-1. Sélectionnez l’option **Use cached results** (Utiliser les résultats mis en cache) si vous souhaitez mettre en cache le jeu de données pour le réutiliser lors des exécutions suivantes.
 
-    Si l’on suppose qu’aucune autre modification n’a été apportée aux paramètres du module, le pipeline charge les données de la première exécution du module uniquement, puis utilise une version mise en cache du jeu de données.
-
-    Décochez cette option si vous devez recharger les données à chaque exécution du pipeline.
 
 1. Exécuter le pipeline.
 

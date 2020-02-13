@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cbee6bfcca3ddb356abe9dceab2fca07c152b07
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 3d2a2bb9dd543da7455a276075a829ef06032edb
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961804"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159282"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Comment autoriser les applications clientes natives à interagir avec des applications de proxy
 
@@ -31,15 +31,15 @@ Pour prendre en charge les applications clientes natives, le proxy d’applicati
 
 ![Relation entre les utilisateurs finaux, Azure Active Directory et les applications publiées](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Pour publier des applications natives, utilisez la bibliothèque Azure AD Authentication, qui prend en charge l’authentification et de nombreux environnements clients. Le proxy d'application est conforme au [scénario Application Native vers API Web](../develop/native-app.md).
+Pour publier des applications natives, utilisez la bibliothèque Azure AD Authentication, qui prend en charge l’authentification et de nombreux environnements clients. Le proxy d'application est conforme au [scénario Application Native vers API Web](../azuread-dev/native-app.md).
 
 Cet article vous guide dans quatre étapes pour publier une application native avec le proxy d’application et la bibliothèque Azure AD Authentication.
 
-## <a name="step-1-publish-your-proxy-application"></a>Étape 1 : Publiez votre application proxy
+## <a name="step-1-publish-your-proxy-application"></a>Étape 1 : Publiez votre application proxy
 
 Publiez votre application proxy comme vous le feriez pour toute autre application et affectez des utilisateurs pour accéder à votre application. Pour plus d'informations, consultez [Publier des applications avec le proxy d'application](application-proxy-add-on-premises-application.md).
 
-## <a name="step-2-register-your-native-application"></a>Étape 2 : Inscrivez votre application native
+## <a name="step-2-register-your-native-application"></a>Étape 2 : Inscrivez votre application native
 
 Vous devez désormais enregistrer votre application dans Azure AD, en procédant comme suit :
 
@@ -60,7 +60,7 @@ Vous devez désormais enregistrer votre application dans Azure AD, en procédant
 1. Dans l’en-tête **URI de redirection**, sélectionnez **Client public (mobile et bureau)** , puis saisissez l’URI de redirection de votre application.
 1. Sélectionnez et lisez les **stratégies de la plateforme Microsoft**, puis sélectionnez **Inscrire**. Une page présentant la nouvelle inscription d’application est créée et affichée.
 
-Pour en savoir plus sur la création d’une inscription d’application, voir [Integrating applications with Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md) (Intégration d’applications à Azure Active Directory).
+Pour en savoir plus sur la création d’une inscription d’application, voir [Integrating applications with Azure Active Directory](../develop/quickstart-register-app.md) (Intégration d’applications à Azure Active Directory).
 
 ## <a name="step-3-grant-access-to-your-proxy-application"></a>Étape 3 : Accordez l’accès à votre application proxy
 
@@ -105,6 +105,6 @@ Une fois que vous avez modifié la bibliothèque ADAL avec ces paramètres, vos 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur le flux d’application native, voir [Applications natives dans Azure Active Directory](../develop/native-app.md).
+Pour en savoir plus sur le flux d’application native, voir [Applications natives dans Azure Active Directory](../azuread-dev/native-app.md).
 
 Découvrez comment configurer [l’authentification unique SAML auprès des applications dans Azure Active Directory](what-is-single-sign-on.md#choosing-a-single-sign-on-method).

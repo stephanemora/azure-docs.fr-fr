@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 02/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7eeaadc80a97a96e6effdfc9e5cc76c201998f3f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1c83ca0abfd17db873bec62f0a0d052703862a45
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438057"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110407"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Créer et gérer des attributions de rôle dans Azure Digital Twins
 
@@ -94,7 +94,7 @@ Get-AzADServicePrincipal -ApplicationId <ApplicationId>
 
 Un utilisateur ayant le rôle **Admin** peut alors assigner le rôle Administrateur d’espace à un autre utilisateur en soumettant une requête HTTP POST authentifiée à l’URL :
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
@@ -116,7 +116,7 @@ Avec le corps JSON suivant :
 
 Pour dresser la liste de tous les rôles disponibles (définitions de rôles), exécutez une requête HTTP GET authentifiée dans :
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/system/roles
 ```
 
@@ -157,7 +157,7 @@ Une requête réussie renvoie un tableau JSON répertoriant les rôles pouvant �
 
 Pour contrôler une attribution de rôle spécifique, exécutez une requête HTTP GET authentifiée dans :
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
@@ -174,7 +174,7 @@ Une requête réussie renvoie un booléen `true` ou `false` pour indiquer si le 
 
 Pour obtenir toutes les attributions de rôle pour un chemin d’accès, exécutez une requête HTTP GET authentifiée dans :
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
@@ -200,7 +200,7 @@ Une requête réussie renvoie un tableau JSON avec chaque attribution de rôle a
 
 Pour révoquer l'autorisation d'un destinataire, supprimez l'attribution de rôle en effectuant une requête HTTP DELETE authentifiée :
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 ```
 
@@ -214,7 +214,7 @@ Une requête de suppression réussie renvoie l’état de réponse 204. Vérifie
 
 Pour créer une attribution de rôle spécifique, exécutez une requête HTTP POST authentifiée dans l’URL :
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 

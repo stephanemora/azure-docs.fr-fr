@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ede43e3ed939083e7b5ff94899d12f6f4795a880
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: d3ee211298598d78f423d88fd4df1c58ed4bfa29
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941482"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157446"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Obtenir un jeton à partir d’Azure AD pour autoriser les requêtes à partir d’une application cliente
 
@@ -202,7 +202,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-Le consentement est le processus via lequel un utilisateur autorise une application à accéder à des ressources protégées en son nom. La plateforme d’identité Microsoft 2.0 prend en charge le consentement incrémentiel, ce qui signifie qu’une entité de sécurité peut commencer par demander un jeu d’autorisations minimum, puis ajouter des autorisations au fil du temps en fonction des besoins. Lorsque votre code demande un jeton d’accès, spécifiez l’étendue des autorisations dont votre application a besoin à un moment donné dans le paramètre `scope`. Pour plus d’informations sur le consentement incrémentiel, veuillez consulter la section intitulée **Consentement incrémentiel et dynamique** dans [Pourquoi opérer une mise à jour vers la Plateforme d’identités Microsoft (v2.0) ?](../../active-directory/develop/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+Le consentement est le processus via lequel un utilisateur autorise une application à accéder à des ressources protégées en son nom. La plateforme d’identité Microsoft 2.0 prend en charge le consentement incrémentiel, ce qui signifie qu’une entité de sécurité peut commencer par demander un jeu d’autorisations minimum, puis ajouter des autorisations au fil du temps en fonction des besoins. Lorsque votre code demande un jeton d’accès, spécifiez l’étendue des autorisations dont votre application a besoin à un moment donné dans le paramètre `scope`. Pour plus d’informations sur le consentement incrémentiel, veuillez consulter la section intitulée **Consentement incrémentiel et dynamique** dans [Pourquoi opérer une mise à jour vers la Plateforme d’identités Microsoft (v2.0) ?](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
 La méthode suivante construit les propriétés d’authentification pour solliciter le consentement incrémentiel :
 

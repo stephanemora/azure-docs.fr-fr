@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c77b03c6e1f2240059d884b051e00b01836d714
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: ec825a562b57f081305af20ee6a6ce078d5c0505
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724010"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159010"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Déplacer des applications entre AD FS et Azure AD 
 
@@ -59,7 +59,7 @@ Pour une organisation qui utilise déjà AD FS, Ping ou un autre fournisseur d�
   En tant que fournisseur d’identité pour les applications SaaS, Azure AD prend en charge des fonctionnalités supplémentaires :
   - Certificats de signature de jeton par application.
   - [Date d’expiration des certificats configurable](manage-certificates-for-federated-single-sign-on.md).
-  - [Approvisionnement automatisé](user-provisioning.md) des comptes utilisateur (dans les applications de la Place de marché Microsoft Azure principales) basé sur les identités Azure AD.
+  - [Approvisionnement automatisé](../app-provisioning/user-provisioning.md) des comptes utilisateur (dans les applications de la Place de marché Microsoft Azure principales) basé sur les identités Azure AD.
 
 - **Avantages d’un fournisseur d’identité local conservés**
   
@@ -138,7 +138,7 @@ Le tableau suivant décrit les éléments clés à la configuration des paramèt
 |Fournisseur d’identité (IdP) </br>déconnexion </br>URL|URL de déconnexion du fournisseur d’identité depuis l’application (où l’utilisateur est redirigé lorsqu’il choisit de se déconnecter de l’application).|Pour AD FS, l’URL de déconnexion correspond soit à l’URL de connexion, soit à l’URL de connexion suivie de « wa=wsignout1.0 ». Par exemple : https&#58;//fs.contoso.com/adfs/ls /?wa=wsignout1.0|La valeur correspondante pour Azure AD dépend de la prise en charge d’une déconnexion SAML 2.0 par l’application.</br></br>Si l’application prend en charge la déconnexion SAML, la valeur suit le modèle dans lequel la valeur {tenant-id} est remplacée par l’ID de locataire. Il se trouve dans le portail Azure sous **Azure Active Directory** > **Propriétés**, **ID de répertoire** : https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>Si l’application ne prend pas en charge la déconnexion SAML : https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
 |par jeton </br>signature </br>certificat|Certificat dont la clé privée qu’utilise le fournisseur d’identité pour se connecter a émis des jetons. Il vérifie que le jeton provient du fournisseur d’identité auquel l’application fait confiance.|Le certificat de signature de jetons AD FS se situe dans Gestion AD FS sous **Certificats**.|Dans Azure AD, le certificat de signature de jetons se situe au sein du portail Azure dans les propriétés d’**authentification unique** de l’application, sous l’en-tête **Certificat de signature SAML**. Vous pouvez y télécharger le certificat pour le charger dans l’application.</br></br> Si l’application possède plus d’un certificat, vous pouvez tous les trouver dans le fichier XML des métadonnées de fédération.|
 |Identificateur/</br>« émetteur »|Identificateur du fournisseur d’identité depuis l’application (parfois appelé « ID émetteur »).</br></br>Dans le jeton SAML, la valeur apparaît comme l’élément **Émetteur**.|L’identificateur pour AD FS correspond généralement à l’identificateur du service FS dans Gestion AD FS sous **Service** > **Modifier propriétés du service FS**. Par exemple : http&#58;//fs.contoso.com/adfs/services/trust|La valeur correspondante pour Azure AD suit le modèle dans lequel la valeur {tenant-id} est remplacée par l’ID de locataire. Il se trouve dans le portail Azure sous **Azure Active Directory** > **Propriétés**, **ID de répertoire** : https&#58;//sts.windows.net/{tenant-id}/|
-|Fournisseur d’identité (IdP) </br>fédération </br>metadata|Emplacement des métadonnées de fédération du fournisseur d’identité disponibles au public. (Certaines applications utilisent les métadonnées de fédération comme une alternative à l’administrateur pour configurer individuellement les URL, l’identificateur et le certificat de signature de jetons.)|L’URL des métadonnées de fédération AD FS se trouve dans Gestion AD FS sous **Service** > **Points de terminaison** > **Métadonnées** > **Type : métadonnées de fédération**. Par exemple : https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|La valeur correspondante pour Azure AD suit le modèle https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. La valeur {TenantDomainName} est remplacée par votre nom de locataire au format « contoso.onmicrosoft.com ». </br></br>Pour plus d’informations, consultez la section [Métadonnées de fédération](../develop/azure-ad-federation-metadata.md).
+|Fournisseur d’identité (IdP) </br>fédération </br>metadata|Emplacement des métadonnées de fédération du fournisseur d’identité disponibles au public. (Certaines applications utilisent les métadonnées de fédération comme une alternative à l’administrateur pour configurer individuellement les URL, l’identificateur et le certificat de signature de jetons.)|L’URL des métadonnées de fédération AD FS se trouve dans Gestion AD FS sous **Service** > **Points de terminaison** > **Métadonnées** > **Type : métadonnées de fédération**. Par exemple : https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|La valeur correspondante pour Azure AD suit le modèle https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. La valeur {TenantDomainName} est remplacée par votre nom de locataire au format « contoso.onmicrosoft.com ». </br></br>Pour plus d’informations, consultez la section [Métadonnées de fédération](../azuread-dev/azure-ad-federation-metadata.md).
 
 ## <a name="moving-saas-apps"></a>Déplacer les applications SaaS
 
@@ -236,19 +236,19 @@ Pour vérifier l’accès, les utilisateurs doivent voir l’application SaaS da
 
 Le processus de basculement depuis la fédération locale vers Azure AD ne peut se faire que si l’application SaaS sur laquelle vous travaillez prend en charge plusieurs fournisseurs d’identité. Voici certaines questions fréquentes sur la prise en charge de fournisseurs d’identité multiples :
 
-   **Q : Qu’est-ce que la prise en charge de fournisseurs d’identité multiples pour une application ?**
+   **Q : Qu’est-ce que la prise en charge de fournisseurs d’identité multiples pour une application ?**
 
-   R : Les applications SaaS qui prennent en charge plusieurs fournisseurs d’identité vous permettent d’entrer toutes les informations du nouveau fournisseur (ici, Azure AD) avant de vous engager à changer l’expérience d’authentification. Une fois la configuration terminée, vous pouvez changer la configuration d’authentification de l’application pour qu’elle pointe vers Azure AD.
+   A : Les applications SaaS qui prennent en charge plusieurs fournisseurs d’identité vous permettent d’entrer toutes les informations du nouveau fournisseur (ici, Azure AD) avant de vous engager à changer l’expérience d’authentification. Une fois la configuration terminée, vous pouvez changer la configuration d’authentification de l’application pour qu’elle pointe vers Azure AD.
 
-   **Q : En quoi la prise en charge de plusieurs fournisseurs d’identité est importante?**
+   **Q : En quoi la prise en charge de plusieurs fournisseurs d’identité est importante?**
 
-   R : Si l’application ne prend pas en charge plusieurs fournisseurs d’application, l’administrateur doit prévoir un temps de service ou de maintenance pour configurer Azure AD comme nouveau fournisseur d’identité de l’application. Pendant cette maintenance, les utilisateurs sont informés qu’ils ne pourront pas se connecter à leur compte.
+   A : Si l’application ne prend pas en charge plusieurs fournisseurs d’application, l’administrateur doit prévoir un temps de service ou de maintenance pour configurer Azure AD comme nouveau fournisseur d’identité de l’application. Pendant cette maintenance, les utilisateurs sont informés qu’ils ne pourront pas se connecter à leur compte.
 
    Si une application ne prend pas en charge les fournisseurs d’identité multiples, les fournisseurs d’identité supplémentaires peuvent être configurés à l’avance. L’administrateur peut ensuite changer de fournisseur lors du basculement Azure.
 
    Si l’application prend en charge plusieurs fournisseurs d’identité, et que vous faites en sorte que plusieurs fournisseurs gèrent l’authentification en même temps, l’utilisateur peut choisir son fournisseur pour s’authentifier sur la page de connexion.
 
-#### <a name="example-support-for-multiple-identity-providers"></a>Exemple : Prise en charge de plusieurs fournisseurs d’identité
+#### <a name="example-support-for-multiple-identity-providers"></a>Exemple : Prise en charge de plusieurs fournisseurs d’identité
 
 Par exemple, dans Salesforce, la configuration du fournisseur d’identité se situe sous **Paramètres** > **Paramètres de la société** > **Mon domaine** > **Configuration de l’authentification**.
 
@@ -260,7 +260,7 @@ En raison de la configuration créée plus tôt sous **Identité** > **Paramètr
 
 ### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Facultatif : configurer l’approvisionnement utilisateur dans Azure AD
 
-Si vous souhaitez qu’Azure AD gère l’approvisionnement utilisateur pour une application SaaS, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](user-provisioning.md).
+Si vous souhaitez qu’Azure AD gère l’approvisionnement utilisateur pour une application SaaS, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

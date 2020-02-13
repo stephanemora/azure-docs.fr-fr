@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b7962f42b4244121a67b88ef3bf789ce40f7b1e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4428187c985c1004c88f2ac20b0e5811803cce2a
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719626"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162767"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>Prise en main de l’authentification Azure AD à l’aide du portail Azure
 
@@ -27,19 +27,19 @@ ms.locfileid: "64719626"
 
 Découvrez comment utiliser le portail Azure pour accéder à l’authentification Azure Active Directory (Azure AD) en vue d’accéder à l’API Azure Media Services.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Un compte Azure. Si vous n’avez pas de compte, commencez avec un [essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Un compte Media Services. Pour plus d’informations, consultez [Création d’un compte Azure Media Services à l’aide du portail Azure](media-services-portal-create-account.md).
 - Assurez-vous de consulter [Accessing Azure Media Services API with Azure AD authentication overview](media-services-use-aad-auth-to-access-ams-api.md) (Vue d’ensemble de l’accès à l’API Azure Media Services avec l’authentification Azure AD). 
 
-Lorsque vous utilisez l’authentification Azure AD avec Azure Media Services, vous disposez de deux options d’authentification :
+Lorsque vous utilisez l’authentification Azure AD avec Azure Media Services, vous disposez de deux options d’authentification :
 
 - **Authentification utilisateur**. Authentifiez une personne qui utilise l’application pour interagir avec les ressources Media Services. L’application interactive invite tout d’abord l’utilisateur à entrer ses informations d’identification. Par exemple, une application de console de gestion peut être utilisée par les utilisateurs autorisés pour contrôler les travaux d’encodage ou de streaming en direct. 
 - **Authentification d’un principal de service**. Authentifiez un service. Les applications qui utilisent généralement cette méthode d’authentification sont des applications qui exécutent des services démon, des services de niveau intermédiaire ou des travaux planifiés : applications web, applications de fonction, applications logiques, API ou microservices.
 
 > [!IMPORTANT]
-> À l’heure actuelle, Media Services prend en charge le modèle d’authentification du service Azure Access Control. Toutefois, l’autorisation Access Control sera déconseillée à compter du 1er juin 2018. Nous vous recommandons de migrer vers le modèle d’authentification Azure AD dès que possible.
+> À l’heure actuelle, Media Services prend en charge le modèle d’authentification du service Azure Access Control. Toutefois, l’autorisation Access Control sera déconseillée à compter du 1er juin 2018. Nous vous recommandons de migrer vers le modèle d’authentification Azure AD dès que possible.
 
 ## <a name="select-the-authentication-method"></a>Sélectionner la méthode d’authentification
 
@@ -64,7 +64,7 @@ Vous pouvez obtenir les valeurs de ces paramètres sur la page **Se connecter à
 
 Si vous vous connectez à l’API Media Services à l’aide du Kit de développement logiciel (SDK) Media Services Microsoft .NET, les valeurs requises sont disponibles dans le cadre du Kit de développement. Pour plus d’informations, consultez [Use Azure AD authentication to access the Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md) (Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec .NET).
 
-Si vous n’utilisez pas le Kit de développement logiciel (SDK) du client Media Services .NET, vous devez créer manuellement une demande de jeton Azure AD en utilisant les paramètres décrits précédemment. Pour plus d’informations, consultez [Bibliothèques d’authentification d’Azure Active Directory](../../active-directory/develop/active-directory-authentication-libraries.md).
+Si vous n’utilisez pas le Kit de développement logiciel (SDK) du client Media Services .NET, vous devez créer manuellement une demande de jeton Azure AD en utilisant les paramètres décrits précédemment. Pour plus d’informations, consultez [Bibliothèques d’authentification d’Azure Active Directory](../../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ## <a name="service-principal-authentication"></a>Authentification d’un principal du service
 
@@ -90,7 +90,7 @@ Si vous n’êtes pas autorisé à créer des applications Azure AD dans votre 
 
 Si vous vous connectez à l’API Media Services à l’aide du Kit logiciel de développement (SDK) Media Services .NET, consultez [Use Azure AD authentication to access the Azure Media Services API with .NET](media-services-dotnet-get-started-with-aad.md) (Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec .NET).
 
-Si vous n’utilisez pas le Kit de développement logiciel (SDK) du client Media Services .NET, vous devez créer manuellement une demande de jeton Azure AD en utilisant les paramètres décrits précédemment. Pour plus d’informations, consultez [Bibliothèques d’authentification d’Azure Active Directory](../../active-directory/develop/active-directory-authentication-libraries.md).
+Si vous n’utilisez pas le Kit de développement logiciel (SDK) du client Media Services .NET, vous devez créer manuellement une demande de jeton Azure AD en utilisant les paramètres décrits précédemment. Pour plus d’informations, consultez [Bibliothèques d’authentification d’Azure Active Directory](../../active-directory/azuread-dev/active-directory-authentication-libraries.md).
 
 ### <a name="get-the-client-id-and-client-secret"></a>Obtenir l’ID client et la clé secrète client
 

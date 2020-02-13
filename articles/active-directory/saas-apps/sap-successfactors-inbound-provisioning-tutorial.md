@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
-ms.openlocfilehash: c2a699a9fafdba60fb2a938fd4691c291562fbc5
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: d9317a68c8967fbe0728e8c47e59dd33367c6163
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292516"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77060224"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Tutoriel : Configurer le provisionnement d’utilisateurs SAP SuccessFactors vers Active Directory (préversion)
-L’objectif de ce tutoriel est de présenter les étapes à effectuer pour provisionner les utilisateurs de SuccessFactors Employee Central dans Active Directory (AD) et Azure AD, avec réécriture facultative de l’adresse e-mail dans SuccessFactors. Cette intégration est en préversion publique et prend en charge la récupération de plus de [70 attributs utilisateur](../manage-apps/sap-successfactors-attribute-reference.md) à partir de SuccessFactors Employee Central.
+L’objectif de ce tutoriel est de présenter les étapes à effectuer pour provisionner les utilisateurs de SuccessFactors Employee Central dans Active Directory (AD) et Azure AD, avec réécriture facultative de l’adresse e-mail dans SuccessFactors. Cette intégration est en préversion publique et prend en charge la récupération de plus de [70 attributs utilisateur](../app-provisioning/sap-successfactors-attribute-reference.md) à partir de SuccessFactors Employee Central.
 
 >[!NOTE]
 >Utilisez ce tutoriel si les utilisateurs que vous souhaitez provisionner à partir de SuccessFactors ont besoin d’un compte AD local et éventuellement d’un compte Azure AD. Si les utilisateurs de SuccessFactors ont seulement besoin d’un compte Azure AD (utilisateurs cloud uniquement), consultez le tutoriel sur la [configuration du provisionnement d’utilisateurs de SAP SuccessFactors vers Azure AD](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md). 
@@ -30,17 +30,17 @@ L’objectif de ce tutoriel est de présenter les étapes à effectuer pour prov
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Le [service de provisionnement d’utilisateurs Azure Active Directory](../manage-apps/user-provisioning.md) s’intègre à [SuccessFactors Central Employee](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) afin de gérer le cycle de vie des identités des utilisateurs. 
+Le [service de provisionnement d’utilisateurs Azure Active Directory](../app-provisioning/user-provisioning.md) s’intègre à [SuccessFactors Central Employee](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) afin de gérer le cycle de vie des identités des utilisateurs. 
 
 Les workflows de provisionnement d’utilisateurs SuccessFactors pris en charge par le service de provisionnement d’utilisateurs Azure AD permettent d’automatiser les scénarios de gestion du cycle de vie des identités et des ressources humaines suivants :
 
-* **Nouvelles embauches** : quand un nouvel employé est ajouté à SuccessFactors, un compte d’utilisateur est créé automatiquement dans Active Directory, Azure Active Directory et éventuellement dans Office 365 et d’[autres applications SaaS prises en charge par Azure AD](../manage-apps/user-provisioning.md), avec réécriture de l’adresse e-mail dans SuccessFactors.
+* **Nouvelles embauches** : quand un nouvel employé est ajouté à SuccessFactors, un compte d’utilisateur est créé automatiquement dans Active Directory, Azure Active Directory et éventuellement dans Office 365 et d’[autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md), avec réécriture de l’adresse e-mail dans SuccessFactors.
 
-* **Mises à jour du profil et des attributs de l’employé** : quand le dossier d’un employé est mis à jour dans SuccessFactors (par exemple le nom, la fonction ou le responsable), son compte d’utilisateur est mis à jour automatiquement dans Active Directory, Azure Active Directory et éventuellement dans Office 365 et d’[autres applications SaaS prises en charge par Azure AD](../manage-apps/user-provisioning.md).
+* **Mises à jour du profil et des attributs de l’employé** : quand le dossier d’un employé est mis à jour dans SuccessFactors (par exemple le nom, la fonction ou le responsable), son compte d’utilisateur est mis à jour automatiquement dans Active Directory, Azure Active Directory et éventuellement dans Office 365 et d’[autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Résiliations de contrats d’employés** : quand le contrat d’un employé est résilié dans SuccessFactors, son compte d’utilisateur est désactivé automatiquement dans Active Directory, Azure Active Directory et éventuellement dans Office 365 et d[’autres applications SaaS prises en charge par Azure AD](../manage-apps/user-provisioning.md).
+* **Résiliations de contrats d’employés** : quand le contrat d’un employé est résilié dans SuccessFactors, son compte d’utilisateur est désactivé automatiquement dans Active Directory, Azure Active Directory et éventuellement dans Office 365 et d[’autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Employés réembauchés** : quand un employé est réembauché dans SuccessFactors, son ancien compte peut être réactivé ou reprovisionné automatiquement (en fonction de votre préférence) dans Active Directory, Azure Active Directory et éventuellement dans Office 365 et d’[autres applications SaaS prises en charge par Azure AD](../manage-apps/user-provisioning.md).
+* **Employés réembauchés** : quand un employé est réembauché dans SuccessFactors, son ancien compte peut être réactivé ou reprovisionné automatiquement (en fonction de votre préférence) dans Active Directory, Azure Active Directory et éventuellement dans Office 365 et d’[autres applications SaaS prises en charge par Azure AD](../app-provisioning/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>À qui cette solution d’attribution d’utilisateurs convient-elle le mieux ?
 
@@ -82,7 +82,7 @@ La configuration du provisionnement d’utilisateurs piloté par les RH dans le 
 * Nombre d’applications de provisionnement d’utilisateurs SuccessFactors vers Active Directory à déployer
 * ID de correspondance, mappage d’attributs, transformation et filtres d’étendue
 
-Pour obtenir des instructions complètes sur ces sujets, consultez le [plan de déploiement cloud des RH](../manage-apps/plan-cloud-hr-provision.md). 
+Pour obtenir des instructions complètes sur ces sujets, consultez le [plan de déploiement cloud des RH](../app-provisioning/plan-cloud-hr-provision.md). 
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Configuration de SuccessFactors pour l’intégration
 
@@ -115,7 +115,7 @@ Collaborez avec votre équipe d’administration SuccessFactors ou votre partena
   > ![Autorisations de lecture-écriture](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 
   >[!NOTE]
-  >Pour obtenir la liste complète des attributs récupérés par cette application de provisionnement, consultez [Référence des attributs SuccessFactors](../manage-apps/sap-successfactors-attribute-reference.md)
+  >Pour obtenir la liste complète des attributs récupérés par cette application de provisionnement, consultez [Référence des attributs SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md)
 
 * Cliquez sur **Done** (Terminé). Cliquez sur **Enregistrer les modifications**.
 
@@ -296,14 +296,14 @@ Dans cette section, vous allez configurer le flux des données utilisateur de Su
    > Lors de la configuration initiale de l'application d'approvisionnement, vous devez tester et vérifier vos mappages d'attributs et expressions pour être sûr d'obtenir le résultat souhaité. Microsoft vous recommande d’utiliser les filtres d’étendue disponibles sous **Portée de l’objet source** pour tester vos mappages dans SuccessFactors avec quelques utilisateurs test. Après avoir vérifié que les mappages fonctionnent, vous pouvez supprimer le filtre ou l'étendre progressivement pour inclure d'autres utilisateurs.
 
    > [!CAUTION] 
-   > Par défaut, le moteur de provisionnement désactive/supprime les utilisateurs qui sortent de l’étendue. Vous pouvez juger ce comportement inopportun dans votre intégration de SuccessFactors à AD. Pour remplacer ce comportement par défaut, consultez l’article [Ignorer la suppression des comptes d’utilisateurs qui sortent de l’étendue](../manage-apps/skip-out-of-scope-deletions.md).
+   > Par défaut, le moteur de provisionnement désactive/supprime les utilisateurs qui sortent de l’étendue. Vous pouvez juger ce comportement inopportun dans votre intégration de SuccessFactors à AD. Pour remplacer ce comportement par défaut, consultez l’article [Ignorer la suppression des comptes d’utilisateurs qui sortent de l’étendue](../app-provisioning/skip-out-of-scope-deletions.md).
   
 1. Dans le champ **Actions de l'objet cible**, vous pouvez filtrer globalement les actions exécutées sur Active Directory. Les actions **Créer** et **Mettre à jour** sont les plus courantes.
 
 1. Dans la section **Mappages d’attributs**, vous pouvez définir la manière dont les différents attributs SuccessFactors sont mappés aux attributs Active Directory.
 
   >[!NOTE]
-  >Pour obtenir la liste complète des attributs SuccessFactors pris en charge par l’application, consultez la [Référence des attributs SuccessFactors](../manage-apps/sap-successfactors-attribute-reference.md).
+  >Pour obtenir la liste complète des attributs SuccessFactors pris en charge par l’application, consultez la [Référence des attributs SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md).
 
 
 1. Cliquez sur un mappage d’attributs existants à mettre à jour ou cliquez sur **Ajouter un nouveau mappage** en bas de l’écran pour ajouter de nouveaux mappages. Un mappage d’attribut individuel prend en charge les propriétés suivantes :
@@ -314,7 +314,7 @@ Dans cette section, vous allez configurer le flux des données utilisateur de Su
 
          * **Constante** : inscrivez une valeur de chaîne constante et statique dans l'attribut AD
 
-         * **Expression** : vous permet d’écrire une valeur personnalisée dans l’attribut AD, basée sur un ou plusieurs attributs SuccessFactors. [Pour plus d’informations, consultez l’article sur les expressions](../manage-apps/functions-for-customizing-application-data.md).
+         * **Expression** : vous permet d’écrire une valeur personnalisée dans l’attribut AD, basée sur un ou plusieurs attributs SuccessFactors. [Pour plus d’informations, consultez l’article sur les expressions](../app-provisioning/functions-for-customizing-application-data.md).
 
       * **Attribut source** : l’attribut utilisateur dans SuccessFactors.
 
@@ -359,9 +359,9 @@ Une fois les configurations d’application de provisionnement SuccessFactors ef
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [En savoir plus sur les attributs SuccessFactors pris en charge pour le provisionnement entrant](../manage-apps/sap-successfactors-attribute-reference.md)
+* [En savoir plus sur les attributs SuccessFactors pris en charge pour le provisionnement entrant](../app-provisioning/sap-successfactors-attribute-reference.md)
 * [Découvrez comment configurer la réécriture d’e-mail vers SuccessFactors](sap-successfactors-writeback-tutorial.md)
-* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
+* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../app-provisioning/check-status-user-account-provisioning.md)
 * [Découvrez comment configurer l’authentification unique entre SuccessFactors et Azure Active Directory](successfactors-tutorial.md)
 * [Découvrir comment intégrer d’autres applications SaaS à Azure Active Directory](tutorial-list.md)
-* [Découvrez comment exporter et importer vos configurations de provisionnement](../manage-apps/export-import-provisioning-configuration.md)
+* [Découvrez comment exporter et importer vos configurations de provisionnement](../app-provisioning/export-import-provisioning-configuration.md)

@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 12/03/2019
-ms.openlocfilehash: a6aeb4022ee7cbce465f88a246303f80acfb883b
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: cf343773695275bc5600ab59e1cd719374d65700
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311663"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152361"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer"></a>Exceptions et codes d’erreur pour le concepteur
+# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceptions et codes d’erreur du concepteur (préversion)
 
-Cet article décrit les messages d’erreur et les codes d’exception dans le concepteur Azure Machine Learning afin de vous aider à résoudre les problèmes liés à vos pipelines d’apprentissage automatique.
+Cet article décrit les messages d’erreur et codes d’exception dans le concepteur Azure Machine Learning (préversion) pour vous aider à résoudre les problèmes liés à vos pipelines Machine Learning.
 
 Il y a deux façons d’obtenir le texte complet d’un message d’erreur dans le concepteur :  
 

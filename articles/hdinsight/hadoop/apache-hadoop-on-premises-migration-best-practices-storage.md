@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 6fe7dfaccc3cf1c3fbe4a9ea42578c56f910ea36
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 71afbf09d563a43469689132dfce071b40d694b6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435772"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162665"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Effectuer la migration de clusters Apache Hadoop locaux vers Azure HDInsight
 
@@ -198,7 +198,7 @@ Toutes les données écrites dans Stockage Azure sont automatiquement chiffrées
 - [Stockage localement redondant (LRS)](../../storage/common/storage-redundancy-lrs.md)
 - [Stockage redondant interzone (ZRS)](../../storage/common/storage-redundancy-zrs.md)
 - [Stockage géo-redondant (GRS)](../../storage/common/storage-redundancy-grs.md)
-- [Stockage géo-redondant avec accès en lecture (RA-GRS)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
+- [Stockage géo-redondant avec accès en lecture (RA-GRS)](../../storage/common/storage-redundancy.md)
 
 Azure Data Lake Storage fournit un stockage localement redondant (LRS), mais il est également recommandé de copier les données critiques vers un autre compte Data Lake Storage dans une autre région selon une périodicité adaptée aux besoins du plan de reprise d’activité. Il existe différents moyens de copier des données, notamment  [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md),  [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md) ou  [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). Il est également recommandé d’appliquer des stratégies d’accès pour le compte Data Lake Storage pour éviter toute suppression accidentelle.
 

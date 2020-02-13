@@ -2,7 +2,7 @@
 title: Configurez les questions de sécurité comme méthode de vérification - Azure AD
 description: Comment configurer vos informations de sécurité (préversion) pour vérifier votre identité au moyen de questions de sécurité prédéfinies comme méthode de vérification.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.author: lizross
-ms.openlocfilehash: e578b545a48468de347db0e0abc69dd0d3906606
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: 236f1e4e41488b926d9fc2e5e717e68090a0ed7b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704848"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063966"
 ---
 # <a name="set-up-security-questions-as-your-verification-method"></a>Configurer des questions de sécurité comme méthode de vérification
 
