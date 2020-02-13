@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 3217a2d5ba3d45a069eacdb67a8d69e9abc674b8
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 7d2e4274e6feaebac6536eed2f8a99d251cd5ceb
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69015204"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162563"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Effectuer une diffusion dynamique en continu à l’aide de Media Services pour créer des flux à vitesses de transmission multiples avec le portail Azure  
 > [!div class="op_single_selector"]
-> * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+> * [Portail](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-> * [API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+> * [REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 
 > [!NOTE]
@@ -43,7 +43,7 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 
 1. Connectez une caméra vidéo à un ordinateur. <br/>Pour obtenir des idées de configuration, consultez [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT).
 
-    Si vous n’avez pas accès à une caméra, des outils tels que [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) peuvent être utilisés pour générer un flux en direct à partir d’un fichier vidéo.
+    Si vous n’avez pas accès à une caméra, des outils tels que [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md) peuvent être utilisés pour générer un flux en direct à partir d’un fichier vidéo.
 1. Lancez et configurez un encodeur live local qui peut générer un flux à débit unique dans l’un des protocoles suivants : RTMP ou Smooth Streaming. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Consultez également ce billet de blog : [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT).
 
     Cette étape peut également être effectuée après la création du canal.
@@ -61,12 +61,12 @@ Ci-après figurent les étapes générales impliquées dans la création d’app
 1. Arrêtez l’événement chaque fois que vous voulez arrêter la diffusion et archiver l’événement.
 1. Supprimez l’événement (et éventuellement l’élément multimédia).   
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les éléments suivants sont requis pour suivre le didacticiel.
 
 * Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. 
-  Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+  Pour plus d’informations, consultez [Essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Un compte Media Services. Pour créer un compte Media Services, consultez [Créer un compte](media-services-portal-create-account.md).
 * Une webcam et un encodeur capable d’envoyer un flux dynamique à débit binaire unique.
 
@@ -76,7 +76,7 @@ Les éléments suivants sont requis pour suivre le didacticiel.
 2. Sélectionnez **Vidéo en flux continu**.
 3. Sélectionnez **Création personnalisée**. Cette option vous permet de créer un canal activé pour l’encodage live.
 
-    ![Créer un CANAL](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
+    ![Créer un canal](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
 4. Cliquez sur **Paramètres**.
 
    1. Choisissez le type de canal **Live Encoding** . Ce type spécifie que vous souhaitez créer un canal qui est activé pour l’encodage en temps réel. Cela signifie que le flux entrant à débit binaire unique est envoyé au canal et encodé en un flux à débit binaire multiple à l’aide des paramètres d’encodeur dynamique spécifiés. Pour plus d’informations, consultez l’article [Comment effectuer une diffusion de vidéo en flux continu à l’aide d’Azure Media Services pour créer des flux multidébit](media-services-manage-live-encoder-enabled-channels.md). Cliquez sur OK.
@@ -118,7 +118,7 @@ Lorsque le canal est créé, vous pouvez obtenir des URL de réception que vous
 
 ## <a name="create-and-manage-events"></a>Créer et gérer des événements
 
-### <a name="overview"></a>Vue d'ensemble
+### <a name="overview"></a>Vue d’ensemble
 Un canal est associé à des événements/programmes vous permettant de contrôler la publication et le stockage des segments dans un flux dynamique. Les canaux gèrent des événements/programmes. La relation entre canal et programme est très similaire au contenu multimédia traditionnel où un canal a un flux de contenu constant et un programme est limité à un événement minuté sur ce canal.
 
 Vous pouvez spécifier le nombre d’heures pendant lesquelles vous souhaitez conserver le contenu enregistré pour l’événement en définissant la durée de la **fenêtre d’archivage** . Cette valeur peut être comprise entre 5 minutes et 25 heures. La durée de la fenêtre d’archivage détermine également la plage maximale de temps dans laquelle les clients peuvent effectuer des recherches en arrière à partir de la position dynamique actuelle. Les événements peuvent durer davantage que le laps de temps spécifié, mais le contenu qui se situe en dehors de la longueur de fenêtre est ignoré en permanence. La valeur de cette propriété détermine également la longueur maximale que les manifestes de client peuvent atteindre.

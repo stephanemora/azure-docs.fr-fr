@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ecb704253597bf4eb5672fe924a0dafc4c1b3fd1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b53fca292630ef988ee1357ea50adc4d7b7e9be5
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726548"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162877"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Utiliser l’authentification Azure AD pour accéder à l’API Azure Media Services avec .NET
 
@@ -27,7 +27,7 @@ ms.locfileid: "64726548"
 
 À partir de windowsazure.mediaservices 4.0.0.4, Azure Media Services prend en charge l’authentification basée sur Azure Active Directory (Azure AD). Cette rubrique aborde l’utilisation de l’authentification Azure AD en vue d’accéder à l’API Azure Media Services avec Microsoft .NET.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Un compte Azure. Pour plus d’informations, consultez la page [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Un compte Media Services. Pour plus d’informations, voir [Création d’un compte Azure Media Services à l’aide du portail Azure](media-services-portal-create-account.md).
@@ -48,7 +48,7 @@ Pour que vous puissiez vous connecter à l’API Azure Media Services avec l’a
 
 Par exemple, vous n’avez pas besoin d’indiquer l’autorité Azure AD, l’URI de ressource Media Services, ni les détails de l’application Azure AD native. Il s’agit de valeurs connues qui sont déjà configurées par la classe de fournisseur de jetons d’accès Azure AD. 
 
-Si vous n’utilisez pas le kit de développement logiciel (SDK) Azure Media Services pour .NET, nous vous recommandons d’utiliser la [bibliothèque d’authentification Azure AD](../../active-directory/develop/active-directory-authentication-libraries.md). Pour obtenir les valeurs des paramètres à utiliser avec la bibliothèque d’authentification Azure AD, voir [Use the Azure portal to access Azure AD authentication settings](media-services-portal-get-started-with-aad.md) (Utiliser le portail Azure pour accéder aux paramètres d’authentification Azure AD).
+Si vous n’utilisez pas le kit de développement logiciel (SDK) Azure Media Services pour .NET, nous vous recommandons d’utiliser la [bibliothèque d’authentification Azure AD](../../active-directory/azuread-dev/active-directory-authentication-libraries.md). Pour obtenir les valeurs des paramètres à utiliser avec la bibliothèque d’authentification Azure AD, voir [Use the Azure portal to access Azure AD authentication settings](media-services-portal-get-started-with-aad.md) (Utiliser le portail Azure pour accéder aux paramètres d’authentification Azure AD).
 
 Vous avez également la possibilité de remplacer l’implémentation par défaut de **AzureAdTokenProvider** par votre propre implémentation.
 

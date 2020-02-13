@@ -14,16 +14,15 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 7bb3db4861842e145689682035adc3c691538adf
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: afc0fcb6751a08b41010fa569c67a9827e0abec0
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297795"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131928"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Utiliser l’encodeur Haivision KB pour envoyer un flux temps réel à débit binaire unique  
 > [!div class="op_single_selector"]
-> * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Haivision](media-services-configure-kb-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
@@ -32,7 +31,7 @@ Cette rubrique explique comment configurer [l’encodeur en direct Haivision KB]
 
 Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil Azure Media Services Explorer (AMSE). Cet outil est uniquement compatible avec les PC Windows. Si vous êtes sous Mac ou Linux, utilisez le portail Azure pour créer des [canaux](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) et des [programmes](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 *   Accès à un encodeur Haivision KB exécutant le logiciel v5.01 ou version ultérieure.
 * [Créer un compte Azure Media Services](media-services-portal-create-account.md)
 * Vérifiez qu’un point de terminaison de streaming est en cours d’exécution. Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-portal-manage-streaming-endpoints.md)
@@ -75,7 +74,7 @@ Audio :
     ![Capture d'écran du 14-08-2017 à 9.15.09](./media/media-services-configure-kb-live-encoder/step2.png)
 3.  Tapez le nom du canal (**Channel Name**) dans le champ Name et cliquez sur Next.  
     ![Capture d'écran du 14-08-2017 à 9.19.07](./media/media-services-configure-kb-live-encoder/step3.png)
-4.  Sélectionnez la source d’entrée du canal (**Channel Input Source**) dans la liste déroulante **Input Source** (Source d’entrée) et cliquez sur Next.
+4.  Sélectionnez la source d’entrée du canal (**Channel Input Source**) dans la liste déroulante**Input Source** (Source d’entrée) et cliquez sur Next.
     ![Capture d'écran du 14-08-2017 à 9.20.44](./media/media-services-configure-kb-live-encoder/step4.png)
 5.  Dans la liste déroulante **Encoder Template** (Modèle d’encodeur), choisissez **H264-720-AAC-192** et cliquez sur Next.
     ![Capture d'écran du 14-08-2017 à 9.23.15](./media/media-services-configure-kb-live-encoder/step5.png)
