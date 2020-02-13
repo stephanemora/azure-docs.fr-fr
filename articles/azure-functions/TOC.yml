@@ -327,7 +327,15 @@
     - name: Déclencheurs et liaisons
       items:
         - name: Stockage d'objets blob
-          href: functions-bindings-storage-blob.md
+          items:
+            - name: Vue d’ensemble
+              href: functions-bindings-storage-blob.md
+            - name: Déclencheur
+              href: functions-bindings-storage-blob-trigger.md
+            - name: Entrée
+              href: functions-bindings-storage-blob-input.md
+            - name: Output
+              href: functions-bindings-storage-blob-output.md
         - name: Azure Cosmos DB
           items:
             - name: Functions 1.x

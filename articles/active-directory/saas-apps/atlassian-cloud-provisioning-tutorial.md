@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 604dca2861b7a7126d2e37b5a01bcb85c530546e
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 7ddccef00cf1b5ad524c0e1eaa7aed52c0e55197
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561461"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059332"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Tutoriel : Configurer Atlassian Cloud pour le provisionnement automatique d’utilisateurs
 
 L’objectif de ce tutoriel est de présenter les étapes à effectuer dans Atlassian Cloud et Azure Active Directory (Azure AD) afin de configurer Azure AD pour provisionner et déprovisionner automatiquement des utilisateurs et/ou des groupes sur Atlassian Cloud.
 
 > [!NOTE]
-> Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
+> Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -140,7 +140,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
     ![Provisionnement Atlassian Cloud](./media/atlassian-cloud-provisioning-tutorial/group-mapping.png)
 
-15. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+15. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 16. Pour activer le service de provisionnement Azure AD pour Atlassian Cloud, définissez le paramètre **État du provisionnement** sur **Activé** dans la section **Paramètres**.
 
@@ -156,7 +156,7 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour superviser la progression et suivre les liens vers le rapport d’activité de provisionnement, qui décrit toutes les actions effectuées par le service de provisionnement Azure AD sur Atlassian Cloud.
 
-Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
+Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitations du connecteur
 
@@ -166,12 +166,12 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
+* [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png

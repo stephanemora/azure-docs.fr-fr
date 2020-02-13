@@ -1,6 +1,6 @@
 - name: Documentation relative à Ansible sur Azure
   href: ./index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Ansible sur Azure
       href: ./ansible-overview.md
@@ -10,7 +10,7 @@
     - name: Déployer un modèle de solution Ansible sur CentOS
       href: ./ansible-deploy-solution-template.md
     - name: Installer Ansible sur des machines virtuelles Linux
-      href: /azure/virtual-machines/linux/ansible-install-configure
+      href: ./ansible-install-configure.md
       maintainContext: true
     - name: Exécuter des playbooks dans Cloud Shell
       href: ./ansible-run-playbook-in-cloudshell.md
@@ -18,10 +18,10 @@
       expanded: true
       items:
         - name: Configurer des machines virtuelles Linux
-          href: /azure/virtual-machines/linux/ansible-create-vm
+          href: ./ansible-create-vm.md
           maintainContext: true
         - name: Gérer des machines virtuelles Linux
-          href: /azure/virtual-machines/linux/ansible-manage-linux-vm
+          href: ./ansible-manage-linux-vm.md
           maintainContext: true
 - name: Tutoriels
   items:
@@ -77,7 +77,7 @@
           href: ansible-vm-create-from-shared-generalized-image.md
     - name: Groupes identiques de machines virtuelles
       items:
-        - name: Configuration
+        - name: Configurer
           href: ./ansible-create-configure-vmss.md
         - name: Déployer
           href: ./ansible-deploy-app-vmss.md

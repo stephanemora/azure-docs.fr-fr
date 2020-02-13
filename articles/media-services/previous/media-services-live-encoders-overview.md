@@ -14,21 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8bd0014518dc93abb952114a1728f8fc1d3fb4a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71a31228602ef161158eaa05c80d50f65de98a50
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708080"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133264"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Comment configurer des encodeurs locaux lorsque Azure Media Services est utilisé pour créer des flux multidébits
 Cette rubrique répertorie les encodeurs en direct locaux que vous pouvez utiliser pour capturer vos événements en direct et envoyer un flux en direct à débit unique vers des canaux AMS (avec activation de l’encodage en direct) en vue d’un traitement ultérieur. La rubrique contient également des liens vers des didacticiels expliquant comment configurer les encodeurs répertoriés.
 
 > [!NOTE]
-> Lors de la diffusion en flux continu via RTMP, vérifiez les paramètres de pare-feu et/ou de proxy pour confirmer que les ports TCP sortants 1935 et 1936 sont ouverts.
-
-## <a name="flash-media-live-encoder"></a>Flash Media Live Encoder
-Pour plus d’informations sur la façon de configurer l’encodeur [Flash Media Live Encoder](https://www.adobe.com/products/flash-media-encoder.html) (FMLE) afin d’envoyer un flux temps réel à débit unique à un canal AMS, consultez [Configuration de FMLE](media-services-configure-fmle-live-encoder.md).
+> Lors de la diffusion en continu via RTMP, vérifiez les paramètres de pare-feu et/ou de proxy pour confirmer que les ports TCP sortants 1935 et 1936 sont ouverts.
 
 ## <a name="haivision-kb-encoder"></a>Encodeur Haivision KB
 Pour plus d’informations sur la façon de configurer [l’encodeur Haivision KB](https://www.haivision.com/products/kb-series/) afin d’envoyer un streaming en direct à débit unique à un canal AMS, consultez [Configuration de l’encodeur Haivision KB](media-services-configure-kb-live-encoder.md).

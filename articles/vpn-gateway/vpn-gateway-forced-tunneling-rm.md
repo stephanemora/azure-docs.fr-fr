@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: c0b32bfba61f1c6f3f00c5189f611d84069dd9da
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: fc35654403bbe1375d4188476b11fd0453f74345
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779669"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153143"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configuration du tunneling forcé à l’aide du modèle de déploiement Azure Resource Manager
 
 Le tunneling forcé vous permet de rediriger ou de « forcer » tout le trafic Internet vers votre emplacement local via un tunnel VPN site à site pour l’inspection et l’audit. Il s’agit d’une condition de sécurité critique pour la plupart des stratégies informatiques d’entreprise. Sans le tunneling forcé, le trafic Internet depuis vos machines virtuelles dans Azure se fait toujours à travers l’infrastructure du réseau Azure directement vers Internet, sans vous permettre d’inspecter ou de vérifier le trafic. L’accès Internet non autorisés est susceptible d’entraîner la divulgation d’informations ou tout autre type de violation de sécurité.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
@@ -71,7 +71,7 @@ Installez la dernière version des applets de commande PowerShell Azure Resource
 
 ### <a name="to-log-in"></a>Pour se connecter
 
-[!INCLUDE [To log in](../../includes/vpn-gateway-ps-login-include.md)]
+[!INCLUDE [To log in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ## <a name="configure-forced-tunneling"></a>Configurer un tunneling forcé
 
