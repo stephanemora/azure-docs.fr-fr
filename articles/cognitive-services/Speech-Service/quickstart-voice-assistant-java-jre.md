@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Personnaliser l’assistant vocal pour Java (Window
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser le SDK Speech de Cognitive Services dans une application console Java. Vous allez découvrir comment connecter votre application cliente à un bot Bot Framework précédemment créé et configuré pour utiliser le canal Speech Direct Line et activer une expérience de l’assistant vocal.
 services: cognitive-services
-author: bidishac
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: bidishac
-ms.openlocfilehash: 29f6596408a825a571682d14aceca01fa8108515
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 45719eebb9cd74b0a5c4278e87b90978dcc3790f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815857"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119680"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>Démarrage rapide : Créer un assistant vocal avec le SDK Speech Java (préversion)
 
@@ -23,7 +23,7 @@ Les démarrages rapides sont également disponibles pour la [reconnaissance voca
 
 Dans cet article, vous créez une application console Java en utilisant le [SDK Speech d’Azure Cognitive Services](speech-sdk.md). L’application se connecte à un bot existant configuré pour utiliser le canal Direct Line Speech, envoie une demande vocale et retourne une activité de réponse vocale (si cette option est configurée). L’application est générée avec le package Maven du kit SDK Speech et l’IDE Eclipse Java (v4.8) sur Windows, Ubuntu Linux ou macOS. Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Ce démarrage rapide nécessite :
 

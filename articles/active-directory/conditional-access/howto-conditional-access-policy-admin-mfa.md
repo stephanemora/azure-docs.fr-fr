@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e972228923654ca73063aad370d087e550138dbf
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: fb396429c95dbed090283752c5a0d9ff5cc176af
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76043374"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148196"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Accès conditionnel : Exiger MFA pour les administrateurs
 
@@ -24,14 +24,14 @@ Les comptes auxquels sont affectés les droits d’administration sont ciblés p
 
 Microsoft vous recommande d’exiger une authentification MFA sur les rôles suivants au minimum :
 
-* Administrateur général
-* Administrateur SharePoint
-* Administrateur Exchange
+* Administrateur de facturation
 * Administrateur de l’accès conditionnel
-* Administrateur de sécurité
+* Administrateur Exchange
+* Administrateur général
 * Administrateur du support (mot de passe)
 * Administrateur de mots de passe
-* Administrateur de facturation
+* Administrateur de sécurité
+* Administrateur SharePoint
 * Administrateur d’utilisateurs
 
 Les organisations peuvent choisir d’inclure ou d’exclure des rôles comme ils le jugent adéquat.
@@ -55,14 +55,14 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
 1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
 1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**
    1. Sous **Inclure**, sélectionnez **Rôles d’annuaire (préversion)** et choisissez au minimum les rôles suivants :
-      * Administrateur général
-      * Administrateur SharePoint
-      * Administrateur Exchange
+      * Administrateur de facturation
       * Administrateur de l’accès conditionnel
-      * Administrateur de sécurité
+      * Administrateur Exchange
+      * Administrateur général
       * Administrateur du support technique
       * Administrateur de mots de passe
-      * Administrateur de facturation
+      * Administrateur de sécurité
+      * Administrateur SharePoint
       * Administrateur d’utilisateurs
    1. Sous **Exclure**, sélectionnez **Utilisateurs et groupes**, puis choisissez les comptes d’accès d’urgence ou de secours de votre organisation. 
    1. Sélectionnez **Terminé**.

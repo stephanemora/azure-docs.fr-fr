@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/06/2019
+ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8124aea96ab00e7f09782531702dcb5cfa4ccdf2
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: eb75aa53051e7e3c424ffe131cda61324fe86b1a
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701822"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159962"
 ---
 # <a name="single-page-application-sign-in-and-sign-out"></a>Application monopage : Se connecter et se déconnecter
 
@@ -47,7 +47,7 @@ Vous ne pouvez pas utiliser conjointement ces deux méthodes de fenêtre context
 
 ## <a name="sign-in-with-a-pop-up-window"></a>Se connecter avec une fenêtre contextuelle
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const loginRequest = {
@@ -63,7 +63,7 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
 });
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 Le wrapper MSAL Angular vous permet de sécuriser des itinéraires spécifiques dans votre application en ajoutant `MsalGuard` à la définition d’itinéraire. Cette protection appelle la méthode de connexion en cas d'accès à l'itinéraire.
 
@@ -89,10 +89,11 @@ Pour une expérience de fenêtre contextuelle, activez l’option de configurati
             })]
          })
 ```
+---
 
 ## <a name="sign-in-with-redirect"></a>Se connecter avec une redirection
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Les méthodes de redirection ne retournent pas de promesse en raison du déplacement en dehors de l’application principale. Pour traiter et accéder aux jetons retournés, vous devez enregistrer les rappels de réussite et d’erreur avant d’appeler les méthodes de redirection.
 
@@ -110,12 +111,14 @@ const loginRequest = {
 userAgentApplication.loginRedirect(loginRequest);
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 Ce code est identique à celui décrit plus haut, à la section traitant de la connexion au moyen d’une fenêtre contextuelle. La redirection correspond au flux par défaut.
 
 > [!NOTE]
 > Le jeton d’ID ne contient pas les étendues autorisées et représente uniquement l’utilisateur authentifié. Les étendues acceptées sont retournées dans le jeton d’accès que vous obtenez à l’étape suivante.
+
+---
 
 ## <a name="sign-out"></a>Se déconnecter
 
@@ -123,7 +126,7 @@ La bibliothèque MSAL fournit une méthode `logout` qui efface le cache dans le 
 
 Vous pouvez configurer l’URI de redirection après la déconnexion en définissant `postLogoutRedirectUri`. Cet URI doit également être enregistré en tant qu’URI de déconnexion dans l’inscription de votre application.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const config = {
@@ -140,7 +143,7 @@ userAgentApplication.logout();
 
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 ```javascript
 //In app.module.ts
@@ -154,6 +157,8 @@ userAgentApplication.logout();
 // In app.component.ts
 this.authService.logout();
 ```
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

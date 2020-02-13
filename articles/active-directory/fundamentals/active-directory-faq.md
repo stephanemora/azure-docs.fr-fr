@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c1ee5e849d8004f828a2d92d728ad7925fc05c4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 6eb0b5e37843413667e51112f52e6a69534e3425
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693948"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063626"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Questions fréquentes (FAQ) sur Azure Active Directory
 Azure Active Directory (Azure AD) est une solution IDaaS (Identity as a Service) complète qui couvre tous les aspects de l’identité, la gestion des accès et la sécurité.
@@ -59,7 +59,7 @@ Par ailleurs, les services Azure AD payants comme Enterprise Mobility + Securit
 ---
 **Q : Existe-t-il un rapport qui indique la date d’expiration de mes licences utilisateur Azure AD ?**
 
-**R :**  Non.  Ce n’est pas le cas pour l’instant.
+**R :** Non.  Ce n’est pas le cas pour l’instant.
 
 ---
 
@@ -162,7 +162,7 @@ Pour obtenir une liste complète des applications déjà intégrées, voir [Mark
 Pour plus d'informations, consultez les pages suivantes :
 
 * [Configuration de l'authentification unique pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory.](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](../manage-apps/use-scim-to-provision-users-and-groups.md)
+* [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 
 ---
 **Q : Comment les utilisateurs peuvent-ils se connecter aux applications à l’aide d’Azure AD ?**
@@ -206,9 +206,9 @@ Pour plus d’informations, consultez [Sécurisation de l’accès à Office 36
 
 **R :** Azure AD vous permet d’automatiser la création, la maintenance et la suppression d’identités utilisateur dans de nombreuses applications SaaS cloud populaires.
 
-Pour plus d’informations, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
+Pour plus d’informations, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ---
 **Q :  Puis-je configurer une connexion LDAP sécurisée avec Azure AD ?**
 
-**R :**   Non. Azure AD ne prend pas directement en charge le protocole LDAP (Lightweight Directory Access Protocol) (LDAP) ou LDAP sécurisé. Il est cependant possible d’activer l’instance Azure AD Domain Services (Azure AD DS) sur votre locataire Azure AD avec des groupes de sécurité réseau correctement configurés via la mise en réseau Azure afin d'obtenir une connectivité LDAP. Pour plus d’informations, consultez https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.
+**R :**  Non. Azure AD ne prend pas directement en charge le protocole LDAP (Lightweight Directory Access Protocol) (LDAP) ou LDAP sécurisé. Il est cependant possible d’activer l’instance Azure AD Domain Services (Azure AD DS) sur votre locataire Azure AD avec des groupes de sécurité réseau correctement configurés via la mise en réseau Azure afin d'obtenir une connectivité LDAP. Pour plus d’informations, consultez https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70d3e17a007e8cfa7eed299659d4cff114f72158
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c92048d2fce4a098da1e707ec8f7d75479d563f1
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023121"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161577"
 ---
 # <a name="what-is-password-writeback"></a>Qu’est-ce que la réécriture du mot de passe ?
 
@@ -29,7 +29,7 @@ La réécriture du mot de passe est prise en charge dans les environnements qui 
 * [Authentification directe](../hybrid/how-to-connect-pta.md)
 
 > [!WARNING]
-> La réécriture du mot de passe ne fonctionnera plus pour les clients qui utilisent les versions d’Azure AD Connect 1.0.8641.0 et antérieures quand [Azure Access Control Service (ACS) sera mis hors service le 7 novembre 2018](../develop/active-directory-acs-migration.md). Les versions d’Azure AD Connect 1.0.8641.0 et antérieures cesseront alors d’autoriser la réécriture du mot de passe, car elles dépendent d’ACS pour cette fonctionnalité.
+> La réécriture du mot de passe ne fonctionnera plus pour les clients qui utilisent les versions d’Azure AD Connect 1.0.8641.0 et antérieures quand [Azure Access Control Service (ACS) sera mis hors service le 7 novembre 2018](../azuread-dev/active-directory-acs-migration.md). Les versions d’Azure AD Connect 1.0.8641.0 et antérieures cesseront alors d’autoriser la réécriture du mot de passe, car elles dépendent d’ACS pour cette fonctionnalité.
 >
 > Pour éviter une interruption de service, effectuez une mise à niveau depuis une version antérieure d’Azure AD Connect vers une version plus récente ; consultez l’article [Azure AD Connect : Effectuer une mise à niveau vers la dernière version](../hybrid/how-to-upgrade-previous-version.md).
 >

@@ -3,22 +3,22 @@ title: Éviter les rechargements de pages (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: Découvrez comment éviter les rechargements de page lors de l’acquisition et du renouvellement de jetons en mode silencieux à l’aide de Microsoft Authentication Library pour JavaScript (MSAL.js).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/29/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e68798861d5799a4314bd9cd9b2eeeadb926a90f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 63944a5a9af34c2d4cf98eeb870a730df49654e5
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696144"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084955"
 ---
 # <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Éviter les rechargements de page lors de l’acquisition et du renouvellement de jetons en mode silencieux à l'aide de MSAL.js
 Microsoft Authentication Library pour JavaScript (MSAL.js) utilise des éléments `iframe` masqués pour acquérir et renouveler des jetons en mode silencieux en arrière-plan. Azure AD renvoie le jeton à l'URI redirect_uri spécifié dans la requête de jeton (par défaut, il s'agit de la page racine de l’application). La réponse étant une réponse 302, le HTML correspondant à `redirect_uri` est chargé dans `iframe`. En règle générale, l'URI `redirect_uri` de l'application correspond à la page racine, ce qui permet son rechargement.

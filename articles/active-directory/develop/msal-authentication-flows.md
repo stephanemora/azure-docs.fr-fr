@@ -3,22 +3,22 @@ title: Flux d’authentification MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: Découvrez les flux d’authentification et les octrois utilisés par Microsoft Authentication Library (MSAL).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/30/2020
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bc906e1026dcc051ef152ff9fba94525ac700761
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: ace636152f6a0c9bf3896860eb17cc291bef2887
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962087"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085133"
 ---
 # <a name="authentication-flows"></a>Flux d’authentification
 

@@ -16,12 +16,12 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 03f88b0b1369020d0ba5e8cb1e1b416059def21d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 7798cb86606c206f027a1014802770a74aba909a
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703046"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160375"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation Azure AD
 
@@ -152,7 +152,7 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant : échec d’authentification. Le jeton d’actualisation n'est pas valide. L’erreur peut être due à l’une des raisons suivantes :<ul><li>L’en-tête de liaison de jeton est vide</li><li>Le hachage de liaison de jeton ne correspond pas</li></ul> |
 | AADSTS70001 | UnauthorizedClient : l’application est désactivée. |
-| AADSTS70002 | InvalidClient : erreur de validation des informations d’identification. La clé secrète client (client_secret) spécifiée ne correspond pas à la valeur attendue pour ce client. Corrigez la clé secrète client, puis réessayez. Pour plus d’informations, consultez [Utiliser le code d’autorisation pour demander un jeton d’accès](v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token). |
+| AADSTS70002 | InvalidClient : erreur de validation des informations d’identification. La clé secrète client (client_secret) spécifiée ne correspond pas à la valeur attendue pour ce client. Corrigez la clé secrète client, puis réessayez. Pour plus d’informations, consultez [Utiliser le code d’autorisation pour demander un jeton d’accès](v2-oauth2-auth-code-flow.md#request-an-access-token). |
 | AADSTS70003 | UnsupportedGrantType : l’application a retourné un type d’autorisation non pris en charge. |
 | AADSTS70004 | InvalidRedirectUri : l’application a retourné un URI de redirection non valide. L’adresse de redirection spécifiée par le client ne correspond à aucune adresse configurée ni à aucune adresse de la liste d’approbation OIDC. |
 | AADSTS70005 | UnsupportedResponseType : l’application a renvoyé un type de réponse non pris en charge pour les raisons suivantes :<ul><li>Le type de réponse « jeton » n’est pas activé pour l’application</li><li>Le type de réponse « id_token » requiert la portée « OpenID ». La réponse contient une valeur de paramètre OAuth non prise en charge dans l’élément wctx codé.</li></ul> |

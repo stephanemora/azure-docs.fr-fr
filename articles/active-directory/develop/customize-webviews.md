@@ -3,22 +3,22 @@ title: Personnaliser les navigateurs et les vues web (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: Découvrez comment personnaliser l’expérience de navigateur iOS/macOS MSAL pour la connexion des utilisateurs.
 services: active-directory
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: fad3a90bd11104b4d770ddc1c527cba7d299d150
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 759f61860c62bcb668db6844df28c52fa28eac80
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697623"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085906"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Procédure : personnaliser les navigateurs et les vues web pour iOS/macOS
 

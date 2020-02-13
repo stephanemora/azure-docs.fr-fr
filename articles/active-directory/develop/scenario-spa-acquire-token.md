@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
-ms.openlocfilehash: 290b0073ea6736141bca035f82f7aa37bdf364ef
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d5d48a2fc7aca184cf8b6e7761584a8800ca5151
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701924"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160064"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Application monopage : Acquérir un jeton pour appeler une API
 
@@ -42,7 +42,7 @@ Vous pouvez définir les étendues d’API qui doivent être incluses dans le je
 
 ## <a name="acquire-a-token-with-a-pop-up-window"></a>Acquérir un jeton avec une fenêtre contextuelle
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Le code suivant combine le modèle décrit précédemment aux méthodes offrant une expérience de fenêtre contextuelle :
 
@@ -69,7 +69,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 });
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 Le wrapper MSAL Angular fournit l’intercepteur HTTP, qui acquiert automatiquement des jetons d’accès en mode silencieux et les joint aux requêtes HTTP destinées aux API.
 
@@ -111,9 +111,11 @@ ngOnDestroy() {
 
 Sinon, vous pouvez explicitement acquérir des jetons à l’aide des méthodes d’acquisition de jeton, comme décrit dans la bibliothèque MSAL.js principale.
 
+---
+
 ## <a name="acquire-a-token-with-a-redirect"></a>Acquérir un jeton avec une redirection
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Le modèle suivant est tel qu’il a été décrit précédemment, mais il est présenté avec une méthode de redirection qui permet d’acquérir les jetons de manière interactive. Vous devez inscrire le rappel de redirection, comme indiqué plus haut.
 
@@ -142,6 +144,7 @@ userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(access
 ```
 
 ## <a name="request-optional-claims"></a>Demande de revendications facultatives
+
 Vous pouvez utiliser des revendications facultatives aux fins suivantes :
 
 - Inclure des revendications supplémentaires dans les jetons pour votre application.
@@ -150,7 +153,6 @@ Vous pouvez utiliser des revendications facultatives aux fins suivantes :
 
 Pour demander des revendications facultatives dans `IdToken`, vous pouvez envoyer un objet revendications stringifié au champ `claimsRequest` de la classe `AuthenticationParameters.ts`.
 
-### <a name="javascript"></a>JavaScript
 ```javascript
 "optionalClaims":  
    {
@@ -168,12 +170,14 @@ var request = {
 
 myMSALObj.acquireTokenPopup(request);
 ```
+
 Pour en savoir plus, consultez [Revendications facultatives](active-directory-optional-claims.md).
 
-
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 Ce code est identique à celui qui est décrit plus haut.
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

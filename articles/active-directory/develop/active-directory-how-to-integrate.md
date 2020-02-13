@@ -13,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: c5b8c506398af27ced284405dd75e48fb19a17af
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: dbbe501b27bf7ae4d4cb4bc00501aeb1fb06819e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698847"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161220"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Intégration avec Azure Active Directory
 
@@ -32,7 +32,7 @@ Il existe plusieurs façons d’intégrer votre application à Azure AD. Béné
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Prise en charge d’Azure AD pour se connecter à votre application
 
-**Réduction des problèmes de connexion et réduction des coûts de prise en charge.** En utilisant Azure AD pour se connecter à votre application, vos utilisateurs n'auront pas un nom et un mot de passe supplémentaires à mémoriser. En tant que développeur, vous aurez un mot de passe en moins à stocker et à protéger. Ne pas avoir à gérer les réinitialisations de mots de passe oubliés peut être en soi une économie considérable. Azure AD alimente les connexions pour certaines des applications cloud les plus populaires au monde, y compris Office 365 et Microsoft Azure. Avec des centaines de millions d'utilisateurs dans des millions d'organisations, il est fort probable que votre utilisateur soit déjà connecté à Azure AD. En savoir plus sur [l’ajout de la prise en charge pour la connexion Azure AD](v1-authentication-scenarios.md).
+**Réduction des problèmes de connexion et réduction des coûts de prise en charge.** En utilisant Azure AD pour se connecter à votre application, vos utilisateurs n'auront pas un nom et un mot de passe supplémentaires à mémoriser. En tant que développeur, vous aurez un mot de passe en moins à stocker et à protéger. Ne pas avoir à gérer les réinitialisations de mots de passe oubliés peut être en soi une économie considérable. Azure AD alimente les connexions pour certaines des applications cloud les plus populaires au monde, y compris Office 365 et Microsoft Azure. Avec des centaines de millions d'utilisateurs dans des millions d'organisations, il est fort probable que votre utilisateur soit déjà connecté à Azure AD. En savoir plus sur [l’ajout de la prise en charge pour la connexion Azure AD](authentication-scenarios.md).
 
 **Simplifiez l’inscription à votre application.**  Lors de l'inscription de votre application, Azure AD peut envoyer des informations essentielles sur un utilisateur pour vous permettre de remplir au préalable votre formulaire d'inscription ou de le supprimer complètement. Les utilisateurs peuvent s’inscrire à votre application à l'aide de leur compte Azure AD via une expérience de consentement courante, similaire à celles des réseaux sociaux et des applications mobiles. N'importe quel utilisateur peut s'inscrire et se connecter à une application qui est intégrée à Azure AD sans avoir besoin de l’intervention des services informatiques. En savoir plus sur [l’inscription de votre application pour la connexion d’un compte Azure AD](../../app-service/configure-authentication-provider-aad.md) .
 
@@ -92,5 +92,5 @@ L’intégration à Azure AD est fournie avec des avantages qui ne nécessitent
 
 [Commencer à écrire du code](v2-overview.md#getting-started).
 
-[Connecter les utilisateurs à l’aide de la plateforme d’identité Microsoft](v1-authentication-scenarios.md)
+[Connecter les utilisateurs à l’aide de la plateforme d’identité Microsoft](authentication-scenarios.md)
 

@@ -3,22 +3,22 @@ title: Configurer des fournisseurs d’identité (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: Découvrez comment utiliser différentes autorités, telles que B2C, des clouds souverains et des utilisateurs invités, avec MSAL pour iOS et macOS.
 services: active-directory
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: aaef7c4c0e2fa295e6e20976df5cce1523a70c43
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 4810de772e44be22ee5bd4a9fb6ef0ef756e62f4
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697776"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085209"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>Procédure : configurer MSAL pour iOS et macOS afin d’utiliser différents fournisseurs d’identité
 

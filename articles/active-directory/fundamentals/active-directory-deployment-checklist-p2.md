@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc06931dd36c9ecd91ec1d748b9463f47f7afafc
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: f84226a631014b51338d47887fe3bafc969dc571
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880583"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063643"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guide de déploiement des fonctionnalités d’Azure Active Directory
 
@@ -26,7 +26,7 @@ Une infrastructure d’identités correctement planifiée et exécutée offre un
 
 Par ailleurs, les clients peuvent vérifier leur [degré de sécurisation d’identité](identity-secure-score.md) pour voir s’ils sont conformes aux bonnes pratiques de Microsoft. Vérifiez votre degré de sécurisation avant et après l’implémentation de ces recommandations, pour voir si vous faites mieux (ou moins bien) que les autres organisations de votre secteur ou de même taille que la vôtre.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 La plupart des suggestions de ce guide peuvent être implémentées avec Azure AD Free ou Basic, ou sans licence. Quand une licence est obligatoire, nous indiquons l’édition minimum nécessaire pour accomplir la tâche.
 
@@ -94,7 +94,7 @@ Dans l’étape 4, les administrateurs appliquent le principe du moindre privil
 | [Terminer une révision d’accès des rôles d’annuaire Azure AD dans PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Consultez vos équipes de sécurité et de direction pour créer une stratégie de révision d’accès afin d’examiner les accès administratifs en fonction des stratégies de votre organisation. | Azure AD Premium P2 |
 | [Implémenter des stratégies d’appartenance de groupe dynamique](../users-groups-roles/groups-dynamic-membership.md) | Utilisez des groupes dynamiques pour attribuer automatiquement des utilisateurs à des groupes en fonction de leurs attributs dans HR (ou votre source de confiance), comme le service, le poste, la région, et autres. |  |
 | [Implémenter le provisionnement d’applications en fonction du groupe](../manage-apps/what-is-access-management.md) | Utilisez le provisionnement de gestion d’accès en fonction du groupe pour provisionner automatiquement des utilisateurs pour les applications SaaS. |  |
-| [Automatiser le provisionnement et le déprovisionnement](../manage-apps/user-provisioning.md) | Supprimez les étapes manuelles du cycle de vie des comptes de vos employés pour empêcher les accès non autorisés. Synchronisez des identités depuis votre source fidèle (système HR) vers Azure AD. |  |
+| [Automatiser le provisionnement et le déprovisionnement](../app-provisioning/user-provisioning.md) | Supprimez les étapes manuelles du cycle de vie des comptes de vos employés pour empêcher les accès non autorisés. Synchronisez des identités depuis votre source fidèle (système HR) vers Azure AD. |  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

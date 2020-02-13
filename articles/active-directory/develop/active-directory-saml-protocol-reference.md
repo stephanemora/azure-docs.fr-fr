@@ -13,12 +13,12 @@ ms.date: 10/05/2018
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 372eac63b2ab9ea7dea540a088d61a5144886686
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: dc7771f29fb5d00aedfe5162a98f5f0c14544a7b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698592"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161169"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Utilisation du protocole SAML par Azure AD
 
@@ -36,4 +36,4 @@ Azure Active Directory expose les points de terminaison d’authentification uni
 
 * Le point de terminaison indépendant du locataire se trouve à l’adresse `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. Dans cette adresse de point de terminaison, l’élément **common** remplace le nom de domaine ou l’ID du locataire.
 
-Pour plus d’informations sur les documents de métadonnées de fédération publiés par Azure AD, consultez la page [Métadonnées de fédération](azure-ad-federation-metadata.md).
+Pour plus d’informations sur les documents de métadonnées de fédération publiés par Azure AD, consultez la page [Métadonnées de fédération](../azuread-dev/azure-ad-federation-metadata.md).

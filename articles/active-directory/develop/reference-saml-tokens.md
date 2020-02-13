@@ -17,12 +17,12 @@ ms.date: 06/22/2018
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 01ea64a56d43976d319618350e68e03bba775e8e
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2eb279d8f5871a0c6738ecc89fb7d01730187564
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702893"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160302"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Référence de jeton SAML Azure AD
 
@@ -157,7 +157,7 @@ Il s'agit d'un exemple de jeton SAML classique.
 ## <a name="related-content"></a>Contenu connexe
 
 * Consultez les [opérations de stratégie](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) Azure AD Graph et [l’entité de stratégie](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) pour en savoir plus sur la gestion des stratégies de durée de vie des jetons par le biais de l’API Azure AD Graph.
-* Pour plus d’informations et des exemples sur la gestion des stratégies par le biais des applets de commande PowerShell, consultez [Durées de vie de jeton configurables dans Azure AD](active-directory-configurable-token-lifetimes.md) (en anglais). 
-* Ajoutez [revendications personnalisées et facultatives](active-directory-optional-claims.md) aux jetons pour votre application.
+* Pour plus d’informations et des exemples sur la gestion des stratégies par le biais des applets de commande PowerShell, consultez [Durées de vie de jeton configurables dans Azure AD](../develop/active-directory-configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) (en anglais). 
+* Ajoutez [revendications personnalisées et facultatives](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) aux jetons pour votre application.
 * Utilisez l’[authentification unique (SSO) avec SAML](single-sign-on-saml-protocol.md).
 * Utilisez le [protocole SAML de déconnexion unique Azure](single-sign-out-saml-protocol.md)

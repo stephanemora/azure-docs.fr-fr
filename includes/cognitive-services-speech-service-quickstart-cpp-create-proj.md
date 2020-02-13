@@ -2,16 +2,16 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/21/2019
+ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 942636a6ff6dcfe74a04a66d67a4490224b4538e
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2f9e02af0652108fe10e4b73e7bb43c48451ca77
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391625"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77123161"
 ---
-Pour créer un projet Visual Studio pour le développement Desktop en C++, vous devez configurer les options de développement de Visual Studio, créer le projet, sélectionner l’architecture cible et installer le SDK Speech. 
+Pour créer un projet Visual Studio pour le développement Desktop en C++, vous devez configurer les options de développement de Visual Studio, créer le projet, sélectionner l’architecture cible et installer le SDK Speech.
 
 ### <a name="set-up-visual-studio-development-options"></a>Configurer les options de développement de Visual Studio
 
@@ -19,7 +19,7 @@ Pour commencer, vérifiez que Visual Studio est configuré correctement pour le 
 
 1. Ouvrez Visual Studio 2019 pour afficher la fenêtre **Démarrer**.
 
-   ![Fenêtre Démarrer - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png) 
+   ![Fenêtre Démarrer - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-start-window.png)
 
 1. Sélectionnez **Continuer sans code** pour accéder à l’IDE Visual Studio.
 
@@ -77,4 +77,4 @@ Enfin, installez le [package NuGet du SDK Speech](https://aka.ms/csspeech/nuget)
 
 1. Dans la boîte de dialogue **Aperçu des modifications**, sélectionnez **OK**.
 
-1. Dans la boîte de dialogue **Acceptation de la licence**, affichez la licence, puis sélectionnez **J’accepte**. L’installation du package commence et, quand l’installation est terminée, le volet **Sortie** affiche un message similaire au texte suivant : `Successfully installed 'Microsoft.CognitiveServices.Speech 1.7.0' to helloworld`. 
+1. Dans la boîte de dialogue **Acceptation de la licence**, affichez la licence, puis sélectionnez **J’accepte**. L’installation du package commence et, quand l’installation est terminée, le volet **Sortie** affiche un message similaire au texte suivant : `Successfully installed 'Microsoft.CognitiveServices.Speech 1.9.0' to helloworld`.

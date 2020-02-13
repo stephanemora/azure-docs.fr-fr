@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7f903ca541582dfa0f3980bb65a3fef3c4b774a7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 018d0c3bc009f6063de75b9a479be650b2c06e7c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916772"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160842"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Gérer les erreurs et les exceptions MSAL
 
@@ -48,14 +48,14 @@ Si l’exception [MsalServiceException](/dotnet/api/microsoft.identity.client.ms
 
 Voici les exceptions courantes pouvant être levées et certaines atténuations possibles :  
 
-| Exception | Code d'erreur | Atténuation|
+| Exception | Code d'erreur | Limitation des risques|
 | --- | --- | --- |
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001 : L’utilisateur ou l’administrateur n’a pas donné son consentement pour utiliser l’application portant l’ID « {appId} » et le nom « {appName} ». Envoyez une demande d’autorisation interactive pour cet utilisateur et cette ressource.| Vous devez d’abord obtenir le consentement de l’utilisateur. Si vous n’utilisez pas .NET Core (qui n’a pas d’interface utilisateur web), appelez (une seule fois) `AcquireTokeninteractive`. Si vous utilisez .NET Core ou que vous ne souhaitez pas effectuer une `AcquireTokenInteractive`, l’utilisateur peut accéder à une URL pour donner son consentement : https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read. pour appeler `AcquireTokenInteractive` : `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079 : L’utilisateur est obligé d’utiliser l’authentification multifacteur (MFA).| Il n’y a pas d’atténuation. Si l’authentification multifacteur est configurée pour votre locataire et qu’Azure Active Directory (AAD) décide de l’appliquer, vous avez besoin de basculer vers un flux interactif, comme `AcquireTokenInteractive` ou `AcquireTokenByDeviceCode`.|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010 : Le type d’autorisation n’est pas pris en charge sur les points de terminaison */common* ou */consumers*. Utilisez le point de terminaison */organizations* ou propre au locataire. Vous avez utilisé */common*.| Comme expliqué dans le message d’Azure AD, l’autorité doit avoir un locataire ou utiliser */organizations*.|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002 : Le corps de la requête doit contenir le paramètre : `client_secret or client_assertion`.| Cette exception peut être levée si votre application n’a pas été inscrite en tant qu’application cliente publique dans Azure AD. Dans le Portail Azure, modifiez le manifeste de votre application et affectez à `allowPublicClient` la valeur `true`. |
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| `unknown_user Message`: Impossible d’identifier l’utilisateur connecté.| La bibliothèque n’a pas pu interroger l’utilisateur Windows actuellement connecté ou cet utilisateur n’est pas rattaché à AD ou AAD (les utilisateurs rattachés à l’espace de travail ne sont pas pris en charge). Atténuation 1 : Sur UWP, vérifiez que l’application a les fonctionnalités suivantes : Authentification en entreprise, Réseaux privés (client et serveur), Informations sur le compte d’utilisateur. Atténuation 2 : Implémentez votre propre logique pour extraire le nom d’utilisateur (par exemple, john@contoso.com) et utiliser le formulaire `AcquireTokenByIntegratedWindowsAuth` qui prend le nom d’utilisateur.|
-| [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)|integrated_windows_auth_not_supported_managed_user| Cette méthode s’appuie sur un protocole exposé par Active Directory (AD). Si un utilisateur a été créé dans Azure Active Directory sans stockage dans AD (utilisateur « managé »), cette méthode échoue. Les utilisateurs créés dans AD et stockés par AAD (utilisateurs « fédérés ») peuvent bénéficier de cette méthode d’authentification non interactive. Atténuation : Utilisez l’authentification interactive.|
+| [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)|integrated_windows_auth_not_supported_managed_user| Cette méthode s’appuie sur un protocole exposé par Active Directory (AD). Si un utilisateur a été créé dans Azure Active Directory sans stockage dans AD (utilisateur « managé »), cette méthode échoue. Les utilisateurs créés dans AD et stockés par AAD (utilisateurs « fédérés ») peuvent bénéficier de cette méthode d’authentification non interactive. Atténuation des risques : Utilisez l’authentification interactive.|
 
 ### `MsalUiRequiredException`
 
@@ -78,7 +78,7 @@ MSAL expose un champ `Classification`, que vous pouvez lire pour fournir une mei
 | UserPasswordExpired | Le mot de passe de l’utilisateur a expiré. | Appelez AcquireTokenInteractively() pour que l’utilisateur puisse réinitialiser son mot de passe. |
 | PromptNeverFailed| L’authentification interactive a été appelée avec le paramètre prompt=never, forçant MSAL à s’appuyer sur les cookies du navigateur et à ne pas afficher le navigateur. Ceci a échoué. | Appelez AcquireTokenInteractively() sans Prompt.None |
 | AcquireTokenSilentFailed | Le SDK MSAL ne dispose pas de suffisamment d’informations pour extraire un jeton du cache. Cela peut être dû au fait qu’aucun jeton n’est présent dans le cache ou qu’un compte n’a pas été trouvé. Le message d’erreur contient plus d’informations.  | Appelez AcquireTokenInteractively(). |
-| Aucun    | Aucun détail supplémentaire n’est fourni. La condition peut être résolue par l’interaction de l’utilisateur pendant le flux d’authentification interactive. | Appelez AcquireTokenInteractively(). |
+| None    | Aucun détail supplémentaire n’est fourni. La condition peut être résolue par l’interaction de l’utilisateur pendant le flux d’authentification interactive. | Appelez AcquireTokenInteractively(). |
 
 ## <a name="net-code-example"></a>Exemple de code .NET
 
@@ -142,7 +142,7 @@ catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantE
 
 MSAL.js fournit des objets d’erreur qui résument et classifient les différents types d’erreurs courantes. Il fournit également une interface pour accéder à des détails spécifiques des erreurs, comme les messages d’erreur, afin de les traiter de manière appropriée.
 
-### <a name="error-object"></a>Objet Error
+### <a name="error-object"></a>Objet d’erreur
 
 ```javascript
 export class AuthError extends Error {
@@ -506,7 +506,7 @@ L’exemple de code Objective-C suivant illustre les meilleures pratiques pour g
 
 ## <a name="conditional-access-and-claims-challenges"></a>Accès conditionnel et revendications
 
-Quand vous obtenez des jetons silencieusement, votre application risque de recevoir des erreurs quand une [revendication d’accès conditionnel](conditional-access-dev-guide.md), comme une stratégie d’authentification multifacteur, est exigée par une API à laquelle vous essayez d’accéder.
+Quand vous obtenez des jetons silencieusement, votre application risque de recevoir des erreurs quand une [revendication d’accès conditionnel](../azuread-dev/conditional-access-dev-guide.md), comme une stratégie d’authentification multifacteur, est exigée par une API à laquelle vous essayez d’accéder.
 
 Le modèle de gestion de cette erreur consiste à acquérir de manière interactive un jeton à l’aide de MSAL. L’acquisition interactive d’un jeton propose une invite à l’utilisateur et lui donne la possibilité de satisfaire à la stratégie d’accès conditionnel exigée.
 
@@ -520,7 +520,7 @@ Pour gérer la revendication, vous devez utiliser la méthode `.WithClaim()` de 
 
 ### <a name="javascript"></a>JavaScript
 
-Quand vous obtenez des jetons silencieusement (en utilisant `acquireTokenSilent`) avec MSAL.js, votre application risque de recevoir des erreurs quand une [revendication d’accès conditionnel](conditional-access-dev-guide.md) comme une stratégie d’authentification multifacteur est exigée par une API à laquelle vous essayez d’accéder.
+Quand vous obtenez des jetons silencieusement (en utilisant `acquireTokenSilent`) avec MSAL.js, votre application risque de recevoir des erreurs quand une [revendication d’accès conditionnel](../azuread-dev/conditional-access-dev-guide.md) comme une stratégie d’authentification multifacteur est exigée par une API à laquelle vous essayez d’accéder.
 
 Le modèle permettant de gérer cette erreur consiste à effectuer un appel interactif pour acquérir un jeton dans MSAL.js comme `acquireTokenPopup` ou `acquireTokenRedirect`, comme dans l’exemple suivant :
 

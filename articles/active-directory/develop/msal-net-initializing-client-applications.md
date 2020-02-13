@@ -3,22 +3,22 @@ title: Initialiser des applications clientes MSAL.NET | Azure
 titleSuffix: Microsoft identity platform
 description: En savoir plus sur l’initialisation d’applications clientes publiques et confidentielles à l’aide de la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/12/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 31af3691e9f55eb4263b5976c2dc82c029cbc3a0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 57ce6ab31421cd4016f7e204eeabce82f2f7e6a7
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695549"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083990"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Initialiser des applications clientes avec MSAL.NET
 Cet article décrit l’initialisation d’applications clientes publiques et confidentielles à l’aide de la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).  Pour en savoir plus sur les types d’applications clientes et les options de configuration d’application, consultez la [vue d’ensemble](msal-client-applications.md).

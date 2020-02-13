@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: 364395a05737f6dc6333b922f54376a9d5149fe6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 38cb1222a64b1759528749caa15dfb1bb906cef6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701448"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159911"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Location dans Azure Active Directory
 
@@ -46,9 +46,9 @@ Dans le portail Azure, vous pouvez configurer votre application pour être mono-
 
 La création de formidables applications multi-locataires peut s’avérer difficile en raison du nombre de stratégies différentes que les administrateurs informatiques peuvent définir dans leurs locataires. Si vous choisissez de créer une application multi-locataire, suivez ces meilleures pratiques :
 
-* Testez votre application dans un locataire dans lequel des [stratégies d’accès conditionnel](conditional-access-dev-guide.md) sont configurées.
+* Testez votre application dans un locataire dans lequel des [stratégies d’accès conditionnel](../azuread-dev/conditional-access-dev-guide.md) sont configurées.
 * Suivez le principe de moindre accès utilisateur pour vous assurer que votre application demande uniquement des autorisations dont elle a réellement besoin. Évitez de demander des autorisations qui nécessitent le consentement de l’administrateur car ceci peut empêcher les utilisateurs d’acquérir votre application dans certaines organisations. 
-* Fournissez les noms et descriptions appropriés de toutes les autorisations que vous exposez dans le cadre de votre application. Cela permet aux utilisateurs et administrateurs de savoir ce qui sont autorisés à faire lorsqu’ils tentent d’utiliser les API de votre application. Pour plus d’informations, consultez la section des meilleures pratiques dans le [guide des autorisations](v1-permissions-and-consent.md).
+* Fournissez les noms et descriptions appropriés de toutes les autorisations que vous exposez dans le cadre de votre application. Cela permet aux utilisateurs et administrateurs de savoir ce qui sont autorisés à faire lorsqu’ils tentent d’utiliser les API de votre application. Pour plus d’informations, consultez la section des meilleures pratiques dans le [guide des autorisations](v2-permissions-and-consent.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

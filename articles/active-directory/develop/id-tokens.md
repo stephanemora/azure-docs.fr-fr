@@ -13,16 +13,16 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 912287200097906af7a8a9d6d12eb1421f3edadc
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 1efd027edb85cabcfdc2a170771ef19182b5c9f8
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696756"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160948"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Jetons d’ID de la plateforme d’identités Microsoft
 
-Les jetons `id_tokens` sont envoyés à l’application cliente dans le cadre d’un flux [OpenID Connect](v1-protocols-openid-connect-code.md). Ils peuvent être envoyés avec ou à la place un jeton d’accès et sont utilisés par le client pour authentifier l’utilisateur.
+Les jetons `id_tokens` sont envoyés à l’application cliente dans le cadre d’un flux [OpenID Connect](v2-protocols-oidc.md). Ils peuvent être envoyés avec ou à la place un jeton d’accès et sont utilisés par le client pour authentifier l’utilisateur.
 
 ## <a name="using-the-id_token"></a>Utilisation du jeton id_token
 

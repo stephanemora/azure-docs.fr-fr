@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 7a4a58943b251628780694c001ca441a14e9c09a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 52779b7ffea0f33676426f145a700c7181cf0bf1
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698677"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161254"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
@@ -180,4 +180,4 @@ Tout d’abord, Azure AD vérifie si le type d’utilisateur de Brita est `All g
 
 * [Gestion des applications dans Azure AD](../manage-apps/what-is-application-management.md)
 * [Configurer l’authentification unique pour les applications ne faisant pas partie de la galerie d’applications Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Résoudre les erreurs d’authentification unique basée sur SAML](howto-v1-debug-saml-sso-issues.md)
+* [Résoudre les erreurs d’authentification unique basée sur SAML](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

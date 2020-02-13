@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.openlocfilehash: f3cafb4d2df4d1944f583a99ca2014f3841827d0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: ccece6c840033913ec6d96b446dcb98c4befb32f
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701856"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159996"
 ---
 # <a name="single-page-application-call-a-web-api"></a>Application monopage : Appeler une API web
 
@@ -27,7 +27,7 @@ Nous vous recommandons d’appeler la méthode `acquireTokenSilent` pour acquér
 
 ## <a name="call-a-web-api"></a>Appeler une API web
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 Utilisez le jeton d’accès acquis, en tant que porteur dans une requête HTTP, pour appeler une API web, telle que l’API Microsoft Graph. Par exemple :
 
@@ -47,9 +47,11 @@ Utilisez le jeton d’accès acquis, en tant que porteur dans une requête HTTP,
         }
 ```
 
-### <a name="angular"></a>Angular
+# <a name="angulartabangular"></a>[Angular](#tab/angular)
 
 Le wrapper MSAL Angular tire parti de l’intercepteur HTTP pour acquérir automatiquement des jetons d’accès en mode silencieux, et les joindre aux requêtes HTTP destinées aux API. Pour plus d’informations, consultez [Acquérir un jeton pour appeler une API](scenario-spa-acquire-token.md).
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

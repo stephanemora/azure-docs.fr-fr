@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Personnaliser l’assistant vocal, C# (UWP) – Ser
 titleSuffix: Azure Cognitive Services
 description: Dans cet article, vous créez une application UWP (plateforme Windows universelle) C# en utilisant le kit SDK Speech de Cognitive Services. Vous connectez votre application cliente à un bot Bot Framework existant configuré pour utiliser le canal Direct Line Speech. L’application est créée avec le package NuGet du SDK Speech et Microsoft Visual Studio 2019.
 services: cognitive-services
-author: trrwilson
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.author: travisw
-ms.openlocfilehash: 25d74b640f1bf567792c317626da0178ead7e34f
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: af9395b8f75a9097d4449571fd54be6259a7b9f3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816230"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119780"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-uwp"></a>Démarrage rapide : Créer un assistant vocal avec le SDK Speech, UWP
 
@@ -26,7 +26,7 @@ Dans cet article, vous allez développer une application UWP (plateforme Windows
 > [!NOTE]
 > La plateforme Windows universelle vous permet de développer des applications qui s’exécutent sur n’importe quel appareil prenant en charge Windows 10, notamment des PC, Xbox, Surface Hub et d’autres appareils.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Ce démarrage rapide nécessite :
 
