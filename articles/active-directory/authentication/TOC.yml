@@ -64,7 +64,7 @@
   items:
     - name: Réinitialisation de mot de passe libre-service
       items:
-        - name: Déployer la réinitialisation du mot de passe en libre-service
+        - name: Guide de déploiement
           href: howto-sspr-deployment.md
         - name: Préinscrire des données d’authentification
           href: howto-sspr-authenticationdata.md
@@ -74,7 +74,7 @@
           href: howto-sspr-windows.md
     - name: Authentification multifacteur sur le cloud
       items:
-        - name: Déployer une authentification multifacteur sur le cloud
+        - name: Guide de déploiement
           href: howto-mfa-getstarted.md
         - name: Authentification multifacteur par utilisateur
           href: howto-mfa-userstates.md

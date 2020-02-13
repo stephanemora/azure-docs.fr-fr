@@ -1,38 +1,39 @@
 ---
 title: Index des exemples de stratégie
-description: Index des exemples pour Azure Policy. Les catégories incluent notamment le nommage, les étiquettes, le coffre de clés, le réseau et le stockage.
-ms.date: 03/19/2019
+description: Index des définitions intégrées pour Azure Policy. Étiquettes de catégories, conformité à la réglementation, Key Vault, Kubernetes, Guest configuration et plus encore.
+ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: 54e77a83a03d9a8f5cedd59f010569d7ecef7d90
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 11e36ba71e1b88f279e824948dffa809f16fd443
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74070103"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168027"
 ---
 # <a name="azure-policy-samples"></a>Exemples Azure Policy
 
-Le tableau suivant inclut des liens vers des exemples pour Azure Policy. Ces exemples se trouvent également dans le [dépôt d’exemples d’Azure Policy](https://github.com/Azure/azure-policy).
+Cette page est un index de définitions de stratégie intégrées et de modèles d’utilisation de langage Azure Policy.
 
-[!INCLUDE [azure-policy-samples-general](../../../../includes/azure-policy-samples-general.md)]
+## <a name="built-ins"></a>Éléments intégrés
 
-[!INCLUDE [azure-policy-samples-compute](../../../../includes/azure-policy-samples-compute.md)]
+- [Stratégies](./built-in-policies.md)
+- [Initiatives](./built-in-initiatives.md)
 
-[!INCLUDE [azure-policy-samples-datalake](../../../../includes/azure-policy-samples-datalake.md)]
+## <a name="patterns"></a>Modèles
 
-[!INCLUDE [azure-policy-samples-guest-configuration](../../../../includes/azure-policy-samples-guest-configuration.md)]
+Voici quelques exemples de modèles différents utilisant le langage et les opérateurs dans Azure Policy :
 
-[!INCLUDE [azure-policy-samples-keyvault](../../../../includes/azure-policy-samples-keyvault.md)]
-
-[!INCLUDE [azure-policy-samples-monitoring](../../../../includes/azure-policy-samples-monitoring.md)]
-
-[!INCLUDE [azure-policy-samples-network](../../../../includes/azure-policy-samples-network.md)]
-
-[!INCLUDE [azure-policy-samples-sql](../../../../includes/azure-policy-samples-sql.md)]
-
-[!INCLUDE [azure-policy-samples-storage](../../../../includes/azure-policy-samples-storage.md)]
+- [Opérateurs logiques](./pattern-logical-operators.md)
+- [Fields](./pattern-fields.md)
+- [Paramètres](./pattern-parameters.md)
+- [Détails des effets](./pattern-effect-details.md)
+- [Opérateur value](./pattern-value-operator.md)
+- [Opérateur count](./pattern-count-operator.md)
+- [Regroupement de définitions de stratégie dans une initiative](./pattern-group-with-initiative.md)
+- [Déploiement de ressources avec deployIfNotExists](./pattern-deploy-resources.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Consultez les définitions intégrées dans le [dépôt Azure Policy de GitHub](https://github.com/Azure/azure-policy).
 - Consultez la [Structure de définition Azure Policy](../concepts/definition-structure.md).
 - Consultez la page [Compréhension des effets de Policy](../concepts/effects.md).

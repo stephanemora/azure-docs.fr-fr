@@ -15,7 +15,9 @@
           href: b2b-quickstart-invite-powershell.md
     - name: Tutoriels
       items:
-        - name: Inviter en bloc des utilisateurs invités B2B
+        - name: Inviter en bloc via PowerShell
+          href: bulk-invite-powershell.md
+        - name: Inviter en bloc via le portail (préversion)
           href: tutorial-bulk-invite.md
         - name: Application de l’authentification multifacteur via Azure Multi-Factor Authentication
           href: b2b-tutorial-require-mfa.md

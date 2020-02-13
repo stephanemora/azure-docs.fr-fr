@@ -907,22 +907,6 @@
           href: platform/rest-api-walkthrough.md
     - name: Visualiser les données
       items:
-        - name: Les vues
-          items:
-            - name: Concepteur de vue
-              href: platform/view-designer.md
-            - name: Référence de vignette
-              href: platform/view-designer-tiles.md
-            - name: Référence des composants de visualisation
-              href: platform/view-designer-parts.md
-            - name: Filtres
-              href: platform/view-designer-filters.md
-        - name: Power BI
-          items:
-            - name: Exporter des données de journal
-              href: platform/powerbi.md
-            - name: Exporter des données d’application
-              href: app/export-power-bi.md
         - name: Workbooks
           items:
             - name: Vue d’ensemble
@@ -949,6 +933,36 @@
                       href: platform/workbooks-time.md
                     - name: Paramètres de texte
                       href: platform/workbooks-text.md
+        - name: Les vues
+          items:
+            - name: Convertir des vues en classeurs
+              items:
+                - name: Vue d’ensemble d’une conversion
+                  href: platform/view-designer-conversion-overview.md
+                - name: Options de conversion
+                  href: platform/view-designer-conversion-options.md
+                - name: Vue d’ensemble et accès
+                  href: platform/view-designer-conversion-access.md
+                - name: Tâches courantes
+                  href: platform/view-designer-conversion-tasks.md
+                - name: Conversions de vignettes
+                  href: platform/view-designer-conversion-tiles.md
+                - name: Exemples
+                  href: platform/view-designer-conversion-examples.md
+            - name: Concepteur de vue
+              href: platform/view-designer.md
+            - name: Référence de vignette
+              href: platform/view-designer-tiles.md
+            - name: Référence des composants de visualisation
+              href: platform/view-designer-parts.md
+            - name: Filtres
+              href: platform/view-designer-filters.md
+        - name: Power BI
+          items:
+            - name: Exporter des données de journal
+              href: platform/powerbi.md
+            - name: Exporter des données d’application
+              href: app/export-power-bi.md
         - name: Tableaux de bord
           items:
             - name: Tableau de bord utilisant des données de journal

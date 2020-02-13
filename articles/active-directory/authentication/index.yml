@@ -10,14 +10,14 @@ metadata:
   ms.topic: landing-page
   author: iainfoulds
   ms.author: iainfou
-  ms.date: 08/20/2019
+  ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 01e1fe5ed73275078fc37dbec9a0857a8c4a8619
-  ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+  ms.openlocfilehash: 3c431b81c0da54045e9b9b020de5275912b394c6
+  ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/05/2019
-  ms.locfileid: "74847149"
+  ms.lasthandoff: 02/12/2020
+  ms.locfileid: "77166415"
 landingContent:
 - title: À propos de l’authentification
   linkLists:
@@ -39,16 +39,16 @@ landingContent:
       url: concept-sspr-howitworks.md
     - text: Réécriture du mot de passe
       url: concept-sspr-writeback.md
-  - linkListType: quickstart
+  - linkListType: tutorial
     links:
-    - text: Démarrage rapide de la réinitialisation de mot de passe en libre-service
-      url: quickstart-sspr.md
+    - text: Activer la réinitialisation du mot de passe libre-service
+      url: tutorial-enable-sspr.md
+    - text: Activer l’écriture différée du mot de passe au niveau local
+      url: tutorial-enable-writeback.md
   - linkListType: deploy
     links:
-    - text: Déployer la réinitialisation de mot de passe en libre-service Azure AD
+    - text: Guide de déploiement pour la réinitialisation de mot de passe en libre-service
       url: howto-sspr-deployment.md
-    - text: Activer la réécriture du mot de passe
-      url: howto-sspr-writeback.md
     - text: Activer la réinitialisation de mot de passe à partir de l’écran de connexion Windows
       url: howto-sspr-windows.md
 - title: Activation d’Azure Multi-Factor Authentication
@@ -59,13 +59,13 @@ landingContent:
       url: concept-mfa-howitworks.md
   - linkListType: tutorial
     links:
-    - text: Tester Azure MFA pour des applications spécifiques
-      url: tutorial-mfa-applications.md
-    - text: Utiliser les détections de risques pour déclencher l’authentification multifacteur et le changement du mot de passe
+    - text: Activation d’Azure Multi-Factor Authentication
+      url: tutorial-enable-azure-mfa.md
+    - text: Activer Azure Multi-Factor Authentication en fonction des risques
       url: tutorial-risk-based-sspr-mfa.md
   - linkListType: deploy
     links:
-    - text: Déployer Microsoft Azure Multi-Factor Authentication
+    - text: Guide de déploiement pour Azure Multi-Factor Authentication
       url: howto-mfa-getstarted.md
     - text: Utiliser une extension NPS pour intégrer des applications locales
       url: howto-mfa-nps-extension.md
