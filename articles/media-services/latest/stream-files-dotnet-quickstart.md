@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7f997865ba33a51c3e3aa7a4c7e990037be9e534
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: df4092ecc3f7d075f1a2821854cdb668ee2cebe5
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637336"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191225"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Didacticiel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu - .NET
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---net"></a>Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu - .NET
 
 Ce tutoriel vous montre combien il est facile de coder et de lancer la diffusion en continu de vidéos sur une grande variété de navigateurs et d’appareils à l’aide d’Azure Media Services. Un contenu d’entrée peut être spécifié à l’aide d’URL HTTPS, d’URL SAP ou de chemins d’accès aux fichiers situés dans le Stockage Blob Azure.
 Dans cette rubrique, l’exemple encode du contenu que vous mettez à disposition via une URL HTTPS. Notez qu’AMS v3 ne prend pas en charge l’encodage de transfert mémorisé en bloc sur les URL HTTPS.
@@ -31,7 +31,7 @@ Dans cette rubrique, l’exemple encode du contenu que vous mettez à dispositio
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Si vous n’avez pas Visual Studio, vous pouvez obtenir [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Créer un compte Media Services](create-account-cli-how-to.md).<br/>Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du groupe de ressources et le nom du compte Media Services.
@@ -52,7 +52,7 @@ Ouvrez [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dot
 L’exemple effectue les actions suivantes :
 
 1. Crée une **transformation** (vérifie d’abord si la transformation spécifiée existe). 
-2. Crée une **ressource** de sortie qui est utilisée en tant que sortie du **travail** d’encodage.
+2. Crée un **actif multimédia** de sortie qui est utilisé comme sortie du **travail** d’encodage.
 3. Crée l’entrée du **travail** qui est basée sur une URL HTTPS.
 4. Soumet le **travail** d’encodage à l’aide de l’entrée et de la sortie créées précédemment.
 5. Vérifie l’état du travail.
@@ -82,12 +82,12 @@ Pour tester la diffusion en continu, cet article utilise le lecteur multimédia 
 1. Ouvrez un navigateur web et accédez à [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. Dans le champ **URL :** , collez l’une des valeurs d’URL de diffusion en continu que vous avez obtenues lors de l’exécution de l’application. 
  
-     Vous pouvez coller l’URL dans le format HLS, Dash ou Smooth : Lecteur multimédia Azure passe automatiquement à un protocole de streaming approprié pour la lecture sur votre appareil.
+     Vous pouvez coller l’URL dans le format HLS, Dash ou Smooth : le lecteur multimédia Azure passe automatiquement à un protocole de streaming approprié pour la lecture sur votre appareil.
 3. Appuyez sur **Mise à jour du Lecteur Windows Media**.
 
 Le lecteur multimédia Azure peut être utilisé pour effectuer des tests, mais ne doit pas être utilisé dans un environnement de production. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes Media Services et de stockage que vous avez créés dans ce tutoriel rapide, supprimez le groupe de ressources.
 

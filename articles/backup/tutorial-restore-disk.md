@@ -4,12 +4,12 @@ description: Découvrez comment restaurer un disque et créer une machine virtue
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: f0300930d4dbfb7745f0837eb5fa9605a2e766d7
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 8a66cee7e844f0049f2d2ca2f6841943aa267f3e
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680566"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114191"
 ---
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>Restaurer un disque et créer une machine virtuelle récupérée dans Azure
 
@@ -49,6 +49,7 @@ Pour afficher la liste des points de récupération disponibles, utilisez [az ba
 az backup recoverypoint list \
     --resource-group myResourceGroup \
     --vault-name myRecoveryServicesVault \
+    --backup-management-type AzureIaasVM
     --container-name myVM \
     --item-name myVM \
     --query [0].name \

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 189b8666adde0eedcb451655657a4a82dc5e4fec
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 6f1656d730d55d4c5ab7fb963e49a8057ad88c9f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062520"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185538"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurer des domaines personnalisés dans avec le Proxy d’application Azure AD
 
@@ -144,5 +144,5 @@ Quand un certificat expire, vous recevez un message d’avertissement vous deman
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Activer l’authentification unique](application-proxy-configure-single-sign-on-with-kcd.md) pour vos applications publiées avec l’authentification Azure AD.
-* [Activer l’accès conditionnel](../conditional-access/technical-reference.md#cloud-apps-assignments) à vos applications publiées.
+* [Activer l’accès conditionnel](../conditional-access/overview.md) à vos applications publiées.
 

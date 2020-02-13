@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
-ms.openlocfilehash: d601d19a786613f674f7b941becc5e97d84e6fce
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d4517314742f3ec8e9968d20745ffb697d96f324
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939277"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149930"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Tutoriel : Configurer un enregistrement d’alias pour faire référence à une adresse IP publique 
 
@@ -36,7 +36,7 @@ L’exemple de domaine utilisé pour ce tutoriel est contoso.com, mais utilisez 
 
 ## <a name="create-the-network-infrastructure"></a>Créer l’infrastructure réseau
 Créez d’abord un réseau virtuel et un sous-réseau pour y placer vos serveurs web.
-1. Connectez-vous au portail Azure sur https://portal.azure.com.
+1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Dans le portail en haut à gauche, sélectionnez **Créer une ressource**. Saisissez *groupe de ressources* dans la zone de recherche et créez un groupe de ressources nommé **RG-DNS-Alias-pip**.
 3. Sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
 4. Créez un réseau virtuel nommé **VNet-Server**. Placez-le dans le groupe de ressources **RG-DNS-Alias-pip** et nommez le sous-réseau **SN-Web**.

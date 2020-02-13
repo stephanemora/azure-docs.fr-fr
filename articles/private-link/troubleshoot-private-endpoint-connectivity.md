@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 1c3fc4ebaffe2347a9c46b626b94042d1c9cfe11
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: df4ec6ddbba029eb29d2440717697968f8c79302
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77032171"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191063"
 ---
 # <a name="troubleshoot-private-endpoint-connectivity-problems"></a>Résoudre les problèmes de connectivité Private Endpoint
 
@@ -100,7 +100,7 @@ Passez en revue les étapes listées ci-dessous pour vous assurer que toutes les
        ![Règles de trafic sortant du groupe de sécurité réseau](./media/private-endpoint-tsg/nsg-outbound-rules.png)
 
 5. Si la connexion a des résultats validés, le problème de connectivité est peut-être lié à d’autres aspects tels que les secrets, les jetons et les mots de passe au niveau de la couche application.
-   - Dans ce cas, passez en revue la configuration de la ressource Private Link associée au point de terminaison privé. Consultez le [Guide de résolution des problèmes de liaison privée](https://docs.microsoft.com/azure/private-link/private-link-connectivity-troubleshooting). 
+   - Dans ce cas, passez en revue la configuration de la ressource Private Link associée au point de terminaison privé. Consultez le [Guide de résolution des problèmes de liaison privée](troubleshoot-private-link-connectivity.md). 
 
 6. Si votre problème n’est toujours pas résolu et que le problème de connectivité persiste, contactez l’[équipe de support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). 
 
@@ -108,4 +108,4 @@ Passez en revue les étapes listées ci-dessous pour vous assurer que toutes les
 
  * [Créer un point de terminaison privé sur le sous-réseau mis à jour (portail Azure)](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal)
 
- * [Guide de résolution des problèmes de liaison privée](https://docs.microsoft.com/azure/private-link/private-link-connectivity-troubleshooting)
+ * [Guide de résolution des problèmes de liaison privée](troubleshoot-private-link-connectivity.md)

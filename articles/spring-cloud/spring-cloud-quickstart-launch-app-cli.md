@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: 44b2f39cb1467e3459ee326bf81381830510d6b6
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: adb5b64456de743142ffb464ebb2c5e9f8dc8f86
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278941"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190769"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Démarrage rapide : Lancer une application Java Spring en utilisant Azure CLI
 
@@ -59,7 +59,7 @@ az extension add --name spring-cloud
     ```azurecli
         az login
         az account list -o table
-        az account set --subscription
+        az account set --subscription <Name or ID of subscription from the last step>
     ```
 
 2. Préparez un nom pour votre service Azure Spring Cloud.  Le nom doit comporter entre 4 et 32 caractères, et contenir uniquement des lettres minuscules, des chiffres et des traits d’union.  Le premier caractère du nom du service doit être une lettre, et le dernier doit être une lettre ou un chiffre.
@@ -94,7 +94,7 @@ az extension add --name spring-cloud
 Mettez à jour votre serveur de configuration avec l’emplacement du dépôt Git pour notre projet :
 
 ```git
-az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/Azure-Samples/piggymetrics --label config
+az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
 
 > [!div class="nextstepaction"]

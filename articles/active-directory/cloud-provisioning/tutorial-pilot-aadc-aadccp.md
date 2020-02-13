@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47806fe9c5c97c1f5a9c26d4ca38fb46bdf4057c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: f47f55252c6274360f200a4bce0ed0b739e3d8a3
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931401"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166565"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Provisionnement cloud pilote pour une forêt AD synchronisée existante 
 
@@ -67,8 +67,7 @@ La synchronisation Azure AD Connect synchronise les modifications intervenant da
  3. Dans la page **Description**, entrez les informations ci-dessous et cliquez sur **Suivant** :
 
     **Nom :** attribuez un nom explicite à la règle.<br>
-    **Description :** ajoutez une description explicite.<br> 
-    
+    **Description :** ajoutez une description explicite.<br>
     **Connected System** (Système connecté) : choisissez le connecteur AD pour lequel vous écrivez la règle de synchronisation personnalisée.<br>
     **Connected System Object Type** (Type d’objet système connecté) : Utilisateur<br>
     **Metaverse Object Type** (Type d’objet métaverse) : Person<br>

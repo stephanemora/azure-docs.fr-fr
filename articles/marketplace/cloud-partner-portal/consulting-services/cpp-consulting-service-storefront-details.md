@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 3d741361cdeb25d6fc063f95da7bc301178f31fc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 557cfeb66301650e932e5ce271080e9fc8a256d6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818080"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191163"
 ---
 # <a name="storefront-details-tab"></a>Onglet des informations sur les vitrines
 
@@ -71,7 +71,7 @@ Entrez la description de l’offre de services de conseil dans la zone **Offer d
 
 N’incluez pas votre adresse e-mail ou numéro de téléphone dans la description de votre offre. Un bouton de **contact** est inclus avec votre offre pour charger les prospects dans l’environnement de gestion des prospects identifié dans votre offre.
 
-Entrez la description de l’offre au format Markdown. Si vous ne connaissez pas le format Markdown ou la mise en forme HTML, consultez [Utiliser Markdown pour écrire du contenu Docs](https://docs.microsoft.com/contribute/how-to-write-use-markdown).
+Entrez la description de l’offre au format Markdown. Si vous ne connaissez pas le format Markdown ou la mise en forme HTML, consultez [Utiliser Markdown pour écrire du contenu Docs](/contribute/markdown-reference).
 
 Utiliser ces formats pour que vos clients puissent lire votre offre facilement.
 

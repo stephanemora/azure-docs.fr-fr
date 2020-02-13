@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: c5379452449188f17b75036eb09c3ca15bae0c2e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1cf519d8d8c25877b49bf14aefd1c0be3afa8023
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448178"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137892"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Démarrage rapide : Reconnaître l’encre numérique avec l’API REST Ink Recognizer et C#
 
@@ -49,11 +49,11 @@ Le code source de ce guide de démarrage rapide est disponible sur [GitHub](http
 
 1. Dans Visual Studio, créez une solution de console et ajoutez les packages suivants. 
     
-    [!code-csharp[import statements](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
+    [!code-csharp[import statements](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
 
 2. Créez des variables pour votre point de terminaison et votre clé d’abonnement, ainsi que l’exemple de fichier JSON. Le point de terminaison sera combiné ultérieurement avec `inkRecognitionUrl` pour accéder à l’API. 
 
-    [!code-csharp[endpoint file and key variables](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
+    [!code-csharp[endpoint file and key variables](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
 
 ## <a name="create-a-function-to-send-requests"></a>Créer une fonction pour envoyer des requêtes
 
@@ -63,7 +63,7 @@ Le code source de ce guide de démarrage rapide est disponible sur [GitHub](http
  
 3. Ensuite, envoyez la requête avec `PutAsync()`. Si la requête réussit, retournez la réponse.  
     
-    [!code-csharp[request example method](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=request)]
+    [!code-csharp[request example method](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=request)]
 
 ## <a name="send-an-ink-recognition-request"></a>Envoyer une requête de reconnaissance de l’écriture manuscrite
 
@@ -71,13 +71,13 @@ Le code source de ce guide de démarrage rapide est disponible sur [GitHub](http
 
 2. Désérialisez l’objet JSON et écrivez-le dans la console. 
     
-    [!code-csharp[request to recognize ink data](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=recognize)]
+    [!code-csharp[request to recognize ink data](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=recognize)]
 
 ## <a name="load-your-digital-ink-data"></a>Charger vos données d’encre numérique
 
 Créez une fonction appelée `LoadJson()` pour charger le fichier JSON de données d’encre. Utilisez un `StreamReader` et un `JsonTextReader` pour créer un `JObject` et retournez-le.
 
-[!code-csharp[load the JSON file](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=loadJson)]
+[!code-csharp[load the JSON file](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=loadJson)]
 
 ## <a name="send-the-api-request"></a>Envoyer la requête d’API
 
@@ -85,7 +85,7 @@ Créez une fonction appelée `LoadJson()` pour charger le fichier JSON de donné
 
 2. Appelez la fonction `recognizeInk()` créée plus haut. Utilisez `System.Console.ReadKey()` pour maintenir la fenêtre de console ouverte après l’exécution de l’application.
     
-    [!code-csharp[file main method](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=main)]
+    [!code-csharp[file main method](~/cognitive-services-rest-samples/dotnet/Vision/InkRecognition/quickstart/recognizeInk.cs?name=main)]
 
 
 ## <a name="run-the-application-and-view-the-response"></a>Exécuter l’application et afficher la réponse

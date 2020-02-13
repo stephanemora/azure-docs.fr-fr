@@ -13,12 +13,12 @@ ms.author: mimart
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c92305d3b8aae5bbc54df58d414cd9b103945bcb
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: a4e2e25189b35f7d17ef42536aa7cd86ac92ec82
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931457"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185866"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Archive des nouveautés d’Azure Active Directory
 
@@ -2331,7 +2331,7 @@ Le 2 avril 2018, de très importantes améliorations des performances ont été 
 
 Par conséquent, de nombreux clients pour lesquels les synchronisations initiales aux applications nécessitaient plusieurs jours ou ne se terminaient jamais effectuent maintenant cette opération en quelques minutes ou heures.
 
-Pour plus d’informations, consultez [Que se passe-t-il pendant l’approvisionnement ?](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works).
+Pour plus d’informations, consultez [Que se passe-t-il pendant l’approvisionnement ?](/azure//active-directory/app-provisioning/how-provisioning-works).
 
 ---
 

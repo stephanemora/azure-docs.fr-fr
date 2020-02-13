@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 8fd938e685c712cda60c171ccf9092ff42e6037e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b9db9daf06b59e1a26a9b03a93aff63984841862
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446490"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118350"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Form Recognizer pour .NET
 
@@ -33,7 +33,6 @@ Utilisez la bibliothèque de client Form Recognizer pour .NET. pour :
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/).
-* Accès à la préversion à accès limité de Form Recognizer. Pour accéder à la préversion, remplissez et envoyez le formulaire de [demande d’accès Form Recognizer](https://aka.ms/FormRecognizerRequestAccess).
 * Un blob Stockage Azure qui contient un jeu de données d’apprentissage. Consultez [Créer un jeu de données d’apprentissage pour un modèle personnalisé](../build-training-data-set.md) pour obtenir des conseils et des options pour constituer vos données d’apprentissage. Dans le cadre de ce guide de démarrage rapide, vous pouvez utiliser les fichiers disponibles dans le dossier **Train** de l’[exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451).
 * Version actuelle de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
 

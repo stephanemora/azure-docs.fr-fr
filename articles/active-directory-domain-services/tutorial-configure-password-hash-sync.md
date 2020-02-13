@@ -7,16 +7,16 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 3a1d99ad282190c61f652179dd08a810c9444064
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: deca7477c79fd2952bb57c0194202c382cd5279d
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481164"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132214"
 ---
-# <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Didacticiel : Activer la synchronisation du mot de passe dans Azure Active Directory Domain Services pour les environnements hybrides
+# <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutoriel : Activer la synchronisation du mot de passe dans Azure Active Directory Domain Services pour les environnements hybrides
 
 Pour les environnements hybrides, un locataire Azure Active Directory (Azure AD) peut être configuré pour se synchroniser avec un environnement Active Directory Domain Services (AD DS) local à l’aide d’Azure AD Connect. Par défaut, Azure AD Connect ne synchronise pas les hachages de mot de passe NTLM (NT LAN Manager) et Kerberos existants demandés pour Azure Active Directory Domain Services (Azure AD DS).
 
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez voir comment :
 
 Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce didacticiel, vous avez besoin des ressources suivantes :
 

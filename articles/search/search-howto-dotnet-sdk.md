@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 54fcd1fb936b5dd41715798408b604106a24bcf9
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: b31a4e40c1e9095499faf265673ab4213ad6bde0
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112599"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190984"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>Comment utiliser Recherche cognitive Azure à partir d’une application .NET
 
@@ -61,7 +61,7 @@ Vous devez faire plusieurs choses dans votre application de recherche. Dans ce d
 
 L’exemple de code suivant illustre chacun de ces scénarios. N'hésitez pas à utiliser les extraits de code dans votre propre application.
 
-### <a name="overview"></a>Vue d'ensemble
+### <a name="overview"></a>Vue d’ensemble
 L’application exemple que nous allons examiner crée un index nommé « hotels », le remplit avec des documents, puis exécute des requêtes de recherche. Voici le programme principal, décrivant le flux global :
 
 ```csharp
@@ -462,7 +462,7 @@ La première chose à remarquer est que le nom de chaque propriété publique da
 > 
 > 
 
-La deuxième chose à remarquer est que chaque propriété est assortie d’attributs tels que `IsFilterable`, `IsSearchable`, `Key` et `Analyzer`. Ces attributs sont mappés directement aux [attributs de champ correspondants dans un index de Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/create-index#request). La classe `FieldBuilder` utilise ces propriétés pour construire des définitions de champ pour l’index.
+La deuxième chose à remarquer est que chaque propriété est assortie d’attributs tels que `IsFilterable`, `IsSearchable`, `Key` et `Analyzer`. Ces attributs sont mappés directement aux [attributs de champ correspondants dans un index de Recherche cognitive Azure](/rest/api/searchservice/create-index). La classe `FieldBuilder` utilise ces propriétés pour construire des définitions de champ pour l’index.
 
 La troisième chose importante concernant la classe `Hotel` a trait aux types de données des propriétés publiques. Les types .NET de ces propriétés correspondent à leurs types de champ équivalents dans la définition de l'index. Par exemple, la propriété de chaîne `Category` correspond au champ `category`, qui est de type `Edm.String`. Il existe des mappages de type similaire entre `bool?`, `Edm.Boolean`, `DateTimeOffset?` et `Edm.DateTimeOffset`, etc. Les règles spécifiques pour le mappage de type sont documentées avec la méthode `Documents.Get` dans [l’article de référence sur le Kit de développement logiciel (SDK) .NET du service Recherche cognitive Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). La classe `FieldBuilder` effectue ce mappage pour vous, mais il peut toutefois être utile de comprendre son fonctionnement, pour les situations éventuelles de résolution des problèmes de sérialisation.
 

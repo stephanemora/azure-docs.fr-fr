@@ -7,14 +7,14 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 1052ef799949550ddaf492b8aa5b77ab9526d092
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 78455c90bab694b77a5e4a56d0b40518867d8d8c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780281"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188359"
 ---
-# <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Ingérer les données d’un hub IoT dans Azure Data Explorer (préversion)
+# <a name="ingest-data-from-iot-hub-into-azure-data-explorer"></a>Ingérer les données d’un hub IoT dans Azure Data Explorer 
 
 > [!div class="op_single_selector"]
 > * [Portail](ingest-data-iot-hub.md)
@@ -83,7 +83,7 @@ Connectez-vous maintenant au hub IoT depuis Azure Data Explorer. Une fois cette 
     | IoT Hub | Nom de l’IoT Hub |
     | Stratégie d’accès partagé | Nom de la stratégie d’accès partagé. Doit avoir des autorisations de lecture |
     | Groupe de consommateurs |  Groupe de consommateurs défini dans le point de terminaison intégré au hub IoT |
-    | Propriétés du système d’événements | [Propriétés système d’événement du hub IoT](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages). Lors de l’ajout des propriétés système, [créez](/azure/kusto/management/tables#create-table) ou [mettez à jour](/azure/kusto/management/tables#alter-table-and-alter-merge-table) le schéma de table et le [mappage](/azure/kusto/management/mappings) pour inclure les propriétés sélectionnées. | | | 
+    | Propriétés du système d’événements | [Propriétés système d’événement du hub IoT](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages). Lors de l’ajout des propriétés système, [créez](/azure/kusto/management/create-table-command) ou [mettez à jour](/azure/kusto/management/alter-table-command) le schéma de table et le [mappage](/azure/kusto/management/mappings) pour inclure les propriétés sélectionnées. | | | 
 
     > [!NOTE]
     > En cas de [basculement manuel](/azure/iot-hub/iot-hub-ha-dr#manual-failover), vous devez recréer la connexion de données.

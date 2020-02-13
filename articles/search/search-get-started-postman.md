@@ -2,26 +2,26 @@
 title: 'Démarrage rapide : Créer un index de recherche dans Postman à l’aide des API REST'
 titleSuffix: Azure Cognitive Search
 description: Dans ce guide de démarrage rapide de l’API REST, découvrez comment appeler les API REST de Recherche cognitive Azure avec Postman, et des exemples de données et de définitions.
-author: HeidiSteen
+author: tchristiani
 manager: nitinme
-ms.author: heidist
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 11/04/2019
-ms.openlocfilehash: 9014a83596a3eee71f43d12a73188c1c43b832af
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/10/2020
+ms.openlocfilehash: c502886aac9d13f7a470a9b83f1fc12334913beb
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406957"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121635"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans Postman à l’aide des API REST
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
 > * [C#](search-create-index-dotnet.md)
 > * [Python](search-get-started-python.md)
-> * [Portal](search-get-started-portal.md)
+> * [Portail](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
@@ -31,7 +31,7 @@ Cet article explique comment formuler des demandes de manière interactive. Vous
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les services et outils suivants sont indispensables dans ce guide de démarrage rapide. 
 
@@ -288,7 +288,7 @@ L’ajout de `/stats` à votre URL retourne des informations d’index. Dans Pos
 
 Notez que la syntaxe de la version d’API diffère. Pour cette requête, utilisez `?` pour ajouter la version d’API. `?` sépare le chemin de l’URL de la chaîne de requête, alors que le signe & sépare chaque paire « nom=valeur » dans la chaîne de requête. Pour cette requête, la version d’API est le premier et seul élément de la chaîne de requête.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous travaillez dans votre propre abonnement, il est recommandé, à la fin de chaque projet, de déterminer si vous avez toujours besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
 

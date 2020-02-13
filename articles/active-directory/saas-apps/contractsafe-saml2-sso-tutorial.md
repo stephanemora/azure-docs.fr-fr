@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f4f625999ff9cbdad6aeefb662e39a6b30a1881
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 7ab2dc71f39164988e0d229fc994548a00447986
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291530"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185631"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-contractsafe-saml2-sso"></a>Tutoriel : Intégrer l’authentification unique Azure Active Directory à ContractSafe Saml2 SSO
 
@@ -85,7 +85,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure 
     b. Dans la zone de texte **URL de réponse**, entrez une URL au format suivant : `https://app.contractsafe.com/saml2_auth/<UNIQUEID>/acs/`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de ContractSafe Saml2 SSO](mailto:donne@contractsafe.com). Vous pouvez aussi vous reporter aux formats présentés dans la section **Configuration SAML de base** du portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de ContractSafe Saml2 SSO](mailto:support@contractsafe.com). Vous pouvez aussi vous reporter aux formats présentés dans la section **Configuration SAML de base** du portail Azure.
 
 1. ContractSafe Saml2 SSO s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
@@ -138,11 +138,11 @@ Dans cette section, vous allez autoriser **B.Simon** à utiliser l’authentific
 
 ## <a name="configure-contractsafe-saml2-sso"></a>Configurer ContractSafe Saml2 SSO
 
-Pour configurer l’authentification unique côté **ContractSafe Saml2 SSO**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL correspondantes copiées à partir du portail Azure à l’[équipe du support technique de ContractSafe Saml2 SSO](mailto:donne@contractsafe.com). L’équipe est chargée de définir correctement la connexion SSO SAML des deux côtés.
+Pour configurer l’authentification unique côté **ContractSafe Saml2 SSO**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL correspondantes copiées à partir du portail Azure à l’[équipe du support technique de ContractSafe Saml2 SSO](mailto:support@contractsafe.com). L’équipe est chargée de définir correctement la connexion SSO SAML des deux côtés.
 
 ## <a name="create-a-contractsafe-saml2-sso-test-user"></a>Créer un utilisateur de test ContractSafe Saml2 SSO
 
-Créez un utilisateur appelé B.Simon dans ContractSafe Saml2 SSO. Travaillez en collaboration avec l’[équipe du support technique de ContractSafe Saml2 SSO ](mailto:donne@contractsafe.com) pour ajouter les utilisateurs dans la plateforme ContractSafe Saml2 SSO. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Créez un utilisateur appelé B.Simon dans ContractSafe Saml2 SSO. Travaillez en collaboration avec l’[équipe du support technique de ContractSafe Saml2 SSO ](mailto:support@contractsafe.com) pour ajouter les utilisateurs dans la plateforme ContractSafe Saml2 SSO. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

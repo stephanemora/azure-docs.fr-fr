@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5f646b4cef782b569910bdf881208c9984194589
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 1e3692920c35a6965a23c0305aeeebfc80505d85
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931117"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190929"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Résoudre les problèmes courants des indexeurs dans la Recherche cognitive Azure
 
@@ -112,6 +112,6 @@ Les indexeurs recherchent des documents dans une [source de données](https://do
 
 * Le document n’a pas été indexé. Consultez le portail pour une exécution réussie de l’indexeur.
 * Le document a été mis à jour après l’exécution de l’indexeur. Si votre indexeur suit une [planification](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), il s’exécutera à nouveau et trouvera le document.
-* La [requête](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax) spécifiée dans la source de données exclut le document. Les indexeurs ne peuvent pas indexer de documents qui ne font pas partie de la source de données.
+* La [requête](/rest/api/searchservice/create-data-source) spécifiée dans la source de données exclut le document. Les indexeurs ne peuvent pas indexer de documents qui ne font pas partie de la source de données.
 * Des [mappages de champs](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) ou l’[enrichissement de l’IA](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) ont modifié le document, qui n’a pas l’aspect prévu.
 * Utilisez [l’API Recherche de document](https://docs.microsoft.com/rest/api/searchservice/lookup-document) pour trouver votre document.

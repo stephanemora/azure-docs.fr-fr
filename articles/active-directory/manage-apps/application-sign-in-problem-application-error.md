@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23e6a3d0b533dccc3c3111382b014907d5c026ab
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 9b8d20b31e96973a492355f0515d0532deea0ac9
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612664"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185493"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Une page d’application affiche un message d’erreur une fois que l’utilisateur est connecté
 
@@ -72,7 +72,7 @@ Pour ajouter un attribut dans la configuration Azure AD qui sera envoyée dans 
 
 La connexion à l’application échoue, car il manque un attribut (par exemple, un rôle) dans la réponse SAML. Elle peut également échouer, car l’application attend un format différent ou une autre valeur pour l’attribut **NameID** (identificateur d’utilisateur).
 
-Si vous utilisez l’[approvisionnement automatique des utilisateurs d’Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) pour créer, gérer et supprimer des utilisateurs dans l’application, vérifiez que l’utilisateur a été approvisionné dans l’application SaaS. Pour en savoir plus, voir [Aucun utilisateur n’est approvisionné dans une application de la galerie Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned).
+Si vous utilisez l’[approvisionnement automatique des utilisateurs d’Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) pour créer, gérer et supprimer des utilisateurs dans l’application, vérifiez que l’utilisateur a été approvisionné dans l’application SaaS. Pour en savoir plus, voir [Aucun utilisateur n’est approvisionné dans une application de la galerie Azure AD](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md).
 
 ## <a name="add-an-attribute-to-the-azure-ad-app-configuration"></a>Ajouter un attribut dans la configuration de l’application Azure AD
 
@@ -107,7 +107,7 @@ Azure AD sélectionne le format de l’attribut **NameID** (identificateur d’
 
 Pour modifier les parties du jeton SAML qui sont signées numériquement par Azure AD, procédez comme suit :
 
-1. Ouvrez le [portail Azure](https://portal.azure.com/) et connectez-vous en tant qu’administrateur général ou coadministrateur.
+1. Ouvrez le [portail Azure](https://portal.azure.com/) et connectez-vous en tant qu’Administrateur général ou que Coadministrateur.
 
 2. En haut du volet de navigation situé à gauche, sélectionnez **Tous les services** pour ouvrir l’extension Azure AD.
 
@@ -140,7 +140,7 @@ Par défaut, Azure AD signe le jeton SAML à l’aide de l’algorithme le plus
 
 Pour modifier l’algorithme de signature, procédez comme suit :
 
-1. Ouvrez le [portail Azure](https://portal.azure.com/) et connectez-vous en tant qu’administrateur général ou coadministrateur.
+1. Ouvrez le [portail Azure](https://portal.azure.com/) et connectez-vous en tant qu’Administrateur général ou que Coadministrateur.
 
 2. En haut du volet de navigation situé à gauche, sélectionnez **Tous les services** pour ouvrir l’extension Azure AD.
 

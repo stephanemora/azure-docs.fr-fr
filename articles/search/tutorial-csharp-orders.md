@@ -3,17 +3,17 @@ title: Tutoriel C# sur le classement des résultats
 titleSuffix: Azure Cognitive Search
 description: Ce tutoriel montre comment trier les résultats de la recherche. Il s’appuie sur un projet existant basé sur des hôtels. Il comporte un tri par propriété principale et par propriété secondaire, et inclut un profil de scoring pour ajouter des critères de boosting.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 9230e555f9ea56ca4cda3fcabe1f9719e36a8f62
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/10/2020
+ms.openlocfilehash: 812085a5a4b3e8d1233f19c947d2fd5e433f6ab7
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112669"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121548"
 ---
 # <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>Tutoriel C# : Classer les résultats - Recherche cognitive Azure
 
@@ -21,14 +21,14 @@ Jusqu’à présent, dans notre série de tutoriels, les résultats sont retourn
 
 Afin de comparer facilement les résultats retournés, ce projet s’appuie sur le projet avec défilement infini créé dans le [Tutoriel C# : Pagination des résultats de la recherche - Recherche cognitive Azure](tutorial-csharp-paging.md).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Classer des résultats en fonction d’une seule propriété
 > * Classer des résultats en fonction de plusieurs propriétés
 > * Filtrer les résultats en fonction de la distance d’un point géographique
 > * Classer des résultats en fonction d’un profil de score
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 

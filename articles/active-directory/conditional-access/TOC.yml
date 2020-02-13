@@ -19,20 +19,30 @@
       href: concept-conditional-access-policy-common.md
     - name: Composants des stratégies d’accès conditionnel
       href: concept-conditional-access-policies.md
-    - name: Applications cloud et actions
-      href: concept-conditional-access-cloud-apps.md
-    - name: Conditions
-      href: conditions.md
-    - name: Conditions d’emplacement
-      href: location-condition.md
-    - name: Commandes
-      href: controls.md
+    - name: Attributions
+      items:
+        - name: Utilisateurs et groupes
+          href: concept-conditional-access-users-groups.md
+        - name: Applications ou actions cloud
+          href: concept-conditional-access-cloud-apps.md
+        - name: Conditions
+          href: concept-conditional-access-conditions.md
+    - name: Contrôles d’accès
+      items:
+        - name: Accorder
+          href: concept-conditional-access-grant.md
+        - name: session
+          href: concept-conditional-access-session.md
     - name: Mode Rapport uniquement
       href: concept-conditional-access-report-only.md
     - name: Dépendances de services
       href: service-dependencies.md
+    - name: Conditions d’emplacement
+      href: location-condition.md
     - name: Outil de simulation
       href: what-if-tool.md
+    - name: Commandes
+      href: controls.md
     - name: Migrations de stratégies classiques
       href: policy-migration.md
     - name: Stratégies de protection de la base de référence
@@ -84,10 +94,6 @@
       items:
         - name: Résoudre les problèmes avec l’outil What If
           href: troubleshoot-conditional-access-what-if.md
-- name: Informations de référence
-  items:
-    - name: Référence technique
-      href: technical-reference.md
 - name: Ressources
   items:
     - name: Forum de commentaires Azure

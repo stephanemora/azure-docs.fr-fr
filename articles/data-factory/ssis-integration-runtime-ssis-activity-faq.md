@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: c0aa33cce8dc163722557b1ef868cf0de8bea8fe
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1c2db107302e4851641ef430db61ec9b29ee151f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928727"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187482"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Résoudre les problèmes d’exécution de package dans le runtime d’intégration SSIS
 
@@ -136,15 +136,15 @@ Le fait que le protocole TLS (Transport Layer Security) ne soit pas activé dan
 
 Assurez-vous que votre runtime d’intégration Azure-SSIS est configuré avec un runtime d’intégration auto-hébergé. Pour plus d’informations, consultez [Configurer un runtime d’intégration auto-hébergé en tant que proxy pour Azure-SSIS IR dans ADF](self-hosted-integration-runtime-proxy-ssis.md).
 
-### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2010-errormessage-the-self-hosted-integration-runtime--is-offline"></a>Message d’erreur : « État de la tâche de mise en lots : Échec. Erreur de tâche de mise en lots : Code d’erreur : 2010, message d’erreur : Le runtime d’intégration auto-hébergé ... est hors connexion »
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2010-errormessage-the-self-hosted-integration-runtime--is-offline"></a>Message d’erreur : « État de la tâche de mise en lots : Échec. Erreur de tâche de mise en lots : ErrorCode : 2010, message d’erreur : Le runtime d’intégration auto-hébergé ... est hors connexion »
 
 Assurez-vous que votre runtime d’intégration auto-hébergé est installé et démarré. Pour plus d’informations, consultez [Créer et configurer un runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md).
 
-### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-the-requested-ole-db-provider--is-not-registered-if-the-64-bit-driver-is-not-installed-run-the-package-in-32-bit-mode"></a>Message d’erreur : « Erreur de tâche de mise en lots : Code d’erreur : 2906, message d’erreur : Échec de l’exécution du package., Sortie : {"OperationErrorMessages": « Erreur : Le fournisseur OLE DB ... demandé n’est pas inscrit. Si le pilote 64 bits n’est pas installé, exécutez le package en mode 32 bits... »
+### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-the-requested-ole-db-provider--is-not-registered-if-the-64-bit-driver-is-not-installed-run-the-package-in-32-bit-mode"></a>Message d’erreur : « Erreur de tâche de mise en lots : ErrorCode : 2906, message d’erreur : Échec de l’exécution du package., Sortie : {"OperationErrorMessages": « Erreur : Le fournisseur OLE DB ... demandé n’est pas inscrit. Si le pilote 64 bits n’est pas installé, exécutez le package en mode 32 bits... »
 
-Assurez-vous que le fournisseur correspondant utilisé par les connecteurs OLE DB dans votre package est installé correctement sur l’ordinateur du runtime d’intégration auto-hébergé. Pour plus d’informations, consultez [Configurer un runtime d’intégration auto-hébergé en tant que proxy pour Azure-SSIS IR dans ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir).
+Assurez-vous que le fournisseur correspondant utilisé par les connecteurs OLE DB dans votre package est installé correctement sur l’ordinateur du runtime d’intégration auto-hébergé. Pour plus d’informations, consultez [Configurer un runtime d’intégration auto-hébergé en tant que proxy pour Azure-SSIS IR dans ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir).
 
-### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>Message d’erreur : « Erreur de tâche de mise en lots : Code d’erreur : 2906, message d’erreur : Échec de l’exécution du package., Sortie : {"OperationErrorMessages": « Erreur : System.IO.FileLoadException : Impossible de charger le fichier ou l’assembly « Microsoft.WindowsAzure.Storage, Version=..., Culture=neutral, PublicKeyToken=31bf3856ad364e35 » ou l’une de ses dépendances. La définition du manifeste de l’assembly trouvé ne correspond pas à la référence de l’assembly.'... »
+### <a name="error-message-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-error-systemiofileloadexception-could-not-load-file-or-assembly-microsoftwindowsazurestorage-version-cultureneutral-publickeytoken31bf3856ad364e35-or-one-of-its-dependencies-the-located-assemblys-manifest-definition-does-not-match-the-assembly-reference"></a>Message d’erreur : « Erreur de tâche de mise en lots : ErrorCode : 2906, message d’erreur : Échec de l’exécution du package., Sortie : {"OperationErrorMessages": « Erreur : System.IO.FileLoadException : Impossible de charger le fichier ou l’assembly « Microsoft.WindowsAzure.Storage, Version=..., Culture=neutral, PublicKeyToken=31bf3856ad364e35 » ou l’une de ses dépendances. La définition du manifeste de l’assembly trouvé ne correspond pas à la référence de l’assembly.'... »
 
 Une installation ou une mise à niveau incorrecte de votre runtime d’intégration auto-hébergé peut expliquer cette erreur. Suggérez de télécharger et de réinstaller le dernier runtime d’intégration auto-hébergé. Pour plus d’informations, consultez [Créer et configurer un runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md#installation-best-practices).
 
@@ -155,9 +155,9 @@ Une installation ou une mise à niveau incorrecte de votre runtime d’intégrat
   * Le journal d’exécution est disponible dans le [rapport SSMS](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) ou dans le dossier du journal que vous avez spécifié dans l’activité d’exécution du package SSIS.
   * Il est également possible d’utiliser un réseau virtuel pour accéder aux données locales. Pour plus d’informations, consultez [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md).
 
-### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Message d’erreur : « État de la tâche de mise en lots : Échec. Erreur de tâche de mise en lots : Code d’erreur : 2906, message d’erreur : Échec de l’exécution du package., Sortie : {"OperationErrorMessages": "Code de sortie de SSIS Executor : -1.\n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", "effectiveIntegrationRuntime": "...", "executionDuration": ..., "durationInQueue": { "integrationRuntimeQueue": ... }}"
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>Message d’erreur : « État de la tâche de mise en lots : Échec. Erreur de tâche de mise en lots : ErrorCode : 2906, message d’erreur : Échec de l’exécution du package., Sortie : {"OperationErrorMessages": "Code de sortie de SSIS Executor : -1.\n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", "effectiveIntegrationRuntime": "...", "executionDuration": ..., "durationInQueue": { "integrationRuntimeQueue": ... }}"
 
-Assurez-vous que le runtime Visual C++ est installé sur la machine du runtime d’intégration auto-hébergé. Pour plus d’informations, consultez [Configurer un runtime d’intégration auto-hébergé en tant que proxy pour Azure-SSIS IR dans ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir).
+Assurez-vous que le runtime Visual C++ est installé sur la machine du runtime d’intégration auto-hébergé. Pour plus d’informations, consultez [Configurer un runtime d’intégration auto-hébergé en tant que proxy pour Azure-SSIS IR dans ADF](self-hosted-integration-runtime-proxy-ssis.md#prepare-the-self-hosted-ir).
 
 ### <a name="multiple-package-executions-are-triggered-unexpectedly"></a>Plusieurs exécutions de package sont déclenchées de manière inattendue
 

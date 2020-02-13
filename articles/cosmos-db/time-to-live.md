@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.reviewer: sngun
-ms.openlocfilehash: c504e2f574970142942945de5a0a9fb409bb166b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5407c38f33d167ff5114cd55878e3470e7248d71
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498300"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188718"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Durée de vie (TTL) dans Azure Cosmos DB 
 
@@ -44,9 +44,7 @@ La valeur de durée de vie est définie en secondes et interprétée en tant qu�
 
 * Si aucune durée de vie n'est définie sur un conteneur, la durée de vie définie sur un élément présent dans ce conteneur n'a aucun effet. 
 
-* Si une durée de vie de -1 est définie sur un conteneur, un élément présent dans ce conteneur et dont la durée de vie est définie sur n expirera après n secondes, et les autres éléments n'expireront pas. 
-
-La suppression d'éléments basée sur la durée de vie est gratuite. Aucun coût supplémentaire n'est appliqué (autrement dit, aucune RU supplémentaire n'est utilisée) lorsque l'élément est supprimé suite à l'expiration de la durée de vie.
+* Si une durée de vie de -1 est définie sur un conteneur, un élément présent dans ce conteneur et dont la durée de vie est définie sur n expirera après n secondes, et les autres éléments n'expireront pas.
 
 ## <a name="examples"></a>Exemples
 
@@ -56,7 +54,7 @@ Cette section présente quelques exemples avec différentes valeurs de durée de
 
 La durée de vie sur le conteneur est définie par null (DefaultTimeToLive = null)
 
-|Durée de vie sur un élément| Résultat|
+|Durée de vie sur un élément| Résultats|
 |---|---|
 |ttl = null|    La durée de vie est désactivée. L’élément n’expire jamais (par défaut).|
 |ttl = -1   |La durée de vie est désactivée. L’élément n’expire jamais.|
@@ -67,7 +65,7 @@ La durée de vie sur le conteneur est définie par null (DefaultTimeToLive = nul
 
 La durée de vie sur le conteneur est définie par -1 (DefaultTimeToLive = -1)
 
-|Durée de vie sur un élément| Résultat|
+|Durée de vie sur un élément| Résultats|
 |---|---|
 |ttl = null |La durée de vie est activée. L’élément n’expire jamais (par défaut).|
 |ttl = -1   |La durée de vie est activée. L’élément n’expire jamais.|
@@ -78,7 +76,7 @@ La durée de vie sur le conteneur est définie par -1 (DefaultTimeToLive = -1)
 
 La durée de vie sur le conteneur est définie par 1000 (DefaultTimeToLive = 1000)
 
-|Durée de vie sur un élément| Résultat|
+|Durée de vie sur un élément| Résultats|
 |---|---|
 |ttl = null|    La durée de vie est activée. L’élément expire après 1000 secondes (par défaut).|
 |ttl = -1   |La durée de vie est activée. L’élément n’expire jamais.|

@@ -6,23 +6,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 55846c76f2c3ef1c5d884af39af85db3abe38aad
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 0eabd918b5f8f52049792ceb28ef8055945d6475
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892904"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162172"
 ---
-# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Didacticiel : Générer une application hautement disponible avec le stockage Blob
+# <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutoriel : Générer une application hautement disponible avec le stockage Blob
 
 Ce tutoriel est la première partie d’une série d’étapes. Il vous apprend à rendre vos données d’application hautement disponibles dans Azure.
 
-À l’issue de ce tutoriel, vous disposez d’une application console qui charge et récupère un objet blob à partir d’un compte de stockage [géographiquement redondant avec accès en lecture](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS).
+À l’issue de ce tutoriel, vous disposez d’une application console qui charge et récupère un objet blob à partir d’un compte de stockage [géographiquement redondant avec accès en lecture](../common/storage-redundancy.md) (RA-GRS).
 
 Le stockage géographiquement redondant avec accès en lecture (RA-GRS) réplique des transactions d’une région primaire vers une région secondaire. Ce processus de réplication garantit que les données de la région secondaire sont cohérentes. L’application utilise le modèle [Disjoncteur](/azure/architecture/patterns/circuit-breaker) pour déterminer à quel point de terminaison se connecter, en basculant automatiquement d’un point de terminaison à l’autre au fur et à mesure des simulations d’échecs et de récupérations.
 
@@ -35,7 +35,7 @@ Dans ce premier volet, vous apprenez à :
 > * Définir la chaîne de connexion
 > * Exécuter l’application console
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel :
 
@@ -58,7 +58,7 @@ Pour suivre ce tutoriel :
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 

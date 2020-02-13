@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 59c1b7dbb4c47b6963cd4bbcfdeb1b2b9a2d3bb6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 56771658380e0a5b946c3acc70df98a262561b5c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704117"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160687"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Démarrage rapide : Modifier les comptes pris en charge par une application
 
@@ -63,7 +63,7 @@ Si vous écrivez une application que vous souhaitez proposer à vos clients ou �
 
 Les applications monopages (SPA) se composent généralement d’une partie frontale reposant largement sur JavaScript qui s’exécute dans le navigateur. Celle-ci appelle l’API web principale de l’application pour effectuer sa logique métier. Pour les applications à page unique hébergées dans Azure AD, l’accord implicite OAuth 2.0 permet d’authentifier l’utilisateur auprès de Azure AD et d’obtenir un jeton qui peut servir à sécuriser les appels du client JavaScript de l’application à son API web principale.
 
-Une fois que l’utilisateur a donné son consentement, ce même protocole d’authentification peut servir à obtenir des jetons pour sécuriser les appels entre le client et d’autres ressources API web configurées pour l’application. Pour plus d’informations sur l’octroi d’autorisation implicite et pour vous aider à décider si cette méthode est adaptée à votre scénario d’application, découvrez le flux d’octroi implicite OAuth 2.0 dans Azure AD [v1.0](v1-oauth2-implicit-grant-flow.md) et [v2.0](v2-oauth2-implicit-grant-flow.md).
+Une fois que l’utilisateur a donné son consentement, ce même protocole d’authentification peut servir à obtenir des jetons pour sécuriser les appels entre le client et d’autres ressources API web configurées pour l’application. Pour plus d’informations sur l’octroi d’autorisation implicite et pour vous aider à décider si cette méthode est adaptée à votre scénario d’application, découvrez le flux d’octroi implicite OAuth 2.0 dans Azure AD [v1.0](../azuread-dev/v1-oauth2-implicit-grant-flow.md) et [v2.0](v2-oauth2-implicit-grant-flow.md).
 
 Par défaut, l’accord implicite OAuth 2.0 est désactivé pour les applications. Vous pouvez activer l’accord implicite OAuth 2.0 pour votre application en suivant les étapes décrites ci-dessous.
 

@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 17c7949f2bbd6d75343bb2e6825be36b56a20967
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: de259daa7fd27cc4f138c294a7f347502ca482a4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695328"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185827"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migrer des applications iOS d’ADAL.NET vers MSAL.NET en utilisant Microsoft Authenticator
 
@@ -37,7 +37,7 @@ Les répartiteurs sont des applications fournies par Microsoft sur Android et iO
 Ils permettent d’effectuer les opérations suivantes :
 
 - Authentification unique.
-- Identification d’appareil requise par certaines [stratégies d’accès conditionnel](../conditional-access/overview.md). Pour plus d’informations, consultez [Gestion des appareils](../conditional-access/conditions.md#device-platforms).
+- Identification d’appareil requise par certaines [stratégies d’accès conditionnel](../conditional-access/overview.md). Pour plus d’informations, consultez [Gestion des appareils](../conditional-access/concept-conditional-access-conditions.md#device-platforms).
 - Vérification de l’identification de l'application, également requise dans certains scénarios d’entreprise. Pour plus d'informations, consultez [Gestion des applications mobiles Intune (GAM)](https://docs.microsoft.com/intune/mam-faq).
 
 ## <a name="migrate-from-adal-to-msal"></a>Migrer d’ADAL vers MSAL

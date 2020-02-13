@@ -2,21 +2,20 @@
 title: 'Démarrage rapide : Créer un hub d’événements avec PowerShell – Azure Event Hubs'
 description: Ce démarrage rapide décrit la création d’un Event Hub à l’aide de Azure PowerShell puis l’envoi et la réception des événements à l’aide du Kit de développement .NET Standard.
 services: event-hubs
-author: ShubhaVijayasarathy
-manager: timlt
+author: spelluru
 editor: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 11/05/2019
-ms.author: shvija
-ms.openlocfilehash: 2a88fe340037c31a71cb34181682095f31400c36
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.author: spelluru
+ms.openlocfilehash: 89ec1957e75fa45eef6c7939a77e5cc1b3cf7806
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720593"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162121"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Démarrage rapide : Créer un hub d’événements avec Azure PowerShell
 
@@ -24,7 +23,7 @@ Azure Event Hubs est une plateforme de diffusion de données volumineuses et un 
 
 Dans ce démarrage rapide, vous créez un Event Hub à l’aide d’Azure PowerShell.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -71,11 +70,10 @@ Félicitations ! Vous avez utilisé Azure PowerShell pour créer un espace de no
 
 Dans cet article, vous avez créé un espace de noms Event Hubs et utilisé des exemple d’application pour envoyer et recevoir des événements depuis votre Event Hub. Pour obtenir des instructions pas à pas sur l’envoi d’événements à un hub d’événements ou leur réception à partir d’un hub d’événements, consultez les tutoriels **Envoyer et recevoir des événements** : 
 
-- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
-- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
-- [Java](event-hubs-java-get-started-send.md)
-- [Python](event-hubs-python-get-started-send.md)
-- [Node.JS](event-hubs-node-get-started-send.md)
+- [.NET Core](get-started-dotnet-standard-send-v2.md)
+- [Java](get-started-java-send-v2.md)
+- [Python](get-started-python-send-v2.md)
+- [JavaScript](get-started-java-send-v2.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (envoi uniquement)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (réception uniquement)](event-hubs-storm-getstarted-receive.md)

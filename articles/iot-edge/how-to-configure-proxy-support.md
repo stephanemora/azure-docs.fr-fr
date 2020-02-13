@@ -7,12 +7,12 @@ ms.date: 11/19/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 12aa78d0ba7c9300fc012958660e2282e91568aa
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a8ee1e07dafac46467aa26f89b609cd499346974
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510819"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186574"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurer un appareil IoT Edge pour communiquer via un serveur proxy
 
@@ -22,7 +22,7 @@ Cet article vous montre la procédure en quatre étapes à suivre pour configure
 
 1. **Installez le runtime IoT Edge sur votre appareil.**
 
-   Les scripts d’installation d’IoT Edge extraient les packages et les fichiers à partir d’Internet. Votre appareil doit donc communiquer via le serveur proxy pour envoyer ces demandes. Pour des instructions détaillées, consultez la section [Installez le runtime IoT Edge sur votre appareil](#install-the-runtime-through-a-proxy) de cet article. Pour les appareils Windows, le script d’installation fournit également une option [d’installation hors connexion](how-to-install-iot-edge-windows.md#offline-installation).
+   Les scripts d’installation d’IoT Edge extraient les packages et les fichiers à partir d’Internet. Votre appareil doit donc communiquer via le serveur proxy pour envoyer ces demandes. Pour des instructions détaillées, consultez la section [Installez le runtime IoT Edge sur votre appareil](#install-the-runtime-through-a-proxy) de cet article. Pour les appareils Windows, le script d’installation fournit également une option [d’installation hors connexion](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation).
 
    Vous n’effectuerez le processus décrit dans cette étape qu’une seule fois lors de la première installation de votre appareil IoT Edge. Vous devez disposer des mêmes connexions lorsque vous mettez à jour le runtime IoT Edge.
 

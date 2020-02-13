@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 894530aa9624af18f2f33a061d5cde683e9f01be
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 266fa2403ef96e808a0c1f1eb46b4f7065c06252
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880278"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185904"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procédure : Planifier votre déploiement d’accès conditionnel Azure Active Directory
 
@@ -53,7 +53,7 @@ Utilisez l’exemple de modèle suivant pour créer des stratégies d’accès c
 |Une tentative d’accès est effectuée :<br>- Sur une application cloud *<br>- Par des utilisateurs et des groupes*<br>Au moyen de :<br>- Condition 1 (par exemple, en dehors du réseau d’entreprise)<br>- Condition 2 (par exemple, les plateformes d’appareils)|Accorder l’accès avec (AND) :<br>- Exigence 1 (par exemple, MFA)<br>- Exigence 2 (par exemple, conformité des appareils)|
 |Une tentative d’accès est effectuée :<br>- Sur une application cloud *<br>- Par des utilisateurs et des groupes*<br>Au moyen de :<br>- Condition 1 (par exemple, en dehors du réseau d’entreprise)<br>- Condition 2 (par exemple, les plateformes d’appareils)|Accorder l’accès avec (OR) :<br>- Exigence 1 (par exemple, MFA)<br>- Exigence 2 (par exemple, conformité des appareils)|
 
-Au minimum, **quand cela se produit** définit l’entité de sécurité (**qui**) qui tente d’accéder à une application cloud (**quoi**). Si nécessaire, vous pouvez également ajouter **comment** une tentative d’accès est effectuée. Dans l’accès conditionnel, les éléments qui définissent les variables « qui », « quoi » et « comment » sont appelées des conditions. Pour plus d’informations, consultez [Que sont les conditions dans l’accès conditionnel Azure Active Directory ?](conditions.md) 
+Au minimum, **quand cela se produit** définit l’entité de sécurité (**qui**) qui tente d’accéder à une application cloud (**quoi**). Si nécessaire, vous pouvez également ajouter **comment** une tentative d’accès est effectuée. Dans l’accès conditionnel, les éléments qui définissent les variables « qui », « quoi » et « comment » sont appelées des conditions. Pour plus d’informations, consultez [Que sont les conditions dans l’accès conditionnel Azure Active Directory ?](concept-conditional-access-conditions.md) 
 
 Avec **faire cela**, vous définissez la réponse de votre stratégie à une condition d’accès. Dans votre réponse, vous bloquez ou accordez l’accès avec des exigences supplémentaires, par exemple, l’authentification multifacteur (MFA). Pour une vue d’ensemble complète, consultez [Que sont les contrôles d’accès dans l’accès conditionnel Azure Active Directory ?](controls.md)  
 
@@ -116,7 +116,7 @@ Les cas d’utilisation courants pour lesquels exiger l’authentification multi
 
 Avec des stratégies d’accès conditionnel, vous pouvez implémenter des réponses automatiques aux connexions d’identités potentiellement compromises. La probabilité qu’un compte soit compromis est exprimée sous forme de niveaux de risque. Il existe deux niveaux de risque calculés par Identity Protection : risque de connexion et risque d’utilisateur. Pour implémenter une réponse à un risque de connexion, vous avez deux options :
 
-- [La condition de risque de connexion](conditions.md#sign-in-risk) dans la stratégie d’accès conditionnel
+- [La condition de risque de connexion](concept-conditional-access-conditions.md#sign-in-risk) dans la stratégie d’accès conditionnel
 - [La stratégie de risque de connexion](../identity-protection/howto-sign-in-risk-policy.md) dans Identity Protection 
 
 Traiter le risque de connexion comme une condition est la méthode préférée, car elle vous donne plus d’options de personnalisation.
@@ -158,7 +158,7 @@ Certaines organisations ont des locataires de test dans ce but. Toutefois, il pe
 
 Le plan de test est important pour comparer les résultats attendus et les résultats réels. Vous devez toujours avoir un objectif avant de tester quelque chose. Le tableau suivant décrit des exemples de cas de test. Ajustez les scénarios et les résultats attendus en fonction de la configuration de vos stratégies d’accès conditionnel.
 
-|Stratégie |Scénario |Résultat attendu | Résultat |
+|Stratégie |Scénario |Résultat attendu | Résultats |
 |---|---|---|---|
 |[Exiger l’authentification multifacteur en dehors du bureau](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|L’utilisateur autorisé se connecte à l’*application* quand il est dans un emplacement approuvé ou au bureau|L’utilisateur n’est pas invité à utiliser l’authentification multifacteur| |
 |[Exiger l’authentification multifacteur en dehors du bureau](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|L’utilisateur autorisé se connecte à l’*application* quand il n’est pas dans un emplacement approuvé ou au bureau|L’utilisateur est invité à utiliser l’authentification multifacteur et peut se connecter| |

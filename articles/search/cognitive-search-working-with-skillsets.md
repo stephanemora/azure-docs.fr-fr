@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0637e160454897af774c3bac48fc02866cb71835
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 8b45840215092281c7fbc8d499e26b095b374dd6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760791"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191024"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Concepts et composition des ensembles de compétences dans Recherche cognitive Azure
 
@@ -47,7 +47,7 @@ Une fois qu’un document se trouve dans le pipeline d’enrichissement, il est 
 |SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
 
- À mesure que les compétences s’exécutent, elles ajoutent de nouveaux nœuds à l’arborescence d’enrichissements. Ces nouveaux nœuds peuvent ensuite être utilisés comme entrées pour les compétences en aval, en les projetant dans la base de connaissances ou en les mappant aux champs d’index. Les enrichissements ne sont pas mutables : une fois créés, les nœuds ne peuvent pas être modifiés. Plus votre ensemble de compétences est complexe, plus votre arborescence d’enrichissements l’est aussi. Toutefois, vous n’avez pas besoin d’inclure systématiquement tous les nœuds de l’arborescence d’enrichissements dans l’index ou la base de connaissances. Vous pouvez choisir de conserver uniquement une partie des enrichissements dans l’index ou la base de connaissances.
+ À mesure que les compétences s’exécutent, elles ajoutent de nouveaux nœuds à l’arborescence d’enrichissements. Ces nouveaux nœuds peuvent ensuite être utilisés comme entrées pour les compétences en aval, en les projetant dans la base de connaissances ou en les mappant aux champs d’index. Les enrichissements ne sont pas mutables : une fois créés, les nœuds ne peuvent pas être modifiés. Plus votre ensemble de compétences est complexe, plus votre arborescence d’enrichissements l’est aussi. Toutefois, vous n’avez pas besoin d’inclure systématiquement tous les nœuds de l’arborescence d’enrichissements dans l’index ou la base de connaissances. 
 
 Vous pouvez choisir de conserver uniquement une partie des enrichissements dans l’index ou la base de connaissances.
 Dans la suite de ce document, nous faisons référence à l’[exemple des avis sur les hôtels](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi), mais vous pouvez appliquer les mêmes concepts pour enrichir des documents issus d’autres sources de données.
@@ -96,7 +96,7 @@ L’arborescence d’enrichissements comporte maintenant un nouveau nœud, situ�
 
 Le nœud racine de tous les enrichissements est `"/document"`. Quand vous utilisez des indexeurs d’objets blob, le nœud `"/document"` contient les nœuds enfants `"/document/content"` et `"/document/normalized_images"`. Si vous utilisez des données CSV, comme dans cet exemple, les noms de colonne sont mappés aux nœuds figurant sous `"/document"`. Pour accéder à un enrichissement qui a été ajouté à un nœud par une compétence, vous devez indiquer le chemin complet de l’enrichissement. Par exemple, si vous souhaitez utiliser le texte du nœud ```pages``` comme entrée dans une autre compétence, vous devez spécifier le chemin de cette façon : ```"/document/reviews_text/pages/*"```.
  
- ![arborescence d’enrichissement après la compétence n° 1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Arborescence d’enrichissement après exécution de la compétence n°1")
+ ![arborescence d’enrichissement après la compétence n° 1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "L’arborescence d’enrichissement après la compétence n° 1 s’exécute")
 
 ### <a name="skill-2-language-detection"></a>Compétence n° 2 : Détection de la langue
  La compétence de détection de la langue est la troisième compétence (compétence n° 3) définie dans l’ensemble de compétences, mais c’est la compétence suivante à exécuter. Comme elle n’est pas bloquée dans l’attente d’entrées, elle s’exécute parallèlement à la compétence précédente. À l’instar de la compétence de division qui l’a précédée, la compétence de détection de la langue est également appelée une fois pour chaque document. L’arborescence d’enrichissements comporte désormais un nouveau nœud pour la langue.
@@ -108,7 +108,7 @@ Avec le contexte ```/document/reviews_text/pages/*```, la compétence des expres
 
  Vous pouvez maintenant examiner le reste des compétences dans l’ensemble de compétences et regarder comment l’arborescence des enrichissements continue de croître à l’exécution de chaque compétence. Certaines compétences, telles que la compétence de fusion et la compétence de modélisation, créent également des nœuds, mais utilisent uniquement les données de nœuds existants et ne créent pas d’enrichissements supplémentaires.
 
-![arborescence d’enrichissement après toutes les compétences](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Arborescence d’enrichissement après exécution de toutes les compétences")
+![arborescence d’enrichissement après toutes les compétences](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Arborescence d’enrichissement après toutes les compétences")
 
 Les couleurs des connecteurs dans l’arborescence ci-dessus indiquent que les enrichissements ont été créés par différentes compétences, c’est-à-dire que les nœuds devront être traités individuellement et qu’ils ne feront pas partie de l’objet retourné lors de la sélection du nœud parent.
 

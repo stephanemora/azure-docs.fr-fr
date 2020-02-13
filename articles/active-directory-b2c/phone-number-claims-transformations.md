@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c43e3386886456eed0c58fefd0fb1212795db66c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 38763f414b1e5373af79d2501850a44e8e813451
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475039"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185470"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Définir des transformations de revendications de numéro de téléphone dans Azure AD B2C
 
@@ -33,7 +33,7 @@ Cette revendication valide le format du numéro de téléphone. Si son format es
 | Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | Revendication du type de chaîne à partir duquel la conversion est effectuée. |
-| OutputClaim | outputClaim | string | Résultat de cette transformation de revendications. |
+| OutputClaim | outputClaim | phoneNumber | Résultat de cette transformation de revendications. |
 
 La transformation de revendications **ConvertStringToPhoneNumberClaim** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md) ou un [contrôle d’affichage](display-controls.md). Les métadonnées du profil technique autodéclaré **UserMessageIfClaimsTransformationInvalidPhoneNumber** contrôlent le message d’erreur présenté à l’utilisateur.
 

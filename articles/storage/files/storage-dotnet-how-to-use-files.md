@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: dfb1d71a02ae3bf06a5f2d8a93bcb3ac83433a86
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 361ee5179b20d9488bb477a4e3c9fc0f0e6f266e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460365"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190663"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Développer pour Azure Files avec .NET
 
@@ -39,7 +39,7 @@ Azure Files fournit deux approches globales pour les applications clientes : SM
 API | Quand l’utiliser | Notes
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Votre application : <ul><li>Doit lire/écrire des fichiers à l’aide de SMB.</li><li>Est en cours d’exécution sur un périphérique qui a accès via le port 445 à votre compte Azure Files</li><li>N’a pas besoin de gérer les paramètres d’administration du partage de fichiers</li></ul> | Les E/S de fichiers implémentées avec Azure Files sur SMB sont généralement similaires aux E/S avec un partage de fichiers réseau ou un périphérique de stockage local. Pour découvrir une présentation de certaines fonctionnalités de .NET, notamment des E/S de fichiers, consultez le tutoriel [Application console](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter).
-[Microsoft.Azure.Storage.File](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | Votre application : <ul><li>Ne peut pas accéder à Azure Files à l’aide de SMB sur le port 445 en raison des contraintes de pare-feu ou d’ISP.</li><li>Nécessite une fonctionnalité d’administration, telle que la capacité de définir le quota d’un partage de fichier ou de créer une signature d’accès partagé</li></ul> | Cet article décrit l’utilisation de `Microsoft.Azure.Storage.File` pour les E/S de fichiers utilisant REST plutôt que SMB et la gestion du partage de fichiers.
+[Microsoft.Azure.Storage.File](/dotnet/api/overview/azure/storage?view=azure-dotnet#version-11x) | Votre application : <ul><li>Ne peut pas accéder à Azure Files à l’aide de SMB sur le port 445 en raison des contraintes de pare-feu ou d’ISP.</li><li>Nécessite une fonctionnalité d’administration, telle que la capacité de définir le quota d’un partage de fichier ou de créer une signature d’accès partagé</li></ul> | Cet article décrit l’utilisation de `Microsoft.Azure.Storage.File` pour les E/S de fichiers utilisant REST plutôt que SMB et la gestion du partage de fichiers.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Création de l’application console et obtention de l’assembly
 

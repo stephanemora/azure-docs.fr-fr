@@ -2,19 +2,19 @@
 title: 'Démarrage rapide : Créer un index de recherche en Python à l’aide des API REST'
 titleSuffix: Azure Cognitive Search
 description: Explique comment créer un index, charger des données et exécuter des requêtes en Python à l’aide de notebooks Jupyter et de l’API REST de la Recherche cognitive Azure.
-author: heidisteen
+author: tchristiani
 manager: nitinme
-ms.author: heidist
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 11/04/2019
-ms.openlocfilehash: c663fae47de1e161314aa3bf2fdb9966ae80d3c6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 02/10/2020
+ms.openlocfilehash: 15a3801a7ea99d6d799bcd8adf340b03f36bc196
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792262"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121621"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Démarrage rapide : Créer un index Recherche cognitive Azure en Python à l’aide de notebooks Jupyter
 
@@ -23,14 +23,14 @@ ms.locfileid: "72792262"
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
 > * [Postman (REST)](search-get-started-postman.md)
-> * [Portal](search-create-index-portal.md)
+> * [Portail](search-create-index-portal.md)
 > 
 
 Générez un notebook Jupyter qui crée, charge et interroge un index Recherche cognitive Azure en Python à l’aide des [API REST de la Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/). Cet article décrit la procédure à suivre pour créer un notebook. Vous pouvez [également télécharger et exécuter un notebook Jupyter Python complet](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les services et outils suivants sont indispensables dans ce guide de démarrage rapide. 
 
@@ -92,11 +92,11 @@ Dans cette tâche, démarrez un notebook Jupyter, puis vérifiez que vous pouvez
 
 ## <a name="1---create-an-index"></a>1 – Créer un index
 
-Sauf si vous utilisez le portail, un index doit exister sur le service pour que vous puissiez charger des données. Cette étape utilise l’[API REST Créer un index](https://docs.microsoft.com/rest/api/searchservice/create-index) pour envoyer un schéma d’index au service.
+Sauf si vous utilisez le portail, le service doit contenir un index pour vous permettre de charger des données. Cette étape utilise l’[API REST Créer un index](https://docs.microsoft.com/rest/api/searchservice/create-index) pour envoyer un schéma d’index au service.
 
-Les éléments requis d’un index sont un nom, une collection de champs et une clé. La collection de champs définit la structure d’un *document*. Chaque champ a un nom, un type et des attributs qui déterminent la façon dont il est utilisé (par exemple, s’il permet d’effectuer une recherche en texte intégral, et s’il est filtrable ou récupérable dans des résultats de recherche). Dans un index, l’un des champs de type `Edm.String` doit être désigné comme la *clé* pour l’identité du document.
+Les éléments requis d’un index sont un nom, une collection de champs et une clé. La collection de champs définit la structure d'un *document*. Chaque champ a un nom, un type et des attributs qui déterminent la façon dont il est utilisé (par exemple, s’il permet d’effectuer une recherche en texte intégral, et s’il est filtrable ou récupérable dans des résultats de recherche). Dans un index, l’un des champs de type `Edm.String` doit être désigné comme *clé* pour l’identité du document.
 
-Cet index est nommé « hotels-quickstart » et contient les définitions de champ que vous voyez ci-dessous. Il s’agit d’un sous-ensemble d’un [index Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) plus grand utilisé dans d’autres procédures pas à pas. Nous l’avons le tronqué dans ce démarrage rapide par souci de concision.
+Cet index est nommé « hotels-quickstart » et contient les définitions de champ que vous voyez ci-dessous. Il s’agit d’un sous-ensemble d’un [index Hotels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) plus grand utilisé dans d’autres procédures pas à pas. Nous l’avons volontairement tronqué dans ce démarrage rapide par souci de concision.
 
 1. Dans la cellule suivante, collez l’exemple suivant dans une cellule pour fournir le schéma. 
 
@@ -310,4 +310,4 @@ Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à t
 Par souci de simplification, ce démarrage rapide utilise une version abrégée de l’index Hotels. Vous pouvez créer la version complète pour essayer des requêtes plus intéressantes. Pour obtenir la version complète et les 50 documents, exécutez l’Assistant **Importation de données** en sélectionnant *hotels-sample* à partir des exemples de sources de données intégrés.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Créer un index dans le portail Azure](search-get-started-portal.md)
+> [Démarrage rapide : Créer un index dans le portail Azure](search-get-started-portal.md)

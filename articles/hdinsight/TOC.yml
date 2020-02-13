@@ -348,17 +348,17 @@
               href: ./spark/apache-spark-improve-performance-iocache.md
             - name: Gérer les dépendances Jar
               href: ./spark/manage-jar-dependency.md
-            - name: Utiliser des blocs-notes avec Apache Spark
+            - name: Utiliser des notebooks avec Apache Spark
               items:
-                - name: Utiliser un bloc-notes Jupyter local
+                - name: Utiliser un notebook Jupyter local
                   href: ./spark/apache-spark-jupyter-notebook-install-locally.md
-                - name: Noyaux du bloc-notes Jupyter
+                - name: Noyaux du notebook Jupyter
                   href: ./spark/apache-spark-jupyter-notebook-kernels.md
                 - name: Utiliser des packages externes avec Jupyter à l'aide de commandes magiques de cellules
                   href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
                 - name: Gérer en toute sécurité l’environnement Python sur Azure HDInsight avec une action de script
                   href: ./spark/apache-spark-python-package-installation.md
-                - name: Utiliser les blocs-notes Apache Zeppelin
+                - name: Utiliser les notebooks Apache Zeppelin
                   href: ./spark/apache-spark-zeppelin-notebook.md
             - name: Utiliser avec d’autres services Azure
               items:
@@ -372,6 +372,8 @@
                   href: ./spark/apache-spark-run-machine-learning-automl.md
         - name: Dépanner
           items:
+            - name: Impossible de créer un notebook Jupyter
+              href: ./spark/troubleshoot-jupyter-notebook-convert.md
             - name: Exception OutOfMemoryError
               href: ./spark/apache-spark-troubleshoot-outofmemory.md
             - name: Échec du travail Apache Spark - NoClassDefFoundError
@@ -396,6 +398,8 @@
               href: ./spark/apache-spark-troubleshoot-event-log-requestbodytoolarge.md
             - name: Déboguer des travaux Apache Spark
               href: ./spark/apache-spark-job-debugging.md
+            - name: Déboguer les opérations de fichier WASB
+              href: ./spark/troubleshoot-debug-wasb.md
             - name: Utiliser IntelliJ pour déboguer des travaux Apache Spark
               href: ./spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md
             - name: Résolution de problèmes Apache Spark
@@ -523,6 +527,8 @@
               href: ./hadoop/troubleshoot-port-conflict.md
             - name: Accès perdu à Key Vault
               href: ./hadoop/troubleshoot-lost-key-vault-access.md
+            - name: Exception de stockage WASB
+              href: ./hadoop/troubleshoot-wasbs-storage-exception.md
 - name: Apache Kafka
   items:
     - name: Vue d’ensemble

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/27/2020
 ms.author: nitinme
-ms.openlocfilehash: 0de0c83b0c459d29c304dbf51eaa44a62e895760
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: d71d9c7e6570e562fe4c692ede1d07b70c923cb6
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773080"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118269"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Tutoriel : Utiliser Form Recognizer avec Azure Logic Apps pour analyser les factures
 
@@ -34,10 +34,6 @@ Voici ce qui est couvert par ce tutoriel :
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/).
-
-## <a name="request-access-for-form-recognizer"></a>Demander l’accès à Form Recognizer
-
-Form Recognizer est disponible en préversion à accès limité. Pour accéder à la préversion, remplissez et envoyez le formulaire de [demande d’accès Form Recognizer](https://aka.ms/FormRecognizerRequestAccess). Une fois votre demande approuvée par l’équipe Azure Cognitive Services, vous recevrez un e-mail contenant des instructions sur la façon d’accéder au service.
 
 ## <a name="understand-the-invoice-to-be-analyzed"></a>Comprendre la facture à analyser
 

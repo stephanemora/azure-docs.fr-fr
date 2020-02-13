@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf8a2cf6c50e05a0fecff387f2e125c50931b95f
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: bf7e4837aaf65b0df28ea4a07fb485948309bc7c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608718"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185573"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Régir l’accès des utilisateurs externes dans la gestion des droits d’utilisation Azure AD
 
@@ -91,7 +91,7 @@ Pour vous assurer que les personnes extérieures à votre organisation peuvent d
 
 ### <a name="review-your-conditional-access-policies"></a>Passer en revue vos stratégies d’accès conditionnel
 
-- Veillez à exclure les invités des stratégies d’accès conditionnel que les nouveaux utilisateurs invités ne seront pas en mesure de respecter, car cela les empêchera de se connecter à votre répertoire. Par exemple, les invités n’ont probablement pas d’appareil inscrit, ne se trouvent pas à un emplacement connu et ne veulent pas se réinscrire pour l’authentification multifacteur (MFA). Par conséquent, l’ajout de ces exigences dans une stratégie d’accès conditionnel empêchera les invités d’utiliser la gestion des droits d’utilisation. Pour plus d’informations, consultez [Que sont les conditions dans l’accès conditionnel Azure Active Directory ?](../conditional-access/conditions.md).
+- Veillez à exclure les invités des stratégies d’accès conditionnel que les nouveaux utilisateurs invités ne seront pas en mesure de respecter, car cela les empêchera de se connecter à votre répertoire. Par exemple, les invités n’ont probablement pas d’appareil inscrit, ne se trouvent pas à un emplacement connu et ne veulent pas se réinscrire pour l’authentification multifacteur (MFA). Par conséquent, l’ajout de ces exigences dans une stratégie d’accès conditionnel empêchera les invités d’utiliser la gestion des droits d’utilisation. Pour plus d’informations, consultez [Que sont les conditions dans l’accès conditionnel Azure Active Directory ?](../conditional-access/concept-conditional-access-conditions.md).
 
     ![Paramètres d’exclusion des stratégies d’accès conditionnel Azure AD](./media/entitlement-management-external-users/conditional-access-exclude.png)
 

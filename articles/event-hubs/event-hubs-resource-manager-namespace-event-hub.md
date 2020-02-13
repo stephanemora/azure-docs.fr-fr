@@ -3,8 +3,7 @@ title: 'Démarrage rapide : Créer un hub d’événements avec un groupe de co
 description: 'Démarrage rapide : Créer un espace de noms Event Hubs avec un concentrateur d’événements et un groupe de consommateurs à l’aide de modèles Azure Resource Manager'
 services: event-hubs
 documentationcenter: .net
-author: ShubhaVijayasarathy
-manager: timlt
+author: spelluru
 editor: ''
 ms.assetid: 28bb4591-1fd7-444f-a327-4e67e8878798
 ms.service: event-hubs
@@ -12,14 +11,14 @@ ms.devlang: tbd
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/05/2019
-ms.author: shvija
-ms.openlocfilehash: faff7800ea4436d58ed72e8179c7845a6d8f65a5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/11/2020
+ms.author: spelluru
+ms.openlocfilehash: 88cd29af75239f0ad79eb78b5ff8e106c3b2ee56
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437132"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163073"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>Démarrage rapide : Créer un Event Hub à l’aide d’un modèle Azure Resource Manager
 
@@ -89,11 +88,10 @@ Write-Host "Press [ENTER] to continue ..."
 
 Dans cet article, vous avez créé un espace de noms Event Hubs, ainsi qu’un Event Hub dans l’espace de noms. Pour obtenir des instructions pas à pas sur l’envoi d’événements à un hub d’événements ou leur réception à partir d’un hub d’événements, consultez les tutoriels **Envoyer et recevoir des événements** :
 
-- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
-- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
-- [Java](event-hubs-java-get-started-send.md)
-- [Python](event-hubs-python-get-started-send.md)
-- [Node.JS](event-hubs-node-get-started-send.md)
+- [.NET Core](get-started-dotnet-standard-send-v2.md)
+- [Java](get-started-java-send-v2.md)
+- [Python](get-started-python-send-v2.md)
+- [JavaScript](get-started-java-send-v2.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (envoi uniquement)](event-hubs-c-getstarted-send.md)
 - [Apache Storm (réception uniquement)](event-hubs-storm-getstarted-receive.md)

@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: e622abd16f900ca811385ddada187f3c96e7d758
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: bb9357ca4388bd1fb7ae3e3704cf4112d07c1105
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773937"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188188"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingérer des données Event Hub dans Azure Data Explorer
 
@@ -117,7 +117,7 @@ Vous vous connectez maintenant au hub d’événements depuis l’Explorateur de
     | Espace de noms du hub d’événements | Nom unique de l’espace de noms | Nom choisi précédemment qui identifie votre espace de noms. |
     | Event Hub | *test-hub* | Hub d’événements que vous avez créé. |
     | Groupe de consommateurs | *test-group* | Groupe de consommateurs défini dans le hub d’événements que vous avez créé. |
-    | Propriétés du système d’événements | Sélectionner les propriétés pertinentes | [Propriétés système du hub d’événements](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). S’il existe plusieurs enregistrements par message d’événement, les propriétés système sont ajoutées au premier. Lors de l’ajout des propriétés système, [créez](/azure/kusto/management/tables#create-table) ou [mettez à jour](/azure/kusto/management/tables#alter-table-and-alter-merge-table) le schéma de table et le [mappage](/azure/kusto/management/mappings) pour inclure les propriétés sélectionnées. |
+    | Propriétés du système d’événements | Sélectionner les propriétés pertinentes | [Propriétés système du hub d’événements](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). S’il existe plusieurs enregistrements par message d’événement, les propriétés système sont ajoutées au premier. Lors de l’ajout des propriétés système, [créez](/azure/kusto/management/create-table-command) ou [mettez à jour](/azure/kusto/management/alter-table-command) le schéma de table et le [mappage](/azure/kusto/management/mappings) pour inclure les propriétés sélectionnées. |
     | Compression | *Aucun* | Type de compression de la charge utile des messages Event Hub. Types de compression pris en charge : *Aucun, GZip*.|
     | | |
 

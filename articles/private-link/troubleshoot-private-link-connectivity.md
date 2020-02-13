@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: rdhillon
-ms.openlocfilehash: 667fa1c85c63ffb87e49c4bf99112f57d0c85a72
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 0d26ad6802e551523875dcad13066fdbdbf39ada
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77032191"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191055"
 ---
 # <a name="troubleshoot-private-link-service-connectivity-problems"></a>Résoudre les problèmes de connectivité au service Private Link
 
@@ -112,4 +112,4 @@ Si vous rencontrez des problèmes de connectivité avec votre configuration de l
 
  * [Créer un service Private Link (CLI)](https://docs.microsoft.com/azure/private-link/create-private-link-service-cli)
 
- * [Guide de résolution des problèmes Private Endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-connectivity-troubleshooting).
+ * [Guide de résolution des problèmes Private Endpoint](troubleshoot-private-endpoint-connectivity.md).

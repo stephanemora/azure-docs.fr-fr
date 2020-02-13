@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: rohink
-ms.openlocfilehash: b00bc1c95e2f593523c584c4abfe9381e5697f79
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 49e0bce6eea8fac32f49bb905c225e898e709af0
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939460"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136282"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Tutoriel : Diriger le trafic vers des points de terminaison spécifiques en fonction du sous-réseau de l’utilisateur via Traffic Manager
 
@@ -47,7 +47,7 @@ Les machines virtuelles de test servent à illustrer la manière dont Traffic Ma
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure sur https://portal.azure.com.
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ### <a name="create-websites"></a>Créer des sites web
 

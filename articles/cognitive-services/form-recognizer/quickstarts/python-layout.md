@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: pafarley
-ms.openlocfilehash: ea716caf575fce1197c12f3cb3cea8348c7a04c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 476763e1cb354edb8cdc4cbbae0d3aa7017faa16
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451000"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118750"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Démarrage rapide : Extraire du texte et des informations de disposition à l’aide de l’API REST Form Recognizer avec Python
 
@@ -25,7 +25,6 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre cette procédure de démarrage rapide, vous avez besoin des éléments suivants :
-- Accès à la préversion à accès limité de Form Recognizer. Pour accéder à la préversion, remplissez et envoyez le formulaire de [demande d’accès Form Recognizer](https://aka.ms/FormRecognizerRequestAccess).
 - [Python](https://www.python.org/downloads/) doit être installé (si vous souhaitez exécuter l’exemple en local).
 - Un document de formulaire. Vous pouvez télécharger une image à partir de l’[exemple de jeu de données ](https://go.microsoft.com/fwlink/?linkid=2090451) pour ce guide de démarrage rapide.
 

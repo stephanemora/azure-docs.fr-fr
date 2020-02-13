@@ -13,12 +13,12 @@ ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
 ROBOTS: NOINDEX
-ms.openlocfilehash: c5e8ed4a78fccce4f3a5c631a99a8729114e5722
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: a415ac749d0d322bc2f71f64d4bec6e32ad1f12e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422603"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063490"
 ---
 # <a name="how-to-configure-saml-based-single-sign-on"></a>Comment configurer l’authentification unique SAML
 
@@ -31,7 +31,7 @@ Si vous voulez configurer l’authentification unique pour une application non i
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-- Si l’application n’a pas été ajoutée à votre locataire Azure AD, consultez [Ajouter une application de la galerie](add-gallery-app.md) ou [Ajouter une application non-galerie](add-non-gallery-app.md).
+- Si l’application n’a pas été ajoutée à votre locataire Azure AD, consultez [Ajouter une application figurant dans la galerie](add-gallery-app.md) ou [Ajouter une application ne figurant pas dans la galerie](add-non-gallery-app.md).
 - Contactez le fournisseur de votre application pour obtenir les informations appropriées pour les paramètres suivants :
 
     | Paramètre de la configuration SAML de base | Initiée par SP | Initiée par idP | Description |
@@ -102,7 +102,7 @@ Azure AD utilise un certificat pour signer les jetons SAML qu’il envoie à l�
 
 1. Sélectionnez **Enregistrer** en haut de la section **Certificat de signature SAML**. 
 
-## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Étape 4. Configurer l’application pour utiliser Azure AD
+## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Étape 4. Configurer l’application pour utiliser Azure AD
 
 La section **Configurer\<nom_application** liste les valeurs qui doivent être configurées dans l’application afin qu’elle utilise Azure AD comme fournisseur d’identité SAML. Les valeurs requises dépendent de l’application. Pour plus d’informations, consultez la documentation SAML de l’application.
 
@@ -135,4 +135,4 @@ Si un message d’erreur apparaît, effectuez les étapes suivantes :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Affecter des utilisateurs et des groupes à l’application](methods-for-assigning-users-and-groups.md)
-- [Configurer le provisionnement automatique d’un compte utilisateur](configure-automatic-user-provisioning-portal.md)
+- [Configurer le provisionnement automatique d’un compte utilisateur](../app-provisioning/configure-automatic-user-provisioning-portal.md)

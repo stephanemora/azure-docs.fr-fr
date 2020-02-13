@@ -3,12 +3,12 @@ title: Considérations relatives au stockage pour Azure Functions
 description: En savoir plus sur les exigences de stockage d’Azure Functions et sur le chiffrement des données stockées.
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 353fdd3bf7775e3bc7a9d017a9e8dd8238b09830
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: f094996ca44ec36d46330e54eac56b28794ef22e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76965270"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190299"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considérations relatives au stockage pour Azure Functions
 
@@ -17,7 +17,7 @@ Azure Functions nécessite un compte Stockage Azure lorsque vous créez une inst
 
 |Service de stockage  | Utilisation de Functions  |
 |---------|---------|
-| [stockage d’objets blob Azure](/storage/blobs/storage-blobs-overview.md)     | Conserve l’état des liaisons et les touches de fonction.  <br/>Également utilisé par [des hubs de tâches dans Durable Functions](durable/durable-functions-task-hubs.md). |
+| [stockage d’objets blob Azure](../storage/blobs/storage-blobs-introduction.md)     | Conserve l’état des liaisons et les touches de fonction.  <br/>Également utilisé par [des hubs de tâches dans Durable Functions](durable/durable-functions-task-hubs.md). |
 | [Azure Files](../storage/files/storage-files-introduction.md)  | Partage de fichiers utilisé pour stocker et exécuter le code de votre application de fonction dans un [plan de consommation](functions-scale.md#consumption-plan). |
 | [Stockage File d’attente Azure](../storage/queues/storage-queues-introduction.md)     | Utilisé par [des hubs de tâches dans Durable Functions](durable/durable-functions-task-hubs.md).   |
 | [Stockage Table Azure](../storage/tables/table-storage-overview.md)  |  Utilisé par [des hubs de tâches dans Durable Functions](durable/durable-functions-task-hubs.md).       |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 1/14/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: bfa5d240ba4905f79274941568933daf1425bf8b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 463a389116cd58e50839d717b700b604f545e5f2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969431"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190117"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Créer une alerte de mesure avec un modèle Resource Manager
 
@@ -107,8 +107,8 @@ Enregistrez le code JSON ci-après sous le nom simplestaticmetricalert.json pour
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "double",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -1657,8 +1657,8 @@ Enregistrez le fichier JSON ci-après sous le nom all-vms-in-resource-group-stat
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "double",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -2304,8 +2304,8 @@ Enregistrez le fichier JSON ci-après sous le nom all-vms-in-subscription-static
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "double",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -2946,8 +2946,8 @@ Enregistrez le fichier JSON ci-après sous le nom list-of-vms-static.json pour l
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "double",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }

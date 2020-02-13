@@ -3,20 +3,20 @@ title: 'Démarrage rapide : Traduire la voix en plusieurs langues – Service S
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous utilisez le kit SDK Speech pour traduire interactivement la parole d’une langue en parole dans une autre langue.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.author: erhopf
+ms.date: 02/10/2020
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: b4ac6e7628559520dee9859c8da2f2985c0b7aa5
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 7f68e3a1a6dd1e3583b9cd1c44fdb311137584e3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74817296"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119224"
 ---
 # <a name="quickstart-translate-speech-to-multiple-languages"></a>Démarrage rapide : Traduire la parole en plusieurs langues
 

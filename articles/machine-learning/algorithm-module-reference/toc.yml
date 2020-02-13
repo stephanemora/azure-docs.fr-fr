@@ -26,6 +26,8 @@
       href: convert-to-csv.md
     - name: Convertir en jeu de données
       href: convert-to-dataset.md
+    - name: Convertir en valeurs d’indicateur
+      href: convert-to-indicator-values.md
     - name: Nettoyage des données manquantes
       href: clean-missing-data.md
     - name: Modifier des métadonnées
@@ -62,7 +64,7 @@
           href: boosted-decision-tree-regression.md
         - name: Régression de forêt d’arbres décisionnels
           href: decision-forest-regression.md
-        - name: régression linéaire
+        - name: Régression linéaire
           href: linear-regression.md
         - name: Régression de réseau neuronal
           href: neural-network-regression.md
@@ -124,7 +126,7 @@
   items:
     - name: "Exécuter un script\_R"
       href: execute-r-script.md
-- name: Analyse de texte
+- name: Analytique de texte
   items:
     - name: Extraire les caractéristiques de N-grammes du texte
       href: extract-n-gram-features-from-text.md

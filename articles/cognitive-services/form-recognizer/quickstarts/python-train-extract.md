@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: d5dd1c1271c2b7100b40f6cd0f6410b3c151adc0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 66668f46595c22426984a02c489297e962d061d0
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76900218"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118093"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Démarrage rapide : Entraîner un modèle Form Recognizer et extraire des données à partir de formulaires au moyen d’une API REST avec Python
 
@@ -25,7 +25,6 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre cette procédure de démarrage rapide, vous avez besoin des éléments suivants :
-- Accès à la préversion à accès limité de Form Recognizer. Pour accéder à la préversion, remplissez et envoyez le formulaire de [demande d’accès Form Recognizer](https://aka.ms/FormRecognizerRequestAccess).
 - [Python](https://www.python.org/downloads/) doit être installé (si vous souhaitez exécuter l’exemple en local).
 - Au minimum un ensemble de cinq formulaires du même type. Vous allez utiliser ces données pour entraîner le modèle. Vos formulaires peuvent être de différents types de fichiers, mais ils doivent être du même type de document. Vous pouvez utiliser un [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) pour ce guide de démarrage rapide. Chargez les fichiers d’entraînement à la racine d’un conteneur de stockage d’objets blob dans un compte Stockage Azure.
 

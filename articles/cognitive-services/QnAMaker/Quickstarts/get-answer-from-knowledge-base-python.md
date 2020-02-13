@@ -2,15 +2,15 @@
 title: 'Démarrage rapide : Obtenir des réponses d’une base de connaissances - REST, Python - QnA Maker'
 description: Ce guide de démarrage rapide basé sur REST Python vous aide à obtenir programmatiquement une réponse à partir d’une base de connaissances.
 ms.topic: quickstart
-ms.date: 01/28/2020
+ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCHANGE-20200128
-ms.openlocfilehash: f439a492e2e63e3f99f80004b387d9cfc415e4b0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7fe1ed140c53f93f2bd00847c5652906de998147
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842952"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109690"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-python"></a>Démarrage rapide : Obtenir des réponses à une question à partir d’une base de connaissance avec Python
 

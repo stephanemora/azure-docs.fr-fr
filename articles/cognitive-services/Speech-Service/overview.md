@@ -3,19 +3,19 @@ title: Qu’est-ce que le service de reconnaissance vocale ?
 titleSuffix: Azure Cognitive Services
 description: Le service Speech rassemble la reconnaissance vocale, la synthèse vocale et la traduction vocale dans un seul abonnement Azure. Ajoutez les services Speech à vos applications, outils et appareils avec le SDK Speech, le SDK Speech Devices ou les API REST.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 11/05/2019
-ms.author: erhopf
-ms.openlocfilehash: df0ce5efefe86ed3b7e2e8ccf5a2bd9011e168e6
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 7ddfae430e6aa4ec9549e40c937e5edcfd927f6d
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261430"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119928"
 ---
 # <a name="what-is-the-speech-service"></a>Qu’est-ce que le service de reconnaissance vocale ?
 
@@ -37,24 +37,6 @@ Ces fonctionnalités constituent le service Speech. Pour en savoir plus sur les 
 | | [Créer des voix personnalisées](#customize-your-speech-experience) | Créez des polices de voix personnalisées propres à vos marques ou produits. | Non | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Traduction vocale](speech-translation.md) | Traduction vocale | La traduction vocale permet à vos applications, outils et appareils d’effectuer de la traduction multilingue en temps réel de la parole. Utilisez ce service pour la traduction de voix en voix et de voix en texte. | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Non |
 | [Assistants vocaux](voice-assistants.md) | Assistants vocaux | Les assistants vocaux qui utilisent le service Speech permettent aux développeurs de créer des interfaces conversationnelles naturelles pour leurs applications et leurs expériences. Le service d’assistant vocal permet une interaction rapide et fiable entre un appareil et une implémentation d’assistant qui utilise le canal Direct Line Speech de Bot Framework ou le service intégré Custom Commands (préversion) pour réaliser la tâche. | [Oui](voice-assistants.md) | Non |
-
-## <a name="news-and-updates"></a>Nouveautés et mises à jour
-
-Découvrez les nouveautés introduites dans le service Speech.
-
-- Novembre 2019
-  - Ajout de deux nouveaux styles oraux, [`newscast`](speech-synthesis-markup.md#adjust-speaking-styles) et [`customerservice`](speech-synthesis-markup.md#adjust-speaking-styles) pour la voix `en-US-JessaNeural`.
-- Septembre 2019
-  - Publication du SDK Speech 1.7.0. Pour la liste complète des mises à jour, des améliorations et des problèmes connus, consultez [Notes de publication](releasenotes.md).
-- Août 2019
-  - **Nouveau tutoriel** : [Activer les fonctions vocales sur votre bot avec le SDK Speech, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-  - Ajout du nouveau style oral [`chat`](speech-synthesis-markup.md#adjust-speaking-styles) pour la voix `en-US-JessaNeural`.
-- Juin 2019
-  - Publication du SDK Speech 1.6.0. Pour la liste complète des mises à jour, des améliorations et des problèmes connus, consultez [Notes de publication](releasenotes.md).
-- Mai 2019 : La documentation est désormais disponible pour [Transcription de conversation](conversation-transcription-service.md), [Transcription de centre d’appel](call-center-transcription.md) et [Assistants vocaux](voice-assistants.md).
-- Mai 2019
-  - Publication du SDK Speech 1.5.1. Pour la liste complète des mises à jour, des améliorations et des problèmes connus, consultez [Notes de publication](releasenotes.md).
-  - Publication du SDK Speech 1.5.0. Pour la liste complète des mises à jour, des améliorations et des problèmes connus, consultez [Notes de publication](releasenotes.md).
 
 ## <a name="try-the-speech-service"></a>Essayer le service Speech
 

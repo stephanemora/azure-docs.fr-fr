@@ -2,22 +2,22 @@
 title: Créer un index de recherche dans le portail Azure
 titleSuffix: Azure Cognitive Search
 description: Dans ce guide de démarrage rapide du portail, découvrez comment utiliser l’Assistant Importation de données pour créer, charger et interroger votre premier index de recherche dans Recherche cognitive Azure.
-author: HeidiSteen
+author: tchristiani
 manager: nitinme
-ms.author: heidist
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 2ae0e5b53d735b95ce1c3d2f9275456e41319242
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.date: 02/10/2020
+ms.openlocfilehash: 6a3bbdae0d3fa898621c1c805388252beb891ecf
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900999"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121673"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans le portail Azure
 > [!div class="op_single_selector"]
-> * [Portal](search-get-started-portal.md)
+> * [Portail](search-get-started-portal.md)
 > * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
 > * [Node.JS](search-get-started-nodejs.md)
@@ -31,7 +31,7 @@ Si les outils sont trop limités, vous pouvez suivre une [Présentation basée s
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [Créez un service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide. 
 
@@ -258,7 +258,7 @@ Vous avez appris à créer un index de recherche à l’aide de l’Assistant **
 
 Vous avez également appris à rechercher des index, des indexeurs et des sources de données dans le portail. À l’avenir, pour toute nouvelle source de données et afin de limiter vos efforts, vous pourrez utiliser le portail pour vérifier rapidement ses définitions ou les collections de champs.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous travaillez dans votre propre abonnement, il est recommandé, à la fin de chaque projet, de déterminer si vous avez toujours besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
 

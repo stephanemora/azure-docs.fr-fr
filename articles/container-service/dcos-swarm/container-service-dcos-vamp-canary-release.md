@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 60ff148e044df81e64b54fc48c1cb6f67aee14df
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275657"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189113"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(DÉPRÉCIÉ) Contrôler la validité de microservices de mise en production avec Vamp sur un cluster DC/OS Azure Container Service
 
@@ -127,7 +127,7 @@ Une fois qu’Elasticsearch est **en cours d’exécution**, vous pouvez ajouter
 
 À présent que Vamp est opérationnel, déployez un service à partir d’un schéma. 
 
-Dans sa forme la plus simple, un [schéma Vamp](https://vamp.io/documentation/using-vamp/blueprints/) décrit les points de terminaison (passerelles), clusters et services à déployer. Vamp utilise des clusters pour regrouper des variantes du même service en groupes logiques à des fins de contrôle de validité de mise en production ou de tests A/B.  
+Dans sa forme la plus simple, un [schéma Vamp](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) décrit les points de terminaison (passerelles), clusters et services à déployer. Vamp utilise des clusters pour regrouper des variantes du même service en groupes logiques à des fins de contrôle de validité de mise en production ou de tests A/B.  
 
 Ce scénario utilise un exemple d’application monolithique appelé [**sava**](https://github.com/magneticio/sava), qui en est à la version 1.0. Le monolithe est empaqueté dans un conteneur Docker qui se trouve dans un hub Docker sous magneticio/sava:1.0.0. L’application s’exécute normalement sur le port 8080, mais vous souhaitez l’exposer sous le port 9050 dans ce cas. Déployez l’application via Vamp à l’aide d’un schéma simple.
 
@@ -287,9 +287,9 @@ Nous avons également évoqué certaines puissantes fonctionnalités de Vamp te
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez la gestion des actions de Vamp via l’[API REST Vamp](https://vamp.io/documentation/api/api-reference/).
+* Découvrez la gestion des actions de Vamp via l’[API REST Vamp](https://docs.vamp.io/how-vamp-works/events-and-metrics#events).
 
-* Générez des scripts d’automatisation de Vamp dans Node.js et exécutez-les en tant que [flux de travail Vamp](https://vamp.io/documentation/using-vamp/v1.0.0/workflows/#create-a-workflow).
+* Générez des scripts d’automatisation de Vamp dans Node.js et exécutez-les en tant que [flux de travail Vamp](https://docs.vamp.io/how-vamp-works/concepts-and-components#workflows).
 
-* Consultez des [didacticiels Vamp](https://vamp.io/documentation/tutorials/) supplémentaires.
+* Consultez des [didacticiels Vamp](https://docs.vamp.io/tutorials/) supplémentaires.
 

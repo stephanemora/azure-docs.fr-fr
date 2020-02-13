@@ -27,7 +27,7 @@
       href: search-get-started-java.md
     - name: Node.js
       href: search-get-started-nodejs.md
-    - name: Postman
+    - name: postman
       href: search-get-started-postman.md
     - name: PowerShell
       href: search-get-started-powershell.md
@@ -271,6 +271,8 @@
               href: knowledge-store-view-storage-explorer.md
             - name: Se connecter avec Power BI
               href: knowledge-store-connect-power-bi.md
+            - name: Exemples de projection
+              href: knowledge-store-projections-examples.md
     - name: Interroger des documents
       items:
         - name: Types de requêtes et composition

@@ -1,18 +1,18 @@
 ---
 title: Informations de référence sur l’API de l’agent Azure Application Insights
-description: Référence API d’Application Insights Agent. Set-ApplicationInsightsMonitoringConfig. Surveillez les performances d’un site web sans avoir à le redéployer. Fonctionne avec les applications web ASP.NET hébergées en local, dans des machines virtuelles ou sur Azure.
+description: Référence API d’Application Insights Agent. Set-ApplicationInsightsMonitoringConfig. Surveillez les performances de site web sans avoir à redéployer le site web. Fonctionne avec les applications web ASP.NET hébergées en local, dans des machines virtuelles ou sur Azure.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: d90739fbdc862d67dc2ce0f1dfdf5af5f4089a44
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 45dcd2374fc5be40f86d403f8daccf4a6f1d6997
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899674"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189437"
 ---
 # <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>API d’Application Insights Agent : Set-ApplicationInsightsMonitoringConfig
 
@@ -46,16 +46,14 @@ Dans cet exemple :
 - Des espaces ont été ajoutées pour faciliter la lisibilité.
 
 ```powershell
-PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap 
-    @(@{MachineFilter='.*';AppFilter='WebAppExclude'},
-      @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'},
-      @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'},
-      @{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'})
-
+Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap `
+       @(@{MachineFilter='.*';AppFilter='WebAppExclude'},
+          @{MachineFilter='.*';AppFilter='WebAppOne';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx1'}},
+          @{MachineFilter='.*';AppFilter='WebAppTwo';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2'}},
+          @{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault'}})
 ```
 
-
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Paramètres
 
 ### <a name="-instrumentationkey"></a>-InstrumentationKey
 **Obligatoire.** Utilisez ce paramètre pour fournir une clé d’instrumentation unique que l’ensemble des applications utiliseront sur l’ordinateur cible.
@@ -67,14 +65,14 @@ Vous pouvez créer un script d’installation unique pour plusieurs ordinateurs 
 > [!IMPORTANT]
 > Les applications effectueront le mappage avec les règles dans l’ordre d’apparition de ces dernières. Par conséquent, vous devez d’abord spécifier les règles les plus spécifiques et finir par les règles les plus génériques.
 
-#### <a name="schema"></a>Schéma
+#### <a name="schema"></a>schéma
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'})`
 
 - **MachineFilter** est une expression régulière C# obligatoire associée au nom de la machine virtuelle ou de l’ordinateur.
-    - « .* » effectue la correspondance avec tous les éléments.
+    - ’.*’ effectue la correspondance avec tous les éléments
     - « ComputerName » effectue la correspondance avec les ordinateurs présentant le nom spécifié uniquement.
-- **MachineFilter** est une expression régulière C# obligatoire associée au nom de la machine virtuelle ou de l’ordinateur.
-    - « .* » effectue la correspondance avec tous les éléments.
+- **AppFilter** est une expression régulière C# obligatoire associée au nom de la machine virtuelle ou de l’ordinateur.
+    - ’.*’ effectue la correspondance avec tous les éléments
     - « ComputerName » effectue la correspondance avec les applications IIS présentant le nom spécifié uniquement.
 - Le paramètre **Clé d’instrumentation** est requis pour activer la surveillance des applications qui correspondent aux deux filtres précédents.
     - Conservez la valeur null si vous souhaitez définir des règles pour exclure la surveillance.
@@ -124,7 +122,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
  
  Ajoutez des données de télémétrie :
  - [Créez des tests web](monitor-web-app-availability.md) pour vous assurer que votre site reste actif.
-- [Ajoutez la télémétrie de client web](../../azure-monitor/app/javascript.md) pour afficher les exceptions à partir du code de la page web et pour activer le suivi des appels.
+- [Ajoutez la télémétrie de client web](../../azure-monitor/app/javascript.md) pour afficher les exceptions à partir du code de la page web et activer le suivi des appels.
 - [Ajoutez le Kit de développement logiciel (SDK) Application Insights à votre code](../../azure-monitor/app/asp-net.md) afin de pouvoir insérer un suivi et journaliser les appels.
  
  En faire plus avec Application Insights Agent :

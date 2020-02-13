@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 171f06ad238f862adbd7071ee10d81133d7a6855
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 808a17fcf303c6eb72f11f5379fa172302dc782a
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022135"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059848"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Création de solutions de vente au détail avec Azure IoT Central
 
@@ -160,7 +160,7 @@ La capture d’écran suivante montre le tableau de bord prêt à l’emploi du 
 > [!div class="mx-imgBorder"]
 > ![Centre de microtraitement](./media/overview-iot-central-retail/MFC-Dashboard.png)
 
-Pour plus d’informations, consultez le tutoriel [Déployer et parcourir un modèle d’application du Centre de microtraitement](./tutorial-iot-central-smart-inventory-management-pnp.md).
+Pour plus d’informations, consultez le tutoriel [Déployer et parcourir un modèle d’application du Centre de microtraitement](./tutorial-micro-fulfillment-center-pnp.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -170,5 +170,5 @@ Pour commencer à créer une solution de vente au détail :
 * [Déployer et découvrir un modèle d’application logistique connectée](./tutorial-iot-central-connected-logistics-pnp.md)
 * [Déployer et parcourir un modèle d’application du Centre de distribution numérique](./tutorial-iot-central-digital-distribution-center-pnp.md)
 * [Déployer et découvrir un modèle de gestion intelligente des stocks IoT pour Azure IoT Central](./tutorial-iot-central-smart-inventory-management-pnp.md)
-* [Déployer et parcourir un modèle d’application du Centre de microtraitement](./tutorial-iot-central-smart-inventory-management-pnp.md)
+* [Déployer et parcourir un modèle d’application du Centre de microtraitement](./tutorial-micro-fulfillment-center-pnp.md)
 * Pour plus d’informations sur IoT Central, consultez la [présentation d’IoT Central](../preview/overview-iot-central.md).

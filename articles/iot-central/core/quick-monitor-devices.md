@@ -3,18 +3,18 @@ title: Démarrage rapide – Superviser vos appareils dans Azure IoT Central
 description: En tant qu’opérateur, apprenez à superviser vos appareils à l’aide de votre application Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: e5185d78b0ffc17e861f49d294af65ddcd200d07
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e56b733a567c706c2a15f2c30ed93a47c244db11
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026162"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168729"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>Démarrage rapide : Utiliser Azure IoT Central pour surveiller vos appareils
 
@@ -41,8 +41,6 @@ La vue **Vue d’ensemble** de l’appareil simulé que vous avez créé dans le
 ## <a name="investigate-an-issue"></a>Analyser un problème
 
 En tant qu’opérateur, vous pouvez consulter les informations sur l’appareil dans les vues **Vue d'ensemble**, **À propos** et **Commandes**. Le créateur a créé une vue **Gérer l’appareil** pour vous permettre de modifier les informations de l’appareil et définir ses propriétés.
-
-Choisissez **Vue d'ensemble** pour consulter les informations relatives à l'appareil.
 
 Le graphique sur le tableau de bord affiche un tracé de la température de l’appareil. Vous jugez que la température de l'appareil est trop élevée.
 

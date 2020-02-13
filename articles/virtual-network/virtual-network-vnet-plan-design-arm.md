@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: dfa7681b43bd18e15ee929156ab9a45bb9790c5b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6e066d28afc4b0959b15284378cde682fbc05615
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845589"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190475"
 ---
 # <a name="plan-virtual-networks"></a>Planifier des réseaux virtuels
 
@@ -27,7 +27,7 @@ La création d’un réseau virtuel à titre d’essai est assez facile, mais vo
 
 ## <a name="naming"></a>Dénomination
 
-Toutes les ressources Azure ont un nom. Le nom doit être unique au sein d’une étendue, qui peut varier pour chaque type de ressource. Par exemple, le nom d’un réseau virtuel doit être unique au sein d’un [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), mais peut être dupliqué dans un [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) ou une [région](https://azure.microsoft.com/regions/#services) Azure. La définition d’une convention d’affectation de noms que vous pouvez utiliser régulièrement lorsque vous nommez des ressources est utile lors de la gestion de plusieurs ressources réseau au fil du temps. Pour des suggestions, consultez [Conventions d’affectation de noms](/azure/architecture/best-practices/resource-naming#networking).
+Toutes les ressources Azure ont un nom. Le nom doit être unique au sein d’une étendue, qui peut varier pour chaque type de ressource. Par exemple, le nom d’un réseau virtuel doit être unique au sein d’un [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), mais peut être dupliqué dans un [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) ou une [région](https://azure.microsoft.com/regions/#services) Azure. La définition d’une convention d’affectation de noms que vous pouvez utiliser régulièrement lorsque vous nommez des ressources est utile lors de la gestion de plusieurs ressources réseau au fil du temps. Pour des suggestions, consultez [Conventions d’affectation de noms](../azure-resource-manager/management/resource-name-rules.md#microsoftnetwork).
 
 ## <a name="regions"></a>Régions
 

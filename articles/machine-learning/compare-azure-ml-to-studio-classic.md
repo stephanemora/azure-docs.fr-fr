@@ -8,11 +8,11 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: 064786de1f25c3d185984534b9a8fc61602826ee
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: a3122a3ae1687369b87d193efc693b3b7c659aac
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 02/10/2020
 ms.locfileid: "76311459"
 ---
 # <a name="how-azure-machine-learning-differs-from-machine-learning-studio-classic"></a>Différences entre Azure Machine Learning et Machine Learning Studio (classique)
@@ -24,19 +24,20 @@ Cet article compare les caractéristiques, les fonctionnalités et l’interface
 
 ## <a name="about-azure-machine-learning"></a>À propos d'Azure Machine Learning
 
-[Azure Machine Learning](overview-what-is-azure-ml.md) propose également une interface web appelée le concepteur, **et** plusieurs SDK et une interface CLI pour préparer les données, et entraîner et déployer des modèles Machine Learning rapidement. Avec Azure Machine Learning, vous bénéficiez d’une mise à l’échelle, d’une prise en charge de plusieurs infrastructures, de fonctionnalités de ML avancées, telles que le Machine Learning automatisé et la prise en charge de pipeline.
+[Azure Machine Learning](overview-what-is-azure-ml.md) propose également une interface web appelée le concepteur (préversion) **et** plusieurs Kits de développement logiciel (SDK) et interface CLI pour préparer rapidement les données, entraîner et déployer des modèles Machine Learning. Avec Azure Machine Learning, vous bénéficiez d’une mise à l’échelle, d’une prise en charge de plusieurs infrastructures, de fonctionnalités de ML avancées, telles que le Machine Learning automatisé et la prise en charge de pipeline.
 
 Le concepteur Azure Machine Learning offre une expérience de glisser-déplacer similaire à Studio (classique). Cependant, contrairement à la plateforme de calcul propriétaire de Studio (classique), le concepteur utilise vos propres ressources de calcul, est évolutif, et est entièrement intégré à Azure Machine Learning.  
 
 > [!TIP]
-> Les clients qui utilisent ou évaluent actuellement Machine Learning Studio (classique) sont encouragés à essayer le [concepteur Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer), qui fournit des modules ML par glisser-déposer __plus__ la scalabilité, la gestion de versions et la sécurité d’entreprise.
+> Les clients qui utilisent ou évaluent actuellement Machine Learning Studio (classique) sont encouragés à essayer le [concepteur Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer) (préversion), qui fournit des modules ML par glisser-déposer __plus__ l’extensibilité, la gestion de versions et la sécurité de l’entreprise.
 
 ## <a name="comparison-azure-machine-learning-vs-machine-learning-studio-classic"></a>Comparaison : Azure Machine Learning et Machine Learning Studio (classique)
 
 Voici une comparaison rapide.
 
 ||  Concepteur Azure Machine Learning|Studio (classique) |
-|---| --- | --- | 
+|---| --- | --- |
+||Le concepteur est en préversion, Azure Machine Learning est en disponibilité générale|Disponibilité générale (GA) | 
 |Interface de glisser-déposer| Oui | Oui|
 |Expérience| Mise à l’échelle avec cible de calcul|Mise à l’échelle (limite de données d’entraînement de 10 Go) | 
 |Modules pour l’interface| [Nombreux modules populaires](algorithm-module-reference/module-reference.md) | Divers |
@@ -45,7 +46,7 @@ Voici une comparaison rapide.
 |Pipeline ML| Création de pipeline <br/> Pipeline publié <br/> Point de terminaison de pipeline <br/> [En savoir plus sur le pipeline ML](concept-ml-pipelines.md)|Non pris en charge | 
 |Opérations ML| Déploiement configurable, gestion de versions des modèles et pipelines|Gestion et déploiement des modèles de base | 
 |Modèle| Format standard, différent, dépend du travail d’entraînement|Format propriétaire non portable.| 
-|Entraînement automatisé des modèles|Pas encore dans le concepteur, mais possible via l’interface et les kits SDK.| Non | 
+|Apprentissage automatisé des modèles|Pas encore dans le concepteur, mais possible via l’interface et les Kits de développement logiciel (SDK).| Non | 
 
 ## <a name="get-started-with-azure-machine-learning"></a>Prise en main d’Azure Machine Learning
 

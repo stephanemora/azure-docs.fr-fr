@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f4ce3cd0db20f76aa6169f15254cf36ee64151a5
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 03333e853a2ab7606ebe60cc3f68bcb5facfbdb4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406746"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191015"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtres dans la Recherche cognitive Azure 
 
@@ -51,7 +51,7 @@ Si vous souhaitez restreindre vos résultats de recherche, les filtres ne sont p
 
 + Le paramètre `$select` permet de spécifier les champs à inclure dans un jeu de résultats, ce qui a pour effet de réduire la réponse avant l’envoi de celle-ci à l’application appelante. Ce paramètre n’affine pas la requête et ne réduit pas la collection de documents. En revanche, si votre objectif est d’obtenir une plus petite réponse, ce paramètre constitue une option à envisager. 
 
-Pour plus d’informations sur ces deux paramètres, voir [Rechercher des documents > Demande > Paramètres de requête](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
+Pour plus d’informations sur ces deux paramètres, voir [Rechercher des documents > Demande > Paramètres de requête](/rest/api/searchservice/search-documents#query-parameters).
 
 
 ## <a name="how-filters-are-executed"></a>Comment les filtres sont-ils exécutés ?
@@ -156,7 +156,7 @@ Les chaînes de texte respectent la casse. Il n’y a pas de conversion en minus
 
 ### <a name="approaches-for-filtering-on-text"></a>Approches pour le filtrage de texte
 
-| Approche | Description | Quand utiliser |
+| Approche | Description | Quand l’utiliser |
 |----------|-------------|-------------|
 | [`search.in`](search-query-odata-search-in-function.md) | Une fonction qui compare un champ à une liste délimitée de chaînes. | Cette fonction est recommandée pour les [filtres de sécurité](search-security-trimming-for-azure-search.md) et pour tous les filtres dans lesquels plusieurs valeurs de texte brut doivent être comparées à un champ de chaîne. La fonction **search.in** est conçue pour fonctionner rapidement. Elle est donc beaucoup plus rapide qu’une comparaison explicite du champ à chaque chaîne à l’aide de `eq` et `or`. | 
 | [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Fonction permettant de combiner des opérations de recherche en texte intégral avec des opérations de filtre strictement booléen dans une même expression de filtre. | Utilisez **search.ismatch** (ou son équivalent **search.ismatchscoring** pour le scoring) lorsque vous souhaitez utiliser plusieurs combinaisons de filtres et de recherches dans une seule demande. Vous pouvez également l’utiliser pour un filtre *contains* afin de filtrer sur une chaîne partielle figurant à l’intérieur d’une chaîne de plus grande taille. |

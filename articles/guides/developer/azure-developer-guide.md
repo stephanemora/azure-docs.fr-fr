@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 67fe048c5afb07c65dcddc797e3a1d8461b1893f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: af5399a6e1a76a6020448b2e91d76a1d2e1f0ed8
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965955"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186952"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
@@ -60,7 +60,7 @@ Comme ces trois types d’application partagent le runtime App Service, vous pou
 
 App Service a été conçu en tenant compte de DevOps. Il prend en charge divers outils de déploiement d’intégration continue et de publication. Ces outils incluent des webhooks GitHub, Jenkins, Azure DevOps, TeamCity et bien d’autres.
 
-Vous pouvez migrer vos applications existantes vers App Service en utilisant l’[outil de migration en ligne](https://www.migratetoazure.net/).
+Vous pouvez migrer vos applications existantes vers App Service en utilisant l’[outil de migration en ligne](https://appmigration.microsoft.com/).
 
 > **Quand les utiliser** : utilisez App Service quand vous migrez des applications web existantes vers Azure et quand vous avez besoin d’une plateforme d’hébergement complètement managée pour vos applications web. Vous pouvez également utiliser App Service lorsque vous avez besoin de prendre en charge les clients mobiles ou d’exposer des API REST avec votre application.
 >
@@ -171,7 +171,7 @@ Il est essentiel non seulement de savoir qui utilise vos applications, mais auss
 
   > **Quand les utiliser** : lorsque vous souhaitez fournir une expérience SSO, travailler avec des données basées sur Graph ou authentifier les utilisateurs de domaine.
   >
-  > **Prise en main** : pour en savoir plus, consultez le [Guide du développeur Azure Active Directory](../../active-directory/develop/v1-overview.md).
+  > **Prise en main** : pour en savoir plus, consultez le [Guide du développeur Azure Active Directory](../../active-directory/develop/v2-overview.md).
 
 - **Authentification App Service** : lorsque vous choisissez App Service pour héberger votre application, vous bénéficiez également de la prise en charge de l’authentification intégrée pour Azure AD, ainsi que des fournisseurs d’identité sociale, notamment Facebook, Google, Microsoft et Twitter.
 

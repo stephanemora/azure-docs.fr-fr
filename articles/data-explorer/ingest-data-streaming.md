@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 4f9804ed0e7d6c83a4f6fc732f836fcecce1c2e7
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: cc152460be777c30d79f783b9acfa846a4c73a72
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548340"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188019"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingestion de streaming (préversion)
 
@@ -23,9 +23,9 @@ Utilisez l’ingestion classique (en bloc) à la place de l’ingestion de strea
 > [!NOTE]
 > L’ingestion de streaming ne prend pas en charge les fonctionnalités suivantes :
 > * [Curseurs de base de données](/azure/kusto/management/databasecursor).
-> * [Mappage des données](/azure/kusto/management/mappings). Seul un mappage de données [précréé](/azure/kusto/management/tables#create-ingestion-mapping) est pris en charge. 
+> * [Mappage des données](/azure/kusto/management/mappings). Seul un mappage de données [précréé](/azure/kusto/management/create-ingestion-mapping-command) est pris en charge. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Connectez-vous à l’[interface utilisateur web](https://dataexplorer.azure.com/).

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer une application de traduction avec WPF, C# - API Traduction de texte Translator Text'
+title: 'Tutoriel : Créer une application de traduction avec WPF, C# - API Traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous créez une application WPF qui traduit le texte, détecte la langue et corrige l’orthographe avec une seule clé d’abonnement.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 25c51067f713b5d713684e5d267c133c21b17c93
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ecb42d200eb8808f6bfa4cfb91e98909e350038b
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978524"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118605"
 ---
-# <a name="tutorial-create-a-translation-app-with-wpf"></a>Didacticiel : Créer une application de traduction avec WPF
+# <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutoriel : Créer une application de traduction avec WPF
 
 Dans ce tutoriel, vous créez une application [Windows Presentation Foundation (WPF)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2019) qui utilise les API Cognitive Services pour la traduction de texte, la détection de langue et la correction orthographique avec une seule clé d’abonnement. Plus précisément, votre application appelle des API Traduction de texte Translator Text et de [Vérification orthographique Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
@@ -44,7 +44,7 @@ Cette liste inclut les services Cognitive Services utilisés dans ce tutoriel. S
 | Translator Text | [Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Détectez la langue du texte d’entrée. Inclut le score de confiance pour la détection. |
 | Vérification orthographique Bing | [Vérification orthographique](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corrigez les fautes d’orthographe pour améliorer l’exactitude de la traduction. |
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de continuer, vous avez besoin des éléments suivants :
 
@@ -114,11 +114,11 @@ Voyons ce que nous créons.
 
 L’interface utilisateur comprend ces composants :
 
-| Nom | type | Description |
+| Name | Type | Description |
 |------|------|-------------|
-| `FromLanguageComboBox` | Zone de liste modifiable | Affiche la liste des langues prises en charge par Microsoft Translator pour la traduction de texte. L’utilisateur sélectionne la langue de son texte d’origine. |
-| `ToLanguageComboBox` | Zone de liste modifiable | Affiche la même liste de langues que `FromComboBox`, mais permet de sélectionner la langue cible du texte à traduire. |
-| `TextToTranslate` | Zone de texte | Permet à l’utilisateur d’entrer du texte à traduire. |
+| `FromLanguageComboBox` | Liste déroulante | Affiche la liste des langues prises en charge par Microsoft Translator pour la traduction de texte. L’utilisateur sélectionne la langue de son texte d’origine. |
+| `ToLanguageComboBox` | Liste déroulante | Affiche la même liste de langues que `FromComboBox`, mais permet de sélectionner la langue cible du texte à traduire. |
+| `TextToTranslate` | TextBox | Permet à l’utilisateur d’entrer du texte à traduire. |
 | `TranslateButton` | Bouton | Utilisez ce bouton pour traduire du texte. |
 | `TranslatedTextLabel` | Étiquette | Affiche la traduction. |
 | `DetectedLanguageLabel` | Étiquette | Affiche la langue détectée du texte à traduire (`TextToTranslate`). |
@@ -353,7 +353,7 @@ L’interface utilisateur est définie en XAML, par conséquent, vous n’avez p
    // In the following sections, we'll add code below this.
    ```
 
-Cette méthode effectue une itération sur le dictionnaire `languageCodesAndTitles` et ajoute chaque clé aux deux menus. Une fois les menus remplis, les langues source et cible par défaut sont définies sur **Détecter** et **Anglais** respectivement.
+Cette méthode effectue une itération sur le dictionnaire `languageCodesAndTitles` et ajoute chaque clé aux deux menus. Une fois les menus remplis, les langues source et cible par défaut sont définies sur **Detect** et **English** respectivement.
 
 > [!TIP]
 > Si nous ne définissons pas de sélection par défaut pour nos menus, l’utilisateur peut cliquer sur **Traduire** sans choisir de langue source ou cible. Les valeurs par défaut évitent d’avoir à résoudre ce problème.

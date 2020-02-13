@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Personnaliser l’assistant vocal, Java (Android) �
 titleSuffix: Azure Cognitive Services
 description: Découvrir comment créer une application d’assistant vocal dans Java sur Android à l’aide du Kit de développement logiciel (SDK) Speech
 services: cognitive-services
-author: trrwilson
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/09/2019
-ms.author: travisw
-ms.openlocfilehash: 70031513d6f120e539e80d6befad4bf9320fb9c4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: d4f84bad6139210dcff3d3f3726d8b7a17d92a5b
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975956"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119729"
 ---
 # <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Démarrage rapide : Créer un assistant vocal dans Java sur Android à l’aide du Kit de développement logiciel (SDK) Speech
 
@@ -28,7 +28,7 @@ Cette application est basée sur le package Maven 3 du SDK Speech et sur Android
 > [!NOTE]
 > Pour le kit SDK Speech et l’appareil Roobo, consultez le [kit SDK Speech Devices](speech-devices-sdk.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Clé d’abonnement Azure pour le service Speech. [Obtenez-en un gratuitement](get-started.md) ou créez-le sur le [portail Azure](https://portal.azure.com).
 - Un bot existant configuré avec le [canal Direct Line Speech ](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)

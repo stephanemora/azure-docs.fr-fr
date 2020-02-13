@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 53fd02856a805f8bb5d7261cc9e6e32861b2b4fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 84e60b0a942bad94d8e36eb20b5be8e3f55af80a
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426989"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190939"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-cognitive-search"></a>Implémenter la fonctionnalité d’analytique du trafic des recherches dans la Recherche cognitive Azure
 
@@ -106,7 +106,7 @@ Chaque fois qu’une requête de recherche est émise par un utilisateur, vous d
 **SearchServiceName** : (chaîne) nom du service de recherche **SearchId** : (GUID) identificateur unique de la requête de recherche (qui est fourni dans la réponse de recherche) **IndexName** : (chaîne) index du service de recherche à interroger **QueryTerms** : (chaîne) termes de recherche entrés par l’utilisateur **ResultCount** : (entier) nombre de documents qui ont été renvoyés (fourni dans la réponse de recherche) **ScoringProfile** : (chaîne) nom du profil de score utilisé, le cas échéant
 
 > [!NOTE]
-> Demandez le nombre de requêtes générées par l’utilisateur en ajoutant $count=true à votre requête de recherche. Plus d’informations, cliquez [ici](https://docs.microsoft.com/rest/api/searchservice/search-documents#request)
+> Demandez le nombre de requêtes générées par l’utilisateur en ajoutant $count=true à votre requête de recherche. Plus d’informations, cliquez [ici](/rest/api/searchservice/search-documents#counttrue--false).
 >
 
 > [!NOTE]

@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9338c1a42737180ec5395f30060b4eed35ce5eda
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: be447b001b0b2e14999aac98ba2125f8cbfe9853
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381068"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186613"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Démarrage rapide : Bloquer l’accès lorsqu’un risque de session est détecté avec l’accès conditionnel Azure Active Directory  
 
-Pour protéger votre environnement, vous devrez peut-être empêcher les utilisateurs suspects de se connecter. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyse chaque connexion et calcule la probabilité qu’une tentative de connexion n’émane pas du propriétaire légitime d’un compte d’utilisateur. La probabilité (faible, moyenne ou élevée) est indiquée sous forme de valeurs calculées appelées [niveaux de risque de connexion](conditions.md#sign-in-risk). En définissant la condition du risque de connexion, vous pouvez configurer une stratégie d’accès conditionnel afin de répondre aux niveaux de risque de connexion spécifiques.
+Pour protéger votre environnement, vous devrez peut-être empêcher les utilisateurs suspects de se connecter. [Azure Active Directory (Azure AD) Identity Protection](../active-directory-identityprotection.md) analyse chaque connexion et calcule la probabilité qu’une tentative de connexion n’émane pas du propriétaire légitime d’un compte d’utilisateur. La probabilité (faible, moyenne ou élevée) est indiquée sous forme de valeurs calculées appelées [niveaux de risque de connexion](concept-conditional-access-conditions.md#sign-in-risk). En définissant la condition du risque de connexion, vous pouvez configurer une stratégie d’accès conditionnel afin de répondre aux niveaux de risque de connexion spécifiques.
 
 Ce démarrage rapide décrit comment configurer une [stratégie d’accès conditionnel](../active-directory-conditional-access-azure-portal.md) qui bloque une connexion lorsqu’un niveau de risque de connexion configuré a été détecté.
 
@@ -28,13 +28,13 @@ Ce démarrage rapide décrit comment configurer une [stratégie d’accès condi
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre le scénario décrit dans ce didacticiel, vous avez besoin de ce qui suit :
 
 - **Accès à une édition Azure AD Premium P2** : bien que l’accès conditionnel soit une fonctionnalité d’Azure AD Premium P1, vous avez besoin d’une édition P2, car le scénario de ce démarrage rapide implique Identity Protection.
 - **Identity Protection** : Identity Protection doit être activé pour suivre le scénario de ce démarrage rapide. Pour en savoir plus sur l’activation d’Identity Protection dans Azure AD, consultez la page [Activer Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
-- **Navigateur Tor** : le [navigateur Tor](https://www.torproject.org/projects/torbrowser.html.en) est conçu pour vous aider à préserver votre confidentialité en ligne. Identity Protection détecte les connexions à partir du navigateur Tor en tant que connexions depuis des adresses IP anonymes, offrant un niveau de risque moyen. Pour plus d’informations, consultez [Détections de risques dans Azure Active Directory](../reports-monitoring/concept-risk-events.md).  
+- **Navigateur Tor** : le [navigateur Tor](https://www.torproject.org/projects/torbrowser.html.en) est conçu pour vous aider à préserver votre confidentialité en ligne. Identity Protection détecte les connexions à partir du navigateur Tor en tant que connexions depuis des adresses IP anonymes, offrant un niveau de risque moyen. Pour plus d’informations, consultez [Détections des risques dans Azure Active Directory](../reports-monitoring/concept-risk-events.md).  
 - **Un compte test nommé Alain Charon** : si vous ignorez comment créer un compte test, consultez la page [Ajouter des utilisateurs basés sur le cloud](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Tester la connexion
@@ -57,11 +57,11 @@ Cette section montre comment créer la stratégie d’accès conditionnel requis
 | Utilisateurs et groupes | Alain Charon  |
 | Applications cloud | Toutes les applications cloud |
 | Risque à la connexion | Moyenne |
-| Grant (Autoriser) | Bloquer l’accès |
+| Accorder | Bloquer l’accès |
 
 ![Créer une stratégie](./media/app-sign-in-risk/130.png)
 
-**Pour configurer votre stratégie d’accès conditionnel, procédez comme suit :**
+**Pour configurer votre stratégie d’accès conditionnel, effectuez les étapes suivantes :**
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Dans la barre de navigation gauche du portail Azure, cliquez sur **Azure Active Directory**.
@@ -74,11 +74,11 @@ Cette section montre comment créer la stratégie d’accès conditionnel requis
 
 1. Dans la page **Accès conditionnel**, dans la barre d’outils en haut, cliquez sur **Ajouter**.
 
-   ![Nom](./media/app-sign-in-risk/108.png)
+   ![Name](./media/app-sign-in-risk/108.png)
 
 1. Sur la page **Nouveau**, dans la zone de texte **Nom**, saisissez **Block access for medium risk level**.
 
-   ![Nom](./media/app-sign-in-risk/104.png)
+   ![Name](./media/app-sign-in-risk/104.png)
 
 1. Dans la section **Affectation**, cliquez sur **Utilisateurs et groupes**.
 
@@ -163,7 +163,7 @@ Pour tester votre stratégie, essayez de vous connecter à votre [portail Azure]
 
 ![Authentification multifacteur](./media/app-sign-in-risk/118.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez l’utilisateur test, le navigateur Tor et la stratégie d’accès conditionnel :
 

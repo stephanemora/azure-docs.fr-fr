@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
-ms.openlocfilehash: 0628d5c07d7258cc4d68727c364e65bd81c78e8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6394d7149bd4e80f0a17a59a6259eedf4c806fd4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388991"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188174"
 ---
 # <a name="azure-devops-task-for-azure-data-explorer"></a>Azure DevOps Task pour Azure Data Explorer
 
@@ -22,7 +22,7 @@ ms.locfileid: "66388991"
 
 Ce document décrit un exemple simple d’utilisation de la tâche **Azure Data Explorer – Commandes d'administration** pour déployer vos modifications de schéma dans votre base de données. Pour les pipelines CI/CD, consultez la [documentation Azure DevOps](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops#vsts).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Configuration d'un cluster Azure Data Explorer :
@@ -42,7 +42,7 @@ Créez les dossiers exemples suivants (*Fonctions*, *Stratégies*, *Tables*) dan
 ![Créez les dossiers.](media/devops/create-folders.png)
 
 > [!TIP]
-> Lorsque vous créez votre propre workflow, nous vous recommandons de rendre votre code idempotent. Par exemple, utilisez [.create-merge table](/azure/kusto/management/tables#create-merge-tables) plutôt que [.create table](/azure/kusto/management/tables#create-table) et la fonction [.create-or-alter](/azure/kusto/management/functions#create-or-alter-function) plutôt que [.create](/azure/kusto/management/functions#create-function).
+> Lorsque vous créez votre propre workflow, nous vous recommandons de rendre votre code idempotent. Par exemple, utilisez [.create-merge table](/azure/kusto/management/create-table-command#create-merge-table) plutôt que [.create table](/azure/kusto/management/create-table-command) et la fonction [.create-or-alter](/azure/kusto/management/functions#create-or-alter-function) plutôt que [.create](/azure/kusto/management/functions#create-function).
 
 ## <a name="create-a-release-pipeline"></a>Créer un pipeline de mise en production
 

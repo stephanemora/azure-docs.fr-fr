@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: a6ad8156b5ab6370bb089c97d620bae0ccff82eb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 33cc4caa8b5901177699368e2f31908951910a6f
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381458"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109579"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Démarrage rapide : Publier une base de connaissances dans QnA Maker à l'aide de C#
 
@@ -73,7 +73,7 @@ Une fois votre base de connaissances publiée, vous pouvez l’interroger à par
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois la base de connaissances publiée, il faut que l’[URL du point de terminaison génère une réponse](../Tutorials/create-publish-answer.md#generating-an-answer).
+Une fois la base de connaissances publiée, il faut que l’[URL du point de terminaison génère une réponse](./get-answer-from-knowledge-base-csharp.md).
 
 > [!div class="nextstepaction"]
 > [Documentation de référence pour l’API REST QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)

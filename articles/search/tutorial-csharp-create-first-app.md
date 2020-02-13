@@ -3,23 +3,23 @@ title: Tutoriel C# pour créer votre première application
 titleSuffix: Azure Cognitive Search
 description: Découvrez comment générer votre première application de recherche en C#, étape par étape. Il fournit un lien vers une application opérationnelle sur GitHub et le processus complet pour générer l’application à partir de zéro. Découvrez les composants essentiels de Recherche cognitive Azure.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: fc3d9d52ca6eb3d35138323908c73eb0d09cf519
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/10/2020
+ms.openlocfilehash: 2b4f67fc448d98239947fd764d4926f1d590c5e2
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112234"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121593"
 ---
 # <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>Tutoriel C# : Créer votre première application - Recherche cognitive Azure
 
 Découvrez comment créer une interface web pour interroger un index et présenter les résultats de la recherche en utilisant Recherche cognitive Azure. Ce tutoriel s’appuyant sur un index hébergé existant, vous pouvez vous concentrer sur la création d’une page de recherche. L’index contient des données d’hôtels fictives. Une fois que vous avez une page de base, vous pourrez l’améliorer dans les leçons suivantes pour inclure une pagination, des facettes et une expérience d’auto-complétion.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Configurer un environnement de développement
 > * Modéliser des structures de données
@@ -44,7 +44,7 @@ Cet appel lance une recherche de données Azure et retourne les résultats.
 ![Recherche portant sur le terme « pool »](./media/tutorial-csharp-create-first-app/azure-search-pool.png)
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 

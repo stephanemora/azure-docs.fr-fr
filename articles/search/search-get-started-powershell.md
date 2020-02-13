@@ -3,18 +3,18 @@ title: 'Démarrage rapide : Créer un index de recherche dans PowerShell à l�
 titleSuffix: Azure Cognitive Search
 description: Dans ce guide de démarrage rapide de l’API REST, découvrez comment créer un index, charger des données et exécuter des requêtes avec la méthode Invoke-RestMethod de PowerShell et l’API REST de Recherche cognitive Azure.
 manager: nitinme
-author: heidisteen
-ms.author: heidist
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 11/04/2019
-ms.openlocfilehash: db474b7e880ec2d65b9b9a71194964740e4fb329
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/10/2020
+ms.openlocfilehash: 612751c2405cd55ad0b3760aa8e093e434a22f57
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406910"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121609"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans PowerShell à l’aide des API REST
 > [!div class="op_single_selector"]
@@ -22,14 +22,14 @@ ms.locfileid: "74406910"
 > * [C#](search-create-index-dotnet.md)
 > * [Postman (REST)](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
-> * [Portal](search-create-index-portal.md)
+> * [Portail](search-create-index-portal.md)
 > 
 
 Cet article décrit le processus de création, de chargement et d’interrogation d’un index Recherche cognitive Azure à l’aide de PowerShell et des [API REST de la Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/). Cet article explique comment exécuter des commandes PowerShell de manière interactive. Vous pouvez également [télécharger et exécuter un script PowerShell](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart) qui effectue les mêmes opérations.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les services et outils suivants sont indispensables dans ce guide de démarrage rapide. 
 
@@ -391,7 +391,7 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 
 $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
 ```
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous travaillez dans votre propre abonnement, il est recommandé, à la fin de chaque projet, de déterminer si vous avez toujours besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
 

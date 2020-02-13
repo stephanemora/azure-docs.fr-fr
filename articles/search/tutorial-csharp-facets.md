@@ -3,17 +3,17 @@ title: Tutoriel C# sur l’utilisation de facettes pour faciliter la navigation
 titleSuffix: Azure Cognitive Search
 description: Ce tutoriel s’appuie sur le projet « Pagination des résultats de la recherche - Recherche cognitive Azure » pour ajouter la navigation à facettes. Découvrez dans quelle mesure les facettes permettent d’affiner facilement une recherche.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 9f0d716e9077b2d9702f26b1afe92d9e4faf4a77
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 02/10/2020
+ms.openlocfilehash: d88a9d7efdabd493fd31b961748bb6ad3bd8d738
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794094"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121572"
 ---
 # <a name="c-tutorial-use-facets-to-aid-navigation---azure-cognitive-search"></a>Tutoriel C# : Utiliser des facettes pour faciliter la navigation - Recherche cognitive Azure
 
@@ -21,12 +21,12 @@ Les facettes facilitent la navigation, en fournissant à l’utilisateur un ense
 
 Ce tutoriel repose sur le projet de pagination créé dans le [Tutoriel C#  : Pagination des résultats de la recherche - Recherche cognitive Azure](tutorial-csharp-paging.md).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Définir des propriétés de modèle en tant que _IsFacetable_
 > * Ajouter la navigation à facettes à votre application
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 

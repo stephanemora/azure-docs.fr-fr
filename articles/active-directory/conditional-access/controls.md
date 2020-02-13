@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 342ec46aabafec975d780aa03fe75d7e3cf50497
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2ad8894078a15bf37a5383cdff3721f4bf7be910
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424973"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186226"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Que sont les contrôles d’accès dans l’accès conditionnel Azure Active Directory ?
 
@@ -85,18 +85,18 @@ Pour plus d’informations, consultez [Configurer des stratégies d’accès con
 Étant donné que vos employés utilisent des appareils mobiles pour les tâches personnelles et professionnelles, vous pouvez souhaiter avoir la possibilité de protéger les données d’entreprise accessibles à l’aide d’appareils même si ce n’est pas vous qui les gérez.
 Vous pouvez utiliser des [stratégies de protection des applications Intune](https://docs.microsoft.com/intune/app-protection-policy) pour mieux protéger les données de votre entreprise, quelle que soit votre solution de gestion des appareils mobiles (MDM).
 
-Avec les applications clientes approuvées, vous pouvez exiger qu’une application cliente qui tente d’accéder à vos applications cloud prenne en charge des [stratégies de protection des applications Intune](https://docs.microsoft.com/intune/app-protection-policy). Par exemple, vous pouvez restreindre l’accès à Exchange Online à l’application Outlook. Une stratégie d’accès conditionnel qui requiert des applications clientes approuvées est aussi appelée [stratégie d’accès conditionnel basé sur les applications](app-based-conditional-access.md). Pour obtenir la liste des applications clientes approuvées prises en charge, consultez [Spécification d’application cliente approuvée](technical-reference.md#approved-client-app-requirement).
+Avec les applications clientes approuvées, vous pouvez exiger qu’une application cliente qui tente d’accéder à vos applications cloud prenne en charge des [stratégies de protection des applications Intune](https://docs.microsoft.com/intune/app-protection-policy). Par exemple, vous pouvez restreindre l’accès à Exchange Online à l’application Outlook. Une stratégie d’accès conditionnel qui requiert des applications clientes approuvées est aussi appelée [stratégie d’accès conditionnel basé sur les applications](app-based-conditional-access.md). Pour obtenir la liste des applications clientes approuvées prises en charge, consultez [Spécification d’application cliente approuvée](concept-conditional-access-grant.md#require-approved-client-app).
 
 ### <a name="app-protection-policy-preview"></a>Stratégie de protection des applications (préversion)
 
 Étant donné que vos employés utilisent des appareils mobiles pour les tâches personnelles et professionnelles, vous pouvez souhaiter avoir la possibilité de protéger les données d’entreprise accessibles à l’aide d’appareils même si ce n’est pas vous qui les gérez.
 Vous pouvez utiliser des [stratégies de protection des applications Intune](https://docs.microsoft.com/intune/app-protection-policy) pour mieux protéger les données de votre entreprise, quelle que soit votre solution de gestion des appareils mobiles (MDM).
 
-Avec la stratégie de protection d’application, vous pouvez limiter l’accès aux applications clientes qui ont signalé à Azure AD avoir reçu des [stratégies Intune App Protection](https://docs.microsoft.com/intune/app-protection-policy). Par exemple, vous pouvez restreindre l’accès à Exchange Online à l’application Outlook ayant une stratégie Intune App Protection. Une stratégie d’accès conditionnel qui requiert une stratégie de protection d’application est aussi appelée [stratégie d’accès conditionnel basé sur la protection des applications](app-protection-based-conditional-access.md). 
+Avec la stratégie de protection d’application, vous pouvez limiter l’accès aux applications clientes qui ont signalé à Azure AD avoir reçu des [stratégies Intune App Protection](https://docs.microsoft.com/intune/app-protection-policy). Par exemple, vous pouvez restreindre l’accès à Exchange Online à l’application Outlook ayant une stratégie Intune App Protection. Une stratégie d’accès conditionnel qui requiert une stratégie de protection d’application est aussi appelée [stratégie d’accès conditionnel basé sur la protection des applications](concept-conditional-access-session.md#application-enforced-restrictions). 
 
 Votre appareil doit être inscrit à Azure AD avant de pouvoir marquer une application comme étant protégée par une stratégie.
 
-Pour obtenir la liste des applications clientes protégées par une stratégie prises en charge, consultez [Exigence relative à la stratégie de protection des applications](technical-reference.md#app-protection-policy-requirement).
+Pour obtenir la liste des applications clientes protégées par une stratégie prises en charge, consultez [Exigence relative à la stratégie de protection des applications](concept-conditional-access-session.md#application-enforced-restrictions).
 
 ### <a name="terms-of-use"></a>Conditions d’utilisation
 

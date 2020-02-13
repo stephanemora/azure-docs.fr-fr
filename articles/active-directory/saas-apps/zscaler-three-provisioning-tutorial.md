@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer Zscaler Three pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer Zscaler Three pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Ce tutoriel montre comment configurer Azure Active Directory pour provisionner et déprovisionner automatiquement des comptes d’utilisateur dans Zscaler Three.
 services: active-directory
 documentationcenter: ''
@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 43ae028e57578634c34c69357a264fdb180b8a1f
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 177bc34162c2b5e4dadc54e1166c5f6061068bae
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515360"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064102"
 ---
-# <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Didacticiel : Configurer Zscaler Three pour le provisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Tutoriel : Configurer Zscaler Three pour le provisionnement automatique d’utilisateurs
 
 Ce tutoriel montre comment configurer Azure Active Directory (Azure AD) pour provisionner et déprovisionner automatiquement des utilisateurs et/ou des groupes dans Zscaler Three.
 
 > [!NOTE]
 > Ce tutoriel décrit un connecteur reposant sur le service de provisionnement d’utilisateurs Azure AD. Pour obtenir des informations importantes sur l’utilisation et le fonctionnement de ce service, ainsi que des réponses aux questions fréquentes, consultez [Automatiser le provisionnement et le déprovisionnement d’utilisateurs dans les applications SaaS avec Azure Active Directory](../active-directory-saas-app-provisioning.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer les étapes décrites dans ce tutoriel, vous avez besoin des éléments suivants :
 
@@ -153,7 +153,7 @@ Pour avoir des informations sur la lecture des journaux d’activité d’approv
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

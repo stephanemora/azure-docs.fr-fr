@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: ca0c1174abb80452f78766c3c4f49af73c790d3e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d67075fad719b1780682c705f0e17f15c5801559
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448677"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136147"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Démarrage rapide : Appeler votre point de terminaison Recherche personnalisée Bing avec le kit SDK Python 
 
@@ -51,12 +51,13 @@ from msrest.authentication import CognitiveServicesCredentials
 
     ```python
     subscription_key = 'your-subscription-key'
+    endpoint = 'your-custom-endpoint'
     ```
 
 2. Créez une instance de `CustomSearchClient` utilisant un objet `CognitiveServicesCredentials` à l’aide de la clé d’abonnement. 
 
     ```python
-    client = CustomSearchClient(CognitiveServicesCredentials(subscription_key))
+    client = CustomSearchClient(endpoint, CognitiveServicesCredentials(subscription_key))
     ```
 
 3. Envoyez une requête de recherche avec `client.custom_instance.search()`. Ajoutez votre terme de recherche au paramètre `query`, et définissez `custom_config` sur votre ID de configuration personnalisée pour utiliser votre instance de recherche. Vous pouvez obtenir votre identifiant sur le portail [Recherche personnalisée Bing](https://www.customsearch.ai/), en cliquant sur l'onglet **Production**.

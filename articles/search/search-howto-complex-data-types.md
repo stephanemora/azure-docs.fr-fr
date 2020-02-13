@@ -9,12 +9,12 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 657cded5e16897f9581bbcf365bacc2d2f1a821a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 2edd62825de08becf22f2f953a63a7f89f55e0a6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754356"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190992"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Modélisation de types de données complexes dans Recherche cognitive Azure
 
@@ -125,7 +125,7 @@ Les champs doivent être marqués comme récupérables dans l’index si vous so
 
 ## <a name="filter-facet-and-sort-complex-fields"></a>Filtrer et trier des champs complexes et activer des facettes pour les champs complexes
 
-La même [syntaxe de chemin OData](query-odata-filter-orderby-syntax.md) utilisée pour le filtrage et les recherches par champ peut également être utilisée pour activer des facettes, trier et sélectionner dans le cadre d’une requête de recherche. Pour les types complexes, des règles qui définissent quels sous-champs peuvent être marqués triables ou dotés de facettes activées s’appliquent. Pour plus d’informations sur ces règles, consultez la [référence Créer une API d’index](https://docs.microsoft.com/rest/api/searchservice/create-index#request).
+La même [syntaxe de chemin OData](query-odata-filter-orderby-syntax.md) utilisée pour le filtrage et les recherches par champ peut également être utilisée pour activer des facettes, trier et sélectionner dans le cadre d’une requête de recherche. Pour les types complexes, des règles qui définissent quels sous-champs peuvent être marqués triables ou dotés de facettes activées s’appliquent. Pour plus d’informations sur ces règles, consultez la [référence Créer une API d’index](/rest/api/searchservice/create-index).
 
 ### <a name="faceting-sub-fields"></a>Activation de facettes pour les sous-champs
 
@@ -149,7 +149,7 @@ Pour filtrer sur un champ de collection complexe, vous pouvez utiliser une **exp
 
     $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
 
-Comme avec les champs simples de niveau supérieur, les sous-champs simples de champs complexe ne peuvent être inclus dans des filtres que si leur attribut **filtrable** est défini sur `true` dans la définition d’index. Pour plus d’informations, consultez la [référence Créer une API d’index](https://docs.microsoft.com/rest/api/searchservice/create-index#request).
+Comme avec les champs simples de niveau supérieur, les sous-champs simples de champs complexe ne peuvent être inclus dans des filtres que si leur attribut **filtrable** est défini sur `true` dans la définition d’index. Pour plus d’informations, consultez la [référence Créer une API d’index](/rest/api/searchservice/create-index).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

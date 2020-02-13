@@ -3,17 +3,17 @@ title: 'Démarrage rapide : Créer un service de recherche dans le portail'
 titleSuffix: Azure Cognitive Search
 description: Dans ce guide démarrage rapide du portail, découvrez comment configurer une ressource Recherche cognitive Azure dans le portail Azure. Choisissez les groupes de ressources, régions et références SKU ou niveaux tarifaires.
 manager: nitinme
-author: HeidiSteen
-ms.author: heidist
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: ec794f66866f9773f8b7c0fc57b644d8a13d697a
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 02/10/2020
+ms.openlocfilehash: bd4798ba4faa1808ecafb6d09eee09ba734c293d
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534565"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121706"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Démarrage rapide : Créer un service Recherche cognitive Azure dans le portail
 
@@ -33,7 +33,7 @@ Vous pouvez également [activer les avantages d’abonnement MSDN](https://azure
 
 ## <a name="find-azure-cognitive-search"></a>Localiser la Recherche cognitive Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur le signe plus (« + Créer une ressource ») en haut à gauche.
 3. Utilisez la barre de recherche pour trouver la « Recherche cognitive Azure », ou accédez à la ressource via **Web** > **Recherche cognitive Azure**.
 
@@ -156,4 +156,4 @@ Il n’est pas nécessaire de disposer d’un second service pour la haute dispo
 Après avoir approvisionné un service, vous pouvez rester dans le portail et créer votre premier index.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Créer un index de Recherche cognitive Azure dans le portail](search-get-started-portal.md)
+> [Démarrage rapide : Créer un index de Recherche cognitive Azure dans le portail](search-get-started-portal.md)

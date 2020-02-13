@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4289f4870ca03657afabec07049b3333412f3899
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 75880f4c533a503852d62ff940e53d4bcc30d218
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180045"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186121"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>Qu’est-ce que le mode rapport seul de l’accès conditionnel ?
 
@@ -25,7 +25,8 @@ L’accès conditionnel est largement utilisé par nos clients pour maintenir le
 Le mode rapport seul est un nouvel état de la stratégie d’accès conditionnel qui permet aux administrateurs d’évaluer l’impact des stratégies d’accès conditionnel avant de les activer dans leur environnement.  Avec la mise en production du mode rapport seul :
 
 - Il est possible d’activer les stratégies d’accès conditionnel en mode rapport seul.
-- Lors de la connexion, les stratégies en mode rapport seul sont évaluées, mais non appliquées. Les résultats sont consignés dans les onglets **Accès conditionnel** et **Rapport seul (préversion)** des détails du journal de connexion.
+- Lors de la connexion, les stratégies en mode rapport seul sont évaluées, mais non appliquées.
+- Les résultats sont consignés dans les onglets **Accès conditionnel** et **Rapport seul (préversion)** des détails du journal de connexion.
 - Les clients disposant d’un abonnement Azure Monitor peuvent surveiller l’impact de leurs stratégies d’accès conditionnel dans le classeur Insights sur l’accès conditionnel.
 
 > [!WARNING]
@@ -37,7 +38,7 @@ Le mode rapport seul est un nouvel état de la stratégie d’accès conditionne
 
 Lorsqu’une stratégie en mode rapport seul est évaluée pour une connexion donnée, quatre nouvelles valeurs de résultat sont possibles :
 
-| Résultat | Description |
+| Résultats | Description |
 | --- | --- |
 | Rapport seul : Succès | Toutes les conditions de stratégie configurées, tous les contrôles d’autorisation non interactifs requis et tous les contrôles de session sont remplis. Par exemple, une exigence d’authentification multifacteur est satisfaite par une revendication MFA déjà présente dans le jeton ; une stratégie d’appareil conforme est satisfaite en effectuant une vérification de l’appareil sur un appareil conforme. |
 | Rapport seul : Échec | Toutes les conditions de stratégie configurées sont remplies, mais pas tous les contrôles d’autorisation non interactifs requis et contrôles de session. Par exemple, une stratégie s’applique à un utilisateur pour lequel un contrôle de bloc est configuré ou un appareil ne respecte pas une stratégie d’appareil conforme. |

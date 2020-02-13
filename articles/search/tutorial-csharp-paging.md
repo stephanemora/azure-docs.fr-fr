@@ -3,28 +3,28 @@ title: Tutoriel C# sur la pagination des résultats de la recherche
 titleSuffix: Azure Cognitive Search
 description: Ce tutoriel décrit la pagination des résultats de la recherche. Il s’appuie sur un projet existant basé sur des hôtels. Son premier système de pagination repose sur des boutons qui permettent d’accéder à la première page, à la page suivante, à la page précédente, à la dernière page ainsi qu’à des numéros de page. Son deuxième système de pagination repose sur un défilement infini, déclenché par le déplacement d’une barre de défilement verticale jusqu’à sa limite inférieure.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 04f8229a86fbd8fbd5404997926412e760e74973
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/10/2020
+ms.openlocfilehash: 9abfeb54be6e22885b8e973034a6d89df8272146
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113772"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121524"
 ---
 # <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>Tutoriel C# : Pagination des résultats de la recherche - Recherche cognitive Azure
 
 Découvrez comment implémenter deux systèmes de pagination différents, le premier basé sur des numéros de page et le second sur un défilement infini. Les deux systèmes de pagination sont largement utilisés, et le choix de l’un ou de l’autre dépend de l’expérience utilisateur que vous souhaitez associer aux résultats. Ce tutoriel intègre les systèmes de pagination au projet créé dans le [Tutoriel C#  : Créer votre première application - Recherche cognitive Azure](tutorial-csharp-create-first-app.md).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Étendre votre application avec une pagination numérotée
 > * Étendre votre application avec un défilement infini
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 

@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 01/10/2020
-ms.openlocfilehash: bf07a165b6ea933719eb06b6625a91033030a120
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 16e4a7e2f06d2630c970f8daa4428e7a184a79df
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895427"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163039"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutoriel : Déployer la préversion d’Azure Digital Twins et configurer un graphique spatial
 
@@ -52,7 +52,7 @@ Utilisez les étapes de cette section pour créer une instance du service Azure 
 
 ## <a name="grant-permissions-to-your-app"></a>Accorder des autorisations à votre application
 
-Digital Twins utilise [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) pour contrôler [l’accès en lecture/écriture](../active-directory/develop/v1-permissions-and-consent.md) au service. Les applications devant se connecter à votre instance Digital Twins doivent être inscrites auprès d’Azure AD. La procédure décrite dans cette section montre comment inscrire votre exemple d’application.
+Digital Twins utilise [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) pour contrôler [l’accès en lecture/écriture](../active-directory/develop/v2-permissions-and-consent.md) au service. Les applications devant se connecter à votre instance Digital Twins doivent être inscrites auprès d’Azure AD. La procédure décrite dans cette section montre comment inscrire votre exemple d’application.
 
 Si vous disposez déjà d’une inscription d’application, vous pouvez la réutiliser pour votre exemple. Toutefois, parcourez cette section pour vous assurer que l’inscription de votre application est correctement configurée.
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: rohink
-ms.openlocfilehash: 9027b1574144e2addbc84fceb16deba9014826fe
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: f7778b60a5e84f5d8900b8e37bfa655a7915d403
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938409"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136385"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutoriel : Améliorer la réponse d’un site web à l’aide de Traffic Manager
 
@@ -43,7 +43,7 @@ Pour afficher Traffic Manager en action, ce didacticiel requiert que vous déplo
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure sur https://portal.azure.com.
+Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ### <a name="create-websites"></a>Créer des sites web
 

@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: d56b83c8bd9a71ac30112f9e77a97ed8ab61a137
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cd90ae2b751a97c18dc8b6be4b8eb565a17df7a2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825970"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191125"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Services de conseil dans la Place de marché Azure et AppSource
 Les services de conseil dans la Place de marché Azure et AppSource permettent aux partenaires Microsoft de connecter les clients à des services pour gérer et étendre leur utilisation d’Azure en fonction de leurs besoins professionnels. 
@@ -76,7 +76,7 @@ Les partenaires doivent avoir une **compétence Silver ou Gold** dans le domaine
 |---------|----------|----------|----------|
 |Australie |France  |     Mexique          |Espagne       |
 |Belgique   |Allemagne |     Pays-bas     |Suède       |
-|Canada    |Inde   |     Nouvelle-Zélande     |Royaume-Uni  |
+|Canada    |Inde   |     Nouvelle-Zélande     |United Kingdom  |
 |Danemark   |Italie   |     Norvège          |États-Unis |
 |Finlande   |Japon   |     Pologne          
 
@@ -138,7 +138,7 @@ Une fois que vous avez configuré les éléments requis répertoriés ci-dessus,
 
 Le champ de titre est limité à 50 caractères et doit indiquer la durée et le type de service de l’offre. Cette approche garantit l’optimisation du référencement dans un moteur de recherche. Le format à utiliser est le suivant : NOM : TYPE DE DURÉE
 
-Exemples :
+Exemples :
 
 
 |Exemple de titre  |Format correct  |
@@ -159,7 +159,7 @@ Lors de la révision des descriptions et des résumés des offres, l’équipe a
 |**Preuve de concept**    |    Formulez les modifications d’ingénierie, les artefacts techniques ou les autres artefacts que vous vous engagez à fournir à un client.     | Optimisez le résumé de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.        |
 |**Atelier**    |   Incluez un agenda détaillé quotidien, hebdomadaire ou mensuel, selon la durée que vous avez choisie pour votre offre. Formulez les objectifs d’apprentissage ou les autres livrables de votre atelier.     |   Optimisez le récapitulatif de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.      |
 
-Dans le Portail Cloud Partner, vous pouvez ajouter une mise en forme à votre référencement en utilisant [Markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown). Ce langage de conception léger vous aidera à peaufiner l’aspect de votre référencement. 
+Dans le Portail Cloud Partner, vous pouvez ajouter une mise en forme à votre référencement en utilisant [Markdown](/contribute/markdown-reference). Ce langage de conception léger vous aidera à peaufiner l’aspect de votre référencement. 
 
 **Exemples de notes Markdown**
 * Ajouter * au début et à la fin du bloc de copie - sans espace pour créer des caractères en italique (par ex. : *contenu*)

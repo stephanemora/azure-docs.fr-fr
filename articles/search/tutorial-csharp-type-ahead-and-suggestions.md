@@ -3,30 +3,30 @@ title: Tutoriel C# sur l’auto-complétion et les suggestions
 titleSuffix: Azure Cognitive Search
 description: Ce tutoriel présente la complétion automatique et les suggestions qui permettent de collecter les entrées de termes de recherche des utilisateurs à l’aide d’une liste déroulante. Il s’appuie sur un projet existant basé sur des hôtels.
 manager: nitinme
-author: PeterTurcan
-ms.author: v-pettur
+author: tchristiani
+ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: b542476ac1c9b6d4368d97eb4db76518eb2dba03
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/10/2020
+ms.openlocfilehash: 8f244d64fe33a1529cf66314515bbe16e05ccffb
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114565"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121533"
 ---
 # <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>Tutoriel C# : Ajouter l’auto-complétion et des suggestions - Recherche cognitive Azure
 
 Découvrez comment implémenter l’auto-complétion et les suggestions quand un utilisateur commence à taper dans la zone de recherche. Dans ce tutoriel, nous allons montrer les résultats d’auto-complétion et les résultats de suggestions séparément, puis illustrer une méthode permettant de les combiner pour créer une expérience utilisateur plus riche. Il suffit à l’utilisateur d’appuyer sur deux ou trois touches pour obtenir tous les résultats disponibles. Ce tutoriel repose sur le projet de pagination créé dans le [Tutoriel C#  : Pagination des résultats de la recherche - Recherche cognitive Azure](tutorial-csharp-paging.md).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Ajouter des suggestions
 > * Mettre en évidence les suggestions
 > * Ajouter l’auto-complétion
 > * Combiner l’auto-complétion et les suggestions
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 

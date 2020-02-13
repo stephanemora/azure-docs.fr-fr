@@ -2,7 +2,7 @@
 title: Corrections pour l’erreur « Vous ne pouvez pas y accéder à partir d’ici » - Azure AD
 description: Trouvez les corrections possibles à la cause de l’affichage du message d’erreur « Vous ne pouvez pas y accéder à partir d’ici ».
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
@@ -10,15 +10,15 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/10/2018
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 55a6e9976706cb12a53dd5d540a2b6f2edb9e41b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2484de4e554d16ba049d206981a44654ede28a3f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704627"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190024"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>Corrections possibles par rapport au message d’erreur « Vous ne pouvez pas y accéder à partir d’ici ».
 
@@ -29,7 +29,7 @@ Si vous obtenez le message **Vous ne pouvez pas y accéder à partir d’ici** i
 
 ![Message d’erreur lié à la prise en charge de votre navigateur](media/user-help-device-remediation/browser-version.png)
 
-Pour résoudre ce problème, vous devez installer et exécuter un navigateur compatible avec votre système d’exploitation. Si vous utilisez Windows 10, les navigateurs pris en charge incluent Microsoft Edge, Internet Explorer et Google Chrome. Si vous utilisez un autre système d’exploitation, vous pouvez vérifier la liste complète des [navigateurs pris en charge](../conditional-access/technical-reference.md#supported-browsers).
+Pour résoudre ce problème, vous devez installer et exécuter un navigateur compatible avec votre système d’exploitation. Si vous utilisez Windows 10, les navigateurs pris en charge incluent Microsoft Edge, Internet Explorer et Google Chrome. Si vous utilisez un autre système d’exploitation, vous pouvez vérifier la liste complète des [navigateurs pris en charge](../conditional-access/concept-conditional-access-conditions.md#supported-browsers).
 
 ## <a name="make-sure-youre-using-a-supported-operating-system"></a>Vérifiez que vous utilisez un système d’exploitation pris en charge
 Vérifiez que vous exécutez un système d’exploitation pris en charge, notamment :
