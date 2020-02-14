@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 01/17/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 6e8c0e1c7fef884844b8aaae9dc4c7e3eaa220a2
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 5672334ab42ab474d862ae4c9649b94b58bb6af4
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274550"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157265"
 ---
 Le stockage Azure offre plusieurs types de comptes de stockage. Chaque type prend en charge différentes fonctionnalités et a son propre modèle tarifaire. Avant de créer un compte de stockage, tenez compte de ces différences pour déterminer l’option qui convient le mieux à vos applications. Les types de comptes de stockage proposés sont les suivants :
 
 - **Comptes de stockage à usage général v2** : Type de compte de stockage de base pour les objets blob, les fichiers, les files d’attente et les tables. Recommandé pour la plupart des scénarios utilisant Stockage Azure.
-- **Comptes v1 universels** : Type de compte de stockage hérité pour les objets blob, les fichiers, les files d’attente et les tables. Utilisez ce type de compte à la place des comptes v2 universels lorsque cela est possible.
+- **Comptes v1 universels** : Type de compte de stockage hérité pour les objets blob, les fichiers, les files d’attente et les tables. Utilisez plutôt des comptes v2 universels lorsque c'est possible.
 - **Comptes BlockBlobStorage** : comptes de stockage dotés de caractéristiques de performances Premium pour les objets blob de bloc et les objets blob d'ajout. Recommandé pour les scénarios aux taux élevés de transactions, ceux utilisant des objets plus petits ou nécessitant une latence de stockage faible.
 - **Comptes FileStorage** : comptes de stockage de fichiers uniquement ayant des caractéristiques de performances Premium. Recommandé pour l’entreprise ou des applications de mise à l’échelle hautes performances.
-- **Comptes BlobStorage** : anciens comptes de stockage Blob uniquement. Utilisez ce type de compte à la place des comptes v2 universels lorsque cela est possible.
+- **Comptes BlobStorage** : anciens comptes de stockage Blob uniquement. Utilisez plutôt des comptes v2 universels lorsque c'est possible.
 
 Le tableau suivant répertorie les types de comptes de stockage disponibles et leurs fonctionnalités :
 
@@ -39,7 +39,7 @@ Le tableau suivant répertorie les types de comptes de stockage disponibles et l
 
 <div id="archive"><sup>3</sup>L’archivage est disponible uniquement au niveau de chaque objet blob, et n’est pas disponible au niveau du compte de stockage. Seuls les objets blob de blocs et d’ajout peuvent être archivés. Pour plus d’informations, consultez <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers">Stockage Blob Azure : Niveaux de stockage chaud, à froid et archivage</a>.</div>
 
-<div id="zone-redundant-storage"><sup>4</sup>Le stockage redondant interzone (ZRS) et le stockage géoredondant interzone (GZRS/RA-GZRS) (préversion) sont disponibles uniquement pour les comptes universels v2 standard, BlockBlobStorage et FileStorage dans certaines régions. Pour plus d’informations sur le stockage redondant interzone (ZRS), consultez l’article <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs">Stockage redondant interzone : applications Stockage Azure hautement disponibles</a>. Pour plus d’informations sur le stockage GZRS/RA-GZRS, voir <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy-gzrs">Stockage géoredondant interzone pour la haute disponibilité et la durabilité maximale (préversion)</a>. Pour plus d’informations sur les autres options de réplication, consultez <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Réplication de Stockage Azure</a>.</div>
+<div id="zone-redundant-storage"><sup>4</sup>Le stockage redondant interzone (ZRS) et le stockage géoredondant interzone (GZRS/RA-GZRS) (préversion) sont disponibles uniquement pour les comptes universels v2 standard, BlockBlobStorage et FileStorage dans certaines régions. Pour plus d’informations sur les options de redondance de Stockage Azure, consultez <a href="https://docs.microsoft.com/azure/storage/common/storage-redundancy">Redondance du stockage Azure</a>.</div>
 
 <div id="premium-performance"><sup>5</sup>Performances Premium pour les comptes v1 et v2 à usage général est disponible uniquement pour les objets blob de page et de disque. Les performances Premium pour les objets blob de blocs ou d’ajout sont uniquement disponibles sur les comptes BlockBlobStorage. Les performances Premium pour les fichiers ne sont disponibles que sur les comptes FileStorage.</div>
 
