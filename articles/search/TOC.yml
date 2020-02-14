@@ -313,14 +313,20 @@
           href: search-pagination-page-layout.md
         - name: Réglage de la pertinence (profils de scoring)
           href: index-add-scoring-profiles.md
-    - name: Gestion et surveillance
+    - name: Gérer un service
       items:
-        - name: Administration du portail
+        - name: Portail
           href: search-manage.md
-        - name: Administration PowerShell
+        - name: PowerShell
           href: search-manage-powershell.md
-        - name: Superviser l’activité et la journalisation
+    - name: Supervision et journalisation
+      items:
+        - name: Notions de base
           href: search-monitor-usage.md
+        - name: Superviser l’activité des requêtes
+          href: search-monitor-queries.md
+        - name: la journalisation des diagnostics.
+          href: search-monitor-logs.md
         - name: Rechercher l’analyse du trafic
           href: search-traffic-analytics.md
     - name: Dépanner
