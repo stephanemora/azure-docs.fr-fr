@@ -116,13 +116,7 @@
               href: source-control-integration.md
               displayName: 'github, vsts, azure devops, personal access token'
             - name: Intégration du contrôle de code source (hérité)
-              href: automation-source-control-integration-legacy.md
-              displayname: github
-            - name: Intégration du contrôle de code source avec GitHub Enterprise
-              href: automation-scenario-source-control-integration-with-github-ent.md
-              displayName: 'CI, runbooks'
-            - name: Intégration du contrôle de code source avec Azure DevOps
-              href: automation-scenario-source-control-integration-with-VSTS.md
+              href: source-control-integration-legacy.md
     - name: Dépanner
       items:
         - name: Données à collecter quand vous ouvrez un cas pour Microsoft Azure Automation
