@@ -105,9 +105,9 @@
           href: search-sku-tier.md
         - name: Limites du service
           href: search-limits-quotas-capacity.md
-        - name: Mettre à l’échelle des partitions et des réplicas
+        - name: Ajuster la capacité
           href: search-capacity-planning.md
-        - name: Stratégies de déploiement et bonnes pratiques
+        - name: Mettre à l’échelle pour les performances
           href: search-performance-optimization.md
         - name: Architecture multilocataire
           href: search-modeling-multitenant-saas-applications.md
