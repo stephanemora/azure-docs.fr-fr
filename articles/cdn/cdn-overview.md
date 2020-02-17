@@ -40,7 +40,7 @@ Pour obtenir la liste actuelle des emplacements de nœuds CDN, consultez la page
 
 1. Un utilisateur (Alice) demande un fichier (également appelé ressource) à l’aide d’une URL avec un nom de domaine spécial, par exemple _&lt;nom de point de terminaison&gt;_ .azureedge.net. Il peut s’agir d’un nom d’hôte de point de terminaison ou de domaine personnalisé. Le DNS achemine la requête vers l’emplacement du meilleur point de présence (POP), généralement le POP géographiquement le plus proche de l’utilisateur.
     
-2. Si les serveurs Edge du point de présence disposent du fichier dans leur cache, le POP demande le fichier au serveur d’origine. Le serveur d’origine peut être une application web Azure, un service cloud Azure, un compte de stockage Azure ou n'importe quel serveur web accessible publiquement.
+2. Si aucun serveur Edge du point de présence ne dispose du fichier dans son cache, le POP demande le fichier au serveur d’origine. Le serveur d’origine peut être une application web Azure, un service cloud Azure, un compte de stockage Azure ou n'importe quel serveur web accessible publiquement.
    
 3. Le serveur d’origine renvoie le fichier à un serveur Edge du point de présence.
     
