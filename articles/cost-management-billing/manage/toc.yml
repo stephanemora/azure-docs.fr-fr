@@ -119,12 +119,22 @@
       href: ../../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Exemples
   items:
-    - name: Exemple de code de l’API Invoice
-      href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
-    - name: Exemple de code de l’API Usage
-      href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
-    - name: Exemple de code de l’API RateCard
-      href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
+    - name: API REST
+      items:
+        - name: Passer en revue les coûts de l’entreprise
+          href: review-enterprise-billing.md
+        - name: Passer en revue l’utilisation de l’abonnement
+          href: review-subscription-billing.md
+        - name: Passer en revue l’utilisation des ressources
+          href: review-service-usage-api.md
+    - name: Exemples relatifs à .NET
+      items:
+        - name: Exemple de code de l’API Invoice
+          href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
+        - name: Exemple de code de l’API Usage
+          href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
+        - name: Exemple de code de l’API RateCard
+          href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
 - name: Informations de référence
   items:
     - name: Scénarios relatifs à l’automatisation de la facturation
