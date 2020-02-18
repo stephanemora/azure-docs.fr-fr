@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 42df2d24aad1465a200203e648feb97d4e96fd18
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8e5ea4bba693a6785dae4075da7b13154593bb4c
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989822"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087374"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Utiliser Azure pour héberger et exécuter des scénarios de charge de travail SAP
 
@@ -121,6 +121,7 @@ Pour plus d’informations sur l’intégration de services Azure dans des compo
 
 ## <a name="change-log"></a>Journal des modifications
 
+- 07/02/2020 : Modification de la [connectivité du point de terminaison public pour les machines virtuelles utilisant Azure Standard ILB dans les scénarios SAP HA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) afin de mettre à jour l'exemple de capture d'écran NSG
 - 03/02/2020 : Modification dans [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse) et [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server avec Azure NetApp Files pour les applications SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) pour supprimer l’avertissement relatif à l’utilisation d’un tiret dans les noms d’hôtes des nœuds de cluster sur SLES
 - 28/01/2020 : Modification de la [haute disponibilité de SAP HANA sur les machines virtuelles Azure sous RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) pour aligner les délais d’expiration des ressources de cluster SAP HANA sur les recommandations de Red Hat en matière de délai d’attente
 - 17/01/2020 : Modifications apportées à la rubrique [Groupes de placements de proximité Azure pour une latence réseau optimale avec les applications SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) afin de modifier la section concernant le déplacement des machines virtuelles existantes vers un groupe de placements de proximité

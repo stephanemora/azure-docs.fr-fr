@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 3d4fe7319e0af9c463bd64483f43a4e73ef8871d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f2d530792e1a6f598dbf2ed66889c01cc43467ed
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75395758"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162240"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Conception de votre déploiement de journaux Azure Monitor
 
@@ -42,7 +42,7 @@ L’identification du nombre d’espaces de travail dont vous avez besoin dépen
 
 Aujourd’hui, les services informatiques sont modélisés à l’aide d’un modèle centralisé, décentralisé ou hybride. Par conséquent, les modèles de déploiement d’espace de travail suivants ont été couramment utilisés pour mapper l’une de ces structures organisationnelles :
 
-* **Centralisé** : tous les journaux sont stockés dans un espace de travail central et administrés par une seule équipe, Azure Monitor fournissant un accès différencié par équipe. Dans ce scénario, il est facile de réaliser des opérations de gestion, de recherche dans les ressources et de corrélation entre les journaux. L’espace de travail peut croître considérablement en fonction de la quantité de données collectées à partir de plusieurs ressources de votre abonnement, avec une charge administrative supplémentaire pour maintenir le contrôle d’accès à différents utilisateurs.
+* **Centralisé** : tous les journaux sont stockés dans un espace de travail central et administrés par une seule équipe, Azure Monitor fournissant un accès différencié par équipe. Dans ce scénario, il est facile de réaliser des opérations de gestion, de recherche dans les ressources et de corrélation entre les journaux. L’espace de travail peut croître considérablement en fonction de la quantité de données collectées à partir de plusieurs ressources de votre abonnement, avec une charge administrative supplémentaire pour maintenir le contrôle d’accès à différents utilisateurs. Ce modèle est appelé « Hub-and-spoke ».
 * **Décentralisé** : chaque équipe a son propre espace de travail créé dans un groupe de ressources qu’elle possède et gère, et les données de journalisation sont séparées par ressource. Dans ce scénario, l’espace de travail peut rester sécurisé et le contrôle d’accès est cohérent avec l’accès aux ressources, mais il est difficile d’effectuer des corrélations entre les journaux. Les utilisateurs qui ont besoin d’une vue étendue de nombreuses ressources ne peuvent pas analyser les données de manière explicite.
 * **Hybride** : les exigences de conformité de l’audit de sécurité compliquent encore ce scénario, car de nombreuses organisations implémentent les deux modèles de déploiement en parallèle. Cela aboutit généralement à une configuration complexe, coûteuse et difficile à gérer, avec des lacunes dans la couverture des journaux.
 

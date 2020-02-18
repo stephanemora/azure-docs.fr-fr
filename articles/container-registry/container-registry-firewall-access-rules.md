@@ -2,13 +2,13 @@
 title: Règles d’accès du pare-feu
 description: Configurez des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu, en autorisant l’accès à des noms de domaine d’API REST et de point de terminaison de stockage, ou à des plages d’adresses IP spécifiques au service (« mise en liste verte »).
 ms.topic: article
-ms.date: 07/17/2019
-ms.openlocfilehash: 4d3c4ff4ca19d8b563c185e5c314011823081df1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/11/2020
+ms.openlocfilehash: 06fedea2adf5e73929f5752279f2bd7e7227e570
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745205"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168016"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Configurer des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu
 
@@ -20,7 +20,7 @@ Si, au lieu de cela, vous souhaitez configurer des règles d’accès réseau de
 
 Pour extraire ou envoyer (push) des images ou d’autres artefacts à un registre de conteneurs Azure, un client (démon Docker, par exemple) doit interagir sur HTTPS avec deux points de terminaison distincts.
 
-* **Point de terminaison d'API REST de registre** – Les opérations d'authentification et de gestion de registre sont gérées via le point de terminaison de l’API REST publique du registre. Ce point de terminaison correspond au nom du serveur de connexion du registre ou à une plage d’adresses IP associée. 
+* **Point de terminaison d'API REST de registre** - Les opérations d'authentification et de gestion de registre sont gérées via le point de terminaison de l’API REST publique du registre. Ce point de terminaison correspond au nom du serveur de connexion du registre ou à une plage d’adresses IP associée. 
 
 * **Point de terminaison de stockage** – Azure [alloue du stockage d’objets blob](container-registry-storage.md) aux comptes de Stockage Azure pour le compte de chaque registre, afin de gérer les données des images conteneur et d’autres artefacts. Lorsqu’un client accède à des couches d’image dans un registre de conteneurs Azure, il fait des requêtes à l’aide d’un point de terminaison de compte de stockage fourni par le registre.
 
@@ -115,6 +115,10 @@ Recherchez la région spécifique, par exemple **Storage.AustraliaCentral**.
 Dans un réseau virtuel Azure, utilisez les règles de sécurité réseau pour filtrer le trafic d’une ressource, telle qu’une machine virtuelle, vers un registre de conteneurs. Pour simplifier la création des règles de réseau Azure, utilisez l’**étiquette de service** [AzureContainerRegistry](../virtual-network/security-overview.md#service-tags). Une balise de service représente un groupe de préfixes d’adresses IP permettant d'accéder à un service Azure globalement ou par région Azure. La balise est automatiquement mise à jour lorsque les adresses changent. 
 
 Par exemple, créez une règle de groupe de sécurité réseau sortante avec la destination **AzureContainerRegistry** pour autoriser le trafic vers un registre de conteneurs Azure. Pour autoriser l’accès à la balise de service uniquement dans une région spécifique, indiquez la région au format suivant : **AzureContainerRegistry**.[*nom de la région*].
+
+## <a name="configure-client-firewall-rules-for-mcr"></a>Configurer les règles de pare-feu client pour MCR
+
+Si vous devez accéder à Microsoft Container Registry (MCR) derrière un pare-feu, consultez les instructions de configuration des [règles de pare-feu du client MCR](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md). MCR est le registre principal pour toutes les images Docker publiées par Microsoft, comme les images de Windows Server.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

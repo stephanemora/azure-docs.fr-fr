@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 975ffcd7142aac24363c2235db3742c155c1007b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d4e25074203ddcc016f54842f25f52017c6137f0
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019823"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083224"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrer des charges de travail à l’aide de réseaux étendus de couche 2
 
@@ -48,7 +48,7 @@ Vérifiez que les éléments suivants sont en place avant de déployer et de con
 * La version de l'appliance autonome NSX-T Edge est compatible avec la version NSX-T Manager (NSX-T 2.3.0) utilisée dans votre environnement de cloud privé AVS.
 * Un groupe de ports de jonction a été créé dans le vCenter local avec de fausses transmissions activées.
 * Une adresse IP publique a été réservée pour l'adresse IP de la liaison montante autonome du client NSX-T, et un NAT 1:1 est en place pour la traduction entre les deux adresses.
-* La redirection DNS est définie sur les serveurs DNS locaux pour le domaine az.AVS.io afin de pointer vers les serveurs DNS du cloud privé AVS.
+* La redirection DNS est définie sur les serveurs DNS locaux pour le domaine az.cloudsimple.io afin de pointer vers les serveurs DNS du cloud privé AVS.
 * La latence RTT est inférieure ou égale à 150 ms, comme requis afin que vMotion fonctionne sur les deux sites.
 
 ## <a name="limitations-and-considerations"></a>Limitations et considérations

@@ -2,13 +2,13 @@
 title: Restrictions concernant le nommage des ressources
 description: Affiche les règles et restrictions concernant le nommage des ressources Azure.
 ms.topic: conceptual
-ms.date: 01/16/2020
-ms.openlocfilehash: 9d685e2852dee25e03bdd98ea5463fd40e795f23
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.date: 02/11/2020
+ms.openlocfilehash: 7b6a9e16ba28a2a0e5e4e181dc5650d2110eab88
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157662"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153160"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Règles de nommage et restrictions pour les ressources Azure
 
@@ -527,6 +527,13 @@ Dans les tableaux suivants, le terme « alphanumérique » fait référence au
 > | --- | --- | --- | --- |
 > | clusters | resource group | 4-63 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
 > | workspaces | resource group | 4-63 | Caractères alphanumériques et traits d’union.<br><br>Doit commencer et se terminer par un caractère alphanumérique. |
+
+## <a name="microsoftportal"></a>Microsoft.Portal
+
+> [!div class="mx-tableFixed"]
+> | Entité | Étendue | Longueur | Caractères valides |
+> | --- | --- | --- | --- |
+> | dashboards | resource group | 3-160 | Caractères alphanumériques et traits d’union.<br><br>Pour utiliser des caractères interdits, ajoutez une balise nommée **hidden-title** avec le nom du tableau de bord que vous souhaitez utiliser. Le portail affiche ce nom lors de l'affichage du tableau de bord. |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 

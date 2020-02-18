@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: erhopf
-ms.openlocfilehash: e39056d6ed1ced85e3f953bcbd7f04dd6311942c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: a87bdd7a55036e8b70f0bc5816d2b587c1569202
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111664"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168138"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recommandations sur le réseau de microphones pour le SDK Speech Devices
 
@@ -103,7 +103,7 @@ Les directives suivantes concernant l'architecture sont nécessaires lors de l'i
 
 ## <a name="electrical-architecture-considerations"></a>Considérations relatives à l’architecture électrique
 
-Le cas échéant, les réseaux peuvent être connectés à un hôte USB (par exemple un SoC qui exécute la pile audio Microsoft) ainsi qu’à des interfaces vers des services vocaux ou d'autres applications.
+Le cas échéant, les réseaux peuvent être connectés à un hôte USB (par exemple un SoC qui exécute la pile audio Microsoft) ainsi qu'à des interfaces vers des services Speech ou d'autres applications.
 
 Les composants matériels tels que la conversion PDM à TDM doivent garantir que la plage dynamique et le rapport signal/bruit des microphones sont préservés dans les rééchantillonneurs.
 

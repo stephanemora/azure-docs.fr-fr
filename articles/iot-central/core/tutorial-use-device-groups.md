@@ -3,21 +3,19 @@ title: Utiliser des groupes d’appareils dans votre application Azure IoT Centr
 description: En tant qu’opérateur, apprenez à utiliser des groupes d’appareils pour analyser la télémétrie des appareils de votre application Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 4fd05631e7f54b6258978f70fdd5dfb9705f989b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 758ac037fcd224d02f62239b3408b41b50390147
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026473"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167196"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Tutoriel : Utiliser un groupe d’appareils pour analyser les données de télémétrie des appareils
-
-
 
 Cet article décrit comment utiliser des groupes d’appareils en tant qu’opérateur afin d’analyser la télémétrie des appareils dans votre application Azure IoT Central.
 
@@ -27,19 +25,19 @@ Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un groupe d’appareils
-> * Utiliser un groupe d’appareils pour analyser la télémétrie des appareils
+> * Utiliser un groupe d'appareils pour analyser les données de télémétrie des appareils
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Avant de commencer, vous devez suivre les deux guides de démarrage rapide [Créer une application Azure IoT Central](./quick-deploy-iot-central.md) et [Ajouter un appareil simulé à votre application IoT Central](./quick-create-pnp-device.md) pour créer le modèle d’appareil **Capteur environnemental** à utiliser.
+Avant de commencer, vous devez suivre les deux guides de démarrage rapide [Créer une application Azure IoT Central](./quick-deploy-iot-central.md) et [Ajouter un appareil simulé à votre application IoT Central](./quick-create-pnp-device.md) afin de créer le modèle d'appareil **MXChip IoT DevKit** à utiliser.
 
 ## <a name="create-simulated-devices"></a>Créer des appareils simulés
 
-Avant de créer un groupe d’appareils, ajoutez au moins cinq appareils simulés à partir du modèle de d’appareil **Environment Sensor** (Capteur environnemental) à utiliser dans ce didacticiel :
+Avant de créer un groupe d'appareils, ajoutez au moins cinq appareils simulés à partir du modèle de d'appareil **MXChip IoT DevKit** à utiliser dans ce tutoriel :
 
-![Cinq appareils capteurs environnementaux simulés](./media/tutorial-use-device-groups/simulated-devices.png)
+![Cinq capteurs simulés](./media/tutorial-use-device-groups/simulated-devices.png)
 
-Pour quatre des capteurs d’environnement, utilisez l’affichage **Propriétés de Capteur environnemental** pour définir le nom du client sur **Contoso** :
+Pour quatre des capteurs simulés, utilisez la vue **Gérer l'appareil** afin de définir le nom du client sur *Contoso* :
 
 ![Définir le nom du client sur Contoso](./media/tutorial-use-device-groups/customer-name.png)
 
@@ -47,19 +45,19 @@ Pour quatre des capteurs d’environnement, utilisez l’affichage **Propriété
 
 Pour créer un groupe d’appareils :
 
-1. Choisissez **Groupe d’appareils** dans le volet gauche.
+1. Choisissez **Groupes d'appareils** dans le volet gauche.
 
-1. Sélectionnez **+Nouveau**.
+1. Sélectionnez **+**  :
 
     ![Nouveau groupe d’appareils](media/tutorial-use-device-groups/image1.png)
 
-1. Donnez un nom à votre groupe d’appareils, par exemple **Appareils Contoso**. Vous pouvez également ajouter une description. Un groupe d’appareils peut contenir seulement des appareils d’un même modèle d’appareil. Choisissez le modèle d’appareil **Capteur environnemental** à utiliser pour ce groupe.
+1. Donnez le nom *Appareils Contoso* à votre groupe d'appareils. Vous pouvez également ajouter une description. Un groupe d’appareils peut contenir seulement des appareils d’un même modèle d’appareil. Choisissez le modèle d'appareil **MXChip IoT DevKit** à utiliser pour ce groupe.
 
-1. Créez la requête pour identifier les appareils appartenant à **Contoso** mepour le groupe d’appareils en sélectionnant la propriété **Customer Na**, l’opérateur de comparaison **Equals**, et **Contoso** comme valeur. Vous pouvez ajouter plusieurs requêtes, et les appareils qui répondent à **tous** les critères sont placés dans le groupe d’appareils. Le groupe d’appareils que vous créez est accessible à toute personne ayant accès à l’application : toutes ces personnes peuvent donc voir, modifier ou supprimer le groupe d’appareils.
+1. Pour personnaliser le groupe d'appareils afin de n'y inclure que les appareils appartenant à **Contoso**, sélectionnez **+ Filtre**. Sélectionnez la propriété **Nom du client**, l'opérateur de comparaison **Égal** et la valeur **Contoso**. Vous pouvez ajouter plusieurs filtres, et les appareils qui répondent à **tous** les critères sont placés dans le groupe d'appareils. Le groupe d'appareils que vous créez est accessible à toutes les personnes qui ont accès à l'application. Celles-ci peuvent donc voir, modifier ou supprimer le groupe d'appareils :
 
     ![Requête de groupe d’appareils](media/tutorial-use-device-groups/image2.png)
 
-    > [!NOTE]
+    > [!TIP]
     > Le groupe d’appareils est une requête dynamique. Chaque fois que vous visualisez la liste des appareils, des appareils différents peuvent figurer dans la liste. La liste varie selon les appareils qui répondent actuellement aux critères de la requête.
 
 1. Choisissez **Enregistrer**.

@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5b039221f3a25bddf7953cbe8d517275f76d6f37
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7cbd088ed7b4f6ae242cce2067e52def2dad61c9
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474699"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136340"
 ---
 # <a name="display-controls"></a>Contrôles d’affichage
 
@@ -90,7 +90,7 @@ Certaines revendications d’affichage sont requises pour certains types de cont
 
 Les **revendications de sortie** d’un contrôle d’affichage ne passent pas à l’étape d’orchestration suivante. Elles sont enregistrées temporairement et uniquement pour la session de contrôle d’affichage en cours. Ces revendications temporaires peuvent être partagées entre les différentes actions d’un même contrôle d’affichage.
 
-Pour propager la sortie des revendications à l’étape d’orchestration suivante, utilisez les **OutputClaims** du profil technique auto-déclaré qui fait référence à ce contrôle d’affichage.
+Pour propager la sortie des revendications à l'étape d'orchestration suivante, utilisez les **OutputClaims** du profil technique auto-déclaré qui fait référence à ce contrôle d'affichage.
 
 ### <a name="display-control-actions"></a>Actions de contrôle d’affichage
 

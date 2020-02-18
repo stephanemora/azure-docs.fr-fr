@@ -3,12 +3,12 @@ title: Configurer Live Data avec Azure Monitor pour conteneurs (préversion) | M
 description: Cet article décrit la configuration de la vue en temps réel des événements et des journaux de conteneur (stdout/stderr), sans l’utilisation de kubectl, avec Azure Monitor pour conteneurs.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 1ca52384e5ce657e4fedeb42e3304449a2d6be11
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: cf42eea99e437a76bb437b23f6eaffae1f1f3bc6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030673"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063762"
 ---
 # <a name="how-to-setup-the-live-data-preview-feature"></a>Comment configurer la fonctionnalité Live Data (préversion)
 
@@ -114,7 +114,7 @@ Pour plus d’informations sur la configuration de la sécurité avancée dans K
     >[!NOTE]
     >Si vous utilisez cette fonctionnalité dans Azure Chine, la première valeur de l’URL de base doit être `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`, et la seconde `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`. 
     
-4. Après avoir inscrit les URL de redirection, sous **Paramètres avancés**, sélectionnez les options **Jetons d’accès** et **Jetons d’ID**, puis enregistrez vos modifications.
+4. Après avoir inscrit les URL de redirection, sous **Octroi implicite**, sélectionnez les options **Jetons d'accès** et **Jetons d'ID**, puis enregistrez vos modifications.
 
 >[!NOTE]
 >La configuration de l’authentification avec Azure Active Directory pour l’authentification unique est possible seulement pendant le déploiement initial d’un nouveau cluster AKS. Vous ne pouvez pas configurer l’authentification unique pour un cluster AKS déjà déployé.

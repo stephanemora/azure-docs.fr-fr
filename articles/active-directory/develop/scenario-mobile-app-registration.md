@@ -16,70 +16,82 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 33510015f4f05661ad2ea041b1fd3da0e8bfb1ed
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 75cfd304869bfb63131dfd2afed9f925c86d32fb
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702077"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132437"
 ---
-# <a name="mobile-app-that-calls-web-apis---app-registration"></a>Application mobile qui appelle des API web - inscription d’application
+# <a name="register-mobile-apps-that-call-web-apis"></a>Inscrire des applications mobiles appelant des API web
 
-Cet article contient les instructions d’inscription d’application pour la création d’une application mobile.
+Cet article contient des instructions pour vous aider à inscrire une application mobile que vous créez.
 
-## <a name="supported-accounts-types"></a>Types de comptes pris en charge
+## <a name="supported-account-types"></a>Types de comptes pris en charge
 
-Les types de comptes pris en charge dans les applications mobiles dépendent de l’expérience que vous souhaitez activer et des flux que vous souhaitez utiliser.
+Les types de comptes pris en charge par vos applications mobiles dépendent de l'expérience que vous souhaitez activer et des flux que vous souhaitez utiliser.
 
 ### <a name="audience-for-interactive-token-acquisition"></a>Audience pour l’acquisition de jetons interactive
 
-La plupart des applications mobiles utilisent l’authentification interactive. Si c’est le cas, vous pouvez connecter des utilisateurs à partir de n’importe quel [type de compte](quickstart-register-app.md#register-a-new-application-using-the-azure-portal)
+La plupart des applications mobiles utilisent l’authentification interactive. Si votre application utilise ce formulaire d'authentification, vous pouvez connecter des utilisateurs depuis n'importe quel [type de compte](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
 
-### <a name="audience-for-integrated-authentication-usernamepassword-and-b2c"></a>Audience pour l’authentification intégrée, nom d’utilisateur/mot de passe et B2C
+### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Audience pour l'Authentification Windows intégrée, nom d'utilisateur/mot de passe et B2C
 
-- Si vous envisagez d’utiliser l’authentification Windows intégrée (possible dans les applications UWP) ou le nom d’utilisateur/mot de passe, votre application doit se connecter aux utilisateurs de votre propre locataire (développeur LOB) ou dans les organisations Azure Active Directory (scénario ISV). Ces flux d’authentification ne sont pas pris en charge pour des comptes Microsoft personnels
-- Si vous vous connectez à des utilisateurs avec des identités sociales en passant une stratégie et une autorité B2C, vous pouvez uniquement utiliser l’authentification interactive et le nom d’utilisateur-mot de passe. Le nom d’utilisateur-mot de passe est actuellement pris en charge uniquement sur Xamarin.iOS, Xamarin.Android et UWP.
+Si vous disposez d'une application UWP (Universal Windows Platform), vous pouvez utiliser l'Authentification Windows intégrée pour connecter les utilisateurs. Pour utiliser l'Authentification Windows intégrée ou l'authentification par nom d'utilisateur/mot de passe, votre application doit connecter les utilisateurs dans le locataire de votre développeur d'application métier. Dans le cadre d'un scénario d'éditeur de logiciels indépendant (ISV), votre application peut connecter des utilisateurs dans des organisations Azure Active Directory. Ces flux d’authentification ne sont pas pris en charge pour des comptes Microsoft personnels.
 
-Pour obtenir une vue d’ensemble, consultez [Scénarios et flux d’authentification pris en charge](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) et [Scénarios et plateformes et langues prises en charge](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages)
+Vous pouvez également connecter des utilisateurs à l'aide d'identités sociales qui transmettent une stratégie et une autorité B2C. Pour utiliser cette méthode, vous pouvez uniquement utiliser l'authentification interactive et l'authentification par nom d'utilisateur/mot de passe. Pour le moment, l'authentification par nom d'utilisateur/mot de passe est uniquement prise en charge sur Xamarin.iOS, Xamarin.Android et UWP.
+
+Pour plus d'informations, consultez [Scénarios et flux d'authentification pris en charge](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) et [Scénarios et plateformes/langues prises en charge](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages)
 
 ## <a name="platform-configuration-and-redirect-uris"></a>Configuration de la plateforme et URI de redirection  
 
 ### <a name="interactive-authentication"></a>Authentification interactive
 
-Lors de la création d’une application mobile à l’aide de l’authentification interactive, l’étape d’inscription la plus critique est l’URI de redirection. Il peut être défini par le biais de la [configuration de plateforme dans le panneau Authentification](https://aka.ms/MobileAppReg).
+Lorsque vous créez une application mobile qui utilise l'authentification interactive, l'étape d'inscription la plus critique est celle de l'URI de redirection. Vous pouvez définir l'authentification interactive via la [configuration de la plateforme sur le panneau **Authentification**](https://aka.ms/MobileAppReg).
 
-Cette expérience permet à votre application d’obtenir une authentification unique (SSO) au moyen de Microsoft Authenticator (et du portail d’entreprise Intune sur Android), ainsi que la prise en charge des stratégies de gestion des appareils.
+Cette expérience permet à votre application d'obtenir une authentification unique (SSO) au moyen de Microsoft Authenticator (et du portail d'entreprise Intune sur Android). Elle prend également en charge les stratégies de gestion des périphériques.
 
-Notez qu’il existe une expérience en version préliminaire dans le portail d’inscription des applications pour vous aider à calculer l’URI de réponse répartie pour les applications iOS et Android:
+Le portail d'inscription des applications propose une expérience en préversion afin de vous aider à calculer l'URI de réponse répartie pour les applications iOS et Android :
 
-1. Dans l’inscription d’application, choisissez **Authentification**, puis sélectionnez **Essayer la nouvelle expérience**
-   ![Image](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
+1. Sur le portail d'inscription des applications, sélectionnez **Authentification** > **Essayer la nouvelle expérience**.
 
-2. Sélectionnez **Ajouter une plateforme**
-   ![Image](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
+   ![Panneau Authentification permettant de choisir une nouvelle expérience](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
-3. Lorsque la liste des plateformes est prise en charge, sélectionnez **Image**
-   ![iOS](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
+2. Sélectionnez **Ajouter une plateforme**.
 
-4. Entrez votre ID d’offre groupée comme demandé, puis appuyez sur **Inscrire**
-   ![une image](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
+   ![Ajouter une plateforme](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
-5. L’URI de redirection est calculé pour vous.
-   ![image](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
+3. Lorsque la liste des plateformes est prise en charge, sélectionnez **iOS**.
 
-Si vous préférez configurer manuellement l’URI de redirection, vous pouvez le faire au moyen du manifeste de l’application. Le format recommandé est le suivant :
+   ![Choisir une application mobile](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-- ***iOS*** :`msauth.<BUNDLE_ID>://auth` (par exemple « msauth.com.votreentreprise.appName://auth »)
-- ***Android*** : `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
-  - Le hachage de signature Android peut être généré à l’aide des clés de mise en production ou de débogage par le biais de la commande KeyTool.
+4. Entrez l'ID de l'offre groupée, puis sélectionnez **Inscrire**.
 
-### <a name="username-password"></a>Nom d’utilisateur/mot de passe
+   ![Entrer l'ID de l'offre groupée](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
-Si votre application utilise uniquement le nom d’utilisateur/mot de passe, vous n’avez pas besoin d’inscrire un URI de redirection pour votre application. En effet, ce processus effectue un aller-retour vers le point de terminaison Microsoft Identity Platform v 2.0 et votre application n’est pas rappelée sur un URI spécifique. Toutefois, vous devez exprimer que votre application est une application cliente publique. Vous obtenez cette configuration en accédant à la section **Authentification** de votre application, et dans la sous-section **Paramètres avancés**, répondez **Oui** à la question **Considérer l’application comme un client public** (dans le paragraphe **Type de client par défaut**)
+Au terme de ces étapes, l'URI de redirection est calculé pour vous, comme illustré ci-dessous.
+
+![URI de redirection obtenu](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
+
+Si vous préférez configurer manuellement l'URI de redirection, utilisez le manifeste de l'application. Voici le format recommandé pour le manifeste :
+
+- **iOS** : `msauth.<BUNDLE_ID>://auth` 
+  - Par exemple, entrez `msauth.com.yourcompany.appName://auth`.
+- **Android** : `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+  - Vous pouvez générer le hachage de la signature Android à l'aide de la clé de mise en production ou de la clé de débogage par le biais de la commande KeyTool.
+
+### <a name="username-password-authentication"></a>Authentification par nom d'utilisateur/mot de passe
+
+Si votre application utilise exclusivement l'authentification par nom d'utilisateur/mot de passe, il n'est pas nécessaire d'inscrire un URI de redirection pour votre application. Ce flux effectue un aller-retour vers le point de terminaison de la plateforme d'identités Microsoft version 2.2.0. Votre application ne sera pas rappelée sur un URI spécifique. 
+
+Toutefois, vous devez identifier votre application en tant qu'application cliente publique. Pour ce faire, commencez à la section **Authentification** de votre application. Dans la sous-section **Paramètres avancés**, accédez au paragraphe **Type de client par défaut** et répondez **Oui** à la question **Considérer l'application comme un client public**.
 
 ## <a name="api-permissions"></a>Autorisations des API
 
-Les applications mobiles appellent des API pour le compte de l’utilisateur connecté. Votre application doit demander des permissions déléguées, également appelées « étendues ». En fonction de l’expérience souhaitée, il est possible de le faire de manière statique sur le Portail Azure, ou de manière dynamique au moment de l’exécution. Grâce à l’inscription statique des permissions, les administrateurs peuvent approuver facilement votre application. Cette méthode est recommandée.
+Les applications mobiles appellent des API pour le compte de l’utilisateur connecté. Votre application doit demander des autorisations déléguées. Ces autorisations sont également appelées des étendues. Selon l'expérience dont vous souhaitez bénéficier, vous pouvez demander des autorisations déléguées de manière statique via le portail Azure. Ou vous pouvez les demander de manière dynamique lors de l'exécution. 
+
+En inscrivant les autorisations de manière statique, vous permettez aux administrateurs d'approuver facilement votre application. L'inscription statique est recommandée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

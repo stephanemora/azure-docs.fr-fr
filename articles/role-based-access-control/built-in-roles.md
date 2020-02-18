@@ -15,12 +15,12 @@ ms.date: 01/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b2a49528ca3c2b55c02f3bda89b3722ee8fef535
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 04a3af7c85a361878e37cf3ee210e8a5c9f3cd30
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264252"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121977"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Rôles intégrés pour les ressources Azure
 
@@ -152,9 +152,9 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | [Propriétaire des données Blob du stockage](#storage-blob-data-owner) | Fournit un accès total aux conteneurs d’objets blob et aux données du Stockage Azure, notamment l’attribution du contrôle d’accès POSIX. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [Autorisations pour appeler les opérations de données d’objet blob et de file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | [Lecteur des données blob du stockage](#storage-blob-data-reader) | Lire et répertorier des conteneurs et objets blob du stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [Autorisations pour appeler les opérations de données d’objet blob et de file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | [Délégation du Stockage Blob](#storage-blob-delegator) | Obtenez une clé de délégation d’utilisateur qui peut être utilisée pour créer une signature d’accès partagé pour un conteneur ou un objet blob signé avec les informations d’identification Azure AD. Pour en savoir plus, consultez [Créer une SAP de délégation d’utilisateur](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
-> | [Contributeur de partage SMB de données de fichier de stockage](#storage-file-data-smb-share-contributor) | Permet l'accès en lecture, en écriture et pour suppression dans des partages de fichiers Stockage Azure via SMB | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
-> | [Contributeur élevé de partage SMB de données de fichier de stockage](#storage-file-data-smb-share-elevated-contributor) | Permet l'accès en lecture, en écriture, pour suppression et pour modification dans des partages de fichiers Stockage Azure via SMB | a7264617-510b-434b-a828-9731dc254ea7 |
-> | [Lecteur de partage SMB de données de fichier de stockage](#storage-file-data-smb-share-reader) | Autorise l’accès en lecture au partage de fichiers Azure via SMB | aba4ae5f-2193-4029-9191-0cb91df5e314 |
+> | [Contributeur de partage SMB de données de fichier de stockage](#storage-file-data-smb-share-contributor) | Permet l'accès en lecture, en écriture et en suppression aux fichiers/répertoires des partages de fichiers Azure. Ce rôle n'a pas d'équivalent intégré sur les serveurs de fichiers Windows. | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
+> | [Contributeur élevé de partage SMB de données de fichier de stockage](#storage-file-data-smb-share-elevated-contributor) | Permet la lecture, l'écriture, la suppression et la modification des listes de contrôle d'accès sur les fichiers/répertoires des partages de fichiers Azure. Ce rôle équivaut à une liste de contrôle d'accès de partage de fichiers en modification sur les serveurs de fichiers Windows. | a7264617-510b-434b-a828-9731dc254ea7 |
+> | [Lecteur de partage SMB de données de fichier de stockage](#storage-file-data-smb-share-reader) | Permet l'accès en lecture aux fichiers/répertoires des partages de fichiers Azure. Ce rôle équivaut à une liste de contrôle d'accès de partage de fichiers en lecture sur les serveurs de fichiers Windows. | aba4ae5f-2193-4029-9191-0cb91df5e314 |
 > | [Contributeur aux données en file d’attente du stockage](#storage-queue-data-contributor) | Lire, écrire et supprimer des files d'attente et messages en file d'attente du stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [Autorisations pour appeler les opérations de données d’objet blob et de file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | [Processeur de messages de données en file d’attente du stockage](#storage-queue-data-message-processor) | Récupérer et supprimer un message, ou en afficher un aperçu à partir d’une file d’attente Stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [Autorisations pour appeler les opérations de données d’objet blob et de file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | [Expéditeur de messages de données en file d’attente du stockage](#storage-queue-data-message-sender) | Ajoutez des messages à une file d’attente de stockage Azure. Pour savoir quelles actions sont requises pour une opération de données spécifique, consultez [Autorisations pour appeler les opérations de données d’objet blob et de file d’attente](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
@@ -2915,7 +2915,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Permet l'accès en lecture, en écriture et pour suppression dans des partages de fichiers Stockage Azure via SMB |
+> | **Description** | Permet l'accès en lecture, en écriture et en suppression aux fichiers/répertoires des partages de fichiers Azure. Ce rôle n'a pas d'équivalent intégré sur les serveurs de fichiers Windows. |
 > | **Id** | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
 > | **Actions** |  |
 > | *Aucune* |  |
@@ -2932,7 +2932,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Permet l'accès en lecture, en écriture, pour suppression et pour modification dans des partages de fichiers Stockage Azure via SMB |
+> | **Description** | Permet la lecture, l'écriture, la suppression et la modification des listes de contrôle d'accès sur les fichiers/répertoires des partages de fichiers Azure. Ce rôle équivaut à une liste de contrôle d'accès de partage de fichiers en modification sur les serveurs de fichiers Windows. |
 > | **Id** | a7264617-510b-434b-a828-9731dc254ea7 |
 > | **Actions** |  |
 > | *Aucune* |  |
@@ -2950,7 +2950,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Autorise l’accès en lecture au partage de fichiers Azure via SMB |
+> | **Description** | Permet l'accès en lecture aux fichiers/répertoires des partages de fichiers Azure. Ce rôle équivaut à une liste de contrôle d'accès de partage de fichiers en lecture sur les serveurs de fichiers Windows. |
 > | **Id** | aba4ae5f-2193-4029-9191-0cb91df5e314 |
 > | **Actions** |  |
 > | *Aucune* |  |

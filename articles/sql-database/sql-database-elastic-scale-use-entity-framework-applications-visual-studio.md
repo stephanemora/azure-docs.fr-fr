@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
-ms.openlocfilehash: 4198b3a9213ed535c6649c50a20f2ff957d60c94
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1653a904875964d86864c59c718603a6dacdcbda
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823486"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087185"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Bibliothèque cliente de la base de données élastique avec Entity Framework
 
@@ -27,7 +27,7 @@ Ce document présente les modifications d'une application Entity Framework requi
 Pour télécharger le code utilisé dans cet article :
 
 * Visual Studio 2012 ou une version ultérieure est nécessaire. 
-* Téléchargez l[’exemple Outils des bases de données élastiques pour SQL Azure - Intégration Entity Framework](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba) à partir de MSDN. Décompressez l’exemple à l’emplacement de votre choix.
+* Téléchargez l'[exemple Outils des bases de données élastiques pour SQL Azure - Intégration Entity Framework](https://github.com/Azure/elastic-db-tools/). Décompressez l’exemple à l’emplacement de votre choix.
 * Démarrez Visual Studio. 
 * Dans Visual Studio, sélectionnez Fichier -> Ouvrir un projet/une solution. 
 * Dans la boîte de dialogue **Ouvrir un projet**, accédez à l’exemple que vous avez téléchargé, puis sélectionnez **EntityFrameworkCodeFirst.sln** pour ouvrir l’exemple. 
@@ -53,18 +53,18 @@ Toutes ces approches s'appuient sur la classe DbContext pour gérer en toute tra
 
 ## <a name="elastic-database-tools-assumptions"></a>Hypothèses des outils de base de données élastique
 
-Vous trouverez les définitions des termes évoqués ici sur la page [Glossaire des outils de base de données élastique](sql-database-elastic-scale-glossary.md).
+Vous trouverez les définitions des termes évoqués ici dans la page [Glossaire des outils de base de données élastique](sql-database-elastic-scale-glossary.md).
 
 La bibliothèque cliente de base de données permet de définir des partitions pour les données de votre application. Ces partitions sont nommées shardlets. Les shardlets sont identifiés par une clé de partitionnement et sont mappés vers des bases de données spécifiques. Une application peut avoir autant de bases de données que nécessaire et distribuer les shardlets pour fournir suffisamment de capacité ou de performances selon les besoins de l'entreprise. Le mappage des valeurs de clé de partitionnement vers les bases de données est stocké par une carte de partitions fournie par les API clientes de la base de données élastique. Cette fonctionnalité s’appelle la **gestion des cartes de partitions**, ou GCP. La carte de partitions sert également de service Broker de connexion de base de données pour les demandes transportant une clé de partitionnement. Cette fonctionnalité est appelée **routage dépendant des données**. 
 
 Le gestionnaire des cartes de partitions empêche tout affichage incohérent des données shardlet pouvant perturber les utilisateurs lors des opérations de gestion de shardlet simultanées (par exemple, le déplacement des données d'une partition à l'autre). Pour ce faire, la partition gérée par la bibliothèque cliente mappe dans le service Broker les connexions de base de données pour une application. Ainsi, la fonctionnalité de carte de partitions peut automatiquement arrêter une connexion de base de données si des opérations de gestion de partition peuvent affecter le shardlet pour lequel la connexion a été créée. Cette approche doit s'intégrer à certaines fonctionnalités d'Entity Framework, telles que la création de connexions à partir d'une connexion existante pour vérifier l'existence de la base de données. Nous constatons qu'en général, les constructeurs DbContext standard fonctionnent uniquement de façon fiable pour les connexions de base de données fermées pouvant être clonées en toute sécurité pour Entity Framework. Le principe de conception de la base de données élastique consiste plutôt à utiliser uniquement le service Broker sur les connexions ouvertes. On pourrait penser que la fermeture d'une connexion demandée par la bibliothèque cliente avant son transfert vers le DbContext EF peut résoudre ce problème. Cependant, si l’on ferme la connexion et que l’on s’appuie sur Entity Framework pour la rouvrir, la bibliothèque n’effectue pas les contrôles de validation et de cohérence. Par contre, la fonctionnalité de migrations d'Entity Framework utilise ces connexions pour gérer le schéma de base de données sous-jacent de façon transparente pour l'application. L’idéal est de conserver et de combiner toutes ces fonctionnalités de la bibliothèque cliente de base de données élastique et d’Entity Framework dans la même application. La section suivante décrit en détail ces propriétés et les éléments requis. 
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 
 Lors de l’utilisation des API de la bibliothèque cliente de base de données élastique et des API Entity Framework, vous souhaitez conserver les propriétés suivantes : 
 
 * **Scale-out** : pour ajouter ou supprimer des bases de données de la couche Données de l’application partitionnée en fonction des besoins de capacité de l’application. Cela revient à contrôler la création et la suppression des bases de données et à utiliser les API du gestionnaire des cartes de partitions de la base de données élastique pour gérer les bases de données et les mappages des shardlets. 
-* **Cohérence** : l’application utilise le partitionnement et les fonctionnalités de routage dépendant des données de la bibliothèque cliente. Pour éviter d'obtenir des résultats de requêtes incorrects ou altérés, les connections sont demandées via le gestionnaire des cartes de partitions. Cela maintient également la validation et la cohérence.
+* **Cohérence** : l’application utilise le partitionnement et les fonctionnalités de routage dépendant des données de la bibliothèque cliente. Pour éviter d'obtenir des résultats de requêtes incorrects ou altérés, les connections sont demandées via le gestionnaire des cartes de partitions. Cela maintient également la validation et la cohérence.
 * **Code First** : pour conserver le côté pratique du paradigme Code First d’EF. Dans Code First, les classes de l'application sont mappées en toute transparence vers les structures de base de données sous-jacentes. Le code d’application interagit avec les propriétés DbSet qui masquent la plupart des aspects impliqués dans le traitement de base de données sous-jacent.
 * **Schéma** : Entity Framework gère la création initiale des schémas de base de données ainsi que leur évolution ultérieure au fil des migrations. En gardant ces capacités, il est facile d'adapter votre application à mesure que les données évoluent. 
 
@@ -197,7 +197,7 @@ Les exemples de code ci-dessus illustrent les réécritures de constructeur par 
 | MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |La connexion est créée avec le modèle fourni pour la carte de partitions et la clé de partitionnement données. Le modèle compilé est transmis au c’tor de base. |
 | MyContext(DbConnection, bool) |ElasticScaleContext(ShardMap, TKey, bool) |DbContext(DbConnection, bool) |La connexion doit être déduite de la carte de partitions et de la clé. Elle ne peut pas être fournie comme entrée (sauf si cette entrée utilisait déjà la carte de partitions et la clé). La valeur booléenne est transmise. |
 | MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |La connexion doit être déduite de la carte de partitions et de la clé. Elle ne peut pas être fournie comme entrée (sauf si cette entrée utilisait la carte de partitions et la clé). Le modèle compilé est transmis. |
-| MyContext(ObjectContext, bool) |ElasticScaleContext(ShardMap, TKey, ObjectContext, bool) |DbContext(ObjectContext, bool) |Le nouveau constructeur doit garantir qu’aucune connexion dans ObjectContext transmise en tant qu’entrée est réacheminée vers une connexion gérée par une infrastructure élastique. Ce document ne contient pas de présentation détaillée d’ObjectContext. |
+| MyContext(ObjectContext, bool) |ElasticScaleContext(ShardMap, TKey, ObjectContext, bool) |DbContext(ObjectContext, bool) |Le nouveau constructeur doit s'assurer que toute connexion dans ObjectContext transmise en tant qu'entrée est réacheminée vers une connexion gérée par une infrastructure élastique. Ce document ne contient pas de présentation détaillée d’ObjectContext. |
 | MyContext(DbConnection, DbCompiledModel, bool) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel, bool) |DbContext(DbConnection, DbCompiledModel, bool); |La connexion doit être déduite de la carte de partitions et de la clé. Elle ne peut pas être fournie comme entrée (sauf si cette entrée utilisait déjà la carte de partitions et la clé). Les valeurs Model et Boolean sont transmises au constructeur de classe de base. |
 
 ## <a name="shard-schema-deployment-through-ef-migrations"></a>Déploiement de schéma de partition via des migrations Entity Framework

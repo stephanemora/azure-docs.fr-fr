@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 02/10/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8a222aa63387f7c57f8896b013f71f0c1bf40b2e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9d8d13ec955867eb574b5f0d782727d6ff8d063a
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76851284"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111548"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer une connexion pour un service Azure Active Directory mutualisé à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -49,6 +49,19 @@ Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spéc
 1. Sélectionnez **Inscription**. Enregistrez l’**ID d’application (client)** pour l’utiliser dans une étape ultérieure.
 1. Sélectionnez **Certificats et secrets**, puis sélectionnez **Nouveau secret client**.
 1. Entrez une **description** pour le secret, sélectionnez une date d’expiration, puis sélectionnez **Ajouter**. Enregistrez la **Valeur** du secret pour l’utiliser à une étape ultérieure.
+
+## <a name="configuring-optional-claims"></a>Configuration des revendications facultatives
+
+Si vous souhaitez obtenir les revendications `family_name` et `given_name` à partir d'Azure AD, vous pouvez configurer des revendications facultatives pour votre application dans l'interface utilisateur du portail Azure ou dans le manifeste de l'application. Pour plus d'informations, consultez [Procédure : Fournir des revendications facultatives à votre application Azure AD](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Recherchez et sélectionnez **Azure Active Directory**.
+1. Dans la section **Gérer**, sélectionnez **Inscriptions d’applications**.
+1. Sélectionnez dans la liste l’application pour laquelle vous souhaitez configurer des revendications facultatives.
+1. Dans la section **Gérer**, sélectionnez **Configuration de jetons (préversion)** .
+1. Sélectionnez **Ajouter une revendication facultative**.
+1. Sélectionnez le type de jeton que vous souhaitez configurer.
+1. Sélectionnez les revendications facultatives à ajouter.
+1. Cliquez sur **Add**.
 
 ## <a name="create-a-policy-key"></a>Création d’une clé de stratégie
 

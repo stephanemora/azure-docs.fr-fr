@@ -4,21 +4,21 @@ description: Téléchargez des enregistrements d’utilisateur en bloc dans le c
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 07/15/2019
+manager: daveba
+ms.date: 02/06/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d106e803fdef4f054b7e4717ba59a43359d1d68a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 4716ff9547f64dc6551b4d4adb0a8578da9fa83e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720290"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063830"
 ---
 # <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Télécharger une liste d’utilisateurs (préversion) dans le portail Azure Active Directory
 
@@ -39,7 +39,7 @@ Pour télécharger la liste des utilisateurs à partir du centre d’administrat
 
    Le fichier de téléchargement contiendra la liste filtrée des utilisateurs.
 
-   Les attributs utilisateur suivants seront inclus : 
+   Les attributs utilisateur suivants sont inclus :
 
    - userPrincipalName
    - displayName
@@ -50,7 +50,6 @@ Pour télécharger la liste des utilisateurs à partir du centre d’administrat
    - userType
    - jobTitle
    - department
-   - manager
    - accountEnabled
    - usageLocation
    - streetAddress

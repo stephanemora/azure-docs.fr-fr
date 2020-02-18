@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 8062428ae63a572b81a5432c8b29910fe8422e24
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 812875be47cabdd23e6307403bb95d8d6ff174ec
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547453"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167501"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Déclencheur Event Grid pour Azure Functions
 
@@ -224,19 +224,7 @@ Cette section contient les exemples suivants :
 * [Déclencheur Event Grid, paramètre String](#event-grid-trigger-string-parameter)
 * [Déclencheur Event Grid, paramètre POJO](#event-grid-trigger-pojo-parameter)
 
-Les exemples suivants illustrent la liaison de déclencheur dans un fichier *function.json* et les [fonctions Java](functions-reference-java.md) qui utilisent la liaison et affichent un événement, en recevant d’abord l’événement comme ```String``` et ensuite comme un POJO.
-
-```json
-{
-  "bindings": [
-    {
-      "type": "eventGridTrigger",
-      "name": "eventGridEvent",
-      "direction": "in"
-    }
-  ]
-}
-```
+Les exemples suivants illustrent la liaison de déclencheur en [Java](functions-reference-java.md). Ils utilisent la liaison et affichent un événement, en recevant d'abord l'événement en tant que `String` puis en tant que POJO.
 
 ### <a name="event-grid-trigger-string-parameter"></a>Déclencheur Event Grid, paramètre String
 

@@ -1,6 +1,6 @@
 ---
 title: Configurer l’encodeur Telestream Wirecast pour envoyer un flux en direct à débit binaire unique | Microsoft Docs
-description: 'Cette rubrique explique comment configurer l’encodeur en direct Wirecast afin d’envoyer un flux à débit binaire unique à des canaux AMS activés pour l’encodage en temps réel. '
+description: "Cette rubrique explique comment configurer l'encodeur live Wirecast afin d'envoyer un flux à débit binaire unique à des canaux AMS activés pour l'encodage en temps réel. "
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,24 +15,26 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: be3c75680599c07a3cebe3dcf0436884958e1706
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1d9d63aa6b3da1b8d8389722bd5af0eeed585d03
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016663"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134973"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Utiliser l’encodeur Wirecast pour envoyer un flux en direct à débit binaire unique 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
-> * [FMLE](media-services-configure-fmle-live-encoder.md)
 >
 >
 
-Cet article explique comment configurer l’encodeur en direct [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) afin d’envoyer un flux à débit binaire unique à des canaux AMS activés pour l’encodage en temps réel.  Pour plus d’informations, consultez [Utilisation de canaux activés pour effectuer un encodage en direct avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+Cet article explique comment configurer l'encodeur live [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) afin d'envoyer un flux à débit binaire unique à des canaux AMS activés pour l'encodage en temps réel. Pour plus d’informations, consultez [Utilisation de canaux activés pour effectuer un encodage en direct avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil Azure Media Services Explorer (AMSE). Cet outil est uniquement compatible avec les PC Windows. Si vous êtes sous Mac ou Linux, utilisez le portail Azure pour créer des [canaux](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) et des [programmes](media-services-portal-creating-live-encoder-enabled-channel.md).
+
+> [!NOTE]
+> Les encodeurs doivent prendre en charge le protocole TLS 1.2 lors de l’utilisation des protocoles RTMPS. Utilisez Wirecast version 13.0.2 ou ultérieure en raison de la configuration TLS 1.2.
 
 ## <a name="prerequisites"></a>Prérequis
 * [Créer un compte Azure Media Services](media-services-portal-create-account.md)
@@ -145,7 +147,7 @@ Dans ce didacticiel, les paramètres de sortie ci-dessous sont utilisés. Le res
 
 ## <a name="test-playback"></a>Tester la lecture
 
-Accédez à l’outil AMSE et cliquez avec le bouton droit sur le canal à tester. Dans le menu, placez le pointeur sur **Lire l’aperçu** et sélectionnez **avec Azure Media Player**.  
+Accédez à l’outil AMSE et cliquez avec le bouton droit sur le canal à tester. Dans le menu, placez le pointeur sur **Lire l’aperçu** et sélectionnez **avec le Lecteur multimédia Azure**.  
 
     ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
@@ -164,12 +166,12 @@ Si vous recevez une erreur, vous devez réinitialiser le canal et ajuster les pa
    >[!NOTE]
    >La création d’un programme prend moins de temps que la création d’un canal.
        
-5. Une fois le programme en cours d’exécution, vérifiez que la lecture fonctionne. Pour ce faire, cliquez avec le bouton droit sur le programme, placez le pointeur sur **Lire le(s) programme(s)** , puis sélectionnez **avec Azure Media Player**.  
+5. Une fois le programme en cours d’exécution, vérifiez que la lecture fonctionne. Pour ce faire, cliquez avec le bouton droit sur le programme, placez le pointeur sur **Lire le(s) programme(s)** , puis sélectionnez **avec le Lecteur multimédia Azure**.  
 6. Après confirmation, cliquez à nouveau avec le bouton droit sur le programme et sélectionnez **Copier l’URL de sortie dans le Presse-papiers** (ou obtenez cette information à l’aide de l’option **Informations et paramètres du programme** du menu).
 
 Le flux est maintenant prêt à être incorporé dans un lecteur ou distribué à une audience pour un affichage en direct.  
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 Pour obtenir des conseils, consultez l’article sur la [résolution des problèmes](media-services-troubleshooting-live-streaming.md).
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services

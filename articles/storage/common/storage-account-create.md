@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/17/2020
+ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2ef90e1cb883a2d22b355ff4105ae0ce3c73ad6d
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 86aaebe652968a2ea33fd8e15f9de9c1dff31a30
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759845"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086967"
 ---
 # <a name="create-an-azure-storage-account"></a>Création d'un compte Azure Storage
 
@@ -34,7 +34,15 @@ Aucun.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Cet article sur les procédures nécessite le module Az Azure PowerShell version 0.7 ou ultérieure. Exécutez `Get-Module -ListAvailable Az` pour rechercher votre version actuelle. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps).
+Pour créer un compte de stockage Azure avec PowerShell, vérifiez que vous avez installé le module Azure PowerShell Az version 0.7 ou ultérieure. Pour plus d'informations, consultez [Présentation du module Azure PowerShell Az](/powershell/azure/new-azureps-module-az).
+
+Pour connaître votre version actuelle, exécutez la commande suivante :
+
+```powershell
+Get-InstalledModule -Name "Az"
+```
+
+Pour installer ou mettre à niveau Azure PowerShell, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps).
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -83,7 +91,7 @@ Pour lancer Azure Cloud Shell, connectez-vous au [Portail Azure](https://portal.
 
 Pour vous connecter à votre installation locale de l’interface CLI, exécutez la commande [az login](/cli/azure/reference-index#az-login) :
 
-```cli
+```azurecli-interactive
 az login
 ```
 
@@ -113,6 +121,7 @@ Tout d’abord, créez un groupe de ressources avec PowerShell au moyen de la co
 # put resource group in a variable so you can use the same group name going forward,
 # without hard-coding it repeatedly
 $resourceGroup = "storage-resource-group"
+$location = "westus"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
@@ -120,7 +129,6 @@ Si vous ne savez pas quelle région spécifier pour le paramètre `-Location`, v
 
 ```powershell
 Get-AzLocation | select Location
-$location = "westus"
 ```
 
 Ensuite, créez un compte de stockage universel v2 avec l’option Stockage géo-redondant avec accès en lecture (RA-GRS) en utilisant la commande [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). N’oubliez pas que le nom du compte de stockage doit être unique dans Azure. Par conséquent, remplacez la valeur d’espace réservé entre crochets par votre propre valeur unique :
@@ -134,7 +142,7 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
 ```
 
 > [!IMPORTANT]
-> Si vous envisagez d’utiliser [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluez `-EnableHierarchicalNamespace $True` dans cette liste de paramètres. 
+> Si vous envisagez d’utiliser [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluez `-EnableHierarchicalNamespace $True` dans cette liste de paramètres.
 
 Pour créer un compte de stockage universel v2 avec une option de réplication différente, remplacez la valeur souhaitée pour le paramètre **SkuName** dans le tableau ci-dessous.
 

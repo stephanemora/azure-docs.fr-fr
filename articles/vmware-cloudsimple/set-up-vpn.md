@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fbd2b227c9292593a7652044ef4c013bf0cfaf8e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8188fac270eadb6e09cc3561ddefb05aa59ba661
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77017001"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087129"
 ---
 # <a name="configure-a-vpn-connection-to-your-avs-private-cloud"></a>Configurer une connexion VPN à votre cloud privé AVS
 
@@ -97,7 +97,7 @@ Une connexion VPN point à site résout les noms DNS du premier cloud privé AVS
 
     ![Modifier la connexion VPN](media/viscosity-edit-connection.png)
 
-7. Cliquez sur l'onglet **Réseau** et entrez les adresses IP du serveur DNS du cloud privé AVS, séparées par une virgule ou un espace, ainsi que le domaine sous la forme ```AVS.io```. Sélectionnez **Ignorer les paramètres DNS envoyés par le serveur VPN**.
+7. Cliquez sur l'onglet **Réseau** et entrez les adresses IP du serveur DNS du cloud privé AVS, séparées par une virgule ou un espace, ainsi que le domaine sous la forme ```az.cloudsimple.io```. Sélectionnez **Ignorer les paramètres DNS envoyés par le serveur VPN**.
 
     ![Mise en réseau VPN](media/viscosity-edit-connection-networking.png)
 
@@ -117,4 +117,4 @@ Pour configurer votre passerelle VPN locale en mode haute disponibilité, consul
 
 > [!IMPORTANT]
 >    1. Définissez le clamping du MSS TCP sur 1200 sur votre périphérique VPN. Dans le cas où vos périphériques VPN ne prendraient pas en charge le réglage de la taille maximale de segment, vous pouvez à la place définir l’unité de transmission maximale dans l’interface de tunnel sur 1240 octets.
-> 2. Après la configuration du VPN site à site, transférez les requêtes DNS relatives à *.AVS.io vers les serveurs DNS du cloud privé AVS. Suivez les instructions de [Configuration du DNS local](on-premises-dns-setup.md).
+> 2. Après la configuration du VPN de site à site, transférez les requêtes DNS pour *.cloudsimple.io vers les serveurs DNS du cloud privé AVS. Suivez les instructions de [Configuration du DNS local](on-premises-dns-setup.md).

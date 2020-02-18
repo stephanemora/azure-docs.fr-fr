@@ -1,7 +1,7 @@
 ---
 title: Acquérir un jeton pour appeler une API Web (applications mobiles) | Azure
 titleSuffix: Microsoft identity platform
-description: Découvrez comment générer une application mobile qui appelle des API web (acquisition d’un jeton pour l’application)
+description: Découvrez comment générer une application mobile qui appelle des API web. (Obtenir un jeton pour l'application).
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,34 +16,34 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 2a86e8352958524bc51b185712d6b60ec347b98e
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9427235f47a31da75426559a4285634ab2837577
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702094"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132462"
 ---
-# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Application mobile qui appelle des API web - acquisition d’un jeton
+# <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obtenir un jeton pour une application mobile qui appelle des API web
 
-Avant de commencer à appeler des API web protégées, votre application doit disposer d’un jeton d’accès. Cet article vous guide dans la procédure d’acquisition d’un jeton à l’aide de la bibliothèque d’authentification Microsoft (MSAL).
+Pour pouvoir appeler des API web protégées, votre application doit disposer d'un jeton d'accès. Cet article décrit la procédure à suivre pour obtenir un jeton à l'aide de la bibliothèque MSAL (Microsoft Authentication Library).
 
-## <a name="scopes-to-request"></a>Étendues à demander
+## <a name="define-a-scope"></a>Définir une étendue
 
 Lorsque vous demandez un jeton, vous devez définir une étendue. L’étendue détermine les données auxquelles votre application peut accéder.  
 
-L’approche la plus simple consiste à combiner l’`App ID URI` de l’API web souhaitée avec l’étendue `.default`. Cela indique à la plateforme d’identités Microsoft que votre application a besoin de toutes les étendues définies dans le portail.
+Pour définir une étendue, l'approche la plus simple consiste à combiner l'`App ID URI` de l'API web souhaitée avec l'étendue `.default`. Cette définition indique à la plateforme d'identités Microsoft que votre application a besoin de toutes les étendues définies sur le portail.
 
-#### <a name="android"></a>Android
+### <a name="android"></a>Android
 ```Java
 String[] SCOPES = {"https://graph.microsoft.com/.default"};
 ```
 
-#### <a name="ios"></a>iOS
+### <a name="ios"></a>iOS
 ```swift
 let scopes = ["https://graph.microsoft.com/.default"]
 ```
 
-#### <a name="xamarin"></a>Xamarin
+### <a name="xamarin"></a>Xamarin
 ```csharp 
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
@@ -52,7 +52,7 @@ var scopes = new [] {"https://graph.microsoft.com/.default"};
 
 ### <a name="acquire-tokens-via-msal"></a>Acquérir des jetons via MSAL
 
-MSAL permet aux applications d’acquérir des jetons en mode silencieux et de manière interactive. Il suffit d’appeler ces méthodes pour que MSAL retourne un jeton d’accès pour les étendues demandées. La bonne procédure consiste à effectuer une demande en mode silencieux, puis de revenir à une demande interactive.
+MSAL permet aux applications d’acquérir des jetons en mode silencieux et de manière interactive. Lorsque vous appelez `AcquireTokenSilent()` ou `AcquireTokenInteractive()`, MSAL renvoie un jeton d'accès pour les étendues demandées. La procédure appropriée consiste à effectuer une demande en mode silencieux, puis à revenir à une demande interactive.
 
 #### <a name="android"></a>Android
 
@@ -80,15 +80,13 @@ sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
 [...]
 
 // No accounts found. Interactively request a token.
-// TODO: Create an interactive callback to catch successful or failed request.
+// TODO: Create an interactive callback to catch successful or failed requests.
 sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());        
 ```
 
 #### <a name="ios"></a>iOS
 
-**Essayez d’abord d’acquérir un jeton de manière silencieuse :**
-
-Objective-C :
+Essayez d'abord d'acquérir un jeton de manière silencieuse :
 
 ```objc
 
@@ -119,8 +117,6 @@ MSALSilentTokenParameters *silentParams = [[MSALSilentTokenParameters alloc] ini
 }];
 ```
  
-Swift :
-
 ```swift
 
 let scopes = ["https://graph.microsoft.com/.default"]
@@ -152,9 +148,7 @@ application.acquireTokenSilent(with: silentParameters) { (result, error) in
 }
 ```
 
-**Ensuite, si MSAL renvoie `MSALErrorInteractionRequired`, essayez d’acquérir des jetons de manière interactive :**
-
-Objective-C :
+Si MSAL renvoie `MSALErrorInteractionRequired`, essayez d'acquérir des jetons de manière interactive :
 
 ```objc
 UIViewController *viewController = ...; // Pass a reference to the view controller that should be used when getting a token interactively
@@ -172,8 +166,6 @@ MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParame
 }];
 ```
 
-Swift :
-
 ```swift
 let viewController = ... // Pass a reference to the view controller that should be used when getting a token interactively
 let webviewParameters = MSALWebviewParameters(parentViewController: viewController)
@@ -190,14 +182,14 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 })
 ```
 
-MSAL pour iOS et macOS prend en charge différents modificateurs lors de l’obtention d’un jeton de manière interactive ou silencieuse.
-* [Paramètres courants lors de l’obtention d’un jeton](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALTokenParameters.html#/Configuration%20parameters)
-* [Paramètres pour l’acquisition de jetons interactive](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALInteractiveTokenParameters.html#/Configuring%20MSALInteractiveTokenParameters)
-* [Paramètres pour l’acquisition de jetons silencieuse](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALSilentTokenParameters.html)
+MSAL pour iOS et macOS prend en charge différents modificateurs pour obtenir un jeton de manière interactive ou silencieuse :
+* [Paramètres courants pour l'obtention d'un jeton](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALTokenParameters.html#/Configuration%20parameters)
+* [Paramètres permettant d'obtenir un jeton de manière interactive](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALInteractiveTokenParameters.html#/Configuring%20MSALInteractiveTokenParameters)
+* [Paramètres permettant d'obtenir un jeton de manière silencieuse](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALSilentTokenParameters.html)
 
 #### <a name="xamarin"></a>Xamarin
 
-L’exemple suivant montre le code minimal permettant d’obtenir un jeton de manière interactive pour lire le profil de l’utilisateur avec Microsoft Graph.
+L'exemple suivant présente le code minimal à utiliser pour obtenir un jeton de manière interactive. L'exemple utilise Microsoft Graph pour lire le profil de l'utilisateur.
 
 ```csharp
 string[] scopes = new string[] {"user.read"};
@@ -218,29 +210,45 @@ catch(MsalUiRequiredException)
 
 #### <a name="mandatory-parameters-in-msalnet"></a>Paramètres obligatoires dans MSAL.NET
 
-`AcquireTokenInteractive` n’a qu’un seul paramètre obligatoire, ``scopes``, qui contient une énumération de chaînes définissant les étendues pour lesquelles un jeton est nécessaire. Si le jeton est destiné à Microsoft Graph, vous trouvez les étendues nécessaires dans les informations de référence d’api de chaque API Microsoft graph, à la section intitulée « Autorisations ». Par exemple, pour [lister les contacts de l’utilisateur](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), vous aurez besoin des étendues « User.Read », « Contacts.Read ». Voir aussi [Informations de référence sur les autorisations Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive` n'a qu'un seul paramètre obligatoire : `scopes`. Le paramètre `scopes` énumère les chaînes qui définissent les étendues pour lesquelles un jeton est requis. Si le jeton est destiné à Microsoft Graph, vous trouvez les étendues nécessaires dans les informations de référence de chaque API Microsoft Graph. Dans les informations de référence, accédez à la section « Autorisations ». 
 
-Si vous ne l’avez pas spécifié lors de la création de l’application, sur Android, vous devez également spécifier l’activité parente (au moyen de `.WithParentActivityOrWindow`, voir ci-dessous), afin que le jeton retourne à cette activité parente après l’interaction. Si vous ne le précisez pas, une exception est levée lors de l’appel de `.ExecuteAsync()`.
+Par exemple, pour [répertorier les contacts de l'utilisateur](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), utilisez les étendues « User.Read », « Contacts.Read ». Pour plus d’informations, consultez la [documentation de référence sur les autorisations Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+
+Sur Android, vous pouvez spécifier l'activité parente lors de la création de l'application à l'aide de `PublicClientApplicationBuilder`. Si vous ne spécifiez pas l'activité parente à ce moment-là, vous pouvez la spécifier ultérieurement à l'aide de `.WithParentActivityOrWindow`, comme dans la section suivante. Si vous spécifiez l'activité parente, le jeton y revient après l'interaction. Si vous ne la spécifiez pas, l'appel `.ExecuteAsync()` renvoie une exception.
 
 #### <a name="specific-optional-parameters-in-msalnet"></a>Paramètres facultatifs particuliers dans MSAL.NET
 
+Les sections suivantes décrivent les paramètres facultatifs de MSAL.NET. 
+
 ##### <a name="withprompt"></a>WithPrompt
 
-`WithPrompt()` permet de contrôler l’interactivité avec l’utilisateur en spécifiant une invite
+Le paramètre `WithPrompt()` contrôle l'interactivité avec l'utilisateur en spécifiant une invite.
 
 <img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
 
 La classe définit les constantes suivantes :
 
-- ``SelectAccount`` : force le service d’émission de jeton de sécurité (STS) à présenter la boîte de dialogue de sélection de compte contenant les comptes pour lesquels l’utilisateur dispose d’une session. Cette option est utile lorsque les développeurs d’applications veulent laisser l’utilisateur choisir parmi différentes identités. Cette option oblige MSAL à envoyer ``prompt=select_account`` au fournisseur d’identité. C’est l’option par défaut, et elle remplit bien sa tâche en fournissant la meilleure expérience possible en fonction des informations disponibles (compte, présence d’une session pour l’utilisateur et ainsi de suite ...). Ne la remplacez pas, à moins d’avoir une excellente raison de le faire.
-- ``Consent`` : permet au développeur d’application de forcer l’affichage d’une invite demandant à l’utilisateur son consentement, et même si celui-ci a été accordé auparavant. Dans ce cas, MSAL envoie `prompt=consent` au fournisseur d’identité. Cette option peut être utilisée dans certaines applications axées sur la sécurité, dans lesquelles la gouvernance de l’organisation exige que l’utilisateur voie s’afficher la boîte de dialogue de consentement chaque fois que l’application est utilisée.
-- ``ForceLogin`` : permet au développeur d’application de faire afficher par le service une invite demandant à l’utilisateur d’entrer des informations d’identification, et même si cette invite utilisateur n’est pas nécessaire. Cette option peut s’avérer utile si l’acquisition d’un jeton échoue, afin de permettre à l’utilisateur de se reconnecter. Dans ce cas, MSAL envoie `prompt=login` au fournisseur d’identité. D’ailleurs, nous l’avons déjà vu utilisée dans certaines applications axées sur la sécurité, pour lesquelles la gouvernance de l’organisation exige que l’utilisateur se reconnecte chaque fois qu’il accède à des parties spécifiques d’une application.
-- ``Never`` (pour .NET 4.5 et WinRT uniquement) n’affiche aucune invite utilisateur, mais tente à la place d’utiliser le cookie stocké dans l’affichage web incorporé masqué (voir ci-dessous : affichages web dans MSAL.NET). L’utilisation de cette option risque d’échouer ; dans ce cas `AcquireTokenInteractive` lève une exception pour prévenir qu’une interaction avec l’interface utilisateur est nécessaire, et que vous allez devoir utiliser un autre paramètre `Prompt`.
-- ``NoPrompt``: n’envoie pas d’invite au fournisseur d’identité. Cette option n’est utile que pour les stratégies de modification de profil Azure AD B2C (consultez [Spécificités d’Azure AD B2C](https://aka.ms/msal-net-b2c-specificities)).
+- `SelectAccount` force le service d'émission de jeton de sécurité (STS) à présenter la boîte de dialogue de sélection de compte. La boîte de dialogue contient les comptes pour lesquels l'utilisateur dispose d'une session. Vous pouvez utiliser cette option pour permettre à l'utilisateur de choisir parmi différentes identités. Cette option oblige MSAL à envoyer `prompt=select_account` au fournisseur d’identité. 
+    
+    La constante `SelectAccount` est le paramètre par défaut. Elle fournit la meilleure expérience possible sur la base des informations disponibles. Les informations disponibles peuvent inclure le compte, la présence d'une session pour l'utilisateur, etc. Ne remplacez pas ce paramètre par défaut, sauf si vous avez une bonne raison de le faire.
+- `Consent` vous permet de demander à l'utilisateur de donner son consentement, même si celui-ci a déjà été accordé. Dans ce cas, MSAL envoie `prompt=consent` au fournisseur d’identité. 
+
+    Vous souhaiterez peut-être utiliser la constante `Consent` dans les applications axées sur la sécurité pour lesquelles la gouvernance de l'organisation exige que les utilisateurs voient la boîte de dialogue de consentement chaque fois qu'ils utilisent l'application.
+- `ForceLogin` permet au service d'inviter l'utilisateur à entrer ses informations d'identification même si l'invite n'est pas nécessaire. 
+
+    Cette option peut être utile si l'acquisition du jeton échoue et que vous souhaitez permettre à l'utilisateur de se reconnecter. Dans ce cas, MSAL envoie `prompt=login` au fournisseur d’identité. Vous souhaiterez peut-être utiliser cette option dans les applications axées sur la sécurité pour lesquelles la gouvernance de l'organisation exige que l'utilisateur se connecte chaque fois qu'il accède à des parties spécifiques de l'application.
+- `Never` concerne uniquement .NET 4.5 et Windows Runtime (WinRT). Cette constante n'affichera aucune invite utilisateur, mais elle tentera d'utiliser le cookie stocké dans l'affichage web incorporé masqué. Pour plus d'informations, consultez [Utilisation de navigateurs avec MSAL.NET](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers).
+
+    Si cette option échoue, `AcquireTokenInteractive` renvoie une exception pour vous informer qu'une interaction avec l'interface utilisateur est nécessaire. Vous devez alors utiliser un autre paramètre `Prompt`.
+- `NoPrompt` n'envoie pas d'invite au fournisseur d'identité. 
+
+    Cette option n'est utile que pour les stratégies de modification de profil d'Azure Active Directory B2C. Pour plus d'informations, consultez [Spécificités de B2C](https://aka.ms/msal-net-b2c-specificities).
 
 ##### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-Ce modificateur est utilisé dans un scénario élaboré, suivant lequel vous souhaitez obtenir le consentement préalable de l’utilisateur pour plusieurs ressources en amont (et ne souhaitez pas utiliser le consentement incrémentiel, qui est normalement utilisé avec MSAL.NET / la plateforme d’identités Microsoft v2.0). Consultez les détails dans le [Guide pratique pour obtenir le consentement préalable de l’utilisateur sur plusieurs ressources](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
+Utilisez le modificateur `WithExtraScopeToConsent` dans un scénario avancé où vous souhaitez que l'utilisateur fournisse son consentement préalable à plusieurs ressources. Vous pouvez utiliser ce modificateur lorsque vous ne souhaitez pas avoir recours au consentement incrémentiel, qui est normalement utilisé avec MSAL.NET ou la Plateforme d'identités Microsoft 2.0. Pour plus d’informations, consultez [Guide pratique pour obtenir le consentement préalable de l’utilisateur sur plusieurs ressources](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
+
+Exemple de code : 
 
 ```csharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
@@ -250,15 +258,18 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 
 ##### <a name="other-optional-parameters"></a>Autres paramètres facultatifs
 
-Apprenez-en davantage sur tous les autres paramètres facultatifs de `AcquireTokenInteractive` en consultant la documentation de référence relative à [AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
+Pour en savoir plus sur les autres paramètres facultatifs de `AcquireTokenInteractive`, consultez la [documentation de référence relative à AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
 
 ### <a name="acquire-tokens-via-the-protocol"></a>Acquérir des jetons via le protocole
 
-Nous ne recommandons pas d’utiliser le protocole directement. Si vous le faites, l’application ne prendra pas en charge certains scénarios d’authentification unique (SSO), de gestion des périphériques et d’accès conditionnel.
+Nous vous déconseillons d'utiliser directement le protocole pour obtenir des jetons. Si vous le faites, l'application ne prendra pas en charge certains scénarios impliquant l'authentification unique (SSO), la gestion des périphériques et l'accès conditionnel.
 
-Lorsque vous utilisez le protocole pour acquérir des jetons pour les applications mobiles, vous devez envoyer deux demandes : une pour obtenir un code d’autorisation, l’autre pour échanger ce dernier contre un jeton.
+Lorsque vous utilisez le protocole pour obtenir des jetons destinés aux applications mobiles, effectuez deux demandes : 
 
-#### <a name="get-authorization-code"></a>Obtenir un code d’autorisation
+* Obtention d'un code d'autorisation
+* Échange du code contre un jeton
+
+#### <a name="get-an-authorization-code"></a>Obtention d’un code d’autorisation
 
 ```Text
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -270,7 +281,7 @@ client_id=<CLIENT_ID>
 &state=12345
 ```
 
-#### <a name="get-access-and-refresh-token"></a>Obtenir un jeton d’accès et d’actualisation
+#### <a name="get-access-and-refresh-the-token"></a>Obtention de l'accès et actualisation du jeton
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1

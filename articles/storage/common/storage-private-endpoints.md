@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: fff92057bc9812a5ef1488a46ed469382ad3ace3
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 85b59c6549a62f7d9945f5739d1d0fde8c0fa3b8
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806879"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158908"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Utilisation de points de terminaison privés pour Stockage Azure (préversion)
 
@@ -50,7 +50,7 @@ Lorsque vous créez le point de terminaison privé, vous devez spécifier le com
 > [!TIP]
 > Créez un point de terminaison privé distinct pour l’instance secondaire du service de stockage afin d’améliorer les performances de lecture sur les comptes RA-GRS.
 
-Pour la disponibilité de lecture sur un [compte de stockage géoredondant avec accès en lecture](storage-redundancy-grs.md#read-access-geo-redundant-storage), vous avez besoin de points de terminaison privés distincts pour les instances principales et secondaires du service. Vous n’avez pas besoin de créer un point de terminaison privé pour l’instance secondaire pour le **basculement**. Le point de terminaison privé se connecte automatiquement à la nouvelle instance principale après le basculement.
+Pour accéder en lecture à la région secondaire avec un compte de stockage configuré pour le stockage géoredondant, vous devez disposer de points de terminaison privés distincts pour les instances principale et secondaire du service. Vous n’avez pas besoin de créer un point de terminaison privé pour l’instance secondaire pour le **basculement**. Le point de terminaison privé se connecte automatiquement à la nouvelle instance principale après le basculement. Pour plus d'informations sur les options de redondance du stockage, consultez [Redondance du Stockage Azure](storage-redundancy.md).
 
 #### <a name="resources"></a>Ressources
 
@@ -78,20 +78,20 @@ Lorsque vous résolvez l’URL du point de terminaison de stockage à l’extér
 
 Pour l’exemple illustré ci-dessus, les enregistrements de ressources DNS pour le compte de stockage « StorageAccountA », lorsqu’ils sont résolus à l’extérieur du réseau virtuel hébergeant le point de terminaison privé, sont les suivants :
 
-| Nom                                                  | type  | Valeur                                                 |
+| Name                                                  | Type  | Valeur                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<point de terminaison public du service de stockage\>                   |
-| \<point de terminaison public du service de stockage\>                   | A     | \<adresse IP publique du service de stockage\>                 |
+| \<point de terminaison public du service de stockage\>                   | Un     | \<adresse IP publique du service de stockage\>                 |
 
 Comme mentionné précédemment, vous pouvez refuser ou contrôler l’accès pour les clients en dehors du réseau virtuel via le point de terminaison public à l’aide du pare-feu de stockage.
 
 Les enregistrements de ressources DNS pour StorageAccountA, lorsqu’ils sont résolus par un client dans le réseau virtuel hébergeant le point de terminaison privé, sont les suivants :
 
-| Nom                                                  | type  | Valeur                                                 |
+| Name                                                  | Type  | Valeur                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | Un     | 10.1.1.5                                              |
 
 Cette approche permet d’accéder au compte de stockage **avec la même chaîne de connexion** pour les clients sur le réseau virtuel hébergeant les points de terminaison privés, ainsi que des clients en dehors du réseau virtuel.
 

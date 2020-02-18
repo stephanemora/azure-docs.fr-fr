@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: a0c9a654d0ee49dc2bdb6efb7370a3ad2b199e10
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b2a1bcedcc459a21bbc8a461ba9c8d9a8d65aebe
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481300"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132202"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Synchronisation des objets et des informations d’identification dans un domaine managé Azure AD Domain Services
 
@@ -42,7 +42,7 @@ Le tableau suivant répertorie certains attributs courants et la façon dont ils
 |:--- |:--- |:--- |
 | UPN | Attribut *UPN* de l’utilisateur dans votre locataire Azure AD | L’attribut UPN du locataire Azure AD est synchronisé tel quel pour Azure AD DS. La méthode la plus fiable pour se connecter à un domaine managé Azure AD DS consiste à utiliser l’UPN. |
 | SAMAccountName | Attribut *mailNickname* de l’utilisateur, dans le locataire Azure AD ou généré automatiquement | L’attribut *SAMAccountName* provient de l’attribut *mailNickname* dans le locataire Azure AD. Si plusieurs comptes d’utilisateurs ont le même attribut *mailNickname*, *SAMAccountName* est généré automatiquement. Si le paramètre *mailNickname* ou préfixe *UPN* dépasse 20 caractères, *SAMAccountName* est généré automatiquement pour répondre à la limite de 20 caractères sur les attributs *SAMAccountName*. |
-| Mot de passe | Mot de passe utilisateur du locataire Azure AD | Les hachages de mot de passe hérités requis pour l’authentification NTLM ou Kerberos sont synchronisés à partir du locataire Azure AD. Si le locataire Azure AD est configuré pour la synchronisation hybride à l’aide d’Azure AD Connect, ces hachages de mot de passe proviennent de l’environnement AD DS local. |
+| Mots de passe | Mot de passe utilisateur du locataire Azure AD | Les hachages de mot de passe hérités requis pour l’authentification NTLM ou Kerberos sont synchronisés à partir du locataire Azure AD. Si le locataire Azure AD est configuré pour la synchronisation hybride à l’aide d’Azure AD Connect, ces hachages de mot de passe proviennent de l’environnement AD DS local. |
 | SID groupe/utilisateur principal | Généré automatiquement | Le SID principal pour les comptes de groupe/d’utilisateur est généré automatiquement dans Azure AD DS. Cet attribut ne correspond pas au SID de groupe/d’utilisateur principal de l’objet dans un environnement AD DS local. Cette incompatibilité est due au fait que le domaine managé Azure AD DS a un espace de noms SID différent de celui du domaine AD DS local. |
 | Historique des SID des utilisateurs et groupes | SID d’utilisateur et de groupe principal local | L'attribut *SidHistory* pour les utilisateurs et les groupes dans Azure AD DS est défini de sorte à correspondre au SID de groupe ou d’utilisateur principal correspondant dans un environnement AD DS local. Cette fonctionnalité permet de faciliter la migration des applications sur site vers Azure AD DS, étant donné que vous n’avez pas besoin de redéfinir les ACL des ressources. |
 
@@ -97,10 +97,10 @@ Le tableau suivant illustre la façon dont certains attributs pour les objets de
 
 ## <a name="synchronization-from-on-premises-ad-ds-to-azure-ad-and-azure-ad-ds"></a>Synchronisation d’AD DS local vers Azure AD et Azure AD DS
 
-Azure AD Connect est utilisé pour synchroniser les comptes d’utilisateur, les appartenances aux groupes et les hachages d’informations d’identification à partir d’un environnement AD DS local vers Azure AD. Les attributs des comptes d’utilisateur tels que l’UPN et l’identificateur de sécurité (SID) sont synchronisés en local. Pour vous connecter à l’aide d’Azure AD Domain Services, les hachages de mot de passe hérités requis pour l’authentification NTLM et Kerberos sont également synchronisés avec Azure AD.
+Azure AD Connect est utilisé pour synchroniser les comptes d’utilisateur, les appartenances aux groupes et les hachages d’informations d’identification à partir d’un environnement AD DS local vers Azure AD. Les attributs des comptes d’utilisateur tels que l’UPN et l’identificateur de sécurité (SID) sont synchronisés en local. Pour vous connecter à l’aide d'Azure AD DS, les hachages de mot de passe hérités requis pour l'authentification NTLM et Kerberos sont également synchronisés avec Azure AD.
 
 > [!IMPORTANT]
-> Azure AD Connect ne peut être installé et configuré que pour la synchronisation avec des environnements AD DS locaux. L’installation d’Azure AD Connect n’est pas prise en charge dans un domaine managé Azure AD DS pour resynchroniser des objets vers Azure AD.
+> Azure AD Connect doit uniquement être installé et configuré pour la synchronisation avec des environnements AD DS locaux. L’installation d’Azure AD Connect n’est pas prise en charge dans un domaine managé Azure AD DS pour resynchroniser des objets sur Azure AD.
 
 Si vous configurez l’écriture différée, les modifications d’Azure AD sont resynchronisées dans l’environnement AD DS local. Par exemple, si un utilisateur modifie son mot de passe à l’aide de la gestion des mots de passe en libre-service d’Azure AD, le mot de passe est mis à jour dans l’environnement AD DS local.
 
@@ -113,7 +113,7 @@ De nombreuses organisations disposent d’un environnement AD DS local relativem
 
 Azure AD a un espace de noms bien plus simple et plat. Pour permettre aux utilisateurs d’accéder de manière fiable aux applications sécurisées par Azure AD, résolvez les conflits d’UPN entre comptes d’utilisateur dans des forêts différentes. Les domaines managés d’Azure AD DS utilisent une structure d’unité d’organisation plate, similaire à Azure AD. Tous les comptes d’utilisateurs et les groupes sont stockés dans le conteneur *Utilisateurs AADDC*, en dépit de la synchronisation effectuée à partir de forêts ou de domaines locaux différents, même si vous avez configuré une structure d’unités d’organisation hiérarchique locale. Le domaine managé Azure AD DS aplatit toutes les structures d’unités d’organisation hiérarchiques.
 
-Comme nous l’avons vu précédemment, il n’existe aucune synchronisation d’Azure AD DS vers Azure AD. Vous pouvez [créer une unité d’organisation personnalisée](create-ou.md) dans Azure AD DS, puis des utilisateurs, des groupes ou des comptes de service au sein de ces unités d’organisation personnalisées. Aucun des objets créés dans les unités d’organisation personnalisées n’est de nouveau synchronisé avec Azure AD. Ces objets sont uniquement disponibles dans le domaine managé Azure AD DS et ne sont pas visibles à l’aide des cmdlets PowerShell Azure AD, Azure AD API Graph ou à l’aide de l’interface utilisateur de gestion des Azure AD.
+Comme nous l’avons vu précédemment, il n’existe aucune synchronisation d’Azure AD DS vers Azure AD. Vous pouvez [créer une unité d’organisation personnalisée](create-ou.md) dans Azure AD DS, puis des utilisateurs, des groupes ou des comptes de service au sein de ces unités d’organisation personnalisées. Aucun des objets créés dans les unités d’organisation personnalisées n’est de nouveau synchronisé avec Azure AD. Ces objets sont uniquement disponibles dans le domaine managé Azure AD DS et ne sont pas visibles à l'aide des cmdlets Azure AD PowerShell, de l'API Microsoft Graph ou de l'interface utilisateur de gestion Azure AD.
 
 ## <a name="what-isnt-synchronized-to-azure-ad-ds"></a>Éléments qui ne sont pas synchronisés avec Azure AD DS
 
@@ -128,9 +128,13 @@ Les objets ou attributs suivants ne sont pas synchronisés à partir d’un envi
 
 ## <a name="password-hash-synchronization-and-security-considerations"></a>Considérations relatives à la sécurité et à la synchronisation de hachage du mot de passe
 
-Lorsque vous activez Azure AD DS, les hachages de mot de passe hérités pour l’authentification NTLM + Kerberos sont requis. Azure AD ne stocke pas les mots de passe en texte clair. Par conséquent, ces hachages ne peuvent pas être générés automatiquement pour les comptes d’utilisateur existants. Une fois générés et stockés, les hachages de mot de passe compatibles NTLM et Kerberos sont toujours stockés sous forme chiffrée dans Azure AD. Les clés de chiffrement sont uniques pour chaque locataire Azure AD. Ces hachages sont chiffrés afin que seul Azure AD DS ait accès aux clés de déchiffrement. Aucun autre service ni composant d’Azure AD n’a accès aux clés de déchiffrement. Les hachages de mot de passe hérités sont ensuite synchronisés à partir d’Azure AD dans les contrôleurs de domaine pour un domaine managé Azure AD DS. Les disques de ces contrôleurs de domaine managé dans Azure AD DS sont chiffrés à l’arrêt. Ces hachages de mot de passe sont stockés et sécurisés sur ces contrôleurs de domaine de la même manière que les mots de passe stockés et sécurisés dans un environnement AD DS local.
+Lorsque vous activez Azure AD DS, les hachages de mot de passe hérités pour l’authentification NTLM + Kerberos sont requis. Azure AD ne stocke pas les mots de passe en texte clair. Par conséquent, ces hachages ne peuvent pas être générés automatiquement pour les comptes d'utilisateur existants. Une fois générés et stockés, les hachages de mot de passe compatibles NTLM et Kerberos sont toujours stockés sous forme chiffrée dans Azure AD.
 
-Pour les environnements Azure AD cloud uniquement, les [utilisateurs doivent réinitialiser/modifier leur mot de passe](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) afin que les hachages de mot de passe requis soient générés et stockés dans Azure AD. Pour tout compte d’utilisateur cloud créé dans Azure AD après l’activation d’Azure AD Domain Services, les hachages de mot de passe sont générés et stockés dans des formats compatibles NTLM et Kerberos. Ces nouveaux comptes n’ont pas besoin de réinitialiser/modifier leur mot de passe pour générer les hachages de mot de passe hérités.
+Les clés de chiffrement sont uniques pour chaque locataire Azure AD. Ces hachages sont chiffrés afin que seul Azure AD DS ait accès aux clés de déchiffrement. Aucun autre service ni composant d’Azure AD n’a accès aux clés de déchiffrement.
+
+Les hachages de mot de passe hérités sont ensuite synchronisés à partir d’Azure AD dans les contrôleurs de domaine pour un domaine managé Azure AD DS. Les disques de ces contrôleurs de domaine managé dans Azure AD DS sont chiffrés à l’arrêt. Ces hachages de mot de passe sont stockés et sécurisés sur ces contrôleurs de domaine de la même manière que les mots de passe stockés et sécurisés dans un environnement AD DS local.
+
+Pour les environnements Azure AD cloud uniquement, les [utilisateurs doivent réinitialiser/modifier leur mot de passe](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) afin que les hachages de mot de passe requis soient générés et stockés dans Azure AD. Pour tout compte d’utilisateur cloud créé dans Azure AD après l’activation d’Azure AD Domain Services, les hachages de mot de passe sont générés et stockés dans des formats compatibles NTLM et Kerberos. Ces nouveaux comptes n'ont pas besoin de réinitialiser ou de modifier leur mot de passe pour générer les hachages de mot de passe hérités.
 
 Pour les comptes d’utilisateurs hybrides synchronisés à partir d’un environnement AD DS local à l’aide d’Azure AD Connect, vous devez [configurer Azure AD Connect pour synchroniser les hachages de mot de passe dans des formats compatibles NTLM et Kerberos](tutorial-configure-password-hash-sync.md).
 

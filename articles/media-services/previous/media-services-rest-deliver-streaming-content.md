@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8e3c2b7f4087f0f47466eff47b22c59dad19892e
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 787336f00a83d9403e3069754787743b9be6c5b1
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774940"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77050007"
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>Publier du contenu Azure Media Services à l’aide de REST 
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Vous pouvez diffuser un MP4 à débit adaptatif défini par la création d’un 
 
 Vous pouvez également utiliser un localisateur de diffusion en continu à la demande pour créer des URL qui pointent vers les fichiers MP4 pouvant être téléchargés progressivement.  
 
-Cet article montre comment créer un localisateur de diffusion en continu à la demande pour publier votre élément multimédia et créer des URL de diffusion en continu Smooth, MPEG DASH et HLS. Elle explique également la création d’URL de téléchargement progressif.
+Cet article montre comment créer un localisateur de diffusion en continu à la demande pour publier votre élément multimédia et créer des URL de diffusion en continu Smooth, MPEG DASH et HLS. Il explique également comment créer des URL de téléchargement progressif.
 
 La section [suivante](#types) indique les types d’énumération dont les valeurs sont utilisées dans les appels REST.   
 

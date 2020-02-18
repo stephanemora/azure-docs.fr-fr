@@ -6,30 +6,110 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/21/2019
+ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: 3aa4da9a9cf3d1d4b664e81f1fd18f2b225d731d
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799838"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086919"
 ---
 ## <a name="personal-information-entity-types"></a>Types d’entités d’informations personnelles :
 
+### <a name="person"></a>Personne
+Reconnaître les noms de personnes dans le texte.
+
+Langages :
+* Préversion publique : `English`
+
+| Nom de sous-type | Description                                               | Disponible à partir de la version du modèle |
+|--------------|-----------------------------------------------------------|----------------------------------------|
+| N/A          | Noms reconnus, par exemple `Bill Gates`, `Marie Curie` | `2020-02-01`                           |
+
+### <a name="organization"></a>Organisation  
+
+Reconnaître les organisations, sociétés, agences, entreprises, clubs et autres groupes de personnes.
+
+Langages : 
+
+* Préversion publique : `English`
+
+| Nom de sous-type | Description                                                                                       | Disponible à partir de la version du modèle|
+|--------------|---------------------------------------------------------------------------------------------------|--------------|
+| N/A          | les organisations, par exemple `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration` | `2020-02-01` |
+
 ### <a name="phone-number"></a>Numéro de téléphone
 
-Numéros de téléphone. 
+Numéros de téléphone (Numéros de téléphone américains uniquement). 
 
 Langages :
 
 * Préversion publique : `English`
 
-| Nom de sous-type           | Description                                           |
-|------------------------|-------------------------------------------------------|
-| N/A                    | Numéros de téléphone, par exemple `+1 123-123-123`.          |
-| Numéro de téléphone UE        | Numéros de téléphone propres à l’Union européenne.         |
-| Numéro de téléphone mobile UE | Numéros de téléphone mobile propres à l’Union européenne. |
+| Nom de sous-type | Description                                    | Disponible à partir de la version du modèle |
+|--------------|------------------------------------------------|----------------------------------------|
+| N/A          | Numéros de téléphone américains, par exemple `(312) 555-0176` | `2020-02-01`                           |
+
+### <a name="email"></a>E-mail
+
+Adresse e-mail. 
+
+Langages :
+
+* Préversion publique : `English`
+
+| Nom de sous-type | Description                                      | Disponible à partir de la version du modèle |
+|--------------|--------------------------------------------------|----------------------------------------|
+| N/A          | Adresse e-mail, par exemple `support@contoso.com` | `2020-02-01`                           |
+
+### <a name="url"></a>URL
+
+URL Internet.
+
+Langages :
+
+* Préversion publique : `English`
+
+| Nom de sous-type | Description                                          | Disponible à partir de la version du modèle |
+|--------------|------------------------------------------------------|----------------------------------------|
+| N/A          | URL de sites web, par exemple `https://www.bing.com` | `2020-02-01`                           |
+
+### <a name="ip-address"></a>Adresse IP
+
+Adresse de protocole Internet
+
+Langages :
+
+* Préversion publique : `English`
+
+| Nom de sous-type | Description                              | Disponible à partir de la version du modèle |
+|--------------|------------------------------------------|----------------------------------------|
+| N/A          | Adresse réseau, par exemple `10.0.0.101` | `2020-02-01`                           |
+
+### <a name="quantity"></a>Quantité 
+
+Quantités numériques
+
+Langages :
+
+* Préversion publique : `English`
+
+| Nom de sous-type | Description                   | Disponible à partir de la version du modèle |
+|--------------|-------------------------------|----------------------------------------|
+| Age          | `90 days old`, `30 years old` | `2020-02-01`                           |
+
+### <a name="datetime"></a>DateTime
+
+Entités de date et d'heure
+
+Langages :
+
+* Préversion publique : `English`
+
+| Nom de sous-type | Description                   | Disponible à partir de la version du modèle |
+|--------------|-------------------------------|----------------------------------------|
+| Date         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
 
 ### <a name="eu-gps-coordinates"></a>Coordonnées GPS UE
 
@@ -39,13 +119,15 @@ Langages :
 
 * Préversion publique : `English`
 
-| Nom de sous-type | Description                               |
-|--------------|-------------------------------------------|
-| N/A          | Coordonnées GPS au sein de l’Union européenne |
+| Nom de sous-type | Description                               | Disponible à partir de la version du modèle |
+|--------------|-------------------------------------------|----------------------------------------|
+| N/A          | Coordonnées GPS au sein de l’Union européenne | `2019-10-01`                           |
 
 ### <a name="azure-information"></a>Informations Azure
 
 Informations Azure identifiables, comme des informations d’authentification et des chaînes de connexion. 
+
+* Disponible à partir de la version `2019-10-01` du modèle.
 
 Langages :
 
@@ -66,6 +148,8 @@ Langages :
 | Chaîne de connexion SQL Server          | Chaîne de connexion d’un serveur SQL Server.                                         |
 
 ### <a name="identification"></a>Identification
+
+* Disponible à partir de la version `2019-10-01` du modèle.
 
 Langages :
 
@@ -184,7 +268,7 @@ Japon
 Malaisie
 * Numéro de carte d’identité
 
-Pays-bas
+Pays-Bas
 * Numéro de service citoyen (BSN)
 
 Nouvelle-Zélande

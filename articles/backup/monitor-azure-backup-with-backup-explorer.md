@@ -1,98 +1,103 @@
 ---
 title: Superviser vos sauvegardes avec l’Explorateur de sauvegarde
-description: Article qui explique comment utiliser l’Explorateur de sauvegarde pour effectuer une supervision en temps réel des sauvegardes dans l’ensemble des coffres, abonnements, régions et locataires.
+description: Cet article explique comment utiliser l'Explorateur de sauvegarde pour superviser les sauvegardes en temps réel dans l'ensemble des coffres, abonnements, régions et locataires.
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: 331d8aeeb828dedb6700a94fafa074c179bef7ab
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b65f68e33b53dff341ee72f6b9e9f42e344c49b1
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76992004"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149573"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Superviser vos sauvegardes avec l’Explorateur de sauvegarde
 
-Plus les organisations sauvegardent des machines dans le cloud, plus il est important de disposer d’un emplacement central à partir duquel consulter des informations opérationnelles sur ces sauvegardes formant un large parc, afin de les superviser avec efficacité.
+Sachant que les organisations sauvegardent de plus en plus de machines dans le cloud, il est désormais essentiel de superviser efficacement ces sauvegardes. La meilleure façon de commencer est d'avoir recours à un emplacement centralisé pour visualiser les informations opérationnelles d'un parc étendu.
 
-Le classeur de l’Explorateur de sauvegarde est un classeur Azure Monitor prédéfini qui permet aux clients d’utiliser un seul volet pour effectuer des activités de supervision opérationnelle liées à la sauvegarde dans l’ensemble du parc de sauvegarde sur Azure (à savoir les locataires, emplacements, abonnements, groupes de ressources et coffres), le tout à partir d’un emplacement central. En gros, il offre les fonctionnalités suivantes :
+L'Explorateur de sauvegarde est un classeur intégré à Azure Monitor qui permet aux clients du service Sauvegarde Azure de bénéficier de cet emplacement centralisé. L'Explorateur de sauvegarde vous aide à superviser les activités opérationnelles de l'ensemble du parc de sauvegarde Azure, en couvrant les locataires, les emplacements, les abonnements, les groupes de ressources et les coffres. Les principales fonctionnalités de l'Explorateur de sauvegarde sont les suivantes :
 
-* **Perspective à grande échelle** : vue agrégée des éléments, travaux, alertes, stratégies et ressources de sauvegarde non configurés pour la sauvegarde dans l’ensemble du parc de sauvegarde. 
-* **Analyse au niveau du détail** : vous pouvez choisir d’obtenir des informations détaillées sur chacune des entités (travaux, alertes, stratégies et éléments de sauvegarde), le tout à partir d’un seul emplacement.
-* **Interfaces actionnables** : une fois que vous avez identifié un problème, vous pouvez choisir d’effectuer des actions en accédant naturellement à l’élément de sauvegarde ou à la ressource Azure.
+* **Perspective à grande échelle** : bénéficiez d'une vue agrégée des éléments, travaux, alertes, stratégies et ressources de sauvegarde qui n'ont pas encore été configurés pour la sauvegarde dans l'ensemble du parc. 
+* **Analyse approfondie** : consultez des informations détaillées sur vos travaux, alertes, stratégies et éléments de sauvegarde à un emplacement centralisé.
+* **Interfaces interactives** : après avoir identifié un problème, vous pouvez le résoudre en accédant facilement à l'élément de sauvegarde ou à la ressource Azure concerné.
 
-Les fonctionnalités ci-dessus sont fournies prêtes à l’emploi par une intégration native à Azure Resource Graph et aux classeurs Azure Monitor.
+Ces fonctionnalités sont fournies prêtes à l'emploi par une intégration native à Azure Resource Graph et aux classeurs Azure Monitor.
 
 > [!NOTE]
-> * Pour l’instant, l’Explorateur de sauvegarde est uniquement disponible pour les données de machines virtuelles Azure.
-> * L’Explorateur de sauvegarde a vocation à servir de tableau de bord opérationnel facilitant l’affichage d’informations sur vos sauvegardes effectuées lors des 7 derniers jours (maximum).
-> * Actuellement, la personnalisation du modèle de l’Explorateur de sauvegarde n’est pas prise en charge. De plus, nous vous déconseillons d’écrire des automatisations personnalisées sur des données Azure Resource Graph pour le moment.
+> * Pour le moment, l'Explorateur de sauvegarde est uniquement disponible pour les données des machines virtuelles Azure.
+> * L'Explorateur de sauvegarde a été conçu comme un tableau de bord opérationnel qui permet de visualiser les informations relatives à vos sauvegardes des 7 derniers jours (maximum).
+> * Il est actuellement impossible de personnaliser le modèle de l'Explorateur de sauvegarde. 
+> * Nous vous déconseillons de créer des automatisations personnalisées sur les données Azure Resource Graph.
 
-## <a name="getting-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
-Vous pouvez ouvrir l’Explorateur de sauvegarde en accédant à l’un de vos coffres Recovery Services, puis en cliquant sur le lien **Explorateur de sauvegarde** dans la page **Vue d’ensemble**.
+Pour ouvrir l'Explorateur de sauvegarde, accédez à l'un de vos coffres Recovery Services, puis sélectionnez le lien **Explorateur de sauvegarde** dans le volet **Vue d'ensemble**.
 
-![Lien rapide de coffre](media/backup-azure-monitor-with-backup-explorer/vault-quick-link.png)
+![Lien rapide vers le coffre](media/backup-azure-monitor-with-backup-explorer/vault-quick-link.png)
 
-Cliquez sur le lien pour ouvrir l’Explorateur de sauvegarde qui offre une vue agrégée de tous les coffres et abonnements auxquels vous avez accès. Si vous utilisez un compte Azure Lighthouse, vous pouvez voir les données de tous les locataires auxquels vous avez accès (pour plus d’informations, consultez la section ci-dessous sur les vues multilocataires).
+Sélectionnez le lien pour ouvrir l'Explorateur de sauvegarde et bénéficier d'une vue agrégée de tous les coffres et abonnements auxquels vous avez accès. Si vous utilisez un compte Azure Lighthouse, vous pouvez voir les données de tous les locataires auxquels vous avez accès. Pour plus d'informations, consultez la section « Vues multilocataires » à la fin de cet article.
 
-![Page d’arrivée de l’Explorateur](media/backup-azure-monitor-with-backup-explorer/explorer-landing-page.png)
+![Page d'arrivée de l'Explorateur de sauvegarde](media/backup-azure-monitor-with-backup-explorer/explorer-landing-page.png)
 
-## <a name="backup-explorer-use-cases"></a>Cas d’usage de l’Explorateur de sauvegarde
+## <a name="backup-explorer-use-cases"></a>Explorateur de sauvegarde - Cas d'usage
 
-L’Explorateur de sauvegarde comprend plusieurs onglets, chacun fournissant des informations détaillées sur un type spécifique d’artefact de sauvegarde, par exemple, des éléments, travaux, stratégies de sauvegarde, etc. Cette section fournit une brève présentation de chacun des onglets. Les vidéos donnent des exemples de cas d’usage pour chacun des onglets, ainsi qu’une description des différentes commandes à la disposition de l’utilisateur.
+L'Explorateur de sauvegarde contient plusieurs onglets, chacun fournissant des informations détaillées sur un artefact de sauvegarde spécifique (par exemple, un élément, un travail ou une stratégie de sauvegarde). Cette section fournit une brève présentation de chacun des onglets. Les vidéos fournissent des exemples de cas d'usage pour chaque artefact de sauvegarde, ainsi que des descriptions des contrôles disponibles.
 
-### <a name="summary"></a>Résumé
+### <a name="the-summary-tab"></a>L'onglet Résumé
 
-L’onglet Résumé vous permet d’obtenir un aperçu rapide de l’état global de votre parc de sauvegarde. Vous pouvez voir des informations telles que le nombre d’éléments protégés, le nombre d’éléments pour lesquels la protection n’a pas été activée, le nombre de travaux ayant réussi au cours des dernières 24 heures, etc. 
+L'onglet **Résumé** offre un aperçu rapide de l'état global de votre parc de sauvegarde. Par exemple, vous pouvez voir le nombre d'éléments protégés, le nombre d'éléments pour lesquels la protection n'a pas été activée ou le nombre de travaux ayant abouti au cours des 24 dernières heures.
 
-Chacun des autres onglets représente une entité distincte, à savoir : Éléments de sauvegarde, Travaux de sauvegarde, Alertes de sauvegarde et Stratégies de sauvegarde. Vous pouvez également voir des informations sur les machines pour lesquelles la sauvegarde n’a pas été configurée. Cliquez sur l’un de ces onglets pour voir des informations propres à cette entité.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQYd]
 
-### <a name="backup-items"></a>Éléments de sauvegarde
+### <a name="the-backup-items-tab"></a>L'onglet Éléments de sauvegarde
 
-Vous pouvez voir chacun de vos éléments de sauvegarde filtré par abonnement, par coffre et selon d’autres paramètres. Cliquer sur le nom d’un élément de sauvegarde vous permet d’ouvrir le panneau Azure de cet élément de sauvegarde. Par exemple, dans la table, vous pouvez remarquer que la dernière sauvegarde a échoué pour l’élément « X ». Cliquez sur « X » pour ouvrir le panneau Sauvegarde de cet élément, dans lequel vous pouvez déclencher une opération de sauvegarde à la demande.
+Vous pouvez filtrer et afficher chacun de vos éléments de sauvegarde par abonnement, par coffre et autres caractéristiques. Sélectionnez le nom d'un élément de sauvegarde pour ouvrir le volet Azure correspondant à cet élément. Par exemple, dans le tableau, vous pouvez remarquer que la dernière sauvegarde de l'élément *X* a échoué. En sélectionnant *X*, vous accédez au volet **Sauvegarde** de l'élément, où vous pouvez déclencher une opération de sauvegarde à la demande.
+
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQYc]
 
-### <a name="jobs"></a>Travaux
+### <a name="the-jobs-tab"></a>L'onglet Travaux
 
-Vous pouvez voir les détails de tous les travaux qui ont été déclenchés au cours des sept derniers jours, en accédant à l’onglet Travaux. Ici, vous pouvez filtrer par opération, état et code d’erreur (pour les travaux ayant échoué).
+Sélectionnez l'onglet **Travaux** pour afficher les détails de tous les travaux qui ont été déclenchés au cours des 7 derniers jours. Vous pouvez ici appliquer les filtres suivants : *Opération de travail*, *État du travail* et *Code d'erreur* (pour les travaux qui ont échoué).
+
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nOrh]
 
-### <a name="alerts"></a>Alertes
+### <a name="the-alerts-tab"></a>L'onglet Alertes
 
-Vous pouvez voir les détails de toutes les alertes qui ont été déclenchées dans vos coffres au cours des sept derniers jours, en cliquant sur l’onglet Alertes. Ici, vous pouvez filtrer les enregistrements par type d’alerte (par exemple, échec de la sauvegarde, échec de la restauration), par état actuel de l’alerte (par exemple, active ou résolue) et par gravité de l’alerte (par exemple, critique, avertissement, informations). Vous pouvez également accéder à la machine virtuelle Azure en cliquant sur le lien vers cette machine virtuelle afin d’effectuer l’action nécessaire.
+Sélectionnez l'onglet **Alertes** pour afficher les détails de toutes les alertes générées sur vos coffres au cours des 7 derniers jours. Vous pouvez filtrer les alertes par type (*Échec de la sauvegarde* ou *Échec de la restauration*), par état actuel (*Active* ou *Résolue*) et par gravité (*Critique*, *Avertissement* ou *Information*). Vous pouvez également sélectionner un lien pour accéder à la machine virtuelle Azure et prendre les éventuelles mesures nécessaires.
+
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nTxe]
 
-### <a name="policies"></a>Stratégies
+### <a name="the-policies-tab"></a>L'onglet Stratégies
 
-Le fait de cliquer sur l’onglet Stratégies vous permet de voir des informations clés sur toutes les stratégies de sauvegarde qui ont été créées dans votre parc de sauvegarde. Vous pouvez voir le nombre d’éléments associés à chaque stratégie, ainsi que la durée de conservation et la fréquence de sauvegarde spécifiées par chaque stratégie.
+Sélectionnez l'onglet **Stratégies** pour consulter des informations sur toutes les stratégies de sauvegarde qui ont été créées dans votre parc de sauvegarde. Vous pouvez voir le nombre d'éléments associés à chaque stratégie, ainsi que la durée de conservation et la fréquence de sauvegarde spécifiées par la stratégie.
+
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nLKV]
 
-### <a name="backup-not-enabled"></a>Sauvegarde non activée
+### <a name="the-backup-not-enabled-tab"></a>L'onglet Sauvegarde non activée
 
-Il est important que l’administrateur de sauvegarde d’une organisation puisse rapidement identifier les machines de l’organisation pour lesquelles la sauvegarde n’est pas encore activée. Il peut ainsi activer rapidement la sauvegarde pour toutes les machines qui ont besoin d’une protection. Le fait de cliquer sur l’onglet **Sauvegarde non activée** vous facilite la tâche.
+La sauvegarde doit être activée pour toutes les machines qui nécessitent une protection. Grâce à l'Explorateur de sauvegarde, les administrateurs de sauvegarde peuvent rapidement identifier les machines d'une organisation qui ne sont pas encore protégés par une sauvegarde. Pour afficher ces informations, sélectionnez l'onglet **Sauvegarde non activée**.
 
-Sous cet onglet, vous voyez une table contenant la liste des éléments qui ne sont pas protégés. Si votre organisation a pour pratique d’attribuer des étiquettes différentes aux ordinateurs de production et aux ordinateurs de test, ou encore aux machines remplissant d’autres fonctions, chacune pouvant nécessiter une stratégie de sauvegarde distincte, un filtrage par étiquette vous permet de voir les informations propres à une certaine classe de machines. Si vous cliquez sur le nom d’un élément, vous êtes redirigé vers le panneau **Configurer la sauvegarde** de cet élément, où vous pouvez choisir de sauvegarder cet élément avec une stratégie de sauvegarde appropriée.
+Le volet **Sauvegarde non activée** affiche la liste de machines non protégées sous forme de tableau. Votre organisation peut attribuer différentes étiquettes aux machines de production et aux machines de test, ou aux machines qui remplissent diverses fonctions. Dans la mesure où chaque classe de machines requiert une stratégie de sauvegarde distincte, le filtrage par étiquette vous permet d'afficher les informations spécifiques à chacune. La sélection du nom d'une machine vous redirige vers le volet **Configurer la sauvegarde** de cette machine, où vous pouvez choisir d'appliquer une stratégie de sauvegarde appropriée.
+
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4nQXZ]
 
-## <a name="exporting-to-excel"></a>Exportation vers Excel
+## <a name="export-to-excel"></a>Exporter vers Excel
 
-Le fait de cliquer sur la flèche Bas située dans le coin supérieur droit d’un widget (tableau/graphique) exporte le contenu de ce widget sous la forme d’une feuille Excel, en l’état avec les filtres existants appliqués. Pour exporter d’autres lignes d’une table vers Excel, vous pouvez augmenter le nombre de lignes affichées dans la page à l’aide de la liste déroulante **Lignes par page** située en haut de chaque onglet.
+Vous pouvez exporter le contenu de n'importe quel tableau ou graphique sous forme de feuille de calcul Excel. Le contenu est exporté tel quel, avec les filtres que vous y avez appliqués. Pour exporter des lignes de tableau supplémentaires, vous pouvez augmenter le nombre de lignes à afficher sur la page à l'aide de la liste déroulante **Lignes par page** située en haut de chaque onglet.
 
-## <a name="pinning-to-dashboard"></a>Épinglage au tableau de bord
+## <a name="pin-to-the-dashboard"></a>Épingler sur le tableau de bord
 
-Vous pouvez cliquer sur l’icône Épingler en haut de chaque widget pour épingler ce widget sur le tableau de bord de votre portail Azure. Ainsi, vous pouvez créer des tableaux de bord personnalisés pour voir les informations les plus importantes dont vous avez besoin.
+Sélectionnez l'icône « Épingler » disponible en haut de chaque tableau ou graphique pour épingler celui-ci sur le tableau de bord du portail Azure. L'épinglage de ces informations vous permettra de créer un tableau de bord personnalisé contenant les informations qui comptent les plus pour vous.
 
 ## <a name="cross-tenant-views"></a>Vues multilocataires
 
-Si vous êtes utilisateur Azure Lighthouse avec un accès délégué à des abonnements dans plusieurs environnements locataires, vous pouvez utiliser le filtre d’abonnement par défaut (en cliquant sur l’icône de filtre dans le coin supérieur droit du portail Azure) pour sélectionner tous les abonnements dont vous voulez consulter les données. Ainsi, vous permettez à l’Explorateur de sauvegarde d’agréger des informations sur tous les coffres inclus dans tous ces abonnements. Apprenez-en davantage sur Azure Lighthouse [ici](https://docs.microsoft.com/azure/lighthouse/overview).
+Si vous êtes un utilisateur d'Azure Lighthouse et que vous disposez d'un accès délégué aux abonnements de plusieurs environnements de locataires, vous pouvez utiliser le filtre d'abonnement par défaut. Pour afficher les abonnements dont vous souhaitez consulter les données, sélectionnez l'icône « Filtre » en haut à droite du portail Azure. Lorsque vous utilisez cette fonctionnalité, l'Explorateur de sauvegarde regroupe les informations de tous les coffres répartis sur les différents abonnements que vous avez sélectionnés. Pour en savoir plus, consultez [Présentation d'Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

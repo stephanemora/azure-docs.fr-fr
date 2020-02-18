@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: eadedcea7e6010cf93d118b3781630053609d29f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 12c4362ae1b075af132d5971f4fe0461c9d91733
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019602"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083085"
 ---
 # <a name="configure-dns-for-name-resolution-for-avs-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurer DNS pour la résolution de noms pour l’accès à un vCenter de cloud privé AVS à partir de stations de travail locales
 
@@ -32,10 +32,10 @@ Pour accéder au serveur vCenter sur un cloud privé AVS à partir de stations d
 
 Utilisez une de ces options pour la configuration DNS.
 
-* [Créer une zone sur le serveur DNS pour *.AVS.io](#create-a-zone-on-a-microsoft-windows-dns-server)
-* [Créer un redirecteur conditionnel sur votre serveur DNS local pour résoudre *.AVS.io](#create-a-conditional-forwarder)
+* [Créer une zone sur le serveur DNS pour *.cloudsimple.io](#create-a-zone-on-a-microsoft-windows-dns-server)
+* [Créer un redirecteur conditionnel sur votre serveur DNS local pour résoudre *.cloudsimple.io](#create-a-conditional-forwarder)
 
-## <a name="create-a-zone-on-the-dns-server-for-avsio"></a>Créer une zone sur le serveur DNS pour *.AVS.io
+## <a name="create-a-zone-on-the-dns-server-for-cloudsimpleio"></a>Créer une zone sur le serveur DNS pour *.cloudsimple.io
 
 Vous pouvez configurer une zone en tant que zone de stub et pointer vers les serveurs DNS sur le cloud privé pour la résolution de noms. Cette section fournit des informations sur l’utilisation d’un serveur DNS BIND ou d’un serveur DNS Microsoft Windows.
 
@@ -78,7 +78,7 @@ zone "az.cloudsimple.io"
 
 ## <a name="create-a-conditional-forwarder"></a>Créer un redirecteur conditionnel
 
-Un redirecteur conditionnel transfère toutes les requêtes de résolution de noms DNS au serveur désigné. Avec cette configuration, toute demande à *.AVS.io est transférée aux serveurs DNS situés sur le cloud privé AVS. Les exemples suivants montrent comment configurer des redirecteurs sur différents types de serveurs DNS.
+Un redirecteur conditionnel transfère toutes les requêtes de résolution de noms DNS au serveur désigné. Avec cette configuration, toute requête pour *.cloudsimple.io est transférée aux serveurs DNS situés sur le cloud privé AVS. Les exemples suivants montrent comment configurer des redirecteurs sur différents types de serveurs DNS.
 
 ### <a name="create-a-conditional-forwarder-on-a-bind-dns-server"></a>Créer un redirecteur conditionnel sur un serveur DNS BIND
 

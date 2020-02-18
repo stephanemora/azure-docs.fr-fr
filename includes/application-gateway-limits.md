@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 0ba21fe3789fba03cd4814d19fb103c3a2559c13
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 6ab6c4c2051ccd2fbb22c383b9ca0af53ceb13d3
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75662904"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77054934"
 ---
 | Ressource | Limite par défaut/maximale | Remarque |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "75662904"
 | Écouteurs HTTP |100<sup>1</sup> | |
 | Règles d’équilibrage de charge HTTP |100<sup>1</sup> | |
 | Paramètres HTTP du serveur principal |100<sup>1</sup> | |
-| Instances par passerelle |32 | |
+| Instances par passerelle |Référence SKU V1 - 32<br>Référence SKU V2 - 125 | |
 | Certificats SSL |100<sup>1</sup> |1 par écouteur HTTP |
 | Taille maximale du certificat SSL |RÉFÉRENCE SKU V1 : 10 Ko<br>RÉFÉRENCE SKU V2 : 16 Ko| |
 | Certificats d’authentification |100 | |

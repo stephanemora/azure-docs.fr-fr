@@ -1,6 +1,6 @@
 ---
 title: Facilité de gestion et monitorage – Vue d’ensemble
-description: Vue d’ensemble du monitorage et de la facilité de gestion pour l’utilisation des ressources, l’activité de journal et de requête, les recommandations et la protection des données (sauvegarde et restauration) dans Azure SQL Data Warehouse.
+description: Vue d'ensemble de la supervision et de la facilité de gestion en matière d'utilisation des ressources, d'activité des journaux et des requêtes, de recommandations et de protection des données (sauvegarde et restauration) avec le pool SQL.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 54dbf7bcac92f7536d4e4579045c474914264935
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 31a12a60fc6f02a935ff98278e69d1ed2dd68ce5
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760740"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153262"
 ---
-# <a name="manageability-and-monitoring-with-azure-sql-data-warehouse"></a>Facilité de gestion et surveillance avec Azure SQL Data Warehouse
+# <a name="manageability-and-monitoring-with-sql-pool"></a>Facilité de gestion et supervision à l'aide du pool SQL
 
-Découvrez ce qui est disponible pour vous aider à gérer et à surveiller SQL Data Warehouse. Les articles suivants présentent différentes façons d’optimiser les performances et l’utilisation de votre entrepôt de données.
+SQL Analytics vous permet d'approvisionner un entrepôt de données via un pool SQL. Les articles qui suivent vous aideront à gérer et à superviser votre entrepôt de données. Vous apprendrez également à optimiser l'utilisation et les performances de l'entrepôt de données.
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -33,4 +33,4 @@ Découvrez ce qui est disponible pour vous aider à gérer et à surveiller SQL 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des guides de procédures, consultez [Surveiller et régler votre entrepôt de données](sql-data-warehouse-manage-monitor.md).
+Pour bénéficier de guides pratiques, consultez [Superviser et paramétrer votre entrepôt de données](sql-data-warehouse-manage-monitor.md).

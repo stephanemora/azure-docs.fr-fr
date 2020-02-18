@@ -1,138 +1,255 @@
 ---
-title: Mise à l’échelle dynamique des hôtes de session Windows Virtual Desktop - Azure
-description: Explique comment configurer le script de mise à l’échelle automatique pour les hôtes de session Windows Virtual Desktop.
+title: Procéder à la mise à l'échelle des hôtes de session à l'aide d'Azure Automation - Azure
+description: Mise à l'échelle automatique des hôtes de session Windows Virtual Desktop à l'aide d'Azure Automation
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 02/06/2020
 ms.author: helohr
-ms.openlocfilehash: a991a41466d216b9f245c20dbd8054f3ae5ef3d0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c201df03bb156bac3f63d03cc4ca35215792f65c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451336"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061494"
 ---
-# <a name="scale-session-hosts-dynamically"></a>Mettre à l’échelle dynamiquement des hôtes de session
+# <a name="scale-session-hosts-using-azure-automation"></a>Procéder à la mise à l'échelle des hôtes de session à l'aide d'Azure Automation
 
-Pour de nombreux déploiements de Windows Virtual Desktop dans Azure, les coûts liés aux machines virtuelles représentent une part significative du coût total de déploiement de Windows Virtual Desktop. Pour réduire les coûts, il est préférable d’arrêter et de libérer les machines virtuelles hôtes de la session pendant les heures d’utilisation creuses, puis de les redémarrer pendant les heures de pointe.
+Vous pouvez réduire le coût total de déploiement de Windows Virtual Desktop en procédant à la mise à l'échelle de vos machines virtuelles. Cela implique l'arrêt et la libération des machines virtuelles hôtes de session aux heures creuses, puis leur réactivation et leur réallocation aux heures de pointe.
 
-Cet article utilise un script de mise à l’échelle simple pour mettre automatiquement à l’échelle les machines virtuelles de l’hôte de la session dans votre environnement Windows Virtual Desktop. Pour en savoir plus sur le fonctionnement du script de mise à l’échelle, consultez la section [How the scaling script works](#how-the-scaling-script-works) (Fonctionnement du script de mise à l’échelle).
+Cet article présente l'outil de mise à l'échelle créé avec Azure Automation et Azure Logic Apps pour procéder à la mise à l'échelle automatique des machines virtuelles hôtes de session dans votre environnement Windows Virtual Desktop. Pour en savoir plus sur l'utilisation de l'outil de mise à l'échelle, consultez la section [Conditions préalables](#prerequisites).
+
+## <a name="how-the-scaling-tool-works"></a>Fonctionnement de l'outil de mise à l'échelle
+
+L'outil de mise à l'échelle fournit une option d'automatisation à faible coût pour les clients qui souhaitent optimiser les coûts de leurs machines virtuelles hôtes de session.
+
+Vous pouvez utiliser l'outil de mise à l'échelle pour :
+ 
+- Planifier le démarrage et l'arrêt des machines virtuelles en fonction des heures de pointe et des heures creuses
+- Monter les machines virtuelles en charge en fonction du nombre de sessions par cœur de processeur
+- Diminuer la taille des instances de machines virtuelles pendant les heures creuses, en continuant à exécuter le nombre minimum de machines virtuelles hôtes de session
+
+L'outil de mise à l'échelle fonctionne à l'aide de runbooks PowerShell Azure Automation, de webhooks et d'Azure Logic Apps. Lorsque l'outil s'exécute, Azure Logic Apps appelle un webhook pour lancer le runbook Azure Automation. Le runbook crée ensuite un travail.
+
+Aux heures de pointe, le travail vérifie le nombre de sessions actives et la capacité en machines virtuelles de l'hôte de session en cours d'exécution pour chaque pool d'hôtes. Il utilise ces informations pour déterminer si les machines virtuelles hôtes de session en cours d'exécution sont en mesure de prendre en charge les sessions existantes en fonction du paramètre *SessionThresholdPerCPU* défini dans le fichier **createazurelogicapp.ps1**. Si les machines virtuelles hôtes de session ne peuvent pas prendre en charge les sessions existantes, le travail démarre des machines virtuelles hôtes de session supplémentaires dans le pool d'hôtes.
+
+>[!NOTE]
+>*SessionThresholdPerCPU* ne limite pas le nombre de sessions sur la machine virtuelle. Ce paramètre détermine uniquement quand de nouvelles machines virtuelles doivent être démarrées pour équilibrer la charge des connexions. Pour limiter le nombre de sessions, vous devez suivre les instructions [Set-RdsHostPool](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/set-rdshostpool) et configurer le paramètre *MaxSessionLimit* en conséquence.
+
+Aux heures creuses, le travail détermine quelles machines virtuelles hôtes de session doivent être arrêtées, conformément au paramètre *MinimumNumberOfRDSH*. Le travail configure les machines virtuelles hôtes de session sur le mode de drainage pour empêcher les nouvelles sessions de se connecter aux hôtes. Si vous définissez le paramètre *LimitSecondsToForceLogOffUser* sur une valeur positive différente de zéro, le script envoie une notification aux utilisateurs actuellement connectés pour leur demander d'enregistrer leur travail, attend le laps de temps configuré, puis force les utilisateurs à se déconnecter. Une fois que toutes les sessions utilisateur ont été déconnectées sur la machine virtuelle hôte de session, le script arrête la machine virtuelle.
+
+Si vous définissez le paramètre *LimitSecondsToForceLogOffUser* sur zéro, le travail autorise le paramètre de configuration de session des stratégies de groupe spécifiées à gérer la déconnexion des sessions utilisateur. Pour afficher ces stratégies de groupe, accédez à **Configuration ordinateur** > **Stratégies** > **Modèles d'administration** > **Composants Windows** > **Services du terminal** > **Terminal Server** > **Délais d'expiration des sessions**. S'il reste des sessions en cours sur une machine virtuelle hôte de session, le travail laisse la machine virtuelle hôte de session s'exécuter. S'il ne reste aucune session en cours, le travail arrête la machine virtuelle hôte de session.
+
+Le travail s'exécute périodiquement sur la base d'un intervalle de périodicité défini. Vous pouvez modifier cet intervalle en fonction de la taille de votre environnement Windows Virtual Desktop, mais n'oubliez pas que le démarrage et l'arrêt des machines virtuelles peuvent prendre un certain temps ; vous devez donc tenir compte de ce délai. Nous vous recommandons de définir l'intervalle de périodicité sur : Toutes les 15 minutes.
+
+Cela dit, l'outil présente également les limitations suivantes :
+
+- Cette solution s'applique uniquement aux machines virtuelles hôtes de session mises en pool.
+- Cette solution permet de gérer les machines virtuelles de toutes les régions, mais ne peut être utilisée qu'au sein du même abonnement que votre compte Azure Automation et Azure Logic Apps.
+
+>[!NOTE]
+>L'outil de mise à l'échelle contrôle le mode d'équilibrage de charge du pool d'hôtes qu'il met à l'échelle. Il le définit sur l'équilibrage de charge à largeur prioritaire pour les heures de pointe et les heures creuses.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-L’environnement dans lequel vous exécutez le script doit disposer des éléments suivants :
+Avant de commencer à configurer l'outil de mise à l'échelle, assurez-vous que vous disposez de ce qui suit :
 
-- Un locataire, un compte ou un principal de service Windows Virtual Desktop avec des autorisations pour interroger ce locataire (par exemple, Contributeur des services Bureau à distance).
-- Machines virtuelles du pool d’hôtes de la session configurées et inscrites avec le service Windows Virtual Desktop.
-- Une machine virtuelle supplémentaire qui exécute la tâche planifiée par le biais du Planificateur de tâches et qui dispose d’un accès réseau aux hôtes de session. Elle sera appelée machine virtuelle scaler ultérieurement dans ce document.
-- Le [module Microsoft Azure Resource Manager PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) installé sur la machine virtuelle exécutant la tâche planifiée.
-- Le [module Windows Virtual Desktop PowerShell](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) installé sur la machine virtuelle exécutant la tâche planifiée.
+- Un [locataire Windows Virtual Desktop et un pool d'hôtes](create-host-pools-arm-template.md)
+- Machines virtuelles du pool d'hôtes de session configurées et inscrites auprès du service Windows Virtual Desktop
+- Un utilisateur doté d'un [accès Contributeur](../role-based-access-control/role-assignments-portal.md) sur un abonnement Azure
 
-## <a name="recommendations-and-limitations"></a>Recommandations et restrictions
+L'ordinateur que vous utilisez pour déployer l'outil doit disposer de ce qui suit : 
 
-Lorsque vous exécutez le script de mise à l’échelle, gardez les points suivants à l’esprit :
+- Windows PowerShell 5.1 ou version ultérieure
+- Module Microsoft AZ PowerShell
 
-- Ce script de mise à l’échelle peut uniquement gérer un pool d’hôtes par instance de la tâche planifiée qui exécute le script de mise à l’échelle.
-- Les tâches planifiées qui exécutent les scripts de mise à l’échelle doivent se faire sur une machine virtuelle toujours activée.
-- Créez un dossier distinct pour chaque instance du script de mise à l’échelle et sa configuration.
-- Ce script ne prend pas en charge la connexion à Windows Virtual Desktop en tant qu’administrateur avec des comptes d’utilisateur Azure AD qui exigent une authentification multifacteur. Nous vous recommandons d’utiliser des principaux de service pour accéder au service Windows Virtual Desktop et à Azure. Suivez [ce tutoriel](create-service-principal-role-powershell.md) pour créer un principal de service et une attribution de rôle avec PowerShell.
-- La garantie du contrat de niveau de service d’Azure s’applique uniquement aux machines virtuelles dans un groupe à haute disponibilité. La version actuelle du document décrit un environnement avec une seule machine virtuelle effectuant la mise à l’échelle, qui peut ne pas répondre aux exigences de disponibilité.
+Si tout est prêt, commençons.
 
-## <a name="deploy-the-scaling-script"></a>Déployer le script de mise à l’échelle
+## <a name="create-an-azure-automation-account"></a>Créer un compte Azure Automation
 
-Les procédures suivantes vous expliqueront comment déployer le script de mise à l’échelle.
+Tout d'abord, vous devez disposer d'un compte Azure Automation pour exécuter le runbook PowerShell. Pour configurer votre compte, procédez comme suit :
 
-### <a name="prepare-your-environment-for-the-scaling-script"></a>Préparation de votre environnement pour le script de mise à l’échelle
+1. Ouvrez Windows PowerShell en tant qu’administrateur.
+2. Exécutez la cmdlet suivante pour vous connecter à votre compte Azure.
 
-Tout d’abord, préparez votre environnement pour le script de mise à l’échelle :
+     ```powershell
+     Login-AzAccount
+     ```
 
-1. Connectez-vous à la machine virtuelle (machine virtuelle scaler) qui exécutera la tâche planifiée avec un compte d’administration de domaine.
-2. Créez un dossier sur la machine virtuelle scaler pour stocker le script de mise à l’échelle et sa configuration (par exemple, **C:\\scaling-HostPool1**).
-3. Téléchargez les fichiers **basicScale.ps1**, **Config.json** et **Functions-PSStoredCredentials.ps1**, ainsi que le dossier **PowershellModules** dans le [référentiel du script de mise à l’échelle](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script), puis copiez-les dans le dossier que vous avez créé à l’étape 2. Il existe deux méthodes principales pour obtenir les fichiers avant de les copier dans la machine virtuelle scaler :
-    - Clonez le référentiel Git sur votre ordinateur local.
-    - Affichez la version **Raw** de chaque fichier, et copiez et collez le contenu de chaque fichier dans un éditeur de texte. Enregistrez les fichiers avec le nom de fichier et le type de fichier correspondants. 
+     >[!NOTE]
+     >Votre compte doit disposer de droits de contributeur sur l'abonnement Azure au sein duquel vous souhaitez déployer l'outil de mise à l'échelle.
 
-### <a name="create-securely-stored-credentials"></a>Créer des informations d’identification stockées en toute sécurité
+3. Exécutez la cmdlet suivante pour télécharger le script de création du compte Azure Automation :
 
-Ensuite, vous devez créer des informations d’identification stockées en toute sécurité :
+     ```powershell
+     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazureautomationaccount.ps1" -OutFile "your local machine path\ createazureautomationaccount.ps1"
+     ```
 
-1. Démarrez PowerShell ISE en tant qu’administrateur.
-2. Importez le module PowerShell des services Bureau à distance en exécutant la cmdlet suivante :
+4. Exécutez la cmdlet suivante pour exécuter le script et créer le compte Azure Automation :
 
-    ```powershell
-    Install-Module Microsoft.RdInfra.RdPowershell
-    ```
-    
-3. Ouvrez le volet d’édition et chargez le fichier **Function-PSStoredCredentials.ps1**, puis exécutez l’intégralité du script (F5).
-4. Exécutez l’applet de commande suivante :
-    
-    ```powershell
-    Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
-    ```
-    
-    Par exemple, **Set-Variable -Name KeyPath -Scope Global -Value "c:\\scaling-HostPool1"**
-5. Exécutez la cmdlet **New-StoredCredential -KeyPath \$KeyPath**. Lorsque vous y êtes invité, entrez vos informations d’identification Windows Virtual Desktop avec des autorisations pour interroger le pool d’hôtes (le pool d’hôtes est spécifié dans le fichier **config.json**).
-    - Si vous utilisez différents principaux de service ou un compte standard, exécutez la cmdlet **New-StoredCredential -KeyPath \$KeyPath** une fois pour chaque compte pour créer des informations d’identification stockées localement.
-6. Exécutez **Get-StoredCredential -List** pour confirmer que les informations d’identification ont bien été créées.
+     ```powershell
+     .\createazureautomationaccount.ps1 -SubscriptionID <azuresubscriptionid> -ResourceGroupName <resourcegroupname> -AutomationAccountName <name of automation account> -Location "Azure region for deployment"
+     ```
 
-### <a name="configure-the-configjson-file"></a>Configurer le fichier config.json
+5. La sortie de la cmdlet inclura un URI de webhook. Conservez un enregistrement de l'URI car vous l'utiliserez comme paramètre lors de la configuration du calendrier d'exécution pour les applications logiques Azure.
 
-Entrez les valeurs appropriées dans les champs suivants pour mettre à jour les paramètres du script de mise à l’échelle dans le fichier config.json :
+Après avoir configuré votre compte Azure Automation, connectez-vous à votre abonnement Azure et vérifiez que votre compte Azure Automation et le runbook correspondant apparaissent dans le groupe de ressources spécifié, comme illustré ci-dessous :
 
-| Champ                     | Description                    |
-|-------------------------------|------------------------------------|
-| AADTenantId                   | ID du locataire AD Azure qui associe l’abonnement dans lequel s’exécutent les machines virtuelles hôtes de la session     |
-| AADApplicationId              | ID d’application du principal de service                                                       |
-| AADServicePrincipalSecret     | Il peut être entré durant la phase de test, mais il doit rester vide une fois que vous avez créé des informations d’identification avec le fichier **Functions-PSStoredCredentials.ps1**    |
-| currentAzureSubscriptionId    | ID de l’abonnement Azure dans lequel s’exécutent les machines virtuelles hôtes de la session                        |
-| tenantName                    | Nom du locataire Windows Virtual Desktop                                                    |
-| hostPoolName                  | Nom du pool d’hôtes Windows Virtual Desktop                                                 |
-| RDBroker                      | URL du service WVD, valeur par défaut https:\//rdbroker.wvd.microsoft.com             |
-| Nom d’utilisateur                      | ID d’application du principal du service (il est possible d’avoir le même principal de service que dans AADApplicationId) ou de l’utilisateur standard sans authentification multifacteur |
-| isServicePrincipal            | Les valeurs acceptées sont **true** ou **false**. Indique si le deuxième ensemble d’informations d’identification utilisé est un principal de service ou un compte standard. |
-| BeginPeakTime                 | Début des heures de pointe                                                            |
-| EndPeakTime                   | Fin des heures de pointe                                                              |
-| TimeDifferenceInHours         | Décalage horaire entre l’heure locale et l’heure UTC, en heures                                   |
-| SessionThresholdPerCPU        | Nombre maximal de sessions utilisé par seuil de processeur pour déterminer lorsqu’une nouvelle machine virtuelle d’hôte de session doit être démarrée durant les heures de pointe.  |
-| MinimumNumberOfRDSH           | Nombre minimal de machines virtuelles du pool d’hôtes à maintenir en cours d’exécution durant les heures creuses             |
-| LimitSecondsToForceLogOffUser | Nombre de secondes à attendre avant de forcer les utilisateurs à se déconnecter. Si la valeur est définie sur 0, les utilisateurs ne sont pas obligés de se déconnecter.  |
-| LogOffMessageTitle            | Titre du message envoyé à un utilisateur avant qu’il ne soit obligé de se déconnecter                  |
-| LogOffMessageBody             | Corps du message d’avertissement envoyé aux utilisateurs avant qu’ils ne soient déconnectés. Par exemple, « Cet ordinateur s’arrêtera dans X minutes. Veuillez enregistrer votre travail et vous déconnecter. » |
+![Illustration de la page de présentation Azure affichant le compte d'automatisation et le runbook nouvellement créés.](media/automation-account.png)
 
-### <a name="configure-the-task-scheduler"></a>Configurer le Planificateur de tâches
+Pour vérifier que votre webhook est bien à sa place, accédez à la liste des ressources sur le côté gauche de votre écran et sélectionnez **Webhook**.
 
-Après avoir configuré le fichier JSON de configuration, vous devez configurer le Planificateur de tâches pour exécuter le fichier basicScaler.ps1 à intervalles réguliers.
+## <a name="create-an-azure-automation-run-as-account"></a>Créer un compte d'identification Azure Automation
 
-1. Démarrez le **Planificateur de tâche**.
-2. Dans la fenêtre **Planificateur de tâches**, sélectionnez **Créer une tâche...**
-3. Dans la boîte de dialogue **Créer une tâche**, sélectionnez l’onglet **Général**, entrez un **Nom** (par exemple, « RDSH dynamique »), sélectionnez **Exécuter même si l’utilisateur n’est pas connecté** et **Exécuter avec les privilèges les plus élevés**.
-4. Accédez à l’onglet **Déclencheurs**, puis sélectionnez **Nouveau...**
-5. Dans la boîte de dialogue **Nouveau déclencheur**, sous **Paramètres avancés**, vérifiez **Répéter chaque tâche** et sélectionnez la période et la durée appropriées (par exemple, **15 minutes** ou **Indéfiniment**).
-6. Sélectionnez l’onglet **Actions** et **Nouveau...**
-7. Dans la boîte de dialogue **Nouvelle Action**, entrez **powershell.exe** dans le champ **Programme/script**. Ensuite, entrez **C:\\scaling\\basicScale.ps1** dans le champ **Ajouter des arguments (facultatif)** .
-8. Accédez aux onglets **Conditions** et **Paramètres**, puis sélectionnez **OK** pour accepter les paramètres par défaut pour chacun.
-9. Entrez le mot de passe du compte d’administration dans lequel vous souhaitez exécuter le script de mise à l’échelle.
+Maintenant que vous disposez d'un compte Azure Automation, vous devez également créer un compte d'identification Azure Automation pour accéder à vos ressources Azure.
 
-## <a name="how-the-scaling-script-works"></a>Fonctionnement du script de mise à l’échelle
+Un [compte d'identification Azure Automation](../automation/manage-runas-account.md) fournit l'authentification nécessaire à la gestion des ressources Azure à l'aide de cmdlets Azure. Lorsque vous créez un compte d'identification, celui-ci crée un nouvel utilisateur de principal de service dans Azure Active Directory et attribue le rôle de contributeur à cet utilisateur au niveau de l'abonnement. Le compte d'identification Azure permet de s'authentifier en toute sécurité à l'aide de certificats et d'un nom de principal de service sans qu'il soit nécessaire de stocker un nom d'utilisateur et un mot de passe dans un objet d'informations d'identification. Pour en savoir plus sur l'authentification d'identification, consultez [Limiter les autorisations d'un compte d'identification](../automation/manage-runas-account.md#limiting-run-as-account-permissions).
 
-Ce script de mise à l’échelle lit les paramètres à partir d’un fichier config.json, y compris le début et la fin des heures de pointe pendant la journée.
+Tout utilisateur membre du rôle Administrateurs des abonnements et coadministrateur de l'abonnement peut créer un compte d'identification en suivant les instructions de la section suivante.
 
-Durant les heures de pointe, le script vérifie le nombre actuel de sessions et la capacité RDSH actuelle en cours d’exécution pour chaque pool d’hôtes. Elle calcule si les machines virtuelles hôtes de la session en cours d’exécution dispose d’une capacité suffisante pour prendre en charge les sessions existantes en fonction du paramètre SessionThresholdPerCPU défini dans le fichier config.json. Si ce n’est pas le cas, le script démarre des machines virtuelles hôtes de session supplémentaires dans le pool d’hôtes.
+Pour créer un compte d'identification sur votre compte Azure :
 
-Durant les heures creuses, le script détermine quelles machines virtuelles hôtes de la session doivent être arrêtées en fonction du paramètre MinimumNumberOfRDSH dans le fichier config.json. Le script configurera les machines virtuelles hôtes de la session sur le mode de drainage pour empêcher les nouvelles sessions de se connecter aux hôtes. Si vous définissez le paramètre **LimitSecondsToForceLogOffUser** dans le fichier config.json sur une valeur positive différente de zéro, le script enverra une notification aux utilisateurs actuellement connectés leur demandant d’enregistrer leur travail, attendra le laps de temps configuré et puis forcera les utilisateurs à se déconnecter. Une fois que toutes les sessions utilisateur déconnectées sur une machine virtuelle hôte de session, le script arrête le serveur.
+1. Dans le portail Azure, sélectionnez **Tous les services**. Dans la liste des ressources, entrez et sélectionnez **Comptes Automation**.
 
-Si vous définissez le paramètre **LimitSecondsToForceLogOffUser** dans le fichier config.json sur zéro, le script autorisera le paramètre de configuration de session dans les propriétés du pool d’hôtes à gérer la déconnexion des sessions utilisateur. S’il reste des sessions en cours sur une machine virtuelle hôte de session, il laissera la machine virtuelle hôte de session s’exécuter. S’il ne reste aucune session, le script arrêtera la machine virtuelle hôte de session.
+2. Sur la page **Comptes Automation**, sélectionnez le nom de votre compte Automation.
 
-Le script est conçu pour s’exécuter périodiquement sur le serveur de machine virtuelle scaler à l’aide du Planificateur de tâches. Sélectionnez l’intervalle de temps approprié en fonction de la taille de votre environnement Services Bureau à distance et n’oubliez pas que le démarrage et l’arrêt des machines virtuelles peuvent prendre un certain temps. Nous vous recommandons d’exécuter le script de mise à l’échelle toutes les 15 minutes.
+3. Dans le volet situé à gauche de la fenêtre, sélectionnez **Comptes d'identification** sous la section Paramètres du compte.
 
-## <a name="log-files"></a>Fichiers journaux
+4. Sélectionnez **Compte d'identification Azure**. Lorsque le volet **Ajouter un compte d'identification Azure** apparaît, passez en revue les informations de présentation, puis sélectionnez **Créer** pour lancer le processus de création de compte.
 
-Le script de mise à l’échelle crée deux fichiers journaux, **WVDTenantScale.log** et **WVDTenantUsage.log**. Le fichier **WVDTenantScale.log** enregistre les événements et les erreurs (le cas échéant) à chaque exécution du script de mise à l’échelle.
+5. Patientez quelques minutes, le temps qu'Azure crée le compte d'identification. Vous pouvez suivre la progression de la création dans le menu situé sous Notifications.
 
-Le fichier **WVDTenantUsage.log** enregistre le nombre réel de cœurs et de machines virtuelles chaque fois que vous exécutez le script de mise à l’échelle. Vous pouvez utiliser ces informations pour estimer l’utilisation réelle des machines virtuelles Microsoft Azure et leur coût. Le fichier est présenté sous la forme de valeurs séparées par des virgules, avec chaque élément contenant les informations suivantes :
+6. Au terme du processus, une ressource nommée AzureRunAsConnection est créée sur le compte Automation spécifié. La ressource de connexion contient l'ID de l'application, l'ID du locataire, l'ID de l'abonnement et l'empreinte du certificat. Mémorisez l'ID de l'application car vous en aurez besoin plus tard.
 
->temps, pool d’hôtes, cœurs, machines virtuelles
+### <a name="create-a-role-assignment-in-windows-virtual-desktop"></a>Créer une attribution de rôle dans Windows Virtual Desktop
 
-Le nom de fichier peut également être modifié pour avoir une extension .csv, chargé dans Microsoft Excel, et analysé.
+Vous devez ensuite créer une attribution de rôle pour permettre à AzureRunAsConnection d'interagir avec Windows Virtual Desktop. Veillez à utiliser PowerShell afin de vous connecter avec un compte qui dispose des autorisations nécessaires pour créer des attributions de rôle.
+
+Si ce n'est déjà fait, commencez par télécharger et importer le [module PowerShell Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) à utiliser dans votre session PowerShell. Exécutez les applets de commande PowerShell suivantes pour vous connecter à Windows Virtual Desktop et afficher vos locataires.
+
+```powershell
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+
+Get-RdsTenant
+```
+
+Lorsque vous trouvez le locataire contenant les pools d'hôtes que vous souhaitez mettre à l'échelle, suivez les instructions de la section [Créer un compte Azure Automation](#create-an-azure-automation-account) et utilisez le nom du locataire que vous avez obtenu à l'aide de la cmdlet précédente dans la cmdlet suivante pour créer l'attribution de rôle :
+
+```powershell
+New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId <applicationid> -TenantName <tenantname>
+```
+
+## <a name="create-the-azure-logic-app-and-execution-schedule"></a>Créer l'application logique Azure et le calendrier d'exécution
+
+Enfin, vous devrez créer l'application logique Azure et configurer un calendrier d'exécution pour votre nouvel outil de mise à l'échelle.
+
+1.  Ouvrez Windows PowerShell en tant qu'Administrateur.
+
+2.  Exécutez la cmdlet suivante pour vous connecter à votre compte Azure.
+
+     ```powershell
+     Login-AzAccount
+     ```
+
+3. Exécutez la cmdlet suivante pour télécharger le fichier de script createazurelogicapp.ps1 sur votre ordinateur local.
+
+     ```powershell
+     Invoke-WebRequest -Uri "https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/wvd-scaling-script/createazurelogicapp.ps1" -OutFile "your local machine path\ createazurelogicapp.ps1"
+     ```
+
+4. Exécutez la cmdlet suivante pour vous connecter à Windows Virtual Desktop avec un compte disposant des autorisations de Propriétaire ou de Contributeur des Services Bureau à distance.
+
+     ```powershell
+     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+     ```
+
+5. Exécutez le script PowerShell suivant pour créer l'application logique Azure et le calendrier d'exécution.
+
+     ```powershell
+     $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group for the new Azure Logic App"
+     
+     $aadTenantId = Read-Host -Prompt "Enter your Azure AD tenant ID"
+
+     $subscriptionId = Read-Host -Prompt "Enter your Azure Subscription ID"
+
+     $tenantName = Read-Host -Prompt "Enter the name of your WVD tenant"
+
+     $hostPoolName = Read-Host -Prompt "Enter the name of the host pool you’d like to scale"
+
+     $recurrenceInterval = Read-Host -Prompt "Enter how often you’d like the job to run in minutes, e.g. ‘15’"
+
+     $beginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
+
+     $endPeakTime = Read-Host -Prompt "Enter the end time for peak hours in local time, e.g. 18:00"
+
+     $timeDifference = Read-Host -Prompt "Enter the time difference between local time and UTC in hours, e.g. +5:30"
+
+     $sessionThresholdPerCPU = Read-Host -Prompt "Enter the maximum number of sessions per CPU that will be used as a threshold to determine when new session host VMs need to be started during peak hours"
+
+     $minimumNumberOfRdsh = Read-Host -Prompt "Enter the minimum number of session host VMs to keep running during off-peak hours"
+
+     $limitSecondsToForceLogOffUser = Read-Host -Prompt "Enter the number of seconds to wait before automatically signing out users. If set to 0, users will be signed out immediately"
+
+     $logOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
+
+     $logOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
+
+     $location = Read-Host -Prompt "Enter the name of the Azure region where you will be creating the logic app"
+
+     $connectionAssetName = Read-Host -Prompt "Enter the name of the Azure RunAs connection asset"
+
+     $webHookURI = Read-Host -Prompt "Enter the URI of the WebHook returned by when you created the Azure Automation Account"
+
+     $automationAccountName = Read-Host -Prompt "Enter the name of the Azure Automation Account"
+
+     $maintenanceTagName = Read-Host -Prompt "Enter the name of the Tag associated with VMs you don’t want to be managed by this scaling tool"
+
+     .\createazurelogicapp.ps1 -ResourceGroupName $resourceGroupName `
+       -AADTenantID $aadTenantId `
+       -SubscriptionID $subscriptionId `
+       -TenantName $tenantName `
+       -HostPoolName $hostPoolName `
+       -RecurrenceInterval $recurrenceInterval `
+       -BeginPeakTime $beginPeakTime `
+       -EndPeakTime $endPeakTime `
+       -TimeDifference $timeDifference `
+       -SessionThresholdPerCPU $sessionThresholdPerCPU `
+       -MinimumNumberOfRDSH $minimumNumberOfRdsh `
+       -LimitSecondsToForceLogOffUser $limitSecondsToForceLogOffUser `
+       -LogOffMessageTitle $logOffMessageTitle `
+       -LogOffMessageBody $logOffMessageBody `
+       -Location $location `
+       -ConnectionAssetName $connectionAssetName `
+       -WebHookURI $webHookURI `
+       -AutomationAccountName $automationAccountName `
+       -MaintenanceTagName $maintenanceTagName
+     ```
+
+     Une fois le script exécuté, l'application logique doit apparaître dans un groupe de ressources, comme illustré ci-dessous.
+
+     ![Illustration de la page de présentation d'un exemple d'application logique Azure.](media/logic-app.png)
+
+Pour apporter des modifications au calendrier d'exécution, telles que la modification de l'intervalle de périodicité ou du fuseau horaire, accédez au planificateur de mise à l'échelle automatique et sélectionnez **Modifier** pour accéder au concepteur d'applications logiques.
+
+![Illustration du concepteur d'applications logiques. Les menus Périodicité et Webhook qui permettent à l'utilisateur de modifier la périodicité et le fichier webhook sont ouverts.](media/logic-apps-designer.png)
+
+## <a name="manage-your-scaling-tool"></a>Gérer votre outil de mise à l'échelle
+
+Maintenant que vous avez créé votre outil de mise à l'échelle, vous pouvez accéder à sa sortie. Cette section décrit quelques fonctionnalités qui pourraient vous être utiles.
+
+### <a name="view-job-status"></a>Afficher le statut de la tâche
+
+Vous pouvez afficher un résumé de l'état de tous les travaux du runbook ou afficher un état plus approfondi d'un travail spécifique sur le portail Azure.
+
+À droite du compte Automation sélectionné, sous « Statistiques des travaux », vous pouvez afficher la liste des résumés de tous les travaux du runbook. Ouvrez la page **Travaux** sur le côté gauche de la fenêtre pour afficher l'état actuel des travaux, ainsi que les heures de début et de fin de ceux-ci.
+
+![Capture d'écran de la page d'état des travaux.](media/jobs-status.png)
+
+### <a name="view-logs-and-scaling-tool-output"></a>Afficher les journaux et la sortie de l'outil de mise à l'échelle
+
+Vous pouvez consulter les journaux des opérations de « scale-out » et de « scale-in » en ouvrant votre runbook et en sélectionnant le nom de votre travail.
+
+Accédez au runbook (le nom par défaut est WVDAutoScaleRunbook) du groupe de ressources qui héberge le compte Azure Automation et sélectionnez **Présentation**. Sur la page de présentation, sélectionnez un travail sous Travaux récents pour afficher la sortie de son outil de mise à l'échelle, comme illustré ci-dessous.
+
+![Illustration de la fenêtre de sortie de l'outil de mise à l'échelle.](media/tool-output.png)

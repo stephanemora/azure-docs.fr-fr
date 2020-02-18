@@ -1,5 +1,5 @@
 ---
-title: Créer ou mettre à jour des rôles personnalisés pour les ressources Azure à l’aide de l’API REST - Azure | Microsoft Docs
+title: Créer ou mettre à jour des rôles personnalisés pour les ressources Azure à l'aide de l'API REST
 description: Découvrez comment lister, créer, mettre à jour ou supprimer des rôles personnalisés avec le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure à l’aide de l’API REST.
 services: active-directory
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 474de8934ec7e27df601fe80809566a801e6af61
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 145bc45e1b7faeddc23cf5f0662337e15ab51c29
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452935"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137363"
 ---
 # <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Créer ou mettre à jour des rôles personnalisés pour les ressources Azure à l’aide de l’API REST
 

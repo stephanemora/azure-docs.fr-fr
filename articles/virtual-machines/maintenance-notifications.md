@@ -1,22 +1,18 @@
 ---
-title: Notifications de maintenance pour les machines virtuelles Azure | Microsoft Docs
+title: Notifications de maintenance
 description: Vue d’ensemble des notifications maintenance pour les machines virtuelles s’exécutant dans Azure.
-services: virtual-machines
-documentationcenter: ''
 author: shants123
-editor: ''
-tags: azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 83a1f3921272f5ec15ae4d1f4220652f56679c96
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 68159577cb31145be5063bb19af6db71ca1727bd
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903222"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77115684"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Gestion des notifications de maintenance planifiée
 
@@ -29,7 +25,7 @@ Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilit
 
 La maintenance planifiée nécessitant un redémarrage s’effectue par vagues. Chaque vague a une portée différente (régions).
 
-- Une vague commence par une notification aux clients. Par défaut, la notification est envoyée à l’administrateur et aux coadministrateurs du service. Vous pouvez ajouter plusieurs destinataires et options de messagerie, telles que les e-mails, des SMS et des webhooks, en utilisant des [Alertes de journal d’activité](../service-health/alerts-activity-log-service-notifications.md).  
+- Une vague commence par une notification aux clients. Par défaut, la notification est envoyée à l'administrateur et aux coadministrateurs du service. Vous pouvez ajouter plusieurs destinataires et options de messagerie, telles que les e-mails, des SMS et des webhooks, en utilisant des [Alertes de journal d’activité](../service-health/alerts-activity-log-service-notifications.md).  
 - Quand une notification est envoyée, une *fenêtre en libre-service* est rendue disponible. Durant cette fenêtre, vous pouvez interroger les machines virtuelles affectées et démarrer une maintenance en fonction de vos besoins en matière de planification. La fenêtre en libre-service est généralement d’environ 35 jours.
 - Après la fenêtre de libre-service, une *fenêtre de maintenance planifiée* apparaît. Au cours de cette fenêtre, Azure planifie et applique la maintenance requise à votre machine virtuelle. 
 

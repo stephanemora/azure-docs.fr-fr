@@ -4,16 +4,16 @@ description: Créez des certificats de test et apprenez à les installer sur un 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/03/2019
+ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cf073572cd5b371ec484c99f14cbefb4cba75ce7
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: fe46e968aa2dcebaa483cd38fd2e050ccfe43054
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509901"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149896"
 ---
 # <a name="install-production-certificates-on-an-iot-edge-device"></a>Installer des certificats de production sur un appareil IoT Edge
 
@@ -89,6 +89,12 @@ Par exemple, si vous avez utilisé les exemples de script pour [Créer des certi
       ```
 
 4. Sur les appareils Linux, assurez-vous que l’utilisateur **iotedge** a les autorisations de lecture sur le répertoire contenant les certificats.
+
+5. Si vous avez déjà utilisé d'autres certificats pour IoT Edge sur l'appareil, supprimez les fichiers dans les deux répertoires suivants avant de démarrer ou de redémarrer IoT Edge :
+
+   * Windows : `C:\ProgramData\iotedge\hsm\certs` et `C:\ProgramData\iotedge\hsm\cert_keys`
+
+   * Linux : `/var/lib/iotedge/hsm/certs` et `/var/lib/iotedge/hsm/cert_keys`
 
 ## <a name="next-steps"></a>Étapes suivantes
 

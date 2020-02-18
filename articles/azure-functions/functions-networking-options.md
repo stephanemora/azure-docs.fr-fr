@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 79c27d252136281249c217f51019e53987922334
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7b47e7b0672716141f62e3f7df4b0d3ed95c663d
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846456"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114301"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -111,7 +111,7 @@ Afin d’offrir un niveau de sécurité supérieur, vous pouvez restreindre un n
 
 ### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Restriction de votre compte de stockage à un réseau virtuel
 
-Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type. Actuellement, vous ne pouvez pas utiliser de restrictions de réseau virtuel sur ce compte. La configuration d’un point de terminaison de service de réseau virtuel sur le compte de stockage que vous utilisez pour votre application de fonction entraînera l’arrêt de votre application.
+Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type. Actuellement, vous ne pouvez pas utiliser de restrictions de réseau virtuel sur ce compte. La configuration d'un point de terminaison de service de réseau virtuel sur le compte de stockage que vous utilisez pour votre application de fonction entraînera l'arrêt de votre application. Cette fonctionnalité est actuellement disponible avec le plan Premium et une intégration de réseau virtuel.
 
 [Apprenez-en davantage sur les exigences liées aux comptes de stockage.](./functions-create-function-app-portal.md#storage-account-requirements)
 

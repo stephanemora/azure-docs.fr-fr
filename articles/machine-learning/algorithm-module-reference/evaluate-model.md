@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 11/19/2019
-ms.openlocfilehash: a906e5f354f332cebb0656c6fc40b17c8a5016a2
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 5951c6ec63478b4b266f22eaf8bf3162e0a45df0
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546688"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137548"
 ---
 # <a name="evaluate-model-module"></a>Module Évaluer le modèle
 
@@ -80,10 +80,10 @@ Comme il s’agit d’un modèle de clustering, les résultats de l’évaluatio
 
 Cette section décrit les métriques retournées pour les types spécifiques de modèles pris en charge avec **Évaluer le modèle** :
 
-+ [modèles de classification](#bkmk_classification)
-+ [modèles de régression](#bkmk_regression)
++ [modèles de classification](#metrics-for-classification-models)
++ [modèles de régression](#metrics-for-regression-models)
 
-###  <a name="bkmk_classification"></a> Métriques pour les modèles de classification
+### <a name="metrics-for-classification-models"></a>Métriques pour les modèles de classification
 
 Les métriques suivantes sont rapportées lors de l’évaluation de modèles de classification. Si vous comparez des modèles, elles sont classées selon la métrique que vous sélectionnez pour l’évaluation.  
   
@@ -101,7 +101,7 @@ Les métriques suivantes sont rapportées lors de l’évaluation de modèles de
   
 - La **perte de journaux d’apprentissage** est un score unique qui représente l’avantage du classifieur sur une prédiction aléatoire. La perte de journaux mesure l’incertitude de votre modèle en comparant les probabilités qu’il génère avec les valeurs connues (terrestre exacte) dans les étiquettes. Vous souhaitez minimiser la perte de journaux pour l’ensemble du modèle.
 
-##  <a name="bkmk_regression"></a> Métriques pour les modèles de régression
+### <a name="metrics-for-regression-models"></a>Métriques pour les modèles de régression
  
 Les métriques retournées pour les modèles de régression sont conçues pour estimer la quantité d’erreurs.  Un modèle est jugé correctement adapté aux données si la différence entre valeurs observées et prévues est faible. Toutefois, l’observation du modèle des résidus (la différence entre n’importe quel point prédit et sa valeur réelle correspondante) peut vous en apprendre beaucoup sur un éventuel décalage dans le modèle.  
   
@@ -115,7 +115,7 @@ Les métriques retournées pour les modèles de régression sont conçues pour e
   
 - L’**erreur quadratique relative (RSE)** normalise de manière similaire l’erreur quadratique totale des valeurs prévues en divisant par l’erreur quadratique totale des valeurs réelles.  
   
-- L’**erreur zéro-un moyenne (MZOE)** indique si la prédiction était correcte ou non.  En d’autres termes : `ZeroOneLoss(x,y) = 1` lorsque `x!=y` ; sinon `0`.
+
   
 - Le **coefficient de détermination**, généralement appelé R<sup>2</sup>, représente la puissance prédictive du modèle sous la forme d’une valeur comprise entre 0 et 1. Zéro signifie que le modèle est aléatoire ; 1 signifie qu’il convient parfaitement. Soyez toutefois vigilant dans l’interprétation de valeurs R<sup>2</sup> car des valeurs faibles peuvent être totalement normales et des valeurs élevées peuvent être suspectes.
   

@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: 4bdf842ae24d90850280a5a19038dbd00168ff2c
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 02/07/2020
+ms.openlocfilehash: c6c3e9462b26b44857eea6b53092baeeb5034364
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053360"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087086"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimiser le coût du débit approvisionné dans Azure Cosmos DB
 
@@ -57,9 +57,9 @@ Comme indiqué dans le tableau suivant, selon le choix de l’API, vous pouvez a
 |----|----|----|
 |API SQL|Base de données|Conteneur|
 |API d’Azure Cosmos DB pour MongoDB|Base de données|Collection|
-|API Cassandra|Espace de clés|Table|
+|API Cassandra|Espace de clés|Table de charge de travail|
 |API Gremlin|Compte de base de données|Graph|
-|API de table|Compte de base de données|Table|
+|API de table|Compte de base de données|Table de charge de travail|
 
 En approvisionnant le débit à différents niveaux, vous pouvez optimiser vos coûts selon les caractéristiques de votre charge de travail. Comme mentionné précédemment, vous pouvez par programmation et à tout moment réduire ou augmenter votre débit approvisionné pour des conteneurs individuels ou collectivement pour un ensemble de conteneurs. Grâce à cette mise à l'échelle flexible qui s’adapte à votre charge de travail, vous payez uniquement pour le débit que vous avez configuré. Si votre conteneur ou un ensemble de conteneurs est réparti dans plusieurs régions, la disponibilité du débit que vous configurez sur le conteneur ou l’ensemble de conteneurs est garantie dans toutes les régions.
 
@@ -123,7 +123,7 @@ Vous pouvez également définir des alertes pour vérifier si le nombre de deman
 
 ## <a name="scale-your-throughput-elastically-and-on-demand"></a>Faire évoluer votre débit en toute flexibilité et à la demande 
 
-Dans la mesure où vous êtes facturé selon le débit approvisionné, adapter le débit approvisionné à vos besoins peut vous aider à éviter les frais qu’entraîne le débit inutilisé. Vous pouvez à tout moment ajuster à la hausse ou à la baisse votre débit approvisionné, en fonction de vos besoins.  
+Dans la mesure où vous êtes facturé selon le débit approvisionné, adapter le débit approvisionné à vos besoins peut vous aider à éviter les frais qu’entraîne le débit inutilisé. Vous pouvez à tout moment ajuster à la hausse ou à la baisse votre débit approvisionné, en fonction de vos besoins. Si vos besoins en matière de débit sont très prévisibles, vous pouvez utiliser Azure Functions et avoir recours à un déclencheur à minuterie pour [augmenter ou réduire le débit selon un calendrier](scale-on-schedule.md). 
 
 * La surveillance de la consommation de vos unités de requête et de vos demandes de limitation de taux peut révéler que vous n’avez pas besoin d’un débit approvisionné constant tout au long de la journée ou de la semaine. Votre trafic sera peut-être moindre pendant la nuit ou le week-end. En utilisant le portail Azure, les kits de développement logiciel Azure Cosmos DB natifs ou des API REST, vous pouvez faire évoluer votre débit approvisionné à tout moment. L’API REST Azure Cosmos DB fournit des points de terminaison pour mettre à jour par programmation le niveau de performance de vos conteneurs, ce qui permet d’ajuster facilement le débit à partir de votre code en fonction de l’heure de la journée ou du jour de la semaine. L’opération se déroule sans interruption du service et généralement en moins d’une minute. 
 
