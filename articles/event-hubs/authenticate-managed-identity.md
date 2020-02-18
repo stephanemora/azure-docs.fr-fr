@@ -7,14 +7,14 @@ documentationcenter: ''
 author: spelluru
 manager: ''
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 0c5d3eca4a01488f521f9a85fa129eb0ac72c363
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: dd95bde74b77686c0971c41a8c3f262f73107b61
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904553"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169227"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Event Hubs
 Azure Event Hubs prend en charge l’authentification Azure Active Directory (Azure AD) avec des [identités managées pour ressources Azure](../active-directory/managed-identities-azure-resources/overview.md). Les identités managées pour ressources Azure peuvent autoriser l’accès à des ressources Event Hubs en utilisant les informations d’identification Azure AD d’applications s’exécutant dans des machines virtuelles Azure, des applications de fonction, le service Virtual Machine Scale Sets et d’autres services. En utilisant des identités managées pour ressources Azure et Azure AD Authentication, vous pouvez éviter de stocker des informations d’identification avec les applications qui s’exécutent dans le cloud.
@@ -136,6 +136,15 @@ Installez le package le plus récent à partir de [NuGet](https://www.nuget.org/
 var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHubNamespace}/"), EventHubName);
 ```
 ---
+
+## <a name="samples"></a>Exemples
+- [Exemples Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
+    
+    Ces exemples utilisent l'ancienne bibliothèque **Microsoft.Azure.EventHubs**, mais vous pouvez facilement mettre celle-ci à jour à l'aide de la dernière bibliothèque **Azure.Messaging.EventHubs**. Pour migrer l'exemple de l'ancienne bibliothèque vers la nouvelle, consultez le [Guide de migration de Microsoft.Azure.EventHubs vers Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+- [Exemples Azure.Messaging.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
+
+    Cet exemple a été mis à jour pour utiliser la dernière bibliothèque **Azure.Messaging.EventHubs**.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez l’article suivant pour en savoir plus sur les identités managées pour ressources Azure : [Que sont les identités managées pour les ressources Azure ?](../active-directory/managed-identities-azure-resources/overview.md)

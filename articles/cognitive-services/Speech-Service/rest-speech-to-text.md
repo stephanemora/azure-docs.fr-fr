@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: ea37dc9ee6c9249aa9d18f7ee7ab1fdbe1230930
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 26fe995f45a97a5863bfc20fd1564df89124ed88
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975837"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168305"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de reconnaissance vocale
 
@@ -32,9 +32,18 @@ Si vous devez envoyer un contenu audio plus long pour votre application, vous po
 
 ## <a name="regions-and-endpoints"></a>Régions et points de terminaison
 
-Ces régions sont prises en charge pour la transcription de reconnaissance vocale à l’aide de l’API REST. Veillez à sélectionner le point de terminaison correspondant à votre région d’abonnement.
+Le point de terminaison de l'API REST se présente sous le format suivant :
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)] 
+```
+https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
+```
+
+Remplacez `<REGION_IDENTIFIER>` par l'identificateur correspondant à la région de votre abonnement dans le tableau suivant :
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+
+> [!NOTE]
+> Le paramètre de langue doit être ajouté à l'URL pour éviter de recevoir une erreur HTTP 4xx. Par exemple, la langue définie sur la valeur Anglais (États-Unis) à l’aide du point de terminaison USA Ouest est : `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
 ## <a name="query-parameters"></a>Paramètres de requête
 
@@ -43,8 +52,8 @@ Ces paramètres peuvent être inclus dans la chaîne de la requête REST.
 | Paramètre | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
 | `language` | Identifie la langue parlée qui est reconnue. Voir [Langues prises en charge](language-support.md#speech-to-text). | Obligatoire |
-| `format` | Spécifie le format du résultat. Les valeurs acceptées sont `simple` et `detailed`. Les résultats simples incluent `RecognitionStatus`, `DisplayText`, `Offset` et `Duration`. Les réponses détaillées incluent plusieurs résultats avec des valeurs de niveau de confiance et quatre différentes représentations. Le paramètre par défaut est `simple`. | Facultatif |
-| `profanity` | Spécifie comment traiter la vulgarité dans les résultats de la reconnaissance. Les valeurs acceptées sont `masked`, qui remplace les vulgarités par des astérisques, `removed`, qui supprime les vulgarités du résultat, ou `raw`, qui inclut les vulgarités dans le résultat. Le paramètre par défaut est `masked`. | Facultatif |
+| `format` | Spécifie le format du résultat. Les valeurs acceptées sont `simple` et `detailed`. Les résultats simples incluent `RecognitionStatus`, `DisplayText`, `Offset` et `Duration`. Les réponses détaillées incluent plusieurs résultats avec des valeurs de niveau de confiance et quatre différentes représentations. La valeur par défaut est `simple`. | Facultatif |
+| `profanity` | Spécifie comment traiter la vulgarité dans les résultats de la reconnaissance. Les valeurs acceptées sont `masked`, qui remplace les vulgarités par des astérisques, `removed`, qui supprime les vulgarités du résultat, ou `raw`, qui inclut les vulgarités dans le résultat. La valeur par défaut est `masked`. | Facultatif |
 
 ## <a name="request-headers"></a>En-têtes de requête
 
@@ -69,7 +78,7 @@ L’audio est envoyé dans le corps de la requête HTTP `POST`. Il doit être da
 | OGG | OPUS | 16 bits | 16 kHz, mono |
 
 >[!NOTE]
->Les formats ci-dessus sont pris en charge via l’API REST et le WebSocket du service Speech. Pour l’instant, le [kit de développement logiciel (SDK) Speech](speech-sdk.md) ne prend en charge que le format WAV avec le codec PCM.
+>Les formats ci-dessus sont pris en charge via l’API REST et le WebSocket du service Speech. Pour le moment, le [kit de développement logiciel (SDK) Speech](speech-sdk.md) prend en charge le format WAV avec codec PCM, ainsi que d'[autres formats](how-to-use-codec-compressed-audio-input-streams.md).
 
 ## <a name="sample-request"></a>Exemple de requête
 

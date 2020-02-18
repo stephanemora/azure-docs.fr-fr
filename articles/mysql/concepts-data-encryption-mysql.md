@@ -1,130 +1,130 @@
 ---
-title: Chiffrement des données Azure Database pour MySQL avec une clé gérée par le client
-description: Le chiffrement des données Azure Database pour MySQL avec une clé managée par le client permet le scénario Bring Your Own Key (BYOK) pour la protection des données au repos et permet aux organisations d’implémenter la séparation des tâches dans la gestion des clés et des données.
+title: Chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gérée par le client
+description: Le chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gérée par le client permet le scénario Bring Your Own Key (BYOK) pour la protection des données au repos. Il permet également aux organisations d'implémenter la séparation des tâches dans la gestion des clés et des données.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 7c54b3010b42d56ffa9b701b76c7aef51095404c
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 1d4153ac5e02d28d054034f33859332158d5a555
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028649"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162359"
 ---
-# <a name="azure-database-for-mysql-data-encryption-with-customer-managed-key"></a>Chiffrement des données Azure Database pour MySQL avec une clé gérée par le client
+# <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gérée par le client
 
 > [!NOTE]
-> À ce stade, vous devez demander l’accès pour utiliser cette fonctionnalité. Pour ce faire, veuillez contacter AskAzureDBforMySQL@service.microsoft.com.
+> À ce stade, vous devez demander l’accès pour utiliser cette fonctionnalité. Pour ce faire, contactez AskAzureDBforMySQL@service.microsoft.com.
 
-Le chiffrement des données Azure Database pour MySQL avec une clé managée par le client permet le scénario Bring Your Own Key (BYOK) pour la protection des données au repos et permet aux organisations d’implémenter la séparation des tâches dans la gestion des clés et des données. Avec le chiffrement managé par le client, vous êtes responsable du cycle de vie des clés (création, chargement, rotation, suppression des clés), des autorisations d’utilisation des clés et de l’audit des opérations sur les clés et contrôlez totalement le processus.
+Le chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gérée par le client permet le scénario Bring Your Own Key (BYOK) pour la protection des données au repos. Il permet également aux organisations d'implémenter la séparation des tâches dans la gestion des clés et des données. Avec le chiffrement géré par le client, vous êtes responsable du cycle de vie des clés, des autorisations d'utilisation des clés et de l'audit des opérations sur les clés, et contrôlez totalement le processus.
 
-Pour Azure Database pour MySQL, le chiffrement des données est défini au niveau du serveur. Avec cette forme de chiffrement des données, la clé est utilisée dans le chiffrement de la clé de chiffrement de la base de données, laquelle est une clé asymétrique managée par le client, stockée dans un système de gestion des clés externes informatique [Azure Key Vault (AKV)](../key-vault/key-Vault-secure-your-key-Vault.md) appartenant au client et managé par le client. Key Vault fournit un stockage sécurisé hautement disponible et évolutif pour les clés de chiffrement RSA, éventuellement sauvegardé par les modules de sécurité matériels validés FIPS 140-2 niveau 2 (HSM). Il n’autorise pas l’accès direct à une clé stockée, mais fournit des services de chiffrement/déchiffrement à l’aide de la clé aux entités autorisées. La clé peut être générée par Key Vault, importée ou [transférée vers Key Vault à partir d’un dispositif HSM local](../key-vault/key-Vault-hsm-protected-keys.md).
+Le chiffrement des données d'Azure Database pour MySQL à l'aide d'une clé gérée par le client est défini au niveau du serveur. Pour un serveur donné, une clé gérée par le client, appelée clé de chiffrement de clé (KEK), sert à chiffrer la clé de chiffrement de données (DEK) utilisée par le service. La KEK est une clé asymétrique stockée dans une instance d'[Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) détenue et gérée par le client. La clé de chiffrement de clé (KEK) et la clé de chiffrement de données (DEK) sont décrites plus en détail plus loin dans cet article.
+
+Key Vault est un système de gestion de clés externe basé sur le cloud. Il fournit un stockage sécurisé hautement disponible et évolutif pour les clés de chiffrement RSA, éventuellement sauvegardé par les modules de sécurité matériels (HSM) validés FIPS 140-2 niveau 2. Il n'autorise pas l'accès direct à une clé stockée, mais fournit des services de chiffrement et de déchiffrement aux entités autorisées. Key Vault peut générer la clé, l'importer ou [la faire transférer à partir d'un appareil HSM local](../key-vault/key-Vault-hsm-protected-keys.md).
 
 > [!NOTE]
-> Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour MySQL prend en charge les niveaux tarifaires Usage général et Mémoire optimisée.
+> Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour MySQL prend en charge les niveaux tarifaires « Usage général » et « Mémoire optimisée ».
 
 ## <a name="benefits"></a>Avantages
 
 Le chiffrement des données pour Azure Database pour MySQL offre les avantages suivants :
 
-* transparence, contrôle granulaire et gestion accrus pour la clé de chiffrement ;
-* gestion centralisée et organisation des clés en les hébergeant dans Azure Key Vault ;
-* possibilité d’implémenter la séparation des tâches dans la gestion des clés et des données au sein de l’organisation ;
-* gestion des clés distincte de la gestion des données au sein d’une organisation, l’administrateur Key Vault peut ainsi révoquer les autorisations d’accès à la clé pour rendre la base de données chiffrée inaccessible ;
-* confiance accrue de vos clients finaux, car Azure Key Vault est conçu de telle sorte que Microsoft ne peut pas voir ni extraire les clés de chiffrement.
+* L'accès aux données est entièrement contrôlé par vous puisque vous avez la possibilité de retirer la clé et de rendre la base de données inaccessible 
+* Contrôle total sur le cycle de vie de la clé, y compris la rotation de la clé à aligner avec les stratégies d'entreprise
+* Gestion centralisée et organisation des clés dans Azure Key Vault
+* Possibilité d'implémenter une séparation des tâches entre les responsables de la sécurité, les administrateurs de base de données et les administrateurs système
+
 
 ## <a name="terminology-and-description"></a>Terminologie et description
 
-**Clé de chiffrement des données** : une clé symétrique AES256 utilisée pour chiffrer une partition ou un bloc de données. Le chiffrement de chaque bloc de données avec une clé différente rend les attaques d’analyse du chiffrement plus difficiles. L’accès aux clés de chiffrement des données est nécessaire au fournisseur de ressources ou à l’instance d’application qui chiffre et déchiffre un bloc spécifique. Quand une clé de chiffrement des données est remplacée par une nouvelle clé, seules les données du bloc qui y est associé doivent être rechiffrées avec la nouvelle clé.
+**Clé de chiffrement de données (DEK)**  : clé symétrique AES256 utilisée pour chiffrer une partition ou un bloc de données. Le chiffrement de chaque bloc de données avec une clé différente rend les attaques d’analyse du chiffrement plus difficiles. L’accès aux clés de chiffrement des données est nécessaire au fournisseur de ressources ou à l’instance d’application qui chiffre et déchiffre un bloc spécifique. Lorsque vous remplacez une clé de chiffrement de données par une nouvelle clé, seules les données du bloc associé doivent être rechiffrées avec la nouvelle clé.
 
-**Clé de chiffrement des clés** : une clé de chiffrement utilisée pour chiffrer les clés de chiffrement des données. L’utilisation d’une clé de chiffrement des clés ne quittant jamais le coffre de clés permet le chiffrement et le contrôle des clés de chiffrement des données elles-mêmes. L’entité qui a accès à la clé de chiffrement des clés peut être différente de l’entité qui a besoin de la clé de chiffrement des données. Comme la clé de chiffrement des clés est nécessaire pour déchiffrer les clés de chiffrement des données, la clé de chiffrement des clés est dès lors le point unique par lequel les clés de chiffrement des données peuvent être supprimées en supprimant la clé de chiffrement des clés.
+**Clé de chiffrement de clé (KEK)**  : clé de chiffrement utilisée pour chiffrer les clés de chiffrement de données. Une KEK qui ne quitte jamais Key Vault permet de chiffrer et de contrôler les KEK elles-mêmes. L'entité qui a accès à la clé de chiffrement de clé peut être différente de l'entité qui a besoin de la clé de chiffrement de données. Comme la clé de chiffrement des clés est nécessaire pour déchiffrer les clés de chiffrement des données, la clé de chiffrement des clés est dès lors le point unique par lequel les clés de chiffrement des données peuvent être supprimées en supprimant la clé de chiffrement des clés.
 
-Les clés de chiffrement des données chiffrées avec des clés de chiffrement des clés sont stockées séparément, et seule une entité ayant accès à la clé de chiffrement des clés peut déchiffrer ces clés de chiffrement des données. Pour plus d’informations, consultez [sécurité du chiffrement des données au repos](../security/fundamentals/encryption-atrest.md).
+Les DEK, chiffrées avec les KEK, sont stockées séparément. Seule une entité ayant accès à la KEK peut déchiffrer ces DEK. Pour plus d'informations, consultez [Sécurité du chiffrement des données au repos](../security/fundamentals/encryption-atrest.md).
 
-## <a name="how-data-encryption-with-customer-managed-key-works"></a>Fonctionnement du chiffrement des données avec les clés gérées par le client
+## <a name="how-data-encryption-with-a-customer-managed-key-works"></a>Fonctionnement du chiffrement des données à l'aide d'une clé gérée par le client
 
-![Vue d’ensemble du Bring Your Own Key (Apportez votre propre clé)](media/concepts-data-access-and-security-data-encryption/mysqloverview.png)
+![Diagramme illustrant le scénario Bring Your Own Key (BYOK)](media/concepts-data-access-and-security-data-encryption/mysqloverview.png)
 
-Pour qu’un serveur MySQL puisse utiliser les clés gérées par le client stockées dans Azure Key Vault pour le chiffrement de la clé de chiffrement, l’administrateur du coffre de clés doit accorder les droits d’accès suivants au serveur à l’aide de son identité unique :
+Pour qu'un serveur MySQL utilise les clés gérées par le client stockées dans Key Vault pour le chiffrement de la DEK, un administrateur Key Vault accorde les droits d'accès suivants au serveur :
 
-* **obtenir** : pour récupérer la partie publique et les propriétés de la clé dans Key Vault
-* **wrapKey** : pour pouvoir chiffrer la clé de chiffrement
-* **wrapKey** : pour pouvoir déchiffrer la clé de chiffrement
+* **get** : pour récupérer la partie publique et les propriétés de la clé dans Key Vault.
+* **wrapKey** : pour pouvoir chiffrer la clé de chiffrement de données.
+* **unwrapKey** : pour pouvoir déchiffrer la clé de chiffrement de données.
 
-L’administrateur Key Vault peut également [activer la journalisation des événements d’audit Key Vault](../azure-monitor/insights/azure-key-vault.md), afin qu’ils puissent être audités ultérieurement.
+L'administrateur Key Vault peut également [activer la journalisation des événements d'audit Key Vault](../azure-monitor/insights/azure-key-vault.md) afin qu'ils puissent être audités ultérieurement.
 
-Lorsque le serveur est configuré pour utiliser la clé gérée par le client qui est stockée dans le coffre de clés, le serveur envoie la clé de chiffrement au coffre de clés pour les chiffrements. Key Vault retourne la clé de chiffrement chiffrée, qui est stockée dans la base de données utilisateur. De même, le cas échéant, le serveur envoie des clés de chiffrement protégées vers Key Vault pour le déchiffrement. Les auditeurs peuvent utiliser Azure Monitor pour évaluer les journaux AuditEvent Key Vault, si la journalisation est activée.
+Lorsque le serveur est configuré pour utiliser la clé gérée par le client stockée dans le coffre de clés, le serveur envoie la clé de chiffrement de données au coffre de clés pour les chiffrements. Key Vault retourne la clé de chiffrement chiffrée, qui est stockée dans la base de données utilisateur. De même, le cas échéant, le serveur envoie les clés de chiffrement de données protégées au coffre de clés pour le déchiffrement. Les auditeurs peuvent utiliser Azure Monitor pour consulter les journaux d'événements d'audit Key Vault, si la journalisation est activée.
 
 ## <a name="requirements-for-configuring-data-encryption-for-azure-database-for-mysql"></a>Exigences pour la configuration du chiffrement des données pour Azure Database pour MySQL
 
-### <a name="requirements-for-configuring-akv"></a>Exigences pour la configuration d’AKV
+Les exigences suivantes s'appliquent à la configuration de Key Vault :
 
-* Key Vault et Azure Database pour MySQL doivent appartenir au même locataire Azure Active Directory (AAD). Les interactions entre un serveur et un coffre de clés inter-abonnés ne sont pas prises en charge. Pour déplacer des ressources par la suite, vous devez reconfigurer le chiffrement des données. En savoir plus sur le déplacement des ressources.
-* La fonctionnalité suppression réversible doit être activée sur le coffre de clés pour protéger contre la suppression accidentelle d’une clé de perte de données (ou d’un coffre de clés). Les ressources supprimées de manière réversible sont conservées pendant 90 jours, sauf si elles sont récupérées ou purgées par le client entre-temps. Les actions de récupération et de vidage ont leurs propres autorisations associées dans une stratégie d’accès Key Vault. La fonctionnalité de suppression réversible est désactivée par défaut et peut être activée via PowerShell ou CLI. Elle ne peut pas être activée via le Portail Azure.
-* Accordez l’accès à Azure Database pour MySQL au coffre de clés avec les autorisations **get, wrapKey, unwrapKey** à l’aide de son identité gérée unique. Quand vous utilisez Portail Azure, l’identification unique est créée automatiquement lorsque le chiffrement des données est activé sur MySQL. Consultez [Configurer le chiffrement des données pour MySQL](howto-data-encryption-portal.md) pour obtenir des instructions pas à pas détaillées lors de l’utilisation du Portail Azure.
+* Key Vault et Azure Database pour MySQL doivent appartenir au même locataire Azure Active Directory (Azure AD). Les interactions entre un serveur et une instance inter-locataires de Key Vault ne sont pas prises en charge. Pour déplacer des ressources par la suite, vous devez reconfigurer le chiffrement des données.
+* Vous devez activer la fonctionnalité de suppression réversible sur le coffre de clés pour vous protéger de la perte de données en cas de suppression accidentelle d'une clé (ou d'un coffre de clés). Les ressources supprimées de manière réversible sont conservées pendant 90 jours, sauf si l'utilisateur les récupère ou les purge dans l'intervalle. Les actions de récupération et de vidage ont leurs propres autorisations associées dans une stratégie d’accès Key Vault. Par défaut, la fonctionnalité de suppression réversible est désactivée, mais vous pouvez l'activer via PowerShell ou Azure CLI (notez que vous ne pouvez pas l'activer via le portail Azure).
+* Accordez l'accès au coffre de clés à Azure Database pour MySQL avec les autorisations get, wrapKey, unwrapKey en utilisant son identité managée unique. Sur le portail Azure, l'identité unique est automatiquement créée lorsque le chiffrement des données est activé sur MySQL. Consultez [Configurer le chiffrement des données pour MySQL](howto-data-encryption-portal.md) pour obtenir des instructions pas à pas détaillées lorsque vous utilisez le portail Azure.
 
-* Lorsque vous utilisez le pare-feu avec AKV, vous devez activer l’option *Autoriser les services Microsoft approuvés pour contourner le pare-feu*.
+* Lorsque vous utilisez le pare-feu avec Key Vault, vous devez activer l'option **Autoriser les services Microsoft approuvés à contourner le pare-feu**.
 
-### <a name="requirements-for-configuring-customer-key"></a>Exigences pour la configuration de la clé client
+Les exigences suivantes s'appliquent à la configuration de la clé gérée par le client :
 
-* La clé gérée par le client à utiliser pour chiffrer la clé de chiffrement peut être uniquement asymétrique, RSA 2028.
-* La date d’activation de la clé (si définie) doit être une date et une heure passées. La date d’expiration (si définie) doit être une date et une heure ultérieures.
+* La clé managée par le client à utiliser pour chiffrer la clé de chiffrement peut être asymétrique, RSA 2028, uniquement.
+* La date d’activation de la clé (si définie) doit être une date et une heure passées. La date d'expiration (si définie) doit correspondre à une date et une heure ultérieures.
 * La clé doit être dans l’état *activé*.
-* Si vous importez une clé existante dans le coffre de clés, veillez à la fournir dans les formats de fichiers pris en charge (`.pfx`, `.byok`, `.backup`).
+* Si vous importez une clé existante dans le coffre de clés, veillez à ce qu'elle respecte les formats de fichiers pris en charge (`.pfx`, `.byok`, `.backup`).
 
-## <a name="recommendations-when-using-data-encryption-using-customer-managed-key"></a>Recommandations lors de l’utilisation du chiffrement de données à l’aide d’une clé gérée par le client
+## <a name="recommendations"></a>Recommandations
 
-### <a name="recommendation-for-configuring-akv"></a>Suggestions pour la configuration d’Azure Key Vault
+Si vous utilisez le chiffrement de données à l'aide d'une clé gérée par le client, suivez les recommandations ci-dessous pour configurer Key Vault :
 
-* Définissez un verrou de ressource sur le coffre de clés pour contrôler les utilisateurs pouvant supprimer cette ressource critique et pour empêcher toute suppression accidentelle ou non autorisée. En savoir plus sur les verrous de ressource.
-* Activer l’audit et la création de rapports sur toutes les clés de chiffrement : Key Vault fournit des journaux d’activité faciles à injecter dans d’autres outils de gestion d’événements et d’informations de sécurité. Azure Monitor Log Analytics est un exemple de service déjà intégré.
+* Définissez un verrou de ressource sur le coffre de clés pour déterminer qui peut supprimer cette ressource critique et pour empêcher toute suppression accidentelle ou non autorisée.
+* Activez l'audit et la création de rapports sur toutes les clés de chiffrement. Key Vault fournit des journaux d’activité faciles à injecter dans d’autres outils de gestion d’événements et d’informations de sécurité. Azure Monitor Log Analytics est un exemple de service déjà intégré.
 
-* Assurez-vous que le coffre de clés et Azure Database pour MySQL résident dans la même région pour garantir un accès plus rapide aux opérations WRAP et UNWRAP des clés de chiffrement.
+* Assurez-vous que Key Vault et Azure Database pour MySQL résident dans la même région pour garantir un accès plus rapide aux opérations wrap et unwrap des clés de chiffrement de données.
 
-### <a name="recommendation-for-configuring-customer-managed-key"></a>Suggestions pour la configuration d’une clé gérée par le client
+Suivez les recommandations ci-dessous pour configurer une clé gérée par le client :
 
 * Conservez une copie de la clé gérée par le client à un emplacement sécurisé ou déposez-la au service de dépôt.
 
-* Si la clé est générée dans le coffre de clés, créez une sauvegarde de clé avant d’utiliser la clé dans AKV pour la première fois. La sauvegarde peut être restaurée sur un Azure Key Vault uniquement. En savoir plus sur la commande [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyVault/backup-azkeyVaultkey).
+* Si Key Vault génère la clé, créez une sauvegarde de celle-ci avant sa première utilisation. La sauvegarde ne peut être restaurée que dans Key Vault. Pour plus d'informations sur la commande de sauvegarde, consultez [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyVault/backup-azkeyVaultkey).
 
-## <a name="inaccessible-customer-managed-key-condition"></a>Condition de clé gérée par le client inaccessible
+## <a name="inaccessible-customer-managed-key-condition"></a>Condition de clé managée par le client inaccessible
 
-Lorsque le chiffrement des données est configuré avec une clé gérée par le client dans Azure Key Vault, l’accès continu à cette clé est requis pour que le serveur reste en ligne. Si le serveur perd l’accès à la clé gérée par le client dans Azure Key Vault, dans les 10 minutes, le serveur commence à refuser toutes les connexions avec le message d’erreur correspondant et passe l’état du serveur à **Inaccessible**. La seule action autorisée sur une base de données dans un état inaccessible est de la supprimer.
+Lorsque vous configurez le chiffrement des données avec une clé gérée par le client dans Key Vault, un accès continu à cette clé est requis pour que le serveur reste en ligne. Si le serveur perd l'accès à la clé gérée par le client dans Key Vault, il commence à refuser toutes les connexions dans un délai de 10 minutes. Le serveur émet un message d'erreur et affiche l'état *Inaccessible*. La seule action autorisée sur une base de données inaccessible est de la supprimer.
 
-### <a name="accidental-key-access-revocation-from-the-azure-key-vault-akv"></a>Révocation d’accès à la clé accidentelle à partir d’Azure Key Vault
+### <a name="accidental-key-access-revocation-from-key-vault"></a>Révocation accidentelle de l'accès aux clés de Key Vault
 
-Il peut arriver qu’une personne disposant de droits d’accès suffisants au coffre de clés désactive accidentellement l’accès du serveur à la clé en :
+Il peut arriver qu'une personne disposant de droits d'accès suffisants à Key Vault désactive accidentellement l'accès du serveur à la clé en :
 
-* révoquant des autorisations get, wrapKey, unwrapKey à partir du serveur
-* supprimant la clé
-* supprimant le coffre de clés
-* modifiant les règles de pare-feu du coffre de clés
+* révoquant les autorisations get, wrapKey, unwrapKey du coffre de clés à partir du serveur ;
+* supprimant la clé ;
+* supprimant le coffre de clés ;
+* modifiant les règles de pare-feu du coffre de clés ;
 
-* en supprimant l’identité managée du serveur dans Azure Active Directory
+* supprimant l'identité managée du serveur dans Azure AD.
 
-## <a name="monitoring-of-the-customer-managed-key-in-the-key-vault"></a>Surveillance de la clé gérée par le client dans le coffre de clés
+## <a name="monitor-the-customer-managed-key-in-key-vault"></a>Surveiller la clé gérée par le client dans Key Vault
 
-Pour surveiller l’état de la base de données et activer l’alerte pour la perte d’accès au protecteur TDE, configurez les fonctionnalités Azure suivantes :
+Pour surveiller l'état de la base de données et activer les alertes liées à la perte d'accès au protecteur TDE (Transparent Data Encryption), configurez les fonctionnalités Azure suivantes :
 
-* [Azure Resource Health](../service-health/resource-health-overview.md) - Une base de données inaccessible qui a perdu l’accès à la clé client apparaît comme « Inaccessible » après le refus de la première connexion à la base de données.
-* [Journal d’activité](../service-health/alerts-activity-log-service-notifications.md) - Lorsque l’accès à la clé client dans le coffre de clés géré par le client échoue, des entrées sont ajoutées au Journal d’activité. La création d’alertes pour ces événements vous permet de rétablir l’accès dès que possible.
+* [Azure Resource Health](../service-health/resource-health-overview.md) : une base de données inaccessible qui a perdu l'accès à la clé client apparaît comme « Inaccessible » après le refus de la première connexion à la base de données.
+* [Journal d’activité](../service-health/alerts-activity-log-service-notifications.md) : lorsque l'accès à la clé client dans le coffre de clés géré par le client échoue, des entrées sont ajoutées au journal d'activité. La création d'alertes pour ces événements vous permettra de rétablir l'accès dès que possible.
 
-* [Les groupes d’actions](../azure-monitor/platform/action-groups.md) peuvent être définis de manière à vous envoyer des notifications et des alertes en fonction de vos préférences, par exemple par e-mail/SMS/envoi (push)/notification vocale, application logique, webhook, ITSM ou Runbook Automation.
+* [Groupes d'actions](../azure-monitor/platform/action-groups.md) : définissez ceux-ci pour qu'ils vous envoient des notifications et des alertes basées sur vos préférences.
 
-## <a name="restore-and-replica-with-customers-managed-key-in-the-key-vault"></a>Restaurer et répliquer avec la clé gérée par le client dans le coffre de clés
+## <a name="restore-and-replicate-with-a-customers-managed-key-in-key-vault"></a>Restaurer et répliquer à l'aide d'une clé gérée par un client dans Key Vault
 
-Une fois qu’Azure Database pour MySQL est chiffré avec la clé gérée du client stockée dans le coffre de clés, toute copie nouvellement créée du serveur (que ce soit via une opération de restauration locale ou de géo-restauration ou via des réplicas en lecture) est également chiffrée avec la même clé gérée par le client. Toutefois, elles peuvent être modifiées pour refléter la clé gérée du nouveau client pour le chiffrement. Lorsque la clé gérée par le client est modifiée, les anciennes sauvegardes du serveur utilisent la clé la plus récente.
+Une fois Azure Database pour MySQL chiffré à l'aide d'une clé gérée par le client stockée dans Key Vault, toute copie nouvellement créée du serveur est également chiffrée. Vous pouvez effectuer cette nouvelle copie par l'intermédiaire d'une opération locale ou de restauration géographique, ou par le biais de réplicas en lecture. La copie peut cependant être modifiée afin de refléter la clé gérée du nouveau client pour le chiffrement. Lorsque la clé gérée par le client est modifiée, les anciennes sauvegardes du serveur utilisent la clé la plus récente.
 
-Pour éviter les problèmes lors de l’établissement de la configuration du chiffrement des données géré par le client pendant la restauration ou la création d’un réplica de lecture, il est important de suivre ces étapes sur le serveur maître et sur les serveurs de restauration/réplication :
+Pour éviter les problèmes lors de la configuration du chiffrement des données géré par le client, pendant la restauration ou la création d'un réplica de lecture, il est important de suivre les étapes ci-dessous sur le serveur maître et sur le serveur de restauration/réplication :
 
 * Initiez le processus de création de réplicas en lecture ou de restauration à partir du serveur maître Azure Database pour MySQL.
-* Le serveur nouvellement créé (restauré/réplica) affiche l’état inaccessible, car son identité unique n’a pas encore reçu les autorisations d’accès à Azure Key Vault.
-* Sur le serveur restauré/réplica, revalidez la clé gérée par le client dans les paramètres de chiffrement des données pour vous assurer que le serveur nouvellement créé reçoit les autorisations Wrap/Unwrap sur la clé stockée dans Azure Key Vault.
-
-* Les étapes ci-dessus doivent être effectuées pour garantir que le chiffrement des données est conservé sur le serveur maître, ainsi que sur le serveur restauré/réplica.
+* Veillez à ce que le serveur nouvellement créé (restauré/réplica) reste inaccessible car son identité unique n'a pas encore reçu les autorisations d'accès à Key Vault.
+* Sur le serveur restauré/réplica, revalidez la clé gérée par le client dans les paramètres de chiffrement des données. Le serveur nouvellement créé disposera ainsi des autorisations wrap et unwrap pour la clé stockée dans Key Vault.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [configurer le chiffrement des données avec une clé gérée par le client pour votre Azure Database pour MySQL à l’aide du Portail Azure](howto-data-encryption-portal.md).
+Apprenez à [configurer le chiffrement des données à l'aide d'une clé gérée par le client pour votre instance d'Azure Database pour MySQL à l'aide du portail Azure](howto-data-encryption-portal.md).

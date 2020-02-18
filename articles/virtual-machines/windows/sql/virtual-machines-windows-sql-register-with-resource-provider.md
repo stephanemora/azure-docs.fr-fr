@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f16cb95a42bf201aa7d75a3393917c58f51fbb07
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 148ded0eba61221a2bdf0b8a50392da47a4c5f20
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122438"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122492"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Inscrire une machine virtuelle SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL
 
@@ -161,20 +161,20 @@ Inscrire la machine virtuelle SQL Server en mode léger avec PowerShell :
 
 Si l’extension SQL IaaS a déjà été installée sur la machine virtuelle manuellement, vous pouvez inscrire la machine virtuelle SQL Server en mode complet sans redémarrer le service SQL Server. **Toutefois, si l’extension SQL IaaS n’a pas été installée, l’inscription en mode complet installe l’extension SQL IaaS en mode complet et redémarre le service SQL Server. Agissez avec précaution.**
 
-Voici l’extrait de code permettant d’effectuer l’inscription auprès du fournisseur de ressources de machine virtuelle SQL en mode complet. Pour effectuer l’inscription en mode de gestion complet, utilisez la commande PowerShell suivante :
+
+Pour inscrire directement votre machine virtuelle SQL Server en mode complet (et éventuellement redémarrer votre service SQL Server), utilisez la commande PowerShell suivante : 
 
   ```powershell-interactive
   # Get the existing  Compute VM
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
         
   # Register with SQL VM resource provider in full mode
-  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
   ```
-
 
 ### <a name="noagent-management-mode"></a>Mode de gestion sans agent 
 
-Les instances SQL Server 2008 et 2008 R2 installées sur Windows Server 2008 peuvent être inscrites auprès du fournisseur de ressources de machine virtuelle SQL en mode [sans agent](#management-modes). Cette option garantit la conformité et permet de surveiller la machine virtuelle SQL Server dans le portail Azure avec des fonctionnalités limitées.
+Les instances de SQL Server 2008 et 2008 R2 installées sur Windows Server 2008 (_non R2_) peuvent être inscrites auprès du fournisseur de ressources de machines virtuelles SQL en [mode sans agent](#management-modes). Cette option garantit la conformité et permet de surveiller la machine virtuelle SQL Server dans le portail Azure avec des fonctionnalités limitées.
 
 Spécifiez `AHUB` ou `PAYG` comme **sqlLicenseType**, et `SQL2008-WS2008` ou `SQL2008R2-WS2008` comme **sqlImageOffer**. 
 
@@ -183,17 +183,37 @@ Pour inscrire votre instance SQL Server 2008 ou 2008 R2 sur une instance Windo
 
 # <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
 
-Inscrire la machine virtuelle SQL Server en mode sans agent avec l’interface de ligne de commande Azure : 
+Inscrire votre machine virtuelle SQL Server 2008 en mode sans agent avec l'interface de ligne de commande Azure : 
 
   ```azurecli-interactive
    az sql vm create -n sqlvm -g myresourcegroup -l eastus |
    --license-type PAYG --sql-mgmt-type NoAgent 
    --image-sku Enterprise --image-offer SQL2008-WS2008R2
  ```
+ 
+ 
+Inscrire votre machine virtuelle SQL Server 2008 R2 en mode sans agent avec l'interface de ligne de commande Azure : 
+
+  ```azurecli-interactive
+   az sql vm create -n sqlvm -g myresourcegroup -l eastus |
+   --license-type PAYG --sql-mgmt-type NoAgent 
+   --image-sku Enterprise --image-offer SQL2008R2-WS2008R2
+ ```
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Inscrire la machine virtuelle SQL Server en mode sans agent avec PowerShell : 
+Inscrire la machine virtuelle SQL Server 2008 en mode sans agent avec PowerShell : 
+
+
+  ```powershell-interactive
+  # Get the existing compute VM
+  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+          
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+    -LicenseType PAYG -SqlManagementType NoAgent -Sku Standard -Offer SQL2008-WS2008
+  ```
+  
+  Inscrire la machine virtuelle SQL Server 2008 R2 en mode sans agent avec PowerShell : 
 
 
   ```powershell-interactive
@@ -252,10 +272,9 @@ Exécutez l’extrait de code PowerShell suivant :
   ```powershell-interactive
   # Get the existing  Compute VM
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-
-  # Update to full mode
-  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-     -LicenseType PAYG -SqlManagementType Full
+        
+  # Register with SQL VM resource provider in full mode
+  Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
   ```
 
 ---

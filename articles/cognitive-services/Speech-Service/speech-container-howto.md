@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: dapine
-ms.openlocfilehash: d5ecc104c7845a1881cbcdecfbccb75148f6e070
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ca7e7f7460db82a357ed8aa240467a6894254217
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "74815361"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086991"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installer et exécuter des conteneurs du service Speech (préversion)
 
@@ -425,7 +425,7 @@ Dans cet article, vous avez découvert des concepts et le flux de travail pour l
   * *Synthèse vocale personnalisée*
 * Les images conteneur sont téléchargées à partir du registre de conteneurs dans Azure.
 * Les images conteneurs s’exécutent dans Docker.
-* Vous pouvez utiliser l’API REST ou kit de développement logiciel (SDK) pour appeler des opérations dans des conteneurs Speech en spécifiant l’URI hôte du conteneur.
+* Que vous utilisiez l'API REST (synthèse vocale uniquement) ou le kit SDK (reconnaissance vocale ou synthèse vocale), vous spécifiez l'URI de l'hôte du conteneur. 
 * Vous devez spécifier les informations de facturation lors de l’instanciation d’un conteneur.
 
 > [!IMPORTANT]

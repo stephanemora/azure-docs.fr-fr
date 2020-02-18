@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: 173e483710c3fa96ae542f7941f0912ed07ea2ca
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 57a211c6ffab9a960c013008410f4b52b909d360
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312195"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137507"
 ---
 # <a name="edit-metadata-module"></a>Module Modifier les métadonnées
 
-Cet article décrit un module inclus dans le concepteur Azure Machine Learning.
+Cet article décrit un module inclus dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez le module Modifier les métadonnées pour modifier les métadonnées associées aux colonnes d’un jeu de données. La valeur et le type de données du jeu de données sont modifiés après l’utilisation du module Modifier les métadonnées.
 
@@ -40,9 +40,9 @@ Les modifications de métadonnées standard peuvent être les suivantes :
   
 ## <a name="configure-edit-metadata"></a>Configurer le module Modifier les métadonnées
   
-1. Dans Azure Machine Learning, ajoutez le module Modifier les métadonnées à votre pipeline et connectez le jeu de données à mettre à jour. Le jeu de données se trouve dans **Transformation des données**, dans la catégorie **Manipulation**.
+1. Dans le concepteur Azure Machine Learning, ajoutez le module Modifier les métadonnées à votre pipeline et connectez le jeu de données à mettre à jour. Vous pouvez rechercher le module dans la catégorie **Transformation des données**.
   
-1. Sélectionnez **Lancer le sélecteur de colonne** et choisissez la colonne ou l’ensemble de colonnes à utiliser. Vous pouvez sélectionner des colonnes individuellement par nom ou index, ou vous pouvez choisir un groupe de colonnes par type.  
+1. Cliquez sur **Modifier la colonne** dans le volet droit du module, et sélectionnez la colonne ou le jeu de colonnes à utiliser. Vous pouvez sélectionner des colonnes individuellement par nom ou index, ou vous pouvez choisir un groupe de colonnes par type.  
   
 1. Sélectionnez l’option **Type de données** si vous devez attribuer un autre type de données aux colonnes sélectionnées. Vous devrez peut-être modifier le type de données pour certaines opérations. Par exemple, si votre jeu de données source comporte des nombres traités comme du texte, vous devez les remplacer par un type de données numériques avant d’utiliser des opérations mathématiques.
 

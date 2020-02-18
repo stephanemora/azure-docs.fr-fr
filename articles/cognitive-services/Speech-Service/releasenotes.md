@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 15a118dc72ae9ffc4b6c99b0e0b527a252d3ded8
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 235d8788b47355925d93cb3e3835d32e25c1b51f
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293587"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168161"
 ---
 # <a name="release-notes"></a>Notes de publication
 
@@ -26,67 +26,67 @@ ms.locfileid: "76293587"
 
 - Conversation multi-appareil : connectez plusieurs appareils à la même conversation vocale ou textuelle et traduisez éventuellement les messages échangés. Apprenez-en plus dans [cet article](multi-device-conversation.md). 
 - Ajout de la prise en charge de la reconnaissance des mots clés pour le package .aar Android et ajout de la prise en charge des versions x86 et x64. 
-- Objective-C : ajout des méthodes `SendMessage` et `SetMessageProperty` à l’objet `Connection`. Consultez la documentation [ici](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxconnection).
-- L’API TTS C++ prend désormais en charge `std::wstring` comme entrée de texte de synthèse, ce qui évite d’avoir à convertir un wstring en string avant de la passer au SDK. Consultez les informations détaillées [ici](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync). 
-- C# : l’[ID de langue](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp) et la [configuration de la langue source](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp) sont désormais disponibles.
-- JavaScript : ajout d’une fonctionnalité à l’objet `Connection` permettant de transférer les messages personnalisés depuis le service Speech en tant que rappel `receivedServiceMessage`.
-- JavaScript : ajout de la prise en charge de `FromHost API` pour faciliter l’utilisation avec les conteneurs locaux et les clouds souverains. Consultez la documentation [ici](speech-container-howto.md).
-- JavaScript : nous prenons désormais en considération `NODE_TLS_REJECT_UNAUTHORIZED` grâce à une contribution d’[orgads](https://github.com/orgads). Consultez les informations détaillées [ici](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
+- Objective-C : ajout des méthodes `SendMessage` et `SetMessageProperty` à l'objet `Connection`. Consultez la documentation [ici](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxconnection).
+- L'API TTS C++ prend désormais en charge `std::wstring` comme entrée de texte de synthèse, ce qui évite d'avoir à convertir un wstring en string avant de la passer au SDK. Consultez les informations détaillées [ici](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync). 
+- C# : l'[ID de langue](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp) et la [configuration de la langue source](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp) sont désormais disponibles.
+- JavaScript : ajout d'une fonctionnalité à l'objet `Connection` permettant de transférer les messages personnalisés depuis le service Speech en tant que rappel `receivedServiceMessage`.
+- JavaScript : ajout de la prise en charge de `FromHost API` pour faciliter l'utilisation avec les conteneurs locaux et les clouds souverains. Consultez la documentation [ici](speech-container-howto.md).
+- JavaScript : nous prenons désormais en considération `NODE_TLS_REJECT_UNAUTHORIZED` grâce à une contribution d'[orgads](https://github.com/orgads). Consultez les informations détaillées [ici](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
 
 
 **Dernières modifications**
 
-- `OpenSSL` a été mis à jour vers la version 1.1.1b et est lié de manière statique à la bibliothèque principale du kit SDK Speech pour Linux. Cela peut provoquer un arrêt si votre boîte de réception `OpenSSL` n’a pas été installée dans le répertoire `/usr/lib/ssl` du système. Pour contourner ce problème, consultez [notre documentation](how-to-configure-openssl-linux.md) sous les documents du kit SDK Speech.
-- Nous avons modifié le type de données retourné pour `WordLevelTimingResult.Offset` de C# de `int` à `long` pour permettre l’accès à `WordLevelTimingResults` quand les données vocales dépassent les deux minutes.
-- `PushAudioInputStream` et `PullAudioInputStream` envoient désormais des informations d’en-tête wav au service Speech en fonction de `AudioStreamFormat`, éventuellement spécifiés durant leur création. Les clients doivent maintenant utiliser le [format d’entrée audio pris en charge](how-to-use-audio-input-streams.md). Tous les autres formats donneront des résultats de reconnaissance non optimaux ou risquent de causer d’autres problèmes. 
+- `OpenSSL` a été mis à jour vers la version 1.1.1b et est lié de manière statique à la bibliothèque principale du kit SDK Speech pour Linux. Cela peut provoquer un arrêt si votre boîte de réception `OpenSSL` n'a pas été installée dans le répertoire `/usr/lib/ssl` du système. Pour contourner ce problème, consultez [notre documentation](how-to-configure-openssl-linux.md) sous les documents du kit SDK Speech.
+- Concernant le type de données renvoyées pour C# `WordLevelTimingResult.Offset`, nous avons remplacé `int` par `long` pour permettre l'accès à `WordLevelTimingResults` lorsque les données vocales dépassent les deux minutes.
+- `PushAudioInputStream` et `PullAudioInputStream` envoient désormais des informations d'en-tête wav au service Speech en fonction de `AudioStreamFormat`, éventuellement spécifiés durant leur création. Les clients doivent maintenant utiliser le [format d'entrée audio pris en charge](how-to-use-audio-input-streams.md). Tous les autres formats donneront des résultats de reconnaissance non optimaux ou risquent de causer d'autres problèmes. 
 
 
 **Résolution des bogues**
 
-- Consultez les informations concernant la mise à jour de `OpenSSL` dans la section précédentes Changements cassants. Nous avons résolu un incident intermittent et un problème de performances (contention de verrouillage en condition de charge élevée) dans Linux et Java. 
-- Java : améliorations apportées à la fermeture des objets dans les scénarios de forte concurrence.
+- Consultez les informations concernant la mise à jour de `OpenSSL` dans la section Changements cassants ci-dessus. Nous avons résolu un incident intermittent et un problème de performances (contention de verrouillage en condition de charge élevée) dans Linux et Java. 
+- Java : améliorations apportées à la fermeture des objets dans les scénarios de forte concurrence.
 - Restructuration de notre package NuGet. Nous avons supprimé les trois copies de `Microsoft.CognitiveServices.Speech.core.dll` et `Microsoft.CognitiveServices.Speech.extension.kws.dll` sous les dossiers lib. Plus petit, le package NuGet se télécharge plus rapidement, et nous avons ajouté les en-têtes nécessaires à la compilation de certaines applications natives C++.
-- Vous trouverez [ici](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp) des exemples de démarrage rapide corrigés. Ceux-ci se fermaient sans afficher l’exception « microphone introuvable » sur Linux, MacOS, Windows.
-- Correction de l’incident du kit SDK avec les résultats de reconnaissance vocale de longue durée sur certains chemins de code comme [cet exemple](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/uwp/speechtotext-uwp).
-- Correction de l’erreur de déploiement du kit SDK dans l’environnement d’application web Azure pour résoudre [le problème de ce client](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/396).
-- Correction d’une erreur TTS pendant l’utilisation de plusieurs balises `<voice>` ou `<audio>` pour résoudre [le problème de ce client](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/433). 
-- Correction d’une erreur TTS 401 qui se déclarait pendant la récupération du kit SDK à la suite d’une interruption.
-- JavaScript : correction d’une importation circulaire de données audio grâce à une contribution d’[Euirim](https://github.com/euirim). 
+- Vous trouverez [ici](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp) des exemples de démarrage rapide corrigés. Ceux-ci se fermaient sans afficher l'exception « microphone introuvable » sous Linux, MacOS, Windows.
+- Correction de l'incident du kit SDK avec les résultats de reconnaissance vocale de longue durée sur certains chemins de code comme [cet exemple](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/uwp/speechtotext-uwp).
+- Correction de l'erreur de déploiement du kit SDK dans l'environnement d'application web Azure pour résoudre [le problème de ce client](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/396).
+- Correction d'une erreur TTS pendant l'utilisation de plusieurs balises `<voice>` ou `<audio>` pour résoudre [le problème de ce client](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/433). 
+- Correction d'une erreur TTS 401 qui se déclarait pendant la récupération du kit SDK à la suite d'une interruption.
+- JavaScript : correction d'une importation circulaire de données audio grâce à une contribution d'[Euirim](https://github.com/euirim). 
 - JavaScript : ajout de la prise en charge de la définition de propriétés de service (ajoutée dans la version 1.7).
-- JavaScript : résolution d’un problème où une erreur de connexion pouvait entraîner des tentatives de reconnexion WebSocket continues et infructueuses.
+- JavaScript : résolution d'un problème où une erreur de connexion pouvait entraîner des tentatives de reconnexion WebSocket continues et infructueuses.
 
 
 **Exemples**
 
-- Ajout de l’exemple de reconnaissance de mot clé pour Android [ici](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo).
-- Ajout de l’exemple TTS pour le scénario de serveur [ici](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs).
+- Ajout de l'exemple de reconnaissance de mot clé pour Android [ici](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo).
+- Ajout de l'exemple TTS pour le scénario de serveur [ici](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs).
 - Ajout de démarrages rapides pour les conversations multi-appareils pour C# et C++ [ici](quickstarts/multi-device-conversation.md).
 
 
 **Autres modifications**
 
 - Taille de la bibliothèque principale du kit SDK optimisée sur Android.
-- Le kit SDK de la version 1.9.0 et ultérieures prend en charge les types `int` et `string` dans le champ de version de la signature vocale du transcripteur de conversation.
+- Le kit SDK de la version 1.9.0 et ultérieures prend en charge les types `int` et `string` dans le champ de version de la signature vocale du transcripteur de conversation.
 
-## <a name="speech-sdk-180-2019-november-release"></a>SDK Speech 1.8.0 : Version de novembre 2019
+## <a name="speech-sdk-180-2019-november-release"></a>SDK Speech 1.8.0 : Version de novembre 2019
 
 **Nouvelles fonctionnalités**
 
-- Ajout d’une API `FromHost()`, pour faciliter l’utilisation avec des conteneurs locaux et des clouds souverains.
+- Ajout d'une API `FromHost()`, pour faciliter l'utilisation avec des conteneurs locaux et des clouds souverains.
 - Ajout de la détection de langue source automatique pour la reconnaissance vocale (en Java et C++)
-- Ajout de l’objet `SourceLanguageConfig` pour la reconnaissance vocale, utilisé pour spécifier les langues sources attendues (en Java et C++)
+- Ajout de l'objet `SourceLanguageConfig` pour la reconnaissance vocale, utilisé pour spécifier les langues sources attendues (en Java et C++)
 - Ajout de la prise en charge de `KeywordRecognizer` sur Windows (UWP), Android et iOS via les packages NuGet et Unity
-- Ajout de l’API Java de conversation à distance pour effectuer une transcription de conversation dans des lots asynchrones.
+- Ajout de l'API Java de conversation à distance pour effectuer une transcription de conversation dans des lots asynchrones.
 
 **Dernières modifications**
 
-- Les fonctionnalités du transcripteur de conversation sont déplacées sous l’espace de noms `Microsoft.CognitiveServices.Speech.Transcription`.
+- Les fonctionnalités du transcripteur de conversation sont déplacées sous l'espace de noms `Microsoft.CognitiveServices.Speech.Transcription`.
 - Une partie des méthodes du transcripteur de conversation sont déplacées vers une nouvelle classe `Conversation`.
-- Suppression de la prise en charge d’iOS 32 bits (ARMv7 et x86)
+- Suppression de la prise en charge d'iOS 32 bits (ARMv7 et x86)
 
 **Résolution des bogues**
 
-- Correction de l’incident si le `KeywordRecognizer` local est utilisé sans clé d’abonnement valide au service Speech
+- Correction de l'incident si le `KeywordRecognizer` local est utilisé sans clé d'abonnement valide au service Speech
 
 **Exemples**
 
@@ -99,22 +99,22 @@ ms.locfileid: "76293587"
 **Nouvelles fonctionnalités**
 
 - Ajout de la prise en charge de la version bêta pour Xamarin sur la plateforme Windows universelle (UWP), Android et iOS
-- Ajout de la prise en charge d’iOS pour Unity
-- Ajout de la prise en charge des entrées `Compressed` pour ALaw, Mulaw, FLAC sur Android, iOS et Linux
-- Ajout de `SendMessageAsync` dans la classe `Connection` pour l’envoi d’un message au service
-- Ajout de `SetMessageProperty` dans la classe `Connection` pour la propriété de définition d’un message
+- Ajout de la prise en charge d'iOS pour Unity
+- Ajout de la prise en charge des entrées `Compressed` pour ALaw, Mulaw, FLAC sous Android, iOS et Linux
+- Ajout de `SendMessageAsync` dans la classe `Connection` pour l'envoi d'un message au service
+- Ajout de `SetMessageProperty` dans la classe `Connection` pour la propriété de définition d'un message
 - Ajout de liaisons TTS pour Java (Jre et Android), Python, Swift et Objective-C
 - Ajout de la prise en charge de la lecture TTS pour macOS, iOS et Android
-- Ajout d’informations sur la « limite de mot » pour TTS
+- Ajout d'informations sur la « limite de mot » pour TTS
 
 **Résolution des bogues**
 
-- Correction d’un problème de build IL2CPP sur Unity 2019 pour Android
-- Correction d’un problème lié à des en-têtes incorrects entraînant le mauvais traitement de l’entrée d’un fichier WAV
-- Correction d’un problème lié à la multiplicité des UUID dans certaines propriétés de connexion
+- Correction d'un problème de build IL2CPP sur Unity 2019 pour Android
+- Correction d'un problème lié à des en-têtes incorrects entraînant le mauvais traitement de l'entrée d'un fichier WAV
+- Correction d'un problème lié à la multiplicité des UUID dans certaines propriétés de connexion
 - Correction de quelques avertissements sur les spécificateurs de possibilité de valeur null dans les liaisons Swift (ce qui peut nécessiter de petites modifications de code)
-- Correction d’un bogue provoquant la fermeture anormale des connexions WebSocket sous une charge réseau
-- Correction d’un problème sur Android pouvant entraîner des ID d’impression en double utilisés par `DialogServiceConnector`
+- Correction d'un bogue provoquant la fermeture anormale des connexions WebSocket sous une charge réseau
+- Correction d'un problème sur Android pouvant entraîner des ID d'impression en double utilisés par `DialogServiceConnector`
 - Améliorations apportées à la stabilité des connexions entre les interactions multitours et au signalement des défaillances (par le biais d’événements `Canceled`) quand elles se produisent avec `DialogServiceConnector`
 - Les démarrages de session `DialogServiceConnector` permettent désormais de fournir correctement les événements, y compris lors de l’appel de `ListenOnceAsync()` pendant une activité `StartKeywordRecognitionAsync()`
 - Résolution d’un incident associé aux activités `DialogServiceConnector` reçues
@@ -207,7 +207,7 @@ Il s’agit d’une version JavaScript uniquement. Aucune fonctionnalité n’a 
 
 - Le SDK prend désormais en charge le service de synthèse vocale en version bêta. Il est pris en charge sur Windows et Linux Desktop à partir de C++ et C#. Pour plus d’informations, consultez la [vue d’ensemble de la synthèse vocale](text-to-speech.md#get-started).
 - Le SDK prend désormais en charge les formats audio MP3 et Opus/Ogg comme fichiers d’entrée de flux. Cette fonctionnalité est uniquement disponible sur Linux à partir de C++ et C#, et est actuellement en version bêta (plus de détails [ici](how-to-use-codec-compressed-audio-input-streams.md)).
-- Le SDK Speech pour Java, .NET Core, C++ et Objective-C prend désormais en charge macOS. La prise en charge de Objective-C pour macOS est actuellement en version bêta.
+- Le SDK Speech pour Java, .NET Core, C++ et Objective-C prend désormais en charge macOS. La prise en charge d'Objective-C pour macOS est actuellement en version bêta.
 - iOS : Le SDK Speech pour iOS (Objective-C) est désormais également publié en tant que CocoaPod.
 - JavaScript : Prise en charge d’un microphone non défini par défaut comme périphérique d’entrée.
 - JavaScript : Prise en charge de proxy pour Node.js.
@@ -323,7 +323,7 @@ Il s’agit d’une version JavaScript uniquement. Aucune fonctionnalité n’a 
 - Résolution d’un problème de verrouillage à la suite d’une reconnexion dans les sessions de longue durée.
 - Résolution d’un problème pouvant entraîner l’absence d’un résultat final en cas d’échec de la traduction.
 - C# : Si une opération `async` n’était pas attendue dans le thread principal, le module de reconnaissance pouvait être supprimé avant la fin de la tâche asynchrone.
-- Java : Résolution d’un problème entraînant un blocage de la machine virtuelle Java.
+- Java : Résolution d’un problème entraînant un blocage de la machine virtuelle Java.
 - Objective-C : Résolution d’un mappage d’enum ; RecognizedIntent était retourné à la place de `RecognizingIntent`.
 - JavaScript : Définition du format de sortie par défaut « simple » dans `SpeechConfig`.
 - JavaScript : Suppression d’une incohérence au niveau des propriétés sur l’objet config entre JavaScript et d’autres langages.
