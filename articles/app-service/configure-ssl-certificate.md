@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: acf7fd91eff6a868074c61d557effa076033e799
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5df8ae89c16a453b008afed9ee9f8881a0ac4750
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845929"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046413"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Ajouter un certificat SSL dans Azure App Service
 
@@ -37,6 +37,9 @@ Pour effectuer les étapes de ce guide pratique, vous devez au préalable :
 - Certificat gratuit uniquement : mappez un sous-domaine (par exemple, `www.contoso.com`) à App Service avec un [enregistrement CNAME](app-service-web-tutorial-custom-domain.md#map-a-cname-record).
 
 ## <a name="private-certificate-requirements"></a>Exigences concernant les certificats privés
+
+> [!NOTE]
+> Azure Web Apps ne prend **pas** en charge AES256, et tous les fichiers pfx doivent être chiffrés avec TrippleDES.
 
 Le [certificat managé App Service gratuit](#create-a-free-certificate-preview) et le [certificat App Service](#import-an-app-service-certificate) répondent déjà aux exigences App Service. Si vous choisissez de charger ou d’importer un certificat privé dans App Service, votre certificat doit :
 

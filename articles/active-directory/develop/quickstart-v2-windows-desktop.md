@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: be4646631a63a82458a975683f949a2a00398aaf
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 745d7335f70fb082ced16341742e3eb77a34f563
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703233"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120468"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application de bureau Windows
 
@@ -49,7 +49,7 @@ Dans ce démarrage rapide, vous allez apprendre comment concevoir une applicatio
 >      - Dans la section **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** .
 >      - Sélectionnez **Inscrire** pour créer l’application.
 > 1. Dans la liste des pages de l’application, sélectionnez **Authentification**.
-> 1. Dans la section **URI de redirection** | **URI de redirection suggérés pour les clients publics (mobile, bureau)** , cochez **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+> 1. Dans la section **URI de redirection** | **URI de redirection suggérés pour les clients publics (mobile, bureau)** , utilisez **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 > 1. Sélectionnez **Enregistrer**.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -113,6 +113,7 @@ Ensuite, initialisez MSAL à l’aide du code suivant :
 ```csharp
 public static IPublicClientApplication PublicClientApp;
 PublicClientApplicationBuilder.Create(ClientId)
+                .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
                 .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
                 .Build();
 ```

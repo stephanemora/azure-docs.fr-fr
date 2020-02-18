@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/25/2019
-ms.openlocfilehash: 125cde85d3caa6fd1a33045e85c5383f83a669bf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.date: 02/10/2020
+ms.openlocfilehash: a6f977c0cdca670b40ccdc01db64a493962e3dda
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982532"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77165974"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutoriel : Bien démarrer avec la création de votre première expérience ML avec le SDK Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -84,7 +84,7 @@ Vous effectuez les étapes de configuration et d’exécution d’expérience su
     > [!IMPORTANT]
     > Vous pouvez voir les notebooks présents dans le dossier **samples** (exemples), mais vous ne pouvez pas exécuter de notebook à partir de cet emplacement.  Pour exécuter un notebook, veillez à ouvrir sa version clonée dans la section **User Files**.
     
-1. Sélectionnez le fichier **tutorial-1st-experiment-sdk-train.ipynb** dans votre dossier **tutorials**.
+1. Sélectionnez le fichier **tutorial-1st-experiment-sdk-train.ipynb** dans votre dossier **tutorials/create-first-ml-experiment**.
 
 1. Dans la barre supérieure, sélectionnez une instance de calcul à utiliser pour exécuter le notebook. Ces machines virtuelles sont préconfigurées avec [tout ce dont vous avez besoin pour exécuter Azure Machine Learning](concept-compute-instance.md#contents). Vous pouvez sélectionner une machine virtuelle créée par n’importe quel utilisateur de votre espace de travail. 
 
@@ -99,10 +99,6 @@ Vous effectuez les étapes de configuration et d’exécution d’expérience su
 1. Une fois la machine virtuelle disponible, elle s’affiche dans la barre d’outils supérieure.  Vous pouvez maintenant exécuter le notebook à l’aide de **Run all** (Tout exécuter) dans la barre d’outils, ou à l’aide de **Maj+Entrée** dans les cellules de code du notebook.
 
 Si vous avez des widgets personnalisés ou préférez utiliser Jupyter/JupyterLab, sélectionnez la liste déroulante **Jupyter** à l’extrême droite, puis sélectionnez **Jupyter** ou **JupyterLab**. La nouvelle fenêtre de navigateur s’ouvre.
-
-> [!NOTE]
-> Les instances de calcul (préversion) ne sont actuellement disponibles que pour les espaces de travail dans les régions **USA Centre Nord**, **USA Est 2**, **Europe Nord** et **Royaume-Uni Sud**. D’autres régions seront bientôt prises en charge.
->Si votre espace de travail se trouve dans une autre région, vous pouvez continuer à créer et à utiliser une [machine virtuelle Notebook](concept-compute-instance.md#notebookvm) à la place.  Vous pouvez utiliser une machine virtuelle Notebook ou une instance de calcul pour exécuter votre notebook. Une machine virtuelle continue à s’exécuter et à engendrer des frais, sauf si vous l’arrêtez. Vous pouvez l’arrêter manuellement à partir de l’onglet **Calcul** dans Studio ou consulter le [billet de blog](https://techcommunity.microsoft.com/t5/educator-developer-blog/azure-virtual-machine-auto-shutdown/ba-p/379342) sur l’activation de l’arrêt automatique planifié pour les machines virtuelles Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

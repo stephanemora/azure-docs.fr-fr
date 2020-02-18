@@ -9,14 +9,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.custom: mvc
-ms.openlocfilehash: 0665a20bfd8253b28936044abe515862b32f1b43
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: ba94c9f2af737af3ae1ebcccf6685643a54da237
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888741"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110691"
 ---
-# <a name="tutorial-implement-a-device-firmware-update-process"></a>Didacticiel : Implémenter un processus de mise à jour de microprogramme d’appareil
+# <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutoriel : Implémenter un processus de mise à jour de microprogramme d’appareil
 
 Vous devrez peut-être mettre à jour le microprogramme sur les appareils connectés à votre hub IoT. Par exemple, il peut être nécessaire d’ajouter de nouvelles fonctionnalités au microprogramme ou d’appliquer des correctifs de sécurité. Dans de nombreux scénarios IoT, il est difficile d’intervenir physiquement puis d’appliquer manuellement les mises à jour du microprogramme à vos appareils. Ce tutoriel montre comment démarrer et surveiller le processus de mise à jour du microprogramme à distance via une application back-end connectée à votre hub.
 
@@ -36,9 +36,9 @@ Dans ce tutoriel, vous allez effectuer les tâches suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits à l’aide de Node.js. Votre machine de développement doit disposer de Node.js v10.x.x ou version ultérieure.
+Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits à l’aide de Node.js. Votre ordinateur de développement doit disposer de Node.js v10.x.x ou ultérieur.
 
 Vous pouvez télécharger Node.js pour plusieurs plateformes sur [nodejs.org](https://nodejs.org).
 
@@ -49,6 +49,8 @@ node --version
 ```
 
 Téléchargez l’exemple de projet Node.js à partir de https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip et extrayez l’archive ZIP.
+
+Assurez-vous que le port 8883 est ouvert dans votre pare-feu. L’exemple d’appareil de ce tutoriel utilise le protocole MQTT qui communique sur le port 8883. Ce port peut être bloqué dans certains environnements réseau professionnels et scolaires. Pour plus d’informations sur les différentes façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="set-up-azure-resources"></a>Configurer les ressources Azure
 
@@ -187,7 +189,7 @@ Comme les configurations d’appareil automatiques s’exécutent au moment de l
 
 ![Afficher la configuration dans le portail](./media/tutorial-firmware-update/portalview.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez d’effectuer le didacticiel suivant, conservez le groupe de ressources et l’IoT Hub afin de les réutiliser ultérieurement.
 

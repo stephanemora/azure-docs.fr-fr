@@ -14,12 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a647f4a5f051ec89bb82b6e7f89dcb677c95371
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a3cc2de5a2f297e8133011905ff2961b44476d6b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027734"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046340"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Utilisateurs, groupes, licences et rôles pour grandes entreprises
 
@@ -31,7 +31,7 @@ Cet article présente à l’administrateur Azure AD la relation entre les princ
 
 ## <a name="assign-users-to-groups"></a>Assigner des utilisateurs à des groupes
 
-Vous pouvez utiliser des groupes dans Azure AD pour assigner des licences à un grand nombre d’utilisateurs, ou pour assigner l’accès utilisateur à des applications d’entreprise déployées. Vous pouvez utiliser des groupes pour assigner des rôles d’administrateur dans Azure AD, ou vous pouvez accorder l’accès à des ressources externes, comme des applications SaaS ou des sites SharePoint.
+Vous pouvez utiliser des groupes dans Azure AD pour assigner des licences à un grand nombre d’utilisateurs, ou pour assigner l’accès utilisateur à des applications d’entreprise déployées. Vous pouvez utiliser des groupes pour attribuer les rôles d’administrateur (à l’exception du rôle d’Administrateur général) dans Azure AD, ou vous pouvez accorder l’accès à des ressources externes, comme des applications SaaS ou des sites SharePoint.
 
 Pour plus de flexibilité et afin de réduire le travail de gestion de l’appartenance à un groupe, vous pouvez utiliser des [groupes dynamiques](groups-create-rule.md) dans Azure AD pour étendre et limiter automatiquement l’appartenance à un groupe. Vous aurez besoin d’une licence Azure AD Premium P1 pour chaque utilisateur unique membre d’un ou de plusieurs groupes dynamiques.
 

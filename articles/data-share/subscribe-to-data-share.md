@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: f2acb89597ef877543a2c4cc46f395aede41034b
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 5b7d9cd7e7d438cf2beac76d5d8bcc78d377a8f4
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964496"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083110"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutoriel : Accepter et recevoir des données avec Azure Data Share  
 
@@ -30,7 +30,7 @@ Vérifiez que tous les prérequis sont remplis avant d’accepter une invitation
 
 * Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Invitation Data Share : Invitation de Microsoft Azure dont l’objet est « Invitation Azure Data Share de **<yourdataprovider@domain.com>**  ».
-* Inscrivez le fournisseur de ressources Microsoft.DataShare. Suivez les instructions décrites dans [Résoudre les problèmes liés à Azure Data Share](data-share-troubleshoot.md) pour inscrire le fournisseur de ressources de partage de données.
+* Inscrivez le [fournisseur de ressources Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) dans l’abonnement Azure où vous allez créer une ressource de partage de données et dans l’abonnement Azure où se trouvent vos magasins de données Azure cibles.
 
 ### <a name="receive-data-into-a-storage-account"></a>Recevoir des données dans un compte de stockage : 
 
@@ -57,7 +57,7 @@ Vérifiez que tous les prérequis sont remplis avant d’accepter une invitation
 * Accès au pare-feu SQL Server de l’adresse IP du client. Pour ce faire, procédez comme suit : 
     1. Dans SQL Server, dans le portail Azure, accédez à *Pare-feux et réseaux virtuels*
     1. Cliquez sur le bouton **activer** pour autoriser l’accès à Azure Services.
-    1. Cliquez sur **+ Ajouter une adresse IP de client**, puis cliquez sur **Enregistrer**. Cette adresse IP est susceptible d’être modifiée. Il peut être nécessaire de répéter ce processus la prochaine fois que vous partagerez des données SQL à partir du portail Azure. Vous pouvez également ajouter une plage d’adresses IP. 
+    1. Cliquez sur **+ Ajouter une adresse IP de client**, puis cliquez sur **Enregistrer**. Cette adresse IP est susceptible d’être modifiée. Il peut être nécessaire de répéter ce processus la prochaine fois que vous recevrez des données dans une cible SQL à partir du portail Azure. Vous pouvez également ajouter une plage d’adresses IP. 
 
 
 ### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Recevez des données dans un cluster Azure Data Explorer : 

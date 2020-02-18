@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 12/17/2019
+ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 214c071e0d01908e2d46c932fcf87906de834102
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 84ef01b5e7fc3f628b1cdf7a1f13175604ebcdd4
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644679"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137956"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procédure : Détecter les sentiments à l’aide de l’API Analyse de texte
 
@@ -30,7 +30,7 @@ Analyse des sentiments prend en charge une large palette de langues, et plus de 
 
 L’API Analyse de texte utilise un algorithme de classification de machine learning pour générer un score de sentiment compris entre 0 et 1. Les scores proches de 1 indiquent un sentiment positif, tandis que les scores proches de 0 dénotent un sentiment négatif. L’analyse des sentiments porte sur l’ensemble du document, et non sur des parties individuelles du texte. Cela signifie que les scores de sentiment retournés se situent au niveau du document ou de la phrase. 
 
-Le modèle utilisé est pré-entraîné avec un corpus étendu d’associations de texte et de sentiments. Il utilise une combinaison de techniques pour l’analyse, notamment le traitement de texte, l’analyse morphosyntaxique, le positionnement des mots et les associations de mots. Pour plus d’informations sur l’algorithme, consultez [Présentation d’Analyse de texte](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/). Actuellement, vous ne pouvez pas fournir vos propres données d’entraînement. 
+Le modèle utilisé est préentraîné avec un corpus étendu d’associations de texte et de sentiments. Il utilise une combinaison de techniques pour l’analyse, notamment le traitement de texte, l’analyse morphosyntaxique, le positionnement des mots et les associations de mots. Pour plus d’informations sur l’algorithme, consultez [Présentation d’Analyse de texte](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/). Actuellement, vous ne pouvez pas fournir vos propres données d’entraînement. 
 
 La précision des scores a tendance à s’améliorer quand les documents contiennent peu de phrases plutôt qu’un grand bloc de texte. Lors d’une phase d’évaluation d’objectivité, le modèle détermine si un document dans son ensemble est objectif ou s’il contient des sentiments. Un document principalement objectif n’évolue pas vers la phase de détection de sentiments, ce qui génère un score de 0,50 sans traitement supplémentaire. Pour les documents qui se poursuivent dans le pipeline, la phase suivante génère un score supérieur ou inférieur à 0,50. Le score dépend du degré de sentiment détecté dans le document.
 
@@ -50,14 +50,7 @@ L’API Analyse de texte offre deux versions de l’Analyse des sentiments – v
 | Étiquetage des sentiments                        |                       | X                     |
 | Gestion des versions des modèles                   |                       | X                     |
 
-#### <a name="version-2tabversion-2"></a>[Version 2](#tab/version-2)
-
-### <a name="sentiment-scoring"></a>Score de sentiment
-
-L’analyseur de sentiments classifie le texte comme principalement positif ou négatif. Il attribue un score compris entre 0 et 1. Les valeurs proches de 0,5 sont neutres ou indéterminées. Un score de 0,5 indique la neutralité. Quand une chaîne ne peut pas être analysée en ce qui concerne les sentiments ou ne présente pas de sentiments, le score est toujours exactement 0,5. Par exemple, si vous traitez une chaîne espagnole avec un code de langue anglaise, le score obtenu est 0,5.
-
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Version 3 (préversion publique)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Version 3.0-preview](#tab/version-3)
 
 ### <a name="sentiment-scoring"></a>Score de sentiment
 
@@ -85,6 +78,13 @@ Analyse des sentiments v3 peut retourner des scores et des étiquettes au niveau
 
 Vous trouverez un exemple d’application C# qui appelle cette version d’Analyse des sentiments sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
 
+
+#### <a name="version-21tabversion-2"></a>[Version 2.1](#tab/version-2)
+
+### <a name="sentiment-scoring"></a>Score de sentiment
+
+L’analyseur de sentiments classifie le texte comme principalement positif ou négatif. Il attribue un score compris entre 0 et 1. Les valeurs proches de 0,5 sont neutres ou indéterminées. Un score de 0,5 indique la neutralité. Quand une chaîne ne peut pas être analysée en ce qui concerne les sentiments ou ne présente pas de sentiments, le score est toujours exactement 0,5. Par exemple, si vous traitez une chaîne espagnole avec un code de langue anglaise, le score obtenu est 0,5.
+
 ---
 
 ## <a name="sending-a-rest-api-request"></a>Envoie d’une requête d’API REST 
@@ -101,27 +101,28 @@ La taille du document doit être inférieure à 5 120 caractères par document.
 
 Créez une requête POST. Vous pouvez [utiliser Postman](text-analytics-how-to-call-api.md) ou la **console de test d’API** via les liens de référence suivants pour en structurer une rapidement et l’envoyer. 
 
-#### <a name="version-2tabversion-2"></a>[Version 2](#tab/version-2)
-
-[Informations de référence sur Analyse des sentiments v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Version 3 (préversion publique)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Version 3.0-preview](#tab/version-3)
 
 [Informations de référence sur Analyse des sentiments v3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
+
+#### <a name="version-21tabversion-2"></a>[Version 2.1](#tab/version-2)
+
+[Informations de référence sur Analyse des sentiments v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
 ---
 
 Définissez le point de terminaison HTTPS pour l’analyse des sentiments à l’aide d’une ressource Analyse de texte sur Azure ou d’un [conteneur Analyse de texte](text-analytics-how-to-install-containers.md) instancié. Vous devez inclure l’URL correspondant à la version que vous souhaitez utiliser. Par exemple :
-    
-[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
-#### <a name="version-2tabversion-2"></a>[Version 2](#tab/version-2)
+> [!NOTE]
+> Vous pouvez trouver votre clé et votre point de terminaison pour votre ressource Analyse de texte dans le portail Azure. Ces informations se trouvent dans la page **Démarrage rapide** de la ressource, sous **gestion des ressources**. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Version 3 (préversion publique)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Version 3.0-preview](#tab/version-3)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/sentiment`
+
+#### <a name="version-21tabversion-2"></a>[Version 2.1](#tab/version-2)
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
 
 ---
 
@@ -161,26 +162,7 @@ L’analyseur de sentiments classifie le texte comme principalement positif ou n
 
 La sortie est retournée immédiatement. Vous pouvez diffuser les résultats vers une application qui accepte JSON ou enregistrer la sortie dans un fichier sur le système local. Ensuite, importez la sortie dans une application que vous pouvez utiliser pour trier, rechercher et manipuler les données.
 
-#### <a name="version-2tabversion-2"></a>[Version 2](#tab/version-2)
-
-### <a name="sentiment-analysis-v2-example-response"></a>Exemple de réponse d’Analyse des sentiments v2
-
-Les réponses d’Analyse des sentiments v2 contiennent des scores de sentiment pour chaque document envoyé.
-
-```json
-{
-  "documents": [{
-    "id": "1",
-    "score": 0.98690706491470337
-  }, {
-    "id": "2",
-    "score": 0.95202046632766724
-  }],
-  "errors": []
-}
-```
-
-#### <a name="version-3-public-previewtabversion-3"></a>[Version 3 (préversion publique)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[Version 3.0-preview](#tab/version-3)
 
 ### <a name="sentiment-analysis-v3-example-response"></a>Exemple de réponse d’Analyse des sentiments v3
 
@@ -255,6 +237,26 @@ Les réponses d’Analyse des sentiments v3 contiennent des étiquettes de senti
     "errors": []
 }
 ```
+
+#### <a name="version-21tabversion-2"></a>[Version 2.1](#tab/version-2)
+
+### <a name="sentiment-analysis-v2-example-response"></a>Exemple de réponse d’Analyse des sentiments v2
+
+Les réponses d’Analyse des sentiments v2 contiennent des scores de sentiment pour chaque document envoyé.
+
+```json
+{
+  "documents": [{
+    "id": "1",
+    "score": 0.98690706491470337
+  }, {
+    "id": "2",
+    "score": 0.95202046632766724
+  }],
+  "errors": []
+}
+```
+
 ---
 
 ## <a name="summary"></a>Résumé

@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 1b37475cfa8df38a00ea6017d47e90677ed457d2
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9f9b6614c586d9c7c721dfc59da9c4a9c342b57c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212626"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062043"
 ---
-# <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-table-api"></a>Démarrage rapide : Créer une base de données de graphe avec le kit Java SDK et l’API Table d’Azure Cosmos DB
+# <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Démarrage rapide : Créer une base de données de graphe avec le SDK Java et l’API Azure Cosmos DB Gremlin
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -27,29 +27,21 @@ ms.locfileid: "71212626"
 > * [PHP](create-graph-php.md)
 >  
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Avec Azure Cosmos DB, vous pouvez rapidement créer et interroger des bases de données de documents, tables et graphiques gérées. 
+Dans ce guide de démarrage rapide, vous allez créer et gérer un compte d’API Azure Cosmos DB Gremlin (graphe) à partir du portail Azure et ajouter des données à l’aide d’une application Java clonée à partir de GitHub. Azure Cosmos DB est un service de base de données multimodèle qui vous permet de créer et d’interroger rapidement des bases de données de documents, de tables, de paires clé/valeur et de graphes avec des capacités de distribution mondiale et de mise à l’échelle horizontale.
 
-Ce guide de démarrage rapide crée une base de données de graphiques simple à l’aide des outils du portail Azure pour Azure Cosmos DB. Ce guide vous indique également comment créer rapidement une application console Java au moyen d’une base de données [API Gremlin](graph-introduction.md) en utilisant le pilote [Apache TinkerPop](https://tinkerpop.apache.org/). Les instructions de ce guide de démarrage rapide s’appliquent à tous les systèmes d’exploitation pouvant exécuter Java. Avec ce guide de démarrage rapide, vous saurez comment créer et modifier des graphiques dans l’interface utilisateur ou par programme, selon la méthode que vous préférez. 
-
-## <a name="prerequisites"></a>Prérequis
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-Par ailleurs :
-
-* [Kit de développement Java (JDK), version 8](https://aka.ms/azure-jdks)
-    * Veillez à définir la variable d’environnement JAVA_HOME pour qu’elle pointe vers le dossier dans lequel le JDK est installé.
-* [Téléchargement](https://maven.apache.org/download.cgi) et [installation](https://maven.apache.org/install.html) d’une archive binaire [Maven](https://maven.apache.org/)
-    * Sur Ubuntu, vous pouvez exécuter `apt-get install maven` pour installer Maven.
-* [Git](https://www.git-scm.com/)
-    * Sur Ubuntu, vous pouvez exécuter `sudo apt-get install git` pour installer Git.
+## <a name="prerequisites"></a>Conditions préalables requises
+- Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- [Kit de développement Java (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Faites pointer la variable d’environnement `JAVA_HOME` vers le dossier dans lequel le JDK est installé.
+- [Archive binaire Maven](https://maven.apache.org/download.cgi). 
+- [Git](https://www.git-scm.com/downloads). 
 
 ## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
-Pour être en mesure de créer une base de données de graphiques, vous devez avoir préalablement créé un compte de base de données (Graphique) Gremlin avec Azure Cosmos DB.
+Pour être en mesure de créer une base de données de graphes, vous devez avoir préalablement créé un compte de base de données Gremlin (Graphe) avec Azure Cosmos DB.
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Ajout d’un graphique
+## <a name="add-a-graph"></a>Ajout d’un graphe
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -79,9 +71,11 @@ Pour être en mesure de créer une base de données de graphiques, vous devez av
 
 Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-information).
 
-Les extraits de code suivants sont tirés du fichier C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java.
+Tous les extraits de code suivants sont tirés du fichier *C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java*.
 
-* Le `Client` Gremlin est initialisé à partir de la configuration dans le fichier C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml.
+Cette application console Java utilise une base de données d’[API Gremlin](graph-introduction.md) avec le pilote OSS [Apache TinkerPop](https://tinkerpop.apache.org/). 
+
+- Le `Client` Gremlin est initialisé à partir de la configuration dans le fichier *C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml*.
 
     ```java
     cluster = Cluster.build(new File("src/remote.yaml")).create();
@@ -89,7 +83,7 @@ Les extraits de code suivants sont tirés du fichier C:\git-samples\azure-cosmos
     client = cluster.connect();
     ```
 
-* Une série d’étapes Gremlin sont exécutées à l’aide de la méthode `client.submit`.
+- Une série d’étapes Gremlin sont exécutées à l’aide de la méthode `client.submit`.
 
     ```java
     ResultSet results = client.submit(gremlin);
@@ -106,18 +100,18 @@ Les extraits de code suivants sont tirés du fichier C:\git-samples\azure-cosmos
 
 Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de connexion et de les copier dans l’application. Ces paramètres permettent à votre application de communiquer avec votre base de données hébergée.
 
-1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Clés**. 
+1. Dans votre compte Azure Cosmos DB, sur le [portail Azure](https://portal.azure.com/), sélectionnez **Clés**. 
 
     Copiez la première partie de la valeur de l’URI.
 
     ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, page Clés](./media/create-graph-java/copy-access-key-azure-portal.png)
-2. Ouvrez le fichier src/remote.yaml et collez la valeur d’ID unique sur `$name$` dans `hosts: [$name$.graphs.azure.com]`.
+2. Ouvrez le fichier *src/remote.yaml* et collez la valeur d’ID unique sur `$name$` dans `hosts: [$name$.graphs.azure.com]`.
 
-    La ligne 1 du fichier remote.yaml doit maintenant ressembler à la ligne suivante : 
+    La ligne 1 du fichier *remote.yaml* doit maintenant ressembler à la ligne suivante : 
 
     `hosts: [test-graph.graphs.azure.com]`
 
-3. Remplacez `graphs` par `gremlin.cosmosdb` dans la valeur `endpoint`. (Si vous avez créé votre compte de base de données de graphiques avant le 20 décembre 2017, n’apportez aucune modification à la valeur de point de terminaison et passez à l’étape suivante.)
+3. Remplacez `graphs` par `gremlin.cosmosdb` dans la valeur `endpoint`. (Si vous avez créé votre compte de base de données de graphes avant le 20 décembre 2017, n’apportez aucune modification à la valeur de point de terminaison et passez à l’étape suivante.)
 
     La valeur de point de terminaison doit maintenant ressembler à ceci :
 
@@ -125,11 +119,11 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
 
 4. Dans le portail Azure, utilisez le bouton de copie pour copier la CLÉ PRIMAIRE, puis collez-la sur `$masterKey$` dans `password: $masterKey$`.
 
-    La ligne 4 du fichier remote.yaml doit maintenant ressembler à la ligne suivante : 
+    La ligne 4 du fichier *remote.yaml* doit maintenant ressembler à la ligne suivante : 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-5. Modifiez la ligne 3 du fichier remote.yaml en remplaçant
+5. Modifiez la ligne 3 du fichier *remote.yaml* en remplaçant
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -137,9 +131,9 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
 
     `username: /dbs/sample-database/colls/sample-graph`
 
-    Si vous avez utilisé un nom unique pour votre exemple de base de données ou de graphique, mettez à jour les valeurs comme nécessaire.
+    Si vous avez utilisé un nom unique pour votre exemple de base de données ou de graphe, mettez à jour les valeurs comme nécessaire.
 
-6. Enregistrez le fichier remote.yaml.
+6. Enregistrez le fichier *remote.yaml*.
 
 ## <a name="run-the-console-app"></a>Exécution de l’application console
 
@@ -161,7 +155,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
     mvn exec:java -D exec.mainClass=GetStarted.Program
     ```
 
-    La fenêtre de terminal affiche les vertex ajoutés au graphique. 
+    La fenêtre de terminal affiche les sommets ajoutés au graphe. 
     
     Si vous rencontrez des erreurs de délai d’expiration, vérifiez que vous avez correctement mis à jour les informations de connexion dans [Mise à jour de vos informations de connexion](#update-your-connection-information) et essayez également de réexécuter la dernière commande. 
     
@@ -170,36 +164,36 @@ Maintenant, retournez dans le portail Azure afin d’obtenir vos informations de
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Examiner et ajouter des exemples de données
 
-Vous pouvez à présent revenir à l’Explorateur de données et voir les vertex ajoutés au graphique, ainsi qu’ajouter des points de données supplémentaires.
+Vous pouvez à présent revenir à l’Explorateur de données et voir les sommets ajoutés au graphe, ainsi qu’ajouter des points de données supplémentaires.
 
-1. Sélectionnez **Explorateur de données**, développez **sample-graph**, sélectionnez **Graph**, puis sélectionnez **Appliquer un filtre**. 
+1. Dans votre compte Azure Cosmos DB, dans le portail Azure, sélectionnez **Explorateur de données**, développez **sample-graph**, sélectionnez **Graphe**, puis sélectionnez **Appliquer un filtre**. 
 
    ![Créer des documents dans l’Explorateur de données, dans le Portail Azure](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
-2. Dans la liste **Résultats**, observez les nouveaux utilisateurs ajoutés au graphique. Sélectionnez **ben** et notez que l’utilisateur est connecté à robin. Vous pouvez glisser-déplacez les vertex, effectuer un zoom avant et arrière à l’aide de la roulette de la souris et augmenter la taille du graphique avec la double flèche. 
+2. Dans la liste **Résultats**, observez les nouveaux utilisateurs ajoutés au graphe. Sélectionnez **ben** et notez que l’utilisateur est connecté à robin. Vous pouvez glisser-déplacez les sommets, effectuer un zoom avant et arrière à l’aide de la roulette de la souris et augmenter la taille du graphe avec la double flèche. 
 
-   ![Nouveaux vertex dans le graphique de l’Explorateur de données du portail Azure](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
+   ![Nouveaux sommets dans le graphe de l’Explorateur de données du portail Azure](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
-3. Nous allons à présent ajouter quelques nouveaux utilisateurs. Sélectionnez **New Vertex (Nouveau vertex)** pour ajouter des données à votre graphique.
+3. Nous allons à présent ajouter quelques nouveaux utilisateurs. Sélectionnez **Nouveau sommet** pour ajouter des données à votre graphe.
 
    ![Créer des documents dans l’Explorateur de données, dans le Portail Azure](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
 4. Dans la zone d’étiquette, entrez *personne*.
 
-5. Sélectionnez **Ajouter une propriété** pour ajouter chacune des propriétés suivantes. Notez que vous pouvez créer des propriétés uniques pour chaque personne dans votre graphique. Seule la clé id est obligatoire.
+5. Sélectionnez **Ajouter une propriété** pour ajouter chacune des propriétés suivantes. Notez que vous pouvez créer des propriétés uniques pour chaque personne dans votre graphe. Seule la clé id est obligatoire.
 
     key|value|Notes
     ----|----|----
-    id|ashley|Identificateur unique du vertex. Si vous ne spécifiez aucun id, le système en génère un pour vous.
+    id|ashley|Identificateur unique du sommet. Si vous ne spécifiez aucun id, le système en génère un pour vous.
     gender|female| 
     tech | java | 
 
     > [!NOTE]
-    > Dans ce Démarrage rapide, vous créez une collection non partitionnée. Toutefois, si vous créez une collection partitionnée en spécifiant une clé de partition lors de la création de la collection, vous devez inclure la clé de partition en tant que clé dans chaque nouveau vertex. 
+    > Dans ce Démarrage rapide, vous créez une collection non partitionnée. Toutefois, si vous créez une collection partitionnée en spécifiant une clé de partition lors de la création de la collection, vous devez inclure la clé de partition en tant que clé dans chaque nouveau sommet. 
 
 6. Sélectionnez **OK**. Vous pouvez avoir besoin d’agrandir votre écran pour voir apparaître le bouton **OK** au bas de l’écran.
 
-7. Sélectionnez de nouveau **New Vertex (Nouveau vertex)** et ajoutez un nouvel utilisateur supplémentaire. 
+7. Sélectionnez de nouveau **Nouveau sommet** et ajoutez un nouvel utilisateur supplémentaire. 
 
 8. Entrez l’étiquette *person*.
 
@@ -207,19 +201,19 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
     key|value|Notes
     ----|----|----
-    id|rakesh|Identificateur unique du vertex. Si vous ne spécifiez aucun id, le système en génère un pour vous.
+    id|rakesh|Identificateur unique du sommet. Si vous ne spécifiez aucun id, le système en génère un pour vous.
     gender|male| 
     school|MIT| 
 
 10. Sélectionnez **OK**. 
 
-11. Sélectionnez le bouton **Appliquer un filtre** avec le filtre par défaut `g.V()` pour afficher toutes les valeurs dans le graphique. Tous les utilisateurs apparaissent désormais dans la liste **Résultats**. 
+11. Sélectionnez le bouton **Appliquer un filtre** avec le filtre par défaut `g.V()` pour afficher toutes les valeurs dans le graphe. Tous les utilisateurs apparaissent désormais dans la liste **Résultats**. 
 
-    À mesure que vous ajoutez d’autres données, vous pouvez utiliser des filtres pour limiter les résultats renvoyés. Par défaut, l’Explorateur de données utilise `g.V()` pour récupérer tous les vertex dans un graphique. Vous pouvez choisir une autre [requête de graphique](tutorial-query-graph.md) comme `g.V().count()` pour retourner le nombre total de vertex dans le graphique au format JSON. Si vous avez modifié le filtre, choisissez de nouveau le filtre `g.V()` et sélectionnez **Appliquer un filtre** pour afficher de nouveau l’ensemble des résultats.
+    À mesure que vous ajoutez d’autres données, vous pouvez utiliser des filtres pour limiter les résultats renvoyés. Par défaut, l’Explorateur de données utilise `g.V()` pour récupérer tous les sommets d’un graphe. Vous pouvez choisir une autre [requête de graphe](tutorial-query-graph.md) comme `g.V().count()` pour retourner le nombre total de sommets du graphe au format JSON. Si vous avez modifié le filtre, choisissez de nouveau le filtre `g.V()` et sélectionnez **Appliquer un filtre** pour afficher de nouveau l’ensemble des résultats.
 
-12. À présent, vous pouvez connecter rakesh et ashley. Vérifiez que **ashley** est bien sélectionné dans la liste **Résultats**, puis sélectionnez ![Modifier la cible d’un vertex dans un graphique](./media/create-graph-java/edit-pencil-button.png) en regard de **Cibles** dans la partie inférieure droite de l’écran. Vous devrez peut-être élargir la fenêtre pour voir le bouton.
+12. À présent, vous pouvez connecter rakesh et ashley. Vérifiez que **ashley** est bien sélectionné dans la liste **Résultats**, puis sélectionnez ![Modifier la cible d’un sommet dans un graphe](./media/create-graph-java/edit-pencil-button.png) en regard de **Cibles** dans la partie inférieure droite de l’écran. Vous devrez peut-être élargir la fenêtre pour voir le bouton.
 
-    ![Changer la cible d’un vertex dans un graphe - Azure Cosmos DB](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Changer la cible d’un sommet dans un graphe - Azure Cosmos DB](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. Dans la zone **Cible**, entrez *rakesh*, et dans la zone **Edge label (Étiquette de relation)** , entrez *knows*, puis cochez la case.
 
@@ -227,21 +221,21 @@ Vous pouvez à présent revenir à l’Explorateur de données et voir les verte
 
 14. À présent, sélectionnez **rakesh** dans la liste des résultats et vérifiez qu’ashley et rakesh sont connectés. 
 
-    ![Deux vertex connectés dans l’Explorateur de données - Azure Cosmos DB](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
+    ![Deux sommets connectés dans l’Explorateur de données - Azure Cosmos DB](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
-    Ainsi s’achève la portion de ce didacticiel consacrée à la création de ressources. Vous pouvez continuer à ajouter des vertex à votre graphique, modifier les vertex existants ou modifier les requêtes. Nous allons à présent examiner les métriques fournies par Azure Cosmos DB et nettoyer les ressources. 
+Ainsi s’achève la portion de ce didacticiel consacrée à la création de ressources. Vous pouvez continuer à ajouter des sommets à votre graphe, modifier les sommets existants ou changer les requêtes. Nous allons à présent examiner les métriques fournies par Azure Cosmos DB et nettoyer les ressources. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos D, à créer un graphique à l’aide de l’Explorateur de données et à exécuter une application. Vous pouvez maintenant générer des requêtes plus complexes et implémenter une logique de traversée de graphique puissante, à l’aide de Gremlin. 
+Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB, à créer un graphe à l’aide de l’Explorateur de données et à exécuter une application Java qui ajoute des données au graphe. Vous pouvez maintenant générer des requêtes plus complexes et implémenter une logique de traversée de graphe puissante en utilisant Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Interroger à l’aide de Gremlin](tutorial-query-graph.md)

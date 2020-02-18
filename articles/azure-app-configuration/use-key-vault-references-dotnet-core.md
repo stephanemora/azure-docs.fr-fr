@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: b35c23e6dd88af01391bf7f01a7e736a1a744fff
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4e896c5fa6f8656be29eed7eb8d4e8854a94ecfa
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714430"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116621"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutoriel : Utiliser des références Key Vault dans une application ASP.NET Core
 
@@ -172,7 +172,7 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
     using Azure.Identity;
     ```
 
-1. Mettez à jour la méthode `CreateWebHostBuilder` pour utiliser App Configuration en appelant la méthode `config.AddAzureAppConfiguration`. Incluez l’option `UseAzureKeyVault` pour transmettre une nouvelle référence `KeyVaultClient` à votre coffre Key Vault.
+1. Mettez à jour la méthode `CreateWebHostBuilder` pour utiliser App Configuration en appelant la méthode `config.AddAzureAppConfiguration`. Incluez l’option `ConfigureKeyVault` et transmettez les informations d’identification correctes à votre coffre de clés.
 
     #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -217,7 +217,7 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
             .UseStartup<Startup>());
     ```
 
-1. Lorsque vous avez initialisé la connexion à App Configuration, vous avez passé la référence `KeyVaultClient` à la méthode `UseAzureKeyVault`. Après l’initialisation, vous pouvez accéder aux valeurs des références Key Vault de la même façon que vous accédez aux valeurs des clés App Configuration normales.
+1. Quand vous avez initialisé la connexion à App Configuration, vous avez configuré la connexion à Key Vault en appelant la méthode `ConfigureKeyVault`. Après l’initialisation, vous pouvez accéder aux valeurs des références Key Vault de la même façon que vous accédez aux valeurs des clés App Configuration normales.
 
     Pour voir ce processus en action, ouvrez *Index.cshtml* dans **Affichages** > **Dossier de base**. Remplacez son contenu par le code ci-dessous :
 

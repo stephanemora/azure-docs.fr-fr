@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b86f58a1b6b9e3a952861dbe7dbeef4dfe06a644
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 90d39635ac6302f816f39ca19cc00a39cfbbf850
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964830"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121017"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-c"></a>Démarrage rapide : Connecter un exemple d’application d’appareil IoT Plug-and-Play en préversion à IoT Hub (C#)
 
@@ -25,7 +25,7 @@ Ce démarrage rapide vous montre comment créer un exemple d’application d’a
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour suivre ce guide de démarrage rapide, vous devez installer .NET Core 2.2 sur votre ordinateur de développement. Vous pouvez télécharger cette version du kit SDK .NET Core pour plusieurs plateformes à partir de [Télécharger .NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2).
+Pour suivre ce guide de démarrage rapide, vous devez installer .NET Core 3.0 sur votre ordinateur de développement. Vous pouvez télécharger cette version du kit SDK .NET Core pour plusieurs plateformes à partir de [Télécharger .NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0).
 
 Vous pouvez vérifier la version de .NET présente sur votre ordinateur de développement en exécutant la commande suivante dans une fenêtre de terminal local : 
 
@@ -72,7 +72,7 @@ Vous utilisez l’exemple de code cloné pour générer une application simulant
 1. Exécutez un exemple d’application pour simuler un appareil IoT Plug-and-Play qui envoie des données de télémétrie à votre hub IoT. Dans la même fenêtre de terminal, pour générer les packages nécessaires et exécuter l’exemple d’application, utilisez la commande suivante :
 
     ```cmd\sh
-        dotnet run
+    dotnet run --framework=netcoreapp3.0
     ```
 
 Vous voyez des messages indiquant que l’appareil s’est correctement inscrit et attend des mises à jour du cloud. L’appareil est donc prêt à recevoir des commandes et des mises à jour de propriétés et a commencé à envoyer des données de télémétrie au hub. Laissez l’exemple s’exécuter pendant que vous effectuez les étapes suivantes.

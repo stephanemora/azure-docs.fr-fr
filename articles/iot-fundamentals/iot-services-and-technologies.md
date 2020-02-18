@@ -1,18 +1,18 @@
 ---
 title: Technologies et solutions Azure pour l’Internet des objets (IoT)
 description: Décrit l’ensemble de technologies et services qui sont à votre disposition pour créer une solution Azure IoT.
-author: robinsh
+author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 10/09/2018
-ms.author: robinsh
-ms.openlocfilehash: cf707a0ddc3d5b46c7be7944a911ee03f00fc064
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/15/2020
+ms.author: dobett
+ms.openlocfilehash: 0b04b5170c13f6f6c3fd74976461f03e4367060a
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457181"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046062"
 ---
 # <a name="azure-technologies-and-services-for-creating-iot-solutions"></a>Technologies et services Azure disponibles pour créer des solutions IoT
 
@@ -83,6 +83,8 @@ IoT Central utilise des jumeaux numériques pour synchroniser les appareils et l
 ### <a name="data-and-analytics"></a>Données et analyse
 
 Les appareils IoT génèrent souvent de grandes quantités de données de série chronologique, telles que les valeurs de température des capteurs. [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) peut se connecter à un hub IoT, lire le flux de données de télémétrie transmis par vos appareils et stocker ces données ; il vous permet aussi d’interroger et de visualiser les données collectées.
+
+[Azure Maps](/azure/azure-maps) est une collection de services géospatiaux qui utilisent des données cartographiques pour fournir un contexte géographique précis à des applications web et mobiles. Vous pouvez utiliser une API REST, un contrôle JavaScript web ou un kit Android SDK pour créer vos applications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

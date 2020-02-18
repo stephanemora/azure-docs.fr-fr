@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/19/2019
+ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 9483db2187c05fe8e0f4fa2d41c17b8748ba3db7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e16166c741b99c1af5b36f2c7ccd25b01f7544ba
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451104"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108996"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Démarrage rapide : Base de connaissances de test avec des questions par lots et les réponses attendues
 
@@ -24,7 +24,7 @@ Utilisez l’outil de test par lot QnA Maker pour tester les bases de connaissan
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Créez un service QnA Maker](create-publish-knowledge-base.md#create-a-new-qna-maker-knowledge-base) ou faites appel à un service existant, qui utilise la langue anglaise pour l’exemple de document utilisé dans ce guide de démarrage rapide.
+* [Créez un service QnA Maker](create-publish-knowledge-base.md) ou utilisez un service existant, qui utilise la langue anglaise.
 * Téléchargez l’[exemple de fichier multitour `.docx`](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
 * Téléchargez l’[outil de test par lot](https://aka.ms/qnamakerbatchtestingtool), puis extrayez le fichier exécutable du fichier `.zip`.
 
@@ -41,9 +41,16 @@ Utilisez l’outil de test par lot QnA Maker pour tester les bases de connaissan
     * Nom du service Azure QnA
     * Langue (anglais)
 1. Entrez `Multi-turn batch test quickstart` pour le nom de votre base de connaissances.
-1. À l’**étape 4**, cochez **Enable multi-turn extraction from URLs, .pdf or .docx files** (Activer l’extraction multitour à partir d’URL, de fichier .pdf ou .docx).
-1. Entrez le **texte de réponse par défaut** `Quickstart - can't find answer`. Dans une base de connaissances de production, ces informations doivent être plus instructives pour l’utilisateur, mais pour ce guide de démarrage rapide, une réponse simple suffit.
-1. Toujours à l’**étape 4**, sélectionnez **+ Add file** (Ajouter un fichier), puis sélectionnez le fichier `.docx` téléchargé figurant dans la liste des prérequis.
+
+1. À l’**étape 4**, configurez les paramètres à l’aide du tableau suivant :
+
+    |Paramètre|Valeur|
+    |--|--|
+    |**Enable multi-turn extraction from URLs, .pdf or .docx files** (Activer l’extraction multitour à partir d’URL, de fichier .pdf ou .docx)|Activé|
+    |**Texte de réponse par défaut**| `Batch test - default answer not found.`|
+    |**+ Ajouter un fichier**|Sélectionnez la liste des fichiers `.docx` téléchargés dans le cadre des prérequis.|
+    |**Échange de conversation (chit-chat)**|Sélectionnez **Professional**.|
+
 1. À l’**étape 5**, sélectionnez **Create your KB** (Créer votre base de connaissances).
 
     À l’issue du processus de création, le portail affiche la base de connaissances modifiable.
@@ -160,7 +167,7 @@ Il existe deux scénarios principaux pour le test par lot :
 * **Traiter des fichiers de journaux de conversations** – Déterminez la meilleure réponse pour une question qui n’a pas encore été vue – Le cas le plus courant est lorsque vous devez traiter un fichier journal de requêtes, comme les questions utilisateur d’un bot conversationnel. Créez un test de fichier par lot, avec uniquement les colonnes obligatoires. Le test retourne la meilleure réponse pour chaque question. Cela ne signifie pas que la meilleure réponse est la bonne réponse. Une fois que vous avez terminé ce test, passez au test de validation.
 * **Test de validation** – Validez la réponse attendue. Pour ce test, l’ensemble des questions et des réponses attendues correspondantes figurant dans le test par lot doivent avoir été validées. Cela peut nécessiter un traitement manuel.
 
-La procédure suivante suppose que le scénario consiste à traiter les journaux de conversations avec 
+La procédure suivante suppose que le scénario consiste à traiter les journaux de conversations avec
 
 1. Créez un fichier de test par lot pour inclure des données facultatives, `batch-test-data-2.tsv`. Ajoutez les six lignes du fichier d’entrée de test par lot d’origine, puis ajoutez les colonnes medatada, top et QnA set ID pour chaque ligne.
 

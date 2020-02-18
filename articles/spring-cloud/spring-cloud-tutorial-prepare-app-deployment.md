@@ -1,21 +1,21 @@
 ---
-title: Tutoriel - Préparer le déploiement d’une application Spring dans Azure Spring Cloud
-description: Dans ce tutoriel, vous préparez le déploiement d’une application Spring Java.
+title: Tutoriel - Préparer le déploiement d’une application Java Spring dans Azure Spring Cloud
+description: Dans ce tutoriel, vous allez préparer le déploiement d’une application Spring Java sur Azure Spring Cloud.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.date: 10/06/2019
+ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 9918c7866b21cd2a9e021a355fb43977c91a89cf
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: af3611e4c4d1f5d8ca52b3ceb80d79dcfd7d2061
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277443"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190733"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Préparer une application Spring Java pour le déploiement dans Azure Spring Cloud
 
-Ce guide de démarrage rapide vous montre comment préparer une application Spring Cloud Java existante afin de la déployer sur Azure Spring Cloud. S’il est correctement configuré, Azure Spring Cloud fournit des services robustes pour superviser, mettre à l’échelle et mettre à jour votre application Java Spring Cloud.
+Ce guide de démarrage rapide vous montre comment préparer une application Java Spring existante afin de la déployer sur Azure Spring Cloud. S’il est correctement configuré, Azure Spring Cloud fournit des services robustes pour superviser, mettre à l’échelle et mettre à jour votre application Java Spring Cloud.
 
 ## <a name="java-runtime-version"></a>Version du runtime Java
 
@@ -25,38 +25,14 @@ Azure Spring Cloud prend en charge Java 8 et Java 11. L’environnement d’h�
 
 ## <a name="spring-boot-and-spring-cloud-versions"></a>Versions de Spring Boot et de Spring Cloud
 
-Seules les applications Spring Boot sont prises en charge dans Azure Spring Cloud. Les versions 2.0 et 2.1 de Spring Boot sont prises en charge. Le tableau ci-dessous liste les combinaisons prises en charges de Spring Boot et Spring Cloud :
+Seules les applications Spring Boot sont prises en charge dans Azure Spring Cloud. Les versions 2.1 et 2.2 de Spring Boot sont prises en charge. Le tableau ci-dessous liste les combinaisons prises en charges de Spring Boot et Spring Cloud :
 
 Version de Spring Boot | Version de Spring Cloud
 ---|---
-2 | Finchley.RELEASE
 2.1 | Greenwich.RELEASE
+2.2 | Hoxton.RELEASE
 
 Vérifiez que votre fichier pom.xml comprend les dépendances Spring Boot et Spring Cloud qui correspondent à votre version de Spring Boot.
-
-### <a name="dependencies-for-spring-boot-version-20"></a>Dépendances pour Spring Boot version 2.0
-
-```xml
-    <!-- Spring Boot dependencies -->
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.9.RELEASE</version>
-    </parent>
-
-    <!-- Spring Cloud dependencies -->
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.SR4</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-```
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Dépendances pour Spring Boot version 2.1
 
@@ -65,7 +41,7 @@ Vérifiez que votre fichier pom.xml comprend les dépendances Spring Boot et Spr
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.8.RELEASE</version>
+        <version>2.1.12.RELEASE</version>
     </parent>
 
     <!-- Spring Cloud dependencies -->
@@ -74,7 +50,31 @@ Vérifiez que votre fichier pom.xml comprend les dépendances Spring Boot et Spr
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR3</version>
+                <version>Greenwich.SR4</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+```
+
+### <a name="dependencies-for-spring-boot-version-22"></a>Dépendances pour Spring Boot version 2.2
+
+```xml
+    <!-- Spring Boot dependencies -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.4.RELEASE</version>
+    </parent>
+
+    <!-- Spring Cloud dependencies -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -90,20 +90,10 @@ Le tableau suivant liste les versions d’Azure Spring Cloud qui sont compatible
 
 Version de Spring Boot | Version de Spring Cloud | Version d’Azure Spring Cloud
 ---|---|---
-2 | Finchley.RELEASE | 2
 2.1 | Greenwich.RELEASE | 2.1
+2.2 | Hoxton.RELEASE | 2.2
 
 Ajoutez l’une des dépendances suivantes à votre fichier pom.xml. Sélectionnez la dépendance dont la version d’Azure Spring Cloud correspond à la vôtre.
-
-### <a name="dependency-for-azure-spring-cloud-version-20"></a>Dépendance pour Azure Spring Cloud version 2.0
-
-```xml
-<dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.0.0</version>
-</dependency>
-```
 
 ### <a name="dependency-for-azure-spring-cloud-version-21"></a>Dépendance pour Azure Spring Cloud version 2.1
 
@@ -111,7 +101,17 @@ Ajoutez l’une des dépendances suivantes à votre fichier pom.xml. Sélectionn
 <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.0</version>
+        <version>2.1.1</version>
+</dependency>
+```
+
+### <a name="dependency-for-azure-spring-cloud-version-22"></a>Dépendance pour Azure Spring Cloud version 2.2
+
+```xml
+<dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+        <version>2.2.0</version>
 </dependency>
 ```
 
@@ -183,4 +183,4 @@ Dans ce tutoriel, vous avez découvert comment configurer votre application Spri
 > [!div class="nextstepaction"]
 > [En savoir plus sur la configuration d’une instance Config Server](spring-cloud-tutorial-config-server.md)
 
-D’autres exemples sont disponibles sur GitHub : [Exemples Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).
+D’autres exemples sont disponibles sur GitHub : [Exemples Azure Spring Cloud](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).

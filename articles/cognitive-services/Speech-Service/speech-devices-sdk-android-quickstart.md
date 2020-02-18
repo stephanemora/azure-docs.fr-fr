@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 2def0eaa2e1ee22498202228cf62257605d940e5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 657cf0a0648cd53e5692a2cf5333ba29951b77a4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75380318"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189122"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Démarrage rapide : Exécuter l’exemple d’application du SDK Speech Devices sur Android
 
@@ -34,7 +34,7 @@ Avant de commencer à utiliser le SDK Speech Devices, vous devez :
 - Télécharger la dernière version du [SDK Speech Devices](https://aka.ms/sdsdk-download) et extraire le fichier .zip dans votre répertoire de travail.
 
   > [!NOTE]
-  > Le fichier Android-Sample-Release.zip inclut l’exemple d’application Android et ce guide de démarrage rapide part du principe que l’application est extraite vers C:\SDSDK\Android-Sample-Release
+  > Ce guide de démarrage rapide part du principe que l’application est extraite dans C:\SDSDK\Android-Sample-Release.
 
 - Pour obtenir une [clé d’abonnement Azure pour le service Speech](get-started.md)
 
@@ -83,6 +83,29 @@ Pour valider la configuration de votre kit de développement, générez et insta
 
 1. Accédez à C:\SDSDK\Android-Sample-Release\example. Sélectionnez **OK** pour ouvrir l’exemple de projet.
 
+1. Configurez Gradle pour référencer le SDK Speech. Les fichiers suivants se trouvent sous **Scripts Gradle** dans Android Studio.
+
+    Mettez à jour **build.gradle(Project:example)** , le bloc allprojects devant correspondre à celui ci-dessous, en ajoutant les lignes Maven.
+
+    ```xml
+    allprojects {
+        repositories {
+            google()
+            jcenter()
+            mavenCentral()
+            maven {
+                url 'https://csspeechstorage.blob.core.windows.net/maven/'
+            }
+        }
+    }
+    ```
+
+    Mettez à jour **build.gradle(Module:app)** en ajoutant cette ligne à la section des dépendances. 
+    
+    ```xml
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.9.0'
+    ```
+    
 1. Ajoutez votre clé d’abonnement Speech au code source. Si vous voulez essayer la reconnaissance de l’intention, ajoutez également votre clé d’abonnement au [service Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/), ainsi que l’ID de l’application.
 
    Pour Speech et LUIS, vos informations vont dans MainActivity.java :

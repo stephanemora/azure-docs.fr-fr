@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 149ec84732171cd57b3f8a9590d5340107536eac
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 894c9d34f3e9874a51f5939021f908ac4ecaaaa9
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75928225"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156464"
 ---
 > [!NOTE]
 > Le SDK Speech pour Unity prend en charge Windows Desktop (x86 et x64), ou la plateforme Windows universelle (x86, x64, ARM/ARM64), Android (x86, ARM32/64) et iOS (simulateur x64, ARM32 et ARM64).
@@ -90,7 +90,7 @@ Pour ajouter l’exemple de code de script au projet Unity, procédez comme suit
 
 1. Recherchez et remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement au service Speech.
 
-1. Recherchez la chaîne `YourServiceRegion` et remplacez-la par la [région](~/articles/cognitive-services/Speech-Service/regions.md) associée à votre abonnement. Par exemple, si vous utilisez la version d’évaluation gratuite, la région est `westus`.
+1. Recherchez la chaîne `YourServiceRegion` et remplacez-la par le « Paramètre du SDK Speech » de la [région](https://aka.ms/speech/sdkregion) associée à votre abonnement. Par exemple, si vous utilisez la version d’évaluation gratuite, la région est `westus`.
 
 1. Enregistrez les changements apportés au script.
 

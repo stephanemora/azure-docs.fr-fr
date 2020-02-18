@@ -3,22 +3,22 @@ title: Mettre à niveau votre compte Azure
 description: Explique comment mettre à niveau votre compte Azure.
 keywords: mise à niveau sur plan de paiement à l'utilisation
 author: bandersmsft
-manager: jureid
+manager: sasrin
 tags: billing
 ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/10/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e1e99313454c8352b96b8f11ec35f482521f7b5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: aa9e4c60222f5dd0f2991f2b0085c00a34d1dd7a
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984973"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134549"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Mettre à niveau votre compte gratuit Azure ou votre compte Azure for Students Starter
 
@@ -30,7 +30,7 @@ Si vous avez un [compte Azure for Students Starter](https://azure.microsoft.com/
 
 ## <a name="upgrade-your-azure-free-account"></a>Mettre à niveau votre compte gratuit Azure
 
-Quand vous mettez à niveau votre compte gratuit Azure, vous conservez vos crédits restants pendant 30 jours suivant la date de votre inscription. Par exemple :  si vous vous êtes inscrit le 1er novembre et avez effectué une mise à niveau le 5 novembre, tous vos crédits inutilisés resteront disponibles jusqu’au 30 novembre. Vous bénéficiez également de l’accès aux services gratuits pendant 12 mois après la date de la mise à niveau.
+Quand vous mettez à niveau votre compte gratuit Azure, vous conservez vos crédits restants pendant 30 jours suivant la date de votre inscription. Par exemple :  Si vous vous êtes inscrit le 1er novembre et que vous avez effectué une mise à niveau le 5 novembre, tous vos crédits inutilisés resteront disponibles jusqu’au 30 novembre. Vous bénéficiez également de l’accès aux services gratuits pendant 12 mois après la date de la mise à niveau.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com)
 1. Recherchez **Abonnements.**

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f6ab2d5811060b7dc36323a80fed6961b8cf5a9
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 01fe4d06d5f73eacee1d1cdaf1963232b84daf05
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290680"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046787"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cisco Webex
 
@@ -45,7 +45,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Cisco Webex prend en charge l’authentification unique lancée par le **fournisseur de services**.
 * Cisco Webex prend en charge le provisionnement d’utilisateurs **automatisé**.
-* Après avoir configuré Cisco Webex, vous pouvez appliquer des contrôles de session qui protègent l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Après avoir configuré Cisco Webex, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-cisco-webex-from-the-gallery"></a>Ajout de Cisco Webex à partir de la galerie
 
@@ -207,6 +207,6 @@ Le fait de cliquer sur la vignette Cisco Webex dans le panneau d’accès doit v
 
 - [Essayer Cisco Webex avec Azure AD](https://aad.portal.azure.com)
 
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/protect-webex)
+- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Guide pratique pour protéger Cisco Webex avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Guide pratique pour protéger Cisco Webex avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/protect-webex)

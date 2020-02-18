@@ -9,16 +9,16 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/21/2019
 ms.custom: mvc
-ms.openlocfilehash: 647182389ec0ad4cb2b80a0676812961cb9be770
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1337870fc871282f84af17b34ba26b3b0271316b
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890426"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110714"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
-# <a name="tutorial-configure-your-devices-from-a-back-end-service"></a>Didacticiel : Configurer vos appareils à partir d’un service backend
+# <a name="tutorial-configure-your-devices-from-a-back-end-service"></a>Tutoriel : Configurer vos appareils à partir d’un service backend
 
 Outre la réception de données de télémétrie à partir de vos appareils, vous devrez peut-être configurer vos appareils à partir de votre service back-end. Lorsque vous envoyez une configuration souhaitée à vos appareils, vous pouvez choisir de recevoir des mises à jour d’état et de conformité de ces appareils. Par exemple, vous pouvez définir une plage de température de fonctionnement cible pour un appareil ou collecter des informations sur la version du microprogramme auprès de vos appareils.
 
@@ -37,9 +37,9 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits à l’aide de Node.js. Votre machine de développement doit disposer de Node.js v10.x.x ou version ultérieure.
+Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits à l’aide de Node.js. Votre ordinateur de développement doit disposer de Node.js v10.x.x ou ultérieur.
 
 Vous pouvez télécharger Node.js pour plusieurs plateformes sur [nodejs.org](https://nodejs.org).
 
@@ -50,6 +50,8 @@ node --version
 ```
 
 Téléchargez l’exemple de projet Node.js à partir de https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip et extrayez l’archive ZIP.
+
+Assurez-vous que le port 8883 est ouvert dans votre pare-feu. L’exemple d’appareil de ce tutoriel utilise le protocole MQTT qui communique sur le port 8883. Ce port peut être bloqué dans certains environnements réseau professionnels et scolaires. Pour plus d’informations sur les différentes façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="set-up-azure-resources"></a>Configurer les ressources Azure
 
@@ -240,7 +242,7 @@ La capture d’écran suivante montre le résultat de l’application back-end e
 
 ![Application back-end](./media/tutorial-device-twins/BackEnd2.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez d’effectuer le didacticiel suivant, conservez le groupe de ressources et l’IoT Hub afin de les réutiliser ultérieurement.
 

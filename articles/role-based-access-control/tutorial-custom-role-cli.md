@@ -1,5 +1,5 @@
 ---
-title: Tutoriel - Créer un rôle personnalisé pour les ressources Azure à l’aide d’Azure CLI
+title: 'Tutoriel : Créer un rôle personnalisé pour les ressources Azure avec Azure CLI'
 description: Commencez par créer un rôle personnalisé pour les ressources Azure à l’aide d’Azure CLI dans ce tutoriel.
 services: active-directory
 documentationCenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 29b0bea851466b5173711441a5a7927c796c9926
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: f1a6e72e1444a26b675379d9948217a7773c4a1c
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419600"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138261"
 ---
-# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Didacticiel : Créer un rôle personnalisé pour les ressources Azure à l’aide d’Azure CLI
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l’aide d’Azure CLI
 
-Si les [rôles intégrés pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Pour ce tutoriel, vous allez créer un rôle personnalisé nommé Reader Support Tickets à l’aide d’Azure CLI. Le rôle personnalisé permet à l’utilisateur de consulter tous les éléments du plan de gestion d’un abonnement et d’ouvrir des tickets de support.
+Si les [rôles intégrés prévus pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Pour ce tutoriel, vous allez créer un rôle personnalisé nommé Reader Support Tickets à l’aide d’Azure CLI. Le rôle personnalisé permet à l’utilisateur de consulter tous les éléments du plan de gestion d’un abonnement et d’ouvrir des tickets de support.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un rôle personnalisé
@@ -34,9 +34,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour exécuter ce didacticiel, les éléments suivants sont nécessaires :
 
 - autorisations nécessaires pour créer des rôles personnalisés, par exemple, [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) ;
 - [Azure Cloud Shell](../cloud-shell/overview.md) ou [Azure CLI](/cli/azure/install-azure-cli)

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à F5 | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à F5 | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et F5.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5eb5cedf14af9a013a5b6a1eba5df40d665cbad5
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 7ad6b7150a43a286a4bec39a0482e08f50d95c06
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74181519"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048062"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à F5
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à F5
 
 Dans ce tutoriel, vous allez découvrir comment intégrer F5 à Azure Active Directory (Azure AD). Quand vous intégrez F5 à Azure AD, vous pouvez :
 
@@ -31,9 +31,9 @@ Dans ce tutoriel, vous allez découvrir comment intégrer F5 à Azure Active Dir
 * Permettre à vos utilisateurs de se connecter automatiquement à F5 avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Pour en savoir plus sur l’intégration d’applications SaaS à l’authentification unique dans Azure AD, consultez [S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -94,7 +94,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * La fonctionnalité d’authentification unique F5 peut être configurée de trois façons différentes.
 
-- [Configurer l’authentification unique F5 pour une application basé sur l’en-tête](#configure-f5-single-sign-on-for-header-based-application)
+- [Configurer l’authentification unique F5 pour une application basée sur l’en-tête](#configure-f5-single-sign-on-for-header-based-application)
 
 - [Configurer l’authentification unique F5 pour une application Kerberos](kerbf5-tutorial.md)
 
@@ -310,7 +310,7 @@ Cette section vous sera utile si vous ne pouvez pas utiliser la configuration gu
 
         ![Configuration de F5 (basé sur l’en-tête)](./media/headerf5-tutorial/configure19.png) 
 
-1. Cliquez sur **Finish** (Terminer).
+1. Cliquez sur **Finished** (Terminé).
 
     ![Configuration de F5 (basé sur l’en-tête)](./media/headerf5-tutorial/configure20.png) 
 

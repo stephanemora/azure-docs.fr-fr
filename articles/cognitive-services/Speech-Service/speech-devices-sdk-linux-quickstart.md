@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/13/2019
+ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: c9175f1f592c72e047b02a06a174d3013b0c7ef6
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 8035cce1482c3c441cc956272a7300f0d0ea8194
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815311"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189082"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>Démarrage rapide : Exécuter l’exemple d’application du SDK Speech Devices sur Linux
 
 Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser le SDK Speech Devices pour Linux pour créer un produit avec reconnaissance vocale ou pour l’utiliser comme appareil de [transcription de conversation](conversation-transcription-service.md). Actuellement, seul [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) est pris en charge.
 
-L’application est créée avec le package Speech SDK et l’IDE Eclipse Java (v4) sur Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9). Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
+L’application est créée avec le package du SDK Speech et l’IDE Eclipse Java (v4) sur Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9). Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
 
 Ce guide nécessite un compte [Azure Cognitive Services](get-started.md) avec une ressource de service Speech. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
 
 Le code source de l’[exemple d’application](https://aka.ms/sdsdk-download-JRE) est inclus avec le SDK Speech Devices. Il est également [disponible sur GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Ce démarrage rapide nécessite :
 
@@ -38,11 +38,11 @@ Ce démarrage rapide nécessite :
 * Clé d’abonnement Azure pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
 * Téléchargez la dernière version du [SDK Speech Devices](https://aka.ms/sdsdk-download-JRE) pour Java et décompressez le fichier .zip dans votre répertoire de travail.
    > [!NOTE]
-   > Le fichier JRE-Sample-Release.zip inclut l’exemple d’application JRE ; ce guide de démarrage rapide part du principe que l’application est extraite dans /home/wcaltest/JRE-Sample-Release
+   > Ce guide de démarrage rapide part du principe que l’application est extraite dans /home/wcaltest/JRE-Sample-Release.
 
 Vérifiez que ces dépendances sont installées avant de démarrer Eclipse.
 
-* Sur Ubuntu :
+* Sur Ubuntu :
 
   ```sh
   sudo apt-get update
@@ -56,7 +56,7 @@ Vérifiez que ces dépendances sont installées avant de démarrer Eclipse.
   sudo apt-get install libssl1.0.2 libasound2
   ```
 
-Transcription de conversation est actuellement disponible seulement pour « en-US » et « zh-CN » dans les régions « USA Centre » et « Asie Est ». Vous devez disposer d’une clé de reconnaissance vocale dans une de ces régions pour utiliser Transcription de conversation.
+Transcription de conversation est actuellement disponible seulement pour « en-US » et « zh-CN » dans les régions « USA Centre » et « Asie Est ». Vous devez disposer d’une clé Speech dans une de ces régions pour utiliser la transcription de conversation.
 
 Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonnement [Language Understanding Intelligent Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). Pour plus d’informations sur LUIS et la reconnaissance des intentions, consultez [Reconnaître les intentions vocales avec LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp). Un [exemple de modèle LUIS](https://aka.ms/sdsdk-luis) est disponible pour cette application.
 
@@ -96,7 +96,7 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.7.0</version>
+             <version>1.9.0</version>
         </dependency>
     </dependencies>
    ```
@@ -159,9 +159,9 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
 
    ![Exemple d’application et options du Kit de développement logiciel (SDK) Speech Devices](media/speech-devices-sdk/java-sample-app-linux.png)
 
-1. Essayez la nouvelle démonstration de **Transcription de conversation**. Démarrez la transcription avec **Session** > **Démarrer**. Par défaut, tout le monde est un invité. Cependant, si vous avez des signatures vocales des participants, vous pouvez les placer dans `participants.properties`, dans le dossier **target/classes** du projet. Pour générer la signature vocale, consultez [Transcrire des conversations (SDK)](how-to-use-conversation-transcription-service.md).
+1. Essayez la nouvelle démonstration de **Transcription de conversation**. Démarrez la transcription avec **Session** > **Démarrer**. Par défaut, tout le monde est invité. Cependant, si vous avez des signatures vocales des participants, vous pouvez les placer dans `participants.properties`, dans le dossier **target/classes** du projet. Pour générer la signature vocale, consultez [Transcrire des conversations (SDK)](how-to-use-conversation-transcription-service.md).
 
-   ![Application de démonstration de Transcription de conversation](media/speech-devices-sdk/cts-sample-app-linux.png)
+   ![Application de démonstration de la transcription de conversation](media/speech-devices-sdk/cts-sample-app-linux.png)
 
 ## <a name="create-and-run-standalone-the-application"></a>Créer et exécuter l’application autonome
 

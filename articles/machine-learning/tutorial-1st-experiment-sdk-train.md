@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 11/04/2019
-ms.openlocfilehash: c38347a03ddc0ef5f6c1bd3118696062db9a8254
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 02/10/2020
+ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532422"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116535"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutoriel : Entraîner votre premier modèle ML
 
@@ -35,7 +35,7 @@ Dans ce tutoriel, vous allez apprendre à effectuer les tâches suivantes :
 
 Le seul prérequis est d’avoir suivi la première partie de ce tutoriel, [Configurer l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md).
 
-Dans cette partie du tutoriel, vous exécutez le code dans l’exemple de notebook Jupyter `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, ouvert à la fin de la première partie. Cet article vous guide tout au long du code qui se trouve dans le notebook.
+Dans cette partie du tutoriel, vous exécutez le code de l’exemple de notebook Jupyter *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* ouvert à la fin de la première partie. Cet article vous guide tout au long du code qui se trouve dans le notebook.
 
 ## <a name="open-the-notebook"></a>Ouvrir le notebook
 
@@ -45,7 +45,7 @@ Dans cette partie du tutoriel, vous exécutez le code dans l’exemple de notebo
 
 
 > [!Warning]
-> Ne créez **pas** un *autre* notebook dans l’interface Jupyter ! Le notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` comprend l’**ensemble du code et des données nécessaires** pour ce tutoriel.
+> Ne créez **pas** un *autre* notebook dans l’interface Jupyter ! Le notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* comprend **l’ensemble du code et des données nécessaires** pour ce tutoriel.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Connecter un espace de travail et créer une expérience
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/13/2019
+ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: e3764dbfa7de52bf210a1e6cc8bd240d64d64aeb
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 78d9dc8c2302de6a9bdbfef62d47d10d252cf0c5
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815543"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189026"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>Démarrage rapide : Exécuter l’exemple d’application du SDK Speech Devices sur Windows
 
@@ -27,7 +27,7 @@ Ce guide nécessite un compte [Azure Cognitive Services](get-started.md) avec un
 
 Le code source de l’[exemple d’application](https://aka.ms/sdsdk-download-JRE) est inclus avec le SDK Speech Devices. Il est également [disponible sur GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Ce démarrage rapide nécessite :
 
@@ -39,9 +39,9 @@ Ce démarrage rapide nécessite :
 * Clé d’abonnement Azure pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
 * Téléchargez la dernière version du [SDK Speech Devices](https://aka.ms/sdsdk-download-JRE) pour Java et décompressez le fichier .zip dans votre répertoire de travail.
    > [!NOTE]
-   > Le fichier JRE-Sample-Release.zip inclut l’exemple d’application JRE ; ce guide de démarrage rapide part du principe que l’application est extraite dans C:\SDSDK\JRE-Sample-Release
+   > Ce guide de démarrage rapide part du principe que l’application est extraite dans C:\SDSDK\JRE-Sample-Release.
 
-Transcription de conversation est actuellement disponible seulement pour « en-US » et « zh-CN » dans les régions « USA Centre » et « Asie Est ». Vous devez disposer d’une clé de reconnaissance vocale dans une de ces régions pour utiliser Transcription de conversation.
+Transcription de conversation est actuellement disponible seulement pour « en-US » et « zh-CN » dans les régions « USA Centre » et « Asie Est ». Vous devez disposer d’une clé Speech dans une de ces régions pour utiliser la transcription de conversation.
 
 Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonnement [Language Understanding Intelligent Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). Pour plus d’informations sur LUIS et la reconnaissance des intentions, consultez [Reconnaître les intentions vocales avec LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp). Un [exemple de modèle LUIS](https://aka.ms/sdsdk-luis) est disponible pour cette application.
 
@@ -81,7 +81,7 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.7.0</version>
+             <version>1.9.0</version>
         </dependency>
     </dependencies>
    ```
@@ -136,9 +136,9 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
 
    ![Exemple d’application et options du Kit de développement logiciel (SDK) Speech Devices](media/speech-devices-sdk/java-sample-app-windows.png)
 
-1. Essayez la nouvelle démonstration de **Transcription de conversation**. Démarrez la transcription avec **Session** > **Démarrer**. Par défaut, tout le monde est un invité. Cependant, si vous avez des signatures vocales des participants, vous pouvez les placer dans un fichier `participants.properties` dans le dossier **target/classes** du projet. Pour générer la signature vocale, consultez [Transcrire des conversations (SDK)](how-to-use-conversation-transcription-service.md).
+1. Essayez la nouvelle démonstration de **Transcription de conversation**. Démarrez la transcription avec **Session** > **Démarrer**. Par défaut, tout le monde est invité. Cependant, si vous avez des signatures vocales des participants, vous pouvez les placer dans un fichier `participants.properties` dans le dossier **target/classes** du projet. Pour générer la signature vocale, consultez [Transcrire des conversations (SDK)](how-to-use-conversation-transcription-service.md).
 
-   ![Application de démonstration de Transcription de conversation](media/speech-devices-sdk/cts-sample-app-windows.png)
+   ![Application de démonstration de la transcription de conversation](media/speech-devices-sdk/cts-sample-app-windows.png)
 
 ## <a name="create-and-run-a-standalone-application"></a>Créer et exécuter une application autonome
 

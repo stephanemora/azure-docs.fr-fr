@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/14/2020
 ms.author: erhopf
-ms.openlocfilehash: 92586667675823343eb1f44f054e939c59719379
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 67157126aa218a520bc59251a93d0e2f049a240a
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748945"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156685"
 ---
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -35,7 +35,7 @@ Avant de commencer, assurez-vous de :
 
 1. Dans ce nouveau fichier, remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement au service Speech.
 
-1. Remplacez la chaîne `YourServiceRegion` par la [région](~/articles/cognitive-services/Speech-Service/regions.md) associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
+1. Remplacez la chaîne `YourServiceRegion` par le « Paramètre du SDK Speech » de la [région](https://aka.ms/speech/sdkregion) associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
 
 1. Remplacez la chaîne `whatstheweatherlike.wav` par le nom de votre fichier.
 

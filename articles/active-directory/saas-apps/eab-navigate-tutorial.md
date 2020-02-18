@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/29/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03de10f9ea3bc3bf13a0fffaf22805412456a6f9
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8e185f4065fee0399104feadc27f038dd9c4a612
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76991901"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046691"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-navigate"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à EAB Navigate
 
@@ -45,7 +45,8 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * EAB Navigate prend en charge l’authentification unique lancée par le **fournisseur de services**
 
-* Après avoir configuré EAB Navigate, vous pouvez appliquer des contrôles de session qui protègent l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="adding-eab-navigate-from-the-gallery"></a>Ajout d’EAB Navigate à partir de la galerie
 
@@ -57,7 +58,6 @@ Pour configurer l’intégration d’EAB Navigate à Azure AD, vous devez ajout
 1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
 1. Dans la section **Ajouter à partir de la galerie**, tapez **EAB Navigate** dans la zone de recherche.
 1. Sélectionnez **EAB Navigate** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
-
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-eab-navigate"></a>Configurer et tester l’authentification unique Azure AD pour EAB Navigate
 
@@ -82,32 +82,21 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous disposez d’un **fichier de métadonnées du fournisseur de services**, suivez les étapes ci-dessous :
+1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
+    
+    Dans la zone de texte **Identificateur (ID d’entité)** , entrez exactement la valeur suivante : `https://bouncer.eab.com`
+    
+    Dans la zone de texte **URL de réponse (URL Assertion Consumer Service)** , entrez les deux valeurs suivantes sous forme de lignes distinctes : `https://bouncer.eab.com/sso/saml2/acs`
+    `https://bouncer.eab.com/sso/saml2/acs/`
+    
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SUBDOMAIN>.navigate.eab.com/`
 
-    a. Cliquez sur **Charger un fichier de métadonnées**.
+    > [!NOTE]
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe de support technique EAB Navigate](mailto:EABTechSupport@eab.com) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-    ![Charger le fichier de métadonnées](common/upload-metadata.png)
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
-    b. Cliquez sur le **logo du dossier** pour sélectionner le fichier de métadonnées, puis cliquez sur **Charger**.
-
-    ![choisir le fichier de métadonnées](common/browse-upload-metadata.png)
-
-    c. Une fois le fichier de métadonnées correctement chargé, la valeur **Identificateur** est automatiquement renseignée dans la section Configuration SAML de base.
-
-    ![Informations d’authentification unique dans Domaine et URL EAB Navigate](common/sp-identifier.png)
-
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SUBDOMAIN>.navigate.eab.com`
-
-    > [!Note]
-    > Si la valeur **Identificateur** n’est pas automatiquement renseignée, renseignez-la manuellement. La valeur de l’URL de connexion n’est pas réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe du support technique EAB Navigate](mailto:jmahoney@eab.com) pour obtenir cette valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
-
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (brut)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
-
-    ![Lien Téléchargement de certificat](common/certificateraw.png)
-
-1. Dans la section **Configurer EAB Navigate**, copiez la ou les URL appropriées en fonction de vos besoins.
-
-    ![Copier les URL de configuration](common/copy-configuration-urls.png)
+    ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -141,13 +130,13 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-eab-navigate-sso"></a>Configurer l’authentification unique EAB Navigate
 
-Pour configurer l’authentification unique côté **EAB Navigate**, vous devez envoyer le **Certificat (brut)** téléchargé ainsi que les URL copiées à partir du portail Azure à l’[équipe du support technique EAB Navigate](mailto:jmahoney@eab.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **EAB Navigate**, vous devez envoyer l’**URL des métadonnées de fédération d’application** à l’[équipe du support technique EAB Navigate](mailto:EABTechSupport@eab.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-eab-navigate-test-user"></a>Créer un utilisateur de test EAB Navigate
 
-Dans cette section, vous allez créer un utilisateur appelé B.Simon dans EAB Navigate. Collaborez avec l’[équipe du support technique EAB Navigate](mailto:jmahoney@eab.com) pour ajouter des utilisateurs à la plateforme EAB Navigate. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé B.Simon dans EAB Navigate. Collaborez avec l’[équipe du support technique EAB Navigate](mailto:EABTechSupport@eab.com) pour ajouter des utilisateurs à la plateforme EAB Navigate. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 

@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: 64c5d80b5a2660164b21e71f06e847d5b11e40da
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: a8265680f74b2d5679d1ebfbb2873dd096f498a3
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964417"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083049"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutoriel : Partagez des données avec Azure Data Share  
 
@@ -29,6 +29,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 * Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * L’adresse e-mail de connexion Azure de vos destinataires (l’utilisation de leur alias de courrier ne fonctionnera pas).
+* Si le magasin de données Azure source se trouve dans un autre abonnement Azure que celui que vous utiliserez pour créer une ressource de partage de données, inscrivez le [fournisseur de ressources Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) dans l’abonnement où se trouve le magasin de données Azure. 
 
 ### <a name="share-from-a-storage-account"></a>Partager à partir d’un compte de stockage :
 
@@ -57,7 +58,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 * Accès au pare-feu SQL Server de l’adresse IP du client. Pour ce faire, procédez comme suit : 
     1. Dans SQL Server, dans le portail Azure, accédez à *Pare-feux et réseaux virtuels*
     1. Cliquez sur le bouton **activer** pour autoriser l’accès à Azure Services.
-    1. Cliquez sur **+ Ajouter une adresse IP de client**, puis cliquez sur **Enregistrer**. Cette adresse IP est susceptible d’être modifiée. Vous pouvez également ajouter une plage d’adresses IP. 
+    1. Cliquez sur **+ Ajouter une adresse IP de client**, puis cliquez sur **Enregistrer**. Cette adresse IP est susceptible d’être modifiée. Il peut être nécessaire de répéter ce processus la prochaine fois que vous partagerez des données SQL à partir du portail Azure. Vous pouvez également ajouter une plage d’adresses IP. 
 
 ### <a name="share-from-azure-data-explorer"></a>Partager depuis Azure Data Explorer
 * Un cluster Azure Data Explorer avec des bases de données que vous voulez partager.

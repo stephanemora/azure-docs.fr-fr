@@ -1,23 +1,23 @@
 ---
-title: Démarrage rapide – Lancer une application Azure Spring Cloud en utilisant le portail Azure
-description: Dans ce guide de démarrage rapide, déployez un exemple d’application dans Azure Spring Cloud en utilisant le portail Azure.
+title: Démarrage rapide – Lancer une application Azure Spring Cloud existante en utilisant le portail Azure
+description: Dans ce guide de démarrage rapide, déployez une application Spring Cloud sur Azure Spring Cloud en utilisant le portail Azure.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/4/2019
+ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: f88319319b366ec8b726d5cf6cce540008497b57
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 67ad112021c2fadb5ea93ffefcf5e58e9404e92a
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278902"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137755"
 ---
-# <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Démarrage rapide : Lancer une application Azure Spring Cloud en utilisant le portail Azure
+# <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>Démarrage rapide : Lancer une application Azure Spring Cloud existante en utilisant le portail Azure
 
-Azure Spring Cloud vous permet d’exécuter facilement sur Azure une application de microservices basée sur Spring Cloud.
+Ce guide de démarrage rapide vous montre comment déployer une application Spring Cloud sur Azure. Azure Spring Cloud vous permet d’exécuter facilement sur Azure une application de microservices basée sur Spring Cloud. 
 
-Ce guide de démarrage rapide vous montre comment déployer une application Spring Cloud sur Azure.  Vous trouverez l’exemple de code d’application utilisé dans ce tutoriel dans notre [référentiel d’exemples GitHub](https://github.com/Azure-Samples/PiggyMetrics). Quand vous aurez terminé, vous pourrez accéder à l’exemple d’application fourni en ligne et à le gérer via le portail Azure.
+Vous trouverez l’exemple de code d’application utilisé dans ce tutoriel dans notre [référentiel d’exemples GitHub](https://github.com/Azure-Samples/PiggyMetrics). Quand vous aurez terminé, vous pourrez accéder à l’exemple d’application fourni en ligne et à le gérer via le portail Azure.
 
 Dans ce guide de démarrage rapide, vous découvrez comment :
 

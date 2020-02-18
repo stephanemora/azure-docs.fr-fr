@@ -2,14 +2,14 @@
 author: trrwilson
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 5/23/2019
+ms.date: 02/10/2020
 ms.author: travisw
-ms.openlocfilehash: 5c0b6400c6dc346597329c82e82801403a888a4d
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: a7ce6bc2b6fa272c8dd3c4bf95bc06a37d1fe28f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675555"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119751"
 ---
 1. Lancez Android Studio, puis sélectionnez **Démarrer un nouveau projet Android Studio** dans la fenêtre d’**accueil**.
 
@@ -27,7 +27,7 @@ Quelques minutes sont nécessaires à Android Studio pour préparer votre nouvea
 
 [!INCLUDE [License notice](cognitive-services-speech-service-license-notice.md)]
 
-La version actuelle du kit SDK Speech Cognitive Services est 1.7.0.
+La version actuelle du SDK Speech Cognitive Services est 1.9.0.
 
 Le SDK Speech pour Android est empaqueté au format [AAR (bibliothèque Android)](https://developer.android.com/studio/projects/android-library), qui inclut les bibliothèques nécessaires et les autorisations Android requises.
 Il est hébergé dans un dépôt Maven sur https:\//csspeechstorage.blob.core.windows.net/maven/.
@@ -42,12 +42,12 @@ Configurez votre projet pour utiliser le kit SDK Speech. Ouvrez la fenêtre **St
 
    ![Capture d’écran de la dépendance de bibliothèque](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Dans la fenêtre qui s’affiche, entrez le nom et la version du kit SDK Speech pour Android, *com.microsoft.cognitiveservices.speech:client-sdk:1.7.0*. Sélectionnez ensuite **OK**.
+1. Dans la fenêtre qui s’affiche, entrez le nom et la version du SDK Speech pour Android, *com.microsoft.cognitiveservices.speech:client-sdk:1.9.0*. Sélectionnez ensuite **OK**.
    Le kit SDK Speech devrait à présent apparaître dans la liste des dépendances, comme indiqué ci-dessous :
 
    ![Capture d’écran du kit SDK Speech dans la liste des dépendances](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
 
-1. Sélectionnez l’onglet **Properties** (Propriétés). À la fois pour **Source Compatibility** (Compatibilité source) et pour **Target Compatibility** (Compatibilité cible), sélectionnez **1.8**.
+1. Sélectionnez l’onglet **Properties** (Propriétés). À des fins de **compatibilité source** et **compatibilité cible**, sélectionnez **1.9**.
 
    ![Capture d’écran de la compatibilité source et de la compatibilité cible](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-09-dependency-added.png)
 

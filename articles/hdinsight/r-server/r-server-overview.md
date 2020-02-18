@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 06/12/2019
-ms.openlocfilehash: b04cc3a5e3a5680f7a16e890c39a4a7d83002bd7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.date: 02/10/2020
+ms.openlocfilehash: a77771880da962298f6e80782e5f3e251f5f4641
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74321674"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122376"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Qu’est-ce que ML Services dans Azure HDInsight
 
@@ -23,7 +23,7 @@ ML Services sur HDInsight fournit les dernières fonctionnalités analytiques R
 
 Le nœud de périmètre d’un cluster fournit un lieu d’accueil pratique pour la connexion au cluster et l’exécution de vos scripts R. Un nœud périphérique permet d’exécuter des fonctions distribuées parallélisées de ScaleR sur les différents cœurs du serveur associé. Vous pouvez également les exécuter sur les différents nœuds du cluster à l’aide des contextes de calcul Hadoop Map Reduce ou Apache Spark de ScaleR.
 
-Les modèles ou prévisions résultant des analyses peuvent être téléchargés pour une utilisation locale. Ils peuvent également être mis en œuvre ailleurs dans Azure, en particulier par le biais du [service web](../../machine-learning/studio/deploy-a-machine-learning-web-service.md) [Azure Machine Learning Studio (classique)](https://studio.azureml.net).
+Les modèles ou prévisions résultant des analyses peuvent être téléchargés pour une utilisation locale. Ils peuvent aussi être opérationnalisés ailleurs dans Azure, en particulier par le biais du [service web](../../machine-learning/studio/deploy-a-machine-learning-web-service.md) [Azure Machine Learning Studio (classique)](https://studio.azureml.net).
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Démarrer avec ML Services sur HDInsight
 
@@ -50,6 +50,9 @@ ML Services dans HDInsight offre les avantages suivants :
 
   Individuals embarking on the journey of making their applications intelligent or simply wanting to learn the new world of AI and machine learning, need the right resources to help them get started. In addition to this documentation, Microsoft provides several learning resources and has engaged several training partners to help you ramp up and become productive quickly.
 --->
+
+> [!NOTE]  
+> Le type de cluster ML Services sur HDInsight est pris en charge uniquement sur HDInsight 3.6. La mise hors service de HDInsight 3.6 est prévue pour le 31 décembre 2020.
 
 ## <a name="key-features-of-ml-services-on-hdinsight"></a>Fonctionnalités clés de ML Services sur HDInsight
 

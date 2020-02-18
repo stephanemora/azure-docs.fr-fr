@@ -4,12 +4,12 @@ description: Découvrez comment exécuter la migration avec agent des machines v
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.custom: MVC
-ms.openlocfilehash: c6e0b65a586bfd629244404933836cde7287ae29
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 49b576770d67ae9d2b98a8a0004f4219ecf0fae4
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028955"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057275"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrer des machines virtuelles VMware vers Azure (migration basée sur un agent)
 
@@ -402,7 +402,7 @@ Après avoir vérifié que la migration de test fonctionne comme prévu, vous po
 
 2. Dans **Réplication des machines**, cliquez avec le bouton droit sur la machine virtuelle > **Migrer**.
 3. Dans **Migrer** > **Arrêter les machines virtuelles et effectuer une migration planifiée sans perte de données**, sélectionnez **Oui** > **OK**.
-    - Par défaut, Azure Migrate arrête la machine virtuelle locale et exécute une réplication à la demande pour synchroniser tout changement apporté à la machine virtuelle depuis la dernière réplication. Cela permet d’éviter toute perte de données.
+    - Par défaut, Azure Migrate arrête la machine virtuelle locale pour garantir une perte de données minimale. 
     - Si vous ne souhaitez pas arrêter la machine virtuelle, sélectionnez **Non**.
 4. Un travail de migration démarre pour la machine virtuelle. Suivez le travail dans les notifications Azure.
 5. Une fois le travail terminé, vous pouvez afficher et gérer la machine virtuelle à partir de la page **Machines virtuelles**.

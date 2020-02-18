@@ -1,53 +1,52 @@
 ---
-title: 'Didacticiel : API de producteur et de consommateur Apache Kafka – Azure HDInsight'
+title: 'Tutoriel : API de producteur et de consommateur Apache Kafka – Azure HDInsight'
 description: Découvrez comment utiliser les API de consommateur et de producteur Apache Kafka avec Kafka sur HDInsight. Dans ce didacticiel, vous allez apprendre à utiliser ces API avec Kafka sur HDInsight à partir d’une application Java.
-author: dhgoelmsft
-ms.author: dhgoel
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 10/08/2019
-ms.openlocfilehash: ad810ac2f8751554aaf0afcd2b15e1da83f38fe1
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 102523316aaa59803fb9a6957457fc7bd4f6ce4f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242010"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186810"
 ---
-# <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutoriel : Utiliser les API de producteur et de consommateur Apache Kafka
+# <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutoriel : Utiliser les API de producteur et de consommateur Apache Kafka
 
 Découvrez comment utiliser les API de consommateur et de producteur Apache Kafka avec Kafka sur HDInsight.
 
 L’API de producteur Kafka permet aux applications d’envoyer des flux de données au cluster Kafka. L’API de consommateur Kafka permet aux applications de lire des flux de données à partir du cluster.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Prérequis
+> * Conditions préalables requises
 > * Comprendre le code
 > * Générer et déployer l’application
 > * Exécuter l’application sur le cluster
 
 Pour plus d’informations sur les API, consultez la documentation Apache sur l’[API de producteur](https://kafka.apache.org/documentation/#producerapi) et l’[API de consommateur](https://kafka.apache.org/documentation/#consumerapi).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-* Apache Kafka sur HDInsight 3.6. Pour découvrir comment créer un cluster Kafka sur HDInsight, consultez [Démarrer avec Apache Kafka sur HDInsight](apache-kafka-get-started.md).
-
+* Apache Kafka sur un cluster HDInsight. Pour découvrir comment créer un cluster, consultez [Démarrer avec Apache Kafka sur HDInsight](apache-kafka-get-started.md).
 * [Kit de développeur Java (JDK) version 8](https://aka.ms/azure-jdks) ou un équivalent, tel qu’OpenJDK.
-
 * [Apache Maven](https://maven.apache.org/download.cgi) correctement [installé](https://maven.apache.org/install.html) en fonction d’Apache.  Maven est un système de génération de projet pour les projets Java.
-
-* Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Un client SSH tel que Putty. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="understand-the-code"></a>Comprendre le code
 
-L’exemple d’application se trouve sur [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), dans le sous-répertoire `Producer-Consumer`. L’application se compose principalement de quatre fichiers :
+L’exemple d’application se trouve sur [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), dans le sous-répertoire `Producer-Consumer`. Si vous utilisez un cluster Kafka où est activé le **Pack Sécurité Entreprise**, vous devez utiliser la version de l’application qui est située dans le sous-répertoire `DomainJoined-Producer-Consumer`.
 
+L’application se compose principalement de quatre fichiers :
 * `pom.xml`: ce fichier définit les dépendances du projet, la version Java et les méthodes d’empaquetage.
 * `Producer.java`: ce fichier envoie des phrases aléatoires à Kafka à l’aide de l’API de producteur.
 * `Consumer.java`: ce fichier utilise l’API de consommateur pour lire les données de Kafka et les émettre dans STDOUT.
+* `AdminClientWrapper.java`: Ce fichier utilise l’API d’administration pour créer, décrire et supprimer des rubriques Kafka.
 * `Run.java`: interface de ligne de commande utilisée pour exécuter le code producteur et consommateur.
 
 ### <a name="pomxml"></a>Pom.xml
@@ -116,9 +115,11 @@ Le fichier [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-
 
 ## <a name="build-and-deploy-the-example"></a>Générer et déployer l’exemple
 
+Si vous souhaitez ignorer cette étape, vous pouvez télécharger les fichiers jar prédéfinis à partir du sous-répertoire `Prebuilt-Jars`. Téléchargez kafka-producer-consumer.jar. Si le **Pack Sécurité Entreprise** est activé dans votre cluster, utilisez kafka-producer-consumer-esp.jar. Effectuez l’étape 3 pour copier le fichier jar dans votre cluster HDInsight.
+
 1. Téléchargez et extrayez les exemples à partir de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
-2. Configurez votre répertoire actuel sur l’emplacement du répertoire `hdinsight-kafka-java-get-started\Producer-Consumer` et utilisez la commande suivante :
+2. Configurez votre répertoire actuel sur l’emplacement du répertoire `hdinsight-kafka-java-get-started\Producer-Consumer`. Si vous utilisez un cluster Kafka où est activé le **Pack Sécurité Entreprise**, vous devez définir l’emplacement sur le sous-répertoire `DomainJoined-Producer-Consumer`. Exécutez la commande suivante pour générer l’application :
 
     ```cmd
     mvn clean package
@@ -140,29 +141,12 @@ Le fichier [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Installez [jq](https://stedolan.github.io/jq/), un processeur JSON en ligne de commande. À partir de la connexion SSH ouverte, entrez la commande suivante pour installer `jq` :
+1. Pour obtenir les hôtes du répartiteur Kafka, remplacez les valeurs `<clustername>` et `<password>` de la commande suivante, puis exécutez-la. Utilisez la même casse pour `<clustername>`, comme indiqué dans le portail Azure. Remplacez `<password>` par le mot de passe de connexion du cluster, puis exécutez :
 
     ```bash
     sudo apt -y install jq
-    ```
-
-1. Configurez une variable de mot de passe. Remplacez `PASSWORD` par le mot de passe de connexion du cluster, puis entrez la commande :
-
-    ```bash
-    export password='PASSWORD'
-    ```
-
-1. Extrayez le nom du cluster avec la bonne casse. La casse réelle du nom du cluster peut être différente de la casse attendue, suivant la façon dont le cluster a été créé. Cette commande obtient la casse réelle, puis la stocke dans une variable. Entrez la commande suivante :
-
-    ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
-    ```
-    > [!Note]  
-    > Si vous effectuez ce processus de l’extérieur du cluster, la procédure pour stocker le nom du cluster est différente. Récupérez le nom du cluster en minuscules à partir du portail Azure. Ensuite, remplacez le nom du cluster par `<clustername>` dans la commande suivante, puis exécutez-la : `export clusterName='<clustername>'`.  
-
-1. Pour obtenir les hôtes du répartiteur Kafka, utilisez les commandes suivantes :
-
-    ```bash
+    export clusterName='<clustername>'
+    export password='<password>'
     export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
@@ -220,7 +204,7 @@ La consommation par les clients au sein du même groupe est gérée par le biais
 
 Les enregistrements stockés dans Kafka le sont dans l’ordre de réception au sein d’une partition. Pour obtenir la livraison chronologique des enregistrements *dans une partition*, créez un groupe de consommateurs où le nombre d’instances de consommateurs correspond au nombre de partitions. Pour obtenir la livraison chronologique des enregistrements *dans la rubrique*, créez un groupe de consommateurs avec une seule instance de consommateur.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer les ressources créées par ce didacticiel, vous pouvez supprimer le groupe de ressources. La suppression du groupe de ressources efface également le cluster HDInsight associé et d’autres ressources liées au groupe de ressources.
 

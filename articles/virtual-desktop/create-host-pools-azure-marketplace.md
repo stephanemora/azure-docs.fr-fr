@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: 25dd4810cf8cccab8bcbf211da4f6abbcd147056
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 40659414848adb9be86b6163cf456809e9cb750f
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020027"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134591"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutoriel : Créer un pool d’hôtes en utilisant la Place de marché Azure
 
@@ -65,6 +65,10 @@ Voici la procédure à suivre pour le panneau **Informations de base** :
 Pour le panneau **Configurer des machines virtuelles** :
 
 1. Acceptez les valeurs par défaut ou personnalisez le nombre et la taille des machines virtuelles.
+    
+    >[!NOTE]
+    >Si la taille de machine virtuelle que vous recherchez n’apparaît pas dans le sélecteur de taille de machine virtuelle, c’est parce que nous ne l’avons pas encore intégrée à l’outil Place de marché Azure. Pour demander une taille de machine virtuelle, créez une demande ou votez pour une demande existante dans le [forum UserVoice sur Windows Virtual Desktop](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    
 2. Entrez un préfixe pour le nom des machines virtuelles. Par exemple, si vous entrez le nom « préfixe », les machines virtuelles s’appelleront « préfixe-0 », « préfixe-1 », etc.
 3. Sélectionnez **Suivant : Paramètres de la machine virtuelle**.
 

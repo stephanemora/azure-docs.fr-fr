@@ -39,8 +39,8 @@
       href: active-directory-deployment-checklist-p2.md
     - name: Stockages de données d’identité pour l’UE
       href: active-directory-data-storage-eu.md
-    - name: Stockages de données d’identité pour l’Australie
-      href: active-directory-data-storage-australia.md
+    - name: Stockages de données d’identité pour l’Australie et la Nouvelle-Zélande
+      href: active-directory-data-storage-australia-newzealand.md
     - name: "Nouveautés de Microsoft\_365 Government"
       href: whats-new-microsoft-365-government.md
     - name: Informations de référence sur les opérations Azure AD

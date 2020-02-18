@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 07/24/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 42785e3ee636f24ca185f57a11d4ee1091db3e98
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: bf37f7b27e3f8923a229cc0617365d912d47aec2
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890414"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110659"
 ---
-# <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Didacticiel : Effectuer un basculement manuel pour un hub IoT
+# <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Tutoriel : Effectuer un basculement manuel pour un hub IoT
 
 Basculement manuel est une fonctionnalité du service IoT Hub qui permet aux clients le[basculement](https://en.wikipedia.org/wiki/Failover) des opérations de leur hub à partir d’une région primaire vers la région Azure associée géographiquement correspondante. Basculement manuel est possible en cas de sinistre régional ou une panne de service étendue. Vous pouvez également effectuer un basculement planifié pour tester vos capacités de récupération d’urgence, mais nous vous recommandons d’utiliser un IoT hub de test plutôt que celui en cours d’exécution en production. La fonctionnalité de basculement manuel est proposée aux clients sans coût supplémentaire.
 
@@ -29,9 +29,11 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 > * Effectuer une restauration automatique pour ramener les opérations d’IoT hub à l’emplacement principal. 
 > * Confirmer que le hub s’exécute correctement dans l’emplacement approprié.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+* Assurez-vous que le port 8883 est ouvert dans votre pare-feu. L’exemple d’appareil de ce tutoriel utilise le protocole MQTT qui communique sur le port 8883. Ce port peut être bloqué dans certains environnements réseau professionnels et scolaires. Pour plus d’informations sur les différentes façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -47,7 +49,7 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 
     **Groupe de ressources** : cliquez sur **Créer nouveau**  et spécifiez **ManIFailRG** pour le nom du groupe de ressources.
 
-    **Région** : sélectionnez une région proche de vous. Ce didacticiel utilise`West US 2`. Un basculement ne peut être effectué entre des régions Azure géographiquement associées. La région géographiquement associée à USA Ouest 2 est WestCentralUS.
+    **Région** : sélectionnez une région proche de vous. Ce didacticiel utilise `West US 2`. Un basculement ne peut être effectué entre des régions Azure géographiquement associées. La région géographiquement associée à USA Ouest 2 est WestCentralUS.
     
    **Nom de IoT Hub** : spécifiez un nom pour votre IoT Hub. Le nom du hub doit être globalement unique. 
 
@@ -116,7 +118,7 @@ Une restauration automatique est effectuée à l’instar d’un basculement man
 
    Les bannières sont affichées comme expliqué dans la section Effectuer un basculement. Une fois la restauration automatique terminée, il affiche à nouveau `West US 2` comme emplacement actuel et `West Central US` comme emplacement de basculement, comme défini à l’origine.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources 
+## <a name="clean-up-resources"></a>Nettoyer les ressources 
 
 Pour supprimer toutes les ressources que vous avez créées, supprimez le groupe de ressources. Cette opération supprime toutes les ressources contenues dans le groupe. Dans le cas présent, l’Iot hub et le groupe de ressources sont supprimés. 
 

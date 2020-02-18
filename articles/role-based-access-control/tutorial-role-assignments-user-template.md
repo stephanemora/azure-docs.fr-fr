@@ -1,5 +1,5 @@
 ---
-title: Tutoriel - Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et d’un modèle Resource Manager
+title: 'Tutoriel : Accorder un accès utilisateur aux ressources Azure avec RBAC et un modèle Resource Manager'
 description: Dans ce tutoriel, découvrez comment accorder un accès utilisateur aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) en utilisant le modèle Azure Resource Manager.
 services: role-based-access-control,azure-resource-manager
 documentationCenter: ''
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
-ms.openlocfilehash: ed143f85b4372348baa1d74b4ec7a7447943a74f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 96ca4f65d2def5f5004388c533410f09cc2a71fa
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74418492"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138216"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Didacticiel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) et d’un modèle Resource Manager
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) et d’un modèle Resource Manager
 
 Le [contrôle d'accès en fonction du rôle (RBAC)](overview.md) vous permet de gérer l'accès aux ressources Azure. Dans ce tutoriel, vous allez créer un groupe de ressources et autoriser un utilisateur à créer et à gérer des machines virtuelles dans le groupe de ressources. Ce tutoriel porte essentiellement sur le déploiement d’un modèle Resource Manager en vue d’accorder l’accès. Pour plus d’informations sur le développement de modèles Resource Manager, consultez la [documentation Resource Manager](/azure/azure-resource-manager/) et les [informations de référence sur les modèles](/azure/templates/microsoft.authorization/allversions
 ).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Accorder l’accès à un utilisateur au niveau du groupe de ressources
@@ -34,7 +34,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour ajouter et supprimer des attributions de rôles, vous devez disposer :
 
@@ -63,7 +63,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## <a name="validate-the-deployment"></a>Valider le déploiement
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Ouvrez le groupe de ressources créé dans la dernière procédure. Le nom par défaut est le nom du projet avec **rg** ajouté.
 1. Sélectionnez **Contrôle d’accès (IAM)** à partir du menu de gauche.
 1. Sélectionnez **Attributions de rôles**. 
@@ -83,4 +83,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell](tutorial-role-assignments-user-powershell.md)

@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
 ms.date: 09/23/2019
-ms.openlocfilehash: 7fadb17476c2a071de767573994bb1120b476cdf
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 0e7b2db188ef6ee7d6b80ba5da4010112008ad70
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053732"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122111"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Vue d’ensemble de la sécurité d’entreprise dans Azure HDInsight
 
@@ -38,7 +38,7 @@ Le [Pack Sécurité Entreprise](apache-domain-joined-architecture.md) d’HDInsi
 
 Avec cette configuration, des employés de l’entreprise peuvent se connecter aux nœuds du cluster à l’aide de leurs informations d’identification de domaine. Ils peuvent également utiliser leurs informations d’identification de domaine pour s’authentifier auprès d’autres points de terminaison approuvés comme les vues Ambari, ODBC, JDBC, PowerShell et les API REST afin d’interagir avec le cluster. 
 
-### <a name="authorization"></a>Authorization
+### <a name="authorization"></a>Autorisation
 
 L’une des bonnes pratiques que la plupart des entreprises appliquent consiste à s’assurer que chaque employé n’a pas accès à l’intégralité des ressources de l’entreprise. Parallèlement, l’administrateur peut définir des stratégies de contrôle d’accès en fonction du rôle pour les ressources du cluster. Cela est uniquement disponible dans les clusters ESP.
 
@@ -74,20 +74,20 @@ Le tableau suivant fournit des liens vers des ressources pour chaque type de sol
 
 | Zone de sécurité | Solutions disponibles | Partie responsable |
 |---|---|---|
-| Sécurité de l’accès aux données | Configurer des [listes de contrôle d’accès (ACL)](../../storage/blobs/data-lake-storage-access-control.md) pour Azure Data Lake Storage Gen1 et Gen2  | Client |
-|  | Activer la propriété [« Transfert sécurisé requis »](../../storage/common/storage-require-secure-transfer.md) sur le compte de stockage | Client |
-|  | Configurer des [pare-feu Stockage Azure](../../storage/common/storage-network-security.md) et des réseaux virtuels | Client |
-|  | Configurer des [points de terminaison de service de réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) pour Cosmos DB et [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Client |
-|  | Vérifier que le [chiffrement TLS](../../storage/common/storage-security-tls.md) est activé pour les données en transit | Client |
-|  | Configurer des [clés gérées par le client](../../storage/common/storage-encryption-keys-portal.md) pour le chiffrement du Stockage Azure | Client |
-| Sécurité des applications et des middlewares (intergiciels) | Intégrer à AAD-DS et [configurer l’authentification](apache-domain-joined-configure-using-azure-adds.md) | Client |
-|  | Configurer des stratégies d’[autorisation Apache Ranger](apache-domain-joined-run-hive.md) | Client |
-|  | Utiliser les [journaux Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Client |
-| Sécurité du système d’exploitation | Créer des clusters avec l’image de base sécurisée la plus récente | Client |
-|  | Garantir la [mise à jour corrective du système d’exploitation](../hdinsight-os-patching.md) à intervalles réguliers | Client |
+| Sécurité de l’accès aux données | Configurer des [listes de contrôle d’accès (ACL)](../../storage/blobs/data-lake-storage-access-control.md) pour Azure Data Lake Storage Gen1 et Gen2  | Customer |
+|  | Activer la propriété [« Transfert sécurisé requis »](../../storage/common/storage-require-secure-transfer.md) sur le compte de stockage | Customer |
+|  | Configurer des [pare-feu Stockage Azure](../../storage/common/storage-network-security.md) et des réseaux virtuels | Customer |
+|  | Configurer des [points de terminaison de service de réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) pour Cosmos DB et [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Customer |
+|  | Vérifier que le [chiffrement TLS](../../storage/common/storage-security-tls.md) est activé pour les données en transit | Customer |
+|  | Configurer des [clés gérées par le client](../../storage/common/storage-encryption-keys-portal.md) pour le chiffrement du Stockage Azure | Customer |
+| Sécurité des applications et des middlewares (intergiciels) | Intégrer à AAD-DS et [configurer l’authentification](apache-domain-joined-configure-using-azure-adds.md) | Customer |
+|  | Configurer des stratégies d’[autorisation Apache Ranger](apache-domain-joined-run-hive.md) | Customer |
+|  | Utiliser les [journaux Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Customer |
+| Sécurité du système d’exploitation | Créer des clusters avec l’image de base sécurisée la plus récente | Customer |
+|  | Garantir la [mise à jour corrective du système d’exploitation](../hdinsight-os-patching.md) à intervalles réguliers | Customer |
 | Sécurité du réseau | Configurer un [réseau virtuel](../hdinsight-plan-virtual-network-deployment.md) |
-|  | Configurer des [règles de groupe de sécurité réseau entrantes](../hdinsight-plan-virtual-network-deployment.md#networktraffic) | Client |
-|  | Configurer la [restriction du trafic sortant](../hdinsight-restrict-outbound-traffic.md) avec le pare-feu (préversion) | Client |
+|  | Configurer des [règles de groupe de sécurité réseau entrantes](../hdinsight-plan-virtual-network-deployment.md#networktraffic) | Customer |
+|  | Configurer la [restriction du trafic sortant](../hdinsight-restrict-outbound-traffic.md) avec le pare-feu | Customer |
 | Infrastructure virtualisée | N/A | HDInsight (fournisseur de cloud) |
 | Sécurité de l’infrastructure physique | N/A | HDInsight (fournisseur de cloud) |
 

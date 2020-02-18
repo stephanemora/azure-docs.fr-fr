@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 66391f7b9282781902723b0153a5797a5f7ae82b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3f315f29eab107c9e0e145bd25db71a8cb8b2ace
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466513"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156224"
 ---
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -48,7 +48,7 @@ Le projet helloworld commun contient des implémentations indépendantes des pla
 1. Dans le gestionnaire `OnRecognitionButtonClicked` du fichier source, recherchez la chaîne `YourSubscriptionKey`, puis remplacez-la par la clé de votre abonnement.
 
 
-1. Dans le gestionnaire `OnRecognitionButtonClicked`, recherchez la chaîne `YourServiceRegion`, puis remplacez-la par la [région](~/articles/cognitive-services/Speech-Service/regions.md) associée à votre abonnement. (Par exemple, utilisez `westus` pour l’abonnement d’essai gratuit.)
+1. Dans le gestionnaire `OnRecognitionButtonClicked`, recherchez la chaîne `YourServiceregion`, puis remplacez-la par le « Paramètre du SDK Speech » de la [région](https://aka.ms/speech/sdkregion) associée à votre abonnement. (Par exemple, utilisez `westus` pour l’abonnement d’essai gratuit.)
 
 1. Ensuite, vous devez créer un [service Xamarin](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/), qui est utilisé pour interroger les autorisations du microphone à partir de différents projets de plateforme, comme UWP, Android et iOS. Pour cela, ajoutez un nouveau dossier nommé *Services* sous le projet helloworld, puis créez un fichier source C# sous celui-ci. Vous pouvez cliquer avec le bouton droit sur le dossier *Services*, puis sélectionner **Ajouter** > **Nouvel élément** > **Fichier de code**. Renommez le fichier `IMicrophoneService.cs` et placez tout le code de l’extrait de code suivant dans ce fichier :
 

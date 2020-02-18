@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: dech
-ms.openlocfilehash: 8df78df27ffb7e8bb8fc88567bd0b3d37be20488
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: d8b17472bb531ec799be227706261962d7914d68
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719498"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134482"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Démarrage rapide : Utiliser Node.js pour se connecter à un compte d’API SQL Azure Cosmos DB et interroger ses données
 
@@ -25,16 +25,13 @@ ms.locfileid: "76719498"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-Ce guide de démarrage rapide montre comment utiliser une application Node.js pour se connecter au compte d’[API SQL](sql-api-introduction.md) Azure Cosmos DB. Vous pouvez ensuite utiliser des requêtes SQL Azure Cosmos DB pour interroger et gérer des données. L’application Node.js que vous générez dans cet article utilise le [SDK SQL JavaScript](sql-api-sdk-node.md). Ce guide de démarrage rapide utilise la version 2.0 du [SDK JavaScript](https://www.npmjs.com/package/@azure/cosmos).
+Dans ce guide de démarrage rapide, vous allez créer et gérer un compte d’API SQL Azure Cosmos DB à partir du portail Azure et à l’aide d’une application Node.js clonée à partir de GitHub. Azure Cosmos DB est un service de base de données multimodèle qui vous permet de créer et interroger rapidement des bases de données de documents, de tables, de paires clé/valeur et de graphes avec des capacités de distribution mondiale et de mise à l’échelle horizontale.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
-
-* Informations supplémentaires :
-    * [Node.js](https://nodejs.org/en/) version v6.0.0 ou ultérieure
-    * [Git](https://git-scm.com/)
+- Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Vous pouvez également [essayez Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure. Vous pouvez aussi utiliser l’[émulateur Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) avec l’URI `https://localhost:8081` et la clé `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
+- [Node.js 6.0.0 ou ultérieur](https://nodejs.org/).
+- [Git](https://www.git-scm.com/downloads).
 
 ## <a name="create-a-database"></a>Création d'une base de données 
 
@@ -78,9 +75,9 @@ Ce guide de démarrage rapide montre comment utiliser une application Node.js po
 
 Cette étape est facultative. Pour savoir comment les ressources de base de données Azure Cosmos sont créées dans le code, vous pouvez examiner les extraits de code suivants. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-string). 
 
-Notez que si vous êtes familier avec la version précédente du Kit de développement logiciel (SDK) JavaScript, vous avez l’habitude de voir les termes « collection » et « document ». Étant donné qu’Azure Cosmos DB prend en charge [plusieurs modèles d’API](https://docs.microsoft.com/azure/cosmos-db/introduction), la version 2.0 et versions ultérieures du Kit de développement logiciel (SDK) JavaScript utilise les termes génériques « conteneur », qui peut être une collection, un graphique, ou une table, et « élément » pour décrire le contenu du conteneur.
+Si vous connaissez déjà la version précédente du SDK JavaScript SQL, vous avez peut-être l’habitude de voir les termes *collection* et *document*. Étant donné qu’Azure Cosmos DB prend en charge [plusieurs modèles d’API](introduction.md), les [versions 2.0 et ultérieures du SDK JavaScript](https://www.npmjs.com/package/@azure/cosmos) utilisent les termes génériques *conteneur*, qui peut être une collection, un graphe ou une table, et *élément* pour décrire le contenu du conteneur.
 
-Tous les extraits de code suivants proviennent du fichier **app.js**.
+Tous les extraits de code suivants proviennent du fichier *app.js*.
 
 * L’objet `CosmosClient` est initialisé.
 
@@ -134,17 +131,17 @@ Tous les extraits de code suivants proviennent du fichier **app.js**.
 
 Revenez maintenant au portail Azure pour afficher les détails de la chaîne de connexion de votre compte Azure Cosmos. Copiez la chaîne de connexion dans l’application afin que celle-ci puisse se connecter à votre base de données.
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans votre compte Azure Cosmos, dans le volet de navigation gauche, cliquez sur **Clés**, puis sur **Clés en lecture-écriture**. Vous utiliserez les boutons Copier sur le côté droit de l’écran pour copier l’URI et la clé primaire dans le fichier `config.js` à l’étape suivante.
+1. Dans le [portail Azure](https://portal.azure.com/), dans votre compte Azure Cosmos DB, sélectionnez **Clés** dans le volet de navigation de gauche, puis sélectionnez **Clés en lecture-écriture**. Utilisez les boutons de copie sur le côté droit de l’écran pour copier l’URI et la Clé primaire dans le fichier *config.js* à l’étape suivante.
 
     ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, panneau Clés](./media/create-sql-api-dotnet/keys.png)
 
-2. Ouvrez le fichier `config.js`. 
+2. Ouvrez le fichier *config.js*. 
 
-3. Copiez la valeur de votre URI dans le portail (à l’aide du bouton Copier) et définissez-la comme valeur de la clé du point de terminaison (Endpoint) dans `config.js`. 
+3. Copiez votre valeur d’URI à partir du portail (à l’aide du bouton Copier) et définissez-la comme valeur de la clé du point de terminaison dans le fichier *config.js*. 
 
     `config.endpoint = "<Your Azure Cosmos account URI>"`
 
-4. Puis, copiez votre valeur de clé primaire à partir du portail et définissez-la comme la valeur de `config.key` dans `config.js`. Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
+4. Ensuite, copiez la valeur de votre CLÉ PRIMAIRE à partir du portail et définissez-la comme valeur pour `config.key` dans *config.js*. Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
 
     `config.key = "<Your Azure Cosmos account key>"`
     
@@ -166,7 +163,7 @@ Vous pouvez maintenant revenir à l’Explorateur de données afin de modifier e
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos, à créer un conteneur à l’aide de l’Explorateur de données et à exécuter une application. Vous pouvez maintenant importer des données supplémentaires dans votre base de données Azure Cosmos. 
+Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB, à créer un conteneur avec l’Explorateur de données et à exécuter une application Node.js. Vous pouvez maintenant importer des données supplémentaires dans votre compte Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importer des données dans Azure Cosmos DB](import-data.md)

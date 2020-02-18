@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf5b3c79e39e9baef49ce2c14408a15c3686a6a8
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: df7fc366c5087e66c3022c212870397d77e6e34d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293434"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046756"
 ---
 # <a name="tutorial-integrate-dropbox-for-business-with-azure-active-directory"></a>Tutoriel : Intégrer Dropbox for Business à Azure Active Directory
 
@@ -44,7 +44,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 * Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test. Dropbox for Business prend en charge l’authentification unique (SSO) initiée par le **fournisseur de services**
 
 * Dropbox for Business prend en charge le [provisionnement et le déprovisionnement automatisés des utilisateurs](dropboxforbusiness-tutorial.md)
-* Après avoir configuré Dropbox, vous pouvez appliquer des contrôles de session qui protègent l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Après avoir configuré Dropbox, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-dropbox-for-business-from-the-gallery"></a>Ajout de Dropbox for Business à partir de la galerie
 
@@ -197,6 +197,6 @@ Quand vous cliquez sur la vignette Dropbox for Business dans le volet d’accès
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/cloud-app-security/protect-dropbox)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Guide pratique pour protéger Dropbox avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Guide pratique pour protéger Dropbox avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/protect-dropbox)

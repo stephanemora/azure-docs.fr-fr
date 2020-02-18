@@ -1,5 +1,5 @@
 ---
-title: Tutoriel - Créer un rôle personnalisé pour les ressources Azure à l’aide d’Azure PowerShell
+title: 'Tutoriel : Créer un rôle personnalisé pour les ressources Azure avec Azure PowerShell'
 description: Commencez par créer un rôle personnalisé pour les ressources Azure à l’aide d’Azure PowerShell dans ce tutoriel.
 services: active-directory
 documentationCenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 176e465163d92156308eda64c4187467cc10ee15
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: d337e31f554c0aabbb94771aa7bfca4afb19a431
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419753"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138279"
 ---
-# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Didacticiel : Créer un rôle personnalisé pour les ressources Azure à l’aide d’Azure PowerShell
+# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l’aide d’Azure PowerShell
 
-Si les [rôles intégrés pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Pour ce tutoriel, vous allez créer un rôle personnalisé nommé Reader Support Tickets à l’aide d’Azure PowerShell. Le rôle personnalisé permet à l’utilisateur de consulter tous les éléments du plan de gestion d’un abonnement et d’ouvrir des tickets de support.
+Si les [rôles intégrés prévus pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Pour ce tutoriel, vous allez créer un rôle personnalisé nommé Reader Support Tickets à l’aide d’Azure PowerShell. Le rôle personnalisé permet à l’utilisateur de consulter tous les éléments du plan de gestion d’un abonnement et d’ouvrir des tickets de support.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un rôle personnalisé
@@ -36,9 +36,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour exécuter ce didacticiel, les éléments suivants sont nécessaires :
 
 - autorisations nécessaires pour créer des rôles personnalisés, par exemple, [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) ;
 - [Azure Cloud Shell](../cloud-shell/overview.md) ou [Azure PowerShell](/powershell/azure/install-az-ps)

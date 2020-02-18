@@ -1,4 +1,4 @@
-- name: Base de données Azure pour les documents PostgreSQL
+- name: Documentation Azure DB pour PostgreSQL
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -245,6 +245,8 @@
           items:
             - name: Résoudre les erreurs de connexion
               href: howto-troubleshoot-common-connection-issues.md
+            - name: Résoudre les problèmes de chiffrement de données
+              href: howto-data-encryption-troubleshoot.md
         - name: Protection avancée contre les menaces
           items:
             - name: Portail Azure

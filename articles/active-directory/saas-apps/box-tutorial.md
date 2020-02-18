@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecd4ad3e2e3da9dce3a5bab36137ce65807b6a9a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: ab129315f398061eaa427f05f3bd4b1cabff0dc3
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293723"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046768"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Box
 
@@ -46,7 +46,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * Box prend en charge l’authentification unique (SSO) initiée par le **fournisseur de services**.
 * Box prend en charge le [provisionnement et le déprovisionnement **automatisés** des utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial) (recommandé)
 * Box prend en charge l’approvisionnement d’utilisateur **juste-à-temps**.
-* Après avoir configuré Box, vous pouvez appliquer des contrôles de session qui protègent l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Après avoir configuré Box, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-box-from-the-gallery"></a>Ajout de Box à partir de la galerie
 
@@ -155,6 +155,6 @@ Le fait de cliquer sur la vignette Box dans le panneau d’accès doit vous conn
 
 - [Essayer Box avec Azure AD](https://aad.portal.azure.com/)
 
-- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/protect-box)
+- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Guide pratique pour protéger Box avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Guide pratique pour protéger Box avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/protect-box)

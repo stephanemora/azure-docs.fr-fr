@@ -2,28 +2,28 @@
 title: Paiement des abonnements Azure par facture
 description: Décrit comment payer les abonnements Azure par facture.
 author: bandersmsft
-manager: jureid
+manager: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: a0f012145788d2d1d4935e10691859e5aaf71255
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a471e859261dc735e92bfff743eb3a8e13dd9a35
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75986377"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133622"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Paiement de vos abonnements Azure par facture
 
 Si vous passez au paiement par facture, cela signifie que vous devez payer votre facture dans les 30 jours à compter de la date de facture par chèque/virement bancaire. Afin de pouvoir payer votre abonnement Azure par facture, envoyez une requête au support Azure. Une fois votre requête approuvée, vous pouvez passer au paiement par facture (chèque/virement bancaire) dans le [Portail Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
-> * Le paiement par facture (chèque/virement bancaire) est uniquement disponible pour les comptes professionnels.
+> * Le paiement par facture (chèque/virement) est disponible seulement pour les clients qui utilisent Azure pour le compte d’une société.
 > * Payez tous les frais en attente avant de passer au paiement par facture.
 > * Actuellement, le paiement de facture n’est pas pris en charge pour Azure international en Chine.
 

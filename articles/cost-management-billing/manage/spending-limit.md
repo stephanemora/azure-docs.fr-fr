@@ -2,21 +2,21 @@
 title: Limite de dépense d’Azure | Microsoft Docs
 description: Cet article décrit le fonctionnement de la limite de dépense d’Azure et comment la désactiver.
 author: bandersmsft
-manager: amberb
+manager: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 5dbf885848d9866a184caee1da6b9000a26f83a9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: bde3c142fa0f4f69948a9ff1df61d77f06d2b430
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76314123"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188279"
 ---
 # <a name="azure-spending-limit"></a>Limite de dépense d’Azure
 
@@ -36,30 +36,48 @@ Si vous vous êtes inscrit pour obtenir un compte gratuit Azure et avez atteint 
 
 ## <a name="remove-the-spending-limit-in-azure-portal"></a>Supprimer la limite de dépense dans le portail Azure
 
+Vous pouvez supprimer la limite de dépense à tout moment, pour autant qu’un mode de paiement valide soit associé à votre abonnement Azure. Pour les types d’abonnements qui ont un crédit sur plusieurs mois, comme Visual Studio Enterprise ou Visual Studio Professional, vous pouvez choisir de supprimer la limite de dépense indéfiniment ou seulement pour votre période de facturation en cours. Si vous choisissez la période de facturation en cours uniquement, la limite de dépense sera automatiquement activée au début de votre prochaine période de facturation.
+
+Si vous disposez d’un compte gratuit Azure, consultez [Mettre à niveau votre abonnement Azure](upgrade-azure-subscription.md) pour supprimer votre limite de dépense. Sinon, effectuez ces étapes pour supprimer votre limite de dépense :
+
 <a id="remove"></a>
 
-Vous pouvez supprimer la limite de dépense à tout moment, pour autant qu’un mode de paiement valide soit associé à votre abonnement Azure. Pour les types d’abonnements qui ont un crédit sur plusieurs mois, comme Visual Studio Enterprise ou Visual Studio Professional, vous pouvez également activer la limite de dépense au début de votre prochaine période de facturation.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur de compte.
+1. Recherchez **Gestion des coûts + facturation**.
 
-Pour supprimer votre limite de dépense, procédez comme suit :
+    ![Capture d’écran montrant une recherche relative à la gestion des coûts et à la facturation ](./media/spending-limit/search-bar.png)
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Accéder aux **Abonnements**.
-1. Sélectionnez votre abonnement. Par exemple, *Visual Studio Enterprise*.
-1. En haut de la page, sélectionnez **Gérer**. Vous êtes redirigé vers https://account.azure.com/. Sur le côté droit de la page, sélectionnez **Supprimer la limite de dépense**.  
-  ![Exemple de suppression de la limite de dépense](./media/spending-limit/account-azure-com-spending-limit.png)
-1. Vous êtes redirigé vers le portail Azure. Sélectionnez une option adaptée à vos besoins, puis sélectionnez une méthode de paiement. Sélectionnez **Terminer**.  
-  ![Sélectionner une option pour supprimer la limite de dépense](./media/spending-limit/remove-spending-limit.png)
+1. Dans la liste **Mes abonnements**, sélectionnez votre abonnement. Par exemple, *Visual Studio Enterprise*. 
 
-| Option | Résultat |
-| --- | --- |
-| Supprimer la limite de dépense pour une durée indéterminée | Supprime la limite de dépense sans l'activer automatiquement au début de la période de facturation suivante. |
-| Supprimer la limite de dépense pour la période de facturation en cours | Supprime la limite de dépense et l’active automatiquement au début de la période de facturation suivante. |
+   ![Capture d’écran montrant la grille Mes abonnements dans Vue d’ensemble](./media/spending-limit/cost-management-overview-msdn-x.png)
+
+    > [!NOTE]
+    > Si certains de vos abonnements Visual Studio ne s’affichent pas ici, c’est peut-être parce que vous avez modifié un répertoire d’abonnement à un moment donné. Pour ces abonnements, vous devez faire basculer le répertoire vers le répertoire d’origine (le répertoire dans lequel vous vous êtes inscrit initialement). Ensuite, répétez l’étape 2.
+    
+1. Dans la vue d’ensemble de l’abonnement, cliquez sur la bannière orange pour supprimer la limite de dépense.
+    
+    ![Capture d’écran montrant la bannière de suppression de la limite de dépense](./media/spending-limit/msdn-remove-spending-limit-banner-x.png)
+
+1. Indiquez si vous souhaitez supprimer la limite de dépense définitivement ou uniquement pour la période de facturation actuelle.
+    
+      ![Capture d’écran montrant le panneau de suppression de la limite de dépense](./media/spending-limit/remove-spending-limit-blade-x.png)
+    
+      | Option | Résultat |
+      | --- | --- |
+      | Supprimer la limite de dépense pour une durée indéterminée | La limite de dépense ne se réactive pas automatiquement au début de la période de facturation suivante. Vous pouvez cependant la réactiver vous-même à tout moment. |
+      | Supprimer la limite de dépense pour la période de facturation en cours | La limite de dépense se réactive automatiquement au début de la période de facturation suivante. |
+
+
+1. Cliquez sur **Sélectionner le mode de paiement** pour choisir un mode de paiement pour votre abonnement. Celui-ci devient le mode de paiement actif pour votre abonnement.
+
+1. Cliquez sur **Terminer**.
+
 
 ## <a name="why-you-might-want-to-remove-the-spending-limit"></a>Quel est l’intérêt de supprimer la limite de dépense ?
 
 La limite de dépense peut vous empêcher de déployer ou d’utiliser certains services Microsoft et tiers. Voici les situations dans lesquelles vous devez lever la limite de dépense liée à votre abonnement.
 
--  Vous prévoyez de déployer des images de premier tiers telles qu’Oracle ou des services tels qu’Azure DevOps Services. Cette situation entraîne presque immédiatement l’atteinte de votre limite de dépense, ce qui a pour effet de désactiver votre abonnement.
+-  Vous prévoyez de déployer des images de tiers comme Oracle ou des services comme Azure DevOps Services. Cette situation entraîne presque immédiatement l’atteinte de votre limite de dépense, ce qui a pour effet de désactiver votre abonnement.
 - Vous avez des services que vous ne souhaitez pas interrompre. Lorsque vous atteignez votre limite de dépense, les ressources Azure que vous avez déployées sont supprimées de l’environnement de production, et vos machines virtuelles Azure sont arrêtées et désallouées. Si vous avez des services que vous ne souhaitez pas interrompre, vous devez supprimer votre limite de dépense.
 - Vous avez des services et ressources utilisant des paramètres tels que des adresses IP virtuelles que vous ne voulez pas perdre. Ces paramètres sont perdus lorsque vous atteignez votre limite de dépense, et les services et ressources sont désalloués.
 
@@ -67,9 +85,20 @@ La limite de dépense peut vous empêcher de déployer ou d’utiliser certains 
 
 Cette fonctionnalité est disponible uniquement lorsque la limite de dépense a été supprimée de façon indéfinie pour les types d’abonnements qui incluent des crédits sur plusieurs mois. Vous pouvez utiliser cette fonctionnalité pour activer automatiquement votre limite de dépense au début de la période de facturation suivante.
 
-1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/Subscriptions).
-1. Sélectionnez la bannière jaune pour modifier l’option limite de dépense.
-1. Choisissez **Activer la limite de dépense de la prochaine période de facturation \<date de début de la période de facturation\>**
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur de compte.
+1. Recherchez **Gestion des coûts + facturation**.
+
+    ![Capture d’écran montrant une recherche relative à la gestion des coûts et à la facturation ](./media/spending-limit/search-bar.png)
+
+1. Dans la liste **Mes abonnements**, sélectionnez votre abonnement. Par exemple, *Visual Studio Enterprise*. 
+
+   ![Capture d’écran montrant la grille Mes abonnements dans Vue d’ensemble](./media/spending-limit/cost-management-overview-msdn-x.png)
+
+    > [!NOTE]
+    > Si certains de vos abonnements Visual Studio ne s’affichent pas ici, c’est peut-être parce que vous avez modifié un répertoire d’abonnement à un moment donné. Pour ces abonnements, vous devez faire basculer le répertoire vers le répertoire d’origine (le répertoire dans lequel vous vous êtes inscrit initialement). Ensuite, répétez l’étape 2.
+    
+1. Dans la vue d’ensemble de l’abonnement, cliquez sur la bannière en haut de la page pour réactiver la limite de dépense.
 
 ## <a name="custom-spending-limit"></a>Limite de dépense personnalisée
 

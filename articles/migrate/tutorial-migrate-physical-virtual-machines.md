@@ -4,12 +4,12 @@ description: Cet article explique comment migrer des machines physiques vers Azu
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.custom: MVC
-ms.openlocfilehash: 6cdd107cb761aab3a85b73067fd646a36fe97d63
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 908a5915cbb7f5aeb9f641da18024d5dbf497707
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989754"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134938"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrer des machines en tant que serveurs physiques vers Azure
 
@@ -61,9 +61,6 @@ Avant de commencer ce didacticiel, vous devez :
 Configurez les autorisations Azure avant de pouvoir migrer avec Azure Migrate Server Migration.
 
 - **Créez un projet** : votre compte Azure doit être autorisé à créer un projet Azure Migrate. 
-- **Inscrivez l’appliance de réplication Azure Migrate** : l’appliance de réplication crée et inscrit une application Azure Active Directory dans votre compte Azure. Vous devez déléguer les autorisations.
-- **Créez un coffre de clés** : pour migrer des machines, Azure Migrate crée un coffre de clés dans le groupe de ressources afin de gérer les clés d’accès du compte de stockage de réplication de votre abonnement. Pour créer le coffre, vous devez disposer d’autorisations d’attribution de rôle sur le groupe de ressources dans lequel réside le projet Azure Migrate. 
-
 
 ### <a name="assign-permissions-to-create-project"></a>Attribuer des autorisations pour créer un projet
 
@@ -73,43 +70,6 @@ Configurez les autorisations Azure avant de pouvoir migrer avec Azure Migrate Se
     - Si vous venez de créer un compte Azure gratuit, vous êtes le propriétaire de votre abonnement.
     - Si vous n’êtes pas le propriétaire de l’abonnement, demandez au propriétaire de vous attribuer le rôle.
 
-### <a name="assign-permissions-to-register-the-replication-appliance"></a>Affecter des autorisations pour inscrire l’appliance de réplication
-
-Pour la migration basée sur un agent, déléguez des autorisations pour Azure Migrate Server Migration afin de créer et d’inscrire une application Azure AD dans votre compte. Pour affecter des autorisations, utilisez l’une des méthodes suivantes :
-
-- L’administrateur général ou le locataire peuvent accorder des autorisations aux utilisateurs du locataire pour créer et inscrire des applications Azure AD.
-- L’administrateur général ou le locataire peuvent attribuer au compte le rôle Développeur d’applications (qui dispose des autorisations appropriées).
-
-Il est intéressant de noter que :
-
-- Les applications n’ont aucune autre autorisation d’accès sur l’abonnement que celles décrites ci-dessus.
-- Vous avez uniquement besoin de ces autorisations pour inscrire une nouvelle appliance de réplication. Vous pouvez supprimer les autorisations une fois l’appliance de réplication configurée. 
-
-
-#### <a name="grant-account-permissions"></a>Accorder des autorisations au compte
-
-L’administrateur général ou le locataire peuvent octroyer des autorisations de la façon suivante :
-
-1. Dans Azure AD, l’administrateur général/locataire doit accéder à **Azure Active Directory** > **Utilisateurs** > **Paramètres utilisateur**.
-2. L’administrateur doit affecter la valeur **Oui** à **Inscriptions des applications**.
-
-    ![Autorisations Azure AD](./media/tutorial-migrate-physical-virtual-machines/aad.png)
-
-> [!NOTE]
-> Il s’agit d’un paramètre par défaut qui n’est pas sensible. [Plus d’informations](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance)
-
-#### <a name="assign-application-developer-role"></a>Attribuer le rôle Développeur d’applications 
-
-L’administrateur général ou le locataire peuvent attribuer à un compte le rôle Développeur d’applications. [Plus d’informations](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
-
-## <a name="assign-permissions-to-create-key-vault"></a>Affecter des autorisations pour créer un coffre de clés
-
-Affectez des autorisations d’attribution de rôle sur le groupe de ressources dans lequel réside le projet Azure Migrate, comme ceci :
-
-1. Dans le groupe de ressources du portail Azure, sélectionnez **Contrôle d’accès (IAM)** .
-2. Dans **Vérifier l’accès**, recherchez le compte approprié, puis cliquez dessus pour voir les autorisations correspondantes. Vous avez besoin d’autorisations **Propriétaire** (ou **Contributeur** et **Administrateur de l’accès utilisateur**).
-3. Si vous ne disposez pas des autorisations nécessaires, demandez-les au propriétaire du groupe de ressources. 
-
 ## <a name="prepare-for-migration"></a>Préparation de la migration
 
 ### <a name="check-machine-requirements-for-migration"></a>Vérifier les conditions requises pour la migration des machines
@@ -117,7 +77,7 @@ Affectez des autorisations d’attribution de rôle sur le groupe de ressources 
 Vérifiez que les machines sont conformes aux exigences de migration vers Azure. 
 
 > [!NOTE]
-> La migration basée sur un agent avec Azure Migrate Server Migration est basée sur les fonctionnalités du service Azure Site Recovery. Certaines exigences peuvent pointer vers la documentation de Site Recovery.
+> La migration basée sur un agent avec Azure Migrate Server Migration a la même architecture de réplication que la fonctionnalité de reprise d’activité après sinistre basée sur un agent du service Azure Site Recovery, et certains des composants utilisés partagent la même base de code. Certaines exigences peuvent pointer vers la documentation de Site Recovery.
 
 1. [Vérifiez](migrate-support-matrix-physical-migration.md#physical-server-requirements) les conditions requises des serveurs physiques.
 2. Vérifiez les paramètres des machines virtuelles. Les machines virtuelles locales que vous répliquez vers Azure doivent respecter les [conditions requises des machines virtuelles Azure](migrate-support-matrix-physical-migration.md#azure-vm-requirements).
@@ -194,7 +154,7 @@ La première étape de la migration consiste à configurer l’appliance de rép
 
     ![Finaliser l’inscription](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-Après la finalisation de l’inscription, 15 minutes peuvent être nécessaires pour que les machines découvertes apparaissent dans Azure Migrate Server Migration. À mesure que des machines virtuelles sont découvertes, le nombre de **Serveurs découverts** augmente.
+Après la finalisation de l’inscription, il peut falloir du temps pour que les machines découvertes apparaissent dans Azure Migrate Server Migration. À mesure que des machines virtuelles sont découvertes, le nombre de **Serveurs découverts** augmente.
 
 ![Serveurs découverts](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
 

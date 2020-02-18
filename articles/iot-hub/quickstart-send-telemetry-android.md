@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: e213a92397240f2646ceda30688ecef422cdf29c
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 6d1a011f2aa446d8d6f9a7a474b174e3005aa1d9
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166360"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110343"
 ---
-# <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Démarrage rapide : Envoyer des données de télémétrie IoT à partir d’un appareil Android
+# <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Démarrage rapide : Envoyer des données de télémétrie IoT à partir d’un appareil Android
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -29,7 +29,7 @@ Ce guide de démarrage rapide utilise une application Android préalablement éc
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Android Studio à partir de https://developer.android.com/studio/. Pour plus d’informations sur l’installation d’Android Studio, consultez [android-installation](https://developer.android.com/studio/install).
 
@@ -42,6 +42,8 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
    ```
 
 * L’[exemple d’application Android](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) que vous exécutez dans ce guide de démarrage rapide fait partie du dépôt azure-iot-samples-java sur GitHub. Téléchargez ou clonez le dépôt [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java).
+
+* Assurez-vous que le port 8883 est ouvert dans votre pare-feu. L’exemple d’appareil de ce guide de démarrage rapide utilise le protocole MQTT, lequel communique sur le port 8883. Ce port peut être bloqué dans certains environnements réseau professionnels et scolaires. Pour plus d’informations sur les façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -117,7 +119,7 @@ Dans cette section, vous allez utiliser Azure Cloud Shell avec l’[extension Io
     La capture d’écran suivante montre la sortie lorsque le hub IoT reçoit les données de télémétrie envoyées par l’appareil Android :
 
       ![Lire les messages d’appareil à l’aide de l’interface Azure CLI](media/quickstart-send-telemetry-android/read-data.png)
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
@@ -128,4 +130,4 @@ Dans ce guide de démarrage rapide, vous avez configuré un hub IoT, inscrit un 
 Pour savoir comment contrôler votre appareil simulé à partir d’une application back-end, passez au démarrage rapide suivant.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Contrôler un appareil connecté à un hub IoT](quickstart-control-device-android.md)
+> [Démarrage rapide : Contrôler un appareil connecté à un hub IoT](quickstart-control-device-android.md)

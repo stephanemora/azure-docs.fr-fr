@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à EAB Navigate IMPL | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à EAB Navigate IMPL | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et EAB Navigate IMPL.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d02a9dbc5b89c4156b7ff8b6a49adb7f00fef83
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 465b41aaf3c3b16dcba489d1ea9ba951a3108c8e
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969741"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046582"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-navigate-impl"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à EAB Navigate IMPL
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-navigate-impl"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à EAB Navigate IMPL
 
 Dans ce tutoriel, vous allez apprendre à intégrer EAB Navigate IMPL à Azure Active Directory (Azure AD). Quand vous intégrez EAB Navigate IMPL à Azure AD, vous pouvez :
 
@@ -33,7 +33,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer EAB Navigate IMPL à Azure A
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -83,12 +83,15 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
-
+1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :  Dans la zone de texte **Identificateur (ID d’entité)** , entrez exactement la valeur suivante : `https://impl.bouncer.eab.com`
+    
+    Dans la zone de texte **URL de réponse (URL Assertion Consumer Service)** , entrez les deux valeurs suivantes sous forme de lignes distinctes : `https://impl.bouncer.eab.com/sso/saml2/acs`
+    `https://impl.bouncer.eab.com/sso/saml2/acs/`
+    
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SUBDOMAIN>.navigate.impl.eab.com/`
 
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe du support technique EAB Navigate IMPL](mailto:jmahoney@eab.com) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de connexion réelle. Contactez l’[équipe du support technique EAB Navigate IMPL](mailto:EABTechSupport@eab.com) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
@@ -126,11 +129,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-eab-navigate-impl-sso"></a>Configurer l’authentification unique EAB Navigate IMPL
 
-Pour configurer l’authentification unique côté **EAB Navigate IMPL**, vous devez envoyer l’**URL des métadonnées de fédération d’application** à l’[équipe du support technique EAB Navigate IMPL](mailto:jmahoney@eab.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **EAB Navigate IMPL**, vous devez envoyer l’**URL des métadonnées de fédération d’application** à l’[équipe du support technique EAB Navigate IMPL](mailto:EABTechSupport@eab.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-eab-navigate-impl-test-user"></a>Créer un utilisateur de test EAB Navigate IMPL
 
-Dans cette section, vous créez un utilisateur appelé B.Simon dans EAB Navigate IMPL. Collaborez avec l’ [équipe du support technique EAB Navigate IMPL](mailto:jmahoney@eab.com) pour ajouter des utilisateurs sur la plateforme EAB Navigate IMPL. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous créez un utilisateur appelé B.Simon dans EAB Navigate IMPL. Collaborez avec l’ [équipe du support technique EAB Navigate IMPL](mailto:EABTechSupport@eab.com) pour ajouter des utilisateurs sur la plateforme EAB Navigate IMPL. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 

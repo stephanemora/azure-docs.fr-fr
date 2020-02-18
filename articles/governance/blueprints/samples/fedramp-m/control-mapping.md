@@ -3,12 +3,12 @@ title: Exemples de contrôles de blueprint FedRAMP Moderate
 description: Mappage des contrôles de l’exemple de blueprint FedRAMP Moderate Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
 ms.date: 10/31/2019
 ms.topic: sample
-ms.openlocfilehash: 0ecf5430f643ee795f81759f3d07a062e433f5b6
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 3fd6762f4f0a76b560a37dd1ed4f727aa76385fd
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74544550"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150476"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint FedRAMP Moderate
 
@@ -24,7 +24,7 @@ Les correspondances suivantes concernent les contrôles **FedRAMP Moderate**. Ut
 Ce blueprint vous aide à examiner les comptes qui peuvent ne pas être conformes aux exigences de votre organisation en matière de gestion de comptes. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui auditent les comptes externes avec des autorisations de lecture, d’écriture et de propriétaire sur un abonnement, ainsi que les comptes dépréciés. En passant en revue les comptes audités par ces stratégies, vous pouvez prendre les mesures appropriées pour veiller au respect des exigences en matière de gestion des comptes.
 
 - Les comptes déconseillés doivent être supprimés de votre abonnement
-- Les comptes déconseillés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
+- Les comptes dépréciés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de lecture doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement
@@ -190,7 +190,7 @@ Ce blueprint affecte également des définitions de stratégie qui supervisent l
 
 - Les règles de groupe de sécurité réseau pour les machines virtuelles accessibles sur Internet doivent être renforcées
 - L'accès via un point de terminaison accessible sur Internet doit être limité
-- Les règles de groupe de sécurité réseau pour les applications web IaaS doivent être renforcées
+- Les ports web doivent être limités sur les groupes de sécurité réseau associés à votre machine virtuelle
 - Auditer l'accès réseau non restreint aux comptes de stockage
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) Protection de la limite | Points d’accès

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 91ea2b68828ac54d4128a90550e9c60e065b719d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d78f3cc4f2b12b2d9f45878a0c1b91263112689
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379427"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118545"
 ---
 # <a name="what-is-form-recognizer"></a>Qu’est-ce que Form Recognizer ?
 
@@ -51,17 +51,9 @@ Form Recognizer comprend également un modèle de lecture des reçus de vente en
 
 Form Recognizer peut également extraire la structure du texte et des tableaux (les numéros de ligne et de colonne associés au texte) à l’aide de la reconnaissance optique de caractères (OCR) haute définition. 
 
-## <a name="where-do-i-start"></a>Par où commencer ?
+## <a name="get-started"></a>Bien démarrer
 
-**Étape 1 :** Demander l’accès :
-
-Form Recognizer est disponible en préversion à accès limité. Pour accéder à la préversion, remplissez et envoyez le formulaire de [demande d’accès Form Recognizer](https://aka.ms/FormRecognizerRequestAccess). Des informations sur vous, votre entreprise et le scénario dans lequel vous allez utiliser Form Recognizer vous sont demandées dans le formulaire.
-
-**Étape 2 :** Créer une ressource Form Recognizer dans le portail Azure :
-
-Quand un accès vous autorisant à utiliser Form Recognizer vous est accordé, vous recevez un e-mail d’accueil contenant plusieurs liens et ressources. Utilisez le lien « Portail Azure » dans ce message pour ouvrir le portail Azure et créer une ressource Form Recognizer.
-
-**Étape 3 :** Extraire les données de vos formulaires :
+Suivez un guide de démarrage rapide pour commencer à extraire des données de vos formulaires. Nous vous recommandons d’utiliser le service gratuit pendant que vous apprenez la technologie. N’oubliez pas que le nombre de pages gratuites est limité à 500 par mois.
 
 * Personnaliser : entraîner un modèle par rapport à vos formulaires
   * Effectuer l’entraînement sans étiquettes
@@ -76,9 +68,7 @@ Quand un accès vous autorisant à utiliser Form Recognizer vous est accordé, v
 * Disposition : extraire la structure du texte et des tableaux à partir de formulaires
   * [Démarrage rapide : Extraire des données de disposition à l’aide de Python](quickstarts/python-layout.md)
 
-Nous vous recommandons d’utiliser le service gratuit pendant que vous apprenez la technologie. N’oubliez pas que le nombre de pages gratuites est limité à 500 par mois.
-
-**Étape 4 :** Passer en revue les API REST :
+### <a name="review-the-rest-apis"></a>Passer en revue les API REST
 
 Vous allez utiliser les API suivantes pour entraîner des modèles et extraire des données structurées à partir de formulaires.
 

@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: f3b0df9f663866c916a45c85767d49b8701152cd
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 4b8f58fbfa9de929139646ad267a433645e2db35
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75928217"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156408"
 ---
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -40,7 +40,7 @@ Nous allons ajouter du code qui servira de squelette à notre projet Notez que v
 
 ## <a name="create-a-speech-configuration"></a>Créer une configuration Speech
 
-Avant de pouvoir initialiser un objet `SpeechRecognizer`, vous devez créer une configuration qui utilise votre clé d’abonnement et la région de votre abonnement. Insérez ce code dans la méthode `RecognizeSpeechAsync()`.
+Avant de pouvoir initialiser un objet `SpeechRecognizer`, vous devez créer une configuration qui utilise votre clé d’abonnement et la région de votre abonnement. Choisissez le « Paramètre du SDK Speech » de la [région](https://aka.ms/speech/sdkregion). Insérez ce code dans la méthode `RecognizeSpeechAsync()`.
 
 > [!NOTE]
 > Cet exemple utilise la méthode `FromSubscription()` pour générer la `SpeechConfig`. Pour obtenir la liste complète des méthodes disponibles, consultez la rubrique [Classe SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).

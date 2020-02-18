@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: banders
-ms.openlocfilehash: 65b56511a3b454b192b5adb2a98fb3bb3510bb7e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6a4b215b2b386754bae2c1bbec171ed4bc558a93
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984489"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048210"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obtenir la propriété de facturation des abonnements Azure associés à votre compte MPA
 
@@ -120,7 +120,7 @@ Vous pouvez demander à obtenir la propriété de facturation des types d’abon
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)\*
 - [Contrat Entreprise Microsoft](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-\* L’abonnement Enterprise DevTest sera facturé au tarif du paiement à l’utilisation après le transfert ; les remises accordées dans le cadre de l’offre Enterprise DevTest associée au Contrat Entreprise (EA) du client ne seront pas disponibles pour le partenaire CSP.
+\* Un abonnement Dev/Test doit d’abord être converti en offre Contrat entreprise via un ticket de support. Un abonnement Enterprise Dev/Test sera facturé au tarif du paiement à l’utilisation après avoir été transféré. Toute remise offerte via l’offre Enterprise Dev/Test du Contrat Entreprise du client ne sera pas disponible pour le partenaire CSP.
 
 ## <a name="additional-information"></a>Informations supplémentaires
 

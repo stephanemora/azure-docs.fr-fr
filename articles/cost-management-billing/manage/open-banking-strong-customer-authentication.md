@@ -2,21 +2,21 @@
 title: Système bancaire ouvert et authentification forte du client pour les clients Azure
 description: Cet article explique pourquoi l’authentification multifacteur est requise pour certains achats Azure et comment effectuer l’authentification.
 author: bandersmsft
-manager: jureid
+manager: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: aff5e1e707980c9a63988c22653fa5fba0fc236b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5f9c5f861e238bf38451863fb2d39cbb8af93225
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75986901"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133560"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Système bancaire ouvert et authentification forte du client pour les clients Azure
 
@@ -53,14 +53,13 @@ Si votre banque refuse les frais, l’état de votre compte Azure affiche **En r
 
 ### <a name="settle-outstanding-charges-for-marketplace-and-reservation-purchases"></a>Régler les frais en souffrance pour les achats sur la Place de marché et de réservation
 
-Les achats sur la Place de marché et de réservation sont facturés séparément des services Azure. Si votre banque refuse les frais de Place de marché ou de réservation, l’état de votre facture affiche **En retard** dans le portail Azure. Vous pouvez vérifier l’état de vos factures de Place de marché et de réservation en procédant comme suit :
+Les achats sur la Place de marché et de réservation sont facturés séparément des services Azure. Si votre banque rejette les opérations de débit liées à la Place de marché ou aux réservations, votre facture devient « impayée » et vous voyez l’option **Payer maintenant** dans le portail Azure. Vous pouvez payer les factures impayées liées à la Place de marché et aux réservations en effectuant ces étapes :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur de compte.
 2. Effectuez une recherche sur **Gestion des coûts + facturation**.
 3. Sous Facturation, sélectionnez **Factures**.
-4. Cliquez sur l’onglet **Place de marché et réservations Azure** sur la droite.
-5. Sélectionnez l’abonnement correspondant.
-6. Dans la grille des factures, passez en revue la colonne d’état. Si la facture indique **Échéance** ou **En retard**, cliquez sur **Payer maintenant**. Vous êtes invité à effectuer l’authentification multifacteur pendant le processus.
+5. Dans le filtre des abonnements sous forme de liste déroulante, sélectionnez l’abonnement associé à votre achat de la Place de marché ou de réservations.
+6. Dans la grille des factures, passez en revue la colonne des types. Si le type est **Place de marché Azure et réservations**, vous voyez un lien **Payer maintenant** si la facture est à échéance ou impayée. Si vous ne voyez pas **Payer maintenant**, cela signifie que votre facture a déjà été payée. Vous êtes invité à effectuer une authentification multifacteur lors de l’opération Payer maintenant.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Si vous devez payer une facture Azure, consultez [Résoudre un solde impayé pour votre abonnement Azure](resolve-past-due-balance.md).

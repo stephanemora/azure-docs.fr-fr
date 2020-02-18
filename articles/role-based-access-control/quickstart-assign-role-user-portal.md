@@ -1,5 +1,5 @@
 ---
-title: Tutoriel - Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et du portail Azure
+title: 'Tutoriel : Accorder un accès utilisateur aux ressources Azure avec RBAC et le portail Azure '
 description: Dans ce tutoriel, découvrez comment accorder un accès utilisateur aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) dans le portail Azure.
 services: role-based-access-control
 documentationCenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: f4dd3995df2a068824c4aa6bccca5606d250a165
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6281c9a1818a3b46ac4f7a62f8ae76668db56887
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419651"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138092"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Didacticiel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et du portail Azure
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et du portail Azure
 
-Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) vous permet de gérer l’accès aux ressources Azure. Dans ce tutoriel, vous allez autoriser un utilisateur à créer et à gérer des machines virtuelles dans un groupe de ressources.
+Le [contrôle d'accès en fonction du rôle (RBAC)](overview.md) vous permet de gérer l'accès aux ressources Azure. Dans ce tutoriel, vous allez autoriser un utilisateur à créer et à gérer des machines virtuelles dans un groupe de ressources.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Accorder l’accès à un utilisateur au niveau du groupe de ressources
@@ -115,4 +115,4 @@ Dans le RBAC, vous supprimez une attribution de rôle pour supprimer un accès.
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell](tutorial-role-assignments-user-powershell.md)

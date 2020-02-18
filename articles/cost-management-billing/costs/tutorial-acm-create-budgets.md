@@ -1,21 +1,20 @@
 ---
 title: Tutoriel - Créer et gérer des budgets Azure | Microsoft Docs
 description: Ce tutoriel vous aide à planifier et à prendre en compte les coûts de services Azure que vous consommez.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/22/2020
+ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: adwise
+ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: bb02c4903348a3b8c1d129f02be64109ec0f48eb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9900a2f7a41a6b35be75326b9412ec628328e39b
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769815"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132098"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -34,13 +33,14 @@ Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créez un budget dans le portail Azure
+> * Créer et modifier des budgets avec PowerShell
 > * Modifier un budget
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Les budgets sont pris en charge pour divers types de comptes Azure. Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](understand-cost-mgt-data.md). Pour afficher les budgets, vous devez au minimum disposer d'un accès en lecture à votre compte Azure.
+Les budgets sont pris en charge pour différents types de comptes Azure. Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](understand-cost-mgt-data.md). Pour afficher les budgets, vous devez au minimum disposer d'un accès en lecture à votre compte Azure.
 
- Dans le cadre des abonnements Azure EA, vous devez disposer d'un accès en lecture pour afficher les budgets. Pour créer et gérer des budgets, vous devez disposer d’une autorisation de contributeur. Vous pouvez créer des budgets individuels pour les abonnements EA et les groupes de ressources. En revanche, il n’est pas possible d’en créer pour les comptes de facturation EA.
+ Dans le cadre des abonnements Azure EA, vous devez disposer d'un accès en lecture pour afficher les budgets. Pour créer et gérer des budgets, vous devez disposer d’une autorisation de contributeur. Vous pouvez créer des budgets individuels pour les abonnements EA et les groupes de ressources. Vous ne pouvez cependant pas créer des budgets pour les comptes de facturation Contrat Entreprise.
 
 Les autorisations, ou étendues, Azure suivantes sont prises en charge par abonnement aux budgets par utilisateur et par groupe. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
@@ -62,7 +62,7 @@ Pour créer ou afficher un budget, ouvrez l’étendue souhaitée dans le Portai
 
 Une fois des budgets créés, ils affichent une vue simple de vos dépenses actuelles par rapport à ces budgets.
 
-Cliquez sur **Add**.
+Sélectionnez **Ajouter**.
 
 ![Exemple de liste de budgets déjà créés](./media/tutorial-acm-create-budgets/budgets01.png)
 
@@ -78,15 +78,19 @@ Selon les champs choisis dans le budget jusqu’à présent, un graphique s’af
 
 ![Exemple de création de budget avec des données de coût mensuel ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-Après avoir configuré le montant du budget, cliquez sur **Suivant** pour configurer des alertes budgétaires. Les budgets nécessitent au moins un seuil de coût (% du budget) et une adresse e-mail correspondante. Si vous le souhaitez, vous pouvez inclure jusqu’à cinq seuils et cinq adresses e-mail dans un seul budget. Quand un seuil budgétaire est atteint, des notifications par e-mail sont normalement reçues en moins de 20 heures. Pour plus d'informations sur les notifications, consultez [Utiliser les alertes de coût](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md). Dans l’exemple ci-dessous, une alerte par e-mail est générée quand 90 % du budget sont atteints. Si vous créez un budget avec l’API Budgets, vous pouvez également attribuer des rôles à des personnes pour qu’elles reçoivent des alertes. L’attribution de rôles à des personnes n’est pas prise en charge dans le Portail Azure. Pour plus d’informations sur l’API Budgets d’Azure, consultez [API Budgets](/rest/api/consumption/budgets).
+Après avoir configuré le montant du budget, sélectionnez **Suivant** pour configurer des alertes budgétaires. Les budgets nécessitent au moins un seuil de coût (% du budget) et une adresse e-mail correspondante. Si vous le souhaitez, vous pouvez inclure jusqu’à cinq seuils et cinq adresses e-mail dans un seul budget. Quand un seuil budgétaire est atteint, des notifications par e-mail sont normalement reçues en moins de 20 heures.
+
+Si vous voulez recevoir des e-mails, ajoutez azure-noreply@microsoft.com à votre liste d’expéditeurs approuvés afin que les e-mails ne soient pas placés dans votre dossier de courrier indésirable. Pour plus d'informations sur les notifications, consultez [Utiliser les alertes de coût](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md).
+
+Dans l’exemple ci-dessous, une alerte par e-mail est générée quand 90 % du budget sont atteints. Si vous créez un budget avec l’API Budgets, vous pouvez également attribuer des rôles à des personnes pour qu’elles reçoivent des alertes. L’attribution de rôles à des personnes n’est pas prise en charge dans le Portail Azure. Pour plus d’informations sur l’API Budgets d’Azure, consultez [API Budgets](/rest/api/consumption/budgets).
 
 ![Exemple de conditions d’alerte](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
-Après avoir créé un budget, il est indiqué dans l’analyse des coûts. L’affichage de votre budget par rapport à la tendance de vos dépenses est l’une des premières étapes quand vous commencez à [analyser vos coûts et vos dépenses](../../cost-management/quick-acm-cost-analysis.md).
+Après avoir créé un budget, il est indiqué dans l’analyse des coûts. Visualiser votre budget par rapport à la tendance de vos dépenses est une des premières étapes quand vous commencez à [analyser vos coûts et vos dépenses](../../cost-management/quick-acm-cost-analysis.md).
 
 ![Exemple de budget et de dépenses affichés dans l’analyse des coûts](./media/tutorial-acm-create-budgets/cost-analysis.png)
 
-Dans l’exemple précédent, vous avez créé un budget pour un abonnement. Toutefois, vous pouvez également créer un budget pour un groupe de ressources. Si vous voulez créer un budget pour un groupe de ressources, accédez à **Gestion des coûts + facturation** &gt; **Abonnements** &gt; sélectionnez un abonnement > **Groupes de ressource** > sélectionnez un groupe de ressources > **Budgets** > puis **Ajouter** un budget.
+Dans l’exemple précédent, vous avez créé un budget pour un abonnement. Vous pouvez aussi créer un budget pour un groupe de ressources. Si vous voulez créer un budget pour un groupe de ressources, accédez à **Gestion des coûts + facturation** &gt; **Abonnements** &gt; sélectionnez un abonnement > **Groupes de ressource** > sélectionnez un groupe de ressources > **Budgets** > puis **Ajouter** un budget.
 
 ## <a name="costs-in-budget-evaluations"></a>Coûts des évaluations de budget
 
@@ -102,16 +106,16 @@ Les évaluations des coûts budgétaires sont basées sur le coût réel. Elles 
 
 ## <a name="trigger-an-action-group"></a>Déclencher un groupe d’actions
 
-Lorsque vous créez ou modifiez un budget pour l’étendue d’un abonnement ou d’un groupe de ressources, vous pouvez le configurer pour qu’il appelle un groupe d’actions. Le groupe d’actions peut effectuer diverses actions lorsque votre seuil budgétaire est atteint. Les groupes d’actions sont actuellement pris en charge uniquement pour les étendues d’abonnement et de groupe de ressources. Pour plus d’informations sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions dans le Portail Azure](../../azure-monitor/platform/action-groups.md). Pour plus d’informations sur l’utilisation d’une automatisation basée sur le budget avec des groupes d’actions, consultez [Gérer les coûts avec Azure Budgets](../manage/cost-management-budget-scenario.md).
+Lorsque vous créez ou modifiez un budget pour l’étendue d’un abonnement ou d’un groupe de ressources, vous pouvez le configurer pour qu’il appelle un groupe d’actions. Le groupe d’actions peut effectuer différentes actions quand votre seuil budgétaire est atteint. Les groupes d’actions sont actuellement pris en charge uniquement pour les étendues d’abonnement et de groupe de ressources. Pour plus d’informations sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions dans le Portail Azure](../../azure-monitor/platform/action-groups.md). Pour plus d’informations sur l’utilisation d’une automatisation basée sur le budget avec des groupes d’actions, consultez [Gérer les coûts avec Azure Budgets](../manage/cost-management-budget-scenario.md).
 
 
 
-Pour créer ou mettre à jour des groupes d’actions, cliquez sur **Gérer les groupes d’actions** pendant la création ou la modification d’un budget.
+Pour créer ou mettre à jour des groupes d’actions, sélectionnez **Gérer les groupes d’actions** pendant la création ou la modification d’un budget.
 
 ![Exemple de création d’un budget pour afficher Gérer les groupes d’actions](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
 
 
-Cliquez ensuite sur **Ajouter un groupe d’actions** et créez le groupe d’actions.
+Sélectionnez ensuite **Ajouter un groupe d’actions** et créez le groupe d’actions.
 
 
 ![Image de la zone Ajouter un groupe d’actions](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
@@ -122,11 +126,40 @@ Configurez votre budget pour qu’il utilise votre groupe d’actions lorsqu’u
 
 ![Exemple montrant la sélection de groupe d’actions pour une condition d’alerte](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
 
-L’exemple suivant montre des seuils budgétaires définis sur 50 %, 75 % et 100 %. Chacun est configuré pour déclencher les actions spécifiées dans le groupe d’actions désigné.
+L’exemple suivant montre des seuils budgétaires définis sur 50 %, 75 % et 100 %. Chacun est configuré pour déclencher les actions spécifiées dans le groupe d’actions désigné.
 
 ![Exemple montrant des conditions d’alerte configurées avec divers groupes d’actions et le type d’actions](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
 L’intégration au budget avec les groupes d’actions ne fonctionne que pour les groupes d’actions pour lesquels le schéma d’alerte commun est désactivé. Pour plus d’informations sur la désactivation du schéma, consultez [Comment activer le schéma d’alerte commun ?](../../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
+
+## <a name="create-and-edit-budgets-with-powershell"></a>Créer et modifier des budgets avec PowerShell
+
+Les clients Contrat Entreprise peuvent créer et modifier des budgets par programmation avec le module Azure PowerShell.  Pour télécharger la dernière version d’Azure PowerShell, exécutez la commande suivante :
+
+```azurepowershell-interactive
+install-module -name AzureRm
+```
+
+Les exemples de commandes suivantes créent un budget.
+
+```azurepowershell-interactive
+#Sign into Azure Powershell with your account
+
+Connect-AzureRmAccount
+
+#Select a subscription to to monitor with a budget
+
+select-AzureRmSubscription -Subscription "Your Subscription"
+
+#Create an action group email receiver and corresponding action group
+
+$email1 = New-AzureRmActionGroupReceiver -EmailAddress test@test.com -Name EmailReceiver1
+$ActionGroupId = (Set-AzureRmActionGroup -ResourceGroupName YourResourceGroup -Name TestAG -ShortName TestAG -Receiver $email1).Id
+
+#Create a monthly budget that sends an email and triggers an Action Group to send a second email. Make sure the StartDate for your monthly budget is set to the first day of the current month. Note that Action Groups can also be used to trigger automation such as Azure Functions or Webhooks.
+
+New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -134,6 +167,7 @@ Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créez un budget dans le portail Azure
+> * Créer et modifier des budgets avec PowerShell
 > * Modifier un budget
 
 Passez au tutoriel suivant pour créer une exportation récurrente de vos données de gestion des coûts.

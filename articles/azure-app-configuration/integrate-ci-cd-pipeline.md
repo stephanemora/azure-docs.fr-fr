@@ -1,38 +1,32 @@
 ---
-title: 'Tutoriel : Intégrer avec un pipeline d’intégration et livraison continus'
-titleSuffix: Azure App Configuration
-description: Dans ce tutoriel, vous allez apprendre à créer un fichier de configuration en utilisant des données dans Azure App Configuration pendant l’intégration et la livraison continues
+title: Intégrer Azure App configuration en utilisant un pipeline d’intégration et de livraison continues
+description: Découvrez comment implémenter l’intégration et la livraison continues à l’aide d’Azure App configuration
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: balans
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
 ms.topic: tutorial
-ms.date: 02/24/2019
+ms.date: 01/30/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: cd40b52c20a3cafdbbeef093b574d44b9163c7b2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c744557471a9b37bd620bb9195bdb709c24649ab
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899379"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047284"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Intégrer avec un pipeline CI/CD
 
-Cet article décrit différentes façons d’utiliser les données d’Azure App Configuration dans un système d’intégration continue et de déploiement continu.
+Cet article explique comment utiliser des données d’Azure App Configuration dans un système d’intégration continue et de déploiement continu.
 
 ## <a name="use-app-configuration-in-your-azure-devops-pipeline"></a>Utiliser App Configuration dans votre pipeline Azure DevOps
 
-Si vous utilisez un pipeline Azure DevOps, vous pouvez extraire des paires clé-valeur d’App Configuration et les définir en tant que variables de tâche. L’[extension DevOps Azure App Configuration](https://go.microsoft.com/fwlink/?linkid=2091063) est un module complémentaire qui fournit cette fonctionnalité. Suivez simplement ses instructions pour utiliser l’extension dans une séquence de tâches de build ou de mise en production.
+Si vous utilisez un pipeline Azure DevOps, vous pouvez extraire des paires clé-valeur d’App Configuration et les définir en tant que variables de tâche. L’[extension DevOps Azure App Configuration](https://go.microsoft.com/fwlink/?linkid=2091063) est un module complémentaire qui fournit cette fonctionnalité. Suivez ses instructions pour utiliser l’extension dans une séquence de tâches de build ou de mise en production.
 
 ## <a name="deploy-app-configuration-data-with-your-application"></a>Déployer des données App Configuration avec votre application
 
-Votre application risque de ne pas s’exécuter si elle dépend d’Azure App Configuration et ne peut pas y accéder. Vous pouvez améliorer la résilience de votre application pour gérer un tel événement, même s’il est peu probable qu’il se produise. Pour ce faire, créez un package des données de configuration actuelles dans un fichier qui sera déployé avec l’application et chargé localement pendant son démarrage. Cette approche garantit que votre application contienne au moins les valeurs de paramètre par défaut. Ces valeurs sont remplacées par les modifications plus récentes dans un magasin App Configuration lorsqu’elles sont disponibles.
+Votre application risque de ne pas s’exécuter si elle dépend d’Azure App Configuration et ne peut pas y accéder. Améliorez la résilience de votre application en empaquetant les données de configuration dans un fichier qui est déployé avec l’application et chargé localement au démarrage de l’application. Cette approche garantit que votre application contient des valeurs de paramètre par défaut au démarrage. Ces valeurs sont remplacées par les modifications plus récentes dans un magasin App Configuration lorsqu’elles sont disponibles.
 
-À l’aide de la fonction [Exporter](./howto-import-export-data.md#export-data) fonction d’Azure App Configuration, vous pouvez automatiser le processus de récupération des données de configuration actuelles dans un seul fichier. Ensuite, pendant une étape de création ou de déploiement, incorporez ce fichier dans votre pipeline d’intégration et déploiement continus (CI/CD).
+À l’aide de la fonction [Exporter](./howto-import-export-data.md#export-data) fonction d’Azure App Configuration, vous pouvez automatiser le processus de récupération des données de configuration actuelles dans un seul fichier. Vous pouvez ensuite incorporer ce fichier, pendant une étape de création ou de déploiement, dans votre pipeline d’intégration et déploiement continus (CI/CD).
 
 L’exemple suivant montre comment inclure les données d’App Configuration en tant qu’étape de création pour l’application web introduite dans les démarrages rapides. Avant de continuer, terminez d’abord l’étape [Créer une application ASP.NET Core avec App Configuration](./quickstart-aspnet-core-app.md).
 
@@ -54,10 +48,7 @@ Pour faire une build de cloud, avec Azure DevOps, par exemple, assurez-vous que 
         <Exec WorkingDirectory="$(MSBuildProjectDirectory)" Condition="$(ConnectionString) != ''" Command="az appconfig kv export -d file --path $(OutDir)\azureappconfig.json --format json --separator : --connection-string $(ConnectionString)" />
     </Target>
     ```
-
-    Ajoutez *ConnectionString* associé à votre magasin App Configuration comme variable d’environnement.
-
-2. Ouvrez *Program.cs*, puis mettez à jour la méthode `CreateWebHostBuilder` pour utiliser le fichier JSON exporté en appelant la méthode `config.AddJsonFile()`.
+1. Ouvrez *Program.cs*, puis mettez à jour la méthode `CreateWebHostBuilder` pour utiliser le fichier JSON exporté en appelant la méthode `config.AddJsonFile()`.  Ajoutez également l’espace de noms `System.Reflection`.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -75,7 +66,8 @@ Pour faire une build de cloud, avec Azure DevOps, par exemple, assurez-vous que 
 
 ### <a name="build-and-run-the-app-locally"></a>Générer et exécuter l’application localement
 
-1. Définissez une variable d’environnement nommée **ConnectionString** et affectez-lui la valeur de la clé d’accès à votre magasin App Configuration. Si vous utilisez l’invite de commandes Windows, exécutez la commande suivante et redémarrez l’invite pour que la modification soit prise en compte :
+1. Définissez une variable d’environnement nommée **ConnectionString** et affectez-lui la valeur de la clé d’accès à votre magasin App Configuration. 
+    Si vous utilisez l’invite de commandes Windows, exécutez la commande suivante et redémarrez l’invite pour que la modification soit prise en compte :
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 

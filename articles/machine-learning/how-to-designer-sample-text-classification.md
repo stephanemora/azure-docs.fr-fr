@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: sample
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 11/04/2019
-ms.openlocfilehash: 4d22fd39eae5d5cf207d6d44819f0ce7ab2eceb5
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/11/2020
+ms.openlocfilehash: f15f50e372d0bfe58018b16ebfa5d5d85644ae1a
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963239"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137785"
 ---
 # <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Générez un classifieur pour prédire la catégorie d’entreprise à l’aide du concepteur Azure Machine Learning.
 
@@ -63,7 +63,7 @@ Aucun article n’ayant pu être trouvé pour certaines sociétés, le nombre d�
 
 ## <a name="pre-process-the-text-data"></a>Prétraitement des données de texte
 
-Nous utilisons le module **Prétraiter le texte** pour prétraiter les données de texte, ce qui inclut la détection des phrases, leur segmentation, et ainsi de suite. Toutes les options prises en charge sont décrites dans l’article [**Prétraiter le texte**](algorithm-module-reference/preprocess-text.md). Une fois le prétraitement des données de texte effectué, nous utilisons le module **Fractionner les données** pour diviser de façon aléatoire les données d’entrée, afin que le jeu de données d’apprentissage contienne 50 % des données d’origine et que le jeu de données de test contienne 50 % des données d’origine.
+Nous utilisons le module **Prétraiter le texte** pour prétraiter les données de texte, ce qui inclut la détection des phrases, leur segmentation, et ainsi de suite. Toutes les options prises en charge sont décrites dans l’article [**Prétraiter le texte**](algorithm-module-reference/preprocess-text.md). Une fois le prétraitement des données de texte effectué, nous utilisons le module **Fractionner les données** pour diviser de façon aléatoire les données d’entrée, afin que le jeu de données d’entraînement contienne 50 % des données d’origine et que le jeu de données de test contienne 50 % des données d’origine.
 
 ## <a name="feature-engineering"></a>Ingénierie des caractéristiques
 Dans cet exemple, nous allons utiliser deux méthodes effectuant l’ingénierie des caractéristiques.

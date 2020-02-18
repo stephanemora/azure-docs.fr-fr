@@ -6,41 +6,31 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 257fd02c2f7ec2aff9d55b91b2cbd54b6eb55431
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc615149b092aebfdde767fb3b716fb897bfd551
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464404"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121505"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Démarrage rapide :  Déployer une application Java dans Azure Service Fabric sur Linux
 
-Ce guide de démarrage rapide montre comment déployer votre première application Java dans Azure Service Fabric à l’aide de l’IDE Eclipse sur un ordinateur de développement Linux. Lorsque vous avez terminé, vous disposez d’une application de vote avec un frontend Java qui enregistre les résultats de vote dans un service backend avec état dans le cluster.
+Dans ce guide de démarrage rapide, vous déployez une application Java sur Azure Service Fabric à l’aide de l’IDE Eclipse sur un ordinateur de développement Linux. Lorsque vous avez terminé, vous disposez d’une application de vote avec un frontend Java qui enregistre les résultats de vote dans un service backend avec état dans le cluster.
 
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et de conteneurs.
 
-![Azure Service Fabric - Exemple de vote](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
-
-Dans ce guide de démarrage rapide, vous apprenez à :
-
-* Utiliser Eclipse comme outil pour vos applications Java Service Fabric
-* Déployer l’application dans le cluster local
-* Mettre à l’échelle avec une montée en puissance parallèle sur plusieurs nœuds
-
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour suivre ce guide de démarrage rapide :
-
-1. [Installez le SDK Service Fabric et l’interface CLI Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
-2. [Installez Git](https://git-scm.com/)
-3. [Installez Eclipse](https://www.eclipse.org/downloads/)
-4. [Configurez l’environnement Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development), en suivant les étapes facultatives d’installation du plug-in Eclipse
+- [Environnement Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) et [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
+- [Eclipse Neon (4.6)+](https://www.eclipse.org/downloads/packages/) et [plug-in Eclipse pour Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#install-the-eclipse-plug-in-optional)
+- [SDK Service Fabric et interface de ligne de commande (CLI)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+- [Git](https://git-scm.com/downloads)
 
 ## <a name="download-the-sample"></a>Télécharger l’exemple
 
 Dans une fenêtre Commande, exécutez la commande suivante pour cloner le référentiel de l’exemple d’application sur votre ordinateur local.
 
-```git
+```bash
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ```
 
@@ -51,13 +41,13 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
-    Le démarrage du cluster local prend un certain temps. Pour vérifier que le cluster est entièrement opérationnel, accédez à Service Fabric Explorer à l’adresse **http://localhost:19080** . Les cinq nœuds sains indiquent que le cluster local est opérationnel.
+    Le démarrage du cluster local prend un certain temps. Pour vérifier que le cluster est entièrement opérationnel, accédez à Service Fabric Explorer à l’adresse `http://localhost:19080`. Les cinq nœuds sains indiquent que le cluster local est opérationnel.
 
     ![Azure Service Fabric Explorer - Affichage des nœuds sains](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. Ouvrez Eclipse.
 3. Cliquez sur **Fichier** > **Importer** > **Gradle** > **Projet Gradle existant** et suivez l’assistant.
-4. Cliquez sur **Répertoire**, puis sélectionnez le répertoire `Voting` dans le dossier `service-fabric-java-quickstart` que vous avez cloné à partir de GitHub. Sélectionnez **Terminer**.
+4. Cliquez sur **Répertoire**, puis sélectionnez le répertoire **Voting** dans le dossier **service-fabric-java-quickstart** que vous avez cloné à partir de GitHub. Sélectionnez **Terminer**.
 
     ![Importer un projet Gradle dans Eclipse](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
 
@@ -72,15 +62,17 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 Vous pouvez à présent ajouter un ensemble d’options de vote et commencer à enregistrer les votes. L’application s’exécute et stocke toutes les données dans votre cluster Service Fabric, sans recourir à une base de données séparée.
 
+![Azure Service Fabric - Exemple de vote](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
+
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Mettre à l’échelle les applications et services dans un cluster
 
-Les services peuvent facilement être mis à l’échelle dans un cluster pour prendre en compte une modification de la charge sur les services. Pour mettre à l’échelle un service, vous modifiez le nombre d’instances s’exécutant dans le cluster. Différentes méthodes sont disponibles pour mettre à l’échelle vos services. Par exemple, vous pouvez utiliser des scripts ou des commandes de la CLI Service Fabric (sfctl). Dans les étapes suivantes, utilisez Service Fabric Explorer.
+Les services peuvent facilement être mis à l’échelle dans un cluster pour prendre en compte une modification de la charge sur les services. Pour mettre à l’échelle un service, vous modifiez le nombre d’instances s’exécutant dans le cluster. Il existe de nombreuses façons de mettre à l’échelle vos services. Par exemple, vous pouvez utiliser des scripts ou des commandes à partir de l’interface de ligne de commande (CLI) Service Fabric (`sfctl`). Dans les étapes suivantes, utilisez Service Fabric Explorer.
 
-Service Fabric Explorer s’exécute dans tous les clusters Service Fabric et est accessible à partir d’un navigateur, en accédant au port de gestion HTTP (19080) du cluster, par exemple, `http://localhost:19080`.
+Service Fabric Explorer s’exécute dans tous les clusters Service Fabric et est accessible à partir d’un navigateur, en accédant au port de gestion HTTP (19080) du cluster. Par exemple : `http://localhost:19080`.
 
 Pour mettre à l’échelle le service web frontal, procédez comme suit :
 
-1. Ouvrez Service Fabric Explorer dans votre cluster. Par exemple, `https://localhost:19080`.
+1. Ouvrez Service Fabric Explorer dans votre cluster. Par exemple : `https://localhost:19080`.
 2. Cliquez sur le bouton de sélection ( **...** ) à côté du nœud **fabric:/Voting/VotingWeb** dans l’arborescence, puis sélectionnez **Scale Service** (Mettre à l’échelle le service).
 
     ![Mettre à l’échelle un service dans Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)

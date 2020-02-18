@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide d’Azure SignalR Service serverless – JavaScript
+title: Utiliser JavaScript pour créer une salle de conversation avec Azure Functions et SignalR Service
 description: Un démarrage rapide pour utiliser le service Azure SignalR et Azure Functions afin de créer une salle de conversation.
 author: sffamily
 ms.service: signalr
@@ -7,28 +7,29 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
-ms.openlocfilehash: eadeb0f0203868c2a1a37190fdd46e47bf26e8f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2726d5da2613be4ae2065246543d206cf814f353
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450260"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083194"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Démarrage rapide : Créer une salle de conversation avec Azure Functions et SignalR Service à l’aide de JavaScript
+# <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Démarrage rapide : Utiliser JavaScript pour créer une salle de conversation avec Azure Functions et SignalR Service
 
-Le service Azure SignalR vous permet d’ajouter facilement des fonctionnalités en temps réel à votre application. Azure Functions est une plateforme serverless qui vous permet d’exécuter votre code sans gérer d’infrastructures. Dans ce démarrage rapide, découvrez comment utiliser le service SignalR et Functions pour générer une application serverless de conversation en temps réel.
+Azure SignalR Service vous permet d’ajouter facilement des fonctionnalités en temps réel à votre application, et Azure Functions est une plateforme serverless qui vous permet d’exécuter votre code sans gérer d’infrastructure. Dans ce démarrage rapide, vous allez utiliser JavaScript pour générer une application serverless de conversation en temps réel en utilisant SignalR Service et Functions.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Ce démarrage rapide peut être exécuté sur macOS, Windows ou Linux.
+- Un éditeur de code, comme [Visual Studio Code](https://code.visualstudio.com/).
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing), version 2 ou supérieure. Sert à exécuter les applications Azure Functions localement.
+- [Node.js](https://nodejs.org/en/download/), version 10.x.
 
-Assurez-vous qu’un éditeur de code tel que [Visual Studio Code](https://code.visualstudio.com/) est installé.
+   > [!NOTE]
+   > Les exemples devraient fonctionner avec d’autres versions Node.js. Pour plus d’informations, consultez la [documentation des versions du runtime Azure Functions](../azure-functions/functions-versions.md#languages).
 
-Installez [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (version 2 ou ultérieure) pour exécuter des applications Azure Function en local.
-
-Ce guide de démarrage rapide utilise [Node.js](https://nodejs.org/en/download/) 10.x, mais il fonctionne normalement avec d’autres versions. Pour plus d’informations sur les versions Node.js prises en charge, reportez-vous à la [documentation des versions du runtime d’Azure Functions](../azure-functions/functions-versions.md#languages).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+> [!NOTE]
+> Ce démarrage rapide peut être exécuté sur macOS, Windows ou Linux.
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 

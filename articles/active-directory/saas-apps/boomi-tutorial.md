@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Boomi | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Boomi | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Boomi.
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 02/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2469745edb5b8b3696478603cfe874bcabc8c1ff
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a22a36d5e6c36008c3a574cbcf9be8ec4f52b82b
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231953"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086457"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Boomi
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-boomi"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Boomi
 
 Dans ce tutoriel, vous allez apprendre à intégrer Boomi à Azure Active Directory (Azure AD). En intégrant Boomi à Azure AD, vous pouvez :
 
@@ -31,9 +30,9 @@ Dans ce tutoriel, vous allez apprendre à intégrer Boomi à Azure Active Direct
 * Permettre aux utilisateurs de se connecter automatiquement à Boomi avec leur compte Azure AD
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -45,6 +44,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Boomi prend en charge l’authentification unique initiée par le **fournisseur d’identité**
+* Après avoir configuré Boomi, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-boomi-from-the-gallery"></a>Ajout de Boomi depuis la galerie
 
@@ -81,14 +81,22 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous avez un **fichier de métadonnées de fournisseur de services** et voulez une configuration en mode initié par le **fournisseur d’identité** (IDP), effectuez les étapes suivantes :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL : `https://platform.boomi.com/`
+    a. Cliquez sur **Charger un fichier de métadonnées**.
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://platform.boomi.com/sso/<boomi-tenant>/saml`
+    ![Charger le fichier de métadonnées](common/upload-metadata.png)
 
-    > [!NOTE]
-    > La valeur de l’URL de réponse n’est pas réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique Boomi](https://boomi.com/company/contact/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    b. Cliquez sur le **logo du dossier** pour sélectionner le fichier de métadonnées, puis cliquez sur **Charger**.
+
+    ![choisir le fichier de métadonnées](common/browse-upload-metadata.png)
+
+    c. Une fois le fichier de métadonnées chargé, les valeurs **Identificateur** et **URL de réponse** sont automatiquement renseignées dans la section Configuration SAML de base.
+
+    ![image](common/idp-intiated.png)
+
+    > [!Note]
+    > Vous obtiendrez le **fichier de métadonnées du fournisseur de services** à la section **Configurer l’authentification unique Boomi**, ce qui est expliqué plus loin dans le tutoriel. Si les valeurs **Identificateur** et **URL de réponse** ne sont pas automatiquement renseignées, renseignez-les manuellement en fonction de vos besoins.
 
 1. L’application Boomi s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
@@ -96,7 +104,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. En plus de ce qui précède, l’application Boomi s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 
-    | Nom |  Attribut source|
+    | Name |  Attribut source|
     | ---------------|  --------- |
     | FEDERATION_ID | user.mail |
 
@@ -154,9 +162,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     c. Dans la zone de texte **Identity Provider Login URL** (URL de connexion du fournisseur d’identité), copiez la valeur de **URL de connexion** indiquée dans la fenêtre Configuration de l’application Azure AD.
 
-    d. Dans **Federation Id Location** (Emplacement ID de fédération), sélectionnez le bouton radio **Federation Id is in FEDERATION_ID Attribute element** (L’ID de fédération se trouve dans l’élément d’attribut FEDERATION_ID).
+    d. Pour **Federation Id Location** (Emplacement ID de fédération), sélectionnez la case d’option **Federation Id is in FEDERATION_ID Attribute element** (L’ID de fédération se trouve dans l’élément d’attribut FEDERATION_ID).
 
-    e. Cliquez sur le bouton **Enregistrer** .
+    e. Copiez **AtomSphere MetaData URL** (URL des métadonnées AtomSphere), accédez à **MetaData URL** (URL des métadonnées) par le biais du navigateur de votre choix et enregistrez la sortie dans un fichier. Chargez l’**URL des métadonnées** dans la section **Configuration SAML de base** du portail Azure.
+
+    f. Cliquez sur le bouton **Enregistrer** .
 
 ### <a name="create-boomi-test-user"></a>Créer un utilisateur de test Boomi
 
@@ -189,7 +199,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Boomi, vous devez le
     f. Cliquez sur **OK**.
 
     > [!NOTE]
-    > L’utilisateur ne recevra pas d’e-mail de notification de bienvenue contenant un mot de passe pouvant être utilisé pour se connecter au compte AtomSphere, car son mot de passe est géré par le biais du fournisseur d’identité. Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Boomi pour provisionner des comptes d’utilisateurs Azure AD.
+    > L’utilisateur ne recevra pas d’e-mail de notification de bienvenue contenant un mot de passe pouvant être utilisé pour se connecter au compte AtomSphere, car son mot de passe est géré par le biais du fournisseur d’identité. Vous pouvez utiliser tout autre outil ou n’importe quelle API de création de compte d’utilisateur fournis par Boomi pour approvisionner des comptes d’utilisateur Azure Active Directory.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
@@ -201,8 +211,10 @@ Le fait de cliquer sur la vignette Boomi dans le panneau d’accès doit vous co
 
 - [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Essayer Boomi avec Azure AD](https://aad.portal.azure.com/)

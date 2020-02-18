@@ -2,14 +2,14 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 2/20/2019
+ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 3c88b8cb40660327d2a4c28cc80b7ebd5956b189
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d0ab828a2574914c511042a16704c4b553960b84
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467260"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119683"
 ---
 1. Démarrez Eclipse.
 
@@ -35,7 +35,7 @@ ms.locfileid: "73467260"
 
    ![Capture d’écran de l’explorateur de package](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 
-1. La fenêtre **Create new POM** (Créer un POM) s’affiche. Dans le champ **ID de groupe**, entrez *com.microsoft.cognitiveservices.speech.samples* et, dans le champ **ID d’artefact**, indiquez *démarrage rapide*. Sélectionnez ensuite **Terminer**.
+1. La fenêtre **Create new POM** (Créer un POM) s’affiche. Dans le champ **ID de groupe**, entrez *com.microsoft.cognitiveservices.speech.samples* et, dans le champ **ID d’artefact**, indiquez *démarrage rapide*. Sélectionnez **Terminer**.
 
    ![Capture d’écran de la fenêtre de création d’un POM](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-05-configure-maven-pom.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "73467260"
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#repositories)]
 
-   * Ajoutez également un élément `dependencies`, avec le SDK Speech version 1.7.0 en tant que dépendance :
+   * Ajoutez également un élément `dependencies`, avec le SDK Speech version 1.9.0 en tant que dépendance :
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#dependencies)]
 

@@ -5,15 +5,15 @@ services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 11/21/2019
+ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: ef2b98821b28d8a49e5f16bf1c6ac176eb8b5793
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: bf2596f5a8e287799285f97f3d1be9f3fe10f644
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407261"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77123177"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Générer le fichier de demande de signature de certificat
 
@@ -26,6 +26,9 @@ Générez le fichier de demande de signature de certificat (CSR, Certificate Sig
 1. Sélectionnez **Trousseaux d’accès**, développez **Assistant de certification**, puis cliquez sur **Demander un certificat à une autorité de certification**.
 
     ![Utiliser l’accès au trousseau pour demander un nouveau certificat](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
+
+   > [!NOTE]
+   > Par défaut, Trousseaux d’accès sélectionne le premier élément de la liste. Cela peut poser problème si vous êtes dans la catégorie **Certificats** et que **Apple Worldwide Developer Relations Certification Authority** (Autorité de certification des relations des développeurs dans le monde entier) ne figure pas comme premier élément dans la liste. Veillez à disposer d’un élément non-clé, ou que la clé **Apple Worldwide Developer Relations Certification Authority** est sélectionnée, avant de générer la demande de signature de certificat (CSR).
 
 1. Sélectionnez votre **adresse e-mail d’utilisateur**, entrez votre **nom commun**, veillez à spécifier **Enregistré sur le disque**, puis sélectionnez **Continuer**. Laissez le champ **Adresse de messagerie d’autorité de certification** vide, car il n’est pas requis.
 

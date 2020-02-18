@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: 44c5d037797d845aa9c68af2d7b8e5e45bf418fb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 522ed13681a98535c35552128fc8432782ec1ca2
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892445"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162699"
 ---
-# <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Didacticiel : Simuler une défaillance lors de la lecture de données à partir de la région primaire
+# <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Tutoriel : Simuler une défaillance lors de la lecture de données à partir de la région primaire
 
-Ce tutoriel est le deuxième d’une série. Il vous permet de découvrir les avantages d’un [stockage géographiquement redondant avec accès en lecture](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) en simulant une défaillance.
+Ce tutoriel est le deuxième d’une série. Il vous permet de découvrir les avantages d’un [stockage géographiquement redondant avec accès en lecture](../common/storage-redundancy.md) (RA-GRS) en simulant une défaillance.
 
-Pour simuler une défaillance, vous pouvez utiliser un [routage statique](#simulate-a-failure-with-an-invalid-static-route) ou [Fiddler](#simulate-a-failure-with-fiddler). Les deux méthodes vous permettent de simuler l’échec des demandes d’accès au point de terminaison principal de votre compte de stockage [géographiquement redondant avec accès en lecture](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS), pour que l’application lise plutôt le point de terminaison secondaire.
+Pour simuler une défaillance, vous pouvez utiliser un [routage statique](#simulate-a-failure-with-an-invalid-static-route) ou [Fiddler](#simulate-a-failure-with-fiddler). Les deux méthodes vous permettent de simuler l’échec des demandes d’accès au point de terminaison principal de votre compte de stockage [géographiquement redondant avec accès en lecture](../common/storage-redundancy.md) (RA-GRS), pour que l’application lise plutôt le point de terminaison secondaire.
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -31,7 +31,7 @@ Dans ce deuxième volet, vous apprenez à :
 > * Simuler une défaillance avec un [routage statique non valide](#simulate-a-failure-with-an-invalid-static-route) ou [Fiddler](#simulate-a-failure-with-fiddler)
 > * Simuler la restauration du point de terminaison principal
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel, suivez le tutoriel précédent : [Rendre vos données d’application hautement disponibles avec le stockage Azure][previous-tutorial].
 
@@ -41,7 +41,7 @@ Pour simuler une défaillance à l’aide de Fiddler, téléchargez et [installe
 
 ## <a name="simulate-a-failure-with-an-invalid-static-route"></a>Simuler une défaillance avec un itinéraire statique non valide
 
-Vous pouvez créer un itinéraire statique non valide pour toutes les demandes d’accès au point de terminaison principal de votre compte de stockage RA-GRS [(géoredondant avec accès en lecture)](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage). Dans ce didacticiel, l’hôte local sert de passerelle pour acheminer les demandes de routage vers le compte de stockage. Le recours à l’hôte local en tant que passerelle amène toutes les demandes d’accès au point de terminaison principal de votre compte de stockage à effectuer une boucle dans l’hôte, ce qui engendre une défaillance. Suivez les étapes ci-après pour simuler une défaillance ainsi que la restauration du point de terminaison principal avec un itinéraire statique non valide.
+Vous pouvez créer un itinéraire statique non valide pour toutes les demandes d’accès au point de terminaison principal de votre compte de stockage RA-GRS [(géoredondant avec accès en lecture)](../common/storage-redundancy.md). Dans ce didacticiel, l’hôte local sert de passerelle pour acheminer les demandes de routage vers le compte de stockage. Le recours à l’hôte local en tant que passerelle amène toutes les demandes d’accès au point de terminaison principal de votre compte de stockage à effectuer une boucle dans l’hôte, ce qui engendre une défaillance. Suivez les étapes ci-après pour simuler une défaillance ainsi que la restauration du point de terminaison principal avec un itinéraire statique non valide.
 
 ### <a name="start-and-pause-the-application"></a>Démarrer et interrompre l’application
 

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 11/13/2019
+ms.date: 02/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 3b33015b3a69372f6783d59b28a111ec279dd860
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 9ac70252ce7c818ccbdecfd996b9970f011aa967
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048475"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056340"
 ---
 # <a name="about-azure-virtual-wan"></a>À propos d'Azure Virtual WAN
 
@@ -37,6 +37,13 @@ Il existe deux types de réseaux étendus (WAN) : De base et Standard. Le table
 
 Pour connaître la procédure de mise à niveau d'un WAN virtuel, consultez [Procéder à la mise à niveau d'un WAN virtuel De base vers le niveau Standard](upgrade-virtual-wan.md).
 
+## <a name="architecture"></a>Architecture
+
+Pour plus d’informations sur l’architecture du WAN virtuel et sur la migration vers un WAN virtuel, consultez les articles suivants :
+
+* [Architecture du WAN virtuel](migrate-from-hub-spoke-topology.md)
+* [Architecture du réseau de transit global](virtual-wan-global-transit-network-architecture.md)
+
 ## <a name="resources"></a>Ressources du WAN virtuel
 
 Pour configurer un WAN virtuel de bout en bout, vous devez créer les ressources suivantes :
@@ -57,7 +64,7 @@ Pour configurer un WAN virtuel de bout en bout, vous devez créer les ressources
 
   * **Site :** Cette ressource est utilisée pour les connexions site à site uniquement. La ressource de site est **vpnsite**. Elle représente votre périphérique VPN local et ses paramètres. En faisant appel à un partenaire de WAN virtuel, vous disposez d’une solution intégrée pour exporter automatiquement ces informations vers Azure.
 
-## <a name="connectivity"></a>Connectivité
+## <a name="connectivity"></a>Types de connectivité
 
 Virtual WAN permet les types de connectivité suivants : VPN site à site, VPN utilisateur (point à site) et ExpressRoute.
 

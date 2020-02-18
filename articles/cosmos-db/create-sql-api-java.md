@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/31/2019
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: a4a8990b3da534acb39ff87c9f7665fb3b08ef06
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8c2ae82bae8457a1c715f160994c7a0da94193ff
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708167"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134491"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Démarrage rapide : Créer une application Java pour gérer les données de l’API SQL d’Azure Cosmos DB
 
@@ -27,21 +27,14 @@ ms.locfileid: "74708167"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-Ce guide de démarrage rapide vous montre comment utiliser une application Java pour créer et gérer une base de données de documents à partir de votre compte Azure d’API SQL Azure Cosmos DB. Tout d’abord, vous créez un compte d’API SQL Azure Cosmos DB à l’aide du portail Azure, vous créez ensuite une application Java en utilisant le SDK Java SQL, puis vous ajoutez des ressources à votre compte Cosmos DB à l’aide de l’application Java. Les instructions de ce guide de démarrage rapide s’appliquent à tous les systèmes d’exploitation pouvant exécuter Java. Après avoir suivi ce guide de démarrage rapide, vous saurez comment créer et modifier des bases de données Cosmos DB et des conteneurs soit dans l’interface utilisateur, soit par programmation, selon la méthode que vous préférez.
+Dans ce guide de démarrage rapide, vous allez créer et gérer un compte d’API SQL Azure Cosmos DB à partir du portail Azure et avec une application Java clonée à partir de GitHub. Vous allez d’abord créer un compte d’API SQL Azure Cosmos DB à l’aide du portail Azure, puis une application Java en utilisant le SDK Java SQL. Vous ajouterez ensuite des ressources à votre compte Cosmos DB à l’aide de l’application Java. Azure Cosmos DB est un service de base de données multimodèle qui vous permet de créer et interroger rapidement des bases de données de documents, de tables, de paires clé/valeur et de graphes avec des capacités de distribution mondiale et de mise à l’échelle horizontale.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
-
-Par ailleurs : 
-
-* [Kit de développement Java (JDK), version 8](https://aka.ms/azure-jdks)
-    * Veillez à définir la variable d’environnement JAVA_HOME pour qu’elle pointe vers le dossier dans lequel le JDK est installé.
-* [Téléchargement](https://maven.apache.org/download.cgi) et [installation](https://maven.apache.org/install.html) d’une archive binaire [Maven](https://maven.apache.org/)
-    * Sur Ubuntu, vous pouvez exécuter `apt-get install maven` pour installer Maven.
-* [Git](https://www.git-scm.com/)
-    * Sur Ubuntu, vous pouvez exécuter `sudo apt-get install git` pour installer Git.
+- Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Vous pouvez également [essayez Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure. Vous pouvez aussi utiliser l’[émulateur Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) avec l’URI `https://localhost:8081` et la clé `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
+- [Kit de développement Java (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Faites pointer la variable d’environnement `JAVA_HOME` vers le dossier dans lequel le JDK est installé.
+- [Archive binaire Maven](https://maven.apache.org/download.cgi). Sur Ubuntu, exécutez `apt-get install maven` pour installer Maven.
+- [Git](https://www.git-scm.com/downloads). Sur Ubuntu, exécutez `sudo apt-get install git` pour installer Git.
 
 ## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
@@ -66,11 +59,11 @@ Pour être en mesure de créer une base de données de documents, vous devez avo
 
 À présent, travaillons sur le code. Nous allons cloner une application API SQL à partir de GitHub, configurer la chaîne de connexion et l’exécuter. Vous verrez combien il est facile de travailler par programmation avec des données. 
 
-1. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
+Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur.
 
-    ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
-    ```
+```bash
+git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
+```
 
 ## <a name="review-the-code"></a>Vérifier le code
 
@@ -100,10 +93,9 @@ Cette étape est facultative. Pour savoir comment les ressources de base de donn
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=QueryItems)]
 
-## <a name="run-the-app"></a>Exécution de l'application
+## <a name="run-the-app"></a>Exécuter l’application
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et lancer l’application avec vos informations sur le point de terminaison. Cette opération permet à votre application de communiquer avec votre base de données hébergée.
-
 
 1. Dans la fenêtre de terminal git, ouvrez `cd` le dossier d’exemple de code.
 
@@ -128,7 +120,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
     
 4. L’application crée une base de données avec le nom `AzureSampleFamilyDB`
 5. L’application crée un conteneur avec le nom `FamilyContainer`
-6. L’application effectue des lectures de points en utilisant les ID d’objet et la valeur de la clé de partition (qui est lastName dans notre exemple). 
+6. L’application effectue des lectures de points en utilisant les ID d’objet et la valeur de la clé de partition (lastName dans notre exemple). 
 7. L’application interroge les éléments pour récupérer toutes les familles dont le nom de famille est dans (« Andersen », « Wakefield », « Johnson »)
 
 7. L’application ne supprime pas les ressources créées. Revenez sur le portail pour [nettoyez les ressources](#clean-up-resources).  depuis votre compte afin d’éviter les frais.
@@ -137,13 +129,13 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos, une base de données de documents et un conteneur à l’aide de l’Explorateur de données, puis à exécuter une application pour effectuer la même opération par programmation. Vous pouvez maintenant importer des données supplémentaires dans votre conteneur Azure Cosmos. 
+Dans ce guide de démarrage rapide, vous avez appris à créer un compte d’API SQL Azure Cosmos DB, à créer une base de données de documents et un conteneur avec l’Explorateur de données et à exécuter une application Java pour effectuer les mêmes opérations programmatiquement. Vous pouvez maintenant importer des données supplémentaires dans votre compte Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importer des données dans Azure Cosmos DB](import-data.md)

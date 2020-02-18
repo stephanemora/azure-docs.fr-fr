@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 6fd9166168a5b21900aa49d42a1dd5b81039dbcd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c2a26f2f40e0312fbfa0962e69ddfd0cfdabad5f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428758"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191279"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Démarrage rapide : Créer votre premier workflow à l’aide d’Azure Logic Apps - Portail Azure
 
@@ -116,7 +116,7 @@ Ajoutez une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) qu
 1. Si votre connecteur de courrier sélectionné vous invite à authentifier votre identité, effectuez cette étape maintenant pour créer une connexion entre votre application logique et votre service de courrier.
 
    > [!NOTE]
-   > Dans cet exemple, vous authentifiez manuellement votre identité. Toutefois, les connecteurs qui requièrent une authentification se distinguent les uns des autres par les types d’authentification qu’ils prennent en charge. Vous disposez également d’options pour configurer la façon dont vous souhaitez gérer l’authentification. Par exemple, lorsque vous effectuez le déploiement à l’aide de modèles Azure Resource Manager, vous pouvez paramétrer et sécuriser les entrées que vous souhaitez modifier souvent ou aisément, telles que les informations de connexion. Pour plus d’informations, consultez les rubriques suivantes :
+   > Dans cet exemple, vous authentifiez manuellement votre identité. Toutefois, les connecteurs qui requièrent une authentification se distinguent les uns des autres par les types d’authentification qu’ils prennent en charge. Vous disposez également d’options pour configurer la façon dont vous souhaitez gérer l’authentification. Par exemple, quand vous utilisez des modèles Azure Resource Manager pour déployer, vous pouvez paramétrer et améliorer la sécurité des entrées que vous souhaitez changer souvent ou facilement, comme les informations de connexion. Pour plus d’informations, consultez les rubriques suivantes :
    >
    > * [Paramètres du modèle pour le déploiement](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
    > * [Autoriser des connexions OAuth](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)

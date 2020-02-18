@@ -3,28 +3,31 @@ title: Créer et partager un notebook Jupyter sur Azure Notebooks (préversion)
 description: Créez et exécutez rapidement un notebook Jupyter sur Azure Notebooks (préversion), puis partagez-le avec d’autres utilisateurs.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 7b983d927bfd789cddb8d00675294cefc9f55e08
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d3310444fa28240b8fb1344199514a9601a2c615
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647082"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064442"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Démarrage rapide : Créer et partager un notebook dans Azure Notebooks (préversion)
 
-Dans ce guide de démarrage rapide, vous découvrez comment créer et exécuter un notebook Jupyter sur Azure Notebooks, puis comment le partager avec d’autres utilisateurs.
+Dans ce guide de démarrage rapide, vous créez et exécutez un notebook Jupyter sur Azure Notebooks, puis vous le partagez avec d’autres utilisateurs. Jupyter vous permet de combiner facilement du texte Markdown, du code exécutable, des données persistantes, des graphiques et des visualisations sur un canevas partageable, le notebook. Azure Notebooks est un service hébergé gratuit à l’aide duquel vous pouvez développer et exécuter des notebooks Jupyter dans le cloud sans aucune installation.
 
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+## <a name="prerequisites"></a>Conditions préalables requises
+Aucun.
 
 ## <a name="create-a-new-project-and-notebook"></a>Créer un projet et un notebook
 
-1. Accédez au [site d’Azure Notebooks (https://notebooks.azure.com)](https://notebooks.azure.com) et connectez-vous. (Pour plus d’informations, consultez la rubrique [Démarrage rapide sur la connexion à Azure Notebooks](quickstart-sign-in-azure-notebooks.md).)
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+1. Accédez au [site d’Azure Notebooks (https://notebooks.azure.com)](https://notebooks.azure.com) et connectez-vous. Pour plus d’informations, consultez [Démarrage rapide sur la connexion à Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
 1. En haut de votre page de profil public, sélectionnez **Mes projets** :
 
     ![Lien Mes projets en haut de la fenêtre du navigateur](media/quickstarts/my-projects-link.png)
 
-1. Dans la page **Mes projets**, sélectionnez **+ Nouveau projet** (raccourci clavier : n). Le bouton peut apparaître uniquement sous la forme **+** si la fenêtre du navigateur est étroite :
+1. Dans la page **Mes projets**, sélectionnez **+ Nouveau projet** (raccourci clavier : n). Le bouton peut apparaître uniquement sous forme de **+** si la fenêtre du navigateur est étroite :
 
     ![Commande Nouveau projet dans la page Mes projets](media/quickstarts/new-project-command.png)
 

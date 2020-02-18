@@ -1,7 +1,7 @@
 ---
-title: 'Tutoriel : Votre premier modèle ML avec R'
+title: 'Tutoriel : Modèles de régression logistique dans R'
 titleSuffix: Azure Machine Learning
-description: Dans ce tutoriel, vous allez découvrir les modèles de conception fondamentaux dans Azure Machine Learning et effectuer l’apprentissage d’un modèle de régression logistique à l’aide des packages R azuremlsdk et caret pour prédire la probabilité de décès au cours d’un accident automobile.
+description: Dans ce tutoriel, vous allez créer un modèle de régression logistique à l’aide des packages R azuremlsdk et caret pour prédire la probabilité de décès au cours d’un accident automobile.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,27 +9,28 @@ ms.topic: tutorial
 ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
-ms.date: 11/04/2019
-ms.openlocfilehash: 7ea02fa4544b478e6b041e0b9c342bccdfe6c48c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 02/07/2020
+ms.openlocfilehash: 37f2f98e594f558a9cd3c3e5994bf17a71ff1899
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532452"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191247"
 ---
-# <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Tutoriel : Effectuer l’apprentissage de votre premier modèle et le déployer dans R avec Azure Machine Learning
+# <a name="tutorial-create-a-logistic-regression-model-in-r-with-azure-machine-learning"></a>Tutoriel : Créer un modèle de régression logistique dans R avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dans ce tutoriel, vous allez découvrir les modèles de conception fondamentaux dans Azure Machine Learning.  Vous allez effectuer l’apprentissage et le déploiement d’un modèle **caret** pour prédire la probabilité de décès au cours d’un accident automobile. À l’issue de ce tutoriel, vous aurez acquis une connaissance pratique du SDK R permettant le Scale up pour passer au développement d’expériences et de flux de travail plus complexes.
+Dans ce tutoriel, vous allez utiliser R et Azure Machine Learning pour créer un modèle de régression logistique qui prédit la probabilité de décès au cours d’un accident automobile. À l’issue de ce tutoriel, vous aurez acquis une connaissance pratique du SDK R Azure Machine Learning pour passer au développement d’expériences et de workflows plus complexes.
 
-Dans ce tutoriel, vous allez apprendre à effectuer les tâches suivantes :
-
+Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 > [!div class="checklist"]
-> * Connecter votre espace de travail
+> * Création d’un espace de travail Microsoft Azure Machine Learning
+> * Cloner un dossier de notebooks avec les fichiers nécessaires pour exécuter ce tutoriel dans votre espace de travail
+> * Ouvrir RStudio à partir de votre espace de travail
 > * Charger des données et préparer l’apprentissage
-> * Charger des données dans le magasin de données afin qu’elles soient disponibles pour la formation à distance
-> * Créer une ressource de calcul
-> * Effectuer l’apprentissage d’un modèle caret pour prédire la probabilité de décès
+> * Charger des données dans un magasin de données afin qu’elles soient disponibles pour l’entraînement à distance
+> * Créer une ressource de calcul pour entraîner le modèle
+> * Entraîner un modèle `caret` pour prédire la probabilité de décès
 > * Déployer un point de terminaison de prédiction
 > * Tester le modèle à partir de R
 
@@ -66,13 +67,11 @@ Vous effectuez les étapes de configuration et d’exécution d’expérience su
 
 1. Ouvrez le dossier contenant un numéro de version.  Ce numéro représente la version actuelle du SDK R.
 
-1. Ouvrez le dossier **vignettes**.
-
-1. Sélectionnez **...** à droite du dossier **train-and-deploy-to-aci**, puis sélectionnez **Cloner**.
+1. Sélectionnez **« ... »** à droite du dossier **vignettes**, puis sélectionnez **Clone** (Cloner).
 
     ![Cloner un dossier](media/tutorial-1st-r-experiment/clone-folder.png)
 
-1. Une liste de dossiers indiquant tous les utilisateurs qui accèdent à l’espace de travail s’affiche.  Sélectionnez votre dossier pour y cloner le dossier **train-and-deploy-to-aci**.
+1. Une liste de dossiers indiquant tous les utilisateurs qui accèdent à l’espace de travail s’affiche.  Sélectionnez le dossier où cloner le dossier **vignettes**.
 
 ## <a name="a-nameopenopen-rstudio"></a><a name="open">Ouvrir RStudio
 
@@ -84,10 +83,11 @@ Utilisez RStudio sur une machine virtuelle d’instance de calcul ou Notebook po
 
 1. Une fois le calcul en cours d’exécution, utilisez le lien **RStudio** pour ouvrir RStudio.
 
-1. Dans RStudio, votre dossier **train-and-deploy-to-aci** se trouve à quelques niveaux plus bas que **Users** dans la section **Files** en bas à droite.  Sélectionnez le dossier **train-and-deploy-to-aci** pour rechercher les fichiers nécessaires à ce tutoriel.
+1. Dans RStudio, votre dossier *vignettes* se trouve à quelques niveaux plus bas que *Users* dans la section **Files** en bas à droite.  Sous *vignettes*, sélectionnez le dossier *train-and-deploy-to-aci* pour rechercher les fichiers nécessaires à ce tutoriel.
 
 > [!Important]
-> Le reste de cet article contient le même contenu que ce que vous voyez dans le fichier **train-and-deploy-to-aci.Rmd**. Si vous savez utiliser RMarkdown, n’hésitez pas à utiliser le code de ce fichier.  Vous pouvez aussi copier/coller les extraits de code à partir de ce fichier ou à partir de cet article dans un script R ou la ligne de commande.  
+> Le reste de cet article contient le même contenu que ce que vous voyez dans le fichier *train-and-deploy-to-aci.Rmd*. Si vous savez utiliser RMarkdown, n’hésitez pas à utiliser le code de ce fichier.  Vous pouvez aussi copier/coller les extraits de code à partir de ce fichier ou à partir de cet article dans un script R ou la ligne de commande.  
+
 
 ## <a name="set-up-your-development-environment"></a>Configurer l''environnement de développement
 La configuration de votre travail de développement dans ce tutoriel inclut les actions suivantes :
@@ -102,12 +102,6 @@ Ce tutoriel part du principe que vous avez déjà installé le SDK Azure ML. Pou
 
 ```R
 library(azuremlsdk)
-```
-
-Le tutoriel utilise les données du [package **DAAG**](https://cran.r-project.org/package=DAAG). Installez le package si vous ne l’avez pas.
-
-```R
-install.packages("DAAG")
 ```
 
 Les scripts d’apprentissage et de scoring (`accidents.R` et `accident_predict.R`) ont des dépendances supplémentaires. Si vous prévoyez d’exécuter ces scripts localement, assurez-vous que vous disposez également de ces packages.
@@ -147,15 +141,21 @@ wait_for_provisioning_completion(compute_target)
 ```
 
 ## <a name="prepare-data-for-training"></a>Préparer les données pour l’apprentissage
-Ce tutoriel utilise les données du package **DAAG**. Ce jeu de données comprend des données provenant de plus de 25 000 accidents automobiles aux États-Unis, avec des variables que vous pouvez utiliser pour prédire la probabilité de décès. Tout d’abord, importez les données dans R et transformez-les en un nouveau dataframe `accidents` pour l’analyse, puis exportez-les vers un fichier `Rdata`.
+Ce tutoriel utilise des données provenant de l’agence américaine [National Highway Traffic Safety Administration](https://cdan.nhtsa.gov/tsftables/tsfar.htm) (remerciements à [Mary C. Meyer et Tremika Finney](https://www.stat.colostate.edu/~meyer/airbags.htm)).
+Ce jeu de données comprend des données provenant de plus de 25 000 accidents automobiles aux États-Unis, avec des variables que vous pouvez utiliser pour prédire la probabilité de décès. Tout d’abord, importez les données dans R et transformez-les en un nouveau dataframe `accidents` pour l’analyse, puis exportez-les vers un fichier `Rdata`.
 
 ```R
-library(DAAG)
-data(nassCDS)
-
+nassCDS <- read.csv("nassCDS.csv", 
+                     colClasses=c("factor","numeric","factor",
+                                  "factor","factor","numeric",
+                                  "factor","numeric","numeric",
+                                  "numeric","character","character",
+                                  "numeric","numeric","character"))
 accidents <- na.omit(nassCDS[,c("dead","dvcat","seatbelt","frontal","sex","ageOFocc","yearVeh","airbag","occRole")])
 accidents$frontal <- factor(accidents$frontal, labels=c("notfrontal","frontal"))
 accidents$occRole <- factor(accidents$occRole)
+accidents$dvcat <- ordered(accidents$dvcat, 
+                          levels=c("1-9km/h","10-24","25-39","40-54","55+"))
 
 saveRDS(accidents, file="accidents.Rd")
 ```
@@ -394,5 +394,6 @@ Vous pouvez également conserver le groupe de ressources mais supprimer un espac
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez terminé votre première expérience Azure Machine Learning dans R, apprenez-en plus sur le [SDK Azure Machine Learning pour R](https://azure.github.io/azureml-sdk-for-r/index.html).
+* Maintenant que vous avez terminé votre première expérience Azure Machine Learning dans R, apprenez-en plus sur le [SDK Azure Machine Learning pour R](https://azure.github.io/azureml-sdk-for-r/index.html).
 
+* Consultez les exemples des autres dossiers *vignettes* pour en savoir plus sur Azure Machine Learning avec R.

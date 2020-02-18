@@ -1,6 +1,6 @@
 ---
-title: Envoyer ou recevoir des événements d’Azure Event Hubs à l’aide de Node.js (dernière version)
-description: Cet article décrit la procédure à suivre pour créer une application Node.js qui reçoit des événements d’Azure Event Hubs et lui en envoie à l’aide du dernier package azure/event-hubs version 5.
+title: Recevoir des événements d’Azure Event Hubs ou lui en envoyer en utilisant JavaScript (dernière version)
+description: Cet article décrit la procédure à suivre pour créer une application JavaScript qui reçoit des événements d’Azure Event Hubs et lui en envoie à l’aide de la dernière version du package azure/event-hubs (version 5).
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
@@ -8,27 +8,25 @@ ms.workload: core
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: b523e4a7b463564cbfeb407c91b7bb05317f8166
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e296ae36eeeb816d8704ab03824f8cbb80082ea6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906373"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163005"
 ---
-# <a name="send-events-to-or-receive-events-from-event-hubs-by-using-nodejs--azureevent-hubs-version-5"></a>Recevoir des événements des hubs d’événements ou leur en envoyer à l’aide de Node.js (azure/event-hubs version 5)
-
-Azure Event Hubs est une plateforme de streaming Big Data et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les hubs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un hub d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analytique en temps réel. Pour plus d’informations, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).
-
-Ce guide de démarrage rapide montre comment créer des applications Node.js qui peuvent recevoir des événements d’un hub d’événements ou lui en envoyer.
+# <a name="send-events-to-or-receive-events-from-event-hubs-by-using-javascript--azureevent-hubs-version-5"></a>Recevoir des événements des hubs d’événements ou leur en envoyer à l’aide de JavaScript (azure/event-hubs version 5)
+Ce guide de démarrage rapide montre comment recevoir des événements d’un hub d’événements et lui en envoyer à l’aide du package JavaScript **azure/event-hubs version 5**. 
 
 > [!IMPORTANT]
-> Ce guide de démarrage rapide utilise la version 5 du SDK Azure Event Hubs Java Script. Pour un guide de démarrage rapide qui utilise la version 2 du SDK JavaScript, consultez [cet article](event-hubs-node-get-started-send.md). 
+> Ce guide de démarrage rapide utilise la dernière version du package azure/event-hubs (version 5). Pour un guide de démarrage rapide qui utilise l’ancienne version du package azure/event-hubs (version 2), consultez [Recevoir des événements d’Azure Event Hubs ou lui en envoyer en utilisant Node.js (version 2)](event-hubs-node-get-started-send.md). 
 
 ## <a name="prerequisites"></a>Conditions préalables requises
+Si vous débutez avec Azure Event Hubs, consultez la [vue d’ensemble d’Event Hubs](event-hubs-about.md) avant de suivre ce guide de démarrage rapide. 
 
 Pour effectuer ce démarrage rapide, vous avez besoin de ce qui suit :
 
-- Un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.  
+- **Abonnement Microsoft Azure**. Pour utiliser les services Azure, y compris Azure Event Hubs, vous avez besoin d’un abonnement.  Si vous n’avez pas de compte Azure, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/free/) ou utiliser les avantages de votre abonnement MSDN quand vous [créez un compte](https://azure.microsoft.com).
 - Node.j version 8.x ou ultérieure. Téléchargez la [version LTS (prise en charge à long terme)](https://nodejs.org) la plus récente.  
 - Visual Studio Code (recommandé) ou tout autre environnement de développement intégré (IDE).  
 - Un hub d’événements et un espace de noms Event Hubs actifs. Pour les créer, effectuez les étapes suivantes : 
@@ -37,6 +35,7 @@ Pour effectuer ce démarrage rapide, vous avez besoin de ce qui suit :
    1. Pour créer l’espace de noms et le hub d’événements, suivez les instructions du [Guide de démarrage rapide : Créer un hub d’événement à l’aide du portail Azure](event-hubs-create.md).
    1. Continuez en suivant les instructions de ce guide de démarrage rapide. 
    1. Pour obtenir la chaîne de connexion de votre espace de noms Event Hub, suivez les instructions indiquées dans [Obtenir une chaîne de connexion](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Enregistrez cette chaîne de connexion pour l’utiliser plus tard dans ce guide de démarrage rapide.
+- **Créez un espace de noms Event Hubs et un Event Hub**. La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md). Ensuite, obtenez la **chaîne de connexion de l’espace de noms Event Hubs** en suivant les instructions à partir de l’article : [Obtenir la chaîne de connexion](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Vous utiliserez la chaîne de connexion plus tard dans ce guide de démarrage rapide.
 
 ### <a name="install-the-npm-package"></a>Installer le package npm
 Pour installer le [package npm (Node Package Manager) d’Event Hubs](https://www.npmjs.com/package/@azure/event-hubs), ouvrez une invite de commandes dont le chemin d’accès contient *npm*, remplacez le répertoire par le dossier où vous souhaitez conserver vos exemples, puis exécutez cette commande :
@@ -59,7 +58,7 @@ npm install @azure/eventhubs-checkpointstore-blob
 
 ## <a name="send-events"></a>Envoyer des événements
 
-Dans cette section, vous créez une application Node.js pour envoyer des événements à un hub d’événements.
+Dans cette section, vous créez une application JavaScript qui envoie des événements à un hub d’événements.
 
 1. Ouvrez votre éditeur favori, tel que [Visual Studio Code](https://code.visualstudio.com).
 1. Créez un fichier appelé *send.js* et collez-y le code suivant :
@@ -109,7 +108,7 @@ Félicitations ! Vous venez d’envoyer des événements à un hub d’événeme
 
 
 ## <a name="receive-events"></a>Recevoir des événements
-Dans cette section, vous recevez des événements d’un hub d’événements à l’aide d’un magasin de points de contrôle de stockage Blob Azure dans une application Node.js. Il effectue des points de contrôle de métadonnées sur les messages reçus à intervalles réguliers dans un blob Stockage Azure. Cette approche permet ultérieurement de continuer à recevoir des messages à partir du point où vous vous étiez arrêté.
+Dans cette section, vous recevez des événements d’un hub d’événements à l’aide d’un magasin de points de contrôle de stockage Blob Azure dans une application JavaScript. Il effectue des points de contrôle de métadonnées sur les messages reçus à intervalles réguliers dans un blob Stockage Azure. Cette approche permet ultérieurement de continuer à recevoir des messages à partir du point où vous vous étiez arrêté.
 
 ### <a name="create-an-azure-storage-account-and-a-blob-container"></a>Créer un compte de stockage Azure et un conteneur d’objets blob
 Pour créer un compte de stockage Azure et un conteneur d’objets blob dans celui-ci, effectuez les actions suivantes :

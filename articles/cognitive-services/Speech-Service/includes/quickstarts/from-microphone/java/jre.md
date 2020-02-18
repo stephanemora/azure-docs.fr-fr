@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: ebabeccc43998c229bcd28063b6cbabae4b046ea
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: cd00fb2df0063bd8bc753f9078194648f6745f1b
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795914"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156137"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -35,12 +35,12 @@ Avant de commencer :
 
 1. Remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement.
 
-1. Remplacez la chaîne `YourServiceRegion` par la [région](~/articles/cognitive-services/Speech-Service/regions.md) associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
+1. Remplacez la chaîne `YourServiceRegion` par le « Paramètre du SDK Speech » de la [région](https://aka.ms/speech/sdkregion) associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
 
-1. Enregistrez les modifications apportées au projet.
+1. Enregistrez les changements apportés au projet.
 
 > [!NOTE]
-> Le kit SDK Speech reconnaît par défaut l’utilisation de la langue en-US. Consultez [Spécifier la langue source pour la reconnaissance vocale](../../../../how-to-specify-source-language.md) pour plus d’informations sur le choix de la langue source.
+> Le SDK Speech reconnaît par défaut l’utilisation de la langue en-US. Consultez [Spécifier la langue source pour la reconnaissance vocale](../../../../how-to-specify-source-language.md) pour plus d’informations sur le choix de la langue source.
 
 ## <a name="build-and-run-the-app"></a>Générer et exécuter l’application
 

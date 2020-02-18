@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: a0205d57fa68585b1a91b99b19e008eb92e73c0d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a0ffa6e20b42ed8ac145b50c062f5c0a8998add0
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435851"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061639"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutoriel : Configurer des stratégies Apache Kafka dans HDInsight avec le Pack Sécurité Entreprise (préversion)
 
@@ -147,6 +147,8 @@ En fonction des stratégies Ranger configurées, **sales_user** peut produire/co
 
 4. Suivez l’étape 3 de la section **Générer et déployer l’exemple** dans [Tutoriel : Utiliser les API de producteur et de consommateur Apache Kafka](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) pour vérifier que `kafka-producer-consumer.jar` est également accessible à **sales_user**.
 
+**Remarque :  Pour ce tutoriel, utilisez le fichier kafka-producer-consumer.jar qui se trouve sous le projet « DomainJoined-Producer-Consumer » (à ne pas confondre avec celui du projet Producer-Consumer, qui est destiné aux scénarios non joints à un domaine).**
+
 5. Vérifiez que **sales_user1** peut produire à destination de la rubrique `salesevents` en exécutant la commande suivante :
 
    ```bash
@@ -194,6 +196,9 @@ Si vous ne comptez pas continuer à utiliser cette application, effectuez les é
 1. Sous **Services**, sélectionnez **Clusters HDInsight**.
 1. Dans la liste des clusters HDInsight qui s’affiche, cliquez sur les points de suspension **...** à côté du cluster que vous avez créé pour ce tutoriel. 
 1. Cliquez sur **Supprimer**. Cliquez sur **Oui**.
+
+## <a name="troubleshooting"></a>Dépannage
+Si le fichier kafka-producer-consumer.jar ne fonctionne pas sur un cluster joint à un domaine, vérifiez que vous utilisez bien le fichier kafka-producer-consumer.jar qui se trouve sous le projet « DomainJoined-Producer-Consumer » (à ne pas confondre avec celui du projet Producer-Consumer, qui est destiné aux scénarios non joints à un domaine).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

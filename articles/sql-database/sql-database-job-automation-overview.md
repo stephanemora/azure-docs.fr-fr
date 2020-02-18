@@ -9,13 +9,13 @@ ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 01/25/2019
-ms.openlocfilehash: c2548bb4537d17a3dab94d5476c743e2a70faad0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/07/2020
+ms.openlocfilehash: 1ffa17bd0e35e3753cde3e915c0ee70d8000147a
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810087"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083118"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatiser des tâches de gestion avec des travaux de base de données
 
@@ -39,7 +39,7 @@ Vous pouvez utiliser l’automatisation des travaux dans plusieurs scénarios :
   - Créez des travaux qui répliquent les modifications apportées à vos bases de données sur d’autres bases de données, ou qui collectent les mises à jour effectuées dans des bases de données distantes et appliquent les modifications à la base de données.
   - Créez des travaux qui chargent des données depuis ou vers vos bases de données avec SQL Server Integration Services (SSIS).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les technologies de planification de travaux suivantes sont disponibles dans Azure SQL Database :
 
@@ -72,7 +72,7 @@ La [réplication transactionnelle](sql-database-managed-instance-transactional-r
 
 - Lecteur de journaux de transactions
 - Instantané
-- Serveur de distribution
+- Serveur de distribution.
 
 Les autres types d’étapes de travail ne sont pas actuellement pris en charge, notamment :
 
@@ -80,7 +80,7 @@ Les autres types d’étapes de travail ne sont pas actuellement pris en charge,
 - L’agent de lecture de la file d’attente n’est pas pris en charge.
 - Analysis Services n’est pas pris en charge
 
-### <a name="job-schedules"></a>Planifications de travaux
+### <a name="job-schedules"></a>Calendriers de travaux
 
 Une planification spécifie quand un travail s’exécute. Plusieurs travaux peuvent s’exécuter sur la même planification, et plusieurs planifications peuvent appliquer le même travail.
 Une planification peut définir les conditions suivantes pour l’heure d’exécution d’un travail :
@@ -158,7 +158,7 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
 
 Certaines des fonctionnalités de SQL Agent disponibles dans SQL Server ne sont pas prises en charge dans Managed Instance :
 - Les paramètres de l’Agent SQL sont en lecture seule. La procédure `sp_set_agent_properties` n’est pas prise en charge dans Managed Instance.
-- L’activation/désactivation de SQL Agent n’est actuellement pas prise en charge dans Managed Instance. SQL Agent est toujours en cours d’exécution.
+- L’activation/désactivation de SQL Agent n’est actuellement pas prise en charge dans Managed Instance. L’Agent SQL est toujours en cours d’exécution.
 - Les notifications sont partiellement prises en charge
   - Les récepteurs de radiomessagerie ne sont pas pris en charge.
   - NetSend n’est pas pris en charge.
@@ -202,7 +202,9 @@ La *base de données de travaux* permet de définir des travaux et de suivre l�
 
 Pour la préversion actuelle, une base de données Azure SQL existante (S0 au minimum) est nécessaire pour créer un agent de travail élastique.
 
-La *base de données de travaux* ne doit pas nécessairement être nouvelle, mais elle doit être nettoyée, vide et configurée avec le niveau de service S0 ou supérieur. Le niveau de service recommandé pour la *base de données de travaux* est au moins S1, mais il varie en fonction des besoins en termes de performances de vos travaux : nombre d’étapes de travail, nombre de fois que les travaux sont exécutés et fréquence d’exécution. Par exemple, une base de données S0 peut convenir à un agent de travail qui exécute quelques travaux par heure, mails ses performances risquent d’être insuffisantes pour exécuter un travail toutes les minutes. Dans ce cas, un niveau de service plus élevé peut être préférable.
+La *base de données de travaux* ne doit pas nécessairement être nouvelle, mais elle doit être nettoyée, vide et configurée avec l’objectif de service S0 ou supérieur. L’objectif de service recommandé pour la *base de données de travaux* est au moins S1, mais le meilleur choix varie en fonction des besoins en termes de performances de vos travaux : nombre d’étapes de travail, nombre de cibles de travail et fréquence d’exécution des travaux. Par exemple, une base de données S0 peut convenir à un agent de travail qui exécute un petit nombre de travaux par heure ciblant moins de dix bases de données, mais elle risque de ne pas être assez rapide pour l’exécution d’un travail toutes les minutes. Dans ce cas, un niveau de service plus élevé peut être préférable. 
+
+Si les opérations sur la base de données de travaux sont plus lentes que prévu, [supervisez](sql-database-monitor-tune-overview.md#monitor-database-performance) les performances de la base de données et l’utilisation des ressources dans la base de données de travaux pendant les périodes de lenteur en utilisant le portail Azure ou la vue de gestion dynamique [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). Si l’utilisation d’une ressource, telle que le processeur, les E/S de données ou l’écriture de journal, approche 100 % et correspond aux périodes de lenteur, envisagez de mettre la base de données à l’échelle de manière incrémentielle pour atteindre des objectifs de service plus élevés (dans le [modèle DTU](sql-database-service-tiers-dtu.md) ou dans le [modèle vCore](sql-database-service-tiers-vcore.md)) jusqu’à ce que les performances de la base de données de travaux soient satisfaisantes.
 
 
 ##### <a name="job-database-permissions"></a>Autorisations associées à la base de données de travaux
@@ -212,7 +214,7 @@ Durant la création de l’agent de travail, un schéma, des tables et un rôle 
 
 |Nom de rôle  |Autorisations de schéma « jobs »  |Autorisations de schéma « jobs_internal »  |
 |---------|---------|---------|
-|**jobs_reader**     |    SELECT     |    Aucun     |
+|**jobs_reader**     |    SELECT     |    None     |
 
 > [!IMPORTANT]
 > Tenez compte des implications en matière de sécurité avant d’accorder l’accès à la *base de données de travaux* en tant qu’administrateur de base de données. Un utilisateur malveillant disposant d’autorisations appropriées peut créer ou modifier un travail utilisant des informations d’identification stockées pour se connecter à une base de données, ce qui peut ensuite lui permettre de déterminer le mot de passe associé aux informations d’identification.
@@ -250,6 +252,10 @@ L’**exemple 4** montre un groupe cible qui contient un pool élastique comme c
 
 L’**exemple 5** et l’**exemple 6** montrent des scénarios avancés où les serveurs SQL Azure, les pools élastiques et les bases de données peuvent être combinées avec des règles d’inclusion et d’exclusion.<br>
 L’**exemple 7** montre que les partitions d’une carte de partitions peuvent également être évaluées au moment de l’exécution du travail.
+
+> [!NOTE]
+> La base de données de travaux peut être la cible d’un travail. Dans ce scénario, la base de données de travaux est traitée comme toute autre base de données cible. L’utilisateur du travail doit être créé et disposer d’autorisations suffisantes dans la base de données de travaux, et les informations d’identification délimitées à la base de données de l’utilisateur du travail doivent également exister dans la base de données de travaux, comme pour toute autre base de données cible.
+>
 
 #### <a name="job"></a>Travail
 

@@ -9,13 +9,13 @@ ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 12/25/2019
-ms.openlocfilehash: 6f4fe941cc44211f9f5d5e77b11043257b43a8ea
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/11/2020
+ms.openlocfilehash: 58adbc7607b0b32e79123b701c37f55ce7cc1d2e
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963287"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138132"
 ---
 # <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>Utiliser la régression pour prédire les prix des voitures à l’aide du concepteur Azure Machine Learning
 
@@ -61,7 +61,7 @@ Utilisez le module **Sélectionner des colonnes dans le jeu de données** pour e
 
 Les problèmes d’apprentissage automatique varient. Les tâches d’apprentissage automatique courantes incluent la classification, le clustering, la régression et les systèmes de recommandation, chacun d’eux pouvant nécessiter un algorithme différent. Votre choix de l’algorithme dépend souvent de la configuration requise pour le cas d’usage. Après avoir sélectionné un algorithme, vous devez ajuster ses paramètres pour effectuer l’apprentissage d’un modèle plus précis. Vous devez ensuite évaluer tous les modèles en fonction des métriques telles que la précision, l’intelligibilité et l’efficacité.
 
-Étant donné que l’objectif de cet échantillon est de prédire le prix des voitures et puisque la colonne d’étiquette (prix) contient des nombres réels, le fait d’opter pour un modèle de régression est judicieux. Si l’on considère que le nombre de fonctionnalités est relativement bas (inférieur à 100), et que celles-ci ne sont pas éparpillées, la limite de décision est susceptible d’être non linéaire. Nous utilisons donc **Régression de forêt de décision** pour ce pipeline.
+Étant donné que l’objectif de cet échantillon est de prédire le prix des voitures et que la colonne d’étiquette (prix) contient des données continues, le fait d’opter pour un modèle de régression peut être judicieux. Nous utilisons **Régression linéaire** pour ce pipeline.
 
 Utilisez le module **Fractionner les données** pour diviser de façon aléatoire les données d’entrée, afin que le jeu de données d’apprentissage contienne 70 % des données d’origine et que le jeu de données de test contienne 30 % des données d’origine.
 

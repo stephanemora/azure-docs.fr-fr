@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.openlocfilehash: 93cbf8e9e60ef48e1ff3516dd4e9e123f70e0f42
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/04/2020
+ms.openlocfilehash: 70fcdb1c22664a0bd3091fea88c8e23e3d1b81e5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982432"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048285"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutoriel : Créer votre premier modèle de classification avec Machine Learning automatisé
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -69,11 +69,15 @@ Vous effectuez les étapes de configuration et d’exécution d’expérience su
 
 1. Pour créer un jeu de données, sélectionnez **À partir de fichiers locaux** dans la liste déroulante **+ Créer un jeu de données**. 
 
+    1. Dans le formulaire **Informations de base**, donnez un nom unique à votre jeu de données et indiquez éventuellement une description. Le ML automatisé dans Azure Machine Learning Studio ne prend actuellement en charge que les jeux de données tabulaires. Le type de jeu de données par défaut est donc Tabulaire.
+
+    1. Sélectionnez **Suivant** en bas à gauche.
+
+    1. Dans le formulaire **Sélection d’un magasin de données et de fichiers**, sélectionnez le magasin de données par défaut qui a été automatiquement configuré durant la création de votre espace de travail : **workspaceblobstore (Stockage Blob Azure)** . C’est là que vous chargerez votre fichier de données pour le rendre accessible à votre espace de travail.
+
     1. Sélectionnez **Parcourir**.
     
     1. Choisissez le fichier **bankmarketing_train.csv** sur votre ordinateur local. Il s’agit du fichier que vous avez téléchargé en tant que [prérequis](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
-
-    1. Sélectionnez **Tabulaire** comme type de jeu de données. 
 
     1. Donnez un nom unique à votre jeu de données et indiquez éventuellement une description. 
 
@@ -136,18 +140,18 @@ Vous effectuez les étapes de configuration et d’exécution d’expérience su
         Algorithmes bloqués | Algorithmes que vous souhaitez exclure du travail de formation| None
         Critère de sortie| Lorsqu’une condition est remplie, la tâche d’entraînement est arrêtée. |Durée&nbsp;de la tâche&nbsp;de formation : 1 <br> Seuil&nbsp;de score&nbsp;de métrique : None
         Validation | Choisissez un type de validation croisée et un nombre de tests.|Type de validation :<br>&nbsp;validation croisée&nbsp;k-fold <br> <br> Nombre de validations : 2
-        Accès concurrentiel| Nombre maximal d’itérations parallèles exécutées et de cœurs utilisés par itération| Nombre maximal&nbsp;d’itérations&nbsp;simultanées : 5<br> Nombre maximal&nbsp;de cœurs&nbsp;par&nbsp;itération : None
+        Accès concurrentiel| Nombre maximal d’itérations parallèles exécutées par itération| Nombre maximal&nbsp;d’itérations&nbsp;simultanées : 5
         
         Sélectionnez **Enregistrer**.
 
-1. Sélectionnez **Terminer** pour exécuter l’expérience. L’écran **Détails de l’exécution** s’ouvre et affiche l’**État de l’exécution** au début de la préparation de l’expérience.
+1. Sélectionnez **Terminer** pour exécuter l’expérience. L’écran **Détails de l’exécution** s’ouvre et affiche l’**État de l’exécution** dans la partie supérieure au début de la préparation de l’expérience.
 
 >[!IMPORTANT]
 > La préparation nécessaire à l’exécution de l’expérience prend **10 à 15** minutes.
 > Une fois que l’exécution a commencé, **2-3 minutes supplémentaires sont nécessaires pour chaque itération**.  
 > Sélectionnez **Actualiser** périodiquement pour voir l’état de l’exécution à mesure que l’expérience progresse.
 >
-> Dans un environnement de production, cette durée est un peu plus longue. Toutefois, dans le cadre de ce tutoriel, nous vous suggérons de commencer à explorer les algorithmes testés dans l’onglet Modèles à mesure qu’ils se terminent, pendant que les autres sont encore en cours d’exécution. 
+> Dans un environnement de production, cette durée est un peu plus longue. Toutefois, dans le cadre de ce tutoriel, nous vous suggérons de commencer à explorer les algorithmes testés dans l’onglet **Modèles** à mesure qu’ils se terminent, pendant que les autres sont encore en cours d’exécution. 
 
 ##  <a name="explore-models"></a>Explorer les modèles
 
@@ -165,11 +169,11 @@ Dans Azure Machine Learning Studio, le Machine Learning automatisé vous permet 
 
 Dans le cadre de cette expérience, le déploiement sur un service web signifie que l’établissement financier dispose désormais d’une solution web itérative et scalable pour identifier les clients potentiels d’un compte à terme. 
 
-Une fois l’exécution terminée, revenez à la page **Détails de l’exécution** et sélectionnez l’onglet **Modèles**. Sélectionnez **Actualiser**. 
+Une fois l’exécution terminée, revenez à la page **Détails de l’exécution** et sélectionnez l’onglet **Modèles**.
 
 Dans ce contexte d’expérience, **VotingEnsemble** est considéré comme le meilleur modèle d’après la métrique **AUC_weighted**.  Nous déployons ce modèle, mais nous vous informons que le déploiement prend 20 minutes environ. Le processus de déploiement comporte plusieurs étapes, notamment l’inscription du modèle, la génération de ressources et leur configuration pour le service web.
 
-1. Sélectionnez le bouton **Déployer le meilleur modèle** en haut à droite.
+1. Sélectionnez le bouton **Déployer le meilleur modèle** en bas à gauche.
 
 1. Renseignez le volet **Déployer un modèle** de la façon suivante :
 
@@ -216,7 +220,7 @@ Dans ce tutoriel de Machine Learning automatisé, vous avez utilisé Azure Machi
 > [!div class="nextstepaction"]
 > [Utiliser un service web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
-+ En savoir plus sur le [prétraitement](how-to-create-portal-experiments.md#preprocess).
++ Découvrez-en plus sur la [caractérisation](how-to-create-portal-experiments.md#featurization).
 + En savoir plus sur le [profilage des données](how-to-create-portal-experiments.md#profile).
 + En savoir plus sur le [Machine Learning automatisé](concept-automated-ml.md).
 + Pour plus d’informations sur les métriques et les graphiques de classification, consultez l’article [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md#classification).

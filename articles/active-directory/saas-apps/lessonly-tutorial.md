@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Lesson.ly | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Lesson.ly | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Lesson.ly.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 10/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa22b46dabcc5c8b2db5997ffc9b2f2480846d6f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 727d4ec79b142595e59ff63a4afbcbe4a51c2a6d
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074636"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057431"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lessonly"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Lesson.ly
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lessonly"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Lesson.ly
 
 Dans ce tutoriel, vous allez apprendre à intégrer Lesson.ly à Azure Active Directory (Azure AD). Quand vous intégrez Lesson.ly à Azure AD, vous pouvez :
 
@@ -33,7 +33,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer Lesson.ly à Azure Active Di
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -83,15 +83,17 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.lessonly.com/signin`
+     a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://<companyname>.lessonly.com/signin`
 
     > [!NOTE]
     > Lors du référencement d’un nom générique, la partie **nomentreprise** doit être remplacée par un nom réel.
+    
+     b. Dans la zone de texte **URL de réponse (URL Assertion Consumer Service)** , tapez une URL à l’aide du modèle suivant : `https://<companyname>.lessonly.com/auth/saml/callback`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<companyname>.lessonly.com/auth/saml/metadata`
-
+     c. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<companyname>.lessonly.com/auth/saml/metadata`
+    
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support technique Lessonly.com](mailto:support@lessonly.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion, l’URL de réponse et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support technique Lessonly.com](mailto:support@lessonly.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. L’application Lesson.ly s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
@@ -99,7 +101,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. En plus de ce qui précède, l’application Lesson.ly s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 
-    | Nom | Attribut source|
+    | Name | Attribut source|
     | ---------------  | ----------------|
     | urn:oid:2.5.4.42 | user.givenname |
     | urn:oid:2.5.4.4  | user.surname |

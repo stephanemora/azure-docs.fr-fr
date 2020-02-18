@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: dcb4c30fe485559834791fa567856bc78cff067e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 28229ad71327daefb8e42881cf001b6a3ddd3a53
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76770327"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086846"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Connecter un compte Amazon Web Services
 
@@ -41,7 +41,7 @@ La première étape consiste à obtenir la phrase secrète de connexion unique �
 
 ### <a name="add-aws-read-only-role-based-access"></a>Ajouter un accès en lecture seule en fonction du rôle AWS
 
-1. Connectez-vous à la console AWS à l’adresse https://console.aws.amazon.com/iam/home, puis sélectionnez **Roles** (Rôles).
+1. Connectez-vous à la console AWS sur [https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home), puis sélectionnez **Rôles**.
 2. Cliquez sur **Créer un rôle**, puis sélectionnez **Autre compte AWS**.
 3. Dans la zone **Account ID** (ID de compte), collez `432263259397`. Cet ID de compte est le compte de collecteur de données Cloudyn attribué par AWS au service Cloudyn. Utilisez exactement l’ID de compte indiqué.
 4. En regard du libellé **Options** (Options), sélectionnez **Require external ID** (Nécessite un ID externe). Collez la valeur propre à votre compte que vous avez copiée à partir du champ **External ID** (ID externe) de Cloudyn. Cliquez ensuite sur **Suivant : Autorisations**.  
@@ -76,7 +76,7 @@ Les sections suivantes vous guident durant la création d’un utilisateur en le
 
 ### <a name="add-aws-read-only-user-based-access"></a>Ajouter un accès en lecture seule en fonction de l’utilisateur AWS
 
-1. Connectez-vous à la console AWS à l’adresse https://console.aws.amazon.com/iam/home, puis sélectionnez **Users** (Utilisateurs).
+1. Connectez-vous à la console AWS sur [https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home), puis sélectionnez **Utilisateurs**.
 2. Cliquez sur **Add User**.
 3. Dans le champ **Nom d’utilisateur**, tapez un nom d’utilisateur.
 4. Sous **Type d’accès**, sélectionnez **Accès par programme** et cliquez sur **Suivant : Autorisations**.  
@@ -107,7 +107,7 @@ Cloudyn commence la collecte des données et le remplissage des rapports. Ensuit
 
 Suivez la procédure ci-après pour obtenir votre ARN de rôle AWS. L’ARN de rôle vous permet d’accorder des autorisations de lecture à un compartiment de facturation.
 
-1. Connectez-vous à la console AWS à l’adresse https://console.aws.amazon.com, puis sélectionnez **Services**.
+1. Connectez-vous à la console AWS sur [https://console.aws.amazon.com](https://console.aws.amazon.com), puis sélectionnez **Services**.
 2. Dans la zone de recherche de service, tapez *IAM*, puis sélectionnez cette option.
 3. Dans le menu de gauche, sélectionnez **Roles** (Rôles).
 4. Dans la liste des rôles, sélectionnez le rôle que vous avez créé pour l’accès Cloudyn.
@@ -117,7 +117,7 @@ Suivez la procédure ci-après pour obtenir votre ARN de rôle AWS. L’ARN de r
 
 Vous créez un compartiment S3 pour stocker les informations de facturation détaillée.
 
-1. Connectez-vous à la console AWS à l’adresse https://console.aws.amazon.com, puis sélectionnez **Services**.
+1. Connectez-vous à la console AWS sur [https://console.aws.amazon.com](https://console.aws.amazon.com), puis sélectionnez **Services**.
 2. Dans la zone de recherche de service, tapez *S3*, puis sélectionnez **S3**.
 3. Dans la page Amazon S3, cliquez sur **Create bucket** (Créer un compartiment).
 4. Dans l’Assistant de création d’un compartiment, choisissez un nom de compartiment et une région, puis cliquez sur **Next** (Suivant).  

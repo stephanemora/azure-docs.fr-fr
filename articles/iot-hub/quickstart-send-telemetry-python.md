@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/17/2019
-ms.openlocfilehash: af8fa0fc231e6e10d02019d93456293fcf3e3da4
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: beb0afa24acd782fb40d46d8aa86dca02ff8d9da
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892615"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110594"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT et les lire avec une application back-end (Python)
 
@@ -27,7 +27,7 @@ Ce démarrage rapide utilise une application Python prédéfinie pour envoyer de
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Exécutez la commande suivante afin d’ajouter l’extension Microsoft Azure IoT pour Azure CLI à votre instance Cloud Shell. L’extension IoT ajoute des commandes IoT Hub, IoT Edge et IoT Device Provisioning Service (DPS) à Azure CLI.
 
@@ -38,6 +38,8 @@ az extension add --name azure-cli-iot-ext
 Téléchargez l’exemple de projet Python à partir de https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip et extrayez l’archive ZIP.
 
 [Python version 3.7 ou ultérieure](https://www.python.org/downloads/) doit être installé sur votre machine de développement. Pour les autres versions de Python prises en charge, consultez les [fonctionnalités des appareils Azure IoT](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features) dans la documentation du SDK.
+
+Assurez-vous que le port 8883 est ouvert dans votre pare-feu. L’exemple d’appareil de ce guide de démarrage rapide utilise le protocole MQTT, lequel communique sur le port 8883. Ce port peut être bloqué dans certains environnements réseau professionnels et scolaires. Pour plus d’informations sur les façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -112,7 +114,7 @@ La capture d’écran suivante présente la sortie lorsque l’extension reçoit
 
 ![Exécuter l’application back-end](media/quickstart-send-telemetry-python/ReadDeviceToCloud.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
@@ -123,4 +125,4 @@ Dans ce guide de démarrage rapide, vous avez configuré un hub IoT, inscrit un 
 Pour savoir comment contrôler votre appareil simulé à partir d’une application back-end, passez au démarrage rapide suivant.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Contrôler un appareil connecté à un hub IoT](quickstart-control-device-python.md)
+> [Démarrage rapide : Contrôler un appareil connecté à un hub IoT](quickstart-control-device-python.md)

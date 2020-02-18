@@ -3,17 +3,17 @@ title: Démarrage rapide – Ajouter un appareil simulé à Azure IoT Central
 description: Ce guide de démarrage rapide montre comment créer un modèle d’appareil et ajouter un appareil simulé à votre application IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/10/2019
+ms.date: 02/12/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: cb8f0c806435a6c623d14e50263844db7aac61bb
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 489bf81388c1bb889756d54957e791282054f0f7
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026182"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169590"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Démarrage rapide : Ajouter un appareil simulé à votre application IoT Central
 
@@ -128,7 +128,7 @@ Pour ajouter un appareil simulé à votre application, utilisez le modèle d’a
 
 1. Pour ajouter un nouvel appareil en tant qu’opérateur, choisissez **Appareils** dans le volet de gauche. L’onglet **Appareils** affiche **Tous les appareils** et le modèle d’appareil **MXChip IoT DevKit**. Sélectionnez **MXChip IoT DevKit**.
 
-1. Pour ajouter un appareil DevKit simulé, sélectionnez **+** . Utilisez l’**ID d’appareil** suggéré ou entrez votre propre **ID d’appareil** en minuscules. Vous pouvez également entrer un nom pour votre nouvel appareil. Vérifiez que le bouton bascule **simulé** est défini sur **Activé**, puis sélectionnez **Créer**.
+1. Pour ajouter un appareil DevKit simulé, sélectionnez **+** . Utilisez l’**ID d’appareil** suggéré ou entrez votre propre **ID d’appareil** en minuscules. Vous pouvez également entrer un nom pour votre nouvel appareil. Vérifiez que le bouton bascule **Simulé** est défini sur **Activé**, puis sélectionnez **Créer**.
 
     ![Appareil simulé](./media/quick-create-pnp-device/simulated-device.png)
 

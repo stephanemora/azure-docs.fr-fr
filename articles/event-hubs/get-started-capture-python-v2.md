@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 788fcf15ebd68aae525c2895340f437594c9c58c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 34583ef49b2f919391af3fe5700a558b2dc40700
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906411"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187239"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Capturer des données Event Hubs dans le Stockage Azure et les lire à l’aide de Python (azure-eventhub version 5)
 
-Vous pouvez configurer un hub d’événements afin que les données qui lui sont envoyées soient capturées dans le compte de stockage Azure ou dans Azure Data Lake Storage. Cet article explique comment écrire du code Python pour envoyer des événements au hub d’événements et lire les données capturées à partir du Stockage Blob Azure. Pour plus d’informations sur cette fonctionnalité, consultez la [présentation de la fonctionnalité Event Hubs Capture](event-hubs-capture-overview.md).
+Vous pouvez configurer un hub d’événements pour que les données qui lui sont envoyées soient capturées dans le compte de stockage Azure ou dans Azure Data Lake Storage Gen 1 ou Gen 2. Cet article explique comment écrire du code Python pour envoyer des événements à un hub d’événements et lire les données capturées à partir du **Stockage Blob Azure**. Pour plus d’informations sur cette fonctionnalité, consultez la [présentation de la fonctionnalité Event Hubs Capture](event-hubs-capture-overview.md).
 
 Ce guide de démarrage rapide utilise le [Kit SDK Azure Python](https://azure.microsoft.com/develop/python/) pour illustrer la fonctionnalité Capture. L’application *sender.py* envoie la télémétrie de l’environnement simulé aux hubs d’événements au format JSON. Le hub d’événements est configuré pour utiliser la fonctionnalité Capture afin d’écrire ces données dans le stockage Blob en lots. L’application *capturereader.py* lit ces objets blob et crée un fichier Append pour chaque appareil. Ensuite, elle écrit les données dans des fichiers CSV.
 

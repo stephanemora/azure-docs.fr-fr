@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 95e5754c440cc591444df8960fde34de6fc384f0
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5a2ff4d78c1e0e67b390f607da69cc299e2dce4a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261362"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116477"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Tutoriel : entraîner des modèles de classification d’images avec des données MNIST et scikit-learn à l’aide d’Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Découvrez comment effectuer les actions suivantes :
 > [!div class="checklist"]
 > * Configurer l’environnement de développement
 > * Accéder aux données et les examiner
-> * Entraînez un modèle de régression logistique simple sur un cluster distant.
+> * Effectuez l’apprentissage d’un modèle de régression logistique simple sur un cluster distant.
 > * Examiner les résultats de l’entraînement et inscrire le meilleur modèle
 
 Vous découvrirez comment sélectionner un modèle et le déployer dans la [deuxième partie de ce tutoriel](tutorial-deploy-models-with-aml.md).
@@ -46,7 +46,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
     * Clonez le notebook des tutoriels dans votre dossier au sein de l’espace de travail.
     * Créez une instance de calcul basée sur le cloud.
 
-* Dans votre dossier de **didacticiels** clonés, ouvrez le notebook **img-classification-part1-deploy.ipynb**. 
+* Dans votre dossier *tutorials/image-classification-mnist-data* cloné, ouvrez le notebook *img-classification-part1-training.ipynb*. 
 
 
 Vous trouverez également le tutoriel et le fichier **utils.py** correspondant sur [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si vous souhaitez les utiliser dans votre propre [environnement local](how-to-configure-environment.md#local). Exécutez `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib` pour installer les dépendances de ce didacticiel.

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 02/11/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: f053b30d344e5372617a5bf98c087056c4fe2911
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e77f6ca587a6dcd001b06fac22d974b22d6fee4e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76294148"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188648"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Démarrage rapide : Explorer et analyser les coûts avec l’analyse du coût
 
@@ -62,6 +62,13 @@ L’affichage initial de l’analyse du coût inclut les zones suivantes.
 
 ![Vue initiale de l’analyse des coûts dans le Portail Azure](./media/quick-acm-cost-analysis/cost-analysis-01.png)
 
+### <a name="understand-forecast"></a>Comprendre les prévisions
+
+La prévision des coûts montre une projection de vos coûts estimés pour la période de temps sélectionnée. Le modèle est basé sur un modèle de régression de séries chronologiques. Il nécessite au moins 10 jours de données récentes de coûts et d’utilisation pour prévoir les coûts avec précision. Pour une période de temps donnée, le modèle de prévision nécessite des parties égales de données d’entraînement pour la période de prévision. Par exemple, une projection à trois mois nécessite au moins trois mois de données récentes sur les coûts et l’utilisation. 
+
+Le modèle utilise un maximum de six mois de données d’entraînement afin de prévoir les coûts pour une année. Au minimum, il a besoin de sept jours de données d’entraînement pour changer sa prédiction. La prédiction est basée sur les changements importants dans les modèles de coût et d’utilisation, comme les pics et les creux. La prévision ne génère pas de projections individuelles pour chaque élément des propriétés **Regrouper par**. Il fournit uniquement une prévision du total des coûts cumulés. Si vous utilisez plusieurs devises, le modèle fournit des prévisions seulement pour les coûts exprimés en USD. 
+
+
 ## <a name="customize-cost-views"></a>Personnaliser les vues des coûts
 
 L’analyse des coûts dispose de quatre affichages intégrés, optimisés pour les objectifs les plus courants :
@@ -99,11 +106,11 @@ Lorsque la prévision des dépenses est activée, vous ne voyez pas les dépense
 En général, attendez-vous à voir des données ou des notifications correspondant aux ressources utilisées dans les 8 à 12 heures suivantes.
 
 
-**Regrouper par** propriétés communes pour ventiler les coûts et d’identifier les principaux contributeurs. Pour regrouper par balises de ressources, par exemple, sélectionnez la clé de balise d’après laquelle vous souhaitez effectuer le regroupement. Les coûts sont ventilés selon la valeur de chaque balise, avec un segment supplémentaire pour les ressources auxquelles cette balise n’a pas été appliquée.
+**Regrouper par** propriétés communes pour ventiler les coûts et d’identifier les principaux contributeurs. Pour regrouper par étiquettes de ressources, par exemple, sélectionnez la clé d’étiquette d’après laquelle vous souhaitez effectuer le regroupement. Les coûts sont ventilés selon la valeur de chaque étiquette, avec un segment supplémentaire pour les ressources auxquelles cette étiquette n’a pas été appliquée.
 
-La plupart des [ressources Azure prennent en charge le balisage](../../azure-resource-manager/management/tag-support.md). Cependant, certaines balises ne sont pas disponibles pour la gestion des coûts et la facturation. Par ailleurs, les étiquettes de groupe de ressources ne sont pas prises en charge. La prise en charge des étiquettes s’applique à l’utilisation signalée *après* l’application de l’étiquette à la ressource. Les étiquettes ne sont pas appliquées rétroactivement pour les cumuls de coûts.
+La plupart des [ressources Azure prennent en charge le balisage](../../azure-resource-manager/management/tag-support.md). Cependant, certaines étiquettes ne sont pas disponibles pour la gestion des coûts et la facturation. Par ailleurs, les étiquettes de groupe de ressources ne sont pas prises en charge. La prise en charge des étiquettes s’applique à l’utilisation signalée *après* l’application de l’étiquette à la ressource. Les étiquettes ne sont pas appliquées rétroactivement pour les cumuls de coûts.
 
-Regardez la vidéo [Comment examiner les stratégies de balises avec Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) pour découvrir comment utiliser la stratégie de balises Azure pour améliorer la visibilité des données de coûts.
+Regardez la vidéo [Comment examiner les stratégies d’étiquette avec Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) pour découvrir comment utiliser la stratégie d’étiquette Azure pour améliorer la visibilité des données de coûts.
 
 Voici une vue des coûts des services Azure pour le mois en cours.
 
@@ -113,7 +120,7 @@ Par défaut, l’analyse des coûts montre tous les coûts liés aux achats et �
 
 ![Passage de la vue Coût réel à la vue Coût amorti pour afficher les achats de réservation étalés sur la durée prévue et alloués aux ressources qui ont utilisé la réservation](./media/quick-acm-cost-analysis/metric-picker.png)
 
-La vue Coût amorti répartit les achats de réservation jour par jour et les étale sur toute la durée de la réservation. Par exemple, au lieu de voir un achat d’un montant de 365 $ le 1er janvier, vous verrez un achat de 1 $ chaque jour, du 1er janvier au 31 décembre. En plus de l’amortissement de base, ces coûts sont également réaffectés et associés à l’aide des ressources qui ont utilisé la réservation. Par exemple, si cette dépense quotidienne de 1 $ a été répartie sur deux machines virtuelles, vous verrez deux dépenses de 0,50 $ pour la journée. Si une partie de la réservation n’est pas utilisée durant la journée, vous verrez une dépense de 0,50 $ associée à la machine virtuelle applicable, et une autre dépense de 0,50 $ de type `UnusedReservation`. Notez que les coûts liés aux réservations non utilisées ne sont visibles que lors de l’affichage du Coût amorti.
+La vue Coût amorti répartit les achats de réservation jour par jour et les étale sur toute la durée de la réservation. Par exemple, au lieu de voir un achat d’un montant de 365 $ le 1er janvier, vous verrez un achat de 1,00 $ chaque jour, du 1er janvier au 31 décembre. En plus de l’amortissement de base, ces coûts sont également réaffectés et associés à l’aide des ressources qui ont utilisé la réservation. Par exemple, si cette dépense quotidienne de 1,00 $ a été répartie sur deux machines virtuelles, vous verrez deux dépenses de 0,50 $ pour la journée. Si une partie de la réservation n’est pas utilisée durant la journée, vous verrez une dépense de 0,50 $ associée à la machine virtuelle applicable, et une autre dépense de 0,50 $ de type `UnusedReservation`. Notez que les coûts liés aux réservations non utilisées ne sont visibles que lors de l’affichage du Coût amorti.
 
 Étant donné que la représentation des coûts a changé, il est important de noter que les vues Coût réel et Coût amorti affichent des totaux différents. En règle générale, le coût total d’un achat de réservation étalé sur plusieurs mois diminue lorsque vous affichez les coûts amortis, et les coûts augmentent au cours des mois qui suivent un achat de réservation. L’amortissement est disponible uniquement pour les achats de réservation et ne s’applique pas aux achats effectués sur la Place de marché Azure.
 
@@ -121,7 +128,7 @@ L’image suivante montre les noms des groupes de ressources. Vous pouvez effect
 
 ![Données complètes pour la vue actuelle présentant les noms de groupe de ressources](./media/quick-acm-cost-analysis/full-data-set.png)
 
-Lorsque vous regroupez les coûts en fonction d’un attribut spécifique, les 10 principaux contributeurs aux coûts s’affichent dans l’ordre décroissant. S’il y en a plus de 10, les neuf principaux contributeurs aux coûts sont affichés avec un groupe **Autres** qui réunit tous les groupes restants. Lors du regroupement par balises, vous pouvez aussi voir un groupe **Non balisé** pour les coûts auxquels la clé de balise n’a pas été appliquée. **Sans balise** est toujours mentionné en dernier, même si les coûts sans balise sont plus élevés que ceux avec balise. Les coûts sans balise font partie du groupe **Autres** s’il y a 10 valeurs de balise ou plus. Passez à la vue du tableau et modifiez la granularité en **Aucune** pour afficher toutes les valeurs classées du prix le plus bas au plus haut.
+Lorsque vous regroupez les coûts en fonction d’un attribut spécifique, les 10 principaux contributeurs aux coûts s’affichent dans l’ordre décroissant. S’il y en a plus de 10, les neuf principaux contributeurs aux coûts sont affichés avec un groupe **Autres** qui réunit tous les groupes restants. Lors du regroupement par étiquettes, vous pouvez aussi voir un groupe **Non balisé** pour les coûts auxquels la clé d’étiquette n’a pas été appliquée. **Sans balise** est toujours mentionné en dernier, même si les coûts sans étiquette sont plus élevés que ceux avec étiquette. Les coûts sans étiquette font partie du groupe **Autres** s’il y a 10 valeurs d’étiquette ou plus. Passez à la vue du tableau et modifiez la granularité en **Aucune** pour afficher toutes les valeurs classées du prix le plus bas au plus haut.
 
 Les ressources de machines virtuelles, de réseau et de stockage classiques ne partagent pas de données de facturation détaillées. Elles sont fusionnées dans les **services Classic** lors du regroupement des coûts.
 

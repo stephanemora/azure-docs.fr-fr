@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/03/2020
+ms.date: 02/06/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 49c5566454a93307dedd150a3508b33dbd7506e6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 1abcd22621d427244f9b0533aaea46cbf1f356ad
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022356"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064034"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Utiliser des collections dans le portail Mes applications
 
-Les espaces de travail sont des vues d’application différentes que vous pouvez consulter dans le portail **Mes applications**. Les applications peuvent être regroupées en collections par département ou rôle d’utilisateur, par exemple. Si vous ne voyez pas de collection ou de catégorie disponible, cela signifie que votre administrateur n’en a pas encore configuré ou partagé avec vous. Contactez le support technique de votre organisation pour obtenir une assistance supplémentaire ou des autorisations pour voir les collections partagées.
+Les collections sont les différentes vues d’application que vous pouvez voir sur le portail **Mes applications**. Les applications peuvent être regroupées en collections par département ou rôle d’utilisateur, par exemple. Si vous ne voyez pas de collection ou de catégorie disponible, cela signifie que votre administrateur n’en a pas encore configuré ou partagé avec vous. Contactez le support technique de votre organisation pour obtenir une assistance supplémentaire ou des autorisations pour voir les collections partagées.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 

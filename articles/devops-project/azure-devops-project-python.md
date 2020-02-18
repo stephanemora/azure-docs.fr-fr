@@ -16,30 +16,31 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: cb4e27aeada4f1b5f9e06279382327dcc51cc7dc
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b912dfe3fb6461a925977192a6631ecac1357d35
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899600"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049838"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-projects"></a>Créer un pipeline CI/CD pour Python avec Azure DevOps Projects
 
-Azure DevOps Projects présente une expérience simplifiée qui crée des ressources Azure et configure un pipeline d’intégration continue (CI) et de livraison continue (CD) pour votre application Python.  
+Dans ce guide de démarrage rapide, vous allez utiliser l’expérience Azure DevOps Projects simplifiée pour configurer un pipeline d’intégration continue (CI) et de livraison continue (CD) pour votre application Python dans Azure Pipelines. Vous pouvez utiliser Azure DevOps Projects pour configurer tout ce dont vous avez besoin pour développer, déployer et superviser votre application. 
 
-Si vous ne disposez pas d’un abonnement Azure, vous pouvez en obtenir un gratuitement via [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+## <a name="prerequisites"></a>Conditions préalables requises
+
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- Un compte et une organisation [Azure DevOps](https://azure.microsoft.com/services/devops/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
- DevOps Projects crée un pipeline CI/CD dans Azure Pipelines.  Vous pouvez créer gratuitement une organisation Azure DevOps ou utiliser une organisation existante. DevOps Projects crée également des ressources Azure dans l’abonnement Azure de votre choix.
+DevOps Projects crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer une organisation Azure DevOps ou utiliser une organisation existante. DevOps Projects crée également des ressources Azure dans l’abonnement Azure de votre choix.
 
-1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis dans le volet de gauche, sélectionnez **Créer une ressource**. 
 
-2. Choisissez l’icône **Créer une ressource** dans le volet gauche, puis recherchez **DevOps Projects**.  
+   ![Créer une ressource Azure dans le portail Azure](_img/azure-devops-project-python/fullbrowser.png)
 
-3. Sélectionnez **Create** (Créer).
-
-    ![Démarrage de la configuration de la livraison continue](_img/azure-devops-project-python/fullbrowser.png)
+1. Recherchez et sélectionnez **DevOps Projects**, puis sélectionnez **Créer**.
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Sélectionner un exemple d’application et le service Azure
 
@@ -122,7 +123,7 @@ Le pipeline de mise en production définit le processus de mise en production.
 Le pipeline de build que vous avez examiné aux étapes précédentes produit la sortie qui est utilisée pour l’artefact. 
 
 1. En regard de l’icône **Déposer**, sélectionnez le **déclencheur de déploiement continu**.  
-        Le pipeline de mise en production a un déclencheur CD actif, qui effectue un déploiement chaque fois qu’un nouvel artefact de build est disponible. Si vous le souhaitez, vous pouvez désactiver le déclencheur, vos déploiements nécessitant alors une exécution manuelle. 
+        Le pipeline de mise en production a un déclencheur CD actif, qui effectue un déploiement chaque fois qu’un nouvel artefact de build est disponible. Si vous le souhaitez, vous pouvez désactiver le déclencheur afin que vos déploiements nécessitent une exécution manuelle. 
 
 1. Sur la gauche, sélectionnez **Tâches**.   
 Les tâches sont les activités effectuées par votre processus de déploiement. Dans cet exemple, une tâche a été créée pour déployer sur Azure App Service.
@@ -138,7 +139,7 @@ Les tâches sont les activités effectuées par votre processus de déploiement.
 1. Sélectionnez **Journaux d’activité**.   
 Les journaux d’activité contiennent des informations utiles sur le processus de déploiement. Vous pouvez les voir à la fois pendant et après les déploiements.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’en avez plus besoin, vous pouvez supprimer Azure App Service et les ressources associées. Utilisez la fonctionnalité **Supprimer** du tableau de bord DevOps Projects.
 

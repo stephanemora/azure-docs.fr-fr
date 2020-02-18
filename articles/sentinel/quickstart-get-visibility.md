@@ -7,15 +7,15 @@ manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: fasttrack-edit
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 35ecb5c4e3987676d235fc6fd09f58c046301cda
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: d91567f10b33717b157bd0b839d2706996c5b591
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548031"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087199"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Démarrage rapide : Bien démarrer avec Azure Sentinel
 
@@ -53,7 +53,7 @@ Le corps de la page de vue d’ensemble donne un aperçu de l’état de la séc
 
 ## Utiliser des classeurs intégrés<a name="dashboards"></a>
 
-Les classeurs intégrés fournissent des données intégrées provenant de vos sources de données connectées pour vous permettre d’obtenir une présentation approfondie des événements générés dans ces services. Les classeurs intégrés comprennent l’ID Azure, les événements d’activité Azure et en local, qui peuvent être des données provenant d’événements Windows sur des serveurs, d’alertes internes, de tiers comme les journaux de trafic des pare-feu, Office 365 et les protocoles non sécurisés basés sur les événements Windows. Les classeurs sont basés sur les classeurs Azure Monitor pour vous offrir des possibilités de personnalisation et une flexibilité améliorées dans la conception de votre propre classeur. Pour plus d’informations, consultez [Classeurs](../azure-monitor/app/usage-workbooks.md).
+Les classeurs intégrés fournissent des données intégrées provenant de vos sources de données connectées pour vous permettre d’obtenir une présentation approfondie des événements générés dans ces services. Les classeurs intégrés comprennent Azure AD, les événements d’activité Azure et en local, qui peuvent être des données provenant d’événements Windows sur des serveurs, d’alertes internes, de tiers comme les journaux de trafic des pare-feu, Office 365 et les protocoles non sécurisés basés sur les événements Windows. Les classeurs sont basés sur les classeurs Azure Monitor pour vous offrir des possibilités de personnalisation et une flexibilité améliorées dans la conception de votre propre classeur. Pour plus d’informations, consultez [Classeurs](../azure-monitor/app/usage-workbooks.md).
 
 1. Sous **Paramètres**, sélectionnez **Classeurs**. Sous **Installés**, vous pouvez voir tous vos classeurs installés. Sous **Tous**, vous pouvez voir la galerie complète de classeurs intégrés qu’il est possible d’installer. 
 2. Recherchez un classeur spécifique pour afficher l’intégralité de la liste et la description de ce que chacun de ces classeurs propose. 

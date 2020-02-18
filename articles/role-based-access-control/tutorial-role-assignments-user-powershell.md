@@ -1,5 +1,5 @@
 ---
-title: Tutoriel - Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell
+title: 'Tutoriel : Accorder un accès utilisateur aux ressources Azure avec RBAC et Azure PowerShell'
 description: Dans ce tutoriel, découvrez comment accorder un accès utilisateur aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC) et d’Azure PowerShell.
 services: active-directory
 documentationCenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: c5570c6b1d2cdd168dbaeb0a91d80a61e171e5d1
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: f4ba56bf79d707200bf361ab4c717bb63d081953
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74418630"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138228"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Didacticiel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et d’Azure PowerShell
 
-Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) vous permet de gérer l’accès aux ressources Azure. Dans ce tutoriel, vous accordez l’accès à un utilisateur pour afficher tous les éléments d’un abonnement et gérer tous les éléments d’un groupe de ressources à l’aide d’Azure PowerShell.
+Le [contrôle d'accès en fonction du rôle (RBAC)](overview.md) vous permet de gérer l'accès aux ressources Azure. Dans ce tutoriel, vous accordez l’accès à un utilisateur pour afficher tous les éléments d’un abonnement et gérer tous les éléments d’un groupe de ressources à l’aide d’Azure PowerShell.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Accorder l’accès à un utilisateur dans différentes étendues
@@ -35,16 +35,16 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour exécuter ce didacticiel, les éléments suivants sont nécessaires :
 
 - Autorisations pour créer des utilisateurs dans Azure Active Directory (ou disposer d’un utilisateur existant)
 - [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)
 
 ## <a name="role-assignments"></a>Affectations de rôles
 
-Dans RBAC, pour accorder l’accès, vous créez une attribution de rôle. Une attribution de rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue. Voici deux attributions de rôles que vous allez effectuer dans ce tutoriel :
+Dans le contrôle d’accès en fonction du rôle, vous créez une attribution de rôle pour accorder l’accès. Une attribution de rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue. Voici deux attributions de rôles que vous allez effectuer dans ce tutoriel :
 
 | Principal de sécurité | Définition de rôle | Étendue |
 | --- | --- | --- |
@@ -252,7 +252,7 @@ Pour supprimer l’accès accordé à des utilisateurs, des groupes ou des appli
       -Scope $subScope
     ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer les ressources créées par ce tutoriel, supprimez le groupe de ressources et l’utilisateur.
 

@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 864cccc4629140754a326823cbaebd7ad8933d3d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: e469837c8e374e62824bd8f7a7feb110ed1be9c9
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75765067"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153109"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes 
 
@@ -125,7 +125,7 @@ Pour les cadres englobants, les questions importantes sont les suivantes :
 
 ## <a name="initialize-the-labeling-project"></a>Initialiser le projet d’étiquetage
 
-Une fois le projet d’étiquetage initialisé, certains de ses aspects sont non modifiables. Vous ne pouvez pas changer le type de tâche ou le jeu de données. Vous *pouvez* modifier les étiquettes et l’URL de la description de la tâche. Passez en revue attentivement les paramètres avant de créer le projet. Une fois le projet soumis, vous retournez à la page d’accueil **Étiquetage**, qui montre que l’état du projet indique **Initialisation**. Cette page ne s’actualise pas automatiquement. Après une pause, actualisez donc manuellement la page pour que l’état du projet indique **Créé**.
+Une fois le projet d’étiquetage initialisé, certains de ses aspects sont non modifiables. Vous ne pouvez pas changer le type de tâche ou le jeu de données. Vous *pouvez* modifier les étiquettes et l’URL de la description de la tâche. Passez en revue attentivement les paramètres avant de créer le projet. Une fois le projet envoyé, vous êtes redirigé vers la page d’accueil **Étiquetage des données**, qui indique **Initialisation** comme état du projet. Cette page ne s’actualise pas automatiquement. Après une pause, actualisez donc manuellement la page pour que l’état du projet indique **Créé**.
 
 ## <a name="manage-teams-and-people"></a>Gérer les équipes et les personnes
 
@@ -139,7 +139,7 @@ Pour envoyer un e-mail à l’équipe, sélectionnez-la afin d’afficher la pag
 
 ## <a name="run-and-monitor-the-project"></a>Exécuter et surveiller le projet
 
-Une fois le projet initialisé, Azure commence à l’exécuter. Sélectionnez le projet dans la page **Étiquetage** principale pour accéder à **Détails du projet**. L’onglet **Tableau de bord** affiche la progression de la tâche d’étiquetage.
+Une fois le projet initialisé, Azure commence à l’exécuter. Sélectionnez le projet dans la page **Étiquetage des données** principale pour accéder à **Détails du projet**. L’onglet **Tableau de bord** affiche la progression de la tâche d’étiquetage.
 
 Sous l’onglet **Données**, vous pouvez voir votre jeu de données et passer en revue les données étiquetées. Si vous voyez des données étiquetées de manière incorrecte, sélectionnez-les, puis choisissez **Rejeter**. Les étiquettes sont alors supprimées et les données replacées en file d’attente des données sans étiquette.
 
@@ -148,6 +148,24 @@ Utilisez l’onglet **Équipe** pour affecter ou annuler l’affectation des éq
 Pour suspendre ou redémarrer le projet, sélectionnez le bouton **Suspendre**/**Démarrer** . Vous pouvez uniquement étiqueter des données quand le projet est en cours d’exécution.
 
 Vous pouvez étiqueter des données directement à partir de la page **Détails du projet** en sélectionnant **Étiqueter les données**.
+
+## <a name="add-labels-to-a-project"></a>Ajouter des étiquettes à un projet
+
+Durant le processus d’étiquetage, vous pouvez constater que des étiquettes supplémentaires sont nécessaires pour classifier vos images.  Par exemple, vous pouvez ajouter une étiquette « inconnu » ou « autre » pour indiquer des images pouvant prêter à confusion.
+
+Pour ajouter une ou plusieurs étiquettes à un projet, effectuez les étapes suivantes :
+
+1. Sélectionnez le projet dans la page **Étiquetage des données** principale.
+1. En haut de la page, sélectionnez **Suspendre** pour cesser l’activité des étiqueteurs.
+1. Sélectionnez l’onglet **Détails**.
+1. Dans la liste à gauche, sélectionnez **Classes d’étiquette**.
+1. En haut de la liste, sélectionnez **+ Ajouter des étiquettes** ![Ajouter une étiquette](media/how-to-create-labeling-projects/add-label.png).
+1. Dans le formulaire, ajoutez votre nouvelle étiquette et choisissez comment procéder.  Étant donné que vous avez modifié les étiquettes disponibles pour une image, choisissez comment traiter les données déjà étiquetées :
+    * Recommencer en supprimant toutes les étiquettes existantes.  Choisissez cette option si vous souhaitez commencer l’étiquetage depuis le début avec le nouvel ensemble complet d’étiquettes. 
+    * Recommencer en conservant toutes les étiquettes existantes.  Choisissez cette option pour marquer toutes les données comme non étiquetées, mais en conservant les étiquettes existantes comme étiquettes par défaut pour les images précédemment étiquetées.
+    * Continuer en conservant toutes les étiquettes existantes. Choisissez cette option pour laisser toutes les données déjà étiquetées telles quelles et commencer à utiliser la nouvelle étiquette pour les données qui ne sont pas encore étiquetées.
+1. Modifiez votre page d’instructions au besoin pour la ou les nouvelles étiquettes.
+1. Une fois toutes les nouvelles étiquettes ajoutées, sélectionnez **Démarrer** en haut de la page pour redémarrer le projet.  
 
 ## <a name="export-the-labels"></a>Exporter les étiquettes
 

@@ -6,73 +6,56 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: c12cd53b55cac48aae3d69506204c9d107e34aa6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: eb96989b4a2731e78471b848d690b48352408d1c
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464381"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121484"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Démarrage rapide : Déployer une application Java Spring Boot sur Azure Service Fabric
 
-Ce guide de démarrage rapide montre comment déployer une application Java Spring Boot sur Azure Service Fabric. Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et de conteneurs. 
-
-Il utilise l’exemple [Getting Started](https://spring.io/guides/gs/spring-boot/) disponible sur le site web de Spring. Il explique comment déployer l’exemple Spring Boot en tant qu’application Service Fabric à l’aide d’outils en ligne de commande familiers. Une fois que vous aurez terminé, l’exemple Getting Started de Spring Boot sera opérationnel sur Service Fabric.
-
-![Exemple Service Fabric Spring Boot](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
-
-Dans ce guide de démarrage rapide, vous apprenez à :
-
-* Déployer une application Spring Boot sur Service Fabric
-* Déployer l’application dans le cluster local
-* Mettre à l’échelle avec une montée en puissance parallèle sur plusieurs nœuds
-* Effectuer le basculement de votre service sans aucun impact sur la disponibilité
+Dans ce guide de démarrage rapide, vous déployez une application Java Spring Boot sur Azure Service Fabric à l’aide d’outils en ligne de commande familiers sur Linux ou MacOS. Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et de conteneurs. 
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour suivre ce guide de démarrage rapide :
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-1. Installer le Kit de développement logiciel (SDK) Service Fabric et l’interface de ligne de commande (CLI) Service Fabric
+- [Environnement Java](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) et [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
+- [SDK Service Fabric et interface de ligne de commande (CLI) Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+- [Git](https://git-scm.com/downloads)
 
-    a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)
-    
-    b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+#### <a name="macostabmacos"></a>[MacOS](#tab/macos)
 
-1. [Installez Git](https://git-scm.com/)
-1. Installer Yeoman
+- [Environnement Java et Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
+- [SDK Service Fabric et interface de ligne de commande (CLI) Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)
+- [Git](https://git-scm.com/downloads)
 
-    a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
-
-    b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-1. Configurer l’environnement Java
-
-    a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
-    
-    b.  [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
+--- 
 
 ## <a name="download-the-sample"></a>Télécharger l’exemple
 
-Dans une fenêtre de terminal, exécutez la commande suivante pour cloner l’exemple d’application Spring Boot Getting Started sur votre ordinateur local.
+Dans une fenêtre de terminal, exécutez la commande suivante pour cloner l’exemple d’application [Getting Started](https://github.com/spring-guides/gs-spring-boot) de Spring Boot sur votre ordinateur local.
 
 ```bash
 git clone https://github.com/spring-guides/gs-spring-boot.git
 ```
 
 ## <a name="build-the-spring-boot-application"></a>Générer l’application Spring Boot 
-1. Dans le répertoire `gs-spring-boot/complete`, exécutez la commande ci-après pour générer l’application 
+Dans le répertoire *gs-spring-boot/complete*, exécutez la commande ci-après pour générer l’application 
 
-    ```bash
-    ./gradlew build
-    ``` 
+```bash
+./gradlew build
+``` 
 
 ## <a name="package-the-spring-boot-application"></a>Empaqueter l’application Spring Boot 
-1. Dans le répertoire `gs-spring-boot` de votre clone, exécutez la commande `yo azuresfguest`. 
+1. Dans le répertoire *gs-spring-boot* de votre clone, exécutez la commande `yo azuresfguest`. 
 
 1. Entrez les informations suivantes à chaque invite.
 
     ![Entrées Yeoman Spring Boot](./media/service-fabric-quickstart-java-spring-boot/yeoman-entries-spring-boot.png)
 
-1. Dans le dossier `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code`, créez un fichier nommé `entryPoint.sh`. Ajoutez le code suivant au fichier `entryPoint.sh`. 
+1. Dans le dossier *SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code*, créez un fichier appelé *entryPoint.sh*. Ajoutez le code suivant au fichier *entryPoint.sh*. 
 
     ```bash
     #!/bin/bash
@@ -91,7 +74,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
        </Resources>
     ```
 
-    Le fichier **ServiceManifest.xml** ressemble désormais à ceci : 
+    Le fichier *ServiceManifest.xml* ressemble désormais à ceci : 
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -136,17 +119,17 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster
     ```
 
-    Le démarrage du cluster local prend un certain temps. Pour vérifier que le cluster est entièrement opérationnel, accédez à Service Fabric Explorer à l’adresse **http://localhost:19080** . Les cinq nœuds sains indiquent que le cluster local est opérationnel. 
+    Le démarrage du cluster local prend un certain temps. Pour vérifier que le cluster est entièrement opérationnel, accédez à Service Fabric Explorer à l’adresse `http://localhost:19080`. Les cinq nœuds sains indiquent que le cluster local est opérationnel. 
     
     ![Service Fabric Explorer - Affichage des nœuds sains](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-healthy-nodes.png)
 
-1. Ouvrez le dossier `gs-spring-boot/SpringServiceFabric`.
+1. Ouvrez le dossier *gs-spring-boot/SpringServiceFabric*.
 1. Exécutez la commande suivante pour vous connecter à votre cluster local.
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
     ```
-1. Exécutez le script `install.sh`.
+1. Exécutez le script *install.sh*.
 
     ```bash
     ./install.sh
@@ -157,6 +140,8 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     ![Exemple Service Fabric Spring Boot](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
 
 Vous pouvez maintenant accéder à l’application Spring Boot qui a été déployée sur un cluster Service Fabric.
+
+Pour plus d’informations, consultez l’exemple [Getting Started](https://spring.io/guides/gs/spring-boot/) de Spring Boot sur le site web Spring.
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Mettre à l’échelle les applications et services dans un cluster
 

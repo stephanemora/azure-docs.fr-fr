@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: Ce tutoriel vous montre comment utiliser Azure Dev Spaces et Visual Studio Code pour déboguer et itérer rapidement une application Java sur Azure Kubernetes Service.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: f4f265b522c62e36d338157b6ddc56f72f623dc4
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 47948b0ce4ac0cb9a78552891e42d7634335839e
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867131"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121749"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Créer un espace de développement Kubernetes : Visual Studio Code et Java avec Azure Dev Spaces
 
@@ -93,7 +93,7 @@ Pour déboguer des applications Java avec Azure Dev Spaces, téléchargez et ins
 Dans cette section, vous allez créer une application web Java et l’exécuter dans un conteneur dans Kubernetes.
 
 ### <a name="create-a-java-web-app"></a>Créer une application web Java
-Téléchargez du code à partir de GitHub en accédant à https://github.com/Azure/dev-spaces, puis sélectionnez **Cloner ou télécharger** pour télécharger le référentiel GitHub dans votre environnement local. Le code de ce guide est disponible dans `samples/java/getting-started/webfrontend`.
+Téléchargez du code à partir de GitHub en accédant à [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces), puis sélectionnez **Cloner ou télécharger** pour télécharger le dépôt GitHub dans votre environnement local. Le code de ce guide est disponible dans `samples/java/getting-started/webfrontend`.
 
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Préparation de code pour le développement Docker et Kubernetes
 Pour l’heure, vous disposez d’une application web de base qui peut s’exécuter localement. Vous allez maintenant la mettre en conteneur en créant des ressources qui définissent le conteneur de l’application et la façon dont il sera déployé dans Kubernetes. Azure Dev Spaces permet d’effectuer facilement cette tâche : 

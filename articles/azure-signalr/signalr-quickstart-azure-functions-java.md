@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide du service Azure SignalR serverless – Java
+title: Utiliser Java pour créer une salle de conversation avec Azure Functions et le service SignalR
 description: Un démarrage rapide pour utiliser le service Azure SignalR et Azure Functions afin de créer une salle de conversation.
 author: sffamily
 ms.service: signalr
@@ -7,36 +7,34 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 9e4e64b99a69e523547bae04146c7460d08bc1df
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 890fc381afe0146e721e084e2dcd7eae9215d004
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261171"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083206"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-java"></a>Démarrage rapide : Créer une salle de conversation avec Azure Functions et le service SignalR en utilisant Java
+# <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Démarrage rapide : Utiliser Java pour créer une salle de conversation avec Azure Functions et le service SignalR
 
-Le service Azure SignalR vous permet d’ajouter facilement des fonctionnalités en temps réel à votre application. Azure Functions est une plateforme serverless qui vous permet d’exécuter votre code sans gérer d’infrastructures. Dans ce démarrage rapide, découvrez comment utiliser le service SignalR et Functions pour générer une application serverless de conversation en temps réel.
+Azure SignalR Service vous permet d’ajouter facilement des fonctionnalités en temps réel à votre application, et Azure Functions est une plateforme serverless qui vous permet d’exécuter votre code sans gérer d’infrastructure. Dans ce démarrage rapide, vous allez utiliser Java pour générer une application serverless de conversation en temps réel en utilisant SignalR Service et Functions.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Ce démarrage rapide peut être exécuté sur macOS, Windows ou Linux.
+- Un éditeur de code, comme [Visual Studio Code](https://code.visualstudio.com/).
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing). Sert à exécuter les applications Azure Functions localement.
 
-Assurez-vous qu’un éditeur de code tel que [Visual Studio Code](https://code.visualstudio.com/) est installé.
+   > [!NOTE]
+   > Les liaisons SignalR Service nécessaires dans Java sont uniquement prises en charge dans Azure Function Core Tools version 2.4.419 (version d’hôte 2.0.12332) ou supérieure.
 
-Installez [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing) pour exécuter des applications Azure Function en local.
+   > [!NOTE]
+   > Pour installer des extensions, Azure Functions Core Tools nécessite l’installation du kit [SDK .NET Core](https://www.microsoft.com/net/download). Toutefois, aucune connaissance de .NET n’est requise pour générer des applications de fonction Azure JavaScript.
+
+- [Java Developer Kit (JDK)](https://www.azul.com/downloads/zulu/), version 8
+- [Apache Maven](https://maven.apache.org), version 3.0 ou ultérieure
 
 > [!NOTE]
-> Pour utiliser les liaisons de SignalR Service en Java, assurez-vous que vous utilisez la version 2.4.419 ou une version ultérieure d’Azure Functions Core Tools (version de l’hôte 2.0.12332).
-
-Pour installer des extensions, Azure Functions Core Tools requiert actuellement que le [kit SDK .NET Core](https://www.microsoft.com/net/download) soit installé. Toutefois, aucune connaissance de .NET n’est requise pour générer des applications de fonction Azure JavaScript.
-
-Pour développer une application de fonction avec Java, les éléments suivants doivent être installés :
-
-* [Java Developer Kit (JDK)](https://www.azul.com/downloads/zulu/) version 8.
-* [Apache Maven](https://maven.apache.org) version 3.0 ou ultérieure.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+> Ce démarrage rapide peut être exécuté sur macOS, Windows ou Linux.
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 

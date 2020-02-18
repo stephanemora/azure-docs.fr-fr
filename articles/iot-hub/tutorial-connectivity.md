@@ -9,20 +9,20 @@ ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: caa249dda4215dfcef13df96d2dd4245cae49efd
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5d84b1b951cd1a48a385083f5ce2e2aaf1cba8d7
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595753"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110649"
 ---
-# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Didacticiel : Utiliser un appareil simulé pour tester la connectivité avec votre hub IoT
+# <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutoriel : Utiliser un appareil simulé pour tester la connectivité avec votre hub IoT
 
 Dans ce tutoriel, vous utilisez les outils du portail Azure IoT Hub et les commandes Azure CLI pour tester la connectivité de l’appareil. Ce tutoriel utilise également un simulateur d’appareil simple que vous exécutez sur votre ordinateur de bureau.
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Vérifier l’authentification de vos appareils
 > * Vérifier la connectivité appareil-à-cloud
@@ -31,7 +31,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les scripts CLI que vous exécutez dans ce tutoriel utilisent l’[extension Microsoft Azure IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Pour installer cette extension, exécutez la commande CLI suivante :
 
@@ -50,6 +50,8 @@ node --version
 ```
 
 Téléchargez l’exemple de projet Node.js de simulateur d’appareil à partir de https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip et extrayez l’archive ZIP.
+
+Assurez-vous que le port 8883 est ouvert dans votre pare-feu. L’exemple d’appareil de ce tutoriel utilise le protocole MQTT qui communique sur le port 8883. Ce port peut être bloqué dans certains environnements réseau professionnels et scolaires. Pour plus d’informations sur les différentes façons de contourner ce problème, consultez [Connexion à IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -154,7 +156,7 @@ Vous avez maintenant correctement authentifié depuis un appareil à l’aide d�
 
 Un appareil peut utiliser l’un des protocoles suivants pour se connecter à votre Hub IoT :
 
-| Protocole | Port sortant |
+| Protocol | Port sortant |
 | --- | --- |
 | MQTT |8883 |
 | MQTT sur WebSockets |443 |
@@ -253,7 +255,7 @@ L’appareil simulé imprime un message lorsqu’il reçoit une mise à jour de 
 
 En plus de recevoir les modifications apportées aux propriétés souhaitées lorsqu’elles sont effectuées, l’appareil simulé vérifie automatiquement les propriétés souhaitées lors de son démarrage.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez plus besoin du hub IoT, supprimez-le ainsi que le groupe de ressources dans le portail. Pour ce faire, sélectionnez le groupe de ressources **tutorials-iot-hub-rg** qui contient votre Hub IoT, puis cliquez sur **Supprimer**.
 

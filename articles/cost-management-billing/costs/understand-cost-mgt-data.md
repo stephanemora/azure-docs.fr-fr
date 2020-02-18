@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/29/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 156684676758d777231d3b159ba7bc4749b8582a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a514dc07da3e4fd5928614099eb86ecef311bbb1
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901764"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188533"
 ---
 # <a name="understand-cost-management-data"></a>Comprendre les données Cost Management
 
@@ -85,8 +85,6 @@ Si vous ne voyez pas de données pour un abonnement et que vous souhaitez déter
 
 Les tableaux suivants indiquent les données qui sont comprises ou non dans Cost Management. Les coûts font l’objet d’une estimation tant qu’aucune facture n’a été générée. Les coûts affichés n’incluent pas les crédits prépayés et gratuits.
 
-**Données de coût et d’utilisation**
-
 | **Incluses** | **Non incluses** |
 | --- | --- |
 | Utilisation des services Azure<sup>5</sup>        | Frais de support. Pour plus d’informations, consultez [Conditions de facturation expliquées](../understand/understand-invoice.md). |
@@ -101,13 +99,42 @@ _<sup>**6**</sup> Les achats de la Place de marché ne sont pas disponibles pour
 
 _<sup>**7**</sup> Les achats de réservation sont uniquement disponibles pour les comptes des Contrats entreprise pour l’instant._
 
-**Métadonnées**
+## <a name="how-tags-are-used-in-cost-and-usage-data"></a>Utilisation des étiquettes dans les données de coût et d’utilisation
 
-| **Incluses** | **Non incluses** |
-| --- | --- |
-| Étiquettes de ressources<sup>8</sup> | Étiquettes des groupes de ressources |
+Azure Cost Management reçoit des étiquettes dans le cadre de chaque enregistrement d’utilisation soumis par les services individuels. Les contraintes suivantes s’appliquent à ces étiquettes :
 
-_<sup>**8**</sup> Les étiquettes de ressources sont appliquées quand les données d’utilisation sont envoyées à partir de chaque service et ne sont pas disponibles rétroactivement pour l’historique d’utilisation._
+- Les étiquettes doivent être appliquées directement aux ressources et ne sont pas héritées implicitement du groupe de ressources parent.
+- Les étiquettes de ressource sont prises en charge seulement pour les ressources déployées sur des groupes de ressources.
+- Certaines ressources déployées peuvent ne pas prendre en charge les étiquettes ou ne pas inclure d’étiquettes dans les données d’utilisation : consultez [Étiquettes prises en charge pour les ressources Azure](../../azure-resource-manager/tag-support.md).
+- Les étiquettes de ressource sont incluses seulement dans les données d’utilisation quand l’étiquette est appliquée : les étiquettes ne sont pas appliquées aux données d’historique.
+- Les étiquettes de ressource sont disponibles dans Cost Management seulement une fois que les données sont actualisées : consultez [La fréquence de mise à jour des données d’utilisation varie](#usage-data-update-frequency-varies).
+- Les étiquettes de ressource sont disponibles dans Cost Management seulement quand la ressource est active/en cours d’exécution et produit des enregistrements d’utilisation (par exemple pas quand une machine virtuelle est désallouée).
+- La gestion des étiquettes nécessite un accès Contributeur à chaque ressource.
+- La gestion des stratégies d’étiquettes nécessite l’accès Propriétaire ou Contributeur de stratégie à un groupe d’administration, un abonnement ou un groupe de ressources.
+    
+Si vous ne voyez pas une étiquette spécifique dans Cost Management, prenez en considération les éléments suivants :
+
+- L’étiquette a-t-elle été appliquée directement à la ressource ?
+- L’étiquette a-t-elle été appliquée il y a plus de 24 heures ? Consultez [La fréquence de mise à jour des données d’utilisation varie](#usage-data-update-frequency-varies)
+- Le type de ressource prend-il en charge les étiquettes ? Les types de ressources suivants ne prennent pas en charge les étiquettes dans les données d’utilisation à la date du 1er décembre 2019. Pour obtenir la liste complète de ce qui est pris en charge, consultez [Prise en charge des étiquettes pour les ressources Azure](../../azure-resource-manager/tag-support.md).
+    - Annuaires Azure Active Directory B2C
+    - Pare-feux Azure
+    - Azure NetApp Files
+    - Data Factory
+    - Databricks
+    - Équilibreurs de charge
+    - Network Watcher
+    - Notification Hubs
+    - Service Bus
+    - Time Series Insights
+    - passerelle VPN
+    
+Voici quelques conseils pour l’utilisation des étiquettes :
+
+- Planifiez en amont et définissez une stratégie d’étiquetage qui vous permet de ventiler les coûts par organisation, application, environnement, etc.
+- Utilisez Azure Policy pour copier les étiquettes des groupes de ressources vers des ressources individuelles et pour appliquer votre stratégie d’étiquetage.
+- Utilisez l’API Tags conjointement avec Query ou UsageDetails pour obtenir tous les coûts en fonction des étiquettes actuelles.
+
 
 **Mise à niveau de l’évaluation gratuite vers un abonnement avec paiement à l’utilisation**
 

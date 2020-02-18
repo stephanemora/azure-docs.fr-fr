@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: d097894c841d91d344b5958e7f5e1c10249f8b6e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e564660b502a950021ba4e4754ff5c210dfd477f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904874"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77082867"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Approvisionner des appareils avec le service Azure IoT Hub Device Provisioning
 Microsoft Azure fournit un ensemble complet de services cloud publics intégrés qui répondent à tous les besoins de votre solution IoT. Le service IoT Hub Device Provisioning (DPS) est un service d’assistance pour IoT Hub qui autorise un provisionnement sans contact, juste-à-temps sur le hub IoT approprié et sans aucune intervention humaine. DPS permet de provisionner plusieurs millions d’appareils de manière sécurisée et scalable.
@@ -80,8 +80,10 @@ DPS propose de nombreuses fonctionnalités qui le rendent idéal pour le provisi
 * **Liste d’inscriptions** contenant l’enregistrement complet des appareils/groupes d’appareils susceptibles d’être enregistrés à un moment donné. La liste d’inscriptions contient des informations sur la configuration souhaitée de l’appareil après son enregistrement et peut être mise à jour à tout moment.
 * **Plusieurs stratégies d’allocation** pour contrôler la façon dont DPS affecte les appareils aux hubs IoT en fonction de vos scénarios : Latence la plus faible, distribution uniformément pondérée (par défaut) et configuration statique par le biais de la liste d’inscriptions. La latence est déterminée selon la même méthode que celle utilisée par [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
 * **Monitoring et journalisation des diagnostics** pour vérifier que tout fonctionne correctement.
-* La **prise en charge multihub** permet à DPS de lier tardivement des appareils à un hub IoT au moment de l’exécution. DPS peut communiquer avec les hubs de plusieurs abonnements Azure.
+* La **prise en charge multihub** permet à DPM d’affecter des appareils à plusieurs hubs IoT. DPS peut communiquer avec les hubs de plusieurs abonnements Azure.
 * La **prise en charge inter-régions** permet à DPS d’affecter des appareils à des hubs IoT d’autres régions.
+* Le **chiffrement des données au repos** est conforme à la norme FIPS 140-2 et permet de chiffrer et déchiffrer les données dans DPM de façon transparente avec le chiffrement AES 256 bits, un des chiffrements par blocs les plus puissants actuellement disponibles.
+
 
 Vous trouverez d’autres d’informations sur les concepts et les fonctionnalités impliqués dans l’approvisionnement d’appareils dans les [concepts d’appareil](concepts-device.md), les [concepts de service](concepts-service.md) et les [concepts de sécurité](concepts-security.md).
 

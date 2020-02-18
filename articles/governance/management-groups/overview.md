@@ -4,12 +4,12 @@ description: Découvrez les groupes d’administration, le fonctionnement des au
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.date: 12/18/2019
 ms.topic: overview
-ms.openlocfilehash: 507f4575e6d8daa16a1ed7db3d429d2810a63a7c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 319f48d4d0f8ce8501fecb74282760340b597188
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750254"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186986"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure
 
@@ -23,7 +23,7 @@ Vous pouvez créer une structure flexible de groupes d’administration et d’a
 
 ![Exemple d’une arborescence hiérarchique de groupes de gestion](./media/tree.png)
 
-Vous pouvez créer une hiérarchie qui applique une stratégie, par exemple, qui limite les emplacements de machines virtuelles à la région USA Ouest dans le groupe appelé « Production ». Cette stratégie est héritée par tous les abonnements EA descendants de ce groupe d’administration et s’applique à toutes les machines virtuelles dans ces abonnements. Cette stratégie de sécurité ne peut pas être modifiée par le propriétaire de ressources ou d’abonnement permettant une gouvernance améliorée.
+Vous pouvez créer une hiérarchie qui applique une stratégie, par exemple, qui limite les emplacements de machines virtuelles à la région USA Ouest dans le groupe appelé « Production ». Cette stratégie est héritée par tous les abonnements Contrat Entreprise descendants de ce groupe d’administration et s’applique à toutes les machines virtuelles dans ces abonnements. Cette stratégie de sécurité ne peut pas être modifiée par le propriétaire de ressources ou d’abonnement permettant une gouvernance améliorée.
 
 Un autre scénario où vous pouvez utiliser les groupes d’administration consiste à fournir un accès utilisateur à plusieurs abonnements. En déplaçant plusieurs abonnements dans ce groupe d’administration, vous pouvez créer une affectation de [contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md) (RBAC) dans le groupe d’administration, qui héritera de l’accès à tous les abonnements.
 Une affectation sur le groupe d’administration peut autoriser les utilisateurs à accéder à tout ce que dont ils ont besoin, au lieu de créer un script RBAC sur différents abonnements.
@@ -102,7 +102,7 @@ Le graphique suivant montre la liste des rôles, ainsi que les actions prises en
 
 ## <a name="custom-rbac-role-definition-and-assignment"></a>Définition et attribution d’un rôle RBAC personnalisé
 
-Les rôles RBAC personnalisés sont pris en charge pour les groupes d’administration, mais avec certaines [limitations](#limitations).  Vous pouvez définir l’étendue d’un groupe d’administration dans l’étendue attribuable de la définition de rôle.  Ce rôle RBAC personnalisé est alors ensuite attribuable dans ce groupe d’administration ainsi que tout groupe d’administration, abonnement, groupe de ressources ou ressource dont il est parent. Ce rôle personnalisé hérite ensuite la hiérarchie comme n’importe quel rôle intégré.    
+La prise en charge des rôles RBAC personnalisés pour les groupes d’administration est actuellement en préversion et comprend certaines [limitations](#limitations).  Vous pouvez définir l’étendue d’un groupe d’administration dans l’étendue attribuable de la définition de rôle.  Ce rôle RBAC personnalisé est alors ensuite attribuable dans ce groupe d’administration ainsi que tout groupe d’administration, abonnement, groupe de ressources ou ressource dont il est parent. Ce rôle personnalisé hérite ensuite la hiérarchie comme n’importe quel rôle intégré.    
 
 ### <a name="example-definition"></a>Exemple de définition
 Le processus de [définition et création d’un rôle personnalisé](../../role-based-access-control/custom-roles.md) ne change pas avec l’inclusion de groupes d’administration. Spécifiez le chemin complet pour définir le groupe d’administration **/providers/Microsoft.Management/managementgroups/{groupId}** . 

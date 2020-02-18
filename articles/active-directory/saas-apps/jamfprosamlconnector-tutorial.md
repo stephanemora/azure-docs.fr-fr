@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Jamf Pro | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Jamf Pro | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Jamf Pro.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfe426a6b3d087683e615d3212e0693b185c40f0
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: dc99e23e1b885de25bd2159d7916790cad851108
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212383"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150230"
 ---
-# <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Jamf Pro
+# <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Jamf Pro
 
 Dans ce tutoriel, vous allez apprendre à intégrer Jamf Pro dans Azure Active Directory (Azure AD). Quand vous intégrez Jamf Pro à Azure AD, vous pouvez :
 
@@ -33,7 +33,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer Jamf Pro dans Azure Active D
 
 Pour en savoir plus sur l’intégration d’applications SaaS avec Azure AD, consultez [Authentification unique avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -100,7 +100,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé B. Simon su
 1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
 1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez `B.Simon`.  
+   1. Dans le champ **Nom**, entrez `B.Simon`.
    1. Dans le champ **Nom d’utilisateur**, entrez [nom]@[domaine_entreprise].[extension]. Par exemple : `B.Simon@contoso.com`.
    1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
    1. Sélectionnez **Create** (Créer).
@@ -123,7 +123,7 @@ Dans cette section, vous accordez à B. Simon l’accès à Jamf Pro.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur. Cliquez ensuite sur le bouton **Sélectionner** au bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
-## <a name="configure-sso-in-jamf-pro"></a>Configurer l’authentification unique dans Jamf Pro 
+## <a name="configure-sso-in-jamf-pro"></a>Configurer l’authentification unique dans Jamf Pro
 
 1. Pour automatiser la configuration dans Jamf Pro, installez l’**extension de navigateur de connexion sécurisée à Mes applications** en sélectionnant **Installer l’extension**.
 
@@ -147,30 +147,32 @@ Dans cette section, vous accordez à B. Simon l’accès à Jamf Pro.
 
     ![Page Single Sign-On dans Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-    a. Cochez la case **Enable Single Sign-On Authentication** (Activer l’authentification unique).
+  a. Sélectionnez **Modifier**.
 
-    b. Sélectionnez l’option **Other** (Autre) dans le menu déroulant **IDENTITY PROVIDER** (Fournisseur d’identité).
+  b. Cochez la case **Enable Single Sign-On Authentication** (Activer l’authentification unique).
 
-    c. Dans le champ **OTHER PROVIDER** (Autre fournisseur), entrez **Azure AD**.
+    c. Sélectionnez l’option **Azure** dans le menu déroulant **Fournisseur d’identité**.
 
     d. Copiez la valeur **ENTITY ID** et collez-la dans le champ **Identificateur (ID d’entité)** dans la section **Configuration SAML de base** du portail Azure.
 
     > [!NOTE]
     > Utilisez la valeur du champ `<SUBDOMAIN>` pour renseigner l’URL de connexion et l’URL de réponse dans la section **Configuration SAML de base** du portail Azure.
 
-    e. Sélectionnez **Metadata URL** (URL des métadonnées) dans le menu déroulant **IDENTITY PROVIDER METADATA SOURCE** (Source des métadonnées du fournisseur d’identité). Dans le champ qui apparaît, collez la valeur d’**URL des métadonnées de fédération d’application** que vous avez copiée sur le portail Azure.
+    e. Sélectionnez **URL des métadonnées** dans le menu déroulant **Source des métadonnées du fournisseur d’identité**. Dans le champ qui apparaît, collez la valeur d’**URL des métadonnées de fédération d’application** que vous avez copiée sur le portail Azure.
 
-7. Dans la même page, faites défiler jusqu’à la section **User Mapping** (Mappage utilisateur). Effectuez ensuite les étapes suivantes.   
+    f. (Facultatif) Modifiez la valeur d’expiration du jeton ou sélectionnez « Désactiver l’expiration du jeton SAML ».
 
-    ![Section User Mapping de la page Single Sign-on de JAMF Pro.](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
+7. Dans la même page, faites défiler jusqu’à la section **User Mapping** (Mappage utilisateur). Effectuez ensuite les étapes suivantes.
 
-    a. Sélectionnez l’option **NameID** pour **IDENTITY PROVIDER USER MAPPING** (MAPPAGE D’UTILISATEURS DE FOURNISSEUR D’IDENTITÉ). Par défaut, cette option est définie sur **NameID**, mais vous pouvez définir un attribut personnalisé.
+    ![Section User Mapping de la page Single Sign-on de JAMF Pro.](./media/jamfprosamlconnector-tutorial/tutorial-jamfprosamlconnector-single.png)
 
-    b. Sélectionnez **Email** pour **JAMF PRO USER MAPPING** (MAPPAGE D’UTILISATEURS JAMF PRO). Jamf Pro mappe les attributs SAML envoyés par le fournisseur d’identité en commençant par les utilisateurs puis par les groupes. Quand un utilisateur tente d’accéder à Jamf Pro, Jamf Pro obtient les informations sur l’utilisateur auprès du fournisseur d’identité et les compare à tous les comptes d’utilisateurs Jamf Pro. Si le compte d’utilisateur entrant est introuvable, Jamf Pro tente de le faire correspondre à un nom de groupe.
+    a. Sélectionnez l’option **NameID** pour **Mappage d’utilisateur de fournisseur d’identité**. Par défaut, cette option est définie sur **NameID**, mais vous pouvez définir un attribut personnalisé.
+
+    b. Sélectionnez **E-mail** pour **Mappage d’utilisateur Jamf Pro**. Jamf Pro mappe les attributs SAML envoyés par le fournisseur d’identité en commençant par les utilisateurs puis par les groupes. Quand un utilisateur tente d’accéder à Jamf Pro, Jamf Pro obtient les informations sur l’utilisateur auprès du fournisseur d’identité et les compare à tous les comptes d’utilisateurs Jamf Pro. Si le compte d’utilisateur entrant est introuvable, Jamf Pro tente de le faire correspondre à un nom de groupe.
 
     c. Collez la valeur `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` dans le champ **IDENTITY PROVIDER GROUP ATTRIBUTE NAME** (Nom d’attribut de groupe de fournisseur d’identité).
 
-    d. Sélectionnez **Allow users to bypass the Single Sign-On authentication** (Autoriser les utilisateurs à ignorer l’authentification unique). Les utilisateurs ne sont alors pas redirigés vers la page de connexion du fournisseur d’identité pour l’authentification et peuvent se connecter directement à Jamf Pro. Lorsqu’un utilisateur tente d’accéder à Jamf Pro via le fournisseur d’identité, l’autorisation et l’authentification SSO lancée par le fournisseur d’identité se produisent.
+    d. Dans la même page, faites défiler l’écran jusqu’à la section **Sécurité**, puis sélectionnez **Autoriser les utilisateurs à ignorer l’authentification unique**. Les utilisateurs ne sont alors pas redirigés vers la page de connexion du fournisseur d’identité pour l’authentification et peuvent se connecter directement à Jamf Pro. Lorsqu’un utilisateur tente d’accéder à Jamf Pro via le fournisseur d’identité, l’autorisation et l’authentification SSO lancée par le fournisseur d’identité se produisent.
 
     e. Sélectionnez **Enregistrer**.
 
@@ -216,7 +218,7 @@ Pour provisionner un compte d’utilisateur, effectuez les étapes suivantes :
 
     g. Sélectionnez **Enregistrer**.
 
-## <a name="test-the-sso-configuration"></a>Tester la configuration SSO 
+## <a name="test-the-sso-configuration"></a>Tester la configuration SSO
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
@@ -231,4 +233,3 @@ Quand vous sélectionnez la vignette Jamf Pro dans le panneau d’accès, vous d
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Essayer Jamf Pro avec Azure AD](https://aad.portal.azure.com/)
-

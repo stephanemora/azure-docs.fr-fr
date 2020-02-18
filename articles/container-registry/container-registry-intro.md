@@ -3,15 +3,15 @@ title: Registres de conteneurs managés
 description: Présentation du service Azure Container Registry, proposant des registres Docker privés, gérés et basés sur le cloud.
 author: stevelas
 ms.topic: overview
-ms.date: 12/03/2019
+ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 863b93497505443b79f41f580150a4dbf790a6f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1992a2a63d16a955d136459f5dbaece7df815c71
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445732"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132027"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Présentation des registres de conteneurs Docker privés dans Azure
 
@@ -41,7 +41,7 @@ Azure fournit des outils, notamment l’interface de ligne de commande Azure, le
 * **Sécurité et accès** : vous vous connectez à un registre à l’aide d’Azure CLI ou de la commande `docker login` standard. Azure Container Registry transfère les images conteneur via HTTPS et prend en charge TLS pour sécuriser les connexions clientes. 
 
   > [!IMPORTANT]
-  > À partir du 13 janvier 2020, Azure Container Registry exigera l’utilisation de TLS 1.2 pour toutes les connexions sécurisées établies à partir des serveurs et des applications. TLS 1.0 et 1.1 ne seront plus pris en charge.
+  > À partir du 13 janvier 2020, Azure Container Registry exigera l’utilisation de TLS 1.2 pour toutes les connexions sécurisées établies à partir des serveurs et des applications. Activez TLS 1.2 à l’aide de n’importe quel client docker récent (version 18.03.0 ou ultérieure). TLS 1.0 et 1.1 ne seront plus pris en charge. 
 
   Vous [contrôlez l’accès](container-registry-authentication.md) à un registre de conteneurs à l’aide d’une identité Azure, d’un [principal de service](../active-directory/develop/app-objects-and-service-principals.md) pris en charge par Azure Active Directory ou d’un compte d’administration fourni. Utilisez le contrôle d’accès en fonction du rôle (RBAC) pour affecter des autorisations affinées au niveau utilisateurs ou systèmes à un registre.
 

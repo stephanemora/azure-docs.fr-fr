@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 4fec6b93ad206ae3052df5f7763f3c146b7aa680
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 02ae140568150b0db8ebdea065ee683e4f4eec9c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446802"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189003"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutoriel : Créer un modèle de locataire (préversion)
 
@@ -39,11 +39,11 @@ Avant de pouvoir déployer votre modèle de locataire, vous devez vous être ins
 
 1. Connectez-vous au [centre d’administration Microsoft 365](https://admin.microsoft.com).
 
-1. Dans le volet gauche, sélectionnez **Paramètres**, **Applications**, puis **Services de reconnaissance vocale Azure**.
+1. Dans le volet gauche, sélectionnez **Paramètres**, puis sélectionnez **Paramètres** dans le menu imbriqué et **Azure Speech Services** dans la fenêtre principale.
 
    ![Volet « Services et compléments »](media/tenant-language-model/tenant-language-model-enrollment.png)
 
-1. Cochez la case **Autoriser le modèle de langage à l’échelle de l’organisation**, puis sélectionnez **Enregistrer les modifications**. 
+1. Cochez la case **Autoriser le modèle de langage à l’échelle de l’organisation**, puis sélectionnez **Enregistrer les modifications**.
 
    ![Volet Services de reconnaissance vocale Azure](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
@@ -79,11 +79,11 @@ Dès lors que votre administrateur a activé Tenant Model pour votre organisatio
 
    > [!NOTE]
    > Les clients d’entreprise Office 365 d’Amérique du Nord sont éligibles à la création d’un modèle de locataire (anglais). Si vous êtes un client Customer Lockbox (CLB), Customer Key (CK) ou Office 365 Government, cette fonctionnalité n’est pas disponible. Pour déterminer si vous êtes un client Customer Lockbox ou Customer Key, consultez :
-   > * [Customer Lockbox](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
-   > * [Customer Key](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
-   > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
+   > * [Customer Lockbox](/microsoft-365/compliance/customer-lockbox-requests)
+   > * [Customer Key](/microsoft-365/compliance/customer-key-overview)
+   > * [Office 365 Government](/microsoft-365/government)
 
-1. Sélectionnez **Activer**. 
+1. Sélectionnez **Activer**.
 
    Quand votre modèle de locataire sera prêt, vous recevrez un e-mail de confirmation avec des instructions supplémentaires.
 

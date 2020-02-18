@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 0cde8b48e7bd1d1daa8f14dcded87001fb898fa7
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: b5748824590f40e30af8f462d4c8ff25521cfd94
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769231"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136089"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>Démarrage rapide : Bibliothèque de client Azure Key Vault pour Java
 
@@ -168,7 +168,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 La bibliothèque de client Azure Key Vault pour Java vous permet de gérer des clés et les ressources associées, par exemple des certificats et des secrets. Les exemples de code ci-dessous vous montrent comment créer un client et définir, récupérer et supprimer un secret.
 
-L’application console complète est disponible à l’adresse https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
+L’application console complète est [ci-dessous](#sample-code).
 
 ## <a name="code-examples"></a>Exemples de code
 
