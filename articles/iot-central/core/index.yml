@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
-  ms.date: 10/25/2019
-  ms.openlocfilehash: cddfdbe709849f81f585ad7537556945ec14c990
-  ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+  ms.date: 02/18/2020
+  ms.openlocfilehash: f404ecb676b75258cd44fb819dbafc3b2fb6452e
+  ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 02/05/2020
-  ms.locfileid: "77023427"
+  ms.lasthandoff: 02/18/2020
+  ms.locfileid: "77431177"
 landingContent:
 - title: À propos d’Azure IoT Central
   linkLists:
@@ -23,14 +23,14 @@ landingContent:
     links:
     - text: Qu’est-ce que Azure IoT Central
       url: overview-iot-central.md
-    - text: Options de la solution IoT
-      url: overview-iot-central-tour.md
     - text: Visite guidée de l’interface utilisateur
       url: overview-iot-central-tour.md
   - linkListType: architecture
     links:
     - text: Architecture d’Azure IoT Central
       url: concepts-architecture.md
+    - text: Modèles d’application
+      url: concepts-app-templates.md
   - linkListType: quickstart
     links:
     - text: Créer une application
@@ -39,12 +39,12 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Configurer un modèle d’appareil
-      url: howto-set-up-template.md
     - text: Connecter un appareil IoT Plug-and-Play (préversion)
-      url: tutorial-add-device.md
+      url: tutorial-connect-pnp-device.md
   - linkListType: how-to-guide
     links:
+    - text: Configurer un modèle d’appareil
+      url: howto-set-up-template.md
     - text: Préparer et connecter un kit de développement IoT MX Chip
       url: howto-connect-devkit.md
     - text: Connecter d’autres clouds IoT
@@ -53,8 +53,8 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Utiliser des ensembles d’appareils
-      url: howto-use-device-sets.md
+    - text: Utiliser des groupes d’appareils
+      url: tutorial-use-device-groups.md
   - linkListType: how-to-guide
     links:
     - text: Gestion de vos appareils
@@ -68,9 +68,9 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Créer des règles de télémétrie
-      url: howto-create-telemetry-rules.md
-    - text: Exporter vers le Stockage Blob
-      url: howto-export-data-blob-storage.md
+      url: tutorial-create-telemetry-rules.md
+    - text: Exporter des données
+      url: howto-export-data.md
   - linkListType: how-to-guide
     links:
     - text: Créer des règles personnalisées

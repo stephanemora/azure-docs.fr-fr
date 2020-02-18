@@ -56,10 +56,6 @@
           href: create-cluster-database-resource-manager.md
     - name: Réception de données
       items:
-        - name: Ingestion en un clic
-          href: ingest-data-one-click.md
-        - name: Ingestion de streaming
-          href: ingest-data-streaming.md
         - name: Event Hub
           items:
             - name: Portail Azure
@@ -90,6 +86,10 @@
               href: data-connection-iot-hub-python.md
             - name: "Modèle Azure\_Resource\_Manager"
               href: data-connection-iot-hub-resource-manager.md
+        - name: Ingestion en un clic
+          href: ingest-data-one-click.md
+        - name: Ingestion de streaming
+          href: ingest-data-streaming.md
         - name: Utilisation des kits SDK
           items:
             - name: Python
