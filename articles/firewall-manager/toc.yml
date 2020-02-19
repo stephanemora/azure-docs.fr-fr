@@ -7,10 +7,14 @@
 - name: Tutoriels
   expanded: true
   items:
-    - name: Sécuriser votre réseau cloud - Portail
+    - name: Sécuriser votre WAN virtuel - Portail
       href: secure-cloud-network.md
+    - name: Sécuriser votre réseau virtuel hub - Portail
+      href: secure-hybrid-network.md
 - name: Concepts
   items:
+    - name: Vue d’ensemble des stratégies
+      href: policy-overview.md
     - name: Qu’est-ce qu’un hub virtuel sécurisé ?
       href: secured-virtual-hub.md
     - name: Processus général de déploiement
@@ -19,11 +23,13 @@
       href: trusted-security-partners.md
     - name: Logique de traitement des règles
       href: rule-processing.md
+    - name: Options d’architecture
+      href: vhubs-and-vnets.md
 - name: Guides pratiques
   items:
     - name: Déployer des partenaires de sécurité de confiance
       href: deploy-trusted-security-partner.md
-    - name: Migrer vers une stratégie de pare-feu
+    - name: Migrer vers une stratégie de pare-feu - PowerShell
       href: migrate-to-policy.md
 - name: Informations de référence
   items:

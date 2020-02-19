@@ -1,6 +1,6 @@
 - name: Documentation Batch
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Présentation d’Azure Batch
       href: batch-technical-overview.md
@@ -37,7 +37,7 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=batch'
         - name: Référentiel d’exemples Batch
           href: 'https://github.com/Azure/azure-batch-samples'
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: cli-samples.md
 - name: Concepts
   items:
@@ -45,7 +45,7 @@
       href: batch-api-basics.md
     - name: API et outils
       href: batch-apis-tools.md
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       href: best-practices.md
     - name: Quotas et limites
       href: batch-quota-limit.md
@@ -71,6 +71,8 @@
           href: batch-aad-auth.md
         - name: Azure AD avec gestion de lots
           href: batch-aad-auth-management.md
+        - name: Accéder de façon sécurisée à Key Vault avec Batch
+          href: credential-access-key-vault.md
     - name: Utilisation de packages d’application
       href: batch-application-packages.md
     - name: Créer et gérer des pools
@@ -158,7 +160,7 @@
           href: batch-rendering-service.md
         - name: Rendu des images de machines virtuelles
           href: batch-rendering-applications.md
-        - name: Fonctionnalités de Batch Rendering
+        - name: Fonctionnalités de rendu Azure Batch
           href: batch-rendering-functionality.md
         - name: Utilisation du rendu Batch Rendering
           href: batch-rendering-using.md
@@ -174,7 +176,7 @@
       href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json
 - name: Informations de référence
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/batch
     - name: Azure PowerShell
       href: /powershell/module/az.batch

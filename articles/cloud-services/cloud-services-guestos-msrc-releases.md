@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/24/2020
+ms.date: 02/07/2020
 ms.author: raiye
-ms.openlocfilehash: 89fd16b6afadee75678b76381739c12a31dc1a07
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: cca79946c0537b75335eb2e64ae1fa429f2c8d18
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765373"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087233"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
@@ -42,9 +42,9 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 |  Version 20-01  |  [4494174]  |  Microcode v4  | [6.15] | 29 août 2019 |
 |  Version 20-01  |  [4532947]  |  Sécurité Windows  | [6.15] | 14 janvier 2020 |
 |  Version 20-01  |  [4534273]  |  LCU  | [6.15] | 14 janvier 2020 |
-|  Version 20-01  |  [4530734]  |  Non relatif à la sécurité  | [2.94] | 10 décembre 2019 |
-|  Version 20-01  |  [4530691]  |  Non relatif à la sécurité   | [3.81] | 10 décembre 2019 |
-|  Version 20-01  |  [4530702]  |  Non relatif à la sécurité  | [4.74] | 10 décembre 2019 |
+|  Version 20-01  |  [4530734]  |  Correctif cumulatif mensuel  | [2.94] | 10 décembre 2019 |
+|  Version 20-01  |  [4530691]  |  Correctif cumulatif mensuel   | [3.81] | 10 décembre 2019 |
+|  Version 20-01  |  [4530702]  |  Correctif cumulatif mensuel  | [4.74] | 10 décembre 2019 |
 
 [4532960]: https://support.microsoft.com/kb/4532960
 [4534251]: https://support.microsoft.com/kb/4534251

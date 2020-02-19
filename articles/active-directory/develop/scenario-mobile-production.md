@@ -1,6 +1,7 @@
 ---
-title: Passer en production une application mobile appelant des API web - Plateforme d’identités Microsoft | Azure
-description: Apprenez à générer une application mobile qui appelle des API web (passage en production)
+title: Préparer des API web appelant des applications mobiles pour la production | Azure
+titleSuffix: Microsoft identity platform
+description: Découvrez comment générer une application mobile qui appelle des API web. (Préparer des applications pour la production.)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,36 +16,39 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviwer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1a82fc7dc1b18fa21657170af29f7de7e84d7c1f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 1ea19b8b76f4eb4a2c984f0e39eb0fd373c8b83c
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702026"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132388"
 ---
-# <a name="mobile-app-that-calls-web-apis---move-to-production"></a>Application mobile appelant des API web : passage en production
+# <a name="prepare-mobile-apps-for-production"></a>Préparer des applications mobiles pour la production
 
-Cet article fournit des détails sur la façon d’améliorer la qualité et la fiabilité de votre application avant de la passer en production.
+Cet article fournit des détails sur la façon d’améliorer la qualité et la fiabilité de votre application mobile avant de la mettre en production.
 
-## <a name="handling-errors-in-mobile-applications"></a>Gestion des erreurs dans les applications mobiles
+## <a name="handle-errors"></a>Gérer les erreurs
 
-Certaines conditions d’erreur peut se produire à ce stade dans votre application. Les principaux scénarios à gérer sont des échecs silencieux et des solutions de secours pour l’interaction. Vous devez aussi tenir compte des situations sans réseau, des interruptions de service, de la configuration requise pour le consentement administrateur et d’autres cas spécifiques en fonction du scénario.
+Lorsque vous préparez une application mobile pour la production, plusieurs conditions d’erreur peuvent se produire. Les principaux cas que vous allez gérer sont des échecs silencieux et des solutions de secours pour l’interaction. Vous devez aussi tenir compte des situations sans réseau, des interruptions de service, de la configuration requise pour le consentement administrateur et d’autres cas spécifiques du scénario.
 
-Chaque bibliothèque MSAL présente un exemple de code et du contenu wiki décrivant comment gérer ces conditions :
+Pour chaque type de Bibliothèque d’authentification Microsoft (MSAL), vous pouvez trouver des exemples de code et du contenu wiki décrivant comment gérer les conditions d’erreur :
 
 - [Wiki Android MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-android)
 - [Wiki iOS MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-objc/wiki)
 - [Wiki MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)
 
-## <a name="mitigating-and-investigating-issues"></a>Limitation et étude des problèmes
+## <a name="mitigate-and-investigate-issues"></a>Atténuer et examiner les problèmes
 
-Pour diagnostiquer les problèmes dans votre application, il est intéressant de collecter des données. Pour plus d’informations sur les types de données à collecter, consultez les wikis de plateforme MSAL.
+Pour mieux diagnostiquer des problèmes dans votre application, collectez des données. Pour plus d’informations sur les types de données que vous pouvez collecter, voir [Journalisation dans les applications MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-logging).
 
-- Les utilisateurs peuvent demander de l’aide lorsqu’ils rencontrent des problèmes. Une bonne pratique consiste à capturer, stocker temporairement les journaux et fournir un emplacement où les utilisateurs peuvent les charger. MSAL fournit des extensions de journalisation permettant de capturer des informations détaillées sur l’authentification.
-- Le cas échéant, activez la télémétrie par le biais de MSAL pour collecter des données sur la manière dont les utilisateurs se connectent à votre application.
+Voici quelques suggestions pour la collecte de données :
+
+- Les utilisateurs peuvent demander de l’aide lorsqu’ils rencontrent des problèmes. Une meilleure pratique consiste à capturer et à stocker temporairement les journaux. Indiquez un emplacement où les utilisateurs peuvent charger les journaux. MSAL fournit des extensions de journalisation permettant de capturer des informations détaillées sur l’authentification.
+
+- Si une télémétrie est disponible, activez-la via MSAL pour recueillir des données sur la façon dont les utilisateurs se connectent à votre application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
-Essayer des exemples supplémentaires disponibles à partir d’[Exemples | Applications clientes de bureau et mobiles publiques](sample-v2-code.md#desktop-and-mobile-public-client-apps)
+Pour essayer des exemples supplémentaires, voir [Applications clientes publiques mobiles et de bureau](sample-v2-code.md#desktop-and-mobile-public-client-apps).

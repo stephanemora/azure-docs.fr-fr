@@ -1,5 +1,6 @@
 ---
-title: ContentDefinitions - Azure Active Directory B2C | Microsoft Docs
+title: ContentDefinitions
+titleSuffix: Azure AD B2C
 description: Spécifiez l’élément ContentDefinitions d’une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/11/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 50e17fae88f16d7579997b3b356638777ec3163a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 3e5fb1ebb763cc5ecd7dfe8724347c03a487bc13
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77014281"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157871"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -56,7 +57,6 @@ Les métadonnées du profil technique autodéclaré **LocalAccountSignUpWithLogo
   ...
 ```
 
-
 ## <a name="contentdefinition"></a>ContentDefinition
 
 L’élément **ContentDefinitionParameter** contient l’attribut suivant :
@@ -72,22 +72,82 @@ L’élément **ContentDefinition** contient les éléments suivants :
 | LoadUri | 1:1 | Chaîne contenant l’URL de la page HTML5 de la définition de contenu. |
 | RecoveryUri | 0:1 | Chaîne contenant l’URL de la page HTML pour l’affichage d’une erreur liée à la définition de contenu. |
 | DataUri | 1:1 | Chaîne contenant l’URL relative d’un fichier HTML qui fournit l’expérience utilisateur à appeler pour l’étape. |
-| Métadonnées | 1:1 | Collection de paires clé/valeur contenant les métadonnées utilisées par la définition de contenu. |
+| Métadonnées | 0:1 | Collection de paires clé/valeur contenant les métadonnées utilisées par la définition de contenu. |
 | LocalizedResourcesReferences | 0:1 | Collection de références de ressources localisées. Cet élément permet de personnaliser la localisation d’une interface utilisateur et d’un attribut de revendications. |
 
 ### <a name="datauri"></a>DataUri
 
-L’élément **DataUri** est utilisé pour spécifier l’identificateur de page. Azure AD B2C utilise l’identificateur de page pour charger et lancer des éléments d’interface utilisateur et du code JavaScript côté client. Le format de la valeur est `urn:com:microsoft:aad:b2c:elements:page-name:version`.  Le tableau suivant répertorie des identificateurs de page que vous pouvez utiliser.
+L’élément **DataUri** est utilisé pour spécifier l’identificateur de page. Azure AD B2C utilise l’identificateur de page pour charger et lancer des éléments d’interface utilisateur et du code JavaScript côté client. Le format de la valeur est `urn:com:microsoft:aad:b2c:elements:page-name:version`. Le tableau suivant répertorie des identificateurs de page que vous pouvez utiliser.
 
-| Valeur |   Description |
+| Identificateur de page | Description |
 | ----- | ----------- |
-| `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Affiche une page d’erreur quand une exception ou une erreur sont rencontrées. |
-| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Répertorie les fournisseurs d’identité parmi lesquels les utilisateurs peuvent choisir au moment de la connexion. |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | Affiche un formulaire pour la connexion avec un compte local basé sur une adresse e-mail ou un nom d’utilisateur. Cette valeur fournit également la fonctionnalité de maintien de connexion et le lien de rappel de mot de passe. . |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | Affiche un formulaire pour la connexion avec un compte local basé sur une adresse e-mail ou un nom d’utilisateur. |
-| `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | Vérifie des numéros de téléphone (par voie textuelle ou vocale) au cours d’une inscription ou d’une connexion. |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | Affiche un formulaire permettant aux utilisateurs de créer ou mettre à jour leur profil. |
+| `globalexception` | Affiche une page d’erreur quand une exception ou une erreur sont rencontrées. |
+| `providerselection` | Répertorie les fournisseurs d’identité parmi lesquels les utilisateurs peuvent choisir au moment de la connexion. |
+| `unifiedssp` | Affiche un formulaire pour la connexion avec un compte local basé sur une adresse e-mail ou un nom d’utilisateur. Cette valeur fournit également la fonctionnalité de maintien de connexion et le lien de rappel de mot de passe. . |
+| `unifiedssd` | Affiche un formulaire pour la connexion avec un compte local basé sur une adresse e-mail ou un nom d’utilisateur. |
+| `multifactor` | Vérifie des numéros de téléphone (par voie textuelle ou vocale) au cours d’une inscription ou d’une connexion. |
+| `selfasserted` | Affiche un formulaire permettant aux utilisateurs de créer ou mettre à jour leur profil. |
 
+### <a name="select-a-page-layout"></a>Sélectionner une mise en page
+
+Vous pouvez activer le [code JavaScript côté client](javascript-samples.md) en insérant `contract` entre `elements` et le type de page. Par exemple : `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
+
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+
+La partie [version](page-layout.md) de `DataUri` spécifie le package de contenu contenant du code HTML, CSS et JavaScript pour les éléments d’interface utilisateur de votre stratégie. Si vous prévoyez d’activer le code JavaScript côté client, les éléments sur lesquels vous basez votre JavaScript doivent être immuables. S’ils ne le sont pas, toute modification pourrait provoquer un comportement inattendu sur vos pages d’utilisateurs. Pour éviter ces problèmes, imposez l’utilisation d’une mise en page et spécifiez une version de mise en page. Toutes les définitions de contenu sur lesquelles vous avez basé votre code JavaScript sont ainsi immuables. Même si vous ne souhaitez pas activer JavaScript, vous pouvez spécifier la version de mise en page pour vos pages.
+
+L’exemple suivant montre le **DataUri** de `selfasserted` version `1.2.0` :
+
+```xml
+<ContentDefinition Id="api.localaccountpasswordreset">
+<LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+<RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+<DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+<Metadata>
+    <Item Key="DisplayName">Local account change password page</Item>
+</Metadata>
+</ContentDefinition>
+```
+
+#### <a name="migrating-to-page-layout"></a>Migration vers la mise en page
+
+Le format de la valeur doit contenir le mot `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. Pour spécifier une mise en page dans vos stratégies personnalisées qui utilisent une ancienne valeur de **DataUri**, utilisez le tableau suivant pour opérer la migration vers le nouveau format.
+
+| Ancienne valeur DataUri | Nouvelle valeur DataUri |
+| ----------------- | ----------------- |
+| `urn:com:microsoft:aad:b2c:elements:globalexception:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:multifactor:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssd:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:1.2.0` |
+
+
+### <a name="metadata"></a>Métadonnées
+
+Un élément **Metadata** contient les éléments suivants :
+
+| Élément | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| Élément | 0:n | Métadonnées relatives à la définition de contenu. |
+
+L’élément **Item** de l’élément **Metadata** contient les attributs suivants :
+
+| Attribut | Obligatoire | Description |
+| --------- | -------- | ----------- |
+| Clé | Oui | Clé de métadonnées.  |
+
+#### <a name="metadata-keys"></a>Clés de métadonnées
+
+La définition de contenu prend en charge les éléments de métadonnées suivants : 
+
+| Clé | Obligatoire | Description |
+| --------- | -------- | ----------- |
+| DisplayName | Non | Chaîne contenant le nom de la définition de contenu. |
 
 ### <a name="localizedresourcesreferences"></a>LocalizedResourcesReferences
 
@@ -97,25 +157,12 @@ L’élément **LocalizedResourcesReferences** contient les éléments suivants�
 | ------- | ----------- | ----------- |
 | LocalizedResourcesReference | 1:n | Liste de références de ressources localisées pour la définition de contenu. |
 
-L’élément **LocalizedResourcesReferences** contient les attributs suivants :
+L’élément **LocalizedResourcesReference** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | Langage | Oui | Chaîne contenant une langue prise en charge pour la stratégie conformément à la spécification RFC 5646 - Tags pour l’identification des langues. |
 | LocalizedResourcesReferenceId | Oui | Identificateur de l’élément **LocalizedResources**. |
-
-L’exemple suivant montre une définition de contenu d’inscription ou de connexion :
-
-```XML
-<ContentDefinition Id="api.signuporsignin">
-  <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
-  <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
-  <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0</DataUri>
-  <Metadata>
-    <Item Key="DisplayName">Signin and Signup</Item>
-  </Metadata>
-</ContentDefinition>
-```
 
 L’exemple suivant montre une définition de contenu d’inscription ou de connexion avec une référence à la localisation pour l’anglais, le français et l’espagnol :
 
@@ -154,3 +201,8 @@ L’attribut d’ID de l’élément **ContentDefinition** spécifie le type de 
 | **api.selfasserted.profileupdate** | [updateprofile.cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Page de mise à jour de profil** : affiche un formulaire auquel les utilisateurs peuvent accéder pour mettre à jour leur profil. Cette page est similaire à la page d’inscription au compte de réseau social, à l’exception des champs de saisie de mot de passe. |
 | **api.signuporsignin** | [unified.cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Page d’inscription ou de connexion unifiée** : gère le processus d’inscription et de connexion des utilisateurs. Les utilisateurs peuvent utiliser des fournisseurs d’identité d’entreprise, des fournisseurs d’identité de réseaux sociaux tels que Facebook et Google + ou des comptes locaux. |
 
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour obtenir un exemple de personnalisation de l’interface utilisateur à l’aide de définitions de contenu, voir :
+
+[Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée](custom-policy-ui-customization.md)

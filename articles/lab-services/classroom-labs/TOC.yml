@@ -52,16 +52,20 @@
           href: how-to-manage-lab-accounts.md
         - name: Configurer des comptes lab
           href: how-to-configure-lab-accounts.md
+        - name: Ajouter un créateur de lab
+          href: add-lab-creator.md
         - name: Autoriser le créateur du lab à choisir l’emplacement du lab
           href: allow-lab-creator-pick-lab-location.md
-        - name: Connecter vos laboratoires à un réseau virtuel pair
+        - name: Se connecter à un réseau virtuel de pair
           href: how-to-connect-peer-virtual-network.md
         - name: Attacher ou détacher une galerie d’images partagées
           href: how-to-attach-detach-shared-image-gallery.md
-        - name: Ajouter un utilisateur comme propriétaire à un laboratoire de classe
+        - name: Ajouter des propriétaires supplémentaires à un laboratoire
           href: how-to-add-user-lab-owner.md
-        - name: Paramètres de pare-feu pour Azure Lab Services
+        - name: Configurer les paramètres de pare-feu
           href: how-to-configure-firewall-settings.md
+        - name: Spécifier les images de la Place de marché pour des laboratoires
+          href: specify-marketplace-images.md
     - name: Créer et configurer des laboratoires de classe (formateur)
       items:
         - name: Créer et gérer des laboratoires de classe

@@ -1,35 +1,29 @@
 ---
 title: Architecture de la reprise d’activité après sinistre de serveurs physiques dans Azure Site Recovery
 description: Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors de la récupération d’urgence de serveurs physiques locaux sur Azure avec le service Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: 72f21babd4d12e69cd346d8693e5ed4fe9117134
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 02/11/2020
+ms.openlocfilehash: 089d981284986a2b6eb0ee7f1dbd401fc7ce4fcd
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513947"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162835"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Serveur physique pour l’architecture de récupération d’urgence sur Azure
 
 Cet article décrit l’architecture et les processus utilisés quand vous répliquez, basculez et récupérez des serveurs Windows et Linux physiques entre un site local et Azure, à l’aide du service [Azure Site Recovery](site-recovery-overview.md).
 
-
 ## <a name="architectural-components"></a>Composants architecturaux
 
-Le tableau et le graphique suivants fournissent une vue d’ensemble des composants utilisés pour la réplication de serveurs physiques vers Azure.  
+Le tableau et le graphique suivants fournissent une vue d’ensemble des composants utilisés pour la réplication de serveurs physiques vers Azure.
 
-**Composant** | **Prérequis** | **Détails**
---- | --- | ---
-**Microsoft Azure** | Un abonnement Azure et un réseau Azure. | Les données répliquées de machines physiques locales sont stockées dans des disques managés Azure. Les machines virtuelles Azure sont créées avec les données répliquées quand vous exécutez un basculement depuis le site local vers Azure. Les machines virtuelles Azure se connectent au réseau virtuel Azure lors de leur création.
-**Serveur de configuration** | Une seule machine virtuelle VMware ou machine physique locale est déployée pour exécuter tous les composants Site Recovery locaux. La machine virtuelle exécute le serveur de configuration, le serveur de traitement et le serveur cible maître. | Le serveur de configuration coordonne la communication entre les ordinateurs locaux et Azure.et gère la réplication des données.
- **Serveur de traitement**:  | Installé par défaut avec le serveur de configuration. | Fait office de passerelle de réplication. Reçoit les données de réplication, les optimise grâce à la mise en cache, la compression et le chiffrement et les envoie vers le stockage Azure.<br/><br/> En outre, le serveur de traitement installe le service Mobilité sur les serveurs que vous souhaitez répliquer.<br/><br/> À mesure que s’étend votre déploiement, vous pouvez ajouter des serveurs de traitement distincts afin de gérer de plus grands volumes de trafic de réplication.
- **Serveur cible maître** | Installé par défaut avec le serveur de configuration. | Gère les données de réplication pendant la restauration automatique à partir d’Azure.<br/><br/> Pour les déploiements à grande échelle, vous pouvez ajouter un serveur cible maître distinct à des fins de restauration automatique.
-**Serveurs répliqués** | Le service Mobilité est installé sur chaque serveur que vous répliquez. | Nous vous recommandons d’autoriser l’installation automatique à partir du serveur de traitement. Vous pouvez également installer le service manuellement ou utiliser une méthode de déploiement automatisée, telle que Configuration Manager.
+| **Composant** | **Prérequis** | **Détails** |
+| --- | --- | --- |
+| **Microsoft Azure** | Un abonnement Azure et un réseau Azure. | Les données répliquées de machines physiques locales sont stockées dans des disques managés Azure. Les machines virtuelles Azure sont créées avec les données répliquées quand vous exécutez un basculement depuis le site local vers Azure. Les machines virtuelles Azure se connectent au réseau virtuel Azure lors de leur création. |
+| **Serveur de traitement** | Installé par défaut avec le serveur de configuration. | Fait office de passerelle de réplication. Reçoit les données de réplication, les optimise grâce à la mise en cache, la compression et le chiffrement et les envoie vers le stockage Azure.<br/><br/> En outre, le serveur de traitement installe le service Mobilité sur les serveurs que vous souhaitez répliquer.<br/><br/> À mesure que s’étend votre déploiement, vous pouvez ajouter des serveurs de traitement distincts afin de gérer de plus grands volumes de trafic de réplication. |
+| **Serveur cible maître** | Installé par défaut avec le serveur de configuration. | Gère les données de réplication pendant la restauration automatique à partir d’Azure.<br/><br/> Pour les déploiements à grande échelle, vous pouvez ajouter un serveur cible maître distinct à des fins de restauration automatique. |
+| **Serveurs répliqués** | Le service Mobilité est installé sur chaque serveur que vous répliquez. | Nous vous recommandons d’autoriser l’installation automatique à partir du serveur de traitement. Vous pouvez également installer le service manuellement ou utiliser une méthode de déploiement automatisée, telle que Configuration Manager. |
 
 **Architecture de serveur physique vers Azure**
 
@@ -38,15 +32,17 @@ Le tableau et le graphique suivants fournissent une vue d’ensemble des composa
 ## <a name="replication-process"></a>Processus de réplication
 
 1. Vous configurez le déploiement, notamment celui des composants locaux et des composants Azure. Dans le coffre Recovery Services, vous spécifiez la source et la cible de réplication, configurez le serveur de configuration, créez une stratégie de réplication et activez la réplication.
-2. Les machines sont répliquées conformément à la stratégie définie, et une copie initiale des données de serveur est répliquée dans le stockage Azure.
-3. La réplication des modifications delta dans Azure commence à l’issue de la réplication initiale. Le suivi des modifications d’une machine est conservé dans un fichier .hrl.
-    - Les machines communiquent avec le serveur de configuration sur le port HTTPS 443 entrant, pour la gestion de la réplication.
-    - Les machines envoient des données de réplication au serveur de traitement sur le port HTTPS 9443 entrant (modification possible).
-    - Le serveur de configuration orchestre la gestion de la réplication avec Azure sur le port HTTPS 443 sortant.
-    - Le serveur de traitement reçoit les données à partir des machines source, puis les chiffre et les envoie au stockage Azure via le port 443 sortant.
-    - Si vous activez la cohérence multimachine virtuelle, les machines du groupe de réplication communiquent entre elles sur le port 20004. Le mode multimachine virtuelle est utilisé si vous regroupez plusieurs machines dans des groupes de réplication qui partagent des points de récupération cohérents en cas d’incident et avec les applications lorsqu’ils basculent. Cela est utile si les machines exécutent la même charge de travail et doivent être cohérentes.
-4. Le trafic est répliqué sur des points de terminaison publics de stockage Azure via Internet. L’autre solution consiste à utiliser le [peering public](../expressroute/about-public-peering.md) Azure ExpressRoute. La réplication du trafic à partir d’un site local vers Azure via un réseau VPN de site à site n’est pas prise en charge.
+1. Les machines sont répliquées à l’aide de la stratégie, et une copie initiale des données de serveur est répliquée sur le stockage Azure.
+1. La réplication des modifications delta dans Azure commence à l’issue de la réplication initiale. Les modifications suivies pour une machine sont conservées dans un fichier avec l’extension _.hrl_.
+   - Les machines communiquent avec le serveur de configuration sur le port HTTPS 443 entrant pour la gestion de la réplication.
+   - Les machines envoient des données de réplication au serveur de traitement sur le port HTTPS 9443 entrant (modification possible).
+   - Le serveur de configuration orchestre la gestion de la réplication avec Azure sur le port HTTPS 443 sortant.
+   - Le serveur de processus reçoit des données de machines sources, les optimise et les chiffre, puis les envoie au stockage Azure via le port HTTPS 443 sortant.
+   - Si vous activez la cohérence multimachine virtuelle, les machines du groupe de réplication communiquent entre elles sur le port 20004. Le mode multimachine virtuelle est utilisé si vous regroupez plusieurs machines dans des groupes de réplication qui partagent des points de récupération cohérents en cas d’incident et avec les applications lorsqu’ils basculent. Ces groupes sont utiles si les machines exécutent la même charge de travail et doivent être cohérentes.
+1. Le trafic est répliqué sur des points de terminaison publics de stockage Azure via Internet. L’autre solution consiste à utiliser le [peering public](../expressroute/about-public-peering.md) Azure ExpressRoute.
 
+   > [!NOTE]
+   > La réplication n’est pas prise en charge sur un VPN site à site à partir d’un site local ou d’une [homologation privée](concepts-expressroute-with-site-recovery.md#on-premises-to-azure-replication-with-expressroute) Azure ExpressRoute.
 
 **Processus de réplication de serveurs physiques vers Azure**
 
@@ -54,30 +50,29 @@ Le tableau et le graphique suivants fournissent une vue d’ensemble des composa
 
 ## <a name="failover-and-failback-process"></a>Processus de basculement et de restauration automatique
 
-Après avoir configuré la réplication et exécuté une simulation de récupération d’urgence (test de basculement) pour vérifier que tout fonctionne comme prévu, vous pouvez exécuter un basculement et une restauration automatique en fonction de vos besoins. Notez les points suivants :
+Une fois la réplication configurée, vous pouvez exécuter un exercice de récupération d’urgence (test de basculement) pour vérifier que tout fonctionne comme prévu. Ensuite, vous pouvez effectuer un basculement et une restauration automatique en fonction des besoins. Envisagez ce qui suit :
 
 - Le basculement planifié n’est pas pris en charge.
-- Vous devez effectuer la restauration automatique vers une machine virtuelle VMware locale. Cela signifie que vous avez besoin d’une infrastructure VMware locale, même lorsque vous répliquez des serveurs physiques locaux vers Azure.
+- Vous devez effectuer une restauration automatique vers une machine virtuelle VMware locale. Vous avez besoin d’une infrastructure VMware locale, même lorsque vous répliquez des serveurs physiques locaux vers Azure.
 - Vous basculez une seule machine ou créez des plans de récupération pour basculer ensemble plusieurs machines virtuelles.
 - Quand vous exécutez un basculement, les machines virtuelles Azure sont créées à partir des données répliquées dans le stockage Azure.
-- Après avoir déclenché le basculement initial, validez-le pour accéder à la charge de travail à partir de la machine virtuelle Azure.
+- Une fois le basculement initial déclenché, validez-le pour accéder à la charge de travail à partir de la machine virtuelle Azure.
 - Lorsque votre site local principal est à nouveau disponible, vous pouvez lancer la restauration automatique.
-- Vous devez configurer une infrastructure de restauration automatique, notamment les aspects suivants :
-    - **Serveur de traitement temporaire dans Azure** : pour effectuer une restauration automatique à partir d’Azure, configurez une machine virtuelle Azure faisant office de serveur de traitement pour gérer la réplication à partir d’Azure. Vous pourrez supprimer cette machine virtuelle une fois la restauration terminée.
-    - **Connexion VPN** : pour la restauration automatique, vous avez besoin d’une connexion VPN (ou Azure ExpressRoute) du réseau Azure vers le site local.
-    - **Serveur cible maître distinct** : par défaut, le serveur cible maître local qui a été installé avec le serveur de configuration, sur la machine virtuelle VMware locale, gère la restauration automatique. Toutefois, si vous devez restaurer automatiquement de grands volumes de trafic, vous devez configurer un serveur cible maître local distinct à cet effet.
-    - **Stratégie de restauration automatique** : pour répliquer vers votre site local, vous avez besoin d’une stratégie de restauration automatique. Celle-ci a été automatiquement créée au moment de la création de votre stratégie de réplication depuis le site local vers Azure.
-    - **Infrastructure VMware** : vous avez besoin d’une infrastructure VMware pour la restauration automatique. Il est impossible d’effectuer cette procédure vers un serveur physique.
+- Configurez une infrastructure de restauration automatique comprenant les éléments suivants :
+  - **Serveur de traitement temporaire dans Azure** : pour effectuer une restauration automatique à partir d’Azure, configurez une machine virtuelle Azure faisant office de serveur de traitement pour gérer la réplication à partir d’Azure. Vous pourrez supprimer cette machine virtuelle une fois la restauration automatique terminée.
+  - **Connexion VPN** : pour la restauration automatique, vous avez besoin d’une connexion VPN (ou Azure ExpressRoute) du réseau Azure vers le site local.
+  - **Serveur cible maître distinct** : par défaut, le serveur cible maître installé avec le serveur de configuration sur la machine virtuelle VMware locale gère la restauration automatique. Si vous devez restaurer automatiquement de grands volumes de trafic, vous devez configurer un serveur cible maître local distinct.
+  - **Stratégie de restauration automatique** : pour répliquer vers votre site local, vous avez besoin d’une stratégie de restauration automatique. La stratégie a été créée automatiquement lors de la création de votre stratégie de réplication à partir du site local vers Azure.
+  - **Infrastructure VMware** : Pour la restauration automatique, vous avez besoin d’une infrastructure VMware. Il est impossible d’effectuer cette procédure vers un serveur physique.
 - Une fois les composants en place, la restauration automatique s’effectue en trois étapes :
-    - Étape 1 : Reprotégez les machines virtuelles Azure afin qu’elles répliquent à partir d’Azure vers les machines virtuelles VMware locales.
-    - Étape 2 : Exécutez un basculement vers le site local.
-    - Étape 3 : Une fois les charges de travail automatiquement restaurées, vous réactivez la réplication.
+  - **Étape 1** : Reprotégez les machines virtuelles Azure afin qu’elles répliquent à partir d’Azure vers les machines virtuelles VMware locales.
+  - **Étape 2** : Exécutez un basculement vers le site local.
+  - **Étape 3** : Une fois les charges de travail automatiquement restaurées, vous réactivez la réplication.
 
 **Restauration automatique VMware à partir d’Azure**
 
 ![Restauration automatique](./media/physical-azure-architecture/enhanced-failback.png)
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Suivez [ce didacticiel](physical-azure-disaster-recovery.md) pour savoir comment activer la réplication d’un serveur physique vers Azure.
+Pour configurer la récupération d’urgence de serveurs physiques sur Azure, voir le [guide pratique](physical-azure-disaster-recovery.md).

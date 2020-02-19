@@ -81,7 +81,7 @@
           href: container-instances-managed-identity.md
         - name: Utiliser des ressources GPU (préversion)
           href: container-instances-gpu.md
-        - name: Activer le point de terminaison SSL
+        - name: Activer le point de terminaison SSL en sidecar
           href: container-instances-container-group-ssl.md
     - name: Monter des volumes de données
       items:

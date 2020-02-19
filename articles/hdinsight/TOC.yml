@@ -348,17 +348,17 @@
               href: ./spark/apache-spark-improve-performance-iocache.md
             - name: Gérer les dépendances Jar
               href: ./spark/manage-jar-dependency.md
-            - name: Utiliser des notebooks avec Apache Spark
+            - name: Utiliser des blocs-notes avec Apache Spark
               items:
-                - name: Utiliser un notebook Jupyter local
+                - name: Utiliser un bloc-notes Jupyter local
                   href: ./spark/apache-spark-jupyter-notebook-install-locally.md
-                - name: Noyaux du notebook Jupyter
+                - name: Noyaux du bloc-notes Jupyter
                   href: ./spark/apache-spark-jupyter-notebook-kernels.md
                 - name: Utiliser des packages externes avec Jupyter à l'aide de commandes magiques de cellules
                   href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
                 - name: Gérer en toute sécurité l’environnement Python sur Azure HDInsight avec une action de script
                   href: ./spark/apache-spark-python-package-installation.md
-                - name: Utiliser les notebooks Apache Zeppelin
+                - name: Utiliser les blocs-notes Apache Zeppelin
                   href: ./spark/apache-spark-zeppelin-notebook.md
             - name: Utiliser avec d’autres services Azure
               items:
@@ -852,6 +852,8 @@
           href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
     - name: Concepts
       items:
+        - name: Recommandations générales sur la sécurité en entreprise
+          href: ./domain-joined/general-guidelines.md
         - name: Planifier des clusters ESP
           href: ./domain-joined/apache-domain-joined-architecture.md
         - name: Architecture de réseau virtuel HDInsight
@@ -864,7 +866,9 @@
           href: ./hdinsight-service-tags.md
         - name: Chiffrement de disque de clés gérées par le client
           href: ./disk-encryption.md
-    - name: Procédures
+        - name: Synchronisation LDAP dans Ranger et Apache Ambari
+          href: ./domain-joined/ldap-sync.md
+    - name: Guides pratiques
       items:
         - name: Utiliser un broker d’ID pour la gestion des informations d’identification
           href: ./domain-joined/identity-broker.md
