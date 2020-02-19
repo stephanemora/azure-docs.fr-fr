@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 72fd23e4283925b91d749fef0afac4e87e93405c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: cba8a4fd64b948d7a3e443426ca1f779af68a3fe
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841646"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049020"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Apporter sa propre clé pour Apache Kafka sur Azure HDInsight
 
@@ -95,9 +95,13 @@ HDInsight prend uniquement en charge Azure Key Vault. Si vous disposez de votre 
 
 ## <a name="create-hdinsight-cluster"></a>Créer un cluster HDInsight
 
-Vous êtes maintenant prêt à créer un cluster HDInsight. BYOK ne peut être appliqué qu’aux nouveaux clusters, pendant leur création. Le chiffrement ne peut pas être retiré des clusters BYOK, et BYOK ne peut pas être ajouté aux clusters existants.
+Vous êtes maintenant prêt à créer un cluster HDInsight. Sous l’onglet **De base**, sélectionnez **Kafka** pour le paramètre **Type de cluster**.
 
-![Chiffrement de disque Kafka dans le portail Azure](./media/apache-kafka-byok/azure-portal-cluster-security-networking-kafka.png)
+![Sélection du type Kafka dans le Portail Azure](./media/apache-kafka-byok/azure-portal-cluster-basics-type-kafka.png)
+
+BYOK ne peut être appliqué qu’aux nouveaux clusters, pendant leur création. Le chiffrement ne peut pas être retiré des clusters BYOK, et BYOK ne peut pas être ajouté aux clusters existants.
+
+![Chiffrement de disque Kafka dans le portail Azure](./media/apache-kafka-byok/azure-portal-cluster-security-networking-kafka-byok.png)
 
 Pendant la création du cluster, indiquez l’URL complète de la clé en incluant la version de la clé. Par exemple : `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Vous devez aussi affecter l’identité managée au cluster et indiquer l’URI de la clé. Pour plus d’informations sur la création de clusters, consultez [Création de clusters Apache Hadoop à l’aide du Portail Azure](./apache-kafka-get-started.md).
 

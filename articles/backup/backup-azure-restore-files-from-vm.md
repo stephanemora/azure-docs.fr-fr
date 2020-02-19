@@ -3,12 +3,12 @@ title: Récupérer des fichiers et des dossiers à partir d’une sauvegarde de 
 description: Dans cet article, découvrez comment récupérer des fichiers et des dossiers à partir d’un point de récupération de machine virtuelle Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 86a46e606e9425cf4951817ca3afa23fe57dae52
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 4565929b5475e2348685fbec77b596b65ed73fd6
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294080"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114327"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -56,6 +56,8 @@ Pour restaurer des fichiers ou dossiers à partir du point de récupération, ac
 7. À partir de l’emplacement de téléchargement (généralement le dossier Téléchargements), cliquez avec le bouton droit sur le fichier exécutable ou le script et exécutez-le en tant qu’administrateur. Lorsque vous y êtes invité, saisissez le mot de passe ou collez le mot de passe en mémoire et appuyez sur **Entrée**. Une fois le mot de passe valide entré, le script se connecte au point de récupération.
 
     ![Menu de récupération de fichiers](./media/backup-azure-restore-files-from-vm/executable-output.png)
+
+8. Pour les machines Linux, un script Python est généré. Vous devez télécharger le script et le copier sur le serveur Linux approprié/compatible. Il peut être nécessaire de modifier les autorisations pour l’exécuter avec ```chmod +x <python file name>```. Exécutez ensuite le fichier Python avec ```./<python file name>```.
 
 Reportez-vous à la section [Conditions d’accès](#access-requirements) pour vérifier que le script s’exécute correctement.
 

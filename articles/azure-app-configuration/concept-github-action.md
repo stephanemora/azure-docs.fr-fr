@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 01/14/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 269ae5630d1524cb8f89d3af8728892079f6eb5f
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ce8d42ec7c37b19378b6f4ae0c81548f2eff5c9c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899630"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190378"
 ---
 # <a name="sync-your-app-configuration-instance-using-github-actions"></a>Synchroniser votre instance App Configuration à l’aide de GitHub Actions
 Azure App configuration utilise GitHub Actions pour mettre à jour une instance App Configuration déclenchée par une action effectuée sur un dépôt GitHub. Vous pouvez tirer parti des flux de travail GitHub pour mettre à jour une configuration d’application, ce qui permet l’intégration de mises à jour de configuration d’application dans le même flux de travail que celui utilisé pour mettre à jour le code de l’application.
@@ -25,8 +25,7 @@ Des événements GitHub, tels qu’un push dans un dépôt, peuvent déclencher 
 La [documentation](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) GitHub fournit une vue détaillée des flux de travail et actions GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Activer GitHub Actions dans votre dépôt
-Pour commencer à utiliser cette action GitHub, accédez à votre dépôt et sélectionnez l’onglet **Actions**. Trouvez et sélectionnez l’action GitHub sur la Place de marché en recherchant « synchronisation d’Azure App Configuration ». 
-
+Pour commencer à utiliser cette action GitHub, accédez à votre dépôt et sélectionnez l’onglet **Actions**. Cliquez sur « Nouveau workflow », puis sur « Configurer un workflow vous-même ». À partir de là, recherchez « Azure App Configuration Sync » sur la Place de marché.
 > [!div class="mx-imgBorder"]
 > ![Sélectionner l’onglet Action](media/find-github-action.png)
 

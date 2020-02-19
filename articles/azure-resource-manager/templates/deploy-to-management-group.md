@@ -2,13 +2,13 @@
 title: Déployer des ressources dans un groupe d’administration
 description: Décrit comment déployer des ressources au niveau du groupe d’administration dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: 4ba4f4d2e95c0b878e9f402fa84139ac5b351e3c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 02/10/2020
+ms.openlocfilehash: 0419f3daca6845c6809c9f66e870fdf884a7193f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121911"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117043"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Créer des ressources au niveau du groupe d’administration
 
@@ -63,8 +63,20 @@ Pour les déploiements au niveau du groupe d'administration, il existe quelques 
 
 * La fonction [resourceGroup()](template-functions-resource.md#resourcegroup)**n’est pas** prise en charge.
 * La fonction [subscription()](template-functions-resource.md#subscription) n’est **pas** prise en charge.
-* La fonction [resourceId()](template-functions-resource.md#resourceid) est prise en charge. Elle permet d’obtenir l’ID des ressources qui sont utilisées dans les déploiements au niveau du groupe d'administration. Par exemple, récupérez l’ID de ressource d’une définition de stratégie avec `resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))`. Elle retourne l'ID de la ressource au format `/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`.
 * Les fonctions [reference()](template-functions-resource.md#reference) et [list()](template-functions-resource.md#list) sont prises en charge.
+* La fonction [resourceId()](template-functions-resource.md#resourceid) est prise en charge. Elle permet d’obtenir l’ID des ressources qui sont utilisées dans les déploiements au niveau du groupe d'administration. Ne fournissez pas de valeur pour le paramètre de groupe de ressources.
+
+  Par exemple, pour obtenir l’ID de ressource d’une définition de stratégie, utilisez :
+  
+  ```json
+  resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
+  ```
+  
+  L’ID de ressource retourné possède le format suivant :
+  
+  ```json
+  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  ```
 
 ## <a name="create-policies"></a>Création des stratégies
 
@@ -136,9 +148,13 @@ L’exemple suivant assigne une définition de stratégie existante au groupe d'
 }
 ```
 
+## <a name="template-sample"></a>Exemple de modèle
+
+* Créez un groupe de ressources, une stratégie et une attribution de stratégie.  Voir [ici](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur l’attribution de rôles, voir [Gérer l’accès aux ressources Azure avec RBAC et les modèles Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Pour obtenir un exemple de déploiement des paramètres d’espace de travail pour Azure Security Center, consultez [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
-* Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](template-syntax.md). 
+* Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](template-syntax.md).
 * Pour obtenir la liste des fonctions disponibles dans un modèle, consultez [Fonctions de modèle](template-functions.md).

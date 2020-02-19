@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b4396c82851969b39841ba77fb8aba9679363474
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 00ab3e9c7902e253d39a38eb0e98ee166244bca2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986493"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048583"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -191,12 +191,18 @@ Pour découvrir les définitions spécifiques de ces métriques, consultez [Comp
 
 ### <a name="data-featurization"></a>Caractérisation de données
 
-Dans chaque expérience d’apprentissage automatique automatisée, vos données sont [automatiquement mises à l’échelle et normalisées](concept-automated-ml.md#preprocess) pour faciliter l’exécution de *certains* algorithmes qui sont sensibles aux caractéristiques d’échelles différentes.  Toutefois, vous pouvez également activer des fonctions supplémentaires, telles que l’imputation des valeurs manquantes, l’encodage et les transformations. [En savoir plus sur la personnalisation incluse](how-to-create-portal-experiments.md#preprocess).
+Dans chaque expérience d’apprentissage automatique automatisée, vos données sont [automatiquement mises à l’échelle et normalisées](concept-automated-ml.md#preprocess) pour faciliter l’exécution de *certains* algorithmes qui sont sensibles aux caractéristiques d’échelles différentes.  Toutefois, vous pouvez également activer des fonctions supplémentaires, telles que l’imputation des valeurs manquantes, l’encodage et les transformations. [En savoir plus sur la personnalisation incluse](how-to-create-portal-experiments.md#featurization).
 
-Pour activer cette personnalisation, spécifiez `"featurization": 'auto'` pour la classe [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+Lorsque vous configurez vos expériences, vous pouvez activer le paramètre avancé `featurization`. Le tableau suivant présente les paramètres acceptés pour la caractérisation dans la [classe `AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+
+|Configuration de la caractérisation | Description |
+| ------------- | ------------- |
+|`"featurization":`&nbsp;`'FeaturizationConfig'`| Indique que l’étape de caractérisation personnalisée doit être utilisée. [Découvrez comment personnaliser la caractérisation](how-to-configure-auto-train.md#customize-feature-engineering).|
+|`"featurization": 'off'`| Indique que l’étape de caractérisation ne doit pas être automatique.|
+|`"featurization": 'auto'`| Indique que, dans le cadre du prétraitement, des [étapes de garde-fous des données et de caractérisation](how-to-create-portal-experiments.md#advanced-featurization-options) sont automatiques.|
 
 > [!NOTE]
-> Les étapes de prétraitement du Machine Learning automatisé (normalisation des fonctionnalités, gestion des données manquantes, conversion de texte en valeurs numériques, etc.) font partie du modèle sous-jacent. Lorsque vous utilisez le modèle pour des prédictions, les étapes de prétraitement qui sont appliquées pendant l’entraînement sont appliquées automatiquement à vos données d’entrée.
+> Les étapes de caractérisation du Machine Learning automatisé (normalisation des fonctionnalités, gestion des données manquantes, conversion de texte en valeurs numériques, etc.) font partie du modèle sous-jacent. Lorsque vous utilisez le modèle pour des prédictions, les étapes de caractérisation qui sont appliquées pendant la formation sont appliquées automatiquement à vos données d’entrée.
 
 ### <a name="time-series-forecasting"></a>Prévision de séries chronologiques
 La tâche `forecasting` de prévision de séries chronologiques nécessite des paramètres supplémentaires dans l’objet de configuration :
@@ -410,7 +416,7 @@ Utilisez ces 2 API sur la première étape du modèle ajusté pour en savoir plu
    |Transformations|Liste des transformations appliquées à des fonctionnalités d’entrée pour générer des fonctionnalités d’ingénierie.|
    
 ### <a name="customize-feature-engineering"></a>Personnaliser l’ingénierie des caractéristiques
-Pour personnaliser l’ingénierie des caractéristiques, spécifiez `"feauturization":FeaturizationConfig`.
+Pour personnaliser l’ingénierie des caractéristiques, spécifiez `"featurization": FeaturizationConfig`.
 
 La personnalisation prise en charge comprend les éléments suivants :
 

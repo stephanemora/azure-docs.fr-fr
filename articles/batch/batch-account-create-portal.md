@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0c6fab0c9e26630bd54830044da56dba20564b3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 3723631609a04f6d12abcaac1f9d7733bf3caa01
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025894"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048624"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Créer un compte Batch avec le portail Azure
 
@@ -117,6 +117,14 @@ Lors de la création du compte Batch en mode Abonnement utilisateur, utilisez le
 Si vous préférez accorder manuellement l’accès au coffre de clés, accédez à la section **Stratégies d’accès** du coffre de clés, sélectionnez **Ajouter une stratégie d’accès**, puis recherchez **Microsoft Azure Batch**. Une fois les autorisations sélectionnées sous **Autorisations du secret**, vous devez les configurer à l’aide du menu déroulant. Azure Batch doit avoir au minimum les autorisations **Get**, **List**, **Set** et **Delete**.
 
 ![Autorisations de secret pour Azure Batch](./media/batch-account-create-portal/secret-permissions.png)
+
+
+> [!NOTE]
+> Vérifiez que les cases à cocher **Machines virtuelles Azure pour le déploiement** et **Azure Resource Manager pour le déploiement de modèles** sont activées sous **Stratégies d’accès** pour la ressource **Key Vault** liée.
+> 
+> ![Stratégie d’accès à Key Vault obligatoire](./media/batch-account-create-portal/key-vault-access-policy.png) : Ce n’est pas obligatoire lors de la création d’un compte batch dans le portail Azure. L’option est sélectionnée par défaut.
+
+
 
 ### <a name="configure-subscription-quotas"></a>Configurer les quotas d’abonnement
 

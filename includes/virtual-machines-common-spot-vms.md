@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a6c333da0e88af25e3907af23f792a210002477f
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 7cfa6e9810057493cc3007eec7fd1668a70c727e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75901926"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77179044"
 ---
 L’utilisation de machines virtuelles Spot vous permet de disposer de notre capacité inutilisée en réalisant des économies significatives. Dès qu’Azure a besoin de récupérer toute la capacité, l’infrastructure Azure supprime les machines virtuelles Spot. Les machines virtuelles Spot sont donc appropriées pour les charges de travail capables de gérer les interruptions, comme les travaux de traitement par lots, les environnements de développement et de test, les charges de travail de calcul importantes, entre autres.
 
@@ -23,16 +23,12 @@ La capacité disponible dépend de divers facteurs, tels que la taille, la régi
 > Les instances Spot sont actuellement en préversion publique.
 > Cette préversion n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Dans la première partie de la préversion publique, les instances Spot auront un prix fixe, de sorte qu’il n’y aura aucune éviction basée sur les prix.
 
 ## <a name="eviction-policy"></a>Stratégie d’éviction
 
 Les machines virtuelles peuvent être supprimées en fonction de la capacité ou du prix maximal que vous avez défini. Pour les machines virtuelles, la stratégie d’éviction est définie sur *Libérer*. De cette façon, vos machines virtuelles évincées passent à l’état arrêté-libéré, ce qui vous permet de les redéployer ultérieurement. Toutefois, la réallocation des machines virtuelles Spot dépend de la capacité disponible. Les machines virtuelles libérées sont comptabilisées dans votre quota d’instances de processeurs virtuels Spot, et vos disques sous-jacents vous seront facturés. 
 
 Les utilisateurs peuvent s’abonner pour recevoir des notifications dans la machine virtuelle via [Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). Vous serez ainsi informé si vos machines virtuelles sont en cours d’éviction, et vous aurez 30 secondes pour terminer vos tâches et arrêter la machine virtuelle avant que ne commence l’éviction. 
-
-> [!IMPORTANT]
-> Dans la première partie de la préversion publique, vous pouvez définir un prix maximal. Toutefois, celui-ci sera ignoré. Les machines virtuelles Spot ont un prix fixe. Il n’y aura donc pas d’évictions basées sur le prix.
 
 
 | Option | Résultat |
@@ -54,7 +50,7 @@ Les tailles de machine virtuelle suivantes ne sont pas prises en charge pour les
 
 Les machines virtuelles Spot ne peuvent pas utiliser des disques de système d’exploitation éphémères.
 
-Les machines virtuelles peuvent être déployées dans n’importe quelle région, à l’exception de Microsoft Azure China 21Vianet et du Ministère américain de la défense (DoD) de la région Azure Government.
+Les machines virtuelles Spot peuvent être déployées sur n’importe quelle région, à l’exception de Microsoft Azure Chine 21Vianet.
 
 ## <a name="pricing"></a>Tarifs
 

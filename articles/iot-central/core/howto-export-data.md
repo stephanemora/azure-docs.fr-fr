@@ -8,12 +8,12 @@ ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 058fe9aea87879fe85dcbc6dcb864fd841fcb049
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a3d60bf38c4a9dad13dacf8ba9798c4078c1df1a
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026421"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049701"
 ---
 # <a name="export-your-azure-iot-central-data"></a>Exporter vos données Azure IoT Central
 
@@ -62,10 +62,14 @@ Lorsque vous choisissez un Service Bus comme destination d’exportation, les se
 
 En l’absence de compte de stockage Azure vers lequel exporter, suivez ces étapes :
 
-1. Créez un [compte de stockage sur le Portail Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Découvrez comment créer des [comptes de stockage Blob Azure](https://aka.ms/blobdocscreatestorageaccount) ou des [comptes de stockage Azure Data Lake Storage v2](../../storage/blobs/data-lake-storage-quickstart-create-account.md).
+1. Créez un [compte de stockage sur le Portail Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Découvrez comment créer des [comptes de stockage Blob Azure](https://aka.ms/blobdocscreatestorageaccount) ou des [comptes de stockage Azure Data Lake Storage v2](../../storage/blobs/data-lake-storage-quickstart-create-account.md). L’exportation de données peut uniquement écrire des données dans des comptes de stockage qui prennent en charge les objets blob de blocs. La liste suivante répertorie les types de comptes de stockage compatibles connus : 
 
-    - Si vous choisissez d’exporter des données vers un compte de stockage Azure Data Lake Storage v2, vous devez définir **Type de compte** sur **BlobStorage**.
-    - Vous pouvez exporter des données vers des comptes de stockage compris dans des abonnements autres que celui de votre application IoT Central. Vous vous connecterez à l’aide d’une chaîne de connexion dans ce cas.
+    |Niveau de performances|Type de compte|
+    |-|-|
+    |standard|Usage général v2|
+    |standard|Usage général v1|
+    |standard|Stockage Blob|
+    |Premium|Stockage d’objets blob de blocs|
 
 2. Créez un conteneur dans votre compte de stockage. Accédez à votre compte de stockage. Sous **Service blob**, sélectionnez **Parcourir les objets blob**. Sélectionnez **+ Conteneur**, en haut, pour créer un conteneur.
 

@@ -2,21 +2,21 @@
 title: Se connecter à l’aide de l’application Microsoft Authenticator - Azure AD
 description: Utilisez l’application Microsoft Authenticator pour vous connecter à votre compte scolaire ou professionnel, ou à vos comptes personnels Microsoft et non-Microsoft, à l’aide de la vérification en deux étapes ou de la connexion par téléphone.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.author: lizross
+ms.date: 02/07/2020
+ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 84aa3731f8066772c6a268f2ae4e16215452e78a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: b5f2b42728fd6f3d61695b4f88cc416015dd97cb
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704678"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108261"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Vous connecter à vos comptes à l’aide de l’application Microsoft Authenticator
 
@@ -116,7 +116,7 @@ Pour obtenir les étapes nécessaires pour vous connecter à votre compte person
 | Si je laisse la vérification en deux étapes activée pour mon compte, dois-je approuver deux notifications ? | Non. Le fait d’utiliser votre téléphone pour vous connecter à votre compte Microsoft compte également comme une vérification en deux étapes, autrement dit vous n’avez pas besoin d’une seconde approbation. |
 | Et que se passe-t-il si je perds mon téléphone ou je ne l’ai pas sur moi ? Comment faire pour accéder à mon compte ? | Vous pouvez toujours cliquer sur le lien Utiliser votre mot de passe à la place sur la page de connexion pour revenir à la saisie du mot de passe. En revanche, si vous utilisez la vérification en deux étapes, vous avez toujours besoin d’une deuxième méthode pour vérifier votre identité.<br><br>**Important**<br>Nous vous encourageons vivement à vérifier que vous avez plus d’une méthode de vérification à jour associée à votre compte.<br><br>Vous pouvez gérer vos méthodes de vérification pour vos comptes personnels à partir de la page [Paramètres de sécurité](https://account.live.com/proofs/manage). Pour les comptes professionnels ou scolaires, vous pouvez vous rendre sur la page [Vérification de sécurité supplémentaire](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) ou **Sécuriser votre compte** si votre administrateur a activé les informations de sécurité. Pour en savoir plus sur les informations de sécurité, consultez [Vue d’ensemble des informations de sécurité (préversion)](user-help-security-info-overview.md).<br><br>Si vous ne parvenez pas à gérer vos méthodes de vérification, vous devez contacter votre administrateur. |
 | Comment faire pour arrêter d’utiliser cette fonctionnalité et revenir à la saisie du mot de passe ? | Pour les comptes personnels, cliquez sur le lien **Utilisez un mot de passe à la place** pendant la connexion. Votre choix le plus récent est mémorisé et vous est proposé par défaut lors de votre prochaine connexion. Si vous voulez revenir à la connexion par téléphone, cliquez sur le lien **Utiliser une application à la place** pendant la connexion.<br><br>Pour les comptes professionnels ou scolaires, vous devez désinscrire l’appareil à partir de la page **Paramètres** de l’application Microsoft Authenticator ou désactiver l’appareil à partir de la zone **Appareils et activité** de votre profil. Pour plus d’informations sur la désactivation de votre appareil à partir de votre profil, consultez [Mettre à jour les informations relatives à votre profil et à votre compte sur le portail Mes applications](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information). |
-| Pourquoi ne puis-je pas utiliser plusieurs comptes professionnels ou scolaires pour la connexion par téléphone ? | Un téléphone doit être associé à un seul compte professionnel ou scolaire. Si vous souhaitez activer la connexion par téléphone pour un autre compte professionnel ou scolaire, vous devez tout d’abord résilier l’ancien appareil depuis la page **Paramètres**. |
+| Pourquoi ne puis-je pas utiliser plusieurs comptes professionnels ou scolaires pour la connexion par téléphone ? | Un téléphone doit être associé à un seul compte professionnel ou scolaire. Si vous souhaitez activer la connexion par téléphone pour un autre compte professionnel ou scolaire, vous devez tout d’abord désinscrire votre compte de l’ancien appareil par le biais de la page **Paramètres**. |
 | Puis-je me connecter à mon ordinateur à l'aide de mon téléphone ? | Pour votre ordinateur, nous vous recommandons de vous connecter à l'aide de Windows Hello sous Windows 10. Windows Hello vous permet de vous connecter par reconnaissance faciale, par empreinte digitale ou par un code PIN. |
 
 ## <a name="next-steps"></a>Étapes suivantes

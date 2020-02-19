@@ -5,15 +5,15 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/28/2019
-ms.openlocfilehash: 2da9e41323a308782dad509c628a3677ab0cd21f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.custom: hdinsightactive
+ms.date: 02/07/2020
+ms.openlocfilehash: 3feacd94558ba275c81469827993aef106ae633c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162877"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162206"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Architecture Apache Hadoop dans HDInsight
 
@@ -46,6 +46,27 @@ Les NodeManagers exécutent les tâches qui forment l’application, puis inform
 Tous les types de clusters HDInsight déploient YARN. ResourceManager est déployé pour la haute disponibilité avec des instances principale et secondaire, qui s’exécutent respectivement sur le premier et le deuxième nœud de tête au sein du cluster. Seule une instance de ResourceManager est active à la fois. Les instances de NodeManager s’exécutent sur les nœuds de travail disponibles dans le cluster.
 
 ![Apache YARN sur Azure HDInsight](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
+
+## <a name="soft-delete"></a>Suppression réversible
+
+Pour annuler la suppression d’un fichier de votre compte de stockage, consultez :
+
+### <a name="azure-storage"></a>Stockage Azure
+
+* [Suppression réversible pour les objets blob de Stockage Azure](../storage/blobs/storage-blob-soft-delete.md)
+* [Annuler la suppression d’un objet blob](https://docs.microsoft.com/rest/api/storageservices/undelete-blob)
+
+### <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen 1
+
+[Restore-AzDataLakeStoreDeletedItem](https://docs.microsoft.com/powershell/module/az.datalakestore/restore-azdatalakestoredeleteditem)
+
+### <a name="azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2
+
+[Problèmes connus avec Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-known-issues.md)
+
+## <a name="trash-purging"></a>Purge de la corbeille
+
+La valeur par défaut `0` de la propriété `fs.trash.interval` de **HDFS** > **Advanced core-site** doit être conservée, car vous ne devez pas stocker de données sur le système de fichiers local. Cette valeur n’affecte pas les comptes de stockage à distance (WASB, ADLS GEN1, ABFS).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

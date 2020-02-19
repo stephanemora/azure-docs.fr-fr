@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: b2f7c35e6ddb3c6ed0a3032d7ea6d4c53043c17b
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 70c67a99274eaedc5592c7b90b1ef80a3a17acf8
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122915"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110005"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Activité Webhook dans Azure Data Factory
 Vous pouvez utiliser une activité de webhook pour contrôler l’exécution des pipelines dans votre code personnalisé. Grâce à l’activité de webhook, les clients peuvent appeler un point de terminaison et passer une URL de rappel. L’exécution du pipeline attend que le rappel soit appelé avant de passer à l’activité suivante.
@@ -55,15 +55,61 @@ Vous pouvez utiliser une activité de webhook pour contrôler l’exécution des
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité de webhook | Chaîne | OUI |
-Type | Doit avoir la valeur **WebHook** | Chaîne | OUI |
-method | Méthode d’API REST pour le point de terminaison cible. | Chaîne. Types pris en charge : 'POST' | OUI |
-url | Point de terminaison cible et chemin d’accès | Chaîne (ou expression avec resultType de chaîne). | OUI |
+name | Nom de l’activité de webhook | String | Oui |
+type | Doit avoir la valeur **WebHook** | String | Oui |
+method | Méthode d’API REST pour le point de terminaison cible. | Chaîne. Types pris en charge : 'POST' | Oui |
+url | Point de terminaison cible et chemin d’accès | Chaîne (ou expression avec resultType de chaîne). | Oui |
 headers | En-têtes envoyés à la demande. Par exemple, pour définir la langue et le type sur une requête : "headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }. | Chaîne (ou expression avec resultType de chaîne) | Oui, l’en-tête Content-type est obligatoire. "headers":{ "Content-Type":"application/json"} |
-body | Représente la charge utile envoyée au point de terminaison. | Code JSON valide (ou expression avec resultType de JSON). Voir le schéma de la charge utile de demande dans la section [Schéma de la charge utile](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0). | OUI |
+body | Représente la charge utile envoyée au point de terminaison. | Code JSON valide (ou expression avec resultType de JSON). Voir le schéma de la charge utile de demande dans la section [Schéma de la charge utile](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23request-payload-schema&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=ljUZv5csQQux2TT3JtTU9ZU8e1uViRzuX5DSNYkL0uE%3D&amp;reserved=0). | Oui |
 Authentification | Méthode d’authentification utilisée pour appeler le point de terminaison. Les types pris en charge sont « Basic » et « ClientCertificate ». Pour en savoir plus, voir la section [Authentification](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fdata-factory%2Fcontrol-flow-web-activity%23authentication&amp;data=02%7C01%7Cshlo%40microsoft.com%7Cde517eae4e7f4f2c408d08d6b167f6b1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636891457414397501&amp;sdata=GdA1%2Fh2pAD%2BSyWJHSW%2BSKucqoAXux%2F4L5Jgndd3YziM%3D&amp;reserved=0). Si l’authentification n’est pas obligatoire, excluez cette propriété. | Chaîne (ou expression avec resultType de chaîne) | Non |
-timeout | Durée pendant laquelle l’activité attendra que &#39;callBackUri&#39; soit rappelée. Durée pendant laquelle l’activité attendra que « callBackUri » soit rappelée. La valeur par défaut est 10 minutes (“00:10:00”). Le format est un intervalle de temps (autrement dit j.hh:mm:ss) | Chaîne | Non |
+délai d'expiration | Durée pendant laquelle l’activité attendra que &#39;callBackUri&#39; soit rappelée. Durée pendant laquelle l’activité attendra que « callBackUri » soit rappelée. La valeur par défaut est 10 minutes (“00:10:00”). Le format est un intervalle de temps (autrement dit j.hh:mm:ss) | String | Non |
 Signaler l’état lors du rappel | Autorise l’utilisateur à signaler l’état d’échec de l’activité de webhook, marquant alors l’activité comme ayant échoué | Boolean | Non |
+
+## <a name="authentication"></a>Authentication
+
+Voici les types d’authentification pris en charge dans l’activité Webhook.
+
+### <a name="none"></a>None
+
+Si l’authentification n’est pas requise, n’incluez pas la propriété « authentication ».
+
+### <a name="basic"></a>De base
+
+Spécifiez le nom d’utilisateur et le mot de passe à utiliser avec l’authentification de base.
+
+```json
+"authentication":{
+   "type":"Basic",
+   "username":"****",
+   "password":"****"
+}
+```
+
+### <a name="client-certificate"></a>Certificat client
+
+Spécifiez le contenu encodé en Base64 d’un fichier PFX et le mot de passe.
+
+```json
+"authentication":{
+   "type":"ClientCertificate",
+   "pfx":"****",
+   "password":"****"
+}
+```
+
+### <a name="managed-identity"></a>Identité managée
+
+Spécifiez l’uri de ressource pour lequel le jeton d’accès sera demandé à l’aide de l’identité managée pour la fabrique de données. Pour appeler l’API Gestion des ressources Azure, utilisez `https://management.azure.com/`. Pour plus d’informations sur le fonctionnement des identités managées, consultez la [page de vue d'ensemble des identités managées pour les ressources Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+
+```json
+"authentication": {
+    "type": "MSI",
+    "resource": "https://management.azure.com/"
+}
+```
+
+> [!NOTE]
+> Si votre fabrique de données est configurée avec un référentiel git, vous devez stocker vos informations d’identification dans Azure Key Vault pour utiliser l’authentification de base ou de certificat client. Azure Data Factory ne stocke pas les mots de passe dans Git.
 
 ## <a name="additional-notes"></a>Remarques supplémentaires
 

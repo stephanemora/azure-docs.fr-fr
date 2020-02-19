@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: 8d118170de01c7685ac9dba65c7e22cefb6d4829
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 046b2da7cdb966192e485ff9f5510eb63c9e0008
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263133"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086550"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>Démarrage rapide : Créer un espace de travail Azure Databricks dans votre propre réseau virtuel
 
 Le déploiement par défaut d’Azure Databricks crée un réseau virtuel qui est géré par Databricks. Ce guide de démarrage rapide montre comment créer un espace de travail Azure Databricks dans votre propre réseau virtuel à la place. Vous allez également créer un cluster Apache Spark au sein de cet espace de travail. 
 
-Pour plus d’informations sur les raisons pour lesquelles vous pouvez choisir de créer un espace de travail Azure Databricks dans votre propre réseau virtuel, consultez [Déployer Azure Databricks dans votre réseau virtuel Azure (Injection de réseau virtuel)] (/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
+Pour plus d’informations sur les raisons pour lesquelles vous pouvez choisir de créer un espace de travail Azure Databricks dans votre propre réseau virtuel, consultez [Déployer Azure Databricks dans votre Réseau virtuel Microsoft Azure (Injection de réseau virtuel)](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/databricks/).
 

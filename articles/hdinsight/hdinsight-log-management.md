@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: e5abc9e75e11424b5d0dc4c260b412d0e414ad83
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.custom: hdinsightactive
+ms.date: 02/05/2020
+ms.openlocfilehash: 8c3cbf4c18b32a94abfe95e77be768020b44fda6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837938"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064680"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gérer les journaux d’activité pour un cluster HDInsight
 
@@ -24,10 +24,10 @@ La gestion des journaux d’activité de cluster HDInsight inclut la conservatio
 Les étapes classiques de gestion des journaux HDInsight sont les suivantes :
 
 * Étape 1 : Déterminer les stratégies de rétention du journal
-* Étape 2 : Gérer les journaux d’activité de configuration des versions du service de cluster
-* Étape 3 : Gérer les fichiers journaux d’exécution des travaux de cluster
-* Étape 4 : Prévoir les tailles de stockage du volume du fichier journal et les coûts associés
-* Étape 5 : Étape 5 : Déterminer les stratégies d’archivage de journaux et les processus associés
+* Étape 2 : Gérer les journaux d’activité de configuration des versions du service de cluster
+* Étape 3 : Gérer les fichiers journaux d’exécution des travaux de cluster
+* Étape 4 : Prévoir les tailles de stockage du volume du fichier journal et les coûts associés
+* Étape 5 : Étape 5 : Déterminer les stratégies d’archivage de journaux et les processus associés
 
 ## <a name="step-1-determine-log-retention-policies"></a>Étape 1 : Déterminer les stratégies de rétention du journal
 
@@ -69,7 +69,7 @@ Il est important de comprendre les types de charges de travail exécutées sur v
 
 * Décidez si une solution ou un service de supervision peut être utile. Microsoft System Center fournit un [pack d’administration HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). Vous pouvez également utiliser des outils tiers tels qu’Apache Chukwa et Ganglia pour collecter et centraliser les journaux d’activité. De nombreuses sociétés proposent des services permettant de surveiller les solutions Big Data basées sur Hadoop, par exemple : Centerity, Compuware APM, Sematext SPM et Zettaset Orchestrator.
 
-## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Étape 2 : Gérer les versions du service de cluster et afficher les journaux d’activité d’action de script
+## <a name="step-2-manage-cluster-service-versions-and-view-logs"></a>Étape 2 : Gérer les versions du service de cluster et consulter les journaux
 
 Un cluster HDInsight classique s’appuie sur plusieurs services et packages logiciels open source (tels que Apache HBase, Apache Spark, etc.). Pour certaines charges de travail, telles que la bio-informatique, vous devez conserver l’historique des journaux d’activité de configuration du service en plus des journaux d’activité d’exécution des travaux.
 
@@ -89,15 +89,27 @@ Pour ouvrir une liste de vues du service, sélectionnez **Vues Ambari** sur la p
 
 Les [actions de script](hdinsight-hadoop-customize-cluster-linux.md) HDInsight exécutent des scripts sur le cluster manuellement ou à l’intervalle spécifié. Par exemple, des actions de script peuvent être utilisées pour installer des logiciels supplémentaires sur le cluster ou pour modifier les paramètres de configuration à partir des valeurs par défaut. Les journaux d’activité d’actions de script peuvent fournir des insights sur les erreurs qui se sont produites pendant l’installation du cluster, ainsi que les modifications des paramètres de configuration qui peuvent affecter la disponibilité et les performances du cluster.  Pour consulter l’état d’une action de script, sélectionnez le bouton **ops** dans l’interface utilisateur Ambari, ou accédez aux journaux d’activité d’état à partir du compte de stockage par défaut. Les journaux d’activité de stockage sont disponibles dans `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
 
-## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Étape 3 : Gérer les fichiers journaux d’exécution des travaux de cluster
+### <a name="view-ambari-alerts-status-logs"></a>Consulter les journaux d’état des alertes Ambari
 
-L’étape suivante examine les fichiers journaux d’exécution des travaux des différents services.  Par exemple Apache HBase, Apache Spark et bien d’autres. Un cluster Hadoop génère un grand nombre de journaux d’activité détaillés. Aussi, déterminer quels journaux d’activité sont utiles (et ne le sont pas) peut prendre du temps.  Comprendre le système de journalisation est important pour la gestion ciblée des fichiers journaux.  Vous trouverez ci-dessous un exemple de fichier journal.
+Apache Ambari écrit les modifications d’état d’alerte dans `ambari-alerts.log`. Le chemin complet est `/var/log/ambari-server/ambari-alerts.log`. Pour activer le débogage du journal, changez une propriété dans `/etc/ambari-server/conf/log4j.properties.` Changez ensuite l’entrée sous `# Log alert state changes` à partir de :
+
+```
+log4j.logger.alerts=INFO,alerts
+
+to
+
+log4j.logger.alerts=DEBUG,alerts
+```
+
+## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>Étape 3 : Gérer les fichiers journaux d’exécution des travaux de cluster
+
+L’étape suivante examine les fichiers journaux d’exécution des travaux des différents services.  Par exemple Apache HBase, Apache Spark et bien d’autres. Un cluster Hadoop génère un grand nombre de journaux d’activité détaillés. Aussi, déterminer quels journaux d’activité sont utiles (et ne le sont pas) peut prendre du temps.  Comprendre le système de journalisation est important pour la gestion ciblée des fichiers journaux.  L’image ci-dessous est un exemple de fichier journal.
 
 ![HDInsight - Exemple de sortie de fichier journal](./media/hdinsight-log-management/hdi-log-file-example.png)
 
 ### <a name="access-the-hadoop-log-files"></a>Accéder aux fichiers journaux Hadoop
 
-HDInsight stocke ses fichiers journaux dans le système de fichiers du cluster et dans le stockage Azure. Vous pouvez examiner les fichiers journaux dans le cluster en ouvrant une connexion [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) au cluster et en parcourant le système de fichiers, ou à l’aide du portail Hadoop YARN Status sur le serveur du nœud principal distant. Vous pouvez examiner les fichiers journaux dans le stockage Azure à l’aide d’outils qui peuvent parcourir et télécharger des données à partir du stockage Azure. [AZCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) et l’Explorateur de serveurs Visual Studio en sont des exemples. Vous pouvez également utiliser PowerShell et les bibliothèques de client de stockage Azure ou les Kits de développement logiciel Azure .NET pour accéder aux données dans le stockage blob Azure.
+HDInsight stocke ses fichiers journaux dans le système de fichiers du cluster et dans Stockage Azure. Vous pouvez examiner les fichiers journaux dans le cluster en ouvrant une connexion [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) au cluster et en parcourant le système de fichiers, ou à l’aide du portail Hadoop YARN Status sur le serveur du nœud principal distant. Vous pouvez examiner les fichiers journaux dans Stockage Azure à l’aide d’outils qui peuvent parcourir et télécharger des données à partir de Stockage Azure. [AZCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) et l’Explorateur de serveurs Visual Studio en sont des exemples. Vous pouvez également utiliser PowerShell et les bibliothèques de client de stockage Azure ou les Kits de développement logiciel Azure .NET pour accéder aux données dans le stockage blob Azure.
 
 Hadoop exécute les travaux en tant que *tentatives de tâches* sur différents nœuds du cluster. HDInsight peut initier des tentatives de tâches spéculatives, en arrêtant les tentatives de tâches qui ne se terminent. Cela génère une activité importante qui est journalisée dans le contrôleur, stderr et les fichiers journaux syslog à la volée. De plus, plusieurs tentatives de tâches sont exécutées simultanément, mais un fichier journal peut uniquement afficher des résultats de façon linéaire.
 
@@ -140,9 +152,9 @@ Une fois que vous aurez effectué les étapes précédentes, vous comprendrez le
 
 Ensuite, analysez le volume de données de journal dans les principaux emplacements de stockage des journaux sur une période donnée. Par exemple, vous pouvez analyser le volume et la croissance sur des périodes de 30-60-90 jours.  Enregistrez ces informations dans une feuille de calcul ou utilisez d’autres outils tels que Visual Studio, l’Explorateur de stockage Azure ou Power Query pour Excel. Pour plus d’informations, consultez [Analyser les journaux d’activité Azure HDInsight](hdinsight-debug-jobs.md).  
 
-Vous avez maintenant suffisamment d’informations pour créer une stratégie de gestion des principaux journaux d’activité.  Utilisez votre feuille de calcul (ou l’outil de votre choix) pour prévoir l’augmentation de la taille des journaux et des coûts du stockage des journaux.  Envisagez également les conditions de rétention de l’ensemble des journaux d’activité que vous examinez.  Vous pouvez à présent recalculer les futurs coûts de stockage des journaux d’activité, après avoir déterminé les fichiers journaux pouvant être supprimés (le cas échéant) et les journaux d’activité devant être conservés et archivés dans un stockage Azure moins coûteux.
+Vous avez maintenant suffisamment d’informations pour créer une stratégie de gestion des principaux journaux d’activité.  Utilisez votre feuille de calcul (ou l’outil de votre choix) pour prévoir l’augmentation de la taille des journaux et des coûts du stockage des journaux.  Envisagez également les conditions de rétention de l’ensemble des journaux d’activité que vous examinez.  Vous pouvez à présent recalculer les futurs coûts de stockage des journaux, après avoir déterminé les fichiers journaux pouvant être supprimés (le cas échéant) et les journaux devant être conservés et archivés dans un Stockage Azure moins coûteux.
 
-## <a name="step-5-determine-log-archive-policies-and-processes"></a>Étape 5 : Étape 5 : Déterminer les stratégies d’archivage de journaux et les processus associés
+## <a name="step-5-determine-log-archive-policies-and-processes"></a>Étape 5 : Étape 5 : Déterminer les stratégies d’archivage de journaux et les processus associés
 
 Une fois que vous avez déterminé quels fichiers journaux peuvent être supprimés, vous pouvez ajuster les paramètres de journalisation de nombreux services Hadoop pour supprimer automatiquement des fichiers journaux après une période donnée.
 
@@ -152,10 +164,10 @@ Pour certains fichiers journaux, vous pouvez utiliser une approche d’archivage
 
 Vous pouvez également créer un script d’archivage de journaux avec PowerShell.  Pour obtenir un exemple de script PowerShell, consultez [Archiver des journaux d’activité Azure Automation dans Stockage Blob Azure](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
 
-### <a name="accessing-azure-storage-metrics"></a>Accès aux métriques de stockage Azure
+### <a name="accessing-azure-storage-metrics"></a>Accès aux métriques Stockage Azure
 
-Le stockage Azure peut être configuré pour journaliser les opérations de stockage et l’accès. Vous pouvez utiliser ces journaux d’activité très détaillés pour le monitoring et la planification de la capacité ainsi que pour l’audit des demandes envoyées au stockage. Les informations journalisées comprennent des détails sur la latence, ce qui vous permet de surveiller et d’optimiser les performances de vos solutions.
-Vous pouvez utiliser le Kit de développement .NET pour Hadoop afin d’examiner les fichiers journaux générés pour le stockage Azure qui contient les données d’un cluster HDInsight.
+Stockage Azure peut être configuré pour journaliser les opérations de stockage et l’accès. Vous pouvez utiliser ces journaux d’activité très détaillés pour le monitoring et la planification de la capacité ainsi que pour l’audit des demandes envoyées au stockage. Les informations journalisées comprennent des détails sur la latence, ce qui vous permet de surveiller et d’optimiser les performances de vos solutions.
+Vous pouvez utiliser le SDK .NET pour Hadoop afin d’examiner les fichiers journaux générés pour le Stockage Azure qui contient les données d’un cluster HDInsight.
 
 ### <a name="control-the-size-and-number-of-backup-indexes-for-old-log-files"></a>Contrôler la taille et le nombre d’index de sauvegarde pour les anciens fichiers journaux
 

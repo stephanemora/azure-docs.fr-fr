@@ -1,5 +1,5 @@
 ---
-title: Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et de l’API REST
+title: Ajouter ou supprimer des attributions de rôle avec le contrôle d’accès en fonction du rôle et l’API REST
 description: Découvrez comment accorder l’accès aux ressources Azure pour les utilisateurs, groupes, principaux de service ou identités managées à l’aide du contrôle d’accès en fonction du rôle (RBAC) Azure et de l’API REST.
 services: active-directory
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3c7b7dac649548b8b21cc13761009c11609c8904
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ae6fce5ab962637fe477ade75cf81b6ac237bdd2
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981037"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138309"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et de l’API REST
 

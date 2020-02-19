@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: e403d690470f3c4f1d0c8e565e90641d9c114a80
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ba82b1bea4753cd51e275a78b248247032d79a01
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844538"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086641"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutoriel : Publier, s'abonner à des événements localement
 
@@ -64,8 +64,7 @@ Un manifeste de déploiement est un document JSON qui décrit les modules à dé
     ```json
         {
           "Env": [
-            "inbound__clientAuth__clientCert__enabled=false",
-            "outbound__webhook__httpsOnly=false"
+            "inbound__clientAuth__clientCert__enabled=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -79,21 +78,17 @@ Un manifeste de déploiement est un document JSON qui décrit les modules à dé
         }
     ```    
  1. Cliquez sur **Enregistrer**.
- 1. Passez à la section suivante pour ajouter le module Azure Functions avant de les déployer ensemble.
+ 1. Passez à la section suivante pour ajouter le module d’abonné Azure Event Grid avant de les déployer ensemble.
 
     >[!IMPORTANT]
-    > Dans ce didacticiel, vous allez déployer le module Event Grid avec l’authentification du client désactivée et autoriser les abonnés HTTP. Pour les charges de travail de production, nous vous recommandons d’activer l’authentification client et d’autoriser uniquement les abonnés HTTPS. Pour savoir comment configurer le module Event Grid de manière sécurisée, voir [Sécurité et authentification](security-authentication.md).
+    > Dans ce tutoriel, vous allez déployer le module Event Grid avec l’authentification du client désactivée. Pour les charges de travail de production, nous vous recommandons d’activer l’authentification client. Pour savoir comment configurer le module Event Grid de manière sécurisée, voir [Sécurité et authentification](security-authentication.md).
     > 
     > Si vous utilisez une machine virtuelle Azure comme appareil Edge, ajoutez une règle de port entrant pour autoriser le trafic entrant sur le port 4438. Pour savoir comment ajouter la règle, voir [Guide pratique pour ouvrir des ports sur une machine virtuelle](../../virtual-machines/windows/nsg-quickstart-portal.md).
     
 
-## <a name="deploy-azure-function-iot-edge-module"></a>Déploiement du module Azure Functions IoT Edge
+## <a name="deploy-event-grid-subscriber-iot-edge-module"></a>Déployer le module IoT Edge d’abonné Event Grid
 
-Cette section vous montre comment déployer le module Azure Functions IoT, qui agira en tant qu’abonné Event Grid auquel des événements peuvent être remis.
-
->[!IMPORTANT]
->Dans cette section, vous allez déployer un exemple de module d’abonnement basé sur une fonction Azure. Il peut bien entendu s’agir de n’importe quel module IoT personnalisé capable d’écouter les requêtes HTTP POST.
-
+Cette section montre comment déployer un autre module IoT qui agirait en tant que gestionnaire d’événements auquel des événements peuvent être remis.
 
 ### <a name="add-modules"></a>Ajouter des modules
 
@@ -102,23 +97,8 @@ Cette section vous montre comment déployer le module Azure Functions IoT, qui a
 1. Fournissez le nom, l’image et les options de création du conteneur :
 
    * **Nom** : abonné
-   * **URI de l’image**  : `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
-   * **Options de création de conteneur** :
-
-       ```json
-            {
-              "HostConfig": {
-                "PortBindings": {
-                  "80/tcp": [
-                    {
-                      "HostPort": "8080"
-                    }
-                  ]
-                }
-              }
-            }
-       ```
-
+   * **URI de l’image**  : `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **Options de création de conteneur** : None
 1. Cliquez sur **Enregistrer**.
 1. Cliquez sur **Suivant** pour passer à la section des itinéraires
 
@@ -191,7 +171,7 @@ Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. P
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
@@ -199,7 +179,7 @@ Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. P
     ```
 
     >[!NOTE]
-    > La propriété **endpointType** spécifie que l’abonné est un **webhook**.  **endpointUrl** spécifie l’URL à laquelle l’abonné écoute les événements. Cette URL correspond à l’exemple de fonction Azure que vous avez déployé précédemment.
+    > La propriété **endpointType** spécifie que l’abonné est un **webhook**.  **endpointUrl** spécifie l’URL à laquelle l’abonné écoute les événements. Cette URL correspond à l’exemple d’abonné Azure que vous avez déployé précédemment.
 2. Exécutez la commande suivante pour créer un abonnement pour la rubrique. Vérifiez que le code d’état HTTP est `200 OK`.
 
     ```sh
@@ -223,7 +203,7 @@ Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. P
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
@@ -275,7 +255,7 @@ Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. P
     Exemple de sortie :
 
     ```sh
-        Received event data [
+        Received Event:
             {
               "id": "eventId-func-0",
               "topic": "sampleTopic1",
@@ -289,7 +269,6 @@ Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. P
                 "model": "Monster"
               }
             }
-          ]
     ```
 
 ## <a name="cleanup-resources"></a>Nettoyer les ressources

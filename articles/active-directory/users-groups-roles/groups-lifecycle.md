@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b49b10acb7f2deaed217bb28478d2c98a033eab9
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 83133fed401dac51a8dd6a653ccfd86117e956ed
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768676"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046452"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurer la stratégie d’expiration pour les groupes Office 365
 
@@ -30,10 +30,10 @@ Une fois que vous avez défini l’expiration d’un groupe :
 
 - Les groupes présentant des activités utilisateur sont automatiquement renouvelés à l’approche de l’expiration.
 - En l’absence de renouvellement automatique, les propriétaires du groupe sont invités à le renouveler.
-- Les groupes non renouvelés sont supprimés
-- Les groupes Office 365 qui sont supprimés peuvent être restaurés dans les 30 jours qui suivent par les propriétaires des groupes ou l’administrateur
+- Les groupes non renouvelés sont supprimés.
+- Les groupes Office 365 qui sont supprimés peuvent être restaurés dans les 30 jours qui suivent par les propriétaires des groupes ou par l’administrateur.
 
-À l’heure actuelle, il n’est possible de configurer qu’une seule stratégie d’expiration pour tous les groupes Office 365 d’une organisation Azure AD.
+À l’heure actuelle, il n’est possible de configurer qu’une seule stratégie d’expiration pour tous les groupes Office 365 d’une organisation Azure AD.
 
 > [!NOTE]
 > La configuration et l’utilisation de la stratégie d’expiration pour les groupes Office 365 vous impose de posséder (mais pas forcément d’attribuer) des licences Azure AD Premium pour les membres de tous les groupes auxquels la stratégie d’expiration est appliquée.
@@ -42,7 +42,7 @@ Pour plus d’informations sur le téléchargement et l’installation des apple
 
 ## <a name="activity-based-automatic-renewal"></a>Renouvellement automatique en fonction de l’activité
 
-Grâce à l’intelligence Azure AD, les groupes sont maintenant automatiquement renouvelés selon qu’ils ont été utilisés récemment ou non. Cette fonctionnalité évite aux propriétaires de groupes une action manuelle, car elle s’appuie sur l’activité des utilisateurs dans les groupes sur plusieurs services Office 365, comme Outlook, SharePoint, Teams ou Yammer. Par exemple, si un propriétaire ou un membre de groupe effectue une opération comme charger un document dans SharePoint, visiter un canal Teams ou envoyer un e-mail au groupe dans Outlook, le groupe est automatiquement renouvelé et le propriétaire ne reçoit aucune notification de renouvellement.
+Grâce à l’intelligence Azure AD, les groupes sont maintenant automatiquement renouvelés selon qu’ils ont été utilisés récemment ou non. Cette fonctionnalité évite aux propriétaires de groupes une action manuelle, car elle s’appuie sur l’activité des utilisateurs dans les groupes sur plusieurs services Office 365, comme Outlook, SharePoint, Teams ou Yammer. Par exemple, si un propriétaire ou un membre de groupe effectue une opération comme charger un document dans SharePoint, visiter un canal Teams ou envoyer un e-mail au groupe dans Outlook, le groupe est automatiquement renouvelé et le propriétaire ne reçoit aucune notification de renouvellement.
 
 ### <a name="activities-that-automatically-renew-group-expiration"></a>Activités qui renouvellent automatiquement l’expiration du groupe
 
@@ -55,6 +55,8 @@ Les actions utilisateur suivantes entraînent le renouvellement automatique du g
 ### <a name="auditing-and-reporting"></a>Audit et création de rapports
 
 Les administrateurs trouveront la liste des groupes renouvelés automatiquement dans les journaux d’audit d’activité dans Azure AD.
+
+![Renouvellement automatique des groupes en fonction de l’activité](./media/groups-lifecycle/audit-logs-autorenew-group.png)
 
 ## <a name="roles-and-permissions"></a>Rôles et autorisations
 

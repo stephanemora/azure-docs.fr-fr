@@ -14,12 +14,12 @@ ms.date: 11/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 301fe9c213ec6d78d32d6ccde84a689c4659acb3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c99a6e018edd0806daac7cd429135e522f217f23
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888977"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159826"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installation personnalisée d’Azure AD Connect
 Les **paramètres personnalisés** Azure AD Connect sont utilisés lorsque vous souhaitez davantage d’options d’installation. Ils sont utiles si vous disposez de plusieurs forêts ou si vous voulez configurer des fonctionnalités facultatives que l’installation rapide ne propose pas. Ils sont utilisés dans tous les cas où l’option d’[**installation rapide**](how-to-connect-install-express.md) ne convient pas à votre déploiement ou à votre topologie.
@@ -97,7 +97,7 @@ Cette page permet d’examiner les domaines UPN présents dans les services de d
 ![Domaines non vérifiés](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
 Passez en revue chaque domaine marqué **Non ajouté** et **Non vérifié**. Assurez-vous que les domaines que vous utilisez ont été vérifiés dans Azure AD. Cliquez sur le symbole d’actualisation dès que vous avez vérifié vos domaines. Pour plus d’informations, consultez [Ajouter et vérifier le domaine](../active-directory-domains-add-azure-portal.md)
 
-**UserPrincipalName** : cet attribut est utilisé par les utilisateurs lorsqu’ils se connectent à Azure AD et Office 365. Les domaines utilisés, également nommés « Suffixe UPN » doivent être vérifiés dans Azure AD avant la synchronisation des utilisateurs. Microsoft recommande de conserver la valeur d’attribut userPrincipalName par défaut. Si cet attribut ne peut pas être acheminé ni vérifié, vous pouvez sélectionner un autre attribut. Par exemple, vous pouvez choisir une adresse de messagerie électronique comme attribut contenant l’ID de connexion. Tout attribut utilisé à la place de l’élément userPrincipalName est qualifié d’ **ID secondaire**. La valeur de l’attribut ID secondaire doit suivre la norme RFC822. Un ID secondaire est utilisable avec la synchronisation de hachage de mot de passe, l’authentification directe et la fédération. L’attribut ne doit pas être défini dans Active Directory en tant que valeurs multiples, même s’il ne possède qu’une seule valeur. Pour plus d’informations sur l’ID de substitution, [cliquez ici.](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname)
+**UserPrincipalName** : cet attribut est utilisé par les utilisateurs lorsqu’ils se connectent à Azure AD et Office 365. Les domaines utilisés, également nommés « Suffixe UPN » doivent être vérifiés dans Azure AD avant la synchronisation des utilisateurs. Microsoft recommande de conserver la valeur d’attribut userPrincipalName par défaut. Si cet attribut ne peut pas être acheminé ni vérifié, vous pouvez sélectionner un autre attribut. Par exemple, vous pouvez choisir une adresse de messagerie électronique comme attribut contenant l’ID de connexion. Tout attribut utilisé à la place de l’élément userPrincipalName est qualifié d’ **ID secondaire**. La valeur de l’attribut ID secondaire doit suivre la norme RFC822. Un ID secondaire est utilisable avec la synchronisation de hachage de mot de passe, l’authentification directe et la fédération. L’attribut ne doit pas être défini dans Active Directory en tant que valeurs multiples, même s’il ne possède qu’une seule valeur. Pour plus d’informations sur l’ID secondaire, consultez la rubrique [Questions fréquentes (FAQ)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname).
 
 >[!NOTE]
 > Lorsque vous activez l’authentification directe, vous devez disposer d’au moins un domaine vérifié pour pouvoir continuer l’assistant.
@@ -163,9 +163,9 @@ Cet écran vous permet de sélectionner des fonctionnalités facultatives pour v
 >[!WARNING]
 >Les versions d’Azure AD Connect **1.0.8641.0** et antérieures s’appuient sur Azure Access Control Service pour la réécriture du mot de passe.  Ce service sera supprimé le **7 novembre 2018**.  Si vous utilisez l’une de ces versions d’Azure AD Connect et que vous avez activé la réécriture du mot de passe, il est possible que les utilisateurs ne puissent plus modifier ou réinitialiser leurs mots de passe une fois le service supprimé. La réécriture du mot de passe avec ces versions d’Azure AD Connect ne sera pas prise en charge.
 >
->Pour plus d’informations sur Azure Access Control Service, consultez [Guide pratique pour effectuer une migration à partir d’Azure Access Control Service](../develop/active-directory-acs-migration.md).
+>Pour plus d’informations sur Azure Access Control Service, consultez [Guide pratique pour effectuer une migration à partir d’Azure Access Control Service](../azuread-dev/active-directory-acs-migration.md).
 >
->Pour télécharger la dernière version d’Azure AD Connect, cliquez [ici](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+>Pour télécharger la dernière version d’Azure AD Connect, cliquez [ici](https://www.microsoft.com/download/details.aspx?id=47594).
 
 ![Fonctionnalités facultatives](./media/how-to-connect-install-custom/optional2.png)
 

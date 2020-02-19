@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: f6d2da49e2659cfa69d25e3fe71351547706fd42
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b65b7a9fd38b690729fafd86fe213ff56760a1bb
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984844"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169834"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
@@ -26,9 +26,6 @@ Utilisez une instance de calcul comme environnement de développement complètem
 
 Les instances de calcul sont généralement utilisées comme environnements de développement.  Elles peuvent également être utilisées comme cible de calcul pour la formation et l’inférence à des fins de développement et de test.  Pour les tâches volumineuses, un [cluster de calcul Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) avec des fonctionnalités de mise à l’échelle à plusieurs nœuds est un meilleur choix de cible de calcul.
 
-> [!NOTE]
-> Les instances de calcul ne sont actuellement disponibles que pour les espaces de travail dans les régions **USA Centre Nord**, **USA Est 2**, **Europe Nord** et **Royaume-Uni Sud**. D’autres régions seront bientôt prises en charge.
->Si votre espace de travail se trouve dans une autre région, vous pouvez continuer à créer et à utiliser une [machine virtuelle Notebook](concept-compute-instance.md#notebookvm) à la place. 
 
 ## <a name="why-use-a-compute-instance"></a>Pourquoi créer une instance de calcul ?
 
@@ -124,7 +121,7 @@ Vous pouvez effectuer les actions suivantes :
 
 Pour chaque instance de calcul dans votre espace de travail, vous pouvez :
 
-* Accéder aux URI de Jupyter, JupyterLab, RStudio et VS Code sur l’instance de calcul.
+* Accéder à Jupyter, JupyterLab et RStudio sur l’instance de calcul.
 * Ajouter un accès SSH à une instance de calcul. L’accès SSH est désactivé par défaut, mais il peut être activé au moment de la création de l’instance de calcul. L’accès SSH s’effectue par le biais d’un mécanisme de clé publique/privée. L’onglet vous donne des informations sur la connexion SSH, telles que l’adresse IP, le nom d’utilisateur et le numéro de port.
 * Obtenir des informations sur une instance de calcul spécifique, telles que l’adresse IP et la région.
 

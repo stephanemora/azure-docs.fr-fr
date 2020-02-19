@@ -1,5 +1,5 @@
 ---
-title: Ajouter ou supprimer des attributions de rôles pour les utilisateurs invités externes à l’aide du RBAC Azure et du portail Azure
+title: Ajouter ou supprimer des attributions de rôles pour les utilisateurs externes à l’aide du RBAC et du Portail Azure
 description: Découvrez comment accorder l’accès aux ressources Azure pour les utilisateurs externes à une organisation à l’aide du contrôle d’accès en fonction du (RBAC) Azure.
 services: active-directory
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: db43a3cce27da5f40986968b6573bfd58a1d3cb7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1c440b85f792ac5bb1336f4d20f930aafc38ad7d
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707886"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138377"
 ---
 # <a name="add-or-remove-role-assignments-for-external-guest-users-using-azure-rbac-and-the-azure-portal"></a>Ajouter ou supprimer des attributions de rôles pour les utilisateurs invités externes à l’aide du RBAC Azure et du portail Azure
 
 La fonctionnalité de [contrôle d’accès en fonction du rôle (RBAC) Azure ](overview.md) permet une meilleure gestion de la sécurité pour les grandes organisations et pour les PME travaillant avec des collaborateurs externes, des fournisseurs ou des travailleurs indépendants qui doivent pouvoir accéder à des ressources spécifiques de votre environnement, mais pas nécessairement à l’ensemble de l’infrastructure ou aux étendues liées à la facturation. Vous pouvez utiliser les fonctionnalités offertes dans [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md) pour collaborer avec des utilisateurs invités externes. Vous pouvez aussi utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder uniquement les autorisations dont les utilisateurs invités ont besoin dans votre environnement.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour ajouter ou supprimer des attributions de rôles, vous devez disposer :
 
@@ -171,7 +171,7 @@ Avant de supprimer un utilisateur invité d’un annuaire, vous devez d’abord 
 
 1. Dans le message de suppression qui apparaît, cliquez sur **Yes** (Oui).
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 
 ### <a name="guest-user-cannot-browse-the-directory"></a>Impossible pour l’utilisateur invité de parcourir l’annuaire
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 04db62f402c25dd4a04281047f684dc23d41a502
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e95a0b4b9f071a0fd3949d50eeee17b811dfb8ea
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934631"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064816"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Syntaxe des requêtes pour le routage des messages IoT Hub
 
@@ -196,7 +196,7 @@ Le routage de messages vous permet d’interroger les étiquettes et les propri�
 
 ### <a name="query-expressions"></a>Expressions de requête
 
-Une requête sur le corps de message doit avoir pour préfixe `$twin`. Votre expression de requête peut également combiner une référence à une étiquette ou à une propriété de jumeau avec une référence au corps, aux propriétés système de message et aux propriétés de l’application de messagerie. La requête ne respectant pas la casse, nous recommandons d’utiliser des noms uniques dans les balises et les propriétés. Cela s’applique aux jumeaux d'appareil ainsi qu'aux jumeaux de module. Évitez également l’utilisation de `twin`, `$twin`, `body` ou `$body`, comme noms de propriété. Par exemple, toutes les expressions de requête suivantes sont valides : 
+Une requête sur le jumeau de message doit avoir pour préfixe `$twin`. Votre expression de requête peut également combiner une référence à une étiquette ou à une propriété de jumeau avec une référence au corps, aux propriétés système de message et aux propriétés de l’application de messagerie. La requête ne respectant pas la casse, nous recommandons d’utiliser des noms uniques dans les balises et les propriétés. Cela s’applique aux jumeaux d'appareil ainsi qu'aux jumeaux de module. Évitez également l’utilisation de `twin`, `$twin`, `body` ou `$body`, comme noms de propriété. Par exemple, toutes les expressions de requête suivantes sont valides : 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'

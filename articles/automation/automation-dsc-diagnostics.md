@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9fa84b5e87581fad4a7ada5fda074429409d2f8f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bbc9048452c5361306dd05e712090543bb1066ce
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850344"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111537"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Transférer des données de rapport Azure Automation State Configuration vers des journaux Azure Monitor
 
@@ -31,7 +31,7 @@ Avec les journaux Azure Monitor, vous pouvez :
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer à envoyer vos rapports Automation State Configuration vers les journaux Azure Monitor, vous devez disposer des éléments suivants :
 
@@ -74,9 +74,9 @@ Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Workspa
 
 ## <a name="view-the-state-configuration-logs"></a>Afficher les journaux d’activité State Configuration
 
-Après avoir configuré l’intégration avec les journaux Azure Monitor pour vos données Automation State Configuration, un bouton **Recherche dans les journaux** s’affiche dans le panneau **Nœuds DSC** de votre compte Automation. Cliquez sur le bouton **Recherche dans les journaux d’activité** pour afficher les journaux d’activité des données de nœud DSC.
+Après avoir configuré l’intégration avec les journaux Azure Monitor pour vos données Automation State Configuration, vous pouvez les visualiser en sélectionnant **Journaux** dans la section **Supervision** dans le volet gauche de la page Configuration de l’état (DSC).  
 
-![Bouton Recherche dans les journaux](media/automation-dsc-diagnostics/log-search-button.png)
+![Journaux d’activité](media/automation-dsc-diagnostics/automation-dsc-logs-toc-item.png)
 
 Le panneau **Recherche dans les journaux** s’ouvre et vous voyez une opération **DscNodeStatusData** pour chaque nœud State Configuration et une opération **DscResourceStatusData** pour chaque [ressource DSC](/powershell/scripting/dsc/resources/resources) appelée dans la configuration Nœud appliquée à ce nœud.
 
@@ -84,11 +84,14 @@ L’opération **DscResourceStatusData** contient des informations d’erreur po
 
 Cliquez sur chaque opération dans la liste pour afficher les données correspondant à cette opération.
 
-Vous pouvez aussi consulter les journaux en effectuant une recherche dans les journaux Azure Monitor.
-Consultez [Recherche de données à l’aide de recherches de journal](../log-analytics/log-analytics-log-searches.md).
-Tapez la requête suivante pour rechercher vos journaux d’activité State Configuration : `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus'`
+Vous pouvez aussi consulter les journaux en effectuant une recherche dans les journaux Azure Monitor. Consultez [Recherche de données à l’aide de recherches de journal](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview). Tapez la requête suivante pour rechercher vos journaux Configuration de l’état.
 
-Vous pouvez également affiner la requête par nom d’opération. Par exemple : `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus' OperationName='DscNodeStatusData'`
+```
+AzureDiagnostics
+| where Category == 'DscNodeStatus' 
+| where OperationName contains 'DSCNodeStatusData'
+| where ResultType != 'Compliant'
+```
 
 ### <a name="send-an-email-when-a-state-configuration-compliance-check-fails"></a>Envoyer un e-mail si une vérification de la conformité State Configuration échoue
 
@@ -129,12 +132,12 @@ La fonction de diagnostic d’Azure Automation crée deux catégories d’enregi
 | Propriété | Description |
 | --- | --- |
 | TimeGenerated |Date et heure d’exécution de la vérification de conformité. |
-| OperationName |DscNodeStatusData |
+| NomOpération |DscNodeStatusData |
 | ResultType |Indique si le nœud est conforme. |
 | NodeName_s |Le nom du nœud géré. |
 | NodeComplianceStatus_s |Indique si le nœud est conforme. |
 | DscReportStatus |Indique si la vérification de conformité a été correctement exécutée. |
-| ConfigurationMode | La façon dont la configuration est appliquée au nœud. Les valeurs possibles sont __« ApplyOnly »__ , __« ApplyandMonitor »__ et __« ApplyandAutoCorrect »__ . <ul><li>__ApplyOnly__ : DSC applique la configuration et ne fait rien de plus, sauf si une nouvelle configuration est envoyée au nœud cible ou quand une nouvelle configuration est extraite d’un serveur. Après l’application initiale d’une nouvelle configuration, DSC ne vérifie pas l’écart par rapport à un état configuré précédemment. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur __ApplyOnly__ prenne effet. </li><li> __ApplyAndMonitor__ : Il s’agit de la valeur par défaut. Le gestionnaire de configuration locale applique toutes les nouvelles configurations. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux d’activité. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur __ApplyAndMonitor__ prenne effet.</li><li>__ApplyAndAutoCorrect__ : DSC applique toutes les nouvelles configurations. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux d’activité puis applique à nouveau la configuration actuelle.</li></ul> |
+| ConfigurationMode | La façon dont la configuration est appliquée au nœud. Les valeurs possibles sont __« ApplyOnly »__ , __« ApplyandMonitor »__ et __« ApplyandAutoCorrect »__ . <ul><li>__ApplyOnly__ : DSC applique la configuration et ne fait rien de plus, sauf si une nouvelle configuration est envoyée au nœud cible ou quand une nouvelle configuration est extraite d’un serveur. Après l’application initiale d’une nouvelle configuration, DSC ne vérifie pas l’écart par rapport à un état configuré précédemment. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur __ApplyOnly__ prenne effet. </li><li> __ApplyAndMonitor__ : Il s’agit de la valeur par défaut. Le gestionnaire de configuration locale applique toutes les nouvelles configurations. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux d’activité. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur __ApplyAndMonitor__ prenne effet.</li><li>__ApplyAndAutoCorrect__ : indique à DSC d’appliquer chaque nouvelle configuration. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux d’activité puis applique à nouveau la configuration actuelle.</li></ul> |
 | HostName_s | Le nom du nœud géré. |
 | IPAddress | L’adresse IPv4 du nœud géré. |
 | Category | DscNodeStatus |
@@ -149,7 +152,7 @@ La fonction de diagnostic d’Azure Automation crée deux catégories d’enregi
 | SourceSystem | Mode de collecte de données employé pour les journaux Azure Monitor. Toujours *Azure* pour les diagnostics Azure. |
 | ResourceId |Spécifie le compte Azure Automation. |
 | resultDescription | La description de cette opération. |
-| SubscriptionId | ID d’abonnement Azure (GUID) du compte Automation. |
+| SubscriptionId | ID d’abonnement Azure (GUID) pour le compte Automation. |
 | ResourceGroup | Nom du groupe de ressources du compte Automation. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
@@ -160,7 +163,7 @@ La fonction de diagnostic d’Azure Automation crée deux catégories d’enregi
 | Propriété | Description |
 | --- | --- |
 | TimeGenerated |Date et heure d’exécution de la vérification de conformité. |
-| OperationName |DscResourceStatusData|
+| NomOpération |DscResourceStatusData|
 | ResultType |Indique si la ressource est conforme. |
 | NodeName_s |Le nom du nœud géré. |
 | Category | DscNodeStatus |
@@ -180,7 +183,7 @@ La fonction de diagnostic d’Azure Automation crée deux catégories d’enregi
 | SourceSystem | Mode de collecte de données employé pour les journaux Azure Monitor. Toujours *Azure* pour les diagnostics Azure. |
 | ResourceId |Spécifie le compte Azure Automation. |
 | resultDescription | La description de cette opération. |
-| SubscriptionId | ID d’abonnement Azure (GUID) du compte Automation. |
+| SubscriptionId | ID d’abonnement Azure (GUID) pour le compte Automation. |
 | ResourceGroup | Nom du groupe de ressources du compte Automation. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |

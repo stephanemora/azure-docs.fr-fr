@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 5929d4edac53b2be87e168b527034c5a473f154f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c700c9786f3bec4c79cae904a95deb5fd1c670b4
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678184"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110018"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Activité Web dans Azure Data Factory
 Une activité web peut être utilisée pour appeler un point de terminaison REST personnalisé à partir d’un pipeline Data Factory. Vous pouvez transmettre des jeux de données et des services liés que l’activité peut utiliser et auxquels elle peut accéder.
@@ -65,15 +65,15 @@ Une activité web peut être utilisée pour appeler un point de terminaison REST
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité web | Chaîne | OUI
-Type | Doit avoir la valeur **WebActivity**. | Chaîne | OUI
-method | Méthode d’API REST pour le point de terminaison cible. | Chaîne. <br/><br/>Types pris en charge : « GET », « POST », « PUT » | OUI
-url | Point de terminaison cible et chemin d’accès | Chaîne (ou expression avec resultType de chaîne). Si elle ne reçoit pas de réponse du point de terminaison, l’activité expire à 1 minute avec une erreur. | OUI
+name | Nom de l’activité web | String | Oui
+type | Doit avoir la valeur **WebActivity**. | String | Oui
+method | Méthode d’API REST pour le point de terminaison cible. | Chaîne. <br/><br/>Types pris en charge : « GET », « POST », « PUT » | Oui
+url | Point de terminaison cible et chemin d’accès | Chaîne (ou expression avec resultType de chaîne). Si elle ne reçoit pas de réponse du point de terminaison, l’activité expire à 1 minute avec une erreur. | Oui
 headers | En-têtes envoyés à la demande. Par exemple, pour définir la langue et le type sur une requête : `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Chaîne (ou expression avec resultType de chaîne) | Oui, l’en-tête Content-type est obligatoire. `"headers":{ "Content-Type":"application/json"}`
 body | Représente la charge utile envoyée au point de terminaison.  | Chaîne (ou expression avec resultType de chaîne). <br/><br/>Voir le schéma de la charge utile de demande dans la section [Schéma de la charge utile](#request-payload-schema). | Obligatoire pour les méthodes POST/PUT.
 Authentification | Méthode d’authentification utilisée pour appeler le point de terminaison. Les types pris en charge sont « De base » ou « ClientCertificate ». Pour en savoir plus, voir la section [Authentification](#authentication). Si l’authentification n’est pas obligatoire, excluez cette propriété. | Chaîne (ou expression avec resultType de chaîne) | Non
-jeux de données | Liste des jeux de données transmis au point de terminaison. | Tableau de références de jeu de données. Peut être un tableau vide. | OUI
-linkedServices | Liste des services liés transmise au point de terminaison. | Tableau des références de service lié. Peut être un tableau vide. | OUI
+jeux de données | Liste des jeux de données transmis au point de terminaison. | Tableau de références de jeu de données. Peut être un tableau vide. | Oui
+linkedServices | Liste des services liés transmise au point de terminaison. | Tableau des références de service lié. Peut être un tableau vide. | Oui
 
 > [!NOTE]
 > Les points de terminaison REST que l’activité web appelle doivent retourner une réponse de type JSON. Si elle ne reçoit pas de réponse du point de terminaison, l’activité expire à 1 minute avec une erreur.
@@ -82,18 +82,22 @@ Le tableau suivant affiche la configuration requise pour le contenu JSON :
 
 | Type de valeur | Corps de la demande | Response body |
 |---|---|---|
-|Objet JSON | Pris en charge | Pris en charge |
-|Tableau JSON | Pris en charge <br/>(À l’heure actuelle, les tableaux JSON ne fonctionnent pas en raison d’un bogue. Un correctif est en cours.) | Non pris en charge |
-| Valeur JSON | Pris en charge | Non pris en charge |
+|Objet JSON | Prise en charge | Prise en charge |
+|Tableau JSON | Prise en charge <br/>(À l’heure actuelle, les tableaux JSON ne fonctionnent pas en raison d’un bogue. Un correctif est en cours.) | Non pris en charge |
+| Valeur JSON | Prise en charge | Non pris en charge |
 | Type non-JSON | Non pris en charge | Non pris en charge |
 ||||
 
 ## <a name="authentication"></a>Authentication
 
-### <a name="none"></a>Aucun
+Voici les types d’authentification pris en charge dans l’activité web.
+
+### <a name="none"></a>None
+
 Si l’authentification n’est pas requise, n’incluez pas la propriété « authentication ».
 
 ### <a name="basic"></a>De base
+
 Spécifiez le nom d’utilisateur et le mot de passe à utiliser avec l’authentification de base.
 
 ```json
@@ -105,6 +109,7 @@ Spécifiez le nom d’utilisateur et le mot de passe à utiliser avec l’authen
 ```
 
 ### <a name="client-certificate"></a>Certificat client
+
 Spécifiez le contenu encodé en Base64 d’un fichier PFX et le mot de passe.
 
 ```json
@@ -125,6 +130,9 @@ Spécifiez l’uri de ressource pour lequel le jeton d’accès sera demandé à
     "resource": "https://management.azure.com/"
 }
 ```
+
+> [!NOTE]
+> Si votre fabrique de données est configurée avec un référentiel git, vous devez stocker vos informations d’identification dans Azure Key Vault pour utiliser l’authentification de base ou de certificat client. Azure Data Factory ne stocke pas les mots de passe dans Git.
 
 ## <a name="request-payload-schema"></a>Schéma de charge utile de demande
 Lorsque vous utilisez la méthode POST/PUT, la propriété body représente la charge utile envoyée au point de terminaison. Vous pouvez transmettre des services liés et des jeux de données dans la charge utile. Voici le schéma de la charge utile :
@@ -149,7 +157,7 @@ Lorsque vous utilisez la méthode POST/PUT, la propriété body représente la c
 }
 ```
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 Dans cet exemple, l’activité web dans le pipeline appelle un point de terminaison REST. Elle transmet un service lié Azure SQL et un jeu de données Azure SQL au point de terminaison. Le point de terminaison REST utilise la chaîne de connexion Azure SQL pour se connecter au serveur Azure SQL et retourne le nom de l’instance du serveur SQL.
 
 ### <a name="pipeline-definition"></a>Définition de pipeline

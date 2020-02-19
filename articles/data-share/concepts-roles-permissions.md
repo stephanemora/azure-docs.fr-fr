@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 0f836553c3c3bb324d76d022af189f154b5b1972
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 36a492f6a3e86cfb2fc9505550cc2d9f4746e070
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964462"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087163"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Rôles et exigences pour Azure Data Share 
 
@@ -91,7 +91,7 @@ Pour en savoir plus sur l’ajout d’une attribution de rôle, reportez-vous à
 
 ## <a name="resource-provider-registration"></a>Inscription du fournisseur de ressources 
 
-Pour afficher une invitation Azure Data Share pour la première fois dans votre locataire Azure, vous devrez peut-être inscrire manuellement le fournisseur de ressources Microsoft.DataShare dans votre abonnement Azure. Suivez ces étapes pour inscrire le fournisseur de ressources Microsoft.DataShare dans votre abonnement Azure. 
+Pour afficher une invitation Azure Data Share pour la première fois dans votre locataire Azure, vous devrez peut-être inscrire manuellement le fournisseur de ressources Microsoft.DataShare dans votre abonnement Azure. Suivez ces étapes pour inscrire le fournisseur de ressources Microsoft.DataShare dans votre abonnement Azure. Vous avez besoin d’un accès *Contributeur* à l’abonnement Azure pour inscrire le fournisseur de ressources.
 
 1. Dans le portail Azure, accédez à **Abonnements**.
 1. Sélectionnez l’abonnement que vous utilisez pour Azure Data Share.

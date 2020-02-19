@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 01/16/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4725329ace12a2bfb285253c52249f242da31619
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ddd4f45e88c0bcc63fb62cc816fae4dbad255841
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970213"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157582"
 ---
 # <a name="introduction-to-azure-storage"></a>Présentation de Stockage Azure
 
@@ -120,11 +120,9 @@ Les bibliothèques clientes de Stockage Azure fournissent des méthodes pour chi
 
 ## <a name="redundancy"></a>Redondance
 
-Pour assurer la durabilité de vos données, le Stockage Azure réplique plusieurs copies de vos données. Quand vous configurez votre compte de stockage, vous sélectionnez une option de redondance.
+Pour assurer la durabilité de vos données, Stockage Azure stocke plusieurs copies de vos données. Quand vous configurez votre compte de stockage, vous sélectionnez une option de redondance.
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
-
-Pour plus d’informations sur la reprise d’activité, consultez [Reprise d’activité et basculement de compte de stockage (préversion) dans Stockage Azure](storage-disaster-recovery-guidance.md).
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Transfert de données vers et depuis Azure Storage
 

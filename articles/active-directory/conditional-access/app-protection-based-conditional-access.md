@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbbe882acda532a54333ca8013693121d5b677b7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3c853ef3a5a40381aba4e1c13eaf9ad7d8653170
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964087"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186630"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Exiger une stratégie de protection des applications pour l’accès aux applications cloud à l’aide de l’accès conditionnel (préversion)
 
@@ -24,7 +24,7 @@ Vos employés utilisent des appareils mobiles pour des tâches à la fois person
 
 Cet article explique comment configurer des stratégies d’accès conditionnel qui peuvent exiger la mise en place d’une stratégie de protection des applications pour l’accès aux données.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Avec l’[accès conditionnel Azure AD](overview.md), vous pouvez préciser la façon dont chaque utilisateur autorisé peut accéder aux ressources. Par exemple, vous pouvez limiter l’accès à vos applications cloud aux appareils approuvés.
 
@@ -36,7 +36,7 @@ En terminologie d’accès conditionnel, on dit que ces applications clientes so
 
 ![Accès conditionnel](./media/app-protection-based-conditional-access/05.png)
 
-Pour obtenir la liste des applications clientes protégées par une stratégie, consultez [Exigence relative à la stratégie de protection des applications](technical-reference.md#approved-client-app-requirement).
+Pour obtenir la liste des applications clientes protégées par une stratégie, consultez [Exigence relative à la stratégie de protection des applications](concept-conditional-access-grant.md).
 
 Vous pouvez combiner des stratégies d’accès conditionnel basées sur la protection des applications avec d’autres stratégies, telles que les [stratégies d’accès conditionnel basées sur les appareils](require-managed-devices.md). De cette façon, vous pouvez adapter la protection des données selon qu’elles se trouvent sur des appareils personnels ou des appareils d’entreprise.
 
@@ -55,12 +55,12 @@ De la même façon qu’Intune pour iOS et Android signalent qu’un appareil g�
 
 Cet article suppose de connaître :
 
-- Les informations techniques de référence sur les [exigences des stratégies de protection des applications](technical-reference.md#app-protection-policy-requirement).
-- Les informations techniques de référence intitulées [Spécification d’application cliente approuvée](technical-reference.md#approved-client-app-requirement).
+- Les [conditions d’utilisation d’une stratégie de protection d’application](concept-conditional-access-grant.md).
+- Les [conditions d’utilisation d’une application cliente approuvée](concept-conditional-access-grant.md).
 - Les concepts de base de l’[accès conditionnel dans Azure Active Directory](overview.md).
 - Comment [configurer une stratégie d’accès conditionnel](app-based-mfa.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour créer une stratégie d’accès conditionnel basée sur la protection des applications, vous devez :
 
@@ -116,7 +116,7 @@ Pour les besoins de la stratégie d’accès conditionnel de cette étape, confi
 
    ![Accès conditionnel](./media/app-protection-based-conditional-access/05.png)
 
-**Étape 2 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online avec ActiveSync (EAS)**
+**Étape 2 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online avec ActiveSync (EAS)**
 
 Pour les besoins de la stratégie d’accès conditionnel de cette étape, configurez les composants suivants :
 
@@ -138,7 +138,7 @@ Pour les besoins de la stratégie d’accès conditionnel de cette étape, confi
 
       ![Accès conditionnel](./media/app-protection-based-conditional-access/05.png)
 
-**Étape 3 : Configurer la stratégie Intune App Protection pour les applications clientes iOS et Android**
+**Étape 3 : Configurer la stratégie Intune App Protection pour les applications clientes iOS et Android**
 
 ![Accès conditionnel](./media/app-protection-based-conditional-access/09.png)
 
@@ -190,7 +190,7 @@ Pour les besoins de la stratégie d’accès conditionnel de cette étape, confi
  
       ![Accès conditionnel](./media/app-protection-based-conditional-access/11.png)
 
-**Étape 2 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online avec ActiveSync**
+**Étape 2 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online avec ActiveSync**
 
 Pour les besoins de la stratégie d’accès conditionnel de cette étape, configurez les composants suivants :
 
@@ -215,7 +215,7 @@ Pour les besoins de la stratégie d’accès conditionnel de cette étape, confi
 
       ![Accès conditionnel](./media/app-protection-based-conditional-access/11.png)
 
-**Étape 3 : Configurer la stratégie Intune App Protection pour les applications clientes iOS et Android**
+**Étape 3 : Configurer la stratégie Intune App Protection pour les applications clientes iOS et Android**
 
 ![Accès conditionnel](./media/app-protection-based-conditional-access/09.png)
 
@@ -270,7 +270,7 @@ Pour les besoins de la stratégie d’accès conditionnel de cette étape, confi
  
       ![Accès conditionnel](./media/app-protection-based-conditional-access/13.png)
 
-**Étape 2 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online avec ActiveSync**
+**Étape 2 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online avec ActiveSync**
 
 Pour les besoins de la stratégie d’accès conditionnel de cette étape, configurez les composants suivants :
 
@@ -295,7 +295,7 @@ Pour les besoins de la stratégie d’accès conditionnel de cette étape, confi
  
       ![Accès conditionnel](./media/app-protection-based-conditional-access/13.png)
 
-**Étape 3 : Configurer la stratégie Intune App Protection pour les applications clientes iOS et Android**
+**Étape 3 : Configurer la stratégie Intune App Protection pour les applications clientes iOS et Android**
 
 ![Accès conditionnel](./media/app-protection-based-conditional-access/09.png)
 
@@ -358,7 +358,7 @@ Pour les besoins de la stratégie d’accès conditionnel de cette étape, confi
  
       ![Accès conditionnel](./media/app-protection-based-conditional-access/12.png)
 
-**Étape 2 : Configurer la stratégie Intune App Protection pour les applications clientes iOS et Android**
+**Étape 2 : Configurer la stratégie Intune App Protection pour les applications clientes iOS et Android**
 
 ![Accès conditionnel](./media/app-protection-based-conditional-access/09.png)
 
@@ -366,5 +366,5 @@ Pour plus d’informations, consultez [Protéger les données et les application
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour savoir comment configurer une stratégie d’accès conditionnel, consultez [Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](app-based-mfa.md).
+- Pour savoir comment configurer une stratégie d’accès conditionnel, voir [Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](app-based-mfa.md).
 - Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [bonnes pratiques pour l’accès conditionnel dans Azure Active Directory](best-practices.md).

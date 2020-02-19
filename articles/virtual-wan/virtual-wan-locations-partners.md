@@ -1,19 +1,19 @@
 ---
-title: Localisations des partenaires d’Azure Virtual WAN | Microsoft Docs
+title: Partenaires Azure Virtual WAN et emplacements | Microsoft Docs
 description: Cet article contient une liste des localisations des partenaires et hubs Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 02/12/2020
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: b7a3d443b64943c097a51eeae4be6253a0466e18
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
+ms.openlocfilehash: 68379fd2334e517df4011c05bb32543f7ce4a173
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933710"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190400"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Localisation des partenaires et hub virtuel Virtual WAN
 
@@ -34,13 +34,13 @@ L’automation générale suivante est configurée dans la console de l’appare
 * Téléchargement automatique des informations de connectivité Azure
 * Configuration de l’appareil de branche sur site 
 
-Certains partenaires de connectivité peuvent étendre l’automation pour inclure la création du réseau virtuel Azure Virtual Hub et la passerelle VPN. Pour en savoir plus sur l’automation, consultez [Configurer l’Automation - Partenaires WAN](virtual-wan-configure-automation-providers.md).
+Certains partenaires de connectivité peuvent étendre l’automation pour inclure la création du réseau virtuel Azure Virtual Hub et la passerelle VPN. Pour en savoir plus sur l’automatisation, consultez [Conseils d’automatisation pour les partenaires Virtual WAN](virtual-wan-configure-automation-providers.md).
 
 ## <a name="partners"></a>Connectivité via les partenaires
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-Les partenaires suivants sont prévus prochainement sur notre feuille de route : Arista, Aruba HPE, Cisco Systems, F5 Networks, Open Systems, Oracle Talari, SharpLink et VMWare Velocloud.
+Les partenaires suivants sont prévus prochainement sur notre feuille de route : Arista, Aruba HPE, Cisco Systems, F5 Networks, Open Systems, Oracle SD-WAN, SharpLink et VMWare Velocloud.
 
 ## <a name="locations"></a>Emplacements
 
@@ -50,4 +50,4 @@ Les partenaires suivants sont prévus prochainement sur notre feuille de route :
 
 * Pour plus d’informations sur Virtual WAN, consultez la [FAQ sur Virtual WAN](virtual-wan-faq.md).
 
-* Pour plus d’informations sur l’automation de la connectivité à Azure Virtual WAN, consultez [Partenaires Virtual WAN - Comment automatiser](virtual-wan-configure-automation-providers.md).
+* Pour plus d’informations sur l’automatisation de la connectivité à Azure Virtual WAN, consultez [Conseils d’automatisation pour les partenaires Virtual WAN](virtual-wan-configure-automation-providers.md).

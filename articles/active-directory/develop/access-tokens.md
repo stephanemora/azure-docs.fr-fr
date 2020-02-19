@@ -12,12 +12,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: bacac67ddd7f379d679a149fe9574676ae0c7567
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7d596292a823b4d912204f5cfbe8623ab7429fa3
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834417"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161390"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Jetons d’accès de la plateforme d’identités Microsoft
 
@@ -63,7 +63,7 @@ Les TJW sont divisés en trois parties :
 
 Chaque partie est séparée par un point (`.`) et encodée séparément en base64.
 
-Les revendications ne sont présentes que lorsqu’elles sont renseignées par une valeur. Votre application ne doit donc pas dépendre de la présence d’une revendication. Exemples : `pwd_exp` (tous les clients n’ont pas besoin de mots de passe pour expirer) ou `family_name` ([ les flux d’informations d’identification client](v1-oauth2-client-creds-grant-flow.md) sont au nom d’applications qui ne portent pas de noms). Les revendications utilisées pour la validation des jetons d’accès seront toujours présentes.
+Les revendications ne sont présentes que lorsqu’elles sont renseignées par une valeur. Votre application ne doit donc pas dépendre de la présence d’une revendication. Exemples : `pwd_exp` (tous les clients n’ont pas besoin de mots de passe pour expirer) ou `family_name` (les flux d’informations d’identification client [[v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)] sont au nom d’applications qui ne portent pas de noms). Les revendications utilisées pour la validation des jetons d’accès seront toujours présentes.
 
 > [!NOTE]
 > Certaines revendications permettent à Azure AD de sécuriser les jetons en cas de réutilisation. Celles-ci portent la mention « Opaque » dans la description pour indiquer qu’elles ne sont pas destinées à l’utilisation publique. Ces revendications peuvent apparaître ou non dans un jeton, et de nouvelles revendications peuvent être ajoutées sans préavis.
@@ -98,7 +98,7 @@ Les revendications ne sont présentes que lorsqu’elles sont renseignées par u
 | `preferred_username` | String | Nom d’utilisateur principal qui représente l’utilisateur. Il peut s’agir d’une adresse e-mail, d’un numéro de téléphone ou d’un nom d’utilisateur générique sans format spécifié. Sa valeur est mutable et peut changer au fil du temps. Dans la mesure où elle est mutable, cette valeur ne doit pas utilisée pour prendre des décisions d’autorisation.  Elle peut cependant être utilisée pour les conseils relatifs au nom d’utilisateur. L’étendue `profile` est requise afin de recevoir cette revendication. |
 | `name` | String | Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique. Elle est mutable et conçue pour être utilisée uniquement à des fins d’affichage. L’étendue `profile` est requise afin de recevoir cette revendication. |
 | `scp` | Chaîne, liste d’étendues séparées par des espaces | Ensemble des étendues exposées par votre application pour lesquelles l’application client a requis (et reçu) un consentement. Votre application doit vérifier la validité de ces étendues et prendre des décisions d’autorisation en fonction de leur valeur. Uniquement inclus pour les [jetons utilisateur](#user-and-application-tokens). |
-| `roles` | Tableau de chaînes, une liste d’autorisations | Ensemble des autorisations exposées par votre application que l’application ou l’utilisateur requérant est autorisé à appeler. Pour les [jetons d’applications](#user-and-application-tokens), cela est utilisé au cours du flux [client-credentials](v1-oauth2-client-creds-grant-flow.md) à la place des étendues utilisateur.  Pour les [jetons d’utilisateurs](#user-and-application-tokens), cela est renseigné avec les rôles de l’utilisateur sur l’application cible. |
+| `roles` | Tableau de chaînes, une liste d’autorisations | Ensemble des autorisations exposées par votre application que l’application ou l’utilisateur requérant est autorisé à appeler. Pour les [jetons d’applications](#user-and-application-tokens), cela est utilisé durant le flux d’informations client ([v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) à la place des étendues utilisateur.  Pour les [jetons d’utilisateurs](#user-and-application-tokens), cela est renseigné avec les rôles de l’utilisateur sur l’application cible. |
 | `wids` | Tableau de GUID [RoleTemplateID](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) | Indique les rôles au niveau du locataire attribués à cet utilisateur, à partir de la section des rôles présents sur la [page des rôles d’administrateur](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids).  Cette revendication est définie pour chaque application, via la propriété `groupMembershipClaims` du [manifeste d’application](reference-app-manifest.md).  Il est nécessaire de la définir sur « All » ou « DirectoryRole ».  Peut ne pas être présent dans les jetons obtenus via le flux implicite en raison des problèmes de longueur de jeton. |
 | `groups` | Tableau de GUID JSON | Fournit les ID d’objet qui représentent les appartenances aux groupes du sujet. Ces valeurs sont uniques (voir l'ID objet) et peuvent être utilisées en toute sécurité pour la gestion des accès, telle que l'autorisation d'accéder à une ressource. Les groupes inclus dans la revendication des groupes sont configurés pour chaque application, via la propriété `groupMembershipClaims` du [manifeste d’application](reference-app-manifest.md). Une valeur Null exclut tous les groupes, une valeur « SecurityGroup » inclut uniquement les appartenances aux groupes de sécurité Active Directory et une valeur « All » inclut les groupes de sécurité et les listes de Distribution Office 365. <br><br>Consultez la revendication `hasgroups` ci-dessous pour plus d’informations sur l’utilisation de la revendication `groups` avec l’octroi implicite. <br>Pour les autres flux, si le nombre de groupes auxquels l’utilisateur appartient dépasse une limite (150 pour SAML, 200 pour JSON), alors une revendication de dépassement sera ajoutée aux sources de revendication qui pointent sur le point de terminaison AAD Graph contenant la liste des groupes pour l’utilisateur. |
 | `hasgroups` | Boolean | Le cas échéant, toujours `true`, ce qui indique que l’utilisateur appartient à au moins un groupe. Utilisé à la place de la revendication `groups` pour JWT dans les flux d’octroi implicites si la revendication des groupes complets étend le fragment URI au-delà des limites de longueur d’URL (actuellement, 6 groupes ou plus). Indique que le client doit utiliser Graph pour déterminer les groupes de l’utilisateur (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
@@ -172,7 +172,7 @@ Pour valider un jeton id_token ou access_token, votre application doit valider �
 
 Le middleware Azure AD intègre des fonctionnalités de validation des jetons d’accès, et vous pouvez parcourir nos [exemples](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) pour en trouver un dans la langue de votre choix. Pour plus d’informations sur la validation explicite d’un jeton JWT, consultez l’[exemple de validation manuelle JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).
 
-Nous fournissons des bibliothèques et des exemples de code qui montrent comment gérer facilement la validation des jetons. Les informations ci-dessous sont fournies pour ceux qui souhaitent comprendre le processus sous-jacent. Il existe également de nombreuses bibliothèques open source tierces qui permettent de valider les jetons JWT. Quels que soient la plateforme et le langage que vous utilisez, vous avez la quasi-certitude de trouver au moins une option. Pour plus d’informations sur les exemples de code et les bibliothèques d’authentification Azure AD, reportez-vous aux sections [Bibliothèques d’authentification v1.0](active-directory-authentication-libraries.md) et [Bibliothèques d’authentification v2.0](reference-v2-libraries.md).
+Nous fournissons des bibliothèques et des exemples de code qui montrent comment gérer facilement la validation des jetons. Les informations ci-dessous sont fournies pour ceux qui souhaitent comprendre le processus sous-jacent. Il existe également de nombreuses bibliothèques open source tierces qui permettent de valider les jetons JWT. Quels que soient la plateforme et le langage que vous utilisez, vous avez la quasi-certitude de trouver au moins une option. Pour plus d’informations sur les exemples de code et les bibliothèques d’authentification Azure AD, reportez-vous aux sections [Bibliothèques d’authentification v1.0](../azuread-dev/active-directory-authentication-libraries.md) et [Bibliothèques d’authentification v2.0](reference-v2-libraries.md).
 
 ### <a name="validating-the-signature"></a>Validation de la signature
 
@@ -229,9 +229,9 @@ Cette étape est déterminée par la logique métier de votre application, certa
 
 ## <a name="user-and-application-tokens"></a>Jetons d’utilisateur et d’application
 
-Votre application peut recevoir des jetons au nom d’un utilisateur (le flux habituel) ou directement d’une application (via le [flux des informations d’identification du client](v1-oauth2-client-creds-grant-flow.md)). Ces jetons réservés aux applications indiquent que l’appel provient d’une application et qu’aucun utilisateur ne lui est associé. Ces jetons sont traités en grande partie de la même façon, à quelques différences près :
+Votre application peut recevoir des jetons au nom d’un utilisateur (le flux habituel) ou directement d’une application (via le flux des informations d’identification client [[v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)]). Ces jetons réservés aux applications indiquent que l’appel provient d’une application et qu’aucun utilisateur ne lui est associé. Ces jetons sont traités en grande partie de la même façon, à quelques différences près :
 
-* Les jetons réservés aux applications n’ont pas de revendication `scp`, mais une revendication `roles`. C’est à cet endroit que l’autorisation de l’application est enregistrée (contrairement aux autorisations déléguées). Pour en savoir plus sur les autorisations déléguées et les autorisations d’application, consultez l’autorisation et le consentement dans [v1.0](v1-permissions-and-consent.md)et [v2.0](v2-permissions-and-consent.md).
+* Les jetons réservés aux applications n’ont pas de revendication `scp`, mais une revendication `roles`. C’est à cet endroit que l’autorisation de l’application est enregistrée (contrairement aux autorisations déléguées). Pour en savoir plus sur les autorisations déléguées et les autorisations d’application, consultez l’autorisation et le consentement ([v1.0](../azuread-dev/v1-permissions-consent.md), [v2.0](v2-permissions-and-consent.md)).
 * De nombreuses revendications propres aux êtres humains sont manquantes, comme `name` ou `upn`.
 * Les revendications `sub` et `oid` sont les mêmes. 
 
@@ -257,7 +257,7 @@ Les jetons d’actualisation peuvent être rendus non valides ou révoqués à t
 | L’administrateur réinitialise le mot de passe | Révoqué | Révoqué | Reste actif | Reste actif | Reste actif |
 | L’utilisateur révoque ses jetons d’actualisation [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Révoqué | Révoqué | Révoqué | Révoqué | Révoqué |
 | L’administrateur révoque tous les jetons d’actualisation pour le locataire [via PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Révoqué | Révoqué |Révoqué | Révoqué | Révoqué |
-| [Authentification unique](v1-protocols-openid-connect-code.md#single-sign-out) sur le Web | Révoqué | Reste actif | Révoqué | Reste actif | Reste actif |
+| Déconnexion unique ([v1.0](../azuread-dev/v1-protocols-openid-connect-code.md#single-sign-out), [v2.0](v2-protocols-oidc.md#single-sign-out)) sur le web | Révoqué | Reste actif | Révoqué | Reste actif | Reste actif |
 
 > [!NOTE]
 > Une connexion « non basée sur mot de passe » est une connexion où l’utilisateur n’a pas saisi un mot de passe. Par exemple, l’utilisation de votre visage avec Windows Hello, une clé FIDO2 ou un code PIN.
@@ -269,4 +269,4 @@ Les jetons d’actualisation peuvent être rendus non valides ou révoqués à t
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur [`id_tokens` dans Azure AD](id-tokens.md).
-* En savoir plus sur l’autorisation et le consentement dans [v1.0](v1-permissions-and-consent.md) et [v2.0](v2-permissions-and-consent.md).
+* En savoir plus sur l’autorisation et le consentement ([v1.0](../azuread-dev/v1-permissions-consent.md), [v2.0](v2-permissions-and-consent.md)).

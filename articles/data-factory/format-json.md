@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 02/05/2020
 ms.author: jingwang
-ms.openlocfilehash: e7a6e819676752aac679a36221eb60f9ad767071
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 7dac8d21e3b45307284ece15ca5ddbcc69db909b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830154"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049848"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Format JSON dans Azure Data Factory
 
@@ -183,7 +183,148 @@ L’activité de copie peut détecter et analyser automatiquement les modèles d
 
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 
-Découvrez plus de détails sur la [transformation de la source](data-flow-source.md) et la [transformation du récepteur](data-flow-sink.md) dans la section sur le mappage de flux de données.
+Les types de fichiers JSON peuvent être utilisés à la fois comme récepteur et comme source dans le flux de données de mappage.
+
+### <a name="creating-json-structures-in-a-derived-column"></a>Création de structures JSON dans une colonne dérivée
+
+Vous pouvez ajouter une colonne complexe à votre flux de données à l’aide du générateur d’expressions de la colonne dérivée. Dans la transformation de colonne dérivée, ajoutez une nouvelle colonne et ouvrez le générateur d’expressions en cliquant sur la zone bleue. Pour rendre une colonne complexe, vous pouvez entrer la structure JSON manuellement ou utiliser l’expérience utilisateur pour ajouter des sous-colonnes de manière interactive.
+
+#### <a name="using-the-expression-builder-ux"></a>Utilisation de l’expérience utilisateur pour le générateur d’expressions
+
+Dans le volet latéral du schéma de sortie, pointez sur une colonne, puis cliquez sur l’icône plus. Sélectionnez **Ajouter une sous-colonne** pour transformer la colonne en type complexe.
+
+![Ajouter une sous-colonne](media/data-flow/addsubcolumn.png "Ajouter une sous-colonne")
+
+Vous pouvez ajouter des colonnes et des sous-colonnes supplémentaires de la même façon. Pour chaque champ non complexe, une expression peut être ajoutée dans l’éditeur d’expressions vers la droite.
+
+![Colonne complexe](media/data-flow/complexcolumn.png "Colonne complexe")
+
+#### <a name="entering-the-json-structure-manually"></a>Saisie manuelle de la structure JSON
+
+Pour ajouter manuellement une structure JSON, ajoutez une nouvelle colonne et entrez l’expression dans l’éditeur. L’expression suit le format général suivant :
+
+```
+@(
+    field1=0,
+    field2=@(
+        field1=0
+    )
+)
+```
+
+Si cette expression était entrée pour une colonne nommée « complexColumn », elle serait écrite dans le récepteur sous la forme du code JSON suivant :
+
+```
+{
+    "complexColumn": {
+        "field1": 0,
+        "field2": {
+            "field1": 0
+        }
+    }
+}
+```
+
+#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>Exemple de script manuel pour une définition hiérarchique complète
+```
+@(
+    title=Title,
+    firstName=FirstName,
+    middleName=MiddleName,
+    lastName=LastName,
+    suffix=Suffix,
+    contactDetails=@(
+        email=EmailAddress,
+        phone=Phone
+    ),
+    address=@(
+        line1=AddressLine1,
+        line2=AddressLine2,
+        city=City,
+        state=StateProvince,
+        country=CountryRegion,
+        postCode=PostalCode
+    ),
+    ids=[
+        toString(CustomerID), toString(AddressID), rowguid
+    ]
+)
+```
+
+### <a name="source-format-options"></a>Options de format source
+
+L’utilisation d’un jeu de données JSON comme source dans votre flux de données vous permet de définir cinq paramètres supplémentaires. Ces paramètres se trouvent sous l’accordéon de **paramètres JSON**, sous l’onglet **Options de la source**.  
+
+![Paramètres JSON](media/data-flow/json-settings.png "Paramètres JSON")
+
+#### <a name="default"></a>Default
+
+Par défaut, les données JSON sont lues dans le format suivant.
+
+```
+{ "json": "record 1" }
+{ "json": "record 2" }
+{ "json": "record 3" }
+```
+
+#### <a name="single-document"></a>Document individuel
+
+Si **Document unique** est sélectionné, le mappage de flux de données lit un document JSON à partir de chaque fichier. 
+
+``` json
+File1.json
+{
+    "json": "record 1"
+}
+File2.json
+{
+    "json": "record 2"
+}
+File3.json
+{
+    "json": "record 3"
+}
+```
+
+#### <a name="unquoted-column-names"></a>Noms de colonnes sans guillemets
+
+Si **Noms de colonnes sans guillemets** est sélectionné, le mappage des flux de données lit les colonnes JSON qui ne sont pas entourées de guillemets. 
+
+```
+{ json: "record 1" }
+{ json: "record 2" }
+{ json: "record 3" }
+```
+
+#### <a name="has-comments"></a>Comporte des commentaires
+
+Sélectionnez **Comporte des commentaires** si les données JSON ont des commentaires de style C ou C++.
+
+``` json
+{ "json": /** comment **/ "record 1" }
+{ "json": "record 2" }
+{ /** comment **/ "json": "record 3" }
+```
+
+#### <a name="single-quoted"></a>Apostrophes simples
+
+Sélectionnez **Apostrophes simples** si les champs et valeurs JSON utilisent des guillemets simples au lieu de guillemets doubles.
+
+```
+{ 'json': 'record 1' }
+{ 'json': 'record 2' }
+{ 'json': 'record 3' }
+```
+
+#### <a name="backslash-escaped"></a>Barres obliques inverses d’échappement
+
+Sélectionnez **Apostrophes simples** si les barres obliques inverses sont utilisées pour échapper les caractères dans les données JSON.
+
+```
+{ "json": "record 1" }
+{ "json": "\} \" \' \\ \n \\n record 2" }
+{ "json": "record 3" }
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

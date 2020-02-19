@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
-ms.openlocfilehash: 3ef584c48ab44fd3616b5c7897d589bddbe45dc0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 9b9c4b326596887774d9dfc0dd792052ec672be2
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549255"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063813"
 ---
 # <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>Créer manuellement et utiliser un volume de serveur Linux NFS (Network File System) avec Azure Kubernetes Service (AKS)
 Le partage de données entre conteneurs représente souvent un élément nécessaire des applications et services basés sur des conteneurs. Généralement, différents pods ont besoin d’accéder aux mêmes informations sur un volume persistant externe.    
@@ -27,7 +27,7 @@ Votre cluster AKS devra exister dans le même réseau virtuel que le serveur NFS
 
 Les étapes de configuration avec un réseau virtuel existant sont décrites dans les documentations [Création d’un cluster AKS dans un réseau virtuel existant][aks-virtual-network] et [Connexion de réseaux virtuels avec l’appairage de réseaux virtuels][peer-virtual-networks].
 
-Cet article suppose également que vous avez créé une machine virtuelle Ubuntu Linux (par exemple, 18.04 LTS). Vous pouvez choisir les paramètres et la taille, qui peuvent être déployés via Azure. Pour obtenir un guide de démarrage rapide Linux, consultez [Gestion des machines virtuelles Linux][linux-create].
+Cet article suppose également que vous avez créé une machine virtuelle Ubuntu Linux (par exemple, 18.04 LTS). Vous pouvez choisir les paramètres et la taille, qui peuvent être déployés via Azure. Pour un guide de démarrage rapide Linux, consultez [Gestion des machines virtuelles Linux][linux-create].
 
 Si vous déployez d’abord votre cluster AKS, Azure renseigne automatiquement le champ de réseau virtuel lors du déploiement de votre ordinateur Ubuntu, pour le faire exister dans le même réseau virtuel. Cependant, si vous souhaitez plutôt utiliser des réseaux appairés, consultez la documentation ci-dessus.
 
@@ -93,8 +93,9 @@ chmod +x ~/nfs-server-setup.sh
 ```
 
 ## <a name="connecting-aks-cluster-to-nfs-server"></a>Connexion du cluster AKS au serveur NFS
-Nous pouvons connecter le serveur NFS au cluster en approvisionnant un volume persistant et une revendication de volume persistant qui spécifie la manière d’accéder au volume.  
-Il est nécessaire de connecter les deux services dans le même réseau virtuel ou des réseaux virtuels appairés. Pour des instructions sur la configuration du cluster dans le même réseau virtuel, consultez [Création d’un cluster AKS dans un réseau virtuel existant][aks-virtual-network].
+Nous pouvons connecter le serveur NFS au cluster en approvisionnant un volume persistant et une revendication de volume persistant qui spécifie la manière d’accéder au volume.
+
+Il est nécessaire de connecter les deux services dans le même réseau virtuel ou des réseaux virtuels appairés. Pour des instructions sur la configuration du cluster dans le même réseau virtuel, consultez : [Création d’un cluster AKS dans un réseau virtuel existant][aks-virtual-network]
 
 Une fois qu’ils se trouvent dans le même réseau virtuel (ou des réseaux virtuels appairés), vous devez approvisionner un volume persistant et une revendication de volume persistant dans votre cluster AKS. Les conteneurs peuvent ensuite monter le lecteur NFS sur leur répertoire local.
 

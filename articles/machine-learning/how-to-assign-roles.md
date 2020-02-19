@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: aba613911328b1272ebb07eeae633932cb4a442f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 5257d9f94f6304c2a8dbea3f1648a71d0ba65e94
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935352"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064748"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gérer l'accès à un espace de travail Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -111,6 +111,62 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 Pour en savoir plus sur les rôles personnalisés, voir [Rôles personnalisés pour les ressources Azure](/azure/role-based-access-control/custom-roles).
 
 Pour plus d’informations sur les opérations (actions) utilisables avec des rôles personnalisés, consultez [Opérations de fournisseur de ressources](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+
+
+## <a name="frequently-asked-questions"></a>Forum aux questions
+
+
+### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>Q. Quelles sont les autorisations nécessaires pour effectuer diverses actions dans l’Azure Machine Learning service ?
+
+Le tableau suivant résume les activités Azure Machine Learning et les autorisations requises pour les exécuter à l’étendue la plus restreinte. Par exemple, si une activité peut être exécutée avec une étendue d’espace de travail (colonne 4), elle fonctionnera également automatiquement pour toutes les étendues supérieures dotées de cette autorisation. Tous les chemins d’accès de ce tableau sont des **chemins d’accès relatifs** à `Microsoft.MachineLearningServices/`.
+
+| Activité | Étendue de niveau abonnement | Étendue de niveau groupe de ressources | Étendue de niveau espace de travail |
+|---|---|---|---|
+| Créer un espace de travail | Non requis | Propriétaire ou contributeur | s.o. (devient Propriétaire ou hérite d’un rôle d’étendue supérieur après la création) |
+| Créer un cluster de calcul | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `workspaces/computes/write` |
+| Créer une machine virtuelle Notebook | Non requis | Propriétaire ou contributeur | Impossible |
+| Créer une instance de calcul | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `workspaces/computes/write` |
+| Activité de plan de données telle que l’envoi d’une exécution, l’accès aux données, le déploiement d’un modèle ou la publication d’un pipeline | Non requis | Non requis | Propriétaire, contributeur ou rôle personnalisé autorisant : `workspaces/*/write` <br/> Notez que vous avez également besoin d’un magasin de données inscrit dans l’espace de travail pour autoriser MSI à accéder aux données de votre compte de stockage. |
+
+
+### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>Q. Comment répertorier tous les rôles personnalisés dans mon abonnement ?
+
+Dans Azure CLI, exécutez la commande suivante.
+
+```azurecli-interactive
+az role definition list --subscription <sub-id> --custom-role-only true
+```
+
+### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>Q. Comment rechercher la définition d’un rôle dans mon abonnement ?
+
+Dans Azure CLI, exécutez la commande suivante. Notez que `<role-name>` doit être au même format que celui retourné par la commande ci-dessus.
+
+```azurecli-interactive
+az role definition list -n <role-name> --subscription <sub-id>
+```
+
+### <a name="q-how-do-i-update-a-role-definition"></a>Q. Comment mettre à jour une définition de rôle ?
+
+Dans Azure CLI, exécutez la commande suivante.
+
+```azurecli-interactive
+az role definition update --role-definition update_def.json --subscription <sub-id>
+```
+
+Notez que vous devez disposer d’autorisations sur l’ensemble de l’étendue de votre nouvelle définition de rôle. Par exemple, si ce nouveau rôle a une étendue sur trois abonnements, vous devez disposer d’autorisations sur les trois abonnements. 
+
+> [!NOTE]
+> Les mises à jour de rôle peuvent prendre entre 15 minutes et 1 heure pour s’appliquer à toutes les attributions de rôles de cette étendue.
+### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>Q. Puis-je définir un rôle qui empêche la mise à jour de l’édition de l’espace de travail ? 
+
+Oui, vous pouvez définir un rôle qui empêche la mise à jour de l’édition de l’espace de travail. Étant donné que la mise à jour de l’espace de travail est un appel PATCH sur l’objet de l’espace de travail, vous effectuez cette opération en plaçant l’action suivante dans le tableau `"NotActions"` de votre définition JSON : 
+
+`"Microsoft.MachineLearningServices/workspaces/write"`
+
+### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>Q. Quelles sont les autorisations nécessaires pour effectuer des opérations de quota dans un espace de travail ? 
+
+Vous avez besoin d’autorisations au niveau de l’abonnement pour effectuer toute opération liée aux quotas dans l’espace de travail. Cela signifie que le paramétrage d’un quota au niveau de l’abonnement ou au niveau de l’espace de travail pour vos ressources de calcul managées ne peut se faire que si vous disposez d’autorisations d’écriture dans l’étendue de l’abonnement. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

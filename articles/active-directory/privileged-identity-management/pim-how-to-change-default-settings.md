@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/13/2019
+ms.date: 02/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a480327efacee2d1eb74353b2d0ef7885a6194
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a409d71ff3eae3bc62527a0669a74696246a50cd
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024209"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048084"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurer les paramètres des rôles Azure AD dans Privileged Identity Management
 
@@ -36,19 +36,15 @@ Depuis novembre 2019, la partie Rôles Azure AD de Privileged Identity Manageme
 
 Suivez les étapes décrites dans cet article pour approuver ou refuser des demandes de rôles requête HTTP.
 
-# <a name="new-versiontabnew"></a>[Nouvelle version](#tab/new)
+# <a name="new-version"></a>[Nouvelle version](#tab/new)
 
 ## <a name="open-role-settings"></a>Ouvrir les paramètres des rôles
 
 Suivez ces étapes pour ouvrir les paramètres pour un rôle Azure AD.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un utilisateur avec le rôle [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
-
-1. Ouvrez **Azure AD Privileged Identity Management**.
-
-1. Sélectionnez des **rôles Azure AD**.
-
-1. Sélectionnez **Paramètres du rôle**.
+gt
+1. Ouvrez **Azure AD Privileged Identity Management** &gt; **Rôles Azure AD** &gt; **Paramètres du rôle**.
 
     ![Page Paramètres de rôle répertoriant les rôles de ressources Azure](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
@@ -89,7 +85,7 @@ Privileged Identity Management permet également l’application facultative d�
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>Demander l'authentification multifacteur lors de l'attribution active
 
-Dans certains cas, vous pouvez attribuer un utilisateur ou un groupe à un rôle pour une courte durée (une journée, par exemple). Les utilisateurs attribués n’ont alors pas besoin de demander l’activation. Dans ce scénario, Privileged Identity Management ne peut pas appliquer l’authentification multifacteur lorsque l’utilisateur utilise son attribution de rôle, car il est déjà actif dans le rôle depuis l’attribution.
+Dans certains cas, vous pourriez vouloir attribuer un rôle à un utilisateur pour une courte durée (une journée, par exemple). Les utilisateurs attribués n’ont alors pas besoin de demander l’activation. Dans ce scénario, Privileged Identity Management ne peut pas appliquer l’authentification multifacteur lorsque l’utilisateur utilise son attribution de rôle, car il est déjà actif dans le rôle depuis l’attribution.
 
 Pour garantir que l’administrateur de ressources qui réalise l’attribution est bien celui qu’il prétend être, vous pouvez appliquer l’authentification multifacteur lors de l’attribution active en cochant la case **Demander l’authentification multifacteur lors de l’attribution active**.
 
@@ -115,17 +111,17 @@ Si vous souhaitez exiger une approbation pour activer un rôle, procédez comme 
 
 1. Cochez la case **Exiger une approbation pour activer**.
 
-1. Cliquez sur **Sélectionner des approbateurs** pour ouvrir la page **Sélectionner un membre ou un groupe**.
+1. Sélectionnez **Sélectionner des approbateurs**.
 
     ![Sélectionner un volet d’utilisateur ou de groupe pour sélectionner les approbateurs](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. Sélectionnez au moins un utilisateur ou un groupe, puis cliquez sur **Sélectionner**. Vous pouvez ajouter n’importe quelle combinaison d’utilisateurs et de groupes. Vous devez sélectionner au moins un approbateur. Il n’existe aucun approbateur par défaut.
+1. Sélectionnez au moins un utilisateur, puis cliquez sur **Sélectionner**. Vous devez sélectionner au moins un approbateur. Il n’existe aucun approbateur par défaut.
 
     Vos sélections figurent dans la liste des approbateurs sélectionnés.
 
 1. Une fois que vous avez spécifié tous vos paramètres de rôle, sélectionnez **Mettre à jour** pour enregistrer vos modifications.
 
-# <a name="previous-versiontabprevious"></a>[Version précédente](#tab/previous)
+# <a name="previous-version"></a>[Version précédente](#tab/previous)
 
 ## <a name="open-role-settings"></a>Ouvrir les paramètres des rôles
 
@@ -208,7 +204,7 @@ Si vous souhaitez déléguer l’approbation exigée pour activer un rôle, suiv
 
     ![Rôles Azure AD - Paramètres - Exiger une approbation](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
-1. Sélectionnez un ou plusieurs approbateurs en plus de l’administrateur de rôle privilégié, puis cliquez sur **Sélectionner**. Vous pouvez sélectionner des utilisateurs ou des groupes. Nous vous recommandons d’ajouter au moins deux approbateurs. Même si vous vous ajoutez vous-même en tant qu’approbateur, vous ne pouvez pas approuver l’activation d’un rôle pour vous-même. Vos sélections figurent dans la liste des approbateurs sélectionnés.
+1. Sélectionnez un ou plusieurs approbateurs en plus de l’administrateur de rôle privilégié, puis cliquez sur **Sélectionner**. Nous vous recommandons d’ajouter au moins deux approbateurs. Même si vous vous ajoutez vous-même en tant qu’approbateur, vous ne pouvez pas approuver l’activation d’un rôle pour vous-même. Vos sélections figurent dans la liste des approbateurs sélectionnés.
 
 1. Après avoir spécifié tous vos paramètres de rôle, sélectionnez **Enregistrer** pour enregistrer vos modifications.
 

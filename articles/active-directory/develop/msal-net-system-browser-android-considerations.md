@@ -1,34 +1,35 @@
 ---
 title: Considérations sur les navigateurs système Xamarin Android (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Découvrez les considérations particulières à prendre en compte lors de l’utilisation de navigateurs système sur Xamarin Android avec la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
+description: Découvrez les considérations à prendre en compte lors de l’utilisation de navigateurs système sur Xamarin Android avec la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 9346a4d5eaabb2af490afc13d5785a8f8233e53f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: ad26a4d619a7984f08a8decc87f9339adae47cdd
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695044"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132608"
 ---
-#  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>Considérations relatives aux navigateurs système Xamarin Android avec MSAL.NET
+#  <a name="xamarin-android-system-browser-considerations-for-using-msalnet"></a>Considérations sur les navigateurs système Xamarin Android pour l’utilisation de MSAL.NET
 
-Cet article traite des considérations spécifiques lors de l’utilisation du navigateur système sur Xamarin Android avec la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
+Cet article traite de ce que vous devez prendre en compte lorsque vous utilisez le navigateur système sur Xamarin Android avec la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
 
-Depuis MSAL.NET 2.4.0-preview, MSAL.NET prend en charge d’autres navigateurs en plus de Chrome, et ne nécessite plus l’installation de Chrome sur l’appareil Android pour s’authentifier.
+À compter de MSAL.NET 2.4.0 (préversion), MSAL.NET prend en charge des navigateurs autres que Chrome. Il n’est plus nécessaire d’installer Chrome sur l’appareil Android pour l’authentification.
 
-Nous vous recommandons d’utiliser les navigateurs qui prennent en charge les onglets personnalisés, tels que :
+Nous vous recommandons d’utiliser les navigateurs qui prennent en charge les onglets personnalisés. Voici quelques exemples de ces navigateurs :
 
-| Navigateurs avec prise en charge des onglets personnalisés | Nom du package |
+| Navigateurs prenant en charge les onglets personnalisés | Nom du package |
 |------| ------- |
 |Chrome | com.android.chrome|
 |Microsoft Edge | com.microsoft.emmx|
@@ -37,28 +38,19 @@ Nous vous recommandons d’utiliser les navigateurs qui prennent en charge les o
 |Kiwi | com.kiwibrowser.browser|
 |Brave | com.brave.browser|
 
-En plus des navigateurs avec prise en charge des onglets personnalisés, en fonction de nos tests, certains navigateurs qui ne prennent pas en charge les onglets personnalisés sont également valables pour l’authentification : Opera, Opera Mini, InBrowser et Maxthon. Pour plus d’informations, consultez [Tableau des résultats des tests](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Android-system-browser#devices-and-browsers-tested).
+Outre l’identification des navigateurs qui offrent une prise en charge des onglets personnalisés, nos tests indiquent que quelques navigateurs qui ne prennent pas en charge les onglets personnalisés fonctionnent également pour l’authentification. Ces navigateurs incluent Opera, Opera Mini, InBrowser et Maxthon. 
 
-## <a name="known-issues"></a>Problèmes connus
+## <a name="tested-devices-and-browsers"></a>Appareils et navigateurs testés
+Le tableau suivant répertorie les appareils et les navigateurs dont la compatibilité avec l’authentification a été testée.
 
-- Si l’utilisateur ne dispose d’aucun navigateur sur son appareil, MSAL.NET enverra une exception `AndroidActivityNotFound`. 
-  - **Atténuation** : Cette exception informe l’utilisateur qu’il doit disposer d’un navigateur (avec prise en charge des onglets personnalisés, de préférence) sur son appareil.
-
-- En cas d’échec de l’authentification (par ex., l’authentification se lance avec DuckDuckGo), MSAL.NET renvoie un message `AuthenticationCanceled MsalClientException`. 
-  - **Problème** : Un navigateur avec prise en charge des onglets personnalisés n’était pas activé sur l’appareil. L’authentification s’est lancée avec un navigateur différent qui n’a pas été en mesure d’accomplir l’authentification. 
-  - **Atténuation** : Informez l’utilisateur qu’il doit installer un navigateur (avec prise en charge des onglets personnalisés, de préférence) sur son appareil.
-
-## <a name="devices-and-browsers-tested"></a>Appareils et navigateurs testés
-Le tableau suivant répertorie les appareils et les navigateurs qui ont été testés.
-
-| | Navigateur&ast;     |  Résultats  | 
+| Appareil | Browser     |  Résultats  | 
 | ------------- |:-------------:|:-----:|
-| Huawei/One+ | Chrome&ast; | Réussite|
-| Huawei/One+ | Edge&ast; | Réussite|
-| Huawei/One+ | Firefox&ast; | Réussite|
-| Huawei/One+ | Brave&ast; | Réussite|
-| One+ | Ecosia&ast; | Réussite|
-| One+ | Kiwi&ast; | Réussite|
+| Huawei/One+ | Chrome\* | Réussite|
+| Huawei/One+ | Edge\* | Réussite|
+| Huawei/One+ | Firefox\* | Réussite|
+| Huawei/One+ | Brave\* | Réussite|
+| One+ | Ecosia\* | Réussite|
+| One+ | Kiwi\* | Réussite|
 | Huawei/One+ | Opera | Réussite|
 | Huawei | OperaMini | Réussite|
 | Huawei/One+ | InBrowser | Réussite|
@@ -67,9 +59,18 @@ Le tableau suivant répertorie les appareils et les navigateurs qui ont été te
 | Huawei/One+ | UC Browser | Authentification annulée par l’utilisateur|
 | One+ | Dolphin | Authentification annulée par l’utilisateur|
 | One+ | CM Browser | Authentification annulée par l’utilisateur|
-| Huawei/One+ | Aucun installé | AndroidActivityNotFound ex|
+| Huawei/One+ | Aucun installé | Exception AndroidActivityNotFound|
 
-&ast; prend en charge des onglets personnalisés
+\* prend en charge des onglets personnalisés
+
+## <a name="known-issues"></a>Problèmes connus
+
+Si l’utilisateur ne dispose d’aucun navigateur sur son appareil, MSAL.NET enverra une exception `AndroidActivityNotFound`.  
+  - **Atténuation** : Demandez à l’utilisateur d’activer un navigateur sur son appareil. Recommandez un navigateur prenant en charge les onglets personnalisés.
+
+Si l’authentification échoue (par exemple, si l’authentification est lancée avec DuckDuckGo), MSAL.NET retourne `AuthenticationCanceled MsalClientException`. 
+  - **Problème racine** : Aucun navigateur prenant en charge les onglets personnalisés n’a été activé sur l’appareil. L’authentification a été lancée avec un navigateur qui n’a pas pu terminer l’authentification. 
+  - **Atténuation** : Demandez à l’utilisateur d’activer un navigateur sur son appareil. Recommandez un navigateur prenant en charge les onglets personnalisés.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des extraits de code et des informations supplémentaires concernant l’utilisation de navigateur système avec Xamarin Android, consultez ce [guide](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid).  
+Pour plus d’informations et d’exemples de code, consultez les rubriques [Choix entre le navigateur web incorporé et le navigateur système sur Xamarin Android](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/MSAL.NET-uses-web-browser#choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid) et [Interface utilisateur web incorporée ou système](msal-net-web-browsers.md#embedded-vs-system-web-ui).  

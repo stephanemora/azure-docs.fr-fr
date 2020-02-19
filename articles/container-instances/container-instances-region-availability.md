@@ -2,18 +2,18 @@
 title: Disponibilité des ressources par région
 description: Disponibilité des ressources de calcul et de mémoire pour le service Azure Container Instances dans différentes régions Azure.
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 01/31/2020
 ms.author: danlep
-ms.openlocfilehash: 9de5b08eed3aa10015813cbb4724ef4e947005fb
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3f64a13331658c1360c9d54f6f57a68c2c91fc6f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888003"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117832"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilité des ressources pour Azure Container Instances dans les régions Azure
 
-Cet article décrit en détail la disponibilité des ressources de calcul et de mémoire pour Azure Container Instances dans les régions Azure. 
+Cet article décrit en détail la disponibilité des ressources de calcul, de mémoire et de stockage d’Azure Container Instances dans les régions Azure et du système d’exploitation cible. 
 
 Les valeurs présentées sont les ressources maximales disponibles par déploiement d’un [groupe de conteneurs](container-instances-container-groups.md). Les valeurs sont à jour au moment de la publication. 
 
@@ -26,23 +26,23 @@ Pour plus d’informations sur les quotas et autres limites de vos déploiements
 
 Les régions et ressources suivantes sont accessibles aux groupes de conteneurs dotés de Linux et de conteneurs Windows Server 2016 [pris en charge](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
-| Régions | Système d''exploitation | Utilisation maximale du processeur | Mémoire max. (GB) |
-| -------- | -- | :---: | :-----------: |
-| Brésil Sud, Canada Centre, Inde Centre, USA Centre, Asie Est, USA Est, USA Est 2, Europe Nord, USA Centre Sud, Asie Sud-Est, Inde du Sud, Royaume-Uni Sud, Europe Ouest, USA Ouest, USA Ouest 2 | Linux | 4 | 16 |
-| Australie Est, Japon Est | Linux | 2 | 8 |
-| Centre-Nord des États-Unis | Linux | 2 | 3,5 |
-| Brésil Sud, Japon Est, Europe Ouest | Windows | 4 | 16 |
-| USA Est, USA Ouest | Windows | 4 | 14 |
-| Australie Est, Canada Centre, Inde Centre, USA Centre, Asie Est, USA Est 2, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Inde Sud, Royaume-Uni Sud, USA Ouest 2 | Windows | 2 | 3,5 |
+| Régions | Système d''exploitation | Utilisation maximale du processeur | Mémoire max. (GB) | Stockage (Go) |
+| -------- | -- | :---: | :-----------: | :---: |
+| Brésil Sud, Canada Centre, Inde Centre, USA Centre, Asie Est, USA Est, USA Est 2, Europe Nord, USA Centre Sud, Asie Sud-Est, Inde du Sud, Royaume-Uni Sud, Europe Ouest, USA Ouest, USA Ouest 2 | Linux | 4 | 16 | 50 |
+| Australie Est, Japon Est | Linux | 2 | 8 | 50 |
+| Centre-Nord des États-Unis | Linux | 2 | 3,5 | 50 |
+| Brésil Sud, Japon Est, Europe Ouest | Windows | 4 | 16 | 20 |
+| USA Est, USA Ouest | Windows | 4 | 14 | 20 |
+| Australie Est, Canada Centre, Inde Centre, USA Centre, Asie Est, USA Est 2, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Inde Sud, Royaume-Uni Sud, USA Ouest 2 | Windows | 2 | 3,5 | 20 |
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Disponibilité - Déploiements Windows Server 2019 LTSC, 1809 (préversion)
 
 Les régions et ressources suivantes sont accessibles aux groupes de conteneurs dotés de conteneurs Windows Server 2019 (préversion).
 
-| Régions | Système d''exploitation | Utilisation maximale du processeur | Mémoire max. (GB) |
-| -------- | -- | :---: | :-----------: |
-| Australie Est, Brésil Sud, Canada Centre, Inde Centre, USA Centre, Asie Est, USA Est, Japon Est, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Inde Sud, Royaume-Uni Sud, Europe Ouest | Windows | 4 | 16 |
-| USA Est 2, USA Ouest 2 | Windows | 2 | 3,5 |
+| Régions | Système d''exploitation | Utilisation maximale du processeur | Mémoire max. (GB) | Stockage (Go) |
+| -------- | -- | :---: | :-----------: | :---: |
+| Australie Est, Brésil Sud, Canada Centre, Inde Centre, USA Centre, Asie Est, USA Est, Japon Est, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Inde Sud, Royaume-Uni Sud, Europe Ouest | Windows | 4 | 16 | 20 |
+| USA Est 2, USA Ouest 2 | Windows | 2 | 3,5 | 20 |
 
 
 ## <a name="availability---virtual-network-deployment"></a>Disponibilité – Déploiement de réseau virtuel

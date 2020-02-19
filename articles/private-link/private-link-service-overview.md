@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: f8d49a62ae9006e65ef86db1ae90cd5a5e9f1c6d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d2313bfc47026ed9655d0ca25f0a0fdf3f86d8a5
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647371"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191083"
 ---
 # <a name="what-is-azure-private-link-service"></a>Qu’est-ce que le service Azure Private Link ?
 
@@ -55,6 +55,7 @@ Le service Private Link spécifie les propriétés suivantes :
 |Configuration de l’adresse IP front-end de l’équilibreur de charge (loadBalancerFrontendIpConfigurations)    |    Le service Private Link est associé à l’adresse IP front-end d’un équilibreur de charge standard. Tout le trafic destiné au service atteindra le front-end de l’équilibreur de charge standard. Vous pouvez configurer des règles d’équilibreur de charge standard pour diriger ce trafic vers les pools back-end où sont exécutées vos applications. Les adresses IP front-end d’équilibreur de charge sont différentes des adresses IP NAT.      |
 |Configuration d’adresse IP NAT (ipConfigurations)    |    Cette propriété concerne la configuration de l’adresse IP NAT (traduction d’adresses réseau) du service Private Link. L’adresse IP NAT peut être choisie à partir de n’importe quel sous-réseau du réseau virtuel d’un fournisseur de services. Le service Private Link effectue la traduction d’adresses réseau (NAT) côté destination pour le trafic Private Link. Cela évite tout conflit d’adresses IP entre l’espace d’adressage source (côté client) et l’espace d’adressage de destination (fournisseur de services). Côté destination (fournisseur de services), l’adresse IP NAT s’affichera en tant qu’adresse IP source pour tous les paquets reçus par votre service, et en tant qu’adresse IP de destination pour tous les paquets envoyés par votre service.       |
 |Connexions de points de terminaison privés (privateEndpointConnections)     |  Cette propriété liste les points de terminaison privés qui se connectent au service Private Link. Plusieurs points de terminaison privés peuvent se connecter au même service Private Link, et le fournisseur de services peut contrôler l’état de chaque point de terminaison privé.        |
+|Proxy TCP v2 (EnableProxyProtocol)     |  Cette propriété permet au fournisseur de services d’utiliser le proxy TCP v2 pour récupérer les informations de connexion relatives au consommateur de services. Il appartient au fournisseur de services de définir les configurations du récepteur afin de pouvoir analyser l’en-tête du protocole de proxy v2.        |
 |||
 
 
@@ -95,14 +96,28 @@ Les utilisateurs qui ont accès à votre service Private Link (par le biais du p
 
 L’approbation des connexions peut être automatisée à l’aide de la propriété d’approbation automatique du service Private Link. L’approbation automatique permet aux fournisseurs de services de préapprouver un groupe d’abonnements pour leur permettre d’accéder automatiquement à leur service. Les clients devront partager leurs abonnements hors connexion pour que les fournisseurs de services puissent les ajouter à la liste d’approbation automatique. L’approbation automatique est un sous-ensemble du tableau de visibilité. La propriété de visibilité permet de contrôler l’exposition de votre service, tandis que la propriété d’approbation automatique permet de contrôler les paramètres d’approbation de votre service. Si un client demande à se connecter à partir d’un abonnement figurant dans la liste d’approbation automatique, la connexion est automatiquement approuvée puis établie. Les fournisseurs de services n’ont plus besoin d’approuver manuellement les demandes. En revanche, si un client demande à se connecter à partir d’un abonnement du tableau de visibilité et non du tableau d’approbation automatique, la demande sera reçue par le fournisseur de services, et celui-ci devra approuver manuellement les connexions.
 
+## <a name="getting-connection-information-using-tcp-proxy-v2"></a>Obtention d’informations de connexion à l’aide du proxy TCP v2
+
+Lors de l’utilisation du service de liaison privée, l’adresse IP source des paquets provenant du point de terminaison privé est traduite en adresse réseau (NAT) côté fournisseur de services à l’aide de l’adresse IP NAT allouée à partir du réseau virtuel du fournisseur. Ainsi, les applications reçoivent l’adresse IP NAT allouée au lieu de l’adresse IP source réelle des consommateurs de services. Si votre application a besoin d’une adresse IP source réelle du côté du consommateur, vous pouvez activer le protocole proxy sur votre service et récupérer les informations de l’en-tête du protocole proxy. En plus de l’adresse IP source, l’en-tête du protocole proxy comporte l’ID de lien du point de terminaison privé. La combinaison de l’adresse IP source et de l’ID de lien peut aider les fournisseurs de services à identifier leurs consommateurs de manière unique. Pour plus d’informations sur le protocole proxy, rendez-vous ici. 
+
+Ces informations sont encodées à l’aide d’un vecteur TLV (Type-Length-Value) personnalisé comme suit :
+
+Détails TLV personnalisés :
+
+|Champ |Longueur (octets)  |Description  |
+|---------|---------|----------|
+|Type  |1        |PP2_TYPE_AZURE (0xEE)|
+|Longueur  |2      |Longueur de la valeur|
+|Valeur  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
+|  |4        |UINT32 (4 octets) représentant l’ID de lien du point de terminaison privé. Encodé au format Little Endian.|
+
+
 ## <a name="limitations"></a>Limites
 
 Voici les limitations connues lors de l’utilisation du service Private Link :
 - Il est pris en charge uniquement avec Standard Load Balancer. 
 - Il prend en charge uniquement le trafic IPv4.
 - Il prend en charge uniquement le trafic TCP.
-- La création et la gestion ne sont pas possibles sur le portail Azure.
-- Les informations de connexion clients utilisant le protocole proxy ne sont pas disponibles pour le fournisseur de services.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Créer un service Private Link à l’aide d’Azure PowerShell](create-private-link-service-powershell.md)

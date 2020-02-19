@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dbc7f8068ed84f42ec41ebd969e0aa91ffbb264
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e5aa30bc819531ee8cc9cd337648a6cbc661bb29
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473326"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149811"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ Azure Active Directory Connect
 
@@ -113,7 +113,7 @@ Les informations ci-dessous présentent quelques-unes des meilleures pratiques �
 - Les serveurs de préproduction ne sont pas destinés à constituer une solution de haute disponibilité, mais vous pouvez en utiliser plusieurs.
 - L’introduction d’un « décalage » dans les serveurs de préproduction peut atténuer certains risques de temps d’arrêt en cas d’erreur.
 - Commencez par tester et valider toutes les mises à niveau sur le serveur de préproduction.
-- Validez toujours les exportations avant de basculer vers le serveur de préproduction. Exploitez le serveur de préproduction pour les importations complètes et les synchronisations complètes afin de réduire l’impact sur l’activité.
+- Validez toujours les exportations avant de basculer vers le serveur de préproduction.  Afin de réduire l’impact sur l’activité, utilisez le serveur de préproduction pour effectuer des importations complètes et des synchronisations complètes.
 - Dans la mesure du possible, assurez la cohérence des versions entre les serveurs Azure AD Connect. 
 
 **Q : Puis-je autoriser Azure AD Connect à créer le compte de connecteur Azure AD sur une machine de groupe de travail ?**
@@ -258,7 +258,7 @@ Dans de rares cas, le service Azure AD Connect ne démarre pas après la mise à
 **Q : Je ne sais pas quels sont les risques liés à la mise à niveau vers une version plus récente d’Azure AD Connect. Pouvez-vous m’appeler pour m’aider à procéder à la mise à niveau ?**  
 Si vous avez besoin d’aide pour passer à une version plus récente d’Azure AD Connect, ouvrez un ticket de support en suivant les instructions permettant de [créer une demande de service pour contacter le support Office 365](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/).
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 **Q : Comment puis-je obtenir de l’aide avec Azure AD Connect ?**
 
 [Recherche dans la Base de connaissances Microsoft (KB)](https://www.microsoft.com/en-us/search/result.aspx?q=azure+active+directory+connect)

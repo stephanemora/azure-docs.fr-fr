@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 01/19/2020
-ms.openlocfilehash: 6bb8dfc4b85da47a70ba768400341317462bafd8
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 336d2ef471e21e3157c7d8c81b3837bb6a962e2e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543475"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191306"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guide de référence du schéma des types d’actions et de déclencheurs dans Azure Logic Apps
 
@@ -2383,7 +2383,7 @@ Vous pouvez changer le comportement d’exécution par défaut pour les déclenc
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Modifiez la [*limite par défaut*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) du nombre d’instances de workflow qui doivent attendre de s’exécuter quand votre application logique exécute déjà le nombre maximal d’instances simultanées. <p>Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | Tous les déclencheurs | 
 | `runtimeConfiguration.concurrency.repetitions` | Integer | Modifiez la [*limite par défaut*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) du nombre d’itérations de boucle « for each » qui peuvent s’exécuter en même temps (simultanément ou en parallèle). <p>L’affectation de la valeur `1` à la propriété `repetitions` fonctionne de la même façon que l’affectation de la valeur `SingleInstance` à la propriété `operationOptions`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p>Pour changer la limite par défaut, consultez [Changer la concurrence « for each »](#change-for-each-concurrency) ou [Exécuter des boucles « for each » séquentiellement](#sequential-for-each). | Action : <p>[Foreach](#foreach-action) | 
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | Pour des actions spécifiques qui prennent en charge la pagination activée et pour laquelle cette dernière est activée, cette valeur spécifie le nombre *minimal* de résultats à récupérer. <p>Pour savoir comment activer la pagination, voir [Obtenir d’autres données, des articles ou des enregistrements à l’aide de la pagination dans Azure Logic Apps](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Action : Différentes possibilités |
-| `runtimeConfiguration.secureData.properties` | Array | Sur de nombreux déclencheurs et actions, ces paramètres permettent de masquer les entrées et/ou les sorties dans l’historique d’exécution d’une application logique. <p>Pour sécuriser ces données, voir [Masquer les entrées et sorties de l'historique d'exécution](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | La plupart des déclencheurs et des actions |
+| `runtimeConfiguration.secureData.properties` | Array | Sur de nombreux déclencheurs et actions, ces paramètres permettent de masquer les entrées et/ou les sorties dans l’historique d’exécution d’une application logique. <p>Pour en savoir plus sur la protection de ces données, consultez [Masquer les entrées et sorties de l’historique d’exécution](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | La plupart des déclencheurs et des actions |
 | `runtimeConfiguration.staticResult` | Objet JSON | Pour les actions qui prennent en charge le paramètre [Résultat statique](../logic-apps/test-logic-apps-mock-data-static-results.md) et pour lesquelles ce dernier est activé, l’objet `staticResult` possède ces attributs : <p>- `name`, qui fait référence au nom de définition du résultat statique de l’action en cours, affiché dans l’attribut `staticResults` au sein de l’attribut `definition` du flux de travail. Pour en savoir plus, consultez le schéma de référence du langage de définition du flux de travail de la section [Résultats statiques](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, qui spécifie si les résultats statiques ont la valeur `Enabled` ou non pour l’action en cours. <p>Pour en savoir plus, voir [Tester des applications logiques avec des données fictives en configurant des résultats statiques](../logic-apps/test-logic-apps-mock-data-static-results.md). | Action : Différentes possibilités |
 ||||| 
 
@@ -2465,7 +2465,7 @@ Pour plus d’informations, consultez [Paramètres de configuration d’exécuti
 
 #### <a name="edit-in-logic-apps-designer"></a>Modifier dans le Concepteur d’applications logiques
 
-1. Dans l’angle supérieur droit du déclencheur, sélectionnez le bouton représentant des points de suspension ( **...** ), puis **Paramètres**.
+1. En haut à droite du déclencheur, sélectionnez le bouton représentant des points de suspension ( **...** ), puis **Paramètres**.
 
 1. Sous **Contrôle d’accès concurrentiel**, définissez **Limite** sur **Activé**. 
 

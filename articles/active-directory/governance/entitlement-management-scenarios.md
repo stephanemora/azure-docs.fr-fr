@@ -16,12 +16,12 @@ ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d780e6e11d2c067261f6862e1678ef5de0aaa9bb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f40ed05391c36f820940d5351373ecd8f9492b17
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422501"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120142"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Scénarios courants de la gestion des droits d’utilisation Azure AD
 
@@ -150,6 +150,10 @@ Il y a plusieurs façons de configurer la gestion des droits d’utilisation pou
 
 1. [Afficher les packages d’accès d’un utilisateur](entitlement-management-reports.md#view-access-packages-for-a-user)
 1. [Afficher les affectations de ressources d’un utilisateur](entitlement-management-reports.md#view-resource-assignments-for-a-user)
+
+## <a name="programmatic-administration"></a>Administration programmatique
+
+Vous pouvez également gérer les packages, les catalogues, les stratégies, les requêtes et les affectations d’accès à l’aide de Microsoft Graph.  Un utilisateur doté d’un rôle approprié dans une application qui a l’autorisation déléguée `EntitlementManagement.ReadWrite.All` peut appeler l’[API de gestion des droits d’utilisation](https://docs.microsoft.com/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

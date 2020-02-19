@@ -8,12 +8,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 04/29/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6fe43eb5963f2918f41ad15f1904f883b5e9c298
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: e774690fae2314b8db6e14f19a67c7ae1ce3a203
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678300"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064272"
 ---
 # <a name="dependency-auto-collection"></a>Collecte automatique de dépendance
 
@@ -88,6 +88,7 @@ Voici la liste des appels de dépendance actuellement pris en charge qui sont au
 
 - Configurez le suivi des dépendances personnalisé pour [.NET](../../azure-monitor/app/asp-net-dependencies.md).
 - Configurez le suivi des dépendances personnalisé pour [Java](../../azure-monitor/app/java-agent.md).
+- Configurez le suivi personnalisé des dépendances pour [OpenCensus Python](../../azure-monitor/app/opencensus-python-dependency.md).
 - [Écrire des données de télémétrie des dépendances personnalisées](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
 - Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](../../azure-monitor/app/data-model.md).
 - Découvrez quelles [plateformes](../../azure-monitor/app/platforms.md) sont prises en charge par Application Insights.

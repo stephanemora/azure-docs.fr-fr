@@ -4,12 +4,12 @@ description: Instructions pour déplacer un coffre Recovery Services entre des a
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: 7d0a6c47fa08774161d3a2b7507cdfecaf8c7197
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: fed42c578da2e4f27f42e11d5ac67d698bbcd939
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172885"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120711"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Déplacer un coffre Recovery Services entre des abonnements Azure et des groupes de ressources
 
@@ -18,6 +18,10 @@ Cet article explique comment déplacer un coffre Recovery Services configuré po
 ## <a name="supported-regions"></a>Régions prises en charge
 
 Le déplacement de ressources pour un coffre Recovery Services est pris en charge dans les régions suivantes : Australie Est, Australie Sud-Est, Canada Centre, Canada Est, Asie Sud-Est, Asie Est, USA Centre, USA Centre Nord, USA Est, USA Est2, USA Centre-Sud, USA Centre-Ouest, USA Centre-Ouest2, USA Ouest, Inde Centre, Inde Sud, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Europe Nord, Europe Ouest, Afrique du Sud Nord, Afrique du Sud Ouest, Royaume-Uni Sud et Royaume-Uni Ouest.
+
+## <a name="unsupported-regions"></a>Régions non prises en charge
+
+France Centre, France Sud, Allemagne Nord-Est, Allemagne Centre, US Gov Iowa, Chine Nord, Chine Nord2, Chine Est, Chine Est2
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Conditions préalables au déplacement d'un coffre Recovery Services
 
@@ -44,7 +48,7 @@ Le déplacement de ressources pour un coffre Recovery Services est pris en charg
 
 Pour déplacer un coffre Recovery Services et ses ressources associées vers un autre groupe de ressources
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Ouvrez la liste des **coffres Recovery Services** et sélectionnez le coffre à déplacer. Quand le tableau de bord du coffre s’ouvre, il s’affiche comme illustré dans l’image suivante.
 
    ![Ouvrir le coffre Recovery Services](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
@@ -73,7 +77,7 @@ Pour déplacer un coffre Recovery Services et ses ressources associées vers un 
 
 Vous pouvez déplacer un coffre Recovery Services et ses ressources associées vers un autre abonnement.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Ouvrez la liste des coffres Recovery Services et sélectionnez le coffre à déplacer. Quand le tableau de bord du coffre s’ouvre, il apparaît comme illustré dans l’image suivante.
 
     ![Ouvrir le coffre Recovery Services](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)

@@ -1,18 +1,18 @@
 ---
 title: Statistiques de latence aller-retour réseau Azure | Microsoft Docs
-description: En savoir plus sur les statistiques de latence aller-retour entre les régions Azure.
+description: Découvrez les statistiques de latence aller-retour entre les régions Azure.
 services: networking
 author: nayak-mahesh
 ms.service: virtual-network
 ms.topic: article
-ms.date: 01/08/2020
-ms.author: mnayak
-ms.openlocfilehash: 91b528cc6900a3ec91ff7189f58f941226b8acd5
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.date: 02/10/2020
+ms.author: kumud
+ms.openlocfilehash: dc2cb6545093e8ab70d18014a5fd9d0e7d36f8b7
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779720"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122397"
 ---
 # <a name="azure-network-round-trip-latency-statistics"></a>Statistiques de latence aller-retour réseau Azure
 
@@ -22,11 +22,11 @@ Azure surveille en permanence la latence (vitesse) des principaux domaines de so
 
 Les mesures de latence sont collectées à partir des agents ThousandEyes hébergés dans les régions du monde entier du cloud Azure, qui envoient continuellement des probes réseau entre elles, par intervalles de 1 minute. Les statistiques de latence mensuelles sont dérivées de la moyenne des échantillons collectés pour le mois.
 
-## <a name="december-2019-latency-figures"></a>Chiffres de latence de décembre 2019
+## <a name="january-2020-round-trip-latency-figures"></a>Chiffres de la latence aller-retour pour janvier 2020
 
-Les durées de boucles moyennes et mensuelles entre les régions Azure pour les 30 derniers jours (qui se terminent le 31 décembre 2019) sont indiquées ci-dessous. Les mesures suivantes sont optimisées par [ThousandEyes](https://thousandeyes.com).
+Les durées de latence aller-retour moyennes et mensuelles entre les régions Azure pour les 31 derniers jours (qui se terminent le 31 janvier 2020) sont indiquées ci-dessous. Les mesures suivantes sont optimisées par [ThousandEyes](https://thousandeyes.com).
 
-[![Statistiques de latence interrégionales Azure](media/azure-network-latency/december.jpg)](media/azure-network-latency/december.jpg#lightbox)
+[![Statistiques de latence interrégionales Azure](media/azure-network-latency/azure-network-latency.png)](media/azure-network-latency/azure-network-latency.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

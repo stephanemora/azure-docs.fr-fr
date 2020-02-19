@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: ff267aabe2f9e4cec38c307fe4382a84ba6d62df
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c8ddd343cd00b24506382521361ebad33ad112a7
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76288951"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049746"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurer la visualisation des dépendances sans agent pour l’évaluation
 
@@ -62,7 +62,7 @@ La visualisation des dépendances sans agent ne nécessite pas d’installation 
 
 Configurez un compte d’utilisateur disposant des autorisations requises pour que Server Assessment puisse accéder à la machine virtuelle aux fins de la découverte. Vous pouvez spécifier un compte d’utilisateur.
 
-- **Autorisation requise sur les machines virtuelles Windows** : Le compte d’utilisateur nécessite un accès « invité ».
+- **Autorisation requise sur les machines virtuelles Windows** : Le compte d’utilisateur doit être un administrateur local ou un administrateur de domaine.
 - **Autorisation requise sur les machines virtuelles Linux** : Le privilège de racine est requis sur le compte. Le compte d’utilisateur a également besoin des deux capacités ci-dessous sur les fichiers/bin/netstat et/bin/ls : CAP_DAC_READ_SEARCH et CAP_SYS_PTRACE.
 
 ## <a name="add-the-user-account-to-the-appliance"></a>Ajouter le compte d’utilisateur à l’appliance

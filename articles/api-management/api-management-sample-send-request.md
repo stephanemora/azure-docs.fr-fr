@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 2c4e5d0117f046343b140ef2b2c46c074c835075
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1c86570850894a47f57a2d3587811411cc9a76eb
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60557945"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190012"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Utilisation de services externes à partir du service de gestion des API Azure
 Les stratégies disponibles dans le service Gestion des API Azure permettent d’exécuter un large éventail de tâches utiles reposant strictement sur la requête entrante, la réponse sortante et les informations de configuration de base. En revanche, la possibilité d’interagir avec des services externes à partir des stratégies de gestion des API ouvre bien davantage d’opportunités.
@@ -101,6 +101,10 @@ Une fois que le service Gestion des API dispose du jeton d’autorisation, il pe
 L’attribut `response-variable-name` est utilisé pour accéder à la réponse retournée. Le nom défini dans cette propriété peut être utilisé comme clé dans le dictionnaire `context.Variables` pour accéder à l’objet `IResponse`.
 
 Vous pouvez récupérer le corps à partir de l’objet de réponse, et la norme RFC 7622 indique au service Gestion des API que la réponse doit être un objet JSON et contenir au moins une propriété appelée `active` correspondant à une valeur booléenne. Quand `active` a la valeur true, alors le jeton est considéré comme valide.
+
+Sinon, si le serveur d’autorisation n’inclut pas le champ « active » pour indiquer si le jeton est valide, utilisez un outil tel que Postman pour déterminer quelles propriétés sont définies dans un jeton valide. Par exemple, si une réponse de jeton valide contient une propriété appelée « expires_in », vérifiez si ce nom de propriété existe dans la réponse du serveur d’autorisation de cette façon :
+
+<when condition="@(((IResponse)context.Variables["tokenstate"]).Body.As<JObject>().Property("expires_in") == null)">
 
 ### <a name="reporting-failure"></a>Signalement d’un échec
 Vous pouvez utiliser une stratégie `<choose>` pour détecter si le jeton n’est pas valide et, le cas échéant, renvoyer une réponse 401.

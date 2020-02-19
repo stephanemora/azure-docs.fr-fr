@@ -16,12 +16,12 @@ ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e77f507f2a3bd89069f25bf984cf4059009faa6
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 5499c8808c3916842071df1f03a865efd98719f6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932639"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185753"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Présentation des révisions d’accès Azure AD
 
@@ -62,9 +62,9 @@ Selon ce que vous voulez réviser, vous créez votre révision d’accès dans R
 | Rôle de ressource Azure | Réviseurs spécifiés</br>Révision indépendante | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Portail Azure |
 
 
-## <a name="onboard-access-reviews"></a>Intégrer les révisions d’accès
+## <a name="create-access-reviews"></a>Créer des révisions d’accès
 
-Pour intégrer les révisions d’accès, effectuez les étapes suivantes.
+Pour créer des révisions d’accès, effectuez les étapes suivantes :
 
 1. Accédez au [portail Azure](https://portal.azure.com) pour gérer les révisions d'accès et connectez-vous en tant qu'administrateur général ou administrateur d'utilisateurs.
 
@@ -74,13 +74,9 @@ Pour intégrer les révisions d’accès, effectuez les étapes suivantes.
 
 1. Sélectionnez **Identity Governance**.
 
-1. Cliquez sur **Révisions d’accès**.
- 
-    ![Page de démarrage des révisions d'accès](./media/access-reviews-overview/access-reviews-overview-onboard.png)
+1. Dans la page de démarrage, cliquez sur le bouton **Créer une révision d’accès**.
 
-1. Sur la page, cliquez sur le bouton **Intégrer maintenant**.
-    
-      ![Intégration des révisions d’accès](./media/access-reviews-overview/access-reviews-overview-select-onboard.png)
+   ![Page de démarrage des révisions d'accès](./media/access-reviews-overview/access-reviews-overview-create-access-reviews.png) 
 
 
 ## <a name="learn-about-access-reviews"></a>En savoir plus sur les révisions d’accès

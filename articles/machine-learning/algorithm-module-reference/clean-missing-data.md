@@ -6,25 +6,25 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: 46034c8392dc1720fe5e03fc5e419dba6ed20e0b
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 5851b294e52fdcc03dbf3b889ff32898a823f655
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314468"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137568"
 ---
 # <a name="clean-missing-data-module"></a>Module de nettoyage des données manquantes
 
-Cet article décrit un module dans le concepteur Azure Machine Learning.
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour supprimer, remplacer ou déduire des valeurs manquantes. 
 
 Les scientifiques des données vérifient souvent les données pour détecter les valeurs manquantes et effectuer ensuite diverses opérations pour corriger les données ou en ajouter de nouvelles. L’objectif de ces opérations de nettoyage est d’éviter les problèmes causés par des données manquantes pouvant survenir lors de l’apprentissage d’un modèle. 
 
-Ce module prend en charge plusieurs types d’opérations de « nettoyage » des valeurs manquantes, y compris :
+Ce module prend en charge plusieurs types d’opérations de « nettoyage » des valeurs manquantes, notamment :
 
 + Le remplacement des valeurs manquantes par un espace réservé, une moyenne ou une autre valeur
 + La suppression totale des lignes et des colonnes ayant des valeurs manquantes
@@ -37,11 +37,11 @@ Ce module génère également une définition de la transformation utilisée pou
 
 ## <a name="how-to-use-clean-missing-data"></a>Comment utiliser le nettoyage des données manquantes
 
-Ce module vous permet de définir une opération de nettoyage. Vous pouvez également enregistrer l’opération de nettoyage afin de pouvoir l’appliquer ultérieurement à de nouvelles données. Consultez les liens suivants pour obtenir une description de la procédure création et d’enregistrement d’un processus de nettoyage : 
+Ce module vous permet de définir une opération de nettoyage. Vous pouvez également enregistrer l’opération de nettoyage afin de pouvoir l’appliquer ultérieurement à de nouvelles données. Consultez les sections suivantes pour savoir comment créer et enregistrer un processus de nettoyage : 
  
-+ Pour remplacer des valeurs manquantes
++ [Pour remplacer des valeurs manquantes](#replace-missing-values)
   
-+ Pour appliquer une transformation de nettoyage à de nouvelles données
++ [Pour appliquer une transformation de nettoyage à de nouvelles données](#apply-a-saved-cleaning-operation-to-new-data)
  
 > [!IMPORTANT]
 > La méthode de nettoyage que vous utilisez pour gérer des valeurs manquantes peut affecter considérablement vos résultats. Nous vous recommandons de tester plusieurs méthodes. Prenez en compte la justification d’une utilisation d’une méthode particulière et la qualité des résultats.
@@ -56,12 +56,9 @@ Chaque fois que vous appliquez le module [Nettoyage des données manquantes](./c
 
     Par exemple, pour rechercher les valeurs manquantes dans toutes les colonnes numériques :
 
-    1. Ouvrez le sélecteur de colonne, puis sélectionnez **WITH RULES**.
-    2. Pour **BEGIN WITH**, sélectionnez **NO COLUMNS**.
+    1. Sélectionnez le module **Nettoyer les données manquantes**, puis cliquez sur **Modifier la colonne** dans le volet droit du module.
 
-        Vous pouvez également commencer avec ALL COLUMNS puis exclure des colonnes. Initialement, les règles ne sont pas affichées si vous cliquez d’abord sur **ALL COLUMNS**, mais vous pouvez cliquer sur **NO COLUMNS** puis cliquez de nouveau sur **ALL COLUMNS** pour démarrer avec toutes les colonnes et filtrer (exclure) les colonnes selon leur nom, type de données, ou index de colonnes.
-
-    3. Pour **Inclure**, sélectionnez **Type de colonne** dans la liste déroulante, puis sélectionnez **Numérique**, ou un type numérique plus spécifique. 
+    3. Pour **Inclure**, sélectionnez **Types de colonnes** dans la liste déroulante, puis sélectionnez **Numérique**. 
   
     N’importe quelle méthode de nettoyage ou de remplacement que vous choisissez doit être applicable à **toutes** les colonnes sélectionnées. Si les données dans n’importe quelle colonne sont incompatibles avec l’opération spécifiée, le module renvoie une erreur et arrête le pipeline.
   
@@ -109,7 +106,7 @@ Chaque fois que vous appliquez le module [Nettoyage des données manquantes](./c
   
 6. L’option **Valeur de remplacement** est disponible si vous avez sélectionné l’option **Valeur de substitution personnalisée**. Tapez une nouvelle valeur à utiliser comme valeur de remplacement pour toutes les valeurs manquantes dans la colonne.  
   
-    Notez que vous pouvez utiliser cette option uniquement dans les colonnes ayant des types de données Entier, Double, Booléen ou Date. Pour les colonnes de date, la valeur de remplacement peut également être saisie comme le nombre de graduations de 100 nanosecondes depuis le 1/1/0001 12:00 a.m.  
+    Notez que vous pouvez utiliser cette option uniquement dans les colonnes ayant des types de données Entier, Double, Booléen ou Chaîne.
   
 7. **Générer une colonne d’indicateur de valeur manquante** : Sélectionnez cette option si vous souhaitez générer des indications concernant le fait que les valeurs de la colonne correspondent aux critères du nettoyage de valeurs manquantes. Cette option est particulièrement utile lorsque vous mettez en place une nouvelle opération de nettoyage et que vous souhaitez vous assurer qu’il fonctionne comme prévu.
   

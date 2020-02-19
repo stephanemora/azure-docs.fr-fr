@@ -8,12 +8,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2cf3c784c711977a6fe758bb9017e1f0dc404c33
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8febe1fd749842a6db0cd1c9991f4002eb7cf2ad
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76991968"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190096"
 ---
 # <a name="connection-strings"></a>Chaînes de connexion
 
@@ -49,7 +49,7 @@ Votre chaîne de connexion s’affiche dans le panneau Vue d’ensemble de votre
 
 ![Chaîne de connexion dans le panneau Vue d’ensemble](media/overview-dashboard/overview-connection-string.png)
 
-### <a name="schema"></a>Schéma
+### <a name="schema"></a>schéma
 
 #### <a name="max-length"></a>Longueur maximale
 
@@ -140,10 +140,10 @@ Dans cet exemple, cette chaîne de connexion spécifie des substitutions explici
 - Le schéma d’autorisation est défini par défaut sur « ikey ». 
 - Clé d’instrumentation : 00000000-0000-0000-0000-000000000000
 - Les URI de services régionaux se basent sur les valeurs de remplacement explicites : 
-   - Ingestion : https://custom.com:111/
-   - Métriques temps réel : https://custom.com:222/
-   - Profiler : https://custom.com:333/ 
-   - Débogueur : https://custom.com:444/   
+   - Ingestion : https:\//custom.com:111/
+   - Métriques en temps réel : https:\//custom.com:222/
+   - Profileur : https:\//custom.com:333/ 
+   - Débogueur : https:\//custom.com:444/   
 
 
 ## <a name="how-to-set-a-connection-string"></a>Comment définir une chaîne de connexion

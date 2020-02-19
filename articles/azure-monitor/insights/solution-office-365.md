@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/08/2019
-ms.openlocfilehash: b026ef7dbbe850f0d2d1cb67ec8ca93b14ef879a
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 96d0124941f9f2daa1e1b2d1d254b0b767ffb395
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044894"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111568"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solution de gestion Office 365 dans Azure (préversion)
 
@@ -21,7 +21,7 @@ ms.locfileid: "76044894"
 
 > [!IMPORTANT]
 > ## <a name="solution-update"></a>Mise à jour de la solution
-> Cette solution a été remplacée par la solution [Office 365](../../sentinel/connect-office-365.md) en disponibilité générale dans [Azure Sentinel](../../sentinel/overview.md) et par la [solution de supervision et de création de rapports Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Combinées, ces deux solutions fournissent une version mise à jour de la solution Azure Monitor Office 365 précédente qui offre une expérience de configuration optimisée. Vous pouvez continuer à utiliser l’ancienne solution jusqu’au 30 mars 2020.
+> Cette solution a été remplacée par la solution [Office 365](../../sentinel/connect-office-365.md) en disponibilité générale dans [Azure Sentinel](../../sentinel/overview.md) et par la [solution de supervision et de création de rapports Azure AD](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Combinées, ces deux solutions fournissent une version mise à jour de la solution Azure Monitor Office 365 précédente qui offre une expérience de configuration optimisée. Vous pouvez continuer à utiliser la solution existante jusqu’au 30 avril 2020.
 > 
 > Azure Sentinel est une solution de gestion des informations et des événements de sécurité (SIEM) native dans le cloud qui ingère les journaux et offre des fonctionnalités SIEM supplémentaires, comme les détections, les investigations, la chasse et les insights basés sur le machine learning. Azure Sentinel permet maintenant l’ingestion des journaux d’activité Office 365 SharePoint et de gestion Exchange.
 > 
@@ -37,8 +37,8 @@ ms.locfileid: "76044894"
 >
 > ## <a name="frequently-asked-questions"></a>Forum aux questions
 > 
-> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-march-30th"></a>Q : Est-il possible d’intégrer la solution Azure Monitor Office 365 entre aujourd’hui et le 30 mars ?
-> Non, car les scripts d’intégration de la solution Azure Monitor Office 365 ne sont plus disponibles. La solution sera retirée le 30 mars.
+> ### <a name="q-is-it-possible-to-on-board-the-office-365-azure-monitor-solution-between-now-and-april-30th"></a>Q : Est-il possible d’intégrer la solution Azure Monitor Office 365 entre aujourd’hui et le 30 avril ?
+> Non, car les scripts d’intégration de la solution Azure Monitor Office 365 ne sont plus disponibles. La solution sera retirée le 30 avril.
 > 
 > ### <a name="q-will-the-tables-and-schemas-be-changed"></a>Q : Les tables et les schémas seront-ils modifiés ?
 > Le nom et le schéma de la table **OfficeActivity** resteront les mêmes que dans la solution actuelle. Vous pourrez continuer à utiliser les mêmes requêtes dans la nouvelle solution, à l’exception des requêtes qui référencent des données Azure AD.
@@ -104,11 +104,11 @@ ms.locfileid: "76044894"
 > ### <a name="q-does-azure-sentinel-provide-additional-connectors-as-part-of-the-solution"></a>Q : Azure Sentinel inclut-il des connecteurs supplémentaires avec la solution ?
 > Oui. Consultez les [sources de données connectables à Azure Sentinel](../../sentinel/connect-data-sources.md).
 > 
-> ###   <a name="q-what-will-happen-on-march-30-do-i-need-to-offboard-beforehand"></a>Q : Que va-t-il se passer le 30 mars ? Dois-je faire l’intégration avant cette date ?
+> ###   <a name="q-what-will-happen-on-april-30-do-i-need-to-offboard-beforehand"></a>Q : Que va-t-il se passer le 30 avril ? Dois-je faire l’intégration avant cette date ?
 > 
 > - Vous ne pourrez plus recevoir de données de la solution **Office 365**. La solution ne sera plus disponible sur la Place de marché.
 > - Pour les clients d’Azure Sentinel, la **solution Office 365** de l’espace de travail Log Analytics sera incluse dans la solution Azure Sentinel **SecurityInsights**.
-> - Si vous n’intégrez pas votre solution manuellement, vos données seront automatiquement déconnectées le 30 mars.
+> - Si vous n’intégrez pas votre solution manuellement, vos données seront déconnectées automatiquement le 30 avril.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>Q : Mes données seront-elles transférées vers la nouvelle solution ?
 > Oui. Quand vous supprimerez la solution **Office 365** de votre espace de travail, les données associées seront temporairement indisponibles en raison de la suppression du schéma. Lorsque vous activerez le nouveau connecteur **Office 365** dans Sentinel, le schéma sera restauré dans l’espace de travail et toutes les données déjà collectées seront disponibles. 

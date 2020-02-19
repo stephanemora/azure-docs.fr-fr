@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/19/2017
-ms.openlocfilehash: cbeaa3e148d6fbe20d7ddb4d04cd00d6300f9818
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/06/2020
+ms.openlocfilehash: 9a7cb80b5510ff0ac4a2491d896aded866180c19
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402442"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062130"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solution Agent Health dans Azure Monitor
 La solution Agent Health dans Azure vous permet de savoir quels agents, parmi tous ceux au service de l’espace de travail Log Analytics dans Azure Monitor ou d’un groupe d’administration System Center Operations Manager connecté à Azure Monitor, ne répondent pas et envoient des données opérationnelles.  Vous pouvez aussi suivre le nombre d’agents déployés et leur localisation géographique, et réaliser diverses requêtes pour être au fait de la distribution d’agents déployés au sein d’Azure, d’environnements de cloud ou localement.    
@@ -79,7 +79,7 @@ L’enregistrement d’un type de **pulsation** est créé.  Les propriétés de
 | `Version` | Version de l’agent Log Analytics ou de l’agent Operations Manager.|
 | `SCAgentChannel` | La valeur correspond à *Direct* et/ou *SCManagementServer*.|
 | `IsGatewayInstalled` | Si la passerelle Log Analytics est installée, la valeur correspond à *true*. Dans le cas contraire, elle correspond à *false*.|
-| `ComputerIP` | Adresse IP de l’ordinateur.|
+| `ComputerIP` | IP publique de l’ordinateur. Sur les machines virtuelles Azure, l’IP publique s’affiche, le cas échéant. Pour les machines virtuelles utilisant des IP privées, cette opération affiche l’adresse SNAT Azure (et non l’IP privée). |
 | `RemoteIPCountry` | Lieu où l’ordinateur est déployé.|
 | `ManagementGroupName` | Nom du groupe d’administration Operations Manager.|
 | `SourceComputerId` | ID unique de l’ordinateur.|

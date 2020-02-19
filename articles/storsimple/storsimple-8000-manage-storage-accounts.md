@@ -1,5 +1,5 @@
 ---
-title: Gérer vos informations d’identification de compte de stockage StorSimple pour les appareils de la gamme 8000 Microsoft Azure StorSimple | Microsoft Docs
+title: Gérer les informations d’identification d’un compte de stockage, appareil StorSimple série 8000
 description: Explique comment utiliser la page Configurer du service StorSimple Device Manager pour ajouter, modifier ou supprimer les clés de sécurité d’un compte de stockage, ou pour effectuer une rotation de ces clés.
 services: storsimple
 documentationcenter: NA
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 53aa442b86f5c82ded2f212a64f43852e6b3d2c5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11bc97be7ff8d924f7ccd0b4672a8f4cb0a178ff
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60632691"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116339"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Utiliser le service StorSimple Device Manager pour gérer vos informations d’identification de compte de stockage
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La section **Configuration** du panneau du service StorSimple Device Manager présente tous les paramètres de service généraux pouvant être créés dans le service StorSimple Device Manager. Ces paramètres peuvent être appliqués à tous les appareils connectés au service et incluent les éléments suivants :
 

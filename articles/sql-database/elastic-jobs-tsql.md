@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
-ms.date: 01/25/2019
-ms.openlocfilehash: 6b70eb1a6e51c98311ae51648b1a9618f9c3349d
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 02/07/2020
+ms.openlocfilehash: c228f3d6591cd72845101c00188f3fc4a55be644
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861334"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087349"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique
 
@@ -189,10 +189,13 @@ Par exemple, pour regrouper tous les résultats de l’exécution d’un même t
 
 L’exemple suivant crée un nouveau travail pour collecter des données de performances de plusieurs bases de données.
 
-Par défaut, l’agent de travail cherchera à créer la table dans laquelle stocker les résultats retournés. Par conséquent, la connexion associée aux informations d’identification utilisées pour les informations d’identification de sortie devront disposer des autorisations suffisantes pour effectuer cette opération. Si vous souhaitez créer manuellement la table à l’avance, elle doit avoir les propriétés suivantes :
+Par défaut, l’agent de travail crée la table de sortie dans laquelle sont stockés les résultats retournés. Le principal de base de données associé aux informations d’identification de sortie doit donc disposer au minimum des autorisations suivantes : `CREATE TABLE` sur la base de données, `ALTER`, `SELECT`, `INSERT` et `DELETE` sur la table de sortie ou son schéma et `SELECT` sur la vue de catalogue [sys.indexes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql).
+
+Si vous souhaitez créer manuellement la table à l’avance, elle doit avoir les propriétés suivantes :
 1. Colonnes avec le nom et les types de données corrects pour le jeu de résultats.
 2. Colonne supplémentaire pour internal_execution_id avec le type de données uniqueidentifier.
 3. Un index non cluster nommé `IX_<TableName>_Internal_Execution_ID` dans la colonne internal_execution_id.
+4. Toutes les autorisations listées ci-dessus, à l’exception de l’autorisation `CREATE TABLE` sur la base de données.
 
 Se connecter à la [*base de données de travail*](sql-database-job-automation-overview.md#job-database) et exécuter les commandes suivantes :
 

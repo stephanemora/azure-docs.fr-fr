@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 771257df12ee29c2bc8d32672c8e8b7d039a96ba
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 8b396b782c1254b3229aeeb8e51b61cc744d6318
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120807"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190366"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Guide pratique pour protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et Gestion des API
 
@@ -47,7 +47,7 @@ Voici un petit aperçu des étapes :
 
 Pour protéger une API avec Azure AD, la première étape consiste à inscrire dans Azure AD une application qui représente l’API. 
 
-1. Accédez au [Portail Azure](https://portal.azure.com) pour inscrire votre application. Recherchez et sélectionnez **Inscriptions d’API**.
+1. Accédez au [Portail Azure](https://portal.azure.com) pour inscrire votre application. Recherchez et sélectionnez **Inscriptions d’applications**.
 
 1. Sélectionnez **Nouvelle inscription**. 
 
@@ -71,7 +71,7 @@ Pour protéger une API avec Azure AD, la première étape consiste à inscrire d
 
 Chaque application cliente qui appelle l’API doit également être inscrite en tant qu’application dans Azure AD. Dans cet exemple, l’application cliente est la console de développeur dans le portail des développeurs de gestion des API. Voici comment inscrire une autre application dans Azure AD pour représenter la console de développeur.
 
-1. Accédez au [Portail Azure](https://portal.azure.com) pour inscrire votre application. Recherchez et sélectionnez **Inscriptions d’API**.
+1. Accédez au [Portail Azure](https://portal.azure.com) pour inscrire votre application. Recherchez et sélectionnez **Inscriptions d’applications**.
 
 1. Sélectionnez **Nouvelle inscription**.
 
@@ -97,7 +97,7 @@ Lorsque le secret est créé, notez la valeur de clé afin de l’utiliser à un
 
 Maintenant que vous avez inscrit deux applications pour représenter l’API et la console de développeur, vous devez accorder des autorisations pour permettre à client-app d’appeler backend-app.  
 
-1. Accédez au [Portail Azure](https://portal.azure.com) pour accorder des autorisations à votre application cliente. Recherchez et sélectionnez **Inscriptions d’API**.
+1. Accédez au [Portail Azure](https://portal.azure.com) pour accorder des autorisations à votre application cliente. Recherchez et sélectionnez **Inscriptions d’applications**.
 
 1. Choisissez votre application cliente. Ensuite, dans la liste des pages de l’application, sélectionnez **Autorisations de l’API**.
 
@@ -202,7 +202,7 @@ Vous pouvez utiliser la stratégie [Validate JWT](api-management-access-restrict
     <openid-config url="https://login.microsoftonline.com/{aad-tenant}/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
-            <value>{Application ID URI of backend-app}</value>
+            <value>{Application ID of backend-app}</value>
         </claim>
     </required-claims>
 </validate-jwt>
@@ -212,7 +212,7 @@ Vous pouvez utiliser la stratégie [Validate JWT](api-management-access-restrict
 
 ## <a name="build-an-application-to-call-the-api"></a>Générer une application pour appeler l’API
 
-Dans ce guide, vous avez utilisé la console de développeur dans Gestion des API comme exemple d’application cliente pour appeler le `Echo API` protégé par OAuth 2.0. Pour en savoir plus sur la façon de générer une application et d’implémenter OAuth 2.0, consultez [exemples de code Azure Active Directory](../active-directory/develop/sample-v1-code.md).
+Dans ce guide, vous avez utilisé la console de développeur dans Gestion des API comme exemple d’application cliente pour appeler le `Echo API` protégé par OAuth 2.0. Pour en savoir plus sur la façon de générer une application et d’implémenter OAuth 2.0, consultez [exemples de code Azure Active Directory](../active-directory/develop/sample-v2-code.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur [Azure Active Directory et OAuth2.0](../active-directory/develop/authentication-scenarios.md).

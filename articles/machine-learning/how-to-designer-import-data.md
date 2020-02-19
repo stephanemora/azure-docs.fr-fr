@@ -9,14 +9,14 @@ ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: 5df00d68b7114cc489b0708f5c2e401c87d0be15
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: d41b0499df1a62440e8c1991e29f7963224a50d6
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314026"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138165"
 ---
-# <a name="import-your-data-into-azure-machine-learning-designer"></a>Importer vos données dans le concepteur Azure Machine Learning
+# <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importer vos données dans le concepteur Azure Machine Learning (préversion)
 
 Dans cet article, vous allez apprendre à importer vos propres données dans le concepteur afin de créer des solutions personnalisées. Vous pouvez importer des données dans le concepteur de deux manières : 
 
@@ -45,7 +45,7 @@ Vos jeux de données inscrits se trouvent dans la palette de modules, sous **Jeu
 
 ![Capture d’écran montrant l’emplacement des jeux de données enregistrés dans la palette du concepteur](media/how-to-designer-import-data/use-datasets-designer.png)
 
-Tout [jeu de données de fichier](how-to-create-register-datasets.md#dataset-types) inscrit dans votre espace de travail Machine Learning apparaît dans la palette de modules. Vous n’êtes pas tenu d'utiliser exclusivement les jeux de données créés dans le concepteur.
+
 
 > [!NOTE]
 > Actuellement, le concepteur prend uniquement en charge le traitement des jeux de données [tabulaires](how-to-create-register-datasets.md#dataset-types). Si vous souhaitez utiliser des [jeux de données de fichier](how-to-create-register-datasets.md#dataset-types), utilisez le kit de développement logiciel (SDK) Azure Machine Learning disponible pour Python et R.

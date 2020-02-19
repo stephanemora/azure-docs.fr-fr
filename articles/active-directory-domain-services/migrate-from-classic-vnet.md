@@ -9,18 +9,18 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 5c50e3c17fe09b735aa4f4104615c4833164d94d
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: bd20bb008c52b7d99416aed7a0599a6e78d2acf2
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544155"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161645"
 ---
-# <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Préversion - Migrer Azure Active Directory Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager
+# <a name="migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrer Azure Active Directory Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager
 
 Azure Active Directory Domain Services (AD DS) prend en charge un unique déplacement des clients utilisant actuellement le modèle de réseau virtuel classique vers le modèle de réseau virtuel Resource Manager. Les domaines managés Azure AD DS qui utilisent le modèle de déploiement Resource Manager offrent des fonctionnalités supplémentaires telles que la stratégie de mot de passe affinée, les journaux d’audit et la protection par verrouillage de compte.
 
-Cet article décrit les avantages et les considérations à prendre en compte pour la migration, ainsi que les étapes nécessaires pour réussir la migration d’une instance Azure AD DS existante. Cette fonctionnalité de migration est actuellement en préversion.
+Cet article décrit les avantages et les considérations à prendre en compte pour la migration, ainsi que les étapes nécessaires pour réussir la migration d’une instance Azure AD DS existante.
 
 ## <a name="overview-of-the-migration-process"></a>Vue d’ensemble du processus de migration
 

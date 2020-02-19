@@ -5,22 +5,22 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.openlocfilehash: ace9794bd72aa124137a6b543c79979e8f5ca7c0
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.custom: hdinsightactive
+ms.date: 02/11/2020
+ms.openlocfilehash: 172753f6bbcc47ed8ae9061b71ca3291e95b7a33
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031250"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162852"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Mettre à l’échelle automatiquement les clusters Azure HDInsight
 
 > [!Important]
-> La fonctionnalité de mise à l’échelle automatique fonctionne uniquement pour les clusters Spark, Hive, LLAP et HBase créés après le 8 mai 2019. 
+> La fonctionnalité de mise à l’échelle automatique fonctionne uniquement pour les clusters Apache Spark, ApacheHive, LLAP et Apache HBase créés après le 8 mai 2019. La mise à l’échelle automatique pour LLAP et HBase est en préversion.
 
-La fonction de mise à l’échelle automatique de cluster d’Azure HDInsight met automatiquement à l’échelle le nombre de nœuds Worker dans un cluster. Les autres types de nœuds du cluster ne peuvent pas être mis à l’échelle actuellement.  Lors de la création d’un cluster HDInsight, il est possible de définir un nombre minimum et un nombre maximum de nœuds Worker. La mise à l’échelle automatique surveille ensuite les besoins en ressources de la charge analytique et augmente ou diminue le nombre de nœuds Worker. L’utilisation de cette fonctionnalité n’entraîne aucun coût supplémentaire.
+La fonctionnalité de mise à l’échelle automatique de cluster d’Azure HDInsight met automatiquement à l’échelle le nombre de nœuds Worker dans un cluster. Les autres types de nœuds du cluster ne peuvent pas être mis à l’échelle actuellement.  Lors de la création d’un cluster HDInsight, il est possible de définir un nombre minimum et un nombre maximum de nœuds Worker. La mise à l’échelle automatique surveille ensuite les besoins en ressources de la charge analytique et augmente ou diminue le nombre de nœuds Worker. L’utilisation de cette fonctionnalité n’entraîne aucun coût supplémentaire.
 
 ## <a name="cluster-compatibility"></a>Compatibilité du cluster
 
@@ -45,12 +45,14 @@ Une mise à l’échelle basée sur la planification modifie le nombre de nœuds
 
 La mise à l’échelle automatique supervise en permanence le cluster et collecte les métriques suivantes :
 
-* **Total Pending CPU** : Nombre total de cœurs nécessaires pour commencer l’exécution de tous les conteneurs en attente.
-* **Total Pending Memory** : Mémoire totale (en Mo) nécessaire pour commencer l’exécution de tous les conteneurs en attente.
-* **Total Free CPU** : Somme de tous les cœurs inutilisés sur les nœuds Worker actifs.
-* **Total Free Memory** : Somme de la mémoire inutilisée (en Mo) sur les nœuds Worker actifs.
-* **Mémoire utilisée par nœud** : Charge sur un nœud Worker. Un nœud Worker sur lequel 10 Go de mémoire sont utilisés est considéré comme étant plus sollicité qu’un nœud avec 2 Go de mémoire utilisés.
-* **Nombre d’Application Masters par nœud** : Nombre de conteneurs Application Master (AM) en cours d’exécution sur un nœud Worker. Un nœud Worker hébergeant 2 conteneurs AM est considéré comme plus important qu’un nœud Worker hébergeant 0 conteneur AM.
+|Métrique|Description|
+|---|---|
+|Total Pending CPU|Nombre total de cœurs nécessaires pour commencer l’exécution de tous les conteneurs en attente.|
+|Total Pending Memory|Mémoire totale (en Mo) nécessaire pour commencer l’exécution de tous les conteneurs en attente.|
+|Total Free CPU|Somme de tous les cœurs inutilisés sur les nœuds Worker actifs.|
+|Total Free Memory|Somme de la mémoire inutilisée (en Mo) sur les nœuds Worker actifs.|
+|Used Memory per Node|Charge sur un nœud Worker. Un nœud Worker sur lequel 10 Go de mémoire sont utilisés est considéré comme étant plus sollicité qu’un nœud avec 2 Go de mémoire utilisés.|
+|Number of Application Masters per Node|Nombre de conteneurs Application Master (AM) en cours d’exécution sur un nœud Worker. Un nœud Worker hébergeant 2 conteneurs AM est considéré comme plus important qu’un nœud Worker hébergeant 0 conteneur AM.|
 
 Les métriques ci-dessus sont contrôlées toutes les 60 secondes. La fonction de mise à l’échelle automatique prend des décisions de montée en puissance ou de descente en puissance en fonction de ces métriques.
 
@@ -76,11 +78,9 @@ En fonction du nombre de conteneurs AM par nœud ainsi que des besoins actuels e
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Créer un cluster avec une mise à l’échelle automatique basée sur la charge
 
-Pour utiliser la mise à l’échelle automatique sur un cluster, l’option **Activer la mise à l’échelle automatique** doit être activée lors de la création du cluster. 
+Pour utiliser la mise à l’échelle automatique sur un cluster, l’option **Activer la mise à l’échelle automatique** doit être activée lors de la création du cluster. Pour activer la fonctionnalité de mise à l’échelle automatique basée sur la charge, procédez comme suit dans le cadre d’un processus normal de création de cluster :
 
-Pour activer la fonctionnalité de mise à l’échelle automatique basée sur la charge, procédez comme suit dans le cadre d’un processus normal de création de cluster :
-
-1. Sous l’onglet **Configuration + tarification**, activez la case à cocher **Activer la mise à l’échelle automatique**.
+1. Sous l’onglet **Configuration + tarification**, cochez la case **Activer la mise à l’échelle automatique**.
 1. Sélectionnez **Basé sur la charge** sous **Type de mise à l’échelle automatique**.
 1. Entrez les valeurs souhaitées pour les propriétés suivantes :  
 
@@ -90,7 +90,7 @@ Pour activer la fonctionnalité de mise à l’échelle automatique basée sur l
 
     ![Activation de l’option de mise à l’échelle automatique basée sur la charge du nœud Worker](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-autoscale.png)
 
-Le nombre initial de nœuds Worker doit se situer entre le minimum et le maximum inclus. Cette valeur définit la taille initiale du cluster lors de sa création. Le nombre minimal de nœuds Worker doit être défini sur au moins trois. . La mise à l’échelle de votre cluster à moins de trois nœuds peut entraîner le blocage en mode sans échec en raison d’une réplication de fichiers insuffisante. Pour plus d’informations, consultez [Blocage en mode sans échec]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode).
+Le nombre initial de nœuds Worker doit se situer entre le minimum et le maximum inclus. Cette valeur définit la taille initiale du cluster lors de sa création. Le nombre minimal de nœuds Worker doit être défini sur au moins trois. La mise à l’échelle de votre cluster à moins de trois nœuds peut entraîner le blocage en mode sans échec en raison d’une réplication de fichiers insuffisante.  Pour plus d’informations, consultez [Blocage en mode sans échec](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
 
 ### <a name="create-a-cluster-with-schedule-based-autoscaling"></a>Créer un cluster avec une mise à l’échelle automatique basée sur la planification
 
@@ -99,7 +99,7 @@ Pour activer la fonctionnalité de mise à l’échelle automatique basée sur l
 1. Sous l’onglet **Configuration + tarification**, activez la case à cocher **Activer la mise à l’échelle automatique**.
 1. Entrez le **Nombre de nœuds** pour le **Nœud Worker**, qui contrôle la limite de la mise à l’échelle du cluster.
 1. Sélectionnez l’option **Basée sur la planification** sous **Type de mise à l’échelle**.
-1. Cliquez sur **Configurer** pour ouvrir la fenêtre **Configuration de la mise à l’échelle automatique**.
+1. Sélectionnez **Configurer** pour ouvrir la fenêtre **Configuration de la mise à l’échelle automatique**.
 1. Sélectionnez votre fuseau horaire, puis cliquez sur **+ Ajouter une condition**
 1. Sélectionnez les jours de la semaine pour lesquels la nouvelle condition doit s’appliquer.
 1. Modifiez l’heure à laquelle la condition doit prendre effet, ainsi que le nombre de nœuds du cluster à mettre à l’échelle.
@@ -190,7 +190,7 @@ Vous pouvez créer un cluster HDInsight avec la mise à l’échelle basée sur 
 
 #### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
-Pour activer la mise à l’échelle automatique sur un cluster en cours d’exécution, sélectionnez **Taille du cluster** sous **Paramètres**. Puis cliquez sur **Activer la mise à l’échelle automatique**. Choisissez un type de mise à l’échelle automatique, puis entrez les options de mise à l’échelle basée sur la planification ou la charge. Puis, cliquez sur **Enregistrer**.
+Pour activer la mise à l’échelle automatique sur un cluster en cours d’exécution, sélectionnez **Taille du cluster** sous **Paramètres**. Ensuite, sélectionnez **Activer la mise à l’échelle automatique**. Choisissez un type de mise à l’échelle automatique, puis entrez les options de mise à l’échelle basée sur la planification ou la charge. Enfin, sélectionnez **Enregistrer**.
 
 ![Activation de l’option de mise à l’échelle d’un nœud worker basée sur la planification - Cluster en cours d’exécution](./media/hdinsight-autoscale-clusters/azure-portal-settings-autoscale.png)
 
@@ -233,7 +233,7 @@ Les travaux en cours d’exécution continueront jusqu’à leur conclusion. Les
 
 ### <a name="minimum-cluster-size"></a>Taille minimale du cluster
 
-Ne mettez pas à l’échelle votre cluster sur moins de trois nœuds. La mise à l’échelle de votre cluster à moins de trois nœuds peut entraîner le blocage en mode sans échec en raison d’une réplication de fichiers insuffisante. Pour plus d’informations, consultez [Blocage en mode sans échec]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode).
+Ne mettez pas à l’échelle votre cluster à moins de trois nœuds. La mise à l’échelle de votre cluster à moins de trois nœuds peut entraîner le blocage en mode sans échec en raison d’une réplication de fichiers insuffisante.  Pour plus d’informations, consultez [Blocage en mode sans échec](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
 
 ## <a name="monitoring"></a>Surveillance
 
@@ -245,7 +245,7 @@ L’état du cluster répertorié dans le Portail Microsoft Azure peut vous aide
 
 La liste ci-dessous présente les messages d’état de cluster susceptibles de s’afficher.
 
-| État du cluster | Explication |
+| État du cluster | Description |
 |---|---|
 | Exécution en cours | Le cluster fonctionne normalement. Toutes les activités de mise à l’échelle automatique précédentes sont réussies. |
 | Mise à jour  | La configuration de la mise à l’échelle automatique du cluster est en cours de mise à jour.  |
@@ -253,16 +253,16 @@ La liste ci-dessous présente les messages d’état de cluster susceptibles de 
 | Erreur de mise à jour  | HDInsight a rencontré des problèmes pendant la mise à jour de la configuration de la mise à l’échelle automatique. Les clients peuvent choisir de réessayer la mise à jour ou de désactiver la mise à l’échelle automatique.  |
 | Error  | Une erreur est survenue dans le cluster. Ce dernier n’est plus utilisable. Supprimez ce cluster et créez-en un autre.  |
 
-Pour afficher le nombre actuel de nœuds dans votre cluster, accédez au graphique **Taille du cluster** sur la page **Vue d’ensemble** de votre cluster, ou cliquez sur **Taille du cluster** sous **Paramètres**.
+Pour afficher le nombre actuel de nœuds dans votre cluster, accédez au graphique **Taille du cluster** dans la page **Vue d’ensemble** de votre cluster, ou sélectionnez **Taille du cluster** sous **Paramètres**.
 
 ### <a name="operation-history"></a>Historique de l’opération
 
 Vous pouvez afficher l’historique de Scale up/Scale down du cluster dans le cadre des métriques de celui-ci. Vous pouvez également dresser la liste de toutes les actions de mise à l’échelle au cours de la journée, de la semaine ou d’une autre période.
 
-Sous **Supervision**, **Métriques**. Puis cliquez sur **Ajouter une métrique** et **Nombre de Workers actifs** à partir de la **métrique** zone de liste déroulante. Cliquez sur le bouton en haut à droite pour modifier l’intervalle de temps.
+Sous **Supervision**, **Métriques**. Ensuite, sélectionnez **Ajouter une métrique** et **Nombre de Workers actifs** dans la zone de liste déroulante **Métrique**. Sélectionnez le bouton en haut à droite pour modifier l’intervalle de temps.
 
 ![Activation de l’option de mise à l’échelle d’un nœud worker basée sur la planification - Métrique](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur les meilleures pratiques de mise à l’échelle manuelle des clusters, lisez [Scaling best practices](hdinsight-scaling-best-practices.md) (Meilleures pratiques de la mise à l’échelle).
+Pour en savoir plus sur les meilleures pratiques de mise à l’échelle manuelle des clusters, lisez [Scaling best practices](hdinsight-scaling-best-practices.md) (Meilleures pratiques de la mise à l’échelle).

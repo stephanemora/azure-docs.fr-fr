@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 02/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 59839df1e67c5ea7f18df373ad0530a2ea740209
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: c5a1aaac0edea1e5ab2e6cdf35f91f61eed23db5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030895"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047496"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Utilisation de la gestion des API Azure avec des réseaux virtuels
 Les réseaux virtuels Azure vous permettent de placer vos ressources Azure dans un réseau routable non-Internet dont vous contrôlez l’accès. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux à l’aide de différentes technologies VPN. Pour en savoir plus sur les réseaux virtuels Azure, commencez par consulter la page [Présentation du réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
@@ -136,7 +136,7 @@ Voici une liste des problèmes courants de configuration incorrecte qui peuvent 
 
     | Environnement Azure | Points de terminaison                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure (public)      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com où `East US 2` est eastus2.warm.ingestion.msftcloudes.com</li></ul> |
+    | Azure (public)      | <ul><li>gcs.prod.monitoring.core.windows.net (**nouveau**)</li><li>prod.warmpath.msftcloudes.com (**sera déprécié**)</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com où `East US 2` est eastus2.warm.ingestion.msftcloudes.com</li></ul> |
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
@@ -198,41 +198,41 @@ Les adresses IP sont divisées par **environnement Azure**. Quand vous autorisez
 |-----------------|-------------------------|---------------|
 | Azure (public)| USA Centre Sud (Global)| 104.214.19.224|
 | Azure (public)| USA Centre Nord (Global)| 52.162.110.80|
-| Azure (public)| USA Centre-Ouest| 52.253.135.58|
-| Azure (public)| Corée Centre| 40.82.157.167|
-| Azure (public)| Royaume-Uni Ouest| 51.137.136.0|
-| Azure (public)| Japon Ouest| 40.81.185.8|
-| Azure (public)| USA Centre Nord| 40.81.47.216|
-| Azure (public)| Royaume-Uni Sud| 51.145.56.125|
+| Azure (public)| Centre-USA Ouest| 52.253.135.58|
+| Azure (public)| Centre de la Corée| 40.82.157.167|
+| Azure (public)| Ouest du Royaume-Uni| 51.137.136.0|
+| Azure (public)| OuJapon Est| 40.81.185.8|
+| Azure (public)| Centre-Nord des États-Unis| 40.81.47.216|
+| Azure (public)| Sud du Royaume-Uni| 51.145.56.125|
 | Azure (public)| Inde Ouest| 40.81.89.24|
 | Azure (public)| USA Est| 52.224.186.99|
 | Azure (public)| Europe Ouest| 51.145.179.78|
 | Azure (public)| Japon Est| 52.140.238.179|
 | Azure (public)| France Centre| 40.66.60.111|
-| Azure (public)| Canada Est| 52.139.80.117|
+| Azure (public)| Est du Canada| 52.139.80.117|
 | Azure (public)| Émirats arabes unis Nord| 20.46.144.85|
 | Azure (public)| Brésil Sud| 191.233.24.179|
 | Azure (public)| Asie Sud-Est| 40.90.185.46|
 | Azure (public)| Afrique du Sud Nord| 102.133.130.197|
-| Azure (public)| Canada Centre| 52.139.20.34|
-| Azure (public)| Corée Sud| 40.80.232.185|
-| Azure (public)| Inde Centre| 13.71.49.1|
+| Azure (public)| Centre du Canada| 52.139.20.34|
+| Azure (public)| Corée du Sud| 40.80.232.185|
+| Azure (public)| Inde centrale| 13.71.49.1|
 | Azure (public)| USA Ouest| 13.64.39.16|
 | Azure (public)| Sud-Australie Est| 20.40.160.107|
-| Azure (public)| Australie Centre| 20.37.52.67|
+| Azure (public)| Centre de l’Australie| 20.37.52.67|
 | Azure (public)| Inde Sud| 20.44.33.246|
 | Azure (public)| USA Centre| 13.86.102.66|
 | Azure (public)| Australie Est| 20.40.125.155|
 | Azure (public)| USA Ouest 2| 51.143.127.203|
 | Azure (public)| USA Est 2 (EUAP)| 52.253.229.253|
 | Azure (public)| EUAP USA Centre| 52.253.159.160|
-| Azure (public)| USA Centre Sud| 20.188.77.119|
+| Azure (public)| États-Unis - partie centrale méridionale| 20.188.77.119|
 | Azure (public)| USA Est 2| 20.44.72.3|
 | Azure (public)| Europe Nord| 52.142.95.35|
 | Azure (public)| Asie Est| 52.139.152.27|
 | Azure (public)| France Sud| 20.39.80.2|
 | Azure (public)| Suisse Ouest| 51.107.96.8|
-| Azure (public)| Australie Centre 2| 20.39.99.81|
+| Azure (public)| Centre de l’Australie 2| 20.39.99.81|
 | Azure (public)| Émirats arabes unis Centre| 20.37.81.41|
 | Azure (public)| Suisse Nord| 51.107.0.91|
 | Azure (public)| Afrique du Sud Ouest| 102.133.0.79|
@@ -242,16 +242,16 @@ Les adresses IP sont divisées par **environnement Azure**. Quand vous autorisez
 | Azure (public)| Norvège Ouest| 51.120.130.134|
 | Azure China 21Vianet| Chine Nord (Global)| 139.217.51.16|
 | Azure China 21Vianet| Chine Est (Global)| 139.217.171.176|
-| Azure China 21Vianet| Chine Nord| 40.125.137.220|
-| Azure China 21Vianet| Chine Est| 40.126.120.30|
+| Azure China 21Vianet| Chine du Nord| 40.125.137.220|
+| Azure China 21Vianet| Chine orientale| 40.126.120.30|
 | Azure China 21Vianet| Chine Nord 2| 40.73.41.178|
-| Azure China 21Vianet| Chine Est 2| 40.73.104.4|
+| Azure China 21Vianet| Chine orientale 2| 40.73.104.4|
 | Azure Government| USGov Virginie (Global)| 52.127.42.160|
 | Azure Government| USGov Texas (Global)| 52.127.34.192|
 | Azure Government| USGov Virginia| 52.227.222.92|
 | Azure Government| USGov Iowa| 13.73.72.21|
-| Azure Government| USGov Arizona| 52.244.32.39|
-| Azure Government| USGov Texas| 52.243.154.118|
+| Azure Government| Gouvernement des États-Unis - Arizona| 52.244.32.39|
+| Azure Government| Gouvernement des États-Unis - Texas| 52.243.154.118|
 | Azure Government| US DoD - Centre| 52.182.32.132|
 | Azure Government| USDoD Est| 52.181.32.192|
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 02/11/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69582291ca1da95003e26a6922899defd7d5e477
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f3a9265c1f9a5c6c63931798718e4d0679cd126b
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982396"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136255"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>À propos des profils techniques dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -44,25 +44,29 @@ Un profil technique permet les types de scénarios suivants :
 
 ## <a name="technical-profile-flow"></a>Flux du profil technique
 
-Tous les types de profils techniques partagent le même concept. Vous pouvez envoyer des revendications d’entrée, exécuter la transformation des revendications et communiquer avec le tiers configuré, comme un fournisseur d’identité, une API REST ou les services d’annuaire Azure AD. Une fois le processus terminé, le profil technique retourne les revendications de sortie et peut exécuter la transformation des revendications de sortie. Le schéma suivant explique comment sont traités les transformations et les mappages référencés dans le profil technique. Quel que soit le tiers avec qui le profil technique interagit, une fois la transformation des revendications exécutée, les revendications de sortie du profil technique sont immédiatement stockées dans le conteneur de revendications.
+Tous les types de profils techniques partagent le même concept. Vous pouvez envoyer des revendications d’entrée, exécuter la transformation des revendications et communiquer avec le tiers configuré, comme un fournisseur d’identité, une API REST ou les services d’annuaire Azure AD. Au terme du processus, le profil technique retourne les revendications de sortie et peut exécuter la transformation des revendications de sortie. Le schéma suivant explique comment sont traités les transformations et les mappages référencés dans le profil technique. Quel que soit le tiers avec qui le profil technique interagit, une fois la transformation des revendications exécutée, les revendications de sortie du profil technique sont immédiatement stockées dans le conteneur de revendications.
 
 ![Schéma illustrant le workflow du profil technique](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
  
-1. **InputClaimsTransformation** : les revendications d’entrée de chaque [transformation des revendications](claimstransformations.md) d’entrée sont récupérées dans le conteneur de revendications. Une fois l’exécution terminée, les revendications de sortie sont replacées dans le conteneur de revendications. Les revendications de sortie d’une transformation des revendications d’entrée peuvent être des revendications d’entrée d’une transformation de revendications d’entrée ultérieure.
-2. **InputClaims** : les revendications sont récupérées auprès du conteneur de revendications et sont utilisées pour le profil technique. Par exemple, un [profil technique autodéclaré](self-asserted-technical-profile.md) utilise les revendications d’entrée pour préremplir les revendications de sortie fournies par l’utilisateur. Un profil technique d’API REST utilise les revendications d’entrée pour envoyer les paramètres d’entrée au point de terminaison de l’API REST. Azure Active Directory utilise la revendication d’entrée comme identificateur unique pour lire, mettre à jour ou supprimer un compte.
-3. **Exécution du profil technique** : le profil technique échange les revendications avec le tiers configuré. Par exemple :
+1. **Gestion de session d’authentification unique (SSO)**  : restaure l’état de session du profil technique à l’aide de la [gestion de session d’authentification unique](custom-policy-reference-sso.md). 
+1. **Transformation des revendications d’entrée** : les revendications d’entrée de chaque [transformation de revendications](claimstransformations.md) d’entrée sont récupérées auprès du conteneur de revendications.  Les revendications de sortie d’une transformation des revendications d’entrée peuvent être des revendications d’entrée d’une transformation de revendications d’entrée ultérieure.
+1. **Revendications d’entrée** : les revendications sont récupérées auprès du conteneur de revendications et sont utilisées pour le profil technique. Par exemple, un [profil technique autodéclaré](self-asserted-technical-profile.md) utilise les revendications d’entrée pour préremplir les revendications de sortie fournies par l’utilisateur. Un profil technique d’API REST utilise les revendications d’entrée pour envoyer les paramètres d’entrée au point de terminaison de l’API REST. Azure Active Directory utilise la revendication d’entrée comme identificateur unique pour lire, mettre à jour ou supprimer un compte.
+1. **Exécution du profil technique** : le profil technique échange les revendications avec le tiers configuré. Par exemple :
     - Redirigez l’utilisateur vers le fournisseur d’identité pour finaliser la connexion. Une fois connecté, l’utilisateur revient et l’exécution du profil technique se poursuit.
     - Appelez une API REST tout en envoyant les paramètres en tant que InputClaims et récupérant les informations en tant que OutputClaims.
     - Créez ou mettez à jour le compte d’utilisateur.
     - Envoie et vérifie le message texte MFA.
-4. **ValidationTechnicalProfiles** : pour un [profil technique autodéclaré](self-asserted-technical-profile.md), vous pouvez appeler une entrée [profil technique de validation](validation-technical-profile.md). Le profil technique de validation valide les données profilées par l’utilisateur et renvoie un message d’erreur ou OK, avec ou sans revendications de sortie. Par exemple, avant qu’Azure AD B2C ne crée un nouveau compte, il vérifie si l’utilisateur existe déjà dans les services d’annuaire. Vous pouvez appeler un profil technique d’API REST pour ajouter votre propre logique métier.<p>La portée des revendications de sortie d’un profil technique de validation se limite au profil technique qui invoque le profil technique de validation et aux autres profils techniques de validation sous le même profil technique. Si vous souhaitez utiliser les revendications de sortie à l’étape d’orchestration suivante, vous devez ajouter les revendications de sortie sur le profil technique qui invoque le profil technique de validation.
-5. **OutputClaims** : les revendications sont renvoyées au conteneur de revendications. Vous pouvez utiliser ces revendications dans la prochaine étape d’orchestration, ou dans les transformations de revendications de sortie.
-6. **OutputClaimsTransformations** : les revendications d’entrée de chaque [transformation de revendications](claimstransformations.md) de sortie sont récupérées auprès du conteneur de revendications. Les revendications de sortie du profil technique des étapes précédentes peuvent être des revendications d’entrée d’une transformation de revendications de sortie. Après l’exécution, les revendications de sortie sont replacées dans le conteneur de revendications. Les revendications de sortie d’une transformation de revendications d’entrée peuvent également être des revendications d’entrée d’une transformation de revendications de sortie ultérieure.
-7. La **gestion de session d’authentification unique** - [gestion de session SSO](custom-policy-reference-sso.md) contrôle l’interaction avec l’utilisateur une fois qu’il a été authentifié. Par exemple, l’administrateur peut contrôler si la sélection des fournisseurs d’identité s’affiche, ou si des détails de compte local doivent être entrés à nouveau.
+1. **Profils techniques de validation** : un [profil technique autodéclaré](self-asserted-technical-profile.md) peut appeler des [profils techniques de validation](validation-technical-profile.md). Le profil technique de validation valide les données profilées par l’utilisateur et renvoie un message d’erreur ou OK, avec ou sans revendications de sortie. Par exemple, avant qu’Azure AD B2C ne crée un nouveau compte, il vérifie si l’utilisateur existe déjà dans les services d’annuaire. Vous pouvez appeler un profil technique d’API REST pour ajouter votre propre logique métier.<p>La portée des revendications de sortie d’un profil technique de validation se limite au profil technique qui appelle le profil technique de validation, ainsi qu’aux autres profils techniques de validation sous le même profil technique. Si vous souhaitez utiliser les revendications de sortie à l’étape d’orchestration suivante, vous devez ajouter les revendications de sortie sur le profil technique qui invoque le profil technique de validation.
+1. **Revendications de sortie** : les revendications sont renvoyées au conteneur de revendications. Vous pouvez utiliser ces revendications dans la prochaine étape d’orchestration, ou dans les transformations de revendications de sortie.
+1. **Transformations des revendications de sortie** : les revendications d’entrée de chaque [transformation de revendications](claimstransformations.md) de sortie sont récupérées auprès du conteneur de revendications. Les revendications de sortie du profil technique des étapes précédentes peuvent être des revendications d’entrée d’une transformation de revendications de sortie. Après l’exécution, les revendications de sortie sont replacées dans le conteneur de revendications. Les revendications de sortie d’une transformation de revendications d’entrée peuvent également être des revendications d’entrée d’une transformation de revendications de sortie ultérieure.
+1. **Gestion de session d’authentification unique (SSO)**  : conserve les données du profil technique dans la session à l’aide de la [gestion de session d’authentification unique](custom-policy-reference-sso.md).
 
-Un profil technique peut hériter d’un autre profil technique pour modifier des paramètres ou ajouter de nouvelles fonctionnalités.  L’élément **IncludeTechnicalProfile** est une référence au profil technique de base dont découle un profil technique.
 
-Par exemple, le profil technique **AAD-UserReadUsingAlternativeSecurityId-NoError** inclut le profil **AAD-UserReadUsingAlternativeSecurityId**. Ce profil technique définit l’élément de métadonnées **RaiseErrorIfClaimsPrincipalDoesNotExist** sur `true`, et génère une erreur si aucun compte de réseau social ne figure dans le répertoire. **AAD-UserReadUsingAlternativeSecurityId-NoError** remplace ce comportement et désactive le message d’erreur si l’utilisateur n’existe pas.
+## <a name="technical-profile-inclusion"></a>Éléments inclus dans le profil technique
+
+Un profil technique peut inclure un autre profil technique pour modifier des paramètres ou ajouter de nouvelles fonctionnalités.  L’élément `IncludeTechnicalProfile` est une référence au profil technique de base dont est dérivé un profil technique. Le nombre de niveaux n’est pas limité. 
+
+Par exemple, le profil technique **AAD-UserReadUsingAlternativeSecurityId-NoError** inclut le profil **AAD-UserReadUsingAlternativeSecurityId**. Ce profil technique définit l’élément de métadonnées `RaiseErrorIfClaimsPrincipalDoesNotExist` sur `true`, et génère une erreur si aucun compte de réseau social ne figure dans l’annuaire. **AAD-UserReadUsingAlternativeSecurityId-NoError** remplace ce comportement et désactive ce message d’erreur.
 
 ```XML
 <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId-NoError">
@@ -97,7 +101,7 @@ Par exemple, le profil technique **AAD-UserReadUsingAlternativeSecurityId-NoErro
 </TechnicalProfile>
 ```
 
-**UserReadUsingAlternativeSecurityId-AAD-NoError** et **AAD-UserReadUsingAlternativeSecurityId** ne spécifient pas l’élément **Protocole** requis car il est spécifié dans le profil technique **AAD-Common**.
+Ni **AAD-UserReadUsingAlternativeSecurityId-NoError** ni **AAD-UserReadUsingAlternativeSecurityId** ne spécifie l’élément **Protocole** requis, car celui-ci est spécifié dans le profil technique **AAD-Common**.
 
 ```XML
 <TechnicalProfile Id="AAD-Common">
@@ -106,16 +110,3 @@ Par exemple, le profil technique **AAD-UserReadUsingAlternativeSecurityId-NoErro
   ...
 </TechnicalProfile>
 ```
-
-Un profil technique peut inclure ou hériter d’un autre profil technique, pouvant lui-même en inclure un autre. Le nombre de niveaux n’est pas limité. En fonction des besoins de l’entreprise, votre parcours utilisateur peut appeler **AAD-UserReadUsingAlternativeSecurityId** qui génère une erreur si un compte social d’utilisateur n’existe pas, ou **AAD-UserReadUsingAlternativeSecurityId-NoError** qui ne génère pas d’erreur.
-
-
-
-
-
-
-
-
-
-
-

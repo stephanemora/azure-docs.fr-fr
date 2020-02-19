@@ -1,18 +1,18 @@
 ---
 title: 'Concepts : mise en réseau dans AKS (Azure Kubernetes Service)'
 description: Découvrez la mise en réseau dans AKS (Azure Kubernetes Service), notamment la mise en réseau kubenet et Azure CNI, les contrôleurs d’entrée, les équilibreurs de charge et les adresses IP statiques.
-services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
+ms.custom: fasttrack-edit
 ms.author: mlearned
-ms.openlocfilehash: 7c1a25c4d2df83c9bcfb33b658e3d3100d850b6e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 06825f184365cfc439167be15580eb19bf5ecb38
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547963"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084282"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concepts de réseau pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -108,6 +108,8 @@ Les différences de comportement suivantes existent entre kubenet et Azure CNI :
 | Exposer des services Kubernetes à l’aide d’un service d’équilibreur de charge, App Gateway ou d’un contrôleur d’entrée | Prise en charge | Prise en charge |
 | Azure DNS et zones privées par défaut                                                          | Prise en charge | Prise en charge |
 
+En ce qui concerne DNS, avec les plug-ins kubenet et Azure CNI, DNS est proposé par CoreDNS, un ensemble de démons s’exécutant dans AKS. Pour plus d’informations concernant CoreDNS sur Kubernetes, consultez [Personnalisation du service DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS est configuré par défaut pour transférer les domaines inconnus vers les serveurs DNS du nœud, autrement dit, vers la fonctionnalité DNS du Réseau virtuel Azure sur lequel le cluster AKS est déployé. Par conséquent, Azure DNS Private Zones fonctionne pour les pods s’exécutant dans AKS.
+
 ### <a name="support-scope-between-network-models"></a>Étendue du support entre des modèles de réseaux
 
 Quel que soit le modèle de réseau que vous utilisez, kubenet et Azure CNI peuvent être déployés de l’une des manières suivantes :
@@ -132,7 +134,7 @@ Dans AKS, vous pouvez créer une ressource d’entrée à l’aide de NGINX, ou 
 
 Une autre fonctionnalité d’entrée courante est l’arrêt SSL/TLS. Sur les grandes applications web accessibles via HTTPS, l’arrêt TLS peut être géré par la ressource d’entrée plutôt que dans l’application proprement dite. Pour fournir la configuration et la génération automatiques de la certification TLS, vous pouvez configurer la ressource d’entrée pour utiliser des fournisseurs tels que Let's Encrypt. Pour plus d’informations sur la configuration d’un contrôleur d’entrée NGINX avec Let’s Encrypt, consultez [Entrée et TLS][aks-ingress-tls].
 
-Vous pouvez également configurer votre contrôleur d’entrée pour qu’il conserve l’adresse IP source de client dans les requêtes de conteneurs dans votre cluster AKS. Quand une requête d’un client est routée vers un conteneur dans votre cluster AKS via votre contrôleur d’entrée, l’adresse IP source d’origine ne sera pas disponible pour le conteneur cible. Lorsque vous activez la *conservation de l’adresse IP source de client*, l’adresse IP source du client est disponible dans l’en-tête de requête sous *X-Forwarded-For*. Si vous utilisez la conservation de l’adresse d’IP source de client sur votre contrôleur d’entrée, vous ne pouvez pas utiliser le protocole SSL direct. La conservation de l’adresse IP source de client et le protocole SSL direct peuvent être utilisés avec d’autres services, tels que le type *LoadBalancer*.
+Vous pouvez également configurer votre contrôleur d’entrée pour qu’il conserve l’adresse IP source de client dans les requêtes de conteneurs dans votre cluster AKS. Quand la requête d’un client est routée vers un conteneur dans votre cluster AKS via votre contrôleur d’entrée, l’adresse IP source d’origine ne sera pas disponible pour le conteneur cible. Lorsque vous activez la *conservation de l’adresse IP source de client*, l’adresse IP source du client est disponible dans l’en-tête de requête sous *X-Forwarded-For*. Si vous utilisez la conservation de l’adresse IP source du client sur votre contrôleur d’entrée, vous ne pouvez pas utiliser le protocole SSL direct. La conservation de l’adresse IP source de client et le protocole SSL direct peuvent être utilisés avec d’autres services, tels que le type *LoadBalancer*.
 
 ## <a name="network-security-groups"></a>Groupes de sécurité réseau
 

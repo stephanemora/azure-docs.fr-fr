@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 02/11/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1802c3a92ed18dec5cba974c54c92f01324245eb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 64934dd5bc591415c0bad6ac3dc6a4a2d98dd005
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850668"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136304"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Azure Active Directory à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -50,6 +50,19 @@ Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spéc
 1. Sélectionnez **Certificats et secrets**, puis sélectionnez **Nouveau secret client**.
 1. Entrez une **description** pour le secret, sélectionnez une date d’expiration, puis sélectionnez **Ajouter**. Enregistrez la **Valeur** du secret pour l’utiliser à une étape ultérieure.
 
+## <a name="configuring-optional-claims"></a>Configuration des revendications facultatives
+
+Si vous souhaitez obtenir les revendications `family_name` et `given_name` à partir d’Azure AD, vous pouvez configurer des revendications facultatives pour votre application dans le manifeste de l’application ou dans l’interface utilisateur du portail Azure. Pour plus d’informations, consultez [Procédure : Fournir des revendications facultatives à votre application Azure AD](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Recherchez et sélectionnez **Azure Active Directory**.
+1. Dans la section **Gérer**, sélectionnez **Inscriptions d’applications**.
+1. Sélectionnez dans la liste l’application pour laquelle vous souhaitez configurer des revendications facultatives.
+1. Dans la section **Gérer**, sélectionnez **Configuration de jetons (préversion)** .
+1. Sélectionnez **Ajouter une revendication facultative**.
+1. Sélectionnez le type de jeton que vous souhaitez configurer.
+1. Sélectionnez les revendications facultatives à ajouter.
+1. Cliquez sur **Add**.
+
 ## <a name="create-a-policy-key"></a>Création d’une clé de stratégie
 
 Vous devez stocker la clé d’application que vous avez créée dans votre locataire Azure AD B2C.
@@ -73,23 +86,20 @@ Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant Az
 1. Ouvrez le fichier *TrustFrameworkExtensions.xml*.
 2. Recherchez l’élément **ClaimsProviders**. S’il n’existe pas, ajoutez-le sous l’élément racine.
 3. Ajoutez un nouveau **ClaimsProvider** comme suit :
-
-    ```XML
+    ```xml
     <ClaimsProvider>
       <Domain>Contoso</Domain>
       <DisplayName>Login using Contoso</DisplayName>
       <TechnicalProfiles>
-        <TechnicalProfile Id="ContosoProfile">
+        <TechnicalProfile Id="OIDC-Contoso">
           <DisplayName>Contoso Employee</DisplayName>
           <Description>Login with your Contoso account</Description>
           <Protocol Name="OpenIdConnect"/>
           <Metadata>
-            <Item Key="METADATA">https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration</Item>
-            <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
-            <!-- Update the Client ID below to the Application ID -->
+            <Item Key="METADATA">https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration</Item>
             <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
             <Item Key="response_types">code</Item>
-            <Item Key="scope">openid</Item>
+            <Item Key="scope">openid profile</Item>
             <Item Key="response_mode">form_post</Item>
             <Item Key="HttpBinding">POST</Item>
             <Item Key="UsePolicyInRedirectUri">false</Item>
@@ -125,12 +135,11 @@ Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant Az
 
 Pour obtenir un jeton à partir du point de terminaison Azure AD, vous devez définir les protocoles qu’Azure AD B2C doit utiliser pour communiquer avec Azure AD. Cette opération est effectuée dans l’élément **TechnicalProfile** de **ClaimsProvider**.
 
-1. Mettez à jour l’ID de l’élément **TechnicalProfile**. Cet ID est utilisé pour faire référence à ce profil technique à partir d’autres parties de la stratégie.
+1. Mettez à jour l’ID de l’élément **TechnicalProfile**. Cet ID est utilisé pour faire référence à ce profil technique à partir d’autres parties de la stratégie, par exemple `OIDC-Contoso`.
 1. Mettez à jour la valeur de **DisplayName**. Cette valeur s’affiche sur le bouton Se connecter dans votre écran de connexion.
 1. Mettez à jour la valeur de **Description**.
 1. Azure AD utilisant le protocole OpenID Connect, vérifiez que la valeur de **Protocol** est bien `OpenIdConnect`.
-1. Définissez la valeur de **METADATA** sur `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, où `your-AD-tenant-name` est le nom de votre locataire Azure AD. Par exemple : `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
-1. Ouvrez votre navigateur, puis accédez à l’URL **METADATA** que vous venez de mettre à jour, recherchez l’objet **issuer**, puis copiez et collez la valeur dans **ProviderName** dans le fichier XML.
+1. Définissez la valeur de **METADATA** sur `https://login.microsoftonline.com/tenant-name.onmicrosoft.com/v2.0/.well-known/openid-configuration`, où `tenant-name` est le nom de votre locataire Azure AD. Par exemple : `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 1. Définissez **client_id** sur l’ID d’application de l’inscription de l’application.
 1. Sous **CryptographicKeys**, mettez à jour la valeur de **StorageReferenceId** sur le nom de la clé de stratégie que vous avez créée précédemment. Par exemple : `B2C_1A_ContosoAppSecret`.
 
@@ -171,10 +180,10 @@ Maintenant que vous avez un bouton en place, vous devez le lier à une action. L
 1. Ajoutez l’élément **ClaimsExchange** suivant en veillant à utiliser pour l’**ID** la même valeur que celle que vous avez utilisée pour **TargetClaimsExchangeId** :
 
     ```XML
-    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="ContosoProfile" />
+    <ClaimsExchange Id="ContosoExchange" TechnicalProfileReferenceId="OIDC-Contoso" />
     ```
 
-    Mettez à jour la valeur de **TechnicalProfileReferenceId** sur **l’ID** du profil technique que vous avez créé précédemment. Par exemple : `ContosoProfile`.
+    Mettez à jour la valeur de **TechnicalProfileReferenceId** sur **l’ID** du profil technique que vous avez créé précédemment. Par exemple : `OIDC-Contoso`.
 
 1. Enregistrez le fichier *TrustFrameworkExtensions.xml* et rechargez-le à des fins de vérification.
 

@@ -10,23 +10,23 @@ ms.workload: identity
 ms.topic: conceptual
 ms.author: marsma
 ms.subservice: B2C
-ms.date: 02/03/2020
-ms.openlocfilehash: 108c9c1112327a3fcadeff4c4074f31f976a4e3d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.date: 02/10/2020
+ms.openlocfilehash: 6f7f0252a6377397ccaccdc44c9c8561da7c9d29
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026409"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121383"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Superviser Azure AD B2C avec Azure Monitor
 
-Utilisez Azure Monitor pour router des événements d’activité d’utilisation Azure Active Directory B2C (Azure AD B2C) vers différentes solutions de supervision. Vous pouvez ensuite conserver les journaux pour les utiliser sur le long terme ou les intégrer à des outils SIEM (Security Information and Event Management) tiers pour obtenir davantage d’insights sur votre environnement.
+Utilisez Azure Monitor pour router les journaux de connexion et d’[audit](view-audit-logs.md) d’Azure Active Directory B2C (Azure AD B2C) vers différentes solutions de supervision. Vous pouvez ensuite conserver les journaux pour les utiliser sur le long terme ou les intégrer à des outils SIEM (Security Information and Event Management) tiers pour obtenir davantage d’insights sur votre environnement.
 
 Vous pouvez router des événements de journal vers :
 
-* Un compte de stockage Azure.
-* Un hub d’événements Azure (pour les intégrer à vos instances Splunk et Sumo Logic).
-* Un espace de travail Azure Log Analytics (pour analyser les données, créer des tableaux de bord et générer des alertes sur des événements spécifiques).
+* Un [compte de stockage](../storage/blobs/storage-blobs-introduction.md) Azure.
+* Un [hub d’événements](../event-hubs/event-hubs-about.md) Azure (pour les intégrer à vos instances Splunk et Sumo Logic).
+* Un [espace de travail Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) (pour analyser les données, créer des tableaux de bord et générer des alertes sur des événements spécifiques).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
@@ -42,15 +42,15 @@ Vous pouvez également utiliser [Azure Cloud Shell](https://shell.azure.com), qu
 
 Azure AD B2C tire parti de la [supervision Azure Active Directory](../active-directory/reports-monitoring/overview-monitoring.md). Pour activer les *paramètres de diagnostic* dans Azure Active Directory au sein de votre locataire Azure AD B2C, vous utilisez la [gestion des ressources déléguées](../lighthouse/concepts/azure-delegated-resource-management.md).
 
-Vous autorisez un utilisateur de votre annuaire Azure AD B2C (le **fournisseur de services**) à configurer l’instance Azure Monitor au sein du locataire qui contient votre abonnement Azure (le **client**). Pour créer l’autorisation, vous déployez un modèle [Azure Resource Manager](../azure-resource-manager/index.yml) sur votre locataire Azure AD contenant l’abonnement. Les sections suivantes vous guident tout au long de ce processus.
+Vous autorisez un utilisateur ou un groupe de votre annuaire Azure AD B2C (le **fournisseur de services**) à configurer l’instance Azure Monitor au sein du locataire qui contient votre abonnement Azure (le **client**). Pour créer l’autorisation, vous déployez un modèle [Azure Resource Manager](../azure-resource-manager/index.yml) sur votre locataire Azure AD contenant l’abonnement. Les sections suivantes vous guident tout au long de ce processus.
 
-## <a name="create-a-resource-group"></a>Créer un groupe de ressources
+## <a name="create-or-choose-resource-group"></a>Créer ou choisir un groupe de ressources
 
-Dans le locataire Azure Active Directory (Azure AD) qui contient votre abonnement Azure (*pas* dans l’annuaire qui contient votre locataire Azure AD B2C), [créez un groupe de ressources](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups). Utilisez les valeurs suivantes :
+Il s’agit du groupe de ressources qui contient le compte de stockage Azure, le hub d’événements ou l’espace de travail Log Analytics de destination où seront stockées les données envoyées par Azure Monitor. Vous spécifiez le nom du groupe de ressources lorsque vous déployez le modèle Azure Resource Manager.
 
-* **Abonnement**: Sélectionnez votre abonnement Azure.
-* **Groupe de ressources** : Entrez un nom pour le groupe de ressources. Par exemple, *azure-ad-b2c-monitor*.
-* **Région** : Sélectionnez un emplacement Azure. Par exemple, *USA Centre*.
+[Créez un groupe de ressources](../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) ou choisissez-en un existant dans le locataire Azure Active Directory (Azure AD) qui contient votre abonnement Azure, et *non* dans l’annuaire qui contient votre locataire Azure AD B2C.
+
+Cet exemple utilise un groupe de ressources nommé *azure-ad-b2c-monitor* dans la région *USA Centre*.
 
 ## <a name="delegate-resource-management"></a>Gestion des ressources déléguées
 
@@ -200,7 +200,7 @@ Une fois que vous avez déployé le modèle et que vous avez patienté pendant q
 1. **Déconnectez-vous** du portail Azure si vous êtes actuellement connecté. Cette étape et la suivante sont effectuées pour actualiser vos informations d’identification dans la session du portail.
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte d’administrateur Azure AD B2C.
 1. Sélectionnez l’icône **Répertoire + abonnement** dans la barre d’outils du portail.
-1. Sélectionnez l’annuaire qui contient votre abonnement.
+1. Sélectionnez le répertoire qui contient votre abonnement.
 
     ![Changer d’annuaire](./media/azure-monitor/azure-monitor-portal-03-select-subscription.png)
 1. Vérifiez que vous avez sélectionné l’annuaire et l’abonnement appropriés. Dans cet exemple, tous les annuaires et abonnements sont sélectionnés.
@@ -209,7 +209,17 @@ Une fois que vous avez déployé le modèle et que vous avez patienté pendant q
 
 ## <a name="configure-diagnostic-settings"></a>Configurer les paramètres de diagnostic
 
-Une fois que vous avez délégué la gestion des ressources et que vous avez sélectionné votre abonnement, vous êtes prêt à [créer des paramètres de diagnostic](../active-directory/reports-monitoring/overview-monitoring.md) dans le portail Azure.
+Les paramètres de diagnostic définissent où les journaux et les métriques d’une ressource doivent être envoyés. Les destinations possibles sont les suivantes :
+
+- [Compte Azure Storage](../azure-monitor/platform/resource-logs-collect-storage.md)
+- [Hub d’événements](../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Espace de travail Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md)
+
+Si vous ne l’avez pas encore fait, créez une instance du type de destination de votre choix dans le groupe de ressources que vous avez spécifié dans le [modèle Azure Resource Manager](#create-an-azure-resource-manager-template).
+
+### <a name="create-diagnostic-settings"></a>Créer des paramètres de diagnostic
+
+Vous êtes maintenant prêt à [créer des paramètres de diagnostic](../active-directory/reports-monitoring/overview-monitoring.md) dans le portail Azure.
 
 Pour configurer les paramètres de supervision des journaux d’activité Azure AD B2C :
 
@@ -217,12 +227,24 @@ Pour configurer les paramètres de supervision des journaux d’activité Azure 
 1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
 1. Sélectionnez **Azure Active Directory**.
 1. Sous **Supervision**, sélectionnez **Paramètres de diagnostic**.
-1. Sélectionnez **+ Ajouter le paramètre de diagnostic**.
+1. S’il des paramètres sont définis pour la ressource, la liste des paramètres configurés s’affiche. Sélectionnez **Ajouter un paramètre de diagnostic** pour ajouter un paramètre, ou **Modifier le paramètre** pour modifier un paramètre existant. Chaque paramètre doit avoir un seul type de destination.
 
     ![Volet Paramètres de diagnostic dans le portail Azure](./media/azure-monitor/azure-monitor-portal-05-diagnostic-settings-pane-enabled.png)
 
+1. Si votre paramètre n’a pas de nom, nommez-le.
+1. Cochez la case correspondant à chaque destination à laquelle envoyer les journaux. Sélectionnez **Configurer** pour spécifier les paramètres comme décrit dans le tableau suivant.
+
+    | Paramètre | Description |
+    |:---|:---|
+    | Archiver dans un compte de stockage | Nom du compte de stockage. |
+    | Diffuser vers un hub d’événements | Espace de noms dans lequel le hub d’événements est créé (si c’est la première fois que vous diffusez en continu des journaux) ou vers lequel il est diffusé (si des ressources diffusent déjà cette catégorie de journal d’activité vers cet espace de noms).
+    | Envoyer à Log Analytics | Nom de l’espace de travail. |
+
+1. Sélectionnez **AuditLogs** et **SignInLogs**.
+1. Sélectionnez **Enregistrer**.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’ajout et la configuration de paramètres de diagnostic dans Azure Monitor, consultez ce tutoriel dans la documentation Azure Monitor :
+Pour plus d’informations sur l’ajout et la configuration de paramètres de diagnostic dans Azure Monitor, consultez le [Tutoriel : Collecter et analyser des journaux de ressources à partir d’une ressource Azure](../azure-monitor/insights/monitor-azure-resource.md).
 
-[Tutoriel : Collecter et analyser des journaux de ressources à partir d’une ressource Azure](/azure-monitor/learn/tutorial-resource-logs.md)
+Pour plus d’informations sur le streaming des journaux Azure AD vers un hub d’événements, consultez le [Tutoriel : Envoyer les journaux Azure Active Directory vers un hub d’événements Azure](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).

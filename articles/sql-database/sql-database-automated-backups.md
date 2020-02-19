@@ -12,22 +12,22 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 6b880696b4922c68c73ce4ff59f72a62ce5a5a30
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f460bc3e4809b8a1cbabe1161c888255a7a484db
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75348964"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157497"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
-SQL Database crée automatiquement des sauvegardes de base de données, qui sont conservées pour la durée de période de rétention configurée, en tirant parti du [stockage géoredondant avec accès en lecture seule (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) d’Azure pour garantir leur conservation, même en cas d’indisponibilité du centre de données. Ces sauvegardes sont créées automatiquement. Les sauvegardes de base de données sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elles protègent vos données des corruptions et des suppressions accidentelles. Si vos règles de sécurité nécessitent que vos sauvegardes soient disponibles pendant une période prolongée (jusqu’à 10 ans), vous pouvez configurer une stratégie de [conservation à long terme](sql-database-long-term-retention.md) dans des bases de données unique et des pools élastiques.
+SQL Database crée automatiquement des sauvegardes de base de données, qui sont conservées pour la durée de période de rétention configurée, en tirant parti du [stockage géoredondant avec accès en lecture seule (RA-GRS)](../storage/common/storage-redundancy.md) d’Azure pour garantir leur conservation, même en cas d’indisponibilité du centre de données. Ces sauvegardes sont créées automatiquement. Les sauvegardes de base de données sont une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elles protègent vos données des corruptions et des suppressions accidentelles. Si vos règles de sécurité nécessitent que vos sauvegardes soient disponibles pendant une période prolongée (jusqu’à 10 ans), vous pouvez configurer une stratégie de [conservation à long terme](sql-database-long-term-retention.md) dans des bases de données unique et des pools élastiques.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="what-is-a-sql-database-backup"></a>Qu’est-ce qu’une sauvegarde SQL Database ?
 
-SQL Database utilise la technologie SQL Server pour créer des sauvegardes [complètes](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) (chaque semaine), [différentielles](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) (toutes les 12 heures) et du [journal des transactions](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) (toutes les 5 à 10 minutes). Les sauvegardes sont stockées dans des [objets blob de stockage RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) répliqués dans un [centre de données associé](../best-practices-availability-paired-regions.md) afin de proposer une protection contre toute panne du centre de données. Quand vous restaurez une base de données, le service identifie les sauvegardes nécessitant une restauration (complète, différentielle ou journal des transactions).
+SQL Database utilise la technologie SQL Server pour créer des sauvegardes [complètes](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) (chaque semaine), [différentielles](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) (toutes les 12 heures) et du [journal des transactions](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) (toutes les 5 à 10 minutes). Les sauvegardes sont stockées dans des [objets blob de stockage RA-GRS](../storage/common/storage-redundancy.md) répliqués dans un [centre de données associé](../best-practices-availability-paired-regions.md) afin de proposer une protection contre toute panne du centre de données. Quand vous restaurez une base de données, le service identifie les sauvegardes nécessitant une restauration (complète, différentielle ou journal des transactions).
 
 Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 
@@ -55,9 +55,9 @@ Vous pouvez essayer certaines de ces opérations en utilisant les exemples suiva
 
 ### <a name="point-in-time-restore"></a>Restauration dans le temps
 
-SQL Database prend en charge la limite de restauration dans le temps en libre-service en créant automatiquement une sauvegarde complète, des sauvegardes différentielles et des sauvegardes du journal des transactions. Les sauvegardes de base de données complètes sont créées chaque semaine, les sauvegardes différentielles généralement toutes les 12 heures, et les sauvegardes de journal des transactions généralement toutes les 5 à 10 minutes, la fréquence variant selon la taille de calcul et l’activité de la base de données. La première sauvegarde complète est planifiée immédiatement après la création d’une base de données. Elle s’exécute généralement en 30 minutes, mais elle peut nécessiter davantage de temps s’il s’agit d’une base de données de taille considérable. Par exemple, la sauvegarde initiale peut prendre davantage de temps sur une base de données restaurée ou une copie de base de données. Après la première sauvegarde complète, toutes les sauvegardes sont planifiées automatiquement et gérées en mode silencieux en arrière-plan. Le moment exact de toutes les sauvegardes de base de données est déterminé par le service SQL Database en fonction de l’équilibrage de la charge de travail globale du système. Vous ne pouvez pas modifier ou désactiver des travaux de sauvegarde. 
+SQL Database prend en charge la limite de restauration dans le temps en libre-service en créant automatiquement une sauvegarde complète, des sauvegardes différentielles et des sauvegardes du journal des transactions. Les sauvegardes de base de données complètes sont créées chaque semaine, les sauvegardes différentielles généralement toutes les 12 heures, et les sauvegardes de journal des transactions généralement toutes les 5 à 10 minutes, la fréquence variant selon la taille de calcul et l’activité de la base de données. La première sauvegarde complète est planifiée immédiatement après la création d’une base de données. Elle s’exécute généralement en 30 minutes, mais elle peut nécessiter davantage de temps s’il s’agit d’une base de données de taille considérable. Par exemple, la sauvegarde initiale peut prendre davantage de temps sur une base de données restaurée ou une copie de base de données. Après la première sauvegarde complète, toutes les sauvegardes sont planifiées automatiquement et gérées en mode silencieux en arrière-plan. Le moment exact de toutes les sauvegardes de base de données est déterminé par le service SQL Database en fonction de l’équilibrage de la charge de travail globale du système. Vous ne pouvez pas modifier ou désactiver des travaux de sauvegarde.
 
-Les sauvegardes PITR sont géo-redondantes et protégées par la [réplication entre les régions du stockage Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
+Les sauvegardes avec récupération jusqu’à une date et heure sont protégées par un stockage géoredondant. Pour plus d’informations, consultez [Redondance de Stockage Azure](../storage/common/storage-redundancy.md).
 
 Pour plus d'informations, consultez [Limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore)
 
@@ -65,7 +65,7 @@ Pour plus d'informations, consultez [Limite de restauration dans le temps](sql-d
 
 Les bases de données uniques et mises en pool permettent de configurer une conservation à long terme des sauvegardes complètes allant jusqu’à 10 ans dans le service Stockage Blob Azure. Si la stratégie de conservation à long terme est activée, les sauvegardes complètes hebdomadaires sont automatiquement copiées vers un autre conteneur de stockage RA-GRS. Pour répondre aux différentes exigences de conformité, vous pouvez sélectionner plusieurs périodes de rétention pour les sauvegardes hebdomadaires, mensuelles ou annuelles. La consommation du stockage dépend de la fréquence sélectionnée des sauvegardes et des périodes de conservation. Vous pouvez utiliser la [calculatrice de prix LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) pour estimer le coût du stockage de conservation à long terme.
 
-Comme les sauvegardes PITR, les sauvegardes LTR sont géo-redondantes et protégées par la [réplication entre les régions du stockage Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
+Comme les sauvegardes avec récupération jusqu’à une date et heure, les sauvegardes avec conservation à long terme sont protégées par un stockage géoredondant. Pour plus d’informations, consultez [Redondance de Stockage Azure](../storage/common/storage-redundancy.md).
 
 Pour plus d’informations, consultez [Conservation des sauvegardes à long terme](sql-database-long-term-retention.md).
 
@@ -169,13 +169,13 @@ Vous pouvez modifier la période de rétention des sauvegardes PITR par défaut 
 
 Pour changer la période de rétention des sauvegardes PITR dans le portail Microsoft Azure, accédez à l’objet serveur dont vous souhaitez changer la période de rétention dans le portail, puis sélectionnez l’option appropriée, selon l’objet serveur que vous modifiez.
 
-#### <a name="single-database--elastic-poolstabsingle-database"></a>[Base de données unique et pools élastiques](#tab/single-database)
+#### <a name="single-database--elastic-pools"></a>[Base de données unique et pools élastiques](#tab/single-database)
 
 Le changement de la conservation des sauvegardes PITR pour les bases de données Azure SQL uniques est effectué au niveau du serveur. Les changements effectués au niveau du serveur s’appliquent aux bases de données sur le serveur concerné. Pour changer le processus PITR pour un serveur Azure SQL Database à partir du portail Azure, accédez au panneau de vue d’ensemble du serveur, cliquez sur Gérer les sauvegardes dans le menu de navigation, puis cliquez sur Configurer la rétention dans la barre de navigation.
 
 ![Modification PITR sur le Portail Azure](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### <a name="managed-instancetabmanaged-instance"></a>[Managed Instance](#tab/managed-instance)
+#### <a name="managed-instance"></a>[Managed Instance](#tab/managed-instance)
 
 La modification de la conservation des sauvegardes PITR pour une instance managée SQL Database est effectuée au niveau d’une base de données individuelle. Pour changer la conservation des sauvegardes PITR pour une base de données d’instance à partir du portail Azure, accédez au panneau de vue d’ensemble de la base de données concernée, puis cliquez sur Configurer la conservation de sauvegarde dans la barre de navigation.
 

@@ -1,25 +1,25 @@
 ---
 title: Ajouter l’authentification pour sécuriser les appels aux API personnalisées
-description: Guide pratique pour configurer l’authentification afin de sécuriser les appels aux API personnalisées à partir d’Azure Logic Apps
+description: Comment configurer l’authentification afin d’améliorer la sécurité des appels aux API personnalisées à partir d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 2f8b1cc002fe3f340ff6d5329329507316577885
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 110a684cf6ad21c13411d3bc2ada84750744f00e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666888"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191402"
 ---
-# <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Sécuriser les appels à des API personnalisées à partir d’Azure Logic Apps
+# <a name="increase-security-for-calls-to-custom-apis-from-azure-logic-apps"></a>Augmenter la sécurité des appels aux API personnalisées à partir d’Azure Logic Apps
 
-Pour sécuriser les appels à vos API, vous pouvez configurer l’authentification Azure Active Directory (Azure AD) sur le Portail Azure, ce qui vous évite d’avoir à mettre à jour votre code. Vous pouvez également exiger et appliquer une authentification par le biais du code de votre API.
+Pour améliorer la sécurité des appels à vos API, vous pouvez configurer l’authentification Azure AD (Azure Active Directory) via le portail Azure afin d’éviter de devoir mettre à jour votre code. Vous pouvez également exiger et appliquer une authentification par le biais du code de votre API.
 
 ## <a name="authentication-options-for-your-api"></a>Options d’authentification de l’API
 
-Vous pouvez sécuriser les appels à votre API personnalisée en appliquant les méthodes suivantes :
+Vous pouvez améliorer la sécurité des appels à votre API personnalisée en appliquant les méthodes suivantes :
 
 * [Aucune modification de code](#no-code) : protégez votre API avec [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) par le biais du portail Azure, ce qui vous évite de mettre à jour votre code ou de redéployer votre API.
 

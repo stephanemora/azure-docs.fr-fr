@@ -3,13 +3,13 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: cynthn
-ms.openlocfilehash: dc871b29cdafa57d337f9be6cf01e76212f31b67
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: tanmaygore
+ms.openlocfilehash: 215057640dd08d9ea524d8f6b3bed8b03a8b5b8c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177039"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77068426"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migrer des ressources IaaS depuis le modèle de déploiement classique vers Azure Resource Manager
 Tout d’abord, il est important de comprendre la différence entre les opérations de plan de données et les opérations de plan de gestion sur les ressources IaaS (infrastructure as a service).
@@ -117,11 +117,11 @@ Il s’agit d’une étape facultative si vous souhaitez annuler vos modificatio
 > Vous ne pouvez pas effectuer cette opération après le déclenchement de l’opération de validation.     
 >
 
-### <a name="commit"></a>Validation
+### <a name="commit"></a>Commit
 Après avoir terminé la validation, vous pouvez valider la migration. Les ressources n’apparaissent plus dans le modèle de déploiement classique et ne sont disponibles que dans le modèle de déploiement Resource Manager. Les ressources migrées peuvent être gérées uniquement dans le nouveau portail.
 
 > [!NOTE]
-> Il s’agit d’une opération idempotente. En cas d’échec, recommencez l’opération. Si le problème persiste, créez un ticket de support ou publiez un billet avec la balise « ClassicIaaSMigration » sur notre [forum consacré aux machines virtuelles](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows).
+> Il s’agit d’une opération idempotente. En cas d’échec, recommencez l’opération. Si l’échec persiste, créez un ticket de support ou créez un forum Internet sur [Microsoft Q&A](https://docs.microsoft.com/answers/index.html).
 >
 >
 

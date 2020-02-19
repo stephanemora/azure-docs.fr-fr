@@ -1,6 +1,6 @@
 ---
 title: Créer une source de données pour une carte | Microsoft Azure Maps
-description: Dans cet article, vous allez apprendre à créer une source de données et à l’ajouter à une carte à l’aide du SDK web Microsoft Azure Maps.
+description: Dans cet article, vous allez découvrir comment créer une source de données et comment l’ajouter à une carte avec le SDK web Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -9,35 +9,35 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 74b45d3f7fa7d0e13b8767d4a887d8a22cad3a30
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 1675d63fd3a65beda46042f4a78535bb4e066e62
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911730"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190228"
 ---
 # <a name="create-a-data-source"></a>Création d'une source de données
 
-Le SDK web Azure Maps stocke des données dans des sources de données qui optimisent les données pour l’interrogation et l’affichage. Il existe actuellement deux types de sources de données :
+Le SDK web Azure Maps stocke les données dans des sources de données. L’utilisation de sources de données optimise les opérations sur les données pour l’interrogation et le rendu. Il existe actuellement deux types de sources de données :
 
 **Source de données GeoJSON**
 
-Une source de données GeoJSON peut charger et stocker des données localement à l’aide de la classe `DataSource`. Les données GeoJSON peuvent être créées manuellement ou à l’aide des classes d’assistance de l’espace de noms [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). La classe `DataSource` fournit des fonctions pour l’importation de fichiers GeoJSON locaux ou distants. Les fichiers GeoJSON distants doivent être hébergés sur un point de terminaison CORs. La classe `DataSource` fournit des fonctionnalités pour les données de point de clustering. Les données peuvent être facilement ajoutées, supprimées et mises à jour avec la classe `DataSource`.
+Une source de données GeoJSON charge et stocke des données localement en utilisant la classe `DataSource`. Les données GeoJSON peuvent être créées manuellement ou à l’aide des classes d’assistance de l’espace de noms [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data). La classe `DataSource` fournit des fonctions pour l’importation de fichiers GeoJSON locaux ou distants. Les fichiers GeoJSON distants doivent être hébergés sur un point de terminaison CORs. La classe `DataSource` fournit des fonctionnalités pour les données de point de clustering. Les données peuvent aussi être facilement ajoutées, supprimées et mises à jour avec la classe `DataSource`.
 
 
 > [!TIP]
-> Si vous souhaitez remplacer toutes les données d’un `DataSource`, si vous effectuez des appels aux fonctions `clear` puis `add`, la carte tentera de se réafficher deux fois, ce qui peut entraîner un certain délai. Utilisez plutôt la fonction `setShapes` qui supprimera et remplacera toutes les données de la source de données et déclenchera uniquement un nouveau réaffichage de la carte.
+> Supposons que vous voulez remplacer toutes les données d’une `DataSource`. Si vous faites des appels aux fonctions `clear` puis `add`, la carte va se réafficher deux fois, ce qui peut entraîner un certain délai. Utilisez à la place la fonction `setShapes`, qui va supprimer et remplacer toutes les données de la source de données, et déclencher un seul réaffichage de la carte.
 
 **Source de mosaïque vectorielle**
 
-Une source de mosaïque vectorielle décrit comment accéder à un calque de mosaïques vectorielles et peut être créée à l’aide de la classe [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource). Azure Maps s’aligne sur la [spécification Mapbox Vector Tile](https://github.com/mapbox/vector-tile-spec), qui est une norme ouverte. Les calques de mosaïques vectorielles sont similaires aux calques de mosaïques. Toutefois, au lieu que chaque mosaïque soit une image raster, il s’agit d’un fichier compressé (format PBF) qui contient des données de carte vectorielle et un ou plusieurs calques qui peuvent être affichés et stylisés sur le client en fonction du style de chaque calque. Les données d’une mosaïque vectorielle contiennent des caractéristiques géographiques sous forme de points, de lignes et de polygones. Les calques de mosaïques vectorielles offrent plusieurs avantages par rapport aux calques de mosaïques raster.
+Une source de vignettes vectorielles décrit comment accéder à un calque de vignettes vectorielles. Utilisez la classe [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) pour instancier une source de vignettes vectorielles. Les calques de vignettes vectorielles sont similaires aux calques de vignettes, mais ils ne sont pas identiques. Un calque de vignettes est une image raster. Les calques de vignettes vectorielles sont un fichier compressé au format PBF. Ce fichier compressé contient les données d’une carte vectorielle et un ou plusieurs calques. Le fichier peut être rendu et stylisé sur le client, en fonction du style de chaque calque. Les données d’une mosaïque vectorielle contiennent des caractéristiques géographiques sous forme de points, de lignes et de polygones. Il y a plusieurs avantages à utiliser les calques de vignettes vectorielles au lieu des calques de vignettes raster :
 
- - La taille de fichier d’une mosaïque vectorielle est généralement nettement inférieure à celle d’une mosaïque raster équivalente. Par conséquent, moins de bande passante est utilisée, ce qui signifie une latence plus faible et une carte plus rapide. Cela crée une meilleure expérience utilisateur.
- - Les mosaïques vectorielles étant affichées sur le client, elles peuvent s’adapter à la résolution de l’appareil sur lequel elles sont affichées. Les cartes affichées sont ainsi bien mieux définies, avec des étiquettes parfaitement claires. 
- - La modification du style des données dans les cartes vectorielles ne nécessite pas le retéléchargement des données, car le nouveau style peut être appliqué sur le client. En revanche, la modification du style d’un calque de mosaïques raster exige généralement le chargement à partir du serveur de mosaïques auxquelles le nouveau style est appliqué.
- - Les données étant remises sous forme vectorielle, moins de traitement côté serveur est nécessaire pour préparer les données, ce qui signifie que les données les plus récentes peuvent être affichées plus rapidement.
+ - La taille de fichier d’une mosaïque vectorielle est généralement nettement inférieure à celle d’une mosaïque raster équivalente. Ainsi, la bande passante utilisée est inférieure. Cela signifie une latence plus faible, une carte plus rapide et une meilleure expérience utilisateur.
+ - Les vignettes vectorielles étant rendues sur le client, elles peuvent s’adapter à la résolution de l’appareil où elles sont affichées. Par conséquent, les cartes rendues apparaissent mieux définies, avec des étiquettes bien nettes.
+ - La modification du style des données dans les cartes vectorielles ne nécessite pas le retéléchargement des données, car le nouveau style peut être appliqué sur le client. En revanche, la modification du style d’un calque de vignettes raster nécessite généralement le chargement de vignettes à partir du serveur, puis l’application du nouveau style.
+ - Les données étant fournies sous une forme vectorielle, moins de traitement côté serveur est nécessaire pour préparer les données. Ainsi, les données plus récentes peuvent être rendues disponibles plus rapidement.
 
-Tous les calques qui utilisent une source vectorielle doivent spécifier une valeur `sourceLayer`. 
+Tous les calques qui utilisent une source vectorielle doivent spécifier une valeur `sourceLayer`.
 
 Une fois créées, les sources de données peuvent être ajoutées à la carte par le biais de la propriété `map.sources`, qui est un [SourceManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager). Le code suivant montre comment créer un `DataSource` et l’ajouter à la carte.
 
@@ -47,17 +47,19 @@ var dataSource = new atlas.source.DataSource();
 map.sources.add(dataSource);
 ```
 
+Azure Maps est conforme à la [spécification Mapbox Vector Tile](https://github.com/mapbox/vector-tile-spec), qui est un standard ouvert.
+
 ## <a name="connecting-a-data-source-to-a-layer"></a>Connexion d’une source de données à un calque
 
 Les données sont affichées sur la carte à l’aide de calques de rendu. Une source de données unique peut être référencée par un ou plusieurs calques de rendu. Les calques de rendu suivants nécessitent une source de données :
 
 - [Calque de bulles](map-add-bubble-layer.md) : affiche les données de point sous forme de cercles à l’échelle sur la carte.
-- [Calque de symboles](map-add-pin.md) : affiche les données de point sous forme d’icônes et/ou de texte.
+- [Calque de symboles](map-add-pin.md) : affiche les données de point sous forme d’icônes ou de texte.
 - [Calque de carte thermique](map-add-heat-map-layer.md) : affiche les données de point sous forme de carte thermique de densité.
-- [Calque de lignes](map-add-shape.md) : peut être utilisé pour afficher les lignes et/ou le contour des polygones. 
+- [Calque de lignes](map-add-shape.md) : pour une ligne ou le contour de polygones. 
 - [Calque de polygones](map-add-shape.md) : remplit la zone d’un polygone avec un motif d’image ou une couleur unie.
 
-Le code suivant montre comment créer une source de données, l’ajouter à la carte et la connecter à un calque de bulles, puis y importer des données de point GeoJSON à partir d’un emplacement distant. 
+Le code suivant montre comment créer une source de données, l’ajouter à la carte et la connecter à un calque de bulles. Ensuite, il importe dans la source de données des données de points GeoJSON à partir d’un emplacement distant. 
 
 ```javascript
 //Create a data source and add it to the map.
@@ -71,20 +73,20 @@ map.layers.add(new atlas.layer.BubbleLayer(datasource));
 datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson');
 ```
 
-Il existe des calques de rendu supplémentaires qui ne se connectent pas à ces sources de données, mais chargent les données qu’elles affichent directement. 
+Il existe des calques de rendu supplémentaires qui ne se connectent pas à ces sources de données, mais qui chargent directement les données pour les rendre. 
 
 - [Calque d’image](map-add-image-layer.md) : affiche une image unique par-dessus la carte et lie ses angles à un ensemble de coordonnées spécifiées.
 - [Calque de mosaïque](map-add-tile-layer.md) : superpose un calque de mosaïques raster par-dessus la carte.
 
 ## <a name="one-data-source-with-multiple-layers"></a>Une source de données avec plusieurs calques
 
-Plusieurs calques peuvent être connectés à une source de données unique. Cela peut sembler étrange, mais il existe de nombreux scénarios où cela peut s’avérer utile. Prenez par exemple le scénario de création d’une expérience de dessin d’un polygone. Quand un utilisateur est autorisé à dessiner un polygone, nous devons afficher la zone de remplissage du polygone à mesure que l’utilisateur ajoute des points sur la carte. L’ajout d’une ligne stylisée qui dresse le contour du polygone facilite la visualisation des bords du polygone à mesure qu’il est dessiné. Pour finir, l’ajout d’une poignée, comme un repère ou un marqueur, au-dessus de chaque position du polygone facilite la modification de chaque position individuelle. Voici une image illustrant ce scénario.
+Plusieurs calques peuvent être connectés à une source de données unique. Cette option est utile dans de nombreux scénarios. Par exemple, considérez le scénario où un utilisateur dessine un polygone. Nous devons afficher et remplir la surface du polygone quand l’utilisateur ajoute des points à la carte. L’ajout d’une ligne stylisée pour le contour du polygone facilite la visualisation des bords du polygone à mesure que l’utilisateur le dessine. Pour modifier facilement une position individuelle dans le polygone, nous pouvons ajouter une poignée, comme une épingle ou un marqueur, au-dessus de chaque position.
 
 ![Carte montrant plusieurs calques qui affichent des données d’une source de données unique](media/create-data-source-web-sdk/multiple-layers-one-datasource.png)
 
-Pour accomplir ce scénario dans la plupart des plateformes de mappage, vous auriez besoin de créer un objet polygone, un objet ligne et un repère pour chaque position du polygone. Quand le polygone est modifié, il vous faudrait mettre à jour manuellement la ligne et les repères, ce qui peut rapidement devenir complexe.
+Dans la plupart des plateformes de cartographie, vous avez besoin d’un objet polygone, d’un objet ligne et d’une épingle pour chaque position dans le polygone. Quand le polygone est modifié, vous devez alors mettre à jour manuellement la ligne et les épingles, ce qui peut devenir rapidement complexe.
 
-Avec Azure Maps, il vous suffit de disposer d’un seul polygone dans une source de données, comme illustré dans le code ci-dessous.
+Avec Azure Maps, tout ce dont vous avez besoin est un seul polygone dans une source de données, comme le montre le code ci-dessous.
 
 ```javascript
 //Create a data source and add it to the map.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: e061d503254ba7aa7735a97a060fc63f96b3fb61
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 287f881fb17dd84357f540ee562e21c66c11ab95
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196665"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114363"
 ---
 # <a name="what-is-ip-address-1686312916"></a>Quelle est l’adresse IP 168.63.129.16 ?
 
@@ -34,10 +34,11 @@ L’adresse IP 168.63.129.16 est une adresse IP publique virtuelle qui est utili
 
 ## <a name="scope-of-ip-address-1686312916"></a>Portée de l’adresse IP 168.63.129.16
 
-L’adresse IP publique 168.63.129.16 est utilisée dans toutes les régions et tous les clouds nationaux. Cette adresse IP publique spéciale ne change pas car elle appartient à Microsoft. Elle est autorisée par la règle du groupe de sécurité réseau par défaut. Nous vous conseillons d’autoriser cette adresse IP dans toutes les stratégies de pare-feu local, en entrée et en sortie. La communication est sécurisée entre cette adresse IP spéciale et les ressources car seule la plateforme Azure interne peut envoyer un message à partir de cette adresse. Si cette adresse est bloquée, un comportement inattendu peut se produire dans différentes situations.
-Les ports suivants doivent au moins être ouverts pour permettre la communication avec WireServer : 80, 443 et 32526.
+L’adresse IP publique 168.63.129.16 est utilisée dans toutes les régions et tous les clouds nationaux. Cette adresse IP publique spéciale ne change pas car elle appartient à Microsoft. Nous vous conseillons d’autoriser cette adresse IP dans toutes les stratégies de pare-feu local (dans la machine virtuelle) dans le sens sortant. La communication est sécurisée entre cette adresse IP spéciale et les ressources car seule la plateforme Azure interne peut envoyer un message à partir de cette adresse. Si cette adresse est bloquée, un comportement inattendu peut se produire dans différentes situations. L’adresse IP 168.63.129.16 est une [adresse IP virtuelle du nœud hôte](../virtual-network/security-overview.md#azure-platform-considerations). Les routes définies par l’utilisateur n’affectent donc pas cette adresse.
 
-Toutes les [sondes d’intégrité Azure Load Balancer](../load-balancer/load-balancer-custom-probe-overview.md) ont pour source cette adresse IP. Si vous bloquez cette adresse IP, l’exécution de vos sondes échouera.
+- L’agent de machine virtuelle a besoin d’une communication sortante avec WireServer (168.63.129.16) sur les ports 80, 443 et 32526. Ils doivent être ouverts dans le pare-feu local sur la machine virtuelle. Les groupes de sécurité réseau configurés n’affectent pas la communication sur ces ports avec l’adresse 168.63.129.16.
+- La machine virtuelle peut obtenir des services DNS auprès de l’adresse 168.63.129.16. Si cette situation n’est pas souhaitable, ce trafic peut être bloqué dans le pare-feu local sur la machine virtuelle. Par défaut, les groupes de sécurité réseau configurés n’affectent pas la communication DNS, sauf si elle est spécifiquement ciblée par le biais de la balise de service [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags).
+- Quand la machine virtuelle fait partie d’un pool de back-ends d’équilibreur de charge, la communication avec la [sonde d’intégrité](../load-balancer/load-balancer-custom-probe-overview.md) doit être autorisée à partir de l’adresse 168.63.129.16. La configuration du groupe de sécurité réseau par défaut inclut une règle qui autorise cette communication. Cette règle exploite la balise de service [AzureLoadBalancer](../virtual-network/service-tags-overview.md#available-service-tags). Si vous le souhaitez, vous pouvez bloquer ce trafic en configurant le groupe de sécurité réseau, mais cela entraîne l’échec des sondes.
 
 Dans un scénario de réseau non virtuel (Classic), la sonde d’intégrité provient d'une adresse IP privée et 168.63.129.16 n’est pas utilisée.
 

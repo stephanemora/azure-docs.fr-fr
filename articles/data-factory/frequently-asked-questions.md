@@ -8,13 +8,13 @@ ms.author: daperlov
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 8238f2ea8395fc53044703db619d768918cb1834
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 02/10/2020
+ms.openlocfilehash: 2e50d226282536fa4e8c044d2ee3d91df4cfd1ee
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644696"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131471"
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 Cet article fournit des réponses aux questions fréquemment posées sur Azure Data Factory.  
@@ -194,6 +194,9 @@ Utilisez l’activité de copie pour indexer les données des autres connecteurs
 ### <a name="is-the-self-hosted-integration-runtime-available-for-data-flows"></a>Le runtime d’intégration auto-hébergé est-il disponible pour les flux de données ?
 
 Le runtime d’intégration auto-hébergé est une construction de pipeline ADF que vous pouvez utiliser avec l’activité de copie pour acquérir ou déplacer des données vers et depuis des sources de données et des récepteurs basés sur des machines virtuelles ou locaux. Effectuez d’abord une indexation des données avec une copie, puis le transfert de données pour la transformation, puis une copie ultérieure si vous devez replacer ces données transformées dans le magasin local.
+
+### <a name="does-the-data-flow-compute-engine-serve-multiple-tenants"></a>Le moteur de calcul du flux de données gère-t-il plusieurs locataires ?
+Les clusters ne sont jamais partagés. Nous garantissons l’isolement de chaque travail exécuté dans des exécutions de production. Dans le cas d’un scénario de débogage, une personne obtient un cluster, et tous les débogages lancés par cet utilisateur sont dirigés vers ce cluster.
 
 ## <a name="wrangling-data-flows"></a>Flux de wrangling data
 

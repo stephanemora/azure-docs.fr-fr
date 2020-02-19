@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 719686cb123355359391c5cb1e517ff9cfd88371
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9909c46015fffb3bea3eef094599312e28b935c5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231740"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046195"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrer la passerelle Azure Application Gateway et le pare-feu d’applications web de v1 à v2
 
-[La passerelle Azure Application Gateway et le pare-feu d’applications web (WAF) v2](application-gateway-autoscaling-zone-redundant.md) sont maintenant disponibles et offrent des fonctionnalités supplémentaires telles que la mise à l’échelle automatique et la redondance de zone de disponibilité. Toutefois, les passerelles v1 existantes ne sont pas automatiquement mises à niveau vers la version 2. Si vous souhaitez migrer de v1 à v2, suivez les étapes décrites dans cet article.
+[La passerelle Azure Application Gateway et le pare-feu d’applications web (WAF) v2](application-gateway-autoscaling-zone-redundant.md) sont maintenant disponibles et offrent des fonctionnalités supplémentaires telles que la mise à l’échelle automatique et la redondance de zone de disponibilité. Toutefois, les passerelles v1 existantes ne sont pas automatiquement mises à niveau vers la v2. Si vous souhaitez migrer de v1 à v2, suivez les étapes décrites dans cet article.
 
 Il existe deux phases dans une migration :
 
@@ -58,7 +58,7 @@ Pour déterminer si vous avez installé les modules Azure Az, exécutez `Get-In
 
 Pour pouvoir utiliser cette option, les modules Azure Az ne doivent pas être installés sur votre ordinateur. S’ils sont installés, la commande suivante affiche une erreur. Vous pouvez désinstaller les modules Azure Az ou utiliser l’autre option pour télécharger le script manuellement et l’exécuter.
   
-Exécutez le script avec la commande suivante :
+Exécutez le script avec la commande suivante :
 
 `Install-Script -Name AzureAppGWMigration`
 
@@ -102,7 +102,7 @@ Pour exécuter le script :
    * **appgwName : [chaîne] : Facultatif**. Il s’agit d’une chaîne que vous spécifiez comme nom de la nouvelle passerelle Standard_v2 ou WAF_v2. Si ce paramètre n’est pas fourni, le nom de votre passerelle v1 existante est utilisé avec le suffixe *_v2* ajouté.
    * **sslCertificates : [PSApplicationGatewaySslCertificate] : Facultatif**.  Une liste séparée par des virgules d’objets PSApplicationGatewaySslCertificate que vous créez pour représenter les certificats SSL à partir de votre passerelle v1 doit être chargée sur la nouvelle passerelle v2. Pour chacun de vos certificats SSL configurés pour votre passerelle Standard v1 ou WAF v1, vous pouvez créer un nouvel objet PSApplicationGatewaySslCertificate via la commande `New-AzApplicationGatewaySslCertificate` illustrée ici. Vous avez besoin du mot de passe et du chemin d’accès à votre fichier de certificat SSL.
 
-       Ce paramètre n’est facultatif que si vous n’avez pas d’écouteurs HTTPS configurés pour votre passerelle v1 ni votre pare-feu d’applications web. Si vous avez au moins une configuration d’écouteur HTTPS, vous devez spécifier ce paramètre.
+     Ce paramètre n’est facultatif que si vous n’avez pas d’écouteurs HTTPS configurés pour votre passerelle v1 ni votre pare-feu d’applications web. Si vous avez au moins une configuration d’écouteur HTTPS, vous devez spécifier ce paramètre.
 
       ```azurepowershell  
       $password = ConvertTo-SecureString <cert-password> -AsPlainText -Force
@@ -114,12 +114,17 @@ Pour exécuter le script :
         -Password $password
       ```
 
-      Vous pouvez transmettre `$mySslCert1, $mySslCert2` (séparés par des virgules) dans l’exemple précédent en tant que valeurs pour ce paramètre dans le script.
-   * **trustedRootCertificates : [PSApplicationGatewayTrustedRootCertificate] : Facultatif**. Liste séparée par des virgules d’objets PSApplicationGatewayTrustedRootCertificate que vous créez pour représenter les [certificats racines approuvés](ssl-overview.md) pour l’authentification de vos instances back-end à partir de votre passerelle v2.  
+     Vous pouvez transmettre `$mySslCert1, $mySslCert2` (séparés par des virgules) dans l’exemple précédent en tant que valeurs pour ce paramètre dans le script.
+   * **trustedRootCertificates : [PSApplicationGatewayTrustedRootCertificate] : Facultatif**. Liste séparée par des virgules d’objets PSApplicationGatewayTrustedRootCertificate que vous créez pour représenter les [certificats racines approuvés](ssl-overview.md) pour l’authentification de vos instances back-end à partir de votre passerelle v2.
+   
+      ```azurepowershell
+      $certFilePath = ".\rootCA.cer"
+      $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
+      ```
 
       Pour créer une liste d’objets PSApplicationGatewayTrustedRootCertificate, consultez [New-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
    * **privateIpAddress : [chaîne] : Facultatif**. Adresse IP privée spécifique que vous souhaitez associer à votre nouvelle passerelle v2.  Elle doit provenir du même réseau virtuel que vous allouez pour votre nouvelle passerelle v2. Si elle n’est pas spécifiée, le script alloue une adresse IP privée pour votre passerelle v2.
-    * **publicIpResourceId : [chaîne] : Facultatif**. L’ID de ressource d’une ressource d’adresse IP publique (référence SKU standard) dans votre abonnement que vous souhaitez allouer à la nouvelle passerelle v2. S’il n’est pas spécifié, le script alloue une nouvelle adresse IP publique dans le même groupe de ressources. Ce nom correspond au nom de la passerelle v2 avec *-IP* ajouté.
+   * **publicIpResourceId : [chaîne] : Facultatif**. L’ID de ressource de la ressource d’IP publique (référence SKU standard) existante dans votre abonnement que vous souhaitez allouer à la nouvelle passerelle v2. S’il n’est pas spécifié, le script alloue une nouvelle adresse IP publique dans le même groupe de ressources. Ce nom correspond au nom de la passerelle v2 avec *-IP* ajouté.
    * **validateMigration : [commutateur] : Facultatif**. Utilisez ce paramètre si vous souhaitez que le script effectue des validations de comparaison de configuration de base après la création de la passerelle v2 et la copie de la configuration. Par défaut, aucune validation n’est effectuée.
    * **enableAutoScale : [commutateur] : Facultatif**. Utilisez ce paramètre si vous souhaitez que le script active la mise à l’échelle automatique sur la nouvelle passerelle v2 après sa création. Par défaut, la mise à l’échelle automatique est désactivée. Vous pouvez toujours l’activer manuellement par la suite sur la passerelle v2 nouvellement créée.
 
@@ -132,10 +137,10 @@ Pour exécuter le script :
       -resourceId /subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
       -subnetAddressRange 10.0.0.0/24 `
       -appgwname "MynewV2gw" `
-      -sslCertificates $Certs `
+      -sslCertificates $mySslCert1,$mySslCert2 `
       -trustedRootCertificates $trustedCert `
       -privateIpAddress "10.0.0.1" `
-      -publicIpResourceId "MyPublicIP" `
+      -publicIpResourceId "/subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/MyPublicIP" `
       -validateMigration -enableAutoScale
    ```
 

@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: 752c9dfd1ae67397713cdffce9ba530ad6a2c159
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: b2be84625035bb368784f3f423d63121c29255ad
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930010"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121419"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Distribuer du contenu issu du Stockage Azure dans App Service sur Linux
 
@@ -34,6 +34,7 @@ Ce guide montre comment joindre Stockage Azure à App Service sur Linux. Les ava
 - Stockage Azure avec App Service prend en charge le montage de **conteneurs Azure Files** (lecture/écriture) et de **conteneurs d’objets blob Azure** (lecture seule)
 - Stockage Azure avec App Service **ne prend pas en charge** l’utilisation de la configuration **Storage Firewall** en raison des restrictions liées à l’infrastructure.
 - Stockage Azure avec App Service vous permet de spécifier **jusqu’à cinq** points de montage par application.
+- Le stockage Azure monté sur une application n’est pas accessible via des points de terminaison FTP/FTPS App Service. Utilisez [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/).
 - Stockage Azure **n’est pas inclus** avec votre application web et est facturé séparément. Apprenez-en davantage sur la [tarification Stockage Azure](https://azure.microsoft.com/pricing/details/storage).
 
 > [!WARNING]

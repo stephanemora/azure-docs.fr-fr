@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/24/2020
-ms.openlocfilehash: 3877632565c1ca2c9a16681e03f8931a94af0599
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 01/31/2020
+ms.openlocfilehash: ea7c695ddb92d441018503839b974c1f4bb33473
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765761"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047842"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Questions fréquentes sur Azure Monitor pour machines virtuelles (version en disponibilité générale)
 
@@ -37,7 +37,9 @@ Auparavant, nous avons activé la solution ServiceMap sur votre espace de travai
 
 
 ## <a name="how-do-i-upgrade"></a>Comment effectuer la mise à niveau ?
-Chaque machine virtuelle nécessitant une mise à niveau est identifiée dans l’onglet **Prise en main** dans Azure Monitor pour machines virtuelles du portail Microsoft Azure. Vous pouvez mettre à niveau une seule machine virtuelle ou en sélectionner plusieurs pour les mettre à niveau ensemble. Utilisez la commande suivante pour effectuer la mise à niveau à l’aide de PowerShell :
+Lorsqu’un espace de travail Log Analytics est mis à niveau vers la dernière version d’Azure Monitor sur des machines virtuelles, il met à niveau l’agent de dépendances sur chacune des machines virtuelles attachées à cet espace de travail. Chaque machine virtuelle nécessitant une mise à niveau est identifiée dans l’onglet **Prise en main** dans Azure Monitor pour machines virtuelles du portail Microsoft Azure. Lorsque vous choisissez de mettre à niveau une machine virtuelle, cela met à niveau l’espace de travail pour cette machine virtuelle, ainsi que toutes les autres machines virtuelles attachées à cet espace de travail. Vous pouvez sélectionner une machine virtuelle unique ou plusieurs machines virtuelles, groupes de ressources ou abonnements. 
+
+Utilisez la commande suivante pour mettre à niveau un espace de travail à l’aide de PowerShell :
 
 ```PowerShell
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True

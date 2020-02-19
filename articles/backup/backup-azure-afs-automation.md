@@ -3,12 +3,12 @@ title: Sauvegarder Azure Files avec PowerShell
 description: Dans cet article, découvrez comment sauvegarder Azure Files à l’aide du service Sauvegarde Azure et de PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 5147ab893d4ebad395d7dbd8cc25872177ec10a2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: f85451e0da6458de34aea936836b46781f4c4a21
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773102"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120521"
 ---
 # <a name="back-up-azure-files-with-powershell"></a>Sauvegarder Azure Files avec PowerShell
 
@@ -44,6 +44,13 @@ Passez en revue la [référence sur la cmdlet](/powershell/module/az.recoveryser
 Configurez PowerShell comme suit :
 
 1. [Téléchargez la dernière version d’Az PowerShell](/powershell/azure/install-az-ps). La version 1.0.0 est la version minimale requise.
+
+> [!WARNING]
+> La version minimale de PowerShell nécessaire pour la préversion était « Az 1.0.0 ». En raison des modifications à venir pour la disponibilité générale, la version minimale nécessaire de PowerShell sera « Az.RecoveryServices 2.6.0 ». Il est très important de mettre à niveau toutes les versions existantes de PowerShell vers cette version. Sinon, les scripts existants cesseront de fonctionner correctement après la version en disponibilité générale. Installez la version minimale avec les commandes PowerShell suivantes
+
+```powershell
+Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+```
 
 2. Recherchez les cmdlets PowerShell Sauvegarde Azure avec cette commande :
 
@@ -241,19 +248,32 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
+## <a name="important-notice---backup-item-identification-for-afs-backups"></a>Avis important : Identification des éléments de sauvegarde pour les sauvegardes AFS
+
+Cette section décrit un changement important dans la sauvegarde AFS en préparation de la version en disponibilité générale.
+
+Lors de l’activation de la sauvegarde pour AFS, l’utilisateur fournit le nom convivial du partage de fichiers du client comme nom d’entité ; un élément de sauvegarde est alors créé. Le « nom » de l’élément de sauvegarde est un identificateur unique créé par le service Sauvegarde Azure. En général, l’identificateur implique un nom convivial. Cependant, pour gérer le scénario important des suppressions réversibles, où un partage de fichiers peut être supprimé et un autre partage de fichiers créé avec le même nom, l’identité unique du partage de fichiers Azure est désormais un ID au lieu du nom convivial du client. Pour connaître l’identité/le nom unique de chaque élément, exécutez simplement la commande ```Get-AzRecoveryServicesBackupItem``` avec les filtres appropriés pour backupManagementType et WorkloadType afin d’obtenir tous les éléments pertinents, puis regardez le champ du nom dans l’objet/la réponse PowerShell retournée. Il est toujours recommandé de lister les éléments, puis de récupérer leur nom unique dans le champ « name » de la réponse. Utilisez cette valeur pour filtrer les éléments avec le paramètre « Name ». Sinon, utilisez le paramètre FriendlyName pour récupérer l’élément avec son nom/identificateur convivial du client.
+
+> [!WARNING]
+> Vérifiez que la version de PowerShell est mise à niveau vers la version minimale pour « Az.RecoveryServices 2.6.0 » pour les sauvegardes AFS. Avec cette version, le filtre « friendlyName » est disponible pour la commande ```Get-AzRecoveryServicesBackupItem```. Passez le nom du partage de fichiers Azure au paramètre friendlyName. Si vous passez le nom du partage de fichiers Azure au paramètre « Name », cette version génère un avertissement indiquant de passer ce nom convivial au paramètre du nom convivial. Si vous n’installez pas cette version minimale, vous risquez de provoquer l’échec des scripts existants. Installez la version minimale de PowerShell avec la commande suivante.
+
+```powershell
+Install-module -Name Az.RecoveryServices -RequiredVersion 2.6.0
+```
+
 ## <a name="trigger-an-on-demand-backup"></a>Déclencher une sauvegarde à la demande
 
 Utilisez [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) pour exécuter une sauvegarde à la demande pour un partage de fichiers Azure protégé.
 
-1. Récupérez le compte de stockage et le partage de fichiers d’un conteneur dans le coffre qui contient vos données de sauvegarde avec [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
-2. Pour démarrer un travail de sauvegarde, vous obtenez des informations sur la machine virtuelle avec [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
+1. Récupérez le compte de stockage auprès du conteneur dans le coffre qui contient vos données de sauvegarde avec [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
+2. Pour démarrer un travail de sauvegarde, vous obtenez des informations sur le partage de fichiers Azure avec [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
 3. Exécutez une sauvegarde à la demande avec [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem).
 
 Exécutez la sauvegarde à la demande comme suit :
 
 ```powershell
 $afsContainer = Get-AzRecoveryServicesBackupContainer -FriendlyName "testStorageAcct" -ContainerType AzureStorage
-$afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -WorkloadType "AzureFiles" -Name "testAzureFS"
+$afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -WorkloadType "AzureFiles" -FriendlyName "testAzureFS"
 $job =  Backup-AzRecoveryServicesBackupItem -Item $afsBkpItem
 ```
 
@@ -272,6 +292,9 @@ Lors des sauvegardes, nous utilisons les captures instantanées de partages de f
 Vous pouvez utiliser des sauvegardes à la demande pour conserver vos captures instantanées pendant 10 ans. Vous pouvez utiliser des planificateurs pour exécuter des scripts PowerShell à la demande avec la conservation choisie, puis pour prendre des captures instantanées à intervalles réguliers chaque semaine, mois ou année. Quand vous prenez régulièrement des captures instantanées, reportez-vous aux [limitations des sauvegardes à la demande](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) à l’aide de Sauvegarde Azure.
 
 Si vous recherchez des exemples de scripts, vous pouvez vous référer à l’exemple de script sur GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>) qui utilise un runbook Azure Automation permettant de planifier des sauvegardes régulières et de les conserver jusqu’à 10 ans.
+
+> [!WARNING]
+> Vérifiez que la version de PowerShell est mise à niveau vers la version minimale pour « Az.RecoveryServices 2.6.0 » pour les sauvegardes AFS dans vos runbooks Automation. Vous devrez remplacer l’ancien module « AzureRM » par le module « Az ». Avec cette version, le filtre « friendlyName » est disponible pour la commande ```Get-AzRecoveryServicesBackupItem```. Passez le nom du partage de fichiers Azure au paramètre friendlyName. Si vous passez le nom du partage de fichiers Azure au paramètre « Name », cette version génère un avertissement indiquant de passer ce nom convivial au paramètre du nom convivial.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

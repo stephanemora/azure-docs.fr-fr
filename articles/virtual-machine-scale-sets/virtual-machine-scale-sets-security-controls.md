@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 51ddd4f3775ae8e41c0d0bdd4ed8a3a2a59b7db4
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 4007f4adeee065fe32492d3bd16f3a06d24e7d96
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271774"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190604"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Contrôles de sécurité pour Azure Virtual Machine Scale Sets
 
@@ -51,7 +51,7 @@ Cet article décrit les contrôles de sécurité intégrés dans Azure Virtual M
 | Le chiffrement en transit (tel que le chiffrement ExpressRoute, le chiffrement dans un réseau virtuel, et le chiffrement de réseau virtuel à réseau virtuel)| Oui | Le service Machines virtuelles Azure prend en charge [ExpressRoute](/azure/expressroute) et le chiffrement de réseau virtuel. Consultez [Chiffrement en transit sur des machines virtuelles](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Chiffrement côté serveur au repos : clés gérées par le client (BYOK) | Oui | Les clés gérées par le client sont un scénario de chiffrement Azure pris en charge ; consultez [Azure Disk Encryption pour les groupes de machines virtuelles identiques](disk-encryption-overview.md)|
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A | |
-| Appels d’API chiffrés| Oui | Par le biais de HTTPS et de SSL. |
+| Appels d’API chiffrés| Oui | Par le biais de HTTPS et de TLS. |
 
 ## <a name="configuration-management"></a>Gestion des configurations
 

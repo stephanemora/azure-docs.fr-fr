@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,19 +19,21 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: fb98be9975de38ec9f65e723e078a1db8755b4ed
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fc1eb1836badc3ced688750bbc7c7a164773d022
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792551"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152667"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Syntaxe de requête simple dans la recherche cognitive Azure
 
 La recherche cognitive Azure implémente deux langages de requête basés sur Lucene : L’[analyseur de requêtes simples](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) et l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Dans la recherche cognitive Azure, la syntaxe des requêtes simples exclut les options fuzzy/slop.  
 
-> [!NOTE]  
->  La recherche cognitive Azure fournit une autre [Syntaxe des requêtes Lucene](query-lucene-syntax.md) pour les requêtes plus complexes. Pour plus d’informations sur l’architecture de l’analyse des requêtes et les avantages de chacune des syntaxes, consultez [Fonctionnement de la recherche en texte intégral dans la recherche cognitive Azure](search-lucene-query-architecture.md).
+> [!NOTE]
+> La syntaxe de requête simple est utilisée pour les expressions de requête passées dans le paramètre **search** de l’API [Recherche dans des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) et ne doit pas être confondue avec la [syntaxe OData](query-odata-filter-orderby-syntax.md) utilisée pour le paramètre [$Filter](search-filters.md) de cette API. Ces différentes syntaxes ont leurs propres règles pour la construction de requêtes, l’échappement de chaînes, etc.
+>
+> Recherche cognitive Azure fournit une autre [syntaxe des requêtes Lucene](query-lucene-syntax.md) pour les requêtes plus complexes dans le paramètre **search**. Pour plus d’informations sur l’architecture de l’analyse des requêtes et les avantages de chacune des syntaxes, consultez [Fonctionnement de la recherche en texte intégral dans la recherche cognitive Azure](search-lucene-query-architecture.md).
 
 ## <a name="how-to-invoke-simple-parsing"></a>Comment appeler l’analyse simple
 

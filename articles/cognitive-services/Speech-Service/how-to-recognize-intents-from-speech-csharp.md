@@ -3,19 +3,19 @@ title: Guide pratique pour reconnaître des intentions vocales avec le SDK Speec
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide, vous apprenez à reconnaître des intentions vocales avec le SDK Speech pour C#.
 services: cognitive-services
-author: wolfma61
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/28/2019
-ms.author: wolfma
-ms.openlocfilehash: 554a7cbd79dbb6e1306686600474f727c99defed
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 02/10/2020
+ms.author: dapine
+ms.openlocfilehash: 5d3c77c307739f9014010a592aa496a1cc83b333
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805890"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120045"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Guide pratique pour reconnaître des intentions vocales avec le SDK Speech pour C#
 
@@ -35,7 +35,7 @@ Dans ce guide, vous utilisez le SDK Speech pour développer une application cons
 > - Utiliser la reconnaissance vocale à partir d’un fichier
 > - Utiliser la reconnaissance continue pilotée par événements, asynchrone
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Veillez à disposer des éléments suivants avant de commencer à suivre ce guide :
 
@@ -91,12 +91,15 @@ Ensuite, vous ajoutez du code au projet.
 
    [!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-1. À l’intérieur de la méthode `Main()` fournie, ajoutez le code suivant :
+1. Remplacez la méthode `Main()` fournie par l’équivalent asynchrone suivant :
 
    ```csharp
-   RecognizeIntentAsync().Wait();
-   Console.WriteLine("Please press Enter to continue.");
-   Console.ReadLine();
+   public static async Task Main()
+   {
+       await RecognizeIntentAsync();
+       Console.WriteLine("Please press Enter to continue.");
+       Console.ReadLine();
+   }
    ```
 
 1. Créez une méthode asynchrone vide `RecognizeIntentAsync()`, comme indiqué ici :
@@ -113,7 +116,7 @@ Ensuite, vous ajoutez du code au projet.
 
 1. Remplacez les espaces réservés de cette méthode par votre clé d’abonnement, votre région et votre ID d’appli LUIS, comme suit.
 
-   | Placeholder | Remplacer par |
+   | Espace réservé | Remplacer par |
    | ----------- | ------------ |
    | `YourLanguageUnderstandingSubscriptionKey` | Votre clé de point de terminaison LUIS. Là encore, vous devez obtenir cet élément à partir de votre tableau de bord Azure, et non d’une « clé de démarrage ». Vous pouvez la trouver dans la page **Keys and Endpoints** (Clés et points de terminaison) de votre application, sous **Manage** (Gérer) dans le [portail LUIS](https://www.luis.ai/home). |
    | `YourLanguageUnderstandingServiceRegion` | L’identificateur court pour la région de votre abonnement LUIS est, par exemple, `westus` pour la région USA Ouest. Voir [Régions](regions.md). |
@@ -156,7 +159,7 @@ Au lieu d’ajouter des intentions individuelles, vous pouvez aussi utiliser la 
 
 Le module de reconnaissance étant créé, et les intentions ajoutées, la reconnaissance peut commencer. Le kit SDK Speech prend en charge la reconnaissance ponctuelle et continue.
 
-| Mode de reconnaissance | Méthodes à appeler | Résultat |
+| Mode de reconnaissance | Méthodes à appeler | Résultats |
 | ---------------- | --------------- | ------ |
 | Ponctuel | `RecognizeOnceAsync()` | Retourne l’intention reconnue, si elle existe, après un énoncé. |
 | Continue | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Reconnaît plusieurs énoncés ; émet des événements (par exemple, `IntermediateResultReceived`) lorsque des résultats sont disponibles. |
@@ -173,7 +176,7 @@ L’application n’analyse pas le résultat JSON. Elle affiche uniquement le te
 
 ## <a name="specify-recognition-language"></a>Préciser une langue de reconnaissance
 
-Par défaut, LUIS reconnaît les intentions en anglais (États-Unis) (`en-us`). En attribuant un code de paramètres régionaux à la propriété `SpeechRecognitionLanguage` de la configuration de reconnaissance vocale, vous pouvez reconnaître des intentions dans d’autres langues. Par exemple, ajoutez `config.SpeechRecognitionLanguage = "de-de";` dans notre application avant de créer le module de reconnaissance pour reconnaître les intentions en allemand. Pour plus d’informations, consultez [Langues pris en charge](language-support.md#speech-to-text).
+Par défaut, LUIS reconnaît les intentions en anglais (États-Unis) (`en-us`). En attribuant un code de paramètres régionaux à la propriété `SpeechRecognitionLanguage` de la configuration de reconnaissance vocale, vous pouvez reconnaître des intentions dans d’autres langues. Par exemple, ajoutez `config.SpeechRecognitionLanguage = "de-de";` dans notre application avant de créer le module de reconnaissance pour reconnaître les intentions en allemand. Pour plus d’informations, consultez les [langues prises en charge par LUIS](../LUIS/luis-language-support.md#languages-supported).
 
 ## <a name="continuous-recognition-from-a-file"></a>Reconnaissance continue depuis un fichier
 
@@ -197,4 +200,4 @@ Retrouvez le code de cet article dans le dossier **samples/csharp/sharedcontent/
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Reconnaître la voix à partir d’un microphone](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)
+> [Démarrage rapide : Reconnaître la voix à partir d’un microphone](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)

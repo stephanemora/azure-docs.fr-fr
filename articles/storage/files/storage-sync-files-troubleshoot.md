@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 887c10097187f193f55c6e301be3e739a16d6bf7
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b5a6b62e423b982cd7a852de844cd561997ba1e7
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906907"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048416"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -221,12 +221,12 @@ Un point de terminaison de serveur risque de ne pas journaliser l’activité de
 Ce problème peut se produire si vous créez un point de terminaison cloud et que vous utilisez un partage de fichiers Azure contenant des données. Le travail d’énumération de modifications qui analyse les modifications dans le partage de fichiers Azure doit être terminé avant que les fichiers puissent être synchronisés entre le cloud et les points de terminaison serveur. La durée d’exécution du travail dépend de la taille de l’espace de noms dans le partage de fichiers Azure. L’intégrité du point de terminaison de serveur doit se mettre à jour une fois que le travail d’énumération des modifications est terminé.
 
 ### <a id="broken-sync"></a>Comment surveiller l’intégrité de synchronisation ?
-# <a name="portaltabportal1"></a>[Portail](#tab/portal1)
+# <a name="portal"></a>[Portail](#tab/portal1)
 Au sein de chaque groupe de synchronisation, vous pouvez zoomer sur ses points de terminaison serveur individuel pour afficher l’état des dernières sessions de synchronisation terminées. Une colonne de contrôle d’intégrité verte et des fichiers non synchronisés à la valeur 0 indiquent que la synchronisation fonctionne comme prévu. Si ce n’est pas le cas, voir ci-dessous pour obtenir la liste des erreurs de synchronisation courantes et savoir comment gérer les fichiers qui ne synchronisent pas. 
 
 ![Capture d’écran du portail Azure](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
-# <a name="servertabserver"></a>[Serveur](#tab/server)
+# <a name="server"></a>[Serveur](#tab/server)
 Accédez aux enregistrements de données de télémétrie du serveur, qui se trouve dans l’observateur d’événements à `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. Événement 9102 correspond à une session de synchronisation terminée; Pour obtenir le dernier état de synchronisation, recherchez l’événement le plus récent avec ID 9102. SyncDirection vous indique si cette session a été chargée ou téléchargée. Si la valeur HResult est 0, la session de synchronisation a réussi. Une valeur HResult différente de zéro indique une erreur pendant la synchronisation; voir ci-dessous pour obtenir la liste d’erreurs courantes. Si le PerItemErrorCount est supérieur à 0, cela signifie que certains fichiers ou dossiers non pas synchronisés correctement. Il est possible d’avoir une valeur HResult égale à 0, mais un PerItemErrorCount supérieur à 0.
 
 Vous trouverez ci-dessous un exemple d’un chargement réussi. Par souci de concision, uniquement certaines des valeurs contenues dans chaque événement 9102 sont répertoriées ci-dessous. 
@@ -258,10 +258,10 @@ Parfois, les sessions de synchronisation échouent globalement ou ont un PerItem
 ---
 
 ### <a name="how-do-i-monitor-the-progress-of-a-current-sync-session"></a>Comment surveiller la progression d’une session en cours de synchronisation ?
-# <a name="portaltabportal1"></a>[Portail](#tab/portal1)
+# <a name="portal"></a>[Portail](#tab/portal1)
 Au sein de votre groupe de synchronisation, accédez au point de terminaison de serveur en question et examinez la section Activité de synchronisation pour voir le nombre de fichiers chargés ou téléchargés dans la session de synchronisation en cours. Notez que cet état sera retardé d’environ 5 minutes, et si votre session de synchronisation est suffisamment petite pour être effectuée pendant cette période, il peut ne pas être signalé dans le portail. 
 
-# <a name="servertabserver"></a>[Serveur](#tab/server)
+# <a name="server"></a>[Serveur](#tab/server)
 Recherchez les événements 9302 les plus récents dans les enregistrements de données de télémétrie sur le serveur (dans l’observateur d’événements, accédez aux enregistrements des Applications and Services\Microsoft\FileSync\Agent\Telemetry). Cet événement indique l’état de la session de synchronisation en cours. TotalItemCount indique combien de fichiers doivent être synchronisés, AppliedItemCount le nombre de fichiers qui ont été synchronisés jusqu’ici et PerItemErrorCount le nombre de fichiers qui ne parviennent pas à se synchroniser (voir ci-dessous pour savoir comment gérer cette opération).
 
 ```
@@ -276,14 +276,14 @@ PerItemErrorCount: 1006.
 ---
 
 ### <a name="how-do-i-know-if-my-servers-are-in-sync-with-each-other"></a>Comment savoir si mes serveurs sont synchronisés entre eux ?
-# <a name="portaltabportal1"></a>[Portail](#tab/portal1)
+# <a name="portal"></a>[Portail](#tab/portal1)
 Pour chaque serveur dans un groupe de synchronisation donné, vérifiez que :
 - Les horodatages de la dernière tentative de synchronisation pour le chargement téléchargement sont récents.
 - L’état est affiché en vert pour le chargement et le téléchargement.
 - Le champ de l’activité de synchronisation présente très peu ou pas de fichiers restant à synchroniser.
 - Le champ des fichiers non synchronisés est à 0 pour le chargement et le téléchargement.
 
-# <a name="servertabserver"></a>[Serveur](#tab/server)
+# <a name="server"></a>[Serveur](#tab/server)
 Examinez les sessions de synchronisation terminées, qui sont marquées par des événements 9102 dans les données de télémétrie de l’événement pour chaque serveur (dans l’observateur d’événements, accédez à `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`). 
 
 1. Sur un serveur donné, vous souhaitez vous assurer que les dernières sessions de chargement et téléchargement se sont terminées correctement. Pour ce faire, vérifiez que le HResult et PerItemErrorCount sont à 0 pour le chargement et le téléchargement (le champ SyncDirection indique si une session donnée est une session de chargement ou téléchargement). Notez que si vous ne voyez pas une session de synchronisation effectuée récemment, il est probable qu’une session de synchronisation soit en cours, ce qui est normal si vous venez d’ajouter ou de modifier une grande quantité de données.
@@ -314,7 +314,7 @@ Pour afficher ces erreurs, exécutez le script PowerShell **FileSyncErrorsReport
 | HRESULT | HRESULT (décimal) | Chaîne d’erreur | Problème | Correction |
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | Le fichier hiérarchisé sur le serveur n’est pas accessible. Ce problème se produit si le fichier hiérarchisé n’a pas été rappelé avant la suppression d’un point de terminaison de serveur. | Pour résoudre ce problème, consultez [Fichiers hiérarchisés non accessibles sur le serveur après la suppression d’un point de terminaison de serveur](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
-| 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | La modification de fichier ou de répertoire ne peut pas encore être synchronisée, car un dossier dépendant n’est pas encore synchronisé. Cet élément sera synchronisé une fois que les modifications dépendantes seront synchronisées. | Aucune action requise. |
+| 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | La modification de fichier ou de répertoire ne peut pas encore être synchronisée, car un dossier dépendant n’est pas encore synchronisé. Cet élément sera synchronisé une fois que les modifications dépendantes seront synchronisées. | Aucune action requise. Si l’erreur persiste pendant plusieurs jours, utilisez le script PowerShell FileSyncErrorsReport.ps1 pour déterminer la raison pour laquelle le dossier dépendant n’est pas encore synchronisé. |
 | 0x80c80284 | -2134375804 | ECS_E_SYNC_CONSTRAINT_CONFLICT_SESSION_FAILED | La modification de fichier ou de répertoire ne peut pas encore être synchronisée, car un dossier dépendant n’est pas encore synchronisé et la session de synchronisation a échoué. Cet élément sera synchronisé une fois que les modifications dépendantes seront synchronisées. | Aucune action requise. Si l’erreur persiste, recherchez la cause de l’échec de la session de synchronisation. |
 | 0x8007007b | -2147024773 | ERROR_INVALID_NAME | Le nom de répertoire est non valide. | Renommez le fichier ou le répertoire en question. Pour plus d’informations, voir [Gestion des caractères non pris en charge](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters). |
 | 0x80c80255 | -2134375851 | ECS_E_XSMB_REST_INCOMPATIBILITY | Le nom de répertoire est non valide. | Renommez le fichier ou le répertoire en question. Pour plus d’informations, voir [Gestion des caractères non pris en charge](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters). |
@@ -887,14 +887,14 @@ Cette erreur se produit quand une opération d’ingestion de données dépasse 
 
 ### <a name="common-troubleshooting-steps"></a>Ouvrir les étapes de résolution des problèmes
 <a id="troubleshoot-storage-account"></a>**Vérifiez l’existence du compte de stockage.**  
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 1. Accédez au groupe de synchronisation au sein du service de synchronisation de stockage.
 2. Sélectionnez le point de terminaison de cloud au sein du groupe de synchronisation.
 3. Notez le nom de partage de fichiers Azure dans le volet ouvert.
 4. Sélectionnez le compte de stockage associé. Si ce lien échoue, le compte de stockage référencé a été supprimé.
     ![Une capture d’écran montrant le volet d’informations de point de terminaison de cloud avec un lien vers le compte de stockage.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 # Variables for you to populate based on your configuration
 $region = "<Az_Region>"
@@ -970,12 +970,12 @@ if ($storageAccount -eq $null) {
 ---
 
 <a id="troubleshoot-azure-file-share"></a>**Assurez vous de l’existence du partage de fichiers Azure.**  
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 1. Cliquez sur **Aperçu** sur la table des matières de gauche pour revenir à la page principale de compte de stockage.
 2. Sélectionnez **Fichiers** pour afficher la liste des partages de fichiers.
 3. Vérifiez que le partage de fichiers référencé par le point de terminaison de du cloud apparaît dans la liste des partages de fichiers (vous auriez dû le noter à l’étape 1 ci-dessus).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 $fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.AzureFileShareName -and
@@ -989,7 +989,7 @@ if ($fileShare -eq $null) {
 ---
 
 <a id="troubleshoot-rbac"></a>**Vérifiez qu’Azure File Sync a accès au compte de stockage.**  
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 1. Cliquez sur **Contrôle d’accès (IAM)** sur la table des matières de gauche.
 1. Cliquez sur l'onglet **Affectations de rôles** pour accéder à la liste des utilisations et applications (*principaux de service*) ayant accès à votre compte de stockage.
 1. Vérifiez que **Hybrid File Sync Service** apparaît dans la liste avec le rôle **Lecteur et Accès aux données**. 
@@ -1002,7 +1002,7 @@ if ($fileShare -eq $null) {
     - Dans le champ **Rôle**, sélectionnez **Lecteur et accès aux données**.
     - Dans le champ **Sélectionnez**, tapez **Hybrid File Sync Service**, sélectionnez le rôle et cliquez sur **Enregistrer**.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
 $role = Get-AzRoleAssignment -Scope $storageAccount.Id | Where-Object { $_.DisplayName -eq "Hybrid File Sync Service" }
 

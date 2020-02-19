@@ -1,18 +1,18 @@
 ---
 title: Problèmes de pulsations Apache Ambari dans Azure HDInsight
 description: Examiner les diverses raisons à l’origine des problèmes de pulsation Apache Ambari dans Azure HDInsight
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 09/11/2019
-ms.openlocfilehash: ae05a0d0866c38c2414bacb638fa90936bb6dc15
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 02/06/2020
+ms.openlocfilehash: ab88f65d535be2aef5f0b26fa1171c03276466e8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964615"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057071"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problèmes de pulsations Apache Ambari dans Azure HDInsight
 
@@ -22,7 +22,7 @@ Cet article décrit les éventuelles solutions à appliquer pour résoudre les p
 
 ### <a name="issue"></a>Problème
 
-L’agent Ambari a une utilisation élevée du processeur, ce qui génère dans l’interface utilisateur Ambari des alertes pour certains nœuds indiquant que la pulsation de l’agent Ambari est perdue. L’alerte de pulsation perdue est généralement temporaire. 
+L’agent Ambari a une utilisation élevée du processeur, ce qui génère dans l’interface utilisateur Ambari des alertes pour certains nœuds indiquant que la pulsation de l’agent Ambari est perdue. L’alerte de pulsation perdue est généralement temporaire.
 
 ### <a name="cause"></a>Cause :
 
@@ -95,7 +95,7 @@ Les journaux OMS sont à l’origine d’une utilisation élevée de l’UC.
 
 ### <a name="resolution"></a>Résolution
 
-* Désactivez la journalisation OMS à l’aide du module PowerShell [Disable-AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite?view=azps-2.8.0). 
+* Désactivez la journalisation Azure Monitor à l’aide de l’applet de commande PowerShell [Disable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring).
 * Supprimez le fichier journal `mdsd.warn`
 
 ---

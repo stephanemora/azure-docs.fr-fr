@@ -3,12 +3,12 @@ title: Questions courantes sur l’appliance Azure Migrate
 description: Retrouvez les réponses à des questions courantes sur l’appliance Azure Migrate.
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c9727287160f996059e9c1fb2d1fb5aec5900ab5
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: de9583b7983dda904e06ea258ecb0d202644586b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292330"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064697"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate : Questions courantes
 
@@ -16,6 +16,7 @@ Cet article répond à des questions courantes sur l’appliance Azure Migrate. 
 
 - [Questions générales](resources-faq.md) sur Azure Migrate.
 - [Questions](common-questions-discovery-assessment.md) sur la découverte, l’évaluation et la visualisation des dépendances.
+- [Questions](common-questions-server-migration.md) sur la migration de serveur.
 
 
 ## <a name="what-is-the-azure-migrate-appliance"></a>Qu’est-ce que l’appliance Azure Migrate ?

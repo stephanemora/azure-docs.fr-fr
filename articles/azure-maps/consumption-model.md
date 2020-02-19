@@ -1,6 +1,6 @@
 ---
 title: Modèles de consommation du véhicule pour le routage | Microsoft Azure Maps
-description: Dans cet article, vous découvrirez les modèles de consommation du véhicule pour le routage dans Microsoft Azure Maps.
+description: Dans cet article, vous allez découvrir des informations sur les modèles de consommation des véhicules pour le routage dans Microsoft Azure Maps.
 author: subbarayudukamma
 ms.author: skamma
 ms.date: 05/08/2018
@@ -8,30 +8,29 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5a8a0778ce279846b0d7a66b1729b6898e80a4b5
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: c1572eddf78ca2d5f8f4e3ee9f1fe47b0d43f5aa
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911713"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190253"
 ---
 # <a name="consumption-model"></a>Modèle de consommation
 
-Les itinéraires en ligne fournissent un ensemble de paramètres pour une description détaillée du modèle de consommation spécifique du véhicule.
-Selon la valeur de **vehicleEngineType**, deux grands modèles de consommation sont pris en charge : _Combustion_ et _Electric_. Il n’est pas possible de spécifier les paramètres appartenant à des modèles différents dans la même requête.
-Le modèle de consommation ne peut pas être utilisé avec les valeurs **travelMode**_bicycle_ et _pedestrian_.
+Le service Route fournit un ensemble de paramètres permettant de décrire en détail le modèle de consommation spécifique à un véhicule.
+Selon la valeur de **vehicleEngineType**, deux grands modèles de consommation sont pris en charge : _Combustion_ et _Electric_. Le système considère comme incorrect le fait de spécifier des paramètres appartenant à des modèles différents dans la même requête. De plus, les paramètres du modèle de consommation ne peuvent pas être utilisés avec les valeurs suivantes pour **travelMode** : _bicycle_ (vélo) et _pedestrian_ (piéton).
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Contraintes des paramètres pour le modèle de consommation
 
-Dans les deux modèles de consommation, la spécification explicite de certains paramètres requiert la spécification d’autres paramètres. Ces dépendances sont les suivantes :
+Dans les deux modèles de consommation, il existe des dépendances lors de la spécification des paramètres. Cela signifie que la spécification explicite de certains paramètres nécessite la spécification de certains autres paramètres. Voici les dépendances qu’il faut connaître :
 
-* Tous les paramètres nécessitent que l’utilisateur spécifie **constantSpeedConsumption**. Il n’est pas possible de spécifier un autre paramètre de modèle de consommation, à l’exception de **vehicleWeight**si **constantSpeedConsumption** n’est pas spécifié.
-* **accelerationEfficiency** et **decelerationEfficiency** doivent toujours être spécifiés en tant que paire (autrement dit, les deux ou aucun).
+* Tous les paramètres nécessitent que l’utilisateur spécifie **constantSpeedConsumption**. Il n’est pas possible de spécifier un autre paramètre de modèle de consommation si **constantSpeedConsumption** n’est pas spécifié. Le paramètre **vehicleWeight** est une exception pour cette exigence.
+* **accelerationEfficiency** et **decelerationEfficiency** doivent toujours être spécifiés par paire (c’est-à-dire tous les deux ou aucun).
 * Si **accelerationEfficiency** et **decelerationEfficiency** sont spécifiés, le produit de leurs valeurs ne doit pas être supérieur à 1 (pour empêcher tout mouvement perpétuel).
-* **uphillEfficiency** et **downhillEfficiency** doivent toujours être spécifiés en tant que paire (autrement dit, les deux ou aucun).
+* **uphillEfficiency** et **downhillEfficiency** doivent toujours être spécifiés par paire (c’est-à-dire tous les deux ou aucun).
 * Si **uphillEfficiency** et **downhillEfficiency** sont spécifiés, le produit de leurs valeurs ne doit pas être supérieur à 1 (pour empêcher tout mouvement perpétuel).
 * Si les paramètres \*__Efficiency__ sont spécifiés par l’utilisateur, **vehicleWeight** doit également être spécifié. Lorsque **vehicleEngineType** a pour valeur _combustion_, **fuelEnergyDensityInMJoulesPerLiter** doit également être spécifié.
-* **maxChargeInkWh** et **currentChargeInkWh** doivent toujours être spécifiés en tant que paire (autrement dit, les deux ou aucun).
+* **maxChargeInkWh** et **currentChargeInkWh** doivent toujours être spécifiés par paire (c’est-à-dire tous les deux ou aucun).
 
 > [!NOTE]
 > Si seul **constantSpeedConsumption** est spécifié, aucun autre aspect de la consommation, comme la déclivité ou l’accélération du véhicule, n’est pris en compte dans les calculs de consommation.
@@ -68,5 +67,5 @@ La liste des paramètres appartenant à ce modèle figure ci-dessous. Reportez-v
 
 ## <a name="sensible-values-of-consumption-parameters"></a>Valeurs sensibles des paramètres de consommation
 
-Un ensemble spécifique de paramètres de consommation peut être rejeté, même s’il est susceptible de répondre à toutes les exigences explicites spécifiées ci-dessus. Cela se produit lorsque la valeur d’un paramètre spécifique, ou une combinaison de valeurs de plusieurs paramètres, est censée engendrer des amplitudes déraisonnables pour les valeurs de consommation. Cela indique probablement une erreur d’entrée, car la prise en charge de toutes les valeurs sensibles des paramètres de consommation se fait de manière appropriée. En cas de rejet d’un ensemble spécifique de paramètres de consommation, le message d’erreur associé contient une description textuelle de la ou des raisons de ce rejet.
+Un ensemble spécifique de paramètres de consommation peut être rejeté, même s’il répond à toutes les exigences explicites. Cela se produit quand la valeur d’un paramètre spécifique ou une combinaison de valeurs de plusieurs paramètres est considérée comme engendrant des mesures déraisonnables pour les valeurs de consommation. Cela indique probablement une erreur d’entrée, car la prise en charge de toutes les valeurs sensibles des paramètres de consommation se fait de manière appropriée. En cas de rejet d’un ensemble spécifique de paramètres de consommation, le message d’erreur associé contient une description textuelle de la ou des raisons de ce rejet.
 Les descriptions détaillées des paramètres présentent des exemples de valeurs sensibles pour les deux modèles.

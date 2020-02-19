@@ -1,5 +1,6 @@
 ---
-title: Cinq étapes pour sécuriser votre infrastructure d’identité dans Azure Active Directory
+title: Sécuriser votre infrastructure d’identité Azure AD
+titleSuffix: Azure Active Directory
 description: Ce document présente une liste d’actions importantes que les administrateurs doivent implémenter pour mieux sécuriser leur organisation à l’aide des fonctionnalités d’Azure AD
 author: martincoetzer
 manager: manmeetb
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 870bb9720500b6eda5e7b9eb258b6764a94f01b6
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: cafa9d6100e03d8315bf5dd19d863ca90aadd4bb
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76903578"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190886"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
@@ -106,7 +107,7 @@ Les applications utilisant leurs propres méthodes héritées pour s’authentif
 
 1. Bloquez [l’authentification héritée, si vous utilisez AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Configurez [SharePoint Online et Exchange Online pour utiliser l’authentification moderne](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
-3. Si vous avez Azure AD Premium, utilisez des [stratégies d’accès conditionnel](../../active-directory/conditional-access/conditions.md) pour bloquer l’authentification héritée. Sinon, utilisez les [paramètres par défaut de Sécurité Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
+3. Si vous avez Azure AD Premium, utilisez des [stratégies d’accès conditionnel](../../active-directory/conditional-access/overview.md) pour bloquer l’authentification héritée. Sinon, utilisez les [paramètres par défaut de Sécurité Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Bloquer les points d’entrée d’authentification non valide
 

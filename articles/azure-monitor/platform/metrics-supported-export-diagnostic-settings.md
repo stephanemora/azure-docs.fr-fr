@@ -4,16 +4,16 @@ description: Liste des métriques disponibles pour chaque type de ressource avec
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 05/20/2019
+ms.date: 02/10/2020
 author: rboucher
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: dcf5276393400be864e738d89bc5713f5aac242b
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: fb11bf402ec671a46c191be0d8958c6a8a2c963d
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963476"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134959"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métriques de plateforme Azure Monitor exportables par le biais des paramètres de diagnostic
 
@@ -24,6 +24,19 @@ Vous pouvez exporter les métriques de plateforme à partir du pipeline Azure Mo
 2. Utilisation de l’[API REST pour les métriques](https://docs.microsoft.com/rest/api/monitor/metrics/list)
 
 En raison des subtilités du back-end Azure Monitor, toutes les métriques ne sont pas exportables à l’aide des paramètres de diagnostic. Le tableau ci-dessous liste celles qui peuvent et ne peuvent pas être exportées à l’aide des paramètres de diagnostic.
+
+## <a name="change-to-behavior-for-nulls-and-zero-values"></a>Changement de comportement pour les valeurs NULL et zéro 
+ 
+Pour les métriques de plateforme qui peuvent être exportées via les paramètres de diagnostic, il existe quelques mesures pour lesquelles Azure Monitor interprète « 0 » comme « Null ». Ceci a provoqué une certaine confusion entre les véritables « 0 » (émis par la ressource) et les « 0 » interprétés (Null). À compter du **1er avril 2020**, les métriques de plateforme exportées via les paramètres de diagnostic n’exportent plus de « 0 », sauf s’ils ont été réellement émis par la ressource sous-jacente. Notez ce qui suit :
+
+1.  Si vous supprimez un groupe de ressources ou une ressource spécifique, les données des métriques des ressources affectées ne seront plus envoyées aux destinations d’exportation des paramètres de diagnostic. Autrement dit, elles n’apparaissent plus dans Event Hubs, dans les comptes de stockage et dans les espaces de travail Log Analytics.
+2.  Cette amélioration est disponible dans tous les clouds publics et privés.
+3.  Cette modification n’a pas d’impact sur le comportement des expériences suivantes : 
+-   Journaux de ressources de plateforme exportés via les paramètres de diagnostic
+-   Graphiques de métriques dans Metrics Explorer
+-   Alertes sur les métriques de plateforme
+ 
+## <a name="metrics-exportable-table"></a>Table exportable de métriques 
 
 Le tableau contient les colonnes suivantes. 
 - Exportable par le biais des paramètres de diagnostic ? 

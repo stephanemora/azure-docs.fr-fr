@@ -1,5 +1,5 @@
 ---
-title: Répertorier les affectations de refus pour les ressources Azure à l’aide d’Azure PowerShell | Microsoft Docs
+title: Lister les affectations de refus pour les ressources Azure avec Azure PowerShell
 description: Découvrez comment répertorier les utilisateurs, groupes, principaux du service et identités managées auxquels l’accès à des actions de ressource Azure spécifiques a été refusé dans des étendues particulières à l’aide d’Azure PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c1ea26fdb4d60262f89ea6ab0f87220a08c01e68
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ba18b89bd37dbd55350321c503e37ab0590ab87
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113591"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137394"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-azure-powershell"></a>Répertorier les affectations de refus pour les ressources Azure à l’aide d’Azure PowerShell
 
@@ -27,7 +27,7 @@ Les [affectations de refus](deny-assignments.md) empêchent les utilisateurs d'e
 > [!NOTE]
 > Vous ne pouvez pas directement créer vos propres affectations de refus. Pour en savoir sur la création des affectations de refus, consultez [Affectations de refus](deny-assignments.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour obtenir des informations sur une affectation de refus, vous devez disposer de :
 

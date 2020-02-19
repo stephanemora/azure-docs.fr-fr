@@ -11,20 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumi
-ms.openlocfilehash: 86726eefb53638036a4e9207c648bf5ffe6c866e
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 1aa4328a6d5367ef356ce33807289a873c93d90f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595382"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056697"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Stratégies de point de terminaison de service de réseau virtuel (préversion)
 
 Les stratégies de points de terminaison de service de réseau virtuel permettent de filtrer le trafic de réseau virtuel vers les services Azure, en autorisant uniquement des ressources de service Azure spécifiques, sur les points de terminaison de service. Les stratégies de point de terminaison fournissent un contrôle d’accès granulaire pour le trafic de réseau virtuel vers les services Azure.
 
-Cette fonctionnalité est disponible en __préversion__ pour les services et régions Azure suivants :
-
-__Stockage Azure__ : WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, CentralUS, EastUS2.
+Cette fonctionnalité est disponible en __évaluation__ dans toutes les régions Azure publiques pour Stockage Azure.
 
 Pour obtenir des notifications actualisées concernant la préversion, consultez la page [Mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -125,7 +123,7 @@ Les stratégies de point de terminaison de service de réseau virtuel offrent le
 - Par défaut, les NSG autorisent le trafic Internet sortant, y compris le trafic de votre réseau virtuel vers les services Azure.
 - Si vous souhaitez refuser tout trafic Internet sortant et autoriser le trafic uniquement vers des ressources de services Azure spécifiques : 
 
-  Étape 1 : Configurez les NSG pour autoriser le trafic sortant uniquement vers les services Azure dans les régions de point de terminaison, à l’aide de *balises de service Azure*. Pour plus d’informations, consultez [Balises de Service Azure pour les groupes de sécurité réseau](https://aka.ms/servicetags)
+  Étape 1 : Configurez les NSG pour autoriser le trafic sortant uniquement vers les services Azure dans les régions de point de terminaison, à l’aide de *balises de service Azure*. Pour plus d’informations, consultez [Balises de Service Azure pour les groupes de sécurité réseau](https://aka.ms/servicetags)
       
   Les règles de groupe de sécurité réseau qui restreignent l’accès aux seules régions de point de terminaison peuvent ressembler à ce qui suit :
 
@@ -135,7 +133,7 @@ Les stratégies de point de terminaison de service de réseau virtuel offrent le
   Deny all
   ```
 
-  Étape 2 : Appliquez la stratégie de point de terminaison de service avec un accès uniquement aux ressources du service Azure spécifique.
+  Étape 2 : Appliquez la stratégie de point de terminaison de service avec un accès uniquement aux ressources du service Azure spécifique.
 
   > [!WARNING]  
   > Si le groupe de sécurité réseau n’est pas configuré pour limiter l’accès du service Azure d’un réseau virtuel aux régions de point de terminaison, vous pouvez accéder aux ressources de service dans d’autres régions, même si la stratégie de point de terminaison de service est appliquée.

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/10/2020
+ms.date: 02/05/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8cf1f8ecb68e31f93c19d93d6ebc4f8ef37724e7
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 09558a8d1e4e2dc68cefd2c870f54e008d10b97b
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028440"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083538"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Créer un compte qui prend en charge les clés gérées par le client pour les tables et les files d’attente
 
@@ -35,41 +35,93 @@ Vous pouvez créer un compte de stockage qui s’appuie sur la clé de chiffreme
 
 ### <a name="register-to-use-the-account-encryption-key"></a>S’inscrire pour utiliser la clé de chiffrement de compte
 
+Afin de vous inscrire pour utiliser la clé de chiffrement de compte avec le Stockage Table ou File d’attente, utilisez PowerShell ou Azure CLI.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Pour vous inscrire à l’aide de PowerShell, appelez la commande [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature).
+
+```powershell
+Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForQueues
+Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForTables
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 Pour vous inscrire avec Azure CLI, appelez la commande [az feature register](/cli/azure/feature#az-feature-register).
 
-Pour s’inscrire pour utiliser la clé de chiffrement de compte avec Stockage File d’attente :
-
 ```azurecli
-az feature register --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForQueues
+az feature register --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForQueues
+az feature register --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForTables
 ```
 
-Pour s’inscrire pour utiliser la clé de chiffrement de compte avec Stockage Table :
+# <a name="template"></a>[Modèle](#tab/template)
 
-```azurecli
-az feature register --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForTables
-```
+N/A
+
+---
 
 ### <a name="check-the-status-of-your-registration"></a>Vérifier l’état de votre inscription
 
-Pour vérifier l’état de votre inscription pour Stockage File d’attente :
+Pour vérifier l’état de votre inscription au Stockage Table ou File d’attente, utilisez PowerShell ou Azure CLI.
 
-```azurecli
-az feature show --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForQueues
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Pour vérifier l’état de votre inscription à l’aide de PowerShell, appelez la commande [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature).
+
+```powershell
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForQueues
+Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
+    -FeatureName AllowAccountEncryptionKeyForTables
 ```
 
-Pour vérifier l’état de votre inscription pour Stockage Table :
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour vérifier l’état de votre inscription à l’aide d’Azure CLI, appelez la commande [az feature](/cli/azure/feature#az-feature-show).
 
 ```azurecli
-az feature show --namespace Microsoft.Storage --name AllowAccountEncryptionKeyForTables
+az feature show --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForQueues
+az feature show --namespace Microsoft.Storage \
+    --name AllowAccountEncryptionKeyForTables
 ```
+
+# <a name="template"></a>[Modèle](#tab/template)
+
+N/A
+
+---
 
 ### <a name="re-register-the-azure-storage-resource-provider"></a>Réinscrire le fournisseur de ressources Stockage Azure
 
-Une fois votre inscription approuvée, vous devez réinscrire le fournisseur de ressources Stockage Azure. Appelez la commande [az provider register](/cli/azure/provider#az-provider-register) :
+Une fois votre inscription approuvée, vous devez réinscrire le fournisseur de ressources Stockage Azure. Utilisez PowerShell ou Azure CLI pour réinscrire le fournisseur de ressources.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Pour réinscrire le fournisseur de ressources à l’aide de PowerShell, appelez la commande [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider).
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour réinscrire le fournisseur de ressources à l’aide d’Azure CLI, appelez la commande [az provider register](/cli/azure/provider#az-provider-register).
 
 ```azurecli
 az provider register --namespace 'Microsoft.Storage'
 ```
+
+# <a name="template"></a>[Modèle](#tab/template)
+
+N/A
+
+---
 
 ## <a name="create-an-account-that-uses-the-account-encryption-key"></a>Créer un compte qui utilise la clé de chiffrement de compte
 
@@ -80,7 +132,28 @@ Le compte de stockage doit être de type universel v2. Vous pouvez créer le com
 > [!NOTE]
 > Seul Stockage File d’attente et Stockage Table peuvent être configurés en option pour chiffrer les données avec la clé de chiffrement de compte lors de la création du compte de stockage. Stockage Blob et Azure Files utilisent toujours la clé de chiffrement de compte pour chiffrer les données.
 
-### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Pour utiliser PowerShell afin de créer un compte de stockage qui s’appuie sur la clé de chiffrement de compte, vérifiez que vous avez installé le module Azure PowerShell (version 3.4.0 ou ultérieure). Pour plus d’informations, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps).
+
+Ensuite, créez un compte de stockage universel v2 en appelant la commande [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) avec les paramètres appropriés :
+
+- Incluez l’option `-EncryptionKeyTypeForQueue` et définissez sa valeur sur `Account` pour utiliser la clé de chiffrement de compte afin de chiffrer les données dans Stockage File d’attente.
+- Incluez l’option `-EncryptionKeyTypeForTable` et définissez sa valeur sur `Account` pour utiliser la clé de chiffrement de compte afin de chiffrer les données dans Stockage Table.
+
+L’exemple suivant montre comment créer un compte de stockage universel v2 configuré pour le stockage géoredondant avec accès en lecture (RA-GRS) et utilisant la clé de chiffrement de compte pour chiffrer les données à la fois pour Stockage File d’attente et pour Stockage Table. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
+
+```powershell
+New-AzStorageAccount -ResourceGroupName <resource_group> `
+    -AccountName <storage-account> `
+    -Location <location> `
+    -SkuName "Standard_RAGRS" `
+    -Kind StorageV2 `
+    -EncryptionKeyTypeForTable Account `
+    -EncryptionKeyTypeForQueue Account
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pour utiliser Azure CLI afin créer un compte de stockage qui s’appuie sur la clé de chiffrement de compte, vérifié que Azure CLI version 2.0.80 ou ultérieure est installé. Pour plus d’informations, consultez la rubrique [Installation de l’interface de ligne de commande Azure (CLI)](/cli/azure/install-azure-cli).
 
@@ -89,22 +162,22 @@ Ensuite, créez un compte de stockage universel v2 en appelant la commande [az s
 - Incluez l’option `--encryption-key-type-for-queue` et définissez sa valeur sur `Account` pour utiliser la clé de chiffrement de compte afin de chiffrer les données dans Stockage File d’attente.
 - Incluez l’option `--encryption-key-type-for-table` et définissez sa valeur sur `Account` pour utiliser la clé de chiffrement de compte afin de chiffrer les données dans Stockage Table.
 
-L’exemple suivant montre comment créer un compte de stockage universel v2 configuré pour LRS et qui utilise la clé de chiffrement de compte pour chiffrer les données à la fois pour Stockage File d’attente et pour Stockage Table. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
+L’exemple suivant montre comment créer un compte de stockage universel v2 configuré pour le stockage géoredondant avec accès en lecture (RA-GRS) et utilisant la clé de chiffrement de compte pour chiffrer les données à la fois pour Stockage File d’attente et pour Stockage Table. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 
 ```azurecli
 az storage account create \
     --name <storage-account> \
     --resource-group <resource-group> \
     --location <location> \
-    --sku Standard_LRS \
+    --sku Standard_RAGRS \
     --kind StorageV2 \
     --encryption-key-type-for-table Account \
     --encryption-key-type-for-queue Account
 ```
 
-### <a name="templatetabtemplate"></a>[Modèle](#tab/template)
+# <a name="template"></a>[Modèle](#tab/template)
 
-L’exemple JSON suivant crée un compte de stockage universel v2 configuré pour LRS et qui utilise la clé de chiffrement de compte pour chiffrer les données à la fois pour Stockage File d’attente et pour Stockage Table. N’oubliez pas de remplacer les valeurs des espaces réservés entre crochets par vos propres valeurs :
+L’exemple JSON suivant crée un compte de stockage universel v2 configuré pour le stockage géoredondant avec accès en lecture (RA-GRS) et utilisant la clé de chiffrement de compte pour chiffrer les données à la fois pour Stockage File d’attente et pour Stockage Table. N’oubliez pas de remplacer les valeurs des espaces réservés entre crochets par vos propres valeurs :
 
 ```json
 "resources": [
@@ -116,7 +189,7 @@ L’exemple JSON suivant crée un compte de stockage universel v2 configuré pou
         "dependsOn": [],
         "tags": {},
         "sku": {
-            "name": "[parameters('Standard_LRS')]"
+            "name": "[parameters('Standard_RAGRS')]"
         },
         "kind": "[parameters('StorageV2')]",
         "properties": {
@@ -151,11 +224,32 @@ Une fois que vous avez créé un compte qui s’appuie sur la clé de chiffremen
 
 Pour vérifier qu’un service dans un compte de stockage utilise la clé de chiffrement de compte, appelez la commande Azure CLI [az storage account](/cli/azure/storage/account#az-storage-account-show). Cette commande retourne un ensemble de propriétés du compte de stockage et leurs valeurs. Recherchez le champ `keyType` pour chaque service dans la propriété de chiffrement et vérifiez qu’il est défini sur `Account`.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Pour vérifier qu’un service dans un compte de stockage utilise la clé de chiffrement de compte, appelez la commande [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount). Cette commande retourne un ensemble de propriétés du compte de stockage et leurs valeurs. Recherchez le champ `KeyType` pour chaque service dans la propriété `Encryption` et vérifiez qu’il est défini sur `Account`.
+
+```powershell
+$account = Get-AzStorageAccount -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account>
+$account.Encryption.Services.Queue
+$account.Encryption.Services.Table
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Pour vérifier qu’un service dans un compte de stockage utilise la clé de chiffrement de compte, appelez la commande [az storage account](/cli/azure/storage/account#az-storage-account-show). Cette commande retourne un ensemble de propriétés du compte de stockage et leurs valeurs. Recherchez le champ `keyType` pour chaque service dans la propriété de chiffrement et vérifiez qu’il est défini sur `Account`.
+
 ```azurecli
 az storage account show /
     --name <storage-account> /
     --resource-group <resource-group>
 ```
+
+# <a name="template"></a>[Modèle](#tab/template)
+
+N/A
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

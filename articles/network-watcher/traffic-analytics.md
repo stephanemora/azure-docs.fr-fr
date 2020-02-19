@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 6cec7c813b0723ac770da6ebd04f4d2cf26a1409
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: eaa95906e20072e2914d1486568d7a6ebeb64f2c
+ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840585"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77114392"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -151,7 +151,7 @@ Pour analyser le trafic, vous devez disposer d’un service Network Watcher, ou 
 
 Avant d’activer la journalisation de flux de groupe de sécurité réseau, vous devez disposer d’un groupe de sécurité réseau pour lequel journaliser des flux. Si vous n’en avez pas, consultez [Créer des groupes de sécurité réseau à l’aide du portail Azure](../virtual-network/manage-network-security-group.md#create-a-network-security-group) pour en créer un.
 
-Dans la partie gauche du portail Azure, sélectionnez **Surveiller**, puis **Observateur réseau**, et enfin **Journaux de flux NSG**. Sélectionnez le groupe de sécurité réseau pour lequel vous souhaitez activer un journal de flux de groupe de sécurité réseau, comme indiqué dans l’image suivante :
+Dans le portail Azure, accédez à **Network Watcher**, puis sélectionnez **Journaux de flux NSG**. Sélectionnez le groupe de sécurité réseau pour lequel vous souhaitez activer un journal de flux de groupe de sécurité réseau, comme indiqué dans l’image suivante :
 
 ![Sélection de groupes de sécurité réseau qui nécessitent l’activation du journal de flux de groupe de sécurité réseau](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 

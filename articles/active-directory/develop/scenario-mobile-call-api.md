@@ -1,7 +1,7 @@
 ---
 title: Appeler une API web à partir d’une application mobile | Azure
 titleSuffix: Microsoft identity platform
-description: Apprendre à générer une application mobile qui appelle des API web (appel d’une API web)
+description: Découvrez comment générer une application mobile qui appelle des API web. (Appeler une API web.)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,37 +16,37 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 6b87809e29940b343a395ffb461c0829295fcd8a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bd848fa6f74f049f97956ef1736ac2b08f3a6148
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702060"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160149"
 ---
-# <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>Application mobile qui appelle des API web - Appeler une API web
+# <a name="call-a-web-api-from-a-mobile-app"></a>Appeler une API web à partir d’une application mobile
 
-Une fois que votre application a connecté un utilisateur et reçu des jetons, MSAL expose plusieurs éléments d’information sur l’utilisateur, l’environnement de l’utilisateur et les jetons émis. Votre application peut utiliser ces valeurs pour appeler une API web ou afficher un message de bienvenue à l’utilisateur.
+Quand votre application connecte un utilisateur et reçoit des jetons, MSAL (Microsoft Authentication Library) expose des information sur l’utilisateur, l’environnement de l’utilisateur et les jetons émis. Votre application peut utiliser ces valeurs pour appeler une API web ou afficher un message de bienvenue à l’utilisateur.
 
-Tout d’abord, nous allons examiner le résultat MSAL. Puis, nous étudierons la manière d’utiliser un jeton d’accès à partir de `AuthenticationResult` ou `result` pour appeler une API web protégée.
+Dans cet article, nous allons tout d’abord examiner le résultat de MSAL. Puis, nous verrons comment utiliser un jeton d’accès à partir de `AuthenticationResult` ou `result` pour appeler une API web protégée.
 
 ## <a name="msal-result"></a>Résultat de MSAL
 MSAL propose les valeurs suivantes : 
 
-- `AccessToken`: utilisée pour appeler des API web protégées dans une requête HTTP porteur.
-- `IdToken`: contient des informations utiles sur l’utilisateur connecté, telles que le nom d’utilisateur, le locataire de base et un identificateur unique de stockage.
-- `ExpiresOn`: délai d’expiration du jeton. MSAL gère l’actualisation automatique des applications.
-- `TenantId`: identificateur du locataire, auquel l’utilisateur est connecté. Pour les utilisateurs invités (Azure Active Directory B2B), cette valeur identifie le locataire auquel l’utilisateur est connecté et non le locataire de base de l’utilisateur.  
-- `Scopes`: étendues qui ont été accordées avec votre jeton. Les étendues accordées peuvent être un sous-ensemble des étendues demandées.
+- `AccessToken` appelle des API web protégées dans une requête HTTP du porteur.
+- `IdToken` contient des informations utiles au sujet de l’utilisateur connecté. Ces informations incluent le nom de l’utilisateur, le locataire de base et un identificateur unique de stockage.
+- `ExpiresOn` détermine le délai d’expiration du jeton. MSAL gère l’actualisation automatique d’une application.
+- `TenantId` est l’identificateur du locataire où l’utilisateur est connecté. Pour les utilisateurs invités dans Azure Active Directory (Azure AD) B2B, cette valeur identifie le locataire où l’utilisateur est connecté. La valeur n’identifie pas le locataire de base de l’utilisateur.  
+- `Scopes` indique les étendues qui ont été accordées avec votre jeton. Les étendues accordées peuvent être un sous-ensemble des étendues demandées.
 
-MSAL fournit également une abstraction de `Account`. Un `Account` représente le compte de connexion de l’utilisateur actuel.
+MSAL fournit également une abstraction d’une valeur `Account`. Une valeur `Account` représente le compte de connexion de l’utilisateur actuel :
 
-- `HomeAccountIdentifier`: identificateur du locataire de base de l’utilisateur.
-- `UserName`: nom d’utilisateur préféré de l’utilisateur. Cette valeur peut être vide pour les utilisateurs Azure Active Directory B2C.
-- `AccountIdentifier`: identificateur de l’utilisateur connecté. Cette valeur doit être identique à la valeur `HomeAccountIdentifier` dans la plupart des cas, sauf si l’utilisateur est un invité dans un autre locataire.
+- `HomeAccountIdentifier` identifie le locataire de base de l’utilisateur.
+- `UserName` est le nom d’utilisateur par défaut de l’utilisateur. Cette valeur peut être vide pour les utilisateurs d’Azure AD B2C.
+- `AccountIdentifier` identifie l’utilisateur connecté. Dans la plupart des cas, cette valeur est identique à la valeur `HomeAccountIdentifier`, sauf si l’utilisateur est un invité dans un autre locataire.
 
 ## <a name="call-an-api"></a>Appeler une API
 
-Une fois que vous disposez du jeton d’accès, il est facile d’appeler une API web. Votre application utilisera le jeton pour construire une requête HTTP, puis exécuter la requête.
+Une fois que vous disposez du jeton d’accès, vous pouvez appeler une API web. Votre application utilisera ensuite le jeton pour générer et exécuter une requête HTTP.
 
 ### <a name="android"></a>Android
 
@@ -90,9 +90,7 @@ Une fois que vous disposez du jeton d’accès, il est facile d’appeler une AP
 
 ### <a name="msal-for-ios-and-macos"></a>MSAL pour iOS et macOS
 
-Les méthodes d'acquisition de jetons renvoient un objet `MSALResult`. `MSALResult` expose une propriété `accessToken` qui peut être utilisée pour appeler une API web. Le jeton d'accès doit être ajouté à l'en-tête d'autorisation HTTP avant de passer l'appel pour accéder à l'API web protégée.
-
-Objective-C :
+Les méthodes d'acquisition de jetons renvoient un objet `MSALResult`. `MSALResult` expose une propriété `accessToken`. Vous pouvez utiliser `accessToken` pour appeler une API web. Ajoutez cette propriété à l’en-tête d’autorisation HTTP avant d’appeler l’API web protégée pour y accéder.
 
 ```objc
 NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
@@ -105,8 +103,6 @@ NSURLSessionDataTask *task =
      completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {}];
 [task resume];
 ```
-
-Swift :
 
 ```swift
 let urlRequest = NSMutableURLRequest()
@@ -122,16 +118,17 @@ task.resume()
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
-## <a name="making-several-api-requests"></a>Faire plusieurs requêtes d’API
+## <a name="make-several-api-requests"></a>Effectuer plusieurs requêtes vers l’API
 
-Si vous avez besoin d’appeler la même API plusieurs fois, ou plusieurs API, tenez compte des éléments suivants lorsque vous générez votre application :
+Si vous devez appeler la même API plusieurs fois, ou appeler plusieurs API, prenez en compte les points suivants quand vous créez votre application :
 
-- **Consentement incrémentiel** : La Plateforme d’identités Microsoft permet aux applications d’obtenir le consentement de l’utilisateur lorsque des autorisations sont requises, et non toutes les autorisations au début. Chaque fois que votre application est prête à appeler une API, elle doit demander uniquement les étendues qu’elle doit utiliser.
-- **Accès conditionnel** : Dans certains scénarios, vous pouvez obtenir les exigences d’accès conditionnel supplémentaires lorsque vous effectuez plusieurs requêtes d’API. Cela peut se produire si la première requête n’a aucune stratégie d’accès conditionnel appliquée et que votre application tente d’accéder en mode silencieux à une nouvelle API qui requiert un accès conditionnel. Pour gérer ce scénario, veillez à intercepter les erreurs des requêtes en mode silencieux et à vous préparer à effectuer une requête interactive.  Pour plus d’informations, consultez [Recommandations en matière d’accès conditionnel](conditional-access-dev-guide.md).
+- **Consentement incrémentiel** : la plateforme d’identités Microsoft permet aux applications d’obtenir le consentement de l’utilisateur au moment où les autorisations sont requises, et non toutes les autorisations au début. Chaque fois que votre application est prête à appeler une API, elle doit demander uniquement les étendues dont elle a besoin.
 
-## <a name="calling-several-apis-in-xamarin-or-uwp---incremental-consent-and-conditional-access"></a>Appel de plusieurs API dans Xamarin ou UWP – Consentement incrémentiel et accès conditionnel
+- **Accès conditionnel** : quand vous effectuez plusieurs requêtes vers l’API, dans certains scénarios, vous devrez remplir des exigences d’accès conditionnel supplémentaires. Les exigences peuvent être plus nombreuses si la première requête n’a aucune stratégie d’accès conditionnel et que votre application tente d’accéder en mode silencieux à une nouvelle API qui requiert un accès conditionnel. Pour gérer ce problème, veillez à intercepter les erreurs des requêtes en mode silencieux et à vous préparer à effectuer une requête interactive.  Pour plus d’informations, consultez les [conseils en matière d’accès conditionnel](../azuread-dev/conditional-access-dev-guide.md).
 
-Si vous devez appeler plusieurs API pour le même utilisateur, une fois que vous avez acquis un jeton pour un utilisateur, vous pouvez éviter de demander à l’utilisateur des informations d’identification à plusieurs reprises en appelant `AcquireTokenSilent` pour obtenir un jeton.
+## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>Appeler plusieurs API à l’aide du consentement incrémentiel et de l’accès conditionnel
+
+Si vous devez appeler plusieurs API pour le même utilisateur, après l’acquisition d’un jeton pour l’utilisateur, vous pouvez éviter de demander à l’utilisateur des informations d’identification à plusieurs reprises en appelant `AcquireTokenSilent` pour obtenir un jeton :
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -141,10 +138,10 @@ result = await app.AcquireTokenSilent("scopeApi2")
                   .ExecuteAsync();
 ```
 
-L’interaction est requise dans les cas suivants :
+Une interaction est obligatoire quand :
 
-- L’utilisateur a donné son consentement pour la première API, mais doit également le donner pour davantage d’étendues (consentement incrémentiel).
-- La première API ne nécessitait aucune authentification multifacteur, contrairement à celle qui suit.
+- L’utilisateur a donné son consentement pour la première API, mais doit également le donner pour d’autres d’étendues Dans ce cas, vous utilisez le consentement incrémentiel.
+- La première API ne nécessite aucune authentification multifacteur, contrairement à l’API qui suit.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

@@ -5,16 +5,18 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 696885fa3e082ae7096954fb55b17da5b77788bc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0c9abb7333434e64fca32ce6d9c518e3f0137133
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418893"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116343"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Windows
 
 Vous pouvez utiliser la fonctionnalité de Runbook Worker hybride d’Azure Automation pour exécuter des Runbooks directement sur l’ordinateur qui héberge le rôle et par rapport aux ressources de l’environnement afin de gérer ces ressources locales. Les Runbooks sont stockés et gérés dans Azure Automation, puis remis à un ou plusieurs ordinateurs désignés. Cet article explique comment installer le Runbook Worker hybride sur une machine Windows.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="installing-the-windows-hybrid-runbook-worker"></a>Installation de la fonctionnalité Windows Runbook Worker hybride
 
@@ -31,12 +33,12 @@ Pour installer et configurer un Windows Runbook Worker hybride, vous pouvez util
 
 Voici la configuration minimale requise pour un Runbook Worker hybride Windows :
 
-* Windows Server 2012 ou version ultérieure.
-* Windows PowerShell 5.1 ou version ultérieure ([télécharger WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)).
-* .NET Framework 4.6.2 ou ultérieur.
-* 2 cœurs
-* 4 Go de RAM
-* Port 443 (sortie)
+* Windows Server 2012 ou version ultérieure
+* Windows PowerShell 5.1 ou version ultérieure ([télécharger WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))
+* .NET Framework 4.6.2 ou version ultérieure
+* 2 cœurs
+* 4 Go de RAM
+* Port 443 (sortie)
 
 Pour connaître les autres exigences relatives au réseau pour le Runbook Worker hybride, consultez [Configurer votre réseau](automation-hybrid-runbook-worker.md#network-planning).
 
@@ -51,17 +53,17 @@ Une fois le Runbook Worker déployé, consultez [Exécuter des runbooks sur un R
 
 Effectuez les étapes suivantes pour automatiser l’installation et la configuration du rôle Worker hybride Windows :
 
-1. Téléchargez le script New-OnPremiseHybridWorker.ps1 à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker), directement sur l’ordinateur qui exécute le rôle Runbook Worker hybride ou sur un autre ordinateur de votre environnement. Copiez le script dans le Worker.
+1. Téléchargez le script New-OnPremiseHybridWorker.ps1 à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker), directement sur l’ordinateur qui exécute le rôle Runbook Worker hybride ou sur un autre ordinateur de votre environnement. Copiez le script dans le Worker. Le script New-OnPremiseHybridWorker.ps1 nécessite les paramètres suivants lors de l’exécution :
 
-   Le script New-OnPremiseHybridWorker.ps1 nécessite les paramètres suivants lors de l’exécution :
-
-   * *AutomationAccountName* (obligatoire) : nom de votre compte Automation.
    * *AAResourceGroupName* (obligatoire) : nom du groupe de ressources associé à votre compte Automation.
    * *OMSResourceGroupName* (facultatif) : nom du groupe de ressources pour l’espace de travail Log Analytics. Si ce groupe de ressources n’est pas spécifié, *AAResourceGroupName* est utilisé.
-   * *HybridGroupName* (obligatoire) : nom d’un groupe de Runbooks Workers hybrides que vous spécifiez comme cible pour les Runbooks prenant en charge ce scénario.
    * *SubscriptionID* (obligatoire) : ID de l’abonnement Azure dans lequel se trouve votre compte Automation.
+   * *TenantID* (facultatif) : Identificateur de l’organisation locataire associée à votre compte Automation.
    * *WorkspaceName* (facultatif) : Nom de l’espace de travail Log Analytics. Si vous n’avez pas d’espace de travail Log Analytics, le script en crée un et le configure.
-
+   * *AutomationAccountName* (obligatoire) : Nom de votre compte Automation.
+   * *HybridGroupName* (obligatoire) : nom d’un groupe de Runbooks Workers hybrides que vous spécifiez comme cible pour les Runbooks prenant en charge ce scénario.
+   * *Credential* (facultatif) : Informations d’identification à utiliser lors de la connexion à l’environnement Azure.
+  
    > [!NOTE]
    > Lors de l’activation de solutions, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation.
    >
@@ -97,10 +99,10 @@ Si vous ne disposez pas déjà d’un espace de travail Log Analytics, commencez
 
 La solution Automation ajoute des fonctionnalités à Azure Automation, notamment la prise en charge des Runbooks Workers hybrides. Lorsque vous ajoutez la solution à votre espace de travail Log Analytics, elle envoie automatiquement les composants Worker à l’ordinateur agent que vous allez installer à l’étape suivante.
 
-Pour ajouter la solution de journaux Azure Monitor **Automation** à votre espace de travail, exécutez la commande PowerShell suivante.
+Pour ajouter la solution **Automation** à votre espace de travail, exécutez la cmdlet PowerShell suivante.
 
 ```powershell-interactive
-Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
+Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true -DefaultProfile <IAzureContextContainer>
 ```
 
 #### <a name="3-install-the-log-analytics-agent-for-windows"></a>3. Installer l’agent Log Analytics pour Windows
@@ -117,7 +119,7 @@ Heartbeat
 | where TimeGenerated > ago(30m)
 ```
 
-Dans les résultats de recherche retournés, vous devez voir des enregistrements de pulsation pour l’ordinateur, indiquant qu’il est connecté et qu’il rend compte au service. L’enregistrement de pulsation est transféré à partir de chaque agent par défaut vers l’espace de travail qui lui est attribué. Vous pouvez vérifier que l’agent a correctement téléchargé la solution Automation lorsqu’un dossier appelé **AzureAutomationFiles** figure dans C:\Program Files\Microsoft Monitoring Agent\Agent. Pour vérifier la version du Runbook Worker hybride, vous pouvez accéder à C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ et consulter le sous-dossier \\*version*.
+Dans les résultats de recherche retournés, vous devez voir des enregistrements de pulsation pour l’ordinateur, indiquant qu’il est connecté et qu’il rend compte au service. L’enregistrement de pulsation est transféré à partir de chaque agent par défaut vers l’espace de travail qui lui est attribué. Vous pouvez vérifier que l’agent a correctement téléchargé la solution Automation lorsqu’un dossier appelé **AzureAutomationFiles** figure dans C:\Program Files\Microsoft Monitoring Agent\Agent. Pour vérifier la version du Runbook Worker hybride, accédez à C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ et notez le sous-dossier \\*version*.
 
 #### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. Installer l'environnement de Runbook et se connecter à Azure Automation
 

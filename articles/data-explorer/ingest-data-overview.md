@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 90387a033a43c627be4ce69a93ee37c5b959732d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 4846a19c403cce16bed704ed4e7c70499f3b5d13
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091795"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187995"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestion des données dans l’Explorateur de données Azure
 
@@ -70,7 +70,7 @@ Kusto propose des SDK client qui peuvent être utilisés pour ingérer et interr
 
 * [Node SDK](/azure/kusto/api/node/kusto-node-client-library)
 
-* [API REST](/azure/kusto/api/netfx/kusto-ingest-client-rest)
+* [REST API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Techniques d’ingestion par programmation** :
 
@@ -118,7 +118,7 @@ Pour les organisations disposant d’une infrastructure existante basée sur un 
 ## <a name="supported-data-formats"></a>Formats de données pris en charge
 
 Pour toutes les méthodes d’ingestion autres que l’ingestion à partir de requête, mettez en forme les données afin qu’Azure Data Explorer puisse les analyser. 
-* les formats de données pris en charge sont : TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (séparé par une ligne, multiligne), Avro et Parquet. 
+* les formats de données pris en charge sont : TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (séparé par une ligne, multiligne), Avro, Orc et Parquet. 
 * Prend en charge la compression ZIP et GZIP.
 
 > [!NOTE]
@@ -133,8 +133,8 @@ Pour toutes les méthodes d’ingestion autres que l’ingestion à partir de re
 
 Le mappage de schéma permet de lier des champs de données sources à des colonnes de table de destination.
 
-* Le [mappage CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (facultatif) fonctionne avec tous les formats basés sur un ordinal. Il peut être effectué à l’aide du paramètre de commande d’ingestion ou [précréé sur la table](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) et référencé à partir du paramètre de commande d’ingestion.
-* Le [mappage JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obligatoire) et le [mappage Avro](/azure/kusto/management/mappings?branch=master#avro-mapping) (obligatoire) peuvent être effectués à l'aide du paramètre de commande ingest. Ils peuvent également être [pré-créés sur la table](/azure/kusto/management/tables#create-ingestion-mapping) et référencés à partir du paramètre de commande ingest.
+* Le [mappage CSV](/azure/kusto/management/mappings?branch=master#csv-mapping) (facultatif) fonctionne avec tous les formats basés sur un ordinal. Il peut être effectué à l’aide du paramètre de commande d’ingestion ou [précréé sur la table](/azure/kusto/management/create-ingestion-mapping-command) et référencé à partir du paramètre de commande d’ingestion.
+* Le [mappage JSON](/azure/kusto/management/mappings?branch=master#json-mapping) (obligatoire) et le [mappage Avro](/azure/kusto/management/mappings?branch=master#avro-mapping) (obligatoire) peuvent être effectués à l'aide du paramètre de commande ingest. Ils peuvent également être [pré-créés sur la table](/azure/kusto/management/create-ingestion-mapping-command) et référencés à partir du paramètre de commande ingest.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

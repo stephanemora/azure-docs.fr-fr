@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: daa98d703a115e663032639d78f51b26ed1c7ba3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0f024bac535ed792d8480c991e470cf5d85932b8
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441874"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083017"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Haute disponibilité avec Azure Cosmos DB
 
@@ -105,7 +105,7 @@ Le tableau suivant récapitule la fonctionnalité de haute disponibilité des di
 |Défaillances de zone – Disponibilité | Perte de disponibilité | Aucune perte de disponibilité | Aucune perte de disponibilité |
 |Latence de lecture | Inter-région | Inter-région | Faible |
 |Latence d’écriture | Inter-région | Inter-région | Faible |
-|Panne régionale - Perte de données | Perte de données |  Perte de données | Perte de données <br/><br/> Lorsque vous utilisez la cohérence en fonction de l'obsolescence limitée avec multimaître et plusieurs régions, la perte de données est limitée à l’obsolescence configurée sur votre compte. <br/><br/> Pour éviter une perte de données en cas de panne régionale, configurez une cohérence forte avec plusieurs régions. Cette option n'est pas sans incidence en termes de disponibilité et de niveau de performance.      |
+|Panne régionale - Perte de données | Perte de données |  Perte de données | Perte de données <br/><br/> Quand vous utilisez la cohérence d’obsolescence limitée avec le multimaître et plusieurs régions, la perte de données est limitée à l’obsolescence configurée sur votre compte <br /><br />Vous pouvez éviter une perte de données en cas de panne régionale en configurant une cohérence forte avec plusieurs régions. Cette option n’est pas sans incidence en termes de disponibilité et de performances. Elle peut être configurée seulement sur des comptes configurés pour des écritures sur une seule région. |
 |Panne régionale - Disponibilité | Perte de disponibilité | Perte de disponibilité | Aucune perte de disponibilité |
 |Débit | X RU/s de débit approvisionné | X RU/s de débit approvisionné | 2X RU/s de débit approvisionné <br/><br/> Ce mode de configuration requiert deux fois plus de débit par rapport à une région unique avec zones de disponibilité car il existe deux régions. |
 

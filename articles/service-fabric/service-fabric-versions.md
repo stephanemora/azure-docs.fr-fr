@@ -2,13 +2,13 @@
 title: Versions de cluster prises en charge dans Azure Service Fabric
 description: Découvrez les versions de cluster dans Azure Service Fabric, notamment un lien vers les versions les plus récentes à partir du blog de l’équipe Service Fabric.
 ms.topic: troubleshooting
-ms.date: 01/28/2020
-ms.openlocfilehash: 80ecf0861f3d740fff6b68b0373f94d0e2845a9d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/05/2020
+ms.openlocfilehash: 0950c93c09c89ad92fc4f77f9f82937deb9e489e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76903482"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064850"
 ---
 # <a name="supported-service-fabric-versions"></a>Versions de Service Fabric prises en charge
 
@@ -101,3 +101,4 @@ Le tableau suivant répertorie les noms de version de Service Fabric et leurs nu
 | 6.5 CU5 | 6.5.676.9590 | 6.5.467.1 |
 | 7.0 RTO | 7.0.457.9590 | 7.0.457.1 |
 | 7.0 CU2 | 7.0.464.9590 | 7.0.464.1 |
+| 7.0 CU3 | 7.0.466.9590 | 7.0.465.1 |

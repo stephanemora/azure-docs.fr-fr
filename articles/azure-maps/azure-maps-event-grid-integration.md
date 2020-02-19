@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a89983a9ae45f21deb7a823de049373b4ff9b935
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: ca77d4704fb71972090ce0b96dfdb888ef7d1d2c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989057"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190334"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Réagir aux événements Azure Maps à l'aide d'Event Grid 
 
-Azure Maps s’intègre à Azure Event Grid pour permettre aux utilisateurs d’envoyer des notifications d’événements à d’autres services et de déclencher des processus en aval. L’objectif de cet article est de vous aider à configurer vos applications métier afin de détecter les événements Azure Maps. Ce service vous permet de réagir à des événements critiques de façon fiable, évolutive et sécurisée. Par exemple, les utilisateurs peuvent créer une application pour mettre à jour une base de données, créer un ticket et remettre une notification par e-mail chaque fois qu’un appareil franchit une limite géographique.
+Azure Maps s’intègre à Azure Event Grid pour permettre aux utilisateurs d’envoyer des notifications d’événements à d’autres services et de déclencher des processus en aval. L’objectif de cet article est de vous aider à configurer vos applications métier afin de détecter les événements Azure Maps. Ceci permet aux utilisateurs de réagir à des événements critiques de façon fiable, évolutive et sécurisée. Par exemple, les utilisateurs peuvent créer une application pour mettre à jour une base de données, créer un ticket et remettre une notification par e-mail chaque fois qu’un appareil franchit une limite géographique.
 
 Azure Event Grid est un service de routage d’événement complètement managé qui utilise le modèle publication-abonnement. Event Grid offre une prise en charge intégrée des services Azure comme [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) et [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview). Il peut envoyer des alertes d’événement à des services non-Azure à l’aide de webhooks. Pour obtenir une liste complète des gestionnaires d’événements qui prennent en charge Event Grid, consultez [Présentation d’Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
 
@@ -32,8 +32,8 @@ Event Grid utilise les [abonnements aux événements](https://docs.microsoft.com
 
 | Type d'événement | Description |
 | ---------- | ----------- |
-| Microsoft.Maps.GeofenceEntered | Déclenché lorsque les coordonnées reçues sont passées de l’extérieur d’une limite géographique donnée à l’intérieur d’une zone donnée. |
-| Microsoft.Maps.GeofenceExited | Déclenché lorsque les coordonnées reçues sont passées de l’intérieur d’une limite géographique donnée à l’extérieur de celle-ci. |
+| Microsoft.Maps.GeofenceEntered | Déclenché quand les coordonnées reçues sont passées de l’extérieur à l’intérieur d’une limite géographique donnée |
+| Microsoft.Maps.GeofenceExited | Déclenché quand les coordonnées reçues sont passées de l’intérieur à l’extérieur d’une limite géographique donnée |
 | Microsoft.Maps.GeofenceResult | Déclenché chaque fois qu’une requête de geofencing renvoie un résultat, quel que soit l’état. |
 
 ## <a name="event-schema"></a>Schéma d’événement
@@ -80,9 +80,9 @@ L’exemple suivant présente le schéma de GeofenceResult :
 
 Les applications qui gèrent des événements de limite géographique Azure Maps doivent suivre certaines pratiques recommandées :
 
-* Plusieurs abonnements peuvent être configurés pour acheminer les événements vers le même gestionnaire d'événements. Il est important de ne pas présumer que les événements proviennent d'une source particulière. Vérifiez toujours le sujet du message pour vous assurer qu'il provient bien de la source attendue.
-* Les messages peuvent arriver dans le désordre ou après un certain délai. Utilisez le champ `X-Correlation-id` de l’en-tête de la réponse pour savoir si vos informations sur les objets sont à jour.
-* Lorsque les API de limite géographique Get et POST sont appelées avec le paramètre de mode défini sur `EnterAndExit`, un événement d'entrée ou de sortie est généré pour chaque géométrie de la limite géographique dont l'état a changé par rapport à l'appel précédent de l'API de limite géographique.
+* Configurez plusieurs abonnements pour router les événements vers le même gestionnaire d’événements. Il est important de ne pas présumer que les événements proviennent d'une source particulière. Vérifiez toujours le sujet du message pour vous être sûr qu’il provient bien de la source attendue.
+* Utilisez le champ `X-Correlation-id` de l’en-tête de la réponse pour savoir si vos informations sur les objets sont à jour. Les messages peuvent arriver dans le désordre ou après un certain délai.
+* Quand une requête GET ou POST dans l’API Geofence est appelée avec le paramètre de mode défini sur `EnterAndExit`, un événement d’entrée ou de sortie est généré pour chaque géométrie de la limite géographique dont l’état a changé par rapport à l’appel précédent de l’API Geofence.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

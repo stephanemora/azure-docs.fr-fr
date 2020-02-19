@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: c993a08a4163d50a9632055da355e39b5bdde004
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 43c49cce1dd53edd5c2b13b01a31f94752579dff
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026449"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169332"
 ---
-# <a name="overview"></a>Vue d’ensemble
+# <a name="unified-connectivity-monitoring-with-connection-monitor-preview"></a>Supervision unifiée de la connectivité avec le Moniteur de connexion (préversion)
 
 Le Moniteur de connexion (préversion) fournit des fonctionnalités unifiées de contrôle de la connexion de bout en bout dans Azure Network Watcher pour les déploiements de solutions cloud hybride et Azure. Azure Network Watcher fournit des outils pour superviser, diagnostiquer et voir les métriques de connectivité de vos déploiements Azure.
 
@@ -78,8 +78,8 @@ Le _moniteur de connexion_ supervise la communication à intervalles réguliers.
 
 ### <a name="accessing-connection-monitor-preview"></a>Accès au Moniteur de connexion (préversion)
 
-1. Accédez à Network Watcher à l’aide du lien suivant :[https://ms.portal.azure.com/?Microsoft\_Azure\_Network\_connectionmonitorpreview=true#blade/Microsoft\_Azure\_Network/NetworkWatcherMenuBlade/connectionMonitorPreview](https://ms.portal.azure.com/?Microsoft_Azure_Network_connectionmonitorpreview=true#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/connectionMonitorPreview)
-2. Cliquez sur l’onglet Moniteur de connexion (préversion) dans la section Supervision du volet gauche de Network Watcher. Cet onglet est visible uniquement si Network Watcher est accessible à l’aide du lien spécifié à l’étape 1.
+1. Dans la page d’accueil du portail Azure, visitez Network Watcher.
+2. Cliquez sur l’onglet Moniteur de connexion (préversion) dans la section Supervision du volet gauche de Network Watcher.
 3. Vous pouvez voir tous les moniteurs de connexion créés à l’aide de l’expérience utilisateur du Moniteur de connexion (préversion). Tous les moniteurs de connexion créés à l’aide de l’expérience utilisateur classique de l’onglet Moniteur de connexion sont visibles sous l’onglet Moniteur de connexion.
 
     ![Créer un moniteur de connexion](./media/connection-monitor-2-preview/cm-resource-view.png)
@@ -403,7 +403,7 @@ Pour créer un groupe de tests dans un moniteur de connexion, spécifiez la vale
 
       ![Ajouter des destinations 2](./media/connection-monitor-2-preview/add-azure-dests2.png)
 
-   2. Cliquez sur l’onglet Points de terminaison pour sélectionner des machines virtuelles Azure en tant que destinations. La liste des points de terminaison contient des URL de test O365 et D365, regroupées par nom.  Vous pouvez également choisir un point de terminaison créé dans d’autres groupes de tests du même moniteur de connexion. Pour ajouter un nouveau point de terminaison, cliquez sur + Point de terminaison dans le coin supérieur droit de l’écran, puis indiquez l’URL/l’adresse IP/le FQDN et le nom du point de terminaison
+   2. Cliquez sur l’onglet Points de terminaison pour sélectionner des points de terminaison en tant que destinations. La liste des points de terminaison contient des URL de test O365 et D365, regroupées par nom.  Vous pouvez également choisir un point de terminaison créé dans d’autres groupes de tests du même moniteur de connexion. Pour ajouter un nouveau point de terminaison, cliquez sur + Point de terminaison dans le coin supérieur droit de l’écran, puis indiquez l’URL/l’adresse IP/le FQDN et le nom du point de terminaison
 
       ![Ajouter des points de terminaison](./media/connection-monitor-2-preview/add-endpoints.png)
 
@@ -578,8 +578,8 @@ Type de ressource - Microsoft.Network/networkWatchers/connectionMonitors
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent | % de sondes ayant échoué | Pourcentage | Average | % de sondes de surveillance de connectivité ayant échoué | Aucune dimension |
 | AverageRoundtripMs | Avg. Durée aller-retour (ms) | Millisecondes | Average | Durée aller-retour réseau moyenne (ms) pour les sondes de surveillance de connectivité envoyées entre la source et la destination |             Aucune dimension |
-| ChecksFailedPercent (préversion) | Pourcentage d’échecs de vérification (préversion) | Pourcentage | Average | Pourcentage d’échecs de vérification pour un test |Liste : - ConnectionMonitorResourceId - SourceAddress - SourceName - SourceResourceId - SourceType - Protocol - DestinationAddress - DestinationName - DestinationResourceId - DestinationType - DestinationPort - TestGroupName - TestConfigurationName - Region |
-| RoundTripTimeMs (préversion) | Durée d’aller-retour (ms) (préversion) | Millisecondes | Average | Durée d’aller-retour (ms) pour les vérifications envoyées entre la source et la destination. Cette valeur ne fait pas l’objet d’une moyenne | Liste : - ConnectionMonitorResourceId - SourceAddress - SourceName - SourceResourceId - SourceType - Protocol - DestinationAddress - DestinationName - DestinationResourceId - DestinationType - DestinationPort - TestGroupName - TestConfigurationName - Region |
+| ChecksFailedPercent (préversion) | Pourcentage d’échecs de vérification (préversion) | Pourcentage | Average | Pourcentage d’échecs de vérification pour un test | * ConnectionMonitorResourceId <br> * SourceAddress <br> *  SourceName <br> * SourceResourceId <br> *  SourceType <br> * Protocol <br> * DestinationAddress <br> * DestinationName <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> *  TestGroupName <br> *  TestConfigurationName <br> * Region |
+| RoundTripTimeMs (préversion) | Durée d’aller-retour (ms) (préversion) | Millisecondes | Average | Durée d’aller-retour (ms) pour les vérifications envoyées entre la source et la destination. Cette valeur ne fait pas l’objet d’une moyenne | * ConnectionMonitorResourceId <br> * SourceAddress <br> *  SourceName <br> * SourceResourceId <br> *  SourceType <br> * Protocol <br> * DestinationAddress <br> * DestinationName <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> *  TestGroupName <br> *  TestConfigurationName <br> * Region |
 
  ![Métriques de supervision](./media/connection-monitor-2-preview/monitor-metrics.png)
 

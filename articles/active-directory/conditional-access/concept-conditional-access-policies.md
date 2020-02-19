@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87f3e815f541ad4cfabc22d917ca9cecba47b50f
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 87224c9e3e697b86aab51d1e922af8ab2130ac40
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077937"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186228"
 ---
 # <a name="building-a-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
@@ -26,21 +26,21 @@ Comment une organisation crée-t-elle ces stratégies ? Qu’est-ce qui est req
 
 ![Accès conditionnel (signaux + décisions + application = stratégies)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
 
-## <a name="assignments"></a>Affectations
+## <a name="assignments"></a>Attributions
 
 La partie Affectations contrôle les personnes, les éléments et l’emplacement de la stratégie d’accès conditionnel.
 
 ### <a name="users-and-groups"></a>Utilisateurs et groupes
 
-Les utilisateurs et les groupes attribuent les personnes que la stratégie inclura et exclura. Cette affectation peut inclure tous les utilisateurs, des groupes d’utilisateurs spécifiques, des rôles d’annuaire ou des utilisateurs invités externes. 
+Les [utilisateurs et groupes](concept-conditional-access-users-groups.md) affectent les personnes que la stratégie inclura ou exclura. Cette affectation peut inclure tous les utilisateurs, des groupes d’utilisateurs spécifiques, des rôles d’annuaire ou des utilisateurs invités externes. 
 
 ### <a name="cloud-apps-or-actions"></a>Applications ou actions cloud
 
-Les applications ou actions cloud peuvent inclure ou exclure des applications cloud ou des actions utilisateur qui seront soumises à la stratégie.
+Les [actions ou applications cloud](concept-conditional-access-cloud-apps.md) peuvent inclure ou exclure des applications cloud ou des actions utilisateur auxquelles s’appliquera la stratégie.
 
 ### <a name="conditions"></a>Conditions
 
-Une stratégie peut contenir plusieurs conditions.
+Une stratégie peut comporter plusieurs [conditions](concept-conditional-access-conditions.md).
 
 #### <a name="sign-in-risk"></a>Risque à la connexion
 
@@ -70,7 +70,9 @@ Ce contrôle est utilisé pour exclure des appareils hybrides Azure AD joints ou
 
 La partie Contrôles d’accès de la stratégie d’accès conditionnel contrôle la manière dont une stratégie est appliquée.
 
-### <a name="grant"></a>Grant (Autoriser)
+### <a name="grant"></a>Accorder
+
+Avec [Accorder](concept-conditional-access-grant.md), les administrateurs peuvent appliquer une stratégie pour bloquer ou autoriser l’accès.
 
 #### <a name="block-access"></a>Bloquer l’accès
 
@@ -93,7 +95,7 @@ Les administrateurs peuvent choisir d’exiger un des contrôles précédents ou
 
 ### <a name="session"></a>session
 
-Les contrôles de session peuvent limiter l’expérience 
+Les [contrôles de session](concept-conditional-access-session.md) peuvent limiter l’expérience 
 
 - Utiliser les restrictions appliquées par l’application
    - Fonctionne actuellement avec Exchange Online et SharePoint Online uniquement.
@@ -121,11 +123,11 @@ Une stratégie d’accès conditionnel doit contenir au moins les éléments sui
 
 ![Stratégie d’accès conditionnel vide](./media/concept-conditional-access-policies/conditional-access-blank-policy.png)
 
+Dans l’article [Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md), nous présentons quelques stratégies qui nous semblent utiles pour la plupart des organisations.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Simuler le comportement de connexion à l’aide de l’outil What If pour l’accès conditionnel](troubleshoot-conditional-access-what-if.md)
-
-[Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md)
 
 [Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud](../authentication/howto-mfa-getstarted.md)
 

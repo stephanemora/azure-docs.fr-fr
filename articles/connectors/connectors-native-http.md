@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: 232b17852e89ebdfa6f81b5aadcdbcd9c83d4055
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 9c1b2af8d06c9466ed6c82308de941b43510238a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888139"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117970"
 ---
 # <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Envoyer des appels sortants à des points de terminaison HTTP ou HTTPS avec Azure Logic Apps
 
@@ -50,9 +50,12 @@ Ce déclencheur intégré effectue un appel HTTP vers l’URL spécifiée d’un
 
 1. Indiquez les valeurs des [paramètres du déclencheur HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger) à inclure dans l’appel au point de terminaison cible. Configurez la fréquence à laquelle le déclencheur doit vérifier le point de terminaison cible.
 
-   Si vous sélectionnez un type d’authentification autre que **Aucun**, les paramètres d’authentification varient en fonction de votre sélection. Pour plus d’informations, voir [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
-
    ![Entrer les paramètres du déclencheur HTTP](./media/connectors-native-http/http-trigger-parameters.png)
+
+   Si vous sélectionnez un type d’authentification autre que **Aucun**, les paramètres d’authentification varient en fonction de votre sélection. Pour plus d’informations sur les types d’authentification disponibles pour HTTP, consultez ces rubriques :
+
+   * [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+   * [Authentifier l’accès aux ressources avec des identités managées](../logic-apps/create-managed-service-identity.md)
 
 1. Pour ajouter d’autres paramètres disponibles, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres de votre choix.
 
@@ -80,9 +83,12 @@ Cette action intégrée effectue un appel HTTP à l’URL spécifiée d’un poi
 
 1. Indiquez les valeurs des [paramètres d’actions HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) à inclure dans l’appel au point de terminaison cible.
 
-   Si vous sélectionnez un type d’authentification autre que **Aucun**, les paramètres d’authentification varient en fonction de votre sélection. Pour plus d’informations, voir [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
-
    ![Entrer les paramètres de l’action HTTP](./media/connectors-native-http/http-action-parameters.png)
+
+   Si vous sélectionnez un type d’authentification autre que **Aucun**, les paramètres d’authentification varient en fonction de votre sélection. Pour plus d’informations sur les types d’authentification disponibles pour HTTP, consultez ces rubriques :
+
+   * [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+   * [Authentifier l’accès aux ressources avec des identités managées](../logic-apps/create-managed-service-identity.md)
 
 1. Pour ajouter d’autres paramètres disponibles, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres de votre choix.
 

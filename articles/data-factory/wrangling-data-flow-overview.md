@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 56c2d96e6e4a5900770aaefcabb424eddb1cbde6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 8f91ed926c733b211443805722b6817b1ce005b6
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531390"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048360"
 ---
 # <a name="what-are-wrangling-data-flows"></a>Que sont les flux de données de wrangling ?
 
@@ -28,7 +28,7 @@ Les flux de données de wrangling sont particulièrement utiles pour les ingéni
 
 ### <a name="fast-interactive-data-exploration-and-preparation"></a>Exploration et préparation rapide des données interactives
 
-Plusieurs ingénieurs de données et intégrateurs de données citoyen peuvent explorer et préparer de manière interactive les jeux de données à l’échelle du cloud. Avec l’augmentation du volume, de la variété et de la vélocité des données dans les lacs de données, les utilisateurs ont besoin d’un moyen efficace pour explorer et préparer les jeux de données. Par exemple, vous pourriez avoir à créer un jeu de données qui contient toutes les informations démographiques des nouveaux clients depuis 2017. Vous ne mappez pas sur une cible connue. Vous explorez, effectuez le wrangling et préparez les jeux de données pour répondre à une exigence avant de les publier dans le lac. Les flux de données de wrangling sont souvent utilisés dans des scénarios analytiques moins formels. Les jeux de données préparés peuvent être utilisés pour exécuter des transformations et des opérations d’apprentissage automatique en aval.
+Plusieurs ingénieurs de données et intégrateurs de données citoyen peuvent explorer et préparer de manière interactive les jeux de données à l’échelle du cloud. Avec l’augmentation du volume, de la variété et de la vélocité des données dans les lacs de données, les utilisateurs ont besoin d’un moyen efficace pour explorer et préparer les jeux de données. Par exemple, vous pourriez avoir à créer un jeu de données qui contient toutes les informations démographiques des nouveaux clients depuis 2017. Vous n’effectuez pas de mappage vers une cible connue. Vous explorez, effectuez le wrangling et préparez les jeux de données pour répondre à une exigence avant de les publier dans le lac. Les flux de données de wrangling sont souvent utilisés dans des scénarios analytiques moins formels. Les jeux de données préparés peuvent être utilisés pour exécuter des transformations et des opérations d’apprentissage automatique en aval.
 
 ### <a name="code-free-agile-data-preparation"></a>Préparation agile des données sans code
 
@@ -42,9 +42,9 @@ Analysez visuellement vos données sans code pour supprimer les valeurs hors nor
 
 | Connecteur | Format de données | Type d'authentification |
 | -- | -- | --|
-| [Stockage Blob Azure](connector-azure-blob-storage.md) | CSV | Clé du compte |
+| [Stockage Blob Azure](connector-azure-blob-storage.md) | CSV, Parquet | Clé du compte |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Principal de service |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV | Clé de compte, Principal de service |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parquet | Clé de compte, Principal de service |
 | [Azure SQL Database](connector-azure-sql-database.md) | - | Authentification SQL |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) | - | Authentification SQL |
 

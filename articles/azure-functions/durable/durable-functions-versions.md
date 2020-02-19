@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 789af25cc37183e9eeae253e1e8529615abdd308
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4a117e7f69647af3ad82f9013bfa40556ccc0dbd
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849800"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152888"
 ---
 # <a name="durable-functions-versions-overview"></a>Vue d’ensemble des versions de Durable Functions
 
@@ -59,6 +59,10 @@ Durable Functions 2.x utilise un nouveau schéma host.json. Les principales modi
 * `"notifications"` (et la sous-section `"eventGrid"`) pour la configuration de notification de grille d’événement.
 
 Pour plus d’informations, consultez la [documentation de référence pour host.json de Durable Functions](durable-functions-bindings.md#durable-functions-2-0-host-json).
+
+#### <a name="default-taskhub-name-changes"></a>Modification du nom du hub de tâches par défaut
+
+Dans la version 1.x, si un nom de hub de tâches n’a pas été spécifié dans le fichier host.json, la valeur par défaut est « DurableFunctionsHub ». Dans la version 2.x, le nom du hub de tâches par défaut est désormais dérivé du nom de l’application de fonction. Pour cette raison, si vous n’avez pas spécifié de nom de hub de tâches lors de la mise à niveau vers 2.x, votre code fonctionnera avec le nouveau hub de tâches, et toutes les orchestrations en cours ne disposeront plus d’une application qui les traite. Pour contourner ce problème, vous pouvez définir explicitement le nom de votre hub de tâches sur la valeur par défaut « DurableFunctionsHub » de la version 1.x, ou vous pouvez suivre notre [guide de déploiement sans interruption de service](durable-functions-zero-downtime-deployment.md) pour plus d’informations sur la gestion des changements cassants pour les orchestrations en cours.
 
 #### <a name="public-interface-changes-net-only"></a>Modifications de l’interface publique (.NET uniquement)
 

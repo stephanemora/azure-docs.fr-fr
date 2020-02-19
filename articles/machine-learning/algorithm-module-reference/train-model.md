@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: c9d02490a5627ead502429ead06608b4fb621058
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 3141795ed9ccfdabc9fd462a1cd09a74690f9c5b
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548405"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137918"
 ---
 # <a name="train-model-module"></a>Module de formation de modèle
 
@@ -39,7 +39,7 @@ Dans Azure Machine Learning, la création et l’utilisation d’un modèle Mach
 
 3. Une fois la formation terminée, utilisez le modèle formé avec l’un des [modules de notation](./score-model.md) pour effectuer des prédictions sur de nouvelles données.
 
-## <a name="how-to-use-train-model"></a>Comment utiliser le module **Train Model** (Entraîner le modèle)  
+## <a name="how-to-use-train-model"></a>Comment utiliser le module Effectuer l’apprentissage du modèle 
   
 1.  Dans Azure Machine Learning, configurez un modèle de classification ou de régression.
     
@@ -49,7 +49,7 @@ Dans Azure Machine Learning, la création et l’utilisation d’un modèle Mach
 
     Le jeu de données d’apprentissage doit contenir une colonne d’étiquette. Toutes les lignes sans étiquette sont ignorées.
   
-4.  Pour **Étiqueter la colonne**, cliquez sur **Launch column selector** (Lancer le sélecteur de colonne), puis choisissez une seule colonne contenant les résultats que le modèle peut utiliser pour la formation.
+4.  Pour **Étiqueter la colonne**, cliquez sur **Modifier la colonne** dans le volet droit du module, puis choisissez une seule colonne contenant les résultats que le modèle peut utiliser pour la formation.
   
     - Pour les problèmes de classification, la colonne d’étiquette doit contenir des valeurs **catégorielles** ou **discrètes**. Il peut s’agir, par exemple, d’une évaluation oui/non, d’un code ou nom de classification de maladie ou d’un groupe de revenus.  Si vous choisissez une colonne non catégorielle, le module renverra une erreur pendant la formation.
   

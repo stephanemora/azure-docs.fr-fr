@@ -1,5 +1,5 @@
 ---
-title: Exécuter des prédictions par lots à l’aide du concepteur Azure Machine Learning
+title: Exécuter des prédictions par lots à l’aide du concepteur Azure Machine Learning (préversion)
 titleSuffix: Azure Machine Learning
 description: Découvrez comment entraîner un modèle et configurer un pipeline de prédiction par lots à l’aide du concepteur. Déployez le pipeline en tant que service web paramétrable, pouvant être déclenché à partir de n’importe quelle bibliothèque HTTP.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 01/13/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: d2653699a69cb468e8490c2cba579b73e526d1ed
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 95a3c1b892cacd802f359fdc03de74fa60a1e118
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311884"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138103"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Exécuter des prédictions par lots à l’aide du concepteur Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Votre pipeline de formation doit être exécuté au moins une fois pour créer u
 
 1. Accédez à l'onglet **Concepteur** de votre espace de travail.
 
-1. Sélectionnez le pipeline de formation qui forme le modèle que vous souhaitez utiliser pour effectuer des prévisions.
+1. Sélectionnez le pipeline d’entraînement qui entraîne le modèle que vous voulez utiliser pour faire une prédiction.
 
 1. **Exécutez** le pipeline.
 

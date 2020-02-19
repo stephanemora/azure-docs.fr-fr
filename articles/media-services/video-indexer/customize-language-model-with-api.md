@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 02/04/2020
 ms.author: anzaman
-ms.openlocfilehash: e8df7ffd285b0d49f5d4a87585e769b5b0bbafe9
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 01ea4d9ef943183f09baa86b729ec69344d4309e
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513148"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049042"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Personnaliser un modèle linguistique avec les API Video Indexer
 
@@ -105,9 +105,8 @@ La réponse fournit des métadonnées sur le modèle linguistique qui vient d’
 }
 ```
 
-Vous devez utiliser la valeur **id** du modèle de langage pour le paramètre **linguisticModelId** lorsque vous [chargez une vidéo dans un index](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?), et pour le paramètre **languageModelId** lorsque vous [réindexez une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+L’**ID** retourné est un identifiant unique utilisé pour distinguer les modèles de langage, tandis que **languageModelId** est utilisé à la fois pour les API de[chargement d’une vidéo vers l’index](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) et de[réindexation d’une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) (également appelé **linguisticModelId** dans les API de chargement et de réindexation Video Indexer).
 
- 
 ## <a name="delete-a-language-model"></a>Supprimer un modèle de langage
 
 L'API [Supprimer un modèle de langage](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) supprime un modèle de langage personnalisé du compte spécifié. Toute vidéo qui utilisait le modèle de langage supprimé conservera le même index jusqu'à la réindexation de la vidéo. Si vous réindexez la vidéo, vous pouvez lui assigner un nouveau modèle de langage. Sinon, Video Indexer utilisera son modèle par défaut pour réindexer la vidéo.

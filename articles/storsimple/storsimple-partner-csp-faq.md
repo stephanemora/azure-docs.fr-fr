@@ -1,5 +1,5 @@
 ---
-title: Forum aux questions sur Microsoft Azure StorSimple et le programme des fournisseurs de solutions cloud pour les partenaires | Microsoft Docs
+title: 'Questions fréquentes (FAQ) pour les partenaires : StorSimple pour le programme des fournisseurs de solutions cloud'
 description: Vous trouverez ici des réponses aux questions fréquentes relatives à StorSimple et le programme des fournisseurs de solutions cloud pour les partenaires.
 services: storsimple
 documentationcenter: NA
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 893e8de5efc523df34e2c1e139082d2b471cb63e
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: eaf22773e581f0b7557a64917e183573039d1cef
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828525"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116168"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple pour le programme des fournisseurs de solutions cloud : Forum Aux Questions (FAQ)
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Vous trouverez ci-dessous une suite de questions-réponses sur les problématiques que vous pouvez rencontrer en tant que partenaire StorSimple, lorsque vous déployez ou gérez une instance StorSimple Virtual Array dans le portail Azure.
 
 Les questions/réponses sont organisées en plusieurs catégories :

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c173d0e17166911e28fea3d1c5820879d17af4a8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1a8832234978a2c8b2db25d88b5dd6c211b634b7
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381117"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186454"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger des applications clientes approuvées pour l’accès aux applications cloud avec l’accès conditionnel 
 
@@ -24,7 +24,7 @@ Vos employés utilisent des appareils mobiles pour des tâches à la fois person
 
 Cette rubrique explique comment configurer des stratégies d’accès conditionnel qui exigent des applications clientes approuvées.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Avec l’[accès conditionnel Azure AD](overview.md), vous pouvez préciser la façon dont chaque utilisateur autorisé peut accéder aux ressources. Par exemple, vous pouvez limiter l’accès à vos applications cloud aux appareils approuvés.
 
@@ -36,7 +36,7 @@ Dans la terminologie relative à l’accès conditionnel, ces applications clien
 
 ![Accès conditionnel](./media/app-based-conditional-access/05.png)
 
-Pour obtenir la liste des applications clientes approuvées, consultez [Spécification d’application cliente approuvée](technical-reference.md#approved-client-app-requirement).
+Pour obtenir la liste des applications clientes approuvées, consultez [Spécification d’application cliente approuvée](concept-conditional-access-grant.md).
 
 Vous pouvez combiner des stratégies d’accès conditionnel basé sur les applications avec d’autres stratégies, telles que les [stratégies d’accès conditionnel au niveau de l’appareil](require-managed-devices.md), afin de bénéficier d’une plus grande flexibilité en matière de protection des données pour les appareils personnels et d’entreprise.
 
@@ -44,12 +44,12 @@ Vous pouvez combiner des stratégies d’accès conditionnel basé sur les appli
 
 Cette rubrique part du principe que vous connaissez :
 
-- Les informations techniques de référence intitulées [Spécification d’application cliente approuvée](technical-reference.md#approved-client-app-requirement).
+- L’[exigence d’utilisation d’une application cliente approuvée](concept-conditional-access-grant.md).
 - Les concepts de base de l’[accès conditionnel dans Azure Active Directory](overview.md).
 - Comment [configurer une stratégie d’accès conditionnel](app-based-mfa.md).
 - Comment [migrer des stratégies d’accès conditionnel](best-practices.md#policy-migration).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour créer une stratégie d’accès conditionnel basé sur les applications, vous devez avoir un abonnement à Enterprise Mobility + Security ou à Azure Active Directory Premium, et les utilisateurs doivent disposer d’une licence pour EMS ou Azure AD. 
 

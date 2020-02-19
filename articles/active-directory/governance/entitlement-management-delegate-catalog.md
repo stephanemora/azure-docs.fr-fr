@@ -16,16 +16,18 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f71007b886d3cc25a7cf9dc23d784144ed4e1fbd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 51e37ad006da5042291614c773f242b5a1f3be97
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174381"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120196"
 ---
 # <a name="delegate-access-governance-to-catalog-creators-in-azure-ad-entitlement-management"></a>Déléguer la gouvernance des accès aux créateurs de catalogue dans la gestion des droits d’utilisation Azure AD
 
-Pour déléguer à des utilisateurs qui ne sont pas administrateurs, pour qu’ils puissent créer leurs propres catalogues, vous pouvez ajouter ces utilisateurs au rôle de créateur de catalogue défini par la gestion des droits d’utilisation Azure AD. Vous pouvez ajouter des utilisateurs individuels ou un groupe, dont les membres sont alors en mesure de créer des catalogues.
+Un catalogue est un conteneur de ressources et de packages d’accès. Vous créez un catalogue lorsque vous souhaitez regrouper des ressources et packages d’accès liés. Par défaut, un administrateur général ou un administrateur d’utilisateurs peut [créer un catalogue](entitlement-management-catalog-create.md) et peut ajouter des utilisateurs supplémentaires en tant que propriétaires du catalogue.
+
+Pour déléguer à des utilisateurs qui ne sont pas administrateurs, pour qu’ils puissent créer leurs propres catalogues, vous pouvez ajouter ces utilisateurs au rôle de créateur de catalogue défini par la gestion des droits d’utilisation Azure AD. Vous pouvez ajouter des utilisateurs individuels ou un groupe, dont les membres sont alors en mesure de créer des catalogues.  Après la création d’un catalogue, les utilisateurs peuvent ajouter par la suite des ressources dont ils sont propriétaires dans leur catalogue.
 
 ## <a name="as-an-it-administrator-delegate-to-a-catalog-creator"></a>En tant qu’administrateur informatique, déléguer à un créateur de catalogue
 

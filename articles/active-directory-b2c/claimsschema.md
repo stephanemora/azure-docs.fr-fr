@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3c3bb0cb6726326cda7ede46ba09fa6d17c2ba2c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 76e2b1c221475a90dc63498d13d4ede7a78e0779
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983042"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185587"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -51,7 +51,7 @@ L’élément **ClaimType** contient les éléments suivants :
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | Titre présenté aux utilisateurs sur différents écrans. La valeur peut être [localisée](localization.md). |
-| DataType | 1:1 | Type de la revendication. Vous pouvez utiliser les types de données suivantes : boolean, date, dateTime, int, long, string et stringCollection. Le type de données primitif représente l’équivalent d’un type de données variable en C#. stringCollection représente une collection de chaînes. Pour plus d’informations, consultez [Types et variables C#](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables). La date respecte la convention ISO 8601. |
+| DataType | 1:1 | Type de la revendication. Vous pouvez utiliser les types de données suivants : boolean, date, dateTime, int, long, string, stringCollection et phoneNumber. Le type de données primitif représente l’équivalent d’un type de données variable en C#. stringCollection représente une collection de chaînes. Pour plus d’informations, consultez [Types et variables C#](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables). La date respecte la convention ISO 8601. |
 | DefaultPartnerClaimTypes | 0:1 | Types de revendications par défaut de partenaire à utiliser pour un protocole spécifié. La valeur peut être substituée dans le **PartnerClaimType** spécifié dans l’élément **InputClaim** ou **OutputClaim**. Utilisez cet élément pour spécifier le nom par défaut d’un protocole.  |
 | Mask | 0:1 | Chaîne facultative de caractères de masquage qui peuvent être appliqués lors de l’affichage de la revendication. Par exemple, le numéro téléphone 324-232-4343 peut être masqué comme suit : XXX-XXX-4343. |
 | UserHelpText | 0:1 | Description du type de revendication qui peut aider les utilisateurs à comprendre sa raison d’être. La valeur peut être [localisée](localization.md). |

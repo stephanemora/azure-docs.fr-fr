@@ -1,20 +1,20 @@
 ---
-title: Partenaires d’Azure Virtual WAN | Microsoft Docs
+title: Conseils d’automatisation pour les des partenaires Azure Virtual WAN | Microsoft Docs
 description: Cet article aide les partenaires à configurer l’automatisation d’Azure Virtual WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 02/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6f95107960cf11ab15cb5a8294a5432498956a7a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 7848dda09b39f446dd218b7ce1eb2a07664bcaa6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775313"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190411"
 ---
-# <a name="virtual-wan-partners"></a>Partenaires Virtual WAN
+# <a name="automation-guidelines-for-virtual-wan-partners"></a>Conseils d’automatisation pour les partenaires Virtual WAN
 
 Cet article vous aide à comprendre comment configurer l’environnement d’automatisation pour connecter et configurer un appareil de branche (un périphérique VPN client local ou SDWAN CPE) pour Azure Virtual WAN. Si vous fournissez des appareils de branche qui peuvent accommoder une connectivité VPN par IPsec/IKEv2 ou IPsec/IKEv1, cet article est pour vous.
 

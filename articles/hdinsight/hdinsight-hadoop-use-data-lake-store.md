@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 309af904f0dbfc0664c4341803cb6a4dc8a2c8a4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 02/05/2020
+ms.openlocfilehash: c67fb21783a926f813d165528520b9d088154412
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839281"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162393"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Utiliser Data Lake Storage Gen1 avec des clusters Azure HDInsight
 
@@ -43,11 +43,11 @@ Dorénavant, seules certain(e)s versions/types de cluster HDInsight prennent en 
 | Type de cluster HDInsight | Utiliser Data Lake Storage Gen1 comme stockage par défaut | Utiliser Data Lake Storage Gen1 comme stockage supplémentaire| Notes |
 |------------------------|------------------------------------|---------------------------------------|------|
 | HDInsight version 4.0 | Non | Non |ADLS Gen1 n’est pas pris en charge avec HDInsight 4.0 |
-| HDInsight version 3.6 | OUI | OUI | With the exception of HBase|
-| HDInsight version 3.5 | OUI | OUI | With the exception of HBase|
-| HDInsight version 3.4 | Non | OUI | |
+| HDInsight version 3.6 | Oui | Oui | With the exception of HBase|
+| HDInsight version 3.5 | Oui | Oui | With the exception of HBase|
+| HDInsight version 3.4 | Non | Oui | |
 | HDInsight version 3.3 | Non | Non | |
-| HDInsight version 3.2 | Non | OUI | |
+| HDInsight version 3.2 | Non | Oui | |
 | Storm | | |Vous pouvez utiliser Data Lake Storage Gen1 pour écrire des données à partir d’une topologie Storm. Vous pouvez également vous en servir pour stocker des données de référence qui peuvent ensuite être lues par une topologie Storm.|
 
 > [!WARNING]  
@@ -131,6 +131,8 @@ Pour configurer l’accès à Data Lake Storage à partir de votre cluster HDIns
 > [!NOTE]  
 > Si vous comptez utiliser Azure Data Lake Storage Gen1 comme stockage supplémentaire pour le cluster HDInsight, nous vous recommandons vivement de procéder ainsi quand vous créez le cluster comme décrit dans cet article. L’ajout d’Azure Data Lake Storage Gen1 en tant que stockage supplémentaire à un cluster HDInsight existant n’est pas pris en charge.
 
+Pour plus d’informations sur les fondamentaux du modèle de contrôle d’accès pour Data Lake Storage Gen1, consultez [Contrôle d’accès dans Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+
 ## <a name="access-files-from-the-cluster"></a>Accès aux fichiers à partir du cluster
 
 Il existe plusieurs méthodes pour accéder aux fichiers dans Data Lake Storage à partir d’un cluster HDInsight.
@@ -210,7 +212,7 @@ LOCATION 'adl:///example/data/';
 LOCATION '/example/data/';
 ```
 
-## <a name="identify-storage-path-from-abmari"></a>Identifier le chemin de stockage à partir d’Abmari
+## <a name="identify-storage-path-from-ambari"></a>Identifier le chemin de stockage à partir d’Ambari
 
 Pour identifier le chemin d’accès complet au magasin par défaut configuré, accédez à **HDFS** > **Configs** et entrez `fs.defaultFS` dans la zone de texte filtre.
 
@@ -304,9 +306,9 @@ Dans cet article, vous avez appris à utiliser Azure Data Lake Storage Gen1 comp
 Pour plus d'informations, consultez les pages suivantes :
 
 * [Prise en main d’Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [Créer un cluster HDInsight pour utiliser Data Lake Storage Gen1 à l’aide d’Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Téléchargement de données vers HDInsight](hdinsight-upload-data.md)
 * [Utilisation d’Apache Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
 * [Utiliser des signatures d’accès partagé Stockage Azure pour restreindre l’accès aux données avec HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md)
-* [Tutoriel : Extraire, transformer et charger des données à l’aide d’Interactive Query sur Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+* [Tutoriel : Extraire, transformer et charger des données à l’aide d’Interactive Query sur Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

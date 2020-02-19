@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3cd57c09c08ab4c86feeca27915639123b439d0
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d63aaa0103715a928cdd5332de738a473b329f2e
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180037"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186082"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Configurer une stratégie d’accès conditionnel en mode Rapport uniquement (préversion)
 
@@ -40,6 +40,9 @@ Pour afficher le résultat d’une stratégie Rapport uniquement pour une connex
 1. Accédez à **Azure Active Directory** > **Connexions**.
 1. Sélectionnez une connexion ou ajoutez des filtres pour affiner les résultats.
 1. Dans le tiroir **Détails**, sélectionnez l’onglet **Rapport uniquement (préversion)** pour afficher les stratégies évaluées lors de la connexion.
+
+> [!NOTE]
+> Lorsque vous téléchargez les journaux de connexion, choisissez le format JSON pour inclure les résultats en mode rapport uniquement de la stratégie d’accès conditionnel.
 
 ## <a name="set-up-azure-monitor-integration-with-azure-ad"></a>Configurer l’intégration d’Azure Monitor avec Azure AD
 

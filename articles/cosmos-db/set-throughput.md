@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 9ac22461e04b447fe34d5647eb5ec7847d25a09d
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b60b117b10ac9ade6f685acf788e942ff7a2c93c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931266"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188766"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Approvisionner le débit sur les conteneurs et les bases de données
 
@@ -60,24 +60,11 @@ Tous les conteneurs créés à l’intérieur d’une base de données avec un d
 
 Si la charge de travail d'une partition logique consomme plus que le débit alloué à une partition logique spécifique, vos opérations sont limitées en termes de débit. En cas de limitation, vous pouvez augmenter le débit pour l’intégralité de la base de données ou retenter les opérations. Pour plus d’informations sur le partitionnement, consultez [Partitions logiques](partition-data.md).
 
-Le débit approvisionné sur une base de données peut être partagé par les conteneurs au sein de cette base. Chaque nouveau conteneur inclus dans le débit partagé au niveau de la base de données nécessite 100 RU/s. Quand vous provisionnez des conteneurs avec une offre de base de données partagée :
+Les conteneurs dans une base de données à débit partagé partagent le débit (RU/s) alloué à cette base de données. Dans une base de données à débit partagé :
 
-* Chaque groupe de 25 conteneurs occupe un jeu de partitions, et le débit de la base de données (D) est partagé entre ces conteneurs. Si la base de données contient au maximum 25 conteneurs et qu’à un moment donné, vous n’utilisez qu’un seul conteneur, celui-ci peut utiliser le débit maximal « D ».
+* Vous pouvez avoir jusqu’à quatre conteneurs avec un minimum de 400 RU/s sur la base de données. Chaque nouveau conteneur après les quatre premiers nécessite un minimum de 100 RU/s supplémentaires. Par exemple, si vous avec une base de données à débit partagé avec huit conteneurs, le nombre minimal de RU/s sur la base de données sera de 800 RU/s.
 
-* Dès lors que 25 conteneurs ont été créés, un nouveau jeu de partitions est créé pour les nouveaux conteneurs, et le débit de la base de données est réparti entre les nouveaux jeux de partitions (c’est-à-dire D/2 pour 2 jeux de partitions, D/3 pour 3 jeux de partitions, etc.). Si, à un moment donné, vous utilisez un seul conteneur de la base de données, celui-ci peut utiliser un débit maximal de D/2, D/3, D/4, etc. respectivement. Compte tenu du débit réduit, il est recommandé de ne pas créer plus de 25 conteneurs dans une base de données.
-
-**Exemple**
-
-* Supposons que vous créiez une base de données nommée « MyDB » avec un débit provisionné de 10 000 RU/s.
-
-* Si vous provisionnez 25 conteneurs sous « MyDB », tous les conteneurs sont regroupés dans un jeu de partitions. Si, à un moment donné, vous utilisez un seul conteneur de la base de données, il peut utiliser un débit maximal de 10 000 RU/s (D).
-
-* Quand vous provisionnez le 26e conteneur, un nouveau jeu de partitions est créé et le débit est réparti de manière égale entre les deux jeux de partitions. Si, à un moment donné, vous utilisez un seul conteneur de la base de données, il peut donc utiliser un débit maximal de 5 000 RU/s (D/2). Comme il existe deux jeux de partitions, le facteur de partage du débit est D/2.
-
-   Le schéma ci-dessous illustre l’exemple précédent :
-
-   ![Facteur de partage du débit au niveau de la base de données](./media/set-throughput/database-level-throughput-shareability-factor.png)
-
+* Vous pouvez avoir un maximum de 25 conteneurs dans la base de données. Si vous avez déjà plus de 25 conteneurs dans une base de données à débit partagé, vous ne pourrez pas créer de conteneurs supplémentaires tant que le nombre de conteneurs ne sera pas inférieur à 25.
 
 Si vos charges de travail impliquent la suppression et la recréation de toutes les collections d’une base de données, il est recommandé de supprimer la base de données vide et de recréer une nouvelle base de données avant la création de la collection. L’illustration suivante montre comment une partition physique peut héberger une ou plusieurs partitions logiques, appartenant à différents conteneurs, au sein d’une base de données :
 

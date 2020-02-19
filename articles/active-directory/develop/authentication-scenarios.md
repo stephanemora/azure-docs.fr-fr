@@ -13,18 +13,18 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 841ff610509c0d580ff8dca3a9fc14b816d56f1c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 9760f09f2588f09263c96cf8c1be74129b117009
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983220"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085382"
 ---
 # <a name="authentication-basics"></a>Principes fondamentaux de l’authentification
 
 ## <a name="what-is-authentication"></a>Présentation de l’authentification
 
-Cet article aborde la plupart des concepts d’authentification que vous devez comprendre pour créer des applications web protégées, des API web ou des applications appelant des API web protégées. Si vous voyez un terme qui ne vous est pas familier, essayez notre (glossaire) [developer-glossary.md].
+Cet article aborde la plupart des concepts d’authentification que vous devez comprendre pour créer des applications web protégées, des API web ou des applications appelant des API web protégées. Si vous rencontrez un terme qui ne vous est pas familier, essayez notre [glossaire](developer-glossary.md).
 
 L’**authentification** est le processus visant à prouver que vous êtes bien qui vous prétendez être. On abrège parfois l’authentification de cette manière : AuthN.
 

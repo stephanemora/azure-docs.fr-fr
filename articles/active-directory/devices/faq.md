@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a27c9ae1b75b9517bd3af92486df96434c5b34fb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cebb59d30dd717e54321ab138f6580947a545961
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207384"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185841"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -55,7 +55,7 @@ Seuls les appareils suivants sont répertoriés en tant **qu’appareils UTILISA
 
 ---
 
-### <a name="q-why-do-my-users-see-an-error-message-saying-your-organization-has-deleted-the-device-or-your-organization-has-disabled-the-device-on-their-windows-10-devices-"></a>Q : Pourquoi mes utilisateurs voient un message d’erreur du type « Votre organisation a supprimé l’appareil » ou « Votre organisation a désactivé l’appareil » sur leurs appareils Windows 10 ?
+### <a name="q-why-do-my-users-see-an-error-message-saying-your-organization-has-deleted-the-device-or-your-organization-has-disabled-the-device-on-their-windows-10-devices"></a>Q : Pourquoi les utilisateurs voient-ils un message d’erreur du type « Votre organisation a supprimé l’appareil » ou « Votre organisation a désactivé l’appareil » sur leurs appareils Windows 10 ?
 
 **R :** Sur les appareils Windows 10 qui sont joints ou inscrits à Azure AD, les utilisateurs reçoivent un [jeton d’actualisation principal](concept-primary-refresh-token.md) qui active l’authentification unique. La validité du jeton d’actualisation principal est basée sur la validité de l’appareil. Les utilisateurs voient ce message si l’appareil a été supprimé ou désactivé dans Azure AD, mais ailleurs que sur l’appareil en question. Un appareil peut être supprimé ou désactivé dans Azure AD dans les cas suivants : 
 
@@ -71,7 +71,7 @@ Pour savoir comment remédier à cela, lisez la section ci-dessous.
 
 ### <a name="q-i-disabled-or-deleted-my-device-in-the-azure-portal-or-by-using-windows-powershell-but-the-local-state-on-the-device-says-its-still-registered-what-should-i-do"></a>Q : J’ai désactivé ou supprimé mon appareil dans le portail Azure ou à l’aide de Windows PowerShell. Mais l’état local sur l’appareil indique qu’il est toujours inscrit. Que dois-je faire ?
 
-**R :** Cette opération est intentionnelle. Dans ce cas, l’appareil n’a pas accès aux ressources du cloud. Les administrateurs peuvent agir ainsi lorsque des appareils sont devenus obsolètes, ou lorsqu’ils ont été perdus ou volés, afin d’empêcher tout accès non autorisé. S’ils ont procédé à cette suppression ou à cette suppression par inadvertance, vous devez réactiver ou réinscrire l’appareil comme l’explique la section ci-dessous.
+**R :** Cette opération est intentionnelle. Dans ce cas, l’appareil n’a pas accès aux ressources du cloud. Les administrateurs peuvent effectuer cette action pour des appareils devenus obsolètes, ou des appareils perdus ou volés, afin d’empêcher tout accès non autorisé. S’ils ont procédé à cette suppression ou à cette suppression par inadvertance, vous devez réactiver ou réinscrire l’appareil comme l’explique la section ci-dessous.
 
 - Si l’appareil a été désactivé dans Azure AD, un administrateur disposant de privilèges suffisants peut l’activer à partir du portail Azure AD.  
   > [!NOTE]
@@ -119,7 +119,7 @@ Pour savoir comment remédier à cela, lisez la section ci-dessous.
 
 ### <a name="q-does-windows-10-device-registration-in-azure-ad-support-tpms-in-fips-mode"></a>Q : L’inscription d’appareil Windows 10 dans Azure AD prend-elle en charge les modules de plateforme sécurisée en mode FIPS ?
 
-**R :** L’inscription des appareils Windows 10 n’est prise en charge que pour les modules TPM 2.0 compatibles FIPS, mais pas pour les modules TPM 1.2. Si vos appareils sont dotés de modules TPM 1.2 compatibles FIPS, vous devez les désactiver avant de procéder à la jonction Azure AD Hybride ou à la jonction Azure AD Hybride. Notez que Microsoft ne propose aucun outil permettant de désactiver le mode FIPS pour les modules TPM car il dépend du fabricant de ces modules. Pour obtenir de l'aide, contactez votre fabricant OEM. 
+**R :** L’inscription des appareils Windows 10 n’est prise en charge que pour les modules TPM 2.0 compatibles FIPS, mais pas pour les modules TPM 1.2. Si vos appareils sont dotés de modules TPM 1.2 compatibles FIPS, vous devez les désactiver avant de procéder à la jonction Azure AD Hybride ou à la jonction Azure AD Hybride. Microsoft ne propose aucun outil permettant de désactiver le mode FIPS pour les modules TPM car il dépend du fabricant de ces modules. Pour obtenir de l’aide, contactez votre fabricant OEM. 
 
 ---
 
@@ -288,12 +288,12 @@ La jonction Azure AD Hybride est prioritaire sur l’état inscrit auprès d’A
 **R :** 
 - Pour les appareils Azure AD inscrits sur Windows 10, accédez à **Paramètres** > **Comptes** > **Accès professionnel ou scolaire**. Sélectionnez **Se déconnecter** dans votre compte. L’inscription de l’appareil est par profil utilisateur sur Windows 10.
 - Pour iOS et Android, vous pouvez utiliser l’application Microsoft Authenticator et aller dans **Paramètres** > **Inscription de l’appareil** et sélectionnez **Désinscrire l’appareil**.
-- Pour macOS, vous pouvez utiliser l’application le portail d’entreprise Microsoft Intune pour annuler l’inscription de l’appareil à partir de la gestion et supprimer toute inscription. 
+- Pour macOS, vous pouvez utiliser l’application Portail d’entreprise Microsoft Intune pour annuler l’inscription de l’appareil à partir de la gestion et supprimer toute inscription. 
 
 ---
 ### <a name="q-how-can-i-block-users-from-adding-additional-work-accounts-azure-ad-registered-on-my-corporate-windows-10-devices"></a>Q : Comment empêcher les utilisateurs d’ajouter des comptes professionnels supplémentaires (inscrits auprès d’Azure AD) sur mes appareils Windows 10 d’entreprise ?
 
-**R :** Activez le Registre suivant pour empêcher vos utilisateurs d’ajouter des comptes professionnels supplémentaires à vos appareils Windows 10 joints à un domaine d’entreprise, joints à Azure AD ou joints à une version hybride d’Azure AD. Cette stratégie peut également être utilisée pour empêcher les ordinateurs joints à un domaine d’être inscrits par inadvertance auprès d’Azure AD avec le même compte d’utilisateur. 
+**R :** Activez le Registre suivant pour empêcher vos utilisateurs d’ajouter d’autres comptes professionnels sur vos appareils Windows 10 joints à un domaine d’entreprise, joints à Azure AD ou joints à une version hybride Azure AD. Cette stratégie peut également être utilisée pour empêcher les ordinateurs joints à un domaine d’être inscrits par inadvertance auprès d’Azure AD avec le même compte d’utilisateur. 
 
 `HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001`
 
@@ -312,7 +312,7 @@ La jonction Azure AD Hybride est prioritaire sur l’état inscrit auprès d’A
 
 **Remarques :**
 
-- Les utilisateurs qui sont inclus dans votre stratégie d’accès conditionnel ont besoin d’une [version d’Office pour macOS prise en charge](../conditional-access/technical-reference.md#client-apps-condition) pour accéder aux ressources. 
+- Les utilisateurs qui sont inclus dans votre stratégie d’accès conditionnel ont besoin d’une [version d’Office pour macOS prise en charge](../conditional-access/concept-conditional-access-conditions.md) pour accéder aux ressources. 
 - Lors de la première tentative d’accès, vos utilisateurs sont invités à inscrire l’appareil par l’intermédiaire du portail d’entreprise.
 
 ---

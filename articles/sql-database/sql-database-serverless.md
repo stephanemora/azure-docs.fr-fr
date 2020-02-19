@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 2b11bbc22714ab1905421812e3cb24ee660ee667
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 750d08f3667317e9e1e396cff50884101d7ff55d
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372328"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131963"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 
@@ -342,7 +342,7 @@ Plus précisément, les coûts de calcul dans cet exemple sont calculés de la f
 |8:00-24:00|0|0|Aucun calcul facturé pendant la mise en pause|0 seconde de vCore|
 |Total de secondes de vCore facturées sur 24 heures||||50 400 secondes de vCore|
 
-Supposons que le prix unitaire du calcul est $0.000073/vCore/seconde.  Le calcul facturé sur cette période de 24 heures est le produit du prix unitaire du calcul par le nombre de secondes de vCore facturées : $0.000073/vCore/seconde * 50400 secondes de vCore = $3.68
+Supposons que le prix de l’unité Compute est 0,000145 $/vCore/seconde.  Le calcul facturé sur cette période de 24 heures est le produit du prix de l’unité Compute par le nombre de secondes de vCore facturées : 0,000145 $/vCore/seconde * 50 400 secondes de vCore ~ 7,31 $
 
 ### <a name="azure-hybrid-benefit-and-reserved-capacity"></a>Azure Hybrid Benefit et capacité réservée
 

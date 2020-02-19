@@ -3,12 +3,12 @@ title: Prise en charge de la migration Hyper-V dans Azure Migrate
 description: Découvrez la prise en charge de la migration Hyper-V avec Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 4ca946597417ccde0e00c8bf09c70207bc4f85b9
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 1eab96df7ee58a8170f75b41c5a2a06f033ced19
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031644"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064459"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matrice de prise en charge pour la migration Hyper-V
 
@@ -23,10 +23,10 @@ Vous pouvez sélectionner jusqu’à 10 machines virtuelles à la fois pour la r
 
 | **Support**                | **Détails**               
 | :-------------------       | :------------------- |
-| **Déploiement**       | L'hôte Hyper-V peut être autonome ou déployé dans un cluster. |
+| **Déploiement**       | L'hôte Hyper-V peut être autonome ou déployé dans un cluster. <br/>Le logiciel de réplication Azure Migrate (fournisseur de réplication Hyper-V) doit être installé sur les hôtes Hyper-V.|
 | **autorisations**           | Vous avez besoin des droits d'administrateur sur l'hôte Hyper-V. |
 | **Système d'exploitation hôte** | Windows Server 2019, Windows Server 2016 ou Windows Server 2012 R2. |
-| **Accès URL** | Les hôtes Hyper-V doivent accéder à ces URL :<br/><br/> – login.microsoftonline.com: Contrôle d’accès et gestion des identités avec Active Directory.<br/><br/> – *.backup.windowsazure.com: Transfert des données de réplication et coordination. URL du service de migration.<br/><br/> – *.blob.core.windows.net: Chargez des données dans des comptes de stockage.<br/><br/> – dc.services.visualstudio.com: Chargez les journaux d’applications utilisés pour la supervision interne.<br/><br/> - time.windows.com | Vérifie la synchronisation horaire entre l’horloge système et l’heure globale.
+| **Accès URL** | Le logiciel du fournisseur de réplication sur les hôtes Hyper-V doit accéder à ces URL :<br/><br/> – login.microsoftonline.com: Contrôle d’accès et gestion des identités avec Active Directory.<br/><br/> – *.backup.windowsazure.com: Transfert des données de réplication et coordination. URL du service de migration.<br/><br/> – *.blob.core.windows.net: Chargez des données dans des comptes de stockage.<br/><br/> – dc.services.visualstudio.com: Chargez les journaux d’applications utilisés pour la supervision interne.<br/><br/> - time.windows.com : Vérifie la synchronisation horaire entre l’horloge système et l’heure globale.
 | **Accès au port** |  Connexions sortantes sur le port HTTPS 443 pour envoyer les données de réplication des machines virtuelles.
 
 ## <a name="hyper-v-vms"></a>Machines virtuelles Hyper-V
@@ -34,8 +34,6 @@ Vous pouvez sélectionner jusqu’à 10 machines virtuelles à la fois pour la r
 | **Support**                  | **Détails**               
 | :----------------------------- | :------------------- |
 | **Système d’exploitation** | Tous les systèmes d'exploitation [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) et [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) pris en charge par Azure. |
-| **autorisations**           | Vous avez besoin des droits d'administrateur sur chaque machine virtuelle Hyper-V à évaluer. |
-| **Services d’intégration**       | Les [services d'intégration Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) doivent fonctionner sur les machines virtuelles que vous évaluez afin de capturer les informations du système d'exploitation. |
 | **Modifications nécessaires pour Azure** | Certaines machines virtuelles peuvent nécessiter des modifications pour fonctionner dans Azure. Vous devez effectuer les ajustements manuellement avant la migration. Les articles pertinents contiennent des instructions sur la façon de procéder. |
 | **Démarrage Linux**                 | Si /boot se trouve sur une partition dédiée, il doit être le disque du système d’exploitation et ne pas être réparti sur plusieurs disques.<br/> Si /boot fait partie de la partition racine (/), la partition « / » doit se trouver sur le disque du système d’exploitation et ne pas s’étendre sur d’autres disques. |
 | **Démarrage UEFI**                  | La machine virtuelle migrée dans Azure est automatiquement convertie en machine virtuelle de démarrage du BIOS. La machine virtuelle doit exécuter Windows Server 2012 ou une version ultérieure uniquement. Le disque du système d’exploitation ne doit pas comporter plus de cinq partitions et la taille du disque du système d’exploitation doit être inférieure à 300 Go.
@@ -55,15 +53,13 @@ Vous pouvez sélectionner jusqu’à 10 machines virtuelles à la fois pour la r
 
 ## <a name="azure-vm-requirements"></a>Exigences des machines virtuelles Azure
 
-Toutes les machines virtuelles locales répliquées sur Azure doivent respecter les exigences des machines virtuelles Azure récapitulées dans ce tableau. Quand Site Recovery vérifie les prérequis pour la réplication, la vérification échoue si certaines exigences ne sont pas satisfaites.
+Toutes les machines virtuelles locales répliquées sur Azure doivent respecter les exigences des machines virtuelles Azure récapitulées dans ce tableau.
 
 **Composant** | **Configuration requise** | **Détails**
 --- | --- | ---
-Système d’exploitation invité | Vérifie les systèmes d’exploitation de machines virtuelles VMware pris en charge pour la migration.<br/> Vous pouvez migrer les charges de travail s’exécutant sur un système d’exploitation pris en charge. | La vérification est mise en échec en cas de défaut de prise en charge.
-Architecture du système d’exploitation invité | 64 bits. | La vérification est mise en échec en cas de défaut de prise en charge.
 Taille du disque du système d’exploitation | Jusqu’à 2 048 Go. | La vérification est mise en échec en cas de défaut de prise en charge.
 Nombre de disques du système d’exploitation | 1 | La vérification est mise en échec en cas de défaut de prise en charge.
-Nombre de disques de données | 64 ou moins. | La vérification est mise en échec en cas de défaut de prise en charge.
+Nombre de disques de données | 16 ou moins. | La vérification est mise en échec en cas de défaut de prise en charge.
 Taille de disque de données | Jusqu’à 4 095 Go | La vérification est mise en échec en cas de défaut de prise en charge.
 Adaptateurs réseau | Prise en charge de plusieurs adaptateurs réseau. |
 Disque dur virtuel partagé | Non pris en charge. | La vérification est mise en échec en cas de défaut de prise en charge.

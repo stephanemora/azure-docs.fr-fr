@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: rezas
-ms.openlocfilehash: ce8ef987adc0cec4fcd8acef4cc075d50c92d62a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 244a71d400493a2029e831b729c63bc0b0dfe559
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722689"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049651"
 ---
 # <a name="tls-support-in-iot-hub"></a>Prise en charge du protocole TLS dans IoT Hub
 
@@ -78,13 +78,13 @@ Les hubs IoT configurés pour accepter uniquement TLS 1.2 appliquent également
 
 Utilisez les liens ci-dessous pour configurer TLS 1.2 et les chiffrements autorisés dans les Kits de développement logiciel (SDK) clients IoT Hub.
 
-| Langage | TLS 1.2 pris en charge | Documentation |
-|----------|-------------------|---------------|
-| C        | Oui               | [Lien](https://aka.ms/Tls_C_SDK_IoT) |
-| Python   | Oui               | [Lien](https://aka.ms/Tls_Python_SDK_IoT) |
-| C#       | Oui               | [Lien](https://aka.ms/Tls_CSharp_SDK_IoT) |
-| Java     | Oui               | [Lien](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJS   | Oui               | [Lien](https://aka.ms/Tls_Node_SDK_IoT) |
+| Langage | Versions prenant en charge TLS 1.2 | Documentation |
+|----------|------------------------------------|---------------|
+| C        | Balise 2019-12-11 ou ultérieure            | [Lien](https://aka.ms/Tls_C_SDK_IoT) |
+| Python   | Version 2.0.0 ou ultérieure             | [Lien](https://aka.ms/Tls_Python_SDK_IoT) |
+| C#       | Version 1.21.4 ou ultérieure            | [Lien](https://aka.ms/Tls_CSharp_SDK_IoT) |
+| Java     | Version 1.19.0 ou ultérieure            | [Lien](https://aka.ms/Tls_Java_SDK_IoT) |
+| NodeJS   | Version 1.12.2 ou ultérieure            | [Lien](https://aka.ms/Tls_Node_SDK_IoT) |
 
 
 ### <a name="use-tls-12-in-your-iot-edge-setup"></a>Utiliser TLS 1.2 dans votre configuration IoT Edge

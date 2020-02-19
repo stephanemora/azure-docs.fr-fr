@@ -1,5 +1,5 @@
 ---
-title: Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et d’Azure PowerShell
+title: Ajouter ou supprimer des attributions de rôle avec le contrôle d’accès en fonction du rôle et Azure PowerShell
 description: Découvrez comment accorder l’accès aux ressources Azure pour les utilisateurs, groupes, principaux de service ou identités managées à l’aide du contrôle d’accès en fonction du rôle (RBAC) Azure et d’Azure PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0ee996e39950d38b10f8df78fe47f7087c4a2ed1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 68a73f622dc69b70870ddc1db16edcf406b63800
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981064"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138320"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-powershell"></a>Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et d’Azure PowerShell
 

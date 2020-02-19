@@ -17,16 +17,14 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 42d315b44a76e79d6f1db48e5024094099564a98
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d7f27ad2adc5d4abf2b5ec993b3398ebf1370f52
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700479"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77159673"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plateforme d’identités Microsoft et flux d’octroi implicite
-
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 Le point de terminaison de la plateforme d’identités Microsoft vous permet de connecter des utilisateurs dans vos applications à page unique avec des comptes personnels et professionnels ou scolaires de Microsoft. Les applications à page unique et autres applications JavaScript qui s’exécutent principalement dans un navigateur présentent des problématiques spécifiques liées à l’authentification :
 
@@ -42,6 +40,35 @@ Toutefois, si vous préférez ne pas utiliser de bibliothèque dans votre applic
 
 > [!NOTE]
 > Le point de terminaison de la plateforme d’identités Microsoft ne prend pas en charge l’intégralité des scénarios et fonctionnalités d’Azure AD (Azure Active Directory). Pour déterminer si vous devez utiliser le point de terminaison de la plateforme d’identités Microsoft, consultez les [limitations de la plateforme d’identités Microsoft](active-directory-v2-limitations.md).
+
+## <a name="suitable-scenarios-for-the-oauth2-implicit-grant"></a>Scénarios adaptés à l’octroi implicite OAuth2
+
+La spécification OAuth2 indique que l’octroi implicite a été conçu pour autoriser les applications d’agent utilisateur, c’est-à-dire les applications JavaScript qui s’exécutent dans un navigateur. La caractéristique déterminante de ces applications réside dans le fait que le code JavaScript est utilisé pour accéder aux ressources du serveur (généralement une API web) et mettre à jour l’expérience utilisateur de l’application en conséquence. Pensez à des applications comme Gmail ou Outlook Web Access : lorsque vous sélectionnez un message dans votre boîte de réception, seul le volet de visualisation du message change pour afficher la nouvelle sélection, tandis que le reste de la page reste inchangé. Cette caractéristique contraste avec les applications web classiques à redirection, pour lesquelles chaque interaction utilisateur entraîne une publication (postback) et un rendu complets de la page de la nouvelle réponse du serveur.
+
+Les applications qui adoptent une approche JavaScript extrême sont appelées des applications monopage ou SPA (single-page applications). En d’autres termes, ces applications diffusent uniquement une page HTML initiale et le code JavaScript associé, et toutes les interactions suivantes sont pilotées par des appels d’API Web effectués via JavaScript. Toutefois, les approches hybrides, où l’application est principalement basée sur la publication mais effectue des appels JS occasionnels, ne sont pas rares. La discussion sur l’utilisation des flux implicites est également pertinente pour ces approches.
+
+En général, les applications à redirection sécurisent leurs demandes par des cookies. Mais cette approche présente une efficacité limitée pour les applications JavaScript. Les cookies ne fonctionnent que sur le domaine pour lequel ils ont été générés, tandis que les appels JavaScript peuvent être dirigés vers d’autres domaines. En fait, ce sera très souvent le cas : pensez aux applications appelant une API Graph Microsoft, une API Office et une API Azure qui, toutes, résident hors du domaine à partir duquel l’application est exécutée. Une tendance croissante pour les applications JavaScript consiste à n’avoir aucun principal et à se reposer à 100 % sur des API web tierces pour implémenter la fonction métier.
+
+Actuellement, la méthode recommandée de protection des appels d’une API Web consiste à utiliser l’approche de jeton de support OAuth2, dans laquelle chaque appel est accompagné d’un jeton d’accès OAuth2. L’API Web examine le jeton d’accès entrant et, si elle y détecte les périmètres nécessaires, elle autorise l’accès à l’opération demandée. Le flux implicite fournit un mécanisme pratique permettant aux applications JavaScript d’obtenir des jetons d’accès pour une API Web, offrant ainsi de nombreux avantages sur les cookies :
+
+* Les jetons peuvent être obtenus de façon fiable sans avoir recours aux appels cross-origin – l’inscription obligatoire de l’URI de redirection vers laquelle les jetons sont retournés garantit que les jetons ne sont pas déplacés.
+* Les applications JavaScript peuvent obtenir autant de jetons d’accès que nécessaire, pour un nombre illimité d’API Web ciblées, sans aucune restriction sur les domaines.
+* Les fonctionnalités HTML5 comme le stockage de session ou local accordent un contrôle total sur la gestion de la mise en cache et de la durée de vie des jetons, tandis que la gestion des cookies est opaque pour l’application.
+* Les jetons d’accès ne sont pas vulnérables aux falsifications de requête intersites (CSRF, Cross Site Request Forgery).
+
+Le flux d’octroi implicite n’émet pas de jetons d’actualisation, principalement pour des raisons de sécurité. L’étendue d’un jeton d’actualisation n’est pas aussi étroite que celle des jetons d’accès. Ainsi, un jeton d’actualisation offre une puissance bien supérieure et peut causer des dommages beaucoup plus lourds en cas de fuite. Dans le flux implicite, les jetons sont remis à l’URL. Par conséquent, le risque d’interception est plus élevé qu’avec l’octroi de code d’autorisation.
+
+Toutefois, une application JavaScript a un autre mécanisme à sa disposition pour renouveler les jetons d’accès sans inviter à chaque fois l’utilisateur à entrer ses informations d’identification. L’application peut utiliser un IFrame masqué pour effectuer de nouvelles demandes de jeton sur le point de terminaison d’autorisation d’Azure AD : tant que le navigateur a une session active (c’est-à-dire qu’il dispose d’un cookie de session) sur le domaine Azure AD, la demande d’authentification peut s’effectuer correctement sans aucune intervention de l’utilisateur.
+
+Ce modèle permet à l’application JavaScript de renouveler les jetons d’accès en toute autonomie, voire d’en acquérir d’autres pour une nouvelle API (à condition que l’utilisateur les ait préalablement acceptés). Cela évite les tâches d’acquisition, de maintenance et de protection d’un artefact aussi précieux qu’un jeton d’actualisation. L’artefact qui permet un renouvellement silencieux, le cookie de session Azure AD, est géré en dehors de l’application. Autre avantage de cette approche : un utilisateur peut se déconnecter d’Azure AD, à l’aide des applications signées dans Azure AD et en cours d’exécution dans les onglets de navigateur. Cela entraîne la suppression du cookie de session Azure AD, l’application JavaScript perdant automatiquement la capacité de renouveler les jetons pour l’utilisateur déconnecté.
+
+## <a name="is-the-implicit-grant-suitable-for-my-app"></a>L’octroi implicite est-il adapté à mon application ?
+
+L’octroi implicite présente plus de risques que d’autres octrois, et les points auxquels vous devez être attentif sont bien documentés (par exemple, dans [Utilisation incorrecte du jeton d’accès pour emprunter l’identité d’un propriétaire des ressources dans un flux implicite][OAuth2-Spec-Implicit-Misuse] et [Modèle de menace OAuth 2.0 et considérations de sécurité][OAuth2-Threat-Model-And-Security-Implications]). Toutefois, le profil de risque supérieur est principalement dû au fait qu’il est destiné à autoriser les applications qui exécutent du code actif, envoyé à un navigateur par une ressource distante. Si vous optez pour une architecture d’application à page unique, que vous n’avez aucun composant principal ou que vous envisagez d’appeler une API Web à l’aide de JavaScript, l’utilisation du flux implicite pour l’acquisition de jeton est recommandée.
+
+Si votre application est un client natif, le flux implicite n’est pas idéal. L’absence du cookie de session Azure AD dans le contexte d’un client natif empêche votre application de maintenir une session longue. En d’autres termes, votre application sollicite régulièrement l’utilisateur pour obtenir des jetons d’accès aux nouvelles ressources.
+
+Si vous développez une application web qui comprend un principal et utilise une API à partir de son code principal, le flux implicite n’est pas non plus la solution idéale. D’autres modes d’octroi d’autorisation sont beaucoup plus puissants. Par exemple, l’octroi d’informations d’identification du client OAuth2 permet d’obtenir des jetons correspondant aux autorisations attribuées à l’application elle-même, et non aux délégations de l’utilisateur. Le client conserve ainsi l’accès par programmation aux ressources, même lorsqu’un utilisateur n’est pas actif dans une session et ainsi de suite. De plus, ces modes d’octroi offrent de meilleurs gages de sécurité. Par exemple, les jetons d’accès ne transitent jamais par le navigateur de l’utilisateur. Ils ne risquent donc pas d’être enregistrés dans l’historique du navigateur. L’application cliente peut également effectuer une authentification forte lorsqu’elle demande un jeton.
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
 

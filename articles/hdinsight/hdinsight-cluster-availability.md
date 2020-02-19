@@ -1,20 +1,19 @@
 ---
 title: 'Monitorage : Journaux Apache Ambari et Azure Monitor – Azure HDInsight'
 description: Découvrez comment utiliser les journaux Ambari et Azure Monitor pour surveiller la disponibilité et l’intégrité du cluster.
-keywords: surveillance, ambari, surveiller, analytique des journaux d’activité, alerte, disponibilité, intégrité
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/25/2019
-ms.openlocfilehash: a21610fefcfe1632dffbfd8e055497476f7e59c1
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.date: 02/06/2020
+ms.openlocfilehash: 383366fa3e436c79bed28a7c47f1e9daa5f0d9de
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687817"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77060170"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-and-azure-monitor-logs"></a>Superviser la disponibilité des clusters à l’aide d’Apache Ambari et des journaux Azure Monitor
 
@@ -96,9 +95,9 @@ Vous aurez besoin d’un espace de travail Log Analytics pour stocker les donné
 
 ### <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Activer l’intégration des journaux Azure Monitor HDInsight
 
-Dans le portail, dans la page de ressources du cluster HDInsight, sélectionnez **Operations Management Suite**. Ensuite, sélectionnez **Activer** et sélectionnez votre espace de travail Log Analytics dans la liste déroulante.
+Dans la page des ressources du cluster HDInsight du portail, sélectionnez **Azure Monitor**. Ensuite, sélectionnez **Activer**, puis votre espace de travail Log Analytics dans la liste déroulante.
 
-![HDInsight Operations Management Suite](media/hdinsight-cluster-availability/hdi-portal-oms-enable.png)
+![HDInsight Operations Management Suite](media/hdinsight-cluster-availability/azure-portal-monitoring.png)
 
 ### <a name="query-metrics-and-logs-tables"></a>Interroger les tables de métriques et de journaux
 

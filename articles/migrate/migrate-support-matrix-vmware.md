@@ -3,12 +3,12 @@ title: Prise en charge de l’évaluation VMware dans Azure Migrate
 description: Découvrez la prise en charge de l’évaluation VMware dans Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 8ed20ecd37eacdcb771db7c166ff8fc22b96cb89
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 19ed506228bac425ad05edee1586740e6c33f69e
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846180"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121328"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Tableau de prise en charge pour l’évaluation VMware 
 
@@ -42,7 +42,7 @@ En plus de découvrir les machines, Azure Migrate : Server Assessment peut déco
 **Système d’exploitation de la machine** | Toutes les versions de Windows et Linux.
 **informations d’identification de vCenter** | Compte vCenter Server disposant d’un accès en lecture seule, et privilèges activés pour les Machines virtuelles > Opérations d’invité.
 **Informations d’identification de machine virtuelle** | Prend actuellement en charge l’utilisation d’une information d’identification pour tous les serveurs Windows et d’une information d’identification pour tous les serveurs Linux.<br/><br/> Vous créez un compte d’utilisateur invité pour les machines virtuelles Windows et un compte d’utilisateur standard/normal (accès non-sudo) pour toutes les machines virtuelles Linux.
-**Outils VMware** | Les outils VMware doivent être installés et en cours d’exécution sur les machines virtuelles que vous souhaitez découvrir.
+**Outils VMware** | Les outils VMware doivent être installés et en cours d’exécution sur les machines virtuelles que vous souhaitez découvrir. <br/> Si votre version des outils VMware est comprise entre 9.10 et 10.2.0, veillez à la mettre à niveau vers une version supérieure à 10.2.0.
 **Accès au port** | Sur les hôtes ESXi exécutant des machines virtuelles que vous souhaitez découvrir, l’appliance Azure Migrate doit être en mesure de se connecter au port TCP 443.
 **Limites** | Pour la découverte d’application, vous pouvez en découvrir jusqu’à 10 000 par appliance. 
 
@@ -96,10 +96,10 @@ Cette option est actuellement en préversion. [Plus d’informations](how-to-cre
 **Prise en charge des machines virtuelles** | Actuellement seules les machines virtuelles VMware sont prises en charge.
 **Machines virtuelles Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bits)
 **Machines virtuelles Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Compte Windows** |  La visualisation a besoin d’un compte d’utilisateur avec un accès invité.
+**Compte Windows** |  La visualisation a besoin d’un compte d’administrateur de domaine ou local.
 **Compte Linux** | La visualisation a besoin d’un compte d’utilisateur avec un privilège de racine.<br/><br/> Sinon, le compte d’utilisateur a besoin des autorisations suivantes sur les fichiers /bin/netstat et /bin/ls : CAP_DAC_READ_SEARCH et CAP_SYS_PTRACE.
 **Agents de machine virtuelle** | Aucun agent n’est nécessaire sur les machines virtuelles.
-**Outils VMware** | Les outils VMware doivent être installés et en cours d’exécution sur les machines virtuelles que vous souhaitez analyser.
+**Outils VMware** | Les outils VMware doivent être installés et en cours d’exécution sur les machines virtuelles que vous souhaitez analyser. <br/> Si votre version des outils VMware est comprise entre 9.10 et 10.2.0, veillez à la mettre à niveau vers une version supérieure à 10.2.0.
 **informations d’identification de vCenter** | Compte vCenter Server disposant d’un accès en lecture seule, et privilèges activés pour les Machines virtuelles > Opérations d’invité.
 **Accès au port** | Sur les hôtes ESXi exécutant des machines virtuelles que vous souhaitez analyser, l’appliance Azure Migrate doit être en mesure de se connecter au port TCP 443.
 

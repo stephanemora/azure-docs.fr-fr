@@ -55,10 +55,10 @@ Prenez ces exemples d’énoncés :
 
 |Exemples d’énoncés|
 |--|
-|Comment obtenir un ordinateur ?|
-|Où obtenir un ordinateur ?|
-|Je souhaite obtenir un ordinateur, comment faire ?|
-|Quand puis-je avoir un ordinateur ?| 
+|how do I get a computer?|
+|Where do I get a computer?|
+|I want to get a computer, how do I go about it?|
+|When can I have a computer?| 
 
 Ici, le terme clé, « ordinateur », n’a pas de variante. Utilisez des alternatives telles que « ordinateur de bureau », « ordinateur portable », « station de travail » ou même juste « machine ». LUIS peut déduire intelligemment des synonymes à partir du contexte, mais, lorsque vous créez des énoncés pour l’apprentissage, il est toujours préférable de les faire varier.
 
@@ -144,8 +144,8 @@ Dans les énoncés suivants, le mot `fair` est un homographe. Il est orthographi
 
 |Énoncé|
 |--|
-|Quelles sont les foires qui ont lieu dans la région de Seattle cet été ?|
-|L’évaluation actuelle pour Seattle est-elle juste ?|
+|What kind of county fairs are happening in the Seattle area this summer?|
+|Is the current rating for the Seattle review fair?|
 
 Si vous souhaitez qu’une entité d’événement recherche toutes les données d’événement, étiquetez le mot `fair` dans le premier énoncé, mais pas dans le second.
 

@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: dbb91106ad00e1a82e2e6e9c470e61764a4ad4c4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: d5b5a69c7927d07c0ae6b3b56ec97b6551e5d46b
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792036"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191328"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Appeler, déclencher ou imbriquer des applications logiques à l’aide de points de terminaison HTTP dans Azure Logic Apps
 
@@ -28,7 +28,7 @@ Pour configurer un point de terminaison HTTP, vous pouvez utiliser l’un de ces
 
 Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
@@ -36,7 +36,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 ## <a name="create-a-callable-endpoint"></a>Créer un point de terminaison pouvant être appelé
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Créez et ouvrez une application logique vide dans le concepteur d’applications logiques.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Créez et ouvrez une application logique vide dans le concepteur d’applications logiques.
 
    Cet exemple utilise le déclencheur de requête, mais vous pouvez utiliser n’importe quel déclencheur capable de recevoir des requêtes HTTP entrantes. Tous les principes s’appliquent de manière identique à ces déclencheurs. Pour plus d’informations sur le déclencheur de requête, consultez [Recevoir et répondre aux appels HTTPS entrants à l’aide d’Azure Logic Apps](../connectors/connectors-native-reqres.md).
 
@@ -242,9 +242,9 @@ Vous pouvez imbriquer des workflows dans votre application logique en ajoutant d
 
 Si le type de contenu de la requête entrante est `application/json`, vous pouvez référencer les propriétés dans la requête entrante. Sinon, ce contenu est traité comme une seule unité binaire que vous pouvez transmettre à d’autres API. Pour référencer ce contenu dans le flux de travail de votre application logique, vous devez d’abord convertir ce contenu.
 
-Par exemple, si vous transmettez du contenu dont le type de `application/xml` est, vous pouvez utiliser l’expression [`@xpath()` ](../logic-apps/workflow-definition-language-functions-reference.md#xpath) pour effectuer une extraction XPath ou utiliser l’expression [`@json()` ](../logic-apps/workflow-definition-language-functions-reference.md#json) pour la conversion de XML en JSON. En savoir plus sur l’utilisation des [types de contenus](../logic-apps/logic-apps-content-type.md) pris en charge.
+Par exemple, si vous transmettez du contenu dont le type de `application/xml` est, vous pouvez utiliser l’expression [`@xpath()`](../logic-apps/workflow-definition-language-functions-reference.md#xpath) pour effectuer une extraction XPath ou utiliser l’expression [`@json()`](../logic-apps/workflow-definition-language-functions-reference.md#json) pour la conversion de XML en JSON. En savoir plus sur l’utilisation des [types de contenus](../logic-apps/logic-apps-content-type.md) pris en charge.
 
-Pour obtenir la sortie à partir d’une requête entrante, vous pouvez utiliser l’expression [`@triggerOutputs` ](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs). Par exemple, supposons que vous ayez une sortie ressemblant à l’exemple suivant :
+Pour obtenir la sortie à partir d’une requête entrante, vous pouvez utiliser l’expression [`@triggerOutputs`](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs). Par exemple, supposons que vous ayez une sortie ressemblant à l’exemple suivant :
 
 ```json
 {
@@ -257,7 +257,7 @@ Pour obtenir la sortie à partir d’une requête entrante, vous pouvez utiliser
 }
 ```
 
-Pour accéder spécifiquement à la propriété `body`, vous pouvez utiliser l’expression [`@triggerBody()` ](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) comme raccourci.
+Pour accéder spécifiquement à la propriété `body`, vous pouvez utiliser l’expression [`@triggerBody()`](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) comme raccourci.
 
 ## <a name="respond-to-requests"></a>Répondre aux requêtes
 
@@ -309,10 +309,10 @@ Pour afficher la définition JSON de l’action de réponse et de la définition
 **R** : Les URL de rappel de l’application logique sont générées de façon sécurisée par Azure à l’aide d’une [signature d’accès partagé (SAP)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature). Cette signature est transmise directement comme paramètre de requête et doit être validée avant que votre application logique puisse être exécutée. Azure génère cette signature via la combinaison unique d’une clé secrète par application logique, du nom du déclencheur et de l’opération qui est effectuée. Ainsi, à moins que quelqu’un ait accès à la clé secrète de l’application logique, personne ne peut générer de signature valide.
 
 > [!IMPORTANT]
-> Pour les systèmes de production et sécurisés, nous vous recommandons vivement d’appeler votre application logique directement à partir du navigateur pour les raisons suivantes :
+> Pour les systèmes de production et les systèmes ayant un niveau de sécurité supérieur, nous vous déconseillons fortement d’appeler votre application logique directement à partir du navigateur pour les raisons suivantes :
 >
 > * la clé d’accès partagé s’affiche dans l’URL ;
-> * vous ne pouvez pas gérer de stratégies de contenu sécurisé en raison du partage de domaines entre les clients Azure Logic Apps.
+> * Vous ne pouvez pas gérer les stratégies de contenu de sécurité en raison du partage de domaines entre les clients Azure Logic Apps.
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>Q : Puis-je configurer des points de terminaison HTTP de façon plus approfondie ?
 

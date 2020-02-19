@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 76807c8ed10e30c554b6aa06ec096c830a86e36e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 5633dd7b72f4de22cd34b7d093e8ec4d9cb411f1
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571975"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137698"
 ---
 # <a name="ssl-termination-with-key-vault-certificates"></a>Arrêt SSL avec certificats Key Vault
 
@@ -33,6 +33,9 @@ L’intégration d’Application Gateway avec Key Vault offre de nombreux avanta
 - Prise en charge du renouvellement automatique des certificats stockés dans votre coffre de clés.
 
 À l’heure actuelle, Application Gateway prend uniquement en charge les certificats validés par logiciel. Les certificats validés par module de sécurité matériel ne sont pas pris en charge. Une fois qu’Application Gateway est configurée pour utiliser des certificats Key Vault, ses instances récupèrent le certificat dans Key Vault et l’installent localement pour l’arrêt SSL. Les instances interrogent également Key Vault à des intervalles de 24 heures pour récupérer une version renouvelée du certificat, le cas échéant. Si un certificat mis à jour est trouvé, le certificat SSL associé à l’écouteur HTTPS est automatiquement remplacé.
+
+> [!NOTE]
+> Le portail Azure prend en charge seulement les certificats KeyVault Certificate, pas les secrets. Application Gateway prend néanmoins toujours en charge le référencement des secrets KeyVault, mais seulement via des ressources autres que celles du portail, comme PowerShell, l’interface CLI, les API, les modèles ARM, etc. 
 
 ## <a name="how-integration-works"></a>Fonctionnement de l’intégration
 

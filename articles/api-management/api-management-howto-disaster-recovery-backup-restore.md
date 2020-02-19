@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: e3d8821fc36a9ba570893ec861b949921d9fabf5
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 8f748764d0f61e4932b2d4710f5a6805a5eddf0e
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029943"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047465"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
@@ -169,7 +169,7 @@ Définissez la valeur de l’en-tête de la demande `Content-Type` sur `applicat
 
 La sauvegarde est une opération longue qui peut prendre plusieurs minutes. Si la demande a réussi et que le processus de sauvegarde a commencé, vous recevez le code d’état de réponse `202 Accepted` avec un en-tête `Location`. Envoyez des demandes « GET » à l’URL dans l’en-tête `Location` pour connaître l’état de l’opération. Quand la sauvegarde est en cours, vous continuez à recevoir le code d’état « 202 Accepted ». Un code de réponse `200 OK` indique que l’opération de sauvegarde a réussi.
 
-Tenez compte des contraintes suivantes quand vous faites une demande de sauvegarde :
+Tenez compte des contraintes suivantes quand vous faites une demande de sauvegarde ou de restauration :
 
 -   Le **conteneur** spécifié dans le corps de la demande **doit exister**.
 -   Pendant la sauvegarde, **évitez toutes les modifications de gestion dans le service**, comme mettre à niveau une référence SKU ou la passer à une version antérieure, changer un nom de domaine, etc.
@@ -178,10 +178,10 @@ Tenez compte des contraintes suivantes quand vous faites une demande de sauvegar
 -   En outre, les éléments suivants ne font pas partie des données de sauvegarde : les certificats SSL de domaine personnalisé et tous les certificats intermédiaires ou racines téléchargés par le client, le contenu du portail des développeurs et les paramètres d’intégration du réseau virtuel.
 -   La fréquence à laquelle vous effectuez les sauvegardes du service affecte votre objectif de point de récupération. Pour la réduire, nous vous conseillons d’implémenter des sauvegardes régulières et d’effectuer des sauvegardes à la demande quand vous apportez des changements à votre service Gestion des API.
 -   Les **changements** de configuration du service (par exemple, les API, les stratégies et l’apparence du portail des développeurs) pendant une opération de sauvegarde **peuvent être exclus de la sauvegarde et être perdus**.
--   **Autorisez** l’accès depuis le plan de contrôle vers le compte de stockage Azure. Le client doit ouvrir l’ensemble des [adresses IP du plan de contrôle de gestion des API Azure][control-plane-ip-address] sur son compte de stockage pour la sauvegarde. 
+-   **Autorisez** l’accès depuis le plan de contrôle au compte de stockage Azure, si le [pare-feu][azure-storage-ip-firewall] est activé pour celui-ci. Le client doit ouvrir l’ensemble des [adresses IP du plan de contrôle de gestion des API Azure][control-plane-ip-address] sur son compte de stockage utilisé comme destination de sauvegarde ou source de restauration. 
 
 > [!NOTE]
-> Si vous avez activé le pare-feu sur le compte de stockage et que vous essayez d’effectuer une sauvegarde/restauration à partir d’un service Gestion des API dans la même région, cela ne fonctionne pas, car les requêtes adressées au stockage Azure ne voient pas leur adresse réseau source traduite en adresse IP publique à partir du service Compute déployé dans la même région.
+> Si vous tentez d’effectuer des sauvegardes/restaurations à partir de/vers un service gestion des API en utilisant un compte de stockage sur lequel le [pare-feu][azure-storage-ip-firewall] est activé dans la même région Azure, ceci ne fonctionnera pas. Cela est dû au fait que les demandes adressées à Stockage Azure ne font pas l’objet d’une traduction d’adresse réseau source en adresse IP publique dans Calcul > (Plan de contrôle de gestion des API Azure). La demande de stockage inter-région fera l’objet d’une traduction d’adresse réseau source.
 
 ### <a name="step2"> </a>Restauration d’un service Gestion des API
 
@@ -244,3 +244,4 @@ Consultez les ressources suivantes pour accéder à différentes procédures pas
 [api-management-arm-token]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-arm-token.png
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
 [control-plane-ip-address]: api-management-using-with-vnet.md#control-plane-ips
+[azure-storage-ip-firewall]: ../storage/common/storage-network-security.md#grant-access-from-an-internet-ip-range

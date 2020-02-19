@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 1f5824f349650e340e395221785266096da16d6f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: df44cbefaec943a2df483f4804650b939c796cb5
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969545"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191148"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitations dans Azure Database for MariaDB
 Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données.
@@ -38,9 +38,14 @@ Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant
 Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l’erreur suivante :
 > ERREUR 1040 (08004) : Trop de connexions
 
+> [!IMPORTANT]
+> Pour une expérience optimale, nous vous recommandons d’utiliser un regroupement de connexions comme ProxySQL pour gérer efficacement les connexions.
+
+La création de connexions clientes à MariaDB prend du temps et, une fois établies, ces connexions occupent des ressources de base de données, même lorsqu’elles sont inactives. La plupart des applications requièrent de nombreuses connexions à courte durée, ce qui aggrave la situation. Par conséquent, il y a moins de ressources disponibles pour votre charge de travail réelle; ce qui entraîne une diminution des performances. Un regroupement de connexions qui réduit les connexions inactives et réutilise les connexions existantes permet d’éviter cela. Pour en savoir plus sur la configuration de ProxySQL, consultez notre [billet de blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
+
 ## <a name="storage-engine-support"></a>Prise en charge du moteur de stockage
 
-### <a name="supported"></a>Pris en charge
+### <a name="supported"></a>Prise en charge
 - [InnoDB](https://mariadb.com/kb/en/library/xtradb-and-innodb/)
 - [MEMORY](https://mariadb.com/kb/en/library/memory-storage-engine/)
 
@@ -58,7 +63,7 @@ Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l
 
 ## <a name="data-manipulation-statement-support"></a>Prise en charge des instructions de manipulation des données
 
-### <a name="supported"></a>Pris en charge
+### <a name="supported"></a>Prise en charge
 - `LOAD DATA INFILE` est prise en charge, mais le paramètre `[LOCAL]` doit être spécifié et dirigé vers un chemin d'accès UNC (stockage Azure monté via SMB).
 
 ### <a name="unsupported"></a>Non pris en charge

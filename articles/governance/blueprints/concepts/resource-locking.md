@@ -3,12 +3,12 @@ title: Présentation du verrouillage des ressources
 description: Découvrez les options de verrouillage dans Azure Blueprints pour protéger les ressources au moment d’affecter un blueprint.
 ms.date: 04/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 50f506cc57f67ca2ae2b07e342750d6c5099e739
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: e042a4d117e28a2fd2228ce36f1be98a1da31e91
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406400"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057343"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendre le verrouillage de ressources dans les blueprints Azure
 
@@ -102,6 +102,26 @@ Dans certains scénarios de conception ou de sécurité, il peut être nécessai
   }
 }
 ```
+
+## <a name="exclude-an-action-from-a-deny-assignment"></a>Exclure une action d’une affectation de refus
+
+À l’instar de l’[exclusion d’un principal](#exclude-a-principal-from-a-deny-assignment) sur une [affectation de refus](../../../role-based-access-control/deny-assignments.md) dans une affectation de blueprint, vous pouvez exclure des [opérations RBAC](../../../role-based-access-control/resource-provider-operations.md) spécifiques. Dans le bloc **properties.locks**, au même emplacement que **excludedPrincipals**, vous pouvez ajouter un **excludedActions** :
+
+```json
+"locks": {
+    "mode": "AllResourcesDoNotDelete",
+    "excludedPrincipals": [
+        "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+        "38833b56-194d-420b-90ce-cff578296714"
+    ],
+    "excludedActions": [
+        "Microsoft.ContainerRegistry/registries/push/write",
+        "Microsoft.Authorization/*/read"
+    ]
+},
+```
+
+Bien que **excludedPrincipals** doive être explicite, les entrées **excludedActions** peuvent tirer parti de `*` pour la correspondance de caractères génériques des opérations RBAC.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

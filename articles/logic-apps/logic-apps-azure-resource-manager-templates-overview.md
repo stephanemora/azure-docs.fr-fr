@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 41410d4e534d0940050521ecc86e8a384566f439
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 486f90d82af729a3dbfd836239d2d19ebdf44819
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972698"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191420"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Présentation : Automatiser le déploiement pour le service Azure Logic Apps à l’aide de modèles Resource Manager
 
@@ -145,10 +145,10 @@ Cet exemple présente uniquement les paramètres de modèle applicables aux vale
 
 À l’exception des paramètres qui traitent des valeurs sensibles ou qui doivent être sécurisées, tels que des noms d’utilisateur, mots de passe ou secrets, tous ces paramètres incluent des attributs `defaultValue`, même si, dans certains cas, les valeurs par défaut sont vides. Les valeurs de déploiement à utiliser pour ces paramètres de modèle sont fournies par l’exemple de [fichier de paramètres](#template-parameter-files) décrit plus loin dans cette rubrique.
 
-Pour sécuriser les paramètres de modèle, voir les rubriques suivantes :
+Pour plus d’informations sur la sécurisation des paramètres de modèle, consultez les rubriques suivantes :
 
 * [Recommandations de sécurité pour les paramètres de modèle](../azure-resource-manager/templates/template-best-practices.md#parameters)
-* [Paramètres de modèle sécurisés](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
+* [Améliorer la sécurité pour les paramètres de modèle](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 * [Transmettre des valeurs de paramètre sécurisées avec Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 D’autres objets de modèle référencent souvent des paramètres de modèle afin de pouvoir utiliser les valeurs transmises par des paramètres de modèle, par exemple :
@@ -171,7 +171,7 @@ Voici quelques meilleures pratiques pour la définition de paramètres :
 
   * [Recommandations de sécurité pour les paramètres de modèle](../azure-resource-manager/templates/template-best-practices.md#parameters)
 
-  * [Paramètres de modèle sécurisés](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
+  * [Améliorer la sécurité pour les paramètres de modèle](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
   * [Transmettre des valeurs de paramètre sécurisées avec Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
@@ -188,7 +188,7 @@ Pour fournir les valeurs des paramètres de modèle, stockez ces valeurs dans un
 * Nom de fichier de modèle d’application logique : **<*nom-application-logique*>.json**
 * Nom de fichier de paramètres : **<*nom-application-logique*>.parameters.json**
 
-Voici la structure du fichier de paramètres, qui inclut une référence de coffre de clés pour [transmettre une valeur de paramètre sécurisée avec Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) :
+Voici la structure interne du fichier de paramètres, qui inclut une référence de coffre de clés pour [transmettre une valeur de paramètre sécurisée avec Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) :
 
 ```json
 {

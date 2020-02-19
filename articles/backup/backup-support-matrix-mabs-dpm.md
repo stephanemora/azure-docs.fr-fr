@@ -3,12 +3,12 @@ title: Matrice de support MABS et System Center DPM
 description: Cet article résume la prise en charge de la Sauvegarde Azure quand vous utilisez un serveur de Sauvegarde Microsoft Azure (MABS) ou System Center DPM pour sauvegarder des ressources locales et celles de machines virtuelles Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: f9ee31525f2ee5a19aebe0a9258dff3ecfdcbb92
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 211a7e39dc9cda9e4bd96e3a66924b2195524be7
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841165"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111468"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 
@@ -75,6 +75,9 @@ Sauvegarde Azure peut sauvegarder les instances de DPM/MABS qui exécutent l'un 
 **MABS localement** | Systèmes d’exploitation 64 bits pris en charge :<br/><br/> MABS v3 et versions ultérieures : Windows Server 2019 (Standard, Datacenter, Essentials). <br/><br/> MABS v2 et versions ultérieures : Windows Server 2016 (Standard, Datacenter, Essentials).<br/><br/> Toutes les versions de MABS :  Windows Server 2012 R2.<br/><br/>Toutes les versions de MABS : Windows Storage Server 2012 R2.
 **DPM localement** | Serveur physique/machine virtuelle Hyper-V : System Center 2012 SP1 ou ultérieur.<br/><br/> Machine virtuelle VMware : System Center 2012 R2 avec Update 5 ou ultérieur.
 
+>[!NOTE]
+>L’installation de Serveur de sauvegarde Azure n’est pas prise en charge sur Windows Server Core ou Microsoft Hyper-V Server.
+
 ## <a name="management-support"></a>Prise en charge de la gestion
 
 **Problème** | **Détails**
@@ -106,7 +109,7 @@ Vous pouvez déployer MABS sur une machine virtuelle Azure Stack pour gérer la 
 
 ## <a name="dpmmabs-networking-support"></a>Prise en charge du réseau pour DPM/MABS
 
-### <a name="url-access"></a>Accès URL
+### <a name="url-access"></a>accès URL
 
 Le serveur DPM/MABS doit accéder à ces URL :
 

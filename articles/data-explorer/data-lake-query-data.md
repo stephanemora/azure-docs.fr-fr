@@ -7,27 +7,27 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: 1e5af0b45b8d2e2eceac1b653a5219a236c25467
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 8240b1a01aa39e53b9ae41f73543ccf9774290b2
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512910"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161747"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>Interroger des données dans Azure Data Lake à l'aide d'Azure Data Explorer
 
 Azure Data Lake Storage est une solution Data Lake hautement évolutive et économique pour l’analytique Big Data. Elle combine la puissance d’un système de fichiers haute performance à grande échelle et la rentabilité qui vous permettront d’obtenir des insights rapidement. Data Lake Storage Gen2 étend les fonctionnalités de Stockage Blob Azure et est optimisé pour les charges de travail analytiques.
  
-Azure Data Explorer s’intègre à Stockage Blob Azure et Azure Data Lake Storage Gen2 pour offrir un accès rapide, en cache et indexé aux données du lac. Vous pouvez analyser et interroger les données du lac, sans ingestion préalable dans Azure Data Explorer. Vous pouvez également interroger simultanément des données de lac natives ingérées ou non ingérées.  
+Azure Data Explorer s’intègre à Stockage Blob Azure et Azure Data Lake Storage (Gen1 et Gen2) pour offrir un accès rapide, en cache et indexé aux données du lac. Vous pouvez analyser et interroger les données du lac, sans ingestion préalable dans Azure Data Explorer. Vous pouvez également interroger simultanément des données de lac natives ingérées ou non ingérées.  
 
 > [!TIP]
-> Pour des requêtes plus performantes, l'ingestion des données dans Azure Data Explorer est requise. La possibilité d’interroger les données dans Azure Data Lake Storage Gen2 sans ingestion préalable est à réserver aux données historiques ou aux données rarement interrogées. [Optimisez les performances de vos requêtes dans le lac](#optimize-your-query-performance) pour obtenir de meilleurs résultats.
+> Pour des requêtes plus performantes, l'ingestion des données dans Azure Data Explorer est requise. La possibilité d’interroger les données externes sans ingestion préalable est à réserver aux données historiques ou aux données rarement interrogées. [Optimisez les performances de vos requêtes dans le lac](#optimize-your-query-performance) pour obtenir de meilleurs résultats.
  
 
 ## <a name="create-an-external-table"></a>Créer une table externe
 
  > [!NOTE]
- > Les comptes de stockage actuellement pris en charge sont Stockage Blob Azure ou Azure Data Lake Storage Gen2. Les formats de données actuellement pris en charge sont json, csv, tsv et txt.
+ > Les comptes de stockage actuellement pris en charge sont Stockage Blob Azure ou Azure Data Lake Storage (Gen1 et Gen2).
 
 1. Utilisez la commande `.create external table` pour créer une table externe dans Azure Data Explorer. Les commandes de table externe supplémentaires telles que `.show`, `.drop` et `.alter` sont documentées dans [Commandes de table externe](/azure/kusto/management/externaltables).
 
@@ -46,6 +46,7 @@ Azure Data Explorer s’intègre à Stockage Blob Azure et Azure Data Lake Stora
     > * Lorsque vous définissez une table externe avec des partitions, la structure de stockage doit être identique.
 Par exemple, si la table est définie avec une partition DateTime au format aaaa/mm/jj (par défaut), le chemin d’accès au fichier de stockage URI doit être *container1/aaaa/mm/jj/all_exported_blobs*. 
     > * Si la table externe est partitionnée par une colonne DateHeure, ajoutez toujours à votre requête un filtre de temps définissant une plage fermée. Par exemple, la requête `ArchivedProducts | where Timestamp between (ago(1h) .. 10m)` offrira de meilleurs résultats que la requête `ArchivedProducts | where Timestamp > ago(1h)` (avec plage ouverte). 
+    > * Tous les [formats d’ingestion pris en charge](ingest-data-overview.md#supported-data-formats) peuvent être interrogés à l’aide de tables externes.
 
 1. La table externe est visible dans le volet gauche de l’interface utilisateur web
 

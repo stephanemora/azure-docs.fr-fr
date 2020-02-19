@@ -9,12 +9,12 @@ ms.topic: reference
 author: peterclu
 ms.author: peterlu
 ms.date: 12/17/2019
-ms.openlocfilehash: 7f2d282541e8a5a3752a0784a3f00a48ad2fb303
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: d3feb62c0c7fa24dd998add08d17ebd1d4e9ee6c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769155"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162580"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Informations de référence sur les algorithmes et les modules du concepteur Azure Machine Learning
 
@@ -35,7 +35,7 @@ Pour savoir quels algorithmes choisir, consultez
 | Fonctionnalités | Description | Module |
 | --- |--- | --- |
 | Entrée et sortie de données | Déplacez des données de sources cloud dans votre pipeline. Écrivez vos résultats ou des données intermédiaires dans Stockage Azure, une base de données SQL, ou Hive, lors de l’exécution d’un pipeline, ou utilisez le stockage cloud pour échanger des données entre des pipelines.  | [Entrer des données manuellement](enter-data-manually.md) <br/> [Exporter les données](export-data.md) <br/> [Importer des données](import-data.md) |
-| Transformation des données | Opérations sur les données qui sont uniques à Machine Learning, telles que la normalisation ou le compartimentage de données, la réduction de dimensionnalité et la conversion de données entre différents formats de fichier.| [Ajouter des colonnes](add-columns.md) <br/> [Ajouter des lignes](add-rows.md) <br/> [Appliquer une opération mathématique](apply-math-operation.md) <br/> [Appliquer une transformation SQL](apply-sql-transformation.md) <br/> [Nettoyer les données manquantes](clean-missing-data.md) <br/> [Détourer les valeurs](clip-values.md) <br/> [Convertir au format CSV](convert-to-csv.md) <br/> [Convertir en jeu de données](convert-to-dataset.md) <br/> [Modifier des métadonnées](edit-metadata.md) <br/> [Joindre des données](join-data.md) <br/> [Normaliser les données](normalize-data.md) <br/> [Partition et échantillon](partition-and-sample.md)  <br/> [Supprimer les données en double](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Sélectionner une transformation de colonnes](select-columns-transform.md) <br/> [Sélectionner des colonnes dans le jeu de données](select-columns-in-dataset.md) <br/> [Fractionner les données](split-data.md) |
+| Transformation des données | Opérations sur les données qui sont uniques à Machine Learning, telles que la normalisation ou le compartimentage de données, la réduction de dimensionnalité et la conversion de données entre différents formats de fichier.| [Ajouter des colonnes](add-columns.md) <br/> [Ajouter des lignes](add-rows.md) <br/> [Appliquer une opération mathématique](apply-math-operation.md) <br/> [Appliquer une transformation SQL](apply-sql-transformation.md) <br/> [Nettoyer les données manquantes](clean-missing-data.md) <br/> [Détourer les valeurs](clip-values.md) <br/> [Convertir au format CSV](convert-to-csv.md) <br/> [Convertir en jeu de données](convert-to-dataset.md) <br/> [Convertir en valeurs d’indicateur](convert-to-indicator-values.md) <br/> [Modifier des métadonnées](edit-metadata.md) <br/> [Joindre des données](join-data.md) <br/> [Normaliser les données](normalize-data.md) <br/> [Partition et échantillon](partition-and-sample.md)  <br/> [Supprimer les données en double](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Sélectionner une transformation de colonnes](select-columns-transform.md) <br/> [Sélectionner des colonnes dans le jeu de données](select-columns-in-dataset.md) <br/> [Fractionner les données](split-data.md) |
 | Sélection de caractéristiques | Sélectionnez un sous-ensemble de fonctionnalités pertinentes et utiles à utiliser dans la création d’un modèle analytique. | [Sélection de caractéristiques par filtrage](filter-based-feature-selection.md) <br/> [Importance de la fonctionnalité de permutation](permutation-feature-importance.md) |
 | Fonctions statistiques | Fournissez un large éventail de méthodes statistiques relatives à la science des données. | [Résumer les données](summarize-data.md)|
 

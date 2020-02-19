@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 572d8c4b59622156e8b3aca4565bbc206367f6d4
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 5ca153f0d52b65aa1ee56d5757381f1f31c7eeb5
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514856"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120823"
 ---
 # <a name="api-management-authentication-policies"></a>Stratégies d’authentification dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -40,7 +40,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 <authentication-basic username="username" password="password" />
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```xml
 <authentication-basic username="testuser" password="testpassword" />
@@ -48,16 +48,16 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Name|Description|Obligatoire|
 |----------|-----------------|--------------|
-|authentification-basic|Élément racine.|OUI|
+|authentification-basic|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
-|Nom|Description|Obligatoire|Default|
+|Name|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|username|Spécifie le nom d’utilisateur associé aux informations d’identification de base.|OUI|N/A|
-|password|Spécifie le mot de passe associé aux informations d’identification de base.|OUI|N/A|
+|username|Spécifie le nom d’utilisateur associé aux informations d’identification de base.|Oui|N/A|
+|password|Spécifie le mot de passe associé aux informations d’identification de base.|Oui|N/A|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
@@ -88,13 +88,13 @@ Dans cet exemple, le certificat client est identifié par le nom de ressource.
 
 ### <a name="elements"></a>Éléments  
   
-|Nom|Description|Obligatoire|  
+|Name|Description|Obligatoire|  
 |----------|-----------------|--------------|  
-|authentication-certificate|Élément racine.|OUI|  
+|authentication-certificate|Élément racine.|Oui|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Nom|Description|Obligatoire|Default|  
+|Name|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |thumbprint|Empreinte du certificat client.|`thumbprint` ou `certificate-id` doit être présent.|N/A|  
 |certificate-id|Le nom de ressource du certificat.|`thumbprint` ou `certificate-id` doit être présent.|N/A|  
@@ -115,7 +115,7 @@ Dans cet exemple, le certificat client est identifié par le nom de ressource.
 <authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
 ```  
   
-### <a name="example"></a>Exemples  
+### <a name="example"></a>Exemple  
 #### <a name="use-managed-identity-to-authenticate-with-a-backend-service"></a>Utiliser Identité managée pour s’authentifier auprès d’un service principal
 ```xml  
 <authentication-managed-identity resource="https://graph.windows.net"/> 
@@ -147,17 +147,17 @@ Dans cet exemple, le certificat client est identifié par le nom de ressource.
 
 ### <a name="elements"></a>Éléments  
   
-|Nom|Description|Obligatoire|  
+|Name|Description|Obligatoire|  
 |----------|-----------------|--------------|  
-|authentication-managed-identity |Élément racine.|OUI|  
+|authentication-managed-identity |Élément racine.|Oui|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Nom|Description|Obligatoire|Default|  
+|Name|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
-|resource|Chaîne. URI de l’ID d’application de l’API web cible (ressource sécurisée) dans Azure Active Directory.|OUI|N/A|  
+|resource|Chaîne. ID d’application de l’API web cible (ressource sécurisée) dans Azure Active Directory.|Oui|N/A|  
 |output-token-variable-name|Chaîne. Nom de la variable de contexte qui recevra la valeur du jeton en tant que type d’objet `string`. |Non|N/A|  
-|ignore-error|Booléen. Si cet attribut a la valeur `true`, le pipeline de stratégie continuera à s’exécuter même si aucun jeton d’accès n’est obtenu.|Non|false|  
+|ignore-error|Propriété booléenne. Si cet attribut a la valeur `true`, le pipeline de stratégie continuera à s’exécuter même si aucun jeton d’accès n’est obtenu.|Non|false|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -172,4 +172,4 @@ Pour plus d’informations sur l’utilisation de stratégies, consultez les pag
 + [Stratégies dans Gestion des API](api-management-howto-policies.md)
 + [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)
 + [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
-+ [API Management policy samples](policy-samples.md) (Exemples de stratégie de gestion d’API)
++ [Exemples de stratégie](policy-samples.md)

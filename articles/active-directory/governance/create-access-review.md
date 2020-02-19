@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/21/2019
+ms.date: 02/06/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65eb08873da71c7683fe3347484831dfff58793
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fcb2198ea3f01e923022c205e478167240a01894
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932621"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084451"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Créer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD
 
@@ -93,7 +93,7 @@ Pour plus d’informations, consultez [Exigences des licences](access-reviews-ov
 
     ![Créer une révision d’accès : paramètres de saisie semi-automatique](./media/create-access-review/upon-completion-settings.png)
 
-1. Si vous voulez supprimer automatiquement l’accès pour les utilisateurs qui ont été refusés, définissez **Appliquer automatiquement les résultats à ressource** sur **Activer**. Si vous voulez appliquer manuellement les résultats quand la révision est terminée, cliquez sur **Désactiver**.
+1. Si vous voulez supprimer automatiquement l’accès pour les utilisateurs qui ont été refusés, définissez **Appliquer automatiquement les résultats à la ressource** sur **Activer**. Si vous voulez appliquer manuellement les résultats quand la révision est terminée, cliquez sur **Désactiver**.
 
 1. Utilisez la liste **Le réviseur ne doit pas répondre** pour spécifier ce qui se passe pour les utilisateurs qui ne sont pas vérifiés par le réviseur au cours de la révision. Ce paramètre n’affecte pas les utilisateurs qui ont été vérifiés manuellement par les réviseurs. Si la décision finale du réviseur est Refuser, l’accès de l’utilisateur est supprimé.
 
@@ -127,6 +127,20 @@ Une fois que vous avez spécifié les paramètres pour une révision d’accès,
 Par défaut, Azure AD envoie un e-mail aux réviseurs peu de temps après le démarrage de la révision. Si vous ne souhaitez pas qu’Azure AD envoie cet e-mail, veillez à informer les réviseurs qu’une révision d’accès leur a été assignée. Vous pouvez leur montrer les instructions relatives à la [révision d’accès aux groupes ou aux applications](perform-access-review.md). Si votre révision s’adresse à des invités qui doivent réviser leur propre accès, donnez-leur des instructions sur la méthode à suivre pour [réviser leur accès à des groupes ou à des applications](review-your-access.md).
 
 Si vous avez attribué le rôle de réviseur à des clients invités, mais que ceux-ci ont refusé l’invitation, ils ne recevront pas d’e-mails des révisions d’accès, car il est nécessaire d’avoir accepté l’invitation pour pouvoir commencer la révision.
+
+## <a name="access-review-status-table"></a>Tableau de l’état de la révision d’accès
+
+| Statut | Définition |
+|--------|------------|
+|NotStarted | La révision a été créée, la détection des utilisateurs est en attente de démarrage. |
+|Initialisation   | La détection des utilisateurs est en cours pour identifier tous les utilisateurs faisant partie de la révision. |
+|Démarrage en cours | La révision démarre. Si les notifications par e-mail sont activées, des e-mails sont envoyés aux réviseurs. |
+|InProgress | La révision a démarré. Si les notifications par e-mail sont activées, des e-mails ont été envoyés aux réviseurs. Les réviseurs peuvent soumettre des décisions jusqu’à la date d’échéance. |
+|Completing | La révision est terminée et les e-mails sont envoyés au propriétaire de la révision. |
+|AutoReviewing | La révision se fait dans le cadre d’une phase de vérification du système. Le système enregistre des décisions pour les utilisateurs qui n’ont pas été révisés en fonction de recommandations ou de décisions préconfigurées. |
+|AutoReviewed | Les décisions ont été enregistrées par le système pour tous les utilisateurs qui n’ont pas été révisés. La révision est prête à passer à l’étape **Applying** si l’application automatique est activée. |
+|Applying | L’accès n’est pas modifié pour les utilisateurs qui ont été approuvés. |
+|Applied | Les utilisateurs refusés, le cas échéant, ont été supprimés de la ressource ou du répertoire. |
 
 ## <a name="create-reviews-via-apis"></a>Créer des révisions via des API
 

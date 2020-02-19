@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 5aa75de694d05ce31becc6996aca419dff256a3f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5517b6434d8d654e8aa7e28bec8f6d2a3d9ca73b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023546"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056680"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
@@ -128,7 +128,7 @@ Si vous utilisez Cloud Services et que vos rôles web utilisent w3wp.exe, vous b
 
 Une sonde HTTP/HTTPS échoue quand :
 * Le point de terminaison de la sonde renvoie un code de réponse HTTP autre que 200 (par exemple, 403, 404 ou 500). Ceci marquera immédiatement la sonde d’intégrité comme étant hors service. 
-* Le point de terminaison de la sonde ne répond pas du tout pendant la période d’expiration de 31 secondes. Plusieurs demandes de sondage peuvent rester sans réponse avant que la sonde soit marquée comme inactive et jusqu’à ce que la somme de tous les intervalles de délai d’attente ait été atteinte.
+* Le point de terminaison de la sonde ne répond pas du tout pendant le minimum de l’intervalle de sondage et de la période d’expiration de 30 secondes. Plusieurs demandes de sondage peuvent rester sans réponse avant que la sonde soit marquée comme inactive et jusqu’à ce que la somme de tous les intervalles de délai d’attente ait été atteinte.
 * Le point de terminaison de la sonde ferme la connexion via une réinitialisation TCP.
 
 L’exemple suivant montre comment exprimer ce type de configuration de sonde dans un modèle Resource Manager :
@@ -252,7 +252,7 @@ Une instance Load Balancer publique de base expose l’état de la sonde d’int
 ## <a name="limitations"></a>Limites
 
 - Les sondes HTTPS ne prennent pas en charge l’authentification mutuelle avec un certificat client.
-- Vous pouvez supposer que les sondes d’intégrité échoueront quand les horodatages TCP sont activés.
+- Vous pouvez supposer que les sondes d’intégrité échoueront lorsque les timestamp TCP sont activés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

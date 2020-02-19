@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 11/22/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 0695416c65eed2bbf0a19d5ed1ea0c53a7ece332
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: ac928d9087ba5db312540b8ec542d7a2a29e2a99
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485503"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77179072"
 ---
 | Ressource | Limite par défaut |
 | --- | :--- |
 | Clusters maximum par abonnement | 100 |
 | Nombre maximal de nœuds par cluster avec les groupes à haute disponibilité de machines virtuelles et la référence SKU Standard Load Balancer  | 100 |
-| Nombre maximal de nœuds par cluster avec Virtual Machine Scale Sets et la référence [SKU Standard Load Balancer][standard-load-balancer] | 800 (100 nœuds par [pool de nœuds][node-pool]) |
+| Nombre maximal de nœuds par cluster avec Virtual Machine Scale Sets et la référence [SKU Standard Load Balancer][standard-load-balancer] | 1 000 (100 nœuds par [pool de nœuds][node-pool]) |
 | Nombre maximal de pods par nœud : [réseau de base][basic-networking] avec Kubenet | 110 |
 | Nombre maximal de pods par nœud : [mise en réseau avancée][advanced-networking] avec Azure Container Networking Interface | Déploiement de l’interface Azure CLI : 30<sup>1</sup><br />Modèle Azure Resource Manager : 30<sup>1</sup><br />Déploiement du portail : 30 |
 

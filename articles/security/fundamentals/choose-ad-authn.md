@@ -1,5 +1,6 @@
 ---
-title: Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure AD | Microsoft Docs
+title: Authentification pour les solutions d’identité hybride Azure AD
+titleSuffix: Active Directory
 description: Ce guide s’adresse aux directeurs d’entreprise, directeurs des systèmes d’information, responsables de la sécurité des systèmes d’information, architectes en chef de la gestion des identités, architectes d’entreprise et autres décideurs dans les domaines de la sécurité et de l’informatique en charge de choisir une méthode d’authentification pour leur solution d’identité hybride Azure AD, dans les moyennes et grandes entreprises.
 keywords: ''
 author: martincoetzer
@@ -9,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 2865ce640389c0250f14a53088a94aff15ddf1c8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7a13e50e6b5357264e7096fa58e34a4bcaf6ad8b
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460676"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190914"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory
 
@@ -184,7 +185,7 @@ Les diagrammes suivants présentent les composants architecturaux de haut niveau
 |Quelles sont les options d’authentification multifacteur ?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Contrôles personnalisés avec accès conditionnel*](../../active-directory/conditional-access/controls.md)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Contrôles personnalisés avec accès conditionnel*](../../active-directory/conditional-access/controls.md)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Serveur Azure MFA](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[MFA tiers](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Contrôles personnalisés avec accès conditionnel*](../../active-directory/conditional-access/controls.md)|
 |Quels sont les états de compte d’utilisateur pris en charge ?|Comptes désactivés<br>(délai pouvant atteindre 30 minutes)|Comptes désactivés<br><br>Compte verrouillé<br><br>Compte expiré<br><br>Mot de passe expiré<br><br>Heures de connexion|Comptes désactivés<br><br>Compte verrouillé<br><br>Compte expiré<br><br>Mot de passe expiré<br><br>Heures de connexion|
 |Quelles sont les options d’accès conditionnel ?|[Accès conditionnel Azure AD, avec Azure AD Premium](../../active-directory/conditional-access/overview.md)|[Accès conditionnel Azure AD, avec Azure AD Premium](../../active-directory/conditional-access/overview.md)|[Accès conditionnel Azure AD, avec Azure AD Premium](../../active-directory/conditional-access/overview.md)<br><br>[Règles de revendication AD FS](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
-|Le blocage des protocoles hérités est-il pris en charge ?|[Oui](../../active-directory/conditional-access/conditions.md)|[Oui](../../active-directory/conditional-access/conditions.md)|[Oui](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
+|Le blocage des protocoles hérités est-il pris en charge ?|[Oui](../../active-directory/conditional-access/overview.md)|[Oui](../../active-directory/conditional-access/overview.md)|[Oui](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |Pouvez-vous personnaliser le logo, l’image et la description sur les pages de connexion ?|[Oui, avec Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Oui, avec Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Oui](../../active-directory/hybrid/how-to-connect-fed-management.md)|
 |Quels sont les scénarios avancés pris en charge ?|[Verrouillage de mot de passe intelligent](../../active-directory/authentication/howto-password-smart-lockout.md)<br><br>[Rapports des informations d’identification divulguées, avec Azure AD Premium P2](../../active-directory/reports-monitoring/concept-risk-events.md)|[Verrouillage de mot de passe intelligent](../../active-directory/authentication/howto-password-smart-lockout.md)|Système d’authentification multisite à faible latence<br><br>[Verrouillage extranet AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Intégration aux systèmes d’identité tiers](../../active-directory/hybrid/how-to-connect-fed-compatibility.md)|
 

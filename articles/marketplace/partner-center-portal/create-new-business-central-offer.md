@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 22a5b86c8b3df4da5fe338a8ba1230d0247a5826
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 4c0467039cf4fefd7625f1146c4bade99b49304d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046009"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048724"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Créer une offre Dynamics 365 Business Central
 
@@ -108,19 +108,9 @@ Sélectionnez un minimum d’une catégorie et un maximum de trois catégories q
 
 Entrez le numéro de version de votre offre. Cette version est indiquée aux clients sur la page de détails de l’offre.
 
-### <a name="standard-contract"></a>Contrat standard
+### <a name="terms-and-conditions"></a>Conditions générales
 
-Pour simplifier le processus d’approvisionnement pour les clients et réduire la complexité juridique pour les éditeurs de logiciels, Microsoft propose un modèle de contrat Standard afin de faciliter les transactions sur la place de marché.
-
-Plutôt que d’élaborer des conditions générales personnalisées, vous pouvez choisir de proposer votre logiciel dans le cadre du contrat Standard, que les clients ne doivent accepter qu’une seule fois.
-
-Le contrat Standard est disponible ici : https://go.microsoft.com/fwlink/?linkid=2041178
-
-Pour utiliser le contrat standard, cochez la case **Utiliser le contrat standard ?** .
-
-#### <a name="terms-of-use"></a>Conditions d’utilisation
-
-Si vous ne cochez pas la case **Utiliser le contrat standard ?** , vous devrez fournir vos propres conditions d’utilisation dans le champ **Conditions d’utilisation**. Entrez jusqu’à 10 000 caractères de texte ou, si vos conditions d’utilisation requièrent une description plus longue, indiquez l’URL où se trouvent les conditions supplémentaires du contrat de licence. Les clients doivent accepter ces conditions avant de pouvoir essayer de votre application.
+Fournissez vos propres conditions générales dans le champ **Conditions générales**. Vous pouvez également fournir l’URL permettant d’accéder à vos conditions générales. Les clients doivent accepter ces conditions avant de pouvoir essayer votre offre.
 
 ## <a name="offer-listing"></a>Annonce de l’offre
 

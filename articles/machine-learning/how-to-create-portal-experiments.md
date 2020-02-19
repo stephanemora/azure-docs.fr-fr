@@ -10,13 +10,13 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.openlocfilehash: 808d7ac7ded9b250e0835da51b6b547c05c622a9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/04/2020
+ms.openlocfilehash: a2bf15c8778a6ff549284b1053cf0978d182b802
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720399"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116888"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Créer, explorer et déployer des expériences de Machine Learning automatisé avec Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -47,7 +47,7 @@ Dans le cas contraire, vous verrez une liste de vos expériences récentes Machi
 
 ## <a name="create-and-run-experiment"></a>Créer et exécuter une expérience
 
-1. Sélectionnez **Créer une expérience** et remplissez le formulaire.
+1. Sélectionnez **+ Nouvelle exécution de ML automatisé** et remplissez le formulaire.
 
 1. Sélectionnez un jeu de données à partir de votre conteneur de stockage ou créez un nouveau jeu de données. Les jeux de données peuvent être créés à partir de fichiers locaux, d’URL Web, de magasins de données ou de Azure Open Datasets. 
 
@@ -60,7 +60,7 @@ Dans le cas contraire, vous verrez une liste de vos expériences récentes Machi
 
     1. Donnez un nom unique à votre jeu de données et indiquez éventuellement une description. 
 
-    1. Sélectionnez **Suivant** pour le charger dans le conteneur de stockage par défaut qui est automatiquement créé avec votre espace de travail ou choisissez un conteneur de stockage à utiliser pour l’expérience. 
+    1. Sélectionnez **Suivant** pour ouvrir le **formulaire Sélection d’un magasin de données et de fichiers**. Sur ce formulaire, vous sélectionnez l’emplacement où charger votre jeu de données : choisissez le conteneur de stockage par défaut qui est automatiquement créé avec votre espace de travail ou un conteneur de stockage que vous voulez utiliser pour l’expérience. 
 
     1. Vérifiez l’exactitude du formulaire **Settings and preview** (Paramètres et aperçu). Le formulaire est rempli intelligemment en fonction du type de fichier. 
 
@@ -78,7 +78,7 @@ Dans le cas contraire, vous verrez une liste de vos expériences récentes Machi
             
         Sélectionnez **Next** (Suivant).
 
-    1. Le formulaire **Confirmer les détails** est un résumé des informations précédemment renseignées sur les formulaires **Informations de base** et **Paramètres et aperçu**. Vous avez également la possibilité de profiler votre jeu de données à l’aide d’un calcul activé pour le profilage. En savoir plus sur le [profilage des données](#profile).
+    1. Le formulaire **Confirmer les détails** est un résumé des informations précédemment renseignées sur les formulaires **Informations de base** et **Paramètres et aperçu**. Vous avez également la possibilité de créer un profil de données pour votre jeu de données à l’aide d’un calcul activé pour le profilage. En savoir plus sur le [profilage des données](#profile).
 
         Sélectionnez **Suivant**.
 1. Sélectionnez votre jeu de données récemment créé une fois qu’il apparaît. Vous pouvez également afficher un aperçu du jeu de données et des exemples de statistiques. 
@@ -113,16 +113,19 @@ Dans le cas contraire, vous verrez une liste de vos expériences récentes Machi
 
         1. Sélectionnez l'horizon de prévision : Indiquez le nombre d’unités de temps (minutes/heures/jours/semaines/mois/années) que le modèle sera en mesure de prédire. Plus le modèle doit prédire dans un avenir lointain, moins il sera précis. [En savoir plus sur les prévisions et l'horizon de prévision](how-to-auto-train-forecast.md).
 
-1. (Facultatif) Configurations supplémentaires : paramètres supplémentaires que vous pouvez utiliser pour mieux contrôler le travail de formation. Sinon, les valeurs par défaut sont appliquées en fonction de la sélection de l’expérience et des données. 
+1. (Facultatif) Voir des paramètres de configuration supplémentaires : paramètres supplémentaires que vous pouvez utiliser pour mieux contrôler la tâche d’entraînement. Sinon, les valeurs par défaut sont appliquées en fonction de la sélection de l’expérience et des données. 
 
     Configurations supplémentaires|Description
     ------|------
     Métrique principale| Métrique principale utilisée pour évaluer votre modèle. [En savoir plus sur les métriques du modèle](how-to-configure-auto-train.md#explore-model-metrics).
-    Caractérisation automatique| Activez ou désactivez le prétraitement effectué par Machine Learning automatisé. Le prétraitement comprend le nettoyage automatique des données, la préparation et la transformation pour générer des fonctionnalités synthétiques. [En savoir plus le prétraitement](#preprocess).
+    Caractérisation automatique| Activez ou désactivez le prétraitement effectué par Machine Learning automatisé. Le prétraitement comprend le nettoyage automatique des données, la préparation et la transformation pour générer des fonctionnalités synthétiques. N’est pas pris en charge pour le type de tâche prévision de séries chronologiques. [En savoir plus le prétraitement](#featurization). 
+    Expliquer le meilleur modèle | Sélectionnez cette option pour activer ou désactiver l’affichage de l’explicabilité du meilleur modèle recommandé
     Algorithme bloqué| Sélectionnez les algorithmes que vous souhaitez exclure du travail de formation.
     Critère de sortie| Quand l’un de ces critères est satisfait, le travail d’entraînement s’arrête. <br> *Durée du travail de formation (heures)*  : Délai d'exécution du travail de formation. <br> *Seuil de score de métrique* :  Score de métrique minimal pour tous les pipelines. Ainsi, si vous avez défini une métrique cible que vous souhaitez atteindre, vous ne passez pas plus de temps sur le travail de formation que nécessaire.
     Validation| Sélectionnez une des options de validation croisée à utiliser dans le travail de formation. [En savoir plus sur la validation croisée](how-to-configure-auto-train.md).
-    Accès concurrentiel| *Nombre maximal d'itérations simultanées* : Nombre maximal de pipelines (itérations) à tester dans le travail de formation. Le travail ne s'exécutera pas au-delà du nombre d’itérations spécifié. <br> *Nombre maximal de cœurs par itération* : Sélectionnez les limites de cœurs multiples à utiliser lors d'un calcul multicœur.
+    Accès concurrentiel| *Nombre maximal d'itérations simultanées* : Nombre maximal de pipelines (itérations) à tester dans le travail de formation. Le travail ne s'exécutera pas au-delà du nombre d’itérations spécifié.
+
+1. (Facultatif) Voir les paramètres de personnalisation : si vous choisissez d’activer **Personnalisation automatique** dans le formulaire **Paramètres de configuration supplémentaires**, ce formulaire est l’emplacement où vous spécifiez les colonnes sur lesquelles effectuer ces personnalisations et où vous sélectionnez la valeur statistique à utiliser pour les imputations des valeurs manquantes.
 
 <a name="profile"></a>
 
@@ -151,17 +154,13 @@ Asymétrie| Mesure de la différence entre les données de cette colonne et une 
 Kurtosis| Mesure de la latéralité des données de cette colonne par rapport à une distribution normale.
 
 
-<a name="preprocess"></a>
+<a name="featurization"></a>
 
 ## <a name="advanced-featurization-options"></a>Options avancées de caractérisation
 
-Lorsque vous configurez vos expériences, vous pouvez activer le paramètre avancé `feauturization`. 
+Le machine learning automatisé offre automatiquement un prétraitement et des garde-fous des données pour pouvoir identifier et gérer les problèmes potentiels liés à vos données. 
 
-|Configuration de la caractérisation | Description |
-| ------------- | ------------- |
-|"featurization" = 'FeaturizationConfig'| Indique que l’étape de caractérisation personnalisée doit être utilisée. [Découvrez comment personnaliser la caractérisation](how-to-configure-auto-train.md#customize-feature-engineering).|
-|"featurization" = 'off'| Indique que l’étape de caractérisation ne doit pas être automatique.|
-|"featurization" = 'auto'| Indique que, dans le cadre du prétraitement, les étapes suivantes de garde-fous des données et de caractérisation sont automatiques.|
+### <a name="preprocessing"></a>Prétraitement
 
 |Étapes de &nbsp;prétraitement| Description |
 | ------------- | ------------- |
@@ -177,7 +176,7 @@ Lorsque vous configurez vos expériences, vous pouvez activer le paramètre avan
 
 ### <a name="data-guardrails"></a>Garde-fous des données
 
-Le Machine Learning automatisé offre des garde-fous des données pour vous aider à identifier les problèmes potentiels liés à vos données (par exemple les valeurs manquantes ou le déséquilibre des classes) et à prendre des mesures correctives afin d’améliorer les résultats. Il existe de nombreuses bonnes pratiques que vous pouvez appliquer pour obtenir des résultats fiables. 
+Les garde-fous des données sont appliqués automatiquement pour vous permettre d’identifier les problèmes potentiels liés à vos données (par exemple les valeurs manquantes ou le déséquilibre des classes) et d’entreprendre des actions correctives afin d’améliorer les résultats. Il existe de nombreuses bonnes pratiques que vous pouvez appliquer pour obtenir des résultats fiables. 
 
 Le tableau suivant décrit les garde-fous des données actuellement pris en charge, ainsi que les états associés que les utilisateurs peuvent rencontrer lors de l’envoi de leur expérience.
 
@@ -191,14 +190,11 @@ Cohérence des données de séries chronologiques|**Passed** <br><br><br><br> **
 
 ## <a name="run-experiment-and-view-results"></a>Exécuter une expérience et afficher les résultats
 
-Sélectionnez **Démarrer** pour exécuter votre expérience. Le processus de préparation de l’expérience peut prendre jusqu’à 10 minutes. Les travaux de formation peuvent prendre 2 à 3 minutes supplémentaires pour que chaque pipeline se termine.
+Sélectionnez **Terminer** pour exécuter votre expérience. Le processus de préparation de l’expérience peut prendre jusqu’à 10 minutes. Les travaux de formation peuvent prendre 2 à 3 minutes supplémentaires pour que chaque pipeline se termine.
 
 ### <a name="view-experiment-details"></a>Afficher les détails de l'expérience
 
->[!NOTE]
-> Cliquez régulièrement sur **Actualiser** pour afficher l’état de l’exécution. 
-
-L’écran **Détails de l’exécution** ouvre l’onglet **Détails**. Cet écran vous montre un résumé de l’exécution de l’expérience, y compris l’**état de l’exécution**. 
+L’écran **Détails de l’exécution** ouvre l’onglet **Détails**. Cet écran vous montre un récapitulatif de l’exécution de l’expérience, notamment une barre d’état en haut à côté du numéro de l’exécution. 
 
 L’onglet **Modèles** contient une liste des modèles créés affichés selon leur score de métrique. Par défaut, le modèle qui obtient la valeur la plus élevée d’après la métrique choisie figure en haut de la liste. À mesure que le travail de formation essaie plus de modèles, ceux-ci sont ajoutés à la liste. Utilisez cela pour obtenir une comparaison rapide des métriques des modèles déjà produits.
 
@@ -218,18 +214,18 @@ Machine Learning automatisé vous aide à déployer le modèle sans écrire de c
 
 1. Vous disposez de plusieurs options pour le déploiement. 
 
-    + Option 1 : Pour déployer le meilleur modèle selon les critères de métrique que vous avez définis, sélectionnez Déployer le meilleur modèle dans l’onglet Détails.
+    + Option 1 : Pour déployer le meilleur modèle (selon les critères de métrique que vous avez définis), sélectionnez le bouton **Déployer le meilleur modèle** sous l’onglet **Détails**.
 
-    + Option n°2 : Pour déployer une itération de modèle spécifique à partir de cette expérience, explorez le modèle pour ouvrir son onglet Détails du modèle, puis sélectionnez Déployer le modèle.
+    + Option n°2 : Pour déployer une itération de modèle spécifique à partir de cette expérience, explorez le modèle pour ouvrir son onglet **Détails du modèle**, puis sélectionnez **Déployer le modèle**.
 
-1. Renseignez le volet **Deploy Model** (Déployer le modèle).
+1. Renseignez le volet **Déployer le modèle**.
 
     Champ| Valeur
     ----|----
     Name| Entrez un nom unique pour votre déploiement.
     Description| Entrez une description pour mieux identifier le but de ce déploiement.
     Type de capacité de calcul| Sélectionnez le type de point de terminaison que vous voulez déployer : *Azure Kubernetes Service (AKS)* ou *Azure Container Instance (ACI)* .
-    Name| *S’applique uniquement à AKS :* Sélectionnez le nom du cluster AKS sur lequel vous voulez effectuer le déploiement.
+    Nom du calcul| *S’applique uniquement à AKS :* Sélectionnez le nom du cluster AKS sur lequel vous voulez effectuer le déploiement.
     Activer l’authentification | Sélectionnez cette option pour l’authentification basée sur des jetons ou sur des clés.
     Utiliser les ressources d’un déploiement personnalisé| Activez cette fonctionnalité si vous voulez télécharger votre propre script de scoring et votre propre fichier d’environnement. [Découvrez plus d’informations sur les scripts de scoring](how-to-deploy-and-where.md#script).
 
@@ -244,7 +240,7 @@ Vous disposez maintenant d’un service web opérationnel pour générer des pr�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Essayez le [tutoriel de bout en bout pour créer votre première expérience ML automatisé avec Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
+* Essayez le [tutoriel de bout en bout pour créer votre première expérience ML automatisé avec Azure Machine Learning Studio](tutorial-first-experiment-automated-ml.md). 
 * [En savoir plus sur Machine Learning automatisé](concept-automated-ml.md) et Azure Machine Learning.
 * [Comprendre les résultats du Machine Learning](how-to-understand-automated-ml.md).
 * [En savoir plus sur l'utilisation d'un service web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).

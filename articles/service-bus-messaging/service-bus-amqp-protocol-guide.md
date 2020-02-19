@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d706e9b3351b0693a1f352e15b6b9b0cc5c7a65d
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749381"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086154"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs
 
@@ -81,6 +81,15 @@ Ce modèle utilisant une fenêtre est à peu près semblable au concept de contr
 Azure Service Bus utilise actuellement une session pour chaque connexion. La taille maximale de trame de Service Bus est de 262 144 octets (256 Ko) pour la version Standard de Service Bus et Event Hubs. Elle est de 1 048 576 (1 Mo) pour la version Premium de Service Bus. Service Bus n’impose pas de fenêtre de limitation spécifique au niveau de la session, mais réinitialise la fenêtre régulièrement dans le cadre du contrôle de flux au niveau du lien (voir [la section suivante](#links)).
 
 Les connexions, les canaux et les sessions sont éphémères. En cas de coupure de la connexion sous-jacente, les connexions, le tunnel TLS, le contexte d’autorisation SASL et les sessions doivent être rétablis.
+
+### <a name="amqp-outbound-port-requirements"></a>Configuration requise de port sortant AMQP
+
+Les clients qui utilisent des connexions AMQP sur TCP nécessitent que les ports 5671 et 5672 soient ouverts dans le pare-feu local. Outre ces ports, il peut être nécessaire d’ouvrir des ports supplémentaires si la fonctionnalité [EnableLinkRedirect](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.enablelinkredirect?view=azure-dotnet) est activée. `EnableLinkRedirect` est une nouvelle fonctionnalité de messagerie qui permet d’ignorer un tronçon tout en recevant des messages, ce qui contribue à augmenter le débit. Le client commence à communiquer directement avec le service principal sur la plage de ports 104XX comme indiqué dans l’image suivante. 
+
+![Liste des ports de destination][4]
+
+Un client .NET échoue avec un message d’erreur SocketException (« Une tentative d’accès à un socket de manière interdite par ses autorisations d’accès a été effectuée ») si ces ports sont bloqués par le pare-feu. La fonctionnalité peut être désactivée en paramétrant `EnableAmqpLinkRedirect=false` dans la chaîne de connexion, ce qui force les clients à communiquer avec le service distant sur le port 5671.
+
 
 ### <a name="links"></a>Liens
 
@@ -184,7 +193,7 @@ Les flèches dans le tableau suivant indiquent le sens du flux performatif.
 | --> transfer(<br/>delivery-id={gestion numérique},<br/>delivery-tag={gestion binaire},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Aucune action |
 | Aucune action |<-- disposition(<br/>role=receiver,<br/>first={ID de remise},<br/>last={ID de remise},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={infos sur l’erreur}<br/>)<br/>) |
 
-#### <a name="receive"></a>Réception
+#### <a name="receive"></a>Recevoir
 
 | Client | Service Bus |
 | --- | --- |
@@ -225,7 +234,7 @@ Les propriétés que l’application doit définir doivent être mappées au map
 | message-id |Identifiant défini par l’application, au format libre pour ce message. Utilisation pour la détection des doublons. |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | user-id |Identifiant d’utilisateur défini par l’application, non interprété par Service Bus. |Pas accessible via l’API Service Bus. |
 | to |Identifiant de destination défini par l’application, non interprété par Service Bus. |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
-| subject |Identifiant d’objet de message défini par l’application, non interprété par Service Bus. |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
+| subject |Identifiant d’objet de message défini par l’application, non interprété par Service Bus. |[Étiquette](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | reply-to |Indicateur reply-path défini par l’application, non interprété par Service Bus. |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | correlation-id |Identifiant de corrélation défini par l’application, non interprété par Service Bus. |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 | content-type |Indicateur de type de contenu défini par l’application pour le corps, non interprété par Service Bus. |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
@@ -361,10 +370,10 @@ Le message de demande possède les propriétés d’application suivantes :
 
 | Clé | Facultatif | Type de valeur | Contenu de la valeur |
 | --- | --- | --- | --- |
-| operation |Non |chaîne |**put-token** |
-| type |Non |chaîne |Type du jeton placé. |
-| name |Non |chaîne |« Audience » à laquelle le jeton s’applique. |
-| expiration |OUI |timestamp |Délai d’expiration du jeton. |
+| opération |Non |string |**put-token** |
+| type |Non |string |Type du jeton placé. |
+| name |Non |string |« Audience » à laquelle le jeton s’applique. |
+| expiration |Oui |timestamp |Délai d’expiration du jeton. |
 
 La propriété *name* identifie l’entité avec laquelle le jeton doit être associé. Dans Service Bus, il s’agit du chemin d’accès à la file d’attente ou à la rubrique/l’abonnement. La propriété *type* identifie le type de jeton :
 
@@ -381,7 +390,7 @@ Le message de réponse a les valeurs *application-properties* suivantes :
 | Clé | Facultatif | Type de valeur | Contenu de la valeur |
 | --- | --- | --- | --- |
 | status-code |Non |int |Code de réponse HTTP **[RFC2616]** . |
-| status-description |OUI |chaîne |Description de l’état. |
+| status-description |Oui |string |Description de l’état. |
 
 Le client peut appeler *put-token* à plusieurs reprises pour toutes les entités de l’infrastructure de messagerie. Les jetons portent sur le client actuel et sont ancrés sur la connexion actuelle, ce qui signifie que le serveur annule tous les jetons conservés en cas d’abandon de la connexion.
 
@@ -410,9 +419,9 @@ Avec cette fonctionnalité, vous créez un expéditeur et établissez le lien ve
 
 Pour plus d’informations sur AMQP, consultez les liens suivants :
 
-* [Vue d’ensemble d’AMQP de Service Bus]
+* [Vue d’ensemble du protocole AMQP de Service Bus]
 * [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]
-* [AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]
+* [AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server)]
 
 [this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp-protocol-guide/amqp1.png
@@ -420,6 +429,6 @@ Pour plus d’informations sur AMQP, consultez les liens suivants :
 [3]: ./media/service-bus-amqp-protocol-guide/amqp3.png
 [4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
-[Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
+[Vue d’ensemble du protocole AMQP de Service Bus]: service-bus-amqp-overview.md
 [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
-[AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+[AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server)]: https://msdn.microsoft.com/library/dn574799.aspx

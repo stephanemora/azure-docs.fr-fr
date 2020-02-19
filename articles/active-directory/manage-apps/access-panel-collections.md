@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/10/2020
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1ed80ad87d81c2ec1bdfe50e9cd4556f141507b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c91b9ffc9e3487e492c91cb0f5825d0b725f9410
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76907128"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120085"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>Créer des collections sur le portail Mes applications
 
@@ -30,7 +30,7 @@ Vos utilisateurs peuvent utiliser le portail Mes applications pour afficher et d
 > [!NOTE]
 > Cet article explique comment un administrateur peut activer et créer des collections. Pour plus d’informations sur l’utilisation du portail et des collections Mes applications à destination des utilisateurs finaux, voir [Accéder aux collections et les utiliser](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces).
 
-## <a name="enable-my-apps-preview-features"></a>Activer les fonctionnalités en préversion de Mes applications
+## <a name="enable-the-latest-my-apps-features"></a>Activer les dernières fonctionnalités de Mes applications
 
 1. Ouvrez le [**portail Azure**](https://portal.azure.com/) et connectez-vous en tant qu’administrateur général ou administrateur utilisateur.
 
@@ -39,8 +39,8 @@ Vos utilisateurs peuvent utiliser le portail Mes applications pour afficher et d
 3. Sous **Préversions des fonctionnalités utilisateur**, sélectionnez **Gérer les paramètres de préversion de la fonctionnalité utilisateur**.
 
 4. Sous **Les utilisateurs peuvent utiliser les fonctionnalités en préversion pour Mes applications**, choisissez une des options suivantes :
-   * **Sélectionné** : active les fonctionnalités en préversion pour un groupe spécifique. Utilisez l’option **Sélectionner un groupe** pour sélectionner le groupe pour lequel vous souhaitez activer les fonctionnalités en préversion.  
-   * **Tous** : active les fonctionnalités en préversion pour tous les utilisateurs.
+   * **Sélectionné** : active les fonctionnalités pour un groupe spécifique. Utilisez l’option **Sélectionner un groupe** pour sélectionner le groupe pour lequel vous souhaitez activer les fonctionnalités.  
+   * **Tous** : active les fonctionnalités pour tous les utilisateurs.
 
 > [!NOTE]
 > Pour ouvrir le portail Mes applications, les utilisateurs peuvent utiliser le lien `https://myapps.microsoft.com` ou le lien personnalisé pour votre organisation, par exemple `https://myapps.microsoft.com/contoso.com`. Une fois la nouvelle expérience Mes applications activée, la bannière indiquant **Une expérience Mes applications mise à jour est disponible** s’affiche en haut de la page Mes applications, et les utilisateurs peuvent sélectionner **Essayer** pour afficher la nouvelle expérience. Pour ne plus utiliser la nouvelle expérience, les utilisateurs peuvent sélectionner **Oui** dans la bannière **Quitter la nouvelle expérience** en haut de la page.

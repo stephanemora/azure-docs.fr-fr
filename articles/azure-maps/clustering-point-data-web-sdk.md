@@ -1,6 +1,6 @@
 ---
 title: Clustering de données de point sur une carte | Microsoft Azure Maps
-description: Dans cet article, vous allez apprendre à ajouter au cluster des données de points et à les afficher sur une carte à l’aide du SDK web Microsoft Azure Maps.
+description: Dans cet article, vous allez découvrir comment regrouper les données des points et comment les afficher sur une carte avec le SDK web Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 846abb61511ae1d5aedf77059ed2f1e9f4e5dbfb
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e65681aefc047ba540d4ad0d91ef6e4d2af5f3ca
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911737"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190258"
 ---
 # <a name="clustering-point-data"></a>Clustering de données de point
 
-Lorsque vous examinez plusieurs points de données sur la carte, les points se chevauchent et la carte semble surchargée, ce qui nuit à la visibilité et à l’utilisation. Le clustering de données de point peut servir à améliorer l’expérience utilisateur. Le clustering de point de données est le processus permettant de combiner des données de point proches les unes des autres et de les représenter sur une carte en tant qu’un point de données en cluster unique. Lorsque l’utilisateur effectue un zoom avant sur la carte, les clusters se décomposent pour afficher les points de données individuels qui les composent.
+Lors de la visualisation de nombreux points de données sur la carte, les points peuvent se chevaucher. Le chevauchement peut rendre la carte illisible et difficile à utiliser. Le clustering de point de données est le processus permettant de combiner des données de point proches les unes des autres et de les représenter sur une carte en tant qu’un point de données en cluster unique. Lorsque l’utilisateur effectue un zoom avant sur la carte, les clusters se décomposent pour afficher les points de données individuels qui les composent. Quand vous travaillez avec un grand nombre de points de données, utilisez les processus de clustering pour améliorer l’expérience de vos utilisateurs.
 
 <br/>
 
@@ -26,7 +26,7 @@ Lorsque vous examinez plusieurs points de données sur la carte, les points se c
 
 ## <a name="enabling-clustering-on-a-data-source"></a>Activer le clustering sur une source de données
 
-Le clustering peut facilement être activé sur la classe `DataSource` en définissant l’option `cluster` sur true. En outre, le rayon de pixel permettant de sélectionner les points proches à fusionner dans un cluster peut être défini à l’aide du paramètre `clusterRadius`. Le niveau de zoom auquel la logique de clustering est désactivée peut être spécifié à l’aide de l’option `clusterMaxZoom`. Voici un exemple montrant comment activer le clustering dans une source de données.
+Activez le clustering dans la classe `DataSource` en définissant l’option `cluster` sur true. Définissez `ClusterRadius` pour qu’il sélectionne des points à proximité et les combine en un cluster. La valeur de `ClusterRadius` est exprimée en pixels. Utilisez `clusterMaxZoom` pour spécifier un niveau de zoom auquel désactiver la logique de clustering. Voici un exemple montrant comment activer le clustering dans une source de données.
 
 ```javascript
 //Create a data source and enable clustering.
@@ -44,9 +44,9 @@ var datasource = new atlas.source.DataSource(null, {
 ```
 
 > [!TIP]
-> Si deux points de données sont proches sur le terrain, il est possible que le cluster ne se décompose jamais, peu importe le zoom avant effectué par l’utilisateur. Pour résoudre ce problème, vous pouvez définir l’option `clusterMaxZoom` de la source de données qui indique au niveau de zoom de désactiver la logique de clustering afin de simplement afficher tous les éléments.
+> Si deux points de données sont proches l’un de l’autre sur le sol, il est possible que le cluster ne se décompose jamais, quelle que soit l’importance du zoom avant effectué par l’utilisateur. Pour résoudre ce problème, vous pouvez définir l’option `clusterMaxZoom` de façon à désactiver la logique de clustering et à simplement afficher tous les éléments.
 
-La classe `DataSource` présente également les méthodes relatives au clustering suivantes :
+Voici des méthodes supplémentaires fournies par la classe `DataSource` pour le clustering :
 
 | Méthode | Type de retour | Description |
 |--------|-------------|-------------|
@@ -56,7 +56,9 @@ La classe `DataSource` présente également les méthodes relatives au clusterin
 
 ## <a name="display-clusters-using-a-bubble-layer"></a>Afficher les clusters à l’aide d’une couche de bulles
 
-Une couche de bulles est un excellent moyen pour afficher des points en cluster. Vous pouvez facilement mettre le rayon à l’échelle et modifier la couleur en fonction du nombre de points dans le cluster en utilisant une expression. Lorsque vous affichez des clusters sous la forme d’une couche de bulles, vous devez également utiliser une couche distincte pour le rendu des points de données hors du cluster. Il est souvent utile de pouvoir également afficher la taille du cluster en plus des bulles. Une couche de symbole comprenant du texte mais aucune icône peut aider à obtenir ce comportement. 
+Un calque de bulles est un bon moyen de rendre des points de données regroupés en cluster. Utilisez des expressions pour mettre à l’échelle le rayon et changer la couleur en fonction du nombre de points du cluster. Si vous affichez des clusters sous la forme d’un calque de bulles, vous devez également utiliser un calque distinct pour rendre les points de données non regroupés dans le cluster.
+
+Pour afficher la taille du cluster en haut de la bulle, utilisez un calque de symboles avec du texte, et n’utilisez pas une icône.
 
 <br/>
 
@@ -66,7 +68,9 @@ Consultez le rendu <a href='https://codepen.io/azuremaps/pen/qvzRZY/'>Clustering
 
 ## <a name="display-clusters-using-a-symbol-layer"></a>Afficher les clusters à l’aide d’une couche de symboles
 
-Lorsque vous visualisez des données de point à l’aide d’une couche de symboles, par défaut, les symboles qui se superposent sont masqués automatiquement afin de rendre l’expérience plus claire. Cependant, cette expérience peut ne pas vous convenir si vous souhaitez voir la densité des points de données sur la carte. Définir l’option `allowOverlap` de la propriété `iconOptions` des couches de symboles sur `true` permet de désactiver cette expérience, mais entraînera l’affichage de tous les symboles. À l’aide du clustering, vous pouvez voir la densité de toutes les données tout en créant une expérience utilisateur claire et agréable. Dans cet exemple, les symboles personnalisés seront utilisés pour représenter les clusters et les points de données individuels.
+Lors de la visualisation des points de données, le calque de symboles masque automatiquement les symboles qui se chevauchent pour garantir une interface utilisateur plus propre. Ce comportement par défaut peut être indésirable si vous voulez montrer la densité des points de données sur la carte. Ces paramètres peuvent cependant être modifiés. Pour afficher tous les symboles, définissez l’option `allowOverlap` de la propriété `iconOptions` des calques de symboles sur `true`. 
+
+Utilisez le clustering pour montrer la densité des points de données tout en conservant une interface utilisateur propre. L’exemple ci-dessous montre comment ajouter des symboles personnalisés, et comment représenter des clusters et des points de données individuels en utilisant le calque de symboles.
 
 <br/>
 
@@ -76,7 +80,7 @@ Consultez le rendu <a href='https://codepen.io/azuremaps/pen/Wmqpzz/'>Couche de 
 
 ## <a name="clustering-and-the-heat-maps-layer"></a>Clustering et couche de cartes thermiques
 
-Les cartes thermiques sont un excellent moyen pour afficher la densité des données sur la carte. Cette visualisation suffit pour gérer un grand nombre de points de données, mais elle peut gérer davantage de données si les points de données sont mis en cluster et que la taille du cluster sert de poids pour la carte thermique. Pour cela, définissez l’option `weight` de la couche de carte thermique sur `['get', 'point_count']`. Lorsque le rayon de cluster est faible, la carte thermique ressemblera fortement à une carte thermique utilisant des points de données qui ne sont pas mis en cluster tout en étant plus efficace. Toutefois, la précision de la carte thermique augmente au détriment du gain en efficacité à mesure que le rayon de cluster diminue.
+Les cartes thermiques sont un excellent moyen pour afficher la densité des données sur la carte. Cette méthode de visualisation peut gérer par elle-même un grand nombre de points de données. Si les points de données sont en cluster et que la taille du cluster est utilisée comme pondération de la carte thermique, la carte thermique peut traiter encore plus de données. Pour cela, définissez l’option `weight` du calque de la carte thermique sur `['get', 'point_count']`. Quand le rayon du cluster est faible, la carte thermique ressemblera fortement à une carte thermique utilisant des points de données qui ne sont pas mis en cluster, tout en étant beaucoup plus performante. Cependant, plus le rayon du cluster est petit, plus la carte thermique est précise, mais avec moins de bénéfices en termes de performances.
 
 <br/>
 
@@ -86,16 +90,16 @@ Consultez le rendu <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>Carte ther
 
 ## <a name="mouse-events-on-clustered-data-points"></a>Événements de souris sur des points de données en cluster
 
-Lorsque des événements de souris se produisent sur une couche contenant des points de données en cluster, ces derniers sont retournés à l’événement en tant qu’objet de fonctionnalité de point GeoJSON. Cette fonctionnalité de point possède les propriétés suivantes :
+Quand des événements de souris se produisent sur un calque contenant des points de données en cluster, le point de données en cluster derniers est retourné à l’événement en tant qu’objet de fonctionnalité de point GeoJSON. Cette fonctionnalité de point possède les propriétés suivantes :
 
 | Nom de la propriété             | Type    | Description   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | Indique si la fonctionnalité représente un cluster. |
 | `cluster_id`              | string  | Un ID unique pour le cluster qui peut être utilisé avec les méthodes `getClusterExpansionZoom`, `getClusterChildren` et `getClusterLeaves` de DataSource. |
 | `point_count`             | nombre  | Le nombre de points que contient le cluster.  |
-| `point_count_abbreviated` | string  | Une chaîne qui abrège la valeur `point_count` si elle est trop longue. (par exemple, 4 000 devient 4K)  |
+| `point_count_abbreviated` | string  | Une chaîne qui abrège la valeur de `point_count` si elle est trop longue. (par exemple, 4 000 devient 4K)  |
 
-Cet exemple utilise une couche de bulles qui affiche des points de cluster et ajoute un événement basé sur un clic. Lorsqu’il est déclenché, il calcule et effectue un zoom sur la carte jusqu’au prochain niveau de zoom provoquant une décomposition du cluster à l’aide de la méthode `getClusterExpansionZoom` de la classe `DataSource` et de la propriété `cluster_id` du point de données en cluster sur lequel l’utilisateur a cliqué. 
+Cet exemple prend un calque de bulles qui affiche des points de cluster et ajoute un événement de clic. Quand l’événement de clic est déclenché, le code calcule et effectue un zoom de la carte au niveau de zoom suivant, à partir duquel le cluster se décompose. Cette fonctionnalité est implémentée avec la méthode `getClusterExpansionZoom` de la classe `DataSource` et la propriété `cluster_id` du point de données en cluster sur lequel l’utilisateur a cliqué.
 
 <br/>
 
@@ -105,7 +109,7 @@ Consultez le rendu <a href='https://codepen.io/azuremaps/pen/moZWeV/'>Méthode g
 
 ## <a name="display-cluster-area"></a>Afficher la zone du cluster 
 
-Les données de point représentées par un cluster sont réparties sur une zone. Dans cet exemple, une action est déclenchée lorsque la souris survole un cluster. Les points de données individuels contenus (laissés) dans le cluster sont alors utilisés pour calculer une enveloppe convexe et affichés sur la carte pour montrer la zone. Tous les points contenus dans un cluster peuvent être récupérés à partir de la source de données à l’aide de la méthode `getClusterLeaves`. Une enveloppe convexe est un polygone qui entoure un ensemble de points comme un élastique et qui peut être calculé à l’aide de la méthode `atlas.math.getConvexHull`.
+Les données de point représentées par un cluster sont réparties sur une zone. Dans cet exemple, quand la souris passe sur un cluster, deux comportements principaux se produisent. D’abord, les points de données individuels contenus dans le cluster sont utilisés pour calculer une enveloppe convexe. Ensuite, l’enveloppe convexe est affichée sur la carte pour montrer une zone.  Une enveloppe convexe est un polygone qui entoure un ensemble de points comme un élastique et qui peut être calculé à l’aide de la méthode `atlas.math.getConvexHull`. Tous les points contenus dans un cluster peuvent être récupérés à partir de la source de données à l’aide de la méthode `getClusterLeaves`.
 
 <br/>
 
@@ -115,9 +119,9 @@ Consultez le rendu <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>Enveloppe 
 
 ## <a name="aggregating-data-in-clusters"></a>Agrégation de données dans des clusters
 
-Souvent, les clusters sont représentés à l’aide d’un symbole avec le nombre de points qui se trouvent dans le cluster. Toutefois, il est parfois souhaitable de personnaliser davantage le style des clusters en fonction d’un indicateur de performance, comme le total de tous les points au sein d’un cluster. Avec les agrégats de cluster, les propriétés personnalisées peuvent être créées et remplies à l’aide d’un calcul [d’expression d’agrégation](data-driven-style-expressions-web-sdk.md#aggregate-expression).  Les agrégats de cluster peuvent être définis dans l'option `clusterProperties` de `DataSource`.
+Souvent, les clusters sont représentés à l’aide d’un symbole avec le nombre de points qui se trouvent dans le cluster. Cependant, il est parfois souhaitable de pouvoir personnaliser le style des clusters avec des métriques supplémentaires. Avec les agrégats de cluster, les propriétés personnalisées peuvent être créées et remplies en utilisant un calcul [d’expression d’agrégation](data-driven-style-expressions-web-sdk.md#aggregate-expression).  Les agrégats de cluster peuvent être définis dans l'option `clusterProperties` de `DataSource`.
 
-L’exemple suivant utilise une expression d’agrégation pour calculer un nombre basé sur la propriété de type d’entité de chaque point de données dans un cluster.
+L’exemple suivant utilise une expression d’agrégation. Le code calcule un nombre basé sur la propriété du type d’entité de chaque point de données dans un cluster. Quand un utilisateur clique sur un cluster, une fenêtre contextuelle s’affiche avec des informations supplémentaires sur le cluster.
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Agrégats de cluster" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez le <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>Agrégats de cluster</a> Pen par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: d56504c96c5e039f2563a1bfee577fe9b15e8563
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9364c344c58d17f9f6e6404dd8aa850af032cee9
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715565"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138367"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtenir des données de capteur auprès de partenaires de capteur
 
@@ -40,27 +40,32 @@ Après avoir démarré le streaming des données de capteur, vous pouvez commenc
 Vous pouvez générer les informations ci-dessus en procédant comme suit : (Veuillez noter que ces étapes doivent être effectuées sur Azure, vous aurez donc besoin d’accéder à l’abonnement Azure sur lequel FarmBeats est déployé.)
 
 1. Téléchargez le [fichier zip](https://aka.ms/farmbeatspartnerscriptv2) et extrayez-le sur votre lecteur local. Il y aura un fichier dans le fichier zip.
-2. Connectez-vous à https://portal.azure.com/ et accédez à Azure Active Directory -> Inscriptions d’applications.
 
-3. Cliquez sur l’inscription de l’application qui a été créée dans le cadre de votre déploiement FarmBeats. Elle aura le même nom que votre hub de données FarmBeats.
+2. Connectez-vous à https://portal.azure.com/.
 
-4. Cliquez sur « Exposer une API » -> cliquez sur « Ajouter une application cliente », puis entrez **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** et cochez la case « Autoriser l’étendue ». Cela permet d’accéder à l’interface de ligne de commande Azure (Cloud Shell) pour effectuer les étapes ci-dessous.
+3. **Si vous êtes sur FarmBeats version 1.2.7 ou ultérieure, ignorez les étapes 3a, 3b et 3C et passez à l’étape 4.** . Vous pouvez vérifier la version de FarmBeats en cliquant sur l’icône Paramètres en haut à droite de l’interface utilisateur de FarmBeats.
 
-5. Ouvrez Cloud Shell. Cette option est disponible dans la barre d’outils située en haut à droite du portail Azure.
+3a. Accédez à Azure Active Directory -> Inscriptions d’applications
+
+3b. Cliquez sur l’inscription de l’application qui a été créée dans le cadre de votre déploiement FarmBeats. Elle aura le même nom que votre hub de données FarmBeats.
+
+3c. Cliquez sur « Exposer une API » -> cliquez sur « Ajouter une application cliente », puis entrez **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** et cochez la case « Autoriser l’étendue ». Cela permet d’accéder à l’interface de ligne de commande Azure (Cloud Shell) pour effectuer les étapes ci-dessous.
+
+4. Ouvrez Cloud Shell. Cette option est disponible dans la barre d’outils située en haut à droite du portail Azure.
 
     ![Barre d’outils du portail Azure](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-6. Veillez à ce que **PowerShell** soit défini comme environnement. Bash est sélectionné par défaut.
+5. Veillez à ce que **PowerShell** soit défini comme environnement. Bash est sélectionné par défaut.
 
     ![Paramètre de la barre d’outils PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-7. Chargez le fichier obtenu à l’étape 1 dans votre instance Cloud Shell.
+6. Chargez le fichier obtenu à l’étape 1 dans votre instance Cloud Shell.
 
     ![Bouton de chargement dans la barre d’outils](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
 
-8. Accédez au répertoire où le fichier a été chargé. Par défaut, les fichiers sont chargés dans le répertoire de base sous le nom d’utilisateur.
+7. Accédez au répertoire où le fichier a été chargé. Par défaut, les fichiers sont chargés dans le répertoire de base sous le nom d’utilisateur.
 
-9. Exécutez le script suivant. Le script invite à fournir l’ID de locataire, qui peut être obtenu à partir de la page Azure Active Directory > Vue d’ensemble.
+8. Exécutez le script suivant. Le script invite à fournir l’ID de locataire, qui peut être obtenu à partir de la page Azure Active Directory > Vue d’ensemble.
 
     ```azurepowershell-interactive 
 
@@ -68,7 +73,7 @@ Vous pouvez générer les informations ci-dessus en procédant comme suit : (Ve
 
     ```
 
-10. Suivez les instructions à l’écran pour capturer les valeurs suivantes : **API Endpoint** (Point de terminaison d’API), **Tenant ID** (ID de locataire), **Client ID** (ID client), **Client Secret** (Secret client) et **EventHub Connection String** (Chaîne de connexion du hub d’événements).
+9. Suivez les instructions à l’écran pour capturer les valeurs suivantes : **API Endpoint** (Point de terminaison d’API), **Tenant ID** (ID de locataire), **Client ID** (ID client), **Client Secret** (Secret client) et **EventHub Connection String** (Chaîne de connexion du hub d’événements).
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Intégrer des données d’appareil avec des informations d’identification générées
 

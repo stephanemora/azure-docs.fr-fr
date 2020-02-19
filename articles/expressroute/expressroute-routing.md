@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.openlocfilehash: 75a9e3e8422c0c59e00c290f1f360d61fce1eceb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3eafb8aff5525f668e6fe0bddb261b1117b5e38b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901582"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048167"
 ---
 # <a name="expressroute-routing-requirements"></a>Configuration requise pour le routage ExpressRoute
 Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions suivantes :
@@ -223,13 +223,14 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 | Exchange Online** | 12076:5010 |
 | SharePoint Online** | 12076:5020 |
 | Skype For Business Online** | 12076:5030 |
-| CRM Online |12076:5040 |
+| CRM Online*** |12076:5040 |
 | Services globaux Azure* | 12076:5050 |
 | Azure Active Directory |12076:5060 |
 | Autres services Office 365 Online** | 12076:5100 |
 
-\* Pour le moment, les services globaux Azure incluent uniquement Azure DevOps.
-** Autorisation requise par Microsoft. Consultez [Configurer des filtres de routage pour le peering Microsoft](how-to-routefilter-portal.md) 
+\* Pour le moment, les services globaux Azure incluent uniquement Azure DevOps.\
+** Autorisation requise par Microsoft. Consultez [Configurer des filtres de routage pour le peering Microsoft](how-to-routefilter-portal.md)\
+*** CRM Online prend en charge Dynamics v8.2 et versions antérieures. Pour les versions ultérieures, sélectionnez la communauté régionale pour vos déploiements Dynamics.
 
 > [!NOTE]
 > Microsoft ignore les valeurs de communauté BGP définies sur les itinéraires proposés à Microsoft.

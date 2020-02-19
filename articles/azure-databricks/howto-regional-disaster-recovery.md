@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 800b51c8f900d2ea99900ea147b33010452348f5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 2604d5b357feacce3493b4a4ded971144262611d
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639869"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161934"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Récupération d’urgence régionale pour les clusters Azure Databricks
 
@@ -37,7 +37,7 @@ Pour créer votre propre topologie de récupération d’urgence régionale, res
 
    1. Approvisionnez plusieurs espaces de travail Azure Databricks dans des régions Azure distinctes. Par exemple, créez l’espace de travail Azure Databricks principal dans USA Est 2. Créez l’espace de travail Azure Databricks secondaire de récupération d’urgence dans une autre région, comme USA Ouest.
 
-   2. Utilisez le [Stockage géoredondant](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage). Par défaut, les données associées à Azure Databricks sont stockées dans le Stockage Azure. Les résultats des travaux Databricks sont également stockés dans le Stockage Blob Azure ; ainsi, les données traitées sont durables et conservent une disponibilité élevée une fois le cluster terminé. Le cluster Databricks et le Stockage étant colocalisés, vous devez utiliser le stockage géoredondant pour que les données soient accessibles dans la région secondaire si la région primaire n’est plus disponible.
+   2. Utilisez le [stockage géoredondant](../storage/common/storage-redundancy.md). Par défaut, les données associées à Azure Databricks sont stockées dans le Stockage Azure. Les résultats des travaux Databricks sont également stockés dans le Stockage Blob Azure ; ainsi, les données traitées sont durables et conservent une disponibilité élevée une fois le cluster terminé. Le cluster Databricks et le Stockage étant colocalisés, vous devez utiliser le stockage géoredondant pour que les données soient accessibles dans la région secondaire si la région primaire n’est plus disponible.
 
    3. Une fois la région secondaire créée, il vous faut migrer les utilisateurs, les dossiers utilisateur, les notebooks, la configuration du cluster et des travaux, les bibliothèques, le stockage et les scripts init, et reconfigurer le contrôle d’accès. Des détails supplémentaires sont donnés dans la section suivante.
 

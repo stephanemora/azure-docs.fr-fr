@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/18/2019
+ms.date: 02/05/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3d9316f42c8d0ac5b44cda2e484ca4c92110813d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2bda00924015bf5abc616b7c346eacfeda53c2ed
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474727"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77045935"
 ---
 # <a name="custom-email-verification-in-azure-active-directory-b2c"></a>Vérification d’e-mail personnalisée dans Azure Active Directory B2C
 
@@ -389,6 +389,36 @@ Pour plus d'informations, voir [Profil technique autodéclaré](restful-technica
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
+```
+
+## <a name="optional-localize-your-email"></a>(Facultatif) Localiser votre e-mail
+
+Pour localiser l’e-mail, vous devez envoyer des chaînes localisées à SendGrid ou à votre fournisseur de messagerie. Par exemple, pour localiser l’objet, le corps, le message du code ou la signature de l’e-mail. Pour ce faire, vous pouvez utiliser la transformation de revendications [GetLocalizedStringsTransformation](string-transformations.md) pour copier les chaînes localisées dans les types de revendications. Dans la transformation de revendications `GenerateSendGridRequestBody`, qui génère la charge utile JSON, utilisez des revendications d’entrée qui contiennent les chaînes localisées.
+
+1. Dans votre stratégie, définissez les revendications de chaîne suivantes : subject, message, codeIntro et signature.
+1. Définissez une transformation de revendications [GetLocalizedStringsTransformation](string-transformations.md) pour substituer les valeurs de chaîne localisées dans les revendications de l’étape 1.
+1. Modifiez la transformation de revendications `GenerateSendGridRequestBody` pour utiliser des revendications d’entrée avec l’extrait de code XML suivant.
+1. Mettez à jour votre modèle SendGrind pour utiliser des paramètres dynamiques à la place de toutes les chaînes qui seront localisées par Azure AD B2C.
+
+```XML
+<ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
+    <InputClaim ClaimTypeReferenceId="subject" TransformationClaimType="personalizations.0.dynamic_template_data.subject" />
+    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.dynamic_template_data.email" />
+    <InputClaim ClaimTypeReferenceId="message" TransformationClaimType="personalizations.0.dynamic_template_data.message" />
+    <InputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="personalizations.0.dynamic_template_data.codeIntro" />
+    <InputClaim ClaimTypeReferenceId="signature" TransformationClaimType="personalizations.0.dynamic_template_data.signature" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="template_id" DataType="string" Value="d-1234567890" />
+    <InputParameter Id="from.email" DataType="string" Value="my_email@mydomain.com" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="sendGridReqBody" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

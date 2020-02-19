@@ -7,7 +7,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e0db41098287ff011416932a0d44a1cb9f76127d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f3a1be435e297ab4a9ba7f8bfbd5f3ce3451d8a8
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786156"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153874"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Vue d’ensemble du langage OData pour `$filter`, `$orderby` et `$select` dans la Recherche cognitive Azure
 
@@ -62,7 +62,7 @@ Un diagramme de syntaxe interactif est également disponible :
 > [Diagramme de syntaxe OData pour la Recherche cognitive Azure](https://azuresearch.github.io/odata-syntax-diagram/#field_path)
 
 > [!NOTE]
-> Consultez [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
+> Consultez [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
 
 Un chemin de champ comprend un ou plusieurs **identificateurs** séparés par des barres obliques. Chaque identificateur correspond à une séquence de caractères qui doit commencer par une lettre ASCII ou un trait de soulignement, et contenir uniquement des lettres ASCII, des chiffres ou des traits de soulignement. Il peut s'agir de lettres majuscules ou minuscules.
 
@@ -93,9 +93,9 @@ Les chemins de champs sont utilisés dans de nombreux paramètres des [API REST 
 
 | API | Nom du paramètre | Restrictions |
 | --- | --- | --- |
-| [Créer](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Mettre à jour](https://docs.microsoft.com/rest/api/searchservice/update-index) l'index | `suggesters/sourceFields` | Aucun |
+| [Créer](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Mettre à jour](https://docs.microsoft.com/rest/api/searchservice/update-index) l'index | `suggesters/sourceFields` | None |
 | [Créer](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Mettre à jour](https://docs.microsoft.com/rest/api/searchservice/update-index) l'index | `scoringProfiles/text/weights` | Peut uniquement faire référence à des champs **pouvant faire l'objet d'une recherche** |
-| [Créer](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Mettre à jour](https://docs.microsoft.com/rest/api/searchservice/update-index) l'index | `scoringProfiles/functions/fieldName` | Peut uniquement faire référence à des champs **filtrables** |
+| [Créer](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Mettre à jour](https://docs.microsoft.com/rest/api/searchservice/update-index) l'index | `scoringProfiles/functions/fieldName` | Peuvent uniquement faire référence à des champs **filtrables** |
 | [action](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search` quand `queryType` est `full` | Peut uniquement faire référence à des champs **pouvant faire l'objet d'une recherche** |
 | [action](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Peut uniquement faire référence à des champs **à choix multiples** |
 | [action](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Peut uniquement faire référence à des champs **pouvant faire l'objet d'une recherche** |
@@ -121,6 +121,17 @@ Le tableau suivant présente des exemples de constantes pour chaque type de donn
 | `Edm.Int32` | `123`, `-456` |
 | `Edm.Int64` | `283032927235` |
 | `Edm.String` | `'hello'` |
+
+### <a name="escaping-special-characters-in-string-constants"></a>Échappement des caractères spéciaux dans les constantes de chaîne
+
+Les constantes de chaîne dans OData sont délimitées par des guillemets simples. Si vous devez construire une requête avec une constante de chaîne susceptible de contenir des guillemets simples, vous pouvez placer les guillemets incorporés dans une séquence d’échappement en les doublant.
+
+Par exemple, une expression avec une apostrophe non mise en forme comme « voiture d'Alice » est représentée dans OData en tant que constante de chaîne `'Alice''s car'`.
+
+> [!IMPORTANT]
+> Quand vous construisez des filtres programmatiquement, pensez à échapper les constantes de chaîne qui proviennent d’une entrée utilisateur. Vous pouvez ainsi limiter les risques d’[attaques par injection](https://wikipedia.org/wiki/SQL_injection), en particulier lors de l’utilisation de filtres pour implémenter un [filtrage de sécurité](search-security-trimming-for-azure-search.md).
+
+### <a name="constants-syntax"></a>Syntaxe des constantes
 
 L’extension EBNF suivante ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) définit la grammaire de la plupart des constantes présentées dans le tableau ci-dessus. La grammaire correspondant aux types géospatiaux est disponible dans [Fonctions géospatiales OData dans la Recherche cognitive Azure](search-query-odata-geo-spatial-functions.md).
 
@@ -190,7 +201,7 @@ Un diagramme de syntaxe interactif est également disponible :
 > [Diagramme de syntaxe OData pour la Recherche cognitive Azure](https://azuresearch.github.io/odata-syntax-diagram/#constant)
 
 > [!NOTE]
-> Consultez [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
+> Consultez [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
 
 ## <a name="building-expressions-from-field-paths-and-constants"></a>Création d’expressions à partir de chemins de champs et de constantes
 
@@ -216,7 +227,7 @@ Un diagramme de syntaxe interactif est également disponible :
 > [Diagramme de syntaxe OData pour la Recherche cognitive Azure](https://azuresearch.github.io/odata-syntax-diagram/#filter_expression)
 
 > [!NOTE]
-> Consultez [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
+> Consultez [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
 
 Les paramètres **$orderby** et **$select** correspondent à des listes d'expressions plus simples séparées par des virgules. Le paramètre **$filter** est une expression conditionnelle composée de plus simples sous-expressions. Ces sous-expressions sont combinées à l’aide d'opérateurs logiques tels que [`and`, `or` et `not`](search-query-odata-logical-operators.md), d'opérateurs de comparaison tels que [`eq`, `lt`, `gt`, et ainsi de suite](search-query-odata-comparison-operators.md), et d'opérateurs de collection tels que [`any` et `all`](search-query-odata-collection-operators.md).
 
@@ -230,6 +241,6 @@ Les paramètres **$filter**, **$orderby** et **$select** sont abordés plus en d
 
 - [Navigation par facettes dans la Recherche cognitive Azure](search-faceted-navigation.md)
 - [Filtres dans la Recherche cognitive Azure](search-filters.md)
-- [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Rechercher des documents &#40;API REST de la recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 - [Syntaxe de requête Lucene](query-lucene-syntax.md)
 - [Syntaxe de requête simple dans la Recherche cognitive Azure](query-simple-syntax.md)

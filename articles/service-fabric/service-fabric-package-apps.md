@@ -3,12 +3,12 @@ title: Packager une application Azure Service Fabric
 description: Découvrez la mise en package d’une application Azure Service Fabric et sa préparation au déploiement sur un cluster.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: 16bd48963040a8e30ff81f40c01134014eaccf48
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 7c99eec28ac06ecf666d6dda1015f889841a5dbf
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639681"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083619"
 ---
 # <a name="package-an-application"></a>Empaqueter une application
 
@@ -56,9 +56,9 @@ Pour plus d’informations sur la configuration de **SetupEntryPoint**, consulte
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Création d'un package à l'aide de Visual Studio
 
-Si vous utilisez Visual Studio 2015 pour créer votre application, vous pouvez utiliser la commande Package pour créer automatiquement un package qui correspond à la disposition décrite ci-dessus.
+Si vous avez utilisé Visual Studio pour créer votre application, vous pouvez utiliser la commande *Package* pour créer automatiquement un package qui correspond à la disposition décrite ci-dessus.
 
-Pour créer un package, cliquez avec le bouton droit sur l'application dans l'Explorateur de solutions et choisissez la commande Package, comme indiqué ci-dessous :
+Pour créer un package, cliquez avec le bouton droit sur le projet d’application dans l’*Explorateur de solutions*, puis choisissez la commande **Package** :
 
 ![Empaquetage d'une application avec Visual Studio][vs-package-command]
 

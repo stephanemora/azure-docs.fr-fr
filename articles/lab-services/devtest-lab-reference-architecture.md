@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: f079071a88d034dfd279da8656da517b934275a3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 77e6ab588f74c8b810f211e069c1c24043155111
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982115"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132853"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Architecture de référence Azure DevTest Labs pour les entreprises
 Cet article décrit l’architecture de référence vous permettant de déployer une solution basée sur Azure DevTest Labs dans une entreprise. Les éléments suivants sont abordés :
@@ -41,7 +41,7 @@ Voici les éléments clés de l’architecture de référence :
     - Vous voulez forcer tout le trafic réseau à entrer et à sortir de l’environnement cloud via un pare-feu local pour des raisons de sécurité et de conformité.
 - **Groupes de sécurité réseau** : un [groupe de sécurité réseau ](../virtual-network/security-overview.md) est un moyen courant de restreindre le trafic vers l’environnement cloud (ou à l’intérieur de l’environnement cloud) en fonction des adresses IP source et de destination. Par exemple, vous voulez autoriser uniquement le trafic qui provient du réseau de l’entreprise vers les réseaux du labo.
 - **Passerelle Bureau à distance** : les entreprises bloquent généralement les connexions sortantes des postes de travail distants au niveau du pare-feu d’entreprise. Il existe plusieurs options pour permettre la connectivité à l’environnement cloud dans DevTest Labs, notamment :
-  - Utilisez une [passerelle Bureau à distance ](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture), et mettez en liste verte l’adresse IP statique de l’équilibreur de charge de la passerelle.
+  - Utilisez une [passerelle des services Bureau à distance](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture), et autorisez l’adresse IP statique de l’équilibreur de charge de la passerelle.
   - [Diriger tout le trafic RDP entrant](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) via la connexion VPN ExpressRoute/site à site. Cette fonctionnalité est couramment utilisée par les entreprises qui planifient un déploiement DevTest Labs.
 - **Services réseau (réseaux virtuels, sous-réseaux)**  : la topologie de [mise en réseau Azure](../networking/networking-overview.md) est un autre élément clé de l’architecture DevTest Labs. Elle détermine si les ressources du labo peuvent communiquer et avoir accès aux ressources locales et à Internet. Notre diagramme d’architecture inclut les modes d’utilisation les plus courants de DevTest Labs par les clients : Tous les laboratoires se connectent via le [peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md) en utilisant un [modèle hub-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) pour la connexion VPN ExpressRoute/site à site vers les ressources locales. Comme DevTest Labs utilise directement Azure Virtual Network, il n’existe aucune restriction sur la configuration de l’infrastructure réseau.
 - **Laboratoires DevTest** :  DevTest Labs est un élément clé de l’architecture globale. Pour en savoir plus sur le service, consultez [À propos de DevTest Labs](devtest-lab-overview.md).
@@ -50,7 +50,7 @@ Voici les éléments clés de l’architecture de référence :
 ## <a name="scalability-considerations"></a>Considérations relatives à l’extensibilité
 Bien que DevTest Labs n’intègre pas de quotas ou de limites, les autres ressources Azure qui sont utilisées dans le fonctionnement typique d’un labo sont soumises à des [quotas d’abonnement](../azure-resource-manager/management/azure-subscription-service-limits.md). Ainsi, dans un déploiement d’entreprise standard, vous avez besoin de plusieurs abonnements Azure pour couvrir un déploiement de grande ampleur de DevTest Labs. Les quotas que les entreprises atteignent le plus souvent sont les suivants :
 
-- **Groupes de ressources** : dans la configuration par défaut, DevTest Labs crée un groupe de ressources pour chaque nouvelle machine virtuelle, ou l’utilisateur crée un environnement en utilisant le service. Les abonnements peuvent contenir un [maximum de 980 groupes de ressources](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). Il s’agit donc de la limite des machines et environnements virtuels dans un abonnement. Il y a deux autres configurations que vous devez considérer :
+- **Groupes de ressources** : dans la configuration par défaut, DevTest Labs crée un groupe de ressources pour chaque nouvelle machine virtuelle, ou l’utilisateur crée un environnement en utilisant le service. Les abonnements peuvent contenir un [maximum de 980 groupes de ressources](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits). Il s’agit donc de la limite des machines et environnements virtuels dans un abonnement. Il y a deux autres configurations que vous devez considérer :
     - **[Toutes les machines virtuelles sont destinées au même groupe de ressources](resource-group-control.md)**  : bien que cette configuration vous aide à respecter la limite du groupe de ressources, elle affecte la limite du type de ressource par groupe de ressources.
     - **Utilisation d’adresses IP publiques partagées** : Toutes les machines virtuelles de la même taille et de la même région sont regroupées dans le même groupe de ressources. Cette configuration est un « juste milieu » entre les quotas de groupes de ressources et les quotas de type de ressources par groupe de ressources si les machines virtuelles sont autorisées à posséder des adresses IP publiques.
 - **Ressources par groupe de ressources par type de ressource** : le nombre maximal par défaut des [ressources par groupe de ressources et par type de ressources est fixé à 800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).  Lorsque vous utilisez la configuration *Toutes les machines virtuelles de la même taille et de la même région sont regroupées dans le même groupe de ressources*, les utilisateurs atteignent cette limite d’abonnement d’autant plus vite que les machines virtuelles possèdent un grand nombre de disques supplémentaires.

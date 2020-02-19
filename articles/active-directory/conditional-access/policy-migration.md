@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16c6ce46af8fb9a9ab4be5fcc63ccd4909374e4f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846167"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185909"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>Migration des stratégies classiques d’accès conditionnel
 
@@ -89,7 +89,7 @@ Si vous avez une nouvelle stratégie pour laquelle **Exchange Active Sync** est 
 
 ![Conditions d’accès conditionnel](./media/policy-migration/16.png)
  
-Les stratégies classiques [basées sur une application](technical-reference.md#approved-client-app-requirement) pour Office 365 Exchange Online qui incluent **Exchange Active Sync** comme condition d’applications clientes autorisent les [plateformes d’appareils](technical-reference.md#device-platform-condition) **prises en charge** et **non prises en charge**. Bien que vous ne puissiez pas configurer de plateformes d’appareils individuelles dans une nouvelle stratégie connexe, vous pouvez limiter la prise en charge aux [plateformes d’appareils prises en charge](technical-reference.md#device-platform-condition). 
+Les stratégies classiques basées sur une application pour Office 365 Exchange Online qui incluent **Exchange Active Sync** comme condition d’applications clientes autorisent les plateformes d’appareils **prises en charge** et **non prises en charge**. Bien que vous ne puissiez pas configurer de plateformes d’appareils individuelles dans une nouvelle stratégie connexe, vous pouvez limiter la prise en charge aux [plateformes d’appareils prises en charge](concept-conditional-access-conditions.md#device-platforms). 
 
 ![Sélection d’Exchange ActiveSync pour l’accès conditionnel](./media/policy-migration/65.png)
 
@@ -109,9 +109,9 @@ Dans ce cas, vous pouvez consolider vos stratégies classiques en une nouvelle s
 
 ### <a name="device-platforms"></a>Plateformes d’appareils
 
-Les stratégies classiques dotées de [contrôles basés sur une application](technical-reference.md#approved-client-app-requirement) sont préconfigurées avec iOS et Android en tant que [condition de plateforme d’appareil](technical-reference.md#device-platform-condition). 
+Les stratégies classiques dotées de contrôles basés sur une application sont préconfigurées avec iOS et Android en tant que condition de plateforme d’appareil. 
 
-Dans une nouvelle stratégie, vous devez sélectionner les [plateformes d’appareils](technical-reference.md#device-platform-condition) à prendre en charge individuellement.
+Dans une nouvelle stratégie, vous devez sélectionner les [plateformes d’appareils](concept-conditional-access-conditions.md#device-platforms) à prendre en charge individuellement.
 
 ![Sélection des plateformes d’appareils à accès conditionnel](./media/policy-migration/41.png)
 

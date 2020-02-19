@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b77d6fe03a051c019519f195d55cdeb00fb9afb2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 203bf584711fbfcfd0baeee8f5e4c7f70d96823b
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906268"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157213"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -93,7 +93,7 @@ Si vous souhaitez savoir comment créer un partage de fichiers Premium, consulte
 Actuellement, vous ne pouvez pas convertir directement un partage de fichiers Standard en partage de fichiers Premium, et vice-versa. Si vous souhaitez basculer vers l’un ou l’autre de ces niveaux, vous devez créer un nouveau partage de fichiers dans le niveau voulu, puis copier manuellement les données depuis votre partage d’origine sur le partage que vous avez créé. Vous pouvez effectuer cette opération en utilisant un des outils de copie pris en charge par Azure Files, tel que Robocopy ou AzCopy.
 
 > [!IMPORTANT]
-> Les partages de fichiers Premium sont disponibles avec le stockage LRS dans la plupart des régions qui offrent des comptes de stockage et avec le stockage ZRS dans moins de régions. Pour savoir si les partages de fichiers Premium sont actuellement disponibles dans votre région, consultez la page des [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=storage) pour Azure. Pour connaître les régions qui prennent en charge ZRS, consultez [Couverture du support et disponibilité régionale](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability).
+> Les partages de fichiers Premium sont disponibles avec le stockage LRS dans la plupart des régions qui offrent des comptes de stockage et avec le stockage ZRS dans moins de régions. Pour savoir si les partages de fichiers Premium sont actuellement disponibles dans votre région, consultez la page des [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=storage) pour Azure. Pour plus d’informations sur les régions qui prennent en charge ZRS, consultez [Redondance de Stockage Azure](../common/storage-redundancy.md).
 >
 > Pour nous aider à hiérarchiser les nouvelles régions et les fonctionnalités du niveau Premium, répondez à ce [sondage](https://aka.ms/pfsfeedback).
 
@@ -155,41 +155,14 @@ Au départ, les nouveaux partages de fichiers se voient attribuer un nombre tota
 
 ## <a name="file-share-redundancy"></a>Redondance de partage de fichiers
 
-Les partages Azure Files prennent en charge quatre options de redondance des données : le stockage localement redondant (LRS), le stockage redondant interzone (ZRS), le stockage géoredondant (GRS) et le stockage géoredondant interzone (GZRS) (préversion).
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-Les partages Premium Azure Files prennent en charge les stockages LRS et ZRS, ZRS étant actuellement disponible dans moins de régions.
-
-Les sections suivantes décrivent les différences entre les différentes options de redondance :
-
-### <a name="locally-redundant-storage"></a>Stockage localement redondant
-
-[!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-LRS.md)]
-
-### <a name="zone-redundant-storage"></a>Stockage redondant dans une zone
-
-[!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
-
-### <a name="geo-redundant-storage"></a>Stockage géo-redondant
+Si vous optez pour le stockage géoredondant avec accès en lecture (RA-GRS), vous devez savoir qu’Azure Files ne prend en charge ce type de stockage dans aucune région pour l’instant. Les partages de fichiers dans le compte de stockage RA-GRS fonctionnent comme ils le feraient dans des comptes GRS, et ils sont facturés au tarif GRS.
 
 > [!Warning]  
 > Si vous utilisez votre partage de fichiers Azure comme point de terminaison cloud sur un compte de stockage GRS, vous ne devez pas initier de basculement de compte de stockage. Cela provoquera en effet un arrêt de la synchronisation et pourra entraîner une perte inattendue de données dans le cas de fichiers nouvellement hiérarchisés. En cas de perte d’une région Azure, Microsoft déclenchera le basculement du compte de stockage en employant une méthode compatible avec Azure File Sync.
 
-Le stockage géoredondant (GRS) est conçu pour fournir au moins 99,99999999999999 % de durabilité des objets sur une année données en répliquant vos données vers une région secondaire se situant à des centaines de kilomètres de la région primaire. Si le GRS est activé pour votre compte de stockage, vos données restent durables, même en cas de panne régionale totale ou d’incident empêchant la récupération depuis la région primaire.
-
-Si vous optez pour le stockage géoredondant avec accès en lecture (RA-GRS), vous devez savoir qu’Azure Files ne prend en charge ce type de stockage dans aucune région pour l’instant. Les partages de fichiers dans le compte de stockage RA-GRS fonctionnent comme ils le feraient dans des comptes GRS, et ils sont facturés au tarif GRS.
-
-Le stockage géoredondant réplique les données vers un autre centre de données dans une région secondaire, mais elles ne peuvent être lues que si Microsoft initie un basculement de la région primaire vers la région secondaire.
-
-Dans le cas d’un compte de stockage GRS, toutes les données sont d’abord répliquées avec le stockage localement redondant (LRS). Une mise à jour est au préalable validée dans la région primaire et répliquée avec le stockage localement redondant. Elle est ensuite répliquée de manière asynchrone dans la région secondaire avec le stockage géoredondant. Lors de l’écriture des données dans l’emplacement secondaire, celles-ci sont également répliquées au sein de cet emplacement avec le stockage localement redondant.
-
-Les régions primaire et secondaire gèrent les réplicas dans des domaines d’erreur et de mise à niveau distincts, au sein d’une unité d’échelle de stockage. Cette unité représente l’unité de réplication de base au sein du centre de données. La réplication à ce niveau est assurée par le stockage localement redondant ; pour en savoir plus, voir [Stockage localement redondant (LRS) : redondance des données à faible coût pour le stockage Azure](../common/storage-redundancy-lrs.md).
-
-Gardez ces points à l’esprit au moment de choisir une option de réplication :
-
-* Le stockage géoredondant interzone (GZRS) (préversion) offre une haute disponibilité et une durabilité maximale en répliquant les données de manière synchrone sur trois zones de disponibilité Azure, puis en répliquant les données de manière asynchrone dans la région secondaire. Vous pouvez également activer l’accès en lecture à la région secondaire. Le stockage GZRS est conçu pour fournir une durabilité des objets d’au moins 99,99999999999999 % (16 chiffres 9) sur une année donnée. Pour plus d’informations sur le stockage GZRS, consultez l’article [Stockage géo-redondant dans une zone pour la haute disponibilité et la durabilité maximale (préversion)](../common/storage-redundancy-gzrs.md).
-* Le stockage redondant interzone (ZRS), qui assure la haute disponibilité avec réplication synchrone, peut représenter dans certains scénarios un meilleur choix que le stockage géoredondant. Pour plus d’informations sur le stockage redondant dans une zone, voir [ZRS](../common/storage-redundancy-zrs.md).
-* Une réplication asynchrone implique un délai entre le moment où les données sont écrites dans la région primaire et celui où elles sont répliquées dans la région secondaire. En cas de sinistre régional, les modifications qui n’ont pas encore été répliquées vers la région secondaire risquent d’être perdues si ces données ne peuvent pas être récupérées à partir de la région primaire.
-* Avec le stockage géoredondant, le réplica n’est disponible pour l’accès en lecture ou écriture que si Microsoft lance un basculement vers la région secondaire. En cas de basculement, vous aurez accès en lecture et écriture à ces données après le basculement. Pour plus d’informations, voir [Conseils sur la récupération d’urgence](../common/storage-disaster-recovery-guidance.md).
+Les partages Premium Azure Files prennent en charge les stockages LRS et ZRS, ZRS étant actuellement disponible dans moins de régions.
 
 ## <a name="onboard-to-larger-file-shares-standard-tier"></a>Intégrer à des partages de fichiers plus grands (niveau Standard)
 
@@ -204,8 +177,7 @@ Cette section s’applique uniquement aux partages de fichiers Standard. Tous le
 Les partages de fichiers standard avec une limite de capacité de 100 Tio sont disponibles globalement dans toutes les régions Azure.
 
 - LRS : Toutes les régions, à l’exception d’Afrique du Sud Nord et d’Afrique du Sud Ouest.
-   - Les clouds nationaux (Government, Allemagne, Chine) sont pris en charge via PowerShell et l’interface de ligne de commande (CLI) Azure. Aucune prise en charge du portail. 
-   - USA Est, USA Est2, Europe Ouest : Tous les nouveaux comptes sont pris en charge. Le processus de mise à niveau d’un petit nombre de comptes n’est pas terminé. Vous pouvez vérifier si vos comptes de stockage existants ont terminé le processus de mise à niveau en tentant d’[activer les partages de fichiers volumineux](storage-files-how-to-create-large-file-share.md).
+   - USA Est et Europe Ouest : Tous les nouveaux comptes sont pris en charge. Le processus de mise à niveau d’un petit nombre de comptes n’est pas terminé. Vous pouvez vérifier si vos comptes de stockage existants ont terminé le processus de mise à niveau en tentant d’[activer les partages de fichiers volumineux](storage-files-how-to-create-large-file-share.md).
 
 - ZRS : Toutes les régions, à l’exception Japon Est, Europe Nord et Afrique du Sud Nord.
 - GRS/GZRS : Non pris en charge.

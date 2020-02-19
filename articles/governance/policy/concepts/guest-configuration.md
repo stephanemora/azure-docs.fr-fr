@@ -3,12 +3,12 @@ title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise l’agent Configuration d’invité pour auditer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 205aa5a9292d0f70fed8247a8af1fe575ad3614e
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 128baa0df1d3e555fe9629005529710202e1bbf6
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830494"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169528"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -183,10 +183,10 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 ## <a name="guest-configuration-samples"></a>Exemples de la configuration d’invité
 
-Des exemples de la configuration d’invité Azure Policy sont disponibles aux emplacements suivants :
+La source des initiatives intégrées de la configuration d’invité Azure Policy est disponible aux emplacements suivants :
 
-- [Index d’exemples - Configuration d’invité](../samples/index.md#guest-configuration)
-- [Exemples Azure Policy - Dépôt GitHub](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)
+- [Initiatives intégrées - Configuration d’invité](../samples/built-in-initiatives.md#guest-configuration)
+- [Exemples Azure Policy - Dépôt GitHub](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest Configuration)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

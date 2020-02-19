@@ -1,5 +1,5 @@
 ---
-title: Répertorier les affectations de refus pour les ressources Azure à l’aide du portail Azure | Microsoft Docs
+title: Lister les affectations de refus pour les ressources Azure avec le portail Azure
 description: Découvrez comment répertorier les utilisateurs, groupes, principaux de service et identités managées auxquels l’accès à des actions de ressource Azure spécifiques a été refusé dans des étendues particulières à l’aide du portail Azure.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 21ffb1a2539a2e724a91dd3b2818270a5e573ef8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4db76e5c6191457346ca1f95678cf73843334d3b
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67127488"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137421"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Répertorier les affectations de refus pour les ressources Azure à l’aide du portail Azure
 
@@ -28,7 +28,7 @@ Les [affectations de refus](deny-assignments.md) empêchent les utilisateurs d'e
 > [!NOTE]
 > Vous ne pouvez pas directement créer vos propres affectations de refus. Pour en savoir sur la création des affectations de refus, consultez [Affectations de refus](deny-assignments.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour obtenir des informations sur une affectation de refus, vous devez disposer de :
 
@@ -46,7 +46,7 @@ Effectuez ces étapes pour répertorier les affectations de refus au niveau de l
 
 1. Cliquez sur l’onglet **Affectations de refus** (ou cliquez sur le bouton **Afficher** dans la mosaïque Afficher les affectations de refus).
 
-    S’il existe des affectations de refus dans cette étendue, ou transmises à cette étendue, elles sont listées.
+    S’il existe des affectations de refus dans cette étendue, ou héritées par cette étendue, elles sont listées.
 
     ![Contrôle d’accès - Onglet Affectations de refus](./media/deny-assignments-portal/access-control-deny-assignments.png)
 
@@ -90,7 +90,7 @@ Suivez ces étapes pour répertorier des détails supplémentaires sur une affec
 
     ![Affectation de refus - Autorisations refusées](./media/deny-assignments-portal/deny-assignment-denied-permissions.png)
 
-    | Type d’action | Description |
+    | Type d'action | Description |
     | --- | --- |
     | **Actions**  | Opérations de gestion refusées. |
     | **NotActions** | Opérations de gestion exclues de l’opération de gestion refusée. |

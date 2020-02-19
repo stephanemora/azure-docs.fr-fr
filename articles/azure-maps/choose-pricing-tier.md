@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 8764e9161f952118ca7ae28343dcd16477cf1eee
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 2950c0e0fdd6839b905386c90665d95563a0a3f2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155755"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190282"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>Choix du bon niveau tarifaire dans Azure Maps
 
-Azure Maps propose deux niveaux tarifaires, S0 et S1. Cet article a pour objectif de vous aider à choisir le niveau tarifaire qui répond le mieux à vos besoins. Pour choisir le niveau tarifaire qui vous convient, posez-vous les deux questions suivantes :
-
-## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Quelles fonctionnalités géospatiales ai-je besoin d’utiliser ?
-Le niveau tarifaire S0 vous convient si les principales API géospatiales répondent aux besoins de votre service. Si vous souhaitez des fonctionnalités plus avancées pour votre application, le niveau tarifaire S1 vous convient sans doute le mieux. Exemples de fonctionnalités avancées : imagerie aérienne et hybride, obtention de zone d’itinéraire et géocodage par lot. Le tableau **Fonctionnalités des niveaux tarifaires** peut vous aider à choisir le niveau tarifaire le plus adapté à votre application.
+Azure Maps propose deux niveaux tarifaires, S0 et S1. Cet article a pour objectif de vous aider à choisir le niveau tarifaire qui répond le mieux à vos besoins. Pour choisir le niveau tarifaire correct, posez-vous les deux questions suivantes.
 
 ## <a name="how-many-concurrent-users-do-i-plan-to-support"></a>Combien d’utilisateurs simultanés dois-je pouvoir prendre en charge ? 
-Les niveaux tarifaires S0 et S1 gèrent différents débits de données. Le niveau tarifaire S0 gère jusqu’à **50 requêtes par seconde**, tandis que le niveau S1 en gère **plus de 50 par seconde**.
+Les niveaux tarifaires S0 et S1 gèrent différents débits de données. Le niveau tarifaire S0 gère jusqu’à **50 requêtes par seconde**. Le niveau tarifaire S1 gère **plus de 50 requêtes par seconde**.
+
+## <a name="what-geospatial-capabilities-do-i-plan-to-use"></a>Quelles fonctionnalités géospatiales ai-je besoin d’utiliser ?
+Le niveau tarifaire S0 est celui qui vous convient si les principales API géospatiales répondent aux besoins de votre service. Si vous souhaitez des fonctionnalités plus avancées pour votre application, le niveau tarifaire S1 vous convient sans doute le mieux. Les fonctionnalités avancées sont les suivantes : imagerie aérienne et hybride, obtention de zone d’itinéraire et géocodage par lot. Passez en revue le tableau **Fonctionnalités des niveaux tarifaires** pour sélectionner le niveau tarifaire le plus adapté pour votre application.
 
 ### <a name="pricing-tier-capabilities"></a>Fonctionnalités des niveaux tarifaires
 
@@ -46,7 +46,7 @@ Les niveaux tarifaires S0 et S1 gèrent différents débits de données. Le ni
 | Mobilité (préversion)                       |                     | ✓        |
 | Météo (préversion)                        |✓                    |✓        |
 
-Ces points supplémentaires sont intéressants :
+Prenez en compte ces autres points :
 * Quel est le type de votre entreprise ?
 * Quelle est l’importance de votre application ?
 
@@ -57,7 +57,7 @@ Pour mieux comprendre les niveaux tarifaires S0 et S1, consultez le tableau **
 | Niveau tarifaire  |     Clients ciblés                                                                |
 |-----------------|:-----------------------------------------------------------------------------------------|
 | S0            |    <p>Le niveau tarifaire S0 convient pout toutes les phases de production des applications : du développement « preuve de concept » à la phase de test initiale, en passant par la mise en production et le déploiement. Toutefois, ce niveau est conçu pour un développement à petite échelle, des clients avec peu d’utilisateurs simultanés, ou les deux. <p>|
-| S1            |    <p>Le niveau tarifaire S1 convient aux clients qui ont besoin d’une assistance pour les grandes entreprises, les applications stratégiques ou les gros volumes d’utilisateurs simultanés. Il convient également aux clients qui ont besoin de services géospatiaux avancés.</p>|
+| S1            |    <p>Le niveau tarifaire S1 convient aux clients qui ont des applications d’entreprise à grande échelle, des applications stratégiques ou un grand nombre d’utilisateurs simultanés. Il convient également aux clients qui ont besoin de services géospatiaux avancés.</p>|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

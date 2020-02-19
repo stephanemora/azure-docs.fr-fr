@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: b53fc3af71ce872c9ca9f513139c8179fd4165ed
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: bc6859d29a574cea0d97989977ba9a333b20f6c4
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031387"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157129"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interagir avec des clusters Apache Kafka dans Azure HDInsight à l’aide d’un proxy REST
 
@@ -24,6 +24,8 @@ Le proxy REST Kafka vous permet d’interagir avec votre cluster Kafka via une A
 
 Sans proxy REST, les clients Kafka doivent se trouver dans le même réseau virtuel que le cluster Kafka ou dans un réseau virtuel homologué. Le proxy REST vous permet de connecter des producteurs ou consommateurs de données où qu’ils se trouvent. Le déploiement du proxy REST crée un nouveau point de terminaison public pour votre cluster, que vous pouvez retrouver dans les paramètres de votre portail.
 
+![Architecture du proxy REST Kafka](./media/rest-proxy/rest-proxy-architecture.png)
+
 Pour obtenir la spécification complète des opérations prises en charge par l’API, consultez l’[API proxy REST Apache Kafka](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
 
 ### <a name="security"></a>Sécurité
@@ -32,7 +34,7 @@ L’accès au proxy REST Kafka est géré avec des groupes de sécurité Azure A
 
 Lors de la création du cluster Kafka avec le proxy REST activé, vous indiquez le groupe de sécurité AAD qui doit avoir accès au point de terminaison REST. Les clients (applications) Kafka qui ont besoin d’accéder au proxy REST doivent être inscrits auprès de ce groupe par le propriétaire du groupe. Le propriétaire du groupe peut le faire via le portail ou PowerShell.
 
-Avant d’envoyer des requêtes au point de terminaison de proxy REST, l’application cliente doit obtenir un jeton OAuth pour vérifier l’appartenance au groupe de sécurité approprié. Pour plus d’informations sur le fonctionnement des jetons OAuth, consultez [Autoriser l’accès aux applications web Azure Active Directory à l’aide du flux d’octroi de code OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md). Pour obtenir un exemple de récupération (fetch) d’un jeton OAuth dans Python, consultez [Exemple d’application cliente](#client-application-sample)
+Avant d’envoyer des requêtes au point de terminaison de proxy REST, l’application cliente doit obtenir un jeton OAuth pour vérifier l’appartenance au groupe de sécurité approprié. Pour plus d’informations sur le fonctionnement des jetons OAuth, consultez [Autoriser l’accès aux applications web Azure Active Directory à l’aide du flux d’octroi de code OAuth 2.0](../../active-directory/azuread-dev/v1-protocols-oauth-code.md). Pour obtenir un exemple de récupération (fetch) d’un jeton OAuth dans Python, consultez [Exemple d’application cliente](#client-application-sample)
 
 Une fois que l’application cliente dispose du jeton OAuth, elle doit passer ce jeton dans la requête HTTP envoyée au proxy REST.
 

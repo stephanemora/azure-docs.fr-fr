@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/04/2020
+ms.date: 02/05/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 774d3325cff98ef01dc0b2e8d5c1db38e449d1b5
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 69091fbcc2b6789abc7825632a56197427d34e4c
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982755"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77045367"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 
@@ -81,7 +81,7 @@ Le profil technique autodéclaré appelle le profil technique de validation **lo
 - Revendications d’entrée :
   - **inputClaim1** : someone@contoso.com
   - **inputClaim2** : someone@outlook.com
-    - Paramètres d’entrée :
+- Paramètres d’entrée :
   - **stringComparison** : ordinalIgnoreCase
 - Résultat : Erreur levée
 
@@ -91,7 +91,7 @@ Modifie la casse de la revendication fournie (minuscules ou majuscules) en fonct
 
 | Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim1 | string | ClaimType à modifier. |
+| InputClaim | inputClaim1 | string | Le ClaimType à changer. |
 | InputParameter | toCase | string | L’une des valeurs suivantes : `LOWER` ou `UPPER`. |
 | OutputClaim | outputClaim | string | ClaimType généré après que cette transformation de revendication a été appelée. |
 
@@ -326,7 +326,7 @@ Utilisez cette transformation de revendication pour mettre en forme une chaîne 
 
 ## <a name="formatstringmultipleclaims"></a>FormatStringMultipleClaims
 
-Met en forme deux revendications en fonction de la chaîne de format fournie. Cette transformation utilise la méthode C# **String.Format**.
+Met en forme deux revendications en fonction de la chaîne de format fournie. Cette transformation utilise la méthode C# `String.Format`.
 
 | Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -361,6 +361,76 @@ Utilisez cette transformation de revendication pour mettre en forme une chaîne 
     - **stringFormat** : {0} {1}
 - Revendications de sortie :
     - **outputClaim** : Joe Fernando
+
+## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation 
+
+Copie les chaînes localisées dans des revendications.
+
+| Élément | TransformationClaimType | Type de données | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| OutputClaim | Nom de la chaîne localisée | string | Liste de types de revendications qui est générée après l’appel de cette transformation de revendications. |
+
+Pour utiliser la transformation de revendications GetLocalizedStringsTransformation :
+
+1. Définissez une [chaîne de localisation](localization.md) et associez-la à un [profil technique autodéclaré](self-asserted-technical-profile.md).
+1. La valeur `ElementType` de l’élément `LocalizedString` doit être définie sur `GetLocalizedStringsTransformationClaimType`.
+1. `StringId` est un identificateur unique que vous définissez en vue de l’utiliser plus tard dans votre transformation de revendications.
+1. Dans la transformation de revendications, spécifiez la liste des revendications à définir avec la chaîne localisée. `ClaimTypeReferenceId` est une référence à un ClaimType déjà défini dans la section ClaimsSchema dans la stratégie. `TransformationClaimType` est le nom de la chaîne localisée, tel qu’il est défini dans la valeur `StringId` de l’élément `LocalizedString`.
+1. Dans un [profil technique autodéclaré](self-asserted-technical-profile.md), ou une transformation de revendications d’entrée ou de sortie d’un [contrôle d’affichage](display-controls.md), faites référence à votre transformation de revendications.
+
+![GetLocalizedStringsTransformation](./media/string-transformations/get-localized-strings-transformation.png)
+
+L’exemple suivant recherche l’objet, le corps, le message, le code et la signature de votre e-mail à partir des chaînes localisées. Ces revendications seront ensuite utilisées par un modèle personnalisé de vérification de l’e-mail.
+
+Définissez les chaînes localisées pour l’anglais (par défaut) et l’espagnol.
+
+```XML
+<Localization Enabled="true">
+  <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+    <SupportedLanguage>en</SupportedLanguage>
+    <SupportedLanguage>es</SupportedLanguage>
+   </SupportedLanguages>
+
+  <LocalizedResources Id="api.localaccountsignup.en">
+    <LocalizedStrings>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Contoso account email verification code</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Thanks for verifying your account!</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Your code is</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Sincerely</LocalizedString>
+     </LocalizedStrings>
+   </LocalizedResources>
+   <LocalizedResources Id="api.localaccountsignup.es">
+     <LocalizedStrings>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_subject">Código de verificación del correo electrónico de la cuenta de Contoso</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_message">Gracias por comprobar la cuenta de </LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_code">Su código es</LocalizedString>
+      <LocalizedString ElementType="GetLocalizedStringsTransformationClaimType" StringId="email_signature">Atentamente</LocalizedString>
+    </LocalizedStrings>
+  </LocalizedResources>
+</Localization>
+```
+
+La transformation de revendications définit la valeur du type de revendication *subject* à la valeur `StringId` pour *email_subject*.
+
+```XML
+<ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
+    <OutputClaim ClaimTypeReferenceId="message" TransformationClaimType="email_message" />
+    <OutputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="email_code" />
+    <OutputClaim ClaimTypeReferenceId="signature" TransformationClaimType="email_signature" />
+   </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemple
+
+- Revendications de sortie :
+  - **subject** : Code de vérification de l’e-mail du compte Contoso
+  - **message** : Merci, votre compte a été vérifié. 
+  - **codeIntro** : Votre code est 
+  - **signature** : Cordialement,  
+
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
 
@@ -414,7 +484,7 @@ Recherche une valeur de revendication dans une liste de valeurs en fonction de l
 | InputClaim | inputParameterId | string | Revendication qui contient la valeur de recherche |
 | InputParameter | |string | Collection d’inputParameters. |
 | InputParameter | errorOnFailedLookup | boolean | Contrôle si une erreur est retournée en l’absence de correspondance. |
-| OutputClaim | inputParameterId | string | ClaimType généré après que cette transformation de revendication a été appelée. Valeur de l’ID correspondant. |
+| OutputClaim | inputParameterId | string | ClaimType généré après que cette transformation de revendication a été appelée. Valeur de l’`Id` correspondant. |
 
 L’exemple suivant recherche le nom de domaine dans l’une des collections inputParameters. La transformation de revendication recherche le nom de domaine dans l’identificateur et retourne sa valeur (un ID d’application).
 
@@ -479,7 +549,7 @@ Obtient la partie domaine d’une adresse e-mail.
 | InputClaim | emailAddress | string | ClaimType qui contient l’adresse e-mail. |
 | OutputClaim | domaine | string | ClaimType généré après que cette transformation de revendication a été appelée (le domaine). |
 
-Utilisez cette transformation de revendication pour analyser le nom de domaine de l’utilisateur après le symbole @. Cela peut être utile lors de la suppression des informations d’identification personnelle (PII) dans les données d’audit. La transformation de revendication suivante montre comment analyser le nom de domaine d’une revendication **e-mail**.
+Utilisez cette transformation de revendication pour analyser le nom de domaine de l’utilisateur après le symbole @. La transformation de revendication suivante montre comment analyser le nom de domaine d’une revendication **e-mail**.
 
 ```XML
 <ClaimsTransformation Id="SetDomainName" TransformationMethod="ParseDomain">
@@ -681,7 +751,7 @@ Extrait des parties d’un type de revendication de chaîne, en commençant au c
 | InputClaim | inputClaim | string | Type de revendication qui contient la chaîne. |
 | InputParameter | index_début | int | Position du caractère de départ de base zéro d’une sous-chaîne de cette instance. |
 | InputParameter | length | int | Nombre de caractères dans la sous-chaîne. |
-| OutputClaim | outputClaim | boolean | Chaîne équivalente à la sous-chaîne de longueur, longueur qui commence au niveau de startIndex dans cette instance, ou Empty si startIndex est égal à la longueur de cette instance et que la longueur est égale à zéro. |
+| OutputClaim | outputClaim | boolean | Chaîne équivalente à la sous-chaîne length qui commence au niveau de startIndex dans cette instance, ou Empty si startIndex est égal à la longueur de cette instance et que la longueur est égale à zéro. |
 
 Par exemple, obtenir le préfixe du pays du numéro de téléphone.  
 
@@ -758,7 +828,7 @@ Concatène les éléments d’un type de revendication de collection de chaînes
 | InputParameter | delimiter | string | Chaîne à utiliser comme séparateur, telle que la virgule `,`. |
 | OutputClaim | outputClaim | string | Chaîne composée des membres de la collection de chaînes `inputClaim`, délimitée par le paramètre d’entrée `delimiter`. |
   
-L’exemple suivant prend une collection de chaînes de rôles d’utilisateur et la convertit en chaîne délimitée par des virgules. Vous pouvez utiliser cette méthode pour stocker une collection de chaînes dans un compte d’utilisateur Azure AD. Plus tard, lorsque vous lirez le compte à partir du répertoire, utilisez le paramètre `StringSplit` pour reconvertir la chaîne délimitée par des virgules en collection de chaînes.
+L’exemple suivant prend une collection de chaînes de rôles d’utilisateur et la convertit en chaîne délimitée par des virgules. Vous pouvez utiliser cette méthode pour stocker une collection de chaînes dans un compte d’utilisateur Azure AD. Plus tard, lorsque vous lirez le compte à partir du répertoire, utilisez le paramètre `StringSplit` pour reconvertir la chaîne délimitée par des virgules en collection de chaînes.
 
 ```XML
 <ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">
@@ -794,7 +864,7 @@ Retourne un tableau de chaînes qui contient les sous-chaînes de cette instance
 | InputParameter | delimiter | string | Chaîne à utiliser comme séparateur, telle que la virgule `,`. |
 | OutputClaim | outputClaim | stringCollection | Collection de chaînes dont les éléments contiennent les sous-chaînes de cette chaîne, qui sont délimitées par le paramètre d’entrée `delimiter`. |
   
-L’exemple suivant prend une chaîne délimitée par des virgules de rôles d’utilisateur et la convertit en collection de chaînes.
+L’exemple suivant prend une chaîne de rôles d’utilisateur délimitée par des virgules et la convertit en collection de chaînes.
 
 ```XML
 <ClaimsTransformation Id="ConvertRolesToStringCollection" TransformationMethod="StringSplit">

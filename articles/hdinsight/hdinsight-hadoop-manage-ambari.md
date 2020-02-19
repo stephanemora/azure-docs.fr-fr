@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 81b57191a02dd3214928ac90e2761f5f8dfb2cfc
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 02/05/2020
+ms.openlocfilehash: d8cb8bfa32db958b6dfdda0df23429669ce2a439
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311661"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063796"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari
 
@@ -32,7 +32,7 @@ Dans ce document, vous apprenez à utiliser l’interface utilisateur web d’Am
 L’interface utilisateur web d’Ambari est disponible sur votre cluster HDInsight à l’adresse `https://CLUSTERNAME.azurehdinsight.net`, où `CLUSTERNAME` correspond au nom de votre cluster.
 
 > [!IMPORTANT]  
-> Une connexion à Ambari sur HDInsight requiert HTTPS. Lorsque vous êtes invité à vous authentifier, utilisez le nom du compte administrateur et le mot de passe fournis lors de la création du cluster.
+> Une connexion à Ambari sur HDInsight requiert HTTPS. Lorsque vous êtes invité à vous authentifier, utilisez le nom du compte administrateur et le mot de passe fournis lors de la création du cluster. Si vous n’êtes pas invité à entrer vos informations d’identification, vérifiez vos paramètres réseau pour vous assurer qu’il n’existe aucun problème de connectivité entre le client et les clusters Azure HDInsight.
 
 ## <a name="ssh-tunnel-proxy"></a>Tunnel SSH (proxy)
 
@@ -49,7 +49,7 @@ Lorsque la page s'ouvre, vérifiez la barre située en haut de l'écran. Cette b
 
 ![Apache Ambari - Présentation du tableau de bord](./media/hdinsight-hadoop-manage-ambari/apache-ambari-dashboard.png)
 
-|Item |Description |
+|Élément |Description |
 |---|---|
 |Logo Ambari|Ouvre le tableau de bord, qui peut être utilisé pour surveiller le cluster.|
 |Nom du cluster # ops|Affiche le nombre d’opérations Ambari en cours. En sélectionnant le nom du cluster ou **ops #** , une liste des opérations effectuées en arrière-plan s’affiche.|
@@ -70,7 +70,7 @@ La liste suivante contient les statuts d’alerte courants utilisés par Ambari�
 * **OK**
 * **Avertissement**
 * **CRITIQUE**
-* **INCONNU**
+* **UNKNOWN**
 
 Les alertes autres que **OK** font apparaître l’entrée **# alerts** en haut de la page pour afficher le nombre d’alertes. La sélection de cette entrée fait apparaître les alertes et leur état.
 
@@ -129,7 +129,7 @@ La sélection de l’un de ces liens ouvre un nouvel onglet dans votre navigateu
 > [!NOTE]  
 > Si vous sélectionnez **Liens rapides** pour un service, une erreur « serveur introuvable » peut s’afficher. Si vous rencontrez cette erreur, vous devez utiliser un tunnel SSH lorsque vous utilisez **Liens rapides** pour ce service. Pour plus d’informations, consultez [Utilisation du tunneling SSH avec HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-## <a name="management"></a>gestion
+## <a name="management"></a>Gestion
 
 ### <a name="ambari-users-groups-and-permissions"></a>Utilisateurs d'Ambari, groupes et autorisations
 
@@ -151,7 +151,7 @@ La page **Hôtes** répertorie tous les hôtes du cluster. Pour gérer des hôte
 
 2. Utilisez le menu **Actions** pour sélectionner l'action que vous souhaitez effectuer :
 
-    |Item |Description |
+    |Élément |Description |
     |---|---|
     |Démarrer tous les composants|Démarre tous les composants sur l’hôte.|
     |Arrêter tous les composants|Arrête tous les composants sur l’hôte.|
@@ -159,7 +159,7 @@ La page **Hôtes** répertorie tous les hôtes du cluster. Pour gérer des hôte
     |Activer le mode Maintenance|Supprime les alertes de l’hôte. Ce mode doit être activé si vous effectuez des actions qui génèrent des alertes. Par exemple, l’arrêt et le démarrage d’un service.|
     |Désactiver le mode Maintenance|Rétablit les alertes normales de l’hôte.|
     |Arrêter|Arrête DataNode ou NodeManagers sur l’hôte.|
-    |Start|Démarre DataNode ou NodeManagers sur l’hôte.|
+    |Démarrer|Démarre DataNode ou NodeManagers sur l’hôte.|
     |Redémarrer|Arrête et redémarre DataNode ou NodeManagers sur l’hôte.|
     |Désactiver|Supprime un hôte du cluster. **N’utilisez pas cette action sur les clusters HDInsight.**|
     |Réactiver|Ajoute un hôte préalablement désactivé au cluster. **N’utilisez pas cette action sur les clusters HDInsight.**|

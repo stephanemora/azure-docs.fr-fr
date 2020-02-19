@@ -9,22 +9,31 @@ ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 4a0af9d040c801c125d04a5af72b2ea53322ccdb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 89b01a3fb066f181f5ec54b481b71feaa7a6ae08
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74886569"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131404"
 ---
 # <a name="recommended-on-premises-encoders"></a>Encodeurs locaux recommandés
+
 Lorsque vous êtes en diffusion continue avec Azure Media Services, vous pouvez spécifier la manière dont vous souhaitez que votre canal reçoive le flux d’entrée. Si vous choisissez d’utiliser un encodeur local avec un canal d’encodage live, votre encodeur doit transmettre un flux à débit unique de haute qualité en tant que sortie. Si vous choisissez d’utiliser un encodeur local avec un canal de transmission directe, votre encodeur doit transmettre un flux à multidébit en tant que sortie, avec toutes les qualités de sortie souhaitées. Pour plus d’informations, consultez [Vidéo en flux continu avec des encodeurs locaux](media-services-live-streaming-with-onprem-encoders.md).
 
+## <a name="encoder-requirements"></a>Spécifications de l’encodeur
+
+Les encodeurs doivent prendre en charge le protocole TLS 1.2 lors de l’utilisation des protocoles HTTPS ou RTMPS.
+
+## <a name="live-encoders-that-output-rtmp"></a>Encodeurs live qui génèrent une sortie RTMP 
+
 Azure Media Services recommande l’utilisation d’un des encodeurs live suivants, qui possèdent une sortie RTMP :
+
 - Adobe Flash Media Live Encoder 3.2
 - Haivision Makito X HEVC
 - Haivision KB
-- Telestream Wirecast 8.1+
-- Telestream Wirecast S
+- Telestream Wirecast (version 13.0.2 ou et versions ultérieures en raison de la configuration TLS 1.2)
+
+  Les encodeurs doivent prendre en charge le protocole TLS 1.2 lors de l’utilisation des protocoles RTMPS.
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
@@ -33,11 +42,16 @@ Azure Media Services recommande l’utilisation d’un des encodeurs live suivan
 - xStream
 - Switcher Studio (iOS)
 
+## <a name="live-encoders-that-output-fragmented-mp4"></a>Encodeurs live qui génèrent une sortie MP4 fragmenté 
+
 Azure Media Services recommande l’utilisation d’un des encodeurs live suivants, qui possèdent une sortie Smooth Streaming multidébit MP4 fragmentée :
+
 - Media Excel Hero Live et Hero 4K (UHD/HEVC)
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
-- Elemental Live
+- Elemental Live (version 2.14.15 et versions ultérieures en raison de la configuration TLS 1.2)
+
+  Les encodeurs doivent prendre en charge le protocole TLS 1.2 lors de l’utilisation des protocoles HTTPS.
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 
@@ -45,6 +59,7 @@ Azure Media Services recommande l’utilisation d’un des encodeurs live suivan
 > Un encodeur live peut envoyer un flux unique à un canal de transmission directe, mais cette configuration n’est pas recommandée, car elle n’offre pas de streaming à débit adaptatif au client.
 
 ## <a name="how-to-become-an-on-premises-encoder-partner"></a>Comment devenir un partenaire d’encodeur local
+
 En tant que partenaire d’encodeur local d’Azure Media Services, Media Services promeut votre produit en recommandant votre encodeur aux clients d’entreprise. Pour devenir un partenaire d’encodeur local, vous devez vérifier la compatibilité de votre encodeur local avec Media Services. Pour ce faire, effectuez les vérifications suivantes :
 
 Vérification du canal de transmission directe

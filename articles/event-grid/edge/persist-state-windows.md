@@ -9,12 +9,12 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 42f7b5315cecd75e2aaf67145c57982872f43550
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c2bae3bd268dba8efdf23ae314671b17a2c89420
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844613"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086629"
 ---
 # <a name="persist-state-in-windows"></a>Conserver l’état sur Windows
 
@@ -212,7 +212,7 @@ Au lieu de monter un volume, vous pouvez créer un répertoire sur le système h
     ```
 ## <a name="persist-events"></a>Rendre les événements persistants
 
-Pour activer la persistance des événements, vous devez d’abord activer la persistance des métadonnées via le montage d’un volume ou d’un répertoire hôte à l’aide des sections ci-dessus.
+Pour activer la persistance des événements, vous devez d’abord activer la persistance des événements via le montage d’un volume ou d’un répertoire hôte à l’aide des sections ci-dessus.
 
 Points importants à noter concernant la persistance des événements :
 

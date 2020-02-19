@@ -2,13 +2,13 @@
 title: Monter le volume emptyDir pour le groupe de conteneurs
 description: Découvrez comment monter un volume emptyDir pour partager des données entre les conteneurs d’un groupe de conteneurs dans Azure Container Instances
 ms.topic: article
-ms.date: 02/08/2018
-ms.openlocfilehash: 955423b685ebb3979271c7c2dc7e835a16100c2b
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.date: 01/31/2020
+ms.openlocfilehash: 64a3c83008f163167528a5e5987fe2316942d5bc
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552455"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117738"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Monter un volume emptyDir dans Azure Container Instances
 
@@ -29,18 +29,20 @@ Exemples d’utilisation d’un volume *emptyDir*:
 
 Les données figurant dans un volume *emptyDir* sont conservées au fil des pannes de conteneur. Toutefois, il n’est pas garanti que les conteneurs redémarrés conservent les données figurant dans un volume *emptyDir*. Si vous arrêtez un groupe de conteneurs, le volume *emptyDir* n’est pas conservé.
 
+La taille maximale d’un volume *emptyDir* Linux est de 50 Go.
+
 ## <a name="mount-an-emptydir-volume"></a>Monter un volume emptyDir
 
-Pour monter un volume emptyDir dans une instance de conteneur, vous devez opérer le déploiement à l’aide d’un [modèle Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups).
+Pour monter un volume emptyDir dans une instance de conteneur, vous pouvez effectuer le déploiement à l’aide d’un [modèle Azure Resource Manager](/azure/templates/microsoft.containerinstance/containergroups), d’un [fichier YAML](container-instances-reference-yaml.md) ou d’autres méthodes programmatique permettant de déployer un groupe de conteneurs.
 
-Tout d’abord, remplissez le tableau `volumes` dans la section `properties` du groupe de conteneurs du modèle. Ensuite, pour chaque conteneur du groupe de conteneurs dans lequel vous souhaitez monter le volume *emptyDir*, remplissez le tableau `volumeMounts` dans la section `properties` de la définition de conteneur.
+Tout d’abord, remplissez le tableau `volumes` dans la section `properties` du groupe de conteneurs du fichier. Ensuite, pour chaque conteneur du groupe de conteneurs dans lequel vous souhaitez monter le volume *emptyDir*, remplissez le tableau `volumeMounts` dans la section `properties` de la définition de conteneur.
 
 Par exemple, le modèle Resource Manager suivant crée un groupe de conteneurs consistant en deux conteneurs montant chacun le volume *emptyDir* :
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-emptydir.json -->
 [!code-json[volume-emptydir](~/azure-docs-json-samples/container-instances/aci-deploy-volume-emptydir.json)]
 
-Pour voir un exemple de déploiement d’instance de conteneur avec un modèle Azure Resource Manager, consultez [Déployer des groupes de plusieurs conteneurs dans Azure Container Instances](container-instances-multi-container-group.md).
+Pour voir des exemples de déploiement d’un groupe de conteneurs, consultez [Déployer un groupe multiconteneur avec un modèle Resource Manager](container-instances-multi-container-group.md) et [Déployer un groupe multiconteneur à l’aide d’un fichier YAML](container-instances-multi-container-yaml.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

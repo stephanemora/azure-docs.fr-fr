@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/16/2019
-ms.openlocfilehash: d15da0c0cb00f640d2ffc647475f66b76119f609
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 02/11/2020
+ms.openlocfilehash: 112a7f7aa61984b2ce9bd8400c629fe62db55584
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548371"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137895"
 ---
 # <a name="tune-model-hyperparameters"></a>Optimiser les hyperparamètres du modèle
 
@@ -43,17 +43,13 @@ Cette section décrit comment effectuer un balayage de paramètres de base, qui 
 
 2.  Connectez un modèle non entraîné à l’entrée la plus à gauche. 
 
-3. Définissez l’option **Create trainer mode** (Créer un mode d’apprentissage) sur **Parameter Range** (Plage de paramètres). Utilisez **Range Builder** (Générateur de plage) pour spécifier une plage de valeurs à utiliser dans le balayage de paramètres.  
 
-    Presque tous les modules de classification et de régression prennent en charge un balayage de paramètres intégré. Pour les apprenants qui ne prennent pas en charge la configuration d’une plage de paramètres, vous pouvez tester uniquement les valeurs de paramètres disponibles.
-
-    Vous pouvez définir manuellement la valeur d’un ou plusieurs paramètres, puis balayer les paramètres restants. Cela peut vous faire gagner du temps.
 
 4.  Ajoutez le jeu de données que vous souhaitez utiliser pour l’entraînement et connectez-le à l’entrée du milieu du module Optimiser les hyperparamètres du modèle.  
 
     Éventuellement, si vous avez un jeu de données étiqueté, vous pouvez le connecter au port d’entrée le plus à droite (**Jeu de données de validation facultatif**). Cela vous permet de mesurer la justesse pendant l’entraînement et l’optimisation.
 
-5.  Dans le volet **Propriétés** du module Optimiser les hyperparamètres du modèle, choisissez une valeur pour **Parameter sweeping mode** (Mode de balayage de paramètres). Cette option contrôle la manière dont les paramètres sont sélectionnés.
+5.  Dans le volet droit du module Optimiser les hyperparamètres du modèle, choisissez une valeur pour **Mode de balayage de paramètres**. Cette option contrôle la manière dont les paramètres sont sélectionnés.
 
     - **Grille entière** : Quand vous sélectionnez cette option, le module effectue une boucle sur une grille prédéfinie par le système, pour essayer différentes combinaisons et identifier le meilleur apprenant. Cette option est utile quand vous ne savez pas quels sont les meilleurs réglages de paramètres et que vous souhaitez essayer toutes les combinaisons de valeurs possibles.
 
@@ -64,8 +60,6 @@ Cette section décrit comment effectuer un balayage de paramètres de base, qui 
 7.  Choisissez le nombre d’exécutions :
 
     1. **Nombre maximal d’exécutions lors d’un balayage aléatoire** : Si vous choisissez un balayage aléatoire, vous pouvez spécifier le nombre de fois que le modèle doit être entraîné, en utilisant une combinaison aléatoire de valeurs de paramètre.
-
-    2. **Nombre maximal d’exécutions sur une grille aléatoire** : Cette option contrôle également le nombre d’itérations sur un échantillonnage aléatoire des valeurs de paramètre, mais les valeurs ne sont pas générées de façon aléatoire à partir de la plage spécifiée. Au lieu de cela, le module crée une matrice de toutes les combinaisons possibles des valeurs de paramètre. Il effectue ensuite un échantillonnage aléatoire sur la matrice. Cette méthode est plus efficace et moins sujette aux suréchantillonnages ou sous-échantillonnages régionaux.
 
 8.  Pour **Classement**, choisissez une métrique unique à utiliser lors du classement des modèles.
 

@@ -1,17 +1,17 @@
 ---
 title: Clause ORDER BY dans Azure Cosmos DB
 description: Découvrez la clause SQL ORDER BY pour Azure Cosmos DB. Utilisez SQL comme langage de requête JSON Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: mjbrown
-ms.openlocfilehash: fc5c875f4ae54ed334318efc5a1d5610b89bdda5
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.date: 02/12/2020
+ms.author: tisande
+ms.openlocfilehash: b88184be39a41ec42f8fb304a7511073f645f1cb
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75929580"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188731"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Clause ORDER BY dans Azure Cosmos DB
 
@@ -49,10 +49,10 @@ ORDER BY <sort_specification>
   
 ## <a name="remarks"></a>Notes  
   
-   La clause ORDER BY nécessite que la stratégie d’indexation comprenne un index pour les champs de tri. Le runtime de requête Azure Cosmos DB prend en charge le tri par rapport à un nom de propriété et non par rapport à des propriétés calculées. Azure Cosmos DB prend en charge plusieurs propriétés ORDER BY. Pour exécuter une requête avec plusieurs propriétés ORDER BY, vous devez définir un [index composite](index-policy.md#composite-indexes) sur les champs de tri.
-   
-> [!Note] 
-> Si les propriétés en cours de tri peuvent ne pas être définies pour certains documents et que vous voulez les récupérer dans une requête ORDER BY, vous devez créer explicitement un index sur ces propriétés. La stratégie d’indexation par défaut n’autorise pas la récupération des documents où la propriété de tri n’est pas définie.
+   La clause `ORDER BY` nécessite que la stratégie d’indexation comprenne un index pour les champs de tri. Le runtime de requête Azure Cosmos DB prend en charge le tri par rapport à un nom de propriété et non par rapport à des propriétés calculées. Azure Cosmos DB prend en charge plusieurs propriétés `ORDER BY`. Pour exécuter une requête avec plusieurs propriétés ORDER BY, vous devez définir un [index composite](index-policy.md#composite-indexes) sur les champs de tri.
+
+> [!Note]
+> Si les propriétés en cours de tri peuvent ne pas être définies pour certains documents et que vous voulez les récupérer dans une requête ORDER BY, vous devez inclure explicitement ce chemin d’accès dans l’index. La stratégie d’indexation par défaut n’autorise pas la récupération des documents où la propriété de tri n’est pas définie. [Passez en revue les exemples de requêtes sur les documents contenant des champs manquants](#documents-with-missing-fields).
 
 ## <a name="examples"></a>Exemples
 
@@ -112,8 +112,112 @@ De plus, vous pouvez trier par plusieurs propriétés. Une requête qui trie par
 
 Cette requête récupère les `id` de famille dans l’ordre croissant du nom de la ville. Si plusieurs éléments ont le même nom de ville, la requête trie par la `creationDate` dans l’ordre décroissant.
 
+## <a name="documents-with-missing-fields"></a>Documents avec champs manquants
+
+Les requêtes `ORDER BY` qui sont exécutées sur des conteneurs avec la stratégie d’indexation par défaut ne retournent pas de documents dont la propriété de tri n’est pas définie. Si vous souhaitez inclure des documents dont la propriété de tri n’est pas définie, vous devez inclure explicitement cette propriété dans la stratégie d’indexation.
+
+Par exemple, voici un conteneur avec une stratégie d’indexation qui n’inclut pas explicitement de chemins d’accès autres que `"/*"` :
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": []
+}
+```
+
+Si vous exécutez une requête qui inclut `lastName` dans la clause `Order By`, les résultats incluront uniquement les documents dont la propriété `lastName` est définie. Nous n’avons pas défini de chemin d’accès inclus explicite pour `lastName`, de sorte que tous les documents sans `lastName` n’apparaissent pas dans les résultats de la requête.
+
+Voici une requête qui trie par `lastName` sur deux documents, dont l’un n’a pas de propriété `lastName` définie :
+
+```sql
+    SELECT f.id, f.lastName
+    FROM Families f
+    ORDER BY f.lastName
+```
+
+Les résultats incluent uniquement le document dont `lastName` est définie :
+
+```json
+    [
+        {
+            "id": "AndersenFamily",
+            "lastName": "Andersen"
+        }
+    ]
+```
+
+Si nous mettons à jour la stratégie d’indexation du conteneur pour inclure explicitement un chemin d’accès pour `lastName`, nous inclurons des documents avec une propriété de tri non définie dans les résultats de la requête. Vous devez définir explicitement le chemin d’accès menant à cette valeur scalaire (et non au-delà de celle-ci). Vous devez utiliser le caractère `?` dans la définition de votre chemin d’accès dans la stratégie d’indexation pour vous assurer que vous indexez explicitement la propriété `lastName` et qu’il n’y a pas d’autres chemins d’accès imbriqués au-delà.
+
+Voici un exemple de stratégie d’indexation qui vous permet d’afficher des documents avec une propriété `lastName` non définie dans les résultats de la requête :
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/lastName/?"
+        },
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": []
+}
+```
+
+Si vous réexécutez la même requête, les documents qui n’ont pas de `lastName` s’affichent en premier dans les résultats de la requête :
+
+```sql
+    SELECT f.id, f.lastName
+    FROM Families f
+    ORDER BY f.lastName
+```
+
+Les résultats sont :
+
+```json
+[
+    {
+        "id": "WakefieldFamily"
+    },
+    {
+        "id": "AndersenFamily",
+        "lastName": "Andersen"
+    }
+]
+```
+
+Si vous modifiez l’ordre de tri en `DESC`, les documents sans `lastName` apparaissent en dernier dans les résultats de la requête :
+
+```sql
+    SELECT f.id, f.lastName
+    FROM Families f
+    ORDER BY f.lastName DESC
+```
+
+Les résultats sont :
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "lastName": "Andersen"
+    },
+    {
+        "id": "WakefieldFamily"
+    }
+]
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Bien démarrer](sql-query-getting-started.md)
-- [Clause SELECT](sql-query-select.md)
+- [Stratégie d’indexation dans Azure Cosmos DB](index-policy.md)
 - [Clause OFFSET LIMIT](sql-query-offset-limit.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer Box pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer Box pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Box.
 services: active-directory
 documentationCenter: na
@@ -15,21 +15,21 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd7826455624ca4a84d668455f522cbde411ac8b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1397b4189a9c2c15e3878687ea8c67c1da7567f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60431711"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77058567"
 ---
-# <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Didacticiel : Configurer Box pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutoriel : Configurer Box pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de vous montrer les étapes à effectuer dans Box et Azure AD pour approvisionner automatiquement des comptes utilisateur Azure AD dans Box, ainsi que pour annuler leur approvisionnement.
 
 > [!NOTE]
-> Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
+> Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Box, vous avez besoin des éléments suivants :
 
@@ -101,11 +101,11 @@ Cette section décrit comment activer l'approvisionnement des comptes d'utilisat
 
 6. Dans la page **Login to grant access to Box** (Se connecter pour autoriser l’accès à Box), saisissez les informations d’identification, puis cliquez sur **Authorize** (Autoriser). 
    
-    ![Activer l’approvisionnement automatique des utilisateurs](./media/box-userprovisioning-tutorial/IC769546.png "Activer l’approvisionnement automatique des utilisateurs")
+    ![Activer l'approvisionnement automatique d’utilisateurs](./media/box-userprovisioning-tutorial/IC769546.png "Activer l'approvisionnement de l'utilisateur automatique.")
 
 7. Cliquez sur **Grant access to Box** (Accorder l’accès à Box) pour autoriser cette opération et retourner au portail Azure. 
    
-    ![Activer l’approvisionnement automatique des utilisateurs](./media/box-userprovisioning-tutorial/IC769549.png "Activer l’approvisionnement automatique des utilisateurs")
+    ![Activer l'approvisionnement automatique d’utilisateurs](./media/box-userprovisioning-tutorial/IC769549.png "Activer l'approvisionnement de l'utilisateur automatique.")
 
 8. Dans le portail Azure, cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à votre application Box. Si la connexion échoue, vérifiez que votre compte Box dispose des autorisations d’administrateur d’équipe et recommencez l’étape **Autoriser**.
 
@@ -123,7 +123,7 @@ Cette section décrit comment activer l'approvisionnement des comptes d'utilisat
 
 Cette commande démarre la synchronisation initiale des utilisateurs et/ou des groupes affectés à Box dans la section Utilisateurs et Groupes. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service est en cours d’exécution. Vous pouvez utiliser la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement dans votre application Box.
 
-Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
+Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../app-provisioning/check-status-user-account-provisioning.md).
 
 Dans votre locataire Box, les utilisateurs synchronisés sont répertoriés sous **Utilisateurs gérés** dans la **Console d’administration**.
 

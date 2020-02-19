@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/17/2019
+ms.date: 01/05/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7cbb8c07b75509825795da45d8352140afd0864
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 3bec73ee7286ea831920fc20bd46cf43c2874081
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024226"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047097"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Attribuer des rôles dans Azure AD dans Privileged Identity Management
 
 Avec Azure Active Directory (Azure AD), un administrateur général peut effectuer des attributions de rôles d'administrateur Azure AD **permanentes**. Ces attributions de rôles peuvent être créées via le [portail Azure](../users-groups-roles/directory-assign-admin-roles.md) ou à l’aide de [commandes PowerShell](/powershell/module/azuread#directory_roles).
 
-Le service Azure AD Privileged Identity Management (PIM) permet également aux administrateurs de rôle privilégié d’établir des attributions de rôles d'administrateur permanentes. En outre, les administrateurs de rôle privilégié peuvent rendre les utilisateurs **éligibles** pour les rôles d’administrateur Azure AD. Un administrateur éligible peut activer le rôle lorsqu’il en a besoin, puis l’autorisation expirera lorsqu’il aura terminé.
+Le service Azure AD Privileged Identity Management (PIM) permet également aux Administrateurs de rôle privilégié d’établir des attributions permanentes du rôle Administrateur. En outre, les Administrateurs de rôle privilégié peuvent rendre les utilisateurs **éligibles** pour les rôles Administrateur d’Azure AD. Un administrateur éligible peut activer le rôle lorsqu’il en a besoin, puis l’autorisation expirera lorsqu’il aura terminé.
 
 ## <a name="determine-your-version-of-pim"></a>Déterminer votre version de PIM
 
@@ -35,7 +35,7 @@ Depuis novembre 2019, la partie Rôles Azure AD de Privileged Identity Manageme
 
     ![Nouvelle version des rôles Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
 
-# <a name="new-versiontabnew"></a>[Nouvelle version](#tab/new)
+# <a name="new-version"></a>[Nouvelle version](#tab/new)
 
 ## <a name="assign-a-role"></a>Attribuer un rôle
 
@@ -61,19 +61,9 @@ Suivez ces étapes pour rendre un utilisateur éligible pour un rôle d'administ
 
 1. Sélectionnez un rôle que vous souhaitez attribuer et cliquez sur **Sélectionner**.
 
-    La page **Sélectionner un membre ou un groupe** s’ouvre.
+1. Sélectionnez un membre à affecter au rôle, puis cliquez sur **Sélectionner**.
 
-1. Sélectionnez un membre ou un groupe à affecter au rôle, puis cliquez sur **Sélectionner**.
-
-    ![Volet Sélectionner un membre ou un groupe](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
-
-    Le volet Paramètres d'appartenance s’ouvre.
-
-1. Dans la liste **Type d'attribution**, sélectionnez **Éligible** ou **Actif**.
-
-    ![Volet des paramètres des appartenances](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
-
-    Azure AD Privileged Identity Management pour les ressources Azure fournit deux types distincts d’attribution :
+1. Dans la liste **Type d’affectation** du volet **Paramètres d’appartenance**, sélectionnez **Éligible** ou **Actif**.
 
     - Les attributions **éligibles** exigent des membres qu’ils effectuent une action pour utiliser ce rôle. Il peut s’agir de procéder à une vérification de l’authentification multifacteur (MFA), de fournir une justification professionnelle ou de demander une approbation aux approbateurs désignés.
 
@@ -83,13 +73,9 @@ Suivez ces étapes pour rendre un utilisateur éligible pour un rôle d'administ
 
     Selon les paramètres du rôle, cette case à cocher peut ne pas être affichée ou être non modifiable.
 
-1. Pour spécifier une durée d’attribution spécifique, décochez la case et modifiez les champs des heures et dates de début et/ou de fin.
+1. Pour spécifier une durée d’attribution spécifique, décochez la case et modifiez les champs des heures et dates de début et/ou de fin. Quand vous avez terminé, sélectionnez **Terminé**.
 
     ![Paramètres des appartenances - date et heure](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
-
-1. Quand vous avez terminé, sélectionnez **Terminé**.
-
-    ![Nouvelle affectation - Ajouter](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
 
 1. Pour créer la nouvelle attribution de rôle, sélectionnez **Ajouter**. Une notification de l’état s’affiche.
 
@@ -117,7 +103,7 @@ Suivez ces étapes pour mettre à jour ou supprimer une attribution de rôle exi
 
     Pour obtenir des informations sur l’extension d’une attribution de rôle, consultez [Étendre ou renouveler des rôles de ressources Azure dans Privileged Identity Management](pim-resource-roles-renew-extend.md).
 
-# <a name="previous-versiontabprevious"></a>[Version précédente](#tab/previous)
+# <a name="previous-version"></a>[Version précédente](#tab/previous)
 
 ## <a name="make-a-user-eligible-for-a-role"></a>Rendre un utilisateur éligible pour un rôle
 

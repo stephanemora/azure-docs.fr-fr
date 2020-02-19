@@ -1,31 +1,31 @@
 ---
-title: Applications clientes dans une stratégie d’accès conditionnel - Azure Active Directory
-description: ''
+title: Actions ou applications cloud dans une stratégie d’accès conditionnel - Azure Active Directory
+description: Que sont les actions ou les applications cloud dans une stratégie d’accès conditionnel Azure AD ?
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9afc25c906ecd3b7807e6bf3e0763ac1673ebd99
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: a9d2780e09c099d76aa2ef4ec2638a410793481d
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544053"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186383"
 ---
-# <a name="conditional-access-cloud-apps-and-actions"></a>Accès conditionnel : Applications cloud et actions
+# <a name="conditional-access-cloud-apps-or-actions"></a>Accès conditionnel : Applications ou actions cloud
 
-Les applications cloud ou les actions représentent un élément clé d’une stratégie d’accès conditionnel. Les stratégies d’accès conditionnel permettent aux administrateurs d’affecter des contrôles à des applications ou des actions spécifiques. 
+Les applications cloud ou les actions représentent un signal clé dans une stratégie d’accès conditionnel. Les stratégies d’accès conditionnel permettent aux administrateurs d’affecter des contrôles à des applications ou des actions spécifiques.
 
 - Les administrateurs peuvent choisir à partir de la liste des applications qui comprend des applications Microsoft intégrées et des [application Azure AD intégrée](../manage-apps/what-is-application-management.md), entre autres des applications de la galerie et hors galerie ainsi que des applications publiées via le [proxy d’application](../manage-apps/what-is-application-proxy.md).
 - Les administrateurs peuvent choisir de définir une stratégie qui n’est pas basée sur une application cloud, mais sur une action de l’utilisateur. La seule action prise en charge est Enregistrer les informations de sécurité (préversion), qui autorise l’accès conditionnel à appliquer des contrôles dans le cadre de [l’expérience d’inscription d’informations de sécurité combinée](../authentication/howto-registration-mfa-sspr-combined.md).
 
-![Définir une stratégie d’accès conditionnel et spécifier des applications cloud](./media/concept-conditional-access-cloud-apps/conditional-access-define-policy-specify-cloud-apps.png)
+![Définir une stratégie d’accès conditionnel et spécifier des applications cloud](./media/concept-conditional-access-cloud-apps/conditional-access-cloud-apps-or-actions.png)
 
 ## <a name="microsoft-cloud-applications"></a>Applications cloud Microsoft
 
@@ -124,6 +124,7 @@ Les actions utilisateur sont des tâches qui peuvent être effectuées par un ut
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Composants des stratégies d’accès conditionnel](concept-conditional-access-policies.md)
+- [Accès conditionnel : Conditions](concept-conditional-access-conditions.md)
+
+- [Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md)
 - [Dépendances des applications clientes](service-dependencies.md)
-- [Microsoft Intune : Exiger MFA pour l’inscription des appareils](https://docs.microsoft.com/intune/enrollment/multi-factor-authentication)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/15/2019
-ms.openlocfilehash: a01258799efa81c8d3ddba398facaa90c24c2513
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: ae799e9a852b8700399ef695c54b3348174b560c
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150030"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069402"
 ---
 # <a name="overview-of-the-azure-monitor-agents"></a>Vue d’ensemble des agents Azure Monitor 
 Les ressources de calcul telles que les machines virtuelles génèrent des données qui permettent de superviser leurs performances et leur disponibilité, à l’image des [autres ressources cloud](../insights/monitor-azure-resource.md). Toutefois, les ressources de calcul comportent également un système d’exploitation invité et des charges de travail qui doivent être supervisés. La collecte de ces données de supervision à partir de la ressource nécessite un agent. Cet article décrit les agents utilisés par Azure Monitor et vous aide à déterminer ceux dont vous avez besoin pour répondre aux exigences de votre environnement.
@@ -35,7 +35,7 @@ Le tableau suivant fournit une comparaison rapide des différents agents. Pour p
 |:---|:---|:---|:---|
 | Environnements pris en charge | Azure | Azure<br>Autre cloud<br>Local | Azure<br>Autre cloud<br>Local |
 | Systèmes d’exploitation | Windows<br>Linux | Windows<br>Linux | Windows<br>Linux
-| Dépendances d’agent  | Aucun | Aucun | Requiert l’agent Log Analytics |
+| Dépendances d’agent  | None | None | Requiert l’agent Log Analytics |
 | Données collectées | Journaux des événements<br>Événements ETW<br>syslog<br>Performances<br>Journaux d’activité IIS<br>Journaux d’activité de sortie de suivi d’application .NET<br>Vidages sur incident | Journaux des événements<br>syslog<br>Performances<br>Journaux d’activité IIS<br>Journaux d’activité personnalisés<br>Données à partir de solutions | Détails et dépendances du processus<br>Métriques de connexion réseau |
 | Données envoyées à | Stockage Azure<br>Métriques Azure Monitor<br>Event Hub | Journaux Azure Monitor | Journaux Azure Monitor |
 

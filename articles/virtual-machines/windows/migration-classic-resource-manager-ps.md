@@ -3,8 +3,8 @@ title: Migrer vers Resource Manager avec PowerShell
 description: Cet article décrit pas à pas la procédure de migration de ressources IaaS, comme les machines virtuelles, les réseaux virtuels et les comptes de stockage, prise en charge par la plateforme de l’environnement Classic vers Azure Resource Manager à l’aide de commandes Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
-author: singhkays
-manager: gwallace
+author: tanmaygore
+manager: vashan
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 2b3dff9b-2e99-4556-acc5-d75ef234af9c
@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 03/30/2017
-ms.author: kasing
-ms.openlocfilehash: 4ee5f06a7256a2092cfed923cf40c6b74254c4a1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 02/06/2020
+ms.author: tagore
+ms.openlocfilehash: 109bffe7b5ab9bb322c4ddb2f7b8ec4ac87a54cc
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647558"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168333"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migration de ressources IaaS d’un environnement classique vers Azure Resource Manager à l’aide de PowerShell
 Ces étapes vous montrent comment utiliser les commandes Azure PowerShell pour migrer des ressources d’infrastructure en tant que service (IaaS) à partir du modèle de déploiement Classic vers le modèle de déploiement Azure Resource Manager.
@@ -52,8 +52,6 @@ Voici quelques-unes des meilleures pratiques recommandées pour déterminer si v
 Il existe deux options principales pour l’installation d’Azure PowerShell : [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) ou [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI reçoit des mises à jour mensuelles. PowerShell Gallery reçoit des mises à jour en continu. Cet article est basé sur Azure PowerShell version 2.1.0.
 
 Pour connaître la procédure d’installation, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
-
-<br>
 
 ## <a name="step-3-ensure-that-youre-an-administrator-for-the-subscription"></a>Étape 3 : Vérifier que vous êtes administrateur de l’abonnement
 Pour effectuer cette migration, vous devez être ajouté en tant que coadministrateur de l’abonnement dans le [Portail Azure](https://portal.azure.com).
@@ -104,6 +102,14 @@ Patientez cinq minutes le temps que l’inscription se termine. Vérifiez l’�
 
 Assurez-vous que RegistrationState est `Registered` avant de continuer.
 
+Avant de basculer vers le modèle de déploiement Classic, vérifiez que vous avez un nombre suffisant de processeurs virtuels de machines virtuelles Azure Resource Manager dans la région Azure de votre déploiement ou réseau virtuel actuel. Vous pouvez utiliser la commande PowerShell suivante pour vérifier la quantité de processeurs virtuels dont vous disposez actuellement dans Azure Resource Manager. Pour en savoir plus sur les quotas de processeurs virtuels, consultez [Limites et Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits).
+
+Cet exemple vérifie la disponibilité dans la région **USA Ouest**. Remplacez l’exemple de nom de région par le vôtre.
+
+```powershell
+    Get-AzVMUsage -Location "West US"
+```
+
 À présent, connectez-vous à votre compte pour le modèle de déploiement classique.
 
 ```powershell
@@ -122,27 +128,17 @@ Définissez votre abonnement Azure pour la session active. Cet exemple définit 
     Select-AzureSubscription –SubscriptionName "My Azure Subscription"
 ```
 
-<br>
 
-## <a name="step-5-have-enough-resource-manager-vm-vcpus"></a>Étape 5 : Avoir suffisamment de processeurs virtuels pour machine virtuelle Resource Manager
-Vérifiez que vous avez un nombre suffisant de processeurs virtuels de machines virtuelles Azure Resource Manager dans la région Azure de votre déploiement ou réseau virtuel actuel. Vous pouvez utiliser la commande PowerShell suivante pour vérifier la quantité de processeurs virtuels dont vous disposez actuellement dans Azure Resource Manager. Pour en savoir plus sur les quotas de processeurs virtuels, consultez [Limites et Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#limits-and-azure-resource-manager).
-
-Cet exemple vérifie la disponibilité dans la région **USA Ouest**. Remplacez l’exemple de nom de région par le vôtre.
-
-```powershell
-Get-AzVMUsage -Location "West US"
-```
-
-## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>Étape 6 : exécuter des commandes pour effectuer la migration de vos ressources IaaS
-* [Migration de machines virtuelles dans un service cloud (ne figurant pas dans un réseau virtuel)](#step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
-* [Migration de machines virtuelles dans un réseau virtuel](#step-61-option-2---migrate-virtual-machines-in-a-virtual-network)
-* [Migration d’un compte de stockage](#step-62-migrate-a-storage-account)
+## <a name="step-5-run-commands-to-migrate-your-iaas-resources"></a>Étape 5 : exécuter des commandes pour effectuer la migration de vos ressources IaaS
+* [Migration de machines virtuelles dans un service cloud (ne figurant pas dans un réseau virtuel)](#step-51-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
+* [Migration de machines virtuelles dans un réseau virtuel](#step-51-option-2---migrate-virtual-machines-in-a-virtual-network)
+* [Migration d’un compte de stockage](#step-52-migrate-a-storage-account)
 
 > [!NOTE]
 > Toutes les opérations décrites ici sont idempotentes. Si vous rencontrez un problème autre qu’une fonctionnalité non prise en charge ou qu’une erreur de configuration, nous vous recommandons de réexécuter la procédure de préparation, d’abandon ou de validation. La plateforme réessaie alors d’exécuter l’action.
 
 
-### <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Étape 6.1 : Option 1 - migrer les machines virtuelles vers un service cloud (pas un réseau virtuel)
+### <a name="step-51-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>Étape 5.1 : Option 1 - migrer les machines virtuelles vers un service cloud (pas un réseau virtuel)
 Récupérez la liste des services cloud à l’aide de la commande suivante. Sélectionnez ensuite le service cloud que vous souhaitez migrer. La commande renvoie un message d’erreur si les machines virtuelles du service cloud sont dans un réseau virtuel ou si elles ont des rôles web/de travail.
 
 ```powershell
@@ -223,7 +219,7 @@ Si la configuration préparée semble correcte, vous pouvez continuer et valider
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-### <a name="step-61-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Étape 6.1 : Option 2 - migrer les machines virtuelles vers un réseau virtuel
+### <a name="step-51-option-2---migrate-virtual-machines-in-a-virtual-network"></a>Étape 5.1 : Option 2 - migrer les machines virtuelles vers un réseau virtuel
 
 Pour migrer des machines virtuelles dans un service cloud, vous migrez le réseau virtuel. Les machines virtuelles migrent automatiquement avec le réseau virtuel. Sélectionnez le réseau virtuel dont vous souhaitez effectuer la migration.
 > [!NOTE]
@@ -266,7 +262,7 @@ Si la configuration préparée semble correcte, vous pouvez continuer et valider
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-### <a name="step-62-migrate-a-storage-account"></a>Étape 6.2 : Migrer un compte de stockage
+### <a name="step-52-migrate-a-storage-account"></a>Étape 5.2 : Migrer un compte de stockage
 Après avoir terminé la migration des machines virtuelles, effectuez les vérifications prérequises suivantes avant de migrer les comptes de stockage.
 
 > [!NOTE]

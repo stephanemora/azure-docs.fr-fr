@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: b5d35fc14d69da2246c0ef5d4ef6d19a9e0c8462
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 74ede523c9747de4746fe1854bd1e352eba2f7e3
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751003"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148893"
 ---
 # <a name="azure-monitor-data-platform"></a>Plateforme de données Azure Monitor
 
@@ -38,7 +38,7 @@ Les [métriques](data-platform-metrics.md) sont des valeurs numériques décriva
 
 Les métriques dans Azure Monitor sont stockées dans une base de données de série chronologique qui est optimisée pour l’analyse des données horodatées. Ainsi, les métriques sont particulièrement adaptées à la génération d’alertes et à la détection rapide de problèmes. Elles peuvent vous donner des informations sur le niveau de performance de votre système, mais elles doivent généralement être combinées avec les journaux pour identifier la cause racine des problèmes.
 
-Vous pouvez utiliser les métriques pour effectuer une analyse interactive dans le portail Azure avec [Metrics Explorer](../app/metrics-explorer.md). Vous pouvez les ajouter à un [tableau de bord Azure](../learn/tutorial-app-dashboards.md) à des fins de visualisation en combinaison avec d’autres données et les utiliser pour [générer des alertes](alerts-metric.md) en quasi-temps réel.
+Des métriques sont disponibles pour l’analyse interactive dans le portail Azure avec [Azure Metrics Explorer](../platform/metrics-getting-started.md). Vous pouvez les ajouter à un [tableau de bord Azure](../learn/tutorial-app-dashboards.md) à des fins de visualisation en combinaison avec d’autres données et les utiliser pour [générer des alertes](alerts-metric.md) en quasi-temps réel.
 
 Pour en savoir plus sur les métriques Azure Monitor, notamment sur leurs sources de données, consultez [Métriques dans Azure Monitor](data-platform-metrics.md).
 

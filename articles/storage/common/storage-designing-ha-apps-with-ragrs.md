@@ -10,12 +10,12 @@ ms.date: 01/14/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: bab95f6494fad86c9fdfc0b8fb044c22a7c5a628
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 592be1710893791e80dfe4b20e1323e789b33e69
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945447"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157090"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Conception d’applications hautement disponibles à l’aide du stockage géoredondant avec accès en lecture
 
@@ -23,8 +23,8 @@ La fourniture d’une plateforme hautement disponible comme Stockage Azure pour 
 
 Les comptes de stockage configurés pour la réplication géoredondante sont répliqués de manière synchrone dans la région primaire, puis répliqués de manière asynchrone dans une région secondaire à des centaines de kilomètres. Le stockage Azure offre deux types de réplication géoredondante :
 
-* [Le stockage redondant interzone (GZRS) (préversion)](storage-redundancy-gzrs.md) fournit une réplication pour les scénarios nécessitant à la fois une haute disponibilité et une durabilité maximale. Les données sont répliquées de manière synchrone dans trois zones de disponibilité Azure dans la région primaire à l’aide du stockage redondant interzone (ZRS), puis répliquées de façon asynchrone dans la région secondaire. Pour un accès en lecture aux données dans la région secondaire, activez le stockage géoredondant interzone avec accès en lecture (RA-GZRS).
-* Le [stockage géo-redondant (GRS)](storage-redundancy-grs.md) fournit une réplication entre les régions pour vous protéger en cas d’interruptions régionales. Les données sont répliquées de manière synchrone trois fois dans la région primaire à l’aide du stockage localement redondant (LRS), puis répliquées de façon asynchrone dans la région secondaire. Pour un accès en lecture aux données dans la région secondaire, activez le stockage géoredondant avec accès en lecture (RA-GRS).
+* [Le stockage redondant interzone (GZRS) (préversion)](storage-redundancy.md) fournit une réplication pour les scénarios nécessitant à la fois une haute disponibilité et une durabilité maximale. Les données sont répliquées de manière synchrone dans trois zones de disponibilité Azure dans la région primaire à l’aide du stockage redondant interzone (ZRS), puis répliquées de façon asynchrone dans la région secondaire. Pour un accès en lecture aux données dans la région secondaire, activez le stockage géoredondant interzone avec accès en lecture (RA-GZRS).
+* Le [stockage géo-redondant (GRS)](storage-redundancy.md) fournit une réplication entre les régions pour vous protéger en cas d’interruptions régionales. Les données sont répliquées de manière synchrone trois fois dans la région primaire à l’aide du stockage localement redondant (LRS), puis répliquées de façon asynchrone dans la région secondaire. Pour un accès en lecture aux données dans la région secondaire, activez le stockage géoredondant avec accès en lecture (RA-GRS).
 
 Cet article explique comment concevoir votre application pour gérer une panne dans la région primaire. Si la région primaire n’est plus disponible, votre application peut s’adapter pour effectuer des opérations de lecture dans la région secondaire à la place. Avant de commencer, vérifiez que votre compte de stockage est configuré pour RA-GRS ou RA-GZRS.
 
@@ -214,38 +214,7 @@ Dans cet exemple, supposons que le client bascule vers la lecture à partir de l
 
 Pour déterminer que ses données sont potentiellement incohérentes, le client peut utiliser la valeur de la *dernière heure de synchronisation*, que vous pouvez obtenir à tout moment en interrogeant un service de stockage. Elle vous indique la dernière heure à laquelle les données de la région secondaire étaient cohérentes et à laquelle le service avait appliqué toutes les transactions. Dans l’exemple ci-dessus, une fois que le service insère l’entité **d’employé** dans la région secondaire, la dernière heure de synchronisation est définie sur *T1*. Elle reste définie sur *T1* jusqu’à ce que le service mette à jour l’entité **d’employé** dans la région secondaire, puis est définie sur *T6*. Si le client récupère la dernière heure de synchronisation lors de la lecture de l’entité à l’instant *T5*, il peut la comparer avec l’horodatage de l’entité. Si l’horodatage de l’entité est postérieur à la dernière heure de synchronisation, l’entité est dans un état potentiellement incohérent, et vous pouvez alors effectuer toute action appropriée pour votre application. L’utilisation de ce champ requiert que vous sachiez à quel moment a été effectuée la dernière mise à jour de la région primaire.
 
-## <a name="getting-the-last-sync-time"></a>Obtention de la dernière heure de synchronisation
-
-Vous pouvez utiliser PowerShell ou Azure CLI pour récupérer la dernière heure de synchronisation, et avec celle-ci déterminer quand la dernière écriture de données a eu lieu dans la région secondaire.
-
-### <a name="powershell"></a>PowerShell
-
-Pour obtenir la dernière heure de synchronisation pour le compte de stockage à l’aide de PowerShell, installez un module de préversion de stockage Azure qui prend en charge l’obtention des statistiques de géo-réplication. Par exemple :
-
-```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
-```
-
-Vérifiez ensuite la propriété **GeoReplicationStats.LastSyncTime** du compte de stockage. N’oubliez pas de remplacer les valeurs d’espace réservé par vos propres valeurs :
-
-```powershell
-$lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
-    -Name <storage-account> `
-    -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-Pour obtenir la dernière heure de synchronisation du compte de stockage à l’aide d’Azure CLI, vérifiez la propriété **geoReplicationStats.lastSyncTime** du compte de stockage. Utilisez le paramètre `--expand` afin de retourner des valeurs pour les propriétés imbriquées sous **geoReplicationStats**. N’oubliez pas de remplacer les valeurs d’espace réservé par vos propres valeurs :
-
-```azurecli
-$lastSyncTime=$(az storage account show \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --expand geoReplicationStats \
-    --query geoReplicationStats.lastSyncTime \
-    --output tsv)
-```
+Pour savoir comment vérifier l’heure de la dernière synchronisation, consultez [Vérifier la propriété Heure de la dernière synchronisation pour un compte de stockage](last-sync-time-get.md).
 
 ## <a name="testing"></a>Test
 

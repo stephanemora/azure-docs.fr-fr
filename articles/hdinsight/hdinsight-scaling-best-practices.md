@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/22/2019
-ms.openlocfilehash: 0649908e4767e48d23306c72b8db92dea9f26284
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.date: 02/05/2020
+ms.openlocfilehash: 035f819cfaad82373f7cb55a7bb2d14fc53bb49b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030918"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064629"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Mettre à l’échelle des clusters Azure HDInsight
 
@@ -216,6 +216,10 @@ Si Hive a laissé des fichiers temporaires, vous pouvez nettoyer manuellement ce
 Si les clusters sont bloqués fréquemment en mode sans échec lors du scale down vers moins de trois nœuds Worker et que les étapes précédentes ne fonctionnent pas, vous pouvez éviter qu’ils ne basculent en mode sans échec en conservant au moins trois nœuds Worker.
 
 Conserver trois nœuds Worker est plus coûteux que de procéder au scale down vers un seul nœud Worker, mais cela empêche le cluster de se bloquer en mode sans échec.
+
+### <a name="scale-hdinsight-down-to-one-worker-node"></a>Mettre à l’échelle HDInsight à un seul nœud Worker
+
+Même quand le cluster est mis à l’échelle à un seul nœud, le nœud Worker 0 continue à survivre. Le nœud Worker 0 ne peut jamais être désactivé.
 
 #### <a name="run-the-command-to-leave-safe-mode"></a>Exécuter la commande pour quitter le mode sans échec
 

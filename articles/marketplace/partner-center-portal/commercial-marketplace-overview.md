@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: f6ba5c240a9ad74d9a2fab41496ce519f25fc4dc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/06/2020
+ms.openlocfilehash: 2e5ae90cf6ee8bccc9919c88bc695bf944f58a67
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812074"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069436"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Vue d’ensemble du portail de la Place de marché commerciale dans l’Espace partenaires
 
@@ -29,11 +29,12 @@ L’Espace partenaires est le concentrateur de l’expérience des partenaires M
 
 ## <a name="migration-from-cloud-partner-portal"></a>Migration à partir du Portail Cloud Partner
 
-L’Espace partenaires évolue pour mieux intégrer tous les aspects des relations entre Microsoft et les éditeurs de logiciels. Dans le cadre de cette évolution, nous migrons les fonctions du [Portail Cloud Partner](https://cloudpartner.azure.com/) vers l’Espace partenaires. 
+L’Espace partenaires évolue pour mieux intégrer tous les aspects des relations entre Microsoft et les éditeurs de logiciels. Dans le cadre de cette évolution, nous migrons les fonctions du [Portail Cloud Partner](https://cloudpartner.azure.com/) vers l’Espace partenaires.
 
-**Actuellement, l’Espace partenaires prend uniquement en charge la création et la gestion des offres software as a service (SaaS).**
+>[!NOTE]
+>Actuellement, Espace partenaires prend en charge la création et la gestion des offres SaaS (Software-as-a-service), d’applications Azure, Dynamics 365 for Customer, Engagement et PowerApps, Dynamics 365 for Operations et Dynamics 365 for Business Central. D’autres offres seront bientôt prises en charge.
 
-Les éditeurs existants de la Place de marché observeront une expérience utilisateur familière mais améliorée avec une interface intuitive. Des notifications sur le portail et par e-mail informeront les éditeurs de la migration. Les utilisateurs seront dirigés en toute transparence vers l’emplacement approprié. Les clients ne seront pas affectés par cette mise à niveau d’expérience partenaire. 
+Les éditeurs existants de la Place de marché observeront une expérience utilisateur familière mais améliorée avec une interface intuitive. Des notifications sur le portail et par e-mail informeront les éditeurs de la migration. Les utilisateurs seront dirigés en toute transparence vers l’emplacement approprié. Les clients ne seront pas affectés par cette mise à niveau d’expérience partenaire.
 
 ### <a name="improvements-on-user-experience-and-billing"></a>Améliorations de l’expérience utilisateur et de la facturation
 

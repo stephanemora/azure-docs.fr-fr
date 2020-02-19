@@ -9,16 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 7f9bd55054fca6b45a25ef737a1a00872e536ca8
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 5782f07167f72be2ea7b148ad1b0a61d8cb710e2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75908938"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048895"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Projets open source de la communauté Azure Maps
 
-Il s’agit d’initiatives open source, basées sur la communauté, créées et gérées par l’équipe Azure Maps, mais qui ne font pas partie des offres de produits ou de services standard. Voici une liste de quelques-uns des exemples et des projets open source créés par Azure Maps les plus populaires.
+Ces initiatives communautaires et open source sont créées et entretenues par l’équipe Azure Maps. Elles ne font pas partie des offres standard de services ou de produits.
+
+La liste suivante répertorie quelques-uns des exemples et des projets open source Azure Maps les plus populaires.
 
 | Nom du projet | Description |
 |-|-|
@@ -27,7 +29,7 @@ Il s’agit d’initiatives open source, basées sur la communauté, créées et
 | [Exemples Azure Maps et Azure Active Directory](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples) | Collection d’exemples qui montrent comment utiliser Azure Active Directory avec Azure Maps. | 
 | [Implémenter l’analytique spatiale IoT avec Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Le suivi et la capture d’événements pertinents qui se produisent dans l’espace et le temps constituent un scénario IoT courant. |
 | [Exemples Jupyter Notebook Azure Maps](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) | Collection d’exemples python utilisant les services Azure Maps REST. |
-| [Bot Framework - Compétence point d’intérêt](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | La compétence point d’intérêt fournit des fonctionnalités POI à un assistant virtuel à l’aide d’Azure Maps avec Azure Bot Service et Bot Framework. |
+| [Bot Framework - Compétence point d’intérêt](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | La compétence Point d’intérêt fournit des fonctionnalités POI à un assistant virtuel à l’aide d’Azure Maps avec Azure Bot Service et Bot Framework. |
 
 Une liste plus longue incluant des projets open source créés par la communauté est disponible [ici](https://github.com/microsoft/Maps/blob/master/AzureMaps.md)
 

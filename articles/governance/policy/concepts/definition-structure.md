@@ -3,16 +3,18 @@ title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7502c1c9a2e125052abf71e50273fbd9bab15cd1
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b98702161753a996cd8a6751670308a78dc36b7c
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989873"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169766"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
-Les définitions de stratégies de ressources sont utilisées par Azure Policy pour établir des conventions pour les ressources. Chaque définition décrit la conformité des ressources et les mesures à prendre en cas de non-conformité.
+Azure Policy établit des conventions pour les ressources. Les définitions de stratégie décrivent les [conditions](#conditions) de la conformité des ressources et l’effet à exécuter si une condition est remplie. Une condition compare un [champ](#fields) de propriété de ressource à une valeur requise. Les champs de propriétés de ressources sont accessibles à l’aide d’[alias](#aliases). Un champ de propriété de ressource est un champ à valeur unique ou un [tableau](#understanding-the--alias) de plusieurs valeurs. L’évaluation de la condition est différente sur les tableaux.
+Apprenez-en davantage sur les [conditions](#conditions).
+
 En définissant des conventions, vous pouvez contrôler les coûts et gérer plus facilement vos ressources. Par exemple, vous pouvez spécifier que seuls certains types de machines virtuelles sont autorisés. Vous pouvez aussi exiger que toutes les ressources soient marquées. Toutes les ressources enfants héritent des stratégies. Une stratégie appliquée à un groupe de ressources s’applique à toutes les ressources appartenant à ce groupe de ressources.
 
 Le schéma de la définition de stratégie se trouve ici : [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
@@ -73,6 +75,8 @@ Le **mode** détermine les types de ressources à évaluer pour une stratégie. 
 
 - `all` : évaluer les groupes de ressources et tous les types de ressources
 - `indexed` : évaluer uniquement les types de ressources qui prennent en charge les balises et l’emplacement
+
+Par exemple, la ressource `Microsoft.Network/routeTables` prend en charge les étiquettes et l’emplacement, et elle est évaluée dans les deux modes. En revanche, la ressource `Microsoft.Network/routeTables/routes` ne peut pas être étiquetée et n’est pas évaluée en mode `Indexed`.
 
 Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous pouvez spécifier le paramètre **mode** manuellement. Si la définition de stratégie ne comporte pas de valeur **mode**, elle prend la valeur par défaut `all` dans Azure PowerShell et `null` dans Azure CLI. Le mode `null` a le même effet que `indexed`, à savoir assurer une compatibilité descendante.
 
@@ -251,7 +255,9 @@ Une condition évalue si un **champ** ou un accesseur de **valeur** répond à c
 Avec les conditions **like** et **notLike**, un caractère générique `*` est indiqué dans la valeur.
 Celle-ci ne doit pas en comporter plus d’un (`*`).
 
-Si vous utilisez les conditions **match** et **notMatch**, entrez `#` pour trouver un chiffre, `?` pour une lettre, `.` pour un caractère et tout autre caractère pour représenter ce caractère réel. **match** et **notMatch** sont sensibles à la casse. Cependant, toutes les autres conditions qui évaluent une _stringValue_ ne sont pas sensibles à la casse. Des alternatives non sensibles à la casse sont disponibles dans **matchInsensitively** et **notMatchInsensitively**. Pour obtenir des exemples, voir [Autoriser plusieurs modèles de noms](../samples/allow-multiple-name-patterns.md).
+Si vous utilisez les conditions **match** et **notMatch**, entrez `#` pour trouver un chiffre, `?` pour une lettre, `.` pour un caractère et tout autre caractère pour représenter ce caractère réel. **match** et **notMatch** sont sensibles à la casse. Cependant, toutes les autres conditions qui évaluent une _stringValue_ ne sont pas sensibles à la casse. Des alternatives non sensibles à la casse sont disponibles dans **matchInsensitively** et **notMatchInsensitively**.
+
+Dans une valeur de champ de tableau à **alias \[\*\]** , chaque élément du tableau est évalué individuellement avec un opérateur logique **and** entre les éléments. Pour plus d’informations, consultez [Évaluation de l’alias \[\*\]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ### <a name="fields"></a>Champs
 
@@ -265,7 +271,7 @@ Les champs suivants sont pris en charge :
 - `kind`
 - `type`
 - `location`
-  - Utilisez **global** pour les ressources indépendantes de l’emplacement. Pour obtenir un exemple, voir [Exemples – Emplacements autorisés](../samples/allowed-locations.md).
+  - Utilisez **global** pour les ressources indépendantes de l’emplacement.
 - `identity.type`
   - Renvoie le type d'[identité managée](../../../active-directory/managed-identities-azure-resources/overview.md) activé sur la ressource.
 - `tags`

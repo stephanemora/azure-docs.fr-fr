@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c4b8b03394eee6dffb79b0e40a22dd49880dee88
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7ef868f156ac537cb066f293872f69135c4df25f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793481"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059644"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-cognitive-search"></a>Superviser la consommation des ressources et l’activité des requêtes dans Recherche cognitive Azure
 
@@ -76,19 +76,21 @@ Dans cette section, vous allez apprendre à utiliser le Stockage Blob pour stock
 
    Votre compte de stockage doit exister dans la même région que Recherche cognitive Azure.
 
-2. Ouvrez la page Vue d’ensemble de votre service de recherche. Dans le volet de navigation de gauche, faites défiler l’écran vers le bas jusqu’à **Supervision**, puis cliquez sur **Activer la supervision**.
+2. Ouvrez la page Vue d’ensemble de votre service de recherche. Dans le volet de navigation de gauche, faites défiler l’écran vers le bas jusqu’à **Supervision**, puis cliquez sur **Paramètres de diagnostic**.
 
-   ![Activer la supervision](./media/search-monitor-usage/enable-monitoring.png "Activer la supervision")
+   ![Paramètres de diagnostic](./media/search-monitor-usage/diagnostic-settings.png "Paramètres de diagnostic")
 
-3. Choisissez les données à exporter : Journaux d’activité, Métriques ou les deux. Vous pouvez les copier sur un compte de stockage, les envoyer à un Event Hub ou les exporter vers les journaux Azure Monitor.
+3. Sélectionnez **Ajouter un paramètre de diagnostic**.
+
+4. Choisissez les données à exporter : Journaux d’activité, Métriques ou les deux. Vous pouvez les copier sur un compte de stockage, les envoyer à un Event Hub ou les exporter vers les journaux Azure Monitor.
 
    Pour l’archivage dans le Stockage Blob, seul le compte de stockage doit exister. Les conteneurs et les objets blob sont créés au besoin lors de l’exportation des données de journal.
 
    ![Configurer l’archive de stockage Blob](./media/search-monitor-usage/configure-blob-storage-archive.png "Configurer l’archive de stockage Blob")
 
-4. Enregistrez le profil.
+5. Enregistrer le profil
 
-5. Testez la journalisation en créant ou en supprimant des objets (ce qui crée des événements de journal) et en soumettant des requêtes (ce qui génère des métriques). 
+6. Testez la journalisation en créant ou en supprimant des objets (ce qui crée des événements de journal) et en soumettant des requêtes (ce qui génère des métriques). 
 
 La journalisation est activée une fois que vous enregistrez le profil. Les conteneurs sont créés uniquement quand il existe une activité à journaliser ou à mesurer. Quand les données sont copiées dans un compte de stockage, les données sont au format JSON et sont placées dans deux conteneurs :
 
@@ -108,13 +110,13 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ## <a name="log-schema"></a>Schéma du journal
 Les objets blob contenant vos journaux d’activité du trafic de votre service de recherche sont structurés comme décrit dans cette section. Chaque objet blob a un objet racine appelé **records** contenant un tableau d’objets de journal. Chaque objet blob contient des enregistrements de toutes les opérations qui ont eu lieu au cours de la même heure.
 
-| Nom | Type | Exemples | Notes |
+| Name | Type | Exemple | Notes |
 | --- | --- | --- | --- |
-| time |datetime |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
+| time |DATETIME |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
 | resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
 | operationName |string |« Query.Search » |Nom de l’opération |
 | operationVersion |string |"2019-05-06" |Version d’API utilisée |
-| category |string |« OperationLogs » |constant |
+| catégorie |string |« OperationLogs » |constant |
 | resultType |string |« Success » |Valeurs possibles : Réussite ou Échec |
 | resultSignature |int |200 |Code de résultat HTTP |
 | durationMS |int |50 |Durée de l’opération en millisecondes |
@@ -122,10 +124,10 @@ Les objets blob contenant vos journaux d’activité du trafic de votre service 
 
 **Schéma de propriétés**
 
-| Nom | Type | Exemples | Notes |
+| Name | Type | Exemple | Notes |
 | --- | --- | --- | --- |
 | Description |string |« GET /indexes(’content’)/docs » |Point de terminaison de l’opération |
-| Interroger |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Paramètres de requête |
+| Requête |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Paramètres de requête |
 | Documents |int |42 |Nombre de documents traités |
 | IndexName |string |« testindex » |Nom de l’index associé à l’opération |
 
@@ -133,11 +135,11 @@ Les objets blob contenant vos journaux d’activité du trafic de votre service 
 
 Les métriques sont capturées pour les demandes de requête.
 
-| Nom | Type | Exemples | Notes |
+| Name | Type | Exemple | Notes |
 | --- | --- | --- | --- |
 | resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |votre ID de ressource |
 | metricName |string |« Latency » |Nom de la mesure |
-| time |datetime |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
+| time |DATETIME |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
 | average |int |64 |Valeur moyenne des échantillons bruts dans l’intervalle de temps de la mesure |
 | minimum |int |37 |Valeur minimale des échantillons bruts dans l’intervalle de temps de la mesure |
 | maximum |int |78 |Valeur maximale des échantillons bruts dans l’intervalle de temps de la mesure |

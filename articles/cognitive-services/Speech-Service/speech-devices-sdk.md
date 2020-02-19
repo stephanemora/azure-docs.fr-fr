@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 7f6793cab3d2d7cc54252bae3a7393f836256bdd
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 854e7beb2afd8ae838455f77ff448f13d8b3fbea
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815535"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188972"
 ---
 # <a name="about-the-speech-devices-sdk"></a>À propos du kit de développement logiciel (SDK) de dispositifs vocaux
 
@@ -27,17 +27,17 @@ Le SDK Speech Devices vous permet d’effectuer les opérations suivantes :
 - Intégrer plus facilement le service Speech basé sur le cloud à votre appareil.
 - Créer une expérience utilisateur exceptionnelle pour vos clients.
 
-Le SDK Speech Devices consomme le [SDK Speech](speech-sdk.md). Il l’utilise pour envoyer l’audio qui est traité par notre algorithme de traitement audio avancé du réseau de microphones de l’appareil vers le [service Speech](overview.md). Il utilise l’audio multicanal pour fournir une [reconnaissance vocale](speech-to-text.md) à champ lointain plus précise, par le biais de la suppression du bruit, l’annulation de l’écho, la formation de faisceaux et la déréverbération.
+Le SDK Speech Devices consomme le [SDK Speech](speech-sdk.md). Il utilise nos algorithmes avancés de traitement audio et le réseau de microphones de l’appareil pour envoyer l’audio au [service Speech](overview.md). Il fournit une [reconnaissance vocale](speech-to-text.md) à champ lointain précise par le biais de la suppression du bruit, l’annulation de l’écho, la formation de faisceaux et la déréverbération.
 
-Vous pouvez également utiliser le Kit de développement logiciel (SDK) des appareils Speech pour créer des appareils ambiants disposant de votre propre [mot clé personnalisé](speech-devices-sdk-create-kws.md), afin que la pile qui déclenche l’interaction utilisateur soit propre à votre marque.
+Vous pouvez également utiliser le Kit de développement logiciel (SDK) Speech Devices pour créer des appareils ambiants dotés de votre propre [mot clé personnalisé](speech-devices-sdk-create-kws.md). Un mot clé personnalisé fournit un signal qui démarre une interaction utilisateur unique à votre marque.
 
-Le kit de développement logiciel (SDK) des appareils Speech facilite différents scénarios vocaux, tels que les [assistants vocaux](https://aka.ms/bots/speech/va), les systèmes de commande au volant, la [transcription de conversation](conversation-transcription-service.md) et les haut-parleurs intelligents. Vous pouvez répondre aux utilisateurs avec du texte, leur répondre en utilisant la voix par défaut ou une [voix personnalisée](how-to-customize-voice-font.md), fournir des résultats de recherche, [traduire](speech-translation.md) dans d’autres langues, et bien plus encore. Nous avons hâte de découvrir vos créations !
+Le Kit de développement logiciel (SDK) Speech Devices prend en charge différents scénarios vocaux, tels que les [assistants vocaux](https://aka.ms/bots/speech/va), les systèmes de commande au volant, la [transcription de conversation](conversation-transcription-service.md) et les haut-parleurs intelligents. Vous pouvez répondre aux utilisateurs avec du texte, leur répondre en utilisant la voix par défaut ou une [voix personnalisée](how-to-customize-voice-font.md), fournir des résultats de recherche, [traduire](speech-translation.md) dans d’autres langues, et bien plus encore. Nous avons hâte de découvrir vos créations !
 
 ## <a name="get-the-speech-devices-sdk"></a>Obtenir le Kit de développement logiciel (SDK) de dispositifs vocaux
 
 ### <a name="android"></a>Android
 
-Pour des appareils Android, téléchargez la dernière version du [SDK Speech Devices Android](https://aka.ms/sdsdk-download-android).
+Pour des appareils Android, téléchargez la dernière version du [Kit de développement logiciel (SDK) Speech Devices Android](https://aka.ms/sdsdk-download-android).
 
 ### <a name="windows"></a>Windows
 
@@ -48,6 +48,8 @@ L’application est créée avec le package du SDK Speech et l’IDE Eclipse Jav
 
 Pour Linux, l’exemple d’application est fourni en tant qu’application Java multiplateforme. Téléchargez la dernière version du [SDK Speech Devices JRE](https://aka.ms/sdsdk-download-JRE).
 L’application est créée avec le package du SDK Speech et l’IDE Eclipse Java (v4) sur Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9). Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
+
+Des fichiers binaires supplémentaires sont fournis pour prendre en charge les appareils à venir, le [DDK Roobo v2](https://aka.ms/sdsdk-download-roobov2) et le [DDK Urbetter](https://aka.ms/sdsdk-download-urbetter).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

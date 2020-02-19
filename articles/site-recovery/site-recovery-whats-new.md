@@ -3,20 +3,18 @@ title: Nouveautés d’Azure Site Recovery
 description: Fournit un résumé des nouvelles fonctionnalités et des dernières mises à jour du service Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.openlocfilehash: d6aa04586c9c087a736c7e1b10b8c21328a63cab
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: cae653c9e51e2a497d6fa3781415a1f836053593
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934939"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064527"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nouveautés de Site Recovery
 
 Le service [Azure Site Recovery](site-recovery-overview.md) fait l’objet de mises à jour et d’améliorations continues. Pour vous aider à rester à jour, cet article vous donne des informations sur les versions les plus récentes, les nouvelles fonctionnalités et le nouveau contenu. Cette page est régulièrement mise à jour.
 
 Vous pouvez suivre et vous abonner aux notifications de mise à jour Site Recovery dans le canal [Mises à jour Azure](https://azure.microsoft.com/updates/?product=site-recovery).
-
-
 
 ## <a name="supported-updates"></a>Mises à jour prises en charge
 
@@ -30,18 +28,18 @@ Pour les composants Site Recovery, nous prenons en charge les versions N-4, où
 [Rollup 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [Correctif cumulatif 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 
-
-
 [En savoir plus](service-updates-how-to.md) sur l’installation et la prise en charge des mises à jour.
 
 ## <a name="updates-january-2020"></a>Mises à jour (janvier 2020)
 
 ### <a name="update-rollup-44"></a>Correctif cumulatif 44
+
 Le [correctif cumulatif 44](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) fournit les mises à jour suivantes.
 
 **Mettre à jour** | **Détails**
 --- | ---
-**Correctifs/améliorations** | Un certain nombre de mises à jour d’agents et fournisseurs Site Recovery (comme décrit dans le correctif cumulatif).
+**Fournisseurs et agents** | Aucune mise à jour des fournisseurs et des agents Site Recovery.
+**Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations, comme détaillé dans le correctif cumulatif.
 
 ### <a name="azure-vmware-disaster-recovery"></a>Récupération d’urgence d’Azure VMware
 

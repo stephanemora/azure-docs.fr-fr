@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
-ms.openlocfilehash: c5543470f790d00158297cb7c3f0c06c5fc05e14
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 64ef4dfe81e6415f1285a74962e2123507715119
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866979"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120674"
 ---
 # <a name="configure-azure-files-in-a-windows-container-on-app-service"></a>Configurer Azure Files dans un conteneur Windows sur App Service
 
@@ -38,6 +38,7 @@ Ce guide montre comment accéder au stockage Azure dans des conteneurs Windows. 
 - Le stockage Azure dans les conteneurs Windows n’est actuellement **pas pris en charge** pour les scénarios de type Apportez votre propre code dans les plans Windows App Service.
 - Le stockage Azure dans les conteneurs Windows **ne prend pas en charge** l’utilisation de la configuration de **pare-feu de stockage** en raison des restrictions liées à l’infrastructure.
 - Le stockage Azure dans les conteneurs Windows vous permet de spécifier **jusqu’à cinq** points de montage par application.
+- Le stockage Azure monté sur une application n’est pas accessible via des points de terminaison FTP/FTPS App Service. Utilisez [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/).
 - Le stockage Azure est facturé séparément et **n’est pas inclus** avec votre application web. Apprenez-en davantage sur les [tarifs de stockage Azure](https://azure.microsoft.com/pricing/details/storage).
 
 ## <a name="link-storage-to-your-web-app-preview"></a>Lier le stockage à une application web (préversion)

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 1fec2778ce8c839c5bac0c1d74085db0f8b283ce
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 270b3f0fe7c654d2bf059784e872b7dbe97a6068
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76903003"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190494"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel 
 <a name="network-service-tags"></a>
@@ -42,7 +42,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 
 | Tag | Objectif | Peut-elle utiliser le trafic entrant ou sortant ? | Peut-elle être étendue à une zone régionale ? | Peut-elle être utilisée avec le Pare-feu Azure ? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **ApiManagement** | Trafic de gestion pour les déploiements dédiés de Gestion des API. | Les deux | Non | Oui |
+| **ApiManagement** | Trafic de gestion pour les déploiements dédiés de Gestion des API. <br/><br/>*Remarque :* Cette balise représente le point de terminaison du service Azure Gestion des API pour le plan de contrôle par région. Ceci permet aux clients d’effectuer des opérations de gestion sur les API, les opérations, les stratégies et les valeurs nommées configurées sur le service Gestion des API.  | Trafic entrant | Oui | Oui |
 | **ApplicationInsightsAvailability** | Disponibilité d’Application Insights. | Trafic entrant | Non | Non |
 | **AppService**    | Azure App Service Cette balise est recommandée pour les règles de sécurité sortantes vers les serveurs frontaux des applications web. | Règle de trafic sortant | Oui | Oui |
 | **AppServiceManagement** | Trafic de gestion pour les déploiements dédiés vers App Service Environment. | Les deux | Non | Oui |
@@ -85,7 +85,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Règle de trafic sortant | Non | Non |
 | **MicrosoftContainerRegistry** | Registre de conteneurs pour les images de conteneur Microsoft. <br/><br/>*Remarque :* Veuillez également mettre en liste verte les adresses IP suivantes (cette dépendance sera bientôt supprimée) : 204.79.197.219. | Règle de trafic sortant | Oui | Oui |
 | **ServiceBus** | Trafic Azure Service Bus qui utilise le niveau de service Premium. | Règle de trafic sortant | Oui | Oui |
-| **ServiceFabric** | Azure Service Fabric. | Règle de trafic sortant | Non | Non |
+| **ServiceFabric** | Azure Service Fabric.<br/><br/>*Remarque :* Cette balise représente le point de terminaison du service Service Fabric pour le plan de contrôle par région. Ceci permet aux clients d’effectuer des opérations de gestion pour leurs clusters Service Fabric à partir de leur réseau virtuel (point de terminaison, par exemple https://westus.servicefabric.azure.com) | Les deux | Non | Non |
 | **Sql** | Azure SQL Database, Azure Database pour MySQL, Azure Database pour PostgreSQL et Azure SQL Data Warehouse.<br/><br/>*Remarque :* Cette balise représente le service, mais pas des instances spécifiques du service. Par exemple, la balise représente le service Azure SQL Database, mais pas une base de données ou un serveur SQL spécifique. | Règle de trafic sortant | Oui | Oui |
 | **SqlManagement** | Trafic de gestion pour les déploiements dédiés de SQL. | Les deux | Non | Oui |
 | **Stockage** | Stockage Azure. <br/><br/>*Remarque :* Cette balise représente le service, mais pas des instances spécifiques du service. Par exemple, la balise représente le service Azure Storage, mais pas un compte Azure Storage spécifique. | Règle de trafic sortant | Oui | Oui |

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/01/2019
+ms.date: 10/02/2019
 ms.author: juliako
-ms.openlocfilehash: 5b5956094da497cfbb72608587b2e0389ceec8fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3520b7d6b0fd67fdbff3e1dd78d038f36ad5f0af
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427130"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133422"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Conseils de migration pour le passage de Media Services v2 à Media Services v3
 
@@ -115,7 +115,7 @@ Le tableau suivant présente les différences de code entre v2 et v3 pour des sc
 * Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-sdk), Azure CLI ou l’un des kits de développement logiciel (SDK) pris en charge.
 * Vous devez provisionner des unités réservées Multimédia (MRU) dans votre compte afin de contrôler la concurrence et les performances de vos travaux, en particulier ceux impliquant une analyse audio ou vidéo. Pour plus d’informations, consultez [Mise à l’échelle du traitement multimédia](../previous/media-services-scale-media-processing-overview.md). Vous pouvez gérer les MRU à l’aide de [CLI 2.0 pour Media Services v3](media-reserved-units-cli-how-to.md), du [portail Azure](../previous/media-services-portal-scale-media-processing.md) ou des [API v2](../previous/media-services-dotnet-encoding-units.md). Vous devez provisionner des unités réservées Multimédia, indépendamment de la version (v2 ou v3) des API Media Services que vous utilisez.
 * Des entités Media Services créées avec l’API v3 ne peuvent pas être gérées avec l’API v2.  
-* Il n’est pas recommandé de gérer les entités créées avec des API v2 via les API v3. Voici des exemples de différences qui rendent les entités des deux versions incompatibles :   
+* Toutes les entités de l’API V2 ne s’affichent pas automatiquement dans l’API V3.  Voici quelques exemples d’entités dans les deux versions et qui sont incompatibles :  
     * Les travaux et tâches créés dans v2 n’apparaissent pas dans v3, car elles ne sont pas associées à une transformation. Il est recommandé de basculer vers des transformations et travaux v3. Il y aura une période de temps relativement courte du basculement durant laquelle il sera nécessaire de surveiller les travaux v2 en cours.
     * Les canaux et programmes créés avec v2 (qui sont mappés à des événements et sorties en direct dans v3) ne peuvent plus être gérés avec v3. Il est recommandé de basculer vers des événements et sorties en direct v3 à un point d’arrêt approprié du canal.<br/>Actuellement, vous ne pouvez pas migrer en continu des canaux en cours d’exécution.  
 

@@ -4,12 +4,12 @@ description: Modèles de mise à l’échelle automatique d’Azure pour Web App
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: d9f04e0af4349f6b149619f13dac8ca2f59b560e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a05cf87e660cc6c388ea2055bb174c47b99da4a3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397001"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117116"
 ---
 # <a name="best-practices-for-autoscale"></a>Meilleures pratiques pour la mise à l’échelle automatique
 La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [groupes de machines virtuelles identiques](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aux [services cloud](https://azure.microsoft.com/services/cloud-services/), à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et aux [services de gestion des API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
@@ -113,7 +113,7 @@ De même, lorsque la mise à l’échelle automatique bascule vers le profil par
 
 ### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Considérations relatives à la mise à l’échelle lorsque plusieurs règles sont configurées dans un profil
 
-Il existe des cas où vous devrez définir plusieurs règles dans un profil. Les règles de mise à l’échelle automatique suivantes sont utilisées par les services lorsque plusieurs règles sont définies.
+Il existe des cas où vous devrez définir plusieurs règles dans un profil. Les règles de mise à l’échelle automatique suivantes sont utilisées par le moteur de mise à l’échelle automatique quand plusieurs règles sont définies.
 
 Pour *l’augmentation de la taille des instances*, la mise à l’échelle automatique s’exécute si une règle est respectée.
 Pour la *diminution de la taille des instances*, la mise à l’échelle automatique nécessite que toutes les règles soient respectées.
@@ -133,13 +133,13 @@ Alors, ce qui suit se produit :
 En revanche, si le processeur est de 25 % et la mémoire est de 51 %, la mise à l’échelle automatique ne diminue **pas** la taille des instances. Pour diminuer la taille des instances, le processeur doit être de 29 % et la mémoire de 49 %.
 
 ### <a name="always-select-a-safe-default-instance-count"></a>Sélectionnez toujours un nombre d’instances par défaut sans échec
-Le nombre d’instances par défaut est important, car la mise à l’échelle de vos services s’effectue en fonction de ce nombre lorsque les mesures ne sont pas disponibles. Par conséquent, sélectionnez un nombre d’instances par défaut qui est sécurisé pour vos charges de travail.
+Le nombre d’instances par défaut est important, car la mise à l’échelle de vos services s’effectue en fonction de ce nombre quand les métriques ne sont pas disponibles. Par conséquent, sélectionnez un nombre d’instances par défaut qui est sécurisé pour vos charges de travail.
 
 ### <a name="configure-autoscale-notifications"></a>Configuration des notifications de mise à l’échelle automatique
 Les événements de mise à l’échelle automatique sont enregistrés dans le journal d’activité dans les cas suivants :
 
-* Le service de mise à l’échelle automatique génère une opération de mise à l’échelle
-* Le service de mise à l’échelle automatique termine une opération de mise à l’échelle avec succès
+* La mise à l’échelle automatique déclenche une opération de mise à l’échelle.
+* Le service de mise à l’échelle automatique termine une opération de mise à l’échelle avec succès.
 * Le service de mise à l’échelle automatique ne parvient pas à terminer une opération de mise à l’échelle avec succès
 * Les mesures ne sont pas disponibles pour que le service de mise à l’échelle automatique prenne une décision de mise à l’échelle.
 * Les mesures sont de nouveau disponibles (récupération) pour prendre une décision de mise à l’échelle.

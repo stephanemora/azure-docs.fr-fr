@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 2525ca681d805a3b6f086335531a4beaeb9c4e51
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68975f21ab810398da969384db4d3bddd22f1bd9
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453467"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116904"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Appeler des fonctions Azure à partir d’Azure Logic Apps
 
@@ -200,11 +200,11 @@ Pour déclencher une application logique à partir d’une fonction Azure, l’a
 
 Pour authentifier l’accès aux ressources dans d’autres locataires Azure Active Directory (Azure AD) sans avoir à vous connecter ni à fournir des informations d’identification ou des secrets, votre application logique peut utiliser une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) (anciennement appelée MSI ou Managed Service Identity). Azure gère cette identité pour vous et vous aide à sécuriser vos informations d’identification, car vous n’êtes pas obligé de fournir ni de faire pivoter des secrets. En savoir plus sur les [services Azure qui prennent en charge les identités managées pour l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-Si vous configurez votre application logique pour qu’elle utilise l’identité managée attribuée par le système, les fonctions Azure de votre application logique peuvent également utiliser cette même identité pour l’authentification. Pour en savoir plus sur la prise en charge de l’authentification pour les fonctions Azure dans les applications logiques, consultez [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+Si vous configurez votre application logique pour utiliser l’identité affectée par le système ou une identité affectée par l’utilisateur créée manuellement, les fonctions Azure de votre application logique peuvent également utiliser cette même identité pour l’authentification. Pour en savoir plus sur la prise en charge de l’authentification pour les fonctions Azure dans les applications logiques, consultez [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-Pour configurer et utiliser l’identité attribuée par le système avec votre fonction, procédez comme suit :
+Pour configurer et utiliser l’identité managée avec votre fonction, effectuez les étapes suivantes :
 
-1. Activez l’identité attribuée par le système sur votre application logique et configurez l’accès de cette identité à la ressource cible. Consultez [Authentifier l’accès aux ressources Azure avec des identités managées dans Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
+1. Activez l’identité managée sur votre application logique, puis configurez l’accès de cette identité à la ressource cible. Consultez [Authentifier l’accès aux ressources Azure avec des identités managées dans Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
 
 1. Pour activer l’authentification dans votre fonction Azure et votre application de fonction, procédez comme suit :
 
@@ -215,7 +215,7 @@ Pour configurer et utiliser l’identité attribuée par le système avec votre 
 
 ### <a name="set-up-anonymous-authentication-in-your-function"></a>Configurer l’authentification anonyme dans votre fonction
 
-Pour utiliser l’identité attribuée par le système de votre application logique dans votre fonction Azure, vous devez définir le niveau d’authentification de votre fonction sur anonyme. Dans le cas contraire, votre application logique génère une erreur « BadRequest ».
+Pour utiliser l’identité managée de votre application logique dans votre fonction Azure, vous devez définir le niveau d’authentification de votre fonction à anonyme. Dans le cas contraire, votre application logique génère une erreur « BadRequest ».
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez votre application de fonction. Ces étapes utilisent « FabrikamFunctionApp » comme exemple d’application de fonction.
 

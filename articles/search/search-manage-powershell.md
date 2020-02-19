@@ -8,39 +8,35 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: fdb558267d823657f6a735d8b96efde33cdb8383
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 02/11/2020
+ms.openlocfilehash: b6147e45ca686328b1702faa5a8d50d9a75e50d6
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466520"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157837"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gérer votre service Recherche cognitive Azure avec PowerShell
 > [!div class="op_single_selector"]
-> * [Portal](search-manage.md)
+> * [Portail](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Vous pouvez exécuter des scripts et des applets de commande PowerShell sur Windows, Linux ou dans [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) pour créer et configurer Recherche cognitive Azure. Le module **Az.Search** étend Azure PowerShell] avec une parité complète pour les [API REST de gestion Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchmanagement). Avec Azure PowerShell et **Az.Search**, vous pouvez effectuer les tâches suivantes :
+Vous pouvez exécuter des scripts et des applets de commande PowerShell sur Windows, Linux ou dans [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) pour créer et configurer Recherche cognitive Azure. Le module **Az.Search** étend [Azure PowerShell](https://docs.microsoft.com/powershell/) avec une parité complète pour les [API REST de gestion de la recherche](https://docs.microsoft.com/rest/api/searchmanagement) et la capacité à réaliser les tâches suivantes :
 
 > [!div class="checklist"]
-> * [Répertorier tous les services de recherche dans votre abonnement](#list-search-services)
-> * [Obtenir des informations sur un service de recherche spécifique](#get-search-service-information)
+> * [Lister les services de recherche dans un abonnement](#list-search-services)
+> * [Retourner les informations sur les services](#get-search-service-information)
 > * [Créer ou supprimer un service](#create-or-delete-a-service)
 > * [Régénérer des clés API d’administration](#regenerate-admin-keys)
 > * [Créer ou supprimer des clés API de requête](#create-or-delete-query-keys)
-> * [Mettre à l’échelle un service en augmentant ou en diminuant les réplicas et les partitions](#scale-replicas-and-partitions)
+> * [Effectuer un scale-up ou un scale-down avec les réplicas et les partitions](#scale-replicas-and-partitions)
 
-PowerShell ne peut pas être utilisé pour modifier le nom, la région ou le niveau de votre service. Des ressources dédiées sont allouées lorsqu’un service est créé. Toute modification du matériel sous-jacent (emplacement ou type de nœud) requiert un nouveau service. Il n’existe pas d'API ou d'outils pour transférer du contenu d’un service à un autre. La gestion du contenu se fait via les API [REST](https://docs.microsoft.com/rest/api/searchservice/) ou [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search), et pour déplacer des index, vous devez les recréer et les recharger sur un nouveau service. 
+Parfois, des questions sont posées sur des tâches qui ne figurent *pas* dans la liste ci-dessus. Vous ne pouvez pas utiliser le module **Az.Search** ou l’API REST de gestion pour changer un nom de serveur, une région ou un niveau. Des ressources dédiées sont allouées lorsqu’un service est créé. Ainsi, toute modification du matériel sous-jacent (emplacement ou type de nœud) nécessite un nouveau service. De même, il n’existe pas d’API ou d’outils pour transférer du contenu, tel qu’un index, d’un service à un autre.
 
-Bien qu’il n’existe aucune commande PowerShell dédiée à la gestion de contenu, vous pouvez écrire un script PowerShell qui appelle REST ou .NET afin de créer et de charger des index. Le module **Az.Search** ne permet pas à lui seul ces opérations.
-
-Autres tâches non prises en charge par le biais de PowerShell ou de toute autre API (portail uniquement) :
-+ [Attacher une ressource Cognitive Services](cognitive-search-attach-cognitive-services.md) à des fins d'[indexation IA](cognitive-search-concept-intro.md). Un service cognitif est attaché à un ensemble de compétences, et non à un abonnement ou service.
-+ [Les solutions de supervision de module complémentaire](search-monitor-usage.md#add-on-monitoring-solutions) pour la surveillance de la Recherche cognitive Azure.
+Au sein d’un service, la création et la gestion de contenu s’effectuent par le biais de l’[API REST du service de recherche](https://docs.microsoft.com/rest/api/searchservice/) ou du [SDK .NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search). Bien qu’il n’existe aucune commande PowerShell dédiée au contenu, vous pouvez écrire un script PowerShell qui appelle des API REST ou .NET afin de créer et de charger des index.
 
 <a name="check-versions-and-load"></a>
 
@@ -92,7 +88,7 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 <a name="list-search-services"></a>
 
-## <a name="list-all-azure-cognitive-search-services-in-your-subscription"></a>Répertorier les services Recherche cognitive Azure dans votre abonnement
+## <a name="list-services-in-a-subscription"></a>Répertorier les services dans un abonnement
 
 Les commandes suivantes proviennent d'[**Az.Resources**](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources) et renvoient des informations sur les ressources et services existants déjà approvisionnés dans votre abonnement. Si vous ne savez pas combien de services de recherche sont déjà créés, ces commandes vous en informent et vous évitent d'accéder au portail.
 

@@ -4,12 +4,12 @@ description: Découvrez comment utiliser des actions de mise à l’échelle aut
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
-ms.openlocfilehash: fd5aeadd72123b58801ce038b0cc99d17dcfd200
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c82b170bb3801bdc701ed84230db57f5691523ea
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364201"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120690"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Moonitor
 Cet article explique comment paramétrer des déclencheurs pour vous permettre d’appeler des URL web spécifiques ou d’envoyer des courriers électroniques en fonction d’actions de mise à l’échelle automatique dans Azure.  
@@ -20,8 +20,8 @@ Les webhooks vous permettent d’acheminer les notifications d’alerte Azure ve
 ## <a name="email"></a>Email
 Un courrier électronique peut être envoyé à n’importe quelle adresse électronique valide. Les administrateurs et les coadministrateurs de l’abonnement dans lequel la règle est exécutée seront également avertis.
 
-## <a name="cloud-services-and-web-apps"></a>Services cloud et applications web
-Vous pouvez l’activer depuis le portail Azure pour les services cloud et les batteries de serveurs (applications web).
+## <a name="cloud-services-and-app-services"></a>Services cloud et App Services
+Vous pouvez l’activer depuis le portail Azure pour les services cloud et les batteries de serveurs (App Services).
 
 * Choisissez la métrique **scale by (mise à l’échelle par)** .
 

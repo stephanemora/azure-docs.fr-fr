@@ -8,12 +8,12 @@ ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e9ef700e45acc55f476d72883107b0c5c958fa7f
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 43955950b2fc0544b149c67e3f8df7ca905fafed
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862830"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116272"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Surveillance d'un compte de stockage dans le portail Azure
 
@@ -25,6 +25,8 @@ Nous vous recommandons de consulter [Azure Monitor pour le stockage](../../azure
 > L’analyse des données de surveillance dans le portail Azure occasionne des frais. Pour plus d’informations, consultez [Storage Analytics](storage-analytics.md).
 >
 > Azure Files prend actuellement en charge les métriques de Storage Analytics, mais pas encore la journalisation.
+>
+> Les comptes de stockage d’objets blob de blocs de niveau de performance Premium ne prennent pas en charge les métriques d’analyse de stockage, mais ils prennent en charge la journalisation. Vous pouvez activer la journalisation par programmation via l’API REST ou la bibliothèque de client. Si vous souhaitez afficher les métriques pour des comptes de stockage d’objets blob de blocs de niveau de performance Premium, envisagez d’utiliser [Métriques de Stockage Azure dans Azure Monitor](storage-metrics-in-azure-monitor.md).
 >
 > Pour obtenir un guide détaillé concernant l'utilisation de Storage Analytics et d'autres outils permettant d'analyser, de diagnostiquer et de résoudre les problèmes d'Azure Storage, consultez [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0bbd8a12820432ce2f131dda29af6740a2f04e18
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: ccdf385d2581923e1fad4fa5c42f351c4f0947ca
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024719"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083155"
 ---
 # <a name="set-up-avs-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Configurer le cloud privé AVS en tant que cible de reprise d’activité avec VMware Site Recovery Manager
 
@@ -23,9 +23,9 @@ La solution de récupération d'urgence repose sur vSphere Replication et VMware
 
 La solution AVS :
 
-* Vous évite d’avoir à configurer un centre de données spécifiquement dédié à la reprise d’activité après sinistre.
+* élimine la nécessité de configurer un centre de données spécifiquement dédié à la récupération d'urgence ;
 * Vous permet de tirer parti des emplacements Azure où AVS est déployé pour une résilience géographique à l’échelle mondiale.
-* Vous permet de réduire les coûts de déploiement et le coût total de possession avec la mise en place de la reprise d’activité après sinistre.
+* vous permet de réduire les coûts de déploiement et le coût total de possession grâce à la mise en place de la récupération d'urgence.
 
 Pour tirer parti de la solution AVS, vous devez :
 
@@ -101,7 +101,7 @@ Vous pouvez ajouter un fournisseur d’identité externe, comme décrit dans [Ut
 
 Pour fournir des services de recherche d’adresses IP, de gestion des adresses IP et de résolution de noms pour vos charges de travail dans le cloud privé AVS, configurez un serveur DNS et DHCP comme décrit dans [Configurer des applications et des charges de travail DNS et DHCP dans votre cloud privé AVS](dns-dhcp-setup.md).
 
-Le domaine *.avs.io est utilisé par les machines virtuelles de gestion et les hôtes de votre cloud privé AVS. Pour résoudre les requêtes adressées à ce domaine, configurez le transfert DNS sur le serveur DNS, comme décrit à la section [Créer un redirecteur conditionnel](on-premises-dns-setup.md#create-a-conditional-forwarder).
+Le domaine *.cloudsimple.io est utilisé par les machines virtuelles de gestion et les hôtes de votre cloud privé AVS. Pour résoudre les requêtes adressées à ce domaine, configurez le transfert DNS sur le serveur DNS, comme décrit à la section [Créer un redirecteur conditionnel](on-premises-dns-setup.md#create-a-conditional-forwarder).
 
 ### <a name="install-vsphere-replication-appliance-in-your-on-premises-environment"></a>Installer vSphere Replication Appliance dans votre environnement local
 

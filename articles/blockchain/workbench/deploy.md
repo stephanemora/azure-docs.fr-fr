@@ -4,12 +4,12 @@ description: Guide pratique pour déployer Azure Blockchain Workbench Preview
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: 190f780d7aed30667c23bb97f9ce7726da0f00ca
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: fab61b5850815e480b4a380fdccd6c1df5b449cd
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779827"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189193"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Déployer Azure Blockchain Workbench Preview
 
@@ -195,7 +195,7 @@ Le déploiement de Blockchain Workbench nécessite l’inscription d’une appli
 Ensuite, vous devez modifier le manifeste pour utiliser des rôles d’application dans Azure AD afin de spécifier les administrateurs Blockchain Workbench.  Pour plus d’informations sur les manifestes de l’application, consultez [Manifeste de l’application Azure Active Directory](../../active-directory/develop/reference-app-manifest.md).
 
 
-1. Vous devez générer un GUID pour le manifeste. Vous pouvez générer un GUID à l’aide de la commande PowerShell `[guid]::NewGuid()` ou `New-GUID` cmdlet. Une autre option consiste à utiliser un site web générateur de GUID.
+1. Un GUID est requis pour le manifeste. Vous pouvez générer un GUID à l’aide de la commande PowerShell `[guid]::NewGuid()` ou `New-GUID` cmdlet. Une autre option consiste à utiliser un site web générateur de GUID.
 1. Pour l’application que vous avez inscrite, sélectionnez **Manifeste** dans la section **Gérer**.
 1. Vous vous apprêtez à mettre à jour la section **appRoles** du manifeste. Remplacez `"appRoles": []` par le fichier JSON fourni. Remplacez la valeur du champ **id** par le GUID que vous avez généré. 
 
@@ -233,8 +233,15 @@ Ensuite, vous devez modifier le manifeste pour utiliser des rôles d’applicati
 L’application API doit demander l’autorisation de l’utilisateur pour accéder au répertoire. Définissez l’autorisation requise suivante pour l’application API :
 
 1. Dans l’inscription de l’application *API Blockchain*, sélectionnez **Autorisations de l’API**. Par défaut, l’autorisation **User.Read** de l’API Graph est ajoutée.
+1. L’application Workbench requiert un accès en lecture aux informations du profil de base des utilisateurs. Dans *Autorisations configurées*, sélectionnez **Ajouter une autorisation**. Dans **API Microsoft**, sélectionnez **Microsoft Graph**.
+1. Étant donné que l’application Workbench utilise les informations d’identification de l’utilisateur authentifié, sélectionnez **Autorisations déléguées**.
+1. Dans la catégorie *Utilisateur*, choisissez l’autorisation **User.ReadBasic.All**.
 
-1. Dans **Donner son consentement**, sélectionnez **Accorder un consentement administrateur** pour le domaine, puis sélectionnez **Oui** pour l’invite de vérification.
+    ![Configuration de l’inscription de l’application Azure AD qui montre l’ajout de l’autorisation déléguée User.ReadBasic.All de Microsoft Graph](media/deploy/add-graph-user-permission.png)
+
+    Sélectionnez **Ajouter des autorisations**.
+
+1. Dans *Autorisations configurées*, sélectionnez **Accorder un consentement administrateur** pour le domaine, puis sélectionnez **Oui** pour l’invite de vérification.
 
    ![Accorder des autorisations](media/deploy/client-app-grant-permissions.png)
 

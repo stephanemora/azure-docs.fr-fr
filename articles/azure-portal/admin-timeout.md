@@ -5,24 +5,24 @@ services: azure-portal
 keywords: paramètres, délai d’expiration
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/19/2019
+ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 87de67eec9171825a1ebff9ab60782fea8836039
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 950580048f0496fd8436901938a5b6768c61bab6
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310796"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132088"
 ---
 # <a name="set-directory-level-inactivity-timeout"></a>Configurer le délai d’inactivité au niveau du répertoire
 
-Le paramètre de délai d’inactivité vous permet de protéger vos ressources contre tout accès non autorisé si les utilisateurs oublient de sécuriser leur station de travail. Lorsqu’un utilisateur est resté inactif pendant un certain temps, sa session du Portail Azure se déconnecte automatiquement. Les administrateurs peuvent appliquer la durée d’inactivité maximale avant qu’une session soit déconnectée. Le paramètre de délai d’inactivité s’applique au niveau du répertoire. Pour plus d’informations sur les répertoires, voir [Présentation des services de domaine Active Directory](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
+Le paramètre de délai d’inactivité vous permet de protéger vos ressources contre tout accès non autorisé si les utilisateurs oublient de sécuriser leur station de travail. Lorsqu’un utilisateur est resté inactif pendant un certain temps, sa session du Portail Azure se déconnecte automatiquement. Les administrateurs dans le [rôle administrateur général](../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) peuvent appliquer la durée d’inactivité maximale avant qu’une session soit déconnectée. Le paramètre de délai d’inactivité s’applique au niveau du répertoire. Pour plus d’informations sur les répertoires, voir [Présentation des services de domaine Active Directory](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 ## <a name="configure-the-inactive-timeout-setting"></a>Configurer le paramètre du délai d’attente
 
-Si vous êtes administrateur et que vous souhaitez appliquer un paramètre de délai d’inactivité pour tous les utilisateurs du Portail Azure, procédez comme suit :
+Si vous êtes administrateur général et que vous voulez appliquer un paramètre de délai d’inactivité pour tous les utilisateurs du portail Azure, effectuez ces étapes :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Paramètres** dans l’en-tête de page global.

@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9519aaf7b57f5f4fbafa7248d3d524aea5d22c46
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 8dcbfe7a47dba5a1783d6010d41e33073bc0bb20
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922398"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048916"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Couverture de la mobilité Azure Maps
 
-Le [service Mobilité](https://aka.ms/AzureMapsMobilityService) d’Azure Maps propose des fonctionnalités pour planifier des itinéraires de transports en commun, de partages de vélos et de scooters avec des options de planification de parcours multimodaux. Pour les transports en commun, le service propose la recherche des stations, arrêts et lignes à proximité et fournit des informations comme les arrivées planifiées et en temps réel des transports en commun, la liste des arrêts et des cartes, ainsi que des itinéraires pas à pas détaillés et multimodaux et des alertes de service. Le service Mobilité retourne des informations de disponibilité statiques et en temps réel pour les véhicules partagés et le partage de vélos et de scooters.
+Azure Maps offre un [service Mobility](https://aka.ms/AzureMapsMobilityService). Le service Mobility améliore les temps de développement pour les applications avec des fonctionnalités de transport public, de partage de vélos et de partage de scooters. Il offre une option de routage avec des options de planification de déplacement multimodal. Les fonctionnalités pour les transports publics incluent la recherche de stations proches, la recherche d’arrêts, la recherche de lignes de transport, la récupération d’informations sur les horaires, la récupération des arrivées des transports publics en temps réel, la liste des arrêts et des guides d’itinéraires. Le service retourne des informations de disponibilité statiques et en temps réel pour les véhicules partagés, comme les voitures, les vélos et les scooters. L’API retourne des itinéraires pas à pas détaillés et multimodaux, et des alertes de service.
 
-Azure Maps n’a pas le même niveau d’information et de précision pour toutes les villes et tous les pays/régions. La capacité d’appeler des données de transit dépend de la ville, et les données peuvent ne pas inclure toutes les options de transports en commun et agences qui desservent la ville.
+Azure Maps n’a pas le même niveau d’information et de précision pour toutes les villes et tous les pays/régions. La possibilité d’appeler des données de transport dépend de la localité. Les données peuvent ne pas inclure toutes les options de transport public et des agences qui desservent la localité.
 
-Le tableau suivant fournit des informations sur la couverture du service Mobilité d’Azure Maps.
+Le tableau suivant fournit des informations sur la couverture du service Mobility d’Azure Maps.
 
 
 | Symbole | Signification |
@@ -141,17 +141,17 @@ Le tableau suivant fournit des informations sur la couverture du service Mobilit
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment demander des données de transit à l’aide de Mobility Service :
+Découvrez comment demander des données de transport public avec le service Mobility :
 
 > [!div class="nextstepaction"]
 > [Comment demander des données de transit](how-to-request-transit-data.md)
 
-Découvrez comment demander des données en temps réel à l’aide de Mobility Service :
+Découvrez comment demander des données en temps réel avec le service Mobility :
 
 > [!div class="nextstepaction"]
 > [Comment demander des données en temps réel](how-to-request-real-time-data.md)
 
-Explorer la documentation de l’API Mobility Service d’Azure Maps
+Explorer la documentation de l’API du service Mobility Azure Maps
 
 > [!div class="nextstepaction"]
-> [Documentation de l’API Mobility Service](https://aka.ms/AzureMapsMobilityService)
+> [Documentation de l’API du service Mobility](https://aka.ms/AzureMapsMobilityService)
