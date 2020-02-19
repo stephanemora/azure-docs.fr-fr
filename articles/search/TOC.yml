@@ -323,10 +323,10 @@
       items:
         - name: Notions de base
           href: search-monitor-usage.md
-        - name: Superviser l’activité des requêtes
-          href: search-monitor-queries.md
         - name: la journalisation des diagnostics.
           href: search-monitor-logs.md
+        - name: Superviser l’activité des requêtes
+          href: search-monitor-queries.md
         - name: Rechercher l’analyse du trafic
           href: search-traffic-analytics.md
     - name: Dépanner
