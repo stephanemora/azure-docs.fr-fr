@@ -13,25 +13,26 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 02/12/2020
 ms.author: shvija
-ms.openlocfilehash: 17906a7d0953d8b320301d74cda81d14c9ad340f
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 324425662622201bb50261d396d3eef1f531ba37
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123438"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187314"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capturer des événements avec Azure Event Hubs dans le stockage Blob Azure ou Azure Data Lake Storage
-Azure Event Hubs vous permet de capturer automatiquement les données de streaming dans Event Hubs vers un compte de [Stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/) ou [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) de votre choix, tout en vous permettant de spécifier un intervalle de temps ou de taille. La configuration de l’outil Capture est rapide : il n’existe aucun coût d’administration pour son exécution et il s’adapte automatiquement à vos [unités de débit](event-hubs-scalability.md#throughput-units) Event Hubs. Event Hubs Capture représente le moyen le plus simple de charger les données pour la diffusion en continu dans Azure et vous permet de vous concentrer sur le traitement des données plutôt que sur la capture de données.
+Azure Event Hubs vous permet de capturer automatiquement les données de streaming dans Event Hubs dans un compte [Stockage Blob Azure](https://azure.microsoft.com/services/storage/blobs/) ou [Azure Data Lake Store Gen 1 ou Gen 2](https://azure.microsoft.com/services/data-lake-store/) de votre choix, tout en vous permettant de spécifier un intervalle de temps ou de taille. La configuration de l’outil Capture est rapide : il n’existe aucun coût d’administration pour son exécution et il s’adapte automatiquement à vos [unités de débit](event-hubs-scalability.md#throughput-units) Event Hubs. Event Hubs Capture représente le moyen le plus simple de charger les données pour la diffusion en continu dans Azure et vous permet de vous concentrer sur le traitement des données plutôt que sur la capture de données.
 
 Event Hubs Capture vous permet de traiter des pipelines basés sur des lots et en temps réel sur le même flux. Cela vous permet de créer des solutions capables d’évoluer avec vos besoins au fil du temps. Que vous créiez des systèmes basés sur des lots dès aujourd’hui en pensant au traitement en temps réel à l’avenir, ou que vous souhaitiez ajouter un chemin à froid efficace vers une solution existante en temps réel, Event Hubs Capture facilite la tâche avec les données diffusées en continu.
+
 
 ## <a name="how-event-hubs-capture-works"></a>Fonctionnement d’Azure Event Hubs Capture
 
 Event Hubs est une mémoire tampon durable de rétention temporelle pour l’entrée de télémétrie, similaire à un journal distribué. La clé de la mise à l’échelle dans Event Hubs est le [modèle de consommateur partitionné](event-hubs-scalability.md#partitions). Chaque partition est un segment de données indépendant, et est utilisée de manière indépendante. Au fil du temps ces données vieillissent, en fonction de la période de rétention configurable. Par conséquent, un hub d’événements donné n’est jamais « saturé ».
 
-Event Hubs Capture vous permet de spécifier votre propre compte Stockage Blob Azure ou Azure Data Lake Store, ainsi qu’un conteneur qui est utilisé pour stocker les données capturées. Ces comptes peuvent se trouver dans la même région que votre hub d’événements ou dans une autre région, ce qui ajoute à la flexibilité de la fonctionnalité Event Hubs Capture.
+Event Hubs Capture vous permet de spécifier vos propres compte et conteneur Stockage Blob Azure, ou compte Azure Data Lake Storage, qui sont utilisés pour stocker les données capturées. Ces comptes peuvent se trouver dans la même région que votre hub d’événements ou dans une autre région, ce qui ajoute à la flexibilité de la fonctionnalité Event Hubs Capture.
 
 Les données capturées sont écrites au format [Apache Avro][Apache Avro] : un format compact, rapide et binaire qui fournit des structures de données riches avec un schéma inclus. Ce format est largement utilisé dans l’écosystème Hadoop, Stream Analytics et Azure Data Factory. Vous trouverez plus d’informations sur l’utilisation d’Avro plus loin dans cet article.
 
@@ -142,13 +143,13 @@ Notez que Capture n’utilise pas de quota de sortie puisqu’il est facturé s�
 Vous pouvez créer un abonnement Azure Event Grid en utilisant un espace de noms Event Hubs comme source. Le tutoriel suivant vous montre comment créer un abonnement Event Grid avec un hub d’événements comme source et une application Azure Functions comme récepteur : [Traiter et migrer des données Event Hubs capturées vers un entrepôt de données SQL à l’aide d’Event Grid et d’Azure Functions](store-captured-data-data-warehouse.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-
 Event Hubs Capture est la solution la plus simple pour charger des données dans Azure. À l’aide d’Azure Data Lake, d’Azure Data Factory et d’Azure HDInsight, vous pouvez effectuer un traitement par lots, ainsi que d’autres analyses en utilisant des outils et des plateformes de votre choix, à l’échelle requise.
 
-Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
+Découvrez comment activer cette fonctionnalité avec le portail Azure et un modèle Azure Resource Manager :
 
-* [Bien démarrer avec l’envoi et la réception d’événements](event-hubs-dotnet-framework-getstarted-send.md)
-* [Vue d’ensemble d’Event Hubs][Event Hubs overview]
+- [Utiliser le portail Azure pour activer la capture Event Hubs](event-hubs-capture-enable-through-portal.md)
+- [Utiliser un modèle Resource Manager pour activer Event Hubs Capture](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
+
 
 [Apache Avro]: https://avro.apache.org/
 [Apache Drill]: https://drill.apache.org/
