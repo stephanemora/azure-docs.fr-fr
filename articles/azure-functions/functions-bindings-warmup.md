@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: 108294e3f125da9fb009eb0a85585dab026c8d01
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: c3ed780bc50b690b2f5c3285024695ec6426b9b3
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933331"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167325"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Déclencheur de préchauffage Azure Functions
 
@@ -38,7 +38,7 @@ Notez que le déclencheur de préchauffage est uniquement appelé pendant les op
 
 ## <a name="trigger---example"></a>Déclencheur - exemple
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui s’exécutera sur chaque nouvelle instance quand elle sera ajoutée à votre application. Aucun attribut de valeur renvoyée n’est requis.
 
@@ -73,7 +73,7 @@ namespace WarmupSample
     }
 }
 ```
-# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 
 L’exemple suivant montre un déclencheur de préchauffage dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui s’exécutera sur chaque nouvelle instance quand elle sera ajoutée à votre application.
@@ -105,7 +105,7 @@ public static void Run(ILogger log)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L’exemple suivant montre un déclencheur de préchauffage dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui s’exécutera sur chaque nouvelle instance quand elle sera ajoutée à votre application.
 
@@ -136,7 +136,7 @@ module.exports = async function (context, warmupContext) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 L’exemple suivant montre un déclencheur de préchauffage dans un fichier *function.json* et une [fonction Python](functions-reference-python.md) qui s’exécutera sur chaque nouvelle instance quand elle sera ajoutée à votre application.
 
@@ -169,27 +169,11 @@ def main(warmupContext: func.Context) -> None:
     logging.info('Function App instance is warm 🌞🌞🌞')
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
-L’exemple suivant montre un déclencheur de préchauffage dans un fichier *function.json* et une [fonction Java](functions-reference-java.md) qui s’exécutera sur chaque nouvelle instance quand elle sera ajoutée à votre application.
+L’exemple suivant montre un déclencheur de préchauffage qui s’exécute lors de l’ajout d’une nouvelle instance à votre application.
 
-Votre fonction doit être nommée ```warmup``` (non sensible à la casse) et il ne peut y avoir qu’une seule fonction de préchauffage par application.
-
-Voici le fichier *function.json* :
-
-```json
-{
-    "bindings": [
-        {
-            "type": "warmupTrigger",
-            "direction": "in",
-            "name": "warmupContext"
-        }
-    ]
-}
-```
-
-Voici le code Java :
+Votre fonction doit être nommée `warmup` (non sensible à la casse) et il ne peut y avoir qu’une seule fonction de préchauffage par application.
 
 ```java
 @FunctionName("Warmup")
@@ -204,7 +188,7 @@ public void run( ExecutionContext context) {
 
 Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), l’attribut `WarmupTrigger` est disponible pour configurer la fonction.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Cet exemple montre comment utiliser l’attribut [warmup](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs).
 
@@ -221,19 +205,19 @@ Notez que votre fonction doit être appelée ```Warmup``` et qu’il ne peut y a
 
 Pour obtenir un exemple complet, consultez l’[exemple de déclencheur](#trigger---example).
 
-# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 Les attributs ne sont pas pris en charge par le script C#.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Les attributs ne sont pas pris en charge par JavaScript.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Les attributs ne sont pas pris en charge par Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Le déclencheur de préchauffage n’est pas pris en charge dans Java en tant qu’attribut.
 

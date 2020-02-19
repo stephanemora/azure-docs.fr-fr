@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 5ac1f3e4bf629a2e12eb0461b932a5865228c79c
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 02/11/2020
+ms.openlocfilehash: 6dd8246d5751609e2f20ee9d5e519529752940f7
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546705"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137528"
 ---
 # <a name="cross-validate-model"></a>Modèle de validation croisée
 
@@ -62,21 +62,19 @@ Dans ce scénario, vous entraînez et testez le modèle à l’aide du modèle d
 
 2. Connectez la sortie de n’importe quel modèle de classification ou de régression. 
 
-    Par exemple, si vous utilisez **Machine de point de Bayes à deux classes** pour la classification, configurez le modèle avec les paramètres de votre choix. Ensuite, faites glisser un connecteur du port **Modèle non entraîné** du classifieur vers le port correspondant du modèle de validation croisée. 
+    Par exemple, si vous utilisez **Arbre de décision optimisé à deux classes** pour la classification, configurez le modèle avec les paramètres de votre choix. Ensuite, faites glisser un connecteur du port **Modèle non entraîné** du classifieur vers le port correspondant du modèle de validation croisée. 
 
     > [!TIP] 
     > Vous n’avez pas besoin d’entraîner le modèle, car le modèle de validation croisée l’entraîne automatiquement dans le cadre de l’évaluation.  
 3.  Sur le port **Jeu de données** du modèle de validation croisée, connectez tout jeu de données d’entraînement étiqueté.  
 
-4.  Dans le volet **Propriétés** du modèle de validation croisée, sélectionnez **Launch column selector** (Lancer le sélecteur de colonne). Choisissez la colonne unique qui contient l’étiquette de classe, ou la valeur prévisible. 
+4.  Dans le volet droit de Cross Validate Model, cliquez sur **Modifier la colonne**. Sélectionnez la colonne unique qui contient l’étiquette de classe ou la valeur prévisible. 
 
 5. Définissez une valeur pour le paramètre **Random seed** (Valeur de départ aléatoire) si vous souhaitez répéter les résultats de la validation croisée entre des exécutions successives sur les mêmes données.  
 
 6. Exécuter le pipeline.
 
 7. Pour obtenir une description des rapports, consultez la section [Résultats](#results).
-
-    Pour obtenir une copie du modèle en vue d’une réutilisation ultérieure, basculez vers l’onglet **Sorties** dans le panneau droit du module qui contient l’algorithme (par exemple, la **machine de point de Bayes à deux classes**). Sélectionnez ensuite l’icône **Inscrire le jeu de données** pour enregistrer une copie du modèle entraîné dans l’arborescence du module.
 
 ## <a name="results"></a>Résultats
 

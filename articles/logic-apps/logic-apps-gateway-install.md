@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 12/05/2019
-ms.openlocfilehash: 4fbfb31feb2183e3175a96023cbb3b08c4d18027
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 797cd82327d68003d4e5f007d1f16e9534092ac0
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893669"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191357"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 
@@ -203,9 +203,9 @@ Comme tout autre service Windows, vous pouvez démarrer et arrêter la passerell
 
 Les utilisateurs au sein de votre organisation peuvent accéder aux données locales pour lesquelles ils disposent déjà d’un accès autorisé. Toutefois, pour que ces utilisateurs puissent se connecter à votre source de données locale, vous devez installer et configurer une passerelle de données locale. En règle générale, la personne qui installe et configure une passerelle est un administrateur. Ces actions peuvent nécessiter des autorisations d’administrateur du serveur ou des connaissances spéciales sur vos serveurs locaux.
 
-La passerelle facilite une communication rapide et sécurisée en coulisses. Cette communication circule entre un utilisateur dans le cloud, le service cloud de passerelle et votre source de données locale. Le service cloud de passerelle chiffre et stocke les informations d’identification de votre source de données et les détails de la passerelle. Le service achemine également les requêtes et leurs résultats entre l’utilisateur, la passerelle et votre source de données locale.
+La passerelle facilite une communication plus rapides et plus sûre en coulisses. Cette communication circule entre un utilisateur dans le cloud, le service cloud de passerelle et votre source de données locale. Le service cloud de passerelle chiffre et stocke les informations d’identification de votre source de données et les détails de la passerelle. Le service achemine également les requêtes et leurs résultats entre l’utilisateur, la passerelle et votre source de données locale.
 
-La passerelle fonctionne avec les pare-feux et utilise uniquement des connexions sortantes. Tout le trafic est initialisé en tant que trafic sortant de l’agent de passerelle sécurisé. La passerelle relaie les données des sources locales sur des canaux chiffrés via [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Ce service bus crée un canal entre la passerelle et le service d’appel, mais ne stocke aucune donnée. Toutes les données qui transitent via la passerelle sont chiffrées.
+La passerelle fonctionne avec les pare-feux et utilise uniquement des connexions sortantes. L’ensemble du trafic est généré sous forme de trafic sortant sécurisé en provenance de l’agent de passerelle. La passerelle relaie les données des sources locales sur des canaux chiffrés via [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Ce service bus crée un canal entre la passerelle et le service d’appel, mais ne stocke aucune donnée. Toutes les données qui transitent via la passerelle sont chiffrées.
 
 ![Architecture pour la passerelle de données locale](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 

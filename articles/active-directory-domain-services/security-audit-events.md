@@ -9,18 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: d8e96ffc3e2b4756a4184a9a023133f14b326ed3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 42ab32e80ef0a1a7f3c02d8a8eedbb8ab13c4b88
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979939"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132248"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Activer les audits de sécurité pour Azure Active Directory Domain Services
 
-Les audits de sécurité Azure Active Directory Domain Services (Azure AD DS) permettent à Azure de diffuser en continu les événements de sécurité aux ressources ciblées. Ces ressources incluent le Stockage Microsoft Azure, les espaces de travail Azure Log Analytics ou Azure Event Hub. Après avoir activé les événements d’audit de sécurité, le service de domaine Azure AD DS envoie tous les événements audités pour la catégorie sélectionnée à la ressource ciblée. Vous pouvez archiver les événements dans les événements de diffusion en continu et de Stockage Microsoft Azure à un logiciel SIEM (Security Information and Event Management) (ou équivalent) à l’aide d’Azure Event Hubs ou effectuer votre propre analyse et utiliser des espaces de travail Log Analytics, à partir du Portail Microsoft Azure.
+Les audits de sécurité Azure Active Directory Domain Services (Azure AD DS) permettent à Azure de diffuser en continu les événements de sécurité aux ressources ciblées. Ces ressources incluent le Stockage Microsoft Azure, les espaces de travail Azure Log Analytics ou Azure Event Hub. Après avoir activé les événements d’audit de sécurité, le service de domaine Azure AD DS envoie tous les événements audités pour la catégorie sélectionnée à la ressource ciblée.
+
+Vous pouvez archiver les événements dans les événements de diffusion en continu et de Stockage Microsoft Azure à un logiciel SIEM (Security Information and Event Management) (ou équivalent) à l’aide d’Azure Event Hubs ou effectuer votre propre analyse et utiliser des espaces de travail Log Analytics, à partir du Portail Microsoft Azure.
 
 > [!IMPORTANT]
 > Les audits de sécurité Azure AD DS sont disponibles uniquement pour les instances basées sur Azure Resource Manager. Pour en savoir plus sur la migration, voir [Migrer Azure Active Directory Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager][migrate-azure-adds].
@@ -61,25 +63,25 @@ Les catégories d’événements d’audit suivantes sont disponibles :
 
 ## <a name="security-audit-destinations"></a>Destinations des audits de sécurité
 
-Vous pouvez utiliser n’importe quelle combinaison d’espaces de travail Stockage Microsoft Azure, Azure Event Hubs ou Azure Log Analytics comme ressource cible pour vos audits de sécurité Azure Active Directory Domain Services. Vous pouvez utiliser le Stockage Microsoft Azure pour l’archivage des événements d’audit de sécurité, ainsi qu’un espace de travail Azure Log Analytics pour analyser et créer des rapport sur les informations à court terme.
+Vous pouvez utiliser des espaces de travail Stockage Azure, Azure Event Hubs ou Azure Log Analytics comme ressources cibles pour les audits de sécurité Azure Active Directory Domain Services. Et vous pouvez combiner ces destinations. Par exemple, vous pouvez un espace de travail Stockage Azure pour l’archivage d’événements d’audit de sécurité, et un espace de travail Azure Log Analytics pour analyser et créer des rapport sur les informations à court terme.
 
 La table suivante présente les scénarios pour chaque type de ressource de destination.
 
 > [!IMPORTANT]
-> Vous devez créer la ressource cible avant d’activer les audits de sécurité Azure AD Domain Services. Vous pouvez créer ces ressources en utilisant le Portail Microsoft Azure, Azure PowerShell ou Azure CLI.
+> Vous devez créer la ressource cible avant d’activer les audits de sécurité Azure Active Directory Domain Services. Vous pouvez créer ces ressources en utilisant le Portail Microsoft Azure, Azure PowerShell ou Azure CLI.
 
 | Ressource cible | Scénario |
 |:---|:---|
-|Stockage Azure| Utilisez cette cible si votre besoin principal repose sur le stockage des événements d’audit de sécurité à des fins d’archivage. Les autres cibles peuvent être utilisées à des fins d’archivage ; toutefois, ces cibles fournissent des fonctionnalités au-delà du besoin principal d’archivage. Avant d’activer les événements d’audit de sécurité Azure AD DS, vous devez d’abord [créer un compte de stockage Azure](../storage/common/storage-account-create.md).|
-|Hubs d'événements Azure| Utilisez cette cible si votre besoin principal repose sur le partage des événements d’audit de sécurité avec un autre logiciel tel qu’un logiciel d’analyse de données ou un logiciel SIEM (Security Information and Event Management). Avant d’activer les événements d’audit de sécurité Azure AD DS, [créez un hub Event Hub avec le Portail Microsoft Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).|
-|Espace de travail Azure Log Analytics| Utilisez cette cible si votre besoin principal repose sur l’analyse et le passage en revue des audits de sécurité directement à partir du Portail Microsoft Azure. Avant d’activer les événements d’audit de sécurité Azure AD DS, [créez un espace de travail Log Analytics dans le Portail Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).|
+|Stockage Azure| Utilisez cette cible si votre besoin principal repose sur le stockage des événements d’audit de sécurité à des fins d’archivage. Les autres cibles peuvent être utilisées à des fins d’archivage ; toutefois, ces cibles fournissent des fonctionnalités au-delà du besoin principal d’archivage. <br /><br />Avant d’activer les événements d’audit de sécurité Azure AD DS, vous devez d’abord [créer un compte de stockage Azure](../storage/common/storage-account-create.md).|
+|Hubs d'événements Azure| Utilisez cette cible si votre besoin principal repose sur le partage des événements d’audit de sécurité avec un autre logiciel tel qu’un logiciel d’analyse de données ou un logiciel SIEM (Security Information and Event Management).<br /><br />Avant d’activer les événements d’audit de sécurité Azure AD DS, [créez un hub Event Hub avec le Portail Microsoft Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).|
+|Espace de travail Azure Log Analytics| Utilisez cette cible si votre besoin principal repose sur l’analyse et le passage en revue des audits de sécurité directement à partir du Portail Microsoft Azure.<br /><br />Avant d’activer les événements d’audit de sécurité Azure AD DS, [créez un espace de travail Log Analytics dans le Portail Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).|
 
 ## <a name="enable-security-audit-events-using-the-azure-portal"></a>Activer des événements d’audit de sécurité à l’aide du Portail Microsoft Azure
 
 Pour activer les événements d’audit de sécurité Azure AD DS à l’aide du Portail Microsoft Azure, procédez comme suit.
 
 > [!IMPORTANT]
-> Les audits de sécurité Azure AD DS ne sont pas rétroactifs. Il est impossible de récupérer ou de relire des événements passés. Le logiciel Azure AD DS peut uniquement envoyer des événements qui se produisent une fois qu’il est activé.
+> Les audits de sécurité Azure AD DS ne sont pas rétroactifs. Vous ne pouvez pas récupérer ou répéter des événements du passé. Le service Active Directory Domain Services ne peut envoyer que des événements qui se produisent une fois les audits de sécurité activés.
 
 1. Connectez-vous au portail Azure sur https://portal.azure.com.
 1. Sur le Portail Microsoft Azure, recherchez et sélectionnez **Azure AD Domain Services**. Choisissez votre domaine managé, par exemple *aadds.contoso.com*.
@@ -116,7 +118,7 @@ Pour activer les événements d’audit de sécurité Azure AD DS à l’aide du
 Pour activer les événements d’audit de sécurité Azure AD DS à l’aide d’Azure PowerShell, procédez comme suit. Si nécessaire, commencez par [installer le module Azure PowerShell et vous connecter à votre abonnement Azure](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
-> Les audits de sécurité Azure AD DS ne sont pas rétroactifs. Il est impossible de récupérer ou de relire des événements passés. Le logiciel Azure AD DS peut uniquement envoyer des événements qui se produisent une fois qu’il est activé.
+> Les audits de sécurité Azure AD DS ne sont pas rétroactifs. Vous ne pouvez pas récupérer ou répéter des événements du passé. Le service Active Directory Domain Services ne peut envoyer que des événements qui se produisent une fois les audits de sécurité activés.
 
 1. Connectez-vous à votre abonnement Azure à l’aide de la cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount). À l’invite, saisissez vos informations d’identification de compte.
 
@@ -191,11 +193,11 @@ AADDomainServicesAccountManagement
 
 ### <a name="sample-query-2"></a>Exemple de requête 2
 
-Affichez tous les événements de verrouillage de compte (*4740*) survenus entre le 26 juin 2019 à 9:00 et le 1er juillet 2019 minuit, triés par ordre croissant de date et heure :
+Affichez tous les événements de verrouillage de compte (*4740*) survenus entre le 3 février 2020 à 9 h 00 et le 10 février 2019 à minuit, triés par ordre croissant de date et d’heure :
 
 ```Kusto
 AADDomainServicesAccountManagement
-| where TimeGenerated >= datetime(2019-06-26 09:00) and TimeGenerated <= datetime(2019-07-01)
+| where TimeGenerated >= datetime(2020-02-03 09:00) and TimeGenerated <= datetime(2020-02-10)
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```

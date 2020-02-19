@@ -2,19 +2,21 @@
 title: Modèle de syntaxe et d’expressions
 description: Décrit la syntaxe JSON déclarative pour les modèles Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/03/2019
-ms.openlocfilehash: b7682ba10c30290e5935bc2dd17e2a83852d92f4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/10/2020
+ms.openlocfilehash: 42649d4b04b03de32b82335fce68401192de75a3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476279"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120598"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Syntaxe et expressions dans les modèles Azure Resource Manager
 
 La syntaxe de base du modèle est JSON. Toutefois, vous pouvez utiliser des expressions et fonctions pour étendre les valeurs JSON disponibles dans le modèle.  Les expressions commencent et se terminent avec des crochets : `[` et `]`, respectivement. La valeur de l’expression est évaluée lorsque le modèle est déployé. Une expression peut retourner une chaîne, un entier, un booléen, un tableau ou un objet.
 
 Une expression de modèle ne peut pas dépasser 24 576 caractères.
+
+Les expressions prennent en charge json(’null’) et les propriétés prennent en charge une valeur littérale null. Dans les deux cas, les modèles Resource Manager traitent les expressions comme si la propriété en était absente.
 
 ## <a name="use-functions"></a>Utiliser les fonctions
 

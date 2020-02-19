@@ -15,24 +15,20 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: 4b0d360c11313e086f6ec26e5ee46b8d6f49869a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ab1eba3de474d9ff985e62f491c24fa63be0fa63
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844341"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069623"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics sur la plateforme Media Services 
 
 ## <a name="retirement-plans"></a>Plans de mise hors service
 
 > [!IMPORTANT]
-> Les processeurs multimédias hérités suivants seront mis hors service en 2020. Pour plus de détails, consultez le tableau suivant. 
+> Certains processeurs multimédias sont en cours de retrait. Pour les dates de retrait et des informations supplémentaires, voir la rubrique [Composants hérités](legacy-components.md). 
 
-|Nom du processeur multimédia|Date de mise hors service|Remarques supplémentaires|
-|---|---|
-|[Azure Media Indexer](media-services-index-content.md)|1er octobre 2020|Ce processeur multimédia sera remplacé par [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Pour plus d’informations, consultez [Effectuer une migration depuis Azure Media Indexer vers Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
- 
 ## <a name="overview"></a>Vue d’ensemble
 
 Les organisations sont de plus en plus nombreuses à privilégier les supports vidéo pour former leurs employés, susciter l’intérêt de leurs clients et présenter leurs activités commerciales. Le cloud computing offre un moyen de stocker, diffuser et accéder à ces fichiers multimédias volumineux. Mais lorsque la bibliothèque de contenu vidéo d’une société augmente, elle nécessite des moyens tout aussi efficaces d’extraire des analyses du contenu. 

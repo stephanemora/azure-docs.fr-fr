@@ -6,48 +6,99 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/18/2019
+ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: a4c911fa077c2ec332974fb2f0c5abcdef21307c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f95d7613926cf332a498cca84563dbc0ebcbbe9b
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284107"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086897"
 ---
 ## <a name="general-entity-types"></a>Types d’entités générales
 
 ### <a name="person"></a>Personne
-Noms et autres personnes reconnus dans le texte.
+
+Reconnaître les noms de personnes dans le texte.
+
 Langages :
 * Préversion publique : `English`
 
-| Nom de sous-type | Description             |
-|--------------|-------------------------|
-| N/A          | Noms reconnus, par exemple `Bill Gates`, `Marie Curie` |
+| Nom de sous-type | Description                                                      | Disponible à partir de la version du modèle |
+|--------------|------------------------------------------------------------------|---------------------------------------|
+| N/A          | Noms de personnes reconnus, par exemple `Bill Gates`, `Marie Curie` | `2019-10-01`                          | 
 
-### <a name="location"></a>Location
+### <a name="persontype"></a>PersonType
+Type de travail ou rôle d’une personne.
 
-Points de repère, structures et caractéristiques géographiques naturels et créés par l’homme.
+Langages :
+* Préversion publique : `English`
+
+| Nom de sous-type | Description                                                                                | Disponible à partir de la version du modèle |
+|--------------|--------------------------------------------------------------------------------------------|----------------------------------------|
+| N/A          | Types de travaux, par exemple `civil engineer`, `salesperson`, `chef`, `librarian`, `nursing aide` | `2020-02-01`                           |
+
+### <a name="location"></a>Emplacement
+
+Points de repère, structures et caractéristiques géographiques et entités géopolitiques naturels et créés par l’homme.
 
 Langages :
 
-
 * Préversion publique : `English`
 
-| Nom de sous-type | Description                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------|
-| N/A          | emplacements, par exemple `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty` |
+| Nom de sous-type              | Description                                                                              | Disponible à partir de la version du modèle |
+|---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
+| N/A                       | emplacements, par exemple `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty`  | `2019-10-01`                           |
+| Entité géopolitique (GPE) | Villes, pays, États, par exemple, `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organisation  
 
-Organisations, entreprises, agences et autres groupes de personnes reconnus. Par exemple : sociétés, groupes politiques, bandes musicales, clubs de sport, organismes gouvernementaux et organisations publiques. Les nationalités et les religions ne sont pas incluses dans ce type d’entité. Langages : 
+Organisations, entreprises, agences et autres groupes de personnes reconnus. Par exemple : sociétés, groupes politiques, bandes musicales, clubs de sport, organismes gouvernementaux et organisations publiques. Les nationalités et les religions ne sont pas incluses dans ce type d’entité. 
+
+Langages : 
 
 * Préversion publique : `English`
 
-| Nom de sous-type | Description                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------|
-| N/A          | les organisations, par exemple `Microsoft`, `NASA` `National Oceanic and Atmospheric Administration` |
+| Nom de sous-type | Description                                                                                             | Disponible à partir de la version du modèle |
+|--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
+| N/A          | organisations, par exemple `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration`, `VOA` | `2019-10-01`                           |
+
+### <a name="event"></a>Événement  
+
+Événements historiques, sociaux et naturels.  
+
+Langages : 
+
+* Préversion publique : `English`
+
+| Nom de sous-type | Description                                                            | Disponible à partir de la version du modèle |
+|--------------|------------------------------------------------------------------------|----------------------------------------|
+| N/A          | Événements tels que `wedding`, `hurricane`, `car accident`, `solar eclipse`, `American Revolution` | `2020-02-01`                           |
+
+### <a name="product"></a>Produit  
+
+Objets physiques de différentes catégories.  
+
+Langages : 
+
+* Préversion publique : `English`
+
+| Nom de sous-type | Description                                                                        | Disponible à partir de la version du modèle |
+|--------------|------------------------------------------------------------------------------------|----------------------------------------|
+| N/A          | Par exemple, `Microsoft Surface laptop`, `sunglasses`, `motorcycle`, `bag`, `Xbox` | `2020-02-01`                           |
+| Informatique    | `Azure Cosmos DB`, `Azure Kubernetes Service`                                     | `2020-02-01`                           |
+
+### <a name="skill"></a>Compétence  
+
+Entité décrivant une capacité ou une expertise.  
+
+Langages : 
+
+* Préversion publique : `English`
+
+| Nom de sous-type | Description                                                                 | Disponible à partir de la version du modèle |
+|--------------|-----------------------------------------------------------------------------|----------------------------------------|
+| N/A          | `nursing`, `data mining`, `linguistics`, `critical thinking`, `photography` | `2020-02-01`                           |
 
 ### <a name="phone-number"></a>Numéro de téléphone
 
@@ -55,53 +106,84 @@ Numéros de téléphone (Numéros de téléphone américains uniquement).
 
 Langages :
 
-
 * Préversion publique : `English`
 
-| Nom de sous-type | Description                                  |
-|----------|----------------------------------------------|
-| N/A         | Numéros de téléphone américains, par exemple `(312) 555-0176`. |
+| Nom de sous-type | Description                                    | Disponible à partir de la version du modèle |
+|--------------|------------------------------------------------|----------------------------------------|
+| N/A          | Numéros de téléphone américains, par exemple `(312) 555-0176` | `2019-10-01`                           |
 
-### <a name="email"></a>Email
+### <a name="email"></a>E-mail
 
-Adresse de messagerie. 
+Adresse e-mail. 
 
 Langages :
 
-
 * Préversion publique : `English`
 
-| Nom de sous-type | Description                                  |
-|----------|----------------------------------------------|
-| N/A         | Adresse e-mail, par exemple `support@contoso.com` |
+| Nom de sous-type | Description                                      | Disponible à partir de la version du modèle |
+|--------------|--------------------------------------------------|----------------------------------------|
+| N/A          | Adresse e-mail, par exemple `support@contoso.com` | `2019-10-01`                           |
 
 ### <a name="url"></a>URL
 
-URL Internet
+URL Internet.
 
 Langages :
-
 
 * Préversion publique : `English`
 
-| Nom de sous-type | Description                                           |
-|----------|-------------------------------------------------------|
-| N/A         | URL de sites web, par exemple `https://www.bing.com`. |
+| Nom de sous-type | Description                                          | Disponible à partir de la version du modèle |
+|--------------|------------------------------------------------------|----------------------------------------|
+| N/A          | URL de sites web, par exemple `https://www.bing.com` | `2019-10-01`                           |
 
-###  <a name="number"></a>Number
+### <a name="ip-address"></a>Adresse IP
 
-Nombres et quantités numériques. 
+Adresse de protocole Internet
 
 Langages :
 
+* Préversion publique : `English`
+
+| Nom de sous-type | Description                              | Disponible à partir de la version du modèle |
+|--------------|------------------------------------------|----------------------------------------|
+| N/A          | Adresse réseau, par exemple `10.0.0.101` | `2019-10-01`                           |
+
+###  <a name="datetime"></a>DateTime
+
+Entités de date et d’heure. 
+
+* Disponible à partir de la version `2019-10-01` du modèle
+
+Langages :
 
 * Préversion publique : `English`
 
 | Nom de sous-type    | Exemples                     |
 |-------------|------------------------------|
-| N/A         | `6`, `six`                   |
+| N/A         | `6:30PM February 4, 2012`, `4/1/2011 2:45`                   |
+| Date  | `May 2nd, 2017`, `05/02/2017`       |
+| Temps     | `8:15`, `6AM`              |
+| DateRange    | `August 2nd to August 5th`         |
+| TimeRange   | `4-6PM`, `10:00AM to Noon`          |
+| Duration | `2.5 minutes`, `one and a half hours`         |
+| Définissez | `every Saturday`         |
+
+###  <a name="quantity"></a>Quantité
+
+Nombres et quantités numériques. 
+
+* Disponible à partir de la version `2019-10-01` du modèle
+
+Langages :
+
+* Préversion publique : `English`
+
+| Nom de sous-type    | Exemples                     |
+|-------------|------------------------------|
+| Number         | `6`, `six`                   |
 | Pourcentage  | `50%`, `fifty percent`       |
 | Ordinal     | `2nd`, `second`              |
+| Age         | `90 day old`, `30 years old` |
 | Devise    | `$10.99`, `€30.00`           |
 | Dimension   | `10 miles`, `40 cm`          |
 | Température | `32 degrees`, `10°C`         |

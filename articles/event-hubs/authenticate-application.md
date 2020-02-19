@@ -6,19 +6,19 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: cce96039ca3883e0ea5ea0b738e0f6e2e079262d
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 4256cebe44b732b190ef1666d0438d17e058b820
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996196"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169293"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Authentifier une application avec Azure Active Directory pour accéder aux ressources Azure Event Hubs
 Microsoft Azure offre la gestion du contrôle d’accès intégré pour les ressources et les applications basées sur Azure Active Directory (Azure AD). L’un des principaux avantages de l’utilisation d’Azure AD avec Azure Event Hubs est que vous n’avez plus besoin de stocker vos informations d’identification dans le code. Au lieu de cela, vous pouvez demander un jeton d’accès OAuth 2.0 à partir de la Plateforme d’identité Microsoft. Le nom de ressource à utiliser pour demander un jeton est `https://eventhubs.azure.net/`. Azure AD authentifie le principal de sécurité (un utilisateur, un groupe ou un principal de service) qui exécute l’application. Si l’authentification réussit, Azure AD retourne un jeton d’accès à l’application et l’application peut ensuite l’utiliser pour autoriser les demandes vers les ressources Azure Event Hubs.
 
-Lorsqu’un rôle est attribué à un principal de sécurité Azure AD, Azure octroie l’accès à ces ressources pour ce principal de sécurité. L’accès peut être limité au niveau de l’abonnement, au groupe de ressources, à l’espace de noms Event Hubs ou à toute ressource qu’il contient. Un principal de sécurité Azure AD peut attribuer des rôles à un utilisateur, à un groupe, à un principal de service d’application ou à une [identité managée pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md). 
+Lorsqu’un rôle est attribué à un principal de sécurité Azure AD, Azure octroie l’accès à ces ressources pour ce principal de sécurité. L’accès peut être limité au niveau de l’abonnement, du groupe de ressources, de l’espace de noms Event Hubs ou de toute ressource sous-jacente. Un principal de sécurité Azure AD peut attribuer des rôles à un utilisateur, à un groupe, à un principal de service d’application ou à une [identité managée pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md). 
 
 > [!NOTE]
 > Une définition de rôle est une collection d’autorisations. Le contrôle d’accès en fonction du rôle (RBAC) contrôle la façon dont ces autorisations sont appliquées par le biais de l’attribution de rôle. Une attribution de rôle se compose de trois éléments : un principal de sécurité, une définition de rôle et une étendue. Pour plus d’informations, consultez [Comprendre les différents rôles](../role-based-access-control/overview.md).
@@ -36,7 +36,7 @@ Azure fournit les rôles RBAC intégrés suivants pour autoriser l’accès aux 
 ## <a name="assign-rbac-roles-using-the-azure-portal"></a>Attribuer des rôles RBAC à l’aide du portail Azure  
 Pour en savoir plus sur la gestion de l’accès aux ressources Azure à l’aide de RBAC et du portail Azure, consultez [cet article](..//role-based-access-control/role-assignments-portal.md). 
 
-Après avoir déterminé l’étendue appropriée pour une attribution de rôle, accédez à cette ressource dans le portail Azure. Affichez les paramètres de contrôle d’accès (IAM) pour la ressource et suivez ces instructions pour gérer les attributions de rôle :
+Après avoir déterminé l’étendue appropriée pour une attribution de rôle, accédez à cette ressource dans le portail Azure. Affichez les paramètres Contrôle d’accès (IAM) pour la ressource et suivez ces instructions pour gérer les attributions de rôle :
 
 > [!NOTE]
 > La procédure décrite ci-dessous attribue un rôle à votre Event Hub sous les espaces de noms Event Hubs, mais vous pouvez suivre les mêmes étapes pour attribuer un rôle étendu à n’importe quelle ressource Event Hubs.
@@ -63,14 +63,14 @@ Vous pouvez suivre des étapes similaires pour attribuer un rôle dans l’éten
 
 
 ## <a name="authenticate-from-an-application"></a>Authentifier à partir d’une application
-Le principal avantage d’utiliser Azure AD avec Event Hubs est que vos informations d’identification n’ont plus besoin d’être stockées dans votre code. Au lieu de cela, vous pouvez demander un jeton d’accès OAuth 2.0 à partir de la Plateforme d’identité Microsoft. Azure AD authentifie le principal de sécurité (un utilisateur, un groupe ou un principal de service) qui exécute l’application. Si l’authentification réussit, Azure AD retourne le jeton d’accès à l’application et l’application peut ensuite l’utiliser pour autoriser les demandes vers Azure Event Hubs.
+Le principal avantage d’utiliser Azure AD avec Event Hubs est que vos informations d’identification n’ont plus besoin d’être stockées dans votre code. À la place, vous pouvez demander un jeton d’accès OAuth 2.0 sur la plateforme d’identités Microsoft. Azure AD authentifie le principal de sécurité (un utilisateur, un groupe ou un principal de service) qui exécute l’application. Si l’authentification réussit, Azure AD retourne le jeton d’accès à l’application et l’application peut ensuite l’utiliser pour autoriser les demandes vers Azure Event Hubs.
 
-Les sections suivantes vous expliquent comment configurer votre application native ou une application web pour l’authentification avec la plateforme d’identité Microsoft 2.0. Pour plus d’informations sur la plateforme d’identité Microsoft 2.0, veuillez consulter l’article [Présentation de la plateforme d’identités Microsoft (v2.0)](../active-directory/develop/v2-overview.md).
+Les sections suivantes vous montrent comment configurer votre application native ou une application web pour l’authentification avec la plateforme d’identités Microsoft 2.0. Pour plus d’informations sur la plateforme d’identité Microsoft 2.0, veuillez consulter l’article [Présentation de la plateforme d’identités Microsoft (v2.0)](../active-directory/develop/v2-overview.md).
 
 Pour avoir une vue d’ensemble du flux d’octroi de code OAuth 2.0, consultez [Autoriser l’accès aux applications web Azure Active Directory à l’aide du flux d’octroi de code OAuth 2.0](../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
 ### <a name="register-your-application-with-an-azure-ad-tenant"></a>Inscrire votre application à un locataire Azure AD
-La première étape d’utilisation d’Azure AD pour autoriser l’accès aux ressources Event Hubs est d’inscrire votre application cliente avec un locataire Azure AD à partir du [portail Microsoft Azure](https://portal.azure.com/). Lorsque vous inscrivez votre application cliente, vous fournissez des informations sur l’application à AD. Azure AD fournit ensuite un ID de client (appelé aussi ID d’application) que vous pouvez utiliser pour associer votre application au runtime Azure AD. Pour en savoir plus sur l’ID de client, consultez [Objets application et principal du service dans Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). 
+La première étape d’utilisation d’Azure AD pour autoriser l’accès aux ressources Event Hubs est d’inscrire votre application cliente avec un locataire Azure AD à partir du [portail Microsoft Azure](https://portal.azure.com/). Lorsque vous inscrivez votre application cliente, vous fournissez des informations la concernant à Azure AD. Azure AD fournit ensuite un ID de client (appelé aussi ID d’application) que vous pouvez utiliser pour associer votre application au runtime Azure AD. Pour en savoir plus sur l’ID de client, consultez [Objets application et principal du service dans Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). 
 
 Les illustrations suivantes montrent les étapes d’inscription d’une application web :
 
@@ -87,7 +87,7 @@ Pour plus d’informations sur l’inscription d’une application dans Azure AD
 
 
 ### <a name="create-a-client-secret"></a>Créer une clé secrète client   
-L’application a besoin d’une clé secrète client pour prouver son identité lors de la requête de jeton. Pour ajouter le secret client, procédez comme suit.
+L’application a besoin d’une clé secrète client pour prouver son identité lors de la requête de jeton. Pour ajouter le secret client, effectuez ces étapes.
 
 1. Accédez à votre inscription d’application dans le Portail Microsoft Azure.
 1. Sélectionnez le paramètre **Certificats et clés secrètes**.
@@ -99,10 +99,17 @@ L’application a besoin d’une clé secrète client pour prouver son identité
 
 
 ### <a name="client-libraries-for-token-acquisition"></a>Bibliothèques clientes pour l’acquisition de jeton  
-Lorsque vous avez inscrit votre application et lui avez accordé les autorisations pour envoyer/recevoir des données dans Azure Event Hubs, vous pouvez ajouter du code à votre application pour authentifier un principal de sécurité et acquérir un jeton OAuth 2.0. Pour authentifier et acquérir le jeton, vous pouvez utiliser l’une des [Bibliothèques d’authentification de plateforme d’identité Microsoft](../active-directory/develop/reference-v2-libraries.md) ou une autre bibliothèque Open Source prenant en charge OpenID ou Connect 1.0. Votre application peut alors utiliser le jeton d’accès pour autoriser une requête sur Azure Event Hubs.
+Lorsque vous avez inscrit votre application et lui avez accordé les autorisations pour envoyer/recevoir des données dans Azure Event Hubs, vous pouvez ajouter du code à votre application pour authentifier un principal de sécurité et acquérir un jeton OAuth 2.0. Pour l’authentification et l’acquisition du jeton, vous pouvez utiliser l’une des [bibliothèques d’authentification de la plateforme d’identités Microsoft](../active-directory/develop/reference-v2-libraries.md) ou toute autre bibliothèque open source prenant en charge OpenID ou Connect 1.0. Votre application peut alors utiliser le jeton d’accès pour autoriser une requête sur Azure Event Hubs.
 
 Pour obtenir la liste de scénarios pour lesquels l’acquisition de jetons est pris en charge, veuillez consulter la section [Scénarios](https://aka.ms/msal-net-scenarios) du référentiel GitHub [Microsoft Authentication Library (MSAL) pour .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
 
+## <a name="samples"></a>Exemples
+- [Exemples Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
+    
+    Ces exemples utilisent l'ancienne bibliothèque **Microsoft.Azure.EventHubs**, mais vous pouvez facilement mettre celle-ci à jour à l'aide de la dernière bibliothèque **Azure.Messaging.EventHubs**. Pour migrer l'exemple de l'ancienne bibliothèque vers la nouvelle, consultez le [Guide de migration de Microsoft.Azure.EventHubs vers Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md).
+- [Exemples Azure.Messaging.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
+
+    Cet exemple a été mis à jour pour utiliser la dernière bibliothèque **Azure.Messaging.EventHubs**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour en savoir plus sur RBAC, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ](../role-based-access-control/overview.md)?

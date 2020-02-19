@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/12/2019
-ms.openlocfilehash: f088b8210b8170d22e84d131f0a72f5f8caa3b92
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/10/2020
+ms.openlocfilehash: f8737f645df2aefbf9ce544199f0cc45ce6a3d60
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435225"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162801"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Exécuter Apache Spark depuis l’interpréteur de commandes Spark
 
@@ -27,29 +27,74 @@ Un interpréteur de commandes [Apache Spark](https://spark.apache.org/) interact
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Spark fournit des interpréteurs de commandes pour Scala (spark-shell) et Python (pyspark). Dans votre session SSH, entrez l’une des commandes suivantes :
+1. Spark fournit des interpréteurs de commandes pour Scala (spark-shell) et Python (pyspark). Dans votre session SSH, entrez *une* des commandes suivantes :
 
     ```bash
     spark-shell
-    pyspark
+
+    # Optional configurations
+    # spark-shell --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4
     ```
 
-    Vous pouvez à présent entrer des commandes Spark dans la langue appropriée.
+    ```bash
+    pyspark
 
-1. Voici quelques exemples de commandes de base :
+    # Optional configurations
+    # pyspark --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4
+    ```
+
+    Si vous envisagez d’utiliser une configuration facultative, commencez par consulter [Exception OutOfMemoryError pour Apache Spark](./apache-spark-troubleshoot-outofmemory.md).
+
+1. Voici quelques exemples de commandes de base. Choisissez le langage approprié :
+
+    ```spark-shell
+    val textFile = spark.read.textFile("/example/data/fruits.txt")
+    textFile.first()
+    textFile.filter(line => line.contains("apple")).show()
+    ```
+
+    ```pyspark
+    textFile = spark.read.text("/example/data/fruits.txt")
+    textFile.first()
+    textFile.filter(textFile.value.contains("apple")).show()
+    ```
+
+1. Interrogez un fichier CSV. Notez que le langage ci-dessous fonctionne pour `spark-shell` et `pyspark`.
 
     ```scala
-    // Load data
+    spark.read.csv("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv").show()
+    ```
+
+1. Interrogez un fichier CSV et stockez les résultats dans une variable :
+
+    ```spark-shell
     var data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv")
+    ```
 
-    // Show data
+    ```pyspark
+    data = spark.read.format("csv").option("header", "true").option("inferSchema", "true").load("/HdiSamples/HdiSamples/SensorSampleData/building/building.csv")
+    ```
+
+1. Affichez les résultats :
+
+    ```spark-shell
     data.show()
-
-    // Select certain columns
     data.select($"BuildingID", $"Country").show(10)
+    ```
 
-    // exit shell
+    ```pyspark
+    data.show()
+    data.select("BuildingID", "Country").show(10)
+    ```
+
+1. Quitter
+
+    ```spark-shell
     :q
+    ```
+
+    ```pyspark
+    exit()
     ```
 
 ## <a name="sparksession-and-sparkcontext-instances"></a>Instances de SparkSession et SparkContext

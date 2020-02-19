@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 1074c4bc561236039e6ee55ef2df4fc8bd8dbbfc
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b1f7708c9bd213e201ba4eb8837a191dca68ca9e
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772514"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167017"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console série Azure pour Linux
 
@@ -32,7 +32,7 @@ Pour en savoir plus sur la console série Windows, consultez [Console série Win
 > La console série est généralement disponible dans les régions Azure Mondiales et en préversion publique dans Azure Government. Elle n’est pas encore disponible dans le cloud Azure Chine.
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Votre machine virtuelle ou votre instance de groupe de machines virtuelles identiques doit utiliser le modèle de déploiement Resource Manager. Les déploiements classiques ne sont pas pris en charge.
 
@@ -124,7 +124,7 @@ Nous sommes conscients de certains problèmes liés à la console série et au s
 
 Problème                           |   Limitation des risques
 :---------------------------------|:--------------------------------------------|
-L’utilisation de la touche **Entrée** après la bannière de connexion n’entraîne pas l’affichage d’une invite de connexion. | Pour plus d’informations, consultez [La touche Entrée n’a aucun effet](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Cela peut se produire si vous exécutez une machine virtuelle personnalisée, une appliance à sécurité renforcée ou une configuration de GRUB qui empêche Linux de se connecter au port série.
+L’utilisation de la touche **Entrée** après la bannière de connexion n’entraîne pas l’affichage d’une invite de connexion. | GRUB n’est peut-être pas correctement configuré. Exécutez les commandes suivantes : `grub2-mkconfig -o /etc/grub2-efi.cfg` et/ou `grub2-mkconfig -o /etc/grub2.cfg`. Pour plus d’informations, consultez [La touche Entrée n’a aucun effet](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Cela peut se produire si vous exécutez une machine virtuelle personnalisée, une appliance à sécurité renforcée ou une configuration de GRUB qui empêche Linux de se connecter au port série.
 Le texte de la console série n’occupe l’écran que partiellement (souvent après l’utilisation d’un éditeur de texte). | Les consoles série ne gèrent pas la négociation sur la taille de fenêtre ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), ce qui signifie qu’aucun signal SIGWINCH ne sera envoyé pour mettre à jour la taille de l’écran et la machine virtuelle ne connaîtra pas la taille de votre terminal. Installez xterm ou un utilitaire similaire pour disposer de la commande `resize`, puis exécutez `resize`.
 Le collage de chaînes longues ne fonctionne pas. | La console série limite la longueur des chaînes collées dans le terminal à 2 048 caractères afin d’empêcher toute surcharge de la bande passante du port série.
 Entrée de clavier erratique dans les images SLES BYOS. L’entrée de clavier n’est reconnue que de manière sporadique. | Il s’agit d’un problème avec le package Plymouth. Plymouth ne doit pas être exécuté dans Azure tant que vous n’avez pas besoin d’un écran de démarrage. Plymouth interfère avec la capacité de la plateforme à utiliser la console série. Supprimez Plymouth avec `sudo zypper remove plymouth`, puis redémarrez. Vous pouvez également modifier la ligne du noyau de votre configuration GRUB en ajoutant `plymouth.enable=0` à la fin de la ligne. Vous pouvez le faire en [modifiant l’entrée de démarrage au moment du démarrage](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), ou en modifiant la ligne GRUB_CMDLINE_LINUX dans `/etc/default/grub`, en regénérant GRUB avec `grub2-mkconfig -o /boot/grub2/grub.cfg`, puis en redémarrant la machine.

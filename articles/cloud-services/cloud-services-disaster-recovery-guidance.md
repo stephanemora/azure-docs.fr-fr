@@ -10,12 +10,12 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: f65b61d7265268b33d2c9a113503cc1b5a87db8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e3f0fd88eb302dac208f43d0622ae28b31dcddc2
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75361209"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157504"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Que faire si une interruption de service Azure affecte Azure Cloud Services
 Microsoft s’engage à déployer tous les efforts nécessaires pour vous garantir en permanence la disponibilité de ses services quand vous en avez besoin. Il arrive parfois que des phénomènes incontrôlables entraînent des interruptions de service non planifiées.
@@ -27,7 +27,7 @@ Azure dispose déjà de nombreuses fonctionnalités intégrées de plateforme qu
 Cet article aborde un scénario réel de récupération d’urgence, dans lequel une région entière connaît une panne en raison d’une catastrophe naturelle majeure ou d’une interruption de service importante. Bien que ces cas soient rares, vous devez envisager l’éventualité d’une panne affectant l’ensemble d’une région. Si une région entière est confrontée à une interruption de service, les copies localement redondantes de vos données sont temporairement indisponibles. Si vous avez activé la géoréplication, trois copies supplémentaires de vos tables et objets blob Azure Storage sont stockées dans une autre région. En cas de panne régionale totale ou de sinistre rendant la région primaire irrécupérable, Azure remappe toutes les entrées DNS sur la région géorépliquée.
 
 > [!NOTE]
-> N’oubliez pas que vous n’avez aucun contrôle sur ce processus et qu’il ne se produit que pour les interruptions du service au niveau du centre de données. Ainsi, vous devez également vous appuyer sur d’autres stratégies de sauvegarde propres à l’application pour atteindre le plus haut niveau de disponibilité. Pour plus d’informations, consultez [Récupération d’urgence et haute disponibilité des applications développées sur Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Si vous souhaitez avoir un impact sur votre propre basculement, vous pouvez envisager l’utilisation du [stockage géoredondant avec accès en lecture (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage), qui crée une copie en lecture seule de vos données dans une autre région.
+> N’oubliez pas que vous n’avez aucun contrôle sur ce processus et qu’il ne se produit que pour les interruptions du service au niveau du centre de données. Ainsi, vous devez également vous appuyer sur d’autres stratégies de sauvegarde propres à l’application pour atteindre le plus haut niveau de disponibilité. Pour plus d’informations, consultez [Récupération d’urgence et haute disponibilité des applications développées sur Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Si vous souhaitez avoir un impact sur votre propre basculement, vous pouvez envisager l’utilisation du [stockage géoredondant avec accès en lecture (RA-GRS)](../storage/common/storage-redundancy.md), qui crée une copie en lecture seule de vos données dans une autre région.
 >
 >
 
@@ -46,7 +46,7 @@ Pour plus d’informations sur la façon de créer et de déployer une applicati
 
 Suivant vos sources de données d’application, vous pouvez être amené à vérifier les procédures de récupération.
 
-* Pour les sources de données Azure Storage, consultez [Réplication Azure Storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) pour vérifier les options disponibles selon le modèle de réplication choisi pour votre application.
+* Pour les sources de données Azure Storage, voir [Redondance de Stockage Azure](../storage/common/storage-redundancy.md) pour vérifier les options disponibles selon le modèle de redondance choisi pour votre application.
 * Pour les sources SQL Database, consultez [Vue d’ensemble : continuité de l’activité cloud et récupération d’urgence de base de données avec SQL Database](../sql-database/sql-database-business-continuity.md) pour vérifier les options disponibles en fonction du modèle de réplication choisi pour votre application.
 
 

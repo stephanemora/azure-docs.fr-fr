@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 02/11/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbb6170aa54c286a5a2d8353c1dd951859fdf8a0
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 023a52f373844e026de0e588e9cd46323abdcf34
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024583"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77149828"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
 
@@ -74,7 +74,7 @@ Pour permettre à vos utilisateurs d’accéder facilement à vos applications c
 
 Aujourd’hui, la majorité des tentatives de connexion compromettantes ont pour origine l’authentification héritée. L’authentification héritée ne prend pas en charge Multi-Factor Authentication. Même si une stratégie Multi-Factor Authentication est activée sur votre annuaire, un attaquant peut s’authentifier à l’aide d’un protocole plus ancien et contourner Multi-Factor Authentication. 
 
-Lorsque les paramètres de sécurité par défaut sont activés dans votre locataire, toutes les demandes d’authentification effectuées par un protocole hérité sont bloquées. Les paramètres de sécurité par défaut ne bloquent pas Exchange ActiveSync.
+Lorsque les paramètres de sécurité par défaut sont activés dans votre locataire, toutes les demandes d’authentification effectuées par un protocole hérité sont bloquées. Les paramètres par défaut de sécurité bloquent l’authentification de base Exchange Active Sync.
 
 > [!WARNING]
 > Avant d’activer les paramètres de sécurité par défaut, assurez-vous que vos administrateurs n’utilisent aucun protocole d’authentification plus anciens. Pour plus d’informations, voir [Comment se passer de l’authentification héritée](concept-fundamentals-block-legacy-authentication.md).

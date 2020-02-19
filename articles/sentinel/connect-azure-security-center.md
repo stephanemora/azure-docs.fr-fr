@@ -9,12 +9,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 8d8f960d8cf1310ec0a380e75bdaa714408e2cac
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 4c75d1870ca3b966acdd658c91c0af8fd7465bfb
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563664"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190878"
 ---
 # <a name="connect-data-from-azure-security-center"></a>Connecter des données à partir d’Azure Security Center
 
@@ -24,13 +24,12 @@ ms.locfileid: "75563664"
 
 Azure Sentinel vous permet de connecter des alertes à partir d’[Azure Security Center](../security-center/security-center-intro.md) et de les diffuser vers Azure Sentinel. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-- Si vous souhaitez exporter des alertes à partir d’Azure Security Center, vous devez être un contributeur sur l’abonnement dont vous diffusez les journaux.
+- Pour exporter des alertes à partir d’Azure Security Center, vous devez avoir le rôle Lecteur Sécurité dans l’abonnement des journaux que vous diffusez.
 
 - Vous devez avoir le [niveau Standard d’Azure Security Center](../security-center/security-center-pricing.md) en cours d’exécution sur l’abonnement. Si ce n’est pas le cas, [mettez à niveau votre abonnement au niveau Standard](https://azure.microsoft.com/pricing/details/security-center/).
 
-- Vous devez vous connecter avec un utilisateur disposant des autorisations d’administrateur général ou d’administrateur de sécurité sur chaque abonnement auquel vous souhaitez vous connecter.
 
 
 ## <a name="connect-to-azure-security-center"></a>Se connecter à Azure Security Center

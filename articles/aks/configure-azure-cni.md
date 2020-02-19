@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: c9c47506e61c665da459558735a3afc93e8b9806
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 11607ffe03d5d2519df1b1199a741dfb55aff2f4
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659778"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111609"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurer un réseau Azure CNI dans AKS (Azure Kubernetes Service)
 
@@ -22,7 +22,7 @@ Avec l’interface [Azure Container Networking Interface (CNI)][cni-networking],
 
 Cet article vous montre comment utiliser les réseaux *Azure CNI* afin de créer et d’utiliser un sous-réseau de réseau virtuel pour un cluster AKS. Pour plus d’informations sur les options et considérations relatives aux réseaux, consultez [Concepts de réseau pour Kubernetes et AKS][aks-network-concepts].
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Le réseau virtuel du cluster AKS doit autoriser les connexions Internet sortantes.
 * Les clusters AKS ne peuvent pas utiliser `169.254.0.0/16`, `172.30.0.0/16`, `172.31.0.0/16` ou `192.0.2.0/24` pour la plage d’adresses de service Kubernetes.
@@ -52,9 +52,9 @@ Le plan d’adressage IP pour un cluster AKS se compose d’un réseau virtuel
 | --------- | ------------- |
 | Réseau virtuel | Le réseau virtuel Azure peut être aussi volumineux que la valeur /8, mais est limité à 65 536 adresses IP configurées. |
 | Subnet | Doit pouvoir contenir les nœuds, les pods, ainsi que toutes les ressources Kubernetes et Azure qui peuvent être provisionnées dans votre cluster. Par exemple, si vous déployez un équilibreur de charge interne Azure, ses adresses IP frontend sont allouées à partir du sous-réseau du cluster, et non à partir des adresses IP non publiques. La taille du sous-réseau doit également prendre en compte les opérations de mise à niveau ou de futurs besoins de mise à l’échelle.<p />Pour calculer la taille de sous-réseau *minimale*, dont celle d’un nœud supplémentaire pour les opérations de mise à niveau : `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Exemple pour un cluster à 50 nœuds : `(51) + (51  * 30 (default)) = 1,581` (/21 ou plus)<p/>Exemple pour un cluster de 50 nœuds incluant également un approvisionnement pour porter l’échelle à 10 nœuds supplémentaires : `(61) + (61 * 30 (default)) = 1,891` (/21 ou plus)<p>Si vous ne spécifiez pas de nombre maximal de pods par nœud lorsque vous créez votre cluster, le nombre maximal de pods par nœud est de *30*. Le nombre minimal d’adresses IP requises est basé sur cette valeur. Si vous calculez vos exigences d’adresse IP minimales sur une autre valeur maximale, consultez [comment configurer le nombre maximal de pods par nœud](#configure-maximum---new-clusters) pour définir cette valeur lorsque vous déployez votre cluster. |
-| Plage d’adresses de service Kubernetes | Cette plage ne doit être utilisée par aucun élément réseau sur ce réseau virtuel ou connecté à celui-ci. Le CIDR d’adresse du service doit être inférieur à /12. |
+| Plage d’adresses de service Kubernetes | Cette plage ne doit être utilisée par aucun élément réseau sur ce réseau virtuel ou connecté à celui-ci. Le CIDR d’adresse du service doit être inférieur à /12. Vous pouvez réutiliser cette plage sur différents clusters AKS. |
 | Adresse IP du service DNS Kubernetes | Adresse IP dans la plage d’adresses de service Kubernetes, qui sera utilisée par la détection de service de cluster (kube-dns). N’utilisez pas la première adresse IP de votre plage d’adresses (1, par exemple). La première adresse de votre plage de sous-réseaux est utilisée pour l’adresse *kubernetes.default.svc.cluster.local*. |
-| Adresse de pont Docker | L'adresse réseau du pont Docker représente l'adresse réseau *docker0* par défaut présente dans toutes les installations Docker. Bien que le pont *docker0* ne soit pas utilisé par les clusters AKS ou les pods eux-mêmes, vous devez définir cette adresse pour continuer à prendre en charge des scénarios tels que *docker build* au sein du cluster AKS. Vous devez sélectionner un CIDR pour l'adresse réseau du pont docker, sinon le docker choisira automatiquement un sous-réseau qui pourrait entrer en conflit avec d'autres CIDR. Vous devez choisir un espace d'adressage qui n'entre pas en collision avec le reste des CIDR de vos réseaux, y compris le CIDR du service du cluster et le CIDR du pod. Valeur par défaut : 172.17.0.1/16. |
+| Adresse de pont Docker | L'adresse réseau du pont Docker représente l'adresse réseau *docker0* par défaut présente dans toutes les installations Docker. Bien que le pont *docker0* ne soit pas utilisé par les clusters AKS ou les pods eux-mêmes, vous devez définir cette adresse pour continuer à prendre en charge des scénarios tels que *docker build* au sein du cluster AKS. Vous devez sélectionner un CIDR pour l'adresse réseau du pont docker, sinon le docker choisira automatiquement un sous-réseau qui pourrait entrer en conflit avec d'autres CIDR. Vous devez choisir un espace d'adressage qui n'entre pas en collision avec le reste des CIDR de vos réseaux, y compris le CIDR du service du cluster et le CIDR du pod. Valeur par défaut : 172.17.0.1/16. Vous pouvez réutiliser cette plage sur différents clusters AKS. |
 
 ## <a name="maximum-pods-per-node"></a>Nombre maximal de pods par nœud
 

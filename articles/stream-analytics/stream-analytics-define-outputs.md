@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2010
-ms.openlocfilehash: 6d8957fc5d4ba49dd034d6687df61c68b9d35ada
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 9fae39f8c03206a7a63338890101b820a585595b
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314281"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190621"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 
@@ -36,7 +36,7 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 | Nom de la propriété | Description |
 | --- | --- |
 | Alias de sortie | Nom convivial utilisé dans les requêtes pour diriger la sortie de la requête vers Data Lake Store. |
-| Subscription | Abonnement qui contient votre compte Azure Data Lake Storage. |
+| Abonnement | Abonnement qui contient votre compte Azure Data Lake Storage. |
 | Nom du compte | Nom du compte Data Lake Store où vous envoyez votre sortie. Vous accédez à la liste déroulante des comptes Data Lake Store disponibles dans votre abonnement. |
 | Modèle de préfixe de chemin d’accès | Chemin de fichier utilisé pour écrire vos fichiers dans le compte Data Lake Store spécifié. Vous pouvez spécifier une ou plusieurs instances des variables {date} et {time} :<br /><ul><li>Exemple 1 : dossier1/journaux/{date}/{heure}</li><li>Exemple 2 : dossier1/journaux/{date}</li></ul><br />L’horodatage de la structure de dossiers créée suit l’heure UTC et pas l’heure locale.<br /><br />Si le modèle de chemin d’accès du fichier ne se termine pas par le caractère (/), le dernier modèle du chemin d’accès du fichier est traité comme préfixe de nom de fichier. <br /><br />De nouveaux fichiers sont créés dans les cas de figure suivants :<ul><li>modification du schéma de sortie ;</li><li>redémarrage externe ou interne d’un travail.</li></ul> |
 | Format de la date | facultatif. Si le jeton de la date est utilisé dans le chemin d’accès du préfixe, vous pouvez sélectionner le format de date dans lequel vos fichiers sont organisés. Exemple : AAAA/MM/JJ |
@@ -268,6 +268,8 @@ Azure Stream Analytics appelle Azure Functions via des déclencheurs HTTP. L’a
 | Clé |Si vous souhaitez utiliser une fonction Azure à partir d’un autre abonnement, vous pouvez le faire en fournissant la clé permettant d’accéder à votre fonction. |
 | Taille de lot maximale |Propriété qui peut être utilisée pour définir la taille maximale de chaque lot de sortie qui est envoyé à votre fonction Azure. L’unité d’entrée est exprimée en octets. Par défaut, cette valeur est définie sur 262 144 Ko (256 Ko). |
 | Nombre maximal de lots  |Propriété qui vous permet de spécifier le nombre maximal d’événements dans chaque lot envoyé à Azure Functions. La valeur par défaut est 100. |
+
+Azure Stream Analytics attend l’état HTTP 200 de l’application Functions pour les lots traités avec succès.
 
 Lorsqu’Azure Stream Analytics reçoit une erreur 413 (qui indique que l’entité de requête HTTP est trop volumineuse) de la part d’une fonction Azure, il réduit la taille des lots envoyés à Azure Functions. Dans le code de votre fonction Azure, utilisez cette exception pour vous assurer qu’Azure Stream Analytics n’envoie pas de lots trop volumineux. Vérifiez également que les valeurs de taille et de nombre de lots maximum utilisées dans la fonction correspondent à celles qui ont été saisies dans le portail Stream Analytics.
 

@@ -6,19 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
-ms.openlocfilehash: a48ce60dca9f4221e364d53567f5b53719deb18c
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
+ms.openlocfilehash: 443b021b266a202775e94e44acac3a91a2b70617
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314519"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137581"
 ---
 # <a name="apply-transformation-module"></a>Appliquer le module de transformation
 
-Cet article décrit un module du concepteur Azure Machine Learning.
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour modifier un jeu de données d’entrée en fonction d’une transformation précédemment calculée.  
   
@@ -32,9 +32,9 @@ Azure Machine Learning prend en charge la création et l’application de diffé
 
 ## <a name="how-to-use-apply-transformation"></a>Comment utiliser le module Appliquer une transformation  
   
-1. Ajoutez le module **Appliquer une transformation** à votre pipeline. Vous pouvez trouver ce module sous **Machine Learning**, dans la catégorie **Score**. 
+1. Ajoutez le module **Appliquer une transformation** à votre pipeline. Ce module figure dans la catégorie **Scoring et évaluation d’un modèle**. 
   
-2. Recherchez une transformation existante à utiliser en tant qu’entrée.  Les transformations précédemment enregistrées se trouvent dans le groupe **Transformation** du volet de navigation gauche.  
+2. Recherchez une transformation existante à utiliser en tant qu’entrée. Des transformations précédemment enregistrées figurent dans le groupe **Mes jeux de données**, dans la catégorie **Jeux de données** de l’arborescence du module de gauche.  
   
    
   

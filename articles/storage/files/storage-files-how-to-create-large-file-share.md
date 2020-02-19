@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a9b545d71f21138c0374cf199ce10dc2dc246afb
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: d94237d2cfeb814b2e15d43c9f8863a76c0bcd11
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732142"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190673"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Activer et créer des partages de fichiers volumineux
 
-À l’origine, les partages de fichiers standard pouvaient faire l’objet d’un scale-up jusqu’à 5 Tio. Désormais, avec les partages de fichiers volumineux, ils peuvent faire l’objet d’un scale-up jusqu’à 100 Tio. Vous pouvez activer cette mise à l’échelle sur vos comptes de stockage existants pour vos partages de fichiers existants. Par défaut, vous pouvez effectuer un scale-up des partages de fichiers Premium jusqu’à 100 Tio.
+Lorsque vous activez des partages de fichiers volumineux sur votre compte de stockage, l’échelle de vos partages de fichiers peut augmenter jusqu’à 100 Tio. Vous pouvez activer cette mise à l’échelle sur vos comptes de stockage existants pour vos partages de fichiers existants.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 - Si vous envisagez d’utiliser Azure CLI, [installez-en la dernière version](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -26,7 +26,7 @@ ms.locfileid: "75732142"
 
 ## <a name="restrictions"></a>Restrictions
 
-Pour le moment, vous pouvez utiliser seulement LRS ou ZRS sur des comptes avec des partages de fichiers volumineux. Vous ne pouvez pas utiliser GZRS, GRS ou RA-GRS.
+Pour le moment, vous ne pouvez utiliser qu’un stockage localement redondant (LRS) ou un stockage redondant interzone (ZRS) sur des comptes activés pour le partage de fichiers volumineux. Vous ne pouvez pas utiliser un stockage géoredondant interzone (GZRS), un stockage géoredondant (GRS) ou un stockage géoredondant avec accès en lecture (RA-GRS).
 L’activation de partages de fichiers volumineux sur un compte est un processus irréversible. Une fois que vous l’avez activé, vous ne pouvez plus convertir votre compte en GZRS, GRS ou RA-GRS.
 
 ## <a name="create-a-new-storage-account"></a>Création d’un nouveau compte de stockage

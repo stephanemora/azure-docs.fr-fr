@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: mlearned
-ms.openlocfilehash: 62be78df28d65c2ed16a9f45295edec8c5c360c4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: bbfb65c31bf6fd46cc18c9eee66086afbbff1d5f
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901528"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157972"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -31,13 +31,12 @@ La version 2.0.76 d’Azure CLI (ou ultérieure) doit être installée et confi
 
 Les limitations suivantes s’appliquent lorsque vous créez et gérez les clusters AKS prenant en charge plusieurs pools de nœuds :
 
+* Voir [Quotas, restrictions de taille de machine virtuelle et disponibilité des régions dans Azure Kubernetes Service (AKS)][quotas-skus-regions].
 * Vous ne pouvez pas supprimer le pool de nœuds par défaut (premier).
 * Le module complémentaire de routage d’application HTTP ne peut pas être utilisé.
 * Le cluster AKS doit utiliser l’équilibreur de charge de la référence SKU Standard pour utiliser plusieurs pools de nœuds, la fonctionnalité n’est pas prise en charge avec les équilibreurs de charge de la référence SKU De base.
 * Le cluster AKS doit utiliser des groupes de machines virtuelles identiques pour les nœuds.
 * Le nom d’un pool de nœuds ne peut contenir que des caractères alphanumériques minuscules et doit commencer par une lettre minuscule. Pour les pools de nœuds Linux, la longueur doit être comprise entre 1 et 12 caractères. Pour les pools de nœuds Windows, elle doit être comprise entre 1 et 6 caractères.
-* Le cluster AKS peut comprendre au maximum 10 pools de nœuds.
-* Le cluster AKS peut comprendre au maximum de 1 000 nœuds dans ces 10 pools de nœuds.
 * Tous les pools de nœuds doivent résider dans le même réseau virtuel et sous-réseau.
 * Lors de la création de plusieurs pools de nœuds au moment de la création du cluster, toutes les versions de Kubernetes utilisées par les pools de nœuds doivent correspondre à la version définie pour le plan de contrôle. Cela peut être mis à jour une fois que le cluster a été provisionné, en utilisant des opérations par pool de nœuds.
 
@@ -565,7 +564,7 @@ La mise à jour de votre cluster AKS peut prendre quelques minutes selon les par
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Attribuer une adresse IP publique par nœud dans un pool de nœuds
 
 > [!WARNING]
-> Pendant la préversion de l’affectation d’une adresse IP publique par nœud, elle ne peut pas être utilisée avec la *référence SKU Standard Load Balancer dans AKS* en raison des éventuelles règles d’équilibreur de charge en conflit avec le provisionnement de machine virtuelle. Pendant la période de préversion, vous devez utiliser la *référence (SKU) d’équilibreur de charge de base* si vous devez affecter une adresse IP publique par nœud.
+> Pendant la préversion de l’affectation d’une adresse IP publique par nœud, elle ne peut pas être utilisée avec la *référence SKU Standard Load Balancer dans AKS* en raison des éventuelles règles d’équilibreur de charge en conflit avec le provisionnement de machine virtuelle. En raison de cette limitation, les pools d’agents Windows ne sont pas pris en charge avec cette fonctionnalité en préversion. Pendant la période de préversion, vous devez utiliser la *référence (SKU) d’équilibreur de charge de base* si vous devez affecter une adresse IP publique par nœud.
 
 Les nœuds AKS n’ont pas besoin de leurs propres adresses IP publiques pour communiquer. Toutefois, dans certains cas, les nœuds d’un pool de nœuds doivent avoir leurs propres adresses IP publiques. C’est par exemple le cas du gaming, où une console doit être directement connectée à une machine virtuelle dans le cloud pour réduire les tronçons. Pour ce faire, vous devez vous inscrire pour une fonctionnalité d’évaluation distincte, à savoir Node Public IP (préversion).
 
@@ -604,6 +603,7 @@ Pour créer et utiliser des pools de nœuds de conteneur Windows Server, consult
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 
 <!-- INTERNAL LINKS -->
+[quotas-skus-regions]: quotas-skus-regions.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [az-aks-create]: /cli/azure/aks#az-aks-create

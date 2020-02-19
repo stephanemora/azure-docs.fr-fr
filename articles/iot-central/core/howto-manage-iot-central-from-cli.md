@@ -1,19 +1,19 @@
 ---
 title: Gérer IoT Central à partir d’Azure CLI | Microsoft Docs
-description: Cet article explique comment créer et gérer une application IoT Central avec l’interface de ligne de commande. Il est possible d’afficher, de modifier et de supprimer l’application avec l’interface CLI.
+description: Cet article explique comment créer et gérer une application IoT Central avec l’interface de ligne de commande. Vous pouvez afficher, modifier et supprimer l’application à l’aide de CLI.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/23/2019
+ms.date: 02/11/2020
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 8526eb50faf300892c66ac186eac25adecf62231
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: cf0414531d363ab5401e8c9574943a40ecf2d449
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019024"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137819"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gérer IoT Central à partir d’Azure CLI
 
@@ -21,7 +21,7 @@ ms.locfileid: "77019024"
 
 Au lieu de créer et de gérer des applications IoT Central dans le site web du [Gestionnaire d’applications Azure IoT Central](https://aka.ms/iotcentral), vous pouvez utiliser [Azure CLI](/cli/azure/) pour gérer vos applications.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -44,7 +44,7 @@ az group create --location "East US" \
 az iotcentral app create \
   --resource-group "MyIoTCentralResourceGroup" \
   --name "myiotcentralapp" --subdomain "mysubdomain" \
-  --sku ST1 --template "iotc-demo@1.0.0" \
+  --sku ST1 --template "iotc-pnp-preview@1.0.0" \
   --display-name "My Custom Display Name"
 ```
 
@@ -53,30 +53,14 @@ Ces commandes créent d’abord un groupe de ressources dans la région USA Est 
 | Paramètre         | Description |
 | ----------------- | ----------- |
 | resource-group    | Groupe de ressources qui contient l’application. Ce groupe de ressources doit déjà exister dans votre abonnement. |
-| location          | Par défaut, cette commande utilise l’emplacement du groupe de ressources. Actuellement, vous pouvez créer une application IoT Central dans les zones géographiques **USA Est**, **USA Ouest**, **Europe Nord**, **Europe Ouest**, **Australie** ou **Asie-Pacifique**. |
+| location          | Par défaut, cette commande utilise l’emplacement du groupe de ressources. Actuellement, vous pouvez créer une application IoT Central dans les zones géographiques **Australie**, **Asie-Pacifique**, **Europe** ou **États-Unis**. |
 | name              | Nom de l’application dans le portail Azure. |
 | subdomain         | Sous-domaine dans l’URL de l’application. Dans l’exemple, l’URL de l’application est https://mysubdomain.azureiotcentral.com. |
 | sku               | Vous pouvez utiliser **ST1** ou **ST2**. Consultez [Tarifs Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
-| template          | Modèle d’application à utiliser. Pour plus d’informations, voir le tableau suivant : |
+| template          | Modèle d’application à utiliser. Pour plus d’informations, consultez le tableau suivant. |
 | display-name      | Nom de l’application tel qu’il est affiché dans l’interface utilisateur. |
 
-**Modèles d’application**
-
-| Nom du modèle            | Description |
-| ------------------------ | ----------- |
-| iotc-default@1.0.0       | Crée une application vide, que vous pouvez remplir avec vos propres modèles d’appareil et vos propres appareils.
-| iotc-pnp-preview@1.0.0   | Crée une application Plug-and-Play (préversion) vide, que vous pouvez remplir avec vos propres modèles d’appareil et vos propres appareils. |
-| iotc-condition@1.0.0     | Crée une application avec un modèle Analytique dans le magasin - Supervision des conditions. Utilisez ce modèle pour connecter et superviser l’environnement de magasin. |
-| iotc-consumption@1.0.0   | Créez une application avec le modèle de supervision de la consommation d’eau. Utilisez ce modèle pour superviser et contrôler le débit d’eau. |
-| iotc-distribution@1.0.0  | Crée une application avec un modèle de distribution numérique. Utilisez ce modèle pour améliorer l’efficacité des sorties d’entrepôt en numérisant les ressources et les actions clés. |
-| iotc-inventory@1.0.0     | Crée une application avec un modèle de gestion intelligente des stocks. Utilisez ce modèle pour automatiser la réception, le déplacement de produits, l’inventaire tournant et le suivi des capteurs. |
-| iotc-logistics@1.0.0     | Crée une application avec un modèle Logistique connectée. Utilisez ce modèle pour suivre votre expédition en temps réel par voie aérienne, maritime et terrestre grâce à la supervision de la localisation et des conditions. |
-| iotc-meter@1.0.0         | Crée une application avec le modèle de supervision des compteurs intelligents. Utilisez ce modèle pour superviser la consommation énergétique et l’état du réseau, ainsi que pour identifier les tendances afin d’améliorer le service client et la gestion des compteurs intelligents.  |
-| iotc-patient@1.0.0       | Crée une application avec un modèle de supervision continue des patients. Utilisez ce modèle pour organiser les soins des patients, réduire le taux de réadmission et gérer les maladies. |
-| iotc-power@1.0.0         | Crée une application avec un modèle de supervision des panneaux solaires. Utilisez ce modèle pour superviser l’état des panneaux solaires et les tendances de la génération d’énergie. |
-| iotc-quality@1.0.0       | Créez une application avec le modèle de supervision de la qualité de l’eau. Utilisez ce modèle pour superviser numériquement la qualité de l’eau.|
-| iotc-store@1.0.0         | Crée une application avec un modèle Analytique dans le magasin - Paiement. Utilisez ce modèle pour superviser et gérer le passage en caisse dans votre magasin. |
-| iotc-waste@1.0.0         | Crée une application avec un modèle Gestion des déchets connectée. Utilisez ce modèle pour superviser les bennes à ordures et répartir les agents. |
+[!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
 
 ## <a name="view-your-applications"></a>Afficher vos applications
 

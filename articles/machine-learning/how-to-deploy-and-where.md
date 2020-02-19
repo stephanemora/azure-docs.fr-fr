@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 3b3b83719da4c1c19706845fa4cb1dc75712d145
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: bbb0992eaeef7892e5940130131ac139a339b47d
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932394"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083240"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Déployer des modèles avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Le workflow est similaire quel que soit l’endroit [où vous déployez](#target
 
 Pour plus d’informations sur les concepts impliqués dans le workflow de déploiement, consultez [Déployer, gérer et superviser des modèles avec Azure Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Un espace de travail Azure Machine Learning. Pour plus d’informations, voir la page [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 
@@ -172,24 +172,24 @@ Les points de terminaison à plusieurs modèles utilisent un conteneur partagé 
 
 Pour obtenir un exemple E2E qui montre comment utiliser plusieurs modèles derrière un seul point de terminaison conteneurisé, consultez [cet exemple](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model).
 
-## <a name="prepare-to-deploy"></a>Préparer au déploiement
+## <a name="prepare-deployment-artifacts"></a>Préparer des artefacts de déploiement
 
 Pour déployer le modèle, vous avez besoin des éléments suivants :
 
-* **Un script d’entrée**. Ce script accepte les requêtes, calcule le score de la requête à l’aide du modèle et retourne les résultats.
+* **Dépendances de script d’entrée et de code source**. Ce script accepte les requêtes, calcule le score de la requête à l’aide du modèle et retourne les résultats.
 
     > [!IMPORTANT]
     > * Le script d’entrée est spécifique de votre modèle. Il doit comprendre le format des données de la requête entrante, le format des données attendues par votre modèle et le format des données retournées aux clients.
     >
     >   Si le format des données de la requête n’est pas utilisable par votre modèle, le script peut les convertir dans un format acceptable. Il peut également transformer la réponse avant de la retourner au client.
     >
-    > * Le kit SDK Azure Machine Learning n’offre aucun moyen pour les déploiements de service web ou IoT Edge d’accéder à votre magasin de données ou à vos jeux de données. Si votre modèle déployé doit accéder aux données stockées en dehors du déploiement, par exemple à celles dans un compte de stockage Azure, vous devez développer une solution de code personnalisée à l’aide du kit SDK approprié. Exemple : [Kit de développement logiciel (SDK) Stockage Azure pour Python](https://github.com/Azure/azure-storage-python).
+    > * Les déploiements de services web et d’IoT Edge ne sont pas en mesure d’accéder aux magasins de données ou jeux de données d’espace de travail. Si votre service déployé doit accéder à des données stockées à l’extérieur du déploiement, par exemple dans un compte de stockage Azure, vous devez développer une solution de code personnalisée à l’aide du Kit de développement logiciel (SDK) approprié. Exemple : [Kit de développement logiciel (SDK) Stockage Azure pour Python](https://github.com/Azure/azure-storage-python).
     >
     >   Une autre solution possible pour votre scénario consiste à utiliser les [prédictions par lots](how-to-use-parallel-run-step.md), qui donnent accès aux magasins de travail durant le scoring.
 
-* Des **dépendances**, comme les scripts d’assistance ou les packages Python/Conda nécessaires à l’exécution du script d’entrée ou du modèle.
+* **Environnement d’inférence**. Image de base avec les dépendances de package installées requises pour exécuter le modèle.
 
-* La **configuration de déploiement** de la cible de calcul qui héberge le modèle déployé. Cette configuration décrit notamment les besoins en mémoire et en ressources CPU pour exécuter le modèle.
+* **Configuration de déploiement** de la cible de calcul qui héberge le modèle déployé. Cette configuration décrit notamment les besoins en mémoire et en ressources CPU pour exécuter le modèle.
 
 Ces éléments sont encapsulés dans une *configuration d’inférence* et une *configuration de déploiement*. La configuration d’inférence référence le script d’entrée et d’autres dépendances. Vous définissez ces configurations par programmation quand vous utilisez le kit SDK pour effectuer le déploiement. Vous les définissez dans des fichiers JSON quand vous utilisez l’interface CLI.
 
@@ -485,7 +485,7 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
-### <a name="2-define-your-inferenceconfig"></a>2. Définir votre configuration d’inférence
+### <a name="2-define-your-inference-environment"></a>2. Définir votre environnement d’inférence
 
 La configuration de l’inférence décrit comment configurer le modèle pour les prédictions. Cette configuration ne fait pas partie de votre script d’entrée. Elle référence votre script d’entrée et sert à localiser toutes les ressources exigées par le déploiement. Elle est utilisée ultérieurement, quand vous déployez le modèle.
 
@@ -547,41 +547,6 @@ Les classes des services web Local, Azure Container Instances et AKS peuvent êt
 ```python
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
-
-#### <a name="profiling"></a>Profilage
-
-Avant de déployer votre modèle en tant que service, vous pouvez le profiler pour déterminer les exigences optimales en processeur et en mémoire. Vous pouvez utiliser le kit SDK ou l’interface CLI pour profiler votre modèle. Les exemples suivants montrent comment profiler un modèle à l’aide du kit SDK.
-
-> [!IMPORTANT]
-> Quand vous utilisez le profilage, la configuration d’inférence que vous fournissez ne peut pas référencer un environnement Azure Machine Learning. Au lieu de cela, définissez les dépendances logicielles à l’aide du paramètre `conda_file` de l’objet `InferenceConfig`.
-
-```python
-import json
-test_data = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10]
-]})
-
-profile = Model.profile(ws, "profilemymodel", [model], inference_config, test_data)
-profile.wait_for_profiling(True)
-profiling_results = profile.get_results()
-print(profiling_results)
-```
-
-Ce code affiche un résultat similaire à la sortie suivante :
-
-```python
-{'cpu': 1.0, 'memoryInGB': 0.5}
-```
-
-Les résultats du profilage du modèle sont fournis sous la forme d’un objet `Run`.
-
-Pour plus d’informations sur l’utilisation d’un profilage à partir de l’interface de ligne de commande, voir [Profil de modèle Azure Machine Learning](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
-
-Pour plus d’informations, consultez ces documents :
-
-* [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
-* [profile()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
-* [Schéma de fichier de configuration d’inférence](reference-azure-machine-learning-cli.md#inference-configuration-schema)
 
 ## <a name="deploy-to-target"></a>Déployer sur la cible
 

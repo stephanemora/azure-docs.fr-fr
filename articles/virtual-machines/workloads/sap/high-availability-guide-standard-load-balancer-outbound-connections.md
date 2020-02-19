@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/28/2019
+ms.date: 02/07/2020
 ms.author: radeltch
-ms.openlocfilehash: 179df26eb0cc75899c9b509ebe00410ffa916dc8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 52179f15829981d59ff060784a49eccef89bb186
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935192"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083720"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Connectivité de point de terminaison public pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP
 
@@ -106,7 +106,7 @@ La configuration ressemblerait à ceci :
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup
    ```
 
-4. Créez des règles de groupe de sécurité réseau pour restreindre l’accès à des points de terminaison publics spécifiques. S’il existe un groupe de sécurité réseau, vous pouvez l’ajuster. L’exemple ci-dessous montre comment autoriser l’accès uniquement à l’API de gestion Azure : 
+4. Créez des règles de groupe de sécurité réseau pour restreindre l’accès à des points de terminaison publics spécifiques. S’il existe un groupe de sécurité réseau, vous pouvez l’ajuster. L’exemple ci-dessous montre comment activer l’accès à l’API de gestion Azure : 
    1. Accéder au groupe de sécurité réseau
    1. Cliquez sur Règles de sécurité de trafic entrant
    1. Ajoutez une règle pour **Refuser** tout accès sortant à **Internet**.

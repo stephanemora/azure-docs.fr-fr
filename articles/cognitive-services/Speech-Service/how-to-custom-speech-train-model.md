@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0f28d984cfc29e67c3b5c3a90137ee09868b471c
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a2bc39a35299f56ba52a0143ce123560bd4d88fa
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806026"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137769"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Entraîner un modèle pour Custom Speech
 
-L’entraînement d’un modèle de reconnaissance vocale permet d’améliorer la précision de la reconnaissance du modèle de référence de Microsoft ou d’un modèle personnalisé que vous avez l’intention de créer. L’entraînement d’un modèle s’appuie sur des transcriptions étiquetées à la main et sur le texte associé. Ces jeux de données et les données audio chargées précédemment servent à affiner et entraîner le modèle de reconnaissance vocale pour reconnaître les mots, les expressions, les acronymes, les noms et d’autres termes propres à un produit. Plus vous fournirez de jeux de données propres au domaine (données en rapport avec ce que les utilisateurs diront et ce qui, selon vous, sera reconnu), plus votre modèle sera précis, ce qui aura pour effet d’améliorer la reconnaissance. Gardez à l’esprit qu’en incorporant des données sans rapport dans votre entraînement, vous pouvez amoindrir la précision de votre modèle ou nuire à celle-ci.
+La formation d’un modèle de reconnaissance vocale peut améliorer la précision de la reconnaissance du modèle de référence de Microsoft. L’entraînement d’un modèle s’appuie sur des transcriptions étiquetées à la main et sur le texte associé. Ces jeux de données et les données audio chargées précédemment servent à affiner et entraîner le modèle de reconnaissance vocale pour reconnaître les mots, les expressions, les acronymes, les noms et d’autres termes propres à un produit. Plus vous fournirez de jeux de données propres au domaine (données en rapport avec ce que les utilisateurs diront et ce qui, selon vous, sera reconnu), plus votre modèle sera précis, ce qui aura pour effet d’améliorer la reconnaissance. Gardez à l’esprit qu’en incorporant des données sans rapport dans votre entraînement, vous pouvez amoindrir la précision de votre modèle ou nuire à celle-ci.
 
 ## <a name="use-training-to-resolve-accuracy-issues"></a>Utiliser l’entraînement pour résoudre les problèmes de précision
 

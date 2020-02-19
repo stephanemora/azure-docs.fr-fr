@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 489f4a527a5afaf1bab5e2065137a5011d45baa6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5d0035e7c87806012d13117ae5335b7de5f3c99d
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474440"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132282"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Cas d’usage et scénarios courants pour Azure Active Directory Domain Services
 
@@ -65,7 +65,7 @@ Les considérations de déploiement suivantes s’appliquent à cet exemple de c
 
 Comme dans l’exemple de scénario précédent, supposons que Contoso a une application métier locale développée il y a presque une décennie. Cette application prend en charge les annuaires et a été conçue pour utiliser le protocole LDAP pour lire les informations/attributs des utilisateurs à partir d’AD DS. L’application ne modifie pas les attributs et n’écrit pas dans l’annuaire.
 
-Contoso souhaite migrer cette application vers Azure et mettre hors-service l’ancien matériel local qui l’héberge actuellement. L’application ne peut pas être réécrite pour utiliser des API d’annuaire modernes comme l’API Graph Azure AD de type REST. Une option lift-and-shift est nécessaire pour migrer l’application afin qu’elle s’exécute dans le cloud, sans modification de code ni réécriture de l’application.
+Contoso souhaite migrer cette application vers Azure et mettre hors-service l’ancien matériel local qui l’héberge actuellement. L’application ne peut pas être réécrite pour utiliser des API d’annuaire modernes comme l’API Microsoft Graph basée sur REST. Une option lift-and-shift est nécessaire pour migrer l’application afin qu’elle s’exécute dans le cloud, sans modification de code ni réécriture de l’application.
 
 Pour faciliter ce scénario, Azure AD DS permet aux applications d’effectuer des lectures LDAP depuis le domaine managé afin d’obtenir les informations d’attribut nécessaires. L’application n’a pas besoin d’être réécrite, si bien qu’un lift-and-shift sur Azure permet aux utilisateurs de continuer à l’utiliser sans même qu’ils ne se rendent compte que son emplacement d’exécution a changé.
 
@@ -90,7 +90,7 @@ Pour ce scénario, les serveurs qui hébergent le front-end web, le serveur SQL 
 
 Les considérations de déploiement suivantes s’appliquent à cet exemple de cas d’usage :
 
-* Vérifiez que les applications utilisent un ensemble nom d’utilisateur + mot de passe pour l’authentification. L’authentification basée sur un certificat ou une carte à puce n’est pas prise en charge par Azure AD DS.
+* Vérifiez que les applications utilisent un nom d’utilisateur et un mot de passe pour l’authentification. L’authentification basée sur un certificat ou une carte à puce n’est pas prise en charge par Azure AD DS.
 * Vous ne pouvez pas modifier les mots de passe directement depuis un domaine managé par Azure AD DS. Les utilisateurs finaux peuvent modifier leur mot de passe soit à l’aide du mécanisme de modification de mot de passe en libre-service Azure AD, soit depuis le répertoire local. Ces modifications sont ensuite automatiquement synchronisées et disponibles dans le domaine managé Azure AD DS.
 
 ## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Déploiements des services Bureau à distance Windows Server dans Azure

@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be3d98dc0b3a8119fb853493440c6fc78d65c5a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 19a676f4187af2d358934539e4ca29dbc5c25897
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61409542"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190636"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Basculement d'appareil et récupération d'urgence pour votre StorSimple Virtual Array via le portail Azure
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Cet article décrit la récupération d’urgence pour votre Microsoft Azure StorSimple Virtual Array, notamment la procédure détaillée pour basculer vers un autre Virtual Array. Un basculement vous permet de déplacer vos données depuis un appareil *source* du centre de données vers un appareil *cible*. L’appareil cible peut se trouver dans le même ou un autre emplacement géographique. Le basculement de l'appareil s'applique à l'ensemble de l'appareil. Lors du basculement, les données de cloud pour l'appareil source deviennent la propriété de l'appareil cible.
 
 Cet article s'applique aux StorSimple Virtual Arrays uniquement. Pour le basculement d’un appareil de la gamme 8000, consultez [Basculement d’appareil et récupération d’urgence pour votre appareil StorSimple](storsimple-device-failover-disaster-recovery.md).
@@ -40,7 +40,7 @@ La récupération d'urgence est modelée comme une restauration complète de l'a
 > 
 > 
 
-La récupération d’urgence est orchestrée par la fonctionnalité de basculement de l’appareil et se lance à partir du panneau **Appareils**. Ce panneau répertorie tous les appareils StorSimple connectés à votre service StorSimple Device Manager. Vous pouvez voir le nom convivial, le statut, la capacité maximale et d’approvisionnement, le type et le modèle de chaque appareil.
+La récupération d’urgence est orchestrée via la fonctionnalité de basculement de l’appareil et lancée à partir du panneau **Appareils**. Ce panneau répertorie tous les appareils StorSimple connectés à votre service StorSimple Device Manager. Vous pouvez voir le nom convivial, le statut, la capacité maximale et d’approvisionnement, le type et le modèle de chaque appareil.
 
 ## <a name="prerequisites-for-device-failover"></a>Configuration requise pour le basculement d'appareil
 
@@ -57,15 +57,15 @@ Pour permettre le basculement d’un appareil, assurez-vous que les conditions p
   > 
 * L’appareil cible ne peut pas porter le même nom que l’appareil source.
 * Les appareils source et cible doivent être du même type. Vous pouvez uniquement basculer un Virtual Array configuré comme un serveur de fichiers vers un autre serveur de fichiers. Il en est de même pour un serveur iSCSI.
-* Pour la récupération d’urgence d’un serveur de fichiers, nous vous recommandons de joindre l’appareil cible au même domaine que la source. Cette configuration permet de garantir la résolution automatique des autorisations de partage. Seul le basculement vers un appareil cible se trouvant dans le même domaine est pris en charge.
+* Pour la récupération d’urgence d’un serveur de fichiers, nous vous recommandons de joindre l’appareil cible au même domaine que la source. Cette configuration permet de garantir la résolution automatique des autorisations de partage. Seul le basculement vers un appareil cible dans le même domaine est pris en charge.
 * Les appareils cibles disponibles pour la récupération d'urgence sont des appareils ayant une capacité égale ou supérieure par rapport à l'appareil source. Les appareils connectés à votre service qui ne présentent pas un espace suffisant ne sont pas disponibles en tant qu’appareils cibles.
 
-### <a name="other-considerations"></a>Autres points à considérer
+### <a name="other-considerations"></a>Autres considérations
 
-* Pour un basculement planifié 
+* Pour un basculement planifié :
   
   * Nous vous recommandons de mettre hors connexion tous les volumes ou partages sur l'appareil source.
-  * Nous vous recommandons d’effectuer une sauvegarde de l’appareil, puis de continuer le basculement pour minimiser la perte de données. 
+  * Nous vous recommandons d’effectuer une sauvegarde de l’appareil, puis de continuer le basculement pour minimiser la perte de données.
 * Dans le cas d’un basculement non planifié, l’appareil utilise la sauvegarde la plus récente pour restaurer les données.
 
 ### <a name="device-failover-prechecks"></a>Vérifications préalables au basculement de l’appareil

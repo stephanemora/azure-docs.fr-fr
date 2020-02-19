@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 09b25dbdc8fc13c40ccd89b2cfd78611cedaac9d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a4a9760b5c7a70c58a1afe1b14b781a35f2b9b18
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024464"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77082972"
 ---
 # <a name="accessing-your-avs-private-cloud-environment-and-applications-from-on-premises"></a>Accès à votre environnement de cloud privé AVS et à vos applications à partir d’un emplacement local
 
@@ -26,7 +26,7 @@ Pour accéder à votre vCenter de cloud privé AVS et au gestionnaire NSX-T, les
 
 | Port       | Source                           | Destination                      | Objectif                                                                                                                |
 |------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| 53 (UDP)   | Serveurs DNS locaux          | Serveurs DNS de cloud privé AVS        | Requis pour le transfert de la recherche DNS de *az.AVS.io* vers des serveurs DNS de cloud privé AVS à partir d’un réseau local.     |
+| 53 (UDP)   | Serveurs DNS locaux          | Serveurs DNS de cloud privé AVS        | Requis pour le transfert de la recherche DNS de *az.cloudsimple.io* vers des serveurs DNS de cloud privé AVS à partir d’un réseau local.     |
 | 53 (UDP)   | Serveurs DNS de cloud privé AVS        | Serveurs DNS locaux          | Requis pour le transfert de la recherche DNS de noms de domaines locaux de vCenter de cloud privé AVS vers des serveurs DNS locaux. |
 | 80 (TCP)   | Réseau local              | Réseau de gestion de cloud privé AVS | Requis pour la redirection de l’URL de vCenter de *http* vers *https*.                                                         |
 | 443 (TCP)  | Réseau local              | Réseau de gestion de cloud privé AVS | Requis pour l’accès à vCenter et au gestionnaire NSX-T à partir d’un réseau local.                                           |

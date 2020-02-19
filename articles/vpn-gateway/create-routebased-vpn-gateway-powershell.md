@@ -5,28 +5,30 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 02/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4e5a3fa8068b55f67246832cbc706fc4a9417cb3
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 8a4bb9d2ac7b8124fa9b1e00f3ecceda4f4a4cdf
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151599"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152956"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>Création d’une passerelle VPN basée sur un itinéraire à l’aide de PowerShell
 
-Cet article vous aide à créer rapidement une passerelle VPN basée sur un itinéraire à l’aide de PowerShell. Une passerelle VPN est utilisée lors de la création d’une connexion VPN à votre réseau local. Vous pouvez également vous en servir pour connecter des réseaux virtuels.
+Cet article vous aide à créer rapidement une passerelle VPN basée sur un itinéraire à l’aide de PowerShell. Une passerelle VPN permet de créer une connexion VPN à un réseau local. Vous pouvez également vous en servir pour connecter des réseaux virtuels.
 
-Les étapes fournies dans cet article permettent de créer un réseau virtuel, un sous-réseau, un sous-réseau de passerelle et une passerelle VPN basée sur des itinéraires (passerelle de réseau virtuel). Une fois la passerelle créée, vous pourrez créer des connexions. Ces étapes nécessitent un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+## <a name="before-you-begin"></a>Avant de commencer
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Les étapes décrites dans cet article permettent de créer un réseau virtuel, un sous-réseau, un sous-réseau de passerelle et une passerelle VPN basée sur des itinéraires (passerelle de réseau virtuel). Vous pourrez ensuite créer des connexions. Ces étapes nécessitent un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+### <a name="working-with-azure-powershell"></a>Utilisation d’Azure PowerShell
+
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources Azure avec [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. 
+Créez un groupe de ressources Azure avec [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Créez un groupe de ressources. Si vous exécutez PowerShell localement, ouvrez votre console PowerShell avec des privilèges élevés et connectez-vous à Azure à l’aide de la commande `Connect-AzAccount`.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name TestRG1 -Location EastUS
@@ -84,7 +86,7 @@ $vnet | Set-AzVirtualNetwork
 
 ## <a name="PublicIP"></a>Demander une adresse IP publique
 
-Une passerelle VPN doit présenter une adresse IP allouée dynamiquement. Lorsque vous créez une connexion à une passerelle VPN, il s’agit de l’adresse IP que vous spécifiez. Appuyez-vous sur l’exemple suivant pour demander une adresse IP publique :
+Une passerelle VPN doit présenter une adresse IP publique allouée dynamiquement. Lorsque vous créez une connexion à une passerelle VPN, il s’agit de l’adresse IP que vous spécifiez. Appuyez-vous sur l’exemple suivant pour demander une adresse IP publique :
 
 ```azurepowershell-interactive
 $gwpip= New-AzPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
@@ -199,7 +201,7 @@ Sku                      : {
 IpTags                   : {}
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n'avez plus besoin des ressources que vous avez créées, utilisez la commande [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources. Ce faisant, vous supprimez le groupe de ressources et l’ensemble des ressources qu’il contient.
 

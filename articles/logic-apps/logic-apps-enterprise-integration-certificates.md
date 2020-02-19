@@ -8,19 +8,19 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/17/2018
-ms.openlocfilehash: 6c5de6eba000c9052c7eb7b31d75804b9f454607
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c1b48ae8191e2e5313d9037c791eca73c8a55691
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790693"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191386"
 ---
-# <a name="secure-b2b-messages-with-certificates"></a>Sécuriser les messages B2B à l’aide de certificats
+# <a name="improve-security-for-b2b-messages-by-using-certificates"></a>Améliorer la sécurité des messages B2B à l’aide de certificats
 
-Lorsque vous avez besoin de préserver la confidentialité des communications B2B, vous pouvez les sécuriser pour les applications d’intégration de votre entreprise, notamment les applications logiques, en ajoutant des certificats à votre compte d’intégration. Les certificats sont des documents numériques qui vérifient l’identité des participants aux communications électroniques et permettent de sécuriser la communication des façons suivantes :
+Lorsque vous avez besoin de préserver la confidentialité des communications B2B, vous pouvez augmenter la sécurité des communications B2B dans les applications d’intégration de votre entreprise, en particulier les applications logiques, en ajoutant des certificats à votre compte d’intégration. Les certificats sont des documents numériques qui vérifient l’identité des participants aux communications électroniques et permettent de sécuriser la communication des façons suivantes :
 
 * Chiffrement du contenu du message.
-* Signature numérique des messages. 
+* Signature numérique des messages.
 
 Vous pouvez utiliser ces certificats dans vos applications Enterprise Integration :
 
@@ -34,7 +34,7 @@ Vous pouvez utiliser ces certificats dans vos applications Enterprise Integratio
 
 Pour utiliser un *certificat public* dans vos applications logiques avec fonctionnalités B2B, vous devez tout d’abord télécharger le certificat dans votre compte d’intégration. Une fois que vous avez défini les propriétés dans les [contrats](logic-apps-enterprise-integration-agreements.md) que vous créez, le certificat est disponible pour vous aider à sécuriser vos messages B2B.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Dans le menu principal Azure, sélectionnez **Toutes les ressources**. Dans la zone de recherche, saisissez le nom de votre compte d’intégration, puis sélectionnez le compte d’intégration de votre choix.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Dans le menu principal Azure, sélectionnez **Toutes les ressources**. Dans la zone de recherche, saisissez le nom de votre compte d’intégration, puis sélectionnez le compte d’intégration de votre choix.
 
    ![Trouvez et sélectionnez votre compte d’intégration](media/logic-apps-enterprise-integration-certificates/select-integration-account.png)  
 
@@ -73,7 +73,7 @@ Une fois que vous avez défini les propriétés dans les [contrats](logic-apps-e
    `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
-3. Connectez-vous au [Portail Azure](https://portal.azure.com). Dans le menu principal Azure, sélectionnez **Toutes les ressources**. Dans la zone de recherche, saisissez le nom de votre compte d’intégration, puis sélectionnez le compte d’intégration de votre choix.
+3. Connectez-vous au [portail Azure](https://portal.azure.com). Dans le menu principal Azure, sélectionnez **Toutes les ressources**. Dans la zone de recherche, saisissez le nom de votre compte d’intégration, puis sélectionnez le compte d’intégration de votre choix.
 
    ![Recherche du compte d’intégration](media/logic-apps-enterprise-integration-certificates/select-integration-account.png) 
 
