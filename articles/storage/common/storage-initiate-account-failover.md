@@ -44,7 +44,7 @@ Au terme du basculement, votre compte de stockage devient un compte de stockage 
 
 Une fois que vous avez réactivé GRS pour votre compte de stockage, Microsoft commence à répliquer les données de votre compte dans la nouvelle région secondaire. Le temps de réplication dépend de la quantité de données répliquées.  
 
-## <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+## <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Pour lancer un basculement de compte à partir du portail Azure, procédez comme suit :
 
@@ -60,7 +60,7 @@ Pour lancer un basculement de compte à partir du portail Azure, procédez comme
 
     ![Capture d'écran représentant la boîte de dialogue de confirmation d'un basculement de compte](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
-## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pour lancer un basculement de compte à l'aide de PowerShell, vous devez d'abord installer le module de préversion 6.0.1. Pour installer le module, procédez comme suit :
 
@@ -97,7 +97,7 @@ Pour lancer un basculement de compte à partir de PowerShell, exécutez la comma
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pour lancer un basculement de compte à partir de l'interface de ligne de commande Azure, exécutez la commande suivante :
 

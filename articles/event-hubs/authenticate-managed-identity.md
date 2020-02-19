@@ -79,7 +79,7 @@ Une fois que vous avez attribué le rôle, l’application web a accès aux ress
 4. Attribuez cette identité au rôle **Propriétaire de données Event Hub** au niveau de l’espace de noms ou du hub d’événements. 
 5. Exécutez l’application web, entrez les noms de l’espace de noms et du hub d’événements, un message, puis sélectionnez **Envoyer**. Pour recevoir l’événement, sélectionnez **Recevoir**. 
 
-#### <a name="azuremessagingeventhubs-latesttablatest"></a>[Azure.Messaging.EventHubs (dernier)](#tab/latest)
+#### <a name="azuremessagingeventhubs-latest"></a>[Azure.Messaging.EventHubs (dernier)](#tab/latest)
 Vous pouvez maintenant lancer votre application web et faire pointer votre navigateur vers l’exemple de page aspx. Vous trouverez l’exemple d’application web qui envoie des données aux ressources Event Hubs et reçoit des données de ces ressources dans le [dépôt GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp).
 
 Installez le package le plus récent à partir de [NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/) et commencez à envoyer des événements à Event Hubs en utilisant **EventHubProducerClient** et à recevoir des événements en utilisant **EventHubConsumerClient**.  
@@ -127,7 +127,7 @@ protected async void btnReceive_Click(object sender, EventArgs e)
 }
 ```
 
-#### <a name="microsoftazureeventhubs-legacytabold"></a>[Microsoft.Azure.EventHubs (hérité)](#tab/old)
+#### <a name="microsoftazureeventhubs-legacy"></a>[Microsoft.Azure.EventHubs (hérité)](#tab/old)
 Vous pouvez maintenant lancer votre application web et faire pointer votre navigateur vers l’exemple de page aspx. Vous trouverez l’exemple d’application web qui envoie des données aux ressources Event Hubs et reçoit des données de ces ressources dans le [dépôt GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp).
 
 Installez le package le plus récent à partir de [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) et commencez à échanger des données avec des hubs d’événements en utilisant EventHubClient comme dans le code suivant : 

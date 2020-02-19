@@ -73,25 +73,25 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 Le tableau suivant indique l’allocation de ressources minimale et recommandée pour chaque conteneur Speech.
 
-# <a name="speech-to-texttabstt"></a>[Reconnaissance vocale](#tab/stt)
+# <a name="speech-to-text"></a>[Reconnaissance vocale](#tab/stt)
 
 | Conteneur | Minimum | Recommandé |
 |-----------|---------|-------------|
 | Reconnaissance vocale | 2 cœurs, 2 Go de mémoire | 4 cœurs, 4 Go de mémoire |
 
-# <a name="custom-speech-to-texttabcstt"></a>[Reconnaissance vocale personnalisée](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Reconnaissance vocale personnalisée](#tab/cstt)
 
 | Conteneur | Minimum | Recommandé |
 |-----------|---------|-------------|
 | Reconnaissance vocale personnalisée | 2 cœurs, 2 Go de mémoire | 4 cœurs, 4 Go de mémoire |
 
-# <a name="text-to-speechtabtts"></a>[Synthèse vocale](#tab/tts)
+# <a name="text-to-speech"></a>[Synthèse vocale](#tab/tts)
 
 | Conteneur | Minimum | Recommandé |
 |-----------|---------|-------------|
 | Synthèse vocale | 1 cœur, 2 Go de mémoire | 2 cœur, 3 Go de mémoire |
 
-# <a name="custom-text-to-speechtabctts"></a>[Synthèse vocale personnalisée](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Synthèse vocale personnalisée](#tab/ctts)
 
 | Conteneur | Minimum | Recommandé |
 |-----------|---------|-------------|
@@ -110,25 +110,25 @@ Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `-
 
 Les images conteneur pour Speech sont disponibles dans le service Container Registry suivant.
 
-# <a name="speech-to-texttabstt"></a>[Reconnaissance vocale](#tab/stt)
+# <a name="speech-to-text"></a>[Reconnaissance vocale](#tab/stt)
 
 | Conteneur | Référentiel |
 |-----------|------------|
 | Reconnaissance vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest` |
 
-# <a name="custom-speech-to-texttabcstt"></a>[Reconnaissance vocale personnalisée](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Reconnaissance vocale personnalisée](#tab/cstt)
 
 | Conteneur | Référentiel |
 |-----------|------------|
 | Reconnaissance vocale personnalisée | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text:latest` |
 
-# <a name="text-to-speechtabtts"></a>[Synthèse vocale](#tab/tts)
+# <a name="text-to-speech"></a>[Synthèse vocale](#tab/tts)
 
 | Conteneur | Référentiel |
 |-----------|------------|
 | Synthèse vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
 
-# <a name="custom-text-to-speechtabctts"></a>[Synthèse vocale personnalisée](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Synthèse vocale personnalisée](#tab/ctts)
 
 | Conteneur | Référentiel |
 |-----------|------------|
@@ -140,7 +140,7 @@ Les images conteneur pour Speech sont disponibles dans le service Container Regi
 
 ### <a name="docker-pull-for-the-speech-containers"></a>Docker pull pour les conteneurs Speech
 
-# <a name="speech-to-texttabstt"></a>[Reconnaissance vocale](#tab/stt)
+# <a name="speech-to-text"></a>[Reconnaissance vocale](#tab/stt)
 
 #### <a name="docker-pull-for-the-speech-to-text-container"></a>Docker pull pour le conteneur Reconnaissance vocale
 
@@ -169,7 +169,7 @@ La balise suivante illustre le format :
 
 Pour tous les paramètres régionaux pris en charge du conteneur de **reconnaissance vocale**, consultez les [étiquettes d’images de reconnaissance vocale](../containers/container-image-tags.md#speech-to-text).
 
-# <a name="custom-speech-to-texttabcstt"></a>[Reconnaissance vocale personnalisée](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Reconnaissance vocale personnalisée](#tab/cstt)
 
 #### <a name="docker-pull-for-the-custom-speech-to-text-container"></a>Docker pull pour le conteneur Reconnaissance vocale personnalisée
 
@@ -182,7 +182,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-spee
 > [!NOTE]
 > Les `locale` et `voice` des conteneurs Speech personnalisés sont déterminés par le modèle personnalisé ingéré par le conteneur.
 
-# <a name="text-to-speechtabtts"></a>[Synthèse vocale](#tab/tts)
+# <a name="text-to-speech"></a>[Synthèse vocale](#tab/tts)
 
 #### <a name="docker-pull-for-the-text-to-speech-container"></a>Docker pull pour le conteneur Synthèse vocale
 
@@ -214,7 +214,7 @@ Pour tous les paramètres régionaux et voix correspondantes pris en charge du c
 > [!IMPORTANT]
 > Lors de la construction d’une requête HTTP POST de *synthèse vocale standard*, le message [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md) nécessite un élément `voice` avec un attribut `name`. La valeur correspond aux paramètres régionaux et à la voix du conteneur correspondant, également appelés [« nom court »](language-support.md#standard-voices). Par exemple, le nom de la voix pour la balise `latest` est `en-US-JessaRUS`.
 
-# <a name="custom-text-to-speechtabctts"></a>[Synthèse vocale personnalisée](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Synthèse vocale personnalisée](#tab/ctts)
 
 #### <a name="docker-pull-for-the-custom-text-to-speech-container"></a>Docker pull pour le conteneur Synthèse vocale personnalisée
 
@@ -240,7 +240,7 @@ Une fois que le conteneur est sur l’[ordinateur hôte](#the-host-computer), ap
 
 Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) pour exécuter le conteneur. Pour plus d’informations sur la façon d’obtenir les valeurs `{Endpoint_URI}` et `{API_Key}`, consultez [Collecte des paramètres requis](#gathering-required-parameters). Des [exemples](speech-container-configuration.md#example-docker-run-commands) supplémentaires de la commande `docker run` sont également disponibles.
 
-# <a name="speech-to-texttabstt"></a>[Reconnaissance vocale](#tab/stt)
+# <a name="speech-to-text"></a>[Reconnaissance vocale](#tab/stt)
 
 Pour exécuter le conteneur *Reconnaissance vocale*, exécutez la commande `docker run` suivante.
 
@@ -259,7 +259,7 @@ Cette commande :
 * Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
 
-# <a name="custom-speech-to-texttabcstt"></a>[Reconnaissance vocale personnalisée](#tab/cstt)
+# <a name="custom-speech-to-text"></a>[Reconnaissance vocale personnalisée](#tab/cstt)
 
 Le conteneur *Reconnaissance vocale personnalisée* s’appuie sur un modèle Speech personnalisé. Le modèle personnalisé doit avoir été [entraîné](how-to-custom-speech-train-model.md) à l’aide du [portail Custom Speech](https://speech.microsoft.com/customspeech). L’**ID du modèle** Custom Speech est nécessaire pour exécuter le conteneur. Il figure dans la page **Entraînement** du portail Custom Speech. À partir du portail Custom Speech, accédez à la page **Entraînement** et sélectionnez le modèle.
 <br>
@@ -302,7 +302,7 @@ Cette commande :
 * Si le modèle personnalisé a été téléchargé auparavant, `ModelId` est ignoré.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
 
-# <a name="text-to-speechtabtts"></a>[Synthèse vocale](#tab/tts)
+# <a name="text-to-speech"></a>[Synthèse vocale](#tab/tts)
 
 Pour exécuter le conteneur *Synthèse vocale*, exécutez la commande `docker run` suivante.
 
@@ -321,7 +321,7 @@ Cette commande :
 * Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte.
 
-# <a name="custom-text-to-speechtabctts"></a>[Synthèse vocale personnalisée](#tab/ctts)
+# <a name="custom-text-to-speech"></a>[Synthèse vocale personnalisée](#tab/ctts)
 
 Le conteneur *Synthèse vocale personnalisée* s’appuie sur un modèle vocal personnalisé. Le modèle personnalisé doit avoir été [entraîné](how-to-custom-voice-create-voice.md) à l’aide du [portail Custom Voice](https://aka.ms/custom-voice-portal). L’**ID du modèle** Custom Voice est nécessaire pour exécuter le conteneur. Il figure dans la page **Entraînement** du portail Custom Voice. À partir du portail Custom Voice, accédez à la page **Entraînement** et sélectionnez le modèle.
 <br>

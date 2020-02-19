@@ -36,7 +36,7 @@ Si vous souhaitez consulter une version de cet article adaptée à Visual Studio
 Dans le dossier approprié, exécutez les commandes suivantes pour créer et activer un environnement virtuel nommé `.venv`. Veillez à utiliser Python 3.7, qui est pris en charge par Azure Functions.
 
 
-# <a name="bashtabbash"></a>[bash](#tab/bash)
+# <a name="bash"></a>[bash](#tab/bash)
 
 ```bash
 python -m venv .venv
@@ -52,7 +52,7 @@ Si Python n’a pas installé le package venv sur votre distribution Linux, exé
 sudo apt-get install python3-venv
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 py -m venv .venv
@@ -62,7 +62,7 @@ py -m venv .venv
 .venv\scripts\activate
 ```
 
-# <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+# <a name="cmd"></a>[Cmd](#tab/cmd)
 
 ```cmd
 py -m venv .venv
@@ -269,14 +269,14 @@ Functions in msdocs-azurefunctions-qs:
 
 Dans la mesure où votre fonction utilise un déclencheur HTTP, vous l’appelez en adressant une requête HTTP à son URL dans le navigateur ou à l’aide d’un outil semblable à curl. Dans les deux cas, le paramètre d’URL `code` est votre clé de fonction unique qui autorise l’appel avec votre point de terminaison de fonction.
 
-# <a name="browsertabbrowser"></a>[Browser](#tab/browser)
+# <a name="browser"></a>[Browser](#tab/browser)
 
 Copiez l’**URL d’appel** complète affichée au sein de la sortie de la commande de publication dans la barre d’adresse d’un navigateur, en ajoutant le paramètre de requête `&name=Azure`. Le navigateur doit afficher une sortie similaire à celle générée au moment de l’exécution locale de la fonction.
 
 ![Sortie de la fonction exécutée sur Azure dans un navigateur](./media/functions-create-first-function-python/function-test-cloud-browser.png)
 
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curl"></a>[curl](#tab/curl)
 
 Exécutez [curl](https://curl.haxx.se/) avec l’**URL d’appel**, en ajoutant le paramètre `&name=Azure`. La sortie de la commande doit correspondre au texte « Hello Azure ».
 
