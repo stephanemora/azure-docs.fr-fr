@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 22a95be43f06e95a6067b179b3023ba94ee5795d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 020055c1629a66ec1aa82beb050501803b2a0f18
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68362510"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168313"
 ---
 ## <a name="authentication"></a>Authentication
 
@@ -17,8 +17,8 @@ Chaque requête nécessite un en-tête d’autorisation. Ce tableau présente le
 
 | En-têtes d'autorisation pris en charge | Reconnaissance vocale | Synthèse vocale |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | OUI | Non |
-| Autorisation : Support | OUI | OUI |
+| Ocp-Apim-Subscription-Key | Oui | Non |
+| Autorisation : Support | Oui | Oui |
 
 Lorsque vous utilisez l’en-tête `Ocp-Apim-Subscription-Key`, vous devez uniquement fournir votre clé d’abonnement. Par exemple :
 
@@ -32,9 +32,15 @@ Lorsque vous utilisez l’en-tête `Authorization: Bearer`, vous devez envoyer u
 
 Pour obtenir un jeton d’accès, vous devrez envoyer une demande au point de terminaison `issueToken` à l’aide de `Ocp-Apim-Subscription-Key` et de votre clé d’abonnement.
 
-Ces régions et points de terminaison sont pris en charge :
+Le format du point de terminaison `issueToken` est le suivant :
 
-[!INCLUDE [](./cognitive-services-speech-service-endpoints-token-service.md)]
+```
+https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
+```
+
+Remplacez `<REGION_IDENTIFIER>` par l’identificateur correspondant à la région de votre abonnement dans le tableau suivant :
+
+[!INCLUDE [](cognitive-services-speech-service-region-identifier.md)]
 
 Utilisez ces exemples pour créer votre demande de jeton d’accès.
 

@@ -1,5 +1,5 @@
 ---
-title: Répertorier les affectations de refus relatives aux ressources Azure à l'aide de l'API REST - Azure | Microsoft Docs
+title: Répertorier les refus d’affectations relatifs aux ressources Azure à l'aide de l'API REST
 description: Apprenez à dresser la liste des affectations de refus pour les utilisateurs, groupes et applications à l’aide de l’API REST et du contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure.
 services: active-directory
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0bc49456f5965846a2de542b4a063bab2d1838bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e6214b3cb2cdca2d80ebae43771b206e3396d8b
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118285"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137317"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Répertorier les affectations de refus relatives aux ressources Azure à l'aide de l'API REST
 
@@ -29,7 +29,7 @@ Les [affectations de refus](deny-assignments.md) empêchent les utilisateurs d'e
 > [!NOTE]
 > Vous ne pouvez pas directement créer vos propres affectations de refus. Pour en savoir sur la création des affectations de refus, consultez [Affectations de refus](deny-assignments.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour obtenir des informations sur une affectation de refus, vous devez disposer de :
 
@@ -47,8 +47,8 @@ Pour obtenir des informations sur une affectation de refus, vous devez disposer 
 
     | Étendue | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Abonnement |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
 
 1. Remplacez *{deny-assignment-id}* par l’identificateur de l’affectation de refus à récupérer.
@@ -71,8 +71,8 @@ Pour obtenir des informations sur une affectation de refus, vous devez disposer 
 
     | Étendue | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | Abonnement |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Ressource |
 
 1. Remplacez *{filter}* par la condition que vous voulez appliquer pour filtrer la liste des affectations de refus.

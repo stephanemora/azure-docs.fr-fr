@@ -14,19 +14,19 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8b58e9d2eae1fbe5b0f4086f772bea3bf46399c3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 99efe375fad142963214b09df24be70bc3bc9d99
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895956"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131613"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Vue d’ensemble du streaming en direct à l’aide d’Azure Media Services
 
 > [!NOTE]
 > Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La diffusion d’événements en flux continu avec Azure Media Services implique généralement les composants suivants :
 
@@ -55,13 +55,13 @@ Dans Azure Media Sercices, les **canaux**, les **programmes** et le **point de t
 
 Un **canal** représente un pipeline de traitement du contenu vidéo en flux continu. Un canal peut recevoir des flux d’entrée live de l’une des manières suivantes :
 
-* Un encodeur en direct local envoie au canal un paquet **RTMP** ou **Smooth Streaming** (MP4 fragmenté) à débit binaire multiple, configuré pour un envoi **direct**. L’envoi **direct** correspond aux flux reçus qui transitent par les **canaux** sans traitement supplémentaire. Vous pouvez utiliser les encodeurs live suivants qui produisent un flux Smooth Streaming multidébit : MediaExcel, Ateme, Imagine Communications, Envivio, Cisco et Elemental. Les encodeurs live suivants produisent un flux au format RTMP : Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek et les transcodeurs Tricaster.  Un encodeur live peut également envoyer un flux à débit binaire unique vers un canal qui n’est pas activé pour le Live Encoding, mais ce n’est pas recommandé. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
+* Un encodeur en direct local envoie au canal un paquet **RTMP** ou **Smooth Streaming** (MP4 fragmenté) à débit binaire multiple, configuré pour un envoi **direct**. L’envoi **direct** correspond aux flux reçus qui transitent par les **canaux** sans traitement supplémentaire. Vous pouvez utiliser les encodeurs live suivants qui produisent un flux Smooth Streaming multidébit : MediaExcel, Ateme, Imagine Communications, Envivio, Cisco et Elemental. Les encodeurs live suivants produisent un flux au format RTMP : Transcodeurs Telestream Wirecast, HaiVision, Teradek et TriCaster.  Un encodeur live peut également envoyer un flux à débit binaire unique vers un canal qui n’est pas activé pour le Live Encoding, mais ce n’est pas recommandé. Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 
   > [!NOTE]
   > La méthode pass-through est le moyen le plus économique de diffuser des vidéos en continu si plusieurs événements vous concernent sur une longue période, et si vous avez déjà investi dans des encodeurs locaux. Consultez les détails de la [tarification](https://azure.microsoft.com/pricing/details/media-services/) .
   > 
   > 
-* Un encodeur live local envoie un flux à débit unique vers le canal activé pour effectuer un encodage en direct avec Media Services dans l’un des formats suivants : RTMP ou Smooth Streaming (MP4 fragmenté). Les encodeurs live suivants avec sortie RTMP fonctionnent avec des canaux de ce type : Telestream Wirecast, FMLE. Le canal procède ensuite à l’encodage en temps réel du flux à débit unique entrant en flux vidéo multidébit (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
+* Un encodeur live local envoie un flux à débit unique vers le canal activé pour effectuer un encodage en direct avec Media Services dans l’un des formats suivants : RTMP ou Smooth Streaming (MP4 fragmenté). Les encodeurs live suivants avec sortie RTMP fonctionnent avec des canaux de ce type : Telestream Wirecast. Le canal procède ensuite à l’encodage en temps réel du flux à débit unique entrant en flux vidéo multidébit (adaptatif). Lorsqu’il y est invité, Media Services fournit le flux aux clients.
 
 À compter de la version de Media Services 2.10, lorsque vous créez un canal, vous pouvez spécifier la façon dont vous souhaitez qu’il reçoive le flux d’entrée. Vous pouvez également indiquer si vous souhaitez ou non que le canal effectue un encodage en temps réel de votre flux. Deux options s'offrent à vous :
 
@@ -74,16 +74,16 @@ Le tableau suivant fournit un guide de comparaison des deux types de canaux pris
 
 | Fonctionnalité | Canal pass-through | Canal standard |
 | --- | --- | --- |
-| L’entrée à débit binaire unique est encodée en plusieurs débits binaires dans le cloud |Non |OUI |
+| L’entrée à débit binaire unique est encodée en plusieurs débits binaires dans le cloud |Non |Oui |
 | Résolution maximale, nombre de couches |1080p, 8 couches, plus de 60 i/s |720p, 6 couches, 30 i/s |
 | Protocoles d’entrée |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
-| Prix |Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) et cliquez sur l’onglet « Vidéo en direct » |Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) |
-| Durée maximale |24 x 7 |8 heures |
-| Prise en charge de l’insertion d’ardoises |Non |OUI |
-| Prise en charge de la signalisation des annonces |Non |OUI |
-| Légendes CEA 608/708 pass-through |OUI |OUI |
-| Prise en charge des groupes d’images d’entrée non uniformes |OUI |Non. L’entrée doit être constituée de groupes d’images fixes de deux secondes |
-| Prise en charge de l’entrée à fréquence d’images variable |OUI |Non. L’entrée doit avoir une fréquence d’images fixe.<br/>Les variations mineures sont tolérées, par exemple pendant les scènes à mouvement élevé. Cependant, l’encodeur ne doit pas descendre à 10 images par seconde. |
+| Price |Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) et cliquez sur l’onglet « Vidéo en direct » |Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) |
+| Durée maximale |24 x 7 |8 heures |
+| Prise en charge de l’insertion d’ardoises |Non |Oui |
+| Prise en charge de la signalisation des annonces |Non |Oui |
+| Légendes CEA 608/708 pass-through |Oui |Oui |
+| Prise en charge des groupes d’images d’entrée non uniformes |Oui |Non. L’entrée doit être constituée de groupes d’images fixes de deux secondes |
+| Prise en charge de l’entrée à fréquence d’images variable |Oui |Non. L’entrée doit avoir une fréquence d’images fixe.<br/>Les variations mineures sont tolérées, par exemple pendant les scènes à mouvement élevé. Cependant, l’encodeur ne doit pas descendre à 10 images par seconde. |
 | Auto-fermeture des canaux en cas de perte du flux d’entrée |Non |Après 12 heures si aucun programme n’est en cours d’exécution |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Utilisation de canaux recevant un flux continu à débit binaire multiple provenant d’encodeurs locaux (pass-through)
@@ -104,7 +104,7 @@ Pour plus d’informations, consultez [Utilisation de canaux activés pour effec
 
 ## <a name="description-of-a-channel-and-its-related-components"></a>Description d’un canal et de ses composants associés
 
-### <a name="channel"></a>canal
+### <a name="channel"></a>Channel
 
 Dans Media Services, les [canaux](https://docs.microsoft.com/rest/api/media/operations/channel)sont responsables du traitement du contenu de vidéo en flux continu. Un canal fournit un point de terminaison d’entrée (URL de réception) que vous fournissez ensuite à un transcodeur live. Le canal reçoit des flux d’entrée live en provenance du transcodeur et les met à disposition pour la diffusion en continu via un ou plusieurs StreamingEndpoints. Les canaux fournissent également un point de terminaison d’aperçu (URL d’aperçu) que vous utilisez pour obtenir un aperçu et valider votre flux avant tout traitement et remise supplémentaires.
 
@@ -112,7 +112,7 @@ Vous pouvez obtenir l’URL de réception et l’URL d’aperçu lors de la cré
 
 Chaque compte Media Services peut contenir plusieurs canaux, plusieurs programmes et plusieurs StreamingEndpoints. Selon les besoins en matière de bande passante et de sécurité, les services StreamingEndpoint peuvent être affectés à un ou plusieurs canaux. N’importe quel StreamingEndpoint peut assurer l’extraction à partir de n’importe quel canal.
 
-Quand vous créez un canal, vous pouvez spécifier des adresses IP autorisées dans un des formats suivants : adresses IpV4 avec 4 nombres, plage d’adresses CIDR.
+Quand vous créez un canal, vous pouvez spécifier des adresses IP autorisées dans un des formats suivants : adresses IPv4 à quatre chiffres, plage d’adresses CIDR.
 
 ### <a name="program"></a>Programme
 Un [programme](https://docs.microsoft.com/rest/api/media/operations/program) vous permet de contrôler la publication et le stockage des segments dans un flux live. Les canaux gèrent des programmes. La relation entre canal et programme est très similaire au contenu multimédia traditionnel où un canal a un flux de contenu constant et un programme est limité à un événement minuté sur ce canal.
@@ -140,10 +140,10 @@ Vous êtes responsable de l’arrêt de vos canaux lorsque vous avez terminé d�
 ### <a id="states"></a>États du canal et mappage au mode de facturation
 État actuel d’un canal. Les valeurs possibles incluent :
 
-* **Arrêté**. Ceci est l'état initial du canal après sa création (sauf si le démarrage automatique a été sélectionné dans le portail). Aucune facturation ne survient dans cet état. Dans cet état, les propriétés du canal peuvent être mises à jour, mais la diffusion en continu n’est pas autorisée.
+* **Arrêté**. Ceci est l'état initial du canal après sa création (sauf si le démarrage automatique a été sélectionné dans le portail). Aucune facturation ne survient dans cet état. Dans cet état, les propriétés du canal peuvent être mises à jour, mais le streaming n’est pas autorisé.
 * **Démarrage en cours**. Le canal est en cours de démarrage. Aucune facturation ne survient dans cet état. Aucune mise à jour ni aucun streaming ne sont autorisés durant cet état. Si une erreur se produit, le canal retourne à l’état Arrêté.
 * **Exécution en cours**. Le canal est capable de traiter des flux dynamiques. Il facture désormais l'utilisation. Vous devez arrêter le canal pour empêcher toute facturation supplémentaire.
-* **En cours d’arrêt**. Le canal est en cours d’arrêt. Aucune facturation ne survient dans cet état de transition. Aucune mise à jour ou diffusion en continu n’est autorisée durant cet état.
+* **En cours d’arrêt**. Le canal est en cours d’arrêt. Aucune facturation ne survient dans cet état de transition. Aucune mise à jour ni aucun streaming ne sont autorisés durant cet état.
 * **Suppression en cours**. Le canal est en cours de suppression. Aucune facturation ne survient dans cet état de transition. Aucune mise à jour ni aucun streaming ne sont autorisés durant cet état.
 
 Le tableau suivant montre comment les états du canal sont mappés au mode de facturation.
@@ -151,7 +151,7 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 | État du canal | Indicateurs de l’interface utilisateur du portail | Existe-t-il une facturation ? |
 | --- | --- | --- |
 | Démarrage en cours |Démarrage en cours |Aucun (état transitoire) |
-| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>or<br/>Streaming (au moins un programme en cours d’exécution) |OUI |
+| Exécution en cours |Prêt (pas de programmes en cours d’exécution)<br/>or<br/>Streaming (au moins un programme en cours d’exécution) |YES |
 | En cours d’arrêt |En cours d’arrêt |Aucun (état transitoire) |
 | Arrêté |Arrêté |Non |
 

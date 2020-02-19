@@ -5,21 +5,18 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/19/2019
+ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 3f7d213aed82d1cb94bb96b9e212d3b255851afd
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 3e8cd2f1e594cd6a60296b2df135f275641df313
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171221"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086980"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Créer des stratégies de pare-feu d’applications web pour Application Gateway
 
 L’association d’une stratégie WAF avec des écouteurs permet de protéger plusieurs sites derrière un WAF à l’aide de différentes stratégies. Par exemple, s’il y a cinq sites derrière votre WAF, vous pouvez avoir cinq stratégies WAF distinctes (une par écouteur) de façon à pouvoir personnaliser les exclusions, les règles personnalisées et les ensembles de règles managés d’un site sans que cela affecte les quatre autres. Si vous souhaitez qu’une seule stratégie s’applique à tous les sites, vous pouvez simplement associer la stratégie à Application Gateway, plutôt qu’aux écouteurs individuels, afin de l’appliquer de manière globale. Des stratégies peuvent également être appliquées à une règle d’acheminement basée sur un chemin. 
-
-   > [!NOTE]
-   > Les stratégies WAF par site sont disponibles dans les régions USA Centre Sud et Europe Nord. Pour y accéder dans le portail, utilisez [ce lien](https://aka.ms/AppgwwafWithAllFeatureFlags) jusqu’à ce qu’elles soient disponibles pour tout le monde.  
 
 Vous pouvez créer autant de stratégies que vous le souhaitez. Une fois que vous avez créé une stratégie, celle-ci doit être associée à une Application Gateway pour entrer en vigueur, mais elle peut être associée à toute combinaison d’Application Gateways et d’écouteurs. 
 
@@ -30,7 +27,7 @@ Si une stratégie est appliquée à votre Application Gateway, puis que vous app
 
 Tous les nouveaux paramètres WAF du pare-feu d’applications web (règles personnalisées, configurations d’ensemble de règles managé, exclusions, etc.) résident dans une stratégie WAF. Si vous disposez d’un WAF, ces paramètres peuvent toujours exister dans la configuration de votre WAF. Pour savoir comment passer à la nouvelle stratégie WAF, voir [Migrer votre configuration WAF vers une stratégie WAF](#migrate) plus loin dans cet article. 
 
-## <a name="create-a-policy"></a>Création d’une stratégie
+## <a name="create-a-policy"></a>Créer une stratégie
 
 Commencez par créer une stratégie WAF de base avec un ensemble de règles par défaut managé via le portail Azure.
 
@@ -42,7 +39,7 @@ Commencez par créer une stratégie WAF de base avec un ensemble de règles par 
    |Stratégie pour     |WAF régional (Application Gateway)|
    |Subscription     |Sélectionnez le nom de votre abonnement|
    |Resource group     |Sélectionnez votre groupe de ressources|
-   |Nom de la stratégie     |Tapez un nom unique pour votre stratégie WAF.|
+   |Nom de stratégie     |Tapez un nom unique pour votre stratégie WAF.|
 3. Sous l’onglet **Association**, entrez l’un des paramètres suivants, puis sélectionnez **Ajouter** :
 
    |Paramètre  |Valeur  |
@@ -64,13 +61,13 @@ Quand vous créez une stratégie WAF, celle-ci est en mode de *Détection* par d
 
 Les règles OWASP managées par Azure sont activées par défaut. Pour désactiver une règle spécifique dans un groupe de règles, développez les règles de celui-ci, activez la case à cocher devant le numéro de la règle, puis sélectionnez **Désactiver** sous l’onglet situé au-dessus.
 
-[![Règles managées](../media/create-waf-policy-ag/managed-rules.png)](../media/create-waf-policy-ag/managed-rules-lrg.png#lightbox)
+[![Règles managées](../media/create-waf-policy-ag/managed-rules.png) ](../media/create-waf-policy-ag/managed-rules-lrg.png#lightbox)
 
 ## <a name="custom-rules"></a>Règles personnalisées
 
 Pour créer une règle personnalisée, sélectionnez **Ajouter une règle personnalisée** sous l’onglet **Règles personnalisées**. Cette action ouvre la page de configuration de règle personnalisée. La capture d’écran suivante montre un exemple de règle personnalisée configurée pour bloquer une demande si la chaîne de requête contient le texte *blockme*.
 
-[![Modifier une règle personnalisée](../media/create-waf-policy-ag/edit-custom-rule.png)](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
+[ ![Modifier une règle personnalisée](../media/create-waf-policy-ag/edit-custom-rule.png) ](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
 
 ## <a name="migrate"></a>Migrer votre configuration WAF vers une stratégie WAF
 
@@ -82,7 +79,7 @@ Si vous disposez d’un WAF, vous avez peut-être remarqué des modifications da
 
 Vous pouvez déterminer l’état de votre WAF en examinant celui-ci dans le portail. Si les paramètres WAF sont visibles et peuvent être modifiés dans la vue Application Gateway, votre WAF est dans l’état 1.
 
-[![Configuration de WAF](../media/create-waf-policy-ag/waf-configure.png)](../media/create-waf-policy-ag/waf-configure-lrg.png#lightbox)
+[ ![Configuration de WAF](../media/create-waf-policy-ag/waf-configure.png) ](../media/create-waf-policy-ag/waf-configure-lrg.png#lightbox)
 
 Si vous sélectionnez **Pare-feu d’application web** et qu’une stratégie associée apparaît, le WAF est dans l’état 2 ou 3. Après avoir accédé à la stratégie, si **seules** des règles personnalisées s’affichent avec des Application Gateways associées, il s’agit d’une Stratégie de règles personnalisées uniquement.
 

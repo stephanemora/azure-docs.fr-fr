@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 1e115c59cab4c340f927da516b5f937abf42e985
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 55cddf5317938dea353517cde7260a1aa531d1df
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839656"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061256"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utiliser le stockage Azure avec des clusters Azure HDInsight
 
@@ -27,9 +27,9 @@ Dans cet article, vous découvrez le fonctionnement du stockage Azure avec des c
 
 | Type de compte de stockage | Services pris en charge | Niveaux de performances pris en charge | Niveaux d’accès pris en charge |
 |----------------------|--------------------|-----------------------------|------------------------|
-| StorageV2 (usage général v2)  | Blob     | standard                    | Chaud, froid, archive\*   |
-| Stockage (v1 universel)   | Blob     | standard                    | N/A                    |
-| BlobStorage                    | Blob     | standard                    | Chaud, froid, archive\*   |
+| StorageV2 (usage général v2)  | Objet blob     | standard                    | Chaud, froid, archive\*   |
+| Stockage (v1 universel)   | Objet blob     | standard                    | N/A                    |
+| BlobStorage                    | Objet blob     | standard                    | Chaud, froid, archive\*   |
 
 Nous vous déconseillons d’utiliser le conteneur d’objets blob par défaut pour stocker des données d’entreprise. Nous vous recommandons de supprimer le conteneur d’objets blob par défaut après chaque utilisation pour réduire les coûts de stockage. Le conteneur par défaut contient les journaux des applications et du système. Assurez-vous de récupérer les journaux d’activité avant de supprimer le conteneur.
 
@@ -49,7 +49,7 @@ Il existe plusieurs méthodes pour accéder aux fichiers dans Data Lake Storage 
     wasbs://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     ```
 
-* **Utilisation du format de chemin d’accès raccourci**. Avec cette approche, vous remplacez le chemin d’accès à la racine du cluster par :
+* **Utilisation du format de chemin d’accès raccourci**. Avec cette approche, vous remplacez le chemin d’accès à la racine du cluster par :
 
     ```
     wasb:///<file.path>/
@@ -62,7 +62,7 @@ Il existe plusieurs méthodes pour accéder aux fichiers dans Data Lake Storage 
     /<file.path>/
     ```
 
-### <a name="data-access-examples"></a>Exemples d'accès aux données
+### <a name="data-access-examples"></a>Exemples d’accès aux données
 
 Les exemples sont basés sur une [connexion ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) au nœud principal du cluster. Les exemples utilisent les trois schémas d’URI. Remplacez `CONTAINERNAME` et `STORAGEACCOUNT` par les valeurs correspondantes
 
@@ -101,9 +101,9 @@ Les exemples sont basés sur une [connexion ssh](./hdinsight-hadoop-linux-use-ss
 > [!NOTE]  
 > Lorsque vous utilisez des objets blob hors de HDInsight, la plupart des utilitaires ne reconnaissent pas le format WASB et attendent plutôt un format de chemin d’accès basique, comme `example/jars/hadoop-mapreduce-examples.jar`.
 
-#### <a name="creating-a-hive-table"></a>Création d'une table Hive
+#### <a name="creating-a-hive-table"></a>Création d’une table Hive
 
-Trois emplacements de fichiers sont indiqués à titre d'illustration. Pour l'exécution réelle, n'utilisez qu'une seule des entrées `LOCATION`.
+Trois emplacements de fichiers sont indiqués à titre d’illustration. Pour l’exécution réelle, n’utilisez qu’une seule des entrées `LOCATION`.
 
 ```hql
 DROP TABLE myTable;
@@ -122,7 +122,7 @@ LOCATION 'wasbs:///example/data/';
 LOCATION '/example/data/';
 ```
 
-## <a name="identify-storage-path-from-abmari"></a>Identifier le chemin de stockage à partir d’Abmari
+## <a name="identify-storage-path-from-ambari"></a>Identifier le chemin de stockage à partir d’Ambari
 
 * Pour identifier le chemin d'accès complet à la mémoire par défaut configurée, naviguez jusqu'à :
 
@@ -148,8 +148,8 @@ Microsoft fournit les outils suivants pour utiliser Stockage Azure :
 
 | Outil | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
-| [Interface de ligne de commande Azure](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
+| [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AZCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
 
@@ -172,4 +172,4 @@ Pour plus d'informations, consultez les pages suivantes :
 * [Utilisation d’Apache Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
 * [Utiliser des signatures d’accès partagé Stockage Azure pour restreindre l’accès aux données avec HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md)
 * [Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)
-* [Tutoriel : Extraire, transformer et charger des données à l’aide d’Interactive Query sur Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+* [Tutoriel : Extraire, transformer et charger des données à l’aide d’Interactive Query sur Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

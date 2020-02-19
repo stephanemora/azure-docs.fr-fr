@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 06a247c9e65ce386034a50650e46994bbbe9074a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e4f27e582e6b920e9de068fe2c3270af19ad8a17
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152168"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122423"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Exemple : Créer une compétence personnalisée avec Python
 
@@ -57,7 +57,7 @@ Le modèle de projet Azure Functions dans Visual Studio Code crée un projet qui
 
 Visual Studio Code crée le projet d’application de fonction dans un nouvel espace de travail. Ce projet contient les fichiers de configuration [host.json](../azure-functions/functions-host-json.md) et [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), ainsi que des fichiers de projet spécifiques au langage. 
 
-Une nouvelle fonction déclenchée via HTTP est également créée dans le dossier **Concatenator** du projet d’application de fonction. Dans le dossier, vous trouverez un fichier nommé « \__init__.py », avec le contenu suivant :
+Une nouvelle fonction déclenchée via HTTP est également créée dans le dossier **Concatenator** du projet d’application de fonction. Vous trouverez dans celui-ci un fichier nommé « \_\_init_.py » dont le contenu est le suivant :
 
 ```py
 import logging

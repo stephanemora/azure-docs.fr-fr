@@ -16,12 +16,12 @@ ms.date: 10/21/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 814c81b6092c4af3778617e165a0bdbce09d71d7
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: d4b52a3025bfb15e2679709353cebf28254a75c2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779124"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185500"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Connexion de l’utilisateur avec l’authentification directe Azure Active Directory
 
@@ -49,7 +49,7 @@ Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authe
   - Aucun frais de gestion. L’agent reçoit automatiquement des améliorations et correctifs de bogues.
 - *Sécuriser*
   - Les mots de passe locaux ne sont jamais stockés dans le cloud sous quelque forme que ce soit.
-  - Il protège vos comptes utilisateur en toute transparence avec les [stratégies d’accès conditionnel d’Azure AD](../active-directory-conditional-access-azure-portal.md), y compris l’authentification multifacteur (MFA), [en bloquant l’authentification héritée](../conditional-access/conditions.md) et [en filtrant des attaques de mot de passe par recherche exhaustive](../authentication/howto-password-smart-lockout.md).
+  - Il protège vos comptes utilisateur en toute transparence avec les [stratégies d’accès conditionnel d’Azure AD](../active-directory-conditional-access-azure-portal.md), y compris l’authentification multifacteur (MFA), [en bloquant l’authentification héritée](../conditional-access/concept-conditional-access-conditions.md) et [en filtrant des attaques de mot de passe par recherche exhaustive](../authentication/howto-password-smart-lockout.md).
   - L’agent établit uniquement les connexions sortantes depuis votre réseau. Il n’est donc pas nécessaire d’installer l’agent dans un réseau de périmètre, également appelé DMZ.
   - La communication entre les agents et Azure AD est sécurisée à l’aide de l’authentification basée sur les certificats. Ces certificats sont renouvelés automatiquement tous les quelques mois par Azure AD.
 - *Hautement disponible*
@@ -70,8 +70,8 @@ Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authe
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Démarrage rapide](how-to-connect-pta-quick-start.md) : apprenez à utiliser l’authentification directe Azure AD.
-- [Migrer à partir d’AD FS vers l’authentification directe](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) : guide détaillé de la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.
+- [Démarrage rapide](how-to-connect-pta-quick-start.md) : commencez à utiliser l’authentification directe Azure AD.
+- [Migrer à partir d’AD FS vers l’authentification directe](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) : guide détaillé de la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.
 - [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : configurez la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
 - [Limitations actuelles](how-to-connect-pta-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
 - [Immersion technique](how-to-connect-pta-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.

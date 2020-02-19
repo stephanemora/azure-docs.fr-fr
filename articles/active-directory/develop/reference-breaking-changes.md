@@ -17,12 +17,12 @@ ms.date: 1/24/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 15293f6cf5ceafda2dd5727ad85804b432bae54a
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: c6ed72e5c94191411572c6ab67533141e2fe47d6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76758748"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185819"
 ---
 # <a name="whats-new-for-authentication"></a>Quelles sont les nouveautés en matière d’authentification ? 
 
@@ -42,7 +42,7 @@ Le système d’authentification modifie et ajoute des fonctionnalités en perma
 
 Aucun n’est planifié pour l’instant.  Pour connaître les changements qui sont en production ou qui vont y être, consultez les changements ci-dessous. 
 
-## <a name="february-2020"></a>Février 2020 : 
+## <a name="february-2020"></a>Février 2020 
 
 ### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>Les fragments vides sont ajoutés à chaque redirection HTTP à partir du point de terminaison de connexion. 
 
@@ -156,7 +156,7 @@ Toutes les applications doivent gérer l’erreur `invalid_grant` en affichant u
 
 Si votre application réutilise des codes d’autorisation pour obtenir des jetons pour différentes ressources, nous vous recommandons d’utiliser le code pour obtenir un jeton d’actualisation, puis d’utiliser ce jeton d’actualisation pour acquérir des jetons supplémentaires pour d’autres ressources. Les codes d’autorisation ne peuvent être utilisés qu’une seule fois, tandis que les jetons d’actualisation peuvent être utilisés plusieurs fois sur différentes ressources. Toute nouvelle application qui tente de réutiliser un code d’authentification pendant le flux de code OAuth obtiendra une erreur invalid_grant.
 
-Pour plus d’informations sur les jetons d’actualisation, voir [Actualisation des jetons d’accès](v1-protocols-oauth-code.md#refreshing-the-access-tokens).  Si vous utilisez la bibliothèque ADAL ou MSAL, ceci est géré pour vous par la bibliothèque : remplacez la deuxième instance de « AcquireTokenByAuthorizationCodeAsync » par « AcquireTokenSilentAsync ». 
+Pour plus d’informations sur les jetons d’actualisation, voir [Actualisation des jetons d’accès](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  Si vous utilisez la bibliothèque ADAL ou MSAL, ceci est géré pour vous par la bibliothèque : remplacez la deuxième instance de « AcquireTokenByAuthorizationCodeAsync » par « AcquireTokenSilentAsync ». 
 
 ## <a name="may-2018"></a>Mai 2018
 
@@ -166,7 +166,7 @@ Pour plus d’informations sur les jetons d’actualisation, voir [Actualisation
 
 **Points de terminaison impactés** : V1.0 et v2.0
 
-**Protocoles impactés** : Flux implicite et [flux OBO](v1-oauth2-on-behalf-of-flow.md)
+**Protocoles impactés** : Flux implicite et [flux On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md)
 
 Depuis le 1er mai 2018, id_tokens ne peut pas être utilisé en tant qu’assertion dans un flux OBO pour les nouvelles applications. Désormais, des jetons d’accès servent à sécuriser les API, même entre un client et le niveau intermédiaire de la même application. Les applications inscrites avant le 1er mai 2018 continueront à fonctionner et à pouvoir échanger des id_tokens pour un jeton d’accès. Toutefois, cela n’est pas considéré comme une meilleure pratique.
 

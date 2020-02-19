@@ -17,12 +17,12 @@ ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a4551a94c8a6b5ea54366fcc36b720cda1e6300e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0282336cb5df7d010571a15e9d1f9d93b82d461e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834176"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160319"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemples de code de la plateforme d’identité Microsoft (point de terminaison v2.0)
 
@@ -34,7 +34,7 @@ Vous pouvez utiliser la plateforme d’identités Microsoft pour effectuer les o
 Cet article fournit une brève description et des liens vers des exemples pour le point de terminaison V2 de la plateforme d’identité Microsoft. Ces exemples vous montrent comment procéder, et fournissent des extraits de code que vous pouvez utiliser dans vos applications. Dans la page d’exemples de code, vous trouverez des rubriques Lisez-moi détaillées, qui offrent une aide relative à la configuration requise, à l’installation et à la configuration. Les commentaires figurant dans le code sont là pour vous aider à comprendre les sections critiques.
 
 > [!NOTE]
-> Si vous êtes intéressé par les exemples associés à la version 1.0, voir [Exemples de code Azure Active Directory (point de terminaison v1.0)](sample-v1-code.md).
+> Si vous êtes intéressé par les exemples associés à la version 1.0, voir [Exemples de code Azure Active Directory (point de terminaison v1.0)](../azuread-dev/sample-v1-code.md).
 
 Pour comprendre le scénario de base pour chaque type d’exemple, voir [Types d’applications pour la plateforme d’identité Microsoft](v2-app-types.md).
 
@@ -75,6 +75,7 @@ Les exemples suivants illustrent des applications clientes publiques (applicatio
 | Bureau (Console)   | ![Cette image affiche le logo .NET/C# (bureau)](media/sample-v2-code/logo_NET.png) | [Authentification Windows intégrée](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
 | Bureau (Console)   | ![Cette image affiche le logo Java](media/sample-v2-code/logo_java.png) | [Authentification Windows intégrée](msal-authentication-flows.md#integrated-windows-authentication) |[ms-identity-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
 | Bureau (Console)   | ![Cette image affiche le logo .NET/C# (bureau)](media/sample-v2-code/logo_NETcore.png) | [Nom d’utilisateur/mot de passe](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
+| Bureau (console) avec WAM  | ![Cette image affiche le logo .NET/C# (bureau)](media/sample-v2-code/logo_NETcore.png) | [Interactif avec WAM](msal-authentication-flows.md#interactive) |[dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) |  |
 | Bureau (Console)   | ![Cette image affiche le logo Java](media/sample-v2-code/logo_java.png) | [Nom d’utilisateur/mot de passe](msal-authentication-flows.md#usernamepassword) |[ms-identity-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
 | Bureau (Console)   | ![Cette image affiche le logo Python](media/sample-v2-code/logo_python.png) | [Nom d’utilisateur/mot de passe](msal-authentication-flows.md#usernamepassword) |[ms-identity-python-desktop](https://github.com/Azure-Samples/ms-identity-python-desktop) |  |
 | Mobile (Android, iOS, UWP)   | ![Cette image affiche le logo .NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | [interactive](msal-authentication-flows.md#interactive) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
@@ -131,6 +132,6 @@ Pour découvrir des [exemples](https://github.com/microsoftgraph/msgraph-communi
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Guide du développeur Azure Active Directory (v1.0)](v1-overview.md)
+- [Guide du développeur Azure Active Directory (v1.0)](../azuread-dev/v1-overview.md)
 - [Concept et référence de l’API Graph Azure AD](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 - [Bibliothèque d’assistance de l’API Azure AD Graph](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
