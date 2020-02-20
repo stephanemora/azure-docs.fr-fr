@@ -55,10 +55,10 @@ Prenez ces exemples d’énoncés :
 
 |Exemples d’énoncés|
 |--|
-|how do I get a computer?|
-|Where do I get a computer?|
-|I want to get a computer, how do I go about it?|
-|When can I have a computer?| 
+|Comment obtenir un ordinateur ?|
+|Où obtenir un ordinateur ?|
+|Je souhaite obtenir un ordinateur, comment faire ?|
+|Quand puis-je avoir un ordinateur ?| 
 
 Ici, le terme clé, « ordinateur », n’a pas de variante. Utilisez des alternatives telles que « ordinateur de bureau », « ordinateur portable », « station de travail » ou même juste « machine ». LUIS peut déduire intelligemment des synonymes à partir du contexte, mais, lorsque vous créez des énoncés pour l’apprentissage, il est toujours préférable de les faire varier.
 

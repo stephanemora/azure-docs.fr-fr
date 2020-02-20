@@ -1,5 +1,5 @@
 - name: Documentation Media Services
-  href: index.md
+  href: index.yml
 - name: Vue d’ensemble
   href: media-services-overview.md
   items:
