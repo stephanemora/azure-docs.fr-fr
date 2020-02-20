@@ -1,19 +1,18 @@
 ---
 title: Comprendre comment la remise de réservation est appliquée à Azure Data Explorer
 description: Découvrez comment la remise de réservation est appliquée à Azure Data Explorer.
-services: data-explorer
 author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/03/2019
-ms.openlocfilehash: 88ab9c475d417bc935cf5d2d67f1678794fb74d1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/12/2020
+ms.openlocfilehash: ab107a0afe8be1d95de8dafb21f239e6da733271
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75986773"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199328"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Comprendre comment la remise de réservation est appliquée à Azure Data Explorer
 
@@ -36,23 +35,23 @@ Une remise de réservation est appliquée à la consommation de majoration d’A
 ## <a name="examples"></a>Exemples
 
 Les exemples suivants montrent comment la remise de capacité réservée Azure Data Explorer est appliquée en fonction du nombre d’unités de majoration achetées et du moment où elles s’exécutent.
-Par exemple, pour une taille de cluster du moteur : **2 machines virtuelles D11_v2**, le montant total de vos frais à la demande est de quatre unités de majoration d’Azure Data Explorer par heure. 
+Par exemple, pour une taille de cluster du moteur : **2 machines virtuelles D11_v2**, le montant total de vos frais à la demande est de quatre unités de majoration d’Azure Data Explorer par heure.
 
-**Scénario 1** 
+**Scénario 1**
 
 Vous achetez une capacité réservée Azure Data Explorer pour 8 unités de majoration d’Azure Data Explorer. Vous exécutez un cluster du moteur de deux machines virtuelles D13_v2 avec un total de 16 cœurs pour une facturation de 16 unités de majoration d’Azure Data Explorer par heure et qui corresponde au reste des attributs de la réservation. Vous êtes facturé au tarif du paiement à l’utilisation pour huit cœurs de calcul utilisé d’Azure Data Explorer et bénéficiez de la remise de réservation pour une heure d’utilisation de huit cœurs d’unité de majoration d’Azure Data Explorer.
 
 Dans le reste de ces exemples, nous supposons que la capacité réservée Azure Data Explorer que vous achetez est pour un cluster Azure Data Explorer à 16 cœurs et que le reste des attributs de réservation correspond au cluster Azure Data Explorer en cours d’exécution.
 
-**Scénario 2** 
+**Scénario 2**
 
 Vous exécutez deux clusters du moteur Azure Data Explorer avec huit cœurs, chacun pendant une heure dans deux régions différentes. La remise de réservation de 16 cœurs est appliquée pour le cluster et les 16 unités de majoration d’Azure Data Explorer qu’elles consomment.
 
-**Scénario 3** 
+**Scénario 3**
 
 Vous exécutez un cluster du moteur Azure Data Explorer à 16 cœurs entre 13h et 13h30. Vous exécutez un autre cluster du moteur Azure Data Explorer à 16 cœurs entre 13h30 et 14h. Les deux sont couvertes par la remise de réservation.
 
-**Scénario 4** 
+**Scénario 4**
 
 Vous exécutez un cluster du moteur Azure Data Explorer à 16 cœurs entre 13h et 13h40. Vous exécutez un autre cluster du moteur Azure Data Explorer à 16 cœurs entre 13h30 et 14h. Le prix du chevauchement de 15 minutes vous est facturé selon la méthode du paiement à l’utilisation. La remise de réservation s’applique à la majoration d’Azure Data Explorer utilisée pendant la période restante.
 

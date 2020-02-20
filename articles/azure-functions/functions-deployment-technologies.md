@@ -6,12 +6,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gwallace
-ms.openlocfilehash: 7b95fae3c7b713a9f97c31578a3bb24a9062fa2e
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: bfb7d3ad6f918d91061fa226ae2dbfcd7f27852d
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029858"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210155"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologies de déploiement dans Azure Functions
 
@@ -51,7 +51,7 @@ Certains concepts clés sont essentiels pour comprendre le fonctionnement des d�
 Quand vous changez l’un de vos déclencheurs, l’infrastructure Functions doit en être informée. La synchronisation s’effectue automatiquement pour la plupart des technologies de déploiement. Toutefois, dans certains cas, vous devez synchroniser manuellement les déclencheurs. Quand vous déployez des mises à jour en référençant une URL de package externe, un Git local, une synchronisation cloud ou FTP, vous devez synchroniser manuellement les déclencheurs. Choisissez l’une de ces trois méthodes de synchronisation des déclencheurs :
 
 * Redémarrez votre application de fonction dans le portail Azure.
-* Envoyez une requête HTTP POST sur `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` en utilisant la [clé principale](functions-bindings-http-webhook.md#authorization-keys).
+* Envoyez une requête HTTP POST sur `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` en utilisant la [clé principale](functions-bindings-http-webhook-trigger.md#authorization-keys).
 * Envoyez une requête HTTP POST sur `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Remplacez les espaces réservés par votre ID d’abonnement, le nom de votre groupe de ressources et le nom de votre application de fonction.
 
 ### <a name="remote-build"></a>Build distante

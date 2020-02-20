@@ -2,21 +2,18 @@
 title: Comprendre le détail de l’utilisation et des frais | Microsoft Docs
 description: Découvrez comment lire et comprendre le détail de l’utilisation et des frais
 author: bandersmsft
-manager: micflan
+ms.reviewer: micflan
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/24/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: a68393b2852f8ddc758e2a47b9e1b5d94befb7b4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e45ef26f3d0a4b968b601e70658c5f3680492682
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76290136"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199022"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Comprendre les termes du fichier sur l’utilisation et les frais Azure
 
@@ -70,7 +67,7 @@ InvoiceSection | MCA | Voir InvoiceSectionName.
 InvoiceSectionId<sup>1</sup> | EA, MCA | Identificateur unique du service EA ou de la section de facture MCA.
 InvoiceSectionName | EA, MCA | Nom du service EA ou de la section de facture MCA.
 IsAzureCreditEligible | Tous | Indique si les frais sont éligibles pour un paiement à l’aide de crédits Azure (valeurs : True, False).
-Location | MCA | Emplacement du centre de données où la ressource est exécutée.
+Emplacement | MCA | Emplacement du centre de données où la ressource est exécutée.
 MeterCategory | Tous | Nom de la catégorie de classification du compteur. Par exemple, *Services cloud* ou *Mise en réseau*.
 MeterId<sup>1</sup> | Tous | Identificateur unique du compteur.
 MeterName | Tous | Nom du compteur.
@@ -103,7 +100,7 @@ ServicePeriodStartDate | MCA | Date de début de la période d’évaluation uti
 SubscriptionId<sup>1</sup> | Tous | Identificateur unique de l’abonnement Azure.
 SubscriptionName | Tous | Nom de l’abonnement Azure.
 Tags<sup>1</sup> | Tous | Balises affectées à la ressource. N’inclut pas les balises de groupe de ressources. Peut être utilisée pour grouper ou répartir des coûts de refacturation interne. Pour plus d’informations, voir [Organisation des ressources Azure à l’aide de balises](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/).
-Terme | Tous | Affiche le terme de validité de l’offre. Par exemple :  Dans le cas d’instances réservées, le terme est de 12 mois. Pour les achats ponctuels ou les achats récurrents, le terme est de 1 mois (SaaS, support Marketplace). Cela ne s’applique pas à la consommation Azure.
+Terme | Tous | Affiche le terme de validité de l’offre. Par exemple : Dans le cas d’instances réservées, le terme est de 12 mois. Pour les achats ponctuels ou les achats récurrents, le terme est de 1 mois (SaaS, support Marketplace). Cela ne s’applique pas à la consommation Azure.
 UnitOfMeasure | Tous | Unité de mesure pour la facturation du service. Par exemple, les services de calcul sont facturés à l’heure.
 UnitPrice | EA, PAYG | Prix unitaire des frais.
 

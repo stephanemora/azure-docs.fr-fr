@@ -1,21 +1,19 @@
 ---
 title: Tutoriel – Réduire les coûts Azure avec des recommandations
 description: Ce tutoriel vous permet de réduire les coûts Azure quand vous agissez sur les recommandations d’optimisation.
-services: cost-management
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/24/2019
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: dougeby
+ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 04b3802ae17440fe7cb96b424727600ab53aefce
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 796d843461d5d622988f7992439a7c4426186761
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168766"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199957"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutoriel : Optimiser les coûts à partir de recommandations
 
@@ -28,10 +26,10 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Agir sur une recommandation pour redimensionner une machine virtuelle et bénéficier d’une option plus rentable
 > * Vérifier l’action pour vous assurer que la machine virtuelle a été correctement redimensionnée
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Des recommandations sont disponibles pour diverses étendues et divers types de comptes Azure. Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](understand-cost-mgt-data.md). Vous devez au moins disposer d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
-- Subscription
+- Abonnement
 - Resource group
 
 Vous devez disposer de machines virtuelles actives avec au moins 14 jours d’activité.

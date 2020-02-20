@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 02/13/2020
 ms.author: helohr
-ms.openlocfilehash: b7c7c21f14eddf29c3dda1f420d7748a4c23e53d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f75e404e37ff45eb7d9f540cf6acba71fa83349f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906862"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201779"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Intégrations de partenaires Windows Virtual Desktop
 
@@ -46,6 +46,8 @@ En tant que fournisseur approuvé, les avantages de Windows Virtual Desktop sero
 10ZiG Technology, avec le matériel et les logiciels de pointe Thin et Zero Client, est un partenaire de longue date de Microsoft, ainsi qu’un partenaire dévoué de Microsoft Azure et de Windows Virtual Desktop. Les clients Thin basés sur l’IoT Windows 10 de 10ZiG sont des points de terminaison puissants, fiables et abordables pour tous les multi-utilisateurs de Windows Virtual Desktop. Le logiciel Manager de 10ZiG permet une gestion et un déploiement exceptionnels sans limitation de licence et sans coût supplémentaire. L’équipe technique 10ZiG, le programme de garantie avancée et les démonstrations faciles constituent une solution tout-en-un de support multi-session de Windows Virtual Desktop dans le cloud.
 
 Le leadership mondial de 10ZiG dans les appareils de point de terminaison de client Thin et Zero ainsi que les logiciels de gestion pour bureaux virtuels se traduit dans la manière dont ils fonctionnent pour leurs clients. Son matériel client Thin est fourni avec des fonctionnalités et des options parfaitement élaborées, conçues pour garantir que les clients reçoivent les appareils clients répondant à leurs besoins. 10ZiG personnalise ses appareils pour les adapter aux divers environnements avec des clients basés sur Windows et Linux, qui offrent des performances optimales en matière de bureaux virtuels, tant à l’intérieur qu’à l’extérieur du cloud.
+
+- [Visitez le site web du partenaire](https://www.10zig.com/).
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -148,6 +150,8 @@ Liquidware Essentials étend la valeur de Windows Virtual Desktop en collectant 
 Le logiciel d’agrégation et de livraison d’applications Liquit permet aux entreprises et aux fournisseurs de services de se connecter à tous les serveurs principaux d’espace de travail (Citrix, VMWare, Windows Virtual Desktop, RDP et Legacy) et de se combiner avec ceux-ci pour offrir une expérience client personnalisée et cohérente, quel que soit l’endroit où résident les applications du client. Quand un client publie l’icône intelligente, Liquit décide où démarrer l’application en fonction de l’emplacement, de l’appareil et des droits de profil du client.
 
 En tant que partenaire d’intégration certifié, Liquit contribue à accélérer la transition vers le Cloud sans délai de remplacement. Windows Virtual Desktop peut facilement se connecter à un environnement existant, créer un espace de travail et fournir le bureau. Vous pouvez ensuite prendre le temps de migrer à partir d’anciennes plateformes et d’apporter des modifications au serveur principal sans que vos utilisateurs s’en aperçoivent. Profitez d’une expérience utilisateur final cohérente ainsi que d’une infrastructure flexible, et gardez le contrôle de vos applications, quel que soit leur emplacement.
+
+- [Visitez le site web du partenaire](https://www.liquit.com/wvd/).
 
 ## <a name="login-vsi"></a>Login VSI
 

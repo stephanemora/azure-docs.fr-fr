@@ -1,19 +1,18 @@
 ---
 title: Factures d’inscription Azure Entreprise
 description: Cet article explique comment gérer et traiter votre facture Azure Enterprise.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/04/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: boalcsva
-ms.openlocfilehash: 2a75972d00733d23df7f4a59b2d5010404df8dc3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.reviewer: boalcsva
+ms.openlocfilehash: 37af492ae156aa880c55034550d4165ec046e74f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023393"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199753"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Factures d’inscription Azure Entreprise
 
@@ -71,11 +70,11 @@ Vous recevrez votre facture de dépassement en fonction de la date de début et 
   - Les frais qui ne sont pas couverts par votre engagement financier sont dus en tant que paiement de dépassement.  
 
 - **Inscriptions indirectes avec une inscription qui a commencé avant le 1er mai 2018** :
-  
+
   Si vous êtes un client ayant conclu un Contrat Entreprise (EA) dont la date de début est antérieure au 1er mai 2018, vous êtes soumis à un cycle de facturation trimestriel. Le partenaire de canal (CP) vous facture directement.  
 
 - **Inscriptions indirectes avec une date de début postérieure au 1er mai 2018** :
-  
+
   Vous êtes sur un cycle de facturation mensuel.  
 
 ### <a name="increase-your-monetary-commitment"></a>Augmenter votre engagement financier
@@ -128,7 +127,7 @@ Pour afficher les crédits :
 1. Sélectionnez **Résumé de l’utilisation**.
 1. Dans le coin supérieur droit, modifiez l’affichage **M** en **C**.
 1. Étendez le champ d’ajustement dans la table d’engagement de service Azure.
-1. Vous verrez les crédits appliqués à votre inscription ainsi qu’une courte explication. Par exemple :  Crédit de contrat de niveau de service.
+1. Vous verrez les crédits appliqués à votre inscription ainsi qu’une courte explication. Par exemple : Crédit de contrat de niveau de service.
 
 ## <a name="request-an-invoice-copy"></a>Demander une copie de facture
 
@@ -258,9 +257,9 @@ Ce qui suit doit s’afficher :
 | --- | --- | --- | --- |
 | Heures | 24 | 0,0535960591133005 | 1,2863054187192120000000 |
 
-Ce problème de mise en forme est dû aux paramètres par défaut de la fonctionnalité d'importation Excel. Excel importe tous les champs en texte « général » et suppose qu’un nombre est séparé dans la norme mathématique. Par exemple :  « 1,000.00 ».
+Ce problème de mise en forme est dû aux paramètres par défaut de la fonctionnalité d'importation Excel. Excel importe tous les champs en texte « général » et suppose qu’un nombre est séparé dans la norme mathématique. Par exemple : « 1,000.00 ».
 
-Si une devise européenne utilise un point (.) comme séparateur de milliers et une virgule comme séparateur décimal (,), ce nombre s’affichera de manière incorrecte. Par exemple :  "1.000,00". Les résultats de l’importation peuvent varier en fonction de votre paramètre de langue régionale.
+Si une devise européenne utilise un point (.) comme séparateur de milliers et une virgule comme séparateur décimal (,), ce nombre s’affichera de manière incorrecte. Par exemple : "1.000,00". Les résultats de l’importation peuvent varier en fonction de votre paramètre de langue régionale.
 
 ### <a name="to-import-the-csv-file-without-formatting-issues"></a>Pour importer le fichier CSV sans problèmes de mise en forme :
 
@@ -423,7 +422,7 @@ Par exemple, lorsque le premier chiffre à arrondir est 5 et qu'il n'y a pas de 
 
 Dans le rapport de téléchargement des données d’utilisation, vous pouvez voir l'utilisation des ressources brutes jusqu'à six décimales. Toutefois, les données d’utilisation affichées dans le portail Azure Enterprise sont arrondies à quatre décimales pour les unités d’engagement et tronquées à zéro décimale pour les unités de dépassement. Les données d'utilisation brutes sont d'abord arrondies à quatre chiffres avant d'être converties en unités utilisées dans le portail Azure Enterprise. Les unités Enterprise converties sont ensuite à nouveau arrondies à quatre chiffres. Vous pouvez afficher les heures consommées réelles avant la conversion dans le rapport de téléchargement de l’utilisation et non dans le portail Azure Enterprise.
 
-Par exemple :  Supposons que 694,533404 heures SQL Server réelles sont indiquées dans le rapport de détails de l’utilisation. Ces unités sont converties en unités 6,94533404 de 100 heures de calcul, puis arrondies à 6,9453 pour être affichées dans le portail Azure Enterprise.
+Par exemple : Supposons que 694,533404 heures SQL Server réelles sont indiquées dans le rapport de détails de l’utilisation. Ces unités sont converties en unités 6,94533404 de 100 heures de calcul, puis arrondies à 6,9453 pour être affichées dans le portail Azure Enterprise.
 
 - Pour déterminer le montant de facturation total, les unités affichées sont multipliées par le prix unitaire de l’engagement, et le résultat est tronqué à deux décimales. Pour le yen japonais (JPY) et le won coréen (KRW), le montant total est arrondi à zéro décimale.
 - Pour calculer le dépassement, les unités de facturation sont tronquées à six chiffres, puis multipliées par le prix unitaire de dépassement pour déterminer le montant de facturation total.
@@ -617,7 +616,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 - **Exclusions**:
   - Users already participating in the Extended Power BI Pro trial will continue to qualify under the pre-existing offer and can't enter into the Azure EA Power BI Pro trial offer.
   - Users participating in the Offer can only use Power BI Pro with the Microsoft Azure Enterprise content pack. Any other use of Power BI Pro is prohibited.
-  - Term: The Offer began on June 1, 2017 and ended on May 31, 2018.  Acceptance can occur at any time during the 12-month period, though the offer will terminate on May 31, 2018 for all users regardless of when they accepted the Offer. 
+  - Term: The Offer began on June 1, 2017 and ended on May 31, 2018.  Acceptance can occur at any time during the 12-month period, though the offer will terminate on May 31, 2018 for all users regardless of when they accepted the Offer.
   -->
 
 ### <a name="to-access-microsoft-azure-consumption-insights"></a>Pour accéder à Microsoft Azure Consumption Insights :
@@ -630,7 +629,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 1. Une fois l’opération terminée, un nouveau tableau de bord, un nouveau rapport et un nouveau modèle s’affichent dans le volet de navigation. Sélectionnez le tableau de bord pour afficher vos données importées.
 
 > [!TIP]
-> 
+>
 > - Pour plus d’informations sur la génération de la clé API pour votre inscription, consultez le fichier d’aide des rapports d’API sur le [portail Enterprise](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
 > - Pour plus d'informations sur la connexion de Power BI à votre consommation Azure, voir [Microsoft Azure Consumption Insights](/power-bi/desktop-connect-azure-cost-management).
 

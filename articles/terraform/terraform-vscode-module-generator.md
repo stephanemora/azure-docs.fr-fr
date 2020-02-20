@@ -3,14 +3,14 @@ title: Tutoriel - Créer un modèle de base Terraform dans Azure avec Yeoman
 description: Découvrez comment créer un modèle de base Terraform dans Azure à l’aide de Yeoman.
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: ba81d0ee797fd879fdadc3a6b25ca8f310383f61
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 82c3f5e640789547abb716b55959e1821a61e6d0
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159171"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472143"
 ---
-# <a name="tutorial-create-a-terraform-base-template-in-azure-using-yeoman"></a>Didacticiel : Créer un modèle de base Terraform dans Azure à l’aide de Yeoman
+# <a name="tutorial-create-a-terraform-base-template-in-azure-using-yeoman"></a>Tutoriel : Créer un modèle de base Terraform dans Azure à l’aide de Yeoman
 
 Dans ce tutoriel, vous allez apprendre à utiliser la combinaison de [Terraform](/azure/terraform/) et de [Yeoman](https://yeoman.io/). Terraform est un outil de création d’infrastructure sur Azure. Yeoman facilite la création de modules Terraform.
 
@@ -25,7 +25,7 @@ Cet article vous montre comment effectuer les tâches suivantes :
 
 - **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 - **Visual Studio Code** : [téléchargez Visual Studio Code](https://code.visualstudio.com/download) pour votre plateforme.
-- **Terraform** : installez [Terraform](/azure/virtual-machines/linux/terraform-install-configure ) pour exécuter le module créé par Yeoman.
+- **Terraform** : installez [Terraform](terraform-install-configure.md) pour exécuter le module créé par Yeoman.
 - **Docker** : [installez Docker](https://www.docker.com/get-started) pour exécuter le module créé par le générateur Yeoman.
 - **Langage de programmation Go** : [installez Go](https://golang.org/), car les cas de test générés par Yeoman sont du code utilisant le langage Go.
 
@@ -139,7 +139,7 @@ Les fichiers suivants ont été créés par le générateur de module Yeoman. Po
     - Les cas de test sont écrits en Go.
     - Tous les codes de test sont des tests de bout en bout.
     - Les tests de bout en bout tentent de provisionner tous les éléments définis sous `fixture`. Les résultats figurant dans le fichier `template_output.go` sont comparés aux valeurs attendues prédéfinies.
-    - `Gopkg.lock` et `Gopkg.toml` : définit les dépendances. 
+    - `Gopkg.lock` et `Gopkg.toml` : définit les dépendances. 
 
 ## <a name="test-your-new-terraform-module-using-a-docker-file"></a>Tester votre nouveau module Terraform à l’aide d’un fichier Docker
 

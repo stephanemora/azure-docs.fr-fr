@@ -1,19 +1,18 @@
 ---
 title: Bien démarrer avec le portail Azure Enterprise
 description: Cet article explique comment les clients Contrat Entreprise Azure (Azure EA) utilisent le portail Azure Enterprise.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/04/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: boalcsva
-ms.openlocfilehash: 516b3704daee885541cec49b0ee374e050dd4b22
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.reviewer: boalcsva
+ms.openlocfilehash: e1c6eac81968ef6ecbc12ec52415c2aa9680f3e1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023342"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200827"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Bien démarrer avec le portail Azure Enterprise
 
@@ -235,7 +234,7 @@ Tenez compte de ces informations importantes lors du transfert de comptes :
   - D’un compte professionnel ou scolaire vers un autre compte professionnel ou scolaire.
   - D’un compte Microsoft vers un compte professionnel ou scolaire.
   - D’un compte Microsoft vers un autre compte Microsoft.
-  
+
     Le compte cible doit être un compte Azure Commerce valide pour être autorisé comme cible des transferts. Pour les nouveaux comptes, vous êtes invité à créer un compte Azure Commerce quand vous vous connectez au portail Azure Enterprise. Pour les comptes existants, vous devez d’abord créer un abonnement Azure pour que le compte soit éligible.
 
 - Vous pouvez effectuer un transfert d’un compte professionnel ou scolaire vers un compte Microsoft.
@@ -285,7 +284,7 @@ Les propriétaires de compte peuvent consulter et gérer les abonnements. Vous p
 
 En créant des abonnements différents pour chacun des environnements d’application, vous sécurisez davantage chaque environnement.
 
-- Vous pouvez également attribuer un compte d’administrateur de service distinct par abonnement. 
+- Vous pouvez également attribuer un compte d’administrateur de service distinct par abonnement.
 - Vous pouvez associer plusieurs services aux abonnements.
 - Le propriétaire du compte crée des abonnements et attribue un compte d’administrateur de service à chaque abonnement dans son compte.
 
@@ -309,7 +308,7 @@ Pour ajouter un abonnement :
 1. Sélectionnez **Abonnements**, puis choisissez l’abonnement créé.
 1. Sélectionnez **Modifier les détails de l’abonnement**.
 1. Modifiez les champs **Nom de l’abonnement** et **Administrateur de service**, puis cochez la case.
-  
+
    Le nom de l’abonnement apparaît sur les rapports. C’est le nom du projet associé à l’abonnement dans le portail de développement.
 
 Cela peut prendre jusqu’à 24 heures pour que les nouveaux abonnements soient visibles dans la liste des abonnements. Une fois que vous avez créé un abonnement, vous pouvez :
@@ -509,14 +508,14 @@ Le portail Azure Enterprise offre deux types d’abonnements pour les clients d�
 - Microsoft Azure Enterprise, qui est idéal pour :
   - Toutes les utilisations de production
   - Meilleurs prix basés sur les dépenses d’infrastructure
-  
+
   Pour plus d'informations, [contactez l’équipe commerciale Azure](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
 - Enterprise Dev/Test, qui est idéal pour :
   - Toutes les charges de travail de développement/test d'équipe
   - Charges de travail de test/développement individuelles moyennes à fortes
   - Accès aux images MSDN spéciales et aux tarifs de service préférentiels
-  
+
   Pour plus d’informations, consultez [l’offre Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ### <a name="is-it-possible-to-transfer-subscription-ownership-to-another-account"></a>Est-il possible de transférer la propriété de l’abonnement à un autre compte ?
@@ -546,7 +545,7 @@ Pour suivre les coûts par centre de coût, vous devez définir le centre de co�
 
 - department
 - Compte
-- Subscription
+- Abonnement
 
 En fonction de vos besoins, vous pouvez utiliser le même centre de coûts pour suivre l’utilisation et les coûts associés à un centre de coûts particulier.
 

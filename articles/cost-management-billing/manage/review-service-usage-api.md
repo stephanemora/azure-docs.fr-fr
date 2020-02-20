@@ -1,24 +1,17 @@
 ---
 title: Passer en revue l’utilisation des ressources des services Azure avec l’API REST | Microsoft Docs
 description: Découvrez comment utiliser les API REST Azure pour passer en revue l’utilisation des ressources des services Azure.
-services: billing
-documentationcenter: na
 author: lleonard-msft
-manager: ''
-editor: ''
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: eb444f090c1b2047e3d71c1b2ec52699a61bd880
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f421ddc7cd509527053b099c7e4e538ab84b814e
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984829"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200569"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Passer en revue l’utilisation des ressources Azure avec l’API REST
 
@@ -41,7 +34,7 @@ Authorization: Bearer
 
 Le paramètre `{subscriptionGuid}` est obligatoire et doit contenir un ID d'abonnement qui peut être lu à l'aide des informations d'identification fournies dans le jeton d'API. Le `{reportName}`
 
-Les en-têtes suivants sont requis : 
+Les en-têtes suivants sont requis :
 
 |En-tête de requête|Description|  
 |--------------------|-----------------|  
@@ -93,7 +86,7 @@ Les
 
 ## <a name="filtering-reports"></a>Filtrage des rapports
 
-Quand vous créez un rapport, les sections `filter` et `dimensions` du corps de la demande vous permettent de vous concentrer sur les coûts de types de ressource spécifiques. Le corps de la demande précédent montre comment filtrer sur toutes les ressources d’une région. 
+Quand vous créez un rapport, les sections `filter` et `dimensions` du corps de la demande vous permettent de vous concentrer sur les coûts de types de ressource spécifiques. Le corps de la demande précédent montre comment filtrer sur toutes les ressources d’une région.
 
 ### <a name="get-all-compute-usage"></a>Obtenir toutes les utilisations de calcul
 
@@ -105,9 +98,9 @@ Utilisez la dimension `ResourceType` pour créer un rapport sur les coûts des m
         "name": "ResourceType",
         "operator": "In",
         "values": [
-                "Microsoft.ClassicCompute/virtualMachines", 
+                "Microsoft.ClassicCompute/virtualMachines",
                 "Microsoft.Compute/virtualMachines"
-        ] 
+        ]
     }
 }
 ```
@@ -123,7 +116,7 @@ Utilisez la dimension `ResourceType` pour créer un rapport sur les coûts Azure
         "operator": "In",
         "values": [
                 "Microsoft.Sql/servers"
-        ] 
+        ]
     }
 }
 ```

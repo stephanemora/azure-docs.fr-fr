@@ -3,21 +3,18 @@ title: Afficher et télécharger votre facture Microsoft Azure
 description: Explique comment afficher et télécharger votre facture Microsoft Azure.
 keywords: facturation, facture, téléchargement de facture, facture Azure, utilisation d’Azure
 author: bandersmsft
-manager: jureid
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 0f413d38565202d379c81570b5cb169c2ed8effe
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 691d27acebf238e84265870e8c01976bfc2412b2
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984373"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200263"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Afficher et télécharger votre facture Microsoft Azure
 
@@ -87,7 +84,7 @@ Pour annuler votre adhésion à l’obtention de votre facture par e-mail, suive
 <!-- Does following section apply to MPA too? -->
 ## <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>Obtenir les factures de votre Contrat client Microsoft par e-mail
 
-Si vous avez un compte de facturation pour votre Contrat client Microsoft, vous pouvez opter pour l’obtention de votre facture par e-mail. Tous les utilisateurs disposant d’un rôle de propriétaire, de collaborateur, de lecteur ou de gestionnaire de factures sur un profil de facturation recevront la facture par e-mail. 
+Si vous avez un compte de facturation pour votre Contrat client Microsoft, vous pouvez opter pour l’obtention de votre facture par e-mail. Tous les utilisateurs disposant d’un rôle de propriétaire, de collaborateur, de lecteur ou de gestionnaire de factures sur un profil de facturation recevront la facture par e-mail.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -109,11 +106,11 @@ Si vous avez un compte de facturation pour votre Contrat client Microsoft, vous 
 
 ## <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>Ne pas adhérer à l’obtention des factures de votre Contrat client Microsoft par e-mail
 
-Pour annuler votre adhésion à l’obtention de votre facture par e-mail, suivez les étapes précédentes et cliquez sur **Désactiver**. Tous les utilisateurs disposant d’un rôle de propriétaire, de collaborateur, de lecteur ou de gestionnaire de factures sont désinscrits de l’obtention par e-mail de la facture. 
+Pour annuler votre adhésion à l’obtention de votre facture par e-mail, suivez les étapes précédentes et cliquez sur **Désactiver**. Tous les utilisateurs disposant d’un rôle de propriétaire, de collaborateur, de lecteur ou de gestionnaire de factures sont désinscrits de l’obtention par e-mail de la facture.
 
 ## <a name="give-others-access-to-your-microsoft-customer-agreement-invoices"></a>Accorder à d’autres l’accès aux factures de votre Contrat client Microsoft
 
-Vous pouvez accorder à d’autres utilisateurs un accès pour afficher, télécharger et payer les factures en leur attribuant le rôle de gestionnaire de factures pour un profil de facturation. Si vous avez choisi d’obtenir vos factures par e-mail, ces utilisateurs reçoivent également les factures par courrier électronique. 
+Vous pouvez accorder à d’autres utilisateurs un accès pour afficher, télécharger et payer les factures en leur attribuant le rôle de gestionnaire de factures pour un profil de facturation. Si vous avez choisi d’obtenir vos factures par e-mail, ces utilisateurs reçoivent également les factures par courrier électronique.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 

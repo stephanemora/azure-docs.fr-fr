@@ -1,16 +1,16 @@
 ---
 title: Créer une fonction Azure Functions sur Linux avec une image personnalisée
-description: Découvrez comment créer des fonctions Azure exécutées sur une image Linux personnalisée.
+description: Découvrez comment créer une exécution d’Azure Functions sur une image Linux personnalisée.
 ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions01
-ms.openlocfilehash: edb947f0748c186e146bce5f4dbe9d0b95a2568d
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9c97606b21a6e98494fffb689567aaab6e2f0621
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846489"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210189"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Créer une fonction sur Linux avec un conteneur personnalisé
 
@@ -33,9 +33,9 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Vous pouvez suivre ce tutoriel sur n’importe quel ordinateur exécutant Windows, Mac OS ou Linux. Le suivi de ce tutoriel entraîne uun coût de quelques dollars USD dans votre compte Azure.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-- Un compte Azure avec une abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 ou ultérieure
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.0.77 ou ultérieure
 - Le [runtime Azure Functions 2.x](functions-versions.md)
@@ -61,8 +61,8 @@ Vous pouvez suivre ce tutoriel sur n’importe quel ordinateur exécutant Window
 
 ### <a name="prerequisite-check"></a>Vérification du prérequis
 
-1. Dans un terminal ou une fenêtre de commande, exécutez `func --version` pour vérifier que la version d’Azure Functions Core Tools est bien 2.7.1846 ou ultérieure.
-1. Exécutez `az --version` pour vérifier que la version d’Azure CLI est bien 2.0.76 ou ultérieure.
+1. Dans une fenêtre de terminal ou une fenêtre Commande, exécutez `func --version` pour vérifier que vous disposez d’Azure Functions Core Tools version 2.7.1846 ou ultérieure.
+1. Exécutez `az --version` pour vérifier que vous disposez d’Azure CLI version 2.0.76 ou ultérieure.
 1. Exécutez `az login` pour vous connecter à Azure et vérifier qu’il y a un abonnement actif.
 1. Exécutez `docker login` pour vous connecter à Docker. Cette commande échoue si Docker n’est pas en cours d’exécution, auquel cas démarrez Docker et réessayez la commande.
 
@@ -110,7 +110,7 @@ Vous pouvez suivre ce tutoriel sur n’importe quel ordinateur exécutant Window
     cd LocalFunctionsProject
     ```
     
-1. Ajoutez une fonction à votre projet avec la commande suivante, où l’argument `--name` est le nom unique de votre fonction et où l’argument `--template` spécifie le déclencheur de la fonction. `func new` crée un sous-dossier correspondant au nom de la fonction qui contient un fichier de code approprié au langage choisi du projet et un fichier de configuration nommé *function.json*.
+1. Ajoutez une fonction à votre projet à l’aide de la commande suivante, où l’argument `--name` est le nom unique de votre fonction, et l’argument `--template` spécifie le déclencheur de la fonction. `func new` crée un sous-dossier correspondant au nom de la fonction qui contient un fichier de code approprié au langage choisi du projet et un fichier de configuration nommé *function.json*.
 
     ```
     func new --name HttpExample --template "HTTP trigger"
@@ -240,7 +240,7 @@ Vous pouvez suivre ce tutoriel sur n’importe quel ordinateur exécutant Window
     ::: zone-end
 
     > [!NOTE]
-    > La liste complète des images de base prises en charge pour Azure Functions se trouve dans la [page des images de base Azure Functions](https://hub.docker.com/_/microsoft-azure-functions-base).
+    > La liste complète des images de base prises en charge pour Azure Functions se trouve sur la [pages des images de base Azure Functions](https://hub.docker.com/_/microsoft-azure-functions-base).
     
 1. Dans le dossier *LocalFunctionsProject*, exécutez la commande [docker build](https://docs.docker.com/engine/reference/commandline/build/), puis spécifiez un nom, `azurefunctionsimage`, et une étiquette, `v1.0.0`. Remplacez `<docker_id>` par votre ID de compte Docker Hub. Cette commande génère l’image Docker pour le conteneur.
 
@@ -256,7 +256,7 @@ Vous pouvez suivre ce tutoriel sur n’importe quel ordinateur exécutant Window
     docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
     ```
     
-1. Une fois que l’image s’exécute dans un conteneur local, ouvrez un navigateur sur `http://localhost:8080`, qui doit afficher l’image de l’espace réservé montrée ci-dessous. L’image apparaît à ce stade, car votre fonction est exécutée dans le conteneur local, comme ce serait le cas dans Azure, ce qui signifie qu’elle est protégée par une clé d’accès telle que définie dans *function.json* avec la propriété `"authLevel": "function"`. Le conteneur n’a cependant pas encore été publié sur une application de fonction : la clé n’est donc pas encore disponible. Si vous voulez effectuer tester localement, arrêtez Docker, changez la propriété d’autorisation en `"authLevel": "anonymous"`, regénérez l’image, puis redémarrez Docker. Ensuite, réinitialisez `"authLevel": "function"` dans *function.json*. Pour plus d’informations, consultez [Clés d’autorisation](functions-bindings-http-webhook.md#authorization-keys).
+1. Une fois que l’image s’exécute dans un conteneur local, ouvrez un navigateur sur `http://localhost:8080`, qui doit afficher l’image de l’espace réservé montrée ci-dessous. L’image apparaît à ce stade, car votre fonction est exécutée dans le conteneur local, comme ce serait le cas dans Azure, ce qui signifie qu’elle est protégée par une clé d’accès telle que définie dans *function.json* avec la propriété `"authLevel": "function"`. Le conteneur n’a cependant pas encore été publié sur une application de fonction : la clé n’est donc pas encore disponible. Si vous voulez effectuer tester localement, arrêtez Docker, changez la propriété d’autorisation en `"authLevel": "anonymous"`, regénérez l’image, puis redémarrez Docker. Ensuite, réinitialisez `"authLevel": "function"` dans *function.json*. Pour plus d’informations, consultez [Clés d’autorisation](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
     ![Image d’espace réservé indiquant que le conteneur s’exécute localement](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
@@ -282,13 +282,13 @@ Docker Hub est un registre de conteneurs qui héberge des images, et qui fournit
 
 ## <a name="create-supporting-azure-resources-for-your-function"></a>Créer des ressources Azure de support pour votre fonction
 
-Pour déployer le code de votre fonction sur Azure, vous devez créer trois ressources :
+Pour déployer votre code de fonction sur Azure, vous devez créer trois ressources :
 
 - Un groupe de ressources, qui est un conteneur logique pour les ressources associées.
-- Un compte de stockage Azure, qui gère l’état et d’autres informations sur vos projets.
-- Une application de fonctions Azure, qui fournit un environnement pour l’exécution du code de votre fonction. Une application de fonction est mappé à votre projet de fonction local et vous permet de regrouper des fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources.
+- Un compte de stockage Azure, qui conserve l’état et d’autres informations spécifiques à vos projets.
+- Une application Azure Functions, qui fournit l’environnement d’exécution de votre code de fonction. Une application de fonction est mappée à votre projet de fonction local. Elle vous permet de regrouper les fonctions en tant qu’unité logique pour faciliter la gestion, le déploiement et le partage des ressources.
 
-Vous utilisez des commandes Azure CLI pour créer ces éléments. Chaque commande fournit une sortie JSON une fois l’opération terminée.
+Vous utilisez les commandes Azure CLI pour créer ces éléments. Chaque commande fournit une sortie JSON une fois l’opération terminée.
 
 1. Connectez-vous à Azure avec la commande [az login](/cli/azure/reference-index#az-login) :
 
@@ -296,7 +296,7 @@ Vous utilisez des commandes Azure CLI pour créer ces éléments. Chaque command
     az login
     ```
     
-1. Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). L’exemple suivant crée un groupe de ressources nommé `AzureFunctionsContainers-rg` dans la région `westeurope`. (Vous créez généralement votre groupe de ressources et vos ressources dans une région proche de vous, en utilisant une région disponible provenant de la commande `az account list-locations`.)
+1. Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). L’exemple suivant crée un groupe de ressources nommé `AzureFunctionsContainers-rg` dans la région `westeurope`. (Vous créez généralement votre groupe de ressources et vos ressources dans une région près de chez vous, en utilisant une région disponible à partir de la commande `az account list-locations`.)
 
     ```azurecli
     az group create --name AzureFunctionsContainers-rg --location westeurope
@@ -305,7 +305,7 @@ Vous utilisez des commandes Azure CLI pour créer ces éléments. Chaque command
     > [!NOTE]
     > Vous ne pouvez pas héberger des applications Linux et Windows dans le même groupe de ressources. Si vous disposez d’un groupe de ressources existant nommé `AzureFunctionsContainers-rg` avec une application de fonction Windows ou une application web, vous devez utiliser un autre groupe de ressources.
     
-1. Créez un compte de stockage universel dans votre groupe de ressources et votre région avec la commande [az storage account create](/cli/azure/storage/account#az-storage-account-create). Dans l’exemple suivant, remplacez `<storage_name>` par un nom globalement unique qui vous convient. Les noms doivent contenir entre 3 et 24 caractères constitués uniquement de chiffres et de lettres minuscules. `Standard_LRS` spécifie un compte universel standard.
+1. Créez un compte de stockage universel dans votre groupe de ressources et votre région à l’aide de la commande [az storage account create](/cli/azure/storage/account#az-storage-account-create). Dans l’exemple suivant, remplacez `<storage_name>` par un nom globalement unique qui vous convient. Les noms doivent contenir entre 3 et 24 caractères, et comporter uniquement des lettres minuscules. `Standard_LRS` spécifie un compte universel standard.
 
     ```azurecli
     az storage account create --name <storage_name> --location westeurope --resource-group AzureFunctionsContainers-rg --sku Standard_LRS
@@ -370,7 +370,7 @@ Avec l’image déployée sur l’application de fonction sur Azure, vous pouvez
 
 1. Récupérez l’URL de la fonction avec la clé (de fonction) d’accès en utilisant le portail Azure ou Azure CLI avec la commande `az rest`.
 
-    # <a name="portaltabportal"></a>[Portail](#tab/portal)
+    # <a name="portal"></a>[Portail](#tab/portal)
 
     1. Connectez-vous au portail Azure, puis recherchez votre application de fonction en entrant son nom dans la zone **Rechercher** en haut de la page. Dans les résultats, sélectionnez la ressource **App Service**.
 
@@ -387,7 +387,7 @@ Avec l’image déployée sur l’application de fonction sur Azure, vous pouvez
     > [!NOTE]  
     > Dans la mesure où votre application de fonction est déployée en tant que conteneur, vous ne pouvez pas apporter de modifications à votre code de fonction dans le portail. Vous devez à la place mettre à jour le projet dans l’image locale, envoyer à nouveau l’image vers le registre, puis redéployer sur Azure. Vous pouvez configurer le déploiement continu dans une section ultérieure.
     
-    # <a name="azure-clitabazurecli"></a>[Azure CLI](#tab/azurecli)
+    # <a name="azure-cli"></a>[Azure CLI](#tab/azurecli)
 
     1. Construisez une chaîne d’URL au format suivant, en remplaçant `<subscription_id>`, `<resource_group>`et `<app_name>` par votre ID d’abonnement Azure, par le groupe de ressources de votre application de fonction et par le nom de votre application de fonction, respectivement :
 
@@ -512,9 +512,9 @@ Cette section vous montre comment intégrer votre fonction à une file d’atten
 
 ## <a name="retrieve-the-azure-storage-connection-string"></a>Récupérer la chaîne de connexion de Stockage Azure
 
-Vous avez créé auparavant un compte de stockage Azure que l’application de fonction va utiliser. La chaîne de connexion pour ce compte est stockée de manière sécurisée dans les paramètres d’application au sein d’Azure. En téléchargeant la valeur dans le fichier *local.settings.json*, vous pouvez utiliser cette connexion pour écrire dans une file d’attente de stockage du même compte lors de l’exécution locale de la fonction. 
+Vous avez créé auparavant un compte de stockage Azure que l’application de fonction va utiliser. La chaîne de connexion pour ce compte est stockée de manière sécurisée dans les paramètres d’application au sein d’Azure. En téléchargeant le paramètre dans le fichier *local.settings.json*, vous pouvez utiliser cette connexion pour écrire dans une file d’attente de stockage du même compte au moment de l’exécution locale de la fonction. 
 
-1. À partir de la racine du projet, exécutez la commande suivante, en remplaçant `<app_name>` par le nom de votre application de fonction défini dans le guide de démarrage rapide précédent. Cette commande remplace toutes les valeurs existantes dans le fichier.
+1. À partir de la racine du projet, exécutez la commande suivante, en remplaçant `<app_name>` par le nom de votre application de fonction créée dans le guide de démarrage rapide précédent. Cette commande remplace toutes les valeurs existantes dans le fichier.
 
     ```
     func azure functionapp fetch-app-settings <app_name>
@@ -523,7 +523,7 @@ Vous avez créé auparavant un compte de stockage Azure que l’application de f
 1. Ouvrez *local.settings.json* et recherchez la valeur nommée `AzureWebJobsStorage`, qui est la chaîne de connexion du compte de stockage. Vous utilisez le nom `AzureWebJobsStorage` et la chaîne de connexion dans d’autres sections de cet article.
 
 > [!IMPORTANT]
-> Comme *local.settings.json* contient des secrets téléchargés à partir d’Azure, excluez toujours ce fichier du contrôle de code source. Le fichier *.gitignore* créé avec un projet de fonction local exclut le fichier par défaut.
+> Dans la mesure où *local.settings.json* contient des secrets téléchargés à partir d’Azure, excluez toujours ce fichier du contrôle de code source. Le fichier *.gitignore* créé avec un projet Functions local exclut le fichier par défaut.
 
 ### <a name="add-an-output-binding-to-functionjson"></a>Ajouter une liaison de sortie à function.json
 
@@ -873,23 +873,23 @@ export default httpTrigger;
 
 Dans un navigateur, utilisez la même URL qu’auparavant pour appeler votre fonction. Le navigateur doit afficher la même réponse qu’auparavant, car vous n’avez pas modifié cette partie du code de la fonction. Le code ajouté a cependant écrit un message en utilisant le paramètre d’URL `name` dans la file d’attente de stockage `outqueue`.
 
-Vous pouvez visualiser la file d’attente dans le [portail Azure](../storage/queues/storage-quickstart-queues-portal.md) ou dans l’[Explorateur Stockage Microsoft Azure](https://storageexplorer.com/). Vous pouvez également visualiser la file d’attente dans Azure CLI, comme décrit dans les étapes suivantes :
+Vous pouvez visualiser la file d’attente dans le [portail Azure](../storage/queues/storage-quickstart-queues-portal.md) ou dans l’[Explorateur Stockage Microsoft Azure](https://storageexplorer.com/). Vous pouvez également voir la file d’attente dans Azure CLI, comme indiqué dans les étapes suivantes :
 
-1. Ouvrez le fichier *local.setting.json* du projet de fonction et copiez la valeur de la chaîne de connexion. Dans un terminal ou une fenêtre de commande, exécutez la commande suivante pour créer une variable d’environnement nommée `AZURE_STORAGE_CONNECTION_STRING`, en collant votre chaîne de connexion spécifique à la place de `<connection_string>`. (Cette variable d’environnement signifie que vous n’avez pas besoin de fournir la chaîne de connexion à chaque commande suivante en utilisant l’argument `--connection-string`.)
+1. Ouvrez le fichier *local.setting.json* du projet de fonction, et copiez la valeur de la chaîne de connexion. Dans une fenêtre de terminal ou une fenêtre Commande, exécutez la commande suivante pour créer une variable d’environnement nommée `AZURE_STORAGE_CONNECTION_STRING`, en collant votre chaîne de connexion spécifique à la place de `<connection_string>`. (Cette variable d’environnement signifie que vous n’avez pas besoin de fournir la chaîne de connexion pour les prochaines commandes à l’aide de l’argument `--connection-string`.)
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     $env:AZURE_STORAGE_CONNECTION_STRING = "<connection_string>"
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     set AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
@@ -897,21 +897,21 @@ Vous pouvez visualiser la file d’attente dans le [portail Azure](../storage/qu
     
     ---
     
-1. (Facultatif) Utilisez la commande [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) pour voir les files d’attente de stockage dans votre compte. La sortie de cette commande doit inclure une file d’attente nommée `outqueue`, qui a été créée quand la fonction a écrit son premier message dans cette file d’attente.
+1. (Facultatif) Utilisez la commande [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) pour voir les files d’attente de stockage dans votre compte. La sortie de cette commande doit inclure une file d’attente nommée `outqueue`, qui a été créée au moment où la fonction a écrit son premier message dans cette file d’attente.
     
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
-    
-    ```azurecli
-    az storage queue list --output tsv
-    ```
-    
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```azurecli
     az storage queue list --output tsv
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
+    
+    ```azurecli
+    az storage queue list --output tsv
+    ```
+    
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```azurecli
     az storage queue list --output tsv
@@ -919,21 +919,21 @@ Vous pouvez visualiser la file d’attente dans le [portail Azure](../storage/qu
     
     ---
 
-1. Utilisez la commande [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) pour visualiser les messages de cette file d’attente, qui doit être le premier nom que vous avez utilisé quand vous avez précédemment testé la fonction. La commande récupère le premier message de la file d’attente dans un [encodage Base64](functions-bindings-storage-queue.md#encoding) : vous devez donc aussi décoder le message pour le voir sous forme de texte.
+1. Utilisez la commande [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) pour voir les messages de cette file d’attente, laquelle doit correspondre au premier nom que vous avez utilisé quand vous avez testé la fonction. La commande récupère le premier message de la file d’attente au format d’[encodage base64](functions-bindings-storage-queue.md#encoding). Vous devez donc également décoder le message pour le voir sous forme de texte.
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}')))
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     Comme vous devez déréférencer la collection de messages et décoder à partir de base64, exécutez PowerShell et utilisez la commande PowerShell.
 

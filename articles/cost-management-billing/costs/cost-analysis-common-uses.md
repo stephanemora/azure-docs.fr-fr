@@ -1,21 +1,19 @@
 ---
 title: Usages courants de l’analyse des coûts dans Azure Cost Management
 description: Cet article explique comment obtenir des résultats des tâches courantes d’analyse des coûts dans Azure Cost Management.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: adwise
-ms.custom: ''
-ms.openlocfilehash: 756e2f275a92a31a99604aaf7ef880bfdce8149b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.reviewer: adwise
+ms.openlocfilehash: 2102e3af26c8f5c4ed85543bc19360a923d070f3
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984585"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199974"
 ---
 # <a name="common-cost-analysis-uses"></a>Usages courants de l’analyse des coûts
 
@@ -25,7 +23,7 @@ Souvent, les utilisateurs d’Azure Cost Management souhaitent obtenir des répo
 
 La visualisation des coûts par service Azure peut vous aider à mieux comprendre les parties les plus coûteuses de votre infrastructure. Par exemple, si les coûts de calcul des machines virtuelles peuvent être faibles, vous pouvez cumuler des coûts de réseau importants en raison de la quantité d’informations qu’elles émettent. Il est essentiel de comprendre les principaux facteurs de coût de vos services Azure. Vous pourrez ainsi ajuster l’utilisation des services selon vos besoins.
 
-1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple :  **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
+1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple : **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
 1. Sélectionnez **Coût par service**, puis, groupez les coûts selon le critère **Niveau de service**.
 1. Choisissez la vue **Tableau**.
 
@@ -35,7 +33,7 @@ La visualisation des coûts par service Azure peut vous aider à mieux comprendr
 
 Vos services s’articulent autour de ressources Azure. L’examen des coûts en fonction des ressources vous permet d’identifier rapidement les principaux facteurs de coût. Si un service comprend des ressources trop coûteuses, envisagez des modifications pour réduire vos coûts.
 
-1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple :  **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
+1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple : **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
 1. Sélectionnez **Coût par ressource**.
 1. Choisissez la vue **Tableau**.
 
@@ -45,7 +43,7 @@ Vos services s’articulent autour de ressources Azure. L’examen des coûts en
 
 Les dimensions vous permettent d’organiser les coûts en fonction de différentes valeurs de métadonnées apparaissant dans vos frais. Par exemple, vous pouvez grouper vos coûts par emplacement.
 
-1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple :  **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
+1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple : **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
 1. Sélectionnez le filtre **Grouper par**.  
     ![Sélectionner un critère de groupement](./media/cost-analysis-common-uses/group-by.png)
 1. Vous pouvez enregistrer la vue pour une utilisation ultérieure si vous le souhaitez.
@@ -56,7 +54,7 @@ Les dimensions vous permettent d’organiser les coûts en fonction de différen
 
 La consultation des coûts par jour et par mois peut vous aider à mieux comprendre si vos coûts sont plus élevés à certaines périodes de la semaine ou de l’année. Un trafic client plus élevé sur une période de vacances entraîne-t-il une augmentation de vos coûts Azure ? Les coûts sont-ils plus élevés le vendredi que le lundi ?
 
-1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple :  **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
+1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple : **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
 1. Sous **Granularité**, sélectionnez **Mensuelle** ou **Quotidienne**.
 
 ![Voir les coûts par jour](./media/cost-analysis-common-uses/daily-granularity.png)
@@ -67,7 +65,7 @@ De nombreux utilisateurs d’Azure appliquent des étiquettes à leurs ressource
 
 La prise en charge des étiquettes s’applique à l’utilisation signalée *après* l’application de l’étiquette à la ressource. Les étiquettes ne sont pas appliquées rétroactivement pour les cumuls de coûts.
 
-1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple :  **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
+1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple : **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
 1. Sélectionnez l’option d’étiquette sous **Grouper par**.
 
 ![Voir les coûts pour une étiquette spécifique](./media/cost-analysis-common-uses/tag.png)
@@ -76,7 +74,7 @@ La prise en charge des étiquettes s’applique à l’utilisation signalée *ap
 
 Le fichier de rapport des détails d’utilisation, au format CSV, fournit une décomposition de l’ensemble des frais cumulés sur une facture. Vous pouvez comparer la facture avec le rapport et ainsi mieux la comprendre. Tous les frais facturés correspondent à des frais décomposés dans le rapport d’utilisation.
 
-1. Dans le portail Azure, accédez à l’onglet **Utilisation et frais** pour un abonnement ou un compte de facturation. Par exemple :  **Gestion des coûts + facturation** > **Facturation** > **Utilisation + frais**.
+1. Dans le portail Azure, accédez à l’onglet **Utilisation et frais** pour un abonnement ou un compte de facturation. Par exemple : **Gestion des coûts + facturation** > **Facturation** > **Utilisation + frais**.
 1. Sélectionnez la ligne pour laquelle vous souhaitez télécharger les informations, puis cliquez sur le symbole de téléchargement.  
     ![Télécharger les données sur l’utilisation et les frais](./media/cost-analysis-common-uses/download1.png)
 1.  Sélectionnez le fichier d’utilisation à télécharger.  
@@ -96,7 +94,7 @@ Votre inscription EA entraîne des coûts pour l’ensemble de votre organisatio
 
 Utilisez une vue graphique des coûts mensuels de votre inscription pour comprendre les tendances de coût et les montants facturés sur une période donnée.
 
-1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple :  **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
+1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple : **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
 1. Sélectionnez votre inscription et définissez la période d’inscription.
 1. Choisissez une granularité mensuelle, puis définissez la vue sur **Histogramme (empilé)** .
 
@@ -108,7 +106,7 @@ Vous pouvez grouper et filtrer vos données pour obtenir une analyse plus détai
 
 Pour comprendre les dépenses globales de votre organisation sur une période donnée, vous pouvez visualiser les frais nets cumulés au fil du temps.
 
-1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple :  **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
+1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple : **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
 1. Sélectionnez votre inscription pour voir les coûts cumulés à ce jour.
 
 ![Coûts cumulés de l’inscription](./media/cost-analysis-common-uses/cost-analysis-enrollment.png)

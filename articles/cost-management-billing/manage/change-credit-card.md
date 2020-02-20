@@ -1,22 +1,19 @@
 ---
-title: Changer de carte de crédit pour Azure
-description: Décrit comment changer la carte de crédit utilisée pour payer un abonnement Azure.
+title: Modifier votre carte de crédit pour Azure
+description: Décrit comment modifier la carte de crédit utilisée pour payer un abonnement Azure.
 author: bandersmsft
-manager: judupont
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 10d475b9c0c33dfd17c3d87beed00154511e1ab6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 0cf0911193cd379da60edb3064d3c6f195cf0190
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188458"
+ms.locfileid: "77199855"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Ajouter, mettre à jour ou supprimer une carte de crédit pour Azure
 
@@ -118,7 +115,7 @@ Si votre carte de crédit est le mode de paiement actif pour un de vos abonnemen
 
 Les sections suivantes s’appliquent aux clients qui disposent d’un Contrat client Microsoft et qui sont inscrits à Azure Online avec une carte de crédit. [Découvrez comment vérifier si vous avez un Contrat client Microsoft](#check-the-type-of-your-account).
 
-### <a name="change-default-credit-card"></a>Changer la carte de crédit par défaut 
+### <a name="change-default-credit-card"></a>Changer la carte de crédit par défaut
 Si vous avez un Contrat client Microsoft, votre carte de crédit est associée à un profil de facturation. Pour changer le mode de paiement d’un profil de facturation, vous devez être la personne qui s’est inscrite à Azure et qui a créé le compte de facturation.
 
 Si vous voulez changer le mode de paiement par défaut de votre profil de facturation en chèque/virement, consultez [Payer pour les abonnements Azure par facture](pay-by-invoice.md).

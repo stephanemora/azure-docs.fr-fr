@@ -3,12 +3,12 @@ title: 'Tutoriel : Créer un groupe identique de machines virtuelles Azure à l
 description: Apprenez à utiliser Terraform pour configurer un groupe identique de machines virtuelles Azure et en gérer les versions.
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 6dcdad21eef003fe773a2c6ea3cb8a69b9175ecb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e445d5e6ae4b7fc4528c6d61ee2bc86870827b1
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369471"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472228"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>Tutoriel : Créer un groupe identique de machines virtuelles Azure à l’aide de Terraform
 
@@ -26,11 +26,11 @@ Dans ce tutoriel, vous allez apprendre à utiliser [Azure Cloud Shell](/azure/cl
 > [!NOTE]
 > La version la plus récente des fichiers config de Terraform utilisés dans cet article se trouve dans le [référentiel Awesome Terraform sur GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
-- **Installer Terraform** : Suivez les instructions de l’article [Terraform et configuration de l’accès à Azure ](/azure/virtual-machines/linux/terraform-install-configure)
+- **Installer Terraform** : Suivez les instructions de l’article [Terraform et configuration de l’accès à Azure ](terraform-install-configure.md)
 
 - **Créez une paire de clés SSH** : Pour plus d’informations, consultez [Comment créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 

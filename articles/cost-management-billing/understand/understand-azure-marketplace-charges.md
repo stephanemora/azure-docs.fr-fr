@@ -1,23 +1,20 @@
 ---
 title: Présentation de vos frais de service externe Azure | Microsoft Docs
 description: En savoir plus sur la facturation des frais des services externes, anciennement appelés Marketplace, dans Azure.
-author: jureid
-manager: jureid
+author: bandersmsft
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f94b79e03cf97275ec4dacf17e097e1678e81d10
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ce385de408d4b0a8cf1531f762a126a6b9b2c126
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984865"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199073"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Comprendre vos frais de service externes Azure
 Les services externes sont publiés par des éditeurs de logiciels tiers sur la Place de marché Azure. Par exemple, SendGrid est un service externe que vous pouvez acheter dans Azure, mais qui n’est pas publié par Microsoft. Certains produits Microsoft sont aussi vendus sur la Place de marché Azure.

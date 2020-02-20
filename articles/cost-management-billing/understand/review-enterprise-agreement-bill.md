@@ -1,22 +1,19 @@
 ---
 title: Consulter votre facture Contrat Entreprise Azure
 description: Découvrez comment lire et comprendre vos données d’utilisation et de facture pour un Contrat Entreprise Azure.
-author: banders
-manager: dougeby
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/04/2020
 ms.author: banders
-ms.openlocfilehash: 8e674ec1c2d4c47d3b4e56bd788c963c81ea23e9
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 1affe81228b491ea45f610d741d454fa38f2029a
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016202"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199107"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Comprendre votre facture Contrat Entreprise Azure
 
@@ -33,7 +30,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Passer en revue les frais de dépassement de service.
 > * Passer en revue la facture de la Place de marché.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour consulter et vérifier les frais figurant sur votre facture, vous devez être administrateur d’entreprise. Pour plus d’informations, consultez [Comprendre les rôles d’administrateur Contrat Entreprise Azure dans Azure](../manage/understand-ea-roles.md). Si vous ignorez qui est l’administrateur d’entreprise de votre organisation, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 

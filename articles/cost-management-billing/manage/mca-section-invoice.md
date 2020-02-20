@@ -2,24 +2,21 @@
 title: Organiser votre facture en fonction de vos besoins – Azure
 description: Découvrez comment organiser les coûts sur votre facture.
 author: amberbhargava
-manager: amberb
-editor: banders
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 7f3a5232f8c5bfbf3f2e81ba52607406f8a038b4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c9cb1d7d1dcc6e7872b22d8c58fe44b9bce25f13
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76843886"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200742"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organiser les coûts en personnalisant votre compte de facturation
 
-Votre compte de facturation pour le contrat client Microsoft vous permet d’organiser vos coûts en fonction de vos besoins, que ce soit par département, par projet ou par environnement de développement. 
+Votre compte de facturation pour le contrat client Microsoft vous permet d’organiser vos coûts en fonction de vos besoins, que ce soit par département, par projet ou par environnement de développement.
 
 Cet article explique comment utiliser le Portail Azure pour organiser vos coûts. Il s’applique à un compte de facturation associé à un contrat client Microsoft. [Vérifiez que vous avez accès à un contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
@@ -33,7 +30,7 @@ Dans le compte de facturation d’un contrat client Microsoft, vous utilisez des
 
 Un profil de facturation représente une facture et les informations de facturation associées, telles que les modes de paiement et l’adresse de facturation. Une facture mensuelle est générée au début du mois pour chaque profil de facturation associé à votre compte. La facture contient les frais pour l’utilisation d’Azure et les autres achats du mois précédent.
 
-Un profil de facturation est automatiquement créé en même temps que votre compte de facturation lorsque vous vous inscrivez à Azure. Vous pouvez créer des profils de facturation supplémentaires pour organiser vos coûts avec plusieurs factures mensuelles. 
+Un profil de facturation est automatiquement créé en même temps que votre compte de facturation lorsque vous vous inscrivez à Azure. Vous pouvez créer des profils de facturation supplémentaires pour organiser vos coûts avec plusieurs factures mensuelles.
 
 > [!IMPORTANT]
 >
@@ -41,9 +38,9 @@ Un profil de facturation est automatiquement créé en même temps que votre com
 
 ### <a name="invoice-section"></a>Section de facture
 
-Une section de facture représente un regroupement de coûts dans votre facture. Une section de facture est créée automatiquement pour chaque profil de facturation dans votre compte. Vous pouvez créer des sections supplémentaires pour organiser vos coûts en fonction de vos besoins. Chaque section de facture s’affiche sur la facture avec les frais engagés pour le mois en vigueur. 
+Une section de facture représente un regroupement de coûts dans votre facture. Une section de facture est créée automatiquement pour chaque profil de facturation dans votre compte. Vous pouvez créer des sections supplémentaires pour organiser vos coûts en fonction de vos besoins. Chaque section de facture s’affiche sur la facture avec les frais engagés pour le mois en vigueur.
 
-L’image ci-dessous montre une facture avec deux sections de facture : Ingénierie et Marketing. Le résumé et le détail des frais pour chaque section s’affichent dans la facture. Les prix indiqués dans l’image sont fournis à titre d’exemple uniquement et ne représentent pas les prix réels des services Azure. 
+L’image ci-dessous montre une facture avec deux sections de facture : Ingénierie et Marketing. Le résumé et le détail des frais pour chaque section s’affichent dans la facture. Les prix indiqués dans l’image sont fournis à titre d’exemple uniquement et ne représentent pas les prix réels des services Azure.
 
 ![Image présentant une facture avec des sections](./media/mca-section-invoice/mca-invoice-with-sections.png)
 
@@ -79,7 +76,7 @@ Pour créer une section de facture, vous devez être **propriétaire de profil d
 
    ![Capture d’écran montrant la recherche dans le portail pour gestion des coûts + facturation](./media/mca-section-invoice/search-cmb.png)
 
-3. Sélectionnez **Profils de facturation** dans le volet gauche. Dans la liste, sélectionnez un profil de facturation. La nouvelle section s’affiche sur la facture du profil de facturation sélectionné. 
+3. Sélectionnez **Profils de facturation** dans le volet gauche. Dans la liste, sélectionnez un profil de facturation. La nouvelle section s’affiche sur la facture du profil de facturation sélectionné.
 
    [![Capture d’écran montrant la liste des profils de facturation](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
@@ -87,7 +84,7 @@ Pour créer une section de facture, vous devez être **propriétaire de profil d
 
    [![Capture d’écran montrant l’ajout de sections de facture](./media/mca-section-invoice/mca-list-invoice-sections.png)](./media/mca-section-invoice/mca-list-invoice-sections-zoomed-in.png#lightbox)
 
-5. Entrez un nom pour la section de facture. 
+5. Entrez un nom pour la section de facture.
 
    [![Capture d’écran montrant la page de création de la section de facture](./media/mca-section-invoice/mca-create-invoice-section.png)](./media/mca-section-invoice/mca-create-invoice-section-zoomed-in.png#lightbox)
 
@@ -121,7 +118,7 @@ Pour créer un profil de facturation, vous devez être **propriétaire du compte
 
     |Champ  |Définition  |
     |---------|---------|
-    |Name     | Nom d’affichage qui vous aide à identifier facilement le profil de facturation dans le Portail Azure.  |
+    |Nom     | Nom d’affichage qui vous aide à identifier facilement le profil de facturation dans le Portail Azure.  |
     |Numéro de BDC    | Numéro de bon de commande facultatif. Le numéro de bon de commande s’affiche sur les factures générées pour le profil de facturation. |
     |Adresse de facturation   | L’adresse de facturation s’affiche sur les factures générées pour le profil de facturation. |
     |Facture par e-mail   | Cochez la case de facture par e-mail pour recevoir les factures pour ce profil de facturation par e-mail. Si vous ne choisissez pas cette option, vous pouvez afficher et télécharger les factures dans le Portail Azure.|
@@ -152,13 +149,13 @@ Une fois que vous avez personnalisé votre compte de facturation en fonction de 
 
 6. Sélectionnez la section de facture pour lier les frais de l’abonnement. Les frais s’affichent sous cette section sur la facture du profil de facturation.
 
-7. Sélectionnez un plan Azure et entrez un nom convivial pour votre abonnement. 
+7. Sélectionnez un plan Azure et entrez un nom convivial pour votre abonnement.
 
 9. Cliquez sur **Créer**.  
 
 ### <a name="link-existing-subscriptions-and-products"></a>Lier des abonnements et des produits existants
 
-Si vous avez des abonnements Azure existants ou d’autres produits tels que la Place de marché Azure et les ressources App Source, vous pouvez les déplacer de leur section de facture existante vers une autre section de facture pour réorganiser vos coûts. 
+Si vous avez des abonnements Azure existants ou d’autres produits tels que la Place de marché Azure et les ressources App Source, vous pouvez les déplacer de leur section de facture existante vers une autre section de facture pour réorganiser vos coûts.
 
 > [!IMPORTANT]
 >
@@ -212,7 +209,7 @@ Le montant total des frais pour l’utilisation de 100 To de données dans ce s
 |---------|---------|---------|
 |1,84 par To pour les 50 premiers To/mois    | 50 To        | 92,0  |
 |1,77 par To pour les 450 To suivants/mois    |  0 To         | 0.0  |
-|Total     |     50 To  | 92,0 
+|Total     |     50 To  | 92,0
 
 `Charges for the second billing profile`
 
@@ -220,17 +217,17 @@ Le montant total des frais pour l’utilisation de 100 To de données dans ce s
 |---------|---------|---------|
 |1,84 par To pour les 50 premiers To/mois    | 50 To        | 92,0  |
 |1,77 par To pour les 450 To suivants/mois    |  0 To         | 0.0  |
-|Total     |     50 To  | 92,0 
+|Total     |     50 To  | 92,0
 
 Le montant total pour l’utilisation de 100 To de données dans ce scénario est de **184,0** (92,0 * 2) USD.
 
 ### <a name="azure-reservation-benefits-might-not-apply-to-all-subscriptions"></a>Les avantages des réservations Azure peuvent ne pas s’appliquer à tous les abonnements
 
-Les réservations Azure avec étendue partagée s’appliquent aux abonnements dans un profil de facturation unique et ne sont pas partagées entre les profils de facturation. 
+Les réservations Azure avec étendue partagée s’appliquent aux abonnements dans un profil de facturation unique et ne sont pas partagées entre les profils de facturation.
 
 ![Graphique d’informations pour l’application d’une réservation pour différentes structures de compte de facturation](./media/mca-section-invoice/mca-reservations-benefits-by-bg.png)
 
-Dans l’image ci-dessus, Contoso a deux abonnements. L’avantage de la réservation Azure s’applique différemment en fonction de la structure du compte de facturation. Dans le scénario de gauche, l’avantage de la réservation s’applique aux deux abonnements facturés sur le profil de facturation d’ingénierie. Dans le scénario de droite, l’avantage de la réservation s’applique uniquement à l’abonnement 1, car il s’agit du seul abonnement facturé sur le profil de facturation d’ingénierie. 
+Dans l’image ci-dessus, Contoso a deux abonnements. L’avantage de la réservation Azure s’applique différemment en fonction de la structure du compte de facturation. Dans le scénario de gauche, l’avantage de la réservation s’applique aux deux abonnements facturés sur le profil de facturation d’ingénierie. Dans le scénario de droite, l’avantage de la réservation s’applique uniquement à l’abonnement 1, car il s’agit du seul abonnement facturé sur le profil de facturation d’ingénierie.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifier l'accès à un contrat client Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

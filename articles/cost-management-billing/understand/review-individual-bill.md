@@ -2,21 +2,18 @@
 title: Consulter votre facture Azure
 description: Apprenez à comprendre votre facture et votre utilisation des ressources, et à vérifier les frais pour votre abonnement Azure.
 author: bandersmsft
-manager: dougeby
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/20/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 969fbc3fe0aa614d4284e1442f507f263d48b499
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 8ebda9716df2e9e45050760ee8d0434c12838370
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117160"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199124"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Tutoriel : Consulter votre facture Azure
 
@@ -30,7 +27,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Comparer les frais facturés avec le fichier d’utilisation.
 > * Comparer les frais et l’utilisation dans l’analyse des coûts.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez disposer d’un compte de facturation *Programme Microsoft Online Services*. Le compte est créé quand vous vous inscrivez à Azure par le biais du site web Azure. C’est par exemple le cas si vous disposez d’un [compte avec des tarifs de paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) ou si vous êtes un [abonné Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
@@ -87,7 +84,7 @@ Vos frais d’utilisation sont affichés au niveau du compteur. Les termes suiva
 | Facture (PDF) | Utilisation détaillée (CSV)|
 | --- | --- |
 |Cycle de facturation | BillingPeriodStartDate BillingPeriodEndDate |
-|Name |Catégorie du compteur |
+|Nom |Catégorie du compteur |
 |Type |Sous-catégorie du compteur |
 |Ressource |MeterName |
 |Région |MeterRegion |

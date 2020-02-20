@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 05/08/2019
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 56e2182b408b4e8b1f89eee7458a27c5dd54bb55
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 9465209467c83f7de075d16e724459c307d55bd3
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562011"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210206"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Créer une définition OpenAPI pour une API serverless à l’aide de Gestion des API Azure
 
@@ -45,7 +45,7 @@ La fonction calcule ensuite le coût de la réparation et les revenus engendrés
 
 1. Sélectionnez **Plus de modèles...** , puis **Terminer et afficher les modèles**.
 
-1. Sélectionnez Déclencheur HTTP, tapez `TurbineRepair` comme **Nom** de fonction, choisissez `Function` comme **[Niveau d’authentification](functions-bindings-http-webhook.md#http-auth)** , puis sélectionnez **Créer**.  
+1. Sélectionnez Déclencheur HTTP, tapez `TurbineRepair` comme **Nom** de fonction, choisissez `Function` comme **[Niveau d’authentification](functions-bindings-http-webhook-trigger.md#http-auth)** , puis sélectionnez **Créer**.  
 
     ![Créer une fonction HTTP pour OpenAPI](media/functions-openapi-definition/select-http-trigger-openapi.png)
 

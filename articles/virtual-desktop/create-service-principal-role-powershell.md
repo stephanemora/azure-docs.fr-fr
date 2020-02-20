@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: 1141731697c9f649a4a8d4052cd550605049b52e
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 1e26af6c4bf86cfd412df7435379e610ffd69e85
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606940"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367423"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Didacticiel : Créer des principaux de service et des attributions de rôles avec PowerShell
+# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutoriel : Créer des principaux de service et des attributions de rôles avec PowerShell
 
 Les principaux de service sont des identités, que vous pouvez créer dans Azure Active Directory pour attribuer des rôles et des autorisations dans un but précis. Dans Windows Virtual Desktop, vous pouvez créer un principal de service pour :
 
@@ -38,7 +38,7 @@ Avant de pouvoir créer des principaux de service et des attributions de rôles,
     Install-Module AzureAD
     ```
 
-2. [Téléchargez et importez le module PowerShell Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview).
+2. [Téléchargez et importez le module PowerShell Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/).
 
 3. Suivez toutes les instructions de cet article dans la même session PowerShell. Le processus risque de ne pas fonctionner si vous interrompez votre session PowerShell en fermant la fenêtre et en la rouvrant ultérieurement.
 
@@ -80,7 +80,7 @@ Voici les trois informations d’identification que vous devez noter et les appl
 
 Ensuite, vous devez créer une attribution de rôle afin que le principal du service puisse se connecter à Windows Virtual Desktop. Veillez à vous connecter avec un compte qui dispose des autorisations nécessaires pour créer des attributions de rôle.
 
-Tout d’abord, si vous ne l’avez pas déjà fait, [téléchargez et importez le module PowerShell Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) à utiliser dans votre session PowerShell.
+Tout d’abord, si vous ne l’avez pas déjà fait, [téléchargez et importez le module PowerShell Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) à utiliser dans votre session PowerShell.
 
 Exécutez les applets de commande PowerShell suivantes pour vous connecter à Windows Virtual Desktop et afficher vos locataires.
 
