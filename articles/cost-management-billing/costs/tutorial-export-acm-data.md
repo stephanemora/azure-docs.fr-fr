@@ -1,21 +1,19 @@
 ---
 title: 'Tutoriel : Créer et gérer des données exportées depuis Azure Cost Management'
 description: Cet article vous montre comment créer et gérer des données Azure Cost Management exportées pour les utiliser dans des systèmes externes.
-services: cost-management
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/14/2020
+ms.date: 02/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
-manager: jasonh
+ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 76ee5aba0f1d0769e15a5969409dfef2a018e477
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 40846de9ee8eec3225a05e3c2c68c3ad5af02042
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984034"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201014"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutoriel : Créer et gérer des données exportées
 
@@ -31,7 +29,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Créer une exportation quotidienne
 > * Vérifier que les données sont collectées
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 L’exportation des données est disponible pour divers types de comptes Azure, notamment pour les clients [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) et [Contrat client Microsoft](get-started-partners.md). Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](understand-cost-mgt-data.md). Les autorisations Azure suivantes, ou étendues, sont prises en charge par abonnement pour l’exportation de données par utilisateur et par groupe. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
 - Propriétaire : peut créer, modifier ou supprimer des exportations planifiées pour un abonnement.

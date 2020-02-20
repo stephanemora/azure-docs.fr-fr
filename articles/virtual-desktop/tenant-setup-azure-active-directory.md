@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: 70cabc75ebdeb7ed6d7ffd000419295fce6303de
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f38f0cec336061c97daa02798e94d98844d76ea2
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459509"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368775"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutoriel : Créer un locataire dans Windows Virtual Desktop
 
@@ -121,7 +121,7 @@ Pour trouver votre ID d’abonnement Azure :
 
 Maintenant que vous avez accordé des autorisations pour interroger l’instance Azure Active Directory au service Windows Virtual Desktop et attribué le rôle TenantCreator à un compte d’utilisateur, vous pouvez créer un locataire Windows Virtual Desktop.
 
-Tout d’abord, si vous ne l’avez pas déjà fait, [téléchargez et importez le module Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) à utiliser dans votre session PowerShell.
+Tout d’abord, si vous ne l’avez pas déjà fait, [téléchargez et importez le module Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) à utiliser dans votre session PowerShell.
 
 Connectez-vous à Windows Virtual Desktop à l’aide du compte d’utilisateur TenantCreator avec cette applet de commande :
 

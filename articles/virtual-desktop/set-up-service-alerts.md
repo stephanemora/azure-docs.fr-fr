@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
-ms.openlocfilehash: b5fa5fc13c8ce0c98c04d2451f3a50e89b986c16
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 8c062c1ce8e938ac426a10c41161eb7e28f3dcba
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676446"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368766"
 ---
-# <a name="tutorial-set-up-service-alerts"></a>Didacticiel : Configurer des alertes de service
+# <a name="tutorial-set-up-service-alerts"></a>Tutoriel : Configurer des alertes de service
 
 Vous pouvez utiliser Azure Service Health pour surveiller les problèmes de service et les avis d’intégrité pour Windows Virtual Desktop. Azure Service Health peut vous envoyer des notifications avec différents types d’alertes (par exemple, e-mail ou SMS), vous aider à comprendre l’effet d’un problème et vous tenir informé de son évolution. Azure Service Health peut également vous aider à réduire les temps d’arrêt, vous préparer à la maintenance planifiée et aux changements susceptibles d’affecter la disponibilité de vos ressources.
 
@@ -27,9 +27,9 @@ Pour en savoir plus sur Azure Service Health, consultez la [Documentation Azure 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- [Tutoriel : Créer un locataire dans Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory)
-- [Tutoriel : Créer des principaux de service et des attributions de rôles avec PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell)
-- [Tutoriel : Créer un pool d’hôtes avec la Place de marché Azure](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace)
+- [Tutoriel : Créer un locataire dans Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
+- [Tutoriel : Créer des principaux de service et des attributions de rôles avec PowerShell](create-service-principal-role-powershell.md)
+- [Tutoriel : Créer un pool d’hôtes avec la Place de marché Azure](create-host-pools-azure-marketplace.md)
 
 ## <a name="create-service-alerts"></a>Créer des alertes de service
 
@@ -48,7 +48,7 @@ Nous vous recommandons de créer des alertes de service pour les types d’évé
 
 Pour configurer des alertes de service :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Service Health.**
 3. Suivez les instructions de [Créer des alertes de journal d’activité sur les notifications de service](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) pour configurer vos alertes et notifications.
 
