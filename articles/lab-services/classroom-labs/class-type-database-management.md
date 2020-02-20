@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: 92152652ca264cace12d3f780ebec0f80bb2048a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4c375487b30595251753021033c98cf0ca1e8dd7
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74234442"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469916"
 ---
 # <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Configurer un laboratoire pour enseigner la gestion des bases de données pour les bases de données relationnelles
 
@@ -32,7 +32,7 @@ Pour configurer ce labo, vous avez besoin d’un abonnement Azure et d’un comp
 
 ### <a name="lab-account-settings"></a>Paramètres du compte Lab
 
-Activez les paramètres décrits dans le tableau ci-dessous pour le compte lab. Pour plus d’informations sur l’activation des images de la Place de marché, consultez [Spécifier les images de la Place de marché accessibles aux créateurs de labo](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#specify-marketplace-images-available-to-lab-creators).
+Activez les paramètres décrits dans le tableau ci-dessous pour le compte lab. Pour plus d’informations sur l’activation des images de la Place de marché, consultez [Spécifier les images de la Place de marché accessibles aux créateurs de labo](https://docs.microsoft.com/azure/lab-services/classroom-labs/specify-marketplace-images).
 
 | Paramètres du compte lab | Instructions |
 | ------------------- | ------------ |

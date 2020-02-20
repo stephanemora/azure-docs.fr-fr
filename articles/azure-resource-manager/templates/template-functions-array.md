@@ -3,12 +3,12 @@ title: Fonctions des modèles - tableaux et objets
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des tableaux et des objets.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 16b36d290a99da56dffe82c9e4c7265a89350391
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a38ab0fb2ddb15c3e853ae1b249df9a8364c6910
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476247"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207364"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Fonctions de tableau et d’objet pour les modèles Azure Resource Manager
 
@@ -93,7 +93,7 @@ Tableau.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | intOutput | Array | [1] |
 | stringOutput | Array | ["efgh"] |
@@ -178,7 +178,7 @@ Valeur des premiers paramètres non null. Il peut s’agir d’une chaîne, d’
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | stringOutput | String | default |
 | intOutput | Int | 1 |
@@ -256,7 +256,7 @@ Chaîne ou tableau de valeurs concaténées.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -296,7 +296,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
@@ -384,7 +384,7 @@ Vérifie si un tableau contient une valeur, un objet contient une clé ou une ch
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -465,7 +465,7 @@ Tableau.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | stringArray | Array | ["a", "b", "c"] |
 | intArray | Array | [1, 2, 3] |
@@ -543,7 +543,7 @@ Retourne **True** si la valeur est vide ; sinon, **False**.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -608,7 +608,7 @@ Type (chaîne, entier, tableau ou objet) du premier élément d’un tableau ou 
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
@@ -686,7 +686,7 @@ Tableau ou objet avec les éléments communs.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
@@ -758,7 +758,7 @@ Si vous devez inclure une valeur de paramètre ou une variable dans l’objet JS
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
 | nullOutput | Boolean | True |
@@ -823,7 +823,7 @@ Type (chaîne, entier, tableau ou objet) du dernier élément d’un tableau ou 
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
@@ -910,7 +910,7 @@ Un entier.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -937,7 +937,7 @@ Vous pouvez utiliser cette fonction avec un tableau pour spécifier le nombre d�
 }
 ```
 
-Pour plus d’informations sur l’utilisation de cette fonction avec un tableau, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](create-multiple-instances.md).
+Pour plus d’informations sur l’utilisation de cette fonction avec un tableau, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](copy-resources.md).
 
 ## <a name="max"></a>max
 
@@ -985,7 +985,7 @@ Entier représentant la valeur maximale.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -1048,7 +1048,7 @@ Entier représentant la valeur minimale.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -1112,7 +1112,7 @@ Tableau d’entiers.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | rangeOutput | Array | [5, 6, 7] |
 
@@ -1191,7 +1191,7 @@ Tableau ou chaîne.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
@@ -1271,7 +1271,7 @@ Tableau ou chaîne.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | sur |
@@ -1349,7 +1349,7 @@ Objet ou tableau.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
@@ -1370,6 +1370,6 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 * Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](template-syntax.md).
 * Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](linked-templates.md).
-* Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](create-multiple-instances.md).
+* Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](copy-resources.md).
 * Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](deploy-powershell.md).
 

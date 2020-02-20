@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f808ff2a88a86df25b555f94257168e2d176e7f8
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: fd52c4cc5cd9d4c01ddb355bdfb28d0952e65759
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963652"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210257"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
 
@@ -112,7 +112,7 @@ Pour les fonctions C#, vous pouvez modifier le type en tableau d’objets fortem
 
 Le fichier `host.json` dans l’application de fonction permet la configuration des comportements de déclencheur et de runtime hôtes.  En plus des comportements de traitement par lot, vous pouvez gérer l’accès concurrentiel d’un certain nombre de déclencheurs. Souvent l’ajustement des valeurs de ces options peut permettre la mise à l’échelle adéquate de chaque instance face aux demandes des fonctions appelées.
 
-Les paramètres dans le fichier host.json s’appliquent à toutes les fonctions de l’application, dans une *instance unique* de la fonction. Par exemple, si vous aviez une application de fonction dotée de deux fonctions HTTP avec une valeur pour les demandes simultanées [`maxConcurrentRequests`](functions-bindings-http-webhook.md#hostjson-settings) définie sur 25, une requête à l’un des déclencheurs HTTP serait comptabilisée dans les 25 demandes simultanées partagées.  Si cette application de fonction était redimensionnée à 10 instances, les deux fonctions autoriseraient en réalité 250 demandes simultanées (10 instances * 25 demandes simultanées par instance). 
+Les paramètres dans le fichier host.json s’appliquent à toutes les fonctions de l’application, dans une *instance unique* de la fonction. Par exemple, si vous aviez une application de fonction dotée de deux fonctions HTTP avec une valeur pour les demandes simultanées [`maxConcurrentRequests`](functions-bindings-http-webhook-output.md#hostjson-settings) définie sur 25, une requête à l’un des déclencheurs HTTP serait comptabilisée dans les 25 demandes simultanées partagées.  Si cette application de fonction était redimensionnée à 10 instances, les deux fonctions autoriseraient en réalité 250 demandes simultanées (10 instances * 25 demandes simultanées par instance). 
 
 D’autres options de configuration d’hôte sont consultables [dans l’article Configuration de host.json](functions-host-json.md).
 

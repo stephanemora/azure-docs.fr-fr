@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: functions
 author: ggailey777
 ms.service: azure-functions
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: a27d44a7684b4ad3d39d7fba50ca52e08e932971
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 3d93d3aa3e4e646f8e054f96f17bbe4a011d422d
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769764"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77211385"
 ---
 Le modèle de projet Azure Functions dans Visual Studio crée un projet qui peut être publié dans une application de fonction dans Azure. Vous pouvez utiliser une application de fonction pour regrouper des fonctions en une unité logique afin de faciliter la gestion, le déploiement, la mise à l’échelle et le partage des ressources.
 
@@ -35,9 +35,9 @@ Le modèle de projet Azure Functions dans Visual Studio crée un projet qui peut
     | **Runtime Functions** | **Azure Functions 2.x <br />(.NET Core)** | Ce paramètre crée un projet de fonction qui utilise le runtime d’Azure Functions version 2.x qui prend en charge .NET Core. La version 1.x d’Azure Functions prend en charge .NET Framework. Pour plus d’informations, consultez [Cibler la version du runtime Azure Functions](../articles/azure-functions/functions-versions.md).   |
     | **Modèle de fonction** | **Déclencheur HTTP** | Ce paramètre crée une fonction déclenchée par une demande HTTP. |
     | **Compte de stockage**  | **Émulateur de stockage** | Un déclencheur HTTP n’utilise pas la connexion de compte de stockage Azure. Tous les autres types de déclencheurs nécessitent une chaîne de connexion de compte de stockage valide. Étant donné que Functions requiert un compte de stockage, celui-ci est attribué ou créé lorsque vous publiez votre projet sur Azure. |
-    | **Niveau d’autorisation** | **Anonyme** | La fonction créée peut être déclenchée par n’importe quel client sans fournir une clé. Ce paramètre d’autorisation facilite le test de votre nouvelle fonction. Pour plus d’informations sur les clés et autorisations, consultez [Clés d’autorisation](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) dans [HTTP et liaisons de webhook](../articles/azure-functions/functions-bindings-http-webhook.md). |
+    | **Niveau d’autorisation** | **Anonyme** | La fonction créée peut être déclenchée par n’importe quel client sans fournir une clé. Ce paramètre d’autorisation facilite le test de votre nouvelle fonction. Pour plus d’informations sur les clés et autorisations, consultez [Clés d’autorisation](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) dans [HTTP et liaisons de webhook](../articles/azure-functions/functions-bindings-http-webhook.md). |
     
     > [!NOTE]
-    > Veillez à définir le **Niveau d’autorisation** sur `Anonymous`. Si vous choisissez le niveau par défaut de `Function`, vous êtes invité à présenter la [clé de fonction](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) dans les demandes d’accès à votre point de terminaison de fonction.
+    > Veillez à définir le **Niveau d’autorisation** sur `Anonymous`. Si vous choisissez le niveau par défaut de `Function`, vous êtes invité à présenter la [clé de fonction](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) dans les demandes d’accès à votre point de terminaison de fonction.
     
 4. Sélectionnez **Créer** pour créer le projet de fonction et la fonction déclenchée par HTTP.

@@ -10,12 +10,12 @@ ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 0e612dbecb9f215a90f728afb0f06a65db09764b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 038e53251bd81552fd3379f2d7645570fbcda4ef
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162920"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471344"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -44,7 +44,7 @@ Une demande d’écriture dans un compte de stockage utilisant une réplication 
 
 L’option LRS est un bon choix pour les scénarios suivants :
 
-- Si votre application stocke des données qui peuvent être recréées facilement en cas de perte, vous pouvez opter pour une réplication LRS.
+- En revanche, si votre application stocke des données qui peuvent être recréées facilement en cas de perte, vous pouvez opter pour un stockage LRS.
 - Si votre application est limitée à la réplication de données uniquement à l’intérieur d’un pays ou d’une région en raison d’exigences de gouvernance des données, vous pouvez opter pour un stockage localement redondant. Dans certains cas, les régions appairées dans lesquelles les données sont géorépliquées peuvent se trouver dans un autre pays ou une autre région. Pour plus d’informations sur les régions associées, consultez la page [Régions Azure](https://azure.microsoft.com/regions/).
 
 ### <a name="zone-redundant-storage"></a>Stockage redondant interzone
@@ -66,7 +66,7 @@ Le tableau suivant répertorie les types de comptes de stockage qui prennent en 
 |    FileStorage    | Europe occidentale<br /> USA Est    |    Azure Files uniquement    |
 
 <sup>1</sup> Le niveau archive n’est pas actuellement pris en charge sur les comptes ZRS.<br />
-<sup>2</sup> Les disques Azure pour machines virtuelles, tant gérés que non gérés, ne prennent en charge que la réplication LRS. Ils ne prennent pas en charge les réplication ZRS ou GZRS. Pour plus d’informations sur les disques managés, voir [Tarification des disques managés Azure](/pricing/details/managed-disks/).
+<sup>2</sup> Les disques Azure pour machines virtuelles, tant gérés que non gérés, ne prennent en charge que la réplication LRS. Ils ne prennent pas en charge les réplication ZRS ou GZRS. Pour plus d’informations sur les disques managés, voir [Tarification des disques managés Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 Pour plus d’informations sur les régions qui prennent en charge la réplication ZRS, voir **Prise en charge des services par région** dans [Que sont les zones de disponibilité Azure ?](../../availability-zones/az-overview.md).
 
@@ -146,7 +146,7 @@ Le tableau suivant montre la durabilité et la disponibilité de vos données da
 | Scénario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (préversion)                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Un nœud au sein d’un centre de données devient indisponible                                                                 | Oui                             | Oui                              | Oui                                  | Oui                                  |
-| Un centre de données entier (zonal ou non) devient indisponible                                           | Non                              | Oui                              | Oui                                  | Oui                                  |
+| Indisponibilité d’un centre de données complet (zonal ou non)                                           | Non                              | Oui                              | Oui                                  | Oui                                  |
 | Une panne à l’échelle d’une région se produit                                                                                     | Non                              | Non                               | Oui                                  | Oui                                  |
 | Accès en lecture aux données dans la région secondaire si la région primaire devient indisponible | Non                              | Non                               | Oui (avec RA-GRS)                                   | Oui (avec RA-GZRS)                                 |
 | Pourcentage de durabilité des objets sur une année donnée<sup>1</sup>                                          | Au moins 99,999999999 % (11 chiffres 9) | Au moins 99,9999999999 % (12 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) |

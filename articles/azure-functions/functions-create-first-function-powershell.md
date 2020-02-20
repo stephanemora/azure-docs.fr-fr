@@ -6,12 +6,12 @@ ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: b1a1caf985e9693e261684c1edb21184071ebfc8
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e9aeb7234f5b840d790f6358bab2426462cc7986
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845906"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210223"
 ---
 # <a name="create-your-first-powershell-function-in-azure"></a>Créer votre première fonction PowerShell dans Azure
 
@@ -23,7 +23,7 @@ L’[extension Azure Functions pour Visual Studio Code] vous permet de créer un
 
 Les étapes suivantes sont prises en charge sur les systèmes d’exploitation macOS, Windows et Linux.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce guide de démarrage rapide :
 
@@ -61,7 +61,7 @@ Le modèle de projet Azure Functions dans Visual Studio Code crée un projet qui
 1. Choisissez **Déclencheur HTTP** comme modèle pour votre première fonction, utilisez `HTTPTrigger` comme nom de fonction, puis choisissez le niveau d’autorisation **Fonction**.
 
     > [!NOTE]
-    > Le niveau d’autorisation **Fonction** nécessite une valeur de [clé de fonction](functions-bindings-http-webhook.md#authorization-keys) lors de l’appel du point de terminaison de la fonction dans Azure. Il est donc plus difficile pour un utilisateur d’appeler votre fonction.
+    > Le niveau d’autorisation **Fonction** nécessite une valeur de [clé de fonction](functions-bindings-http-webhook-trigger.md#authorization-keys) lors de l’appel du point de terminaison de la fonction dans Azure. Il est donc plus difficile pour un utilisateur d’appeler votre fonction.
 
 1. Lorsque vous y êtes invité, choisissez **ajouter à l’espace de travail**.
 

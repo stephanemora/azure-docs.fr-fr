@@ -1,19 +1,19 @@
 ---
 title: Format de données GeoJSON pour la limite géographique | Microsoft Azure Maps
 description: Dans cet article, vous découvrirez comment préparer les données de limite géographique qui peuvent être utilisées dans les API GET et POST Geofence de Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: f853962bba7302affd78d5ef267460893ea80a33
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 7d1c9a1587771a020f5c9f89e2497a25eb1bba70
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911594"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210019"
 ---
 # <a name="geofencing-geojson-data"></a>Données Geofencing GeoJSON
 
@@ -30,7 +30,7 @@ Les données de la limite géographique ou d’un ensemble de limites géographi
 * `expiredTime` est la date et l’heure d’expiration des données de limite géographique. Si la valeur de `userTime` dans la requête est ultérieure à cette valeur, les données de la limite géographique correspondantes sont considérées comme données expirées de données et ne sont pas interrogées. Dans ce cas, le geometryId de cette limite géographique figurera dans le tableau `expiredGeofenceGeometryId` dans la réponse de la limite géographique.
 * `validityPeriod` est une liste de périodes de validité pour la limite géographique. Si la valeur de `userTime` dans la requête se situe en dehors de la période de validité, les données de la limite géographique correspondantes sont considérées comme non valides et ne seront pas être interrogées. Le geometryId de cette limite géographique figure dans le tableau `invalidPeriodGeofenceGeometryId` dans la réponse de la limite géographique. Le tableau suivant présente les propriétés de l’élément validityPeriod.
 
-| Name | Type | Obligatoire  | Description |
+| Nom | Type | Obligatoire  | Description |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datetime  | true | Date et heure de début de la période de validité. |
 | endTime   | Datetime  | true |  Date et heure de fin de la période de validité. |

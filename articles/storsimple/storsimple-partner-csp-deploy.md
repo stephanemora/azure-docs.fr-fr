@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble du programme des fournisseurs de solutions cloud et de Microsoft Azure StorSimple | Microsoft Docs
+title: Déployer StorSimple Virtual Array pour le programme des fournisseurs de solutions cloud
 description: Vue d’ensemble de StorSimple et du programme des fournisseurs de solutions cloud pour les partenaires StorSimple.
 services: storsimple
 documentationcenter: NA
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f1927a67127766c72be463c283225135b2a2aad
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629896"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466907"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Déployer StorSimple Virtual Array pour le programme des fournisseurs de solutions cloud
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 StorSimple Virtual Array peut être déployé par les partenaires Fournisseurs de solutions cloud (CSP) pour leurs clients. Un partenaire CSP peut créer un service StorSimple Device Manager. Ce service peut ensuite être utilisé pour déployer et gérer StorSimple Virtual Array et les partages, volumes et sauvegardes associés.
 

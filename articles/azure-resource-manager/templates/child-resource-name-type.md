@@ -3,12 +3,12 @@ title: Ressources enfants dans les modèles
 description: Décrit comment définir le nom et le type des ressources enfants dans un modèle de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 7d8a7a39bab3340b6f5c9e66d54b7398fa70ee3e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 6de2b476fe19a057a62e4a54963dd8fde0d11579
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122013"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207891"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Définir le nom et le type des ressources enfants
 
@@ -27,7 +27,7 @@ Dans un modèle Resource Manager, vous pouvez spécifier la ressource enfant dan
 ]
 ```
 
-L’exemple suivant montre la ressource enfant en dehors de la ressource parent. Vous pouvez utiliser cette approche si la ressource parent n’est pas déployée dans le même modèle ou si voulez utiliser une[copie](create-multiple-instances.md) pour créer plusieurs ressources enfants.
+L’exemple suivant montre la ressource enfant en dehors de la ressource parent. Vous pouvez utiliser cette approche si la ressource parent n’est pas déployée dans le même modèle ou si voulez utiliser une[copie](copy-resources.md) pour créer plusieurs ressources enfants.
 
 ```json
 "resources": [

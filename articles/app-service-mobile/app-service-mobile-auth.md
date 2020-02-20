@@ -3,19 +3,14 @@ title: Authentification et autorisation
 description: Informations de référence et vue d’ensemble conceptuelles de la fonctionnalité d’authentification/autorisation pour Azure App Service, en particulier pour des applications mobiles.
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: 2c3bc1f9563a5657d7574020fc908f23a711391c
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 4a9ef62178b9a58fa8703413a09114a617d1d239
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668527"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459461"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Authentification et autorisation dans Azure App Service pour les applications mobiles
-
-> [!NOTE]
-> Visual Studio App Center prend en charge les services intégrés essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud.
->
-> Si vous souhaitez intégrer des services cloud à votre application mobile, inscrivez-vous à [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) dès aujourd’hui.
 
 Cet article décrit comment l’authentification et autorisation fonctionne lorsque vous développez des applications mobiles natives avec un serveur principal App Service. App Service fournit l’authentification intégrée et l’autorisation, pour que vos applications mobiles puissent se connecter aux utilisateurs sans modifier le code dans App Service. Elle propose un moyen simple de protéger votre application et fonctionne avec des données par utilisateur. 
 
@@ -48,7 +43,7 @@ Si vous ne souhaitez pas configurer un Kit de développement logiciel (SDK) de f
 Le code nécessaire pour démarrer ce flux est inclus dans le didacticiel sur l’authentification pour chaque plateforme. À la fin du flux, le Kit de développement logiciel (SDK) client dispose d’un jeton App Service et le jeton est automatiquement joint à toutes les requêtes adressées au back-end de l’application.
 
 Pour plus d’informations sur le flux d’authentification, consultez [Flux d’authentification App Service](../app-service/overview-authentication-authorization.md#authentication-flow). 
-## <a name="more-resources"></a>Autres ressources
+## <a name="more-resources"></a>Plus de ressources
 
 Les didacticiels suivants expliquent comment ajouter une authentification à vos clients mobiles en utilisant le [flux dirigé vers le serveur](../app-service/overview-authentication-authorization.md#authentication-flow) :
 

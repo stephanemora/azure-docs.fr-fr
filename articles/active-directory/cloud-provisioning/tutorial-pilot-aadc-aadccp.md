@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f47f55252c6274360f200a4bce0ed0b739e3d8a3
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: e0bd53b72c334b35daea0864acf61cc432c272ae
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77166565"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77442120"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Provisionnement cloud pilote pour une forêt AD synchronisée existante 
 
@@ -35,7 +35,7 @@ Avant de suivre ce tutoriel, tenez compte des éléments suivants :
 
 4. Il s’agit d’un scénario avancé. Veillez à suivre avec précision les étapes décrites dans ce tutoriel.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Voici les conditions préalables requises pour suivre ce didacticiel.
 - Un environnement de test avec la synchronisation Azure AD Connect version 1.4.32.0 ou ultérieure
 - Une unité d’organisation ou un groupe figurant dans l’étendue de la synchronisation et pouvant servir de pilote. Nous vous recommandons de commencer avec un ensemble réduit d’objets.
@@ -70,7 +70,7 @@ La synchronisation Azure AD Connect synchronise les modifications intervenant da
     **Description :** ajoutez une description explicite.<br>
     **Connected System** (Système connecté) : choisissez le connecteur AD pour lequel vous écrivez la règle de synchronisation personnalisée.<br>
     **Connected System Object Type** (Type d’objet système connecté) : Utilisateur<br>
-    **Metaverse Object Type** (Type d’objet métaverse) : Person<br>
+    **Metaverse Object Type** (Type d’objet métaverse) : Personne<br>
     **Link Type** (Type de lien) : Join<br>
     **Precedence** (Précédence) : indiquez une valeur unique dans le système.<br>
     **Tag** (Balise) : laissez ce champ vide.<br>
@@ -99,10 +99,10 @@ Les mêmes étapes doivent être suivies pour tous les types d’objets (utilisa
  2. Dans la page **Description**, entrez les informations ci-dessous et cliquez sur **Suivant** :
 
     **Nom :** attribuez un nom explicite à la règle.<br>
-    **Description :** ajoutez une description explicite.<br> 
+    **Description :** ajoutez une description explicite.<br>
     **Connected System** (Système connecté) : Choisissez le connecteur AAD pour lequel vous écrivez la règle de synchronisation personnalisée.<br>
     **Connected System Object Type** (Type d’objet système connecté) : Utilisateur<br>
-    **Metaverse Object Type** (Type d’objet métaverse) : Person<br>
+    **Metaverse Object Type** (Type d’objet métaverse) : Personne<br>
     **Link Type** (Type de lien) : JoinNoFlow<br>
     **Precedence** (Précédence) : indiquez une valeur unique dans le système.<br>
     **Tag** (Balise) : laissez ce champ vide.<br>

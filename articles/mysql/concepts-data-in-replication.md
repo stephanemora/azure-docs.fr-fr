@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 58882f7569e26ebcba237158db2eb23e76bcd015
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 18c53a53a57b3ddca1168fc1075ae09bcd86f000
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765084"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462494"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Répliquer des données dans Azure Database pour MySQL
 
@@ -28,9 +28,9 @@ Pour les scénarios de migration, utilisez [Azure Database Migration Service](ht
 ## <a name="limitations-and-considerations"></a>Limitations et considérations
 
 ### <a name="data-not-replicated"></a>Données non répliquées
-La [*base de données système mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) située sur le serveur maître n'est pas répliquée. Les modifications apportées aux comptes et aux autorisations sur le serveur maître ne sont pas répliquées. Si vous créez un compte sur le serveur maître et que ce compte a besoin d'accéder au serveur réplica, créez manuellement le même compte sur le serveur réplica. Pour une présentation des tables figurant dans la base de données système, consultez le [manuel MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-database.html).
+La [*base de données système mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) située sur le serveur maître n'est pas répliquée. Les modifications apportées aux comptes et aux autorisations sur le serveur maître ne sont pas répliquées. Si vous créez un compte sur le serveur maître et que ce compte a besoin d'accéder au serveur réplica, créez manuellement le même compte sur le serveur réplica. Pour une présentation des tables figurant dans la base de données système, consultez le [manuel MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
 
-### <a name="requirements"></a>Configuration requise
+### <a name="requirements"></a>Spécifications
 - La version du serveur maître doit être au moins MySQL version 5.6. 
 - Les versions du serveur maître et du serveur réplica doivent être identiques. Par exemple, ce doit être MySQL version 5.6 ou MySQL version 5.7.
 - Chaque table doit avoir une clé primaire.

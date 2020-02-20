@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 168a345427be47dc1c33f43be1af47daa8f638ef
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6cb8362b2de1f8345f693b00df021afe84f2d5a5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772780"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471769"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Qu’est-ce que Windows Virtual Desktop ? 
 
@@ -72,7 +72,7 @@ Nous prévoyons d’ajouter la prise en charge des systèmes d’exploitation su
 
 Votre infrastructure doit contenir les éléments suivants pour prendre en charge Windows Virtual Desktop :
 
-* Un annuaire [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
+* Un annuaire [Azure Active Directory](/azure/active-directory/)
 * Un annuaire Windows Server Active Directory synchronisé avec Azure Active Directory. Pour le configurer, utilisez l’un des éléments suivants :
   * Azure AD Connect (pour les organisations hybrides)
   * Services de domaine Azure AD (pour les organisations cloud ou hybrides)
@@ -80,7 +80,7 @@ Votre infrastructure doit contenir les éléments suivants pour prendre en charg
   
 Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doivent :
 
-* être [standard jointes à un domaine](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) ou [hybrides jointes à AD](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Les machines virtuelles ne peuvent pas être jointes à Azure AD.
+* être [standard jointes à un domaine](../active-directory-domain-services/active-directory-ds-comparison.md) ou [hybrides jointes à AD](../active-directory/devices/hybrid-azuread-join-plan.md). Les machines virtuelles ne peuvent pas être jointes à Azure AD.
 * exécuter l’une des images de [système d’exploitation prises en charge](#supported-virtual-machine-os-images) suivantes.
 
 >[!NOTE]

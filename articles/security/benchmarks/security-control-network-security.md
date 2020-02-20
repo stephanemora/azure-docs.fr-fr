@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 376d7c1a9d2fe2ebce857362fd216e2047eb1f7b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 7916bbb28602d64e0916fce7badf16a65c242227
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934331"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251870"
 ---
 # <a name="security-control-network-security"></a>Contrôle de sécurité : Sécurité réseau
 
@@ -177,13 +177,13 @@ Définissez et implémentez des configurations de sécurité standard pour les r
 
 Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les artefacts d'environnement clés, tels que les modèles Azure Resource Manager, les contrôles RBAC et les stratégies, au sein d'une seule définition de blueprint. Vous pouvez appliquer le blueprint aux nouveaux abonnements et affiner le contrôle et la gestion via le contrôle de version.
 
-Configurer et gérer Azure Policy :
+Configurer et gérer Azure Policy :
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Exemples Azure Policy pour la mise en réseau :
 
-https://docs.microsoft.com/azure/governance/policy/samples/#network
+https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
 Créer une instance d'Azure Blueprint :
 
@@ -223,7 +223,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Exemples Azure Policy pour la mise en réseau :
 
-https://docs.microsoft.com/azure/governance/policy/samples/#network
+https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e99a0e8e42bcfb5c7967a9cb1c91631bacbea53a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f4109359adaaeae0a1ba027ac04439ff60b5a939
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980073"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467179"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Archiver des journaux de ressource Azure dans un compte de stockage
 [Les journaux de plateforme](platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent.  Cet article décrit la collecte de journaux de plateforme dans un compte de stockage Azure en vue de conserver les données pour archivage.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Vous devez [créer un compte de stockage Azure](../../storage/common/storage-account-create.md) si vous n’en avez pas encore un. Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que la ressource qui envoie des journaux, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
 
 
@@ -33,7 +33,7 @@ Envoyer des journaux de plateforme au stockage et à d’autres destinations en 
 
 
 ## <a name="collect-data-from-compute-resources"></a>Recueillir des données à partir de ressources de calcul
-Les paramètres de diagnostic collectent les journaux des ressources pour les ressources de calcul Azure comme n’importe quelle autre ressource, mais pas leur système d’exploitation invité ou leurs charges de travail. Pour collecter ces données, installez l’agent [Windows Azure Diagnostics](diagnostics-extension-overview.md). Voir [Stocker et afficher des données de diagnostic dans Azure Storage](diagnostics-extension-to-storage.md) pour plus d’informations.
+Les paramètres de diagnostic collectent les journaux des ressources pour les ressources de calcul Azure comme n’importe quelle autre ressource, mais pas leur système d’exploitation invité ou leurs charges de travail. Pour collecter ces données, installez l’agent [Windows Azure Diagnostics](diagnostics-extension-overview.md). 
 
 
 ## <a name="schema-of-platform-logs-in-storage-account"></a>Schéma des journaux de plateforme dans un compte de stockage

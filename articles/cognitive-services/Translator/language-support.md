@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: ec5c1295f883bb37ad5f016bc3346c134863e6bd
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: a4f9833e8dd14dc7c8ec5849cb809bf2089a5dae
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118816"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206121"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Langues et régions prises en charge par l’API de traduction de texte Translator Text
 
@@ -141,7 +141,7 @@ La méthode Transliterate prend en charge les langues ci-après. Dans la colonne
 | Serbe (latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillique `Cyrl`|
 | Tamoul | `ta` | Tamoul `Taml` | --> | Latin `Latn` |
 | Télougou | `te` | Télougou `Telu` | --> | Latin `Latn` |
-| Thaï | `th` | Thaï `Thai` | <--> | Latin `Latn` |
+| Thaï | `th` | Thaï `Thai` | --> | Latin `Latn` |
 
 ## <a name="dictionary"></a>Dictionnaire
 

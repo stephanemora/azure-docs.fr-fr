@@ -1,19 +1,19 @@
 ---
 title: Rechercher efficacement à l’aide du service Recherche Azure Maps | Microsoft Azure Maps
 description: Découvrir comment appliquer les meilleures pratiques pour le service Recherche à l’aide de Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e29b3d70c576955637424208aeb0f980669b67bb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 82e0339e02fa2fb27e7b2ca24f65934e3ce4fe23
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899155"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209798"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Meilleures pratiques d’utilisation du service Recherche Azure Maps
 
@@ -26,7 +26,7 @@ Cet article explique comment appliquer des pratiques saines lorsque vous appelez
 * découvrir les différences entre les types de résultats ;
 * lire la structure de réponse des recherches d’adresse.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour appeler les API du service Azure Maps, vous avez besoin d’un compte et d’une clé Azure Maps. Pour plus d’informations, voir [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) et [Obtenir une clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
 
@@ -95,7 +95,7 @@ La réponse obtenue contient l’ID de zone géographique et le type d’entité
 https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={subscription-key}&query=47.6394532,-122.1304551&language=en-US&entityType=Municipality
 ```
 
-#### <a name="response"></a>Réponse
+#### <a name="response"></a>response
 
 ```JSON
 {
@@ -148,7 +148,7 @@ Dans l’exemple de requête suivant, le service de recherche d’adresse est in
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1.0&typeahead=true&countrySet=US&lat=47.6370891183&lon=-122.123736172&query=Microsoft
 ```
 
-#### <a name="response"></a>Réponse
+#### <a name="response"></a>response
 
 ```JSON
 {
@@ -438,7 +438,7 @@ C# ou Visual Basic :
 Uri.EscapeDataString(query)
 ```
 
-Java :
+Java :
 ```Java
 URLEncoder.encode(query, "UTF-8") 
 ```
@@ -771,7 +771,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 * **Plage d’adresses** : Plage de points d’adresse interpolés à partir du début et de la fin de la rue.  
 
-* **Zone géographique** : zones sur une carte représentant des divisions administratives d’un territoire, telles qu’un pays, une région ou une ville. 
+* **Geography** : zones sur une carte représentant des divisions administratives d’un territoire, telles qu’un pays, une région ou une ville. 
 
 * **POI** : points sur une carte qui méritent une attention particulière et pourraient être intéressants.
 

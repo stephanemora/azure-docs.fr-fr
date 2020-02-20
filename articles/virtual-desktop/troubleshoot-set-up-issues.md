@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
-ms.openlocfilehash: 12b5b6ce84ad36d14a393b54745e530779d4ca95
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 438c391febc28a716c681aa81b3f42c155b720eb
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965742"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367218"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
 
@@ -53,7 +53,7 @@ Exemple d’erreur brute :
 
 **Cause :** L’utilisateur qui s’est connecté n’est pas doté du rôle TenantCreator dans son instance Azure Active Directory.
 
-**Correctif :** Suivez les instructions de l’article [Attribuer le rôle d’application TenantCreator à un utilisateur dans votre locataire Azure Active Directory](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role). Après avoir suivi la procédure, vous disposerez d’un utilisateur doté du rôle TenantCreator.
+**Correctif :** Suivez les instructions de l’article [Attribuer le rôle d’application TenantCreator à un utilisateur dans votre locataire Azure Active Directory](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role). Après avoir suivi la procédure, vous disposerez d’un utilisateur doté du rôle TenantCreator.
 
 ![Capture d’écran de l’attribution du rôle TenantCreator](media/TenantCreatorRoleAssigned.png)
 
@@ -113,9 +113,9 @@ Si votre modèle d’opération dépasse la limite de quota, vous pouvez effectu
 
 Suivez les instructions ci-après pour détecter les problèmes d’échecs de déploiements de modèles Azure Resource Manager et DSC PowerShell.
 
-1. Passez en revue les erreurs du déploiement à l’aide de l’article [Afficher les opérations de déploiement avec Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
-2. Si le déploiement est dépourvu d’erreurs, passez en revue les erreurs dans le journal d’activité à l’aide de l’article [Afficher les journaux d’activité pour auditer les actions sur les ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-3. Une fois l’erreur identifiée, utilisez le message d’erreur et les ressources figurant dans l’article [Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors) pour résoudre le problème.
+1. Passez en revue les erreurs du déploiement à l’aide de l’article [Afficher les opérations de déploiement avec Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-operations.md).
+2. Si le déploiement est dépourvu d’erreurs, passez en revue les erreurs dans le journal d’activité à l’aide de l’article [Afficher les journaux d’activité pour auditer les actions sur les ressources](../azure-resource-manager/resource-group-audit.md).
+3. Une fois l’erreur identifiée, utilisez le message d’erreur et les ressources figurant dans l’article [Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md) pour résoudre le problème.
 4. Supprimez toutes les ressources créées lors du déploiement précédent, puis essayez de redéployer le modèle.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>Erreur : Votre déploiement a échoué….\<hostname>/joindomain

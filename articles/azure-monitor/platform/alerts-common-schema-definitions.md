@@ -4,15 +4,15 @@ description: Comprendre les définitions de schéma d’alerte courant pour Azur
 ms.service: azure-monitor
 ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
+author: ofirmanor
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: fb8c2c7e25f94c66c8cc8f7768071d508da8d3b5
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: efa6a8807b3db14649a2b4ad38c575cf98aba113
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765671"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425168"
 ---
 # <a name="common-alert-schema-definitions"></a>Définitions de schéma d’alerte courant
 
@@ -151,7 +151,7 @@ Chaque instance d’alerte décrit la ressource affectée et la cause de l’ale
 ### <a name="log-alerts"></a>Alertes de journal
 
 > [!NOTE]
-> Pour des alertes de journal contenant une charge utile d’objet d’e-mail ou de JSON personnalisée définie, l’activation du schéma commun a pour effet de rétablir le schéma d’objet d’e-mail et/ou de charge utile décrit ci-après. Les alertes sur lesquelles le schéma commun est activé ont une limite de taille maximale de 256 Ko par alerte. Les résultats de la recherche ne sont pas incorporés dans la charge utile des alertes de journal si la taille de l’alerte dépasse ce seuil. Vous pouvez le déterminer cela en vérifiant l’indicateur `IncludedSearchResults`. Lorsque les résultats de recherche ne sont pas inclus, il est recommandé d’utiliser la requête de recherche conjointement avec l’[API Log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> Pour des alertes de journal contenant une charge utile d’objet d’e-mail ou de JSON personnalisée définie, l’activation du schéma commun a pour effet de rétablir le schéma d’objet d’e-mail et/ou de charge utile décrit ci-après. Les alertes sur lesquelles le schéma commun est activé ont une limite de taille maximale de 256 Ko par alerte. Les résultats de la recherche ne sont pas incorporés dans la charge utile des alertes de journal si la taille de l’alerte dépasse ce seuil. Vous pouvez le déterminer cela en vérifiant l’indicateur `IncludeSearchResults`. Lorsque les résultats de recherche ne sont pas inclus, il est recommandé d’utiliser la requête de recherche conjointement avec l’[API Log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -214,7 +214,7 @@ Chaque instance d’alerte décrit la ressource affectée et la cause de l’ale
         }
       ]
     },
-    "IncludedSearchResults": "True",
+    "IncludeSearchResults": "True",
     "AlertType": "Number of results"
   }
 }
@@ -277,7 +277,7 @@ Chaque instance d’alerte décrit la ressource affectée et la cause de l’ale
         }
       ]
     },
-    "IncludedSearchResults": "True",
+    "IncludeSearchResults": "True",
     "AlertType": "Number of results"
   }
 }

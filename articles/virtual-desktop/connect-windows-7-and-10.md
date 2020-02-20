@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: helohr
-ms.openlocfilehash: 745b33efe46c82e3b9358c9c5a2ed13292242db1
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 15bda000f0297f6e8e006416672897cb15792b79
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997341"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367481"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Se connecter avec le client Windows Desktop
 
@@ -57,4 +57,4 @@ Une fois abonné à un flux, le contenu du flux de données est automatiquement 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur l’utilisation du client Windows Desktop, consultez [Bien démarrer avec le client Windows Desktop](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windowsdesktop).
+Pour en savoir plus sur l’utilisation du client Windows Desktop, consultez [Bien démarrer avec le client Windows Desktop](/windows-server/remote/remote-desktop-services/clients/windowsdesktop/).

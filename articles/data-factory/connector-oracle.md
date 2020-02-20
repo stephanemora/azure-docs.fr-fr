@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 02/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 736cf03b58ec09b291c91857177a32c7dad89c6a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 874c685491774e2a318ae0a8b7394945a51b2f7f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892056"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423808"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copier des données depuis/vers Oracle à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -44,13 +44,12 @@ Plus précisément, ce connecteur Oracle prend en charge :
     - Oracle 9i R2 (9.2) et versions ultérieures
     - Oracle 8i R3 (8.1.7) et versions ultérieures
     - Service Exadata Oracle Database Cloud
-- La copie des données avec l’authentification De base ou OID.
 - Copie en parallèle à partir d’une source Oracle. Pour en savoir plus, voir [Copie en parallèle à partir d’Oracle](#parallel-copy-from-oracle).
 
 > [!Note]
 > Le serveur proxy Oracle n’est pas pris en charge.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
 

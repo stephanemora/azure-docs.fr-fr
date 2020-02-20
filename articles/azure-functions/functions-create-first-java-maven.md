@@ -5,12 +5,12 @@ author: rloutlaw
 ms.topic: quickstart
 ms.date: 08/10/2018
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 813e65eadf9f54f7a0ac148681b25988ed6950b9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f226736050319d57cd0bc123fdb2211e0faeae11
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845450"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208844"
 ---
 # <a name="quickstart-use-java-and-maven-to-create-and-publish-a-function-to-azure"></a>Démarrage rapide : Utiliser Java et Maven pour créer et publier une fonction sur Azure
 
@@ -21,7 +21,7 @@ Cet article montre comment générer et publier une fonction Java sur Azure Func
 > You can also create a Kotlin-based Azure Functions project by using the azure-functions-kotlin-archetype instead. Visit the [GitHub repository](https://github.com/microsoft/azure-maven-archetypes/tree/develop/azure-functions-kotlin-archetype) for more information.
 -->
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour développer des fonctions avec Java, les éléments suivants doivent être installés :
 
@@ -119,7 +119,7 @@ curl -w "\n" http://localhost:7071/api/HttpTrigger-Java --data AzureFunctions
 ```Output
 Hello AzureFunctions!
 ```
-La [clé de fonction](functions-bindings-http-webhook.md#authorization-keys) n’est pas nécessaire lors de l’exécution locale. Utilisez `Ctrl+C` dans le terminal pour arrêter le code de la fonction.
+La [clé de fonction](functions-bindings-http-webhook-trigger.md#authorization-keys) n’est pas nécessaire lors de l’exécution locale. Utilisez `Ctrl+C` dans le terminal pour arrêter le code de la fonction.
 
 > [!div class="nextstepaction"]
 > [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=local-run)

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: eaa95906e20072e2914d1486568d7a6ebeb64f2c
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: e53bd3deae5ccd7339c7a6d491dc4ff0da44a277
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114392"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426222"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -115,7 +115,7 @@ L’espace de travail Log Analytics doit exister dans les régions suivantes :
 * Gouvernement américain - Virginie
 * Chine orientale 2
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="user-access-requirements"></a>Conditions requises pour l’accès utilisateur
 
@@ -182,11 +182,8 @@ Sélectionnez les options suivantes, comme indiqué dans l’image :
 
 1. Sélectionnez *Actif* pour **État**.
 2. Sélectionnez *Version 2* comme **version de Journaux de flux**. La version 2 contient des statistiques de session des flux (octets et paquets).
-3. Sélectionnez un compte de stockage existant dans lequel conserver les journaux de flux. Si vous souhaitez stocker les données indéfiniment, définissez la valeur sur *0*. Des frais de stockage Azure peuvent s’appliquer pour le compte de stockage. Assurez-vous que « Data Lake Storage Gen2 Espace de noms hiérarchique activé » n’est pas défini sur True (vrai) dans votre espace de stockage. De plus, les journaux de flux de groupe de sécurité réseau ne peuvent pas être stockés dans un compte de stockage avec un pare-feu. 
+3. Sélectionnez un compte de stockage existant dans lequel conserver les journaux de flux. Si vous souhaitez stocker les données indéfiniment, définissez la valeur sur *0*. Des frais de stockage Azure peuvent s’appliquer pour le compte de stockage. Assurez-vous que « Data Lake Storage Gen2 Espace de noms hiérarchique activé » n’est pas défini sur True (vrai) dans votre espace de stockage.
 4. Définissez **Rétention** sur le nombre de jours durant lequel vous souhaitez stocker les données.
-> [!IMPORTANT]
-> Un problème empêche actuellement la suppression automatique des [journaux de flux de groupe de sécurité réseau](network-watcher-nsg-flow-logging-overview.md) pour Network Watcher du stockage Blob en fonction des paramètres de stratégie de conservation. Si vous avez une stratégie de rétention différente de zéro, nous vous recommandons de supprimer régulièrement les blobs de stockage qui ont dépassé leur période de rétention afin d’éviter des frais supplémentaires. Pour plus d’informations sur la suppression des blobs de stockage du journal de flux de groupe de sécurité réseau, consultez [Supprimer des blobs de stockage du journal de flux de groupe de sécurité réseau](network-watcher-delete-nsg-flow-log-blobs.md).
-
 5. Sélectionnez *Activé* pour **Traffic Analytics Status** (État Traffic Analytics).
 6. Sélectionnez l’intervalle de traitement. Suivant votre choix, les journaux d’activité de flux seront collectés à partir du compte de stockage et traités par Traffic Analytics. Vous pouvez choisir un intervalle de traitement et le définir pour toutes les heures ou toutes les 10 minutes. 
 7. Sélectionnez un espace de travail Log Analytics (OMS) existant ou cliquez sur **Créer un espace de travail** pour en créer un. Un espace de travail Log Analytics est utilisé par Traffic Analytics pour stocker les données agrégées et indexées qui sont ensuite utilisées pour générer l’analyse. Si vous sélectionnez un espace de travail existant, il doit se trouver dans les [régions prises en charge](#supported-regions-log-analytics-workspaces) et avoir été mis à niveau vers le nouveau langage de requête. Si vous ne souhaitez pas mettre à niveau un espace de travail existant ou si vous ne disposez pas d’un espace de travail dans une région prise en charge, créez-en un. Pour plus d’informations sur les langages de requête, consultez [Mise à niveau Azure Log Analytics avec la nouvelle recherche dans les journaux](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
@@ -198,7 +195,7 @@ Sélectionnez les options suivantes, comme indiqué dans l’image :
 
     ![Sélection du compte de stockage, de l’espace de travail Log Analytics et activation de Traffic Analytics](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-Répétez les étapes précédentes pour les autres groupes de sécurité réseau pour lesquels vous souhaitez activer Traffic Analytics. Les données des journaux de flux étant envoyées à l’espace de travail, assurez-vous que les lois et réglementations locales de votre pays autorisent le stockage de données dans la région où se trouve l’espace de travail. Si vous avez défini des intervalles de traitement différents pour plusieurs groupes de sécurité réseau, les données ne seront pas collectées aux mêmes intervalles. Par exemple :  Vous pouvez choisir d’activer l’intervalle de traitement défini sur 10 minutes pour les réseaux virtuels critiques et sur une heure pour les réseaux virtuels non critiques.
+Répétez les étapes précédentes pour les autres groupes de sécurité réseau pour lesquels vous souhaitez activer Traffic Analytics. Les données des journaux de flux étant envoyées à l’espace de travail, assurez-vous que les lois et réglementations locales de votre pays autorisent le stockage de données dans la région où se trouve l’espace de travail. Si vous avez défini des intervalles de traitement différents pour plusieurs groupes de sécurité réseau, les données ne seront pas collectées aux mêmes intervalles. Par exemple : Vous pouvez choisir d’activer l’intervalle de traitement défini sur 10 minutes pour les réseaux virtuels critiques et sur une heure pour les réseaux virtuels non critiques.
 
 Vous pouvez également configurer les analyses de trafic à l’aide de la cmdlet PowerShell [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) dans Azure PowerShell. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps).
 

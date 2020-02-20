@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: bb0f2e3fc3b84f5e1f9fe999b31fffadaa5915d4
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: c590a27f61c1a555ae30828332e4140a6116f95f
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687598"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443854"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ d’Azure App Service sur Linux
 
@@ -32,15 +32,15 @@ Vous trouverez tous les fichiers Docker sur [GitHub](https://github.com/azure-ap
 
 | Pile           | Valeur attendue                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | la commande pour démarrer votre application JAR (par exemple, `java -jar my-app.jar --server.port=80`) |
-| Tomcat, Wildfly | l’emplacement d’un script pour effectuer toutes les configurations nécessaires (par exemple, `/home/site/deployments/tools/startup_script.sh`)          |
+| Java SE         | la commande pour démarrer votre application JAR (par exemple, `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
+| Tomcat          | l’emplacement d’un script pour effectuer toutes les configurations nécessaires (par exemple, `/home/site/deployments/tools/startup_script.sh`)          |
 | Node.js         | le fichier de configuration PM2 ou votre fichier de script                                |
 | .Net Core       | le nom de la DLL compilée en tant que `dotnet <myapp>.dll`                                 |
 | Ruby            | le script Ruby avec lequel initialiser votre application                     |
 
 Ces commandes ou scripts sont exécutés après le démarrage du conteneur Docker intégré, mais avant le démarrage de votre code d’application.
 
-## <a name="management"></a>gestion
+## <a name="management"></a>Gestion
 
 **Que se passe-t-il lorsque j’appuie sur le bouton Redémarrer dans le portail Azure ?**
 
@@ -78,7 +78,7 @@ Si le déploiement Git sur votre application web Linux échoue, choisissez l’u
 
 - Utilisez la fonctionnalité Livraison continue (préversion) : Vous pouvez stocker le code source de votre application dans un référentiel Git Azure DevOps ou un référentiel GitHub pour utiliser la livraison continue Azure. Pour plus d’informations, consultez [Configurer la livraison continue pour une application web Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Utilisez [l’API de déploiement ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) : Pour utiliser cette API, [connectez-vous via SSH à votre application web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) et accédez au dossier où vous souhaitez déployer votre code. Exécutez le code suivant :
+- Utilisez [l’API de déploiement ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) : Pour utiliser cette API, [connectez-vous via SSH à votre application web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) et accédez au dossier où vous souhaitez déployer votre code. Exécutez le code ci-dessous :
 
    ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
@@ -110,7 +110,7 @@ Oui. Lors d’un déploiement Git, Kudu doit détecter que vous déployez une ap
 
 **J’utilise mon propre conteneur personnalisé. Je souhaite que la plateforme monte un partage SMB dans le répertoire `/home/`.**
 
-Si le paramètre `WEBSITES_ENABLE_APP_SERVICE_STORAGE` est **non spécifié** ou est défini sur *true*, le répertoire `/home/` **sera partagé** par les instances, et les fichiers écrits **seront conservés** après chaque redémarrage. Si vous définissez explicitement `WEBSITES_ENABLE_APP_SERVICE_STORAGE` sur *false*, le montage est désactivé.
+Si le paramètre `WEBSITES_ENABLE_APP_SERVICE_STORAGE` est **non spécifié** ou est défini sur *true*, le répertoire `/home/`**sera partagé** par les instances, et les fichiers écrits **seront conservés** après chaque redémarrage. Si vous définissez explicitement `WEBSITES_ENABLE_APP_SERVICE_STORAGE` sur *false*, le montage est désactivé.
 
 **Mon conteneur personnalisé met longtemps à démarrer, et la plateforme le redémarre avant qu’il ait terminé.**
 

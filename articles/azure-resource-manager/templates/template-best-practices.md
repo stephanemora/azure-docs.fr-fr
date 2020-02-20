@@ -3,12 +3,12 @@ title: Meilleures pratiques relatives aux modèles
 description: Décrit les approches recommandées pour la création de modèles Azure Resource Manager. Fournit des suggestions pour éviter des problèmes qui se produisent couramment lors de l’utilisation de modèles.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: b87f66f194b9e1daf8fa6a546c02aa4e86caabc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f623255a64404f0e041173fd29488ded24cd03b3
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476295"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207483"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Meilleures pratiques relatives aux modèles Azure Resource Manager
 
@@ -156,7 +156,7 @@ Les informations suivantes peuvent être utiles lorsque vous travaillez avec des
 
 * Ajoutez des variables pour les noms de ressource qui doivent être uniques.
 
-* Utilisez une [boucle de copie dans les variables](create-multiple-instances.md#variable-iteration) pour créer un modèle répété d’objets JSON.
+* Utilisez une [boucle de copie dans les variables](copy-variables.md) pour créer un modèle répété d’objets JSON.
 
 * Supprimez les variables inutilisées.
 

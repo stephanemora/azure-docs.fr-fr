@@ -5,12 +5,12 @@ author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 750ccbfa885b4679dfa61240b49ea9ec86a46d51
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 01e07eaee705634b03cc4462c4058e290daa8bc2
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120639"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198494"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guide des entités durables en .NET pour les développeurs
 
@@ -371,7 +371,7 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
 
 Contrairement aux fonctions classiques, les méthodes de classe d’entité n’ont pas d’accès direct aux liaisons d’entrée et de sortie. Au lieu de cela, les données de liaison doivent être capturées dans la déclaration de fonction de point d’entrée, puis être passées à la méthode `DispatchAsync<T>`. Tout objet passé à `DispatchAsync<T>` est automatiquement passé dans le constructeur de classe d’entité en tant qu’argument.
 
-L’exemple suivant montre comment une référence `CloudBlobContainer` à partir de la [liaison d’entrée d’objet blob](../functions-bindings-storage-blob.md#input) peut être rendue disponible pour une entité basée sur une classe.
+L’exemple suivant montre comment une référence `CloudBlobContainer` à partir de la [liaison d’entrée d’objet blob](../functions-bindings-storage-blob-input.md) peut être rendue disponible pour une entité basée sur une classe.
 
 ```csharp
 public class BlobBackedEntity

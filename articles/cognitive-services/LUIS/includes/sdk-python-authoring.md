@@ -1,21 +1,21 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
-ms.date: 01/23/2020
 ms.author: diberry
-ms.openlocfilehash: 69814c89c1c44a63febbcac04a4d161cd4c0921f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 631185c20b816191530158fab2b7cd1ed68c3092
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774215"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77372205"
 ---
 Utilisez la bibliothèque de client de création Language Understanding (LUIS) pour Python afin de :
 
@@ -26,7 +26,7 @@ Utilisez la bibliothèque de client de création Language Understanding (LUIS) p
 
 [Documentation de référence](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [Package de création (Pypi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [Exemples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Compte de portail Language Understanding (LUIS) : [Créez-en un gratuitement](https://www.luis.ai).
 * [Python 3.x](https://www.python.org/)
@@ -46,7 +46,7 @@ Obtenez votre [clé de démarrage](../luis-how-to-azure-subscription.md#starter-
 
 Utilisez les instructions pour votre système d’exploitation.
 
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
@@ -55,7 +55,7 @@ setx LUIS_REGION <replace-with-your-luis-region>
 
 Après avoir ajouté la variable d’environnement, redémarrez la fenêtre de console.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
@@ -64,7 +64,7 @@ export LUIS_REGION=<replace-with-your-luis-region>
 
 Après avoir ajouté la variable d’environnement, exécutez `source ~/.bashrc` depuis la fenêtre de console pour appliquer les changements.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[macOS](#tab/unix)
 
 Modifiez votre profil `.bash_profile` et ajoutez la variable d’environnement :
 

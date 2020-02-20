@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: a0d805d6ae9b129443a2850e0741d5da87feac84
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9cacc0a1faa66e5d265f7f80830e13c54a88a68c
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535037"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366275"
 ---
 # <a name="model-interpretability-in-automated-machine-learning"></a>Interprétabilité des modèles en Machine Learning automatisé
 
@@ -29,7 +29,7 @@ Dans cet article, vous apprendrez comment :
 - Activer les visualisations pour vous aider à voir les modèles dans les données et les explications.
 - Implémenter une interprétabilité pendant l’inférence ou le scoring.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Fonctionnalités d’interprétabilité. Exécutez `pip install azureml-interpret azureml-contrib-interpret` pour obtenir les packages nécessaires.
 - Des connaissances en matière de génération d’expériences de ML automatisé. Pour plus d’informations sur la façon d’utiliser le Kit de développement logiciel (SDK) Azure Machine Learning, suivez ce [tutoriel sur les modèles de régression](tutorial-auto-train-models.md) ou consultez la rubrique [Configurer des expériences de ML automatisé](how-to-configure-auto-train.md).
@@ -71,7 +71,7 @@ Utilisez `automl_setup_model_explanations` pour obtenir des explications relativ
 Le `automl_explainer_setup_obj` contient toutes les structures de la liste ci-dessus.
 
 ```python
-from azureml.train.automl.automl_explain_utilities import AutoMLExplainerSetupClass, automl_setup_model_explanations
+from azureml.train.automl.runtime.automl_explain_utilities import AutoMLExplainerSetupClass, automl_setup_model_explanations
 
 automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_train, 
                                                              X_test=X_test, y=y_train, 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: helohr
-ms.openlocfilehash: 059748f6f08b1c73d56aa3a127aa785f55eb63ee
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 1637cb7621d6071bbce2af66f3a106770139ad4e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539131"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368823"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installer Office sur une image VHD principale
 
@@ -20,20 +20,20 @@ Cet article explique comment installer Office 365 ProPlus, OneDrive et d’autre
 
 Cet article suppose d’avoir déjà créé une machine virtuelle. Sinon, voir [Préparer et personnaliser une image VHD principale](set-up-customize-master-image.md#create-a-vm).
 
-Cet article suppose également d’avoir élevé l’accès à la machine virtuelle, qu’elle soit approvisionnée dans Azure ou avec Hyper-V Manager. Sinon, voir [Élever l’accès pour gérer tous les groupes d’abonnements et d’administration Azure](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+Cet article suppose également d’avoir élevé l’accès à la machine virtuelle, qu’elle soit approvisionnée dans Azure ou avec Hyper-V Manager. Sinon, voir [Élever l’accès pour gérer tous les groupes d’abonnements et d’administration Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 >[!NOTE]
 >Ces instructions concernent une configuration spécifique à Windows Virtual Desktop, que vous pouvez utiliser avec les processus existants de votre organisation.
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>Installer Office en mode activation d’ordinateurs partagés
 
-L’activation d’ordinateurs partagés permet de déployer Office 365 ProPlus sur un ordinateur professionnel accessible par plusieurs utilisateurs. Pour plus d’informations sur l’activation d’ordinateurs partagés, voir [Vue d’ensemble de l’activation d’ordinateurs partagés pour Office 365 ProPlus](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus).
+L’activation d’ordinateurs partagés permet de déployer Office 365 ProPlus sur un ordinateur professionnel accessible par plusieurs utilisateurs. Pour plus d’informations sur l’activation d’ordinateurs partagés, voir [Vue d’ensemble de l’activation d’ordinateurs partagés pour Office 365 ProPlus](/deployoffice/overview-of-shared-computer-activation-for-office-365-proplus/).
 
 Utilisez [l’outil Déploiement d’Office](https://www.microsoft.com/download/details.aspx?id=49117) pour installer Office. Windows 10 Entreprise multisession prend uniquement en charge les versions suivantes d’Office :
 - Office 365 ProPlus
 - Office 365 Business fourni avec un abonnement Microsoft 365 Business
 
-L’outil Déploiement d’Office exige un fichier XML de configuration. Pour personnaliser l’exemple suivant, voir [Options de configuration de l’outil Déploiement d’Office](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
+L’outil Déploiement d’Office exige un fichier XML de configuration. Pour personnaliser l’exemple suivant, voir [Options de configuration de l’outil Déploiement d’Office](/deployoffice/configuration-options-for-the-office-2016-deployment-tool/).
 
 L’exemple de fichier XML de configuration fourni effectue les opérations suivantes :
 

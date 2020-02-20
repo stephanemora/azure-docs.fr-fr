@@ -1,23 +1,23 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: include file
 ms.service: cognitive-services
-ms.subservice: luis
+ms.date: 02/14/2020
+ms.subservice: language-understanding
 ms.topic: include
-ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: aa080b40c20cbc8946db8cd163ee6cadb3b75972
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 636669ee4284d218d5ac2c6e2e7cdb37b00b3a5b
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74451675"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77279525"
 ---
-1. En haut à droite du site web LUIS, sélectionnez le bouton **Effectuer l’apprentissage**. 
+1. En haut à droite du site web LUIS, sélectionnez le bouton **Effectuer l’apprentissage**.
 
     ![Bouton Effectuer l'apprentissage](../media/train-button-preview.png)
 

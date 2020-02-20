@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: c41a433ee19969546e1db2aa583c72ed166b7ebf
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: eee8fdf515861b43b58d5af111930e2224c9a60a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607475"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367238"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnostic des problèmes de performances graphiques dans le Bureau à distance
 
@@ -69,7 +69,7 @@ La valeur élevée d’un compteur Images ignorées/seconde signifie que le prob
 
 Si le compteur Images de sortie/seconde correspond au compteur Images d’entrée/seconde, bien qu’un temps de latence ou une interruption inhabituelle subsiste, le problème peut être lié à la durée moyenne de codage. Le codage est un processus synchrone qui se produit sur le serveur dans un scénario de session unique (vGPU) et sur la machine virtuelle dans un scénario multisession. La durée moyenne de codage doit être inférieure à 33 ms. Si tel est le cas et que des problèmes de performances subsistent, le problème peut être lié à l’application ou au système d’exploitation que vous utilisez.
 
-Pour plus d’informations sur le diagnostic des problèmes liés aux applications, consultez [Compteurs de performances de retard d’entrée utilisateur](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters).
+Pour plus d’informations sur le diagnostic des problèmes liés aux applications, consultez [Compteurs de performances de retard d’entrée utilisateur](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/).
 
 Étant donné que le protocole RDP (Remote Desktop Protocol) prend en charge une durée moyenne d’encodage de 33 ms, il prend en charge une fréquence d’images d’entrée pouvant atteindre 30 images/seconde. Notez que 33 ms est la fréquence d’images maximale prise en charge. Dans de nombreux cas, la fréquence d’images dont bénéficie l’utilisateur est inférieure, selon la fréquence à laquelle l’image est fournie au protocole RDP par la source. Par exemple, les tâches telles que la lecture d’une vidéo nécessitent une fréquence d’images d’entrée complète de 30 images/seconde. En revanche, les tâches moins gourmandes en ressources, comme la modification ponctuelle d’un document, nécessitent une fréquence d’images d’entrée par seconde nettement inférieure, sans aucune dégradation de la qualité de l’expérience pour l’utilisateur.
 
@@ -77,7 +77,7 @@ Pour plus d’informations sur le diagnostic des problèmes liés aux applicatio
 
 Utilisez le compteur de qualité des images pour diagnostiquer les problèmes de qualité d’image. Ce compteur exprime la qualité de l’image de sortie sous forme de pourcentage de qualité de l’image source. La perte de qualité peut être due à RemoteFX, ou peut être inhérente à la source graphique. Si RemoteFX a provoqué une perte de qualité, cela peut être dû au fait que les ressources réseau ou serveur ne sont pas parvenues à envoyer un contenu de plus haute fidélité.
 
-## <a name="mitigation"></a>Atténuation
+## <a name="mitigation"></a>Limitation des risques
 
 Si les ressources serveur sont à l’origine du goulot d’étranglement, essayez l’une des approches suivantes pour améliorer les performances :
 
@@ -101,6 +101,6 @@ Si les ressources client sont à l’origine du goulot d’étranglement, essaye
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour créer une machine virtuelle Azure optimisée pour le GPU, consultez [Configurer l’accélération du GPU pour l’environnement Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
-- Pour découvrir une vue d’ensemble de la résolution des problèmes et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview).
-- Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Pour créer une machine virtuelle Azure optimisée pour le GPU, consultez [Configurer l’accélération du GPU pour l’environnement Windows Virtual Desktop](configure-vm-gpu.md).
+- Pour découvrir une vue d’ensemble de la résolution des problèmes et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](troubleshoot-set-up-overview.md).
+- Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](environment-setup.md).

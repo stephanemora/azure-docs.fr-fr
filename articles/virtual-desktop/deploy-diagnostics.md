@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: b6b310bf1958671583aab873ab42a70845f93f9a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5eff53119362cd03c9a6497e3133984627e513c1
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452423"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368855"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Déployer l’outil de diagnostic
 
@@ -25,7 +25,7 @@ Voici ce que l’outil de diagnostic pour Windows Virtual Desktop peut faire pou
 - Envoyez un message aux utilisateurs actifs sur un hôte de session spécifique.
 - Déconnectez des utilisateurs d’un hôte de session.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez créer une inscription de l’application Azure Active Directory et un espace de travail Log Analytics avant de pouvoir déployer le modèle Azure Resource Manager pour l’outil. Vous ou l’administrateur avez besoin de ces autorisations pour effectuer cette opération :
 
@@ -36,8 +36,8 @@ Vous devez créer une inscription de l’application Azure Active Directory et u
 
 Vous devez également installer ces deux modules PowerShell avant de commencer :
 
-- [Module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.4.0)
-- [Module Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+- [Module Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.4.0/)
+- [Module Azure AD](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
 
 Assurez-vous que votre ID d’abonnement est prêt lorsque vous vous connectez.
 
@@ -253,7 +253,7 @@ Vous pouvez également interagir avec les utilisateurs sur l’hôte de la sessi
 
     - Seuil : Plus de 80 % sont marqués comme non sains.
 
-- [Retard d’entrée utilisateur par session(\*)\\Délai d’entrée maximal](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters) :
+- [Retard d’entrée utilisateur par session(\*)\\Délai d’entrée maximal](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/) :
 
     - Seuil : Plus de 2 000 ms sont marqués comme non sains.
 

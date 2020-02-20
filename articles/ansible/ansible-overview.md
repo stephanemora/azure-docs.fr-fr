@@ -4,12 +4,12 @@ description: Présentation de l’utilisation d’Ansible pour automatiser l’a
 keywords: ansible, azure, devops, présentation, approvisionnement du cloud, gestion de la configuration, déploiement des applications, modules ansible, playbooks ansible
 ms.topic: overview
 ms.date: 04/30/2019
-ms.openlocfilehash: eab2a44257c6769106124c4c9ab6711ba3be531e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: e9d5b8858f052083b157c7d4809fe21018518bcd
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155781"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193563"
 ---
 # <a name="using-ansible-with-azure"></a>Utiliser Ansible avec Azure
 
@@ -56,5 +56,5 @@ Ansible comprend une suite de modules à utiliser dans le provisionnement et la 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Démarrage rapide : Déployer le modèle de solution Ansible pour Azure sur CentOS](./ansible-deploy-solution-template.md)
-- [Démarrage rapide : Configurer des machines virtuelles Linux dans Azure avec Ansible](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fazure%2Fansible%2Ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json)
+- [Démarrage rapide : Déployer le modèle de solution Ansible pour Azure sur CentOS](./ansible-deploy-solution-template.md)
+- [Démarrage rapide : Configurer des machines virtuelles Linux dans Azure avec Ansible](./ansible-install-configure.md)

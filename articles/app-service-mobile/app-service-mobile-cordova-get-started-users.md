@@ -6,23 +6,18 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: f85c8e4f8eedccf3039038308f2262727fb18197
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 3714ce2a8098608851991115aa82afdc00d08a47
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668550"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459386"
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Ajout de l’authentification à votre application Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-> [!NOTE]
-> Visual Studio App Center prend en charge les services intégrés essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud.
->
-> Si vous souhaitez intégrer des services cloud à votre application mobile, inscrivez-vous à [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) dès aujourd’hui.
-
 ## <a name="summary"></a>Résumé
-Dans ce didacticiel, vous allez ajouter l’authentification au projet de démarrage rapide todolist sur Apache Cordova en faisant appel à un fournisseur d’identité pris en charge. Ce didacticiel est basé sur le didacticiel [Prise en main de Mobile Apps] , que vous devez effectuer en premier.
+Dans ce didacticiel, vous allez ajouter l’authentification au projet de démarrage rapide todolist sur Apache Cordova en faisant appel à un fournisseur d’identité pris en charge. Ce didacticiel est basé sur le didacticiel [Prise en main des applications mobiles] , que vous devez effectuer en premier.
 
 ## <a name="register"></a>Inscription de votre application pour l’authentification et configuration d’App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -34,7 +29,7 @@ Dans ce didacticiel, vous allez ajouter l’authentification au projet de démar
 
 À présent, vous pouvez vérifier que l’accès anonyme à votre serveur principal a été désactivé. Dans Visual Studio :
 
-* Ouvrez le projet que vous avez créé avec le didacticiel [Prise en main de Mobile Apps].
+* Ouvrez le projet que vous avez créé avec le didacticiel [Prise en main des applications mobiles].
 * Exécutez votre application dans **l’émulateur Android de Google**.
 * Vérifiez qu’un problème inattendu de connexion s’affiche après le démarrage de l’application.
 
@@ -47,7 +42,7 @@ Ensuite, vous mettez à jour l’application pour authentifier les utilisateurs 
    | Fournisseur | Nom du fournisseur du Kit de développement logiciel. | Hôte OAuth |
    |:--- |:--- |:--- |
    | Azure Active Directory | aad | https://login.microsoftonline.com |
-   | Facebook | Facebook | https://www.facebook.com |
+   | Facebook | facebook | https://www.facebook.com |
    | Google | Google | https://accounts.google.com |
    | Microsoft | microsoftaccount | https://login.live.com |
    | Twitter | Twitter | https://api.twitter.com |
@@ -92,7 +87,7 @@ Ensuite, vous mettez à jour l’application pour authentifier les utilisateurs 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus [À propos de l’authentification] avec Azure App Service.
-* Poursuivez le didacticiel en ajoutant les [Notifications Push] à votre application Apache Cordova.
+* Poursuivez le didacticiel en ajoutant les [Notifications Push] à votre application Apache Cordova.
 
 Découvrez comment utiliser les Kits de développement logiciel.
 
@@ -101,9 +96,9 @@ Découvrez comment utiliser les Kits de développement logiciel.
 * [Kit de développement logiciel du serveur Node.js]
 
 <!-- URLs. -->
-[Prise en main de Mobile Apps]: app-service-mobile-cordova-get-started.md
+[Prise en main des applications mobiles]: app-service-mobile-cordova-get-started.md
 [documentation Content-Security-Policy]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
-[Notifications Push]: app-service-mobile-cordova-get-started-push.md
+[Notifications Push]: app-service-mobile-cordova-get-started-push.md
 [À propos de l’authentification]: app-service-mobile-auth.md
 [Kit de développement logiciel (SDK) Apache Cordova]: app-service-mobile-cordova-how-to-use-client-library.md
 [Kit de développement logiciel du serveur ASP.NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

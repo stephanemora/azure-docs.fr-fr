@@ -3,12 +3,12 @@ title: Fonctions de modèle – Numérique
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des nombres.
 ms.topic: conceptual
 ms.date: 11/08/2017
-ms.openlocfilehash: 1a611277bb473d605c76d131a18f9ccb550fab29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 91aa637701acb278e81b7eb86aa3ae2db15acc28
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476203"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207233"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Fonctions numériques pour les modèles Azure Resource Manager
 
@@ -82,7 +82,7 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | addResult | Int | 8 |
 
@@ -118,7 +118,7 @@ Cette fonction est toujours utilisée avec un objet **copy** . Si aucune valeur 
 
 La propriété **loopName** permet d’indiquer si copyIndex fait référence à une itération de ressource ou de propriété. Si aucune valeur n’est indiquée pour **loopName**, l’itération du type de ressource actuelle est utilisée. Indiquez une valeur pour **loopName** lors de l’itération sur une propriété. 
  
-Pour obtenir une description complète d’exemples d’utilisation de l’expression **copyIndex**, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](create-multiple-instances.md).
+Pour obtenir une description complète d’exemples d’utilisation de l’expression **copyIndex**, voir [Création de plusieurs instances de ressources dans Azure Resource Manager](copy-resources.md).
 
 Pour obtenir un exemple d’utilisation de **copyIndex** afin de définir une variable, consultez [Variables](template-syntax.md#variables).
 
@@ -199,7 +199,7 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | divResult | Int | 2 |
 
@@ -293,7 +293,7 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | intResult | Int | 4 |
 
@@ -356,7 +356,7 @@ Entier représentant la valeur maximale de la collection.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
@@ -420,7 +420,7 @@ Entier représentant la valeur minimale de la collection.
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
@@ -491,7 +491,7 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | modResult | Int | 1 |
 
@@ -562,7 +562,7 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | mulResult | Int | 15 |
 
@@ -632,7 +632,7 @@ Dans [l’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/b
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | subResult | Int | 4 |
 
@@ -651,6 +651,6 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](template-syntax.md).
 * Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](linked-templates.md).
-* Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](create-multiple-instances.md).
+* Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](copy-resources.md).
 * Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](deploy-powershell.md).
 

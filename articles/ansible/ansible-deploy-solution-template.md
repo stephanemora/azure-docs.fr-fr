@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, découvrez comment déployer le
 keywords: ansible, azure, devops, modèle de solution, machine virtuelle, identités managées pour ressources azure, centos, red hat
 ms.topic: quickstart
 ms.date: 04/30/2019
-ms.openlocfilehash: ebd01411ff27b0e95be21ef147098a90b6f62742
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: cc3a6c1f0ef36b51b62e6aa58f317aee13149589
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156334"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193784"
 ---
 # <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Démarrage rapide : Déployer le modèle de solution Ansible pour Azure sur CentOS
 
@@ -85,4 +85,4 @@ Le modèle de solution Ansible pour Azure est conçu pour la configuration d’u
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"] 
-> [Démarrage rapide : Configurer une machine virtuelle Linux dans Azure avec Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Démarrage rapide : Configurer une machine virtuelle Linux dans Azure avec Ansible](./ansible-create-vm.md)

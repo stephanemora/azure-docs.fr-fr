@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 203bf584711fbfcfd0baeee8f5e4c7f70d96823b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 9b71c4a5c0f245d9da97dc8f096d15c5386bf919
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157213"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368615"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -177,8 +177,6 @@ Cette section s’applique uniquement aux partages de fichiers Standard. Tous le
 Les partages de fichiers standard avec une limite de capacité de 100 Tio sont disponibles globalement dans toutes les régions Azure.
 
 - LRS : Toutes les régions, à l’exception d’Afrique du Sud Nord et d’Afrique du Sud Ouest.
-   - USA Est et Europe Ouest : Tous les nouveaux comptes sont pris en charge. Le processus de mise à niveau d’un petit nombre de comptes n’est pas terminé. Vous pouvez vérifier si vos comptes de stockage existants ont terminé le processus de mise à niveau en tentant d’[activer les partages de fichiers volumineux](storage-files-how-to-create-large-file-share.md).
-
 - ZRS : Toutes les régions, à l’exception Japon Est, Europe Nord et Afrique du Sud Nord.
 - GRS/GZRS : Non pris en charge.
 

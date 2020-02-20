@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: e9410ce93d9e11d3023f4f461f3ba90a7bf74507
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb473ec55ec6a5e93ba4ad22bf500414d54e4a5d
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451310"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367206"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Options de stockage pour conteneurs de profil FSLogix dans Windows Virtual Desktop
 
@@ -53,6 +53,6 @@ Si vous êtes prêt à créer vos propres conteneurs de profil FSLogix, prenez e
 
 - [Bien démarrer avec les conteneurs de profils FSLogix sur Azure Files dans Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
 - [Créer un conteneur de profils FSLogix pour un pool d’hôtes à l’aide d’Azure NetApp Files](create-fslogix-profile-container.md)
-- Les instructions de l’article [Déployer un serveur de fichiers scale-out avec des espaces de stockage direct à deux nœuds pour le stockage UPD dans Azure](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) s’appliquent également lorsque vous utilisez un conteneur de profil FSLogix à la place d’un disque de profil utilisateur
+- Les instructions de l’article [Déployer un serveur de fichiers scale-out avec des espaces de stockage direct à deux nœuds pour le stockage UPD dans Azure](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) s’appliquent également lorsque vous utilisez un conteneur de profil FSLogix à la place d’un disque de profil utilisateur
 
 Vous pouvez également commencer par le tout début et configurer votre propre solution Windows Virtual Desktop dans [Créer un locataire dans Windows Virtual Desktop](tenant-setup-azure-active-directory.md).

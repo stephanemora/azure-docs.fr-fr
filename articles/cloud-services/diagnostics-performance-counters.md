@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: tagore
-ms.openlocfilehash: 16b0727a78ad8ad582535fa1f5b0e57079cc4c05
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b4028a09f69acd5d7a6579b4610785ed32e227d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385584"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469525"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Collecter les compteurs de performances pour votre Azure Cloud Service
 
@@ -121,7 +121,7 @@ L’extension Diagnostics Azure pour Cloud Services vous permet de que spécifie
 
 Les compteurs de performances à collecter sont définis dans le fichier **diagnostics.wadcfgx**. Ouvrez ce fichier (il est défini par le rôle) dans Visual Studio, puis recherchez l’élément **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters**. Ajoutez un nouvel élément **PerformanceCounterConfiguration** en tant qu’enfant. Cet élément a deux attributs : `counterSpecifier` et `sampleRate`. L’attribut `counterSpecifier` définit l’ensemble de compteurs de performances système (indiqué dans la section précédente) à collecter. La valeur `sampleRate` indique la fréquence à laquelle cette valeur est interrogée. Dans l’ensemble, tous les compteurs de performances sont transférés vers Azure en fonction de la valeur d’attribut `PerformanceCounters` de l’élément `scheduledTransferPeriod` parent.
 
-Pour plus d’informations sur l’élément de schéma `PerformanceCounters`, voir le [schéma Diagnostics Azure](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element).
+Pour plus d’informations sur l’élément de schéma `PerformanceCounters`, voir le [schéma Diagnostics Azure](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element).
 
 La période définie par l’attribut `sampleRate` utilise le type de données de durée XML pour indiquer la fréquence à laquelle le compteur de performances est interrogé. Dans l’exemple ci-dessous, la fréquence est définie sur `PT3M`, ce qui signifie `[P]eriod[T]ime[3][M]inutes` : toutes les trois minutes.
 
@@ -291,7 +291,7 @@ Comme indiqué précédemment, les compteurs de performances à collecter sont d
 - [Application Insights pour Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Compteurs de performances système dans Application Insights](../azure-monitor/app/performance-counters.md)
 - [Spécification d’un chemin d’accès au compteur](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
-- [Schéma Diagnostics Azure - Compteurs de performances](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)
+- [Schéma Diagnostics Azure - Compteurs de performances](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)
 
 
 

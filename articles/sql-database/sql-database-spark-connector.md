@@ -7,16 +7,16 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: denzilribeiro
+ms.author: denzilr
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: 03150ef3a8799cd0f84fb1bc03f2fd712cddd541
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b22ec475c0281a54d65921bc450b35723aa23219
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889795"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471650"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Accélérer l’analytique du Big Data en temps réel avec le connecteur Spark pour Azure SQL Database et SQL Server
 
@@ -27,13 +27,13 @@ Pour commencer, téléchargez le connecteur Spark à SQL Database depuis le [dé
 
 ## <a name="official-supported-versions"></a>Versions officielles prises en charge
 
-| Composant                            |Version                  |
-| :----------------------------------- | :---------------------- |
-| Apache Spark                         |2.0.2 ou version ultérieure           |
-| Scala                                |2.10 ou version ultérieure            |
-| Pilote Microsoft JDBC pour SQL Server |6.2 ou version ultérieure             |
-| Microsoft SQL Server                 |SQL Server 2008 ou version ultérieure |
-| Azure SQL Database                   |Pris en charge                |
+| Composant                            | Version                  |
+| :----------------------------------- | :----------------------- |
+| Apache Spark                         | 2.0.2 ou version ultérieure           |
+| Scala                                | 2.10 ou version ultérieure            |
+| Pilote Microsoft JDBC pour SQL Server | 6.2 ou version ultérieure             |
+| Microsoft SQL Server                 | SQL Server 2008 ou version ultérieure |
+| Azure SQL Database                   | Prise en charge                |
 
 Le connecteur Spark pour Azure SQL Database et SQL Server utilise le pilote Microsoft JDBC pour SQL Server pour déplacer des données entre les nœuds de rôle de travail Spark et les bases de données SQL :
  
@@ -89,7 +89,7 @@ val config = Config(Map(
 ))
 
 //Read all data in table dbo.Clients
-val collection = sqlContext.read.sqlDb(config)
+val collection = sqlContext.read.sqlDB(config)
 collection.show()
 ```
 
@@ -118,7 +118,7 @@ import com.microsoft.azure.sqldb.spark.config.Config
 import com.microsoft.azure.sqldb.spark.query._
 val query = """
               |UPDATE Customers
-              |SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+              |SET ContactName = 'Alfred Schmidt', City = 'Frankfurt'
               |WHERE CustomerID = 1;
             """.stripMargin
 
@@ -134,7 +134,7 @@ sqlContext.sqlDBQuery(config)
 ```
 
 ## <a name="connect-spark-to-azure-sql-database-using-aad-authentication"></a>Connecter Spark à Azure SQL Database à l’aide de l’authentification AAD
-Vous pouvez vous connecter à Azure SQL Database à l’aide de l’authentification Azure Active Directory (AAD). Utilisez l’authentification AAD pour centraliser la gestion des identités des utilisateurs de base de données et comme une alternative à l’authentification SQL Server.
+Vous pouvez vous connecter à Azure SQL Database à l’aide de l’authentification Azure Active Directory (AAD). Utilisez l’authentification AAD pour gérer de manière centralisée les identités des utilisateurs de base de données et comme alternative à l’authentification SQL Server.
 ### <a name="connecting-using-activedirectorypassword-authentication-mode"></a>Connexion à l’aide du mode d’authentification ActiveDirectoryPassword
 #### <a name="setup-requirement"></a>Configuration requise
 Si vous utilisez le mode d’authentification ActiveDirectoryPassword, vous devez télécharger [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) et ses dépendances, puis les inclure dans le chemin de la build Java.
@@ -146,13 +146,13 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"            -> "mysqlserver.database.windows.net",
   "databaseName"   -> "MyDatabase",
-  "user"           -> "username ",
+  "user"           -> "username",
   "password"       -> "*********",
   "authentication" -> "ActiveDirectoryPassword",
   "encrypt"        -> "true"
 ))
 
-val collection = sqlContext.read.SqlDB(config)
+val collection = sqlContext.read.sqlDB(config)
 collection.show()
 ```
 
@@ -169,12 +169,12 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"                   -> "mysqlserver.database.windows.net",
   "databaseName"          -> "MyDatabase",
-  "accessToken"           -> "access_token ",
+  "accessToken"           -> "access_token",
   "hostNameInCertificate" -> "*.database.windows.net",
   "encrypt"               -> "true"
 ))
 
-val collection = sqlContext.read.SqlDB(config)
+val collection = sqlContext.read.sqlDB(config)
 collection.show()
 ```
 
@@ -214,7 +214,7 @@ df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
 ## <a name="next-steps"></a>Étapes suivantes
 Si ce n’est déjà fait, téléchargez le connecteur Spark pour Azure SQL Database et SQL Server depuis le [dépôt GitHub azure-sqldb-spark](https://github.com/Azure/azure-sqldb-spark) et parcourez les ressources supplémentaires qui s’y trouvent :
 
--   [Exemples de bloc-notes Azure Databricks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
+- [Exemples de bloc-notes Azure Databricks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [Exemples de scripts (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
 Vous pouvez également consulter [Apache Spark SQL, DataFrames, and Datasets Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html) (Guide sur Apache Spark SQL, les tableaux de données et les jeux de données) et la [documentation Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).

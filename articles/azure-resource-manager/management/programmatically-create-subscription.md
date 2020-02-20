@@ -1,16 +1,16 @@
 ---
 title: Créer des abonnements Azure par programmation
 description: Découvrez comment créer des abonnements Azure supplémentaires par programmation.
-author: amberb
+author: amberbhargava
 ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: banders
-ms.openlocfilehash: 2fad9d727e78b470635c91a1bf9aaac11e57f4c7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 47d4454c47967d07898492176438e547b1e561b6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981225"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198681"
 ---
 # <a name="programmatically-create-azure-subscriptions-preview"></a>Créer des abonnements Azure par programmation (préversion)
 
@@ -23,7 +23,7 @@ Quand vous créez un abonnement Azure par programmation, cet abonnement est rég
 
 ## <a name="create-subscriptions-for-an-ea-billing-account"></a>Créer des abonnements pour un compte de facturation EA
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Vous devez avoir un rôle Propriétaire sur un compte d’inscription pour créer un abonnement. Vous pouvez obtenir ce rôle de deux manières :
 
@@ -37,7 +37,7 @@ Une fois que vous avez été ajouté à un compte d’inscription associé à un
 
 Pour exécuter les commandes suivantes, vous devez être connecté au *répertoire de base* du propriétaire de compte, qui est le répertoire dans lequel les abonnements sont créés par défaut.
 
-### <a name="resttabrest"></a>[REST](#tab/rest)
+### <a name="rest"></a>[REST](#tab/rest)
 
 Demande pour obtenir la liste de tous les comptes d’inscription auxquels vous avez accès :
 
@@ -72,7 +72,7 @@ En réponse, l’API retourne la liste de tous les comptes d’inscription auxqu
 
 Utilisez la propriété `principalName` pour identifier le compte auquel vous souhaitez que soient facturés les abonnements. Copiez l’élément `name` de ce compte. Par exemple, si vous souhaitez créer des abonnements dans le compte d’inscription SignUpEngineering@contoso.com, vous allez copier ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Cet identificateur est l’ID d’objet du compte d’inscription. Collez cette valeur quelque part, de façon à pouvoir l’utiliser à l’étape suivante en tant que `enrollmentAccountObjectId`.
 
-### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Ouvrez [Azure Cloud Shell](https://shell.azure.com/) et sélectionnez PowerShell.
 
@@ -91,7 +91,7 @@ ObjectId                               | PrincipalName
 ```
 Utilisez la propriété `principalName` pour identifier le compte auquel vous souhaitez que soient facturés les abonnements. Copiez l’élément `ObjectId` de ce compte. Par exemple, si vous souhaitez créer des abonnements dans le compte d’inscription SignUpEngineering@contoso.com, vous allez copier ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Collez cet ID d’objet quelque part, de façon à pouvoir l’utiliser à l’étape suivante en tant que `enrollmentAccountObjectId`.
 
-### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Utilisez la commande [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) pour lister tous les comptes d’inscription auxquels vous avez accès.
 
@@ -126,7 +126,7 @@ Utilisez la propriété `principalName` pour identifier le compte auquel vous so
 
 L’exemple suivant crée un abonnement nommé *Dev Team Subscription* dans le compte d’inscription sélectionné à l’étape précédente. L’offre d’abonnement est *MS-AZR - 0017p* (Accord Entreprise Microsoft standard). L’exemple ajoute également deux utilisateurs en tant que propriétaires RBAC pour l’abonnement.
 
-### <a name="resttabrest"></a>[REST](#tab/rest)
+### <a name="rest"></a>[REST](#tab/rest)
 
 Envoyez la requête suivante, en remplaçant `<enrollmentAccountObjectId>` par l’élément `name` copié lors de la première étape (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Si vous souhaitez spécifier des propriétaires, découvrez [comment obtenir les ID d’objet utilisateur](grant-access-to-create-subscription.md#userObjectId).
 
@@ -155,7 +155,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 Dans la réponse, vous obtenez un objet `subscriptionOperation` pour le monitoring. Quand la création de l’abonnement est terminée, l’objet `subscriptionOperation` retourne un objet `subscriptionLink`, qui a l’ID d’abonnement.
 
-### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Tout d’abord, installez ce module en préversion en exécutant `Install-Module Az.Subscription -AllowPrerelease`. Pour vous assurer que `-AllowPrerelease` fonctionne, installez une version récente de PowerShellGet à partir de la page [Obtenir le module PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
@@ -176,7 +176,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 
 Pour obtenir la liste complète de tous les paramètres, consultez [New-AzSubscription](/powershell/module/az.subscription).
 
-### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Commencez par installer cette extension en préversion en exécutant `az extension add --name subscription`.
 
@@ -209,7 +209,7 @@ Pour obtenir la liste complète de tous les paramètres, consultez [az account c
 
 ## <a name="create-subscriptions-for-an-mca-account"></a>Créer des abonnements pour un compte MCA
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Vous devez avoir un rôle Propriétaire, Contributeur ou Créateur de l’abonnement Azure sur une section de facture ou bien un rôle Propriétaire ou Contributeur sur un profil de facturation ou un compte de facturation pour créer des abonnements. Pour plus d’informations, consultez [Rôles et tâches liés à la facturation des abonnements](../../cost-management-billing/manage/understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
@@ -350,7 +350,7 @@ Dans la réponse, vous obtenez un objet `subscriptionCreationResult` pour le mon
 
 ## <a name="create-subscriptions-for-an-mpa-billing-account"></a>Créer des abonnements pour un compte de facturation MPA
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Vous devez avoir un rôle Administrateur général ou Agent d’administration sur le compte du fournisseur de solutions Cloud dans votre organisation pour créer un abonnement associé à votre compte de facturation. Pour plus d’informations, consultez [Espace partenaires - Affecter des rôles et des autorisations aux utilisateurs](https://docs.microsoft.com/partner-center/permissions-overview).
 

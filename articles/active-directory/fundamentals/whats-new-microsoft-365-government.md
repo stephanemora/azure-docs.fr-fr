@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75e7c6809810a78c81348bd4bbeb808e103f453f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73805280"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425542"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Nouveautés d’Azure Active Directory dans Microsoft 365 Government
 
@@ -55,7 +55,6 @@ La table suivante répertorie les points de terminaison pour tous les clients :
 |------|------------------|
 | Portails |Microsoft Azure Government : https://portal.azure.us<p>Microsoft 365 Government - GCC High : https://portal.office365.us<p>Microsoft 365 Government - DoD: https://portal.apps.mil |
 | Point de terminaison d'autorité Azure Active Directory | https://login.microsoftonline.us |
-| API Graph Azure Active Directory | https://graph.windows.net |
 | API Microsoft Graph pour Microsoft 365 Government - GCC High | https://graph.microsoft.us |
 | API Microsoft Graph pour Microsoft 365 Government - DoD | https://dod-graph.microsoft.us |
 | Points de terminaison des services Azure Government | Pour plus d'informations, consultez [Guide du développeur Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |

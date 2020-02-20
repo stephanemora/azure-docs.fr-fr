@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 01/10/2020
 ms.custom: mvc, devcenter
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 26313c68305f4d7e6411d31fa12366442ce4bd38
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: cf71f051b014c6ce56290acda5c4b931c23934e2
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964099"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208946"
 ---
 # <a name="quickstart-create-an-azure-functions-project-using-visual-studio-code"></a>Démarrage rapide : Créer un projet Azure Functions avec Visual Studio Code
 
@@ -93,7 +93,7 @@ Dans cette section, vous utilisez Visual Studio Code pour créer un projet Azure
     + **Fournir un espace de noms** : Tapez `My.Functions`. 
     ::: zone-end
 
-    + **Niveau d’autorisation** : Choisissez l’option `Anonymous`, qui permet à quiconque d’appeler le point de terminaison de votre fonction. Pour en savoir plus sur le niveau d’autorisation, consultez [Clés d’autorisation](functions-bindings-http-webhook.md#authorization-keys).
+    + **Niveau d’autorisation** : Choisissez l’option `Anonymous`, qui permet à quiconque d’appeler le point de terminaison de votre fonction. Pour en savoir plus sur le niveau d’autorisation, consultez [Clés d’autorisation](functions-bindings-http-webhook-trigger.md#authorization-keys).
 
     + **Sélectionner la façon dont vous souhaitez ouvrir votre projet** : Choisissez `Add to workspace`.
 

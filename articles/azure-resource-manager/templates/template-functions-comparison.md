@@ -3,12 +3,12 @@ title: Fonctions de modèle - Comparaison
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour comparer des valeurs.
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.openlocfilehash: 3f21066ae5882f51ef1e01343752eea725fece1d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 67cb1c1f92694ca217e99fb6528fb1d00f2cfcf6
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476235"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207308"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Fonctions de comparaison pour les modèles Azure Resource Manager
 
@@ -124,7 +124,7 @@ La fonction equals est souvent utilisée avec l’élément `condition` pour tes
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | True |
@@ -162,7 +162,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 La sortie de l’exemple précédent est :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -237,7 +237,7 @@ Retourne **True** si la première valeur est supérieure à la seconde ; sinon,
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
@@ -313,7 +313,7 @@ Retourne **True** si la première valeur est supérieure ou égale à la seconde
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
@@ -389,7 +389,7 @@ Retourne **True** si la première valeur est inférieure à la seconde ; sinon,
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | False |
@@ -465,7 +465,7 @@ Retourne **True** si la première valeur est inférieure ou égale à la seconde
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Name | Type | Valeur |
+| Nom | Type | Valeur |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
 | checkStrings | Bool | False |
@@ -485,6 +485,6 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](template-syntax.md).
 * Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](linked-templates.md).
-* Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](create-multiple-instances.md).
+* Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](copy-resources.md).
 * Pour savoir comment déployer le modèle que vous avez créé, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](deploy-powershell.md).
 

@@ -1,19 +1,19 @@
 ---
 title: Rechercher un emplacement à l’aide des services Search d’Azure Maps | Microsoft Azure Maps
 description: Cet article explique comment rechercher un emplacement à l’aide du service Search de Microsoft Azure Maps pour le géocodage et le géocodage inverse.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3b5da7eab9cff5c5e051fc4d5ab7ff582a95c20d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 40066f24fec00610a1efd10b2cb874b1100acdee
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899234"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209883"
 ---
 # <a name="search-for-a-location-using-azure-maps-search-services"></a>Rechercher un emplacement à l’aide des services Search d’Azure Maps
 
@@ -27,7 +27,7 @@ Dans cet article, vous allez apprendre à :
 * Créer une [recherche d’adresse inversée](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) pour traduire les coordonnées de l’emplacement en adresse postale
 * Rechercher une intersection à l’aide d’une [API de recherche d’intersection d’adresse inverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour réaliser les étapes de cet article, vous devez d’abord créer un compte Azure Maps et vous procurer la clé d’abonnement de ce compte. Suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps, puis effectuez les étapes indiquées dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin d’obtenir la clé primaire de votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
 

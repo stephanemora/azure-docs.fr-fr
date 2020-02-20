@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 02/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 03f8bffafe9ebfd95d439f920a5e00be27810c96
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0bfae10d3b3b491c3662385055b23cc585a6e24d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444243"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471157"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copier des données de MySQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -39,13 +39,11 @@ Vous pouvez copier des données d’une base de données MySQL vers toute banque
 
 Plus précisément, ce connecteur MySQL prend en charge MySQL **versions 5.6 et 5.7**.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 Le runtime d’intégration fournit un pilote MySQL intégré à partir de la version 3.7. Ainsi, vous n’avez pas besoin d’installer manuellement un pilote.
-
-Pour une version du runtime d’intégration auto-hébergé antérieure à 3.7, vous devez installer le [Connecteur MySQL/Net pour Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) avec une version comprise entre 6.6.5 et 6.10.7 sur l’ordinateur exécutant le runtime d’intégration. Ce pilote 32 bits est compatible avec le runtime d’intégration (IR) 64 bits.
 
 ## <a name="getting-started"></a>Prise en main
 

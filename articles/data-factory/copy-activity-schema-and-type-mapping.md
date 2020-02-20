@@ -9,14 +9,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 02/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 2c637346aae72a238963607f6f5d23910684265c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9ae07e2a471cc417b467092a2616a5a0cdafb1fe
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921993"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423623"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mappage de schéma dans l’activité de copie
 
@@ -89,7 +89,7 @@ Les propriétés suivantes sont prises en charge sous `translator` -> `mappings`
 
 | Propriété | Description                                                  | Obligatoire |
 | -------- | ------------------------------------------------------------ | -------- |
-| name     | Nom de la colonne source ou récepteur.                           | OUI      |
+| name     | Nom de la colonne source ou récepteur.                           | Oui      |
 | ordinal  | Index de colonne. Commence par 1. <br>À appliquer et requis lors de l’utilisation de texte sans ligne d’en-tête délimité. | Non       |
 | path     | Expression de chemin JSON pour l’extraction ou le mappage de chaque champ. À appliquer aux données hiérarchiques, par exemple MongoDB/REST.<br>Pour les champs situés sous l’objet racine, le chemin JSON commence par $ racine ; pour ceux qui se trouvent dans le tableau sélectionné par la propriété `collectionReference`, le chemin JSON commence par l’élément de tableau. | Non       |
 | type     | Type de données intermédiaires Data Factory de la colonne source ou récepteur. | Non       |
@@ -202,8 +202,8 @@ Vous pouvez spécifier l’activité de copie -> `translator` -> `schemaMapping`
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du traducteur d’activité de copie doit être définie sur : **TabularTranslator** | OUI |
-| schemaMapping | Une collection de paires clé-valeur, qui représente la relation de mappage **du côté source au côté récepteur**.<br/>- **Clé :** représente la source. Pour une **source tabulaire**, spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour une **source hiérarchique**, spécifiez l’expression de chemin JSON pour chaque champ à extraire et mapper.<br>- **Valeur :** représente le récepteur. Pour un **récepteur tabulaire**, spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour un **récepteur hiérarchique**, spécifiez l’expression de chemin JSON pour chaque champ à extraire et mapper. <br>Dans le cas de données hiérarchiques, pour les champs situés sous l’objet racine, le chemin JSON commence par $ racine ; pour ceux qui se trouvent dans le tableau sélectionné par la propriété `collectionReference`, le chemin JSON commence par l’élément de tableau.  | OUI |
+| type | La propriété type du traducteur d’activité de copie doit être définie sur : **TabularTranslator** | Oui |
+| schemaMapping | Une collection de paires clé-valeur, qui représente la relation de mappage **du côté source au côté récepteur**.<br/>- **Clé :** représente la source. Pour une **source tabulaire**, spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour une **source hiérarchique**, spécifiez l’expression de chemin JSON pour chaque champ à extraire et mapper.<br>- **Valeur :** représente le récepteur. Pour un **récepteur tabulaire**, spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour un **récepteur hiérarchique**, spécifiez l’expression de chemin JSON pour chaque champ à extraire et mapper. <br>Dans le cas de données hiérarchiques, pour les champs situés sous l’objet racine, le chemin JSON commence par $ racine ; pour ceux qui se trouvent dans le tableau sélectionné par la propriété `collectionReference`, le chemin JSON commence par l’élément de tableau.  | Oui |
 | collectionReference | Si vous souhaitez effectuer une itération et extraire des données à partir des objets situés **à l’intérieur d’un champ de tableau** présentant le même modèle et effectuer une conversion par ligne et par objet, spécifiez le chemin JSON de ce tableau afin d’effectuer une application croisée. Cette propriété est prise en charge uniquement quand des données hiérarchiques sont la source. | Non |
 
 **Exemple : copier à partir de MongoDB vers Oracle :**
@@ -259,11 +259,11 @@ Configurez la règle de mappage de schéma comme l’exemple JSON d’activité 
         "translator": {
             "type": "TabularTranslator",
             "schemaMapping": {
-                "orderNumber": "$.number",
-                "orderDate": "$.date",
-                "order_pd": "prod",
-                "order_price": "price",
-                "city": " $.city[0].name"
+                "$.number": "orderNumber",
+                "$.date": "orderDate",
+                "prod": "order_pd",
+                "price": "order_price",
+                "$.city[0].name": "city"
             },
             "collectionReference":  "$.orders"
         }
@@ -271,7 +271,7 @@ Configurez la règle de mappage de schéma comme l’exemple JSON d’activité 
 }
 ```
 
-## <a name="data-type-mapping"></a>Mappage de type de données
+## <a name="data-type-mapping"></a>Mappage de types de données
 
 L’activité de copie effectue un mappage des types de la source aux types du récepteur selon l’approche en 2 étapes suivante :
 
@@ -295,7 +295,7 @@ Data Factory prend en charge les types de données intermédiaires suivants : V
 * Int32
 * Int64
 * Unique
-* Chaîne
+* String
 * Timespan
 
 ## <a name="next-steps"></a>Étapes suivantes

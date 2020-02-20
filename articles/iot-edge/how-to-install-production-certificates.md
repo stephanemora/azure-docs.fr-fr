@@ -8,12 +8,12 @@ ms.date: 02/11/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fe46e968aa2dcebaa483cd38fd2e050ccfe43054
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: d9f715a6ab43206d02107f6335e9b4c0bb4266e0
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149896"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471004"
 ---
 # <a name="install-production-certificates-on-an-iot-edge-device"></a>Installer des certificats de production sur un appareil IoT Edge
 
@@ -30,7 +30,7 @@ Pour en savoir plus sur les différents types de certificats et leurs rôles dan
 >[!NOTE]
 >Le terme « autorité de certification racine » utilisé dans cet article fait référence au certificat public de la plus grande autorité de la chaîne de certificats pour votre solution IoT. Vous n’avez pas besoin d’utiliser la racine du certificat d’une autorité de certification syndiquée ou la racine de l’autorité de certification de votre organisation. La plupart du temps, il s’agit en fait d’un certificat public d’une autorité de certification intermédiaire.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un appareil IoT Edge, exécuté sur [Windows](how-to-install-iot-edge-windows.md) ou [Linux](how-to-install-iot-edge-linux.md).
 * Avoir un certificat d’autorité de certification (AC) racine, soit auto-signé, soit acheté auprès d’une autorité de certification commerciale approuvée telle que Baltimore, VeriSign, DigiCert ou GlobalSign.
@@ -68,24 +68,24 @@ Par exemple, si vous avez utilisé les exemples de script pour [Créer des certi
    * Windows : `C:\ProgramData\iotedge\config.yaml`
    * Linux : `/etc/iotedge/config.yaml`
 
-3. Définissez les propriétés de **certificat** dans le fichier config.yaml sur le fichier URI des fichiers de certificats et de clés sur l’appareil IoT Edge. Supprimez le caractère `#` devant les propriétés certificates pour décommenter les quatre lignes. Vérifiez que la ligne **certificates:** n’est pas précédée d’un espace et que les éléments imbriqués sont mis en retrait de deux espaces. Par exemple :
+3. Définissez les propriétés **certificates** dans le fichier config.yaml sur le chemin complet où vous avez placé les fichiers de certificats et de clés sur l’appareil IoT Edge. Supprimez le caractère `#` devant les propriétés certificates pour décommenter les quatre lignes. Vérifiez que la ligne **certificates:** n’est pas précédée d’un espace et que les éléments imbriqués sont mis en retrait de deux espaces. Par exemple :
 
    * Windows :
 
       ```yaml
       certificates:
-        device_ca_cert: "file:///c:/path/device-ca.cert.pem"
-        device_ca_pk: "file:///c:/path/device-ca.key.pem"
-        trusted_ca_certs: "file:///c:/path/root-ca.root.ca.cert.pem"
+        device_ca_cert: "c:\\<path>\\device-ca.cert.pem"
+        device_ca_pk: "c:\\<path>\\device-ca.key.pem"
+        trusted_ca_certs: "c:\\<path>\\root-ca.root.ca.cert.pem"
       ```
 
    * Linux :
 
       ```yaml
       certificates:
-        device_ca_cert: "file:///path/device-ca.cert.pem"
-        device_ca_pk: "file:///path/device-ca.key.pem"
-        trusted_ca_certs: "file:///path/root-ca.root.ca.cert.pem"
+        device_ca_cert: "<path>/device-ca.cert.pem"
+        device_ca_pk: "<path>/device-ca.key.pem"
+        trusted_ca_certs: "<path>/root-ca.root.ca.cert.pem"
       ```
 
 4. Sur les appareils Linux, assurez-vous que l’utilisateur **iotedge** a les autorisations de lecture sur le répertoire contenant les certificats.

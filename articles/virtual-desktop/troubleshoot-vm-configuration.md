@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: f8400cbefc514fa01dedb1434a60989b1df0528d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c15662409f9f5badf50765b78bce7dd71e9fb1bc
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980230"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367169"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuration d’une machine virtuelle hôte de session
 
@@ -26,7 +26,7 @@ Rendez-vous sur le site [Windows Virtual Desktop Tech Community](https://techcom
 
 Suivez ces instructions si vous rencontrez des problèmes de jonction de machines virtuelles au domaine.
 
-- Pour joindre la machine virtuelle manuellement, consultez [Joindre une machine virtuelle Windows Server à un domaine géré](https://docs.microsoft.com/azure/active-directory-domain-services/Active-directory-ds-admin-guide-join-windows-vm-portal) ou utilisez le [modèle de jonction de domaine](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
+- Pour joindre la machine virtuelle manuellement, consultez [Joindre une machine virtuelle Windows Server à un domaine géré](../active-directory-domain-services/join-windows-vm.md) ou utilisez le [modèle de jonction de domaine](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 - Essayez d'envoyer une requête Ping au nom de domaine à partir de la ligne de commande de la machine virtuelle.
 - Passez en revue la liste des messages d’erreur de jonction de domaine dans [Résolution des problèmes de jonction de domaine](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx).
 
@@ -37,7 +37,7 @@ Suivez ces instructions si vous rencontrez des problèmes de jonction de machine
 **Correctif :** Pour résoudre ce problème, effectuez l’une des actions suivantes.
 
 - Ajoutez manuellement les machines virtuelles à un domaine.
-- Redéployez le modèle une fois les informations d’identification confirmées. Consultez [Créer un pool d’hôtes avec PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+- Redéployez le modèle une fois les informations d’identification confirmées. Consultez [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md).
 - Pour joindre des machines virtuelles à un domaine en utilisant un modèle, consultez [Joindre une machine virtuelle Windows existante au domaine AD](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 
 ### <a name="error-timeout-waiting-for-user-input"></a>Erreur : Le délai d'attente pour l’entrée utilisateur a expiré.
@@ -62,17 +62,17 @@ Suivez ces instructions si vous rencontrez des problèmes de jonction de machine
 
 **Cause 1 :** Les machines virtuelles se trouvent dans un réseau virtuel qui n’est pas associé au réseau virtuel (VNET) où se trouve le domaine.
 
-**Correctif 1 :** Créez un peering de réseaux virtuels entre le réseau virtuel dans lequel les machines virtuelles ont été approvisionnées et le réseau virtuel dans lequel le contrôleur s'exécute. Consultez [Créer un peering de réseaux virtuels - Resource Manager - Abonnements différents](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions).
+**Correctif 1 :** Créez un peering de réseaux virtuels entre le réseau virtuel dans lequel les machines virtuelles ont été approvisionnées et le réseau virtuel dans lequel le contrôleur s'exécute. Consultez [Créer un peering de réseaux virtuels - Resource Manager - Abonnements différents](../virtual-network/create-peering-different-subscriptions.md).
 
 **Cause 2 :** Lors de l’utilisation d’Azure Active Directory Domain Services (Azure AD DS), les paramètres du serveur DNS du réseau virtuel ne sont pas mis à jour sur le réseau virtuel pour pointer vers les contrôleurs de domaine gérés.
 
-**Correctif 2 :** Pour mettre à jour les paramètres DNS du réseau virtuel contenant Azure AD DS, voir [Mettre à jour les paramètres DNS pour le réseau virtuel Azure](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network).
+**Correctif 2 :** Pour mettre à jour les paramètres DNS du réseau virtuel contenant Azure AD DS, voir [Mettre à jour les paramètres DNS pour le réseau virtuel Azure](../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network).
 
 **Cause 3 :** Les paramètres de serveur DNS de l’interface réseau ne pointent pas vers le serveur DNS approprié sur le réseau virtuel.
 
 **Correctif 3 :** Effectuez l’une des actions suivantes pour résoudre le problème, en suivant les étapes décrites dans [Modifier les serveurs DNS].
-- Définissez les paramètres de serveur DNS de l’interface réseau sur **Personnalisés** en suivant les étapes décrites dans la section [Modifier les serveurs DNS](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers), puis spécifiez les adresses IP privées des serveurs DNS sur le réseau virtuel.
-- Définissez les paramètres de serveur DNS de l’interface réseau sur **Hériter de VNet** en suivant les étapes décrites dans la section [Modifier les serveurs DNS](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers),puis changez les paramètres du serveur DNS du réseau virtuel avec les étapes décrites dans [Modifier les serveurs DNS](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
+- Définissez les paramètres de serveur DNS de l’interface réseau sur **Personnalisés** en suivant les étapes décrites dans la section [Modifier les serveurs DNS](../virtual-network/virtual-network-network-interface.md#change-dns-servers), puis spécifiez les adresses IP privées des serveurs DNS sur le réseau virtuel.
+- Définissez les paramètres de serveur DNS de l’interface réseau sur **Hériter de VNet** en suivant les étapes décrites dans la section [Modifier les serveurs DNS](../virtual-network/virtual-network-network-interface.md#change-dns-servers),puis changez les paramètres du serveur DNS du réseau virtuel avec les étapes décrites dans [Modifier les serveurs DNS](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>L'agent Windows Virtual Desktop et le chargeur de démarrage Windows Virtual Desktop ne sont pas installés.
 
@@ -88,7 +88,7 @@ Suivez ces instructions pour vérifier que les composants sont installés et rec
 
 **Cause 1 :** Les informations d’identification fournies pour le modèle Azure Resource Manager sont incorrectes ou les autorisations sont insuffisantes.
 
-**Correctif 1 :** Ajoutez manuellement les composants manquants aux machines virtuelles en utilisant [Créer un pool d’hôtes avec PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+**Correctif 1 :** Ajoutez manuellement les composants manquants aux machines virtuelles en utilisant [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md).
 
 **Cause 2 :** La DSC PowerShell a réussi à démarrer et à s'exécuter, mais pas à se connecter à Windows Virtual Desktop ni à obtenir les informations requises.
 
@@ -147,7 +147,7 @@ Lorsque l’agent Windows Virtual Desktop est installé pour la première fois s
 
 **Correctif 2 :** Suivez ces instructions pour ouvrir le port 443.
 
-1. Vérifiez que le port 443 est ouvert en téléchargeant l’outil PSPing depuis [Outils Sysinternal](https://docs.microsoft.com/sysinternals/downloads/psping).
+1. Vérifiez que le port 443 est ouvert en téléchargeant l’outil PSPing depuis [Outils Sysinternal](/sysinternals/downloads/psping/).
 2. Installez PSPing sur la machine virtuelle hôte de session où l’agent s'exécute.
 3. Ouvrez une invite de commandes en tant qu’administrateur et exécutez la commande ci-dessous :
 
@@ -189,7 +189,7 @@ La sortie de **qwinsta** indique **rdp-sxs** si la pile côte à côte est insta
 
 ![Pile côte à côte installée ou activée avec qwinsta indiquée par rdp-sxs dans la sortie.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-Examinez les entrées de registre répertoriées ci-dessous et vérifiez que leurs valeurs correspondent. En cas de clés de registre manquantes ou de valeurs incompatibles, suivez les instructions contenues dans [Créer un pool d’hôtes avec PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell) pour savoir comment réinstaller la pile côte à côte.
+Examinez les entrées de registre répertoriées ci-dessous et vérifiez que leurs valeurs correspondent. En cas de clés de registre manquantes ou de valeurs incompatibles, suivez les instructions contenues dans [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md) pour savoir comment réinstaller la pile côte à côte.
 
 ```registry
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal
@@ -208,13 +208,13 @@ Examinez les entrées de registre répertoriées ci-dessous et vérifiez que leu
 **Correctif :** Suivez ces instructions pour installer la pile de côte à côte sur la machine virtuelle hôte de session.
 
 1. Utilisez le protocole RDP (Remote Desktop Protocol) pour accéder directement à la machine virtuelle hôte de session en tant qu’administrateur local.
-2. Si ce n’est déjà fait, téléchargez et importez le [module PowerShell Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) pour l’utiliser dans votre session PowerShell, puis exécutez cette applet de commande pour vous connecter à votre compte :
+2. Si ce n’est déjà fait, téléchargez et importez le [module PowerShell Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/) pour l’utiliser dans votre session PowerShell, puis exécutez cette applet de commande pour vous connecter à votre compte :
 
     ```powershell
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
     ```
 
-3. Pour installer la pile côte à côte, consultez [Créer un pool d'hôtes avec PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+3. Pour installer la pile côte à côte, consultez [Créer un pool d'hôtes avec PowerShell](create-host-pools-powershell.md).
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Procédure de résolution d'un dysfonctionnement de pile côte à côte Windows Virtual Desktop
 
@@ -226,7 +226,7 @@ Plusieurs cas de figure peuvent entraîner un dysfonctionnement de la pile côte
 - Exécutions multiples de enablesxsstackrc.ps1
 - Exécution de enablesxsstackrc.ps1 dans un compte ne disposant pas de privilèges d’administrateur local
 
-Les instructions contenues dans cette section peuvent vous aider à désinstaller la pile de côte à côte Windows Virtual Desktop. Après avoir désinstallé la pile côte à côte, accédez à « Inscrire la machine virtuelle auprès du pool d'hôtes Windows Virtual Desktop » dans [Créer un pool d’hôtes avec PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell) pour réinstaller la pile côte à côte.
+Les instructions contenues dans cette section peuvent vous aider à désinstaller la pile de côte à côte Windows Virtual Desktop. Après avoir désinstallé la pile côte à côte, accédez à « Inscrire la machine virtuelle auprès du pool d'hôtes Windows Virtual Desktop » dans [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md) pour réinstaller la pile côte à côte.
 
 La machine virtuelle utilisée pour exécuter la correction doit se trouver sur les mêmes sous-réseau et domaine que la machine virtuelle présentant un dysfonctionnement de pile côte à côte.
 
@@ -305,7 +305,7 @@ Si le délai limite expire, le message d’erreur « La session distante a ét�
 Si vous voyez l’un de ces messages, cela signifie que les dernières mises à jour Windows ne sont pas installées sur l’image ou que vous définissez le mode de licence Bureau à distance via la stratégie de groupe. Suivez les étapes décrites dans les sections suivantes pour vérifier le paramètre de stratégie de groupe, identifier la version de Windows 10 Entreprise multi-session et installer la mise à jour correspondante.  
 
 >[!NOTE]
->Windows Virtual Desktop nécessite une licence d’accès client (CAL) aux services Bureau à distance uniquement si votre pool d’hôtes contient des hôtes de session Windows Server. Pour savoir comment configurer une licence d’accès client aux services Bureau à distance, consultez [Gérer les licences de votre déploiement Services Bureau à distance avec des licences d’accès client (CAL)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
+>Windows Virtual Desktop nécessite une licence d’accès client (CAL) aux services Bureau à distance uniquement si votre pool d’hôtes contient des hôtes de session Windows Server. Pour savoir comment configurer une licence d’accès client aux services Bureau à distance, consultez [Gérer les licences de votre déploiement Services Bureau à distance avec des licences d’accès client (CAL)](/windows-server/remote/remote-desktop-services/rds-client-access-license/).
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Désactiver le paramètre de stratégie de groupe du mode de licence des services Bureau à distance
 

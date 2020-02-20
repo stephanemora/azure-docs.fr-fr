@@ -1,20 +1,20 @@
 ---
 title: Vue d’ensemble | Microsoft Azure Maps
 description: Découvrez plus d’informations sur les services et les fonctionnalités de Microsoft Azure Maps, et comment les utiliser dans vos applications.
-author: walsehgal
-ms.author: v-musehg
-ms.date: 02/11/2020
+author: farah-alyasari
+ms.author: v-faalya
+ms.date: 01/15/2020
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e01bfec9edbe1e868a3e3244e3cb6d1e1a46561d
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: b375ea8fdebd876bdc7ecf157a4cebd5e614dfd0
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190352"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443697"
 ---
 # <a name="what-is-azure-maps"></a>Qu’est-ce qu’Azure Maps ?
 
@@ -45,23 +45,23 @@ La vidéo suivante explique Azure Maps plus en détail :
 
 Le SDK web Azure Maps vous permet de personnaliser des cartes interactives avec du contenu et des images qui vous sont propres. Vous pouvez utiliser cette carte interactive pour vos applications web ou mobiles. Le contrôle de carte utilise WebGL : vous pouvez donc afficher les jeux de données volumineux avec un haut niveau de performance. Développez avec le SDK en utilisant JavaScript ou TypeScript.
 
-![Exemple de carte des changements de population](media/about-azure-maps/Introduction_WebMapControl.png)
+![Exemple de carte des changements de population](media/about-azure-maps/intro_web_map_control.png)
 
 ### <a name="android-sdk"></a>Kit de développement logiciel Android
 
 Utilisez le SDK Android d’Azure Maps pour créer des applications cartographiques mobiles. 
 
-![Exemples de cartes sur un appareil mobile](media/about-azure-maps/AndroidSDK.png)
+![Exemples de cartes sur un appareil mobile](media/about-azure-maps/android_sdk.png)
 
 ## <a name="services-in-azure-maps"></a>Services d’Azure Maps
 
 Azure Maps se compose des neuf services suivants, qui peuvent fournir un contexte géographique à vos applications Azure.
 
-### <a name="data-service"></a>Service Data
+### <a name="data-service"></a>Data Service
 
-Les données sont indispensables pour les cartes. Utilisez le service Data pour charger et stocker des données géospatiales pour une utilisation avec des opérations spatiales ou la composition d’images.  Le fait de pouvoir rapprocher les données client du service Azure Maps permettra de réduire la latence, d’améliorer la productivité et de créer de nouveaux scénarios dans vos applications. Pour plus d’informations sur ce service, consultez la [Documentation sur l’API du service Data](https://docs.microsoft.com/rest/api/maps/data).
+Les données sont indispensables pour les cartes. Utilisez Data Service pour charger et stocker des données géospatiales pour une utilisation avec des opérations spatiales ou la composition d’images.  Le fait de pouvoir rapprocher les données client du service Azure Maps permettra de réduire la latence, d’améliorer la productivité et de créer de nouveaux scénarios dans vos applications. Pour plus d’informations sur ce service, consultez la [Documentation de l’API Data Service](https://docs.microsoft.com/rest/api/maps/data).
 
-### <a name="mobility-service"></a>Service Mobility
+### <a name="mobility-service"></a>Service Mobilité
 
 Azure Maps Mobility Service permet la planification de déplacements en temps réel. Il retourne les options des meilleurs itinéraires possibles et fournit différents modes de déplacement. Pour les zones urbaines (villes), ces modes peuvent inclure la marche, le vélo et les transports publics. Vous pouvez demander des itinéraires de transports, le plan des lignes, les listes des arrêts, les arrivées planifiées et en temps réel, et des alertes sur les services.
 
@@ -73,17 +73,17 @@ Pour plus d’informations sur le service, consultez la [Documentation de l’AP
 
 Le service Render permet aux développeurs de créer des applications web et mobiles dotées de fonctionnalités de cartographie. Le service utilise des images graphiques raster de haute qualité disponibles en 19 niveaux de zoom ou des images de cartes au format vectoriel entièrement personnalisables.
 
-![Exemple de carte provenant de Render Service](media/about-azure-maps/Introduction_Map.png)
+![Exemple de carte provenant de Render Service](media/about-azure-maps/intro_map.png)
 
 Render Service inclut désormais des API pour permettre aux développeurs de travailler avec des images satellite. Pour plus d’informations, consultez la [Documentation de l’API Render](https://docs.microsoft.com/rest/api/maps/render).
 
-### <a name="route-service"></a>Service Route
+### <a name="route-service"></a>Service d’itinéraire
 
-Le service Route comporte des fonctionnalités robustes de calcul géométrique pour les infrastructures réelles et des directions pour différents modes de transport. Le service permet aux développeurs de calculer des directions pour plusieurs modes de déplacement, notamment en voiture, en camion, à vélo ou à pied. Le service prend aussi en compte des entrées comme les conditions de circulation, les restrictions de poids et le transport de matières dangereuses.
+Route Service comporte des fonctionnalités robustes de calcul géométrique pour les infrastructures réelles et des directions pour différents modes de transport. Le service permet aux développeurs de calculer des directions pour plusieurs modes de déplacement, notamment en voiture, en camion, à vélo ou à pied. Le service prend aussi en compte des entrées comme les conditions de circulation, les restrictions de poids et le transport de matières dangereuses.
 
-![Exemple de carte provenant du service Route](media/about-azure-maps/Introduction_Route.png)
+![Exemple de carte provenant de Route Service](media/about-azure-maps/intro_route.png)
 
-Le service Route offre un aperçu de fonctionnalités avancées comme les suivantes : 
+Route Service offre un aperçu de fonctionnalités avancées comme les suivantes : 
 
 * Traitement par lots de plusieurs demandes d’itinéraire.
 * Matrices de durées et de distances des trajets entre un ensemble d’origines et de destinations.
@@ -91,13 +91,13 @@ Le service Route offre un aperçu de fonctionnalités avancées comme les suivan
 
 Pour plus d’informations sur les fonctionnalités liées aux itinéraires, consultez la [Documentation de l’API Route](https://docs.microsoft.com/rest/api/maps/route).
 
-### <a name="search-service"></a>Service Search
+### <a name="search-service"></a>Service de recherche
 
-Le service Search permet aux développeurs de rechercher des adresses, des lieux, des listes d’entreprises par nom ou par catégorie et d’autres informations d’ordre géographique. Le service Search peut aussi [géocoder en inversé](https://en.wikipedia.org/wiki/Reverse_geocoding) les adresses et rues de croisement en fonction des latitudes et longitudes.
+Search Service aide les développeurs à rechercher des adresses, des lieux, des listes d’entreprises par nom ou par catégorie, et d’autres informations d’ordre géographique. Search Service peut aussi [géocoder en inversé](https://en.wikipedia.org/wiki/Reverse_geocoding) les adresses et rues de croisement en fonction des latitudes et longitudes.
 
-![Exemple d’une recherche sur une carte](media/about-azure-maps/Introduction_Search.png)
+![Exemple d’une recherche sur une carte](media/about-azure-maps/intro_search.png)
 
-Le service Search fournit également des fonctionnalités avancées comme les suivantes :
+Search Service fournit également des fonctionnalités avancées comme les suivantes :
 
 * Rechercher le long d’une route.
 * Rechercher à l’intérieur d’une zone plus large.
@@ -112,15 +112,15 @@ Le service Spatial Operations d’Azure Maps accepte les informations de localis
 
 Le service permet aux clients d’améliorer leurs informations de localisation, avec une bibliothèque de calculs mathématiques géospatiaux courants. Les calculs courants incluent le point le plus proche, la distance orthodromique et les zones tampons. Pour plus d’informations sur le service et ses différentes fonctionnalités, consultez la [documentation de l’API Spatial Operations](https://docs.microsoft.com/rest/api/maps/spatial).
 
-### <a name="time-zone-service"></a>Service Time Zone
+### <a name="time-zone-service"></a>Time Zone Service
 
-Le service Time Zone permet d’interroger des informations actuelles, historiques et futures sur les fuseaux horaires. Vous pouvez utiliser des combinaisons de latitude et de longitude, ou un [ID IANA](https://www.iana.org/). Le service Time Zone permet également de :
+Time Zone Service permet d’interroger des informations actuelles, historiques et futures sur les fuseaux horaires. Vous pouvez utiliser des combinaisons de latitude et de longitude, ou un [ID IANA](https://www.iana.org/). Time Zone Service permet également de :
 
 * Convertir les ID de fuseau horaire Microsoft Windows en fuseaux horaires IANA.
 * Récupérer un décalage de fuseau horaire au format UTC.
 * Obtenir l’heure actuelle dans un fuseau horaire déterminé. 
 
-Voici un exemple de réponse JSON courante à une requête du service Time Zone :
+Voici un exemple de réponse JSON courante à une requête Time Zone Service :
 
 ```JSON
 {
@@ -142,14 +142,14 @@ Voici un exemple de réponse JSON courante à une requête du service Time Zone�
 
 Pour plus d’informations sur ce service, consultez la [Documentation de l’API Time Zone](https://docs.microsoft.com/rest/api/maps/timezone).
 
-### <a name="traffic-service"></a>Service Traffic
+### <a name="traffic-service"></a>Traffic Service
 
-Le service Traffic est une suite de services web conçue que les développeurs peuvent utiliser pour créer des applications web et mobiles nécessitant des informations sur le trafic. Ce service fournit deux types de données :
+Traffic Service est une suite de services web conçue que les développeurs peuvent utiliser pour créer des applications web et mobiles nécessitant des informations sur le trafic. Ce service fournit deux types de données :
 
 * Flux de trafic : Vitesses et durées de déplacement observées en temps réel pour toutes les routes clés du réseau.
 * Incidents de trafic : Vue actualisée des embouteillages et des incidents sur le réseau routier.
 
-![Exemple de carte avec des informations sur le trafic](media/about-azure-maps/Introduction_Traffic.png)
+![Exemple de carte avec des informations sur le trafic](media/about-azure-maps/intro_traffic.png)
 
 Pour plus d’informations, consultez la [Documentation de l’API Traffic](https://docs.microsoft.com/rest/api/maps/traffic).
 

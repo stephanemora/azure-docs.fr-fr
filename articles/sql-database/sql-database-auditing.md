@@ -9,12 +9,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
-ms.openlocfilehash: 7011bf068a96fe9da035ec08a1f6ef7f80a0b240
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 686e426ef0b7706eff168e42ffc67417b2c5c743
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161951"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212898"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 
@@ -90,7 +90,7 @@ Pour configurer l’écriture des journaux d’audit dans un compte de stockage,
 
    ![compte de stockage](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-Pour configurer un compte de stockage derrière un réseau virtuel ou un pare-feu, vous avez besoin d’un [administrateur Active Directory](/sql-database-aad-authentication-configure.md?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) sur le serveur et vous devez activer l’option **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** sur le compte de stockage. En outre, vous devez disposer de l’autorisation « Microsoft.Authorization/roleAssignments/write » sur le compte de stockage sélectionné.
+Pour configurer un compte de stockage derrière un réseau virtuel ou un pare-feu, vous avez besoin d’un [administrateur Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-managed-instance) sur le serveur et vous devez activer l’option **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** sur le compte de stockage. En outre, vous devez disposer de l’autorisation « Microsoft.Authorization/roleAssignments/write » sur le compte de stockage sélectionné.
 
 Nous vous recommandons d’être [Administrateur de l’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) pour pouvoir accorder à l’identité managée le rôle « Contributeur aux données Blob du stockage ». Pour en savoir plus sur les autorisations et le contrôle d’accès en fonction du rôle, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure ?](../role-based-access-control/overview.md) et [Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et du portail Azure](../role-based-access-control/role-assignments-portal.md)
 

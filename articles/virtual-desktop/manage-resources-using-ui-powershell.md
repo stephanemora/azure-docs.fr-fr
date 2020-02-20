@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: 2a7d10f41e343f21e16b10f4bf7c79670824ec2c
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: e55641457e1ed27928e6bf380701b646b672cae8
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115907"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368831"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Déployer un outil de gestion avec PowerShell
 
@@ -36,7 +36,7 @@ Les navigateurs suivants sont compatibles avec l’outil de gestion :
 Avant de déployer l’outil de gestion, vous avez besoin d’un utilisateur Azure Active Directory (Azure AD) pour créer une inscription d’application et déployer l’interface utilisateur de gestion. Cet utilisateur doit remplir les conditions suivantes :
 
 - Il doit avoir l’autorisation de créer des ressources dans votre abonnement Azure.
-- Il doit avoir l’autorisation de créer une application Azure AD. Suivez ces étapes pour vérifier si votre utilisateur dispose des autorisations nécessaires en suivant les instructions fournies dans [Autorisations nécessaires](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+- Il doit avoir l’autorisation de créer une application Azure AD. Suivez ces étapes pour vérifier si votre utilisateur dispose des autorisations nécessaires en suivant les instructions fournies dans [Autorisations nécessaires](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 Pour déployer et configurer correctement l’outil de gestion, vous devez d’abord télécharger les scripts PowerShell suivants à partir du [dépôt GitHub RDS-Template](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) et les enregistrer dans le même dossier sur votre machine locale.
 

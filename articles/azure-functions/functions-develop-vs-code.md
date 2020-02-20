@@ -3,12 +3,12 @@ title: Développer Azure Functions avec Visual Studio Code
 description: Découvrez comment développer et tester Azure Functions à l’aide de l’extension Azure Functions pour Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 7e533d5826d429a716ad1592d75159782ed43fa7
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 3bc8c9aa5d31f757a34350d9605fdecbe42b8be7
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964009"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210240"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Développer Azure Functions avec Visual Studio Code
 
@@ -38,7 +38,7 @@ Cet article fournit des informations sur le développement et la publication sur
 > [!IMPORTANT]
 > Ne mélangez pas un développement local avec un développement de portail pour une même application de fonction. Quand vous publiez à partir d’un projet local dans une application de fonction, le processus de déploiement remplace toutes les fonctions que vous avez développées dans le portail.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant que vous puissiez installer et exécuter l’[extension Azure Functions][Extension Azure Functions pour Visual Studio Code], ces conditions doivent être remplies :
 
@@ -71,7 +71,7 @@ L’extension Functions vous permet de créer un projet d’application de fonct
 
     ![Choisir le modèle de déclencheur HTTP](./media/functions-develop-vs-code/create-function-choose-template.png)
 
-1. Tapez **HttpExample** comme nom de fonction. Sélectionnez ensuite Entrée, puis l’autorisation **Fonction**. Avec ce niveau d’autorisation, vous devez fournir une [clé de fonction](functions-bindings-http-webhook.md#authorization-keys) lorsque vous appelez le point de terminaison de la fonction.
+1. Tapez **HttpExample** comme nom de fonction. Sélectionnez ensuite Entrée, puis l’autorisation **Fonction**. Avec ce niveau d’autorisation, vous devez fournir une [clé de fonction](functions-bindings-http-webhook-trigger.md#authorization-keys) lorsque vous appelez le point de terminaison de la fonction.
 
     ![Sélectionner l’autorisation Fonction](./media/functions-develop-vs-code/create-function-auth.png)
 
@@ -92,11 +92,11 @@ Le modèle de projet crée un projet dans le langage choisi, et installe les dé
 
 Selon votre langage de programmation, ces autres fichiers sont créés :
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 * Un [fichier bibliothèque de classes HttpExample.cs](functions-dotnet-class-library.md#functions-class-library-project), qui implémente la fonction.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 * Un fichier package.json dans le dossier racine.
 
@@ -122,7 +122,7 @@ Vous pouvez également [ajouter une fonction à votre projet](#add-a-function-to
 
 À l’exception des déclencheurs HTTP et de minuteur, les liaisons sont implémentées dans des packages d’extension. Vous devez installer les packages d’extension pour les déclencheurs et les liaisons qui en ont besoin. La façon dont vous devez installer les extensions de liaison dépend du langage de votre projet.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Exécutez la commande [dotnet add package](/dotnet/core/tools/dotnet-add-package) dans la fenêtre de terminal pour installer les packages d’extension dont vous avez besoin dans votre projet. La commande suivante permet d’installer l’extension de stockage Azure, qui implémente des liaisons pour le stockage d’objets blob, de files d’attente et de tables.
 
@@ -130,7 +130,7 @@ Exécutez la commande [dotnet add package](/dotnet/core/tools/dotnet-add-package
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -142,11 +142,11 @@ Vous pouvez ajouter une nouvelle fonction à un projet existant à l’aide de l
 
 Les résultats de cette action varient selon le langage de votre projet :
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Un nouveau fichier de bibliothèque de classes C# (.cs) est ajouté à votre projet.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 Un dossier est créé dans le projet. Il contient un nouveau fichier function.json et le nouveau fichier de code JavaScript.
 
@@ -158,7 +158,7 @@ Vous pouvez développer votre fonction en ajoutant des liaisons d’entrée et d
 
 Les exemples suivants permettent de se connecter à une file d’attente de stockage nommée `outqueue`, où la chaîne de connexion pour le compte de stockage est définie le paramètre d’application `MyStorageConnection` du fichier local.settings.json.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Mettez à jour la méthode de la fonction et ajoutez le paramètre suivant à la définition de la méthode `Run` :
 
@@ -176,7 +176,7 @@ Le paramètre `msg` est un type `ICollector<T>`, qui représente une collection 
 
 Pour plus d’informations, consultez la documentation [Liaison de sortie de stockage de file d’attente](functions-bindings-storage-queue.md#output).
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 Visual Studio Code vous permet d’ajouter des liaisons à votre fichier function.json en suivant une série d’invites pratique. Pour créer une liaison, cliquez avec le bouton droit (Ctrl+Clic sur macOS) sur le fichier **function.json** dans le dossier de votre fonction, puis sélectionnez **Ajouter une liaison** :
 
@@ -277,7 +277,7 @@ Le projet est régénéré, repackagé et chargé vers Azure. Le projet existant
 
 ## <a name="get-the-url-of-the-deployed-function"></a>Obtenir l’URL de la fonction déployée
 
-Pour appeler une fonction déclenchée via HTTP, vous avez besoin de l’URL de la fonction lorsqu’elle est déployée dans votre application de fonction. Cette URL inclut les [clés de fonction](functions-bindings-http-webhook.md#authorization-keys) requises. Vous pouvez utiliser l’extension pour obtenir les URL de vos fonctions déployées.
+Pour appeler une fonction déclenchée via HTTP, vous avez besoin de l’URL de la fonction lorsqu’elle est déployée dans votre application de fonction. Cette URL inclut les [clés de fonction](functions-bindings-http-webhook-trigger.md#authorization-keys) requises. Vous pouvez utiliser l’extension pour obtenir les URL de vos fonctions déployées.
 
 1. Sélectionnez F1 pour ouvrir la palette de commandes, puis recherchez et exécutez la commande **Azure Functions : Copier l’URL de la fonction**.
 

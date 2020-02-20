@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: helohr
-ms.openlocfilehash: 1e26d61e0b1ec50e7a3831970af1fd8fad7fed99
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 4c5b31c54bf4926caaa1bd793229bdfbb22af2a2
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483656"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368917"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Créer un conteneur de profils FSLogix pour un pool d'hôtes à l'aide d'Azure NetApp Files
 
@@ -38,13 +38,13 @@ Avant de pouvoir créer un conteneur de profils FSLogix pour un pool d'hôtes, v
 
 - Installer et configurer Windows Virtual Desktop
 - Approvisionner un pool d'hôtes Windows Virtual Desktop
-- [Activer votre abonnement Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)
+- [Activer votre abonnement Azure NetApp Files](../azure-netapp-files/azure-netapp-files-register.md)
 
 ## <a name="set-up-your-azure-netapp-files-account"></a>Configurer votre compte Azure NetApp Files
 
 Pour commencer, vous devez configurer un compte Azure NetApp Files.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Assurez-vous que votre compte dispose d'autorisations de contributeur ou d'administrateur.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Assurez-vous que votre compte dispose d'autorisations de contributeur ou d'administrateur.
 
 2. Sélectionnez l'**icône Azure Cloud Shell** à droite de la barre de recherche pour ouvrir Azure Cloud Shell.
 

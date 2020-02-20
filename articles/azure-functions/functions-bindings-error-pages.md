@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: cshoe
-ms.openlocfilehash: 06dc4c5c1713ee10f263e573a698e9ea36ca2662
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 920b887382ca55d84c66fabb8f1464fd05041094
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227323"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198449"
 ---
 # <a name="azure-functions-error-handling"></a>Gestion d’erreurs d’Azure Functions
 
@@ -28,7 +28,7 @@ Lors de l’intégration aux services Azure, vous pouvez rencontrer des erreurs 
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
-+ [Stockage Blob](functions-bindings-storage-blob.md#exceptions-and-return-codes)
++ [Stockage Blob](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
 
 + [Hubs d'événements](functions-bindings-event-hubs.md#exceptions-and-return-codes)
 

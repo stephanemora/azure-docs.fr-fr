@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: fc861126cd723bbb0f7c43d5d2db4eed1503605a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: ed477dddeb499023f4803929d9433ed37c302159
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911893"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212482"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Suivre les messages appareil-à-cloud Azure IoT avec le traçage distribué (préversion)
 
@@ -30,7 +30,7 @@ L’activation du traçage distribué pour IoT Hub vous permet de :
 
 Dans cet article, vous allez utiliser [Azure IoT device SDK pour le langage C](iot-hub-device-sdk-c-intro.md) avec le traçage distribué. La prise en charge du traçage distribué par les autres SDK est en cours.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Pour le moment, la préversion du traçage distribué est uniquement prise en charge par les hubs IoT créés dans les régions suivantes :
 
@@ -129,6 +129,9 @@ Ces instructions concernent la création de l’exemple sur un système Windows
     ```
 
 ### <a name="edit-the-send-telemetry-sample-to-enable-distributed-tracing"></a>Modifier l’exemple d’envoi de données de télémétrie pour activer le traçage distribué
+
+> [!div class="button"]
+> <a href="https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample/blob/master/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c" target="_blank">Obtenir cet exemple sur GitHub</a>
 
 1. Utilisez un éditeur pour ouvrir le fichier source `azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c`.
 

@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 02/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1f560a7aa746ce7c6262dcaddf74c9d573332fa6
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 884244b245be06f1477d27a4828cad18e36eca24
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861385"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368625"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Modèle de série chronologique dans Azure Time Series Insights en préversion
 

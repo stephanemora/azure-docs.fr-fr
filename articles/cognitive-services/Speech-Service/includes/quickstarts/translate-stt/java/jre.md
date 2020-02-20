@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 30e293eceafc9c94d6c4e0aba70dfbc3313d7665
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: ba63324cff793edb935b6e0982989baa8befdc9d
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156413"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446686"
 ---
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous de :
 
@@ -51,8 +51,7 @@ Avant de commencer, assurez-vous de :
        {
            // Creates an instance of a speech translation config with specified
            // subscription key and service region. Replace with your own subscription key
-           // and service region (e.g., "westus", use the one of SpeechSDKParameters
-           // from here: https://aka.ms/speech/sdkregion).   
+           // and region identifier from here: https://aka.ms/speech/sdkregion
 
            int exitCode = 1;
            SpeechTranslationConfig config = SpeechTranslationConfig.fromSubscription(("YourSubscriptionKey",  "YourServiceRegion");
@@ -126,7 +125,7 @@ Avant de commencer, assurez-vous de :
 
 1. Remplacez la chaîne `YourServiceRegion` par la [région](~/articles/cognitive-services/Speech-Service/regions.md) associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
 
-1. Enregistrez les modifications apportées au projet.
+1. Enregistrez les changements apportés au projet.
 
 ## <a name="build-and-run-the-app"></a>Générer et exécuter l’application
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e03ba960ab6542198372d75de7e0d34bf8d9e1b
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: aec46a1914fa2361ea15ba34dd1510cfe53a4dc0
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513318"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443837"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -67,12 +67,12 @@ L’inscription d’une machine auprès du service Update Management dans plusie
 
 ### <a name="supported-client-types"></a>Types de clients pris en charge
 
-Le tableau suivant répertorie les systèmes d’exploitation pris en charge pour les évaluations des mises à jour. Une mise à jour corrective nécessite un Runbook Worker hybride. Pour plus d’informations sur les exigences de Runbook Worker hybride, voir les guides d’installation de [Runbook Worker hybride Windows](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) et de [Runbook Worker hybride Linux](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
+Le tableau suivant répertorie les systèmes d’exploitation pris en charge pour les évaluations des mises à jour. Une mise à jour corrective nécessite un Runbook Worker hybride. Pour plus d’informations sur les exigences de Runbook Worker hybride, voir les guides d’installation de [Runbook Worker hybride Windows](automation-windows-hrw-install.md) et de [Runbook Worker hybride Linux](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
 
 |Système d’exploitation  |Notes  |
 |---------|---------|
 |Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012 || 
-|Windows Server 2008 R2 (RTM et SP1 Standard)| Update Management prend uniquement en charge l’exécution d’évaluations pour ce système d’exploitation. Sa mise à jour corrective n’est pas prise en charge, car le [Runbook Worker hybride](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) n’est pas pris en charge pour Windows Server 2008 R2. |
+|Windows Server 2008 R2 (RTM et SP1 Standard)| Update Management prend uniquement en charge l’exécution d’évaluations pour ce système d’exploitation. Sa mise à jour corrective n’est pas prise en charge, car le [Runbook Worker hybride](automation-windows-hrw-install.md) n’est pas pris en charge pour Windows Server 2008 R2. |
 |CentOS 6 (x86/x64) et 7 (x64)      | Les agents Linux doivent avoir accès à un référentiel de mise à jour. La mise à jour corrective basée sur la classification nécessite que `yum` retourne les données de sécurité que CentOS n’a pas dans ses versions RTM. Pour plus d’informations sur la mise à jour corrective basée sur des classifications sur CentOS, consultez [Mettre à jour des classifications sur Linux](automation-view-update-assessments.md#linux-2).          |
 |Red Hat Enterprise 6 (x86/x64) et 7 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
@@ -240,7 +240,7 @@ sudo yum -q --security check-update
 
 Il n’existe actuellement aucune méthode prise en charge permettant d’activer la disponibilité des données de classification natives sur CentOS. Pour le moment, seule la meilleure prise en charge possible est proposée aux clients qui l’ont éventuellement activée eux-mêmes. 
 
-Pour classifier les mises à jour sur Red Hat Enterprise version 6, vous devez installer le plug-in yum-security. Sur Red Hat Enterprise Linux 7, le plug-in faisant déjà partie de yum lui-même, il est inutile d’installer quoi que ce soit. Pour plus d’informations, consultez l’[article de base de connaissances](https://access.redhat.com/solutions/10021) Red Hat suivant.
+Pour classifier les mises à jour sur Red Hat Enterprise version 6, vous devez installer le plug-in yum-security. Sur Red Hat Enterprise Linux 7, le plug-in faisant déjà partie de yum lui-même, il est inutile d'installer quoi que ce soit. Pour plus d'informations, consultez l'[article de base de connaissances](https://access.redhat.com/solutions/10021) Red Hat suivant.
 
 ## <a name="integrate-with-configuration-manager"></a>Intégreravec Configuration Manager
 

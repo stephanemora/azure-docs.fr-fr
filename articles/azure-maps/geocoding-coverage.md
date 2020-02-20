@@ -1,19 +1,19 @@
 ---
 title: Couverture du géocodage | Microsoft Azure Maps
 description: Le processus de conversion de l’adresse de l’emplacement en coordonnées de latitude et longitude est appelé géocodage. Dans cet article, vous allez découvrir les régions bénéficiant de la couverture du géocodage dans Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 12/31/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 38d25b7494f8b2f3e1abdac959edde8969d7d4c7
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 149dd0a3e709bbf4660aaae176f76f560de873e2
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911628"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210053"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Couverture de géocodage Azure Maps
 
@@ -191,7 +191,7 @@ La possibilité de géocoder dans un pays/une région dépend de la couverture d
 | Moldova                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Monaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Monténégro                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Pays-bas                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Pays-Bas                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Norvège                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Pologne                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Portugal                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -210,7 +210,7 @@ La possibilité de géocoder dans un pays/une région dépend de la couverture d
 | Turquie                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Turkménistan                                        |                 |                |              |      ✓     |          ✓         |
 | Ukraine                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| United Kingdom                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Royaume-Uni                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ouzbékistan                                          |                 |                |              |      ✓     |          ✓         |
 | État de la Cité du Vatican                                        |                 |                |       ✓      |      ✓     |          ✓         |
 

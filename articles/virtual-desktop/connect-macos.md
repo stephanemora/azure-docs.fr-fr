@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: helohr
-ms.openlocfilehash: a46be5dea8286194ccd2558b2e6e301e2624a5f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8995899a0bc6d8d023a7ad08d886fc879fab390
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460214"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367508"
 ---
 # <a name="connect-with-the-macos-client"></a>Se connecter avec le client macOS
 
@@ -43,4 +43,4 @@ Une fois que vous êtes abonné à un flux, son contenu est mis à jour automati
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur l’utilisation du client macOS, consultez [Bien démarrer avec le client macOS](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
+Pour en savoir plus sur l’utilisation du client macOS, consultez [Bien démarrer avec le client macOS](/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac/).

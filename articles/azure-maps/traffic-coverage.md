@@ -1,19 +1,19 @@
 ---
 title: Couverture du trafic | Microsoft Azure Maps
 description: Dans cet article, vous allez découvrir la couverture du trafic dans Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 09/22/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 083f659f9392faff8f381e1552db23c291ffa8ca
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 02d57f39f2a911864ebe16d05456409d0119b495
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988143"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209526"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Couverture du trafic Azure Maps
 
@@ -89,7 +89,7 @@ Toutefois, Maps n’a pas le même niveau d’information et d’exactitude pour
 |Luxembourg     |✓         |✓         |
 |Malte     |✓         |✓         |
 |Monaco   |✓         |✓         |
-|Pays-bas     |✓         |✓         |
+|Pays-Bas     |✓         |✓         |
 |Norvège     |✓         |✓         |
 |Pologne     |✓         |✓         |
 |Portugal     |✓         |✓         |
@@ -108,7 +108,7 @@ Toutefois, Maps n’a pas le même niveau d’information et d’exactitude pour
 |Suisse     |✓         |✓        |
 |Turquie     |✓         |✓         |
 |Ukraine     |✓         |✓         |
-|United Kingdom     |✓         |✓         |
+|Royaume-Uni     |✓         |✓         |
 |+Gibraltar     |✓         |✓         |
 |+Guernsey & Jersey     |✓         |✓         |
 |+Île de Man     |✓         |✓         |

@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/11/2019
-ms.openlocfilehash: 559c0e2a56bfb452f1faf10f68c19d4f406427e8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/17/2020
+ms.openlocfilehash: 081109c2208e2006eb1628fbf0cfb99b1e6bd8f9
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475159"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462137"
 ---
 # <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Questions fréquentes et terminologie relatives à l’analytique de la Place de marché commerciale
 
@@ -29,7 +29,6 @@ Cette section fournit des réponses aux questions fréquemment posées sur les m
 
 Raisons possibles de ce message :
 
-- Vos offres listées dans la Place de marché ne sont pas des offres SaaS. Actuellement, l’Espace partenaires fournit des rapports d’analyse pour les offres SaaS uniquement. Les offres Dynamics 365 peuvent être publiées dans l’Espace partenaires, mais les analyses ne sont pas encore activées pour ces offres dans l’Espace partenaires.
 - Aucune acquisition n’existe actuellement pour vos offres publiées dans la Place de marché. Cela peut signifier que vos offres sont en ligne dans la Place de marché et qu’elles sont visionnées par des clients dans les pages d’affichage de produit, mais que les clients n’ont pas encore entrepris d’action pour les acheter et les déployer.
 - La publication de votre offre est peut-être encore en cours et pas encore en ligne. Seules les offres en ligne peuvent être acquises par des clients. Pour vérifier le statut de vos offres, consultez Vue d’ensemble dans le [tableau de bord Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Pour plus d’informations, consultez [Tableau de bord Résumé dans l’analytique de la Place de marché commerciale](./summary-dashboard.md).
 - Vos offres peuvent être listées sous **Me contacter**, qui sont des offres à consulter uniquement et qui ne peuvent pas être achetées par les clients dans la Place de marché. Bien que ces offres génèrent des acheteurs et soient partagées avec vous, aucune commande n’est créée pour ces offres car elles ne peuvent pas être achetées. Pour vérifier le type de référencement de vos offres, accédez à la page de configuration.
@@ -98,10 +97,10 @@ Si vous recevez ce message, cela signifie que vous avez des données d’analyti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour avoir une vue d’ensemble des rapports d’analytique disponibles dans la Place de marché commerciale de l’Espace partenaires, consultez [Analytique de la Place de marché commerciale dans l’Espace partenaires](./analytics.md).
-- Pour voir les graphes, tendances et valeurs des données agrégées qui résument l’activité de la place de marché pour votre offre, consultez [Tableau de bord Résumé dans l’analytique de la Place de marché commerciale](./summary-dashboard.md).
-- Pour obtenir des informations sur vos commandes dans un format graphique et téléchargeable, consultez [Tableau de bord Commandes dans l’analytique de la Place de marché commerciale](./orders-dashboard.md).
-- Pour examiner les métriques d’utilisation des offres de machines virtuelles et de leur facturation à l’usage, consultez [Tableau de bord Utilisation dans l’analytique de la Place de marché commerciale](./usage-dashboard.md).
-- Pour obtenir des informations détaillées sur vos clients, y compris des tendances de croissance, consultez [Tableau de bord Client dans l’analytique de la Place de marché commerciale](./customer-dashboard.md).
-- Pour lister vos demandes de téléchargement au cours des 30 derniers jours, consultez [Tableau de bord Téléchargements dans l’analytique de la Place de marché commerciale](./downloads-dashboard.md).
+- Pour une vue d’ensemble des rapports d’analytique disponibles sur la place de marché commerciale de l’Espace partenaires, voir [Analytique de la place de marché commerciale dans l’Espace partenaires](./analytics.md).
+- Pour consulter les graphes, tendances et valeurs des données agrégées qui résument l’activité de la place de marché pour vos offres, voir [Tableau de bord Résumé dans l’analytique de la place de marché commerciale](./summary-dashboard.md).
+- Pour plus d’informations sur vos commandes dans un format graphique et téléchargeable, voir [Tableau de bord des commandes dans l’analytique de la place de marché commerciale](./orders-dashboard.md).
+- Pour consulter les métriques d’utilisation et de facturation à l’usage des offres de machines virtuelles, voir [Tableau de bord de l’utilisation dans l’analytique de la place de marché commerciale](./usage-dashboard.md).
+- Pour des informations détaillées sur vos clients, y compris des tendances de croissance, voir [Tableau de bord client dans l’analytique de la place de marché commerciale](./customer-dashboard.md).
+- Pour obtenir la liste de vos demandes de téléchargement des 30 derniers jours, voir [Tableau de bord des téléchargements dans l’analytique de la place de marché commerciale](./downloads-dashboard.md).
 - Pour voir tous les commentaires des clients sur les offres disponibles dans AppSource et la Place de marché Azure, consultez [Tableau de bord Évaluations et avis dans l’analytique de la Place de marché commerciale](./ratings-reviews.md).

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 4ae2cc33275702a0d549f4e994a597614191b3e3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 70545020899b69508a4cedb0fd7cf5495c847104
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444874"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462443"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Traitement de base de données serverless à l’aide d’Azure Cosmos DB et d’Azure Functions
 
@@ -148,10 +148,4 @@ Si vous n’êtes pas sûr de la meilleure option entre Flow, Logic Apps, Azure 
 
 * [Créer un déclencheur Azure Functions pour Cosmos DB dans le portail Azure](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Créer un déclencheur HTTP Azure Functions avec une liaison d’entrée Azure Cosmos DB](https://aka.ms/cosmosdbinputbind)
-* [Liaisons et déclencheurs Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md)
-
-
- 
-
-
-
+* [Liaisons et déclencheurs Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md)

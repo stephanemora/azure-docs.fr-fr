@@ -12,16 +12,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 3fcdcd4565ed0512b3efcf9b23ca349a3bbf3a6c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d4ba3e8bbdad72f10c630a056f988ec83e9b1a68
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033479"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471616"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Extension Diagnostics Azure pour machines virtuelles Windows
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 L’extension de machine virtuelle Diagnostics Azure vous permet de collecter des données de surveillance, comme des compteurs de performances et des journaux d’événements, à partir de votre machine virtuelle Windows. Vous pouvez définir de façon granulaire les données à collecter et leur emplacement de destination, par exemple un compte Stockage Azure ou un hub d’événements Azure. Vous pouvez également utiliser ces données pour générer des graphiques dans le portail Azure ou créer des alertes de métrique.
 
@@ -37,7 +37,7 @@ L’extension Diagnostics Azure nécessite que la machine virtuelle cible soit c
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
-[Le schéma et les valeurs de propriété de l’extension Diagnostics Azure sont décrits dans ce document.](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
+[Le schéma et les valeurs de propriété de l’extension Diagnostics Azure sont décrits dans ce document.](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 
@@ -76,7 +76,7 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique
 
-### <a name="troubleshoot"></a>Résolution des problèmes
+### <a name="troubleshoot"></a>Dépanner
 
 Vous pouvez récupérer les données sur l’état des déploiements d’extension à partir du portail Azure et à l’aide de l’interface de ligne de commande Azure. Pour afficher l’état du déploiement des extensions pour une machine virtuelle donnée, exécutez la commande suivante à l’aide de l’interface de ligne de commande Azure.
 
@@ -92,4 +92,4 @@ Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit d
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur l’extension Diagnostics Azure](../../azure-monitor/platform/diagnostics-extension-overview.md)
-* [Examinez le schéma et les versions de l’extension](../../azure-monitor/platform/diagnostics-extension-schema.md)
+* [Examinez le schéma et les versions de l’extension](../../azure-monitor/platform/diagnostics-extension-schema-windows.md)

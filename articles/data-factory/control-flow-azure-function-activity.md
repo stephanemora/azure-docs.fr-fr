@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: 781c5a579fa0cd0383e95b79df1f81f74008111c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ffb610634399594788afcb9b600ba00c6803dfdd
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679960"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207023"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Activité de fonction Azure dans Azure Data Factory
 
@@ -32,19 +32,19 @@ Le type de retour de la fonction Azure doit être un `JObject` valide (n’oubli
 
 | **Propriété** | **Description** | **Obligatoire** |
 | --- | --- | --- |
-| Type   | La propriété type doit être définie sur : **AzureFunction** | Oui |
+| type   | La propriété type doit être définie sur : **AzureFunction** | Oui |
 | URL de l’application de fonction | URL de l’application de fonction Azure. Son format est `https://<accountname>.azurewebsites.net`. Cette URL correspond à la valeur indiquée dans la section **URL** quand vous affichez votre application de fonction dans le portail Azure.  | Oui |
-| clé de fonction | Clé d’accès de la fonction Azure. Cliquez sur la section **Gérer** de la fonction correspondante, puis copiez la **clé de fonction** ou la **clé d’hôte**. Découvrez-en plus ici : [Déclencheurs et liaisons HTTP Azure Functions](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | Oui |
+| clé de fonction | Clé d’accès de la fonction Azure. Cliquez sur la section **Gérer** de la fonction correspondante, puis copiez la **clé de fonction** ou la **clé d’hôte**. Découvrez-en plus ici : [Déclencheurs et liaisons HTTP Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | Oui |
 |   |   |   |
 
 ## <a name="azure-function-activity"></a>Activité de fonction Azure
 
 | **Propriété**  | **Description** | **Valeurs autorisées** | **Obligatoire** |
 | --- | --- | --- | --- |
-| Nom  | Nom de l’activité dans le pipeline  | Chaîne | Oui |
-| Type  | Le type d’activité est « AzureFunctionActivity ». | Chaîne | Oui |
+| name  | Nom de l’activité dans le pipeline  | String | Oui |
+| type  | Le type d’activité est « AzureFunctionActivity ». | String | Oui |
 | service lié | Service lié de fonction Azure de l’application de fonction Azure correspondante  | référence de service lié | Oui |
-| nom de fonction  | Nom de la fonction dans l’application de fonction Azure que cette activité appelle. | Chaîne | Oui |
+| nom de fonction  | Nom de la fonction dans l’application de fonction Azure que cette activité appelle. | String | Oui |
 | method  | Méthode API REST de l’appel de fonction. | Types de chaîne pris en charge : « GET », « POST », « PUT »   | Oui |
 | en-tête  | En-têtes envoyés à la demande. Par exemple, pour définir la langue et le type sur une demande : "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | Chaîne (ou expression avec resultType de chaîne) | Non |
 | body  | Corps envoyé avec la demande à la méthode d’api de la fonction  | Chaîne (ou expression avec resultType de chaîne) ou objet.   | Obligatoire pour les méthodes PUT/POST |

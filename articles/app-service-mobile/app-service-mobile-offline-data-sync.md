@@ -6,19 +6,14 @@ ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
-ms.openlocfilehash: 9238ebd06a4aa532d20a2a98499963a75780f025
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 0cc4309fa57a29997bdd2f650634efd0723e6965
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668415"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77458747"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Synchronisation des données hors connexion dans Azure Mobile Apps
-
-> [!NOTE]
-> Visual Studio App Center prend en charge les services intégrés essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud.
->
-> Si vous souhaitez intégrer des services cloud à votre application mobile, inscrivez-vous à [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) dès aujourd’hui.
 
 ## <a name="what-is-offline-data-sync"></a>Qu’est-ce que la synchronisation des données hors connexion ?
 La synchronisation des données hors connexion est une fonctionnalité du Kit de développement logiciel (SDK) client et serveur d’Azure Mobile Apps qui permet aux développeurs de créer des applications fonctionnant sans connexion réseau.
@@ -63,7 +58,7 @@ Un magasin local est associé au contexte de synchronisation à l’aide d’une
 ## <a name="how-sync-works"></a>Fonctionnement de la synchronisation hors connexion
 Quand vous utilisez des tables de synchronisation, votre code client détermine à quel moment les modifications locales sont synchronisées avec une application principale Azure Mobile App. Rien n’est envoyé au backend tant que n’a pas été émis un appel pour *envoyer* les modifications locales. De même, le magasin local n’est rempli avec de nouvelles données que si un appel pour *extraire* les données est émis.
 
-* **Push** : l’envoi est une opération sur le contexte de synchronisation, qui consiste à envoyer tous les changements CUD survenus depuis le dernier envoi. Notez qu’il n’est pas possible d’envoyer uniquement les modifications d’une table spécifique, car sinon les opérations pourraient être envoyées dans le désordre. L’envoi exécute une série d’appels REST à destination de votre application principale Azure Mobile App qui, à son tour, modifie votre base de données serveur.
+* **Push** : l’envoi est une opération sur le contexte de synchronisation, qui consiste à envoyer tous les changements CUD survenus depuis le dernier envoi. Notez qu’il n’est pas possible d’envoyer uniquement les modifications d’une table spécifique, car sinon les opérations pourraient être envoyées dans le désordre. L’envoi exécute une série d’appels REST à destination de votre application principale Azure Mobile App qui, à son tour, modifie votre base de données serveur.
 * **Pull** : l’extraction est effectuée en fonction de chaque table et peut être personnalisée avec une requête pour récupérer uniquement un sous-ensemble des données du serveur. Les Kits de développement logiciel (SDK) clients Azure Mobile insèrent ensuite les données résultantes dans le magasin local.
 * **Envois implicites** : si une extraction est exécutée sur une table en attente de mises à jour locales, cette extraction commence par exécuter un `push()` sur le contexte de synchronisation. Cela opération Push permet de réduire au minimum les conflits entre les modifications qui sont déjà en attente et les nouvelles données du serveur.
 * **Synchronisation incrémentielle**: le premier paramètre de l’opération d’extraction est un *nom de requête* qui est utilisé uniquement sur le client. Si vous utilisez un nom de requête non null, le Kit de développement logiciel (SDK) Azure Mobile effectue une *synchronisation incrémentielle*. Chaque fois qu’une opération d’extraction retourne un jeu de résultats, le dernier horodatage `updatedAt` à partir de ce jeu de résultats est stocké dans les tables de système locales du Kit de développement logiciel (SDK). Les opérations d’extraction ultérieures n’extraient que les enregistrements postérieurs à cet horodatage.

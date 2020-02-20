@@ -3,12 +3,12 @@ title: Définir l’ordre de déploiement des ressources
 description: Décrit la procédure permettant de définir une ressource comme dépendante d’une autre ressource au cours du déploiement afin de garantir le déploiement des ressources dans l'ordre adéquat.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: 44cf793859d2817695a58bd1159e2f4465c1f9c2
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: ffd6d6c65a1cbe9578b5f9162d29f3238e27ea71
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121962"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207687"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Définir l’ordre de déploiement des ressources dans les modèles Azure Resource Manager
 
@@ -40,7 +40,7 @@ L’exemple suivant montre un groupe identique de machines virtuelles dépendant
 }
 ```
 
-Dans l’exemple précédent, une dépendance est incluse sur les ressources créées par le biais d’une boucle de copie nommée **storageLoop**. Pour obtenir un exemple, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](create-multiple-instances.md).
+Dans l’exemple précédent, une dépendance est incluse sur les ressources créées par le biais d’une boucle de copie nommée **storageLoop**. Pour obtenir un exemple, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](copy-resources.md).
 
 Lors de la définition des dépendances, vous pouvez inclure l’espace de noms du fournisseur de ressources et le type de ressource pour éviter toute ambiguïté. Par exemple, pour distinguer un équilibrage de charge et un réseau virtuel qui peuvent avoir les mêmes noms que d’autres ressources, utilisez le format suivant :
 

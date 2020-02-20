@@ -1,21 +1,21 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
-ms.date: 01/23/2020
 ms.author: diberry
-ms.openlocfilehash: 31280b1efa3db22e8008f401a25ca627dda4153f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: ff4c33aea3d3ce604f44c38e6e3856242388b0e9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772380"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77371767"
 ---
 Utilisez la bibliothèque de client de prédiction LUIS (Language Understanding) pour Python pour :
 
@@ -24,7 +24,7 @@ Utilisez la bibliothèque de client de prédiction LUIS (Language Understanding)
 
 [Documentation de référence](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [Package du runtime de prédiction (PyPi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [ Exemples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/LUIS)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Compte de portail Language Understanding (LUIS) - [Créez-en un gratuitement](https://www.luis.ai)
 * [Python 3.x](https://www.python.org/)

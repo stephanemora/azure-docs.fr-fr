@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: helohr
-ms.openlocfilehash: 6bdac3f06834ccb5454efa0d77bec5a5a6c5b5bf
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: e2fa30772082f4d2f7c02add61412432233e3f04
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515103"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470570"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ sur Windows 10 Entreprise multisession
 
@@ -28,7 +28,7 @@ Le nombre de sessions interactives qui peuvent être actives en même temps dép
  
 ## <a name="why-does-my-application-report-windows-10-enterprise-multi-session-as-a-server-operating-system"></a>Pourquoi mon application indique-t-elle que Windows 10 Entreprise multisession est un système d’exploitation serveur ?
 
-Windows 10 Entreprise multisession est une édition virtuelle de Windows 10 Entreprise. La différence est que ce système d’exploitation attribue la valeur 3 à [ProductType](https://docs.microsoft.com/windows/desktop/cimwin32prov/win32-operatingsystem), qui est la même que pour Windows Server. Cette propriété permet de maintenir la compatibilité du système d’exploitation avec les outils de gestion existants de l’hôte de connexion à distance, les applications compatibles avec le multisession de l’hôte de connexion à distance et principalement, l’optimisation des performances du système de bas niveau pour les environnements de type hôte de connexion à distance. Certains programmes d’installation de l’application peuvent bloquer l’installation sur Windows 10 multisession s’ils détectent que le ProductType est défini sur Client. Si votre application ne peut pas être installée, contactez son fournisseur pour obtenir une version mise à jour. 
+Windows 10 Entreprise multisession est une édition virtuelle de Windows 10 Entreprise. La différence est que ce système d’exploitation attribue la valeur 3 à [ProductType](/windows/win32/cimwin32prov/win32-operatingsystem), qui est la même que pour Windows Server. Cette propriété permet de maintenir la compatibilité du système d’exploitation avec les outils de gestion existants de l’hôte de connexion à distance, les applications compatibles avec le multisession de l’hôte de connexion à distance et principalement, l’optimisation des performances du système de bas niveau pour les environnements de type hôte de connexion à distance. Certains programmes d’installation de l’application peuvent bloquer l’installation sur Windows 10 multisession s’ils détectent que le ProductType est défini sur Client. Si votre application ne peut pas être installée, contactez son fournisseur pour obtenir une version mise à jour. 
  
 ## <a name="can-i-run-windows-10-enterprise-multi-session-on-premises"></a>Est-il possible d’exécuter Windows 10 Entreprise multisession localement ?
 
@@ -48,7 +48,7 @@ Vous pouvez utiliser n’importe quel outil de configuration pris en charge. Tou
  
 ## <a name="can-windows-10-enterprise-multi-session-be-azure-active-directory-ad-joined"></a>Peut-on joindre Windows 10 Entreprise multisession à un domaine Azure Active Directory (AD) ?
 
-Windows 10 Entreprise multisession peut être joint à un domaine Azure AD Hybride. Une fois que Windows 10 Entreprise multisession est joint à un domaine, utilisez l’objet Stratégie de groupe existant pour activer l’inscription Azure AD. Pour plus d’informations, consultez [Planifier l’implémentation de la jonction Azure Active Directory Hybride](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan).
+Windows 10 Entreprise multisession peut être joint à un domaine Azure AD Hybride. Une fois que Windows 10 Entreprise multisession est joint à un domaine, utilisez l’objet Stratégie de groupe existant pour activer l’inscription Azure AD. Pour plus d’informations, consultez [Planifier l’implémentation de la jonction Azure Active Directory Hybride](../active-directory/devices/hybrid-azuread-join-plan.md).
  
 ## <a name="where-can-i-find-the-windows-10-enterprise-multi-session-image"></a>Où trouver l’image Windows 10 Entreprise multisession ?
 

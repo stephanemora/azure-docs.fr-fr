@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: 1641b74e3b9e59253b2674b22dfd8cd1b6ca2c2c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 4c50c4ce344a51a70f6849beb7c5d9d18a2b401d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133048"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471633"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Configurer le pare-feu d'applications web v2 sur Application Gateway avec une règle personnalisée à l'aide d'Azure PowerShell
 
@@ -109,6 +109,8 @@ $sku = New-AzApplicationGatewaySku -Name WAF_v2 -Tier WAF_v2
 ### <a name="create-two-custom-rules-and-apply-it-to-waf-policy"></a>Créer deux règles personnalisées et les appliquer à la stratégie de pare-feu d'applications web
 
 ```azurepowershell
+# Create WAF config
+$wafConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention" -RuleSetType "OWASP" -RuleSetVersion "3.0"
 # Create a User-Agent header custom rule 
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestHeaders -Selector User-Agent
 $condition = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable -Operator Contains -MatchValue "evilbot" -Transform Lowercase -NegationCondition $False  

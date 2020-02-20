@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: e4f27e582e6b920e9de068fe2c3270af19ad8a17
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: fc69761a05ea381d39d58d5ebf0046e0d9874961
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122423"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210463"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Exemple : Créer une compétence personnalisée avec Python
 
@@ -21,7 +21,7 @@ Dans cet exemple d’ensemble de compétences concernant la Recherche cognitive 
 
 La conception de la compétence personnalisée est simple (elle concatène deux chaînes), ce qui vous permet de vous concentrer sur les outils et les technologies utilisés pour le développement de compétences personnalisées en Python. Une fois que vous avez réussi avec une compétence simple, vous pouvez vous baser sur celle-ci pour créer des scénarios plus complexes.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 + Pour connaître l’interface d’entrée et de sortie qu’une compétence personnalisée doit implémenter, examinez l’[interface de compétence personnalisée](cognitive-search-custom-skill-interface.md).
 
@@ -52,7 +52,7 @@ Le modèle de projet Azure Functions dans Visual Studio Code crée un projet qui
 1. Sélectionnez la version de Python (la version 3.7.5 est prise en charge par Azure Functions).
 1. Sélectionnez un modèle pour la première fonction de votre projet. Sélectionnez un **déclencheur HTTP** pour créer une fonction déclenchée via HTTP dans la nouvelle application de fonction.
 1. Attribuez un nom à la fonction. Dans ce cas, nous allons utiliser **Concatenator**. 
-1. Sélectionnez **Fonction** comme niveau d’autorisation. Cela signifie que nous allons fournir une [clé de fonction](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) pour appeler le point de terminaison HTTP de la fonction. 
+1. Sélectionnez **Fonction** comme niveau d’autorisation. Cela signifie que nous allons fournir une [clé de fonction](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) pour appeler le point de terminaison HTTP de la fonction. 
 1. Sélectionnez la façon dont vous souhaitez ouvrir votre projet. Pour cette étape, sélectionnez **Ajouter à l’espace de travail** afin de créer l’application de fonction dans l’espace de travail actuel.
 
 Visual Studio Code crée le projet d’application de fonction dans un nouvel espace de travail. Ce projet contient les fichiers de configuration [host.json](../azure-functions/functions-host-json.md) et [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file), ainsi que des fichiers de projet spécifiques au langage. 

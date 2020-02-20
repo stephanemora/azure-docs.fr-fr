@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: helohr
-ms.openlocfilehash: 41b0c1ced9e66bd58d73683865b2c40afc16c5d3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: de875ca9db9716e59c3c6efc0d7fb34e31f0c1d2
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605847"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367546"
 ---
 # <a name="connect-with-the-android-client"></a>Se connecter avec le client Android
 
@@ -34,19 +34,19 @@ Abonnez-vous au flux fourni par votre administrateur pour obtenir la liste des r
 Pour s’abonner à un flux :
 
 1. Dans Connection Center, appuyez sur **+** , puis sur **Remote Resource Feed** (Flux de ressources à distance).
-2. Entrez l’URL du flux dans le champ **URL du flux**. L’URL du flux peut être une URL ou une adresse e-mail.
+2. Entrez l’URL du flux dans le champ **Feed URL** (URL du flux). Il peut s’agir d’une URL ou d’une adresse e-mail.
    - Si vous utilisez une URL, choisissez celle que votre administrateur vous a donnée, normalement <https://rdweb.wvd.microsoft.com>.
-   - Pour utiliser une adresse e-mail, entrez la vôtre. Le client recherche une URL associée à votre adresse de adresse e-mail si votre administrateur a configuré le serveur de cette façon.
+   - Pour utiliser l’e-mail, entrez votre adresse e-mail. Le client recherche une URL associée à votre adresse de adresse e-mail si votre administrateur a configuré le serveur de cette façon.
 3. Appuyez sur **SUIVANT**.
 4. À l’invite, indiquez vos informations d’identification.
    - Pour **Nom d’utilisateur**, indiquez le nom de l’utilisateur ayant l’autorisation d’accéder aux ressources.
    - Pour **Mot de passe**, indiquez le mot de passe associé au nom d’utilisateur.
-   - Il se peut que vous soyez invité à fournir des informations supplémentaires si votre administrateur a configuré l’authentification de cette façon.
+   - Vous pouvez également être invité à fournir des facteurs supplémentaires si votre administrateur a configuré l’authentification de cette manière.
 
 Une fois l’abonnement souscrit, le Connection Center doit afficher les ressources distantes.
 
-Le contenu du flux de données auquel vous êtes abonné est régulièrement mis à jour. Des ressources peuvent être ajoutées, modifiées ou supprimées en fonction des modifications apportées par votre administrateur.
+Une fois que vous êtes abonné à un flux, son contenu est mis à jour automatiquement et régulièrement. Des ressources peuvent être ajoutées, modifiées ou supprimées en fonction des modifications apportées par votre administrateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur l’utilisation du client Android, voir [Prise en main du client Android](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-android).
+Pour en savoir plus sur l’utilisation du client Android, voir [Prise en main du client Android](/windows-server/remote/remote-desktop-services/clients/remote-desktop-android/).

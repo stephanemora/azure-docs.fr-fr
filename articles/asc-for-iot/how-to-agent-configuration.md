@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2019
+ms.date: 02/18/2020
 ms.author: mlottner
-ms.openlocfilehash: 6adb918bbc6d4718be8518019394582a6a843fb8
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 70396cdcaf8b6e2ac66619290eea35a7b260cd9a
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664838"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461247"
 ---
-# <a name="tutorial-configure-security-agents"></a>Didacticiel : Configurer des agents de sécurité
+# <a name="tutorial-configure-security-agents"></a>Tutoriel : Configurer des agents de sécurité
 
 Cet article vous fournit des explications sur les agents de sécurité d’Azure Security Center pour IoT et vous indique la manière dont vous pouvez les modifier et les configurer. 
 
@@ -122,21 +122,20 @@ Les valeurs par défaut sont disponibles dans le schéma approprié dans [Github
 
 | Nom| Statut | Valeurs valides| Valeurs par défaut| Description |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|highPriorityMessageFrequency|Requis : false |Valeurs valides :  Durée au format ISO 8601 |Valeur par défaut : PT7M |Intervalle de temps maximale avant l’envoi de messages de priorité élevée.|
-|lowPriorityMessageFrequency |Requis : false|Valeurs valides :  Durée au format ISO 8601 |Valeur par défaut : PT5H |Durée maximale avant l’envoi de message de basse priorité.| 
-|snapshotFrequency |Requis : false|Valeurs valides :  Durée au format ISO 8601 |La valeur par défaut est PT13H |Intervalle de temps pour la création d’instantanés d’état d’appareil.| 
+|highPriorityMessageFrequency|Requis : false |Valeurs valides : Durée au format ISO 8601 |Valeur par défaut : PT7M |Intervalle de temps maximale avant l’envoi de messages de priorité élevée.|
+|lowPriorityMessageFrequency |Requis : false|Valeurs valides : Durée au format ISO 8601 |Valeur par défaut : PT5H |Durée maximale avant l’envoi de message de basse priorité.| 
+|snapshotFrequency |Requis : false|Valeurs valides : Durée au format ISO 8601 |La valeur par défaut est PT13H |Intervalle de temps pour la création d’instantanés d’état d’appareil.| 
 |maxLocalCacheSizeInBytes |Requis : false |Valeurs valides : |Valeur par défaut : 2560000, supérieur à 8192 | Stockage maximal (en octets) autorisé pour le cache de messages d’un agent. Quantité maximale d’espace pour le stockage des messages sur l’appareil avant leur envoi.| 
-|maxMessageSizeInBytes |Requis : false |Valeurs valides :  Un nombre positif, supérieur à 8192 et inférieur à 262144 |Valeur par défaut : 204800 |Taille maximale autorisée d’un message d’agent au cloud. Ce paramètre contrôle la quantité maximale de données envoyées dans chaque message. |
-|eventPriority${EventName} |Requis : false |Valeurs valides :  High, Low, Off |Valeurs par défaut : |Priorité de chaque événement généré par l’agent | 
+|maxMessageSizeInBytes |Requis : false |Valeurs valides : Un nombre positif, supérieur à 8192 et inférieur à 262144 |Valeur par défaut : 204800 |Taille maximale autorisée d’un message d’agent au cloud. Ce paramètre contrôle la quantité maximale de données envoyées dans chaque message. |
+|eventPriority${EventName} |Requis : false |Valeurs valides : High, Low, Off |Valeurs par défaut : |Priorité de chaque événement généré par l’agent | 
 
 ### <a name="supported-security-events"></a>Événements de sécurité pris en charge
 
-|Nom de l'événement| PropertyName | Valeur par défaut| Événement de capture instantanée| État des détails  |
+|Nom d'événement| PropertyName | Valeur par défaut| Événement de capture instantanée| État des détails  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |Événement de diagnostic|eventPriorityDiagnostic| Off| False| Événements de diagnostic liés à l’agent. Utilisez cet événement pour la journalisation détaillée.| 
 |Erreur de configuration |eventPriorityConfigurationError |Faible |False |L’agent a échoué à analyser la configuration. Vérifiez la configuration par rapport au schéma.| 
 |Statistiques des événements annulés |eventPriorityDroppedEventsStatistics |Faible |True|Statistiques des événements liés à l’agent. |
-|Statistiques de message|eventPriorityMessageStatistics |Faible |True |Statistiques des messages liés à l’agent. |
 |Matériel connecté|eventPriorityConnectedHardware |Faible |True |Instantané de tout le matériel connecté à l’appareil.|
 |Ports d’écoute|eventPriorityListeningPorts |Élevé |True |Instantané de tous les ports d’écoute sur l’appareil.|
 |Création de processus |eventPriorityProcessCreate |Faible |False |Vérifie la création de processus sur l’appareil.|

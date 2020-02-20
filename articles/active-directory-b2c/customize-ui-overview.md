@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f171d9d71d3e6f8fa57671578502675442293793
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2dcdc67f884d1f566c794ab9e996a74984ab61a4
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908930"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373156"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur dans Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ Vous utilisez le [portail Azure](tutorial-customize-ui.md) pour configurer la pe
 
 Si vous utilisez des [stratégies personnalisées](custom-policy-overview.md) pour fournir des expériences de modification de profil, de réinitialisation du mot de passe, d’inscription ou de connexion dans votre application, utilisez des [fichiers de stratégie pour personnaliser l’interface utilisateur](custom-policy-ui-customization.md).
 
-Si vous avez besoin de fournir du contenu dynamique basé sur la décision d’un client, utilisez des [stratégies personnalisées qui peuvent changer le contenu de la page de manière dynamique](custom-policy-ui-customization-dynamic.md) en fonction d’un paramètre qui est envoyé dans une chaîne de requête. Par exemple, vous pouvez changer l’image d’arrière-plan dans la page de connexion ou d’inscription Azure AD B2C en fonction d’un paramètre que vous transmettez depuis votre application web ou mobile.
+Si vous avez besoin de fournir du contenu dynamique basé sur la décision d’un client, utilisez des [stratégies personnalisées qui peuvent changer le contenu de la page de manière dynamique](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri) en fonction d’un paramètre qui est envoyé dans une chaîne de requête. Par exemple, vous pouvez changer l’image d’arrière-plan dans la page de connexion ou d’inscription Azure AD B2C en fonction d’un paramètre que vous transmettez depuis votre application web ou mobile.
 
 ### <a name="javascript"></a>JavaScript
 

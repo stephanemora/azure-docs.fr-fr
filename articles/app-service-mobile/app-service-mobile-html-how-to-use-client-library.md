@@ -6,22 +6,17 @@ ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 0f70523b5b27a4f3db86bacf39469e233e43f807
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 029b01f3aacc928ebdae0e8fe90871437afccea5
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668824"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461519"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Utilisation de la bibliothèque cliente JavaScript pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-> [!NOTE]
-> Visual Studio App Center prend en charge les services intégrés essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud.
->
-> Si vous souhaitez intégrer des services cloud à votre application mobile, inscrivez-vous à [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) dès aujourd’hui.
-
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce guide indique le déroulement de scénarios courants dans le cadre de l’utilisation du dernier [Kit de développement logiciel (SDK) JavaScript pour Azure Mobile Apps]. Si vous ne connaissez pas Azure Mobile Apps, consultez d’abord la section [Démarrage rapide d’Azure Mobile Apps] pour créer un backend et créer une table. Dans ce guide, nous nous concentrons sur l’utilisation du backend mobile dans les applications web HTML/JavaScript.
 
 ## <a name="supported-platforms"></a>Plateformes prises en charge
@@ -56,7 +51,7 @@ Vous pouvez également utiliser une version du Kit de développement logiciel (S
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
 ## <a name="auth"></a>Procédure : Authentification des utilisateurs
-Azure App Service prend en charge l’authentification et l’autorisation des utilisateurs de l'application par l'intermédiaire de différents fournisseurs d'identité externes : Facebook, Google, compte Microsoft et Twitter. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans les scripts serveur. Pour plus d'informations, consultez la page [Prise en main de l'authentification] .
+Azure App Service prend en charge l’authentification et l’autorisation des utilisateurs de l'application par l'intermédiaire de différents fournisseurs d'identité externes : Facebook, Google, compte Microsoft et Twitter. Vous pouvez définir des autorisations sur les tables pour limiter l'accès à certaines opérations aux seuls utilisateurs authentifiés. Vous pouvez également utiliser l’identité des utilisateurs authentifiés pour implémenter des règles d’autorisation dans les scripts serveur. Pour plus d'informations, consultez la page [Prise en main de l’authentification] .
 
 Deux flux d’authentification sont pris en charge : un flux serveur et un flux client.  Le flux serveur fournit l'authentification la plus simple, car il repose sur l'interface d'authentification Web du fournisseur. Le flux client permet une intégration approfondie avec les fonctionnalités propres aux appareils, telles que l'authentification unique, car il repose sur des Kits de développement logiciel (SDK) propres aux fournisseurs.
 
@@ -71,7 +66,7 @@ Plusieurs types d’applications JavaScript utilisent une fonctionnalité de bou
 
 L’exécution locale peut entraîner des problèmes car, par défaut, l’authentification d’App Service est uniquement configurée pour autoriser l’accès à partir du serveur principal de votre application mobile. Utilisez la procédure suivante pour modifier les paramètres d’App Service afin d’activer l’authentification lors de l’exécution locale du serveur :
 
-1. Connectez-vous au [portail Azure]
+1. Connectez-vous au [Azure portal]
 2. Accédez à votre backend d’application mobile.
 3. Sélectionnez **Explorateur de ressources** dans le menu **OUTILS DE DÉVELOPPEMENT**.
 4. Cliquez sur **Aller** pour ouvrir l’Explorateur de ressources pour votre application mobile principale dans une fenêtre ou un nouvel onglet.
@@ -89,7 +84,7 @@ L’exécution locale peut entraîner des problèmes car, par défaut, l’authe
 
 Vous devez aussi ajouter les mêmes URL de bouclage aux paramètres de la liste verte CORS :
 
-1. Revenez au [portail Azure].
+1. Revenez au [Azure portal].
 2. Accédez à votre backend d’application mobile.
 3. Cliquez sur **CORS** dans le menu **API**.
 4. Saisissez chaque URL dans la zone de texte **Origines autorisées** vide.  Une zone de texte est créée.
@@ -99,9 +94,9 @@ Après que le serveur principal sera mis à jour, vous serez en mesure d’utili
 
 <!-- URLs. -->
 [Démarrage rapide d’Azure Mobile Apps]: app-service-mobile-cordova-get-started.md
-[Prise en main de l'authentification]: app-service-mobile-cordova-get-started-users.md
+[Prise en main de l’authentification]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
-[Portail Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [Kit de développement logiciel (SDK) JavaScript pour Azure Mobile Apps]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx
