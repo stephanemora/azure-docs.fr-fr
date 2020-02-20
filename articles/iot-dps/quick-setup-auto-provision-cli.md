@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: f5737dccca6baa2dc2c1d98233b80d871cf86007
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ea1cae1f5a30d4cd76df39fec43f3818178fc213
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974697"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484194"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Démarrage rapide : Configurer le service IoT Hub Device Provisioning avec Azure CLI
 
@@ -64,7 +64,7 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 ```
 
 > [!TIP]
-> L’exemple crée le service d’approvisionnement dans l’emplacement USA Ouest. Vous pouvez afficher une liste des emplacements disponibles en exécutant la commande `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` ou en vous rendant sur la page [Statut Azure](https://azure.microsoft.com/status/) et en recherchant « Device Provisioning ». Dans les commandes, les emplacements peuvent être spécifiés dans un format d’un mot ou de plusieurs mots. Par exemple : westus, West US, WEST US, etc. La valeur ne respecte pas la casse. Si vous utilisez un format de plusieurs mots pour spécifier l’emplacement, entourez la valeur d’apostrophes. Par exemple, `-- location "West US"`.
+> L’exemple crée le service d’approvisionnement dans l’emplacement USA Ouest. Vous pouvez afficher une liste des emplacements disponibles en exécutant la commande `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` ou en vous rendant sur la page [Statut Azure](https://azure.microsoft.com/status/) et en recherchant « Device Provisioning ». Dans les commandes, les emplacements peuvent être spécifiés dans un format d’un mot ou de plusieurs mots. Par exemple : westus, West US, WEST US, etc. La valeur ne respecte pas la casse. Si vous utilisez un format de plusieurs mots pour spécifier l’emplacement, entourez la valeur d’apostrophes. Par exemple, `--location "West US"`.
 >
 
 ## <a name="get-the-connection-string-for-the-iot-hub"></a>Obtenir la chaîne de connexion pour le hub IoT
@@ -112,7 +112,7 @@ Le hub IoT lié est affiché dans la collection *properties.iotHubs*.
 
 ![Vérifier le service de provisionnement](./media/quick-setup-auto-provision-cli/verify-provisioning-service.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Les autres démarrages rapides de cette collection reposent sur ce démarrage rapide. Si vous souhaitez continuer à utiliser d’autres démarrages rapides ou les didacticiels, ne nettoyez pas les ressources créées dans ce démarrage rapide. Si vous n’envisagez pas de continuer, vous pouvez utiliser les commandes suivantes pour supprimer le service d’approvisionnement, le hub IoT et le groupe de ressources et toutes ses ressources. Remplacez les noms des ressources écrites ci-dessous par les noms de vos propres ressources.
 

@@ -529,6 +529,8 @@
               href: ./hadoop/troubleshoot-lost-key-vault-access.md
             - name: Exception de stockage WASB
               href: ./hadoop/troubleshoot-wasbs-storage-exception.md
+            - name: Gérer l’espace disque
+              href: ./hadoop/troubleshoot-disk-space.md
 - name: Apache Kafka
   items:
     - name: Vue d’ensemble
@@ -868,7 +870,7 @@
           href: ./disk-encryption.md
         - name: Synchronisation LDAP dans Ranger et Apache Ambari
           href: ./domain-joined/ldap-sync.md
-    - name: Guides pratiques
+    - name: Procédures
       items:
         - name: Utiliser un broker d’ID pour la gestion des informations d’identification
           href: ./domain-joined/identity-broker.md
@@ -884,6 +886,8 @@
           href: ./hdinsight-sync-aad-users-to-cluster.md
         - name: Gérer les clusters avec la sécurité d’entreprise
           href: ./domain-joined/apache-domain-joined-manage.md
+        - name: Gérer l’accès SSH
+          href: ./domain-joined/ssh-domain-accounts.md
         - name: Sécurisation des données
           href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
         - name: Dépanner

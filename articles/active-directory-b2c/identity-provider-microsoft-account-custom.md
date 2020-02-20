@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 02/19/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b1489ce6bee2ce25ffb268ef20cc8fa587664619
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f4265659df786cf0a972b6dcf4f122bfc68535c1
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76851072"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483276"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Microsoft à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -24,12 +24,12 @@ ms.locfileid: "76851072"
 
 Cet article explique comment activer la connexion d’utilisateurs à partir d’un compte Microsoft à l’aide de [stratégies personnalisées](custom-policy-overview.md) dans Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md).
 - Si vous n’avez pas de compte Microsoft, créez-en un sur [https://www.live.com/](https://www.live.com/).
 
-## <a name="add-an-application"></a>Ajouter une application
+## <a name="register-an-application"></a>Inscrire une application
 
 Pour autoriser la connexion des utilisateurs avec un compte Microsoft, vous devez inscrire une application dans un locataire Azure AD. Le locataire Azure AD n’est pas identique à votre locataire Azure AD B2C.
 
@@ -46,6 +46,19 @@ Pour autoriser la connexion des utilisateurs avec un compte Microsoft, vous deve
 1. Cliquez sur **Nouveau secret client**.
 1. Entrez une **Description** pour le secret, par exemple *Clé secrète client d’application MSA*, puis cliquez sur **Ajouter**.
 1. Enregistrez le mot de passe de l’application affiché dans la colonne **Valeur**. Vous utiliserez cette valeur dans la section suivante.
+
+## <a name="configuring-optional-claims"></a>Configuration des revendications facultatives
+
+Si vous souhaitez obtenir les revendications `family_name` et `given_name` à partir d'Azure AD, vous pouvez configurer des revendications facultatives pour votre application dans l'interface utilisateur du portail Azure ou dans le manifeste de l'application. Pour plus d'informations, consultez [Procédure : Fournir des revendications facultatives à votre application Azure AD](../active-directory/develop/active-directory-optional-claims.md).
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Recherchez et sélectionnez **Azure Active Directory**.
+1. Dans la section **Gérer**, sélectionnez **Inscriptions d’applications**.
+1. Sélectionnez dans la liste l’application pour laquelle vous souhaitez configurer des revendications facultatives.
+1. Dans la section **Gérer**, sélectionnez **Configuration de jetons (préversion)** .
+1. Sélectionnez **Ajouter une revendication facultative**.
+1. Sélectionnez le type de jeton que vous souhaitez configurer.
+1. Sélectionnez les revendications facultatives à ajouter.
+1. Cliquez sur **Add**.
 
 ## <a name="create-a-policy-key"></a>Création d’une clé de stratégie
 
@@ -94,10 +107,12 @@ Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant l�
             <Key Id="client_secret" StorageReferenceId="B2C_1A_MSASecret" />
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="oid" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+            <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
             <OutputClaim ClaimTypeReferenceId="email" />
           </OutputClaims>
           <OutputClaimsTransformations>

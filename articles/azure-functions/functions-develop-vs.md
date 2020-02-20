@@ -4,12 +4,12 @@ description: Découvrez comment développer et tester Azure Functions à l’aid
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 7aceae256c4fc4d18615e181bbcb7425e659955d
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: b3d683153a1e70f4c65dcc5e401f4ee702af8b49
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547351"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484704"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Développer Azure Functions à l’aide de Visual Studio  
 
@@ -27,7 +27,7 @@ Cet article fournit des informations sur l'utilisation de Visual Studio pour dé
 
 Sauf indication contraire, les procédures et exemples présentés correspondent à Visual Studio 2019. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Azure Functions Tools est inclus dans la charge de travail de développement Azure de Visual Studio, à partir de Visual Studio 2017. Veillez à inclure la charge de travail de **développement Azure** lorsque vous installez Visual Studio.
 
@@ -136,7 +136,7 @@ Dans les fonctions de bibliothèque de classes C#, les liaisons utilisées par l
     }
     ```
 
-    Un attribut spécifique à la liaison est appliqué à chaque paramètre de liaison fourni à la méthode de point d’entrée. L’attribut accepte les informations de liaison en tant que paramètres. Dans l’exemple précédent, un attribut **QueueTrigger** est appliqué au premier paramètre, indiquant ainsi la fonction déclenchée par la file d’attente. Le nom de la file d’attente et le nom du paramètre de la chaîne de connexion sont transmis en tant que paramètres à l’attribut **QueueTrigger**. Pour plus d’informations, consultez [Liaisons de stockage File d’attente Azure pour Azure Functions](functions-bindings-storage-queue.md#trigger).
+    Un attribut spécifique à la liaison est appliqué à chaque paramètre de liaison fourni à la méthode de point d’entrée. L’attribut accepte les informations de liaison en tant que paramètres. Dans l’exemple précédent, un attribut **QueueTrigger** est appliqué au premier paramètre, indiquant ainsi la fonction déclenchée par la file d’attente. Le nom de la file d’attente et le nom du paramètre de la chaîne de connexion sont transmis en tant que paramètres à l’attribut **QueueTrigger**. Pour plus d’informations, consultez [Liaisons de stockage File d’attente Azure pour Azure Functions](functions-bindings-storage-queue-trigger.md).
 
 Vous pouvez utiliser la procédure ci-dessus pour ajouter des fonctions à votre projet d’application de fonction. Chaque fonction dans le projet peut avoir un déclencheur différent, mais une fonction ne doit avoir qu’un seul déclencheur. Pour plus d’informations, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
 

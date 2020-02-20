@@ -4,12 +4,12 @@ description: Découvrez comment développer des fonctions à l’aide de PowerSh
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: 2fa510e447d4d9b054a37f7665d010382a5db819
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 41f977e7e7c23c2f49fd656461b7a3920802997e
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974238"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485129"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guide des développeurs PowerShell sur Azure Functions
 
@@ -79,7 +79,7 @@ $TriggerMetadata.sys
 | MethodName | Nom de la fonction qui a été déclenchée     | string   |
 | RandGuid   | GUID unique pour cette exécution de la fonction | string   |
 
-Chaque type de déclencheur a un ensemble de métadonnées différent. Par exemple, `$TriggerMetadata` pour `QueueTrigger` contient, entre autres, `InsertionTime`, `Id`, `DequeueCount`. Pour plus d’informations sur les métadonnées du déclencheur de file d’attente, accédez à la [documentation officielle des déclencheurs de file d’attente](functions-bindings-storage-queue.md#trigger---message-metadata). Consultez la documentation sur le [déclencheur](functions-triggers-bindings.md) que vous utilisez pour savoir ce que les métadonnées de déclencheur incluent.
+Chaque type de déclencheur a un ensemble de métadonnées différent. Par exemple, `$TriggerMetadata` pour `QueueTrigger` contient, entre autres, `InsertionTime`, `Id`, `DequeueCount`. Pour plus d’informations sur les métadonnées du déclencheur de file d’attente, accédez à la [documentation officielle des déclencheurs de file d’attente](functions-bindings-storage-queue-trigger.md#message-metadata). Consultez la documentation sur le [déclencheur](functions-triggers-bindings.md) que vous utilisez pour savoir ce que les métadonnées de déclencheur incluent.
 
 ## <a name="bindings"></a>Liaisons
 
@@ -127,7 +127,7 @@ Les éléments suivants sont des paramètres valides pour appeler `Push-OutputBi
 
 | Nom | Type | Position | Description |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | Chaîne | 1 | Nom de la liaison de sortie que vous souhaitez définir. |
+| **`-Name`** | String | 1 | Nom de la liaison de sortie que vous souhaitez définir. |
 | **`-Value`** | Object | 2 | Valeur de la liaison de sortie vous souhaitez définir, qui est acceptée par la valeur ByValue du pipeline. |
 | **`-Clobber`** | SwitchParameter | named | (Facultatif) Si spécifié, force la définition de la valeur pour une liaison de sortie spécifiée. | 
 
@@ -175,7 +175,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 
 #### <a name="push-outputbinding-example-queue-output-binding"></a>Exemple de Push-OutputBinding : Liaison de sortie de file d’attente
 
-`Push-OutputBinding` est utilisé pour envoyer des données aux liaisons de sortie, comme une [liaison de sortie de Stockage File d’attente Azure](functions-bindings-storage-queue.md#output). Dans l’exemple suivant, le message écrit dans la file d’attente a la valeur de « output #1 » :
+`Push-OutputBinding` est utilisé pour envoyer des données aux liaisons de sortie, comme une [liaison de sortie de Stockage File d’attente Azure](functions-bindings-storage-queue-output.md). Dans l’exemple suivant, le message écrit dans la file d’attente a la valeur de « output #1 » :
 
 ```powershell
 PS >Push-OutputBinding -Name outQueue -Value "output #1"
@@ -235,7 +235,7 @@ La journalisation dans des fonctions PowerShell fonctionne comme la journalisati
 | Error | **`Write-Error`** |
 | Avertissement | **`Write-Warning`**  | 
 | Information | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Information | Écrit dans la journalisation du niveau d’_information_. |
-| Déboguer | **`Write-Debug`** |
+| Débogage | **`Write-Debug`** |
 | Trace | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
 En plus de ces cmdlets, tout de qui est écrit dans le pipeline est redirigé vers le niveau de journal `Information` et affiché avec la mise en forme PowerShell par défaut.
@@ -404,7 +404,7 @@ Azure Functions vous permet de tirer parti de [PowerShell Gallery](https://www.p
 }
 ```
 
-Lorsque vous créez un projet PowerShell Functions, la gestion des dépendances est activée par défaut, avec le module Azure [ `Az` ](/powershell/azure/new-azureps-module-az) inclus. Le nombre maximal de modules actuellement pris en charge est de 10. La syntaxe prise en charge est _`MajorNumber`_ `.*` ou une version exacte du module, comme indiqué dans le fichier d’exemple requirements.psd1 :
+Lorsque vous créez un projet PowerShell Functions, la gestion des dépendances est activée par défaut, avec le module Azure [`Az`](/powershell/azure/new-azureps-module-az) inclus. Le nombre maximal de modules actuellement pris en charge est de 10. La syntaxe prise en charge est _`MajorNumber`_ `.*` ou une version exacte du module, comme indiqué dans le fichier d’exemple requirements.psd1 :
 
 ```powershell
 @{
@@ -478,7 +478,7 @@ La liste actuelle des modules est la suivante :
 
 Functions utilise par défaut la version la plus récente de ces modules. Pour utiliser une version de module spécifique, veuillez la placer dans le dossier `Modules` de votre application de fonction.
 
-## <a name="environment-variables"></a>Variables d’environnement
+## <a name="environment-variables"></a>Variables d'environnement
 
 Dans Functions, les [paramètres de l’application](functions-app-settings.md), par exemple, les chaînes de connexion de service, sont exposées en tant que variables d’environnement pendant l’exécution. Vous pouvez accéder à ces paramètres à l’aide de `$env:NAME_OF_ENV_VAR`, comme illustré ici dans l’exemple suivant :
 

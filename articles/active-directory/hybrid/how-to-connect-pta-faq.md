@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06dfe1e76682d70170bfea104050b1000269c38f
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 2cfa5e2117b2d6fce525e66b25ec44f696d7d450
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932387"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484415"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : Forum aux questions
 
@@ -35,11 +35,11 @@ Consultez [ce guide](https://docs.microsoft.com/azure/security/fundamentals/choo
 
 L’authentification directe est une fonctionnalité gratuite. Il est inutile de disposer des éditions payantes d’Azure AD pour l’utiliser.
 
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>L’authentification directe est-elle disponible dans le [cloud Microsoft Azure Allemagne](https://www.microsoft.de/cloud-deutschland) et le [cloud Microsoft Azure Government](https://azure.microsoft.com/features/gov/) ?
+## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloud-and-the-microsoft-azure-government-cloud"></a>L’authentification directe est-elle disponible dans le [cloud Microsoft Azure Allemagne](https://www.microsoft.de/cloud-deutschland) et le [cloud Microsoft Azure Government](https://azure.microsoft.com/features/gov/) ?
 
 Non. L’authentification directe est uniquement disponible dans l’instance à l’échelle mondiale d’Azure AD.
 
-## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>[L’accès conditionnel](../active-directory-conditional-access-azure-portal.md) fonctionne-t-il avec l’authentification directe ?
+## <a name="does-conditional-access-work-with-pass-through-authentication"></a>[L’accès conditionnel](../active-directory-conditional-access-azure-portal.md) fonctionne-t-il avec l’authentification directe ?
 
 Oui. Toutes les fonctionnalités, y compris l’authentification multifacteur Azure, peuvent être utilisées avec l’authentification directe.
 
@@ -54,7 +54,7 @@ Non. L’authentification directe _ne bascule pas_ automatiquement vers la synch
 
 Lorsque vous utilisez Azure AD Connect pour changer de méthode de connexion, en passant de la synchronisation de hachage de mot de passe vers l’authentification directe, cette dernière devient la méthode de connexion principale pour vos utilisateurs dans les domaines managés. Remarque : l’ensemble des hachages de mot de passe des utilisateurs qui ont été préalablement synchronisés via la synchronisation de hachage de mot de passe restent stockés sur Azure AD.
 
-## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Puis-je installer un connecteur de [proxy d’application Azure AD](../manage-apps/application-proxy.md) sur le même serveur qu’un agent d’authentification directe ?
+## <a name="can-i-install-an-azure-ad-application-proxy-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Puis-je installer un connecteur de [proxy d’application Azure AD](../manage-apps/application-proxy.md) sur le même serveur qu’un agent d’authentification directe ?
 
 Oui. Les versions renommées de l’agent d’authentification directe (versions 1.5.193.0 ou versions ultérieures) prennent en charge cette configuration.
 
@@ -107,7 +107,7 @@ Non, vous ne pouvez installer qu’un seul agent d’authentification directe su
 
 ## <a name="do-i-have-to-manually-renew-certificates-used-by-pass-through-authentication-agents"></a>Dois-je renouveler manuellement les certificats utilisés par les agents d’authentification directe ?
 
-La communication entre les agents d’authentification directe et Azure AD est sécurisée à l’aide de l’authentification basée sur les certificats. Ces [certificats sont renouvelés automatiquement tous les quelques mois par Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of -the-authentication-agents). Il n’est pas nécessaire de renouveler manuellement ces certificats. Vous pouvez nettoyer les anciens certificats arrivés à expiration en fonction des besoins.
+La communication entre les agents d’authentification directe et Azure AD est sécurisée à l’aide de l’authentification basée sur les certificats. Ces [certificats sont renouvelés automatiquement tous les quelques mois par Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of-the-authentication-agents). Il n’est pas nécessaire de renouveler manuellement ces certificats. Vous pouvez nettoyer les anciens certificats arrivés à expiration en fonction des besoins.
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Comment supprimer un agent d’authentification directe ?
 

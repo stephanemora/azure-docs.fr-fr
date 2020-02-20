@@ -5,12 +5,12 @@ ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions01
-ms.openlocfilehash: 9c97606b21a6e98494fffb689567aaab6e2f0621
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b714806c163a94bbae7069c357e603b82ba797ba
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210189"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482358"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Créer une fonction sur Linux avec un conteneur personnalisé
 
@@ -919,7 +919,7 @@ Vous pouvez visualiser la file d’attente dans le [portail Azure](../storage/qu
     
     ---
 
-1. Utilisez la commande [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) pour voir les messages de cette file d’attente, laquelle doit correspondre au premier nom que vous avez utilisé quand vous avez testé la fonction. La commande récupère le premier message de la file d’attente au format d’[encodage base64](functions-bindings-storage-queue.md#encoding). Vous devez donc également décoder le message pour le voir sous forme de texte.
+1. Utilisez la commande [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) pour voir les messages de cette file d’attente, laquelle doit correspondre au premier nom que vous avez utilisé quand vous avez testé la fonction. La commande récupère le premier message de la file d’attente au format d’[encodage base64](functions-bindings-storage-queue-trigger.md#encoding). Vous devez donc également décoder le message pour le voir sous forme de texte.
 
     # <a name="bash"></a>[bash](#tab/bash)
     

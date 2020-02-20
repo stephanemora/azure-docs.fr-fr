@@ -3,12 +3,12 @@ title: Ajouter une liaison de file d’attente Stockage Azure à votre fonction 
 description: Intégrez une file d’attente Stockage Azure à une fonction Python à l’aide d’une liaison de sortie.
 ms.date: 01/15/2020
 ms.topic: quickstart
-ms.openlocfilehash: f5527e0e636c3f8c9ee3723570ed9811f0df3641
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6cea44dca666bbf002de6e2b7dd283f49ac7bd5a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198477"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485163"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Ajouter une liaison de file d’attente Stockage Azure à votre fonction Python
 
@@ -100,7 +100,7 @@ Pour écrire dans une file d’attente Stockage Azure à partir de cette fonctio
 
 Dans ce cas, `msg` est fourni à la fonction en tant qu’argument de sortie. Pour un type `queue`, vous devez également spécifier le nom de la file d’attente dans `queueName` et fournir le *nom* de la connexion Stockage Azure (à partir de *local.settings.json*) dans `connection`.
 
-Pour plus d’informations sur les détails des liaisons, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md) et [Configuration de la sortie de la file d’attente](functions-bindings-storage-queue.md#output---configuration).
+Pour plus d’informations sur les détails des liaisons, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md) et [Configuration de la sortie de la file d’attente](functions-bindings-storage-queue-output.md#configuration).
 
 ## <a name="add-code-to-use-the-output-binding"></a>Ajouter du code pour utiliser la liaison de sortie
 
@@ -219,7 +219,7 @@ Quand votre fonction génère une réponse HTTP pour le navigateur web, elle app
     ---
 
 
-1. Utilisez la commande [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) pour voir les messages de cette file d’attente, laquelle doit correspondre au premier nom que vous avez utilisé quand vous avez testé la fonction. La commande récupère le premier message de la file d’attente au format d’[encodage base64](functions-bindings-storage-queue.md#encoding). Vous devez donc également décoder le message pour le voir sous forme de texte.
+1. Utilisez la commande [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) pour voir les messages de cette file d’attente, laquelle doit correspondre au premier nom que vous avez utilisé quand vous avez testé la fonction. La commande récupère le premier message de la file d’attente au format d’[encodage base64](functions-bindings-storage-queue-trigger.md#encoding). Vous devez donc également décoder le message pour le voir sous forme de texte.
 
     # <a name="bash"></a>[bash](#tab/bash)
     

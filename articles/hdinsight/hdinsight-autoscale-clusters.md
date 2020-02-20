@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/11/2020
-ms.openlocfilehash: 172753f6bbcc47ed8ae9061b71ca3291e95b7a33
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: a093eea8b1961482722211017174018a649e2c4f
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162852"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484840"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Mettre à l’échelle automatiquement les clusters Azure HDInsight
 
@@ -78,7 +78,7 @@ En fonction du nombre de conteneurs AM par nœud ainsi que des besoins actuels e
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Créer un cluster avec une mise à l’échelle automatique basée sur la charge
 
-Pour utiliser la mise à l’échelle automatique sur un cluster, l’option **Activer la mise à l’échelle automatique** doit être activée lors de la création du cluster. Pour activer la fonctionnalité de mise à l’échelle automatique basée sur la charge, procédez comme suit dans le cadre d’un processus normal de création de cluster :
+Pour activer la fonctionnalité de mise à l’échelle automatique basée sur la charge, procédez comme suit dans le cadre d’un processus normal de création de cluster :
 
 1. Sous l’onglet **Configuration + tarification**, cochez la case **Activer la mise à l’échelle automatique**.
 1. Sélectionnez **Basé sur la charge** sous **Type de mise à l’échelle automatique**.

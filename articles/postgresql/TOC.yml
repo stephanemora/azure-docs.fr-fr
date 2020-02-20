@@ -1,4 +1,4 @@
-- name: Documentation Azure DB pour PostgreSQL
+- name: Base de données Azure pour les documents PostgreSQL
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -281,6 +281,8 @@
               href: howto-read-replicas-cli.md
     - name: Hyperscale (Citus)
       items:
+        - name: Créer des utilisateurs
+          href: howto-hyperscale-create-users.md
         - name: Scale
           href: howto-hyperscale-scaling.md
         - name: Gérer le pare-feu

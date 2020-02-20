@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 278639b27d821e8d6440248a1add43bcd9de22c6
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: e75146266568001d8fee7be26898ac8bdfffb7fc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775223"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484784"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>Quelles sont les configurations de nœud par défaut et recommandées pour Azure HDInsight ?
 
@@ -44,9 +44,9 @@ Les spécifications de tous les types de machines virtuelles recommandés minimu
 
 Pour plus d’informations sur les spécifications de chaque type de machine virtuelle, consultez les documents suivants :
 
-* [Tailles de machine virtuelle à usage général : Série Dv2 1-5](../virtual-machines/linux/sizes-general.md#dv2-series)
-* [Tailles de machine virtuelle à mémoire optimisée : Série Dv2 11-15](../virtual-machines/linux/sizes-memory.md#dv2-series-11-15)
-* [Tailles de machine virtuelle à usage général : Série Av2 1-8](../virtual-machines/linux/sizes-general.md#av2-series)
+* [Tailles de machine virtuelle à usage général : Série Dv2 1-5](../virtual-machines/dv2-dsv2-series.md)
+* [Tailles de machine virtuelle à mémoire optimisée : Série Dv2 11-15](../virtual-machines/dv2-dsv2-series-memory.md)
+* [Tailles de machine virtuelle à usage général : Série Av2 1-8](../virtual-machines/av2-series.md)
 
 ### <a name="all-supported-regions-except-brazil-south-and-japan-west"></a>Toutes les régions prises en charge à l’exception des régions Brésil Sud et Japon Ouest
 

@@ -2,17 +2,17 @@
 title: Schéma des événements Azure Maps dans Azure Event Grid
 description: Décrit les propriétés et le schéma qui sont fournis pour les événements Azure Maps avec Azure Event Grid
 services: event-grid
-author: walsehgal
+author: femila
 ms.service: event-grid
 ms.topic: reference
 ms.date: 02/08/2019
-ms.author: v-musehg
-ms.openlocfilehash: 74a3674e632f8dc3f0755bc2ad48376708c7966f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: femila
+ms.openlocfilehash: 9acef524521e8fac6ce6f8f61e5ff3fbbb81d18d
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861852"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486357"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-maps"></a>Schéma des événements Azure Event Grid pour Azure Maps
 
@@ -20,7 +20,7 @@ Cet article fournit les propriétés et les schémas des événements Azure Maps
 
 ## <a name="available-event-types"></a>Types d’événement disponibles
 
-Un compte Azure Maps émet les types d’événements suivants :
+Un compte Azure Maps émet les types d'événements suivants :
 
 | Type d'événement | Description |
 | ---------- | ----------- |
@@ -120,7 +120,7 @@ L’objet de données comporte les propriétés suivantes :
 | apiCategory | string | Catégorie d’API de l’événement. |
 | apiName | string | Nom d’API de l’événement. |
 | problèmes | object | Répertorie les problèmes rencontrés durant le traitement. Si des problèmes sont retournés, aucune géométrie n’est retournée avec la réponse. |
-| responseCode | number | Code de réponse HTTP |
+| responseCode | nombre | Code de réponse HTTP |
 | geometries | object | Répertorie les géométries de la limite qui contiennent la position des coordonnées ou chevauchent le searchBuffer autour de la position. |
 
 L’objet d’erreur est retourné lorsqu’une erreur se produit dans l’API Maps. L’objet erreur comporte les propriétés suivantes :
@@ -150,8 +150,8 @@ L’objet geometries énumère les ID de géométrie des limites géographiques 
 | deviceid | string | ID de l’appareil. |
 | distance | string | <p>Distance entre les coordonnées et la bordure la plus proche de la limite géographique. Une valeur positive signifie que la coordonnée se situe à l’extérieur de la limite géographique. Si la coordonnée se situe à l’extérieur de la limite géographique mais que la valeur de searchBuffer est en dehors de la bordure de limite géographique la plus proche, la valeur est égale à 999. Une valeur négative signifie que la coordonnée se situe à l’intérieur de la limite géographique. Si la coordonnée se situe à l’intérieur du polygone mais que la valeur de searchBuffer est en dehors de la bordure de limite géographique la plus proche, la valeur est égale à -999. Une valeur égale à 999 signifie qu’il y a une grande probabilité que la coordonnée se trouve en dehors de la limite géographique. Une valeur égale à 999 signifie qu’il y a une grande probabilité que la coordonnée se trouve en deçà de la limite géographique.<p> |
 | geometryid |string | ID unique identifiant la géométrie de la limite géographique. |
-| nearestlat | number | Latitude du point plus proche de la géométrie. |
-| nearestlon | number | Longitude du point plus proche de la géométrie. |
+| nearestlat | nombre | Latitude du point plus proche de la géométrie. |
+| nearestlon | nombre | Longitude du point plus proche de la géométrie. |
 | udId | string | ID unique renvoyé par le service de téléchargement de l’utilisateur lors du téléchargement d’une limite géographique. N’appartient pas à l’API de publication de geofencing. |
 
 L’objet de données comporte les propriétés suivantes :
@@ -161,7 +161,7 @@ L’objet de données comporte les propriétés suivantes :
 | expiredGeofenceGeometryId | string[] | Répertorie l’ID de géométrie de la limite géographique qui a expiré par rapport au délai d’attente utilisateur dans la requête. |
 | geometries | geometries[] |Répertorie les géométries de la limite qui contiennent la position des coordonnées ou chevauchent le searchBuffer autour de la position. |
 | invalidPeriodGeofenceGeometryId | string[]  | Répertorie l’ID de géométrie de la limite géographique dont la période n’est pas valide par rapport au délai d’attente utilisateur dans la requête. |
-| isEventPublished | booléenne | Vrai si au moins un événement est publié à l’abonné de l’événement Azure Maps, faux si aucun événement n’est publié à l’abonné de l’événement Azure Maps |
+| isEventPublished | boolean | Vrai si au moins un événement est publié à l’abonné de l’événement Azure Maps, faux si aucun événement n’est publié à l’abonné de l’événement Azure Maps |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

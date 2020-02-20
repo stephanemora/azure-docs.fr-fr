@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd52c4cc5cd9d4c01ddb355bdfb28d0952e65759
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: a41a5828a82d81c5e7e8749fee70cd15e17bb9d0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210257"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486323"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
 
@@ -62,7 +62,7 @@ Comment votre code réagit-il si une défaillance se produit après l’insertio
 
 Si un élément de file d’attente a déjà été traité, permettez à votre fonction d’être une absence d’opération.
 
-Tirez parti des mesures défensives déjà fournies pour les composants que vous utilisez dans la plateforme Azure Functions. Par exemple, consultez **Gestion des messages de file d’attente incohérents** dans la documentation relative aux [liaisons et déclencheurs de file d’attente de stockage Azure](functions-bindings-storage-queue.md#trigger---poison-messages). 
+Tirez parti des mesures défensives déjà fournies pour les composants que vous utilisez dans la plateforme Azure Functions. Par exemple, consultez **Gestion des messages de file d’attente incohérents** dans la documentation relative aux [liaisons et déclencheurs de file d’attente de stockage Azure](functions-bindings-storage-queue-trigger.md#poison-messages). 
 
 ## <a name="scalability-best-practices"></a>Bonnes pratiques relatives à l’extensibilité
 

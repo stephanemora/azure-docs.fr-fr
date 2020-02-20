@@ -371,11 +371,23 @@
         - name: Notification Hubs
           href: functions-bindings-notification-hubs.md
         - name: Stockage de files d'attente
-          href: functions-bindings-storage-queue.md
+          items:
+            - name: Vue d’ensemble
+              href: functions-bindings-storage-queue.md
+            - name: Déclencheur
+              href: functions-bindings-storage-queue-trigger.md
+            - name: Output
+              href: functions-bindings-storage-queue-output.md
         - name: SendGrid
           href: functions-bindings-sendgrid.md
         - name: Service Bus
-          href: functions-bindings-service-bus.md
+          items:
+            - name: Vue d’ensemble
+              href: functions-bindings-service-bus.md
+            - name: Déclencheur
+              href: functions-bindings-service-bus-trigger.md
+            - name: Output
+              href: functions-bindings-service-bus-output.md
         - name: Service SignalR
           href: functions-bindings-signalr-service.md
         - name: Stockage de tables

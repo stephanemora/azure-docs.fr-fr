@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 83884447e9856b5e3db26e4829ccbd3ab1baed13
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 715415929afaad36e4854e75a2b7b5360d22a6bf
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549085"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486340"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -453,7 +453,7 @@ static async Task Main()
 }
 ```
 
-Pour plus d’informations, consultez l’article sur la [liaison Stockage File d’attente](../azure-functions/functions-bindings-storage-queue.md#hostjson-settings).
+Pour plus d’informations, consultez l’article sur la [liaison Stockage File d’attente](../azure-functions/functions-bindings-storage-queue-trigger.md#hostjson-properties).
 
 #### <a name="version-2x"></a>Version 2.*x*
 
@@ -524,7 +524,7 @@ static async Task Main()
 }
 ```
 
-Pour plus d’informations, consultez l’article sur la [liaison Service Bus](../azure-functions/functions-bindings-service-bus.md#hostjson-settings).
+Pour plus d’informations, consultez l’article sur la [liaison Service Bus](../azure-functions/functions-bindings-service-bus-output.md#hostjson-settings).
 
 ### <a name="configuration-for-other-bindings"></a>Configuration pour les autres liaisons
 
@@ -680,11 +680,11 @@ Pour plus d’informations, consultez [Liaison au runtime](../azure-functions/fu
 
 La documentation Azure Functions fournit des informations de référence sur chaque type de liaison. Vous trouverez les informations suivantes dans chaque article de référence sur les liaisons. (Cet exemple est basé sur la file d’attente de Stockage.)
 
-* [Packages](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x). Package à installer pour inclure la prise en charge de la liaison dans un projet du kit SDK WebJobs.
-* [Exemples](../azure-functions/functions-bindings-storage-queue.md#trigger). Exemples de code. L’exemple de bibliothèque de classe C# s’applique au kit SDK WebJobs. Omettez simplement l’attribut `FunctionName`.
-* [Attributs](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes-and-annotations). Attributs à utiliser pour le type de liaison.
-* [Configuration](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration). Explications relatives aux propriétés d’attribut et aux paramètres de constructeur.
-* [Utilisation](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Types avec lesquels vous pouvez effectuer une liaison et informations sur le fonctionnement de la liaison. Exemple : algorithme d’interrogation, traitement de file d’attente de messages incohérents.
+* [Packages](../azure-functions/functions-bindings-storage-queue.md). Package à installer pour inclure la prise en charge de la liaison dans un projet du kit SDK WebJobs.
+* [Exemples](../azure-functions/functions-bindings-storage-queue-trigger.md). Exemples de code. L’exemple de bibliothèque de classe C# s’applique au kit SDK WebJobs. Omettez simplement l’attribut `FunctionName`.
+* [Attributs](../azure-functions/functions-bindings-storage-queue-trigger.md#attributes-and-annotations). Attributs à utiliser pour le type de liaison.
+* [Configuration](../azure-functions/functions-bindings-storage-queue-trigger.md#configuration). Explications relatives aux propriétés d’attribut et aux paramètres de constructeur.
+* [Utilisation](../azure-functions/functions-bindings-storage-queue-trigger.md#usage). Types avec lesquels vous pouvez effectuer une liaison et informations sur le fonctionnement de la liaison. Exemple : algorithme d’interrogation, traitement de file d’attente de messages incohérents.
   
 Pour obtenir la liste des articles de référence sur les liaisons, consultez « Liaisons prises en charge » dans l’article [Déclencheurs et liaisons](../azure-functions/functions-triggers-bindings.md#supported-bindings) pour Azure Functions. Dans cette liste, les liaisons HTTP, Webhooks et Event Grid sont prises en charge uniquement par Azure Functions, et pas par le kit SDK WebJobs.
 

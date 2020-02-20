@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Ce guide de démarrage rapide vous montre comment développer en équipe dans Kubernetes à l’aide de conteneurs et de microservices avec Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: d2b31cce6604cef31de6f034566ebd46a4e92750
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1b36cf30574c0c9892a0383bee7e2f914bc9feac
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721589"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482392"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Démarrage rapide : Développement en équipe dans Kubernetes avec Azure Dev Spaces
 
@@ -23,7 +23,7 @@ Dans ce guide, vous allez apprendre à :
 
 ![Développement en équipe d’Azure Dev Spaces](media/azure-dev-spaces/collaborate-graphic.gif)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free).
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -86,7 +86,7 @@ Utilisez la commande `helm install` pour configurer et installer l’exemple d�
 
 ```cmd
 cd charts/
-helm install bikesharing . --dependency-update --namespace dev --atomic
+helm install bikesharingsampleappsampleapp . --dependency-update --namespace dev --atomic
 ```
 
 La commande `helm install` peut prendre plusieurs minutes. Après avoir installé l’exemple d’application et activé Dev Spaces sur votre cluster, utilisez la commande `azds list-uris` pour afficher les URL de l’exemple d’application dans le *dev* actuellement sélectionné.

@@ -154,3 +154,5 @@
       href: 'https://windowsvirtualdesktop.uservoice.com/forums/921118-general'
     - name: "Feuille de route Microsoft\_365"
       href: 'https://aka.ms/wvdroadmap'
+    - name: "Modèles Microsoft\_Azure Resource Manager"
+      href: 'https://github.com/Azure/RDS-Templates/tree/master/wvd-templates'

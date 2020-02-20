@@ -1,4 +1,4 @@
-- name: Documentation Azure App Configuration (préversion)
+- name: Documentation Azure App Configuration
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -59,6 +59,8 @@
   items:
     - name: stockage clé-valeur
       href: concept-key-value.md
+    - name: Chiffrer avec des clés gérées par le client
+      href: concept-customer-managed-keys.md
     - name: Capture instantanée à un point dans le temps
       href: concept-point-time-snapshot.md
     - name: Gestion des fonctionnalités
@@ -67,14 +69,18 @@
       href: concept-github-action.md
     - name: Gestion des événements
       href: concept-app-configuration-event.md
+    - name: Authentication
+      items:
+        - name: Intégrer avec Azure Managed Identity
+          href: howto-integrate-azure-managed-service-identity.md
+        - name: "Activer l’accès avec Azure\_Active\_Directory"
+          href: concept-enable-rbac.md
     - name: Haute disponibilité
       items:
         - name: Résilience et reprise d’activité après sinistre
           href: concept-disaster-recovery.md
 - name: Guides pratiques
   items:
-    - name: Intégrer avec Azure Managed Identity
-      href: howto-integrate-azure-managed-service-identity.md
     - name: Importer ou exporter des données de configuration
       href: howto-import-export-data.md
     - name: Acheminer des événements vers un point de terminaison personnalisé
@@ -86,7 +92,7 @@
     - name: Configuration
       items:
         - name: Azure CLI
-          href: 'https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest'
+          href: 'https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest'
         - name: Fournisseur .NET Core
           href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
         - name: Générateur .NET Framework

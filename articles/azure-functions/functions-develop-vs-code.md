@@ -3,12 +3,12 @@ title: Développer Azure Functions avec Visual Studio Code
 description: Découvrez comment développer et tester Azure Functions à l’aide de l’extension Azure Functions pour Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 3bc8c9aa5d31f757a34350d9605fdecbe42b8be7
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 41a1a64be4823769f6bf23b251fec94fd68eb0f0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210240"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484772"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Développer Azure Functions avec Visual Studio Code
 
@@ -174,7 +174,7 @@ using Microsoft.Azure.WebJobs.Extensions.Storage;
 
 Le paramètre `msg` est un type `ICollector<T>`, qui représente une collection de messages écrits dans une liaison de sortie quand la fonction se termine. Vous ajoutez un ou plusieurs messages à la collection. Ces messages sont envoyés à la file d’attente lorsque la fonction se termine.
 
-Pour plus d’informations, consultez la documentation [Liaison de sortie de stockage de file d’attente](functions-bindings-storage-queue.md#output).
+Pour plus d’informations, consultez la documentation [Liaison de sortie de stockage de file d’attente](functions-bindings-storage-queue-output.md).
 
 # <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
@@ -212,7 +212,7 @@ Dans le code de votre fonction, la liaison `msg` est accessible à partir du `co
 context.bindings.msg = "Name passed to the function: " req.query.name;
 ```
 
-Pour plus d’informations, consultez la référence [Liaison de sortie de stockage de file d’attente](functions-bindings-storage-queue.md#output).
+Pour plus d’informations, consultez la référence [Liaison de sortie de stockage de file d’attente](functions-bindings-storage-queue-output.md).
 
 ---
 

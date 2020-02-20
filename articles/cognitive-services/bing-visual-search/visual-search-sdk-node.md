@@ -10,23 +10,23 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 676427ca2985de51767939891b41f413446d4bb1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d99aa2d2827716b2b04d059e47d9768eef8cd690
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446581"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485095"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>Démarrage rapide : Obtenir des insights sur les images à l’aide du SDK Recherche visuelle Bing pour Node.js
 
 Utilisez ce guide de démarrage rapide pour commencer à obtenir des insights sur les images à partir du service Recherche visuelle Bing, à l’aide du SDK Node.js. Si l’outil Recherche visuelle Bing dispose d’une API REST compatible avec la plupart des langages de programmation, le SDK offre quant à lui un moyen facile d’intégrer le service à vos applications. Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js). 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 * [Node.JS](https://www.nodejs.org/)
 * SDK Recherche visuelle Bing pour Node.js
     * Pour configurer une application console à l’aide du SDK Recherche visuelle Bing, exécutez les commandes suivantes :
         1. `npm install ms-rest-azure`
-        2. `npm install azure-cognitiveservices-search-visualSearch`.
+        2. `npm install azure-cognitiveservices-visualsearch`.
 
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]

@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: dea45cec29101c3b085ab8098c3b05906e1049cd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 88382a5b6e0364145d8504b5e25ef1a9bfd0111a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449785"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484126"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Rechercher les erreurs des pools et des nœuds
 
@@ -104,7 +104,7 @@ Voici des exemples supplémentaires de causes aboutissant à des nœuds **inutil
 
 - Une machine est déplacée en raison d’une défaillance de l’infrastructure ou d’une mise à niveau de bas niveau. Batch récupère le nœud.
 
-- Une image de machine virtuelle a été déployée sur un matériel qui ne la prend pas en charge. Par exemple, si vous essayez d’exécuter une image HPC CentOS sur une machine virtuelle [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series).
+- Une image de machine virtuelle a été déployée sur un matériel qui ne la prend pas en charge. Par exemple, si vous essayez d’exécuter une image HPC CentOS sur une machine virtuelle [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md).
 
 - Les machines virtuelles sont dans un [réseau virtuel Azure](batch-virtual-network.md), et le trafic a été bloqué pour les ports principaux.
 

@@ -11,8 +11,8 @@
       href: tutorial-enable-sspr.md
     - name: Activation d’Azure Multi-Factor Authentication
       href: tutorial-enable-azure-mfa.md
-    - name: Activer l’intégration locale SSPR
-      href: tutorial-enable-writeback.md
+    - name: Activer l’écriture différée du mot de passe au niveau local
+      href: tutorial-enable-sspr-writeback.md
     - name: Intégrer Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
 - name: Concepts
@@ -68,8 +68,6 @@
           href: howto-sspr-deployment.md
         - name: Préinscrire des données d’authentification
           href: howto-sspr-authenticationdata.md
-        - name: Activer la réécriture du mot de passe
-          href: howto-sspr-writeback.md
         - name: SSPR pour les clients Windows
           href: howto-sspr-windows.md
     - name: Authentification multifacteur sur le cloud
