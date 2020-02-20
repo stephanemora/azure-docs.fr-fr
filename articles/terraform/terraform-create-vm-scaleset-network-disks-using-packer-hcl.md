@@ -3,18 +3,18 @@ title: 'Tutoriel : Créer un groupe identique de machines virtuelles Azure à p
 description: Utilisez Terraform pour effectuer la configuration et gérer les versions d’un groupe de machines virtuelles Azure identiques à partir d’une image personnalisée générée par Packer (comprenant un réseau virtuel et des disques attachés gérés).
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 9d149a28f82100715035f435de56ff134ca685f5
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 92a8221d625f8b6b73343f74b85fdfcf5e578b23
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159288"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472200"
 ---
-# <a name="tutorial-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image-by-using-terraform"></a>Didacticiel : Créer un groupe identique de machines virtuelles Azure à partir d’une image personnalisée Packer à l’aide de Terraform
+# <a name="tutorial-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image-by-using-terraform"></a>Tutoriel : Créer un groupe identique de machines virtuelles Azure à partir d’une image personnalisée Packer à l’aide de Terraform
 
 Dans ce tutoriel, vous allez utiliser [Terraform](https://www.terraform.io/) pour créer et déployer un [groupe identique de machines virtuelles Azure](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview), créé avec une image personnalisée générée à l’aide de [Packer](https://www.packer.io/intro/index.html) et comprenant des disques managés qui utilisent le [langage de configuration Hashicorp](https://www.terraform.io/docs/configuration/syntax.html) (HCL). 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Configurer votre déploiement Terraform.
@@ -28,7 +28,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **Terraform** : [Installez Terraform et configurez l’accès à Azure](/azure/virtual-machines/linux/terraform-install-configure).
+- **Terraform** : [Installez Terraform et configurez l’accès à Azure](terraform-install-configure.md).
 - **Paire de clés SSH** : [Créez une paire de clés SSH](/azure/virtual-machines/linux/mac-create-ssh-keys).
 - **Packer** :  [Installez Packer](https://www.packer.io/docs/install/index.html).
 

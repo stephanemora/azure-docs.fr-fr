@@ -7,12 +7,12 @@ ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 1be97f9754733561111cedcf95fe237b7788583e
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: b929dd8979ecf587872092af2fa44e5ae03626d1
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122554"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472483"
 ---
 # <a name="tutorial-convert-ml-experimental-code-to-production-code"></a>Tutoriel : Convertir du code expérimental ML en code de production
 
@@ -26,7 +26,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Créer des scripts Python pour des tâches associées
 > * Créer des tests unitaires
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Générez le [modèle MLOpsPython](https://github.com/microsoft/MLOpsPython/generate) et utilisez les notebooks `experimentation/Diabetes Ridge Regression Training.ipynb` et `experimentation/Diabetes Ridge Regression Scoring.ipynb`. Ces notebooks sont utilisés pour illustrer la conversion d’une expérimentation en production.
 - Installez nbconvert. Suivez uniquement les instructions de la section __Installing nbconvert__ (Installation de nbconvert) dans la page [Installation](https://nbconvert.readthedocs.io/en/latest/install.html).
@@ -409,4 +409,4 @@ Maintenant que vous savez comment convertir une expérience en code de productio
 
 > [!div class="nextstepaction"]
 > [Superviser les exécutions et les métriques des expériences Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
-> [Superviser et collecter des données à partir des points de terminaison de service web Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insight)
+> [Superviser et collecter des données à partir des points de terminaison de service web Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights)

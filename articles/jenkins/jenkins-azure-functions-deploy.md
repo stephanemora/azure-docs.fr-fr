@@ -4,12 +4,12 @@ description: Découvrir comment effectuer un déploiement sur Azure Functions à
 keywords: jenkins, azure, devops, java, azure functions
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: af3e8dfd6e2bfc676e659a03d92658af66b5bcde
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: edf8c763a46a6f519175842a6525b2c1b314fb66
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158774"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470664"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>Effectuer un déploiement sur Azure Functions à l’aide du plug-in Azure Functions Jenkins
 
@@ -131,7 +131,7 @@ Dans cette section, vous allez créer le [pipeline Jenkins](https://jenkins.io/d
 
 À présent, il est temps d’exécuter le travail Jenkins.
 
-1. Commencez par obtenir la clé d’autorisation à l’aide des instructions fournies dans l’article [Déclencheurs et liaisons HTTP d’Azure Functions](/azure/azure-functions/functions-bindings-http-webhook#authorization-keys).
+1. Commencez par obtenir la clé d’autorisation à l’aide des instructions fournies dans l’article [Déclencheurs et liaisons HTTP d’Azure Functions](/azure/azure-functions/functions-bindings-http-webhook-trigger#authorization-keys).
 
 1. Dans votre navigateur, entrez l’URL de l’application. Remplacez les espaces réservés par les valeurs appropriées, puis spécifiez une valeur numérique pour **&lt;input_number>** comme entrée pour la fonction Java.
 
@@ -144,7 +144,7 @@ Dans cette section, vous allez créer le [pipeline Jenkins](https://jenkins.io/d
     The number 365 is Odd.
     ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous ne pensez pas continuer à utiliser cette application, supprimez les ressources que vous avez créées en effectuant l’étape suivante :
 
