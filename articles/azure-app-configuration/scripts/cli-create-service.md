@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 01/24/2020
 ms.author: lcozzens
-ms.openlocfilehash: 7cc8454ca8dc8d6313e1cf353292adb47b15ef47
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 11f3aec10aed0dc8bc0c9831d563dca2b0c1a6fb
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898717"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468336"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Créer un magasin Azure App Configuration
 
@@ -24,10 +24,6 @@ Cet exemple de script crée une instance d’Azure App Configuration dans un nou
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
-
-Vous devez d’abord installer l’extension CLI d’Azure App Configuration en exécutant la commande suivante :
-
-        az extension add -n appconfig
 
 ## <a name="sample-script"></a>Exemple de script
 
@@ -71,8 +67,8 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources et
 | Commande | Notes |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
-| [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | Crée une ressource de magasin App Configuration. |
-| [az appconfig credential list](/cli/azure/ext/appconfig/appconfig/credential?view=azure-cli-latest) | Liste les clés d’accès d’un magasin App Configuration. |
+| [az appconfig create](/cli/azure/appconfig#az-appconfig-create) | Crée une ressource de magasin App Configuration. |
+| [az appconfig credential list](/cli/azure/appconfig/credential#az-appconfig-credential-list) | Liste les clés d’accès d’un magasin App Configuration. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,12 +3,12 @@ title: 'Tutoriel : Créer un contrôleur d’entrée Application Gateway dans A
 description: Tutoriel montrant comment créer un cluster Kubernetes avec Azure Kubernetes Service et utilisant Application Gateway comme contrôleur d’entrée
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: da9768c8b2ad854b116ef1b9eab801661f547bfa
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: b16b0a40d14ecde87b2637976299d05d37d706f3
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772869"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472262"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Tutoriel : Créer un contrôleur d’entrée Application Gateway dans Azure Kubernetes Service
 
@@ -25,11 +25,11 @@ Dans ce tutoriel, vous allez apprendre à effectuer les opérations suivantes :
 > * Utiliser Terraform et AKS pour créer un cluster Kubernetes.
 > * Utiliser l’outil kubectl pour tester la disponibilité d’un cluster Kubernetes.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
-- **Configurez Terraform** : Suivez les instructions de l’article [Terraform et configuration de l’accès à Azure ](/azure/virtual-machines/linux/terraform-install-configure)
+- **Configurez Terraform** : Suivez les instructions de l’article [Terraform et configuration de l’accès à Azure ](terraform-install-configure.md)
 
 - **Groupe de ressources Azure** : Si vous n’avez pas de groupe de ressources Azure à utiliser pour la démonstration, [créez un groupe de ressources Azure](/azure/azure-resource-manager/manage-resource-groups-portal#create-resource-groups). Notez le nom et l’emplacement du groupe de ressources, car ces valeurs sont utilisées dans la démonstration.
 

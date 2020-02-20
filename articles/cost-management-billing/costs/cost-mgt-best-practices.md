@@ -1,21 +1,20 @@
 ---
 title: Optimiser votre investissement dans le cloud avec Azure Cost Management | Microsoft Docs
 description: Cet article vous aide à tirer le meilleur parti de vos investissements dans le cloud, à réduire vos coûts et à évaluer vos postes de dépenses.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: vitavor
+ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 47a53136a8f299e5c8654d122d8e319be4ae29db
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6d13bf4b2a3abd3a1552ac656a6a15fed8c7cb60
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984545"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201065"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Guide pratique pour optimiser votre investissement dans le cloud avec Azure Cost Management
 
@@ -85,20 +84,20 @@ Pour optimiser votre expérience au sein de Cost Management, la première étape
 
 Pour en savoir plus sur les différentes options, consultez la page [Acheter Azure](https://azure.microsoft.com/pricing/purchase-options/). Plusieurs des modèles de facturation les plus courants sont présentés ci-après.
 
-#### <a name="freehttpsazuremicrosoftcomfree"></a>[Gratuit](https://azure.microsoft.com/free/)
+#### <a name="free"></a>[Gratuit](https://azure.microsoft.com/free/)
 
 - 12 mois de services gratuits populaires
 - Crédit de 170 € pour explorer les services pendant 30 jours
 - Plus de 25 services sont toujours gratuits
 
-#### <a name="pay-as-you-gohttpsazuremicrosoftcomoffersms-azr-0003p"></a>[Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p)
+#### <a name="pay-as-you-go"></a>[Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p)
 
 - Aucun minimum, aucun engagement
 - Tarifs compétitifs
 - Payez uniquement pour ce que vous utilisez
 - Annulation possible à tout moment
 
-#### <a name="enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement"></a>[Contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/)
+#### <a name="enterprise-agreement"></a>[Contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
 - Options pour des engagements monétaires initiaux
 - Accès à des tarifs Azure réduits

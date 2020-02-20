@@ -3,12 +3,12 @@ title: 'Tutoriel : Créer un cluster de machines virtuelles Azure avec Terrafor
 description: Utilisez Terraform et HCL pour créer un cluster de machines virtuelles Linux avec un équilibreur de charge dans Azure
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 1ff13f05a5be463ed7477b4bbbc3e1f977a04a75
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 39e9857ad0119c08e949bbe5f6accb07432f3469
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665372"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470868"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>Tutoriel : Créer un cluster de machines virtuelles Azure avec Terraform et HCL
 
@@ -28,11 +28,11 @@ Vous allez apprendre à effectuer les tâches suivantes :
 ## <a name="1-set-up-azure-authentication"></a>1. Configurer l’authentification Azure
 
 > [!NOTE]
-> Si vous [utilisez des variables d’environnement Terraform](/azure/virtual-machines/linux/terraform-install-configure) ou exécutez ce didacticiel dans [Azure Cloud Shell](terraform-cloud-shell.md), ignorez cette section.
+> Si vous [utilisez des variables d’environnement Terraform](terraform-install-configure.md) ou exécutez ce didacticiel dans [Azure Cloud Shell](terraform-cloud-shell.md), ignorez cette section.
 
 Dans cette section, vous générez un service Azure principal et deux fichiers de configuration Terraform contenant les informations d’identification du principal sécurité.
 
-1. [Configurez un principal de service Azure AD](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) pour permettre à Terraform d’approvisionner des ressources dans Azure. Lors de la création du principal, notez les valeurs pour l’ID d’abonnement, le client, l’appId et le mot de passe.
+1. [Configurez un principal de service Azure AD](terraform-install-configure.md#set-up-terraform-access-to-azure) pour permettre à Terraform d’approvisionner des ressources dans Azure. Lors de la création du principal, notez les valeurs pour l’ID d’abonnement, le client, l’appId et le mot de passe.
 
 2. Ouvrez une invite de commandes.
 

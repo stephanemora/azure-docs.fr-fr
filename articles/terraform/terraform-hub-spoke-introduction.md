@@ -3,14 +3,14 @@ title: Tutoriel - Créer une topologie de réseau hybride hub-and-spoke dans Az
 description: Tutoriel illustrant la création d’une architecture de référence d’un réseau hybride entier dans Azure, à l’aide de Terraform
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 90a60fc4fe98397c903e3e8a460806d6a2edb908
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6f156dd90b83ceaf5749c8c2acebae35bcb54a92
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159023"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472177"
 ---
-# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>Didacticiel : Créer une topologie de réseau hybride hub-and-spoke dans Azure avec Terraform
+# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>Tutoriel : Créer une topologie de réseau hybride hub-and-spoke dans Azure avec Terraform
 
 Cette série de tutoriels explique comment utiliser Terraform pour implémenter une [topologie de réseau hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) dans Azure. 
 
@@ -20,7 +20,7 @@ Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
 > * Utilisation de HCL (HashiCorp Language) pour disposer les ressources de l’architecture de référence du réseau hybride hub-and-spoke
-> * Utilisation de Terraform pour créer des ressources d’appliance réseau hub
+> * Utiliser Terraform pour créer des ressources d’appliance réseau hub
 > * Utilisation de Terraform pour créer un réseau hub dans Azure qui agisse comme point commun à toutes les ressources
 > * Utilisation de Terraform pour créer des charges de travail individuelles en tant que réseaux virtuels spoke dans Azure
 > * Utilisation de Terraform pour établir des passerelles et des connexions entre le réseau local et les réseaux Azure
@@ -30,7 +30,7 @@ Ce tutoriel décrit les tâches suivantes :
 
 - **Abonnement Azure** : si vous n’avez pas encore d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
-- **Installation et configuration de Terraform** : afin de provisionner les machines virtuelles et d’autres infrastructures dans Azure, [installez et configurez Terraform](/azure/virtual-machines/linux/terraform-install-configure).
+- **Installation et configuration de Terraform** : afin de provisionner les machines virtuelles et d’autres infrastructures dans Azure, [installez et configurez Terraform](terraform-install-configure.md).
 
 ## <a name="hub-and-spoke-topology-architecture"></a>Architecture de topologie hub-and-spoke
 
@@ -81,7 +81,7 @@ Créez le répertoire qui contient vos fichiers de configuration Terraform pour 
 
     ![Invite Cloud Shell](./media/terraform-common/azure-portal-cloud-shell-button-min.png)
 
-1. Remplacez le répertoire par le répertoire `clouddrive`.
+1. Déplacez-vous dans le répertoire `clouddrive`.
 
     ```bash
     cd clouddrive
