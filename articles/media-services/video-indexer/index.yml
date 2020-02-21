@@ -1,52 +1,71 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation Azure Media Services Video Indexer
+### YamlMime:Landing
+title: Découvrir Azure Media Services Video Indexer
+summary: Azure Media Services Video Indexer est une application cloud basée sur Azure Media Analytics, Recherche cognitive Azure et Cognitive Services (par exemple, l’API Visage, Microsoft Translator, l’API Vision par ordinateur et Custom Speech Service). Elle vous permet d’extraire les insights de vos vidéos à l’aide de modèles vidéo et audio Video Indexer.
 metadata:
-  title: Documentation Azure Media Services Video Indexer | Microsoft Docs
-  description: Découvrez Video Indexer.
+  title: Documentation Azure Media Services Video Indexer
+  description: Azure Media Services Video Indexer est une application cloud basée sur Azure Media Analytics, Recherche cognitive Azure et Cognitive Services (par exemple, l’API Visage, Microsoft Translator, l’API Vision par ordinateur et Custom Speech Service). Elle vous permet d’extraire les insights de vos vidéos à l’aide de modèles vidéo et audio Video Indexer.
   services: media-services
-  author: juliako
-  manager: femila
   ms.service: media-services
-  ms.subservice: video-indexer
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: 
   ms.topic: landing-page
-  ms.date: 03/11/2019
+  ms.collection: collection
+  author: Juliako
   ms.author: juliako
-abstract:
-  description: 'Azure Media Services Video Indexer est une application cloud basée sur Azure Media Analytics, Recherche cognitive Azure et Cognitive Services (par exemple, l’API Visage, Microsoft Translator, l’API Vision par ordinateur et Custom Speech Service). Elle vous permet d’extraire les insights de vos vidéos à l’aide de modèles vidéo et audio Video Indexer.<br/>Pour comprendre à quel moment utiliser Video Indexer plutôt que les présélections de l’analyseur de Media Services, consultez le <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">document de comparaison</a>.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 2
-        items:
-          - href: video-indexer-overview.md
-            html: <p>Video Indexer intègre des technologies d’intelligence artificielle multimédias pour puiser plus facilement des insights dans les vidéos.</p>
-            image:
-              src: media/index/AMSIcons-media_servicesV3.svg
-            title: "Qu’est-ce qu’Azure Media Services Video Indexer\_?"
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: "Connectez-vous au site web de Video Indexer et chargez votre première vidéo\_:"
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/AMSIcons-media_analytics.svg
-            text: Extraire des informations
-            href: /azure/media-services/video-indexer/video-indexer-get-started
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: "Découvrez comment extraire des informations de vos vidéos avec l’API Video Indexer\_:"
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/AMSIcons-media_analytics.svg
-            text: Extraire des informations
-            href: /azure/media-services/video-indexer/video-indexer-use-apis
+  ms.date: 02/18/2020
+  ms.openlocfilehash: a3e1ec7b97d76287614b4e154143899acf7fd902
+  ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 02/20/2020
+  ms.locfileid: "77485112"
+landingContent:
+- title: À propos d’Azure Media Services Video Indexer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que Video Indexer ?
+      url: video-indexer-overview.md
+    - text: Comparer les préréglages de Media Services v3 et de Video Indexer
+      url: compare-video-indexer-with-media-services-presets.md
+    - text: Forum aux questions
+      url: faq.md
+    - text: User voice
+      url: https://cognitive.uservoice.com/forums/598144-video-indexer
+  - linkListType: whats-new
+    links:
+    - text: Nouveautés de Video Indexer
+      url: release-notes.md
+- title: Bien démarrer
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: S’inscrire et charger une vidéo
+      url: video-indexer-get-started.md
+    - text: Inviter des utilisateurs
+      url: invite-users.md
+  - linkListType: how-to-guide
+    links:
+    - text: Créer un compte connecté à Azure
+      url: connect-to-azure.md
+    - text: Utiliser l’API Video Indexer
+      url: video-indexer-use-apis.md
+    - text: Charger et indexer vos vidéos
+      url: upload-index-videos.md
+    - text: Examiner la sortie produite par l’API
+      url: video-indexer-output-json-v2.md
+    - text: Incorporer des widgets Video Indexer dans des applications
+      url: video-indexer-embed-widgets.md
+  - linkListType: sample
+    links:
+    - text: Exemples de code
+      url: https://github.com/Azure-Samples/media-services-video-indexer
+- title: Personnaliser des modèles de contenu
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Personnaliser un modèle de marques
+      url: customize-brands-model-with-website.md
+    - text: Personnaliser un modèle de langage
+      url: customize-language-model-with-website.md
+    - text: Personnaliser un modèle de personne
+      url: customize-person-model-with-website.md

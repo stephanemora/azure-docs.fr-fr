@@ -281,23 +281,23 @@
         - name: Configurer les rapports de la Sauvegarde Azure
           items:
             - name: Configurer les rapports de la Sauvegarde Azure
-              href: backup-azure-configure-reports.md
-            - name: Modèle de données pour les rapports de sauvegarde Azure
-              href: backup-azure-reports-data-model.md
-            - name: Modèle de données Log Analytics pour la sauvegarde Azure
-              href: backup-azure-log-analytics-data-model.md
+              href: configure-reports.md
         - name: Configurer des événements de diagnostic pour les coffres Recovery Services
           items:
             - name: Utilisation des paramètres de diagnostic pour les coffres Recovery Services
               href: backup-azure-diagnostic-events.md
             - name: Modèle de données Log Analytics pour les événements de diagnostic spécifiques aux ressources
-              href: backup-azure-log-analytics-new-data-model.md
+              href: backup-azure-reports-data-model.md
+            - name: Modèle de données Log Analytics pour Sauvegarde Azure (mode Diagnostics Azure)
+              href: backup-azure-diagnostics-mode-data-model.md
     - name: Automatisation
       items:
         - name: Azure Policy intégré pour Sauvegarde Azure
           items:
             - name: Activer automatiquement la sauvegarde lors de la création de machines virtuelles avec Azure Policy
               href: backup-azure-auto-enable-backup.md
+            - name: Configurer les paramètres de diagnostic de coffre à grande échelle
+              href: azure-policy-configure-diagnostics.md
         - name: PowerShell
           items:
             - name: Machines virtuelles Azure dans le portail Azure

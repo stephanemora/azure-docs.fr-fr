@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Azure Media Services v2 (hérité)
+summary: Aucune nouvelle fonctionnalité n’est ajoutée à Media Services v2. Découvrez la dernière version, Media Services v3.
+metadata:
+  title: Documentation Azure Media Services v2
+  description: Apprenez à diffuser en continu des vidéos à la demande ou de qualité télévisuelle avec Media Services v2.
+  services: media-services
+  ms.service: media-services
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: collection
+  author: Juliako
+  ms.author: juliako
+  ms.date: 02/18/2020
+  ms.openlocfilehash: c222a7c0603e9b57518993216711076659b51e4c
+  ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 02/20/2020
+  ms.locfileid: "77500771"
+landingContent:
+- title: À propos d’Azure Media Services v2
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vue d’ensemble d’Azure Media Services v2
+      url: media-services-overview.md
+    - text: Migrer vers Media Services V3
+      url: https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3
+  - linkListType: whats-new
+    links:
+    - text: Nouveautés de Media Services v2
+      url: media-services-release-notes.md
+  - linkListType: concept
+    links:
+    - text: Composants existants
+      url: legacy-components.md
+- title: Diffuser en direct
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vue d’ensemble
+      url: media-services-manage-channels-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Créer un compte Media Services à l’aide du portail
+      url: media-services-portal-create-account.md
+    - text: Se connecter par programme
+      url: media-services-use-aad-auth-to-access-ams-api.md
+    - text: Streaming en direct avec le portail Azure
+      url: media-services-portal-live-passthrough-get-started.md
+    - text: Streaming en direct avec .NET
+      url: media-services-dotnet-live-encode-with-onpremises-encoders.md
+- title: Proposer la vidéo à la demande
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Utilisation du portail Azure
+      url: media-services-portal-vod-get-started.md
+    - text: Utiliser .NET
+      url: media-services-dotnet-get-started.md
+    - text: Utiliser REST
+      url: media-services-rest-get-started.md
