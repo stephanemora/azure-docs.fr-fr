@@ -130,10 +130,14 @@
       items:
         - name: Déploiement sans mot de passe
           href: howto-authentication-passwordless-deployment.md
-        - name: Clés de sécurité sans mot de passe
-          href: howto-authentication-passwordless-security-key.md
-        - name: "Windows\_10 sans mot de passe"
-          href: howto-authentication-passwordless-security-key-windows.md
+        - name: Clés de sécurité FIDO2 sans mot de passe
+          items:
+            - name: Activer les clés de sécurité FIDO2 pour votre locataire
+              href: howto-authentication-passwordless-security-key.md
+            - name: "Se connecter à des appareils Windows\_10"
+              href: howto-authentication-passwordless-security-key-windows.md
+            - name: Authentification unique auprès de ressources locales
+              href: howto-authentication-passwordless-security-key-on-premises.md
         - name: Connexion par téléphone sans mot de passe
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello Entreprise
