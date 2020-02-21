@@ -389,7 +389,16 @@
             - name: Output
               href: functions-bindings-service-bus-output.md
         - name: Service SignalR
-          href: functions-bindings-signalr-service.md
+          items:
+            - name: Vue d’ensemble
+              href: functions-bindings-signalr-service.md
+              displayName: SignalR Service
+            - name: Vue d’ensemble
+              href: functions-bindings-signalr-service-input.md
+              displayName: SignalR Service
+            - name: Vue d’ensemble
+              href: functions-bindings-signalr-service-output.md
+              displayName: SignalR Service
         - name: Stockage de tables
           href: functions-bindings-storage-table.md
         - name: Minuterie

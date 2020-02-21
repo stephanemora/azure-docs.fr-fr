@@ -5,19 +5,19 @@ metadata:
   title: Documentation sur le provisionnement d’applications
   description: Le provisionnement d’applications Azure Active Directory vous permet de créer et de gérer automatiquement des identités utilisateur dans vos applications (SaaS) cloud. Azure AD offre aussi le provisionnement d’applications de ressources humaines (RH) basées sur le cloud. Découvrez comment gérer et déployer le provisionnement d’applications et de RH cloud avec nos guides de démarrage rapide, nos tutoriels et nos conseils.
   ms.service: active-directory
-  ms.subservice: app-mgmt
+  ms.subservice: app-provisioning
   ms.workload: identity
   ms.topic: landing-page
   ms.date: 02/06/2020
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 02d9ee235de798e0c6095e0cbf60c08eabec53cd
-  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+  ms.openlocfilehash: 0b6b3829f4111c57e20f495be962357832a5bfcd
+  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 02/07/2020
-  ms.locfileid: "77065499"
+  ms.lasthandoff: 02/21/2020
+  ms.locfileid: "77522464"
 landingContent:
 - title: Provisionner des utilisateurs et des groupes dans une application cloud
   linkLists:
