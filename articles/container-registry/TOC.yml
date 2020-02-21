@@ -56,6 +56,8 @@
               href: container-registry-get-started-docker-cli.md
             - name: Envoyer (push) et tirer (pull) un artefact OCI
               href: container-registry-oci-artifacts.md
+            - name: Envoyer (push) et tirer (pull) un graphique Helm
+              href: container-registry-helm-repos.md
             - name: Afficher les référentiels
               href: container-registry-repositories.md
             - name: Importer les images conteneur
@@ -72,8 +74,6 @@
                   href: container-registry-auto-purge.md
             - name: Utiliser des webhooks ACR
               href: container-registry-webhook.md
-            - name: Référentiels de graphique Helm (préversion)
-              href: container-registry-helm-repos.md
         - name: Sécurité et authentification
           items:
             - name: Limiter l’accès à un réseau virtuel (préversion)

@@ -6,20 +6,20 @@
   items:
     - name: "Qu’est-ce que Data Science Virtual Machine (DSVM)\_?"
       href: overview.md
-    - name: "Qu’est-ce que la DSVM d’IA géographique\_?"
+    - name: "Qu’est-ce que Geo AI Data Science Virtual Machine\_?"
       href: geo-ai-dsvm-overview.md
-    - name: Outils inclus dans DSVM
+    - name: Outils inclus dans Data Science Virtual Machine
       href: tools-included.md
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Créer une DSVM Windows
+    - name: Créer une instance Windows de Data Science Virtual Machine
       href: provision-vm.md
-    - name: Créer une DSVM Ubuntu
+    - name: Créer une instance Ubuntu de Data Science Virtual Machine
       href: dsvm-ubuntu-intro.md
-    - name: Créer une DSVM CentOS
+    - name: Créer une machine virtuelle Data Science Virtual Machine CentOS
       href: linux-dsvm-intro.md
-    - name: Créer une Geo AI DSVM
+    - name: Créer une instance Geo AI de Data Science Virtual Machine
       href: provision-geo-ai-dsvm.md
 - name: Concepts
   items:
@@ -43,13 +43,13 @@
   href: dsvm-samples-and-walkthroughs.md
 - name: Guides pratiques
   items:
-    - name: Utiliser une DSVM Windows
+    - name: Utiliser une instance Windows de Data Science Virtual Machine
       href: vm-do-ten-things.md
-    - name: Utiliser une DSVM Linux
+    - name: Utiliser une instance Linux de Data Science Virtual Machine
       href: linux-dsvm-walkthrough.md
-    - name: Utiliser une Geo AI DSVM
+    - name: Utiliser une instance Geo AI de Data Science Virtual Machine
       href: use-geo-ai-dsvm.md
-    - name: Créer un pool DSVM mis à l’échelle automatiquement
+    - name: Créer un pool Data Science Virtual Machine mis à l’échelle automatiquement
       href: dsvm-pools.md
     - name: Intégration avec Active Directory
       href: dsvm-common-identity.md
@@ -65,9 +65,9 @@
       href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
 - name: Informations de référence
   items:
-    - name: DSVM Ubuntu
+    - name: Instance Ubuntu de Data Science Virtual Machine
       href: reference-ubuntu-vm.md
-    - name: DSVM CentOS
+    - name: Instance CentOS de Data Science Virtual Machine
       href: reference-centos-vm.md
     - name: Notes de publication
       href: release-notes.md

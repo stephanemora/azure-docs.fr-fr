@@ -710,7 +710,7 @@
             - name: Questions fréquentes (FAQ)
               href: migration-classic-resource-manager-faq.md
 - name: Dépanner
-  href: ../troubleshooting/index.md
+  href: ../troubleshooting/index.yml
 - name: Informations de référence
   items:
     - name: Azure CLI

@@ -381,7 +381,7 @@
         - name: Mises à jour et correctifs
           items:
             - name: Infrastructure de mise à jour Red Hat
-              href: update-infrastructure-redhat.md
+              href: ../workloads/redhat/redhat-rhui.md
         - name: Agent de machine virtuelle Azure
           items:
             - name: Vue d’ensemble
@@ -771,4 +771,4 @@
     - name: Questions fréquentes (FAQ)
       href: faq.md
 - name: Dépanner
-  href: ../troubleshooting/index.md
+  href: ../troubleshooting/index.yml

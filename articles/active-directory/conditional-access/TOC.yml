@@ -6,12 +6,14 @@
       href: overview.md
 - name: Démarrages rapides
   items:
-    - name: Exiger l’authentification multifacteur pour les applications spécifiques
-      href: app-based-mfa.md
     - name: Exiger l’acceptation des conditions d’utilisation
       href: require-tou.md
     - name: Bloquer l’accès lorsqu’un risque de session est détecté
       href: app-sign-in-risk.md
+- name: Tutoriels
+  items:
+    - name: Exiger l’utilisation d’Azure Multi-Factor Authentication
+      href: /authentication/tutorial-enable-azure-mfa.md?toc=/azure/conditional-access/toc.json&bc=/azure/conditional-access/breadcrumb/toc.json
 - name: Concepts
   expanded: false
   items:
