@@ -1,22 +1,22 @@
 ### YamlMime:Hub
 title: Documentation Azure Cognitive Services
 summary: Découvrez comment créer des algorithmes intelligents et pris en charge dans vos applications, vos sites web et vos bots pour voir, écouter, énoncer, comprendre et interpréter les besoins de vos utilisateurs.
+brand: azure
 metadata:
   title: Documentation Azure Cognitive Services
   description: Découvrez comment créer des algorithmes intelligents et pris en charge dans vos applications, vos sites web et vos bots pour voir, écouter, énoncer, comprendre et interpréter les besoins de vos utilisateurs.
   ms.service: cognitive-services
   ms.topic: hub-page
-  brand: azure
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 11/04/2019
-  ms.openlocfilehash: e0fc6aaaedc5eff98017eb62187575ab9afbba59
-  ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+  ms.date: 01/21/2020
+  ms.openlocfilehash: f39f2a6360363131eb346f613cf0f7a25910404a
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 01/14/2020
-  ms.locfileid: "75945192"
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77560760"
 highlightedContent:
   items:
   - title: Présentation de Cognitive Services
@@ -71,7 +71,7 @@ conceptualContent:
     links:
     - url: ./immersive-reader/index.yml
       itemType: overview
-      text: Lecteur immersif
+      text: Lecteur immersif (préversion)
     - url: ./luis/index.yml
       itemType: overview
       text: Language Understanding (LUIS)
@@ -87,7 +87,7 @@ conceptualContent:
   - title: Speech
     summary: Convertissez de la parole en texte et du texte en parole naturelle. Traduisez d’une langue à une autre, et activez la vérification et la reconnaissance de l’orateur.
     links:
-    - url: ./speech-service/index.md
+    - url: ./speech-service/index.yml
       itemType: overview
       text: Service Speech
     - url: ./speaker-recognition/home.md
