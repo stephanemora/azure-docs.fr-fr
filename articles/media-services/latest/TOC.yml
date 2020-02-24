@@ -99,6 +99,8 @@
         - name: Points de terminaison de diffusion en continu
           displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
+        - name: Mise à l’échelle du streaming avec CDN
+          href: scale-streaming-cdn.md
         - name: Localisateurs de diffusion en continu
           displayName: URLs
           href: streaming-locators-concept.md
@@ -228,6 +230,8 @@
           href: cli-create-transform.md
         - name: Créer des travaux - CLI
           href: cli-create-jobs.md
+        - name: Travaux avec plusieurs sorties de transformation
+          href: job-multiple-transform-outputs.md
     - name: Encodage de contenu
       items:
         - name: HTTPS en tant qu’entrée de travail - .NET

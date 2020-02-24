@@ -64,6 +64,8 @@
   items:
     - name: Passer d’un équilibreur de charge public De base à un équilibreur de charge public Standard
       href: upgrade-basic-standard.md
+    - name: Passer d’un équilibreur de charge interne De base à un équilibreur de charge interne Standard
+      href: upgrade-basicInternal-standard.md
     - name: Configurer des règles de trafic sortant
       items:
         - name: Azure CLI
