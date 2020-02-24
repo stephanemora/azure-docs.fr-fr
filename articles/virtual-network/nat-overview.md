@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 98d77f43c990dd00dd5e5d616b2fdee44fb8a2f6
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 1bdd6552c3d418d761ffaf1df4ebb769421693f5
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431415"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484993"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>Présentation du service NAT de Réseau virtuel (préversion publique)
 
@@ -199,7 +199,6 @@ Nous aimerions savoir comment nous pouvons améliorer le service. Faites-nous pa
 - La famille d’adresses IPv4 est prise en charge.  NAT n’interagit pas avec la famille d’adresses IPv6.
 - Un groupe de sécurité réseau sur un sous-réseau ou une carte réseau n’est pas honoré pour des flux sortants vers les points de terminaison publics utilisant NAT.
 - La journalisation des flux de groupe de sécurité réseau n’est pas prise en charge lors de l’utilisation de NAT.
-- Quand un réseau virtuel possède plusieurs sous-réseaux, chaque sous-réseau peut avoir une configuration NAT différente.
 - NAT ne peut pas s’étendre sur plusieurs réseaux virtuels.
 
 ## <a name="next-steps"></a>Étapes suivantes
