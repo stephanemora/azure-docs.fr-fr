@@ -1,20 +1,20 @@
 ---
 title: 'Tutoriel : Joindre des données de capteur à des données de prévisions météorologiques avec Azure Notebooks (Python) | Microsoft Azure Maps'
 description: Ce tutoriel vous montre comment joindre des données de capteur à des prévisions météorologiques à partir du service météo de Microsoft Azure Maps avec Azure Notebooks (Python).
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/29/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6d49a305a9b2e02d9e9d743ff8f076f453a08fcb
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: d6b82ec0662745fd9c9a05db28595ff84f57f330
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989618"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208027"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutoriel : Joindre des données de capteur à des données de prévisions météorologiques avec Azure Notebooks (Python)
 
@@ -31,7 +31,7 @@ Ce didacticiel présente les procédures suivantes :
 > * Créez des graphiques à partir des données de prévisions.
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel, vous devez d’abord :
 
@@ -68,7 +68,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## <a name="request-daily-forecast-data"></a>Demander des données de prévisions quotidiennes
 
-Dans notre scénario, nous souhaitons demander des prévisions quotidiennes pour chaque emplacement de capteur. Le script suivant appelle l’[API Daily Forecast](https://aka.ms/AzureMapsWeatherDailyForecast) du service météorologique d’Azure Maps afin d’obtenir les prévisions météorologiques quotidiennes de chaque éolienne, pour les 15 prochains jours à compter de la date du jour.
+Dans notre scénario, nous souhaitons demander des prévisions quotidiennes pour chaque emplacement de capteur. Le script suivant appelle l’[API de prévision quotidienne](https://aka.ms/AzureMapsWeatherDailyForecast) du service météo Azure Maps. Cette API retourne les prévisions météorologiques pour chaque éolienne, pour les 15 prochains jours à compter de la date actuelle.
 
 
 ```python
@@ -129,7 +129,7 @@ display(Image(poi_range_map))
 ![Emplacements des éoliennes](./media/weather-service-tutorial/location-map.png)
 
 
-Nous allons regrouper les données de prévisions avec les données de démonstration en nous basant sur l’ID de station du centre de données météorologiques. Ce regroupement complète les données de démonstration avec les données de prévisions. 
+Nous allons regrouper les données de prévisions avec les données de démonstration en nous basant sur l’ID de station. L’ID de station correspond au centre de données météo. Ce regroupement complète les données de démonstration avec les données de prévisions.
 
 ```python
 # Group forecasted data for all locations

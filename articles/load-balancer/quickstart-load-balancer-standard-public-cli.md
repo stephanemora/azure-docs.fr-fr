@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 8ef24630d255876c45d9cbc072fc989288f2ac5f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fdbd002ac946f3ac3a1a67980905d4ed6f5510c5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837202"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470341"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Démarrage rapide : créer un Standard Load Balancer pour équilibrer la charge des machines virtuelles avec Azure CLI
 
@@ -58,7 +58,10 @@ Pour créer une adresse IP publique zonale dans la zone 1, utilisez :
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
 ```
 
- Utilisez ```--sku basic``` pour créer une adresse IP publique de base. Ce type ne prend pas en charge les zones de disponibilité. Microsoft recommande de sélectionner la référence SKU Standard pour les charges de travail de production.
+Utilisez ```-SKU Basic``` pour créer une adresse IP publique de base. Les adresses IP publiques de base ne sont pas compatibles avec l’équilibreur de charge **Standard**. Microsoft recommande d’utiliser le type **Standard** pour les charges de travail de production.
+
+> [!IMPORTANT]
+> Le reste de ce guide de démarrage rapide suppose que la référence SKU **Standard** est choisie pendant le processus de sélection de SKU ci-dessus.
 
 ## <a name="create-azure-load-balancer"></a>Créer un équilibreur de charge Azure
 
@@ -81,6 +84,9 @@ Créez un équilibreur de charge Azure public à l’aide de la commande [az net
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool       
   ```
+
+> [!IMPORTANT]
+> Le reste de ce guide de démarrage rapide suppose que la référence SKU **Standard** est choisie pendant le processus de sélection de SKU ci-dessus.
 
 ### <a name="create-the-health-probe"></a>Créer la sonde d’intégrité
 

@@ -4,14 +4,14 @@ description: Dans ce guide de démarrage rapide, vous déployez un exemple d’a
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: adb5b64456de743142ffb464ebb2c5e9f8dc8f86
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 1e30da0844efa48f64a5e2501c79d2167ca4be92
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190769"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431251"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Démarrage rapide : Lancer une application Java Spring en utilisant Azure CLI
 
@@ -28,7 +28,7 @@ Dans ce guide de démarrage rapide, vous découvrez comment :
 > * Déployer chaque microservice
 > * Affecter un point de terminaison public pour votre application
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 >[!Note]
 > Azure Spring Cloud est actuellement disponible en préversion publique. Les offres en préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à une utilisation en contexte de production.  Pour en savoir plus sur le support offert avec les préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou soumettez une [demande de support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
@@ -143,28 +143,34 @@ az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth
 
 ## <a name="assign-public-endpoint-to-gateway"></a>Affecter un point de terminaison public à la passerelle
 
-Nous avons besoin d’un moyen d’accéder à l’application via un navigateur web. Notre application de passerelle a besoin d’un point de terminaison public, qui peut être affecté avec la commande suivante :
+Nous avons besoin d’un moyen d’accéder à l’application via un navigateur web. Notre application de passerelle a besoin d’un point de terminaison public.
+
+1. Affectez le point de terminaison à l’aide de la commande suivante :
 
 ```azurecli
 az spring-cloud app update -n gateway --is-public true
 ```
+2. Interrogez l’application de **passerelle** pour obtenir son adresse IP publique, afin de pouvoir vérifier que l’application est en cours d’exécution :
 
-Enfin, interrogez l’application de **passerelle** pour obtenir son adresse IP publique, afin de pouvoir vérifier que l’application est en cours d’exécution :
-
+Linux :
 ```azurecli
 az spring-cloud app show --name gateway | grep url
 ```
-
-Accédez à l’URL fournie par la commande précédente pour exécuter l’application PiggyMetrics.
+Windows :
+```azurecli
+az spring-cloud app show --name gateway | findstr url
+```
+3. Accédez à l’URL fournie par la commande précédente pour exécuter l’application PiggyMetrics.
     ![Capture d’écran de PiggyMetrics en cours d’exécution](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 
 Vous pouvez également accéder au Portail Azure pour trouver l’URL. 
 1. Accéder au service
-1. Sélectionner **Applications**
-1. Sélectionner **passerelle**
+2. Sélectionner **Applications**
+3. Sélectionner **passerelle**
 
     ![Capture d’écran de PiggyMetrics en cours d’exécution](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
-1. Recherchez l’URL sur la page **Vue d’ensemble de la passerelle**![Capture d’écran de PiggyMetrics en cours d’exécution](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
+    
+4. Recherchez l’URL sur la page **Vue d’ensemble de la passerelle**![Capture d’écran de PiggyMetrics en cours d’exécution](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 
 > [!div class="nextstepaction"]
 > [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)

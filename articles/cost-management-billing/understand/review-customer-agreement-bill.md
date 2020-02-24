@@ -2,21 +2,18 @@
 title: Consulter votre facture Contrat client Microsoft - Azure
 description: Découvrez comment consulter votre facture et l’utilisation de vos ressources, et vérifier les frais associés à votre facture Contrat client Microsoft.
 author: bandersmsft
-manager: jureid
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/22/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 961eef939684b1bfb4ebe1840ff87e7bd836f205
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 21579c7c3acd726ac8958768238631333cf63c39
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121767"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199141"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Tutoriel : Consulter votre facture Contrat client Microsoft
 
@@ -31,7 +28,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Passez en revue les frais en attente pour estimer votre prochaine facture
 > * Analyser vos frais d’utilisation Azure
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous devez avoir un compte de facturation associé à un Contrat client Microsoft.
 

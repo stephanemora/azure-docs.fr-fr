@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 4a5775be66f95fb69db761c2356a61f80068bc75
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: eab8298362bfb3ad790d13fcbf47e0fe624ed3fd
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843869"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470188"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge pour équilibrer la charge des machines virtuelles à l’aide du portail Azure
 
@@ -41,15 +41,19 @@ Dans cette section, vous créez un équilibreur de charge qui équilibre la char
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Subscription               | Sélectionnez votre abonnement.    |    
+    | Abonnement               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer**, puis entrez *myResourceGroupSLB* dans la zone de texte.|
-    | Name                   | *myLoadBalancer*                                   |
+    | Nom                   | *myLoadBalancer*                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
     | Type          | Sélectionnez **Public**.                                        |
-    | SKU           | Sélectionnez **Standard** ou **De base**. Microsoft recommande de sélectionner Standard pour les charges de travail de production.  |
+    | SKU           | Sélectionnez **Standard** ou **De base**. Microsoft recommande de sélectionner Standard pour les charges de travail de production. |
     | Adresse IP publique | Sélectionnez **Créer nouveau**. Si vous avez une adresse IP publique existante que vous souhaitez utiliser, sélectionnez **Utiliser l’existant**. |
-    | Nom de l’adresse IP publique              | Tapez *myPublicIP* dans la zone de texte.   |
+    | Nom de l’adresse IP publique              | Tapez *myPublicIP* dans la zone de texte.   Utilisez ```-SKU Basic``` pour créer une adresse IP publique de base. Les adresses IP publiques de base ne sont pas compatibles avec l’équilibreur de charge **Standard**. Microsoft recommande d’utiliser le type **Standard** pour les charges de travail de production.|
     | Zone de disponibilité | Tapez *redondant interzone* pour créer un équilibreur de charge résilient. Pour créer un équilibreur de charge zonal, sélectionnez une zone spécifique parmi 1, 2 ou 3. |
+
+> [!IMPORTANT]
+> Le reste de ce guide de démarrage rapide suppose que la référence SKU **Standard** est choisie pendant le processus de sélection de SKU ci-dessus.
+
 
 3. Sous l’onglet **Review + create (Vérifier + créer)** , sélectionnez **Créer**.   
 
@@ -76,7 +80,7 @@ Pour permettre à l’équilibreur de charge de surveiller l’état de votre ap
     
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Name | Entrez *MyHealthProbe*. |
+    | Nom | Entrez *MyHealthProbe*. |
     | Protocol | Sélectionnez **HTTP**. |
     | Port | Entrez *80*.|
     | Intervalle | Entrez *15* pour **l’intervalle** en secondes entre les tentatives de la sonde. |
@@ -93,7 +97,7 @@ Une règle d’équilibreur de charge sert à définir la distribution du trafic
     
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Name | Entrez *MyHTTPRule*. |
+    | Nom | Entrez *MyHTTPRule*. |
     | Protocol | Sélectionnez **TCP**. |
     | Port | Entrez *80*.|
     | Port principal | Entrez *80*. |
@@ -113,11 +117,11 @@ Dans cette section, vous allez créer un réseau virtuel ainsi que trois machine
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Name | Entrez *myVNet*. |
+    | Nom | Entrez *myVNet*. |
     | Espace d’adressage | Entrez *10.1.0.0/16*. |
-    | Subscription | Sélectionnez votre abonnement.|
+    | Abonnement | Sélectionnez votre abonnement.|
     | Resource group | Sélectionner une ressource existante – *myResourceGroupSLB*. |
-    | Location | Sélectionnez **Europe Ouest**.|
+    | Emplacement | Sélectionnez **Europe Ouest**.|
     | Sous-réseau - Nom | Entrez *myBackendSubnet*. |
     | Plage d’adresses du sous-réseau | Entrez *10.1.0.0/24*. |
 1. Conservez les autres valeurs par défaut et sélectionnez **Créer**.
@@ -155,7 +159,7 @@ Les références SKU d’adresse IP publique et d’équilibreur de charge doive
 
     | Paramètre | Machine virtuelle 2| Machine virtuelle 3|
     | ------- | ----- |---|
-    | Name |  *myVM2* |*myVM3*|
+    | Nom |  *myVM2* |*myVM3*|
     | Zone de disponibilité | 2 |3|
     |Adresse IP publique| Référence **Standard**|Référence **Standard**|
     | Adresse IP publique - zone de disponibilité| **Redondant dans une zone** |**Redondant dans une zone**|

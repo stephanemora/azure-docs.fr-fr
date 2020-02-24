@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 8bf4039ac968883628a72974b64d90faf707c9af
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 6280f3784247b671521a4994be1f233d4913d90c
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700292"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77194498"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Présentation de la plateforme d’identités Microsoft (v2.0)
 
@@ -42,7 +42,11 @@ Avec la plateforme d’identités Microsoft, vous pouvez écrire du code une seu
 
 ## <a name="getting-started"></a>Prise en main
 
-L’utilisation des identités ne doit pas être difficile. Choisissez un [scénario](authentication-flows-app-scenarios.md) s’appliquant à votre cas ; chaque chemin de scénario a un guide de démarrage rapide et une page de présentation qui vous aident à être opérationnel en quelques minutes :
+L’utilisation des identités ne doit pas être difficile. 
+
+Regardez une [vidéo sur la plateforme d’identités Microsoft](identity-videos.md) pour connaître les principes de base. 
+
+Choisissez un [scénario](authentication-flows-app-scenarios.md) s’appliquant à votre cas ; chaque chemin de scénario a un guide de démarrage rapide et une page de présentation qui vous aident à être opérationnel en quelques minutes :
 
 - [Générer une application monopage](scenario-spa-overview.md)
 - [Générer une application web qui connecte les utilisateurs](scenario-web-app-sign-user-overview.md)

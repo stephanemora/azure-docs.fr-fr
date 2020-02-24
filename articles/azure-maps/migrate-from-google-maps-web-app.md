@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 67f9168d2b18a98850588554f77c4a5859f365df
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: b954c812bea6c2abf4376c2cee38a3789461ad01
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086413"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208741"
 ---
 # <a name="migrate-a-web-app-from-google-maps"></a>Migrer une application Web à partir de Google Maps
 
 La plupart des applications web qui utilisent Google Maps utilisent le kit SDK JavaScript Google Maps v3. Le Kit de développement logiciel (SDK) web Azure Maps est le kit de développement logiciel (SDK) Azure approprié vers lequel migrer. Le SDK web Azure Maps vous permet de personnaliser des cartes interactives avec du contenu et des images qui vous sont propres. Vous pouvez exécuter votre application sur des applications web ou mobiles. Ce contrôle utilise WebGL, ce qui vous permet d’afficher d’importants jeux de données avec des performances élevées. Développez avec le kit de développement logiciel (SDK) à l’aide de JavaScript ou de TypeScript.
 
-Si vous migrez une application web existante, vérifiez si elle utilise une bibliothèque de contrôle de carte open source. Voici des exemples of bibliothèque de contrôle de carte open source : Cesium, Leaflet et OpenLayers. Si votre application utilise une bibliothèque de contrôle de carte open source et que vous ne souhaitez pas utiliser le SDK Web Azure Maps, vous pouvez quand même effectuer la migration. Dans ce cas, connectez votre application aux services de mosaïques Azure Maps ([mosaïques routières](https://docs.microsoft.com/rest/api/maps/render/getmaptile) \| [mosaïques satellites](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile)). Les points suivants indiquent en détail comment utiliser Azure Maps dans certaines bibliothèques de contrôle de carte open source couramment utilisées.
+Si vous migrez une application web existante, vérifiez si elle utilise une bibliothèque de contrôle de carte open source. Voici des exemples of bibliothèque de contrôle de carte open source : Cesium, Leaflet et OpenLayers. Vous pouvez quand même effectuer la migration si votre application utilise une bibliothèque de contrôle de carte open source et que vous ne souhaitez pas utiliser le SDK web Azure Maps. Dans ce cas, connectez votre application aux services de mosaïques Azure Maps ([mosaïques routières](https://docs.microsoft.com/rest/api/maps/render/getmaptile) \| [mosaïques satellites](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile)). Les points suivants indiquent en détail comment utiliser Azure Maps dans certaines bibliothèques de contrôle de carte open source couramment utilisées.
 
 - Cesium : contrôle carte 3D pour le Web. [Documentation](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [de l’exemple de code](https://cesiumjs.org/)
 - Leaflet : contrôle de carte 2D léger pour le Web. [Documentation](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [de l’exemple de code](https://leafletjs.com/)
@@ -62,7 +62,7 @@ Voici quelques-unes des principales différences entre les SDK web Google Maps e
 
 ## <a name="web-sdk-side-by-side-examples"></a>Exemples côte à côte du kit de développement logiciel (SDK) Web
 
-Cette collection contient des exemples de code pour chaque plateforme, chacun couvrant des cas d’usage courants. Il est destinée à vous aider à migrer votre application web du SDK JavaScript Google Maps v3 vers le SDK web Azure Maps. Des exemples de code liés aux applications web sont fournis en JavaScript. Toutefois, Azure Maps fournit également des définitions TypeScript sous la forme d’une option supplémentaire disponible par le biais d’un module [NPM](how-to-use-map-control.md).
+Cette collection contient des exemples de code pour chaque plateforme, chacun couvrant un cas d’usage courant. Elle est destinée à vous aider à migrer votre application web du SDK JavaScript Google Maps v3 vers le SDK web Azure Maps. Des exemples de code liés aux applications web sont fournis en JavaScript. Toutefois, Azure Maps fournit également des définitions TypeScript sous la forme d’une option supplémentaire disponible par le biais d’un module [NPM](how-to-use-map-control.md).
 
 ### <a name="load-a-map"></a>Charger une carte
 
@@ -80,7 +80,7 @@ Les deux SDK nécessitent les mêmes étapes pour charger une carte :
 - Lors du référencement de l’élément `div` dans lequel la carte est rendue, la classe `Map` dans Azure Maps nécessite uniquement la valeur `id`, tandis que Google Maps requiert un objet `HTMLElement`.
 - Les coordonnées dans Azure Maps sont définies comme des objets Position qui peuvent être spécifiés comme un simple tableau de nombres au format `[longitude, latitude]`.
 - Le niveau de zoom dans Azure Maps est inférieur d’un niveau à celui de l’exemple Google Maps. Cette différence est due à la différence de taille du système de mosaïques entre les deux plateformes.
-- Azure Maps n’ajoute aucun contrôle de navigation au canevas de carte. Par conséquent, par défaut, une carte n’a pas de boutons de zoom et de boutons de style de carte. Il existe cependant des commandes pour ajouter un sélecteur de style de carte, des boutons de zoom, une boussole ou une commande de rotation et un réglage de vitesse.
+- Azure Maps n’ajoute aucun contrôle de navigation au canevas de carte. Par conséquent, par défaut, une carte n’a pas de boutons de zoom et de boutons de style de carte. Il existe cependant des options de commandes pour ajouter un sélecteur de style de carte, des boutons de zoom, une boussole ou une commande de rotation et un réglage de vitesse.
 - Un gestionnaire d’événements est ajouté dans Azure Maps pour surveiller l’événement `ready` de l’instance de la carte. Cet événement se déclenche quand la carte a terminé le chargement du contexte WebGL et de toutes les ressources nécessaires. Une fois le chargement de la carte terminé, ajoutez tout code que vous voulez exécuter à ce gestionnaire d’événements.
 
 Les exemples de base ci-dessous utilisent Google Maps pour charger une carte centrée sur New York aux coordonnées suivantes : longitude -73.985, latitude 40.747. La carte est au niveau de zoom 12.
@@ -212,7 +212,7 @@ Voici un exemple de Google Maps avec la langue définie sur « fr-FR ».
 
 **Après : Azure Maps**
 
-Azure Maps propose deux méthodes pour définir la langue et l’affichage régional de la carte. La première option consiste à ajouter ces informations à l’espace de noms *atlas* global, ce qui a pour effet d’attribuer ces paramètres par défaut à toutes les instances de contrôle de carte dans votre application. Le code suivant définit la langue sur le français (« fr-FR ») et l’affichage régional sur « auto » :
+Azure Maps propose deux méthodes pour définir la langue et l’affichage régional de la carte. La première option consiste à ajouter ces informations à l’espace de noms global *Atlas*. Toutes les instances de contrôle de carte dans votre application utiliseront alors ces paramètres par défaut. Le code suivant définit la langue sur le français (« fr-FR ») et l’affichage régional sur « auto » :
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -246,7 +246,7 @@ Voici un exemple de Azure Maps avec la langue définie sur « fr » et la rég
 
 ### <a name="setting-the-map-view"></a>Définition de la vue cartographique
 
-Dans Azure Maps et Google Maps, les cartes dynamiques peuvent être déplacées programmatiquement vers de nouveaux lieux géographiques. Pour ce faire, appelez les fonctions appropriées en JavaScript. L’exemple montre comment faire en sorte que la carte affiche une image aérienne satellite, centrer la carte sur un endroit et définir le niveau de zoom sur 15 dans Google Maps. Les coordonnées de localisation suivantes sont utilisées : longitude : -111,0225 et latitude : 35.0272.
+Dans Azure Maps et Google Maps, les cartes dynamiques peuvent être déplacées programmatiquement vers de nouveaux lieux géographiques. Pour ce faire, appelez les fonctions appropriées en JavaScript. L’exemple montre comment faire en sorte que la carte affiche une image aérienne satellite, centrer la carte sur un endroit et changer le niveau de zoom. Les coordonnées d’emplacement suivantes sont utilisées : longitude : -111,0225 et latitude : 35.0272.
 
 > [!NOTE]
 > Google Maps utilise des mosaïques de 256 pixels, tandis qu’Azure Maps utilise une mosaïque de 512 pixels. Ainsi, Azure Maps nécessite moins de requêtes réseau pour charger la même zone réactive que Google Maps. En raison du mode de fonctionnement des pyramides de mosaïques dans les contrôles de carte, vous devez diminuer le niveau de zoom utilisé dans Google Maps d’une unité lors de l’utilisation d’Azure Maps. Cette opération arithmétique permet de s’assurer que les mosaïques plus grandes dans Azure Maps affichent la même zone réactive que dans Google Maps.
@@ -734,7 +734,7 @@ marker.addListener('click', function () {
 
 **Après : Azure Maps**
 
-Nous allons utiliser popup pour afficher des informations supplémentaires sur l’endroit. Transmettez un objet `string` ou `HTMLElement` HTML à l’option `content` de la fenêtre contextuelle. Si vous le souhaitez, les fenêtres contextuelles peuvent être affichées indépendamment de toute forme. Elles nécessitent donc la spécification d’une valeur `position`. Spécifiez la valeur `position`. Pour afficher une fenêtre contextuelle, appelez la méthode `open` et transmettez le `map` dans lequel la fenêtre contextuelle doit être affichée.
+Nous allons utiliser popup pour afficher des informations supplémentaires sur l’endroit. Transmettez un objet `string` ou `HTMLElement` HTML à l’option `content` de la fenêtre contextuelle. Si vous le souhaitez, les fenêtres contextuelles peuvent être affichées indépendamment de toute forme. Par conséquent, elles nécessitent la spécification d’une valeur `position`. Spécifiez la valeur `position`. Pour afficher une fenêtre contextuelle, appelez la méthode `open` et transmettez le `map` dans lequel la fenêtre contextuelle doit être affichée.
 
 ```javascript
 //Add a marker to the map in which to display a popup for.
@@ -856,7 +856,7 @@ Spécifiez une seule fonction de rappel dans la méthode `map.data.setStyle`. À
 
 **Après : Azure Maps**
 
-GeoJSON est le type de données de base dans Azure Maps. Importez-le dans une source de données à l’aide de la méthode `datasource.importFromUrl`. Utilisez un calque de bulles ; il fournit des fonctionnalités pour le rendu des cercles mis à l’échelle en fonction des propriétés des fonctionnalités d’une source de données. Au lieu d’avoir une fonction de rappel, la logique métier est convertie en expression et transmise dans les options de style. Les expressions définissent le fonctionnement de la logique métier. Elles peuvent être passées dans un autre thread et évaluées par rapport aux données des fonctionnalités. Plusieurs sources de données et calques peuvent être ajoutés à Azure Maps, chacun avec une logique métier différente. Cette fonctionnalité permet de restituer plusieurs jeux de données sur la carte de différentes façons.
+GeoJSON est le type de données de base dans Azure Maps. Importez-le dans une source de données à l’aide de la méthode `datasource.importFromUrl`. Utilisez un calque de bulles. Le calque de bulles fournit des fonctionnalités pour le rendu des cercles mis à l’échelle en fonction des propriétés des fonctionnalités d’une source de données. Au lieu d’avoir une fonction de rappel, la logique métier est convertie en expression et transmise dans les options de style. Les expressions définissent le fonctionnement de la logique métier. Elles peuvent être passées dans un autre thread et évaluées par rapport aux données des fonctionnalités. Plusieurs sources de données et calques peuvent être ajoutés à Azure Maps, chacun avec une logique métier différente. Cette fonctionnalité permet de restituer plusieurs jeux de données sur la carte de différentes façons.
 
 ```html
 <!DOCTYPE html>
@@ -953,7 +953,7 @@ Dans les exemples suivants, le code charge un flux GeoJSON de données relatives
 
 **Avant : Google Maps**
 
-Utilisez la bibliothèque MarkerCluster pour les marqueurs de cluster. Les icônes de cluster sont limitées aux images, qui ont les numéros 1 à 5 comme nom, et elles sont hébergées dans le même répertoire.
+Utilisez la bibliothèque MarkerCluster pour les marqueurs de cluster. Les icônes de cluster sont limitées aux images, qui ont les numéros 1 à 5 comme nom. Elles sont hébergées dans le même répertoire.
 
 ```html
 <!DOCTYPE html>
@@ -1395,7 +1395,7 @@ Si vous cliquez sur l’une des icônes de trafic dans Azure Maps, des informati
 
 ### <a name="add-a-ground-overlay"></a>Ajouter une superposition de sol
 
-Azure et Google Maps prennent en charge la superposition d’images géoréférencées sur la carte. Les images géoréférencées se déplacent et sont mises à l’échelle à mesure que vous effectuez un panoramique et un zoom sur la carte. Dans Google Maps, ces images géoréférencées sont appelées « calques de relief », alors qu’elles sont appelées « calques d’images » dans Azure Maps. Elles sont très utiles pour créer des plans d’étage, superposer d’anciennes cartes ou images à partir d’un drone.
+Azure et Google Maps prennent en charge la superposition d’images géoréférencées sur la carte. Les images géoréférencées se déplacent et sont mises à l’échelle à mesure que vous effectuez un panoramique et un zoom sur la carte. Dans Google Maps, ces images géoréférencées sont appelées « calques de relief », alors qu’elles sont appelées « calques d’images » dans Azure Maps. Elles sont très utiles pour créer des plans d’étage, pour superposer d’anciennes cartes, ou pour les images d’un drone.
 
 **Avant : Google Maps**
 

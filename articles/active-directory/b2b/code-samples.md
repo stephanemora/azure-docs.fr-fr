@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3a43ce4c560e89d88594d173aae7b2ad2db99ee
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 03a7a9c0c9ed308944b57e7659fefa81178af78b
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273106"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368130"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Code Azure Active Directory B2B Collaboration et exemples PowerShell
 
@@ -56,7 +56,7 @@ Cette applet de commande envoie une invitation aux adresses e-mail stockées dan
 - Envoi de messages aux personnes en copie ou suppression complète des messages électroniques
 
 ## <a name="code-sample"></a>Exemple de code
-Ici, nous indiquons comment appeler l’API d’invitation, en mode « Application uniquement », afin d’obtenir l’URL d’échange pour la ressource à laquelle vous invitez l’utilisateur B2B. L’objectif est d’envoyer un e-mail d’invitation personnalisé. L’e-mail peut être composé avec un client HTTP, pour vous permettre d’en personnaliser l’apparence et de l’envoyer via l’API Graph.
+Ici, nous indiquons comment appeler l’API d’invitation, en mode « Application uniquement », afin d’obtenir l’URL d’échange pour la ressource à laquelle vous invitez l’utilisateur B2B. L’objectif est d’envoyer un e-mail d’invitation personnalisé. L’e-mail peut être composé avec un client HTTP, pour vous permettre d’en personnaliser l’apparence et de l’envoyer via l’API Microsoft Graph.
 
 ```csharp
 namespace SampleInviteApp
@@ -70,12 +70,12 @@ namespace SampleInviteApp
     class Program
     {
         /// <summary>
-        /// Microsoft graph resource.
+        /// Microsoft Graph resource.
         /// </summary>
         static readonly string GraphResource = "https://graph.microsoft.com";
  
         /// <summary>
-        /// Microsoft graph invite endpoint.
+        /// Microsoft Graph invite endpoint.
         /// </summary>
         static readonly string InviteEndPoint = "https://graph.microsoft.com/v1.0/invitations";
  
@@ -173,14 +173,14 @@ namespace SampleInviteApp
         }
  
         /// <summary>
-        /// Get the access token for our application to talk to microsoft graph.
+        /// Get the access token for our application to talk to Microsoft Graph.
         /// </summary>
-        /// <returns>Returns the access token for our application to talk to microsoft graph.</returns>
+        /// <returns>Returns the access token for our application to talk to Microsoft Graph.</returns>
         private static string GetAccessToken()
         {
             string accessToken = null;
  
-            // Get the access token for our application to talk to microsoft graph.
+            // Get the access token for our application to talk to Microsoft Graph.
             try
             {
                 AuthenticationContext testAuthContext =

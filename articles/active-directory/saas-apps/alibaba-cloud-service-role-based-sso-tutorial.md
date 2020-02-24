@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Alibaba Cloud Service (Role-based SSO) | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Alibaba Cloud Service (Role-based SSO) | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Alibaba Cloud Service (Role-based SSO).
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99b9173c817cc3ecf4b9a34ec6906af0b4de70e6
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: e22bec224d185d0306f2b0032aef929f627c910e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71120769"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367924"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Alibaba Cloud Service (Role-based SSO)
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Alibaba Cloud Service (Role-based SSO)
 
 Dans ce tutoriel, vous allez apprendre à intégrer Alibaba Cloud Service (Role-based SSO) à Azure Active Directory (Azure AD). Quand vous intégrez Alibaba Cloud Service (Role-based SSO) à Azure AD, vous pouvez :
 
@@ -165,7 +165,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 7. Associez le rôle de RAM d’Alibaba Cloud (AADrole) à l’utilisateur Azure AD (u2) : Pour associer le rôle de RAM à l’utilisateur Azure AD, vous devez créer un rôle dans Azure AD en procédant comme suit :
 
-    a. Connectez-vous à l’[Afficheur Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer?spm=a2c63.p38356.879954.9.7d904e167h6Yg9).
+    a. Connectez-vous à [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
     b. Cliquez sur **Modify permissions** (Modifier les autorisations) pour obtenir les autorisations requises pour la création d’un rôle.
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 04f9a067e0b7df1f90d181d42bc4dd562aca56b0
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8020abf3f8ab153d0143ff50d837ebcfbf5bdfba
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026332"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423703"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Définir un nouveau type d’appareil de passerelle IoT dans votre application Azure IoT Central
 
@@ -30,7 +30,7 @@ En plus de permettre à des appareils en aval de communiquer avec votre applicat
 * Répondre aux mises à jour de propriétés accessibles en écriture effectuées par un opérateur. Par exemple, un opérateur peut modifier l’intervalle d’envoi de la télémétrie.
 * Répondre à des commandes, comme le redémarrage de l’appareil.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel, vous devez [Créer une application Azure IoT Central](./quick-deploy-iot-central.md).
 
@@ -40,7 +40,7 @@ Ce tutoriel utilise des modèles d’appareil pour un appareil **S1 Sensor** et 
 
 Pour créer un modèle d’appareil pour un appareil **S1 Sensor** :
 
-1. Dans le volet de navigation gauche, sélectionnez **Modèles d’appareil**. Sélectionnez ensuite **+** pour commencer à ajouter le modèle.
+1. Dans le volet gauche, sélectionnez **Modèles d’appareil**. Sélectionnez ensuite **+** pour commencer à ajouter le modèle.
 
 1. Faites défiler jusqu’à faire apparaître la vignette pour l’appareil **S1 Sensor**. Sélectionnez la vignette, puis sélectionnez **Suivant : Personnaliser**.
 
@@ -48,7 +48,7 @@ Pour créer un modèle d’appareil pour un appareil **S1 Sensor** :
 
 Pour créer un modèle d’appareil pour un appareil ***RS40 Occupancy Sensor** :
 
-1. Dans le volet de navigation gauche, sélectionnez **Modèles d’appareil**. Sélectionnez ensuite **+** pour commencer à ajouter le modèle.
+1. Dans le volet gauche, sélectionnez **Modèles d’appareil**. Sélectionnez ensuite **+** pour commencer à ajouter le modèle.
 
 1. Faites défiler jusqu’à faire apparaître la vignette pour l’appareil ***RS40 Occupancy Sensor**. Sélectionnez la vignette, puis sélectionnez **Suivant : Personnaliser**.
 
@@ -65,7 +65,7 @@ Dans ce tutoriel, vous créez à partir de zéro un modèle d’appareil pour un
 
 Pour ajouter un nouveau modèle d’appareil à votre application :
 
-1. Dans le volet de navigation gauche, sélectionnez **Modèles d’appareil**. Sélectionnez ensuite **+** pour commencer à ajouter le modèle.
+1. Dans le volet gauche, sélectionnez **Modèles d’appareil**. Sélectionnez ensuite **+** pour commencer à ajouter le modèle.
 
 1. Dans la page **Sélectionner un type de modèle**, sélectionnez la vignette **Appareil IoT**, puis sélectionnez **Suivant : Personnaliser**.
 

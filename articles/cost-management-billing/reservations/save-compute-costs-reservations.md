@@ -2,17 +2,17 @@
 title: Qu’est-ce qu’une réservation Azure ?
 description: Découvrez les réservations et tarifs Azure pour économiser sur vos machines virtuelles, les bases de données SQL, Azure Cosmos DB et les coûts d’autres ressources.
 author: yashesvi
-manager: yashar
+ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 02/18/2020
 ms.author: banders
-ms.openlocfilehash: 10cf5b5a0ec4edda3d3c868cda34352e827604b0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c6a8547235c302f52aacd0e6ae4a8fbf08b538b8
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76841878"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443633"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
@@ -37,11 +37,19 @@ Plans de service :
 - **vCore réservé de SQL Database** : seuls les coûts de calcul sont inclus dans une réservation. La licence est facturée séparément.
 - **SQL Data Warehouse** : Une réservation couvre l’utilisation de cDWU. Elle ne couvre pas les frais de stockage ou de mise en réseau associés à l’utilisation de SQL Data Warehouse.
 - **Frais de timbre App service** : Une réservation couvre l’utilisation des timbres. Elle ne s’applique pas aux workers, si bien que toutes les autres ressources associées aux timbres sont facturées séparément.
-- Azure Database pour MySQL
-- Azure Database pour PostgreSQL
-- Azure Database for MariaDB
-- Explorateur de données Azure
+- **Azure Databricks** : une réservation couvre uniquement l’utilisation de DBU. Les autres frais, comme le calcul, le stockage et le réseau, sont facturés séparément.
+- **Azure Database pour MySQL** : seuls les coûts de calcul sont inclus dans une réservation. Une réservation ne couvre pas les frais de logiciels, de réseau ou de stockage qui sont associés au serveur de base de données MySQL.
+- **Azure Database pour PostgreSQL** : seuls les coûts de calcul sont inclus dans une réservation. Une réservation ne couvre pas les frais de logiciels, de réseau ou de stockage qui sont associés aux serveurs de base de données PostgreSQL.
+- **Azure Database pour MariaDB** : seuls les coûts de calcul sont inclus dans une réservation. Une réservation ne couvre pas les frais de logiciels, de réseau ou de stockage qui sont associés au serveur de base de données MariaDB.
+- **Azure Data Explorer** : une réservation couvre les frais de majoration. Une réservation ne couvre pas les frais de calcul, de stockage ou de réseau associés à l’utilisation des clusters.
+- **Disques managés SSD Premium** : une réservation est effectuée pour une référence SKU de disque spécifiée. 
 
+Abonnements logiciels :
+
+- **SUSE Linux** : une réservation couvre les coûts de l’abonnement logiciel. Les remises s’appliquent uniquement aux compteurs SUSE et non à l’utilisation de la machine virtuelle.
+- **Offres Red Hat** : une réservation couvre les coûts de l’abonnement logiciel. Les remises s’appliquent uniquement aux compteurs RedHat et non à l’utilisation de la machine virtuelle.
+- **Azure VMware Solution by CloudSimple** : une réservation couvre les nœuds VMWare CloudSimple. Des coûts logiciels supplémentaires sont toujours facturés.
+- **Azure Red Hat OpenShift** : une réservation s’applique aux coûts OpenShift, et non aux coûts d’infrastructure Azure.
 
 Pour les machines virtuelles Windows et SQL Database, vous pouvez couvrir les coûts de licence avec [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -132,7 +140,7 @@ Une remise de réservation s’applique uniquement aux ressources associées aux
 
 ## <a name="when-the-reservation-term-expires"></a>Expiration du terme de la réservation
 
-À l’issue de la période de réservation, la remise sur facturation cesse de s’appliquer et les ressources sont facturées au tarif du paiement à l’utilisation. Par défaut, les réservations ne sont pas configurées pour se renouveler automatiquement. Vous pouvez choisir d’activer le renouvellement automatique d’une réservation en sélectionnant l’option dans les paramètres de renouvellement. En cas de renouvellement automatique, une réservation de remplacement est achetée à l’expiration de la réservation existante. Par défaut, la réservation de remplacement a les mêmes attributs que la réservation arrivant à expiration. Vous pouvez éventuellement modifier la périodicité de facturation, le terme ou la quantité dans les paramètres de renouvellement. Tout utilisateur disposant d’un accès propriétaire sur la réservation et de l’abonnement utilisé pour la facturation peut configurer le renouvellement.  
+À l’issue de la période de réservation, la remise sur facturation cesse de s’appliquer et les ressources sont facturées au tarif du paiement à l’utilisation. Par défaut, les réservations ne sont pas configurées pour se renouveler automatiquement. Vous pouvez choisir d’activer le renouvellement automatique d’une réservation en sélectionnant l’option dans les paramètres de renouvellement. En cas de renouvellement automatique, une réservation de remplacement est achetée à l’expiration de la réservation existante. Par défaut, la réservation de remplacement a les mêmes attributs que la réservation arrivant à expiration. Vous pouvez éventuellement changer la périodicité de facturation, le terme ou la quantité dans les paramètres de renouvellement. Tout utilisateur disposant d’un accès propriétaire sur la réservation et l’abonnement utilisé pour la facturation peut configurer le renouvellement.  
 
 ## <a name="discount-applies-to-different-sizes"></a>La remise s'applique à différentes tailles
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2f605d5adda913fa465b43a85bd027458959c122
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 63c531cc0e600d82df74154adb212be76ba9b4de
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928096"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368545"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutoriel : Déploiement de modules HSM sur un réseau virtuel existant à l’aide de PowerShell
 
@@ -245,17 +245,18 @@ La sortie doit ressembler à ceci :
 
 ## <a name="delete-or-clean-up-resources"></a>Supprimer ou nettoyer des ressources
 
-Si vous n’avez plus besoin du module HSM, vous pouvez le supprimer en tant que ressource, ce qui lui permettra de retourner au pool des modules libres. Lorsque vous supprimez un module, le problème évident qui se pose est celui des données client sensibles qui s’y trouvent. Pour supprimer les données client sensibles du module, vous devez rétablir les paramètres d’usine à l’aide du client Gemalto. Consultez le guide d’administration Gemalto pour SafeNet Network Luna 7 et exécutez les commandes suivantes dans l’ordre indiqué.
-
-1. `hsm factoryReset -f`
-2. `sysconf config factoryReset -f -service all`
-3. `my file clear -f`
-4. `my public-key clear -f`
-5. `syslog rotate`
-
+Si vous n’avez plus besoin du module HSM, vous pouvez le supprimer en tant que ressource, ce qui lui permettra de retourner au pool des modules libres. Lorsque vous supprimez un module, le problème évident qui se pose est celui des données client sensibles qui s’y trouvent. La meilleure façon de « réinitialiser » un appareil consiste à entrer un mot de passe d’administrateur HSM incorrect à trois reprises (remarque : il ne s’agit pas de l’administrateur d’appliance, mais de l’administrateur HSM). En guise de mesure de sécurité pour protéger le matériel de clé, l’appareil ne peut pas être supprimé en tant que ressource Azure tant qu’il n’est pas à l’état réinitialisé.
 
 > [!NOTE]
 > Si vous rencontrez un problème avec la configuration d’un module Gemalto, vous devez contacter le [support technique Gemalto](https://safenet.gemalto.com/technical-support/).
+
+Si vous souhaitez supprimer uniquement la ressource HSM dans Azure, vous pouvez utiliser la commande suivante en remplaçant les variables « $ » par vos paramètres uniques :
+
+```powershel
+
+Remove-AzureRmResource -Resourceid ` /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
+
+```
 
 Si vous n’avez plus besoin des ressources du groupe de ressources, vous pouvez les supprimer avec la commande suivante :
 

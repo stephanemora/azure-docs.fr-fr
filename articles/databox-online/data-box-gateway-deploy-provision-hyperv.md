@@ -8,24 +8,25 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 0b106e0412de972801fa8782de08269e13042191
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 63d88f1b9903eaad7ed4f57f59ca2a49445e3d40
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517910"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77365306"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Didacticiel : Provisionner Azure Data Box Gateway dans Hyper-V
+# <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Tutoriel : Provisionner Azure Data Box Gateway dans Hyper-V
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Ce didacticiel décrit comment configurer un Data Box Gateway sur un système hôte exécutant Hyper-V sur Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012. 
+Ce didacticiel décrit comment configurer un Data Box Gateway sur un système hôte exécutant Hyper-V sur Windows Server 2016, Windows Server 2012 R2 ou Windows Server 2012.
 
 Vous avez besoin de privilèges d’administrateur pour approvisionner et configurer un appareil virtuel. La configuration initiale peut prendre environ 10 minutes.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
+>
 > * Vérifier que l’hôte répond à la configuration minimale requise de l’appareil
 > * Configurer un appareil virtuel dans l’hyperviseur
 > * Démarrer l’appareil virtuel et obtenir l’adresse IP
@@ -45,7 +46,7 @@ Avant de commencer, assurez-vous que :
 
   > [!IMPORTANT]
   > Le logiciel en cours d’exécution sur Data Box Gateway peut seulement être utilisé avec la ressource Data Box Gateway.
- 
+
 ### <a name="for-the-data-box-gateway-virtual-device"></a>Pour l’appareil virtuel Data Box Gateway
 
 Avant de déployer un appareil, assurez-vous que :
@@ -54,7 +55,7 @@ Avant de déployer un appareil, assurez-vous que :
 * Le système hôte est en mesure de dédier les ressources suivantes pour configurer votre appareil virtuel :
 
   * Un minimum de 4 cœurs.
-  * Au moins 8 Go de RAM. 
+  * Au moins 8 Go de RAM.
   * Une interface réseau.
   * Un disque de système d’exploitation de 250 Go.
   * Un disque virtuel de 2 To pour les données.
@@ -65,7 +66,6 @@ Avant de commencer :
 
 - Passez en revue les exigences de mise en réseau pour déployer Data Box Gateway et configurer le réseau du centre de données conformément à la configuration requise. Pour plus d’informations, consultez la [Configuration requise du réseau pour Data Box Gateway](data-box-gateway-system-requirements.md#networking-port-requirements).
 - Assurez-vous que la bande passante Internet minimale est de 20 Mbits/s pour un fonctionnement optimal de l’appareil.
-
 
 ## <a name="check-the-host-system"></a>Vérifier le système hôte
 
@@ -86,7 +86,7 @@ Pour créer un appareil virtuel, vous avez besoin des éléments suivants :
 Procédez comme suit pour configurer un appareil dans votre hyperviseur.
 
 1. Sur votre hôte Windows Server, copiez l'image de l’appareil virtuel sur un disque local. Vous avez téléchargé cette image VHDX via le portail Azure. Prenez note de l’emplacement où vous avez copié l’image car vous l’utiliserez plus loin dans la procédure.
-2. Ouvrez le **Gestionnaire de serveur**. Dans le coin supérieur droit, cliquez sur **Outils**, puis sélectionnez **Gestionnaire Hyper-V**.
+2. Ouvrez **Gestionnaire de serveur**. Dans le coin supérieur droit, cliquez sur **Outils**, puis sélectionnez **Gestionnaire Hyper-V**.
 
     ![Sélectionner le Gestionnaire Hyper-V dans le Gestionnaire de serveur](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
   
@@ -127,18 +127,17 @@ Procédez comme suit pour configurer un appareil dans votre hyperviseur.
 14. Dans la page **Disque dur**, sélectionnez l’option **Disque dur virtuel**, puis cliquez sur **Nouveau**. L’**Assistant Nouveau disque dur virtuel** démarre.
 
     ![Assistant Nouveau disque dur virtuel](./media/data-box-gateway-deploy-provision-hyperv/image12.png)
-1. Dans la page **Avant de commencer** de l’Assistant Nouveau disque dur virtuel, cliquez sur **Suivant**.
-2. Dans la page **Choisir le format de disque**, acceptez le format **VHDX** par défaut. Cliquez sur **Suivant**.
-   
-17. Dans la page **Choisir le type de disque**, définissez le type de disque dur virtuel sur **Extension dynamique** (recommandé). Si vous choisissez un disque de **taille fixe**, il fonctionnera également, mais vous devrez peut-être patienter plus longtemps. Nous vous recommandons de ne pas utiliser l’option de **différenciation** . Cliquez sur **Suivant**. 
+15. Dans la page **Avant de commencer** de l’Assistant Nouveau disque dur virtuel, cliquez sur **Suivant**.
+16. Dans la page **Choisir le format de disque**, acceptez le format **VHDX** par défaut. Cliquez sur **Suivant**.
+17. Dans la page **Choisir le type de disque**, définissez le type de disque dur virtuel sur **Extension dynamique** (recommandé). Si vous choisissez un disque de **taille fixe**, il fonctionnera également, mais vous devrez peut-être patienter plus longtemps. Nous vous recommandons de ne pas utiliser l’option de **différenciation** . Cliquez sur **Suivant**.
 
     ![Page Choisir le type de disque](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
 18. Dans la page **Spécifier le nom et l’emplacement**, indiquez le **nom** et **l’emplacement** (vous pouvez naviguer vers cet emplacement) du disque de données. Cliquez sur **Suivant**.
 
     ![Page Spécifier le nom et l’emplacement](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
-19. Dans la page **Configurer un disque**, sélectionnez l’option **Créer un disque dur virtuel vierge** et spécifiez une taille de **2 To** (ou plus). 
+19. Dans la page **Configurer un disque**, sélectionnez l’option **Créer un disque dur virtuel vierge** et spécifiez une taille de **2 To** (ou plus).
     
-    Bien que 2 To soit la configuration minimale requise, vous pouvez toujours configurer un disque plus volumineux. Notez que vous ne pouvez pas réduire le disque une fois configuré. Toute tentative de réduction du disque entraîne la perte de toutes les données locales sur l’appareil. Vous pouvez toutefois étendre le disque en ajoutant un disque de données. Cliquez sur **Suivant**.
+    Bien que 2 To soit la configuration minimale requise, vous pouvez toujours configurer un disque plus volumineux. Notez que vous ne pouvez pas réduire le disque une fois configuré. Toute tentative de réduction du disque entraîne la perte de toutes les données locales sur l’appareil. L’expansion du disque de données n’est pas prise en charge. Cliquez sur **Suivant**.
 
     ![Page Configurer un disque](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. Dans la page **Résumé**, passez en revue les détails de votre disque de données virtuel et, si vous êtes satisfait, cliquez sur **Terminer** pour créer le disque. L’Assistant se ferme et un disque dur virtuel est ajouté à votre machine.
@@ -194,5 +193,3 @@ Passez au tutoriel suivant pour savoir comment connecter, configurer et activer 
 
 > [!div class="nextstepaction"]
 > [Connecter et configurer votre Data Box Gateway](./data-box-gateway-deploy-connect-setup-activate.md)
-
-

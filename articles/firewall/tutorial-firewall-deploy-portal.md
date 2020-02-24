@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure'
+title: 'Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure'
 description: Ce didacticiel vous apprend à déployer et configurer un pare-feu Azure à l’aide du portail Azure.
 services: firewall
 author: vhorne
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/28/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be39449c1c11acdbdc99bd96f917c51eebda44ae
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 38ee180fa59fec6619010a3ded1f6837a5ca5239
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195790"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371341"
 ---
-# <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Didacticiel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
+# <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
 Le contrôle de l’accès réseau sortant est une partie importante d’un plan de sécurité réseau global. Par exemple, vous pouvez souhaiter limiter l’accès aux sites web. Vous pouvez aussi vouloir limiter l’accès à certaines adresses IP et à certains ports sortants.
 
@@ -34,7 +34,7 @@ Pour ce didacticiel, vous devez créer un seul réseau virtuel simplifié avec t
 
 ![Tutoriel relatif à l’infrastructure réseau](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Configurer un environnement réseau de test
@@ -70,7 +70,7 @@ Ce réseau virtuel contient trois sous-réseaux.
 > [!NOTE]
 > La taille du sous-réseau AzureFirewallSubnet est /26. Pour plus d’informations sur la taille du sous-réseau, consultez le [FAQ Pare-feu Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
-1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
+1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 1. Sélectionnez **Mise en réseau** > **Réseau virtuel**.
 1. Pour **Nom**, entrez **Test-FW-VN**.
 1. Pour **Espace d’adressage**, entrez **10.0.0.0/16**.
@@ -98,7 +98,7 @@ Créez un autre sous-réseau nommé **Jump-SN**, avec la plage d’adresses **10
 
 Maintenant créez les machines virtuelles de rebond et de charge de travail, et placez-les dans les sous-réseaux appropriés.
 
-1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
+1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 2. Cliquez sur **Compute**, puis sélectionnez **Windows Server 2016 Datacenter** dans la liste de suggestions.
 3. Entrez ces valeurs pour la machine virtuelle :
 
@@ -133,19 +133,19 @@ Utilisez les informations du tableau suivant pour configurer une autre machine v
 
 Déployez le pare-feu dans le réseau virtuel.
 
-1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
+1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 2. Tapez **pare-feu** dans la zone de recherche, puis appuyez sur **Entrée**.
 3. Sélectionnez **Pare-feu**, puis **Créer**.
 4. Sur la page **Créer un pare-feu**, utilisez le tableau suivant pour configurer le pare-feu :
 
    |Paramètre  |Valeur  |
    |---------|---------|
-   |Subscription     |\<votre abonnement\>|
+   |Abonnement     |\<votre abonnement\>|
    |Resource group     |**Test-FW-RG** |
    |Nom     |**Test-FW01**|
-   |Location     |Sélectionnez le même emplacement que celui utilisé précédemment|
+   |Emplacement     |Sélectionnez le même emplacement que celui utilisé précédemment|
    |Choisir un réseau virtuel     |**Utiliser l’existant** : **Test-FW-VN**|
-   |Adresse IP publique     |**Créer un nouveau**. L’adresse IP publique doit être le type de référence (SKU) Standard.|
+   |Adresse IP publique     |**Ajouter nouveau** L’adresse IP publique doit être le type de référence (SKU) Standard.|
 
 5. Sélectionnez **Revoir + créer**.
 6. Passez en revue le récapitulatif, puis sélectionnez **Créer** pour créer le pare-feu.
@@ -250,11 +250,11 @@ Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
 * Vous pouvez accéder au nom de domaine complet autorisé, mais pas à d’autres.
 * Vous pouvez résoudre les noms DNS à l’aide du serveur DNS externe configuré.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, si vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources **Test-FW-RG** pour supprimer toutes les ressources associées au pare-feu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)
+> [Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)

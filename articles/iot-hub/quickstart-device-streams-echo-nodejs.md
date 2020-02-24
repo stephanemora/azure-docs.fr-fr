@@ -9,49 +9,28 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 538e04d7ae4f6528c26762a8efac06d02b4f86bc
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 3bc5dc754509260591acf7c5d5809d5e85794d9b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083730"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471922"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Démarrage rapide : Communiquer avec une application d’appareil dans Node.js par le biais de flux d’appareil IoT Hub (préversion)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-Microsoft Azure IoT Hub prend actuellement en charge les flux d’appareil en tant que [fonctionnalité d’évaluation](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Les [flux d’appareil IoT Hub](./iot-hub-device-streams-overview.md) permettent aux applications de service et d’appareil de communiquer de manière sécurisée à travers des pare-feux. Dans la préversion publique, le SDK Node.js prend uniquement en charge des flux d’appareil côté service. Par conséquent, le présent guide de démarrage rapide couvre uniquement les instructions permettant d’exécuter l’application côté service. Vous devez exécuter une application côté appareil complémentaire à partir d’un des guides de démarrage rapide suivants :
-
-* [Communiquer avec des applications d’appareil en C via les flux d'appareils IoT Hub](./quickstart-device-streams-echo-c.md)
-
-* [Communiquer avec des applications d’appareil en C# via les flux d'appareils IoT Hub](./quickstart-device-streams-echo-csharp.md).
-
-L’application Node.js côté service utilisée dans ce guide de démarrage rapide présente les fonctionnalités suivantes :
-
-* Crée un flux d’appareil vers un appareil IoT.
-
-* Lit une entrée à partir de la ligne de commande et l’envoie à l’application d’appareil, qui la renvoie à son tour.
-
-Le code illustre le processus de lancement d’un flux d’appareil ainsi que la façon de l’utiliser pour envoyer et recevoir des données.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Dans ce guide de démarrage rapide, vous exécutez une application côté service et vous configurez la communication entre un appareil et un service à l’aide de flux d’appareil. Les flux d’appareil Azure IoT Hub permettent aux applications de service et d’appareil de communiquer de manière sécurisée à travers des pare-feux. Dans la préversion publique, le SDK Node.js prend uniquement en charge les flux d’appareil côté service. Par conséquent, le présent guide de démarrage rapide couvre uniquement les instructions permettant d’exécuter l’application côté service.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour le moment, la préversion des flux d’appareil est uniquement prise en charge pour les hubs IoT créés dans les régions suivantes :
+* Avoir suivi le guide de démarrage rapide [Communiquer avec des applications d’appareil en C par le biais de flux d’appareil IoT Hub](./quickstart-device-streams-echo-c.md) ou [Communiquer avec des applications d’appareil en C# par le biais de flux d’appareil IoT Hub](./quickstart-device-streams-echo-csharp.md).
 
-  * USA Centre
-  * EUAP USA Centre
-  * Europe Nord
-  * Asie Sud-Est
+* Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-Pour exécuter l’application côté service dans le cadre de ce guide de démarrage rapide, vous avez besoin de Node.js version 10.x.x ou ultérieure sur votre ordinateur de développement.
+* [Node.js 10+](https://nodejs.org).
 
-Vous pouvez télécharger Node.js pour plusieurs plateformes sur [Nodejs.org](https://nodejs.org).
+* [Un exemple de projet Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
 Vous pouvez vérifier la version actuelle de Node.js sur votre machine de développement à l’aide de la commande suivante :
 
@@ -59,19 +38,31 @@ Vous pouvez vérifier la version actuelle de Node.js sur votre machine de dével
 node --version
 ```
 
-Exécutez la commande suivante afin d’ajouter l’extension Microsoft Azure IoT pour Azure CLI à votre instance Cloud Shell. L’extension IoT ajoute des commandes IoT Hub, IoT Edge et IoT Device Provisioning Service (DPS) à Azure CLI.
+Microsoft Azure IoT Hub prend actuellement en charge les flux d’appareil en tant que [fonctionnalité d’évaluation](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!IMPORTANT]
+> Pour le moment, la préversion des flux d’appareil est uniquement prise en charge pour les hubs IoT créés dans les régions suivantes :
+>
+> * USA Centre
+> * EUAP USA Centre
+> * Europe Nord
+> * Asie Sud-Est
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### <a name="add-azure-iot-extension"></a>Ajouter une extension Azure IoT
+
+Exécutez la commande suivante afin d’ajouter l’extension Microsoft Azure IoT pour Azure CLI à votre instance Cloud Shell. L’extension IoT ajoute des commandes IoT Hub, IoT Edge et du service IoT Hub Device Provisioning (DPS) à Azure CLI.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
 
-Si ce n’est déjà fait, téléchargez l’exemple de projet Node.js à partir de https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip et extrayez l’archive ZIP.
-
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
 Si vous avez terminé le précédent [Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-node.md), vous pouvez ignorer cette étape.
 
-[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Inscrire un appareil
 
@@ -109,13 +100,20 @@ Dans cette section, vous exécutez l’application côté appareil et l’applic
 
 Comme mentionné précédemment, le SDK Node.js IoT Hub prend uniquement en charge des flux d’appareil côté service. Pour une application côté appareil, utilisez l’un des programmes d’appareil complémentaires disponibles dans ces guides de démarrage rapide :
 
-   * [Communiquer avec des applications d’appareil en C via les flux d'appareils IoT Hub](./quickstart-device-streams-echo-c.md)
+* [Communiquer avec des applications d’appareil en C via les flux d'appareils IoT Hub](./quickstart-device-streams-echo-c.md)
 
-   * [Communiquer avec des applications d’appareil en C# via les flux d'appareils IoT Hub](./quickstart-device-streams-echo-csharp.md)
+* [Communiquer avec des applications d’appareil en C# via les flux d'appareils IoT Hub](./quickstart-device-streams-echo-csharp.md)
 
 Vérifiez que l’application côté appareil est en cours d’exécution avant de passer à l’étape suivante.
 
 ### <a name="run-the-service-side-application"></a>Exécuter l’application côté service
+
+L’application Node.js côté service utilisée dans ce guide de démarrage rapide présente les fonctionnalités suivantes :
+
+* Crée un flux d’appareil vers un appareil IoT.
+* Lit une entrée à partir de la ligne de commande et l’envoie à l’application d’appareil, qui la renvoie à son tour.
+
+Le code illustre le processus de lancement d’un flux d’appareil ainsi que la façon de l’utiliser pour envoyer et recevoir des données.
 
 Si l’application côté appareil est en cours d’exécution, effectuez les étapes ci-dessous dans une fenêtre de terminal locale pour exécuter l’application côté service dans Node.js :
 
@@ -151,7 +149,7 @@ Si l’application côté appareil est en cours d’exécution, effectuez les é
 
 Vous pouvez ensuite mettre fin au programme en appuyant de nouveau sur Entrée.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 

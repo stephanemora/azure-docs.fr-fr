@@ -1,20 +1,20 @@
 ---
 title: 'Tutoriel : Créer une application de type localisateur de magasin à l’aide d’Azure Maps | Microsoft Azure Maps'
 description: Dans ce tutoriel, vous allez apprendre à créer une application web de type localisateur de magasin à l’aide du kit SDK web Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 063f085de875272a7b1ba4f52aeceb8f36114cca
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5621ed8f9e5d7990ca7b522d6388f855db81618e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987003"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209560"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutoriel : Créer un localisateur de magasin à l’aide d’Azure Maps
 
@@ -33,7 +33,7 @@ Ce tutoriel vous guide tout au long du processus de création d’un localisateu
 
 Passez directement à l’[exemple de localisateur de magasin animé](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) ou au [code source](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les étapes de ce tutoriel, vous devez d’abord créer un compte Azure Maps et obtenir votre clé primaire (clé d’abonnement). Suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps avec le niveau tarifaire S1 et effectuez les étapes indiquées dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin d’obtenir la clé primaire pour votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
 
@@ -381,7 +381,7 @@ Exécutez à présent l’application. L’en-tête, la zone de recherche et le 
 
 Tout est à présent configuré dans l’interface utilisateur. Nous devons encore ajouter le code JavaScript pour charger et analyser les données, puis restituer les données sur la carte. Pour commencer, ouvrez *index.js* et ajoutez-y du code, comme indiqué dans les étapes suivantes.
 
-1. Ajoutez des options globales pour faciliter la mise à jour des paramètres. Définissez les variables pour la carte, la fenêtre contextuelle, la source de données, un calque d’icônes, un marqueur HTML qui affiche le centre d’une zone de recherche, ainsi qu’une instance du client du service de recherche Azure Maps.
+1. Ajoutez des options globales pour faciliter la mise à jour des paramètres. Définissez les variables de la carte, de la fenêtre contextuelle, de la source de données, de la couche d’icônes et du marqueur HTML. Définissez le marqueur HTML pour indiquer le centre d’une zone de recherche. Et définissez une instance du client du service de recherche Azure Maps.
 
     ```JavaScript
     //The maximum zoom level to cluster data point data on the map.
@@ -397,9 +397,9 @@ Tout est à présent configuré dans l’interface utilisateur. Nous devons enco
 
 1. Ajoutez du code à *index.js*. Le code suivant initialise la carte. Nous avons ajouté un [écouteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) pour attendre la fin du chargement de la page. Ensuite, nous avons relié des événements afin de superviser le chargement de la carte, et de donner une fonctionnalité au bouton de rechercher et au bouton de localisation (My Location).
 
-   Quand l’utilisateur sélectionne le bouton de recherche ou appuie sur Entrée après avoir entré un emplacement dans la zone de recherche, une recherche approximative est lancée par rapport à la requête de l’utilisateur. Passez un tableau de valeurs ISO 2 de pays à l’option `countrySet` pour limiter les résultats de la recherche à ces pays/régions. Le fait de limiter la recherche de pays/régions a pour effet d’accroître la précision des résultats renvoyés. 
+   Quand l’utilisateur sélectionne le bouton de recherche, ou tape une localisation dans la zone de recherche puis appuie sur Entrée, une recherche approximative est lancée par rapport à la requête de l’utilisateur. Passez un tableau de valeurs ISO 2 de pays à l’option `countrySet` pour limiter les résultats de la recherche à ces pays/régions. Le fait de limiter la recherche de pays/régions a pour effet d’accroître la précision des résultats renvoyés. 
   
-   Une fois la recherche terminée, prenez le premier résultat et définissez la caméra de la carte sur cette région. Quand l’utilisateur sélectionne le bouton permettant de le localiser (My Location), il doit utiliser l’API de géolocalisation HTML5 qui est intégrée au navigateur pour récupérer son emplacement et centrer la carte sur cette position.  
+   Une fois la recherche terminée, prenez le premier résultat et définissez la caméra de la carte sur cette région. Quand l’utilisateur sélectionne le bouton Ma localisation, récupérez la localisation de l’utilisateur à l’aide de l’API de géolocalisation HTML5. Cette API est intégrée au navigateur. Ensuite, centrez la carte sur sa localisation.  
 
    > [!Tip]
    > Si vous utilisez des fenêtres indépendantes, il est préférable de créer une seule instance de `Popup` et de la réutiliser en mettant à jour son contenu et la position. Pour chaque instance de `Popup` que vous ajoutez à votre code, plusieurs éléments DOM sont ajoutés à la page. Et plus les éléments DOM sont nombreux dans une page, plus le navigateur doit effectuer un suivi important. La présence d’un trop grand nombre d’éléments peut ralentir le navigateur.
@@ -527,7 +527,7 @@ Tout est à présent configuré dans l’interface utilisateur. Nous devons enco
     map.markers.add(centerMarker);
     ```
 
-1. Dans l’écouteur d’événements `ready` de la carte, ajoutez une source de données. Formulez ensuite un appel pour charger et analyser le jeu de données. Activez le regroupement sur la source de données. Le regroupement sur la source de données a pour effet de rassembler les points qui se chevauchent. Les groupes se séparent en point individuels dès que l’utilisateur effectue un zoom avant. L’expérience utilisateur gagne ainsi en fluidité et les performances s’en trouvent améliorées.
+1. Dans l’écouteur d’événements `ready` de la carte, ajoutez une source de données. Formulez ensuite un appel pour charger et analyser le jeu de données. Activez le regroupement sur la source de données. Le regroupement sur la source de données a pour effet de rassembler les points qui se chevauchent. Les groupes se séparent en point individuels dès que l’utilisateur effectue un zoom avant. Ce comportement offre une meilleure expérience utilisateur et améliore les performances.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -928,7 +928,7 @@ La première fois qu’un utilisateur sélectionne le bouton de localisation (My
 
 ![Capture d’écran de la demande du navigateur à accéder à l’emplacement de l’utilisateur](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
-Quand vous zoomez suffisamment sur une zone où se trouvent des cafés, les groupes se séparent en emplacements individuels. Sélectionnez l’une des icônes sur la carte ou sélectionnez un élément dans le volet latéral pour afficher une fenêtre indépendante où figurent des informations sur l’emplacement correspondant.
+Quand vous zoomez suffisamment sur une zone où se trouvent des cafés, les groupes se séparent en emplacements individuels. Sélectionnez l’une des icônes sur la carte ou sélectionnez un élément dans le volet latéral pour afficher une fenêtre indépendante. Celle-ci montre des informations sur la localisation correspondante.
 
 <center>
 

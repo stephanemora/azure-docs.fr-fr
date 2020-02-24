@@ -6,20 +6,20 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/28/2020
+ms.date: 02/17/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 2a303070b7240bddfd4803ed3d4d796fa52fdef5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 346795b79a78589d949b035a803a67a9e5a2e8e5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906643"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470732"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Démarrage rapide : Analyser des données avec Databricks
 
 Dans ce guide de démarrage rapide, vous exécutez un travail Apache Spark avec Azure Databricks pour effectuer une analytique sur des données stockées dans un compte de stockage. Dans le cadre du travail Spark, vous allez analyser des données d’abonnement à une station de radio pour obtenir des insights sur l’utilisation gratuite/payante en fonction de données démographiques.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -107,14 +107,7 @@ Dans cette section, vous créez un bloc-notes dans l’espace de travail Azure D
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
 
    ```
-
-    > [!NOTE]
-    > Ce bloc de code accède directement au point de terminaison Data Lake Gen2 via OAuth. Toutefois, il existe d’autres moyens de connecter l’espace de travail Databricks à votre compte Data Lake Storage Gen2. Par exemple, vous pouvez monter le conteneur à l’aide d’OAuth ou utiliser un accès direct par clé partagée. <br>Pour voir des exemples de ces approches, consultez l’article [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) sur le site web Azure Databricks.
-
 5. Dans ce bloc de code, remplacez les valeurs d’espace réservé `storage-account-name`, `appID`, `password` et `tenant-id` par les valeurs que vous avez collectées au moment de la création du principal de service. Affectez le nom de conteneur de votre choix à la valeur d’espace réservé `container-name`.
-
-    > [!NOTE]
-    > Dans un environnement de production, songez à stocker votre clé d’authentification dans Azure Databricks. Ensuite, ajoutez une clé de recherche à votre bloc de code au lieu de la clé d’authentification. Après avoir suivi ce guide de démarrage rapide, consultez l’article [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) sur le site web Azure Databricks pour voir des exemples de cette approche.
 
 6. Appuyez sur les touches **Maj +Entrée** pour exécuter le code de ce bloc.
 
@@ -196,7 +189,13 @@ Si vous n’arrêtez pas le cluster manuellement, il s’arrête automatiquement
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez créé un cluster Spark dans Azure Databricks et exécuté un travail Spark à l’aide des données dans un compte de stockage dans Data Lake Storage Gen2 activé. Vous pouvez également consulter [Sources de données Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) pour découvrir comment importer des données à partir d’autres sources de données dans Azure Databricks. Passez à l’article suivant pour savoir comment effectuer une opération ETL (extraction, transformation et chargement de données) à l’aide d’Azure Databricks.
+Dans cet article, vous avez créé un cluster Spark dans Azure Databricks et exécuté un travail Spark à l’aide des données dans un compte de stockage dans Data Lake Storage Gen2 activé.
+
+Passez à l’article suivant pour savoir comment effectuer une opération ETL (extraction, transformation et chargement de données) à l’aide d’Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Extraire, transformer et charger des données à l’aide d’Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md)
+>[Extraire, transformer et charger des données à l’aide d’Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md).
+
+- Pour découvrir comment importer des données à partir d’autres sources de données dans Azure Databricks, consultez [Sources de données Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
+
+- Pour plus d’informations sur les autres méthodes d’accès à Azure Data Lake Storage Gen2 à partir d’un espace de travail Azure Databricks, consultez [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html).

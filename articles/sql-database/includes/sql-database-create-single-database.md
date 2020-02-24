@@ -3,14 +3,15 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 02/14/2020
 ms.author: mathoma
-ms.openlocfilehash: 0fad326107fa101cbba869311724710bd3f5307b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.reviewer: vanto
+ms.openlocfilehash: 3e2c8a424c9a3744bfb91d03632965c15613a424
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496158"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252116"
 ---
 Au cours de cette étape, vous allez créer une base de données unique Azure SQL Database. 
 
@@ -19,29 +20,29 @@ Au cours de cette étape, vous allez créer une base de données unique Azure SQ
 >
 > Pour plus d’informations, consultez [Créer une règle de pare-feu au niveau du serveur](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) ou, pour déterminer l’adresse IP utilisée pour la règle de pare-feu au niveau du serveur pour votre ordinateur, consultez [Créer une règle de pare-feu au niveau du serveur](../sql-database-server-level-firewall-rule.md).  
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Créez votre groupe de ressources et votre base de données unique à l’aide du portail Azure.
 
-1. Dans le menu de gauche du **portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez *Azure SQL* dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
-2. Sélectionnez **+ Ajouter** pour ouvrir la page **Sélectionner l’option de déploiement SQL**. Vous pouvez afficher des informations supplémentaires sur les différentes bases de données en sélectionnant **Afficher les détails** sur la vignette **Bases de données**.
+1. Dans le menu de gauche du **Portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez *Azure SQL* dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
+2. Sélectionnez **+Ajouter** pour ouvrir la page **Sélectionner l’option de déploiement SQL**. Vous pouvez afficher des informations supplémentaires sur les différentes bases de données en sélectionnant **Afficher les détails** sur la vignette **Bases de données**.
 3. Sélectionnez **Créer** :
 
    ![Créer une base de données unique](../media/sql-database-get-started-portal/create-single-database.png)
 
-3. Sous l’onglet **Bases**, dans la section **Détails du projet**, tapez ou sélectionnez les valeurs suivantes :
+4. Sous l’onglet **Bases**, dans la section **Détails du projet**, tapez ou sélectionnez les valeurs suivantes :
 
    - **Abonnement**: Faites défiler la liste et sélectionnez l’abonnement approprié, s’il n’apparaît pas.
    - **Groupe de ressources** : sélectionnez **Créer**, tapez `myResourceGroup`, puis sélectionnez **OK**.
 
      ![Nouvelle base de données SQL - Onglet des informations de base](../media/sql-database-get-started-portal/new-sql-database-basics.png)
 
-4. Dans la section formulaire **Détails de la base de données**, tapez ou sélectionnez les valeurs suivantes :
+5. Dans la section formulaire **Détails de la base de données**, tapez ou sélectionnez les valeurs suivantes :
 
    - **Nom de la base de données** : Entrez `mySampleDatabase`.
-   - **Server** (Serveur) : sélectionnez **Créer**, entrez les valeurs suivantes, puis sélectionnez **Sélectionner**.
-       - **Nom du serveur** : tapez `mysqlserver` ainsi que des chiffres à des fins d’unicité.
-       - **Connexion administrateur au serveur** : Saisissez `azureuser`.
+   - **Serveur** : sélectionnez **Créer**, entrez les valeurs suivantes, puis sélectionnez **Sélectionner**.
+       - **Nom du serveur** : tapez `mysqlserver` ainsi que des chiffres à des fins d’unicité.
+       - **Connexion administrateur au serveur** : Tapez `azureuser`.
        - **Mot de passe** : tapez un mot de passe complexe qui répond aux exigences de mot de passe.
        - **Emplacement** : choisissez un emplacement dans la liste déroulante, tel que `West US`.
 
@@ -63,20 +64,24 @@ Créez votre groupe de ressources et votre base de données unique à l’aide d
      - Si vous le souhaitez, vous pouvez également sélectionner **Changer la configuration** pour modifier la génération matérielle.
    - Sélectionnez **Appliquer**.
 
-5. Sélectionnez l’onglet **Paramètres supplémentaires**. 
-6. Dans la section **Source de données**, sous **Utiliser des données existantes**, sélectionnez `Sample`.
+6. Sélectionnez l’onglet **Réseau** et décidez si vous souhaitez [**Autoriser les services et ressources Azure à accéder à ce serveur**](../sql-database-networkaccess-overview.md), ou ajoutez un [point de terminaison privé](../../private-link/private-endpoint-overview.md).
+
+   ![Onglet Réseau](../media/sql-database-get-started-portal/create-database-networking.png)
+
+7. Sélectionnez l’onglet **Paramètres supplémentaires**. 
+8. Dans la section **Source de données**, sous **Utiliser des données existantes**, sélectionnez `Sample`.
 
    ![Paramètres supplémentaires de la base de données SQL](../media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
    > [!IMPORTANT]
    > Veillez à sélectionner les données **Exemple (AdventureWorksLT)** pour pouvoir facilement suivre le présent guide ainsi que d’autres articles dédiés à Azure SQL Database qui utilisent ces données.
 
-7. Laissez le reste des valeurs par défaut, puis sélectionnez **Vérifier + créer** en bas du formulaire.
-8. Passez en revue les paramètres finaux et sélectionnez **Créer**.
+9. Laissez le reste des valeurs par défaut, puis sélectionnez **Vérifier + créer** en bas du formulaire.
+10. Passez en revue les paramètres finaux et sélectionnez **Créer**.
 
-9. Sur le formulaire **SQL Database**, sélectionnez **Créer** pour déployer et configurer le groupe de ressources, le serveur et la base de données.
+11. Sur le formulaire **SQL Database**, sélectionnez **Créer** pour déployer et configurer le groupe de ressources, le serveur et la base de données.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -151,7 +156,7 @@ Cette partie de l’article utilise les cmdlets PowerShell suivantes :
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Crée une règle de pare-feu pour un serveur logique. | 
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Crée une base de données unique Azure SQL Database. | 
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Créez votre groupe de ressources et votre base de données unique à l’aide de l’interface CLI AZ.
 

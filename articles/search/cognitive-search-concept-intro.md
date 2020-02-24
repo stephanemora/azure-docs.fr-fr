@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: e6ee75f4a7e00e8c21079e1336756db20221750f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6d75e48443fd8622ca2ae7ff05fe81184c4b2b16
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76838001"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472432"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Présentation de l’intelligence artificielle dans la Recherche cognitive Azure
 
@@ -131,7 +131,7 @@ Les index sont générés à partir d’un schéma d’index qui définit les ch
 + [Didacticiel (requêtes HTTP)](cognitive-search-tutorial-blob.md)
 + [Exemple : Création d’une compétence personnalisée pour l’enrichissement par IA (C#)](cognitive-search-create-custom-skill-example.md)
 
-Pour l’apprentissage, nous vous recommandons le service gratuit. Notez toutefois que le nombre de transactions gratuites est limité à 20 documents par jour. Pour suivre à la fois le guide de démarrage rapide et le tutoriel dans la même journée, utilisez un ensemble de fichiers plus petit (10 documents) afin de pouvoir effectuer les deux exercices. Sinon, supprimez l’indexeur que vous avez utilisé dans le guide de démarrage rapide ou le tutoriel pour remettre le compteur à zéro.
+Pour l’apprentissage, nous vous recommandons le service gratuit. Notez toutefois que le nombre de transactions gratuites est limité à 20 documents par jour. Pour suivre les leçons plusieurs fois, supprimez et recréez l’indexeur afin de réinitialiser le compteur à zéro.
 
 **Étape 3 : Examiner l’API**
 

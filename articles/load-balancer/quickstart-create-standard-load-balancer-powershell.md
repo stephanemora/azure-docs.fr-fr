@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 50a7854688164383bff08bfe55d356fe32239812
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0cd2bb54bb436beaa933195b88bc6f13a1b23e6f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846515"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470413"
 ---
 # <a name="quickstart-create-a-load-balancer-using-azure-powershell"></a>Démarrage rapide : Créer un équilibreur de charge à l’aide d’Azure PowerShell
 
@@ -68,7 +68,10 @@ $publicIp = New-AzPublicIpAddress `
  -zone 1
 ```
 
-Utilisez ```-SKU Basic``` pour créer une adresse IP publique de base. Microsoft recommande d’utiliser le type Standard pour les charges de travail de production.
+Utilisez ```-SKU Basic``` pour créer une adresse IP publique de base. Les adresses IP publiques de base ne sont pas compatibles avec l’équilibreur de charge **Standard**. Microsoft recommande d’utiliser le type **Standard** pour les charges de travail de production.
+
+> [!IMPORTANT]
+> Le reste de ce guide de démarrage rapide suppose que la référence SKU **Standard** est choisie pendant le processus de sélection de SKU ci-dessus.
 
 ## <a name="create-load-balancer"></a>Créer un équilibreur de charge
 
@@ -161,6 +164,9 @@ $lb = New-AzLoadBalancer `
 ```
 
 Utilisez ```-SKU Basic``` pour créer un équilibreur de charge de base. Microsoft recommande d’utiliser le type Standard pour les charges de travail de production.
+
+> [!IMPORTANT]
+> Le reste de ce guide de démarrage rapide suppose que la référence SKU **Standard** est choisie pendant le processus de sélection de SKU ci-dessus.
 
 ## <a name="create-network-resources"></a>Créer des ressources réseau
 Avant de déployer des machines virtuelles et de pouvoir tester votre équilibreur, vous devez créer des ressources de réseau virtuel de prise en charge (réseau virtuel et cartes réseau virtuelles). 

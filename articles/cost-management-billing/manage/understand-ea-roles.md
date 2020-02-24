@@ -1,35 +1,31 @@
 ---
 title: Comprendre les rôles d’administrateur d’entreprise dans Azure | Microsoft Docs
 description: Découvrez les rôles d’administrateur d’entreprise dans Azure.
-services: billing
-documentationcenter: ''
-author: adpick
-manager: adpick
-editor: ''
+author: bandersmsft
+ms.reviewer: adwise
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/04/2020
+ms.date: 02/14/2020
 ms.author: banders
-ms.openlocfilehash: ee918f0f49acf85486999fe9314758286bb57126
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 9fab4d8ba0cf2e6f684a1b9de177084f8ce31604
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023325"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462188"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Comprendre les rôles d’administrateur Contrat Entreprise Azure dans Azure
 
 Pour faciliter la gestion de l’utilisation et des dépenses d’une organisation, les clients Azure disposant d’un Contrat Entreprise peuvent attribuer cinq rôles d’administrateur distincts :
 
 - Administrateur d’entreprise
-- Administrateur d’entreprise (lecture seule)
+- Administrateur d’entreprise (lecture seule)<sup>1</sup>
 - Administrateur de service
 - Administrateur de service (lecture seule)
 - Propriétaire du compte
- 
+
+<sup>1</sup> Le contact de facturation du contrat EA sera sous ce rôle.
+
 Ces rôles sont spécifiques à la gestion des Contrats Entreprise Azure et s’ajoutent aux rôles intégrés dont Azure doit contrôler l’accès aux ressources. Pour plus d’informations, consultez [Rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md).
 
 Les sections suivantes décrivent les limitations et les capacités de chaque rôle.
@@ -42,9 +38,9 @@ Les sections suivantes décrivent les limitations et les capacités de chaque r�
 |Administrateur d’entreprise (lecture seule)|Illimité|
 |Administrateur de service|Illimité|
 |Administrateur de service (lecture seule)|Illimité|
-|Propriétaire du compte|1 par compte<sup>1</sup>|
+|Propriétaire du compte|1 par compte<sup>2</sup>|
 
-<sup>1</sup> Chaque compte nécessite un compte Microsoft, ou un compte professionnel ou scolaire unique.
+<sup>2</sup> Chaque compte nécessite un compte Microsoft, ou un compte professionnel ou scolaire unique.
 
 ## <a name="organization-structure-and-permissions-by-role"></a>Structure de l’organisation et autorisations par rôle
 
@@ -52,17 +48,17 @@ Les sections suivantes décrivent les limitations et les capacités de chaque r�
 |---|---|---|---|---|---|
 |Voir les administrateurs d’entreprise|✔|✔|✘|✘|✘|
 |Ajouter ou supprimer des administrateurs d’entreprise|✔|✘|✘|✘|✘|
-|Voir les contacts de notification<sup>2</sup> |✔|✔|✘|✘|✘|
-|Ajouter ou supprimer des contacts de notification<sup>2</sup> |✔|✘|✘|✘|✘|
+|Voir les contacts de notification<sup>3</sup> |✔|✔|✘|✘|✘|
+|Ajouter ou supprimer des contacts de notification<sup>3</sup> |✔|✘|✘|✘|✘|
 |Créer et gérer des services |✔|✘|✘|✘|✘|
 |Voir les administrateurs de service|✔|✔|✔|✔|✘|
 |Ajouter ou supprimer des administrateurs de service|✔|✘|✔|✘|✘|
-|Voir les comptes de l’inscription |✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|✘|
-|Ajouter des comptes à l’inscription et changer le propriétaire du compte|✔|✘|✔<sup>3</sup>|✘|✘|
+|Voir les comptes de l’inscription |✔|✔|✔<sup>4</sup>|✔<sup>4</sup>|✘|
+|Ajouter des comptes à l’inscription et changer le propriétaire du compte|✔|✘|✔<sup>4</sup>|✘|✘|
 |Créer et gérer des abonnements et des autorisations d’abonnement|✘|✘|✘|✘|✔|
 
-- <sup>2</sup> Les contacts de notification reçoivent des communications par e-mail à propos du Contrat Entreprise Azure.
-- <sup>3</sup> La tâche est limitée aux comptes de votre service.
+- <sup>3</sup> Les contacts de notification reçoivent des communications par e-mail à propos du Contrat Entreprise Azure.
+- <sup>4</sup> La tâche est limitée aux comptes de votre service.
 
 
 ## <a name="usage-and-costs-access-by-role"></a>Accès à l’utilisation et aux coûts par rôle
@@ -73,11 +69,11 @@ Les sections suivantes décrivent les limitations et les capacités de chaque r�
 |Voir les quotas de dépenses des services|✔|✔|✘|✘|✘|
 |Définir les quotas de dépenses des services|✔|✘|✘|✘|✘|
 |Voir la grille tarifaire du Contrat Entreprise de l’organisation|✔|✔|✘|✘|✘|
-|Voir les détails relatifs à l’utilisation et aux coûts|✔|✔|✔<sup>4</sup>|✔<sup>4</sup>|✔<sup>5</sup>|
+|Voir les détails relatifs à l’utilisation et aux coûts|✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✔<sup>6</sup>|
 |Gérer les ressources dans le portail Azure|✘|✘|✘|✘|✔|
 
-- <sup>4</sup> L’administrateur d’entreprise doit activer la stratégie d’**affichage des frais pour l’administrateur de service** dans Enterprise Portal. L’administrateur de service peut ensuite consulter le détail des coûts pour le service.
-- <sup>5</sup> L’administrateur d’entreprise doit activer la stratégie d’**affichage des frais pour le propriétaire du compte** dans Enterprise Portal. Le propriétaire du compte peut ensuite consulter le détail des coûts pour le compte.
+- <sup>5</sup> L’administrateur d’entreprise doit activer la stratégie d’**affichage des frais pour l’administrateur de service** dans Enterprise Portal. L’administrateur de service peut ensuite consulter le détail des coûts pour le service.
+- <sup>6</sup> L’administrateur d’entreprise doit activer la stratégie d’**affichage des frais pour le propriétaire du compte** dans Enterprise Portal. Le propriétaire du compte peut ensuite consulter le détail des coûts pour le compte.
 
 
 ## <a name="pricing-in-azure-portal"></a>Tarifs dans le portail Azure

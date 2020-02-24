@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 12/20/2019
-ms.openlocfilehash: a994a72ae57b39dba8025e7636e0f822f483bc8c
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: e2e17ba6af60fa495a03e7d46a07cfe6b66f4e68
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720671"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472415"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Démarrage rapide : Créer un ensemble de compétences cognitives pour la Recherche cognitive Azure dans le portail Azure
 
@@ -27,7 +27,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Ce guide de démarrage rapide utilise la Recherche cognitive Azure, le [Stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/) et [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) pour l’IA. 
 
-En raison de la taille réduite de la charge de travail, Cognitive Services est utilisé en arrière-plan pour traiter gratuitement jusqu’à 20 transactions par jour par indexeur, quand il est appelé à partir de la Recherche cognitive Azure. Du moment que vous utilisez les exemples de données que nous fournissons, vous pouvez ignorer la création ou l’attachement d’une ressource Cognitive Services.
+Parce que la charge de travail est vraiment petite, Cognitive Services est utilisé en arrière-plan pour traiter gratuitement jusqu’à 20 transactions. Pour un jeu de données aussi petit, vous pouvez ignorer la création ou l’attachement d’une ressource Cognitive Services.
 
 1. [Téléchargez les exemples de données](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consistant en un petit ensemble de fichiers de types différents. Décompressez les fichiers
 
@@ -170,12 +170,12 @@ Vous pouvez rechercher et gérer les ressources dans le portail à l’aide des 
 
 Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à trois index, indexeurs et sources de données. Vous pouvez supprimer des éléments un par un dans le portail pour ne pas dépasser la limite. 
 
-> [!Tip]
-> Si vous souhaitez répéter cet exercice ou essayer une autre procédure pas à pas d’enrichissement par IA, supprimez l’indexeur du portail. La suppression de l’indexeur réinitialise le compteur de transactions quotidiennes gratuites à zéro pour le traitement Cognitive Services.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous pouvez créer des ensembles de compétences à l’aide du portail, du kit SDK .NET ou de l’API REST. Pour approfondir vos connaissances, essayez l’API REST avec Postman et d’autres exemples de données.
 
 > [!div class="nextstepaction"]
 > [Tutoriel : Extraire du texte et une structure à partir d’objets blob JSON à l’aide d’API REST](cognitive-search-tutorial-blob.md)
+
+> [!Tip]
+> Si vous souhaitez répéter cet exercice ou essayer une autre procédure pas à pas d’enrichissement par IA, supprimez l’indexeur du portail. La suppression de l’indexeur réinitialise le compteur de transactions quotidiennes gratuites à zéro pour le traitement Cognitive Services.

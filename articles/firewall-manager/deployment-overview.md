@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 10/25/2019
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: df87e652d2969d4ae12e97a2b455648cf39382c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c3a94cea838609f65511a21ee2f64e8782a6adea
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488255"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443123"
 ---
 # <a name="azure-firewall-manager-preview-deployment-overview"></a>Vue d’ensemble du déploiement d’Azure Firewall Manager Preview
 
@@ -20,23 +20,32 @@ ms.locfileid: "73488255"
 
 Azure Firewall Manager Preview peut être déployé de différentes manières, mais la procédure générale suivante est recommandée.
 
-## <a name="prerequisites"></a>Prérequis
-
-> [!IMPORTANT]
-> Azure Firewall Manager Preview doit être explicitement activé à l’aide de la commande PowerShell `Register-AzProviderFeature`.
->À partir d’une invite de commande PowerShell, exécutez les commandes suivantes :
->
->```azure-powershell
->connect-azaccount
->Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
->```
->Il faut compter 30 minutes pour l’inscription de la fonctionnalité. Exécutez la commande suivante pour vérifier l’état de votre inscription :
->
->`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
-
-
-
 ## <a name="general-deployment-process"></a>Processus général de déploiement
+
+### <a name="hub-virtual-networks"></a>Réseaux virtuels hub
+
+1.  Créer une stratégie de pare-feu
+
+    - Créer une nouvelle stratégie
+<br>*or*<br>
+    - Dérivez une stratégie de base et personnalisez une stratégie locale
+<br>*or*<br>
+    - Importez des règles à partir d’un pare-feu Azure existant. N’oubliez pas de supprimer les règles NAT des stratégies qui doivent être appliquées sur plusieurs pare-feu
+1. Créer une architecture hub and spoke
+   - Créez un réseau virtuel hub avec Azure Firewall Manager et associez-lui des réseaux virtuels spoke à l’aide du peering de réseaux virtuels
+<br>*or*<br>
+    - Créez un réseau virtuel, ajoutez des connexions de réseau virtuel et associez au nouveau réseau virtuel des réseaux virtuels spoke à l’aide du peering de réseaux virtuels
+
+3. Sélectionnez les fournisseurs de sécurité auxquels vous associez la stratégie de pare-feu. Actuellement, le Pare-feu Azure est le seul fournisseur pris en charge.
+
+   - Effectuez cette opération en même temps que vous créez un réseau virtuel hub
+<br>*or*<br>
+    - Convertissez un réseau virtuel existant en réseau virtuel hub. Il est également possible de convertir plusieurs réseaux virtuels.
+
+4. Configurer les routes définies par l’utilisateur pour acheminer le trafic vers le pare-feu de votre réseau virtuel hub.
+
+
+### <a name="secured-virtual-hubs"></a>Hubs virtuels sécurisés
 
 1. Créer une architecture hub and spoke
 
@@ -61,4 +70,4 @@ Azure Firewall Manager Preview peut être déployé de différentes manières, m
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tutoriel : Sécuriser votre réseau cloud avec Azure Firewall Manager Preview à l’aide du portail Azure](secure-cloud-network.md)
+- [Tutoriel : Sécuriser votre réseau cloud avec Azure Firewall Manager Preview à l’aide du portail Azure](secure-cloud-network.md)

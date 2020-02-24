@@ -1,41 +1,38 @@
 ---
-title: 'Didacticiel : Utiliser Azure Firewall Manager Preview pour sécuriser votre réseau cloud à l’aide du portail Azure'
-description: Dans ce didacticiel, vous allez apprendre à sécuriser votre réseau cloud avec Azure Firewall Manager à l’aide du portail Azure.
+title: 'Tutoriel : Sécuriser votre réseau étendu virtuel à l’aide de la préversion d’Azure Firewall Manager'
+description: Dans ce tutoriel, vous allez apprendre à sécuriser votre réseau étendu virtuel avec Azure Firewall Manager à l’aide du portail Azure.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 10/27/2019
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: d2ebfd6003c0bc2b47636be1e38f47e554cc6988
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3dc94a8be265682fbe2128f2e5870dfdf5850a2d
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510033"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443055"
 ---
-# <a name="tutorial-secure-your-cloud-network-with-azure-firewall-manager-preview-using-the-azure-portal"></a>Didacticiel : Sécuriser votre réseau cloud avec Azure Firewall Manager Preview à l’aide du portail Azure
+# <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>Tutoriel : Sécuriser votre réseau étendu virtuel à l’aide de la préversion d’Azure Firewall Manager 
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-En utilisant Azure Firewall Manager Preview, vous pouvez créer des hubs sécurisés pour sécuriser le trafic de votre réseau cloud à destination d’adresses IP privées, d’Azure PaaS et d’Internet. Le routage du trafic vers le pare-feu étant automatique, vous n’avez pas besoin de créer des itinéraires définis par l’utilisateur.
+À l’aide d’Azure Firewall Manager Preview, vous pouvez créer des hubs virtuels sécurisés pour sécuriser le trafic de votre réseau cloud à destination d’adresses IP privées, d’Azure PaaS et d’Internet. Le routage du trafic vers le pare-feu étant automatique, vous n’avez pas besoin de créer des itinéraires définis par l’utilisateur.
 
 ![sécuriser le réseau cloud](media/secure-cloud-network/secure-cloud-network.png)
 
-## <a name="prerequisites"></a>Prérequis
+Firewall Manager prend également en charge une architecture de réseau virtuel hub. Pour obtenir une comparaison des types d’architectures de hub virtuel sécurisé et de réseau virtuel hub, consultez [Quelles sont les options d’architecture d’Azure Firewall Manager ?](vhubs-and-vnets.md)
 
-> [!IMPORTANT]
-> Azure Firewall Manager Preview doit être explicitement activé à l’aide de la commande PowerShell `Register-AzProviderFeature`.
+Dans ce tutoriel, vous allez apprendre à :
 
-À partir d’une invite de commande PowerShell, exécutez les commandes suivantes :
-
-```azure-powershell
-connect-azaccount
-Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
-```
-Il faut compter 30 minutes pour l’inscription de la fonctionnalité. Exécutez la commande suivante pour vérifier l’état de votre inscription :
-
-`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
+> [!div class="checklist"]
+> * Créer le réseau virtuel spoke
+> * Créer un hub virtuel sécurisé
+> * Connecter les réseaux virtuels hub et spoke
+> * Créer une stratégie de pare-feu et sécuriser votre hub
+> * Acheminer le trafic vers votre hub
+> * Tester le pare-feu
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>Créer une architecture hub and spoke
 
@@ -151,7 +148,7 @@ Pour tester vos règles de pare-feu, vous devez déployer deux serveurs. Vous al
    |Nom de la machine virtuelle     |**Jump-Srv**|
    |Région     |**(États-Unis) USA Est**|
    |Nom d’utilisateur de l’administrateur     |**azureuser**|
-   |Mot de passe     |**Azure123456!**|
+   |Mot de passe     |Tapez votre mot de passe|
 
 4. Sous **Règles des ports d’entrée**, pour **Ports d’entrée publics**, sélectionnez **Autoriser les ports sélectionnés**.
 5. Pour **Sélectionner des ports d’entrée**, sélectionnez **RDP (3389)** .

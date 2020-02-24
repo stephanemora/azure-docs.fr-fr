@@ -2,43 +2,44 @@
 title: E-mail de solde dû de la part d’Azure
 description: Décrit comment procéder au paiement si votre abonnement Azure présente un solde impayé.
 author: genlin
-manager: dcscontentpm
+ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 7216af00413b1f8022957ac134f67a5c27b6cc78
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: cbfd5f7bf47cdaf43df00c710bd6680373d67b09
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75984397"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200603"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Résoudre un solde impayé pour votre abonnement Azure
 
-Cet article s’applique aux clients disposant d’un compte du programme Microsoft Online Services.
+Cet article s’applique aux clients qui se sont inscrits à Azure Online avec une carte de crédit, et qui disposent d’un compte de facturation Programme Microsoft Online Services. Découvrez comment [vérifier votre type de compte de facturation](#check-the-type-of-your-account). Si vous avez un compte de facturation Contrat client Microsoft, consultez [Payer votre facture pour Microsoft Azure](../understand/pay-bill.md) à la place.
 
-Si votre paiement n’a pas été reçu ou si nous ne pouvons pas traiter votre paiement, vous risquez de recevoir un e-mail ou une alerte dans le Centre des comptes Azure ou le portail Azure.
-Si vous êtes l’[administrateur du compte](billing-subscription-transfer.md#whoisaa), vous pouvez régler ces frais en souffrance dans le [portail Azure](https://portal.azure.com). Si vous payez à réception d’une facture, envoyez votre paiement à l’endroit indiqué au bas de votre facture.
+Si votre paiement n’a pas été reçu ou si nous ne pouvons pas traiter votre paiement, vous recevrez un e-mail et verrez une alerte sur le portail Azure vous informant que l’échéance du paiement de cet abonnement est dépassée. Si votre mode de paiement par défaut est la carte de crédit, l’[administrateur du compte](billing-subscription-transfer.md#whoisaa) peut régler ces frais en souffrance sur le portail Azure. Si vous payez par facture (chèque/virement bancaire), envoyez votre paiement à l’adresse indiquée au bas de la facture.
 
 > [!IMPORTANT]
 > * Si vous avez plusieurs abonnements associés à la même carte de crédit et qu’ils sont tous en retard de paiement, vous devez payer l’intégralité du solde restant dû en une seule fois.
-> * Le mode de paiement utilisé pour régler les frais en souffrance deviendra le nouveau mode de paiement actif pour tous les abonnements qui utilisaient le mode de paiement ayant échoué.
+> * La carte de crédit utilisée pour régler les frais en souffrance deviendra le nouveau mode de paiement par défaut pour tous les abonnements qui utilisaient le mode de paiement ayant échoué.
 
 ## <a name="resolve-past-due-balance-in-the-azure-portal"></a>Régler le solde restant dû dans le portail Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur de compte.
 1. Recherchez **Gestion des coûts + facturation**.
-1. Sur la page Vue d’ensemble, vous verrez la liste de vos abonnements. Si votre abonnement est en retard de paiement, cliquez sur le lien **Régler le solde**.
-    ![Capture d’écran montrant le lien Régler le solde](./media/resolve-past-due-balance/settle-balance-entry-point.png)
-1. Le solde restant dû total reflète les frais en attente de paiement sur tous les services Microsoft utilisant le mode de paiement ayant échoué.
-1. Sélectionnez un mode de paiement pour régler le solde. Ce mode de paiement deviendra le mode de paiement actif pour tous les abonnements utilisant actuellement le mode de paiement ayant échoué.
+1. Sélectionnez l’abonnement dont le paiement est dû dans la page **Vue d’ensemble**.
+1. Dans la page **Vue d’ensemble de l’abonnement**, cliquez sur la bannière rouge notifiant le retard pour régler le solde.
+    > [!NOTE]
+    > Si vous n’êtes pas l’administrateur du compte, vous ne pourrez pas régler le solde.
+1. Dans la nouvelle page **Régler le solde**, cliquez sur **Sélectionner le mode de paiement**.
     ![Capture d’écran montrant le lien de sélection du mode de paiement](./media/resolve-past-due-balance/settle-balance-screen.png)
-1. Si le mode de paiement sélectionné a également des frais en souffrance pour les services Microsoft, cela apparaîtra dans le solde restant dû total. Vous devez également payer ces frais en souffrance.
+
+1. Dans le nouveau panneau à droite, sélectionnez une carte de crédit dans la liste déroulante ou ajoutez-en une en cliquant sur le lien bleu **Ajouter un nouveau mode de paiement**. Cette carte de crédit deviendra le mode de paiement actif pour tous les abonnements utilisant actuellement le mode de paiement ayant échoué.
+     > [!NOTE]
+     > * Le solde restant dû total reflète les frais en attente de paiement sur tous les services Microsoft utilisant le mode de paiement ayant échoué.
+     > * Si le mode de paiement sélectionné a également des frais en souffrance pour les services Microsoft, cela apparaîtra dans le solde restant dû total. Vous devez également payer ces frais en souffrance.
 1. Cliquez sur **Payer**.
 
 ## <a name="troubleshoot-declined-credit-card"></a>Résoudre les problèmes de cartes de crédit refusées
@@ -58,6 +59,8 @@ Le service est annulé et vos ressources ne sont plus disponibles. Vos données 
 
 Si vous savez que votre paiement a été traité, alors que votre abonnement est toujours désactivé, contactez le [support Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
+## <a name="check-the-type-of-your-account"></a>Vérifier le type de votre compte
+[!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 

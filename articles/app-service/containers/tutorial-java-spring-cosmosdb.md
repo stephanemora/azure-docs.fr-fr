@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Application Linux Java avec MongoDB'
+title: 'Tutoriel : Application Linux Java avec MongoDB'
 description: Découvrez comment faire fonctionner une application Linux Java pilotée par les données dans Azure App Service en établissant une connexion à une instance MongoDB s’exécutant dans Azure (Cosmos DB).
 author: rloutlaw
 ms.author: routlaw
@@ -7,20 +7,20 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: a3e9c05fbe68bf1b03f45d045afd8754753fecd3
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 5109c33acf4a92a3227fe79d6d2c997a54adec08
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688826"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425270"
 ---
-# <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Didacticiel : Générer une application web Spring Boot Java avec Azure App Service sur Linux et Azure Cosmos DB
+# <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Tutoriel : Générer une application web Spring Boot Java avec Azure App Service sur Linux et Azure Cosmos DB
 
 Ce didacticiel vous guide au travers du processus de création, de configuration, de déploiement et de mise à l’échelle des applications web Java sur Azure. Lorsque vous avez terminé, une application [Spring Boot](https://projects.spring.io/spring-boot/) stocke des données dans [Azure Cosmos DB](/azure/cosmos-db) s’exécutant sous [Azure App Service sur Linux](/azure/app-service/containers).
 
 ![Application Spring Boot stockant les données dans Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une base de données Cosmos DB.
@@ -173,7 +173,7 @@ Si vous voyez des exceptions à la place du message « Started TodoApplication�
 
 ## <a name="configure-azure-deployment"></a>Configurer un déploiement Azure
 
-Ouvrez le fichier `pom.xml` dans le répertoire `initial/spring-boot-todo` et ajoutez la configuration suivante du [plug-in Maven pour Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
+Ouvrez le fichier `pom.xml` dans le répertoire `initial/spring-boot-todo` et ajoutez la configuration suivante du [plug-in Azure Web App pour Maven](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
 
 ```xml    
 <plugins> 
@@ -295,7 +295,7 @@ az appservice plan update --number-of-workers 2 \
    --resource-group <your-azure-group-name>
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez pas besoin de ces ressources pour un autre didacticiel (voir [Étapes suivantes](#next)), vous pouvez les supprimer en exécutant la commande suivante dans Cloud Shell : 
   

@@ -1,20 +1,20 @@
 ---
 title: 'Tutoriel : Trouver plusieurs routes en fonction du mode de transport | Microsoft Azure Maps'
-description: Dans ce tutoriel, vous allez apprendre à trouver des routes pour différents modes de transport à l’aide de Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+description: Dans ce tutoriel, vous allez apprendre à trouver des itinéraires pour différents modes de transport en utilisant Microsoft Azure Maps.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 73cc2ff49653c91d635d52b79a92d1974bfd895b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 628a3003cec2cc2ca58f1b133cf3236417dfa94e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989652"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209492"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutoriel : Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps
 
@@ -26,7 +26,7 @@ Ce tutoriel montre comment utiliser votre compte Azure Maps et le service d’it
 > * Créer des requêtes d’itinéraire déclarant le mode de déplacement
 > * Afficher plusieurs itinéraires sur votre carte
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Avant de continuer, suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps), puis sélectionnez le niveau tarifaire S1. Effectuez les étapes décrites dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) pour obtenir la clé primaire de votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="create-a-new-map"></a>Créer une carte
@@ -200,7 +200,11 @@ Dans ce didacticiel, deux itinéraires sont calculés et affichés sur la carte.
 
 ## <a name="render-routes-prioritized-by-mode-of-travel"></a>Afficher les itinéraires priorisés par mode de déplacement
 
-Cette section montre comment utiliser l’API Route Service d’Azure Maps pour rechercher plusieurs itinéraires entre un point de départ et une destination donnés, en fonction de votre mode de transport. Route Service fournit des API pour planifier les itinéraires les plus *rapides*, *courts*, *économiques* ou *intéressants* entre deux emplacements, en fonction des conditions de circulation actuelles. Grâce à la base de données de trafic historique complète d’Azure, il permet également aux utilisateurs de planifier des itinéraires, durées comprises, pour n’importe quels jour et heure. Pour plus d’informations, consultez [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Obtenir les itinéraires). Tous les blocs de code suivants doivent être ajoutés **dans l’eventListener du chargement de la carte** pour assurer leur chargement une fois la carte complètement chargée.
+Cette section montre comment utiliser l’API de service d’itinéraire Maps. L’API d’itinéraire permet de rechercher plusieurs itinéraires entre un point de départ et une destination donnés, en fonction de votre mode de transport. Le service d’itinéraire fournit les API dédiées à la planification des itinéraires les plus *rapides*, *courts*, *économiques*, ou *intéressants*. Non seulement les API planifient des itinéraires entre deux localisations, mais elles considèrent également les conditions de trafic actuelles. 
+
+Avec la base de données de trafic historique complète d’Azure, L’API d’itinéraire permet également aux utilisateurs de planifier des itinéraires. L’API peut prédire les durées d’itinéraire pour un jour et une heure donnés. Pour plus d’informations, consultez [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Obtenir les itinéraires). 
+
+Tous les blocs de code suivants doivent être ajoutés **dans l’eventListener du chargement de la carte** pour assurer leur chargement une fois la carte complètement chargée.
 
 1. Dans la fonction GetMap, ajoutez le code JavaScript suivant.
 
@@ -244,7 +248,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Maps pour 
     });
     ```
 
-    L’extrait de code ci-dessus interroge le service d’itinéraire d’Azure Maps via la méthode [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest). La ligne d’itinéraire est ensuite extraite de la collection de fonctionnalités GeoJSON à partir de la réponse extraite à l’aide de la méthode `geojson.getFeatures()`. La ligne d’itinéraire est ensuite ajoutée à la source de données. Un index de 0 garantit que la ligne est affichée avant toutes les autres lignes dans la source de données. Ceci est dû au fait que le calcul d’itinéraire réservé aux camions est généralement plus lent qu’un calcul d’itinéraire réservé aux voitures et que, si la ligne d’itinéraire réservé aux camions est ajoutée à la source de données après l’itinéraire réservé aux voitures, il s’affiche au-dessus de celui-ci. Deux propriétés sont ajoutées à la ligne d’itinéraire réservé aux camions : un trait de couleur bleue et une épaisseur de trait de neuf pixels.
+    L’extrait de code ci-dessus interroge le service d’itinéraire d’Azure Maps via la méthode [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest). La ligne d’itinéraire est ensuite extraite de la collection de fonctionnalités GeoJSON à partir de la réponse extraite à l’aide de la méthode `geojson.getFeatures()`. La ligne d’itinéraire est ensuite ajoutée à la source de données. Un index de 0 garantit que la ligne est affichée avant toutes les autres lignes dans la source de données. Cela est fait car le calcul d’un itinéraire de camion sera souvent plus lent que le calcul d’un itinéraire de voiture. Si la ligne d’itinéraire de camion est ajoutée à la source de données après l’itinéraire de voiture, elle s’affiche au-dessus d’elle. Deux propriétés sont ajoutées à la ligne d’itinéraire réservé aux camions : un trait de couleur bleue et une épaisseur de trait de neuf pixels.
 
 3. Ajoutez le code JavaScript suivant pour construire un itinéraire pour une voiture et afficher les résultats.
 
@@ -270,7 +274,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Maps pour 
 
     ![Itinéraires priorisés avec Azure Route Service](./media/tutorial-prioritized-routes/prioritized-routes.png)
 
-    L’itinéraire réservé aux camions est bleu et plus épais, tandis que celui réservé aux voitures est mauve et plus fin. L’itinéraire réservé aux voitures passe au-dessus du Lac Washington via l’I-90, qui traverse des tunnels installés sous des zones résidentielles, ce qui interdit tout transport de déchets dangereux. L’itinéraire des camions, pour lequel est défini le type de chargement USHazmatClass2, utilise à raison une voie de circulation différente.
+    L’itinéraire des camions est bleu, tandis que l’itinéraire des voitures est violet et fin. L’itinéraire réservé aux voitures passe au-dessus du Lac Washington via l’I-90, qui traverse des tunnels installés sous des zones résidentielles. Les tunnels étant proches de zones résidentielles, tout transport de déchets dangereux est interdit. L’itinéraire des camions, pour lequel est défini le type de chargement USHazmatClass2, utilise une voie de circulation différente.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

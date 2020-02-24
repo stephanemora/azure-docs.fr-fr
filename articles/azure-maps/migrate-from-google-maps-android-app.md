@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 855036a5a8e87bd10e9a4d524a1e8ea8bcdccf50
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 9514398ec6a84becd1283e4b0975804101b64086
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086302"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209730"
 ---
 # <a name="migrate-an-android-app-from-google-maps"></a>Migrer une application Android à partir de Google Maps
 
@@ -725,7 +725,7 @@ public void onMapReady(GoogleMap googleMap) {
 Une couche de mosaïques peut être ajoutée à la carte de la même façon que n’importe quel autre calque. Une URL mise en forme qui a les espaces réservés x, y et zoom (`{x}`, `{y}`, `{z}` respectivement) est utilisée pour indiquer à la couche où accéder aux mosaïques. De plus, les couches de mosaïques dans Azure Maps prennent en charge les espaces réservés `{quadkey}`, `{bbox-epsg-3857}` et `{subdomain}`. Pour rendre la couche de mosaïques semi-transparente, une valeur d’opacité de 0,8 est utilisée. L’opacité et la transparence, bien que similaires, utilisent des valeurs inverses. Pour effectuer une conversion entre les deux options, soustrayez leur valeur du nombre 1.
 
 > [!TIP]
-> Dans Azure Maps, il est commode de restituer des couches sous d’autres couches, y compris les couches de la carte de base. Il est souvent souhaitable de restituer des couches de mosaïques sous les étiquettes de carte afin qu’elles soient faciles à lire. La méthode `map.layers.add` prend un deuxième paramètre, qui est l’ID du calque dans lequel insérer le nouveau calque ci-dessous. Pour insérer une couche de mosaïques sous les étiquettes de carte, vous pouvez utiliser le code suivant : `map.layers.add(myTileLayer, "labels");`
+> Dans Azure Maps, il est commode de restituer des couches sous d’autres couches, y compris les couches de la carte de base. De plus, il est souvent souhaitable de restituer des couches de mosaïques sous les étiquettes de carte afin qu’elles soient faciles à lire. La méthode `map.layers.add` prend un deuxième paramètre, qui est l’ID du calque dans lequel insérer le nouveau calque ci-dessous. Pour insérer une couche de mosaïques sous les étiquettes de carte, vous pouvez utiliser le code suivant : `map.layers.add(myTileLayer, "labels");`
 
 ```java
 mapControl.onReady(map -> {

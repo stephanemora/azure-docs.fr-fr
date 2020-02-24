@@ -1,18 +1,18 @@
 ---
-title: 'Didacticiel : Utiliser des fonctions Java avec Azure Cosmos DB et Event Hubs'
+title: 'Tutoriel : Utiliser des fonctions Java avec Azure Cosmos DB et Event Hubs'
 description: Ce didacticiel explique comment utiliser des événements d'Event Hubs pour effectuer des mises à jour dans Azure Cosmos DB à l'aide d'une fonction écrite en Java.
 author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
-ms.openlocfilehash: cef1d09f3365350240cb2ed879e4d41edec74aef
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b6d7b2c60e777266b1cab578b8970c1fa1c6bc50
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849834"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425321"
 ---
-# <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Didacticiel : Créer une fonction en Java avec un déclencheur Event Hub et une liaison de sortie Azure Cosmos DB
+# <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Tutoriel : Créer une fonction en Java avec un déclencheur Event Hub et une liaison de sortie Azure Cosmos DB
 
 Ce didacticiel explique comment utiliser Azure Functions pour créer une fonction Java qui analyse un flux continu de données de température et de pression. Les événements Event Hubs qui représentent les relevés du capteur déclenchent la fonction. La fonction traite les données d'événement, puis ajoute des entrées d'état à une instance d'Azure Cosmos DB.
 
@@ -37,6 +37,8 @@ Pour suivre ce didacticiel, vous devez installer les ressources suivantes :
 > [!IMPORTANT]
 > Pour suivre ce didacticiel, vous devez définir la variable d'environnement `JAVA_HOME` sur l'emplacement d'installation du JDK.
 
+Si vous préférez utiliser directement le code pour ce didacticiel, consultez le référentiel d'exemples [java-functions-eventhub-cosmosdb](https://github.com/Azure-Samples/java-functions-eventhub-cosmosdb).
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-azure-resources"></a>Créer des ressources Azure
@@ -54,7 +56,7 @@ Les sections suivantes expliquent comment créer ces ressources à l'aide de l'i
 
 Si vous n'utilisez pas Cloud Shell, vous devez utiliser Azure CLI localement pour accéder à votre compte. À partir de l'invite Bash, utilisez la commande `az login` pour lancer l'expérience de connexion basée sur un navigateur. Si vous avez accès à plusieurs abonnements Azure, définissez la valeur par défaut sur `az account set --subscription`, suivi de l'ID de l'abonnement.
 
-### <a name="set-environment-variables"></a>Définition des variables d'environnement
+### <a name="set-environment-variables"></a>Définir des variables d’environnement
 
 Créez ensuite des variables d'environnement pour les noms et l'emplacement des ressources que vous allez créer. Utilisez les commandes suivantes, en remplaçant les espaces réservés `<value>` par les valeurs de votre choix. Les valeurs doivent être conformes aux [règles de nommage et aux restrictions applicables aux ressources Azure](/azure/architecture/best-practices/resource-naming). Pour la variable `LOCATION`, utilisez l'une des valeurs produites par la commande `az functionapp list-consumption-locations`.
 
@@ -201,7 +203,7 @@ Vos ressources Azure ont été créées et configurées pour fonctionner correct
 
 ## <a name="create-and-test-your-functions"></a>Créer et tester vos fonctions
 
-Vous allez ensuite créer un projet sur votre ordinateur local, ajouter du code Java et le tester. Vous allez utiliser des commandes qui fonctionnent avec le plug-in Maven pour Azure Functions et Azure Functions Core Tools. Vos fonctions seront exécutées localement, mais elles utiliseront les ressources cloud que vous avez créées. Lorsque les fonctions sont opérationnelles localement, vous pouvez utiliser Maven pour les déployer dans le cloud. Vous verrez alors vos données et analyses s'accumuler.
+Vous allez ensuite créer un projet sur votre ordinateur local, ajouter du code Java et le tester. Vous allez utiliser des commandes qui fonctionnent avec le plug-in Azure Functions pour Maven et Azure Functions Core Tools. Vos fonctions seront exécutées localement, mais elles utiliseront les ressources cloud que vous avez créées. Lorsque les fonctions sont opérationnelles localement, vous pouvez utiliser Maven pour les déployer dans le cloud. Vous verrez alors vos données et analyses s'accumuler.
 
 Si vous avez utilisé Cloud Shell pour créer vos ressources, vous ne serez pas connecté à Azure localement. Dans ce cas, utilisez la commande `az login` pour lancer le processus de connexion basé sur un navigateur. Puis, si nécessaire, définissez l'abonnement par défaut sui `az account set --subscription`, suivi de l'ID de l'abonnement. Enfin, exécutez les commandes suivantes pour recréer des variables d'environnement sur votre ordinateur local. Remplacez les espaces réservés `<value>` par les valeurs que vous avez utilisées précédemment.
 
@@ -411,7 +413,7 @@ Après quelques messages relatifs à la génération et au démarrage, une sorti
 
 Vous pouvez ensuite rejoindre le [portail Azure](https://portal.azure.com) et accéder à votre compte Azure Cosmos DB. Sélectionnez **Explorateur de données**, développez **TelemetryInfo**, puis sélectionnez **Éléments** pour afficher vos données lors de leur arrivée.
 
-![Explorateur de données Cosmos DB](media/functions-event-hub-cosmos-db/data-explorer.png)
+![Explorateur de données Cosmos DB](media/functions-event-hub-cosmos-db/data-explorer.png)
 
 ## <a name="deploy-to-azure-and-view-app-telemetry"></a>Déployer sur Azure et consulter les données de télémétrie de l'application
 
@@ -433,7 +435,7 @@ Vos fonctions s'exécutent désormais dans Azure, et continuent à accumuler des
 
 ![Panneau Performances Application Insights](media/functions-event-hub-cosmos-db/application-insights-performance.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque les ressources Azure que vous avez créées dans ce didacticiel ne vous sont plus d'aucune utilité, vous pouvez les supprimer à l'aide de la commande suivante :
 

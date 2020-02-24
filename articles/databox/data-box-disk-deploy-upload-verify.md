@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.localizationpriority: high
 ms.date: 09/04/2019
 ms.author: alkohli
-ms.openlocfilehash: e2851f7087151b09b5f859b7142aa28e5b18a4e5
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3f89d713003f1f4265a7ab7c467454af750fab48
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514083"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200127"
 ---
 ::: zone target="docs"
 
@@ -26,7 +26,7 @@ Ce tutoriel est le dernier de la série : Déployer Azure Data Box Disk. Dans c
 > * Vérifier le chargement des données dans Azure
 > * Effacer les données du disque Data Box
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vérifiez que vous avez suivi le [tutoriel : Renvoyer un disque Azure Data Box](data-box-disk-deploy-picked-up.md).
 
@@ -56,7 +56,7 @@ Vérifiez que vos données se trouvent dans les comptes de stockage avant de les
   - Pour les objets blob de blocs et de pages : `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
   - Pour les fichiers Azure : `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
-    Vous pouvez également accéder à votre compte de stockage Azure dans le Portail Azure et naviguer à partir de cet emplacement.
+    Vous pouvez également accéder à votre compte de stockage Azure dans le portail Azure et naviguer à partir de cet emplacement.
 
 - Votre ou vos groupes de ressources spécifiés pour les disques managés. Quand vous créez des disques managés, les disques durs virtuels sont chargés en tant qu’objets blob de pages, puis convertis en disques managés. Les disques managés sont attachés aux groupes de ressources spécifiés au moment de la création de la commande.
 
@@ -100,7 +100,7 @@ Pour vérifier que les données ont été chargées dans Azure, effectuez les é
 
 ## <a name="erasure-of-data-from-data-box-disk"></a>Effacer les données du disque Data Box
 
-Une fois que la copie est terminée et que vous avez vérifié que les données se trouvent bien dans le compte de stockage Azure, les disques sont effacés de manière sécurisée conformément à la norme NIST.
+Une fois le chargement vers Azure terminé, Data Box Disk efface les données de ses disques, conformément à la norme [NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
 ::: zone target="docs"
 

@@ -1,30 +1,30 @@
 ---
 title: 'Tutoriel : Router les véhicules électriques avec Azure Notebooks (Python) | Microsoft Azure Maps'
 description: Routez les véhicules électriques avec les API de routage Microsoft Azure Maps et Azure Notebooks.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: dfc9c045af5347ebd3f15df48d5a5756dd2a9e05
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 22a8561d69dd0eeb22f9fe025f5b792422db2c17
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844749"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208163"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutoriel : Router les véhicules électriques avec Azure Notebooks (Python)
 
-Azure Maps est un portefeuille d’API de services géospatiaux intégrées en mode natif dans Azure. Avec ces API, les développeurs, entreprises et éditeurs de logiciels indépendants peuvent créer des applications utilisant la géolocalisation ainsi que des solutions d’IoT, de mobilité, de logistique et de suivi des ressources. 
+Azure Maps est un portefeuille d’API de services géospatiaux intégrées en mode natif dans Azure. Ces API permettent aux développeurs, entreprises et éditeurs de logiciels indépendants de créer des applications utilisant la géolocalisation ainsi que des solutions d’IoT, de mobilité, de logistique et de suivi des ressources. 
 
 Les API REST Azure Maps peuvent être appelées dans des langages tels que Python et R, pour activer l’analyse de données géospatiales et les scénarios de Machine Learning. Azure Maps propose un solide ensemble d’[API de routage](https://docs.microsoft.com/rest/api/maps/route) qui permettent aux utilisateurs de calculer des itinéraires entre différents points de données. Les calculs sont basés sur différentes conditions, comme le type de véhicule ou la zone accessible. 
 
 Dans ce tutoriel, vous allez aider un conducteur de véhicule électrique dont la batterie est presque vide. Le conducteur doit trouver la borne de recharge la plus proche possible de son véhicule.
 
-Ce tutoriel présente les procédures suivantes :
+Ce didacticiel présente les procédures suivantes :
 
 > [!div class="checklist"]
 > * Créer et exécuter un notebook Jupyter sur [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) dans le cloud.
@@ -35,7 +35,7 @@ Ce tutoriel présente les procédures suivantes :
 > * Rechercher et visualiser une route vers la borne de recharge de véhicule électrique la plus proche en temps de conduite.
 
 
-## <a name="prerequisites"></a>Conditions préalables requises 
+## <a name="prerequisites"></a>Prérequis 
 
 Pour suivre ce tutoriel, vous devez d’abord créer un compte Azure Maps et obtenir votre clé primaire (clé d’abonnement). 
 
@@ -74,7 +74,7 @@ Pour suivre ce tutoriel, vous devez créer un projet de notebook Azure, puis té
 
 1. Une fois le téléchargement effectué, le fichier s’affiche dans votre page de projets. Double-cliquez sur le fichier pour l’ouvrir en tant que notebook Jupyter.
 
-Pour mieux comprendre les fonctionnalités implémentées dans le fichier de notebook, exécutez le code dans le notebook une cellule à la fois. Vous pouvez exécuter le code dans chaque cellule en sélectionnant le bouton **Exécuter** situé en haut de l’application de notebook.
+Essayez de comprendre la fonctionnalité implémentée dans le fichier du notebook. Exécutez le code dans le fichier du notebook, une cellule à la fois. Vous pouvez exécuter le code dans chaque cellule en sélectionnant le bouton **Exécuter** situé en haut de l’application de notebook.
 
   ![Bouton Exécuter](./media/tutorial-ev-routing/run.png)
 
@@ -156,7 +156,7 @@ boundsData = {
 
 Après avoir déterminé la zone accessible (isochrone) pour le véhicule électrique, vous pouvez rechercher les bornes de recharge dans cette zone. 
 
-Le script suivant appelle l’[API de recherche dans une géométrie](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) Azure Maps. Elle recherche les bornes de recharge de véhicule électrique situées dans les limites de la zone d’accessibilité maximale du véhicule, puis génère la réponse dans un tableau de lieux accessibles.
+Le script suivant appelle l’[API de recherche dans une géométrie](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) Azure Maps. Il recherche les stations de chargement de véhicules électriques, dans les limites de la plage d’accessibilité maximale de la voiture. Ensuite, le script analyse la réponse dans un tableau de lieux accessibles.
 
 Pour rechercher les bornes de recharge de véhicule électrique dans une zone accessible, exécutez le script suivant :
 

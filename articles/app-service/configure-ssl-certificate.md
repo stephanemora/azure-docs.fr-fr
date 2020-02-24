@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 5df8ae89c16a453b008afed9ee9f8881a0ac4750
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 310bf168b701ba6c37f71bc968da8e9114458e6f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046413"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425305"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Ajouter un certificat SSL dans Azure App Service
 
@@ -29,7 +29,7 @@ Le tableau suivant répertorie les options permettant d’ajouter des certificat
 | Téléchargement d’un certificat privé | Si vous disposez déjà d’un certificat privé provenant d’un fournisseur tiers, vous pouvez le charger. Consultez [Exigences concernant les certificats privés](#private-certificate-requirements). |
 | Téléchargement d’un certificat public | Les certificats publics ne sont pas utilisés pour sécuriser les domaines personnalisés, mais vous pouvez les charger dans votre code si vous en avez besoin pour accéder aux ressources distantes. |
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les étapes de ce guide pratique, vous devez au préalable :
 
@@ -39,7 +39,7 @@ Pour effectuer les étapes de ce guide pratique, vous devez au préalable :
 ## <a name="private-certificate-requirements"></a>Exigences concernant les certificats privés
 
 > [!NOTE]
-> Azure Web Apps ne prend **pas** en charge AES256, et tous les fichiers pfx doivent être chiffrés avec TrippleDES.
+> Azure Web Apps ne prend **pas** en charge AES256, et tous les fichiers pfx doivent être chiffrés avec TripleDES.
 
 Le [certificat managé App Service gratuit](#create-a-free-certificate-preview) et le [certificat App Service](#import-an-app-service-certificate) répondent déjà aux exigences App Service. Si vous choisissez de charger ou d’importer un certificat privé dans App Service, votre certificat doit :
 
@@ -115,9 +115,9 @@ Aidez-vous du tableau suivant pour configurer le certificat. Lorsque vous avez t
 
 | Paramètre | Description |
 |-|-|
-| Name | Nom convivial de votre certificat App Service. |
+| Nom | Nom convivial de votre certificat App Service. |
 | Nom d’hôte de domaine nu | Spécifiez ici le domaine racine. Le certificat émis sécurise *à la fois* le domaine racine et le sous-domaine `www`. Dans le certificat émis, le champ Nom commun contient le domaine racine et le champ Autre nom de l’objet contient le domaine `www`. Pour sécuriser un sous-domaine uniquement, indiquez ici son nom de domaine complet (par exemple, `mysubdomain.contoso.com`).|
-| Subscription | Abonnement qui contient le certificat. |
+| Abonnement | Abonnement qui contient le certificat. |
 | Resource group | Groupe de ressources qui doit contenir le certificat. Vous pouvez utiliser un nouveau groupe de ressources, ou sélectionner le même groupe de ressources que votre application App Service, par exemple. |
 | Référence (SKU) de certificat | Détermine le type de certificat à créer (certificat standard ou [certificat générique](https://wikipedia.org/wiki/Wildcard_certificate)). |
 | Termes et conditions | Cliquez pour confirmer que vous acceptez les termes et conditions. Les certificats sont obtenus auprès de GoDaddy. |
@@ -136,9 +136,9 @@ Dans la page **État de Key Vault**, cliquez sur **Référentiel Key Vault** pou
 
 | Paramètre | Description |
 |-|-|
-| Name | Nom unique composé de caractères alphanumériques et de tirets. |
+| Nom | Nom unique composé de caractères alphanumériques et de tirets. |
 | Resource group | Nous vous conseillons de choisir le même groupe de ressources que votre certificat App Service. |
-| Location | Choisissez le même emplacement que votre application App Service. |
+| Emplacement | Choisissez le même emplacement que votre application App Service. |
 | Niveau tarifaire | Pour obtenir des informations sur les tarifs, consultez [Tarification d’Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Stratégies d’accès| Définit les applications et l’accès autorisé aux ressources du coffre. Vous pouvez configurer ce paramètre ultérieurement, en suivant les étapes décrites dans [Accorder à plusieurs applications l’autorisation d’accéder à un coffre de clés](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Accès au réseau virtuel | Limitez l’accès au coffre à certains réseaux virtuels Azure. Vous pouvez configurer ce paramètre ultérieurement, en suivant les étapes décrites dans [Configurer les pare-feux et réseaux virtuels d’Azure Key Vault](../key-vault/key-vault-network-security.md) |
@@ -193,7 +193,7 @@ Aidez-vous du tableau suivant pour sélectionner le certificat.
 
 | Paramètre | Description |
 |-|-|
-| Subscription | Abonnement auquel appartient le coffre de clés. |
+| Abonnement | Abonnement auquel appartient le coffre de clés. |
 | Key Vault | Coffre contenant le certificat que vous souhaitez importer. |
 | Certificat | Dans le coffre, sélectionnez un certificat PKCS12 dans la liste. Tous les certificats PKCS12 du coffre sont listés avec leurs empreintes numériques, mais tous ne sont pas pris en charge dans App Service. |
 

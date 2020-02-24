@@ -1,5 +1,6 @@
 ---
-title: Tutoriel pour copier des données à partir de disques durs virtuels sur des disques managés avec Azure Data Box Heavy| Microsoft Docs
+title: 'Tutoriel : Copier à partir de disques durs virtuels vers des disques managés'
+titleSuffix: Azure Data Box Heavy
 description: Découvrez comment copier des données à partir de disques durs virtuels de charges de travail de machine virtuelle locales sur votre Azure Data Box Heavy
 services: databox
 author: alkohli
@@ -8,18 +9,18 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: a29cd142b3322c958f70aad8d5cad2bc30b87d76
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 01031159d1894c7cb5f36b48f268186dff21fd22
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67670835"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471327"
 ---
-# <a name="tutorial-use-data-box-heavy-to-import-data-as-managed-disks-in-azure"></a>Didacticiel : Utiliser Data Box Heavy pour importer des données en tant que disques managés dans Azure
+# <a name="tutorial-use-data-box-heavy-to-import-data-as-managed-disks-in-azure"></a>Tutoriel : Utiliser Data Box Heavy pour importer des données en tant que disques managés dans Azure
 
 Ce tutoriel explique comment utiliser Azure Data Box Heavy pour migrer vos disques durs virtuels locaux vers des disques managés dans Azure. Les disques durs virtuels de machines virtuelles locales sont copiés sur Data Box Heavy en tant qu’objets blob de pages, puis chargés dans Azure en tant que disques managés. Vous pouvez ensuite attacher ces disques managés à des machines virtuelles Azure.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Vérifier les conditions préalables

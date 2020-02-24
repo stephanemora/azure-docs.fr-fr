@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6b8458ce41a1bdacddc4102e8282bbc638d4c01c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016491"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426358"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>Tutoriel : Créer une application de gestion connectée des déchets dans IoT Central
 
@@ -32,7 +32,7 @@ Dans ce didacticiel, vous apprendrez à :
 > * Configuration des travaux
 > * Personnaliser le marquage de votre application à l’aide d’une étiquette blanche
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 -  Un abonnement Azure est recommandé. Vous pouvez éventuellement utiliser une version d’évaluation gratuite de 7 jours. Si vous n’avez pas d’abonnement Azure, vous pouvez en créer un sur la [page d’inscription à Azure](https://aka.ms/createazuresubscription).
@@ -129,7 +129,7 @@ L’application **Connected waste management** (Gestion connectée des déchets)
 
 Pour afficher ce modèle d’appareil :
 
-1. Cliquez sur **Modèles d’appareil** dans le volet de navigation gauche de votre application dans IoT Central. 
+1. Cliquez sur **Modèles d’appareil** dans le volet gauche de votre application dans IoT Central. 
 
     ![Modèle d'appareil](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
@@ -177,7 +177,7 @@ L’application **Connected waste management** (Gestion connectée des déchets)
 
 ### <a name="to-view-the-devices"></a>Pour afficher ces appareils :
 
-1. Accédez à **Devices** (Appareils) dans le volet de navigation gauche IoT Central. 
+1. Accédez à **Devices** (Appareils) dans le volet gauche IoT Central. 
 
    ![Appareils](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
 
@@ -202,7 +202,7 @@ Dans Azure IoT Central, vous pouvez créer des règles pour superviser automatiq
 L’application **Connected Waste Management** (Gestion connectée des déchets) possède quatre exemples de règles.
 
 ### <a name="to-view-rules"></a>Pour afficher ces règles :
-1. Accédez à **Rules** (Règles) dans le volet de navigation gauche IoT Central.
+1. Accédez à **Rules** (Règles) dans le volet gauche IoT Central.
 
    ![Règles](./media/tutorial-connectedwastemanagement/connectedwastemanagement-rules.png)
 
@@ -231,13 +231,13 @@ Vous devrez recevoir un e-mail quand la **condition** configurée sera remplie.
 > L’application enverra un e-mail chaque fois qu’une condition sera remplie. Désactivez (**Disable**) la règle pour cesser de recevoir des e-mails à partir de la règle automatisée. 
   
 Pour créer une nouvelle règle : 
-1. Sélectionnez **+New** (Nouveau) sur les règles (**Rules**) dans le volet de navigation gauche.
+1. Sélectionnez **+ New** (+ Nouveau) sous **Rules** (Règles) dans le volet gauche.
 
 ## <a name="configure-jobs"></a>Configurer des travaux
 
 Dans IoT Central, les travaux vous permettent de déclencher des mises à jour des propriétés d’appareil ou cloud sur plusieurs appareils. Outre les propriétés, vous pouvez également utiliser des travaux pour déclencher des commandes d’appareil sur plusieurs appareils. IoT Central automatisera le flux de travail pour vous. 
 
-1. Accédez à **Jobs** (Travaux) à partir du volet de navigation gauche. 
+1. Accédez à **Jobs** (Travaux) dans le volet gauche. 
 2. Cliquez sur **+New** (Nouveau) et configurez un ou plusieurs travaux. 
 
 

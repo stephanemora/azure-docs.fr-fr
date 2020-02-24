@@ -1,25 +1,25 @@
 ---
-title: 'Didacticiel : Charger des données et exécuter des requêtes avec Apache Spark - Azure HDInsight'
+title: 'Tutoriel : Charger des données et exécuter des requêtes avec Apache Spark - Azure HDInsight'
 description: Didacticiel - Découvrez comment charger des données et exécuter des requêtes interactives sur des clusters Spark dans Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 10/03/2019
-ms.openlocfilehash: 8c5fe1970857a04c7b237a101ac228dea024815b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive,mvc
+ms.date: 02/12/2020
+ms.openlocfilehash: 5eb6788a558e4429296731f1693edd18bf92f98f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494501"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198886"
 ---
-# <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Didacticiel : Charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight
+# <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutoriel : Charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight
 
 Dans ce tutoriel, vous allez apprendre à créer une trame de données à partir d’un fichier CSV et à exécuter des requêtes interactives SQL Spark sur un cluster [Apache Spark](https://spark.apache.org/) dans Azure HDInsight. Dans Spark, une trame de données est une collection distribuée de données organisées en colonnes nommées. D’un point de vue conceptuel, une trame de données équivaut à une table d’une base de données relationnelle ou à une trame de données dans R/Python.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Créer une trame de données à partir d’un fichier CSV
 > * Exécuter des requêtes sur la trame de données
@@ -60,7 +60,9 @@ Les applications peuvent créer des dataframes directement à partir de fichiers
 
     ![État de la requête Spark SQL interactive](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "État de la requête Spark SQL interactive")
 
-2. Exécutez le code suivant pour créer une trame de données et une table temporaire (**hvac**).
+1. Notez l’ID de session retourné. D’après l’image ci-dessus, l’ID de session est 0. Si vous le souhaitez, vous pouvez récupérer les détails de la session en accédant à `https://CLUSTERNAME.azurehdinsight.net/livy/sessions/ID/statements`, où CLUSTERNAME est le nom de votre cluster Spark et ID est votre numéro d’ID de session.
+
+1. Exécutez le code suivant pour créer une trame de données et une table temporaire (**hvac**).
 
     ```python
     # Create a dataframe and table from sample data
@@ -91,7 +93,7 @@ Une fois la table créée, vous pouvez exécuter une requête interactive sur le
 
 4. Si vous démarrez le [didacticiel suivant](apache-spark-use-bi-tools.md) maintenant, laissez le bloc-notes ouvert. Sinon, arrêtez le notebook pour libérer les ressources de cluster : dans la barre de menus, accédez à **File** (Fichier) >  **Close and Halt** (Fermer et arrêter).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Avec HDInsight, vos données et notebooks Jupyter sont stockés dans le stockage Azure ou Azure Data Lake Storage. Vous pouvez ainsi supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même quand vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, mieux vaut supprimer les clusters quand ils ne sont pas utilisés. Si vous prévoyez de suivre le tutoriel suivant immédiatement, vous souhaiterez peut-être conserver le cluster.
 

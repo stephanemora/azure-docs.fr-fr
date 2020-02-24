@@ -1,5 +1,6 @@
 ---
-title: Tutoriel pour copier des données à partir de disques durs virtuels sur des disques managés avec Azure Data Box | Microsoft Docs
+title: 'Tutoriel : Copier à partir de disques durs virtuels vers des disques managés'
+titleSuffix: Azure Data Box
 description: Découvrez comment copier des données à partir de disques durs virtuels de charges de travail de machine virtuelle locales vers votre Azure Data Box
 services: databox
 author: alkohli
@@ -8,18 +9,18 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 4b7182d1fa70a146da1c01273ffe1032f2982546
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 8f076deaafd938dc93800cf351bf471cead5f009
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240457"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471225"
 ---
-# <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Didacticiel : Utiliser Data Box pour importer des données en tant que disque managé dans Azure
+# <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutoriel : Utiliser Data Box pour importer des données en tant que disque managé dans Azure
 
 Ce didacticiel explique comment utiliser l’Azure Data Box vous migrer des disques durs virtuels locaux vers des disques managés dans Azure. Les disques durs virtuels de machines virtuelles locales sont copiés vers la Data Box en tant qu’objets blob de pages, puis chargés dans Azure en tant que disques managés. Vous pouvez ensuite attacher ces disques managés à des machines virtuelles Azure.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Vérifier les conditions préalables

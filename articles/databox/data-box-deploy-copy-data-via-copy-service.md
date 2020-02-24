@@ -1,5 +1,6 @@
 ---
-title: Tutoriel pour copier des données vers votre appareil Azure Data Box via le service de copie des données | Microsoft Docs
+title: 'Tutoriel : Utiliser le service de copie de données pour copier sur votre appareil'
+titleSuffix: Azure Data Box
 description: Dans ce tutoriel, vous allez apprendre à copier des données vers votre appareil Azure Data Box via le service de copie des données.
 services: databox
 author: alkohli
@@ -8,14 +9,14 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a8a8b9d872860425be721515a7087085acf12065
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 579c1984ee1906519980bbed154921a20ed40b79
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206061"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466975"
 ---
-# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Didacticiel : Utiliser le service de copie des données pour copier des données dans Azure Data Box (préversion)
+# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Tutoriel : Utiliser le service de copie des données pour copier des données dans Azure Data Box (préversion)
 
 Ce tutoriel explique comment ingérer des données par l’intermédiaire du service de copie des données, sans l’aide d’un hôte intermédiaire. Ce service s’exécute localement sur Microsoft Azure Data Box, se connecte à votre appareil NAS via SMB, puis copie les données vers Data Box.
 
@@ -24,7 +25,7 @@ Utilisez le service de copie des données :
 - Dans les environnements NAS où les hôtes intermédiaires ne sont pas disponibles.
 - Avec de petits fichiers dont l’ingestion et le chargement de données prend des semaines. Le service de copie des données améliore considérablement le temps d’ingestion et de chargement des petits fichiers.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Copier des données sur Data Box
@@ -111,7 +112,7 @@ Pour copier des données par l’intermédiaire du service de copie des données
 
 6. Pendant que la tâche est en cours d’exécution, dans la page **Copier des données** :
 
-    - Dans la colonne **État**, vous pouvez voir l’état du travail de copie. L’état peut être :
+    - Dans la colonne **État**, vous pouvez voir l’état du travail de copie. L'état peut prendre l'une des valeurs suivantes :
         - **Exécution**
         - **Échec**
         - **Réussi**

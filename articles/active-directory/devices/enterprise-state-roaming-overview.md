@@ -1,22 +1,22 @@
 ---
-title: Qu’est-ce qu’Enterprise State Roaming dans Azure Active Directory ? | Microsoft Docs
-description: Enterprise State Roaming fournit aux utilisateurs une expérience unifiée sur leurs appareils Windows et réduit le temps nécessaire à la configuration d’un nouveau périphérique.
+title: Qu’est-ce qu’Enterprise State Roaming dans Azure Active Directory ?
+description: Enterprise State Roaming fournit aux utilisateurs une expérience unifiée sur leurs appareils Windows
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 06/28/2019
+ms.date: 02/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5b60970592180a2353860369e637d4b9a9bb8f9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c22baf0a08718883f0c0c9844cc395f607b5b20d
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481904"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77194277"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>Qu’est-ce qu’Enterprise State Roaming ?
 
@@ -30,11 +30,11 @@ Enterprise State Roaming est disponible dans plusieurs régions Azure. Pour cons
 
 | Article | Description |
 | --- | --- |
-| [Activer Enterprise State Roaming dans Azure Active Directory](enterprise-state-roaming-enable.md) |Enterprise State Roaming est disponible pour toute organisation ayant souscrit un abonnement premium à Azure Active Directory (Azure AD). Pour plus de détails sur l’obtention d’un abonnement Azure AD, consultez la page [du produit Azure AD](https://azure.microsoft.com/services/active-directory) . |
-| [FAQ sur l’itinérance des paramètres et des données](enterprise-state-roaming-faqs.md) |Cette rubrique répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application. |
+| [Activer Enterprise State Roaming dans Azure Active Directory](enterprise-state-roaming-enable.md) |Enterprise State Roaming est disponible pour toute organisation ayant souscrit un abonnement premium à Azure Active Directory (Azure AD). Pour plus d’informations sur l’obtention d’un abonnement Azure AD, consultez la page du [produit Azure AD](https://azure.microsoft.com/services/active-directory). |
+| [FAQ sur l’itinérance des paramètres et des données](enterprise-state-roaming-faqs.md) |Cet article répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application. |
 | [Paramètres de stratégie de groupe et de MDM pour la synchronisation des paramètres](enterprise-state-roaming-group-policy-settings.md) |Windows 10 fournit les paramètres de stratégie de groupe et de gestion d’appareil mobile (MDM) pour limiter la synchronisation des paramètres. |
-| [Référence des paramètres d’itinérance Windows 10](enterprise-state-roaming-windows-settings-reference.md) |Voici une liste complète de tous les paramètres destinés à l’itinérance et/ou à la sauvegarde dans Windows 10. |
-| [Dépannage](enterprise-state-roaming-troubleshooting.md) |Cette rubrique présente certaines étapes de base pour la résolution des problèmes et contient une liste de problèmes connus. |
+| [Référence des paramètres d’itinérance Windows 10](enterprise-state-roaming-windows-settings-reference.md) |Liste des paramètres pour l’itinérance et/ou la sauvegarde dans Windows 10. |
+| [Dépannage](enterprise-state-roaming-troubleshooting.md) |Cet article présente certaines étapes de base pour la résolution des problèmes et contient une liste de problèmes connus. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

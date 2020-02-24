@@ -1,20 +1,20 @@
 ---
 title: Liste des définitions de stratégie intégrées
 description: Liste les définitions de stratégie intégrées pour Azure Policy. Les catégories incluent Étiquettes, Conformité réglementaire, Key Vault, Kubernetes, Guest Configuration et plus encore.
-ms.date: 01/31/2020
+ms.date: 02/15/2020
 ms.topic: sample
-ms.openlocfilehash: a672089dd45169b59bfb87ff3b612bc029c02448
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 06c913bdccd8b35970a195f6ee658ce7b1d97a7b
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77170037"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371210"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Définitions de stratégie Azure Policy intégrées
 
 Cette page est un index de définitions de stratégie intégrées Azure Policy.
 
-Le lien associé au nom de chaque définition intégrée mène à la source de définition de la stratégie dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy). Les définitions intégrées sont regroupées par la propriété **category** dans **metadata**. Pour accéder à une **catégorie** spécifique, utilisez le menu sur le côté droit de la page. Autrement, utilisez <kbd>Ctrl</kbd>-<kbd>F</kbd> pour utiliser la fonctionnalité de recherche de votre navigateur.
+Le nom de chaque définition intégrée est un lien vers la définition de stratégie dans le portail Azure. Utilisez le lien de la colonne **Source** pour voir la source dans le [dépôt GitHub Azure Policy](https://github.com/Azure/azure-policy). Les définitions intégrées sont regroupées par la propriété **category** dans **metadata**. Pour accéder à une **catégorie** spécifique, utilisez le menu sur le côté droit de la page. Autrement, utilisez <kbd>Ctrl</kbd>-<kbd>F</kbd> pour utiliser la fonctionnalité de recherche de votre navigateur.
 
 [!INCLUDE [azure-policy-samples-policies-index](../../../../includes/azure-policy-samples-policies-index.md)]
 

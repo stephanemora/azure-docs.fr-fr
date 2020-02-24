@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/18/2019
+ms.date: 02/14/2020
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 81e3003db9baa4c5df646241d77e01840bcdf21d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a3f8013804a2c3f4864719861eea1510c9d849d3
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505866"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368456"
 ---
-# <a name="quickstart-get-intent-with-rest-apis"></a>Démarrage rapide : Reconnaître une intention avec des API REST
+# <a name="quickstart-change-model-with-rest-apis"></a>Démarrage rapide : Modifier le modèle avec les API REST
 
 Dans ce guide de démarrage rapide, vous allez ajouter des exemples d’énoncés à une application d’agence de voyages et entraîner l’application. Les exemples d’énoncés sont du texte utilisateur conversationnel mappé à une intention. En fournissant des exemples d’énoncés pour les intentions, vous apprenez à l’application LUIS quels types de texte fourni par l’utilisateur appartiennent à quelle intention.
 

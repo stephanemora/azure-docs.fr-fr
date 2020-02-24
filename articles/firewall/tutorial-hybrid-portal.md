@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/18/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: b0847cda78c2e6d1df87eeaedc35850103840151
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: e9ca891d2d92b6760d37108b66afc54c81ac125c
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264727"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77442579"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide du portail Azure
 
@@ -45,7 +45,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Si vous souhaitez plutôt utiliser Azure PowerShell pour suivre cette procédure, consultez [Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell](tutorial-hybrid-ps.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Un réseau hybride utilise le modèle d’architecture Hub and Spoke pour router le trafic entre des réseaux virtuels Azure et des réseaux locaux. L’architecture Hub and Spoke présente les conditions suivantes :
 
@@ -55,14 +55,14 @@ Un réseau hybride utilise le modèle d’architecture Hub and Spoke pour router
 
 - Vous devez définir **UseRemoteGateways** lors du Peering de VNet-Spoke à VNet-Hub. Si **UseRemoteGateways avec** est défini et que **AllowGatewayTransit** sur le Peering distant est également défini, le réseau virtuel spoke utilise les passerelles du réseau virtuel distant pour le transit.
 - Pour router le trafic de sous-réseau spoke par le biais du pare-feu de hub, vous avez besoin d’une route définie par l’utilisateur (UDR, User-Defined Route) qui pointe vers le pare-feu avec l’option **Désactiver la propagation des itinéraires BGP** activée. L’option **Désactiver la propagation des itinéraires BGP** empêche la distribution des routes vers les sous-réseaux spoke. Cela empêche que les routes apprises entrent en conflit avec votre UDR.
-- Vous devez configurer une UDR sur le sous-réseau de passerelle hub qui pointe vers l’adresse IP du pare-feu comme prochain tronçon vers les réseaux spoke. Aucune UDR n’est requise sur le sous-réseau du Pare-feu Azure, puisqu’il apprend les itinéraires à partir de BGP.
+- Vous devez configurer une UDR sur le sous-réseau de passerelle hub qui pointe vers l’adresse IP du pare-feu comme prochain tronçon vers les réseaux spoke. Aucun UDR n’est requis sur le sous-réseau du Pare-feu Azure, puisqu’il apprend les itinéraires à partir de BGP.
 
-Consultez la section [Créer des itinéraires](#create-the-routes) de ce tutoriel pour voir comment ces itinéraires sont créés.
+Consultez la section [Créer des itinéraires](#create-the-routes) de ce didacticiel pour voir comment ces itinéraires sont créés.
 
 >[!NOTE]
 >Le Pare-feu Azure doit avoir une connectivité Internet directe. Si votre AzureFirewallSubnet prend connaissance d’un itinéraire par défaut pour votre réseau local via le protocole BGP, vous devez le remplacer par un UDR 0.0.0.0/0 avec la valeur **NextHopType** définie sur **Internet** pour garantir une connectivité Internet directe.
 >
->Pour l’heure, Pare-feu Azure ne prend pas en charge le tunneling forcé. Si votre configuration nécessite un tunneling forcé vers un réseau local et que vous pouvez déterminer les préfixes IP cibles pour vos destinations Internet, vous pouvez configurer ces plages en faisant du réseau local le tronçon suivant avec une route définie par l’utilisateur sur le sous-réseau AzureFirewallSubnet. Vous pouvez aussi utiliser le protocole BGP pour définir ces routes.
+>Le Pare-feu Azure peut être configuré pour prendre en charge le tunneling forcé. Pour plus d’informations, consultez la page [Tunneling forcé du Pare-feu Azure](forced-tunneling.md).
 
 >[!NOTE]
 >Le trafic entre les réseaux virtuels directement appairés est acheminé directement même si l’UDR pointe vers le Pare-feu Azure en tant que passerelle par défaut. Pour envoyer un trafic de sous-réseau à sous-réseau au pare-feu dans ce scénario, un UDR doit contenir explicitement le préfixe du réseau cible dans les deux sous-réseaux.
@@ -79,7 +79,7 @@ Tout d’abord, créez le groupe de ressources qui doit contenir les ressources 
 4. Pour **Abonnement**, sélectionnez votre abonnement.
 5. Pour **Région**, sélectionnez **USA Est**. Toutes les ressources que vous créez par la suite doivent se trouver dans le même emplacement.
 6. Sélectionnez **Vérifier + créer**.
-7. Sélectionnez **Créer**.
+7. Sélectionnez **Create** (Créer).
 
 À présent, créez le réseau virtuel :
 
@@ -153,10 +153,10 @@ Il s’agit de l’adresse IP publique utilisée pour la passerelle locale.
 
    |Paramètre  |Valeur  |
    |---------|---------|
-   |Subscription     |\<votre abonnement\>|
+   |Abonnement     |\<votre abonnement\>|
    |Resource group     |**FW-Hybrid-Test** |
-   |Name     |**AzFW01**|
-   |Location     |Sélectionnez le même emplacement que celui utilisé précédemment|
+   |Nom     |**AzFW01**|
+   |Emplacement     |Sélectionnez le même emplacement que celui utilisé précédemment|
    |Choisir un réseau virtuel     |**Utiliser l’existant** :<br> **VNet-hub**|
    |Adresse IP publique     |Créer nouveau : <br>**Nom** - **fw-pip**. |
 
@@ -331,7 +331,7 @@ Ensuite, créez deux itinéraires :
 7. Sélectionnez le groupe de ressources **FW-Hybrid-Test**.
 8. Pour **Emplacement**, sélectionnez le même emplacement que celui utilisé précédemment.
 4. Pour **Propagation de la route de la passerelle de réseau virtuel**, sélectionnez **Désactivée**.
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 2. Une fois la table de routage créée, sélectionnez-la pour ouvrir la page correspondante.
 3. Sélectionnez **Routes** dans la colonne de gauche.
 4. Sélectionnez **Ajouter**.
@@ -446,7 +446,7 @@ Fermez les bureaux à distance existants avant de tester les règles modifiées.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Vous pouvez garder vos ressources de pare-feu pour le prochain tutoriel, ou, si vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources **FW-Hybrid-Test** pour supprimer toutes les ressources associées au pare-feu.
+Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, si vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources **FW-Hybrid-Test** pour supprimer toutes les ressources associées au pare-feu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

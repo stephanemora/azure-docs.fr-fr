@@ -5,21 +5,21 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 02/13/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: f9277fae00471bf67682015e017ae6dfa351ad65
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 35ca071cd8495611f0f350511ef9406f82c5be23
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422869"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209424"
 ---
-# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Didacticiel : Créer une association ExpressRoute avec Azure Virtual WAN
+# <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>Tutoriel : Créer une association ExpressRoute avec Azure Virtual WAN
 
 Ce didacticiel vous montre comment utiliser Azure Virtual WAN pour vous connecter à vos ressources dans Azure via un circuit ExpressRoute. Pour plus d’informations sur Azure Virtual WAN et les ressources Azure Virtual WAN, consultez [Vue d’ensemble d’Azure Virtual WAN](virtual-wan-about.md).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un WAN virtuel
@@ -34,11 +34,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration :
 
-* Vous avez un réseau virtuel auquel vous souhaitez vous connecter. Vérifiez qu’aucun des sous-réseaux de votre réseau local ne chevauche les réseaux virtuels auxquels vous souhaitez vous connecter. Pour créer un réseau virtuel dans le Portail Azure, consultez le [Démarrage rapide](../virtual-network/quick-create-portal.md).
+* Vous avez un réseau virtuel auquel vous souhaitez vous connecter. Vérifiez qu’aucun des sous-réseaux de votre réseau local ne chevauche les réseaux virtuels auxquels vous souhaitez vous connecter. Pour créer un réseau virtuel dans le portail Azure, consultez le [guide de démarrage rapide](../virtual-network/quick-create-portal.md).
 
 * Votre réseau virtuel n’a pas de passerelle de réseau virtuel. Si votre réseau virtuel dispose d’une passerelle (VPN ou ExpressRoute), vous devez supprimer toutes les passerelles. Cette configuration nécessite que les réseaux virtuels soient connectés à la passerelle hub Virtual WAN.
 
-* Obtenez une plage d’adresses IP pour la région de votre hub. Le hub est un réseau virtuel qui est créé et utilisé par Virtual WAN. La plage d’adresses que vous spécifiez pour le hub ne peut pas chevaucher les réseaux virtuels existants auxquels vous vous connectez. Il ne peut pas chevaucher vos plages d’adresses auxquelles vous vous connectez en local. Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, contactez une personne en mesure de vous aider.
+* Obtenez une plage d’adresses IP pour la région de votre hub. Le hub est un réseau virtuel qui est créé et utilisé par Virtual WAN. La plage d’adresses que vous spécifiez pour le hub ne peut pas chevaucher les réseaux virtuels existants auxquels vous vous connectez. Elle ne peut pas non plus chevaucher vos plages d’adresses auxquelles vous vous connectez en local. Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, contactez une personne en mesure de vous aider.
+
+* Pour se connecter à la passerelle hub, le circuit ExpressRoute doit être un circuit Premium.
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -47,17 +49,17 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et connectez-vous avec votre compte Azure.
 
 1. Accédez à la page WAN Virtuel. Dans le portail, cliquez sur **+Créer une ressource**. Tapez **WAN virtuel** dans la zone de recherche et sélectionnez Entrée.
-2. Sélectionnez **WAN virtuel** dans les résultats. Sur la page Virtual WAN, cliquez sur **Créer** pour ouvrir la page Créer un WAN.
-3. Sur la page **Créer un WAN**, dans l’onglet **Fonctions de base**, renseignez les champs suivants :
+2. Sélectionnez **WAN virtuel** dans les résultats. Dans la page Virtual WAN, cliquez sur **Créer** pour ouvrir la page Créer un WAN.
+3. Dans la page **Créer un WAN**, sous l’onglet **Fonctions de base**, renseignez les champs suivants :
 
    ![Créer un WAN](./media/virtual-wan-expressroute-portal/createwan.png)
 
-   * **Abonnement** : sélectionnez l’abonnement que vous voulez utiliser.
+   * **Abonnement** : sélectionnez l’abonnement que vous voulez utiliser.
    * **Groupe de ressources** : Créer en un nouveau ou utiliser un qui existe déjà.
-   * **Emplacement du groupe de ressources** : choisissez un emplacement de la ressource dans la liste déroulante. Un réseau étendu est une ressource globale et ne réside pas dans une région particulière. Toutefois, vous devez sélectionner une région afin de gérer et de localiser plus facilement la ressource de réseau étendu que vous créez.
+   * **Emplacement du groupe de ressources** : choisissez un emplacement de la ressource dans la liste déroulante. Un WAN est une ressource globale et ne réside pas dans une région particulière. Toutefois, vous devez sélectionner une région pour gérer et localiser plus facilement la ressource WAN que vous créez.
    * **Nom** : tapez le nom que vous souhaitez donner à votre réseau étendu.
    * **Type** : sélectionnez **Standard**. Vous ne pouvez pas créer une passerelle ExpressRoute à l’aide de la référence SKU de base.
-4. Lorsque vous avez fini de renseigner les champs, cliquez sur **Vérifier + Créer**.
+4. Quand vous avez fini de renseigner les champs, cliquez sur **Vérifier + Créer**.
 5. Après la validation, sélectionnez **Créer** pour créer le WAN virtuel.
 
 ## <a name="hub"></a>Créer un hub virtuel et une passerelle
@@ -103,7 +105,7 @@ Dans cette section, vous créez la connexion de peering entre votre hub et un r�
 
 ## <a name="connectcircuit"></a>Connecter votre circuit à la passerelle de hub
 
-Une fois la passerelle créée, vous pouvez y connecter un circuit [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Notez que les circuits ExpressRoute Premium qui se trouvent dans les emplacements pris en charge par ExpressRoute Global Reach peuvent se connecter à une passerelle ExpressRoute Virtual WAN.
+Une fois la passerelle créée, vous pouvez y connecter un circuit [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Les circuits ExpressRoute Premium qui se trouvent dans les emplacements pris en charge par ExpressRoute Global Reach peuvent se connecter à une passerelle ExpressRoute Virtual WAN.
 
 ### <a name="to-connect-the-circuit-to-the-hub-gateway"></a>Pour connecter votre circuit à la passerelle de hub
 
@@ -153,4 +155,4 @@ Si vous souhaitez que le hub virtuel Azure publie l’itinéraire par défaut 0.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur le WAN virtuel, consultez la page [Vue d'ensemble de WAN virtuel](virtual-wan-about.md).
+Pour plus d’informations sur Virtual WAN, consultez la page [Vue d’ensemble de Virtual WAN](virtual-wan-about.md).

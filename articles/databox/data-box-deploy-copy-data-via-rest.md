@@ -1,5 +1,6 @@
 ---
-title: 'Tutoriel : Copier des données vers le stockage Blob Azure Data Box par le biais des API REST | Microsoft Docs'
+title: 'Tutoriel : Utiliser des API REST pour copier dans le stockage d’objets blob'
+titleSuffix: Azure Data Box
 description: Découvrez comment copier des données dans votre stockage Blob Azure Data Box par le biais des API REST.
 services: databox
 author: alkohli
@@ -8,18 +9,18 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: alkohli
-ms.openlocfilehash: fcd6fc95adc892885fd8471e622ce3b04258d8b5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b7d58bb13644c992894510f26a4848ea80c9df00
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800537"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471837"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Didacticiel : Copier des données vers le stockage Blob Azure Data Box par le biais des API REST  
+# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutoriel : Copier des données vers le stockage Blob Azure Data Box par le biais des API REST  
 
 Ce tutoriel explique comment se connecter au stockage Blob Azure Data Box par le biais des API REST sur *http* ou *https*. Une fois connecté, les étapes nécessaires pour copier les données dans le stockage Blob Data Box et préparer la Data Box pour l’expédition sont également décrites.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Prérequis
@@ -99,7 +100,7 @@ Suivez ces étapes pour importer le fichier `.cer` dans le magasin racine d’un
 #### <a name="use-windows-powershell"></a>Utiliser Windows PowerShell
 
 1. Démarrez une session Windows PowerShell en tant qu’administrateur.
-2.  À l’invite de commandes, tapez :
+2. À l’invite de commandes, tapez :
 
     ```
     Import-Certificate -FilePath C:\temp\localuihttps.cer -CertStoreLocation Cert:\LocalMachine\Root
@@ -188,7 +189,7 @@ Utilisez AzCopy pour charger tous les fichiers d’un dossier dans le stockage B
         --dest-key <key> \
         --recursive
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
 
@@ -213,7 +214,7 @@ Si vous souhaitez copier uniquement les ressources de code source qui n’existe
     --recursive \
     --exclude-older
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 

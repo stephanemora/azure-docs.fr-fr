@@ -4,12 +4,12 @@ description: Créez et déployez du code Python serverless dans le cloud à l’
 ms.date: 02/11/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: a781e10cee4cf433de5e837490d901020a875205
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 16d4d5627ea297d825092009511915f5b6e734b6
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157888"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212436"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-that-responds-to-http-requests"></a>Démarrage rapide : Créer une fonction Python dans Azure qui répond à des requêtes HTTP
 
@@ -17,7 +17,7 @@ Dans cet article, vous utilisez des outils en ligne de commande pour créer une 
 
 Si vous souhaitez consulter une version de cet article adaptée à Visual Studio Code, [cliquez ici](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-python).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 ou ultérieure.
@@ -97,7 +97,7 @@ Dans Azure Functions, un projet de fonction est un conteneur pour une ou plusieu
     cd LocalFunctionProj
     ```
     
-1. Ajoutez une fonction à votre projet à l’aide de la commande suivante, où l’argument `--name` est le nom unique de votre fonction, et l’argument `--template` spécifie le déclencheur de la fonction. `func new` crée un sous-dossier correspondant au nom de la fonction qui contient le fichier de code approprié au langage choisi pour le projet, et un fichier config nommé *function.json*.
+1. Ajoutez une fonction à votre projet à l’aide de la commande suivante, où l’argument `--name` spécifie le nom unique de votre fonction (HttpExample ici) et où l’argument `--template` spécifie le déclencheur de la fonction (déclencheur HTTP). Cette commande `func new` crée un sous-dossier correspondant au nom de la fonction qui contient le fichier de code approprié au langage choisi pour le projet, et un fichier config nommé *function.json*.
 
     ```
     func new --name HttpExample --template "HTTP trigger"
@@ -167,7 +167,7 @@ Pour le déclencheur HTTP, la fonction reçoit les données de requête dans la 
 }
 ```
 
-Chaque liaison nécessite une direction, un type et un nom unique. Le déclencheur HTTP comporte une liaison d’entrée de type [`httpTrigger`](functions-bindings-http-webhook.md#trigger) et une liaison de sortie de type [`http`](functions-bindings-http-webhook.md#output).
+Chaque liaison nécessite une direction, un type et un nom unique. Le déclencheur HTTP comporte une liaison d’entrée de type [`httpTrigger`](functions-bindings-http-webhook-trigger.md) et une liaison de sortie de type [`http`](functions-bindings-http-webhook-output.md).
 
 
 ## <a name="run-the-function-locally"></a>Exécuter la fonction localement

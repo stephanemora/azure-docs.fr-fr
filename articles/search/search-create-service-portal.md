@@ -8,16 +8,16 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.openlocfilehash: bd4798ba4faa1808ecafb6d09eee09ba734c293d
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 3bc3edcd0e75d8f6e3e4d6f9b200032909318040
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121706"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209356"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Démarrage rapide : Créer un service Recherche cognitive Azure dans le portail
 
-La Recherche cognitive Azure est une ressource autonome utilisée pour ajouter une expérience utilisateur de recherche à des applications personnalisées. Bien que la Recherche cognitive Azure s’intègre facilement à d’autres services Azure, vous pouvez également l’utiliser en tant que composant autonome. De même, vous pouvez l’intégrer à des applications situées sur des serveurs réseau, ou à des logiciels s’exécutant sur d’autres plateformes cloud.
+La Recherche cognitive Azure est une ressource autonome utilisée pour raccorder une expérience de recherche à des applications personnalisées. Elle s’intègre facilement à de nombreux autres services Azure, à des applications situées sur des serveurs réseau ou à des logiciels s’exécutant sur d’autres plateformes cloud.
 
 Dans cet article, découvrez comment créer une ressource dans le [portail Azure](https://portal.azure.com/).
 
@@ -45,18 +45,18 @@ Si vous avez plusieurs abonnements, choisissez-en un pour votre service de reche
 
 ## <a name="set-a-resource-group"></a>Définir un groupe de ressources
 
-Un groupe de ressources est nécessaire et utile pour gérer la totalité des ressources, y compris les coûts. Un groupe de ressources peut se composer d’un service ou de plusieurs services utilisés ensemble. Par exemple, si vous utilisez la Recherche cognitive Azure pour indexer une base de données Azure Cosmos DB, vous pouvez associer les deux services au sein du même groupe de ressources à des fins de gestion. 
+Un groupe de ressources est un conteneur qui contient des ressources associées de votre solution Azure. Il est nécessaire pour le service de recherche. Il est également utile pour gérer l’ensemble des ressources, dont les coûts. Un groupe de ressources peut se composer d’un service ou de plusieurs services utilisés ensemble. Par exemple, si vous utilisez la Recherche cognitive Azure pour indexer une base de données Azure Cosmos DB, vous pouvez associer les deux services au sein du même groupe de ressources à des fins de gestion. 
 
 Si vous ne combinez pas des ressources dans un même groupe, ou si les groupes de ressources existants sont remplis de ressources utilisées dans des solutions non liées, créez un groupe de ressources uniquement pour votre ressource Recherche cognitive Azure. 
 
 ![Créer un groupe de ressources](./media/search-create-service-portal/new-resource-group.png "Création d’un groupe de ressources")
 
-Au fil du temps, vous pouvez effectuer le suivi des coûts actuels et prévus (comme indiqué dans la capture d’écran) ou faire défiler vers le haut pour afficher les frais des différentes ressources. La capture d’écran suivante montre le type d’informations relatives aux coûts que vous pouvez voir lorsque vous combinez plusieurs ressources dans un groupe.
+Au fil du temps, vous pouvez effectuer le suivi des coûts actuels et prévus ou consulter les frais des différentes ressources. La capture d’écran suivante montre le type d’informations relatives aux coûts que vous pouvez vous attendre à voir quand vous combinez plusieurs ressources dans un groupe.
 
 ![Gérer les coûts au niveau du groupe de ressources](./media/search-create-service-portal/resource-group-cost-management.png "Gérer les coûts au niveau du groupe de ressources")
 
 > [!TIP]
-> Les groupes de ressources simplifient le nettoyage, car la suppression d’un groupe supprime également les services qu’il contient. Pour les projets de prototype utilisant plusieurs services, le fait de les placer tous dans le même groupe de ressources facilite le nettoyage une fois le projet terminé.
+> Les groupes de ressources simplifient le nettoyage, car la suppression d’un groupe supprime tous les services qu’il contient. Pour les projets de prototype utilisant plusieurs services, le fait de les placer tous dans le même groupe de ressources facilite le nettoyage une fois le projet terminé.
 
 ## <a name="name-the-service"></a>Nommer le service
 
@@ -65,10 +65,10 @@ Dans Détails de l’instance, indiquez un nom de service dans le champ **URL**.
 Configuration requise du nom du service :
 
 * il doit être unique dans l’espace de noms search.windows.net ;
-* entre 2 et 60 caractères ;
-* contenir des lettres minuscules, des chiffres ou des tirets (« - ») ;
-* éviter les tirets (« - ») pour les 2 premiers caractères ou le dernier ;
-* pas de tirets consécutifs (« -- »).
+* Il doit comprendre entre 2 et 60 caractères
+* Vous devez utiliser des lettres minuscules, des chiffres ou des tirets (« - »)
+* N’utilisez pas de tirets (« - ») pour les 2 premiers caractères ou le dernier
+* Vous ne pouvez pas utiliser de tirets consécutifs (« -- »)
 
 > [!TIP]
 > Si vous pensez utiliser plusieurs services, nous vous recommandons d’inclure la région (ou l’emplacement) dans le nom du service comme convention d’affectation de noms. Les services d’une même région peuvent échanger des données gratuitement. Ainsi, si la Recherche cognitive Azure est située dans la région USA Ouest et si vous disposez d’autres services également dans cette région, un nom tel que `mysearchservice-westus` peut vous éviter de passer par la page de propriétés quand vous décidez de la façon d’associer ou d’attacher des ressources.
@@ -79,7 +79,7 @@ En tant que service Azure, la Recherche cognitive Azure peut être hébergée da
 
 Vous pouvez réduire ou éviter les frais de bande passante en choisissant le même emplacement pour plusieurs services. Par exemple, si vous indexez des données fournies par un autre service Azure (Stockage Azure, Azure Cosmos DB, Azure SQL Database), la création de votre service Recherche cognitive Azure dans la même région évite les frais de bande passante (il n’existe aucun frais pour les données sortantes quand les services se trouvent dans la même région).
 
-De plus, si vous utilisez des enrichissements IA, créez votre service dans la même région que Cognitive Services. *La colocalisation de la Recherche cognitive Azure et de Cognitive Services dans la même région est obligatoire pour l’enrichissement par IA*.
+Si vous utilisez des enrichissements par IA, créez votre service de recherche dans la même région que Cognitive Services. *La colocalisation de la Recherche cognitive Azure et de Cognitive Services dans la même région est obligatoire pour l’enrichissement par IA*.
 
 > [!Note]
 > Inde Centre est actuellement indisponible pour les nouveaux services. Pour les services déjà dans la région Inde Centre, vous pouvez effectuer un scale-up sans aucune restriction, et votre service est entièrement pris en charge dans cette région. La restriction appliquée à cette région est temporaire et ne concerne que les nouveaux services. Nous supprimerons cette note lorsque la restriction ne s’appliquera plus.
@@ -90,7 +90,7 @@ De plus, si vous utilisez des enrichissements IA, créez votre service dans la m
 
 De base et Standard sont les options les plus courantes pour les charges de production, mais la plupart des clients démarrent avec le service gratuit. Les principales différences entre les niveaux sont la taille et la vitesse des partitions, ainsi que les limites du nombre d’objets que vous pouvez créer.
 
-Nous vous rappelons que vous ne pouvez pas changer de niveau tarifaire une fois le service créé. Si vous souhaitez un niveau plus élevé ou moins élevé, vous devez recréer le service.
+N’oubliez pas que vous ne pouvez pas changer de niveau tarifaire une fois le service créé. Si vous avez besoin d’un niveau plus élevé ou moins élevé, vous devez recréer le service.
 
 ## <a name="create-your-service"></a>Créer votre service
 
@@ -98,7 +98,7 @@ Une fois que vous avez fourni les entrées nécessaires, continuez et créez le 
 
 ![Passer en revue et créer le service](./media/search-create-service-portal/new-service3.png "Passer en revue et créer le service")
 
-Votre service est déployé en quelques minutes. Vous pouvez superviser la progression du déploiement en utilisant les notifications Azure. Vous pouvez épingler le service à votre tableau de bord afin d’y accéder plus facilement la prochaine fois.
+Votre service est déployé en quelques minutes. Vous pouvez superviser la progression par le biais de notifications Azure. Vous pouvez épingler le service à votre tableau de bord afin d’y accéder plus facilement la prochaine fois.
 
 ![Superviser et épingler le service](./media/search-create-service-portal/monitor-notifications.png "Superviser et épingler le service")
 
