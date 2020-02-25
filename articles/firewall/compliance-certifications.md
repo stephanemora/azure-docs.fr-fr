@@ -1,22 +1,22 @@
 ---
-title: Certifications de conformité Pare-feu Azure
-description: Liste des certifications de conformité Pare-feu Azure pour PCI, SOC et ISO
+title: Certifications de Pare-feu Azure
+description: Liste des certifications de Pare-feu Azure pour PCI, SOC, ISO et ICSA Labs
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 01/17/2020
+ms.date: 02/19/2020
 ms.author: victorh
-ms.openlocfilehash: f7e235a4212cf14f851c0c58eb087970c8f8d137
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: b1e7dce6f652d8c9e0fcf5974c3e72be9e1e7844
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157778"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482176"
 ---
-# <a name="azure-firewall-compliance-certifications"></a>Certifications de conformité Pare-feu Azure
+# <a name="azure-firewall-certifications"></a>Certifications de Pare-feu Azure
 
-Le service Pare-feu Azure est conforme aux normes PCI (Payment Card Industry), SOC (Service Organization Controls), ISO (Organisation internationale de normalisation) et HITRUST.
+Le service Pare-feu Azure est conforme aux normes PCI (Payment Card Industry), SOC (Service Organization Controls), ISO (Organisation internationale de normalisation), ICSA Labs et HITRUST.
 
 Les certifications suivantes concernent Azure global et Azure Government.
 
@@ -103,6 +103,14 @@ Les certifications Pare-feu Azure suivantes sont destinées à Azure Government�
 - SOC 3
 - SOX (États-Unis)
 - Section 508 VPATS
+
+## <a name="icsa-labs-corporate-firewall-certification"></a>Certification de pare-feu d’entreprise ICSA Labs
+
+![Certification ICSA](media/overview/icsa-cert-firewall-small.png)
+
+ICSA Labs est un fournisseur de premier plan en matière de tests et de certification de produits informatiques de sécurité et d’intégrité, ainsi que d’appareils connectés à un réseau. Ils mesurent la conformité, la fiabilité et les performances des produits de la plupart des principaux fournisseurs de technologies.
+
+Le pare-feu Azure est le premier service de pare-feu cloud à atteindre la certification de pare-feu d’entreprise ICSA Labs. Pour le rapport de certification de pare-feu Azure, voir [Rapport de test et d’audit de certification ICSA Labs](https://aka.ms/ICSALabsCertification). Pour plus d’informations, voir la page [Programme de certification](https://www.icsalabs.com/technology-program/firewalls) de pare-feu ICSA Labs.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

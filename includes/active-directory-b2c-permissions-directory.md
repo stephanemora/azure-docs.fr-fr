@@ -3,33 +3,39 @@ author: mmacy
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 10/16/2019
+ms.date: 02/12/2020
 ms.author: marsma
-ms.openlocfilehash: 43bcd1f11eb228bd1454b2ad0f2addb851029f2f
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: e5201dfee83ec5360e55533e923e2b55c24c09d9
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73799812"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492358"
 ---
-#### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
+#### <a name="applications"></a>[Applications](#tab/applications/)
 
 1. Dans la page de vue d’ensemble **Application inscrite**, sélectionnez **Paramètres**.
-1. Sous **ACCÈS D’API**, sélectionnez **Autorisations requises**.
-1. Sélectionnez **Windows Azure Active Directory**.
-1. Sous **AUTORISATIONS DE L’APPLICATION**, sélectionnez **Accéder en lecture et en écriture aux données de l’annuaire**.
+1. Sous **Accès d’API**, sélectionnez **Autorisations requises**.
+1. Sélectionnez **Microsoft Graph**.
+1. Sous **Autorisations de l’application**, activez la case à cocher de l’autorisation à accorder à votre application de gestion. Par exemple :
+    * **Lire toutes les données du journal d’audit** : Sélectionnez cette autorisation pour lire les journaux d’audit de l’annuaire.
+    * **Accéder en lecture et en écriture aux données de l’annuaire** : Sélectionnez cette autorisation pour les scénarios de migration utilisateur ou de gestion des utilisateurs.
+    * **Accéder en lecture et en écriture aux stratégies d’infrastructure de confiance de votre organisation** : Sélectionnez cette autorisation pour les scénarios d’intégration continue/livraison continue (CI/CD). Par exemple, pour le déploiement de stratégies personnalisées avec Azure Pipelines.
 1. Sélectionnez **Enregistrer**.
 1. Sélectionnez **Accorder des autorisations**, puis **Oui**. La propagation complète des autorisations peut prendre quelques minutes.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
 
 1. Sous **Gérer**, sélectionnez **Autorisations de l’API**.
 1. Sous **Autorisations configurées**, sélectionnez **Ajouter une autorisation**.
-1. Sélectionnez **Azure Active Directory Graph**.
+1. Sélectionnez l’onglet **API Microsoft**, puis **Microsoft Graph**.
 1. Sélectionnez **Autorisations de l’application**.
-1. Développez **Répertoire** puis cochez la case **Directory. ReadWrite. All**.
+1. Développez le groupe d’autorisations approprié et activez la case à cocher de l’autorisation à accorder à votre application de gestion. Par exemple :
+    * **AuditLog** > **AuditLog.Read.All** : Pour lire les journaux d’audit de l’annuaire.
+    * **Directory** > **Directory.ReadWrite.All** : Pour les scénarios de migration ou de gestion d’utilisateurs.
+    * **Policy** > **Policy.ReadWrite.TrustFramework** : Pour les scénarios d’intégration continue/livraison continue (CI/CD). Par exemple, pour le déploiement de stratégies personnalisées avec Azure Pipelines.
 1. Sélectionnez **Ajouter des autorisations**. Comme vous l’indiquent les instructions, patientez quelques minutes avant de passer à l’étape suivante.
 1. Sélectionnez **Accorder le consentement de l’administrateur pour (nom de votre abonné)** .
-1. Sélectionnez un compte d’administrateur abonné.
+1. Sélectionnez le compte administrateur actuellement connecté ou connectez-vous avec un compte de votre locataire Azure AD B2C qui possède au minimum le rôle *Administrateur d’application cloud*.
 1. Sélectionnez **Accepter**.
 1. Sélectionnez **Actualiser**, puis vérifiez que la mention « Accordé pour ... » apparaît sous **État**. La propagation des autorisations peut prendre quelques minutes.

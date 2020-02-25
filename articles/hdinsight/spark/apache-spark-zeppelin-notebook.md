@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.openlocfilehash: 75811382867b93c778641ece42971018eff39949
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: hdinsightactive
+ms.date: 02/18/2020
+ms.openlocfilehash: c5c8a41aef92876ceaa66fb23c01c6ece1609f91
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664600"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484806"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utiliser des blocs-notes Apache Zeppelin avec un cluster Apache Spark sur HDInsight
 
@@ -21,9 +21,8 @@ Les clusters HDInsight Spark incluent des blocs-notes [Apache Zeppelin](https://
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Le schéma d'URI de votre principal espace de stockage de clusters. Il s'agirait de `wasb://` pour Stockage Blob Azure, de `abfs://` pour Azure Data Lake Storage Gen2 ou de `adl://` pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour le stockage Blob, l’URI sera `wasbs://`.  Pour plus d'informations, consultez également [Exiger un transfert sécurisé dans Stockage Azure](../../storage/common/storage-require-secure-transfer.md).
+* Le schéma d'URI de votre principal espace de stockage de clusters. Il s'agirait de `wasb://` pour Stockage Blob Azure, de `abfs://` pour Azure Data Lake Storage Gen2 ou de `adl://` pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour le stockage Blob, l’URI sera `wasbs://`.  Pour plus d’informations, voir [Exiger un transfert sécurisé dans Stockage Azure](../../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Lancer un bloc-notes Apache Zeppelin
 
@@ -154,7 +153,7 @@ Cela permet d’enregistrer le bloc-notes en tant que fichier JSON dans l’empl
 
 ## <a name="livy-session-management"></a>Gestion des sessions Livy
 
-Lorsque vous exécutez le premier paragraphe de code dans votre bloc-notes Zeppelin, une nouvelle session Livy est créée dans votre cluster HDInsight Spark. Cette session est partagée par tous les blocs-notes Zeppelin que vous créerez par la suite. Si, pour une raison quelconque, la session Livy est arrêtée (redémarrage de cluster, etc.), vous ne serez pas en mesure d’exécuter de tâches à partir du bloc-notes Zeppelin.
+Lorsque vous exécutez le premier paragraphe de code dans votre bloc-notes Zeppelin, une nouvelle session Livy est créée dans votre cluster HDInsight Spark. Cette session est partagée par tous les blocs-notes Zeppelin que vous créerez par la suite. Si, pour une raison quelconque, la session Livy est arrêtée (redémarrage de cluster ou autre), vous ne serez pas en mesure d’exécuter de travaux à partir du bloc-notes Zeppelin.
 
 Dans ce cas, vous devez effectuer les étapes suivantes avant de commencer à exécuter des tâches à partir d’un bloc-notes Zeppelin.  
 
@@ -168,15 +167,50 @@ Dans ce cas, vous devez effectuer les étapes suivantes avant de commencer à ex
 
 3. Exécutez une cellule de code à partir d’un bloc-notes Zeppelin existant. Cela crée une session Livy dans le cluster HDInsight.
 
-## <a name="seealso"></a>Voir aussi
+## <a name="general-information"></a>Informations générales
 
-* [Présentation : Apache Spark sur Azure HDInsight](apache-spark-overview.md)
+### <a name="validate-service"></a>Valider le service
+
+Pour valider le service à partir d’Ambari, accédez à `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` où CLUSTERNAME est le nom de votre cluster.
+
+Pour valider le service à partir d’une ligne de commande, utilisez le protocole SSH pour accéder au nœud principal. Basculez l’utilisateur sur Zeppelin à l’aide de la commande `sudo su zeppelin`. Commandes relatives à l’état :
+
+|Commande |Description |
+|---|---|
+|`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh status`|État du service.|
+|`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh --version`|Version du service.|
+|`ps -aux | grep zeppelin`|Identifier le PID.|
+
+### <a name="log-locations"></a>Emplacements des journaux
+
+|Service |Path |
+|---|---|
+|zeppelin-server|/usr/hdp/current/zeppelin-server/|
+|Journaux d’activité du serveur|/var/log/zeppelin|
+|Interpréteur de configuration, Shiro, site. xml, log4j|/usr/hdp/current/zeppelin-server/conf or /etc/zeppelin/conf|
+|Répertoire PID|/var/run/zeppelin|
+
+### <a name="enable-debug-logging"></a>Activer l’enregistrement du débogage
+
+1. Accédez à `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary`, où CLUSTERNAME est le nom de votre cluster.
+
+1. Accédez à **CONFIGS** > **Advanced zeppelin-log4j-properties** > **log4j_properties_content**.
+
+1. Remplacez `log4j.appender.dailyfile.Threshold = INFO` par `log4j.appender.dailyfile.Threshold = DEBUG`.
+
+1. Ajoutez `log4j.logger.org.apache.zeppelin.realm=DEBUG`.
+
+1. Enregistrez les modifications et redémarrez le service.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[Vue d’ensemble : Apache Spark sur Azure HDInsight](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Scénarios
 
 * [Apache Spark avec BI : effectuer une analyse interactive des données à l’aide de Spark sur HDInsight avec des outils décisionnels](apache-spark-use-bi-tools.md)
 * [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide des données des systèmes HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour prédire les résultats de l’inspection d’aliments](apache-spark-machine-learning-mllib-ipython.md)
 * [Analyse des journaux de site web à l’aide d’Apache Spark dans HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Création et exécution d’applications

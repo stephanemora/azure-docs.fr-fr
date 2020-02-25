@@ -1,26 +1,21 @@
 ---
-title: Tutoriel sur l’utilisation de la configuration dynamique d’Azure App Configuration dans une application .NET Framework | Microsoft Docs
-description: Dans ce tutoriel, vous allez apprendre à mettre à jour dynamiquement les données de configuration pour les applications .NET Framework
+title: 'Tutoriel .NET Framework : Configuration dynamique dans Azure App Configuration'
+description: Dans ce tutoriel, vous allez apprendre à mettre à jour dynamiquement les données de configuration des applications .NET Framework avec Azure App Configuration.
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7cb76d5836055ce352373fa13449e27d81e84022
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 7ba3eae4ea5557b4bb1b1be4e2c79eab8f6e7988
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185251"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484874"
 ---
-# <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Didacticiel : Utiliser la configuration dynamique dans une application .NET Framework
+# <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>Tutoriel : Utiliser la configuration dynamique dans une application .NET Framework
 
 La bibliothèque cliente .NET App Configuration permet d’effectuer la mise à jour à la demande d’un ensemble de paramètres de configuration, sans entraîner le redémarrage de l’application. Vous pouvez implémenter cette configuration en obtenant d’abord une instance de `IConfigurationRefresher` parmi les options du fournisseur de configuration, puis en appelant `Refresh` sur cette instance, à n’importe quel endroit de votre code.
 
@@ -28,7 +23,7 @@ Pour maintenir les paramètres à jour et éviter trop d’appels au magasin de 
 
 Ce tutoriel montre comment vous pouvez implémenter des mises à jour de la configuration dynamique dans votre code. Il s’appuie sur l’application mentionnée dans les guides de démarrage rapide. Avant de continuer, terminez d’abord l’étape [Créer une application .NET Framework avec App Configuration](./quickstart-dotnet-app.md).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Configurer votre application .NET Framework pour mettre à jour sa configuration en réponse aux changements survenant dans un magasin App Configuration.
@@ -134,7 +129,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
     ![Lancement local de l’application](./media/dotnet-app-run.png)
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Toutes les ressources**, puis sélectionnez l’instance du magasin App Configuration que vous avez créée dans le guide de démarrage rapide.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Toutes les ressources**, puis sélectionnez l’instance du magasin App Configuration que vous avez créée dans le guide de démarrage rapide.
 
 1. Sélectionnez **Explorateur de configuration**, puis mettez à jour les valeurs des clés suivantes :
 
@@ -149,7 +144,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
     > [!NOTE]
     > Étant donné que le délai d’expiration du cache a été défini sur 10 secondes à l’aide de la méthode `SetCacheExpiration` lors de la spécification de la configuration de l’opération d’actualisation, la valeur du paramètre de configuration ne sera actualisée que si 10 secondes se sont écoulées depuis la dernière actualisation de ce paramètre.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/13/2019
+ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 476763e1cb354edb8cdc4cbbae0d3aa7017faa16
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 342ae7e42c85ad661c04ba4ebb6629673f4af4dc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118750"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482274"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Démarrage rapide : Extraire du texte et des informations de disposition à l’aide de l’API REST Form Recognizer avec Python
 
@@ -22,7 +22,7 @@ Ce guide de démarrage rapide permet d’utiliser l’API REST Azure Form Recogn
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre cette procédure de démarrage rapide, vous avez besoin des éléments suivants :
 - [Python](https://www.python.org/downloads/) doit être installé (si vous souhaitez exécuter l’exemple en local).

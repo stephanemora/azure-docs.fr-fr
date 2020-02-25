@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/14/2019
+ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 8ab673c1a268f5ab663e8f423dd9b60cdfde14ab
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 812680e587ac5c5c8b3d949199a615fcd85fa610
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118376"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485350"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples
 
@@ -22,16 +22,20 @@ Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Form Recogn
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre cette procédure de démarrage rapide, vous avez besoin des éléments suivants :
 
 - Au minimum un ensemble de six formulaires du même type. Vous allez utiliser ces données pour entraîner le modèle et tester un formulaire. Vous pouvez utiliser un [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) pour ce guide de démarrage rapide. Chargez les fichiers d’entraînement à la racine d’un conteneur de stockage d’objets blob dans un compte Stockage Azure.
 
+## <a name="create-a-form-recognizer-resource"></a>Créer une ressource Form Recognizer
+
+[!INCLUDE [create resource](../includes/create-resource.md)]
+
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurer l’outil d’étiquetage des exemples
 
 Vous allez utiliser le moteur Docker pour exécuter l’outil d’étiquetage des exemples. Procédez comme suit pour configurer le conteneur Docker. Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).
-1. Tout d’abord, installez Docker sur un ordinateur hôte. L’ordinateur hôte peut être votre ordinateur local ([Windows](https://docs.docker.com/docker-for-windows/), [MacOS](https://docs.docker.com/docker-for-mac/) ou [Linux](https://docs.docker.com/install/)). Vous pouvez aussi utiliser un service d’hébergement Docker dans Azure, comme [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index) ou un cluster Kubernetes [déployé sur une pile Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). L’ordinateur hôte doit satisfaire à la configuration matérielle suivante :
+1. Tout d’abord, installez Docker sur un ordinateur hôte. L’ordinateur hôte peut être votre ordinateur local ([Windows](https://docs.docker.com/docker-for-windows/), [macOS](https://docs.docker.com/docker-for-mac/) ou [Linux](https://docs.docker.com/install/)). Vous pouvez aussi utiliser un service d’hébergement Docker dans Azure, comme [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index) ou un cluster Kubernetes [déployé sur une pile Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). L’ordinateur hôte doit satisfaire à la configuration matérielle suivante :
 
     | Conteneur | Minimum | Recommandé|
     |:--|:--|:--|
@@ -89,7 +93,7 @@ Renseignez les champs avec les valeurs suivantes :
 Dans l’outil d’étiquetage des exemples, les projets stockent vos configurations et paramètres. Créez un projet et renseignez les champs avec les valeurs suivantes :
 
 * **Display Name** (Nom d’affichage) : nom d’affichage du projet
-* **Security Token** (Jeton de sécurité) : certains paramètres de projet peuvent inclure des valeurs sensibles, telles que des clés API ou d’autres secrets partagés. Chaque projet génère un jeton de sécurité qui peut être utilisé pour chiffrer/déchiffrer les paramètres de projet sensibles. Les jetons de sécurité se trouvent dans les paramètres de l’application ; pour y accéder, cliquez sur l’icône d’engrenage dans le coin inférieur gauche de la barre de navigation de gauche.
+* **Security Token** (Jeton de sécurité) : certains paramètres de projet peuvent inclure des valeurs sensibles, telles que des clés API ou d’autres secrets partagés. Chaque projet génère un jeton de sécurité qui peut être utilisé pour chiffrer/déchiffrer les paramètres de projet sensibles. Vous trouvez les jetons de sécurité dans les paramètres de l’application ; pour y accéder, cliquez sur l’icône d’engrenage en bas de la barre de navigation de gauche.
 * **Source Connection** (Connexion source) : connexion au Stockage Blob Azure que vous avez créée à l’étape précédente et que vous souhaitez utiliser pour ce projet.
 * **Folder Path** (Chemin du dossier) : (facultatif) Si vos formulaires sources se trouvent dans un dossier sur le conteneur d’objets blob, spécifiez le nom du dossier ici.
 * **Form Recognizer Service Uri** (URI du service Form Recognizer) : votre URL de point de terminaison Form Recognizer.
@@ -165,7 +169,7 @@ Pour reprendre votre projet à un autre moment ou dans un autre navigateur, vous
 Accédez à la page des paramètres du projet (icône en forme de curseurs) et prenez note du nom du jeton de sécurité. Accédez ensuite aux paramètres d’application (icône en forme d’engrenage), où apparaissent tous les jetons de sécurité dans votre instance de navigateur actuelle. Recherchez le jeton de sécurité de votre projet et copiez son nom et sa valeur de clé en lieu sûr.
 
 ### <a name="restore-project-credentials"></a>Restaurer les informations d’identification du projet
-Quand vous souhaitez reprendre votre projet, vous devez d’abord créer une connexion au même conteneur de stockage d’objets blob. Pour ce faire, suivez les étapes ci-dessus. Ensuite, accédez à la page des paramètres de l’application (icône en forme d’engrenage) et vérifiez si le jeton de sécurité de votre projet y figure. Si ce n’est pas le cas, ajoutez un nouveau jeton de sécurité et copiez le nom et la clé de votre jeton obtenus à l’étape précédente. Cliquez ensuite sur Save Settings (Enregistrer les paramètres). 
+Quand vous souhaitez reprendre votre projet, vous devez d’abord créer une connexion au même conteneur de stockage d’objets blob. Pour ce faire, répétez les étapes ci-dessus. Ensuite, accédez à la page des paramètres de l’application (icône en forme d’engrenage) et vérifiez si le jeton de sécurité de votre projet y figure. Si ce n’est pas le cas, ajoutez un nouveau jeton de sécurité et copiez le nom et la clé de votre jeton obtenus à l’étape précédente. Cliquez ensuite sur Save Settings (Enregistrer les paramètres). 
 
 ### <a name="resume-a-project"></a>Reprendre un projet
 Enfin, accédez à la page principale (icône en forme de maison), puis cliquez sur Open Cloud Project (Ouvrir le projet cloud). Sélectionnez ensuite la connexion au stockage d’objets blob, puis sélectionnez le fichier *.vott* de votre projet. L’application chargera tous les paramètres du projet, car elle contient le jeton de sécurité.

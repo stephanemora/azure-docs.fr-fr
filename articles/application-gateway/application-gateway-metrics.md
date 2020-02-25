@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 1fa9c72f7ca305a03cdc90ea02cefe973932792b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 2d1e6e484fd704669951bd37b17356fd3689cc91
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046321"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485180"
 ---
 # <a name="metrics-for-application-gateway"></a>Métriques pour Application Gateway
 
@@ -22,7 +22,7 @@ Application Gateway publie des points de données, appelés métriques, sur [Azu
 
 ### <a name="timing-metrics"></a>Métriques de minutage
 
-Application Gateway fournit plusieurs métriques de minutage intégrées associées à la requête et à la réponse qui sont toutes mesurées en millisecondes. 
+Application Gateway fournit plusieurs métriques de minutage intégrées associées à la requête et à la réponse, qui sont toutes mesurées en millisecondes. 
 
 ![](./media/application-gateway-metrics/application-gateway-metrics.png)
 
@@ -66,7 +66,7 @@ Par exemple, s’il existe un pic dans la tendance *Temps de réponse du premier
 
 Si vous remarquez un pic dans *Temps de réponse du dernier octet du principal*, mais que le *temps de réponse du premier octet du principal* est stable, il peut être déduit que le pic est dû à la demande d’un fichier plus volumineux.
 
-De même, si la *durée totale de la passerelle d’application* présente un pic, mais que le *temps de réponse du dernier octet du principal* est stable, cela peut être le signe d’un goulot d’étranglement des performances au niveau d’Application Gateway ou d’un goulot d’étranglement dans le réseau entre le client et Application Gateway. En outre, si le *RTT client* présente également un pic correspondant, cela indique que la dégradation est due au réseau entre le client et le Application Gateway.
+De même, si la *durée totale de la passerelle d’application* présente un pic, mais que le *temps de réponse du dernier octet du principal* est stable, cela peut être le signe d’un goulot d’étranglement des performances au niveau d’Application Gateway ou d’un goulot d’étranglement dans le réseau entre le client et Application Gateway. En outre, si le *RTT client* présente également un pic correspondant, cela indique que la dégradation est due au réseau entre le client et le service Application Gateway.
 
 ### <a name="application-gateway-metrics"></a>Mesures Application Gateway
 
@@ -86,7 +86,7 @@ Pour Application Gateway, les métriques suivantes sont disponibles :
 
 - **Unités de capacité actuelles**
 
-   Nombre d’unités de capacité consommées. Les unités de capacité mesurent le coût basé sur la consommation qui est facturé en plus du coût fixe. Les unités de capacité incluent 3 déterminants : l’unité Compute, les connexions persistantes et le débit. Chaque unité de capacité est composée au maximum de ce qui suit : 1 unité Compute, 2 500 connexions permanentes ou 2,22 Mbits/s de débit.
+   Nombre d’unités de capacité consommées pour équilibrer la charge du trafic. Les unités de capacité incluent 3 déterminants : l’unité Compute, les connexions persistantes et le débit. Chaque unité de capacité est composée au maximum de ce qui suit : 1 unité Compute, 2 500 connexions permanentes ou 2,22 Mbits/s de débit.
 
 - **Unités de calcul actuelles**
 
@@ -95,10 +95,22 @@ Pour Application Gateway, les métriques suivantes sont disponibles :
 - **Connexions en cours**
 
    Nombre total de connexions simultanées actives de clients à Application Gateway
+   
+- **Unités de capacité facturées estimées**
+
+  Avec la référence (SKU) v2, le modèle de tarification est déterminé par la consommation. Les unités de capacité mesurent le coût basé sur la consommation qui est facturé en plus du coût fixe. Les *Unités de capacité facturées estimées* indiquent le nombre d’unités de capacité à l’aide desquelles la facturation est estimée. Cette valeur est calculée comme étant la plus grande valeur entre *Unités de capacité actuelles* (unités de capacité requises pour équilibrer la charge du trafic) et *Unités de capacité facturables fixes* (unités de capacité minimales approvisionnées conservées).
 
 - **Requêtes ayant échoué**
 
-   Nombre de requêtes en échec servies par Application Gateway. Le nombre de demandes peut être filtré pour afficher le nombre d’affichages par combinaison de paramètres HTTP/pool principal spécifique.
+  Nombre de requêtes en échec servies par Application Gateway. Le nombre de demandes peut être filtré pour afficher le nombre d’affichages par combinaison de paramètres HTTP/pool principal spécifique.
+   
+- **Unités de capacité facturables fixes**
+
+  Nombre minimal d’unités de capacité approvisionnées conservées conformément à la valeur du paramètre *Unités d’échelle minimales* (une instance se traduit par 10 unités de capacité) dans la configuration du service Application Gateway.
+   
+ - **Nouvelles connexions par seconde**
+
+   Nombre moyen de nouvelles connexions TCP par seconde à partir de clients au Service Application Gateway et à partir du service Application Gateway à des membres principaux.
 
 
 - **État de la réponse**
@@ -133,7 +145,9 @@ Pour Application Gateway, les métriques suivantes sont disponibles :
 
   Nombre de principaux déterminés défectueux par la sonde d’intégrité. Vous pouvez filtrer sur une base de pool principal pour afficher le nombre d’hôtes non sains dans un pool principal spécifique.
   
-- **Requêtes par minute et par hôte sain** Nombre moyen de requêtes reçues par chaque membre sain d’un pool principal en une minute. Vous devez spécifier le pool principal à l’aide de la dimension *BackendPool HttpSettings*.  
+- **Demandes par minute par hôte sain**
+
+  Nombre moyen de requêtes que chaque membre sain d’un pool principal reçoit par minute. Vous devez spécifier le pool principal à l’aide de la dimension *BackendPool HttpSettings*.  
   
 
 ## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Métriques prises en charge par le SKU Application Gateway v1

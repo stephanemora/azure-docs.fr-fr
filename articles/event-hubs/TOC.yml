@@ -62,7 +62,7 @@
           href: get-started-capture-python-v2.md
         - name: "Lire des données capturées avec Python (azure-eventhub version\_1)"
           href: event-hubs-capture-python.md
-    - name: Diffuser en continu dans Event Hubs pour Kafka
+    - name: Diffuser en streaming dans Event Hubs pour Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
     - name: Créer un cluster dédié
       href: event-hubs-dedicated-cluster-create-portal.md
@@ -74,7 +74,7 @@
       href: store-captured-data-data-warehouse.md
     - name: Processus Apache Kafka pour les événements Event Hubs à l’aide de Stream Analytics
       href: event-hubs-kafka-stream-analytics.md
-    - name: Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs
+    - name: Diffuser en streaming des données dans Azure Databricks avec Event Hubs
       href: ../azure-databricks/databricks-stream-from-eventhubs.md
       maintainContext: true
 - name: Exemples
@@ -122,6 +122,8 @@
       maintainContext: true
 - name: Guides pratiques
   items:
+    - name: Migrer des API Azure Service Manager (Classic) vers des API Resource Manager
+      href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fevent-hubs%2ftoc.json
     - name: Développer
       items:
         - name: "Obtenir la chaîne de connexion Event\_Hubs"
@@ -172,7 +174,7 @@
           href: event-hubs-metrics-azure-monitor.md
         - name: Configurer les journaux de diagnostic
           href: event-hubs-diagnostic-logs.md
-        - name: Diffuser des données de diagnostics Azure en continu à l’aide d’Event Hubs
+        - name: Diffuser des données de diagnostics Azure en streaming avec Event Hubs
           href: event-hubs-streaming-azure-diags-data.md
         - name: Mettre à l’échelle automatiquement les unités de débit
           href: event-hubs-auto-inflate.md

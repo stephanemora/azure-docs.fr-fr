@@ -3,95 +3,457 @@ title: Exemples de stockage Azure avec Java| Microsoft Docs
 description: Affichez, téléchargez et exécutez des exemples de code et des applications pour Azure Storage. Découvrez des exemples de mise en route d’objets blob, de files d’attente, de tables et de fichiers à l’aide des bibliothèques clientes de stockage Java.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/06/2019
+ms.date: 02/13/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: dfdde1ae981dcd2d539dec3667e44e90cef4d1c8
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 46f19748ea56777bd1c23b3cf066fa28787d8882
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748032"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486098"
 ---
-# <a name="azure-storage-samples-using-java"></a>Exemples de stockage Azure avec Java
+# <a name="azure-storage-samples-using-v12-java-client-libraries"></a>Exemples de stockage Azure utilisant les bibliothèques clientes Java v12
 
 Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemples et des scénarios traités dans chaque exemple. Cliquez sur les liens pour afficher l’exemple de code correspondant dans GitHub.
 
 > [!NOTE]
-> Ces exemples utilisent la bibliothèque Java v11 de Stockage Azure. Pour obtenir le code de la version v12, consultez les [exemples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob) du dépôt GitHub.
+> Ces exemples utilisent la bibliothèque Java v12 du stockage Azure la plus récente. Pour le code v8 hérité, consultez [Bien démarrer avec le service Azure Blob en Java](https://github.com/Azure-Samples/storage-blob-java-getting-started) dans le dépôt GitHub.
 
-## <a name="blob-samples-v11"></a>Exemples d’objets blob (v11)
+## <a name="blob-samples"></a>Exemples d’objets blob
 
-| **Scénario** | **Exemple de Code** |
-|--------------|-----------------|
-| Append Blob | [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
-| Objet blob de blocs | [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
-| Chiffrement côté client | [Getting Started with Azure Client Side Encryption in Java (Prise en main du chiffrement côté client Azure dans Java)](https://github.com/Azure-Samples/storage-java-client-side-encryption) |
-| Copie d'un objet blob | [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
-| Create Container | [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
-| Delete Blob | [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
-| Delete Container | [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
-| Métadonnées/propriétés/statistiques des objets blob | [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java) |
-| ACL/métadonnées/propriétés du conteneur | [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java) |
-| Get Page Ranges | [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java#L399) |
-| Objet blob/conteneur de bail | [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
-| Objet blob/conteneur de liste | [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
-| Objet blob de pages | [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
-| SAS | [Exemple de tests SAS](https://github.com/Azure/azure-storage-java/blob/89540f018f1160ce55619c6fe7b5f5ff57d0ce10/src/test/java/com/microsoft/azure/storage/Samples.java#L513) |
-| Propriétés du service | [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java) |
-| Snapshot Blob | [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java) |
+### <a name="authentication"></a>Authentication
 
-## <a name="file-samples-v11"></a>Exemples de fichiers (v11)
+:::row:::
+   :::column span="":::
+      [S’authentifier à l’aide d’informations d’identification de clé partagée](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L38)
+   :::column-end:::
+   :::column span="":::
+      [S’authentifier à l’aide de l’identité Azure](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/AzureIdentityExample.java#L10)
+   :::column-end:::
+:::row-end:::
 
-| **Scénario** | **Exemple de Code** |
-|--------------|-----------------|
-| Créer des partages/répertoires/fichiers | [Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java) |
-| Créer des partages/répertoires/fichiers | [Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java) |
-| Propriétés/métadonnées du répertoire | [Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java) |
-| Télécharger des fichiers | [Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java) |
-| Propriétés/métadonnées/mesures de fichier | [Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java) |
-| Propriétés du service de fichiers | [Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java) |
-| Liste des répertoires et des fichiers | [Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java) |
-| Partages de listes | [Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java) |
-| Propriétés/métadonnées/statistiques de partage | [Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)](https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java) |
+### <a name="blob-service"></a>Service d'objets blob
 
-## <a name="queue-samples-v11"></a>Exemples de files d’attente (v11)
+:::row:::
+   :::column span="":::
+      [Créer un client du service BLOB](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L49)
+   :::column-end:::
+   :::column span="":::
+      [Lister des conteneurs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/ListContainersExample.java#L10)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [Supprimer des conteneurs](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/ListContainersExample.java#L52)
+   :::column-end:::
+:::row-end:::
 
-| **Scénario** | **Exemple de Code** |
-|--------------|-----------------|
-| Ajouter un message | [Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java#L63) |
-| Chiffrement côté client | [Getting Started with Azure Client Side Encryption in Java (Prise en main du chiffrement côté client Azure dans Java)](https://github.com/Azure-Samples/storage-java-client-side-encryption/blob/master/src/gettingstarted/KeyVaultGettingStarted.java) |
-| Créer des files d’attente | [Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java) |
-| Supprimer le message/la file d’attente | [Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java) |
-| Lire furtivement un message | [Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java) |
-| ACL/métadonnées/statistiques de la file d’attente | [Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java) |
-| Propriétés du service de File d’attente | [Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java) |
-| Mise à jour de message | [Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)](https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java)
-|
+### <a name="batching"></a>Traitement par lot
+
+:::row:::
+   :::column span="":::
+      [Créer un client de lot d’objets blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/src/samples/java/com/azure/storage/blob/batch/ReadmeSamples.java#L41)
+   :::column-end:::
+   :::column span="":::
+      [Supprimer en bloc des objets blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/src/samples/java/com/azure/storage/blob/batch/ReadmeSamples.java#L45)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [Définir le niveau d’accès sur un lot d’objets blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/src/samples/java/com/azure/storage/blob/batch/ReadmeSamples.java#L51)
+   :::column-end:::
+:::row-end:::
+
+### <a name="container"></a>Conteneur
+
+:::row:::
+   :::column span="":::
+      [Créer un client de conteneur](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L57)
+   :::column-end:::
+   :::column span="":::
+      [Créer un conteneur](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L64)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Lister des objets blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L112)
+   :::column-end:::
+   :::column span="":::
+      [Supprimer un conteneur](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L123)
+   :::column-end:::
+:::row-end:::
+
+### <a name="blob"></a>Objet blob
+
+:::row:::
+   :::column span="":::
+      [Charger un objet blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L79)
+   :::column-end:::
+   :::column span="":::
+      [Télécharger un objet blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L86)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Supprimer un blob.](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/BasicExample.java#L118)
+   :::column-end:::
+   :::column span="":::
+      [Charger un objet blob à partir d’un fichier volumineux](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/FileTransferExample.java#L95)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [Télécharger un objet blob volumineux dans un fichier](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/FileTransferExample.java#L100)
+   :::column-end:::
+:::row-end:::
+
+### <a name="troubleshooting"></a>Dépannage
+:::row:::
+   :::column span="2":::
+      [Déclencher une erreur récupérable à l’aide d’un client de conteneur](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob/StorageErrorHandlingExample.java#L11)
+   :::column-end:::
+:::row-end:::
+
+## <a name="data-lake-storage-gen2-samples"></a>Exemples de Data Lake Storage Gen2
+
+### <a name="data-lake-service"></a>Service Data Lake
+:::row:::
+   :::column span="":::
+      [Créer un client du service Data Lake](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L48)
+   :::column-end:::
+   :::column span="":::
+      [Créer un client du système de fichiers](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L57)
+   :::column-end:::
+:::row-end:::
+
+### <a name="file-system"></a>Système de fichiers
+:::row:::
+   :::column span="":::
+      [Créer un système de fichiers](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L64)
+   :::column-end:::
+   :::column span="":::
+      [Créer un répertoire](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L68)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Créer un fichier et un sous-répertoire](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L73)
+   :::column-end:::
+   :::column span="":::
+      [Créer un client de fichier](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L83)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Lister les chemins dans un système de fichiers](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L131)
+   :::column-end:::
+   :::column span="":::
+      [Supprimer un système de fichiers](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L142)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [Lister les systèmes de fichiers dans un compte de stockage Azure](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/ListFileSystemsExample.java#L10)
+   :::column-end:::
+:::row-end:::
+
+### <a name="directory"></a>Répertoire
+
+:::row:::
+   :::column span="":::
+      [Créer un client de répertoire](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L31)
+   :::column-end:::
+   :::column span="":::
+      [Créer un répertoire parent](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L37)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Créer un répertoire enfant](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L44)
+   :::column-end:::
+   :::column span="":::
+      [Créer un fichier dans un répertoire enfant](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L52)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Obtenir les propriétés d’un répertoire](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L68)
+   :::column-end:::
+   :::column span="":::
+      [Supprimer un répertoire enfant](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L83)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [Supprimer un dossier parent](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/DirectoryExample.java#L90)
+   :::column-end:::
+:::row-end:::
+
+### <a name="file"></a>Fichier
+
+:::row:::
+   :::column span="":::
+      [Créer un fichier à l’aide d’un client de fichier](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L93)
+   :::column-end:::
+   :::column span="":::
+      [Supprimer un fichier](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/BasicExample.java#L137)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Définir les contrôles d’accès sur un fichier](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/GetSetAccessControlExample.java#L82)
+   :::column-end:::
+   :::column span="":::
+      [Obtenir les contrôles d’accès sur un fichier](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/GetSetAccessControlExample.java#L104)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Créer un fichier à l’aide d’un client de fichier Data Lake](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/UploadDownloadExample.java#L67)
+   :::column-end:::
+   :::column span="":::
+      [Ajouter des données à un fichier](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/UploadDownloadExample.java#L85)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [Télécharger un fichier](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake/UploadDownloadExample.java#L127)
+   :::column-end:::
+:::row-end:::
+
+## <a name="azure-file-samples"></a>Exemples de fichiers Azure
+
+### <a name="authentication"></a>Authentication
+
+:::row:::
+   :::column span="2":::
+      [S’authentifier au moyen d’une chaîne de connexion](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L27)
+   :::column-end:::
+:::row-end:::
+
+### <a name="file-service"></a>Service Fichier
+
+:::row:::
+   :::column span="":::
+      [Créer des partages de fichiers](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L31)
+   :::column-end:::
+   :::column span="":::
+      [Obtenir des propriétés](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L40)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Lister des partages](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L49)
+   :::column-end:::
+   :::column span="":::
+      [Supprimer des partages](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareServiceSample.java#L49)
+   :::column-end:::
+:::row-end:::
+
+### <a name="file-share"></a>Partage de fichiers
+
+:::row:::
+   :::column span="":::
+      [Créer un client de partage](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L29)
+   :::column-end:::
+   :::column span="":::
+      [Créer un partage](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L40)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Créer un instantané de partage](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L55)
+   :::column-end:::
+   :::column span="":::
+      [Créer un répertoire à l’aide d’un client de partage](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L63)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Obtenir les propriétés d’un partage](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L72)
+   :::column-end:::
+   :::column span="":::
+      [Obtenir un répertoire racine et lister les répertoires](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L100)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [Supprimer un partage](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/ShareSample.java#L151)
+   :::column-end:::
+:::row-end:::
+
+### <a name="directory"></a>Répertoire
+
+:::row:::
+   :::column span="":::
+      [Créer un répertoire parent](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/DirectorySample.java#L35)
+   :::column-end:::
+   :::column span="":::
+      [Créer un répertoire enfant](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/DirectorySample.java#L42)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Créer un fichier dans un répertoire enfant](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/DirectorySample.java#L50)
+   :::column-end:::
+   :::column span="":::
+      [Lister des répertoires et des fichiers](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/DirectorySample.java#L66)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Supprimer un dossier enfant](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/DirectorySample.java#L90)
+   :::column-end:::
+   :::column span="":::
+      [Supprimer un dossier parent](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/DirectorySample.java#L97)
+   :::column-end:::
+:::row-end:::
+
+### <a name="file"></a>Fichier
+
+:::row:::
+   :::column span="":::
+      [Créer un client de fichier](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L45)
+   :::column-end:::
+   :::column span="":::
+      [Charger un fichier](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L90)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Télécharger un fichier](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L100)
+   :::column-end:::
+   :::column span="":::
+      [Obtenir les propriétés d’un fichier](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L120)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Supprimer un fichier](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share/FileSample.java#L128)
+   :::column-end:::
+:::row-end:::
+
+
+## <a name="queue-samples"></a>Exemples de files d’attente
+
+### <a name="authentication"></a>Authentication
+
+:::row:::
+   :::column span="2":::
+      [S’authentifier au moyen d’un jeton SAS](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/QueueServiceSamples.java#L17)
+   :::column-end:::
+:::row-end:::
+
+### <a name="queue-service"></a>Service File d’attente
+
+:::row:::
+   :::column span="":::
+      [Créer une file d’attente](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/QueueServiceSamples.java#L20)
+   :::column-end:::
+   :::column span="":::
+      [Lister des files d’attente](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/QueueServiceSamples.java#L22)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [Supprimer des files d’attente](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/QueueServiceSamples.java#L27)
+   :::column-end:::
+:::row-end:::
+
+### <a name="queue"></a>File d'attente
+
+:::row:::
+   :::column span="":::
+      [Créer un client de file d’attente](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L25)
+   :::column-end:::
+   :::column span="":::
+      [Ajouter des messages à une file d’attente](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L27)
+   :::column-end:::
+:::row-end:::
+
+### <a name="message"></a>Message
+
+:::row:::
+   :::column span="":::
+      [Obtenir le nombre de messages](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L34)
+   :::column-end:::
+   :::column span="":::
+      [Afficher un aperçu des messages](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L37)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Recevoir des messages](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L41)
+   :::column-end:::
+   :::column span="":::
+      [Mettre à jour un message](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L45)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Supprimer le premier message](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L50)
+   :::column-end:::
+   :::column span="":::
+      [Effacer tous les messages](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L59)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [Supprimer une file d’attente](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue/MessageSamples.java#L64)
+   :::column-end:::
+:::row-end:::
+
 ## <a name="table-samples-v11"></a>Exemples de tables (v11)
 
-| **Scénario** | **Exemple de Code** |
-|--------------|-----------------|
-| Créer une table | [Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java) |
-| Supprimer l’entité/la table | [Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java) |
-| Insertion/fusion/remplacement d’entité | [Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java) |
-| Query Entities | [Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java) |
-| Tables de requête | [Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java) |
-| ACL/propriétés de la table | [Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java) |
-| Update Entity | [Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java) |
-## <a name="azure-code-samples-library"></a>Bibliothèque Exemples de code Azure
+:::row:::
+   :::column span="":::
+      [Créer une table](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L50)
+   :::column-end:::
+   :::column span="":::
+      [Supprimer une entité/une table](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L109)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Insérer/fusionner/remplacer une entité](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L195)
+   :::column-end:::
+   :::column span="":::
+      [Interroger des entités](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L234)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      [Interroger des tables](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L262)
+   :::column-end:::
+   :::column span="":::
+      [Propriétés/liste de contrôle d’accès d’une table](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java#L49)
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="2":::
+      [Mettre à jour une entité](https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java#L76)
+   :::column-end:::
+:::row-end:::
 
-Pour voir la bibliothèque complète des exemples, consultez la bibliothèque d’[exemples de code Azure](https://azure.microsoft.com/resources/samples/?service=storage) pour trouver des exemples de stockage Azure que vous pouvez télécharger et exécuter localement. Les exemples de code fournis par la bibliothèque sont au format .zip. Vous pouvez également parcourir et cloner le dépôt GitHub pour chaque exemple.
+## <a name="azure-code-sample-libraries"></a>Bibliothèques d’exemples de code Azure
 
-[!INCLUDE [storage-java-samples-include](../../../includes/storage-java-samples-include.md)]
+Pour afficher l’intégralité des bibliothèques d’exemples Java, accédez à :
+
+* [Exemples de code d’objet blob Azure](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
+* [Exemples de code Azure Data Lake](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/src/samples/java/com/azure/storage/file/datalake)
+* [Exemples de code Azure Files](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-share/src/samples/java/com/azure/storage/file/share)
+* [Exemples de code de file d’attente Azure](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples/java/com/azure/storage/queue)
+
+Vous pouvez parcourir et cloner le dépôt GitHub pour chaque bibliothèque.
 
 ## <a name="getting-started-guides"></a>Guides de prise en main
 
 Consultez les guides suivants si vous recherchez des instructions sur l’installation et la prise en main des bibliothèques clientes de stockage Azure.
 
 * [Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)](../blobs/storage-quickstart-blobs-java.md)
-* [Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)](../queues/storage-java-how-to-use-queue-storage.md)
+* [Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)](../queues/storage-quickstart-queues-java.md)
 * [Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)](../../cosmos-db/table-storage-how-to-use-java.md)
 * [Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)](../files/storage-java-how-to-use-file-storage.md)
 
@@ -100,6 +462,6 @@ Consultez les guides suivants si vous recherchez des instructions sur l’instal
 Pour plus d’informations sur les exemples pour d’autres langages :
 
 * .NET : [Exemples relatifs au service Stockage Azure avec .NET](storage-samples-dotnet.md)
-* JavaScript/Node.js : [Exemples relatifs au service Stockage Azure en JavaScript](storage-samples-javascript.md)
 * Python : [Exemples relatifs au service Stockage Azure avec Python](storage-samples-python.md)
+* JavaScript/Node.js : [Exemples relatifs au service Stockage Azure en JavaScript](storage-samples-javascript.md)
 * Tous les autres langages : [Exemples relatifs à Stockage Azure](storage-samples.md)

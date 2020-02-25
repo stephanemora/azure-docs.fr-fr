@@ -80,7 +80,7 @@
           href: platform/data-locations.md
         - name: Mesures
           href: platform/data-platform-metrics.md
-        - name: Journaux d’activité
+        - name: Journaux
           href: platform/data-platform-logs.md
         - name: Durée d’ingestion des données de journal
           displayname: latency
@@ -613,9 +613,9 @@
                       href: platform/data-sources-performance-counters.md
                     - name: Performances des applications Linux
                       href: platform/data-sources-linux-applications.md
-                    - name: Journaux d’activité IIS
+                    - name: Journaux IIS
                       href: platform/data-sources-iis-logs.md
-                    - name: Journaux d’activité personnalisés
+                    - name: Journaux personnalisés
                       href: platform/data-sources-custom-logs.md
                     - name: Champs personnalisés
                       href: platform/custom-fields.md
@@ -813,7 +813,7 @@
               href: platform/metric-chart-samples.md
             - name: Dépannage des graphiques de métriques
               href: platform/metrics-troubleshoot.md
-        - name: Journaux d’activité
+        - name: Journaux
           items:
             - name: Vue d’ensemble des requêtes de journal
               displayname: 'log query, log queries, query, queries'
@@ -890,8 +890,8 @@
                   href: log-query/examples.md
                 - name: Exemples d’analytique intelligente
                   href: log-query/smart-analytics.md
-                - name: Écrire des requêtes efficaces
-                  href: log-query/log-query-performance.md
+                - name: Optimiser les requêtes
+                  href: log-query/query-optimization.md
                 - name: Analyser les données de texte
                   href: log-query/parse-text.md
         - name: Flow / Logic Apps
@@ -1219,13 +1219,13 @@
       items:
         - name: Moniteur
           href: /rest/api/monitor/
-        - name: Journaux d’activité
+        - name: Journaux
           href: /rest/api/loganalytics
     - name: Modèle Resource Manager
       items:
         - name: Moniteur
           href: /azure/templates/microsoft.insights/allversions
-        - name: Journaux d’activité
+        - name: Journaux
           href: /azure/templates/microsoft.operationalinsights/allversions
     - name: Retrait de fonctionnalités et d’API
       items:

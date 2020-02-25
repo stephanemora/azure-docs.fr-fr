@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/16/2019
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5695968973c7446220d8d77b84dfebb4a23ae8c7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 3f30e3957d51617726e95574df416d1438b1fd2a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850712"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484330"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accès aux journaux d’audit Azure AD B2C
 
@@ -53,7 +53,7 @@ Le volet des détails de l’activité contient les informations pertinentes sui
 
 |Section|Champ|Description|
 |-------|-----|-----------|
-| Activité | Name | Activité qui a eu lieu. Par exemple, *Émettre un id_token pour l’application*, qui conclut la connexion d’utilisateur réelle. |
+| Activité | Nom | Activité qui a eu lieu. Par exemple, *Émettre un id_token pour l’application*, qui conclut la connexion d’utilisateur réelle. |
 | Initié par (intervenant) | ObjectId | **ID d’objet** de l’application B2C à laquelle l’utilisateur se connecte. Cet identificateur n’est pas visible dans le portail Azure, mais il est accessible via l’API Microsoft Graph. |
 | Initié par (intervenant) | Nom de principal de service | **ID d’Application** de l’application B2C à laquelle l’utilisateur se connecte. |
 | Cible(s) | ObjectId | **ID d’objet** de l’utilisateur qui se connecte. |
@@ -88,51 +88,15 @@ Les journaux d’audit sont publiés dans le même pipeline que les autres activ
 
 ### <a name="enable-reporting-api-access"></a>Activer l’accès à l’API de rapports
 
-Pour autoriser l’accès basé sur un script ou une application à l’API de création de rapports Azure AD, vous avez besoin d’une application Azure Active Directory inscrite dans votre locataire Azure AD B2C avec les autorisations d’API suivantes :
+Pour autoriser l’accès basé sur un script ou une application à l’API de création de rapports Azure AD, vous avez besoin d’une application inscrite dans votre locataire Azure AD B2C avec les autorisations d’API suivantes. Vous pouvez activer ces autorisations sur une inscription d’application existante au sein de votre locataire B2C, ou en créer une autre spécifiquement pour une utilisation avec l’automatisation des journaux d’audit.
 
-* Microsoft Graph > Autorisations d’application > AuditLog.Read.All
+* Microsoft Graph > Autorisations d’application > AuditLog > AuditLog.Read.All
 
-Vous pouvez activer ces autorisations sur une inscription d’application Azure Active Directory existante au sein de votre locataire B2C, ou en créer une autre spécifiquement pour une utilisation avec l’automatisation des journaux d’audit.
+Suivez les étapes de l’article suivant pour inscrire une application avec les autorisations requises :
 
-Procédez comme suit pour inscrire une application, lui accorder les autorisations d’API Microsoft Graph requises, puis créer un secret client.
+[Gérer Azure AD B2C avec Microsoft Graph](microsoft-graph-get-started.md)
 
-### <a name="register-application-in-azure-active-directory"></a>Inscrire une application dans Azure Active Directory
-
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
-
-### <a name="assign-api-access-permissions"></a>Affecter des autorisations d’accès à l’API
-
-#### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
-
-1. Dans la page de vue d’ensemble **Application inscrite**, sélectionnez **Paramètres**.
-1. Sous **ACCÈS D’API**, sélectionnez **Autorisations requises**.
-1. Sélectionnez **Ajouter**, puis **Sélectionner une API**.
-1. Sélectionnez **Microsoft Graph**, puis **Sélectionner**.
-1. Sous **AUTORISATIONS DE L’APPLICATION**, sélectionnez **Lire toutes les données du journal d’audit**.
-1. Sélectionnez le bouton **Sélectionner**, puis sélectionnez **Terminé**.
-1. Sélectionnez **Accorder des autorisations**, puis **Oui**.
-
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
-
-1. Sous **Gérer**, sélectionnez **Autorisations de l’API**.
-1. Sous **Autorisations configurées**, sélectionnez **Ajouter une autorisation**.
-1. Sélectionnez l’onglet **API Microsoft**.
-1. Sélectionnez **Microsoft Graph**.
-1. Sélectionnez **Autorisations de l’application**.
-1. Développez **AuditLog** puis cochez la case **AuditLog.Read.All**.
-1. Sélectionnez **Ajouter des autorisations**. Comme vous l’indiquent les instructions, patientez quelques minutes avant de passer à l’étape suivante.
-1. Sélectionnez **Accorder le consentement de l’administrateur pour (nom de votre abonné)** .
-1. Sélectionnez le compte administrateur actuellement connecté s’il a été attribué au rôle *Administrateur général* ou connectez-vous avec un compte de votre abonné Azure AD B2C à qui le rôle *Administrateur général* a été attribué.
-1. Sélectionnez **Accepter**.
-1. Sélectionnez **Actualiser**, puis vérifiez que la mention « Accordé pour … » apparaît sous **État** pour l’autorisation *AuditLog.Read.All*. La propagation des autorisations peut prendre quelques minutes.
-
-* * *
-
-### <a name="create-client-secret"></a>Créer un secret client
-
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
-
-Vous disposez maintenant d’une application avec l’accès API requis, un ID d’application et une clé que vous pouvez utiliser dans vos scripts d’automatisation. Consultez la section Script PowerShell plus loin dans cet article pour obtenir un exemple de la façon dont vous pouvez obtenir des événements d’activité à l’aide d’un script.
+Après avoir inscrit une application avec les autorisations appropriées, voir la section Script PowerShell plus loin dans cet article pour obtenir un exemple de la façon dont vous pouvez obtenir des événements d’activité à l’aide d’un script.
 
 ### <a name="access-the-api"></a>Accéder à l’API
 
@@ -258,4 +222,4 @@ Voici la représentation JSON de l’exemple d’événement d’activité illus
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez automatiser d’autres tâches d’administration, par exemple, [gérer des utilisateurs avec .NET](manage-user-accounts-graph-api.md).
+Vous pouvez automatiser d’autres tâches d’administration, par exemple, [gérer les comptes d’utilisateurs Azure AD B2C avec Microsoft Graph](manage-user-accounts-graph-api.md).

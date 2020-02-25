@@ -5,22 +5,22 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 02/19/2020
 ms.author: helohr
-ms.openlocfilehash: e2fa30772082f4d2f7c02add61412432233e3f04
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 426ca10893e6858722b58422400582e4940287e2
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470570"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484602"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ sur Windows 10 Entreprise multisession
 
-Cet article répond aux questions fréquemment posées et fournit les bonnes pratiques concernant l’utilisation de Windows 10 Entreprise multisession.
+Cet article répond à des questions fréquemment posées et décrit les meilleures pratiques concernant l’utilisation de Windows 10 Entreprise en mode multisession.
  
-## <a name="what-is-windows-10-enterprise-multi-session"></a>Qu’est-ce que Windows 10 Entreprise multisession ? 
+## <a name="what-is-windows-10-enterprise-multi-session"></a>Qu’est-ce que Windows 10 Entreprise multisession ?
 
-Windows 10 Entreprise multisession, (anciennement Windows 10 Entreprise pour bureaux virtuels) est un nouvel hôte de session Bureau à distance qui permet plusieurs sessions interactives simultanées, ce qui était auparavant seulement possible avec Windows Server. Cette fonctionnalité offre aux utilisateurs une expérience Windows 10 familière, et permet au service informatique de tirer parti des avantages économiques que présente l’utilisation du multisession, ainsi que d’utiliser des licences Windows par utilisateur existantes plutôt que des licences d’accès client pour les services Bureau à distance. Pour plus d’informations sur les licences et les tarifs, consultez [Tarifs de Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
+Windows 10 Entreprise en mode multisession, (anciennement Windows 10 Entreprise pour bureaux virtuels, ou EVD) est un nouvel hôte de session Bureau à distance qui permet plusieurs sessions interactives simultanées. Auparavant, seul Windows Server pouvait faire cela. Cette fonctionnalité offre aux utilisateurs une expérience Windows 10 familière, et permet au service informatique de tirer parti des avantages économiques que présente l’utilisation du multisession, ainsi que d’utiliser des licences Windows par utilisateur existantes plutôt que des licences d’accès client pour les services Bureau à distance. Pour plus d’informations sur les licences et les tarifs, consultez [Tarifs de Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/). 
  
 ## <a name="how-many-users-can-simultaneously-have-an-interactive-session-on-windows-10-enterprise-multi-session"></a>Combien d’utilisateurs simultanés peuvent ouvrir une session interactive sur Windows 10 Entreprise multisession ?
 
@@ -40,7 +40,7 @@ Vous pouvez démarrer une machine virtuelle dans Azure avec Windows 10 Entrepri
  
 Pour commencer, créez une machine virtuelle dans Azure avec Windows 10 Entreprise multisession. Au lieu de démarrer la machine virtuelle dans Azure, vous pouvez télécharger directement le disque dur virtuel. Après cela, vous pourrez utiliser le disque dur virtuel que vous avez téléchargé pour créer une machine virtuelle Génération 1 sur un PC Windows 10 où est activé Hyper-V.
 
-Personnalisez l’image selon vos besoins à l’aide d’applications métier et de Sysprep. Lorsque vous avez terminé la personnalisation, chargez l’image dans Azure en y incluant le disque dur virtuel. Ensuite, téléchargez Windows Virtual Desktop à partir de la Place de marché Azure, puis utilisez-le pour déployer un nouveau pool hôte avec l’image personnalisée.
+Personnalisez l’image selon vos besoins à l’aide d’applications métier et de Sysprep. Lorsque vous avez terminé la personnalisation, chargez l’image dans Azure en y incluant le disque dur virtuel. Ensuite, téléchargez le service Windows Virtual Desktop à partir de la Place de marché Azure, puis utilisez-le pour déployer un nouveau pool d’hôte avec l’image personnalisée.
  
 ## <a name="how-do-i-manage-windows-10-enterprise-multi-session-after-deployment"></a>Comment gérer Windows 10 Entreprise multisession après le déploiement ?
 
@@ -71,6 +71,31 @@ Pour plus d’informations sur la configuration d’un conteneur de profils FSL
 ## <a name="which-license-do-i-need-to-access-windows-10-enterprise-multi-session"></a>De quelle licence ai-je besoin pour accéder à Windows 10 Entreprise multisession ?
 
 Pour obtenir la liste complète des licences applicables, consultez [Tarifs Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+
+## <a name="why-do-my-apps-disappear-after-i-sign-out"></a>Pourquoi mes applications disparaissent-elles une fois que je me déconnecte ?
+
+Cela se produit parce que vous utilisez Windows 10 entreprise en mode multisession avec une solution de gestion de profil telle que FSLogix. Votre solution d’administrateur ou de profil a configuré votre système pour supprimer les profils utilisateurs lorsque des utilisateurs se déconnectent. Cette configuration signifie que, lorsque votre système supprime votre profil utilisateur après que vous vous êtes déconnecté, il supprime également toutes les applications que vous avez installées au cours de votre session. Si vous souhaitez conserver les applications que vous avez installées, vous devez demander à votre administrateur d’approvisionner ces applications pour tous les utilisateurs figurant dans votre environnement Windows Virtual Desktop.
+
+## <a name="how-do-i-make-sure-apps-dont-disappear-when-users-sign-out"></a>Comment m’assurer que les applications ne disparaissent pas quand les utilisateurs se déconnectent ?
+
+La plupart des environnements virtualisés sont configurés par défaut pour empêcher les utilisateurs d’installer des applications supplémentaires dans leurs profils. Si vous souhaitez vous assurer qu’une application ne disparaisse pas quand l’utilisateur se déconnecte de Windows Virtual Desktop, vous devez approvisionner cette application pour tous les profils utilisateurs au sein de votre environnement. Pour plus d’informations sur l’approvisionnement d’applications, consultez les ressources suivantes :
+
+- [Publier des applications intégrées dans Windows Virtual Desktop](publish-apps.md)
+- [Options de ligne de commande pour la maintenance des packages d’applications DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+- [Add-AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+
+## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>Comment m’assurer que des utilisateurs ne téléchargent et n’installent pas des applications à partir du Microsoft Store ?
+
+Vous pouvez désactiver l’application Microsoft Store pour vous assurer que des utilisateurs ne téléchargent pas d’applications en plus de celles que vous avez déjà approvisionnées.
+
+Pour désactiver l’application du Windows Store :
+
+1. Créez une stratégie de groupe.
+2. Sélectionnez **Configuration ordinateur** > **Modèles d’administration** > **Composants Windows**.
+3. Sélectionnez **Store**.
+4. Sélectionnez **Application du Store**.
+5. Sélectionnez **Désactivée**, puis **OK**.
+6. Sélectionnez **Appliquer**.
  
 ## <a name="next-steps"></a>Étapes suivantes
 

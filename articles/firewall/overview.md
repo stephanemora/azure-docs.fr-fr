@@ -6,17 +6,19 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/18/2020
+ms.date: 02/19/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 6a045a55772d1d9266663571fc2ecc6911aa5125
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 2d931ed61cc3880a6158fd82f015e663ddb669c3
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442886"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485282"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
+
+![Certification ICSA](media/overview/icsa-cert-firewall-small.png)
 
 Pare-feu Azure est un service de sécurité réseau informatique géré qui protège vos ressources Réseau virtuel Azure. Il s’agit d’un service de pare-feu avec état intégral, doté d’une haute disponibilité intégrée et d’une scalabilité illimitée dans le cloud.
 
@@ -92,9 +94,9 @@ Cela donne accès aux scénarios suivants :
 
 Tous les événements sont intégrés à Azure Monitor, ce qui vous permet d’archiver les journaux d’activité dans un compte de stockage, de transmettre en continu des événements à votre hub d’événements ou de les envoyer à des journaux d’activité Azure Monitor.
 
-## <a name="compliance-certifications"></a>Certifications de conformité
+## <a name="certifications"></a>Certifications
 
-Le service Pare-feu Azure est conforme aux normes PCI (Payment Card Industry), SOC (Service Organization Controls) et ISO (Organisation internationale de normalisation). Pour plus d’informations, consultez [Certifications de conformité du pare-feu Azure](compliance-certifications.md).
+Le service Pare-feu Azure est conforme aux normes PCI (Payment Card Industry), SOC (Service Organization Controls), ISO (Organisation internationale de normalisation) et ICSA Labs. Pour plus d’informations, consultez [Certifications de conformité du pare-feu Azure](compliance-certifications.md).
 
 
 ## <a name="known-issues"></a>Problèmes connus

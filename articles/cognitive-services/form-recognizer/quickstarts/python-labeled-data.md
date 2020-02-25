@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 94fafd8b0411c1c7a4032769eec0eb5818844648
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 5469c2512e133d17e4d18cebb64ab9e2a21b1f83
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118146"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482313"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’API REST et de Python
 
@@ -22,15 +22,19 @@ Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Form Recogn
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre cette procédure de démarrage rapide, vous avez besoin des éléments suivants :
 - [Python](https://www.python.org/downloads/) doit être installé (si vous souhaitez exécuter l’exemple en local).
 - Au minimum un ensemble de six formulaires du même type. Vous allez utiliser ces données pour entraîner le modèle et tester un formulaire. Vous pouvez utiliser un [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) pour ce guide de démarrage rapide. Chargez les fichiers d’entraînement à la racine d’un conteneur de stockage d’objets blob dans un compte Stockage Azure.
 
+## <a name="create-a-form-recognizer-resource"></a>Créer une ressource Form Recognizer
+
+[!INCLUDE [create resource](../includes/create-resource.md)]
+
 ## <a name="set-up-training-data"></a>Configurer les données d’entraînement
 
-Tout d’abord, vous devez configurer les données d’entrée requises. La fonctionnalité de données étiquetées a des exigences d’entrée spéciales au-delà de celles nécessaires pour entraîner un modèle personnalisé. 
+Ensuite, vous devez configurer les données d’entrée nécessaires. La fonctionnalité de données étiquetées a des exigences d’entrée spéciales au-delà de celles nécessaires pour entraîner un modèle personnalisé. 
 
 Vérifiez que tous les documents d’entraînement ont le même format. Si vous avez des formulaires dans plusieurs formats, organisez-les en sous-dossiers en fonction du format. Lors de l’entraînement, vous devez diriger l’API vers un sous-dossier.
 

@@ -11,25 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 2/7/2020
+ms.date: 02/18/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5a74e03a5b166af85c809725c2c8b9a13b7e4f4
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 9a44cf9aa5b3287a01617be6439cd04b9a5caa73
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085447"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484228"
 ---
-# <a name="develop-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Développer un point de terminaison SCIM et configurer le provisionnement des utilisateurs avec Azure Active Directory (Azure AD)
+# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Créer un point de terminaison SCIM et configurer l'approvisionnement des utilisateurs avec Azure Active Directory (Azure AD)
 
 En tant que développeur d'applications, vous pouvez utiliser l'API de gestion des utilisateurs SCIM (System for Cross-Domain Identity Management) pour activer l'approvisionnement automatique des utilisateurs et des groupes entre votre application et Azure AD. Cet article explique comment créer un point de terminaison SCIM et l'intégrer au service d'approvisionnement Azure AD. La spécification SCIM fournit un schéma utilisateur commun pour l’approvisionnement. Utilisée conjointement avec des normes de fédération comme SAML ou OpenID Connect, la spécification SCIM offre aux administrateurs une solution de bout en bout basée sur des normes pour la gestion des accès.
 
 La spécification SCIM est une définition normalisée de deux points de terminaison : un point de terminaison/Users et un point de terminaison/Groups. Elle utilise des verbes REST communs pour créer, mettre à jour et supprimer des objets, ainsi qu’un schéma prédéfini pour les attributs courants tels que le nom de groupe, le nom d’utilisateur, le prénom, le nom et l'adresse e-mail. Les applications proposant une API REST SCIM 2.0 peuvent réduire ou éliminer les difficultés liées à l’utilisation d’une API de gestion des utilisateurs propriétaires. Par exemple, tout client SCIM conforme sait comment effectuer une requête HTTP POST d'objet JSON sur le point de terminaison/Users afin de créer une nouvelle entrée d’utilisateur. Sans devoir utiliser une API légèrement différente pour les mêmes actions de base, les applications conformes à la norme SCIM peuvent instantanément tirer parti des clients, des outils et du code existants. 
 
-![Approvisionnement d'Azure AD vers une application avec SCIM](./media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
+![Approvisionnement d'Azure AD vers une application avec SCIM](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
 
 Le schéma d’objet utilisateur standard et les API REST de gestion définies dans SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643), [7644](https://tools.ietf.org/html/rfc7644)) permettent aux fournisseurs d’identité et aux applications de s’intégrer plus facilement entre eux. Les développeurs d’applications qui créent un point de terminaison SCIM peuvent s’intégrer à n’importe quel client conforme à SCIM sans avoir à effectuer de travail personnalisé.
 
@@ -45,7 +45,7 @@ Automatiser et approvisionner une application implique de créer et d'intégrer 
 
   * **[Étape 5 : Publier votre application dans la galerie d’applications Azure AD.](#step-5-publish-your-application-to-the-azure-ad-application-gallery)** Permettez aux clients de découvrir facilement votre application et de configurer tout aussi facilement l’approvisionnement. 
 
-![Procédure d’intégration d’un point de terminaison SCIM à Azure AD](./media/use-scim-to-provision-users-and-groups/process.png)
+![Procédure d’intégration d’un point de terminaison SCIM à Azure AD](media/use-scim-to-provision-users-and-groups/process.png)
 
 ## <a name="step-1-design-your-user-and-group-schema"></a>Étape 1 : Concevoir votre schéma d'utilisateurs et de groupes
 
@@ -145,7 +145,7 @@ Plusieurs points de terminaison sont définis dans la RFC SCIM. Vous pouvez comm
 
 ## <a name="step-2-understand-the-azure-ad-scim-implementation"></a>Étape 2 : Comprendre l'implémentation de SCIM Azure AD
 > [!IMPORTANT]
-> La dernière mise à jour du comportement de l’implémentation SCIM d’Azure AD a été effectuée le 18 décembre 2018. Pour plus d’informations sur ce qui a changé, consultez [Conformité au protocole SCIM 2.0 du service de provisionnement des utilisateurs Azure AD](../manage-apps/application-provisioning-config-problem-scim-compatibility.md).
+> La dernière mise à jour du comportement de l’implémentation SCIM d’Azure AD a été effectuée le 18 décembre 2018. Pour plus d’informations sur ce qui a changé, consultez [Conformité au protocole SCIM 2.0 du service de provisionnement des utilisateurs Azure AD](application-provisioning-config-problem-scim-compatibility.md).
 
 Si vous créez une application prenant en charge une API de gestion utilisateur SCIM 2.0, cette section décrit en détail comment le client SCIM Azure AD est implémenté. Elle vous explique également comment modéliser la gestion et les réponses de la requête du protocole SCIM. Une fois que vous avez implémenté votre point de terminaison SCIM, vous pouvez le tester en suivant la procédure décrite dans la section précédente.
 
@@ -176,7 +176,7 @@ Suivez ces recommandations lors de l’implémentation d’un point de terminais
 
 L’illustration suivante contient les messages qu’Azure Active Directory envoie à un service SCIM pour gérer le cycle de vie d’un utilisateur dans le magasin d’identités de votre application.  
 
-![Indique la séquence de provisionnement et de déprovisionnement d’utilisateurs](./media/use-scim-to-provision-users-and-groups/scim-figure-4.png)<br/>
+![Indique la séquence de provisionnement et de déprovisionnement d’utilisateurs](media/use-scim-to-provision-users-and-groups/scim-figure-4.png)<br/>
 *Séquence de provisionnement et de déprovisionnement d’utilisateurs*
 
 ### <a name="group-provisioning-and-deprovisioning"></a>Approvisionnement et déprovisionnement de groupes
@@ -186,14 +186,14 @@ L’approvisionnement et le déprovisionnement de groupes sont facultatifs. L’
 * Les demandes d’extraction de groupes précisent que l’attribut des membres doit être exclu des ressources fournies en réponse à la demande.  
 * Les requêtes permettant de déterminer si un attribut de référence a une certaine valeur sont des requêtes sur les attributs membres.  
 
-![Indique la séquence de provisionnement et de déprovisionnement de groupes](./media/use-scim-to-provision-users-and-groups/scim-figure-5.png)<br/>
+![Indique la séquence de provisionnement et de déprovisionnement de groupes](media/use-scim-to-provision-users-and-groups/scim-figure-5.png)<br/>
 *Séquence de provisionnement et de déprovisionnement de groupes*
 
 ### <a name="scim-protocol-requests-and-responses"></a>Demandes et réponses du protocole SCIM
 Cette section fournit des exemples de requêtes SCIM émises par le client SCIM Azure AD et des exemples de réponses attendues. Pour de meilleurs résultats, vous devez coder votre application pour gérer ces demandes dans ce format et émettre les réponses attendues.
 
 > [!IMPORTANT]
-> Pour comprendre comment et quand le service d'approvisionnement d'utilisateurs d'Azure AD émet les opérations décrites ci-dessous, consultez la section [Cycles d'approvisionnement : cycle initial et cycle incrémentiel](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) de l'article [Fonctionnement de l'approvisionnement](../app-provisioning/how-provisioning-works.md).
+> Pour comprendre comment et quand le service d'approvisionnement d'utilisateurs d'Azure AD émet les opérations décrites ci-dessous, consultez la section [Cycles d'approvisionnement : cycle initial et cycle incrémentiel](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) de l'article [Fonctionnement de l'approvisionnement](how-provisioning-works.md).
 
 [Opérations utilisateur](#user-operations)
   - [Create User](#create-user) ([Request](#request) / [Response](#response))
@@ -831,7 +831,7 @@ Pour développer un service web conforme à la spécification SCIM, commencez pa
 
 * Les bibliothèques CLI (Common Language Infrastructure) sont proposées pour une utilisation avec les langages basés sur cette infrastructure, notamment C#. L’une de ces bibliothèques, Microsoft.SystemForCrossDomainIdentityManagement.Service, déclare une interface Microsoft.SystemForCrossDomainIdentityManagement.IProvider, affichée dans l’illustration suivante. Un développeur qui utilise les bibliothèques doit mettre en œuvre cette interface avec une classe pouvant être référencée de manière générale comme fournisseur que fournisseur. Les bibliothèques permettent au développeur de déployer un service web conforme à la spécification SCIM. Le service web peut être soit hébergé dans Internet Information Services, soit dans n’importe quel assembly CLI exécutable. La requête est convertie en appels aux méthodes du fournisseur, qui doivent être programmées par le développeur pour fonctionner sur un magasin d’identités.
   
-   ![Décomposition : Une requête est traduite en appels vers les méthodes du fournisseur](./media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
+   ![Décomposition : Une requête est traduite en appels vers les méthodes du fournisseur](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
   
 * [Des gestionnaires de routeur Express](https://expressjs.com/guide/routing.html) sont disponibles pour les objets de requête node.js d’analyse représentant des appels (comme défini par la spécification SCIM) envoyés à un service web node.js.
 
@@ -842,6 +842,10 @@ Les développeurs utilisant les bibliothèques CLI peuvent héberger leurs servi
 ```csharp
  private static void Main(string[] arguments)
  {
+ // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor, 
+ // Microsoft.SystemForCrossDomainIdentityManagement.IProvider and 
+ // Microsoft.SystemForCrossDomainIdentityManagement.Service are all defined in 
+ // Microsoft.SystemForCrossDomainIdentityManagement.Service.dll.  
 
  Microsoft.SystemForCrossDomainIdentityManagement.IMonitor monitor = 
    new DevelopersMonitor();
@@ -931,6 +935,10 @@ Pour héberger le service dans Internet Information Services, un développeur cr
 ```csharp
  public class Startup
  {
+ // Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter, 
+ // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor and  
+ // Microsoft.SystemForCrossDomainIdentityManagement.Service are all defined in 
+ // Microsoft.SystemForCrossDomainIdentityManagement.Service.dll.  
 
  Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter starter;
 
@@ -956,7 +964,7 @@ Pour héberger le service dans Internet Information Services, un développeur cr
 
 ### <a name="handling-endpoint-authentication"></a>Gestion de l’authentification du point de terminaison
 
-Les demandes d’Azure Active Directory incluent un jeton de support OAuth 2.0.   Tout service qui reçoit la demande doit authentifier l’émetteur comme étant Azure Active Directory pour le compte du client Azure Active Directory pour accéder au service web du graphique Azure Active Directory.  Dans le jeton, l’émetteur est identifié par une revendication iss, comme « iss» :"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Dans cet exemple, l’adresse de base de la valeur de revendication, https://sts.windows.net, identifie Azure Active Directory en tant qu’émetteur, tandis que le segment d’adresse relative, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, est un identificateur unique du locataire Azure Active Directory au nom duquel le jeton a été émis. L’audience du jeton est l’ID du modèle d’application de l’application dans la galerie. L’ID du modèle d’application pour toutes les applications personnalisées est 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. L’ID du modèle d’application de chaque application dans la galerie varie. Veuillez contacter ProvisioningFeedback@microsoft.com pour toute question sur l’ID du modèle d’application d’une application de galerie. Chaque application inscrite dans un seul abonné peut recevoir la même revendication `iss` avec des requêtes SCIM.
+Les demandes d’Azure Active Directory incluent un jeton de support OAuth 2.0.   Tout service recevant la demande doit authentifier l’émetteur comme étant Azure Active Directory pour permettre au client Azure Active Directory attendu d’accéder au service de l’API Microsoft Graph.  Dans le jeton, l’émetteur est identifié par une revendication iss, comme « iss» :"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Dans cet exemple, l’adresse de base de la valeur de revendication, https://sts.windows.net, identifie Azure Active Directory en tant qu’émetteur, tandis que le segment d’adresse relative, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, est un identificateur unique du locataire Azure Active Directory au nom duquel le jeton a été émis. L’audience du jeton est l’ID du modèle d’application de l’application dans la galerie. L’ID du modèle d’application pour toutes les applications personnalisées est 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. L’ID du modèle d’application de chaque application dans la galerie varie. Veuillez contacter ProvisioningFeedback@microsoft.com pour toute question sur l’ID du modèle d’application d’une application de galerie. Chaque application inscrite dans un seul abonné peut recevoir la même revendication `iss` avec des requêtes SCIM.
 
 Les développeurs qui utilisent les bibliothèques CLI fournies par Microsoft pour la création d’un service SCIM peuvent authentifier les demandes d’Azure Active Directory à l’aide du package Microsoft.Owin.Security.ActiveDirectory en exécutant les opérations suivantes : 
 
@@ -978,7 +986,7 @@ Dans un fournisseur, commencez par implémenter la propriété Microsoft.SystemF
   }
 ```
 
-Ajoutez ensuite le code suivant à cette méthode pour que toute demande à l’un des points de terminaison de service authentifié comme portant un jeton émis par Azure Active Directory pour le compte d’un client spécifié puisse accéder au service web du graphique d’Azure AD : 
+Ajoutez ensuite le code suivant à cette méthode pour que toute demande envoyée à l’un des points de terminaison de service authentifiés comme portant un jeton émis par Azure Active Directory pour le compte d’un client spécifié puisse accéder au service de l’API Microsoft Graph : 
 
 ```csharp
   private void OnServiceStartup(
@@ -1386,7 +1394,7 @@ Azure AD peut être configuré pour attribuer automatiquement des utilisateurs e
 Vérifiez avec votre fournisseur d’application ou dans la documentation du fournisseur de votre application la conformité à ces exigences.
 
 > [!IMPORTANT]
-> L’implémentation de SCIM d’Azure AD repose sur le service d’approvisionnement d’utilisateur Azure AD, conçu pour conserver constamment les utilisateurs synchronisés avec Azure AD et l’application cible, et implémente un ensemble très spécifique d’opérations standard. Il est important de comprendre ces comportements afin de cerner le comportement du client SCIM d’Azure AD. Pour plus d'informations, consultez la section [Cycles d'approvisionnement : cycle initial et cycle incrémentiel](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) de l'article [Fonctionnement de l'approvisionnement](../app-provisioning/how-provisioning-works.md).
+> L’implémentation de SCIM d’Azure AD repose sur le service d’approvisionnement d’utilisateur Azure AD, conçu pour conserver constamment les utilisateurs synchronisés avec Azure AD et l’application cible, et implémente un ensemble très spécifique d’opérations standard. Il est important de comprendre ces comportements afin de cerner le comportement du client SCIM d’Azure AD. Pour plus d'informations, consultez la section [Cycles d'approvisionnement : cycle initial et cycle incrémentiel](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) de l'article [Fonctionnement de l'approvisionnement](how-provisioning-works.md).
 
 ### <a name="getting-started"></a>Prise en main
 
@@ -1399,13 +1407,13 @@ Les applications qui prennent en charge le profil SCIM décrit dans cet article 
 3. Sélectionnez **+ Nouvelle application** > **Toutes** > **Application ne figurant pas dans la galerie**.
 4. Entrez un nom pour votre application, puis sélectionnez **Ajouter** pour créer un objet d’application. La nouvelle application est ajoutée à la liste des applications d’entreprise et s’ouvre sur son écran de gestion d’application.
 
-   ![Capture d’écran montrant la galerie d’applications Azure AD](./media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
+   ![Capture d’écran montrant la galerie d’applications Azure AD](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
    *Galerie d’applications Azure AD*
 
 5. Dans l’écran de gestion d’application, sélectionnez **Approvisionnement** dans le volet gauche.
 6. Dans le menu **Mode d’approvisionnement**, sélectionnez **Automatique**.
 
-   ![Exemple : Page de provisionnement d’une application dans le Portail Microsoft Azure](./media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)<br/>
+   ![Exemple : Page de provisionnement d’une application dans le Portail Microsoft Azure](media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)<br/>
    *Configuration du provisionnement dans le portail Azure*
 
 7. Dans le champ **URL du locataire**, entrez l’URL du point de terminaison SCIM de l’application. Exemple : https://api.contoso.com/scim/
@@ -1437,6 +1445,16 @@ Une fois le cycle initial démarré, vous pouvez sélectionner **Journaux d’ap
 
 Si vous créez une application qui sera utilisée par plusieurs locataires, vous pouvez la rendre disponible dans la galerie d’applications Azure AD. Cela facilite pour les organisations la découverte de l’application et la configuration de l’approvisionnement. Vous pouvez facilement publier votre application dans la galerie Azure AD et mettre l’approvisionnement à la disposition d’autres utilisateurs. Découvrez les étapes [ici](../develop/howto-app-gallery-listing.md). Microsoft vous aidera à intégrer votre application à la galerie, à tester votre point de terminaison et à publier la [documentation](../saas-apps/tutorial-list.md) d'intégration destinée aux clients. 
 
+### <a name="gallery-onboarding-checklist"></a>Liste de vérification d’intégration à la galerie
+Suivez la liste de vérification ci-dessous pour vous assurer que votre application est intégrée rapidement et que les clients bénéficient d’une expérience de déploiement sans heurts. Les informations seront collectées auprès de vous lors de l’intégration à la galerie. 
+> [!div class="checklist"]
+> * [Prise en charge de SCIM 2.0 ](https://tools.ietf.org/html/draft-wahl-scim-profile-00) (obligatoire)
+> * Prise en charge d’au moins 25 demandes par seconde par locataire (obligatoire)
+> * Prise en charge de la détection de schéma (recommandée)
+> * Prise en charge de l’octroi de code d’autorisation OAuth ou d’un jeton de longue durée, comme décrit ci-dessous (obligatoire)
+> * Établissez un point de contact d’ingénierie et de support pour la prise en charge de l’intégration à la galerie de publications de clients (obligatoire)
+> * Documentation publique de votre point de terminaison SCIM (recommandée) 
+
 
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>Autorisation des connecteurs d’approvisionnement de connecteurs dans la galerie d’applications
 La spécification SCIM ne définit pas de schéma spécifique à SCIM à des fins d'authentification et d'autorisation. Elle s’appuie sur l’utilisation des normes du secteur existantes. Le client d’approvisionnement Azure AD prend en charge deux méthodes d’autorisation pour les applications de la galerie. 
@@ -1464,6 +1482,17 @@ Meilleures pratiques (recommandées, mais pas obligatoires) :
 
 Si vous souhaitez davantage de méthodes d’authentification et d’autorisation, faites-le nous savoir sur [UserVoice](https://aka.ms/appprovisioningfeaturerequest).
 
+### <a name="gallery-go-to-market-launch-check-list"></a>Liste de vérification du lancement de la galerie sur le marché
+Pour contribuer à la sensibilisation et à la demande de notre intégration conjointe, nous vous recommandons de mettre à jour votre documentation existante et d’amplifier son intégration dans vos canaux marketing.  Voici un ensemble d’activités de liste de contrôle que nous vous recommandons d’effectuer à l’appui du lancement
+
+* **Préparation du support client et des ventes.** Assurez-vous que vos équipes de vente et de support sont informées et capables de parler des fonctionnalités d’intégration. Informez vos équipes de vente et de support, mettez à leur disposition un FAQ, et incluez l’intégration dans vos documents de vente. 
+* **Billet de blog et/ou communiqué de presse.** Élaborez un billet de blog ou un communiqué de presse décrivant l’intégration conjointe, les avantages et la prise en main. [Exemple : Communiqué de presse Imprivata et Azure Active Directory](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft) 
+* **Réseaux sociaux.** Tirez parti de vos réseaux sociaux tels que Twitter, Facebook ou LinkedIn pour promouvoir l’intégration à vos clients. Veillez à inclure @AzureAD pour pouvoir retweeter votre publication. [Exemple : Publication Twitter d’Imprivata](https://twitter.com/azuread/status/1123964502909779968)
+* **Site web marketing.** Créez ou mettez à jour vos pages marketing (par exemple, page d’intégration, page de partenaire, page de tarification, etc.) pour inclure la disponibilité de l’intégration conjointe. [Exemple : Page d’intégration Pingboard](https://pingboard.com/org-chart-for), [page d’intégration Smartsheet](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad), [page de tarification Monday.com](https://monday.com/pricing/) 
+* **Documentation technique.** Créez un article du centre d’aide ou une documentation technique sur la façon dont les clients peuvent commencer. [Exemple : Envoi + Intégration de Microsoft Azure Active Directory.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
+) 
+* **Communication du client.** Avertissez les clients de la nouvelle intégration dans le cadre de votre communication (bulletins mensuels, campagnes par courrier électronique, notes de publication de produits). 
+
 ### <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>Autoriser les adresses IP utilisées par le service d’approvisionnement AD Azure à effectuer des demandes SCIM
 
 Certaines applications autorisent le trafic entrant vers leur application. Pour que le service d’approvisionnement AD Azure puisse fonctionner comme prévu, les adresses IP utilisées doivent être autorisées. Pour obtenir la liste d’adresses IP de chaque balise de service/région, consultez le fichier JSON - [Plages d’adresses IP Azure et balises de service – Cloud Public](https://www.microsoft.com/download/details.aspx?id=56519). Vous pouvez télécharger et programmez ces adresses IP dans votre pare-feu selon vos besoins. Les plages d’adresses IP réservées pour l’approvisionnement Azure AD se trouvent sous « AzureActiveDirectoryDomainServices ».
@@ -1472,7 +1501,7 @@ Certaines applications autorisent le trafic entrant vers leur application. Pour 
 
 * [Automatisation de l'approvisionnement et de l'annulation de l'approvisionnement des utilisateurs pour les applications SaaS](user-provisioning.md)
 * [Personnaliser les mappages d’attributs pour l’approvisionnement des utilisateurs](customize-application-attributes.md)
-* [Écriture d’expressions pour les mappages d’attributs](../app-provisioning/functions-for-customizing-application-data.md)
-* [Filtres d’étendue pour le provisionnement des utilisateurs](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
+* [Écriture d’expressions pour les mappages d’attributs](functions-for-customizing-application-data.md)
+* [Filtres d’étendue pour le provisionnement des utilisateurs](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Notifications d’approvisionnement de comptes](user-provisioning.md)
 * [Liste des didacticiels sur l’intégration des applications SaaS](../saas-apps/tutorial-list.md)

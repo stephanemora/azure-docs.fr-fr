@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Découvrir la plateforme cloud Azure Media Services v3
+title: Documentation sur la plateforme cloud Azure Media Services v3
 summary: Découvrez comment encoder et empaqueter du contenu, diffuser des vidéos en streaming à la demande, diffuser en direct et analyser vos vidéos avec Media Services v3. Des didacticiels, références d’API et autres documents vous montrent comment diffuser en toute sécurité du contenu vidéo ou audio à la demande et en direct pour des millions d’utilisateurs.
 metadata:
-  title: Documentation Azure Media Services v3
+  title: Documentation sur la plateforme cloud Azure Media Services v3
   description: Découvrez comment encoder et empaqueter du contenu, diffuser des vidéos en streaming à la demande, diffuser en direct et analyser vos vidéos avec Media Services v3.
   services: media-services
   ms.service: media-services
@@ -12,12 +12,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 10/07/2019
-  ms.openlocfilehash: 5b46cb4faa1b18d9b1902e760b2905f59f42f19d
-  ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+  ms.openlocfilehash: 02d1e00d6aa70c406049fe09adbab32d55114c81
+  ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 02/01/2020
-  ms.locfileid: "76938996"
+  ms.lasthandoff: 02/25/2020
+  ms.locfileid: "77586102"
 landingContent:
 - title: À propos de Media Services
   linkLists:

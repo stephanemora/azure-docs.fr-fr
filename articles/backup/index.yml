@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: 607603965b0935941fa5ad06c39110535aa33633
-  ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+  ms.openlocfilehash: 9efc7d3ba072b0281d932b31365e7458034c30f5
+  ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 01/21/2020
-  ms.locfileid: "76290782"
+  ms.lasthandoff: 02/25/2020
+  ms.locfileid: "77582617"
 landingContent:
 - title: En savoir plus sur Sauvegarde Azure
   linkLists:
@@ -130,6 +130,16 @@ landingContent:
       url: backup-azure-dpm-azure-server-faq.md
     - text: Installer et mettre à niveau MABS
       url: backup-azure-microsoft-azure-backup.md
+- title: Gérer à grande échelle
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gouverner à grande échelle avec Azure Policy
+      url: backup-azure-auto-enable-backup.md
+    - text: Superviser et opérer à grande échelle avec l’Explorateur de sauvegarde
+      url: monitor-azure-backup-with-backup-explorer.md
+    - text: Analyser à grande échelle avec des rapports de sauvegarde
+      url: configure-reports.md
 - title: Explorer les ressources pour la sauvegarde Azure
   linkLists:
   - linkListType: concept
