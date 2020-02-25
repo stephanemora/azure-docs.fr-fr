@@ -1,5 +1,5 @@
 ---
-title: Exemple de script Azure CLI - Configurer des points de terminaison de réseau virtuel IPv6 (préversion)
+title: Exemple de script Azure CLI - Configuration frontale IPv6
 titlesuffix: Azure Virtual Network
 description: Activer les points de terminaison IPv6 à l’aide d’Azure CLI dans un réseau virtuel Azure
 services: virtual-network
@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
-ms.openlocfilehash: 3df475ce89a3b1f5a1acfb20dc427fdb7a9b7d16
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 0661c5231e2fce4d6a675c07be6b0ae914c99997
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248902"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201359"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Exemple de script de configuration de points de terminaison IPv6 dans un réseau virtuel (préversion)
 

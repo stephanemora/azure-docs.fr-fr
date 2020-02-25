@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: c402d47f40a351d70f688aa93c5e1501c93b39dd
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: f2f6be1022a7100a23f49534f2c18fc951d56284
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779866"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368706"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Stockage Blob Azure : niveaux d’accès chaud, froid et archive
 
@@ -26,7 +26,7 @@ Le Stockage Azure propose différents niveaux d’accès qui vous permettent de 
 Les considérations suivantes s’appliquent aux différents niveaux de stockage :
 
 - Seuls les niveaux d’accès chaud et froid peuvent être définis au niveau du compte. Le niveau d’accès archive n’est pas disponible au niveau du compte.
-- Les niveaux chaud, froid et archive peuvent être définis au niveau de l’objet blob.
+- Les niveaux chaud, froid et archive peuvent être définis au niveau de l’objet blob durant ou après le chargement.
 - Les données du niveau d’accès froid peuvent tolérer une disponibilité légèrement inférieure, mais nécessitent toujours des caractéristiques de durabilité élevée, de latence de récupération et de débit similaires à celles des données chaudes. Concernant les données froides, un contrat de niveau de service (SLA) de disponibilité légèrement inférieure et des coûts d’accès supérieurs comparés aux données chaudes sont des compromis acceptables pour des coûts de stockage plus faibles.
 - Le stockage archive stocke des données hors connexion et offre les coûts de stockage les plus bas, mais également les coûts de réalimentation et d’accès aux données les plus élevés.
 
@@ -77,7 +77,7 @@ La modification du niveau d’accès du compte s’applique à tous les objets d
 
 ## <a name="blob-level-tiering"></a>Hiérarchisation au niveau de l’objet blob
 
-La hiérarchisation au niveau de l’objet blob vous permet de modifier le niveau de vos données au niveau de l’objet, à l’aide d’une seule opération nommée [Définir le niveau de l’objet blob](/rest/api/storageservices/set-blob-tier). Vous pouvez facilement modifier le niveau d’accès (chaud, froid ou archive) d’un objet blob, comme si vous modifiez le mode d’utilisation, sans avoir à déplacer des données entre les comptes. Toutes les demandes de changement de niveau se produisent immédiatement et les changements de niveau entre chaud et froid sont instantanés. Toutefois, la réactivation d’un objet blob d’un niveau archive peut prendre plusieurs heures.
+La hiérarchisation au niveau de l’objet blob vous permet de charger des données vers le niveau d’accès de votre choix à l’aide des opérations [Put Blob](/rest/api/storageservices/put-blob) ou [Put Block List](/rest/api/storageservices/put-block-list) et de modifier le niveau de vos données au niveau objet à l’aide de l'opération [Set Blob Tier](/rest/api/storageservices/set-blob-tier) ou de la fonctionnalité [Gestion du cycle de vie](#blob-lifecycle-management). Vous pouvez charger des données vers le niveau d'accès requis, puis facilement modifier le niveau d’accès (chaud, froid ou archive) d’un objet blob, lorsque les modes d’utilisation changent, sans avoir à déplacer des données entre les comptes. Toutes les demandes de changement de niveau se produisent immédiatement et les changements de niveau entre chaud et froid sont instantanés. Toutefois, la réactivation d’un objet blob d’un niveau archive peut prendre plusieurs heures.
 
 L’heure de la dernière modification du niveau de l’objet blob est exposée via la propriété de l’objet blob **Access Tier Change Time**. Quand un objet blob est remplacé au niveau d’accès chaud ou froid, le nouvel objet blob a le même niveau que l’ancien objet blob, sauf si le niveau d’accès du nouvel objet blob est explicitement défini au moment de la création. Lorsqu’un objet blob est stocké au niveau archive, il ne peut pas être remplacé ; le téléchargement du même objet blob n’est donc pas possible dans ce scénario. 
 
@@ -95,9 +95,11 @@ La gestion du cycle de vie du Stockage Blob offre une stratégie enrichie, basé
 
 ### <a name="blob-level-tiering-billing"></a>Facturation de la hiérarchisation au niveau de l’objet blob
 
+Lorsqu’un objet blob est chargé ou déplacé vers le niveau chaud, froid ou archive, il est facturé au taux correspondant au moment du changement de niveau.
+
 Quand un objet blob est déplacé vers un niveau plus froid (chaud -> froid, chaud -> archive ou froid -> archive), l’opération est facturée comme une opération d’écriture dans le niveau de destination, où les taux du niveau de destination s’appliquent également aux opérations d’écriture (par 10 000) ainsi qu’à l’écriture des données (par Go).
 
-Lorsqu’un objet blob est déplacé vers un niveau plus chaud (archive->froid, archive->chaud ou froid->chaud), l’opération est facturée comme une lecture à partir du niveau source, facturée aux tarifs des opérations de lecture (par 10 000) et d’extraction de données (par Go) du niveau source. Des frais de suppression anticipée peut également s’appliquer pour tout objet blob déplacé hors du niveau froid ou archive. Le tableau suivant résume la facturation des changements de niveau.
+Lorsqu’un objet blob est déplacé vers un niveau plus chaud (archive->froid, archive->chaud ou froid->chaud), l’opération est facturée comme une lecture à partir du niveau source, facturée aux tarifs des opérations de lecture (par 10 000) et d’extraction de données (par Go) du niveau source. Des frais de suppression anticipée peut également s’appliquer pour tout objet blob déplacé hors du niveau froid ou archive. [La réalimentation des données à partir du niveau archive](storage-blob-rehydration.md) prend du temps et les données sont facturées au prix du niveau archive jusqu’à leur restauration en ligne et l'adoption du niveau blob chaud ou froid. Le tableau suivant résume la facturation des changements de niveau :
 
 | | **Tarif d'écriture (opération + accès)** | **Tarif de lecture (opération + accès)**
 | ---- | ----- | ----- |
@@ -127,7 +129,7 @@ Le tableau suivant présente une comparaison du stockage d’objets blob de bloc
 <sup>2</sup> Stockage archive prend actuellement en charge 2 priorités de réalimentation, haute et standard, offrant différentes latences de récupération. Pour plus d’informations, consultez [Réalimenter les données d’objets blob à partir du niveau Archive](storage-blob-rehydration.md).
 
 > [!NOTE]
-> Les comptes de stockage d’objets blob présentent les mêmes objectifs de performance et d’évolutivité que les comptes de stockage à usage général v2. Pour plus d’informations, consultez [Objectifs de performance et de scalabilité pour le Stockage Blob](scalability-targets.md).
+> Les comptes de stockage d’objets blob présentent les mêmes objectifs de performance et d’évolutivité que les comptes de stockage à usage général v2. Pour plus d’informations, consultez [Objectifs de performance et de scalabilité pour le stockage d’objets blob](scalability-targets.md).
 
 ## <a name="quickstart-scenarios"></a>Scénarios de démarrage rapide
 
@@ -138,7 +140,7 @@ Dans cette section, les scénarios suivants sont présentés en utilisant le por
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Changer le niveau d’accès de compte par défaut d’un compte de stockage GPv2 ou d’objets blob
 
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Dans la Portail Azure, recherchez et sélectionnez **Toutes les ressources**.
@@ -153,7 +155,7 @@ Dans cette section, les scénarios suivants sont présentés en utilisant le por
 
 ![Changer le niveau du compte de stockage](media/storage-tiers/account-tier.png)
 
-# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 Le script PowerShell suivant permet de changer le niveau du compte. La variable `$rgName` doit être initialisée avec le nom de votre groupe de ressources. La variable `$accountName` doit être initialisée avec le nom de votre compte de stockage. 
 ```powershell
 #Initialize the following with your resource group and storage account names
@@ -166,7 +168,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 ---
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Changer le niveau d’un objet blob dans un compte de stockage GPv2 ou d’objets blob
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Dans la Portail Azure, recherchez et sélectionnez **Toutes les ressources**.
@@ -183,7 +185,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 ![Changer le niveau du compte de stockage](media/storage-tiers/blob-access-tier.png)
 
-# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 Le script PowerShell suivant permet de changer le niveau de l’objet blob. La variable `$rgName` doit être initialisée avec le nom de votre groupe de ressources. La variable `$accountName` doit être initialisée avec le nom de votre compte de stockage. La variable `$containerName` doit être initialisée avec le nom de votre conteneur. La variable `$blobName` doit être initialisée avec le nom de votre objet blob. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names

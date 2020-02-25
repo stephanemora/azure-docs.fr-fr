@@ -1,19 +1,19 @@
 ---
 title: Prise en charge de la traduction | Microsoft Azure Maps
 description: Dans cet article, vous allez découvrir les différentes langues prises en charge pour les services dans Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: eec8e47e75a6c92be8f893af893761a9ccddc650
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5de04b4e37e79a47f89bb235aad2b0f9cab69e6a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025433"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208146"
 ---
 # <a name="localization-support-in-azure-maps"></a>Prise en charge de la localisation dans Azure Maps
 
@@ -25,7 +25,7 @@ Azure Maps prend en charge différentes langues et différents affichages basés
 Les services Azure Maps ont été localisés en différentes langues. Le tableau suivant indique les codes des langues prises en charge pour chaque service.  
   
 
-| id         | Name                   |  Cartes | Recherche | Routage | Météo | Incidents de trafic | Commandes de la carte JS |
+| id         | Nom                   |  Cartes | Recherche | Routage | Météo | Incidents de trafic | Commandes de la carte JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Arabe                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -109,7 +109,7 @@ Les services Azure Maps ont été localisés en différentes langues. Le tableau
 >
 > À compter du 1er août 2019, le paramètre **Vue** définira le contenu cartographique retourné pour les régions/pays supplémentaires ci-dessus. Le paramètre **Vue** d’Azure Maps (ou « paramètre régional de l'utilisateur ») est un code de pays ISO-3166 à deux lettres qui est utilisé pour afficher les cartes de ce pays ou cette région, spécifiant quel contenu géopolitique sensible est retourné par les services Azure Maps, y compris les frontières et les étiquettes affichées sur les cartes. 
 
-Assurez-vous d’avoir configuré le paramètre **Vue** de façon appropriée pour les API REST et les SDK utilisés par vos services.
+Assurez-vous d’avoir configuré le paramètre **Vue** de façon appropriée pour les API REST et kits de développement logiciel (SDK) utilisés par vos services.
 >  
 >
 >  **API REST** :
@@ -142,7 +142,7 @@ Assurez-vous d’avoir configuré le paramètre **Vue** de façon appropriée po
 >    * Kit de développement logiciel (SDK) web Azure Maps
 >    * Android SDK Azure Maps
 
-Par défaut, le paramètre Vue est défini sur **Unifié**, même si vous n’avez pas défini ce paramètre dans la requête. Déterminez l’emplacement de vos utilisateurs, puis définissez correctement le paramètre **Vue** correspondant à cet emplacement. Vous pouvez aussi définir le paramètre d’affichage « Vue=Auto », qui retourne les données cartographiques correspondant à l’adresse IP de la requête.  Le paramètre **Vue** dans Azure Maps doit être utilisé dans le respect des lois en vigueur, y compris celles relatives à la cartographie du pays où les cartes, images et autres données et contenus tiers auxquels vous êtes autorisé à accéder via Azure Maps sont mis à disposition.
+Par défaut, le paramètre Vue est défini sur **Unifié**, même si vous n’avez pas défini ce paramètre dans la requête. Déterminez l'emplacement de vos utilisateurs. Définissez ensuite le paramètre **Vue** correctement pour cet emplacement. Vous pouvez aussi définir le paramètre d’affichage « Vue=Auto », qui retourne les données cartographiques correspondant à l’adresse IP de la requête.  Le paramètre **Vue** dans Azure Maps doit être utilisé dans le respect des lois en vigueur, y compris celles relatives à la cartographie du pays où les cartes, images et autres données et contenus tiers auxquels vous êtes autorisé à accéder via Azure Maps sont mis à disposition.
 
 
 Le tableau suivant présente les affichages pris en charge.

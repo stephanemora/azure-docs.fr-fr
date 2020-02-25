@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 02/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: 298d720d3848f27b18aa24897357dfaa47a12a70
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: e386e5fc9c4d62266e0ca23869bf30ccaffeb91d
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863721"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201558"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Création d’une connexion de site à site à l’aide du portail Azure (Classic)
 
@@ -39,7 +39,7 @@ Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre c
 * Veillez à disposer d’un périphérique VPN compatible et à être entouré d’une personne en mesure de le configurer. Pour plus d’informations sur les périphériques VPN compatibles et la configuration de votre périphérique, consultez l’article [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md).
 * Vérifiez que vous disposez d’une adresse IPv4 publique exposée en externe pour votre périphérique VPN.
 * Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, vous devez contacter une personne en mesure de vous aider. Lorsque vous créez cette configuration, vous devez spécifier les préfixes des plages d’adresses IP qu’Azure acheminera vers votre emplacement local. Aucun des sous-réseaux de votre réseau local ne peut chevaucher les sous-réseaux du réseau virtuel auquel vous souhaitez vous connecter.
-* Actuellement, PowerShell est requis pour spécifier la clé partagée et créer la connexion de passerelle VPN. Installez la dernière version des applets de commande PowerShell Azure Service Management (SM). Pour installer les applets de commande, consultez [Service Management](/powershell/azure/servicemanagement/install-azure-ps). Pour plus d’informations sur l’installation d’Azure PowerShell en général, consultez [Guide pratique pour installer et configurer Azure PowerShell](/powershell/azure/overview). Si vous utilisez PowerShell pour cette configuration, vérifiez que vous exécutez PowerShell en tant qu’administrateur.
+* PowerShell est requis pour spécifier la clé partagée et créer la connexion de passerelle VPN. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
 ### <a name="values"></a>Exemples de valeurs de configuration pour cet exercice
 
@@ -159,23 +159,24 @@ Désormais, vous allez définir la clé partagée et créer la connexion. La cl�
 
 ### <a name="step-1-connect-to-your-azure-account"></a>Étape 1. Se connecter au compte Azure
 
-Vous devez exécuter ces commandes localement à l’aide du module PowerShell Service Management. Pour passer au management des services, utilisez cette commande :
+Vous devez exécuter ces commandes localement à l’aide du module PowerShell Service Management. 
 
-```powershell
-azure config mode asm
-```
+1. Ouvrez la console PowerShell avec des droits élevés. Pour passer au management des services, utilisez cette commande :
 
-1. Ouvrez la console PowerShell avec des droits élevés et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
+   ```powershell
+   azure config mode asm
+   ```
+2. Se connecter à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
 
    ```powershell
    Add-AzureAccount
    ```
-2. Vérifiez les abonnements associés au compte.
+3. Vérifiez les abonnements associés au compte.
 
    ```powershell
    Get-AzureSubscription
    ```
-3. Si vous avez plusieurs abonnements, sélectionnez celui que vous souhaitez utiliser.
+4. Si vous avez plusieurs abonnements, sélectionnez celui que vous souhaitez utiliser.
 
    ```powershell
    Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
@@ -183,7 +184,7 @@ azure config mode asm
 
 ### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>Étape 2. Définir la clé partagée et créer la connexion
 
-Quand vous créez un réseau virtuel classique dans le portail (sans utiliser PowerShell), Azure ajoute le nom du groupe de ressources au nom court. Par exemple, selon Azure, le nom du réseau virtuel que vous avez créé pour cet exercice est « Group TestRG1 TestVNet1 », et non « TestVNet1 ». PowerShell nécessite le nom complet du réseau virtuel, au lieu du nom court qui apparaît dans le portail. Le nom long n’est pas visible dans le portail. Les étapes suivantes vous permettent d’exporter le fichier config réseau pour obtenir les valeurs exactes relatives au nom du réseau virtuel. 
+Lorsque vous créez un réseau virtuel classique dans le portail (sans utiliser PowerShell), Azure ajoute le nom du groupe de ressources au nom court. Par exemple, selon Azure, le nom du réseau virtuel que vous avez créé pour cet exercice est « Group TestRG1 TestVNet1 », et non « TestVNet1 ». PowerShell nécessite le nom complet du réseau virtuel, au lieu du nom court qui apparaît dans le portail. Le nom long n’est pas visible dans le portail. Les étapes suivantes vous permettent d’exporter le fichier config réseau pour obtenir les valeurs exactes relatives au nom du réseau virtuel. 
 
 1. Créez un répertoire sur votre ordinateur, puis exportez le fichier de configuration réseau dans ce répertoire. Dans cet exemple, le fichier de configuration réseau est exporté vers C:\AzureNet.
 

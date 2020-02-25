@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 02/12/2020
 ms.author: shvija
-ms.openlocfilehash: d3271d6e8cb7d423e1dccd235b244688e7ab5683
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: fc81226e754178ad0edfff96a494dd7522662261
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555793"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368508"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Utiliser Azure Event Hubs à partir d’applications Apache Kafka
 Event Hubs fournit un point de terminaison Kafka qui peut être utilisé par vos applications Kafka pour éviter d’exécuter votre propre cluster Kafka. Event Hubs prend en charge [Apache Kafka protocole 1.0 et ultérieurs](https://kafka.apache.org/documentation/), et fonctionne avec vos applications Kafka, notamment MirrorMaker.  
@@ -24,7 +24,7 @@ Event Hubs fournit un point de terminaison Kafka qui peut être utilisé par vos
 
 La fonctionnalité Event Hubs pour Kafka fournit une tête de protocole sur Azure Event Hubs qui est compatible d’un point de vue binaire avec Kafka versions 1.0 et ultérieures pour lire et écrire dans des rubriques Kafka. Vous pouvez démarrer à l’aide du point de terminaison Kafka à partir de vos applications avec une modification de configuration minimale, mais aucune modification de code. Vous mettez à jour la chaîne de connexion dans les configurations pour pointer vers le point de terminaison Kafka exposé par votre hub d’événements au lieu de pointer vers votre cluster Kafka. Vous pouvez ensuite commencer à diffuser des événements en continu à partir de vos applications qui utilisent le protocole Kafka dans Event Hubs. Cette intégration prend également en charge les infrastructures telles que [Kafka Connect](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect), qui est actuellement en préversion. 
 
-Sur le plan conceptuel, Kafka et Event Hubs sont presque identiques : ce sont tous les deux des journaux d’activité partitionnés générés pour le streaming de données. Le tableau suivant mappe les concepts entre Kafka et Event Hubs.
+Sur le plan conceptuel, Kafka et Event Hubs sont presque identiques : ce sont tous les deux des journaux d’activité partitionnés générés pour la diffusion en continu de données. Le tableau suivant mappe les concepts entre Kafka et Event Hubs.
 
 ### <a name="kafka-and-event-hub-conceptual-mapping"></a>Mappage des concepts Kafka et Event Hubs
 
@@ -43,8 +43,38 @@ Sur le plan conceptuel, Kafka et Event Hubs sont presque identiques : ce sont to
 La mise à l’échelle dans Event Hubs est contrôlée par le nombre d’unités de débit que vous achetez, chacune d’elles vous donnant droit à 1 Mo par seconde ou 1 000 événements par seconde d’entrée. Par défaut, Event Hubs augmente le nombre d’unités de débit (scale up) quand vous atteignez votre limite avec la fonctionnalité [d’augmentation automatique](event-hubs-auto-inflate.md) ; celle-ci fonctionne également avec la fonctionnalité Event Hubs pour Kafka. 
 
 ### <a name="security-and-authentication"></a>Sécurité et authentification
+Chaque fois que vous publiez ou utilisez des événements à partir d'une instance Event Hubs pour Kafka, votre client tente d'accéder aux ressources Event Hubs. Vous voulez assurer l'accès aux ressources à l’aide d’une entité autorisée. Lorsque vous utilisez le protocole Apache Kafka avec vos clients, vous pouvez utiliser des mécanismes SASL pour définir votre configuration à des fins d’authentification et de chiffrement. L’utilisation d'Event Hubs pour Kafka nécessite le chiffrement TLS (car toutes les données en transit avec Event Hubs sont chiffrées avec le protocole TLS). Pour ce faire, vous pouvez spécifier l'option SASL_SSL dans votre fichier de configuration. 
 
-Azure Event Hubs nécessite SSL ou TLS pour toutes les communications et utilise les signatures d’accès partagé pour l’authentification. Cette condition est également vraie pour les points de terminaison Kafka dans Event Hubs. Pour des raisons de compatibilité avec Kafka, Event Hubs utilise SASL PLAIN pour l’authentification et SASL SSL pour la sécurité de transport. Pour plus d’informations sur la sécurité dans Event Hubs, consultez [Présentation du modèle de sécurité et de l’authentification Event Hubs](event-hubs-authentication-and-security-model-overview.md).
+Azure Event Hubs propose plusieurs options afin d'autoriser l’accès à vos ressources sécurisées. 
+
+- OAuth
+- Signature d’accès partagé (SAP)
+
+#### <a name="oauth"></a>OAuth
+Event Hubs s’intègre à Azure Active Directory (Azure AD), qui fournit un serveur d'autorisation centralisé compatible avec **OAuth** 2.0. Avec Azure AD, vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder des autorisations affinées à vos identités clientes. Vous pouvez utiliser cette fonctionnalité avec vos clients Kafka en spécifiant **SASL_SSL** pour le protocole et **OAUTHBEARER** pour le mécanisme. Pour plus d’informations sur les rôles RBAC et niveaux en matière d'accès, consultez [Autoriser l’accès avec Azure AD](authorize-access-azure-active-directory.md).
+
+```xml
+bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
+security.protocol=SASL_SSL
+sasl.mechanism=OAUTHBEARER
+sasl.jaas.config=org.apache.kafka.common.security.oauthbearer.OAuthBearerLoginModule required;
+sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
+```
+
+#### <a name="shared-access-signature-sas"></a>Signature d’accès partagé (SAS)
+Event Hubs fournit également les **signatures d'accès partagé (SAP)** à des fins d'accès délégué aux ressources Event Hubs pour Kafka. Autoriser l’accès à l’aide d’un mécanisme basé sur les jetons OAuth 2.0 offre une sécurité et une facilité d'utilisation supérieures par rapport aux SAP. Grâce aux rôles intégrés, il n'est plus nécessaire de recourir à une autorisation basée sur une liste de contrôle d’accès, qui doit être gérée par l’utilisateur. Vous pouvez utiliser cette fonctionnalité avec vos clients Kafka en spécifiant **SASL_SSL** pour le protocole et **PLAIN** pour le mécanisme. 
+
+```xml
+bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+```
+
+#### <a name="samples"></a>Exemples 
+Pour consulter un **tutoriel** avec instructions pas à pas afin de créer un Event Hub Kafka et y accéder à l’aide d’une signature d’accès partagé ou OAuth, consultez [Démarrage rapide : Streaming de données avec Event Hubs en utilisant le protocole Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md).
+
+Pour plus d'**exemples** montrant comment utiliser OAuth avec Event Hubs pour Kafka, consultez les [exemples sur GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
 
 ## <a name="other-event-hubs-features-available-for-kafka"></a>Autres fonctionnalités Event Hubs disponibles pour Kafka
 

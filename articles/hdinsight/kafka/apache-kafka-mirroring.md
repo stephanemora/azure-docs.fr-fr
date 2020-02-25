@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 0f444838c87e14fa88f2785030c29915df637cf8
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 45977f52226fac0a3e23455ce9457a721947a8cc
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552200"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425882"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker permet de répliquer des rubriques Apache Kafka avec Kafka sur HDInsight
 
@@ -63,7 +63,7 @@ Cette architecture comporte deux clusters dans différents groupes de ressources
 
 1. Créez deux groupes de ressources :
 
-    |Groupe de ressources | Location |
+    |Groupe de ressources | Emplacement |
     |---|---|
     | kafka-primary-rg | USA Centre |
     | kafka-secondary-rg | Centre-Nord des États-Unis |
@@ -305,7 +305,7 @@ Les étapes décrites dans ce document ont permis de créer des clusters dans di
 Dans ce document, vous avez appris à utiliser [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) pour créer un réplica d’un cluster [Apache Kafka](https://kafka.apache.org/). Utilisez les liens suivants pour découvrir d’autres façons de travailler avec Kafka :
 
 * [Documentation d’Apache Kafka MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) sur cwiki.apache.org.
+* [Meilleures pratiques Kafka Mirror Maker](https://community.cloudera.com/t5/Community-Articles/Kafka-Mirror-Maker-Best-Practices/ta-p/249269)
 * [Prise en main d’Apache Kafka sur HDInsight](apache-kafka-get-started.md)
 * [Utiliser Apache Spark avec Apache Kafka sur HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Utiliser Apache Storm avec Apache Kafka sur HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Se connecter à Apache Kafka via un réseau virtuel Azure](apache-kafka-connect-vpn-gateway.md)

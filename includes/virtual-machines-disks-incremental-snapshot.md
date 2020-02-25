@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c5b9c1d294cd984ca3cf062d3b657239995e5908
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 3361f4723c5a9776cb156417e57d609175d11621
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75752450"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77445406"
 ---
 Les instantanés incrémentiels (préversion) sont des sauvegardes des disques managés exécutées à un moment donné et contenant uniquement les modifications apportées depuis la dernière capture instantanée. Lorsque vous essayez de télécharger ou d'utiliser un instantané incrémentiel, tout le disque dur virtuel est utilisé. Cette nouvelle fonctionnalité de capture instantanée des disques managés peut améliorer leur rentabilité car il n'est plus nécessaire de stocker l'intégralité du disque avec chaque instantané, sauf si vous y tenez. Comme pour les instantanés classiques, les instantanés incrémentiels peuvent être utilisés pour créer un disque managé complet ou pour créer un instantané classique.
 
@@ -23,7 +23,7 @@ Les instantanés incrémentiels offrent également une capacité différentielle
 
 ## <a name="restrictions"></a>Restrictions
 
-- Les instantanés incrémentiels ne sont à l’heure actuelle disponibles que dans les régions USA Est, USA Est 2, USA Centre, USA Centre-Ouest, Canada Est, Canada Centre et Europe Nord.
+- Les instantanés incrémentiels ne sont à l’heure actuelle disponibles que dans les régions USA Est, USA Est 2, USA Centre, USA Centre-Ouest, Canada Est, Canada Centre, Europe Nord et Asie Sud-Est.
 - Il est actuellement impossible de créer des instantanés incrémentiels après avoir modifié la taille d'un disque.
 - Les instantanés incrémentiels ne peuvent actuellement pas être transférés d'un abonnement à un autre.
 - À un moment donné, vous ne pouvez actuellement générer que des URI SAS comprenant jusqu'à cinq instantanés d'une famille d'instantanés particulière.
