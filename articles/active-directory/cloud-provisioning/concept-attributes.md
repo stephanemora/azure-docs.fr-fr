@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 02/18/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd013b44454cc0283ef84d6a978b15400eca8786
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0d6d621646aaa5c8c44a20cf327cd10fa31990b0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022492"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484534"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Comprendre le schéma Azure AD
 Dans Azure Active Directory (Azure AD), un objet (par exemple, un annuaire) est une construction de données globale programmatique qui représente des éléments, tels que des utilisateurs, des groupes et des contacts. Lorsque vous créez un utilisateur ou un contact dans Azure AD, vous créez une instance de cet objet. Ces instances peuvent être différenciées en fonction de leurs propriétés.
@@ -67,6 +67,9 @@ Le tableau suivant liste certains attributs courants et la façon dont ils sont 
 |ProxyAdress|Direct|ProxyAddress|
 
 ## <a name="view-the-schema"></a>Afficher le schéma
+> [!WARNING]
+> La configuration de l’approvisionnement cloud crée un principal de service. Le principal du service est visible dans le portail Azure. Vous ne devez pas modifier les mappages d’attributs via l’interface du principal du service dans le portail Azure.  Cela n'est pas pris en charge.
+
 Pour afficher le schéma et le vérifier, effectuez les étapes suivantes.
 
 1.  Accédez à l’[Explorateur Graph](https://developer.microsoft.com/graph/graph-explorer).

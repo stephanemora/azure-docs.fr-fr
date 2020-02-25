@@ -10,22 +10,18 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 433eff8f7ec22a3484e8e7f38dab2bb1c24e2fcc
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7a65eb19c5694f399e806d0f6ce99717436931c6
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850808"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484347"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Définir des attributs personnalisés dans Azure Active Directory B2C
 
  Toutes les applications orientées client ont des exigences uniques concernant les informations qui doivent être recueillies. Votre locataire Azure Active Directory B2C (Azure AD B2C) est fourni avec un ensemble intégré d’informations stockées dans des attributs, comme le prénom, le nom, la ville et le code postal. Avec Azure AD B2C, vous pouvez étendre l’ensemble d’attributs stockés sur chaque compte client.
 
- Vous pouvez créer des attributs personnalisés dans le [portail Azure](https://portal.azure.com/) et les utiliser dans vos flux d’utilisateur d’inscription, de connexion ou de modification de profil. Vous pouvez également lire et écrire ces attributs à l’aide de [l’API Azure AD Graph](manage-user-accounts-graph-api.md). Les attributs personnalisés dans Azure AD B2C utilisent les [Extensions de schéma de répertoire de l’API Azure AD Graph](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
-
-> [!NOTE]
-> La prise en charge d’une [API Microsoft Graph](https://docs.microsoft.com/graph/overview?view=graph-rest-1.0) plus récente pour interroger un locataire Azure AD B2C est en cours de développement.
->
+ Vous pouvez créer des attributs personnalisés dans le [portail Azure](https://portal.azure.com/) et les utiliser dans vos flux d’utilisateur d’inscription, de connexion ou de modification de profil. Vous pouvez également lire et écrire ces attributs à l’aide de [l’API Microsoft Graph](manage-user-accounts-graph-api.md).
 
 ## <a name="create-a-custom-attribute"></a>Création d’un attribut personnalisé
 
@@ -47,14 +43,12 @@ ms.locfileid: "76850808"
 
 L’attribut personnalisé est actuellement disponible dans la liste des **attributs utilisateur**, et pour une utilisation dans vos flux d’utilisateur. Un attribut personnalisé est créé lors de sa première utilisation dans un flux d’utilisateur, et non pas quand vous l’ajoutez à la liste des **Attributs utilisateur**.
 
-
 ## <a name="use-a-custom-attribute-in-your-user-flow"></a>Utilisation d’un attribut personnalisé dans votre flux d’utilisateur
 
 1. Dans votre locataire Azure AD B2C, sélectionnez **Flux d’utilisateur**.
-2. Sélectionnez votre stratégie (par exemple, « B2C_1_SignupSignin ») pour l’ouvrir.
-4. Sélectionnez **Attributs d’utilisateur**, puis sélectionnez l’attribut personnalisé (par exemple, « ShoeSize »). Cliquez sur **Enregistrer**.
-5. Sélectionnez **Revendications d’applications**, puis sélectionnez l’attribut personnalisé.
-6. Cliquez sur **Enregistrer**.
+1. Sélectionnez votre stratégie (par exemple, « B2C_1_SignupSignin ») pour l’ouvrir.
+1. Sélectionnez **Attributs d’utilisateur**, puis sélectionnez l’attribut personnalisé (par exemple, « ShoeSize »). Cliquez sur **Enregistrer**.
+1. Sélectionnez **Revendications d’applications**, puis sélectionnez l’attribut personnalisé.
+1. Cliquez sur **Enregistrer**.
 
-Une fois que vous avez créé un utilisateur à l’aide d’un flux d’utilisateur qui utilise l’attribut personnalisé nouvellement créé, l’objet peut être interrogé dans l’[Explorateur Azure AD Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart). Vous pouvez également utiliser la fonctionnalité [**Exécuter le flux d’utilisateur**](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) sur le flux d’utilisateur pour vérifier l’expérience utilisateur. Vous devez maintenant voir **ShoeSize** dans la liste d’attributs collectés lors de l’inscription, et le voir dans le jeton retourné à votre application.
-
+Une fois que vous avez créé un utilisateur à l’aide d’un flux d’utilisateur qui utilise l’attribut personnalisé nouvellement créé, l’objet peut être interrogé dans l’[Explorateur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer). Vous pouvez également utiliser la fonctionnalité [Exécuter le flux d’utilisateur](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) sur le flux d’utilisateur pour vérifier l’expérience utilisateur. Vous devez maintenant voir **ShoeSize** dans la liste d’attributs collectés lors de l’inscription, et le voir dans le jeton retourné à votre application.

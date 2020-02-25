@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: df3ca877570b6b3e3a34dd20d617ce3896f1dd99
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 663a1dc597493c7b534b54eab7ccc4bed0ff0e11
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120959"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209220"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -120,7 +120,7 @@ Les restrictions d’affectation de noms sont implémentées par la plateforme A
 
 * Les noms de cluster doivent comporter entre 1 et 63 caractères. Les seuls caractères autorisés sont les lettres, les chiffres, les tirets et les traits de soulignement. Le premier et le dernier caractères doivent être une lettre ou un chiffre.
 * Le nom de groupe de ressources AKS *MC_* combine le nom de groupe de ressources et le nom de la ressource. La syntaxe générée automatiquement de `MC_resourceGroupName_resourceName_AzureRegion` ne doit pas dépasser 80 caractères. Si nécessaire, réduisez la longueur du nom de groupe de ressources ou du nom de cluster AKS.
-* L’élément *dnsPrefix* doit commencer et se terminer par des valeurs alphanumériques. Parmi les caractères autorisés figurent les valeurs alphanumériques et les traits d’union (-). L’élément *dnsPrefix* ne peut pas inclure de caractères spéciaux comme un point (.).
+* L'élément *dnsPrefix* doit commencer et se terminer par des valeurs alphanumériques et doit comporter 1 à 54 caractères. Parmi les caractères autorisés figurent les valeurs alphanumériques et les traits d’union (-). L’élément *dnsPrefix* ne peut pas inclure de caractères spéciaux comme un point (.).
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Je reçois une erreur quand j’essaie de créer, mettre à jour, mettre à l’échelle, supprimer ou mettre à niveau un cluster ; ces opérations ne sont pas autorisées quand une autre opération est en cours.
 

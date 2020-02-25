@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 02/18/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 3df7e772ea88a7a58780f08ff20f44d50f01c336
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f15e92f5e98c047fc5ed481968674370cf222a16
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063881"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443616"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Forum aux questions (FAQ) sur l’application Microsoft Authenticator
 
@@ -52,6 +52,7 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 | Pourquoi est-ce que je reçois des notifications sur l’activité de mon compte ? | Pour vous aider à connaître l’activité actuelle de votre compte personnel Microsoft, nous envoyons des notifications d’activité à votre application Microsoft Authenticator. Ces notifications apparaissent dès qu’un événement se produit, ce qui contribue à surveiller le compte en permanence à des fins de sécurité. Précédemment, nous envoyions ces notifications par e-mail et SMS, et nous avons maintenant élargi la surveillance à l’application. Pour plus d’informations sur ces notifications d’activité, voir [Que se passe-t-il en cas de connexion inhabituelle à votre compte](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in). Pour changer l’endroit où vous recevez vos notifications, connectez-vous à la page [Où pouvons-nous vous contacter pour les alertes de compte non critiques](https://account.live.com/SecurityNotifications/Update) de votre compte. |
 | Lorsque je me connecte à mon compte professionnel ou scolaire à l’aide de l’application de messagerie par défaut fournie avec iOS, l’application Microsoft Authenticator m’invite à fournir mes informations de vérification de sécurité. Une fois que je saisis ces informations et que je retourne sur l’application de messagerie, je reçois un message d’erreur. Que puis-je faire ? | Cela est probablement dû au fait que votre connexion et votre application de messagerie se font sur deux applications différentes, provoquant ainsi l’arrêt, puis l’échec du processus initial de connexion en arrière-plan. Pour tenter de résoudre ce problème, nous vous recommandons de sélectionner l’icône **Safari** située en bas à droite de l’écran lorsque vous vous connectez à l’application de messagerie. En utilisant Safari, l’ensemble du processus de connexion se produit dans une application unique, ce qui vous permet de vous connecter à l’application avec succès. |
 | Les codes de mon mot de passe à usage unique (OTP) ne fonctionnent pas. Que dois-je faire ? | Vérifiez que la date et l’heure de votre appareil sont correctes et qu’elles sont synchronisées automatiquement. Si la date et l’heure sont incorrectes ou ne sont pas synchronisées, le code ne fonctionne pas. |
+| Le système d'exploitation Windows 10 Mobile est déconseillé depuis décembre 2019. L'application Microsoft Authenticator sera-t-elle également déconseillée sur les systèmes d'exploitation Windows Mobile ? | Après le 28 février 2020, l'application Microsoft Authenticator ne sera plus prise en charge sur les systèmes d'exploitation Windows Mobile. Passé cette date, les utilisateurs ne recevront plus aucune nouvelle mise à jour de l'application. Après le 28 février 2020, les services Microsoft qui prennent actuellement en charge les authentifications à l'aide de Microsoft Authenticator sur tous les systèmes d'exploitation Windows Mobile cesseront progressivement cette prise en charge. Pour s'authentifier auprès des services Microsoft, nous encourageons vivement tous nos utilisateurs à passer à un autre mécanisme d'authentification avant cette date. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

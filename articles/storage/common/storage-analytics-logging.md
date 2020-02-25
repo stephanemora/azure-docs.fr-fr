@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 3b61e8680ef2484b1ad42837711adef171fdde25
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 25c047dc9b2ce08ca39e69c6f106e41c5d9bd0dc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882636"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484891"
 ---
 # <a name="azure-storage-analytics-logging"></a>Journalisation Azure Storage Analytics
 
@@ -91,12 +91,12 @@ Pour plus d’informations sur la liste d’objets Blob par programmation, consu
 |Attribut|Description|
 |---------------|-----------------|
 |`<service-name>`|Nom du service de stockage. Par exemple : `blob`, `table` ou `queue`|
-|`YYYY`|Année à quatre chiffres pour le journal. Par exemple : `2011`|
-|`MM`|Mois à deux chiffres pour le journal. Par exemple : `07`|
-|`DD`|Jour à deux chiffres pour le journal. Par exemple : `31`|
-|`hh`|Heure à deux chiffres qui indique l’heure de début pour les journaux d’activité, au format UTC 24 heures. Par exemple : `18`|
+|`YYYY`|Année à quatre chiffres pour le journal. Par exemple : `2011`|
+|`MM`|Mois à deux chiffres pour le journal. Par exemple : `07`|
+|`DD`|Jour à deux chiffres pour le journal. Par exemple : `31`|
+|`hh`|Heure à deux chiffres qui indique l’heure de début pour les journaux d’activité, au format UTC 24 heures. Par exemple : `18`|
 |`mm`|Nombre à deux chiffres qui indique la minute de début pour les journaux d’activité. **Remarque :**  Cette valeur n’étant pas prise en charge dans la version actuelle de Storage Analytics, elle est toujours égale à `00`.|
-|`<counter>`|Compteur de base zéro à six chiffres qui indique le nombre d'objets blob de journal générés pour le service de stockage durant une période d'une heure. Ce compteur commence à `000000`. Par exemple : `000001`|
+|`<counter>`|Compteur de base zéro à six chiffres qui indique le nombre d'objets blob de journal générés pour le service de stockage durant une période d'une heure. Ce compteur commence à `000000`. Par exemple : `000001`|
 
  Voici un exemple complet de nom de journal qui combine les exemples ci-dessus :
 
@@ -115,8 +115,8 @@ Pour plus d’informations sur la liste d’objets Blob par programmation, consu
 |Attribut|Description|
 |---------------|-----------------|
 |`LogType`|Décrit si le journal contient des informations relatives aux opérations de lecture, écriture ou suppression. Cette valeur peut inclure un type ou une combinaison des trois, séparés par des virgules.<br /><br /> Exemple 1 : `write`<br /><br /> Exemple 2 : `read,write`<br /><br /> Exemple 3 : `read,write,delete`|
-|`StartTime`|Heure la plus antérieure d’une entrée dans le journal, au format `YYYY-MM-DDThh:mm:ssZ`. Par exemple : `2011-07-31T18:21:46Z`|
-|`EndTime`|Heure la plus récente d’une entrée dans le journal, au format `YYYY-MM-DDThh:mm:ssZ`. Par exemple : `2011-07-31T18:22:09Z`|
+|`StartTime`|Heure la plus antérieure d’une entrée dans le journal, au format `YYYY-MM-DDThh:mm:ssZ`. Par exemple : `2011-07-31T18:21:46Z`|
+|`EndTime`|Heure la plus récente d’une entrée dans le journal, au format `YYYY-MM-DDThh:mm:ssZ`. Par exemple : `2011-07-31T18:22:09Z`|
 |`LogVersion`|Version du format du journal.|
 
  La liste suivante présente un exemple de métadonnées complètes utilisant les exemples ci-dessus :
@@ -180,6 +180,9 @@ queueClient.SetServiceProperties(serviceProperties);
 ## <a name="download-storage-logging-log-data"></a>Télécharger les données du journal de journalisation du stockage
 
  Pour afficher et analyser vos données de journal, vous devez télécharger les objets Blob qui contiennent les données de journal souhaitées sur un ordinateur local. De nombreux outils de consultation du stockage vous permettent de télécharger des objets Blob de votre compte de stockage. Vous pouvez également utiliser l’outil de copie Azure de ligne de commande fourni par l’équipe de Stockage Azure [AzCopy](storage-use-azcopy-v10.md) pour télécharger vos données de journal.  
+ 
+>[!NOTE]
+> Le conteneur `$logs` n’étant pas intégré avec Event Grid, vous ne recevez pas de notifications lors de l’écriture de fichiers journaux. 
 
  Pour vous assurer de télécharger les données de journal souhaitées et éviter de télécharger les mêmes données plusieurs fois :  
 

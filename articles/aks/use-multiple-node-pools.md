@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 02/14/2020
 ms.author: mlearned
-ms.openlocfilehash: bbfb65c31bf6fd46cc18c9eee66086afbbff1d5f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: e77710fe446810ec566ebc7088d802f0721806d2
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157972"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443922"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -453,6 +453,61 @@ Events:
 
 Seuls les pods qui ont cette teinte appliquée peuvent être planifiés sur les nœuds dans *gpunodepool*. N’importe quel autre pod sera planifié dans le pool de nœuds *nodepool1*. Si vous créez des pools de nœuds supplémentaires, vous pouvez utiliser des teintes et des tolérances supplémentaires pour limiter les pods qui peuvent être planifiés sur ces ressources de nœud.
 
+## <a name="specify-a-tag-for-a-node-pool"></a>Spécifier une balise pour un pool de nœuds
+
+Vous pouvez appliquer une balise Azure à des pools de nœuds de votre cluster AKS. Les balises appliquées à un pool de nœuds sont appliquées à chaque nœud du pool et sont conservées lors des mises à niveau. Les balises sont également appliquées aux nouveaux nœuds ajoutés à un pool lors des opérations de montée en charge. L'ajout d'une balise peut être utile pour les tâches telles que le suivi des stratégies ou l'estimation des coûts.
+
+> [!IMPORTANT]
+> Pour appliquer des balises aux pools de nœuds, vous devez disposer de l'extension CLI *aks-preview* version 0.4.29 ou ultérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
+> 
+> ```azurecli-interactive
+> # Install the aks-preview extension
+> az extension add --name aks-preview
+> 
+> # Update the extension to make sure you have the latest version installed
+> az extension update --name aks-preview
+> ```
+
+Créez un pool de nœuds à l'aide de la commande [az aks node pool add][az-aks-nodepool-add]. Spécifiez le nom *tagnodepool*, et utilisez le paramètre `--tag` afin de spécifier *dept = IT* et *costcenter = 9999* pour les balises.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name tagnodepool \
+    --node-count 1 \
+    --tags dept=IT costcenter=9999 \
+    --no-wait
+```
+
+> [!NOTE]
+> Vous pouvez également utiliser le paramètre `--tags` lors de l'utilisation de la commande [az aks nodepool update][az-aks-nodepool-update] ainsi que lors de la création du cluster. Lors de la création du cluster, le paramètre `--tags` applique la balise au pool de nœuds initial créé avec le cluster. Tous les noms de balise doivent respecter les limites présentées dans l'article [Utiliser des balises pour organiser vos ressources Azure][tag-limitation]. La mise à jour d'un pool de nœuds à l'aide du paramètre `--tags` entraîne la mise à jour de toutes les valeurs de balise existantes et l'ajout de toutes les nouvelles balises. Par exemple, si vous remplacez les valeurs de balise *dept=IT* et *costcenter=9999* d'un pool de nœuds par *team=dev* et *costcenter=111*, les valeurs de balise du pool de nœuds seront les suivantes : *dept=IT*, *costcenter=111* et *team=dev*.
+
+L'exemple de sortie suivant de la commande [az aks node pool list][az-aks-nodepool-list] montre que *tagnodepool* crée (*Creating*) des nœuds avec la balise (*tag*) spécifiée :
+
+```console
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+
+[
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "tagnodepool",
+    "orchestratorVersion": "1.15.7",
+    ...
+    "provisioningState": "Creating",
+    ...
+    "tags": {
+      "dept": "IT",
+      "costcenter": "9999"
+    },
+    ...
+  },
+ ...
+]
+```
+
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>Gérer les pools de nœuds à l’aide d’un modèle Resource Manager
 
 Lorsque vous utilisez un modèle Azure Resource Manager pour créer et gérer des ressources, vous pouvez généralement mettre à jour les paramètres dans votre modèle et le redéployer pour mettre à jour la ressource. Avec les pools de nœuds dans AKS, le profil de pool de nœuds initial ne peut pas être mis à jour une fois que le cluster AKS a été créé. Ce comportement signifie que vous ne pouvez pas mettre à jour un modèle Resource Manager existant, apporter un changement aux pools de nœuds et redéployer. Au lieu de cela, vous devez créer un modèle Resource Manager distinct qui mette à jour uniquement les pools de nœuds pour un cluster AKS existant.
@@ -603,21 +658,25 @@ Pour créer et utiliser des pools de nœuds de conteneur Windows Server, consult
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 
 <!-- INTERNAL LINKS -->
-[quotas-skus-regions]: quotas-skus-regions.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-group-create]: /cli/azure/group#az-group-create
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-nodepool-add]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-add
-[az-aks-nodepool-list]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-list
-[az-aks-nodepool-upgrade]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-upgrade
-[az-aks-nodepool-scale]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-scale
-[az-aks-nodepool-delete]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-delete
-[vm-sizes]: ../virtual-machines/linux/sizes.md
-[taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
-[gpu-cluster]: gpu-cluster.md
-[az-group-delete]: /cli/azure/group#az-group-delete
-[install-azure-cli]: /cli/azure/install-azure-cli
-[supported-versions]: supported-kubernetes-versions.md
-[operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-windows]: windows-container-cli.md
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
+[az-aks-nodepool-list]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-list
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-upgrade
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-scale
+[az-aks-nodepool-delete]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-delete
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-group-create]: /cli/azure/group#az-group-create
+[az-group-delete]: /cli/azure/group#az-group-delete
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[gpu-cluster]: gpu-cluster.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[quotas-skus-regions]: quotas-skus-regions.md
+[supported-versions]: supported-kubernetes-versions.md
+[tag-limitation]: ../azure-resource-manager/resource-group-using-tags.md
+[taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
+[vm-sizes]: ../virtual-machines/linux/sizes.md

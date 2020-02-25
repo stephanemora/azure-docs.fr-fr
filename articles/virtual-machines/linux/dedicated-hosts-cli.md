@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: b301012425e0a2590fa5ac22985abe9c96fbd419
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: ab9d7128748e99b75b7e1a7187a7958e18300759
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834924"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483480"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Déployez des machines virtuelles sur des hôtes dédiés à l’aide d’Azure CLI
  
@@ -27,7 +27,7 @@ Vérifiez que vous avez installé Azure CLI version 2.0.70 ou version ultérieur
 ## <a name="limitations"></a>Limites
 
 - Actuellement, les hôtes dédiés ne prennent pas en charge les groupes de machines virtuelles identiques.
-- La version initiale prend en charge les séries de machines virtuelles suivantes : DSv3 et ESv3. 
+- La version initiale prend en charge les séries de machines virtuelles suivantes : DSv3, ESv3, FSv2, LSv2 et MSv2. 
  
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources 

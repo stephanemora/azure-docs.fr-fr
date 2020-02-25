@@ -1,5 +1,5 @@
 ---
-title: Exemple de script Azure PowerShell - Configurer des points de terminaison de réseau virtuel IPv6 (préversion)
+title: Exemple de script Azure PowerShell - Configurer des points de terminaison IPv6
 titlesuffix: Azure Virtual Network
 description: Activer les points de terminaison IPv6 à l’aide de Powershell dans un réseau virtuel Azure
 services: virtual-network
@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 4f07aae0e8baae44ade152cf3fe20facc7fe6770
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5e8102cbf89d601c027e3b969c1c431da8807018
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248813"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201362"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Exemple de script de configuration de points de terminaison IPv6 dans un réseau virtuel (préversion)
 

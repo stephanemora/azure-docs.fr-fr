@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/04/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b6c70e1a5c7e5b81157c09a794ff75e276a20d1f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8f2a86f72f16a23b0133601cfe41b9e636d8866d
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982736"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425593"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique autodéclaré dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -55,7 +55,7 @@ Dans un profil technique autodéclaré, vous pouvez utiliser les éléments **In
 
 La fonctionnalité Revendications d’affichage est actuellement en **préversion**.
 
-L’élément **DisplayClaims** contient une liste des revendications à présenter à l’écran pour recueillir des données de la part de l’utilisateur. Pour prérenseigner les valeurs des revendications de sortie, utilisez les revendications d’entrée décrites précédemment. L’élément peut également contenir une valeur par défaut.
+L’élément **DisplayClaims** contient une liste des revendications à présenter à l’écran pour recueillir des données de la part de l’utilisateur. Pour prérenseigner les valeurs des revendications d'affichage, utilisez les revendications d'entrée décrites précédemment. L’élément peut également contenir une valeur par défaut.
 
 L’ordre des revendications dans **DisplayClaims** détermine l’ordre dans lequel Azure AD B2C affiche les revendications à l’écran. Pour forcer l’utilisateur à fournir une valeur pour une revendication spécifique, affectez la valeur `true` à l’attribut **Required** de l’élément **DisplayClaims**.
 
@@ -189,16 +189,22 @@ Vous pouvez également appeler un profil technique d’API REST avec votre logiq
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| setting.operatingMode | Non | Pour une page de connexion, cette propriété contrôle le comportement du champ username, tel que la validation de l’entrée et les messages d’erreur. Valeurs attendues : `Username` ou `Email`. |
+| setting.operatingMode <sup>1</sup>| Non | Pour une page de connexion, cette propriété contrôle le comportement du champ username, tel que la validation de l’entrée et les messages d’erreur. Valeurs attendues : `Username` ou `Email`.  |
 | AllowGenerationOfClaimsWithNullValues| Non| Permet de générer une revendication avec une valeur Null. Par exemple, dans le cas où l’utilisateur ne sélectionne pas de case à cocher.|
 | ContentDefinitionReferenceId | Oui | Identificateur de la [définition de contenu](contentdefinitions.md) associée à ce profil technique. |
 | EnforceEmailVerification | Non | Pour l’inscription ou la modification du profil, applique la vérification par e-mail. Valeurs possibles : `true` (par défaut) ou `false`. |
 | setting.retryLimit | Non | Contrôle le nombre de fois qu’un utilisateur peut essayer de fournir les données qui sont vérifiées par rapport à un profil technique de validation. Par exemple, un utilisateur tente de s’inscrire avec un compte qui existe déjà, et continue à essayer jusqu’à ce que la limite soit atteinte.
-| SignUpTarget | Non | Identificateur d’échange de cible d’inscription. Quand l’utilisateur clique sur le bouton d’inscription, Azure AD B2C exécute l’identificateur d’échange spécifié. |
+| SignUpTarget <sup>1</sup>| Non | Identificateur d’échange de cible d’inscription. Quand l’utilisateur clique sur le bouton d’inscription, Azure AD B2C exécute l’identificateur d’échange spécifié. |
 | setting.showCancelButton | Non | Affiche le bouton Annuler. Les valeurs possibles sont `true` (par défaut) ou `false` |
 | setting.showContinueButton | Non | Affiche le bouton Continuer. Les valeurs possibles sont `true` (par défaut) ou `false` |
-| setting.showSignupLink | Non | Affiche le bouton d’inscription. Les valeurs possibles sont `true` (par défaut) ou `false` |
-| setting.forgotPasswordLinkLocation| Non| Affiche le lien du mot de passe oublié. Valeurs possibles : `AfterInput` (par défaut) où le lien est affiché en bas de la page ou `None` supprime le lien du mot de passe oublié.| 
+| setting.showSignupLink <sup>2</sup>| Non | Affiche le bouton d’inscription. Les valeurs possibles sont `true` (par défaut) ou `false` |
+| setting.forgotPasswordLinkLocation <sup>2</sup>| Non| Affiche le lien du mot de passe oublié. Valeurs possibles : `AfterInput` (par défaut) où le lien est affiché en bas de la page ou `None` supprime le lien du mot de passe oublié.| 
+| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d'entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
+
+Remarques :
+1. Disponible pour la définition de contenu [DataUri](contentdefinitions.md#datauri) de type `unifiedssp` ou `unifiedssd`.
+1. Disponible pour la définition de contenu [DataUri](contentdefinitions.md#datauri) de type `unifiedssp` ou `unifiedssd`. [Version de mise en page](page-layout.md) 1.1.0 et versions ultérieures.
+
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
 
 L’élément **CryptographicKeys** n’est pas utilisé.

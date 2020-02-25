@@ -72,12 +72,12 @@
       items:
         - name: Présentation de la sécurité
           href: overview-security.md
+        - name: Base de référence de la sécurité
+          href: security-baseline.md
         - name: Mondes de sécurité
           href: key-vault-ovw-security-worlds.md
         - name: Sécuriser votre coffre de clés
           href: key-vault-secure-your-key-vault.md
-        - name: Contrôles de sécurité intégrés
-          href: key-vault-security-controls.md
     - name: Suppression réversible
       href: key-vault-ovw-soft-delete.md
     - name: Suivi des événements Key Vault

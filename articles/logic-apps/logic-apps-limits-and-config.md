@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
-ms.openlocfilehash: 348c393a623f0059eec011faf823f9b5131508f3
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 02/20/2020
+ms.openlocfilehash: 059894d441897bd89be525abcc7e1c7ab6ba23e7
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122133"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485044"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -89,7 +89,7 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 | Éléments du tableau Foreach | 100 000 | Cette limite décrit le nombre maximal d’éléments de tableau qu’une boucle « for each » peut traiter. <p><p>Pour filtrer des tables plus grandes, vous pouvez utiliser l’[action de requête](logic-apps-perform-data-operations.md#filter-array-action). |
 | Accès concurrentiel Foreach | La limite par défaut est 20 lorsque le contrôle d’accès concurrentiel est désactivé. Vous pouvez modifier la valeur par défaut en la remplaçant par une valeur comprise entre 1 et 50 (inclus). | Cette limite indique le nombre maximal d’itérations de boucles « for each » qui peuvent s’exécuter simultanément ou en parallèle. <p><p>Pour changer la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Changer la limite de simultanéité « for each »](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Exécuter des boucles « for each » séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
 | Éléments SplitOn | - 100 000 sans concurrence du déclencheur <p><p>- 100 avec concurrence du déclencheur | Pour les déclencheurs qui retournent un tableau, vous pouvez spécifier une expression utilisant une propriété « SplitOn » qui [fractionne ou dégroupe des éléments de tableau en plusieurs instances de workflows](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) à des fins de traitement, au lieu d’utiliser une boucle « for each ». Cette expression fait référence au tableau à utiliser pour la création et l’exécution d’une instance de workflow pour chaque élément du tableau. <p><p>**Remarque** : Lorsque la concurrence est activée, la limite SplitOn est réduite à 100 éléments. |
-| Itérations Until | 5 000 | |
+| Itérations Until | - Par défaut : 60 <p><p>- Maximum : 5 000 | |
 ||||
 
 <a name="throughput-limits"></a>
@@ -155,7 +155,7 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 |------|--------------------|---------------------------------------|-------|
 | Taille des messages | 100 Mo | 200 Mo | Pour contourner cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. |
 | Taille des messages avec segmentation | 1 Go | 5 Go | Cette limite s’applique aux actions qui prennent en charge la segmentation en mode natif ou vous permettent d’activer la segmentation dans la configuration de leur runtime. <p>Pour l’environnement de service d’intégration, le moteur Logic Apps prend en charge cette limite, mais les connecteurs ont leurs propres limites de segmentation jusqu’à la limite du moteur. Pour un exemple, voir les [Informations de référence sur l’API du connecteur Stockage Blob Azure](https://docs.microsoft.com/connectors/azureblob/). Pour plus d’informations sur la segmentation, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). |
-|||||   
+|||||
 
 #### <a name="character-limits"></a>Limites de caractères
 
@@ -248,12 +248,16 @@ Pour connaître la tarification, consultez [Tarification Logic Apps](https://azu
 | schéma | 8 Mo | Pour charger des fichiers d’une taille supérieure à 2 Mo, utilisez un [compte de stockage Azure et un conteneur d’objets blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
 
-| Point de terminaison du runtime | Limite | Notes |
-|------------------|-------|-------|
-| appels de lecture toutes les cinq minutes | 60 000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
-| appels d’invocation toutes les cinq minutes | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
-| appels de suivi toutes les cinq minutes | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
-| appels simultanés de blocage | ~1,000 | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. |
+<a name="integration-account-throughput-limits"></a>
+
+### <a name="throughput-limits"></a>Limites de débit
+
+| Point de terminaison du runtime | Gratuit | De base | standard | Notes |
+|------------------|------|-------|----------|-------|
+| appels de lecture toutes les cinq minutes | 3 000 | 30,000 | 60 000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
+| appels d’invocation toutes les cinq minutes | 3 000 | 30,000 | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
+| appels de suivi toutes les cinq minutes | 3 000 | 30,000 | 45,000 | Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
+| appels simultanés de blocage | ~1,000 | ~1,000 | ~1,000 | Identique pour toutes les références (SKU). Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. |
 ||||
 
 <a name="b2b-protocol-limits"></a>

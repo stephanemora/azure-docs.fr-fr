@@ -6,22 +6,17 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 66897263ff9c7d71c64d04fcc6860b96bf59588c
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: d943213814b999f101a541abb0195a9fdd5a7423
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668496"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459172"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Activer la synchronisation hors connexion avec des applications mobiles iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-> [!NOTE]
-> Visual Studio App Center prend en charge les services intégrés essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud.
->
-> Si vous souhaitez intégrer des services cloud à votre application mobile, inscrivez-vous à [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) dès aujourd’hui.
-
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce didacticiel traite de la synchronisation hors connexion à l’aide de la fonctionnalité Mobile Apps d’Azure App Service pour iOS. La synchronisation hors connexion permet aux utilisateurs finaux d’interagir avec une application mobile pour afficher, ajouter ou modifier des données, même en l’absence d’une connexion réseau. Les modifications sont stockées dans une base de données locale. Quand l’appareil est de nouveau en ligne, les modifications sont synchronisées avec le backend distant.
 
 Si c’est la première fois que vous utilisez Mobile Apps, commencez par suivre le didacticiel [Création d’une application iOS]. Si vous n’utilisez pas le projet de serveur du démarrage rapide téléchargé, vous devez ajouter les packages d’extension d’accès aux données à votre projet. Pour plus d'informations sur les packages d'extension de serveur, consultez [Fonctionnement avec le Kit de développement logiciel (SDK) du serveur principal .NET pour Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
@@ -230,7 +225,7 @@ Dans `viewDidLoad`, dans **ToDoTableViewController.swift**, commentez les deux l
   self.onRefresh(self.refreshControl)
 ```
 
-## <a name="test-app"></a>Test de l’application
+## <a name="test-app"></a>Test de l'application
 Dans cette section, vous allez vous connecter à une URL incorrecte pour simuler un scénario hors connexion. Quand vous ajoutez des éléments de données, ceux-ci sont placés dans le magasin Core Data local, mais ils ne sont pas synchronisés avec le backend de l’application mobile.
 
 1. Remplacez l’URL de l’application mobile dans **QSTodoService.m** par une URL non valide, puis réexécutez l’application :

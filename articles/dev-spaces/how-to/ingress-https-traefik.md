@@ -5,18 +5,18 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Découvrez comment configurer Azure Dev Spaces pour utiliser un contrôleur d’entrée traefik personnalisé et configurer HTTPS à l’aide de ce contrôleur d’entrée
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
-ms.openlocfilehash: db9afc3a5e33d1a12246c2af80428137043aa242
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4fc9dfbb4c437210de3ab9a88aafca2680dd363c
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438489"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486183"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Utiliser un contrôleur d’entrée traefik personnalisé et configurer HTTPS
 
 Cet article explique comment configurer Azure Dev Spaces pour utiliser un contrôleur d’entrée traefik personnalisé. Cet article vous montre également comment configurer ce contrôleur d’entrée personnalisé pour utiliser le protocole HTTPS.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit][azure-account-create].
 * [Azure CLI][az-cli].
@@ -53,6 +53,13 @@ Créez un espace de noms Kubernetes pour le contrôleur d’entrée traefik et i
 kubectl create ns traefik
 helm install traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --version 1.85.0
 ```
+
+> [!NOTE]
+> L’exemple ci-dessus crée un point de terminaison public pour votre contrôleur d’entrée. Si vous devez plutôt utiliser un point de terminaison privé pour votre contrôleur d’entrée, ajoutez le paramètre *--set service.annotations."service\\.beta\\.kubernetes\\.io/azure-load-balancer-internal"=true* à la commande *helm install*.
+> ```console
+> helm install traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --set service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.85.0
+> ```
+> Ce point de terminaison privé est exposé au sein du réseau virtuel dans lequel votre cluster AKS est déployé.
 
 Récupérez l’adresse IP du service de contrôleur d’entrée traefik avec [kubectl get][kubectl-get].
 
@@ -120,7 +127,7 @@ azds space select -n dev -y
 Déployez l’exemple d’application avec `helm install`.
 
 ```console
-helm install bikesharing . --dependency-update --namespace dev --atomic
+helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
 ```
 
 L’exemple ci-dessus déploie l’exemple d'application dans l’espace de noms *dev*.

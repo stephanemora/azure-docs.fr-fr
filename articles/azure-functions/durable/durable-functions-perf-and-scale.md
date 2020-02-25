@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 15302eb4f89c854210d4fc1aba292c57d4757278
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ee35f26f9433f6ab342c7dce105638122b9d7717
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231341"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486258"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performances et mise à l’échelle dans Fonctions durables (Azure Functions)
 
@@ -251,7 +251,7 @@ Lors de la planification de l’utilisation de Fonctions durables pour une appli
 > [!TIP]
 > Contrairement aux opérations fan-out, les opérations fan-in sont limitées à une seule machine virtuelle. Si votre application utilise le modèle fan-out/fan-in et si vous vous préoccupez des performances de scénario fan-in, pensez à sous-diviser le scénario fan-out de fonction d’activité sur plusieurs [sous-orchestrations](durable-functions-sub-orchestrations.md).
 
-Le tableau suivant présente les débits *maximaux* attendus pour les scénarios décrits précédemment. Le terme « instance » fait référence à l’instance unique d’une fonction d’orchestrateur en cours d’exécution sur une petite machine virtuelle ([A1](../../virtual-machines/windows/sizes-previous-gen.md#a-series)) unique dans Azure App Service. Dans tous les cas, il est supposé que les [sessions étendues](#orchestrator-function-replay) sont activées. Les résultats réels peuvent varier selon le travail de l’UC ou des E/S effectué par le code de fonction.
+Le tableau suivant présente les débits *maximaux* attendus pour les scénarios décrits précédemment. Le terme « instance » fait référence à l’instance unique d’une fonction d’orchestrateur en cours d’exécution sur une petite machine virtuelle ([A1](../../virtual-machines/sizes-previous-gen.md)) unique dans Azure App Service. Dans tous les cas, il est supposé que les [sessions étendues](#orchestrator-function-replay) sont activées. Les résultats réels peuvent varier selon le travail de l’UC ou des E/S effectué par le code de fonction.
 
 | Scénario | Débit maximal |
 |-|-|

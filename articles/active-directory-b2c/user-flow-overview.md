@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 846819c3a05baf4ef1174d4e086f09893e834b2a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fdc7d9fce3ebce4603369262f164ba72b1e39499
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850724"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484313"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Flux d’utilisateur dans Azure Active Directory B2C
 
@@ -81,10 +81,8 @@ Vous pouvez avoir besoin d’une adresse e-mail dans le cadre d’un flux d’ut
 
 L’adresse e-mail n’est pas forcément vérifiée dans tous les cas. Un administrateur de locataire peut désactiver la vérification d’e-mail dans les stratégies de base des comptes locaux. Même si la vérification de l’adresse e-mail est activée, les adresses ne sont pas vérifiés si elles proviennent d’un fournisseur d’identité de réseau social et qu’elles n’ont pas été changées.
 
-Seules les propriétés **otherMails** et **signInNames** sont exposées avec l’API Graph Active Directory. L’adresse e-mail dans la propriété détaillée de l’authentification forte n’est pas disponible.
+Seules les propriétés **otherMails** et **signInNames** sont exposées via l’API Microsoft Graph. L’adresse e-mail dans la propriété détaillée de l’authentification forte n’est pas disponible.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour créer les flux d’utilisateur recommandés, suivez les instructions du [Tutoriel : Créer un flux d’utilisateur](tutorial-create-user-flows.md).
-
-

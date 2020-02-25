@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 6b31555215f4f2efc63d0e1df0a7b4bf13a43924
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: fe06257127ff352f68fb27d3507cee0229e31498
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834583"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201575"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configuration du tunneling forcé à l’aide du modèle de déploiement classique
 
@@ -39,7 +39,7 @@ Le tunneling forcé dans Azure est configuré par le biais d’itinéraires déf
 * Grâce aux itinéraires définis par l’utilisateur, vous pouvez créer une table de routage, y ajouter un itinéraire par défaut, puis associer cette table à un ou plusieurs sous-réseaux de réseau virtuel pour activer le tunneling forcé sur ces derniers.
 * Vous devez définir un « site par défaut » parmi les sites locaux intersites connectés au réseau virtuel.
 * Le tunneling forcé doit être associé à un réseau virtuel équipé d'une passerelle VPN à routage dynamique (pas de passerelle statique).
-* Le tunneling forcé ExpressRoute n'est pas configuré de cette manière, mais il est activé par la publication d’un itinéraire par défaut via les sessions de peering BGP ExpressRoute. Pour plus d’informations, voir [Documentation ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) .
+* Le tunneling forcé ExpressRoute n'est pas configuré de cette manière, mais il est activé par la publication d’un itinéraire par défaut via les sessions de peering BGP ExpressRoute. Pour plus d'informations, consultez la [documentation ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 
 ## <a name="configuration-overview"></a>Présentation de la configuration
 Dans l’exemple suivant, le sous-réseau Frontend n’utilise pas le tunneling forcé. Les charges de travail du sous-réseau frontal peuvent continuer à accepter et à répondre aux demandes des clients directement à partir d’Internet. Les sous-réseaux intermédiaire et principal utilisent le tunneling forcé. Toutes les connexions sortantes à partir de ces deux sous-réseaux vers Internet seront forcées ou redirigées vers un site local via l’un des tunnels VPN S2S.
@@ -49,11 +49,24 @@ Cela vous permet de restreindre et d’inspecter l’accès à Internet à parti
 ![Tunneling forcé](./media/vpn-gateway-about-forced-tunneling/forced-tunnel.png)
 
 ## <a name="before-you-begin"></a>Avant de commencer
-Vérifiez que vous disposez des éléments suivants avant de commencer la configuration.
+Vérifiez que vous disposez des éléments suivants avant de commencer la configuration :
 
 * Un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 * Un réseau virtuel configuré. 
-* La version la plus récente des applets de commande Azure PowerShell. Pour plus d’informations sur l’installation des applets de commande PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
+* [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
+
+### <a name="to-sign-in"></a>Pour vous connecter
+
+1. Ouvrez la console PowerShell avec des droits élevés. Pour passer au management des services, utilisez cette commande :
+
+   ```powershell
+   azure config mode asm
+   ```
+2. Se connecter à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
+
+   ```powershell
+   Add-AzureAccount
+   ```
 
 ## <a name="configure-forced-tunneling"></a>Configurer un tunneling forcé
 La procédure suivant vous permettra de spécifier le tunneling forcé dans un réseau virtuel. Les étapes de configuration correspondent au fichier de configuration de réseau virtuel.

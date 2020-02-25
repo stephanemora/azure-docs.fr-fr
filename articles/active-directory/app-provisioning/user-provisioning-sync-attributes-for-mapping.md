@@ -15,18 +15,18 @@ ms.date: 05/13/2019
 ms.author: mimart
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f49fce985484e85bcba2883a66ec0b1e6d032a8
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 12d8e60d3bfeb2e72d52b30dffcec4ad6e6c3f08
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77065584"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368185"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>Synchronisez un attribut à partir d’un répertoire Active Directory local vers Azure AD pour la configuration vers une application donnée
 
 Lors de la personnalisation des mappages d’attributs pour la configuration utilisateur, vous constaterez peut-être que l’attribut à mapper n’apparaît pas dans la liste **Attribut source**. Cet article vous montre comment ajouter l’attribut manquant en le synchronisant de votre répertoire Active Directory (AD) local vers Azure Active Directory (Azure AD).
 
-Azure AD doit contenir toutes les données requises pour créer un profil utilisateur lors de la configuration des comptes utilisateur d’Azure AD vers une application SaaS. Pour rendre les données disponibles, vous devez parfois synchroniser les attributs de votre répertoire AD local vers Azure AD. Azure AD Connect synchronise automatiquement certains attributs avec Azure AD, mais pas tous. En outre, certains attributs (par exemple, SAMAccountName) synchronisés par défaut ne peuvent pas être exposés par le biais de l’API Graph Azure AD. Dans ce cas, vous pouvez utiliser la fonctionnalité d’extension de répertoire Azure AD Connect pour synchroniser l’attribut avec Azure AD. De cette façon, l’attribut est visible pour l’API Graph Azure AD et le service de configuration Azure AD.
+Azure AD doit contenir toutes les données requises pour créer un profil utilisateur lors de la configuration des comptes utilisateur d’Azure AD vers une application SaaS. Pour rendre les données disponibles, vous devez parfois synchroniser les attributs de votre répertoire AD local vers Azure AD. Azure AD Connect synchronise automatiquement certains attributs avec Azure AD, mais pas tous. En outre, certains attributs (tels que SAMAccountName) qui sont synchronisés par défaut peuvent ne pas être exposés par le biais de l'API Microsoft Graph. Dans ce cas, vous pouvez utiliser la fonctionnalité d’extension de répertoire Azure AD Connect pour synchroniser l’attribut avec Azure AD. De cette façon, l'attribut est visible pour l'API Microsoft Graph et le service de configuration Azure AD.
 
 Si les données dont vous avez besoin pour la configuration se trouvent dans Active Directory, mais ne sont pas disponibles pour la configuration à cause des raisons décrites ci-dessus, procédez comme suit.
  

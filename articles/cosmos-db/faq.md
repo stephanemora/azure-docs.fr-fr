@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: ac93d1f4f0f148e1f0ce3d0f21ac9a694f2e896d
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 322d1c9ead1e7591c359c35c445fa32529db22ef
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310014"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462477"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Questions fréquentes sur les différentes API dans Azure Cosmos DB
 
@@ -79,12 +79,13 @@ Pour résoudre un problème relatif à votre compte, enregistrez une [demande de
 
 ## <a id="try-cosmos-db"></a>Souscrire à l’offre Essayez gratuitement Azure Cosmos DB
 
-Vous pouvez désormais profiter pendant une durée limitée de l’expérience Azure Cosmos DB, sans abonnement, libre de frais et d’engagement. Pour souscrire à l’offre Essayez gratuitement Azure Cosmos DB, accédez à la page [Essayez gratuitement Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/). Cette souscription est indépendante de l’offre [Créez votre compte Azure gratuit](https://azure.microsoft.com/free/) et peut être couplée à celle-ci ou à un abonnement Azure payant.
+Vous pouvez désormais profiter pendant une durée limitée de l’expérience Azure Cosmos DB, sans abonnement, libre de frais et d’engagement. Pour souscrire à l'offre Essayez gratuitement Azure Cosmos DB, accédez à la page [Essayez gratuitement Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) et utilisez n'importe quel compte Microsoft personnel (MSA). Cette souscription est indépendante de l’offre [Créez votre compte Azure gratuit](https://azure.microsoft.com/free/) et peut être couplée à celle-ci ou à un abonnement Azure payant.
 
 Les souscriptions à l’offre Essayez gratuitement Azure Cosmos DB figurent dans le portail Azure aux côtés des autres abonnements associés à votre ID utilisateur.
 
 Les souscriptions à l’offre Essayez gratuitement Azure Cosmos DB obéissent aux conditions suivantes :
 
+* L'accès peut être octroyé aux comptes Microsoft personnels (MSA). Évitez d'utiliser des comptes Active Directory (AAD) ou des comptes appartenant à des locataires AAD d'entreprise, car ceux-ci peuvent présenter des limitations susceptibles de bloquer l'octroi de l'accès.
 * Un seul [conteneur avec débit provisionné](./set-throughput.md#set-throughput-on-a-container) par abonnement pour les comptes SQL, API Gremlin et Table.
 * Jusqu’à trois [collections avec débit provisionné](./set-throughput.md#set-throughput-on-a-container) par abonnement pour les comptes MongoDB.
 * Une [base de données avec débit provisionné](./set-throughput.md#set-throughput-on-a-database) par abonnement. Les bases de données avec débit provisionné peuvent inclure un nombre illimité de conteneurs.

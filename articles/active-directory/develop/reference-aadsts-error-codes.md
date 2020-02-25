@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/18/2019
+ms.date: 02/19/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7798cb86606c206f027a1014802770a74aba909a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: ba5af060a02e8525320f005b5d1c80534c5ca4ea
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160375"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483922"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation Azure AD
 
@@ -133,7 +133,7 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 | AADSTS50180 | WindowsIntegratedAuthMissing : l’authentification Windows intégrée est nécessaire. Activez le locataire pour l’authentification unique transparente. |
 | AADSTS50187 | DeviceInformationNotProvided : le service n’a pas réussi à authentifier l’appareil. |
 | AADSTS50196 | LoopDetected : une boucle client a été détectée. Vérifiez la logique de l’application pour vous assurer que la mise en cache des jetons est implémentée et que les conditions d’erreur sont gérées correctement.  L’application a effectué un trop grand nombre de requêtes sur une période trop brève, indiquant qu’elle est dans un état défectueux ou qu’elle demande trop de jetons. |
-| AADSTS50199 | CmsiInterrupt : l’interaction de l’utilisateur est requise pour cette authentification.  Étant donné qu’il s’agit d’une erreur « interaction_required », le client doit effectuer une authentification interactive.  Cela est dû au fait qu’un affichage web système a été utilisé pour demander un jeton pour une application native : l’utilisateur doit être invité à préciser s’il s’agissait effectivement de l’application à laquelle il voulait se connecter.|
+| AADSTS50199 | CmsiInterrupt : pour des raisons de sécurité, une confirmation de l’utilisateur est requise pour cette demande.  Étant donné qu’il s’agit d’une erreur « interaction_required », le client doit effectuer une authentification interactive.  Cela est dû au fait qu’un affichage web système a été utilisé pour demander un jeton pour une application native : l’utilisateur doit être invité à préciser s’il s’agissait effectivement de l’application à laquelle il voulait se connecter.|
 | AADSTS51000 | RequiredFeatureNotEnabled : la fonctionnalité est désactivée. |
 | AADSTS51001 | DomainHintMustbePresent : l’indicateur de domaine doit être présent avec l’identificateur de sécurité local ou l’UPN local. |
 | AADSTS51004 | UserAccountNotInDirectory : le compte d’utilisateur n’existe pas dans le répertoire. |

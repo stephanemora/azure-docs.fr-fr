@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: fbb30b0a290011a5edfb05c1de9b5d4717a5f733
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1cd13369f443f91782eef1024003e07435a44a45
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898712"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425219"
 ---
 # <a name="keys-and-values"></a>Clés et valeurs
 
@@ -25,7 +25,7 @@ L’utilisation des données de configuration dans des frameworks d’applicatio
 
 Les clés stockées dans App Configuration sont des chaînes Unicode qui respectent la casse. Les clés *app1* et *App1* sont distinctes dans un magasin App Configuration. Gardez cette précision à l’esprit quand vous utilisez des paramètres de configuration au sein d’une application, car certains frameworks gèrent les clés de configuration sans tenir compte de la casse. Par exemple, le système de configuration ASP.NET Core traite les clés comme des chaînes qui ne respectent pas la casse. Pour éviter tout comportement inattendu quand vous interrogez App Configuration au sein d’une application ASP.NET Core, n’utilisez pas de clés qui diffèrent uniquement par leur casse.
 
-Vous pouvez utiliser tous les caractères Unicode dans les noms de clés entrés dans App Configuration, à l’exception de `*`, `,` et `\`. Ces caractères sont réservés. Si vous avez besoin d’inclure un caractère réservé, vous devez l’échapper au moyen de `\{Reserved Character}`. La taille combinée d’une paire clé-valeur est limitée à 10 000 caractères. Sont inclus tous les caractères de la clé, sa valeur et tous les attributs facultatifs associés. À la hauteur de cette limite, vous pouvez avoir de nombreux niveaux hiérarchiques pour les clés.
+Vous pouvez utiliser tous les caractères Unicode dans les noms de clés entrés dans App Configuration, à l’exception de `*`, `,` et `\`. Ces caractères sont réservés. Si vous avez besoin d’inclure un caractère réservé, vous devez l’échapper au moyen de `\{Reserved Character}`. La taille combinée d'une paire clé-valeur est limitée à 10 Ko. Sont inclus tous les caractères de la clé, sa valeur et tous les attributs facultatifs associés. À la hauteur de cette limite, vous pouvez avoir de nombreux niveaux hiérarchiques pour les clés.
 
 ### <a name="design-key-namespaces"></a>Concevoir des espaces de noms de clés
 
@@ -51,7 +51,7 @@ Voici plusieurs exemples de la façon dont vous pouvez structurer vos noms de cl
 
 ### <a name="label-keys"></a>Clés d’étiquette
 
-Les valeurs de clé peuvent accessoirement porter un attribut d’étiquette dans App Configuration. Les étiquettes sont utilisées pour différencier des valeurs de clé pour une même clé. Une clé *app1* avec des étiquettes *A* et *B* forme deux clés distinctes dans un magasin App Configuration. Par défaut, l’étiquette d’une valeur de clé est vide ou `null`.
+Les valeurs de clé peuvent accessoirement porter un attribut d’étiquette dans App Configuration. Les étiquettes sont utilisées pour différencier des valeurs de clé pour une même clé. Une clé *app1* avec des étiquettes *A* et *B* forme deux clés distinctes dans un magasin App Configuration. Par défaut, une valeur de clé n'a pas d'étiquette. Pour référencer explicitement une valeur de clé sans étiquette, utilisez `\0` (URL encodée sous la forme `%00`).
 
 Label offre un moyen pratique de créer des variantes d’une clé. Les étiquettes sont souvent utilisées pour spécifier plusieurs environnements pour la même clé :
 
@@ -74,8 +74,6 @@ Chaque valeur de clé est identifiée de manière unique par sa clé et une éti
 | `key` est omis ou `key=*` | Correspond à toutes les clés |
 | `key=abc` | Correspond exactement au nom de clé **abc** |
 | `key=abc*` | Correspond aux noms de clé qui commencent par **abc** |
-| `key=*abc` | Correspond aux noms de clé qui finissent par **abc** |
-| `key=*abc*` | Correspond aux noms de clé qui contiennent **abc** |
 | `key=abc,xyz` | Correspond aux noms de clé **abc** ou **xyz**, limités à cinq valeurs séparées par des virgules (CSV) |
 
 Vous pouvez également inclure les modèles d’étiquette suivants :
@@ -86,8 +84,6 @@ Vous pouvez également inclure les modèles d’étiquette suivants :
 | `label=%00` | Correspond à l’étiquette `null` |
 | `label=1.0.0` | Correspond exactement à l’étiquette **1.0.0** |
 | `label=1.0.*` | Correspond aux étiquettes qui commencent par **1.0.** |
-| `label=*.0.0` | Correspond aux étiquettes qui finissent par **.0.0** |
-| `label=*.0.*` | Correspond aux étiquettes qui contiennent **.0.** |
 | `label=%00,1.0.0` | Correspond aux étiquettes `null` ou **1.0.0**, limitées à cinq valeurs séparées par des virgules (CSV) |
 
 ## <a name="values"></a>Valeurs

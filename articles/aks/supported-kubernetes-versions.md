@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: 8c144fb0c9818e21c2ca5bd61525067b485531bb
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 625b44ae3f8a1d5d474d980693d92840b1317f09
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026113"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425763"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -70,7 +70,7 @@ Quand une nouvelle version mineure est introduite, la version mineure et les pub
 1.13.f
 ```
 
-et que AKS publie la version 1.16. *, cela signifie que les versions 1.13.* (toutes les versions 1.13) seront supprimées et ne seront plus prises en charge.
+et que AKS publie la version 1.16. *, cela signifie que les versions 1.13.* (toutes les versions 1.13) seront supprimées et qu'elles ne seront plus prises en charge.
 
 > [!NOTE]
 > Veuillez noter que si les clients utilisent une version de Kubernetes non supportée, il leur sera demandé de mettre à jour lors de leur demande de support pour le cluster. Les clusters exécutant des versions de Kubernetes non supportées ne sont pas couverts par les politiques de support [AKS](https://docs.microsoft.com/azure/aks/support-policies).
@@ -99,7 +99,7 @@ New Supported Version List
   * Les clients ont **30 jours** à partir de la date de notification publique pour effectuer une mise à niveau vers une version mineure prise en charge.
 * Pour les nouvelles versions de **correctif** de Kubernetes
   * Tous les utilisateurs sont informés de la sortie de la nouvelle version du correctif et de la mise à niveau vers la dernière version du correctif.
-  * Les utilisateurs ont **30 jours** pour mettre à niveau vers une nouvelle version de patch supportée. Les utilisateurs ont **30 jours** pour mettre à niveau vers une version de correctif prise en charge avant que le plus ancien ne soit supprimé.
+  * Les utilisateurs ont **30 jours** pour procéder à une mise à niveau vers une version plus récente et prise en charge du correctif avant que le plus ancien ne soit supprimé.
 
 AKS définit une « version publiée » comme étant les versions en disponibilité générale, activées dans toutes les mesures SLO/Qualité de service et disponible dans toutes les régions. AKS peut également prendre en charge les préversions qui sont explicitement étiquetées et soumises aux conditions générales des préversions.
 
@@ -142,11 +142,11 @@ az aks get-versions --location eastus --output table
 Si vous êtes sur la version *n-3*, vous êtes hors support et vous serez invité à effectuer une mise à niveau. Si votre mise à niveau de la version n-3 à la version n-2 réussit, vous bénéficiez maintenant de nos politiques de support. Par exemple :
 
 - Si la version AKS la plus ancienne prise en charge est *1.13.a* et que vous êtes sur *1.12.b* ou une version antérieure, vous êtes hors support.
-- Si la mise à niveau de *1.12.b* vers *1.13.a* ou ultérieur réussit, vous bénéficiez à nouveau de nos politiques de support.
+- Si la mise à niveau de *1.12.b* vers *1.13.a* ou version ultérieure réussit, vous bénéficiez à nouveau de nos stratégies de support.
 
 Les mises à niveau vers des versions antérieures à la fenêtre de support de *N-2* ne sont pas prises en charge. Dans ce cas, nous recommandons aux clients de créer de nouveaux clusters AKS et de redéployer leurs charges de travail avec des versions dans la fenêtre de support.
 
-**Que signifie « ne plus disposer du support technique »**
+**Que signifie « Ne plus disposer du support technique » ?**
 
 « Ne plus disposer du support technique » signifie que la version que vous utilisez ne figure pas dans la liste des versions prises en charge et qu’il vous sera demandé de mettre à niveau le cluster vers une version prise en charge lors de la demande de support. De plus, AKS n’offre aucune garantie d’exécution ou autre pour les clusters en dehors de la liste des versions supportées.
 

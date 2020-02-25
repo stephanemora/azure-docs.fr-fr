@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: a5ad4cbd11d6468413a43576e2156ee807067aa8
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: a2f3dbf58363331cf6b1b05e759d246e68e7e7a5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153347"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471208"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Utiliser PowerShell pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2 (préversion)
 
@@ -25,7 +25,7 @@ Cet article explique comment utiliser PowerShell pour créer et gérer des répe
 
 [Mappage de Gen1 à Gen2](#gen1-gen2-map) | [Envoyer des commentaires](https://github.com/Azure/azure-powershell/issues)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 > [!div class="checklist"]
 > * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -339,7 +339,7 @@ Dans cet exemple, l’utilisateur propriétaire et le groupe propriétaire dispo
 
 Utilisez l’applet de commande `Get-AzDataLakeGen2Item` pour obtenir la liste ACL d’un répertoire ou d’un fichier. Ensuite, utilisez l’applet de commande `New-AzDataLakeGen2ItemAclObject` pour créer une entrée de liste de contrôle d’accès. Utilisez l’applet de commande `Update-AzDataLakeGen2Item` pour appliquer la nouvelle liste de contrôle d’accès.
 
-Cet exemple donne à un utilisateur l’autorisation d’écriture et d’exécution sur un répertoire.
+Cet exemple donne à un groupe l'autorisation d'écriture et d'exécution sur un répertoire.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -370,7 +370,7 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirna
 
 ```
 
-Cet exemple donne à un utilisateur l’autorisation d’écriture et d’exécution sur un fichier.
+Cet exemple donne à un groupe l'autorisation d'écriture et d'exécution sur un fichier.
 
 ```powershell
 $filesystemName = "my-file-system"

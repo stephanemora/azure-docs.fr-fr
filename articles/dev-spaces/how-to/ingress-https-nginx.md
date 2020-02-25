@@ -5,18 +5,18 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Découvrez comment configurer Azure Dev Spaces pour utiliser un contrôleur d’entrée NGINX personnalisé et configurer HTTPS à l’aide de ce contrôleur d’entrée.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
-ms.openlocfilehash: a6fcc6bfd7f3bd682cd67b58312a83c23e2a3b1b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 39f17636779c4160867311af67ebc621b685f2d3
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475963"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486200"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Utiliser un contrôleur d’entrée NGINX personnalisé et configurer HTTPS
 
 Cet article explique comment configurer Azure Dev Spaces pour utiliser un contrôleur d’entrée NGINX personnalisé. Cet article vous montre également comment configurer ce contrôleur d’entrée personnalisé pour utiliser le protocole HTTPS.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit][azure-account-create].
 * [Azure CLI][az-cli].
@@ -53,6 +53,13 @@ Créez un espace de noms Kubernetes pour le contrôleur d’entrée NGINX et ins
 kubectl create ns nginx
 helm install nginx stable/nginx-ingress --namespace nginx --version 1.27.0
 ```
+
+> [!NOTE]
+> L’exemple ci-dessus crée un point de terminaison public pour votre contrôleur d’entrée. Si vous devez plutôt utiliser un point de terminaison privé pour votre contrôleur d’entrée, ajoutez le paramètre *--set controller.service.annotations."service\\.beta\\.kubernetes\\.io/azure-load-balancer-internal"=true* à la commande *helm install*. Par exemple :
+> ```console
+> helm install nginx stable/nginx-ingress --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.27.0
+> ```
+> Ce point de terminaison privé est exposé au sein du réseau virtuel dans lequel votre cluster AKS est déployé.
 
 Récupérez l’adresse IP du service de contrôleur d’entrée NGINX à l’aide de [kubectl get][kubectl-get].
 
@@ -121,7 +128,7 @@ azds space select -n dev -y
 Déployez l’exemple d’application avec `helm install`.
 
 ```console
-helm install bikesharing . --dependency-update --namespace dev --atomic
+helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
 ```
 
 L’exemple ci-dessus déploie l’exemple d'application dans l’espace de noms *dev*.

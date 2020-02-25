@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/11/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3e5fb1ebb763cc5ecd7dfe8724347c03a487bc13
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: fd6a24c768056c949c05b9e2444bd49ef743c0ef
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157871"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425627"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -70,7 +70,7 @@ L’élément **ContentDefinition** contient les éléments suivants :
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | Chaîne contenant l’URL de la page HTML5 de la définition de contenu. |
-| RecoveryUri | 0:1 | Chaîne contenant l’URL de la page HTML pour l’affichage d’une erreur liée à la définition de contenu. |
+| RecoveryUri | 1:1 | Chaîne contenant l’URL de la page HTML pour l’affichage d’une erreur liée à la définition de contenu. |
 | DataUri | 1:1 | Chaîne contenant l’URL relative d’un fichier HTML qui fournit l’expérience utilisateur à appeler pour l’étape. |
 | Métadonnées | 0:1 | Collection de paires clé/valeur contenant les métadonnées utilisées par la définition de contenu. |
 | LocalizedResourcesReferences | 0:1 | Collection de références de ressources localisées. Cet élément permet de personnaliser la localisation d’une interface utilisateur et d’un attribut de revendications. |
@@ -82,11 +82,11 @@ L’élément **DataUri** est utilisé pour spécifier l’identificateur de pag
 | Identificateur de page | Description |
 | ----- | ----------- |
 | `globalexception` | Affiche une page d’erreur quand une exception ou une erreur sont rencontrées. |
-| `providerselection` | Répertorie les fournisseurs d’identité parmi lesquels les utilisateurs peuvent choisir au moment de la connexion. |
+| `providerselection`, `idpselection` | Répertorie les fournisseurs d’identité parmi lesquels les utilisateurs peuvent choisir au moment de la connexion.  |
 | `unifiedssp` | Affiche un formulaire pour la connexion avec un compte local basé sur une adresse e-mail ou un nom d’utilisateur. Cette valeur fournit également la fonctionnalité de maintien de connexion et le lien de rappel de mot de passe. . |
 | `unifiedssd` | Affiche un formulaire pour la connexion avec un compte local basé sur une adresse e-mail ou un nom d’utilisateur. |
 | `multifactor` | Vérifie des numéros de téléphone (par voie textuelle ou vocale) au cours d’une inscription ou d’une connexion. |
-| `selfasserted` | Affiche un formulaire permettant aux utilisateurs de créer ou mettre à jour leur profil. |
+| `selfasserted` | Affiche un formulaire permettant de collecter des données auprès d'un utilisateur. Par exemple, permet aux utilisateurs de créer ou de mettre à jour leur profil. |
 
 ### <a name="select-a-page-layout"></a>Sélectionner une mise en page
 

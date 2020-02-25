@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 270b3f0fe7c654d2bf059784e872b7dbe97a6068
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: c93460797fc1cf953d467e2739d71c5a2a9b74ed
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190494"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486166"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel 
 <a name="network-service-tags"></a>
@@ -52,7 +52,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **AzureBackup** |Sauvegarde Azure.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport aux balises **Storage** and **AzureActiveDirectory**. | Règle de trafic sortant | Non | Oui |
 | **AzureBotService** | Service Azure Bot. | Règle de trafic sortant | Non | Non |
 | **AzureCloud** | Toutes les [adresses IP publiques du centre de données](https://www.microsoft.com/download/details.aspx?id=56519). | Règle de trafic sortant | Oui | Oui |
-| **AzureCognitiveSearch** | Recherche cognitive Azure (si vous utilisez des indexeurs avec un ensemble de compétences). | Les deux | Non | Non |
+| **AzureCognitiveSearch** | Recherche cognitive Azure. <br/><br/>Cette balise ou les adresses IP qu’elle couvre permettent d’accorder aux indexeurs un accès sécurisé à des sources de données. Pour plus de détails, voir la [documentation sur la connexion d’indexeur](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors). | Trafic entrant | Non | Non |
 | **AzureConnectors** | Connecteurs Azure Logic Apps pour les connexions principales/de sonde. | Trafic entrant | Oui | Oui |
 | **AzureContainerRegistry** | Azure Container Registry. | Règle de trafic sortant | Oui | Oui |
 | **AzureCosmosDB** | Azure Cosmos DB. | Règle de trafic sortant | Oui | Oui |

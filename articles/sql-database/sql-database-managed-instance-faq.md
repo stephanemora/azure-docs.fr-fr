@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 81f776428303ad5e6486ba52c1acdf70d051563e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 1c1995b4daf3b76abf7663d8d6c1f4cb7b1d6e2b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835013"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201677"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Forum aux questions sur les instances gérées SQL Database
 
@@ -82,21 +82,11 @@ Une option consiste à [exporter la base de données vers un fichier BACPAC](sql
 
 Cette approche est recommandée si votre base de données est inférieure à 100 Go. La réplication transactionnelle peut être utilisée si toutes les tables dans la base de données ont des clés primaires.
 
-## <a name="gen-4-vs-gen-5"></a>Gen 4 et Gen 5 
-
-**Comment choisir entre la génération de matériel Gen 4 et Gen 5 pour une instance managée ?**
-
-Cela dépend de votre charge de travail car certaines générations de matériel sont plus adaptées à certains types de charges de travail que d’autres. Bien que le sujet de la performance soit plutôt complexe à simplifier, les différences suivantes entre les générations de matériel affectent la performance de la charge de travail :
-- Gen 4 fournit une meilleure prise en charge de calcul puisqu’elle est basée sur des processeurs physiques, et Gen 5 basée sur des processeurs vCore. Cela peut s'avérer plus avantageux pour calculer des charges de travail intensives.
-- La Gen 5 prend en charge la mise en réseau accélérée, ce qui se traduit par une meilleure bande passante d’E/S vers le stockage distant. Cela peut s'avérer avantageux pour les charges de travail intensives d’E/S sur les niveaux de service usage général. Gen 5 utilise des disques locaux SSD plus rapides par rapport à Gen 4. Cela peut s'avérer avantageux pour les charges de travail intensives d’E/S sur les niveaux de service critiques de l’entreprise.
-
-Il est vivement conseillé de tester le niveau de performance des charges de travail réelles destinées à la production avant la mise en production afin de déterminer quelle génération de matériel fonctionnera le mieux dans votre cas.
-
 ## <a name="switch-hardware-generation"></a>Basculer la génération de matériel 
 
 **Puis-je basculer la génération de matériel de mon instance managée entre Gen 4 et Gen 5 en ligne ?**
 
-La commutation en ligne automatisée entre les générations de matériel est possible si les deux générations de matériel sont disponibles dans la même région où votre instance gérée est approvisionnée. Dans ce cas, vous pouvez utiliser le script de ce [billet de blog](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Change-hardware-generation-on-Managed-Instance/ba-p/699824) qui explique comment basculer entre les générations de matériel.
+La commutation en ligne automatisée entre les générations de matériel est possible si les deux générations de matériel sont disponibles dans la même région où votre instance gérée est approvisionnée. Dans ce cas, vous pouvez consulter la [page Présentation du modèle vCore](sql-database-service-tiers-vcore.md) qui explique comment basculer entre les générations de matériel.
 
 Il s’agit d’une opération de longue durée car la nouvelle instance gérée sera approvisionnée en arrière-plan et les bases de données seront automatiquement transférées entre l’ancienne et la nouvelle instance, avec un rapide basculement au terme du processus. 
 
@@ -108,8 +98,6 @@ Si les deux générations de matériel ne sont pas prises en charge dans la mêm
 **Comment régler les performances de mon instance gérée ?**
 
 L’instance gérée à usage général utilise le stockage à distance en raison de la taille des données et des fichiers journaux importants pour le niveau de performance. Pour plus d’informations, consultez [Impact of log file size on General Purpose Managed Instance performance](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
-
-Pour les charges de travail intensives E/S, envisagez d’utiliser du matériel Gen 5, plutôt que Gen 4 pour les calculer. Pour plus d’informations, consultez [Comment choisir entre Gen 4 et Gen 5](#gen-4-vs-gen-5).
 
 Si votre charge de travail est constituée d’un grand nombre de petites transactions, envisagez de passer le type de connexion du mode proxy au mode redirection.
 

@@ -12,35 +12,32 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/06/2019
+ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: c16ff8fed19340811578ccb39cbac7242b7c5861
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 21351654f01127acb5fe712021ceebb31b020bdc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905743"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484942"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Tailles des machines virtuelles Linux dans Azure
-Cet article décrit les tailles et options disponibles pour les machines virtuelles Azure que vous pouvez utiliser pour exécuter vos applications et charges de travail Linux. Il expose également les points à prendre en considération pour le déploiement quand vous planifiez l’utilisation de ces ressources. Cet article est également disponible pour les [machines virtuelles Windows](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
+Cet article décrit les tailles et options disponibles pour les machines virtuelles Azure que vous pouvez utiliser pour exécuter vos applications et charges de travail Linux. Il expose également les points à prendre en considération pour le déploiement quand vous planifiez l’utilisation de ces ressources. Cet article est également disponible pour les [machines virtuelles Windows](../windows/sizes.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json).
 
-| Type                     | Tailles           |    Description       |
-|--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Usage général](sizes-general.md)          | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC  | Ratio processeur/mémoire équilibré. Idéal pour le test et le développement, les bases de données petites à moyennes et les serveurs web au trafic faible à moyen. |
-| [Optimisé pour le calcul](sizes-compute.md)        | Fsv2           | Ratio processeur/mémoire élevé. Convient pour les serveurs web au trafic moyen, les appareils réseau, les processus de traitement par lots et les serveurs d’application.        |
-| [Mémoire optimisée](sizes-memory.md)         | Esv3, Ev3, Easv4, Eav4, Mv2, M, DSv2, Dv2  | Ratio mémoire/processeur élevé. Idéal pour les serveurs de base de données relationnelle, les caches moyens à grands et l’analytique en mémoire.                 |
-| [Optimisé pour le stockage](sizes-storage.md)        | Lsv2                | Débit et nombre d’E/S de disque élevés, idéal pour les Big Data, SQL, les bases de données NoSQL, l’entreposage de données et les grandes bases de données transactionnelles.  |
-| [GPU](sizes-gpu.md)            | NC, NCv2, NCv3, ND, NDv2 (Préversion), NV, NVv3  | Machines virtuelles spécialisées, ciblées pour l’affichage de graphiques complexes et le montage vidéo, ainsi que pour la formation et l’inférence de modèles avec apprentissage approfondi. Disponible avec un ou plusieurs GPU.       |
-| [Calcul haute performance](sizes-hpc.md) | HB, HC, H | Nos machines virtuelles les plus rapides et dotées des processeurs les plus puissants avec interfaces réseau haut débit en option (RDMA). |
-
-<br>
+| Type | Tailles | Description |
+|------|-------|-------------|
+| [Usage général](../sizes-general.md)   | B, Dsv3, Dv3, Dasv4, Dav4, DSv2, Dv2, Av2, DC  | Ratio processeur/mémoire équilibré. Idéal pour le test et le développement, les bases de données petites à moyennes et les serveurs web au trafic faible à moyen. |
+| [Optimisé pour le calcul](../sizes-compute.md) | Fsv2 | Ratio processeur/mémoire élevé. Convient pour les serveurs web au trafic moyen, les appareils réseau, les processus de traitement par lots et les serveurs d’application. |
+| [Mémoire optimisée](../sizes-memory.md) | Esv3, Ev3, Easv4, Eav4, Mv2, M, DSv2, Dv2 | Ratio mémoire/processeur élevé. Idéal pour les serveurs de base de données relationnelle, les caches moyens à grands et l’analytique en mémoire.                 |
+| [Optimisé pour le stockage](../sizes-storage.md) | Lsv2 | Débit et nombre d’E/S de disque élevés, idéal pour les Big Data, SQL, les bases de données NoSQL, l’entreposage de données et les grandes bases de données transactionnelles.  |
+| [GPU](../sizes-gpu.md) | NC, NCv2, NCv3, ND, NDv2 (préversion), NV, NVv3, NVv4 | Machines virtuelles spécialisées, ciblées pour l’affichage de graphiques complexes et le montage vidéo, ainsi que pour la formation et l’inférence de modèles avec apprentissage approfondi. Disponible avec un ou plusieurs GPU. |
+| [Calcul haute performance](../sizes-hpc.md) | HB, HC, H | Nos machines virtuelles les plus rapides et dotées des processeurs les plus puissants avec interfaces réseau haut débit en option (RDMA). |
 
 - Pour plus d'informations sur la tarification des différentes tailles, consultez [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
 - Pour la disponibilité des tailles de machine virtuelle dans les régions Azure, consultez [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
-- Pour connaître les limites générales des machines virtuelles Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../../azure-resource-manager/management/azure-subscription-service-limits.md).
-- Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.
-
+- Pour connaître les limites générales des machines virtuelles Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../../azure-subscription-service-limits.md).
+- Lisez-en davantage sur les [Unités de calcul Azure (ACU)](../acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.
 
 ## <a name="rest-api"></a>API REST
 
@@ -52,7 +49,7 @@ Pour plus d’informations sur l’utilisation de l’API REST pour demander la 
 
 ## <a name="acu"></a>ACU
 
-Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.
+Lisez-en davantage sur les [Unités de calcul Azure (ACU)](../acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.
 
 ## <a name="benchmark-scores"></a>Scores de test d’évaluation
 
@@ -61,13 +58,11 @@ En savoir plus sur les performances de calcul pour les machines virtuelles Linux
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur les différentes tailles de machines virtuelles qui sont disponibles :
-- [Usage général](sizes-general.md)
-- [Optimisé pour le calcul](sizes-compute.md)
-- [Mémoire optimisée](sizes-memory.md)
-- [Optimisé pour le stockage](sizes-storage.md)
-- [GPU](sizes-gpu.md)
-- [Calcul haute performance](sizes-hpc.md)
-- Consultez la page [Génération précédente](sizes-previous-gen.md) pour les séries haute performance A Basic et Standard A8-A11, D/DSv1 (D1-4 et D11-14 v1), F/Fsv1, G/GS, Lsv1 et NVv2.
 
-
-
+- [Usage général](../sizes-general.md)
+- [Optimisé pour le calcul](../sizes-compute.md)
+- [Mémoire optimisée](../sizes-memory.md)
+- [Optimisé pour le stockage](../sizes-storage.md)
+- [GPU](../sizes-gpu.md)
+- [Calcul haute performance](../sizes-hpc.md)
+- Consultez la page [Génération précédente](../sizes-previous-gen.md) des séries A Standard, Dv1 (D1-4 et D11-14 v1) et A8-A11

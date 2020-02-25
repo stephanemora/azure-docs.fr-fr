@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: bc083a95ebf6c7ecfabfef87e606f99053ba58bb
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 7b6bd33346df9496c4c30353b68c11bdd7fad7a2
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312411"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486391"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sécurité de l’entreprise pour Azure Machine Learning
 
@@ -112,6 +112,7 @@ Pour plus d’informations, consultez le [Guide pratique pour exécuter des exp�
 > [!IMPORTANT]
 > Si votre espace de travail contient des données sensibles, nous vous recommandons de définir l’[indicateur hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) lors de la création de votre espace de travail. Cela contrôle la quantité de données collectées par Microsoft à des fins de diagnostic et permet un chiffrement supplémentaire dans les environnements gérés Microsoft.
 
+Pour plus d’informations sur le fonctionnement du chiffrement au repos dans Azure, consultez [Chiffrement des données Azure au repos](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 #### <a name="azure-blob-storage"></a>Stockage Blob Azure
 
@@ -189,7 +190,9 @@ Le disque de système d’exploitation de chaque nœud de calcul stocké dans St
 
 Chaque machine virtuelle dispose également d’un disque temporaire local pour les opérations de système d’exploitation. Si vous le souhaitez, vous pouvez utiliser le disque pour indexer les données d’entraînement. Le disque est chiffré par défaut pour les espaces de travail avec le paramètre `hbi_workspace` défini sur `TRUE`. Cet environnement ne perdure que pour la durée de votre exécution et la prise en charge du chiffrement est limitée aux clés gérées par le système uniquement.
 
-Pour plus d’informations sur le fonctionnement du chiffrement au repos dans Azure, consultez [Chiffrement des données Azure au repos](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
+#### <a name="azure-databricks"></a>Azure Databricks
+
+Vous pouvez utiliser la plateforme Azure Databricks dans des pipelines Azure Machine Learning. Par défaut, le système de fichiers Databricks (DBFS) qu’utilise Azure Databricks est chiffré à l’aide d’une clé gérée par Microsoft. Pour configurer Azure Databricks afin d’utiliser des clés gérées par le client, voir [Configurer les clés gérées par le client sur DBFS (racine) par défaut](/azure/databricks/security/customer-managed-keys-dbfs).
 
 ### <a name="encryption-in-transit"></a>Chiffrement en transit
 
@@ -215,7 +218,7 @@ Chaque espace de travail est associé à une identité managée attribuée par l
 
 Microsoft peut collecter des informations ne permettant pas d’identifier les utilisateurs telles que des noms de ressource (par exemple le nom du jeu de données ou le nom de l’essai d’apprentissage automatique), ou des variable d'environnement de tâche à des fins de diagnostic. De telles données sont stockées à l’aide des clés gérées par Microsoft dans le stockage hébergé dans des abonnements détenus par Microsoft et elles suivent les [normes de gestion des données et la stratégie de confidentialité standard de Microsoft](https://privacy.microsoft.com/privacystatement).
 
-Microsoft recommande également de ne pas stocker d’informations sensibles (comme les secrets de clé de compte) dans les variables d'environnement. Les variable d'environnement sont enregistrées, chiffrées et stockées par nous.
+Microsoft recommande également de ne pas stocker d’informations sensibles (comme les secrets de clé de compte) dans les variables d'environnement. Les variable d'environnement sont enregistrées, chiffrées et stockées par nous. De même, lorsque vous nommez [RunId](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py), évitez d’inclure des informations sensibles telles que des noms d’utilisateurs ou des noms de projets secrets. Ces informations peuvent apparaître dans les journaux de télémétrie accessibles aux ingénieurs du Support Microsoft.
 
 Vous pouvez refuser la collecte des données de diagnostic en définissant le paramètre `hbi_workspace` sur `TRUE` pendant la configuration de l’espace de travail. Cette fonctionnalité est prise en charge lorsque le kit de développement logiciel (SDK) AzureML Python, l’interface CLI, les API REST ou les modèles Azure Resource Manager sont utilisés.
 

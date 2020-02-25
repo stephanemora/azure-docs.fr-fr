@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/25/2019
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc8dbfd315702f666d6b811e855d6bcd99df938e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 4434c877f69391f5dc5926c6aed07049ba46b7b7
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836046"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425644"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>À propos des résolveurs de revendication dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -104,13 +104,47 @@ Tous les noms de paramètre inclus dans le cadre d’une requête OIDC ou OAuth2
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | Jeton d’accès. | N/A |
 
-## <a name="how-to-use-claim-resolvers"></a>Comment utiliser des résolveurs de revendication
+
+### <a name="saml"></a>SAML
+
+| Revendication | Description | Exemple |
+| ----- | ----------- | --------|
+| {SAML:AuthnContextClassReferences} | Valeur de l'élément `AuthnContextClassRef`, provenant de la demande SAML. | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport |
+| {SAML:NameIdPolicyFormat} | Attribut `Format`, provenant de l'élément `NameIDPolicy` de la demande SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
+| {SAML:Issuer} |  Valeur de l'élément `Issuer` SAML de la demande SAML.| https://contoso.com |
+| {SAML:AllowCreate} | Valeur de l'attribut `AllowCreate`, provenant de l'élément `NameIDPolicy` de la demande SAML. | True |
+| {SAML:ForceAuthn} | Valeur de l'attribut `ForceAuthN`, provenant de l'élément `AuthnRequest` de la demande SAML. | True |
+| {SAML:ProviderName} | Valeur de l'attribut `ProviderName`, provenant de l'élément `AuthnRequest` de la demande SAML.| Contoso.com |
+
+## <a name="using-claim-resolvers"></a>Utilisation de programmes de résolution de revendications 
+
+Vous pouvez utiliser des programmes de résolution de revendications avec les éléments suivants : 
+
+| Élément | Élément | Paramètres |
+| ----- | ----------------------- | --------|
+|Profil technique Application Insights |`InputClaim` | |
+|Profil technique [Azure Active Directory](active-directory-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Profil technique [OAuth2](oauth2-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Profil technique [OpenID Connect](openid-connect-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Profil technique de [transformation de revendications](claims-transformation-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Profil technique du [fournisseur RESTful](restful-technical-profile.md)| `InputClaim`| 1, 2|
+|Profil technique [SAML2](saml-technical-profile.md)| `OutputClaim`| 1, 2|
+|Profil technique [Autodéclaré](self-asserted-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
+|[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
+|Profil technique [RelyingParty](relyingparty.md#technicalprofile)| `OutputClaim`| 2 |
+
+Paramètres : 
+1. Les métadonnées `IncludeClaimResolvingInClaimsHandling` doivent être définies sur `true`.
+1. L'attribut des revendications d'entrée ou de sortie `AlwaysUseDefaultValue` doit être défini sur `true`.
+
+## <a name="claim-resolvers-samples"></a>Exemples de programmes de résolution de revendications
 
 ### <a name="restful-technical-profile"></a>Profil technique RESTful
 
 Dans un profil technique [RESTful](restful-technical-profile.md), vous pouvez envoyer la langue de l’utilisateur, le nom de la stratégie, l’étendue et l’ID client. Selon ces revendications, l’API REST peut exécuter une logique métier personnalisée et éventuellement déclencher un message d’erreur localisé.
 
-L’exemple suivant montre un profil technique RESTful :
+L'exemple suivant illustre un profil technique RESTful en lien avec ce scénario :
 
 ```XML
 <TechnicalProfile Id="REST">
@@ -120,12 +154,13 @@ L’exemple suivant montre un profil technique RESTful :
     <Item Key="ServiceUrl">https://your-app.azurewebsites.net/api/identity</Item>
     <Item Key="AuthenticationType">None</Item>
     <Item Key="SendClaimsIn">Body</Item>
+    <Item Key="IncludeClaimResolvingInClaimsHandling">true</Item>
   </Metadata>
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="userLanguage" DefaultValue="{Culture:LCID}" />
-    <InputClaim ClaimTypeReferenceId="policyName" DefaultValue="{Policy:PolicyId}" />
-    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:scope}" />
-    <InputClaim ClaimTypeReferenceId="clientId" DefaultValue="{OIDC:ClientId}" />
+    <InputClaim ClaimTypeReferenceId="userLanguage" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="policyName" DefaultValue="{Policy:PolicyId}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="{OIDC:scope}" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="clientId" DefaultValue="{OIDC:ClientId}" AlwaysUseDefaultValue="true" />
   </InputClaims>
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
 </TechnicalProfile>
@@ -137,9 +172,9 @@ L’exemple suivant montre un profil technique RESTful :
 
 ### <a name="dynamic-ui-customization"></a>Personnalisation dynamique de l’interface utilisateur
 
-Azure AD B2C vous permet de transmettre des paramètres de chaîne de requête à vos points de terminaison de définition du contenu HTML afin d’afficher dynamiquement le contenu de la page. Par exemple, vous pouvez changer l’image d’arrière-plan dans la page de connexion ou d’inscription Azure AD B2C en fonction d’un paramètre personnalisé que vous transmettez depuis votre application web ou mobile. Pour plus d’informations, consultez [Configurer dynamiquement l’interface utilisateur à l’aide de stratégies personnalisées dans Azure Active Directory B2C](custom-policy-ui-customization-dynamic.md). Vous pouvez également localiser votre page HTML en fonction d’un paramètre de langue ou changer le contenu selon l’ID client.
+Azure AD B2C vous permet de transmettre des paramètres de chaîne de requête à vos points de terminaison de définition de contenu HTML afin d'afficher dynamiquement le contenu de la page. Par exemple, cela permet de changer l'image d'arrière-plan sur la page de connexion ou d'inscription Azure AD B2C en fonction d'un paramètre personnalisé que vous transmettez depuis votre application web ou mobile. Pour plus d’informations, consultez [Configurer dynamiquement l’interface utilisateur à l’aide de stratégies personnalisées dans Azure Active Directory B2C](custom-policy-ui-customization.md). Vous pouvez également localiser votre page HTML en fonction d’un paramètre de langue ou changer le contenu selon l’ID client.
 
-L’exemple suivant transmet dans la chaîne de requête les paramètres **campaignId** (valeur `hawaii`), **language** (valeur `en-US`), et **app** (représentant l’ID client) :
+L'exemple suivant transmet dans la chaîne de requête les paramètres **campaignId** (valeur `hawaii`), **language** (valeur `en-US`), et **app** (représentant l'ID client) :
 
 ```XML
 <UserJourneyBehaviors>
@@ -155,6 +190,17 @@ Ainsi, Azure AD B2C envoie les paramètres ci-dessus à la page de contenu HTML�
 
 ```
 /selfAsserted.aspx?campaignId=hawaii&language=en-US&app=0239a9cc-309c-4d41-87f1-31288feb2e82
+```
+
+### <a name="content-definition"></a>Définition de contenu
+
+Une définition de contenu ([ContentDefinition](contentdefinitions.md)`LoadUri`) vous permet d'envoyer des programmes de résolution de revendications pour extraire du contenu à partir de différents emplacements, conformément aux paramètres utilisés. 
+
+```XML
+<ContentDefinition Id="api.signuporsignin">
+  <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
+  ...
+</ContentDefinition>
 ```
 
 ### <a name="application-insights-technical-profile"></a>Profil technique Application Insights
@@ -173,4 +219,29 @@ Avec Azure Application Insights et les résolveurs de revendication, vous pouvez
     <InputClaim ClaimTypeReferenceId="AppId" PartnerClaimType="{property:App}" DefaultValue="{OIDC:ClientId}" />
   </InputClaims>
 </TechnicalProfile>
+```
+
+### <a name="relying-party-policy"></a>Stratégie de partie de confiance
+
+Le profil technique d'une stratégie [Partie de confiance](relyingparty.md) vous permet d'envoyer l'ID du locataire ou l'ID de corrélation à l'application par partie de confiance dans le jeton JWT. 
+
+```XML
+<RelyingParty>
+    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+    <TechnicalProfile Id="PolicyProfile">
+      <DisplayName>PolicyProfile</DisplayName>
+      <Protocol Name="OpenIdConnect" />
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="displayName" />
+        <OutputClaim ClaimTypeReferenceId="givenName" />
+        <OutputClaim ClaimTypeReferenceId="surname" />
+        <OutputClaim ClaimTypeReferenceId="email" />
+        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+        <OutputClaim ClaimTypeReferenceId="identityProvider" />
+        <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+        <OutputClaim ClaimTypeReferenceId="correlationId" AlwaysUseDefaultValue="true" DefaultValue="{Context:CorrelationId}" />
+      </OutputClaims>
+      <SubjectNamingInfo ClaimType="sub" />
+    </TechnicalProfile>
+  </RelyingParty>
 ```

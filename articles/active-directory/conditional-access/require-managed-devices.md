@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb0764b9c2c43faf88db165a11ae963c4f170f01
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 66e94393bef942d7bfad41a7dccc8b651696d4af
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512587"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484517"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger des appareils gérés pour accéder aux applications cloud avec l’accès conditionnel
 
@@ -24,12 +24,16 @@ Dans un monde où la mobilité et le cloud occupent le premier plan, Azure Activ
 
 Cet article explique comment vous pouvez configurer des stratégies d’accès conditionnel qui exigent des appareils gérés pour accéder à certaines applications cloud de votre environnement. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Le fait d’exiger des appareils gérés pour accéder aux applications cloud associe **l’accès conditionnel Azure AD** et la **gestion des appareils Azure AD**. Si l’un de ces aspects vous est inconnu, consultez d’abord les rubriques suivantes :
 
 - **[Accès conditionnel dans Azure Active Directory](../active-directory-conditional-access-azure-portal.md)** : cet article fournit une vue d’ensemble conceptuelle de l’accès conditionnel et explique la terminologie associée.
 - **[Présentation de la gestion des appareils dans Azure Active Directory](../devices/overview.md)** : cet article vous donne une vue d’ensemble des différentes options dont vous disposez pour faire passer les appareils sous le contrôle de l’organisation. 
+
+>[!NOTE] 
+> Nous vous recommandons d’utiliser une stratégie d’accès conditionnel en fonction de l’appareil d’Azure AD pour obtenir la meilleure mise en œuvre après l’authentification initiale de l’appareil. Cela comprend la fermeture de sessions si l’appareil devient non conforme et sort du flux de code d’appareil.
+
 
 ## <a name="scenario-description"></a>Description du scénario
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 04cc45956fc5aedc4c14dfb138be5db02ddec500
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c2361192a612cfd92003b1e3c36e85dbbd9090bb
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850496"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482766"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C : Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil
 
@@ -24,7 +24,7 @@ ms.locfileid: "76850496"
 
 Dans cet article, vous allez créer un attribut personnalisé dans votre annuaire Azure Active Directory B2C (Azure AD B2C). Vous allez utiliser ce nouvel attribut comme revendication personnalisée dans le parcours de l’utilisateur pour modifier des profils.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes de l’article [Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées](custom-policy-get-started.md).
 
@@ -34,7 +34,7 @@ Votre annuaire Azure AD B2C comprend un ensemble intégré d’attributs. Voici 
 * Un fournisseur d’identité a un identificateur d’utilisateur unique, tel que **uniqueUserGUID**, qui doit être enregistré.
 * Un parcours utilisateur personnalisé doit conserver l’état de l’utilisateur, par exemple **migrationStatus**.
 
-Azure AD B2C étend l’ensemble d’attributs stocké dans chaque compte utilisateur. Vous pouvez également lire et écrire ces attributs à l’aide de [l’API Azure AD Graph](manage-user-accounts-graph-api.md).
+Azure AD B2C étend l’ensemble d’attributs stocké dans chaque compte utilisateur. Vous pouvez également lire et écrire ces attributs à l’aide de l’[API Microsoft Graph](manage-user-accounts-graph-api.md).
 
 Les propriétés d’extension étendent le schéma des objets utilisateur dans le répertoire. Dans cet article, les termes *propriété d’extension*, *attribut personnalisé* et *revendication personnalisée* font référence à la même chose. Le nom varie en fonction du contexte (application, objet, stratégie).
 
@@ -297,7 +297,7 @@ Le jeton d’ID renvoyé à votre application inclut la nouvelle propriété d�
 
 ## <a name="reference"></a>Informations de référence
 
-Pour plus d’informations sur les propriétés d’extension, consultez l’article [Extensions de schéma d’annuaire | Concepts de l’API Graph](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
+Pour plus d’informations sur les propriétés d’extension, voir l’article [Ajouter des données personnalisées à des ressources à l’aide d’extensions](https://docs.microsoft.com/graph/extensibility-overview).
 
 > [!NOTE]
 > * Un **TechnicalProfile** est un type d’élément, ou une fonction, qui définit le nom, les métadonnées et le protocole d’un point de terminaison. Le **TechnicalProfile** détaille l’échange de revendications effectué par l’infrastructure d’expérience d’identité. Lorsque cette fonction est appelée au cours d’une étape d’orchestration ou à partir d’un autre **TechnicalProfile**, **InputClaims** et **OutputClaims** sont fournis comme paramètres par l’appelant.

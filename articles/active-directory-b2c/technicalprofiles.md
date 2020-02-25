@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/29/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ad6b84323ac49713506bc61bd0051421e0234a94
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5dc9bc56ac717d355f0fb0ebcc482430662378ca
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982277"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425605"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -111,7 +111,7 @@ L’élément **Protocol** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Name | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C et utilisé dans le cadre du profil technique. Valeurs possibles : `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`, `session management`, `self-asserted` ou `None`. |
+| Nom | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C et utilisé dans le cadre du profil technique. Valeurs possibles : `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary` ou `None`. |
 | Handler | Non | Lorsque le nom de protocole est défini sur `Proprietary`, spécifiez le nom complet de l’assembly qu’Azure AD B2C utilise pour déterminer le gestionnaire de protocole. |
 
 ## <a name="metadata"></a>Métadonnées

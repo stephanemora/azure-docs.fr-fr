@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8370b71bfa980dbd099ade59a3a19633dfd5dc72
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8107b16a3db76fb0e248f1681463b73cc4ee21cf
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910890"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208418"
 ---
 # <a name="show-traffic-on-the-map"></a>Afficher le trafic sur la carte
 
 Deux types de données de trafic sont disponibles dans Azure Maps :
 
 - Données d’incident : elles se composent de données de type point et ligne pour des éléments tels que les travaux, les fermetures de route et les accidents.
-- Données de circulation : elles fournissent des métriques concernant la circulation sur les routes. Les données de circulation sont souvent utilisées pour colorer les routes en fonction du volume de circulation qui entraîne un ralentissement par rapport à la limite de vitesse ou à une autre métrique. Les données de circulation dans Azure Maps ont trois métriques différentes de mesure :
+- Données de circulation : elles fournissent des métriques concernant la circulation sur les routes. Les données de circulation sont souvent utilisées pour colorer les routes. Les couleurs dépendent du volume de circulation qui entraîne un ralentissement par rapport à la limite de vitesse ou à une autre métrique. Les données de circulation dans Azure Maps ont trois métriques différentes de mesure :
     - `relative` : est relatif à la vitesse de circulation libre de la route.
     - `absolute` : est la vitesse absolue de tous les véhicules sur la route.
     - `relative-delay` : affiche les zones qui sont plus lentes que le délai moyen attendu.

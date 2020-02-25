@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/05/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69091fbcc2b6789abc7825632a56197427d34e4c
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: d2ef446e10620895fff77e8160adc4a566929650
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77045367"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484364"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 
@@ -122,7 +122,7 @@ Utilisez cette transformation de revendication pour mettre un ClaimType en majus
 
 ## <a name="createstringclaim"></a>CreateStringClaim
 
-Crée une revendication de chaîne à partir du paramètre d’entrée fourni dans la stratégie.
+Crée une revendication de chaîne à partir du paramètre d’entrée fourni dans la transformation.
 
 | Élément | TransformationClaimType | Type de données | Notes |
 |----- | ----------------------- | --------- | ----- |
@@ -523,9 +523,9 @@ Nettoie la valeur d’une revendication donnée.
 
 | Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | claim_to_null | string | Revendication dont la valeur doit être NULL. |
+| OutputClaim | claim_to_null | string | La valeur de la revendication est définie sur NULL. |
 
-Utilisez cette transformation de revendication pour supprimer des données inutiles dans le jeu de propriétés de revendications. Le cookie de session sera alors plus petit. L’exemple suivant supprime la valeur du type de revendication `TermsOfService`.
+Utilisez cette transformation de revendication pour supprimer les données inutiles du jeu de propriétés de revendications afin que le cookie de session soit plus petit. L’exemple suivant supprime la valeur du type de revendication `TermsOfService`.
 
 ```XML
 <ClaimsTransformation Id="SetTOSToNull" TransformationMethod="NullClaim">

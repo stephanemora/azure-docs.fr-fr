@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: labrenne
-ms.openlocfilehash: 17cd9db1e86a66630d3b93c8295915933abb1ec2
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 22ee4aad6d2aabcc26dd97e50a2c716cb14be67a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023597"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483582"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utiliser des instances RDMA ou GPU dans des pools Batch
 
@@ -44,7 +44,7 @@ Les fonctionnalités RDMA ou GPU des tailles nécessitant beaucoup de ressources
 
 | Size | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS ou<br/>HPC basé sur CentOS<br/>(Place de marché Azure) | Intel MPI 5<br/><br/>Pilotes RDMA Linux | Activer la communication entre les nœuds, désactiver l’exécution simultanée des tâches |
+| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS ou<br/>HPC basé sur CentOS<br/>(Place de marché Azure) | Intel MPI 5<br/><br/>Pilotes RDMA Linux | Activer la communication entre les nœuds, désactiver l’exécution simultanée des tâches |
 | [Séries NC, NCv2, NCv3, NDv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla (varie selon la série) | Ubuntu 16.04 LTS ou<br/>CentOS 7.3 ou 7.4<br/>(Place de marché Azure) | Pilotes NVIDIA CUDA ou CUDA Toolkit | N/A | 
 | [Séries NV, NVv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS ou<br/>CentOS 7.3<br/>(Place de marché Azure) | Pilotes NVIDIA GRID | N/A |
 
@@ -54,7 +54,7 @@ Les fonctionnalités RDMA ou GPU des tailles nécessitant beaucoup de ressources
 
 | Size | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2, ou<br/>2012 (Place de Marché Azure) | Microsoft MPI 2012 R2 ou ultérieur, ou<br/> Intel MPI 5<br/><br/>Pilotes RDMA Windows | Activer la communication entre les nœuds, désactiver l’exécution simultanée des tâches |
+| [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2, ou<br/>2012 (Place de Marché Azure) | Microsoft MPI 2012 R2 ou ultérieur, ou<br/> Intel MPI 5<br/><br/>Pilotes RDMA Windows | Activer la communication entre les nœuds, désactiver l’exécution simultanée des tâches |
 | [Séries NC, NCv2, NCv3, ND, NDv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla (varie selon la série) | Windows Server 2016 ou <br/>2012 R2 (Place de Marché Azure) | Pilotes NVIDIA CUDA ou CUDA Toolkit| N/A | 
 | [Séries NV, NVv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Windows Server 2016 ou<br/>2012 R2 (Place de Marché Azure) | Pilotes NVIDIA GRID | N/A |
 
@@ -68,7 +68,7 @@ Les fonctionnalités RDMA ou GPU des tailles nécessitant beaucoup de ressources
 
 | Size | Fonctionnalité | Systèmes d’exploitation | Logiciels requis | Paramètres de pool |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, 2012, ou<br/>2008 R2 (Famille de système d’exploitation invité) | Microsoft MPI 2012 R2 ou ultérieur, ou<br/>Intel MPI 5<br/><br/>Pilotes RDMA Windows | Activer la communication entre les nœuds,<br/> désactiver l’exécution simultanée des tâches |
+| [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md) | RDMA | Windows Server 2016, 2012 R2, 2012, ou<br/>2008 R2 (Famille de système d’exploitation invité) | Microsoft MPI 2012 R2 ou ultérieur, ou<br/>Intel MPI 5<br/><br/>Pilotes RDMA Windows | Activer la communication entre les nœuds,<br/> désactiver l’exécution simultanée des tâches |
 
 ## <a name="pool-configuration-options"></a>Options de configuration de pool
 
@@ -139,8 +139,7 @@ Pour exécuter des applications CUDA sur un pool de nœuds de contrôleur de ré
 Pour exécuter des applications Windows MPI sur un pool de nœuds de machine virtuelle H16r Azure, vous devez configurer l’extension HpcVmDrivers et installer [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi). Voici des exemples d’étapes permettant de déployer une image Windows Server 2016 personnalisée avec les pilotes et logiciels nécessaires :
 
 1. Déployez une machine virtuelle H16r Azure exécutant Windows Server 2016. Par exemple, créez la machine virtuelle dans la région USA Ouest. 
-2. Ajoutez l’extension HpcVmDrivers à la machine virtuelle en [exécutant une commande Azure PowerShell](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances
-) à partir d’un ordinateur client qui se connecte à votre abonnement Azure, ou bien à l’aide d’Azure Cloud Shell. 
+2. Ajoutez l’extension HpcVmDrivers à la machine virtuelle en [exécutant une commande Azure PowerShell](../virtual-machines/sizes-hpc.md) à partir d’un ordinateur client qui se connecte à votre abonnement Azure, ou bien à l’aide d’Azure Cloud Shell. 
 1. Établissez une connexion Bureau à distance à la machine virtuelle.
 1. Téléchargez le [package d’installation](https://www.microsoft.com/download/details.aspx?id=57467) (MSMpiSetup.exe) pour obtenir la dernière version de Microsoft MPI, puis installez Microsoft MPI.
 1. Suivez les étapes pour créer une [image de Shared Image Gallery](batch-sig-images.md) pour Batch.

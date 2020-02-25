@@ -1,5 +1,5 @@
 ---
-title: Évaluer les options pour migrer des données de la gamme StorSimple 5000-7000 | Microsoft Docs
+title: Options de migration de données à partir des appareils de la gamme StorSimple 5000-7000
 description: Fournit une vue d’ensemble des options pour migrer des données de la gamme StorSimple 5000-7000.
 services: storsimple
 documentationcenter: NA
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: d51891c076f1784fbddb88bfaed28ac1d889afdc
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 44a05ecb273bdf7582300c3b6a9110e2ada0994c
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227762"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471820"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Options pour migrer des données de la gamme StorSimple 5000-7000 
 
 > [!IMPORTANT]
-> La fin du support de la série StorSimple 5000/7000 interviendra le 9 juillet 2019. Nous recommandons aux clients de la série StorSimple 5000/7000 de migrer vers l’une des alternatives décrites dans le document.
+> La fin du support de la série StorSimple 5000/7000 interviendra le 9 juillet 2019. Nous recommandons aux clients de la série StorSimple 5000/7000 de migrer vers l’une des alternatives décrites dans le document.
 
 La [fin de la prise en charge](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) de la gamme StorSimple 5000-7000 est prévue en juillet 2019. Les clients qui exécutent la gamme StorSimple 5000-7000 peuvent mettre à niveau vers d’autres services hybrides internes Azure. Cet article décrit les options hybrides Azure disponibles pour migrer les données. 
 

@@ -21,7 +21,7 @@
     - name: Chef
       items:
         - name: Créer une machine virtuelle Windows
-          href: /azure/virtual-machines/windows/chef-automation
+          href: ./chef-automation.md
 - name: Informations de référence
   items:
     - name: Extension Azure Chef

@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 36563e11d7a5fb7cfd5878294c3b83977f6bb619
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 084c1b4163ac7f0f595fadba93a7905ea7f96dd0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772395"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485452"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Niveaux tarifaires pour Azure Database for MariaDB
 
@@ -21,9 +21,8 @@ Vous pouvez créer un serveur Azure Database for MariaDB dans un des trois diff�
 |:---|:----------|:--------------------|:---------------------|
 | Génération de calcul | Gen 5 |Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| Mémoire par vCore | 2 Go | 5 GO | 10 Go |
+| Mémoire par vCore | 2 Go | 5 Go | 10 Go |
 | Taille de stockage | 5 Go à 1 To | 5 Go à 4 To | 5 Go à 4 To |
-| Type de stockage | Stockage Azure Standard | Stockage Premium Azure | Stockage Premium Azure |
 | Période de rétention de sauvegarde de bases de données | 7 à 35 jours | 7 à 35 jours | 7 à 35 jours |
 
 Pour choisir un niveau tarifaire, utilisez le tableau suivant comme point de départ.
@@ -46,7 +45,7 @@ Le stockage que vous provisionnez est la quantité de stockage disponible pour v
 
 |    | **De base** | **Usage général** | **Mémoire optimisée** |
 |:---|:----------|:--------------------|:---------------------|
-| Type de stockage | Stockage Azure Standard | Stockage Premium Azure | Stockage Premium Azure |
+| Type de stockage | Stockage de base | Stockage à usage général | Stockage à usage général |
 | Taille de stockage | 5 Go à 1 To | 5 Go à 4 To | 5 Go à 4 To |
 | Taille d’incrément de stockage | 1 Go | 1 Go | 1 Go |
 | E/S par seconde | Variable |3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 6000 E/S par seconde | 3 E/S par seconde/Go<br/>Min 100 E/S par seconde<br/>Max 6000 E/S par seconde |
@@ -78,7 +77,7 @@ Par exemple, si vous avez provisionné 1000 Go de stockage et que l’utilisati
 
 N’oubliez pas que le stockage peut seulement monter en puissance.
 
-## <a name="backup"></a>Sauvegarde
+## <a name="backup"></a>Backup
 
 Le service effectue automatiquement des sauvegardes de votre serveur. La période de rétention minimale pour les sauvegardes est de sept jours. Vous pouvez définir une période de rétention allant jusqu’à 35 jours. La rétention peut être ajustée à tout moment pendant la durée de vie du serveur. Vous avez le choix entre les sauvegardes géoredondantes ou localement redondantes. Les sauvegardes géoredondantes sont également stockées dans la [région associée géographiquement](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) de la région dans laquelle votre serveur a été créé. Cette redondance fournit un niveau de protection en cas de sinistre. Vous obtenez également la possibilité de restaurer votre serveur vers n’importe quelle autre région Azure dans laquelle le service est disponible avec des sauvegardes géoredondantes. Il n’est pas possible de changer entre les deux options de stockage de sauvegarde après la création du serveur.
 
