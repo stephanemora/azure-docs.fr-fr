@@ -1,7 +1,7 @@
 ---
 title: Déboguer et résoudre les problèmes de pipelines de machine learning
 titleSuffix: Azure Machine Learning
-description: Déboguez et résolvez les problèmes de pipelines de machine learning dans le SDK Azure Machine Learning pour Python. Découvrez les écueils habituels du développement de pipelines ainsi que des conseils pour vous aider à déboguer les scripts avant et pendant l’exécution à distance.
+description: Déboguez et résolvez les problèmes de pipelines de machine learning dans le SDK Azure Machine Learning pour Python. Découvrez les écueils habituels du développement de pipelines ainsi que des conseils pour vous aider à déboguer les scripts avant et pendant l’exécution à distance. Découvrez comment utiliser Visual Studio Code pour déboguer de manière interactive vos pipelines de Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,22 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 12/12/2019
-ms.openlocfilehash: 5ba26584f08e705b24749a76d6f607aa84b48fab
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 0080b64e16b979b32aa5a91f9ee497e5f9ec47fb
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769124"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485367"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Déboguer et résoudre les problèmes de pipelines de machine learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dans cet article, vous allez découvrir comment déboguer et résoudre les problèmes de [pipelines de machine learning](concept-ml-pipelines.md) dans le [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) et le [concepteur Azure Machine Learning (préversion)](https://docs.microsoft.com/azure/machine-learning/concept-designer).
+Dans cet article, vous allez découvrir comment déboguer et résoudre les problèmes de [pipelines de machine learning](concept-ml-pipelines.md) dans le [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) et le [concepteur Azure Machine Learning (préversion)](https://docs.microsoft.com/azure/machine-learning/concept-designer). Vous trouverez des informations sur la manière d’effectuer les opérations suivantes :
+
+* Déboguer à l’aide du kit de développement logiciel (SDK) Azure Machine Learning
+* Déboguer à l’aide du Concepteur Azure Machine Learning
+* Déboguer à l’aide d’Application Insights
+* Déboguer de manière interactive à l’aide de Visual Studio Code (VS Code) et du plug-in Python Tools pour Visual Studio (PTVS)
 
 ## <a name="debug-and-troubleshoot-in-the-azure-machine-learning-sdk"></a>Déboguer et résoudre les problèmes dans le SDK Azure Machine Learning
 Les sections suivantes offrent une vue d’ensemble des écueils habituels de la création de pipelines et exposent différentes stratégies pour déboguer votre code qui s’exécute dans un pipeline. Servez-vous des conseils suivants quand vous avez des difficultés à exécuter un pipeline comme prévu.
@@ -148,6 +153,239 @@ Vous pouvez également trouver les fichiers journaux d’exécutions spécifique
 
 ## <a name="debug-and-troubleshoot-in-application-insights"></a>Déboguez et détectez des problèmes dans Application Insights
 Pour en savoir plus sur l’utilisation de la bibliothèque Python OpenCensus de cette manière, consultez ce guide : [Déboguer et résoudre les problèmes de pipelines de Machine Learning dans Application Insights](how-to-debug-pipelines-application-insights.md)
+
+## <a name="debug-and-troubleshoot-in-visual-studio-code"></a>Déboguer et détecter un problème dans Visual Studio Code
+
+Dans certains cas, vous devrez peut-être déboguer interactivement le code Python utilisé dans votre pipeline ML. Visual Studio Code (VS Code) et le plug-in Python Tools pour Visual Studio (PTVS) pouvez attacher au code en cours d’exécution dans l’environnement d’apprentissage.
+
+### <a name="prerequisites"></a>Conditions préalables
+
+* Un __espace de travail Azure Machine Learning__ configuré pour utiliser un __réseau virtuel Azure__.
+* un __pipeline Azure Machine Learning__ utilisant des scripts Python dans le cadre de ses étapes. Par exemple, PythonScriptStep.
+* Un cluster de Capacité de calcul Machine Learning se trouvant __dans le réseau virtuel__, que __le pipeline utilise pour effectuer l’apprentissage__.
+* Un __environnement de développement__ se trouvant __dans le réseau virtuel__. L’environnement de développement peut être l’une des ressources suivantes :
+
+    * une machine virtuelle Azure se trouvant dans le réseau virtuel ;
+    * une instance de calcul de machine virtuelle Notebook se trouvant dans le réseau virtuel ;
+    * un ordinateur client connecté au réseau virtuel via un réseau privé virtuel (VPN).
+
+Pour plus d’informations sur l’utilisation d’un réseau virtuel Azure avec Azure Machine Learning, voir [Sécuriser l’expérimentation Azure Machine Learning et les travaux d’inférence au sein d’un réseau virtuel Azure](how-to-enable-virtual-network.md).
+
+### <a name="how-it-works"></a>Fonctionnement
+
+Les étapes de votre pipeline ML exécutent des scripts Python. Ces scripts sont modifiés pour effectuer les actions suivantes :
+    
+1. journaliser l’adresse IP de l’hôte sur lequel ils s’exécutent. Vous utilisez l’adresse IP pour connecter le débogueur au script.
+
+2. Démarrer le composant de débogage PTVS et attendre qu’un débogueur se connecte.
+
+3. À partir de votre environnement de développement, vous surveillez les journaux créés par le processus d’apprentissage pour trouver l’adresse IP où le script est en cours d’exécution.
+
+4. Vous indiquez à VS Code l’adresse IP à laquelle connecter le débogueur à l’aide d’un fichier `launch.json`.
+
+5. Vous attachez le débogueur et parcourez le script de manière interactive.
+
+### <a name="configure-python-scripts"></a>Configurer des scripts Python
+
+Pour activer le débogage, apportez les modifications suivantes au(x) script(s) Python utilisé(s) dans les étapes de votre pipeline ML :
+
+1. Ajoutez les instructions d’importation suivantes :
+
+    ```python
+    import ptvsd
+    import socket
+    from azureml.core import Run
+    ```
+
+1. Ajoutez les arguments suivants : Ces arguments vous permettent d’activer le débogueur en fonction des besoins, et de définir le délai d’attente pour l’attachement du débogueur :
+
+    ```python
+    parser.add_argument('--remote_debug', action='store_true')
+    parser.add_argument('--remote_debug_connection_timeout', type=int,
+                    default=300,
+                    help=f'Defines how much time the Azure ML compute target '
+                    f'will await a connection from a debugger client (VSCODE).')
+    ```
+
+1. Ajoutez les instructions suivantes. Ces instructions chargent le contexte d’exécution actuel afin que vous puissiez journaliser l’adresse IP du nœud sur lequel le code s’exécute :
+
+    ```python
+    global run
+    run = Run.get_context()
+    ```
+
+1. Ajoutez une instruction `if` qui démarre PTVS et attend qu’un débogueur s’attache. Si aucun débogueur ne s’attache avant le délai d’expiration, le script continue à s’exécuter normalement.
+
+    ```python
+    if args.remote_debug:
+        print(f'Timeout for debug connection: {args.remote_debug_connection_timeout}')
+        # Log the IP and port
+        ip = socket.gethostbyname(socket.gethostname())
+        print(f'ip_address: {ip}')
+        ptvsd.enable_attach(address=('0.0.0.0', 5678),
+                            redirect_output=True)
+        # Wait for the timeout for debugger to attach
+        ptvsd.wait_for_attach(timeout=args.remote_debug_connection_timeout)
+        print(f'Debugger attached = {ptvsd.is_attached()}')
+    ```
+
+L’exemple Python suivant montre un fichier `train.py` de base qui active le débogage :
+
+```python
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license.
+
+import argparse
+import os
+import ptvsd
+import socket
+from azureml.core import Run
+
+print("In train.py")
+print("As a data scientist, this is where I use my training code.")
+
+parser = argparse.ArgumentParser("train")
+
+parser.add_argument("--input_data", type=str, help="input data")
+parser.add_argument("--output_train", type=str, help="output_train directory")
+
+# Argument check for remote debugging
+parser.add_argument('--remote_debug', action='store_true')
+parser.add_argument('--remote_debug_connection_timeout', type=int,
+                    default=300,
+                    help=f'Defines how much time the AML compute target '
+                    f'will await a connection from a debugger client (VSCODE).')
+# Get run object, so we can find and log the IP of the host instance
+global run
+run = Run.get_context()
+
+args = parser.parse_args()
+
+# Start debugger if remote_debug is enabled
+if args.remote_debug:
+    print(f'Timeout for debug connection: {args.remote_debug_connection_timeout}')
+    # Log the IP and port
+    ip = socket.gethostbyname(socket.gethostname())
+    print(f'ip_address: {ip}')
+    ptvsd.enable_attach(address=('0.0.0.0', 5678),
+                        redirect_output=True)
+    # Wait for the timeout for debugger to attach
+    ptvsd.wait_for_attach(timeout=args.remote_debug_connection_timeout)
+    print(f'Debugger attached = {ptvsd.is_attached()}')
+
+print("Argument 1: %s" % args.input_data)
+print("Argument 2: %s" % args.output_train)
+
+if not (args.output_train is None):
+    os.makedirs(args.output_train, exist_ok=True)
+    print("%s created" % args.output_train)
+```
+
+### <a name="configure-ml-pipeline"></a>Configurer un pipeline ML
+
+Pour fournir les packages Python nécessaires pour démarrer PTVS et obtenir le contexte d’exécution, créez un [environnement]() et définissez `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`. Modifiez la version du kit de développement logiciel (SDK) pour qu’elle corresponde à celle que vous utilisez. L’extrait de code suivant montre comment créer un environnement :
+
+```python
+# Use a RunConfiguration to specify some additional requirements for this step.
+from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core.runconfig import DEFAULT_CPU_IMAGE
+
+# create a new runconfig object
+run_config = RunConfiguration()
+
+# enable Docker 
+run_config.environment.docker.enabled = True
+
+# set Docker base image to the default CPU-based image
+run_config.environment.docker.base_image = DEFAULT_CPU_IMAGE
+
+# use conda_dependencies.yml to create a conda environment in the Docker image for execution
+run_config.environment.python.user_managed_dependencies = False
+
+# specify CondaDependencies obj
+run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'],
+                                                                           pip_packages=['ptvsd', 'azureml-sdk==1.0.83'])
+```
+
+Dans la section [Configurer des scripts Python](#configure-python-scripts), deux nouveaux arguments ont été ajoutés aux scripts qu’utilisent les étapes de votre pipeline ML. L’extrait de code suivant montre comment utiliser ces arguments pour activer le débogage pour le composant et définir un délai d’expiration. Il montre également comment utiliser l’environnement créé précédemment en définissant `runconfig=run_config` :
+
+```python
+# Use RunConfig from a pipeline step
+step1 = PythonScriptStep(name="train_step",
+                         script_name="train.py",
+                         arguments=['--remote_debug', '--remote_debug_connection_timeout', 300],
+                         compute_target=aml_compute, 
+                         source_directory=source_directory,
+                         runconfig=run_config,
+                         allow_reuse=False)
+```
+
+Lorsque le pipeline s’exécute, chaque étape crée une exécution enfant. Si le débogage est activé, le script modifié journalise des informations similaires au texte suivant dans le fichier `70_driver_log.txt` pour l’exécution enfant :
+
+```text
+Timeout for debug connection: 300
+ip_address: 10.3.0.5
+```
+
+Enregistrez la valeur `ip_address`. Elle sera utilisée dans la section suivante.
+
+> [!TIP]
+> Vous pouvez également trouver l’adresse IP dans les journaux de l’exécution enfant pour cette étape de pipeline. Pour plus d’informations sur l’affichage de ces informations, voir [Surveiller les exécutions et les métriques des expériences Azure Machine Learning](how-to-track-experiments.md).
+
+### <a name="configure-development-environment"></a>Configurer l’environnement de développement
+
+1. Pour installer Python Tools pour Visual Studio (PTVS) sur votre environnement de développement VS Code, utilisez la commande suivante :
+
+    ```
+    python -m pip install --upgrade ptvsd
+    ```
+
+    Pour plus d’informations sur l’utilisation de PTVSD avec VS Code, consultez [Débogage à distance](https://code.visualstudio.com/docs/python/debugging#_remote-debugging).
+
+1. Pour configurer VS Code afin de communiquer avec la Capacité de calcul Azure Machine Learning qui exécute le débogueur, créez une nouvelle configuration de débogage :
+
+    1. Dans VS Code, sélectionnez le menu __Déboguer__, puis sélectionnez __Ouvrir les configurations__. Un fichier nommé __launch.json__ s’ouvre.
+
+    1. Dans le fichier __launch.json__, recherchez la ligne contenant `"configurations": [` et insérez le texte suivant après celle-ci : Remplacez l’entrée `"host": "10.3.0.5"` par l’adresse IP renvoyée dans vos journaux de la section précédente. Remplacez l’entrée `"localRoot": "${workspaceFolder}/code/step"` par un répertoire local contenant une copie du script en cours de débogage :
+
+        ```json
+        {
+            "name": "Azure Machine Learning Compute: remote debug",
+            "type": "python",
+            "request": "attach",
+            "port": 5678,
+            "host": "10.3.0.5",
+            "redirectOutput": true,
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}/code/step1",
+                    "remoteRoot": "."
+                }
+            ]
+        }
+        ```
+
+        > [!IMPORTANT]
+        > Si la section des configurations contient déjà d’autres entrées, ajoutez une virgule (,) après le code que vous avez inséré.
+
+        > [!TIP]
+        > La meilleure pratique consiste à conserver les ressources des scripts dans des répertoires distincts. C’est pourquoi la valeur de l’exemple `localRoot` fait référence à `/code/step1`.
+        >
+        > Si vous déboguez plusieurs scripts, dans des répertoires différents, créez une section de configuration distincte pour chaque script.
+
+    1. Enregistrez le fichier __launch.json__.
+
+### <a name="connect-the-debugger"></a>Connectez le débogueur.
+
+1. Ouvrez VS Code et ouvrez une copie locale du script.
+2. Définissez des points d’arrêt là où vous souhaitez que le script s’arrête une fois que vous l’avez attaché.
+3. Pendant que le processus enfant exécute le script et que le `Timeout for debug connection` s’affiche dans les journaux, utilisez la touche F5 ou sélectionnez __Déboguer__. Lorsque vous y êtes invité, sélectionnez la configuration __Capacité de calcul Azure Machine Learning : débogage à distance__. Vous pouvez également sélectionner l’icône de débogage dans la barre latérale, l’entrée __Azure Machine Learning : débogage à distance__ dans le menu déroulant Débogage, puis utiliser la flèche verte pour attacher le débogueur.
+
+    À ce stade, VS Code se connecte à PTVS sur le nœud de calcul et s’arrête au point d’arrêt que vous avez préalablement défini. Vous pouvez maintenant parcourir le code au fur et à mesure de son exécution, afficher des variables etc.
+
+    > [!NOTE]
+    > Si le journal contient une entrée indiquant `Debugger attached = False`, cela signifie que le délai d’expiration a expiré et que l’exécution du script a continué sans le débogueur. Soumettez à nouveau le pipeline et connectez le débogueur après le message `Timeout for debug connection`, et avant la fin du délai d’expiration.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

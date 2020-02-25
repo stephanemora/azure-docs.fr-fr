@@ -8,7 +8,7 @@
   expanded: true
   items:
     - name: Moniteur de connexion (préversion)
-      href: connection-monitor-2-preview.md
+      href: connection-monitor-preview.md
     - name: Diagnostiquer un problème de filtre de trafic sur une machine virtuelle - Portail
       href: diagnose-vm-network-traffic-filtering-problem.md
     - name: Diagnostiquer un problème de filtre de trafic sur une machine virtuelle - PowerShell
