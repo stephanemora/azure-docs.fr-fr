@@ -21,7 +21,7 @@
         - name: Azure Stack
           items:
             - name: Vue d’ensemble du déploiement Azure Stack
-              href: ../../azure-stack/azure-stack-deploy-overview.md
+              href: /azure-stack/asdk/asdk-download
         - name: Sauvegarde Azure
           items:
             - name: Sauvegarder une machine virtuelle dans le portail Azure
@@ -39,7 +39,7 @@
             - name: Créer et gérer des machines virtuelles Linux
               href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Pipeline d’intégration continue/de livraison continue (CI/CD) Jenkins
-              href: ../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+              href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: Équilibrer la charge des machines virtuelles
               href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
             - name: "Création de modèles Azure\_Resource\_Manager"
@@ -60,4 +60,4 @@
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Présentation du portail Microsoft Azure
           href: 'https://azure.microsoft.com/documentation/articles/azure-portal-overview/'
-    - name: Références
+    - name: References

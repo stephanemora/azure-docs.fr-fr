@@ -12,7 +12,7 @@
     - name: Intégration et déploiement continus avec Docker Swarm et Azure DevOps
       href: /azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine
     - name: 'CI/CD avec Docker, Jenkins et Linux'
-      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+      href: /azure/jenkins/tutorial-jenkins-github-docker-cicd
 - name: Guides pratiques
   items:
     - name: Extension de machine virtuelle Docker

@@ -10,12 +10,12 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: gwallace
-ms.openlocfilehash: 33f18722c26decb117a476a9d3adb562a7a726ed
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 4f4849139f0e5c5a8672b9364f7acc03cff6c948
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610453"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605569"
 ---
 <div class="content">
    <h1>Docker sur Azure</h1>   
@@ -33,7 +33,7 @@ Docker est une solution courante de gestion de conteneurs et une plateforme de c
 <ol>
   <li><a href="/azure/app-service/containers/tutorial-python-postgresql-app">Créer des outils Python et PostgreSQL avec Docker</a></li>
   <li><a href="/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">Intégration et déploiement continus avec Docker Swarm et Azure DevOps Services</a></li>
-  <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Intégrer des machines virtuelles Docker, Jenkins et Linux</a></li>
+  <li><a href="/azure/jenkins/tutorial-jenkins-github-docker-cicd">Intégrer des machines virtuelles Docker, Jenkins et Linux</a></li>
 </ol>
 <h2>Ressources</h2>
 <p>Consultez les liens suivants concernant d’autres supports et outils de référence à utiliser avec Docker sur Azure.</p>
