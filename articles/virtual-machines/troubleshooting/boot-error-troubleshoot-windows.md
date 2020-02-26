@@ -1,5 +1,5 @@
 ---
-title: Le redémarrage de Machines virtuelles Azure est bloqué sur Redémarrage, Arrêt ou Arrêt des services | Microsoft Docs
+title: L’arrêt de Machines virtuelles Azure est bloqué sur Redémarrage, Arrêt ou Arrêt des services | Microsoft Docs
 description: Cet article vous aide à résoudre les problèmes des erreurs du service dans Machines virtuelles Windows Azure.
 services: virtual-machines-windows
 documentationCenter: ''
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: db7b26402170236843891799738088b9229e4693
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d6396efc9ab25baa0d32e7c33c7715863516249
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474191"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371361"
 ---
-# <a name="azure-windows-vm-restart-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Le redémarrage de Machines virtuelles Windows Azure est bloqué sur « Redémarrage », « Arrêt » ou « Arrêt des services »
+# <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>L’arrêt de Machines virtuelles Windows Azure est bloqué sur « Redémarrage », « Arrêt » ou « Arrêt des services »
 
-Cet article décrit les étapes à suivre pour résoudre les problèmes des messages « Redémarrage », « Arrêt » ou « Arrêt des services » que vous pouvez rencontrer quand vous redémarrez une machine virtuelle Windows dans Microsoft Azure.
+Cet article décrit les étapes à suivre pour résoudre les problèmes de messages « Redémarrage », « Arrêt » ou « Arrêt des services » que vous pouvez rencontrer quand vous redémarrez une machine virtuelle Windows dans Microsoft Azure.
 
 ## <a name="symptoms"></a>Symptômes
 

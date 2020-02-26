@@ -3,12 +3,12 @@ title: Fonctions de modèle - Ressources
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs sur les ressources.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: cc8976b714549f7442e22b341b34e81d717c8742
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 10476f5a29c12d7437beb9a9f707feda815d7ba1
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120528"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207006"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Fonctions de ressources pour les modèles Azure Resource Manager
 
@@ -124,7 +124,7 @@ La syntaxe de cette fonction varie en fonction du nom des opérations de liste. 
 
 ### <a name="valid-uses"></a>Utilisations valides
 
-Les fonctions list peuvent être utilisées uniquement dans les propriétés d’une définition de ressource et dans la section outputs d’un modèle ou d’un déploiement. Quand elles sont utilisées avec une [itération de propriété](create-multiple-instances.md#property-iteration), vous pouvez utiliser les fonctions list pour `input`, car l’expression est affectée à la propriété de ressource. Vous ne pouvez pas les utiliser avec `count`, car le nombre doit être déterminé avant que la fonction list ne soit résolue.
+Les fonctions list peuvent être utilisées uniquement dans les propriétés d’une définition de ressource et dans la section outputs d’un modèle ou d’un déploiement. Quand elles sont utilisées avec une [itération de propriété](copy-properties.md), vous pouvez utiliser les fonctions list pour `input`, car l’expression est affectée à la propriété de ressource. Vous ne pouvez pas les utiliser avec `count`, car le nombre doit être déterminé avant que la fonction list ne soit résolue.
 
 ### <a name="implementations"></a>Implémentations
 
@@ -496,7 +496,7 @@ Utilisez `'Full'` quand vous avez besoin de valeurs de ressource qui ne font pas
 
 ### <a name="valid-uses"></a>Utilisations valides
 
-La fonction de référence ne peut être utilisée que dans les propriétés d’une définition de ressource et dans la section de sortie d’un modèle ou d’un déploiement. Lorsqu’elle est utilisée avec une [itération de propriété](create-multiple-instances.md#property-iteration), vous pouvez utiliser la fonction de référence pour `input`, car l’expression est affectée à la propriété de ressource. Vous ne pouvez pas l’utiliser avec `count`, car le nombre doit être déterminé avant que la fonction de référence ne soit résolue.
+La fonction de référence ne peut être utilisée que dans les propriétés d’une définition de ressource et dans la section de sortie d’un modèle ou d’un déploiement. Lorsqu’elle est utilisée avec une [itération de propriété](copy-properties.md), vous pouvez utiliser la fonction de référence pour `input`, car l’expression est affectée à la propriété de ressource. Vous ne pouvez pas l’utiliser avec `count`, car le nombre doit être déterminé avant que la fonction de référence ne soit résolue.
 
 Vous ne pouvez pas utiliser la fonction Référence dans les sorties d’un [modèle imbriqué](linked-templates.md#nested-template) pour retourner une ressource que vous avez déployée dans le modèle imbriqué. Utilisez plutôt un [modèle lié](linked-templates.md#linked-template).
 
@@ -758,7 +758,7 @@ Retourne l'identificateur unique d'une ressource. Vous utilisez cette fonction l
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Non |string (au format GUID) |La valeur par défaut est l’abonnement actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre abonnement. |
+| subscriptionId |Non |string (au format GUID) |La valeur par défaut est l’abonnement actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre abonnement. Fournissez cette valeur uniquement lors du déploiement à l’échelle d’un groupe de ressources ou d’un abonnement. |
 | resourceGroupName |Non |string |La valeur par défaut est le groupe de ressources actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre groupe de ressources. Fournissez cette valeur uniquement lors du déploiement à l’échelle d’un groupe de ressources. |
 | resourceType |Oui |string |Type de ressource, y compris l'espace de noms du fournisseur de ressources. |
 | nom_ressource1 |Oui |string |Nom de la ressource. |
@@ -1064,6 +1064,6 @@ Cette fonction permet de récupérer l’ID d’une ressource déployée sur le 
 
 * Pour obtenir une description des sections d’un modèle Azure Resource Manager, consultez [Création de modèles Azure Resource Manager](template-syntax.md).
 * Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](linked-templates.md).
-* Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](create-multiple-instances.md).
+* Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](copy-resources.md).
 * Pour savoir comment déployer le modèle que vous avez créé, consultez [Déployer une application avec un modèle Azure Resource Manager](deploy-powershell.md).
 

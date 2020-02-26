@@ -7,16 +7,19 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: srchi
-ms.openlocfilehash: fbfce1c107fcf4b6f7d0b5f590a8ddfa64e69190
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: ec1ec1a8a80953f8988355341ee7128bd29b982d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184740"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467775"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Flux de modification dans l’API pour MongoDB d’Azure Cosmos DB
 
 La prise en charge du [flux de modification](change-feed.md) dans l’API pour MongoDB d’Azure Cosmos DB est disponible à l’aide de l’API de flux de modification. À l’aide de l’API de flux de modification, vos applications peuvent obtenir les modifications apportées à la collection ou aux éléments d’une seul partition. Par la suite, vous pouvez effectuer d’autres actions en fonction des résultats. Les modifications apportées aux éléments de la collection sont capturées dans l’ordre de leur modification, et l’ordre de tri est garanti par clé de partition.
+
+> [!NOTE]
+> Pour utiliser les flux de modification, créez le compte à l’aide de la version 3.6 ou une version ultérieure de l’API d’Azure Cosmos DB pour MongoDB. Si vous exécutez les exemples de flux de modification sur une version antérieure, vous pouvez voir l’erreur `Unrecognized pipeline stage name: $changeStream`. 
 
 L’exemple suivant montre comment récupérer des flux de modification sur tous les éléments de la collection. Cet exemple crée un curseur pour surveiller les éléments lorsqu’ils sont insérés, mis à jour ou remplacés. L’étape $match, l’étape $project et l’option fullDocument sont nécessaires pour récupérer les flux de modification. La surveillance des opérations de suppression à l’aide de flux de modification n’est pas prise en charge actuellement. Pour contourner ce problème, vous pouvez ajouter un marqueur réversible sur les éléments en cours de suppression. Par exemple, vous pouvez ajouter un attribut dans l’élément appelé « deleted » et lui attribuer la valeur « true », puis définir une durée de vie pour l’élément afin de pouvoir le supprimer automatiquement et le suivre.
 
@@ -54,7 +57,7 @@ var cursor = db.coll.watch(
 
 ```
 
-## <a name="current-limitations"></a>Limitations actuelles
+## <a name="current-limitations"></a>Limites actuelles
 
 Les limitations suivantes s’appliquent quand plusieurs flux de modification sont utilisés :
 

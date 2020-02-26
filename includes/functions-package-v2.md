@@ -1,27 +1,26 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: functions
-author: ggailey777
+author: craigshoemaker
 manager: gwallace
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/04/2018
-ms.author: glenga
+ms.date: 01/28/2020
+ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: 81971a1c56a51e0c110337fb645f0b84bb5d20b8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2eb82eb8b4a64cbbfef91539f46ba084aa73f207
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914916"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77205674"
 ---
-Le tableau suivant indique comment ajouter la prise en charge de cette liaison dans chaque environnement de développement.
+Ajoutez la prise en charge dans votre environnement de développement préféré à l’aide des méthodes suivantes.
 
-| Environnement de développement               | Pour ajouter la prise en charge  |
-|----------------------|----------------|
-|Développement local - Bibliothèque de classes C#       | [Installer le package](../articles/azure-functions/functions-bindings-register.md#vs). |
-|Développement local - Script C#, JavaScript, F#, Java et Python |[Enregistrer l’extension](../articles/azure-functions/functions-bindings-register.md#extension-bundles)         |
-|Développement sur le portail| Installer lors de l’ajout d’une liaison de sortie    |
-
-Pour apprendre comment mettre à jour les extensions de liaison existantes dans le portail sans avoir à republier votre projet d'application de fonction, voir [Mettre à jour vos extensions](../articles/azure-functions/install-update-binding-extensions-manual.md).
+| Environnement de développement  | Type d'application      | Pour ajouter la prise en charge |
+|--------------------------|-----------------------|----------------|
+| Visual Studio            | Bibliothèque de classes C#      | [Installer le package NuGet](../articles/azure-functions/functions-bindings-register.md#vs) |
+| Visual Studio Code       | Basé sur [Core Tools](../articles/azure-functions/functions-run-local.md) | [Inscrire le pack d’extension](../articles/azure-functions/functions-bindings-register.md#extension-bundles)<br><br>Il est recommandé d’installer l’[extension Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack). |
+| Tout autre éditeur/IDE     | Basé sur [Core Tools](../articles/azure-functions/functions-run-local.md) | [Inscrire le pack d’extension](../articles/azure-functions/functions-bindings-register.md#extension-bundles) |
+| Portail Azure             | En ligne uniquement dans le portail | S’installe lors de l’ajout d’une liaison<br /><br /> Pour mettre à jour des extensions de liaison existantes sans avoir à republier votre application de fonction, consultez [Mettre à jour vos extensions](../articles/azure-functions/install-update-binding-extensions-manual.md). |

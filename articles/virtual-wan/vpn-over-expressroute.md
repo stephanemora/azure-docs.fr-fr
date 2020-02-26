@@ -1,21 +1,20 @@
 ---
-title: Créer une connexion VPN de site à site par peering privé ExpressRoute dans Azure Virtual WAN | Microsoft Docs
+title: 'Configurer le chiffrement ExpressRoute : IPsec sur ExpressRoute pour Azure Virtual WAN'
 description: Dans ce tutoriel, découvrez comment utiliser Azure Virtual WAN pour créer une connexion VPN site à site par Peering privé ExpressRoute.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 02/18/2020
 ms.author: cherylmc
-Customer intent: I want to connect my on-premises networks to my virtual networks by using an S2S VPN connection over my ExpressRoute private peering through Azure Virtual WAN.
-ms.openlocfilehash: ae971bad47d84b6928ebea64e416d21af25528ad
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c74f703927999bf35dd2d8292b8fa0a6d3c55065
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896623"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459784"
 ---
-# <a name="create-a-site-to-site-vpn-connection-over-expressroute-private-peering-by-using-azure-virtual-wan"></a>Créer une connexion VPN site à site par Peering privé ExpressRoute à l’aide d’Azure Virtual WAN
+# <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Chiffrement ExpressRoute : IPsec sur ExpressRoute pour Virtual WAN
 
 Cet article explique comment utiliser Azure Virtual WAN pour établir une connexion VPN IPsec/IKE d’un réseau local vers Azure par Peering privé d’un circuit Azure ExpressRoute. Cette technique peut assurer un transit chiffré entre les réseaux locaux et les réseaux virtuels Azure par ExpressRoute, sans passer par l’Internet public ni utiliser des IP publiques.
 
@@ -83,7 +82,7 @@ La ressource de site est la même que les sites VPN non ExpressRoute pour un WAN
    * **Abonnement**: Vérifiez l’abonnement.
    * **Groupe de ressources** : Sélectionnez ou créez le groupe de ressources à utiliser.
    * **Région** : Entrez la région Azure pour la ressource de site VPN.
-   * **Nom** : Entrez le nom par lequel vous souhaitez faire référence à votre site local.
+   * **Name** : Entrez le nom par lequel vous souhaitez faire référence à votre site local.
    * **Fournisseur de l’appareil** : Entrez le fournisseur du périphérique VPN local.
    * **Border Gateway Protocol** : Sélectionnez « Activer » si votre réseau local utilise le protocole BGP.
    * **Espace d’adressage privé** : Entrez l’espace d’adressage IP qui se trouve sur votre site local. Le trafic destiné à cet espace d’adressage est routé vers le réseau local via la passerelle VPN.
@@ -133,15 +132,15 @@ Le fichier config du périphérique contient les paramètres à utiliser lors de
 * **vpnSiteConfiguration** : Cette section indique les détails de l’appareil configuré comme un site se connectant au WAN virtuel. Cela inclut le nom et l’IP publique du périphérique de branche.
 * **vpnSiteConnections** : Cette section fournit des informations sur les paramètres suivants :
 
-    * Espace d’adressage du réseau virtuel du hub virtuel.<br/>Exemple :
+    * Espace d’adressage du réseau virtuel du hub virtuel.<br/>Exemple :
            ```
            "AddressSpace":"10.51.230.0/24"
            ```
-    * Espace d’adressage des réseaux virtuels qui sont connectés au hub.<br>Exemple :
+    * Espace d’adressage des réseaux virtuels qui sont connectés au hub.<br>Exemple :
            ```
            "ConnectedSubnets":["10.51.231.0/24"]
             ```
-    * Adresses IP de la passerelle VPN du hub virtuel. Étant donné que chaque connexion de la passerelle VPN est composée de deux tunnels en configuration actif-actif, vous pouvez voir les deux adresses IP répertoriées dans ce fichier. Dans cet exemple, `Instance0` et `Instance1` apparaissent pour chaque site ; il s’agit d’adresses IP privées et non d’IP publiques.<br>Exemple :
+    * Adresses IP de la passerelle VPN du hub virtuel. Étant donné que chaque connexion de la passerelle VPN est composée de deux tunnels en configuration actif-actif, vous pouvez voir les deux adresses IP répertoriées dans ce fichier. Dans cet exemple, `Instance0` et `Instance1` apparaissent pour chaque site ; il s’agit d’adresses IP privées et non d’IP publiques.<br>Exemple :
            ``` 
            "Instance0":"10.51.230.4"
            "Instance1":"10.51.230.5"
@@ -235,7 +234,7 @@ Si vous avez besoin d’instructions pour configurer votre périphérique, vous 
 
 Créez une connexion pour surveiller les communications entre une machine virtuelle Azure et un site distant. Pour plus d’informations sur la façon de configurer un contrôleur de connexion, consultez [Surveiller une communication réseau](~/articles/network-watcher/connection-monitor.md). Le champ source est l’adresse IP de la machine virtuelle dans Azure, et l’adresse IP de destination est le l’adresse IP du site.
 
-## <a name="cleanup"></a>8. Supprimer des ressources
+## <a name="cleanup"></a>8. Nettoyer les ressources
 
 Quand vous n’avez plus besoin de ces ressources, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Exécutez la commande PowerShell suivante et remplacez `myResourceGroup` par le nom de votre groupe de ressources :
 

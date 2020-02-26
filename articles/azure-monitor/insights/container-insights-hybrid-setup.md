@@ -3,18 +3,18 @@ title: Configurer des clusters Kubernetes hybrides avec Azure Monitor pour les c
 description: Cet article explique comment configurer Azure Monitor pour les conteneurs afin de surveiller les clusters Kubernetes hébergés sur Azure Stack ou dans un autre environnement.
 ms.topic: conceptual
 ms.date: 01/24/2020
-ms.openlocfilehash: 7796cc7300f34a7a412495754c083b112ba05041
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 6d03716b988b1139e01d41120f48ea9a9bf34be1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759890"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198052"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurer des clusters Kubernetes hybrides avec Azure Monitor pour les conteneurs
 
-Azure Monitor pour les conteneurs offre une expérience d’analyse riche pour les clusters Azure Kubernetes Service (AKS) et Moteur AKS hébergés dans Azure. Cet article explique comment activer la surveillance des clusters Kubernetes hébergés en dehors d’Azure et obtenir une expérience de surveillance similaire.
+Azure Monitor pour les conteneurs offre une expérience d’analyse riche pour Azure Kubernetes Service (AKS) et [Moteur AKS sur Azure](https://github.com/Azure/aks-engine), qui est un cluster Kubernetes automanagé hébergé sur Azure. Cet article explique comment activer la surveillance des clusters Kubernetes hébergés en dehors d’Azure et obtenir une expérience de surveillance similaire.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
@@ -285,8 +285,8 @@ Si vous rencontrez une erreur lors de la tentative d’activation de la surveill
 
 * L’espace de travail Log Analytics spécifié est valide
 * L’espace de travail Log Analytics est configuré avec la solution Azure Monitor pour conteneurs. Si ce n’est pas le cas, configurez l’espace de travail.
-* Le pod replicaset OmsAgent est en cours d’exécution
-* Le pod daemonset OmsAgent est en cours d’exécution
+* Les pods replicaset OmsAgent sont en cours d’exécution
+* Les pods daemonset OmsAgent sont en cours d’exécution
 * Le service Intégrité OmsAgent est en cours d’exécution
 * L’ID et la clé de l’espace de travail Log Analytics configurés sur l’agent en conteneur correspondent à l’espace de travail avec lequel Insight est configuré.
 * Vérifiez que tous les nœuds Worker Linux ont l’étiquette `kubernetes.io/role=agent` pour planifier le pod rs. Si ce n’est pas le cas, ajoutez-la.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 47c1ce3391129525237566fb92cec2e9b33ca08f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de2b40ea0339b564b97d17601415d1071bdc6a6e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443410"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367917"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory
 
@@ -146,6 +146,8 @@ Non. Le proxy d’application Azure AD est conçu pour fonctionner avec Azure AD
 ### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>WebSocket prend-il en charge des applications autres que QlikSense ?
 
 Actuellement, la prise en charge du protocole WebSocket est toujours en préversion publique et peut ne pas fonctionner pour d’autres applications. Malgré tout, certains clients ont tant bien que mal réussi à utiliser le protocole WebSocket avec d’autres applications. Si vous testez de tels scénarios, nous serions ravis de connaître vos résultats. Envoyez-nous vos commentaires à l’adresse aadapfeedback@microsoft.com.
+
+Les fonctionnalités (Eventlogs, PowerShell et Services Bureau à distance) de Windows Admin Center (WAC) ou du client web Bureau à distance ne fonctionnent pas actuellement via Proxy d’application Azure Active Directory.
 
 ## <a name="link-translation"></a>Traduction de liens
 

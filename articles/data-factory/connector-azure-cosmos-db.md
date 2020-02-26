@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
-ms.openlocfilehash: 6e9e1d54599ab88092638762ccd7974e44c82cbf
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 7096b429145a54b5a09fe38eb8099c4ff24ac452
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025807"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460958"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Cosmos DB (API SQL) à l’aide d’Azure Data Factory
 
@@ -318,7 +318,7 @@ Pour obtenir une copie indépendante du schéma :
 
 ## <a name="migrate-from-relational-database-to-cosmos-db"></a>Migrer de la base de données relationnelle vers Cosmos DB
 
-Lors de la migration d'une base de données relationnelle (par exemple, SQL Server) vers Azure Cosmos DB, l'activité de copie peut facilement mapper des données tabulaires de la source pour aplatir les documents JSON dans Cosmos DB. Dans certains cas, vous souhaiterez peut-être reconcevoir le modèle de données afin de l'optimiser pour les cas d'usage NoSQL, conformément à [Modélisation des données dans Azure Cosmos DB](../cosmos-db/modeling-data.md), par exemple pour dénormaliser les données en incorporant tous les sous-éléments associés dans un document JSON. Reportez-vous alors à [ce billet de blog](https://medium.com/@ArsenVlad/denormalizing-via-embedding-when-copying-data-from-sql-to-cosmos-db-649a649ae0fb). Celui-ci contient une procédure pas à pas décrivant comment y parvenir à l'aide d'une activité de copie Azure Data Factory.
+Lors de la migration d'une base de données relationnelle (par exemple, SQL Server) vers Azure Cosmos DB, l'activité de copie peut facilement mapper des données tabulaires de la source pour aplatir les documents JSON dans Cosmos DB. Dans certains cas, vous souhaiterez peut-être reconcevoir le modèle de données afin de l'optimiser pour les cas d'usage NoSQL, conformément à [Modélisation des données dans Azure Cosmos DB](../cosmos-db/modeling-data.md), par exemple pour dénormaliser les données en incorporant tous les sous-éléments associés dans un document JSON. Reportez-vous alors à [cet article](../cosmos-db/migrate-relational-to-cosmos-db-sql-api.md). Celui-ci contient une procédure pas à pas décrivant comment y parvenir à l’aide d’une activité de copie Azure Data Factory.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

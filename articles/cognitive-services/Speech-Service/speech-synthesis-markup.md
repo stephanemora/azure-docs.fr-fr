@@ -3,19 +3,19 @@ title: Langage SSML - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Utilisation du langage de balisage de synthèse vocale pour contrôler la prononciation et la prosodie dans la synthèse vocale.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
-ms.author: erhopf
-ms.openlocfilehash: d97073666a18a3ffb7a88e1d2350f213ef589e6a
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.date: 02/18/2020
+ms.author: dapine
+ms.openlocfilehash: ac891e96e350f73b7728ee4b572d9e16a8794ff7
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562525"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460992"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>SSML (Speech Synthesis Markup Language)
 
@@ -28,13 +28,13 @@ L’implémentation par SSML du service Speech est basée sur le [langage SSML v
 
 ## <a name="standard-neural-and-custom-voices"></a>Voix standard, neuronales et personnalisées
 
-Choisissez parmi les voix standard et neuronales, ou créez une voix personnalisée propre à votre produit ou votre marque. Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètres régionaux, et 5 voix neuronales sont disponibles dans 4 langues et paramètres régionaux. Pour obtenir la liste complète des langues, paramètres régionaux et voix (neuronales et standard) pris en charge, consultez [prise en charge linguistique](language-support.md).
+Choisissez parmi les voix standard et neuronales, ou créez une voix personnalisée propre à votre produit ou votre marque. Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètres régionaux, et 5 voix neurales sont disponibles dans 4 langues et paramètres régionaux. Pour obtenir la liste complète des langues, paramètres régionaux et voix (neuronales et standard) pris en charge, consultez [prise en charge linguistique](language-support.md).
 
 Pour en savoir plus sur les voix standard, neuronales et personnalisées, voir [Vue d’ensemble de la synthèse vocale](text-to-speech.md).
 
 ## <a name="special-characters"></a>Caractères spéciaux
 
-Lorsque vous utilisez SSML pour convertir le texte en synthèse vocale, n’oubliez pas que, comme pour XML, les caractères spéciaux, tels que les guillemets, les apostrophes et les crochets, doivent être placés dans une séquence d’échappement. Pour plus d’informations, consultez la page [Extensible Markup Language (XML) 1.0 : Annexe D](https://www.w3.org/TR/xml/#sec-entexpand).
+Lorsque vous utilisez SSML, n’oubliez pas que les caractères spéciaux, tels que les guillemets, les apostrophes et les crochets, doivent être placés dans une séquence d’échappement. Pour plus d’informations, consultez la page [Extensible Markup Language (XML) 1.0 : Annexe D](https://www.w3.org/TR/xml/#sec-entexpand).
 
 ## <a name="supported-ssml-elements"></a>Éléments SSML pris en charge
 
@@ -57,9 +57,9 @@ Chaque document SSML est créé avec des éléments SSML (ou les balises). Ces �
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
-| version | Indique la version de la spécification SSML utilisée pour interpréter le balisage de document. La version actuelle est 1.0. | Obligatoire |
-| xml:lang | Spécifie la langue du document racine. La valeur peut contenir un code langue de deux lettres minuscules (par exemple, **fr**), ou le code langue associé au code du pays ou de la région en majuscules (par exemple, **fr-FR**). | Obligatoire |
-| xmlns | Spécifie l’URI du document définissant le vocabulaire de balisage (types d’éléments et noms d’attribut) du document SSML. L’URI en cours est https://www.w3.org/2001/10/synthesis. | Obligatoire |
+| `version` | Indique la version de la spécification SSML utilisée pour interpréter le balisage de document. La version actuelle est 1.0. | Obligatoire |
+| `xml:lang` | Spécifie la langue du document racine. La valeur peut contenir un code langue de deux lettres minuscules (par exemple, `en`), ou le code langue associé au code du pays ou de la région en majuscules (par exemple, `en-US`). | Obligatoire |
+| `xmlns` | Spécifie l’URI du document définissant le vocabulaire de balisage (types d’éléments et noms d’attribut) du document SSML. L’URI en cours est https://www.w3.org/2001/10/synthesis. | Obligatoire |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Choisir une voix de synthèse vocale
 
@@ -77,7 +77,7 @@ L’élément `voice` est obligatoire. Il spécifie la voix utilisée pour la sy
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
-| name | Identifie la voix utilisée pour la sortie de synthèse vocale. Pour accéder à la liste complète des voix prises en charge, voir [Prise en charge des langues](language-support.md#text-to-speech). | Obligatoire |
+| `name` | Identifie la voix utilisée pour la sortie de synthèse vocale. Pour accéder à la liste complète des voix prises en charge, voir [Prise en charge des langues](language-support.md#text-to-speech). | Obligatoire |
 
 **Exemple**
 
@@ -86,7 +86,7 @@ L’élément `voice` est obligatoire. Il spécifie la voix utilisée pour la sy
 
 ```XML
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice  name="en-US-Jessa24kRUS">
+    <voice name="en-US-Jessa24kRUS">
         This is the text that is spoken.
     </voice>
 </speak>
@@ -94,22 +94,93 @@ L’élément `voice` est obligatoire. Il spécifie la voix utilisée pour la sy
 
 ## <a name="use-multiple-voices"></a>Utiliser plusieurs voix
 
-Dans l’élément `speak`, vous pouvez spécifier plusieurs voix pour la sortie de synthèse vocale. Ces voix peuvent être dans différentes langues. Pour chaque voix, le texte doit être encapsulé dans un élément `voice`.
+Dans l’élément `speak`, vous pouvez spécifier plusieurs voix pour la sortie de synthèse vocale. Ces voix peuvent être dans différentes langues. Pour chaque voix, le texte doit être encapsulé dans un élément `voice`. 
 
 **Attributs**
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
-| name | Identifie la voix utilisée pour la sortie de synthèse vocale. Pour accéder à la liste complète des voix prises en charge, voir [Prise en charge des langues](language-support.md#text-to-speech). | Obligatoire |
+| `name` | Identifie la voix utilisée pour la sortie de synthèse vocale. Pour accéder à la liste complète des voix prises en charge, voir [Prise en charge des langues](language-support.md#text-to-speech). | Obligatoire |
+
+> [!IMPORTANT]
+> Les voix multiples sont incompatibles avec la fonctionnalité de limite de mot. La fonctionnalité de limite de mot doit être désactivée pour pouvoir utiliser plusieurs voix.
+
+### <a name="disable-word-boundary"></a>Désactiver la limite de mot
+
+Selon la langue du Kit de développement logiciel (SDK) Speech, vous définirez la propriété `"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"` sur `false` sur une instance de l’objet `SpeechConfig`.
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+Pour plus d’informations, consultez <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+```csharp
+speechConfig.SetProperty(
+    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
+```
+
+# <a name="c"></a>[C++](#tab/cpp)
+
+Pour plus d’informations, consultez <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+```cpp
+speechConfig->SetProperty(
+    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
+```
+
+# <a name="java"></a>[Java](#tab/java)
+
+Pour plus d’informations, consultez <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+```java
+speechConfig.setProperty(
+    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+Pour plus d’informations, consultez <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+```python
+speech_config.set_property_by_name(
+    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
+```
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+Pour plus d’informations, consultez <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+```javascript
+speechConfig.setProperty(
+    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
+```
+
+# <a name="objective-c"></a>[Objective-C](#tab/objectivec)
+
+Pour plus d’informations, consultez <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+```objectivec
+[speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
+```
+
+# <a name="swift"></a>[Swift](#tab/swift)
+
+Pour plus d’informations, consultez <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+
+```swift
+speechConfig!.setPropertyTo(
+    "false", byName: "SpeechServiceResponse_Synthesis_WordBoundaryEnabled")
+```
+
+---
 
 **Exemple**
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice  name="en-US-Jessa24kRUS">
+    <voice name="en-US-Jessa24kRUS">
         Good morning!
     </voice>
-    <voice  name="en-US-Guy24kRUS">
+    <voice name="en-US-Guy24kRUS">
         Good morning to you too Jessa!
     </voice>
 </speak>
@@ -118,7 +189,7 @@ Dans l’élément `speak`, vous pouvez spécifier plusieurs voix pour la sortie
 ## <a name="adjust-speaking-styles"></a>Ajuster les styles oraux
 
 > [!IMPORTANT]
-> Cette fonctionnalité n’opère qu’avec des voix neuronales.
+> L’ajustement des styles oraux ne fonctionne qu’avec les voix neurales.
 
 Par défaut, le service de synthèse vocale synthétise le texte à l’aide d’un style oral neutre pour les voix standard et neuronales. Les voix neuronales vous permettent d’ajuster le style oral pour exprimer de la gaîté, de l’empathie ou des sentiments avec l’élément `<mstts:express-as>`. Il s’agit d’un élément facultatif propre au service Speech.
 
@@ -138,26 +209,27 @@ Des modifications sont appliquées au niveau de la phrase, et le style varie sel
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
-| type | Spécifie le style oral. Actuellement, les styles oraux sont spécifiques de la voix. | Obligatoire en cas d’ajustement du style oral pour une voix neuronale. Si vous utilisez `mstts:express-as`, le type doit être fourni. Si une valeur non valide est fournie, cet élément est ignoré. |
+| `type` | Spécifie le style oral. Actuellement, les styles oraux sont spécifiques à la voix. | Obligatoire en cas d’ajustement du style oral pour une voix neuronale. Si vous utilisez `mstts:express-as`, le type doit être fourni. Si une valeur non valide est fournie, cet élément est ignoré. |
 
 Reportez-vous à ce tableau pour déterminer les styles oraux pris en charge pour chaque voix neuronale.
 
 | Voix | Type | Description |
 |-------|------|-------------|
-| `en-US-JessaNeural` | type=`cheerful` | Exprime une émotion positive et heureuse |
-| | type=`empathy` | Exprime de la compassion et de la compréhension |
-| | type=`chat` | Parlez sur un ton décontracté et détendu |
-| | type=`newscast` | Exprime un ton formel, similaire aux journaux télévisés |
-| | type=`customerservice` | Parle de manière engageante et patiente à la façon d’un service client |
-| `zh-CN-XiaoxiaoNeural` | type=`newscast` | Exprime un ton formel, similaire aux journaux télévisés |
-| | type=`sentiment` | Transmet un message ou récit touchant |
+| `en-US-JessaNeural` | `type="cheerful"` | Exprime une émotion positive et heureuse |
+| | `type="empathy"` | Exprime une de la compassion et de la compréhension |
+| | `type="chat"` | Parlez sur un ton décontracté et détendu |
+| | `type="newscast"` | Exprime un ton formel, similaire aux journaux télévisés |
+| | `type="customerservice"` | Parle de manière engageante et patiente à la façon d’un service client |
+| `zh-CN-XiaoxiaoNeural` | `type="newscast"` | Exprime un ton formel, similaire aux journaux télévisés |
+| | `type="sentiment"` | Transmet un message ou récit touchant |
 
 **Exemple**
 
 Cet extrait de code SSML illustre la manière dont l’élément `<mstts:express-as>` est utilisé pour modifier le style oral en `cheerful`.
 
 ```xml
-<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
     <voice name="en-US-JessaNeural">
         <mstts:express-as type="cheerful">
             That'd be just amazing!
@@ -184,8 +256,8 @@ Utilisez l’élément `break` pour insérer des pauses (ou des interruptions) e
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
-| puissance | Spécifie la durée relative d’une pause à l’aide de l’une des valeurs suivantes :<ul><li>Aucun</li><li>x-weak</li><li>weak</li><li>medium (par défaut)</li><li>strong</li><li>x-strong</li></ul> | Facultatif |
-| time | Spécifie la durée absolue d’une pause en secondes ou millisecondes. Exemples de valeurs valides : 2s et 500 | Facultatif |
+| `strength` | Spécifie la durée relative d’une pause à l’aide de l’une des valeurs suivantes :<ul><li>Aucun</li><li>x-weak</li><li>weak</li><li>medium (par défaut)</li><li>strong</li><li>x-strong</li></ul> | Facultatif |
+| `time` | Spécifie la durée absolue d’une pause en secondes ou millisecondes. Exemples de valeurs valides : `2s` et `500` | Facultatif |
 
 | Puissance | Description |
 |----------|-------------|
@@ -201,7 +273,7 @@ Utilisez l’élément `break` pour insérer des pauses (ou des interruptions) e
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice  name="en-US-Jessa24kRUS">
+    <voice name="en-US-Jessa24kRUS">
         Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
     </voice>
 </speak>
@@ -226,7 +298,7 @@ L’élément `s` peut contenir du texte et les éléments suivants : `audio`, 
 
 ```XML
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice  name="en-US-Jessa24kRUS">
+    <voice name="en-US-Jessa24kRUS">
         <p>
             <s>Introducing the sentence element.</s>
             <s>Used to mark individual sentences.</s>
@@ -255,14 +327,14 @@ Les alphabets phonétiques sont constitués de phonèmes composés de lettres, d
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
-| alphabet | Spécifie l’alphabet phonétique à utiliser lors de la synthèse de la prononciation de la chaîne dans l’attribut `ph`. La chaîne spécifiant l’alphabet doit être en lettres minuscules. Les alphabets que vous pouvez spécifier sont les suivants.<ul><li>ipa &ndash; Alphabet phonétique international</li><li>sapi &ndash; Jeu de phonèmes de l’API Microsoft Speech</li><li>ups &ndash; Jeu de phonèmes universel</li></ul>L’alphabet s’applique uniquement au phonème dans l’élément. Pour plus d’informations, voir la [documentation de référence sur l’alphabet phonétique](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx). | Facultatif |
-| ph | Chaîne contenant des phonèmes spécifiant la prononciation du mot figurant dans l’élément `phoneme`. Si la chaîne spécifiée contient des phonèmes non reconnus, le service de synthèse vocale rejette la totalité du document SSML et ne produit aucune des sorties vocales spécifiées dans le document. | Requis en cas d’utilisation de phonèmes. |
+| `alphabet` | Spécifie l’alphabet phonétique à utiliser lors de la synthèse de la prononciation de la chaîne dans l’attribut `ph`. La chaîne spécifiant l’alphabet doit être en lettres minuscules. Les alphabets que vous pouvez spécifier sont les suivants.<ul><li>ipa &ndash; Alphabet phonétique international</li><li>sapi &ndash; Jeu de phonèmes de l’API Microsoft Speech</li><li>ups &ndash; Jeu de phonèmes universel</li></ul>L’alphabet s’applique uniquement au phonème dans l’élément. Pour plus d’informations, voir la [documentation de référence sur l’alphabet phonétique](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx). | Facultatif |
+| `ph` | Chaîne contenant des phonèmes spécifiant la prononciation du mot figurant dans l’élément `phoneme`. Si la chaîne spécifiée contient des phonèmes non reconnus, le service de synthèse vocale rejette la totalité du document SSML et ne produit aucune des sorties vocales spécifiées dans le document. | Requis en cas d’utilisation de phonèmes. |
 
 **Exemples**
 
 ```XML
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice  name="en-US-Jessa24kRUS">
+    <voice name="en-US-Jessa24kRUS">
         <s>His name is Mike <phoneme alphabet="ups" ph="JH AU"> Zhou </phoneme></s>
     </voice>
 </speak>
@@ -270,7 +342,7 @@ Les alphabets phonétiques sont constitués de phonèmes composés de lettres, d
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice  name="en-US-Jessa24kRUS">
+    <voice name="en-US-Jessa24kRUS">
         <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
     </voice>
 </speak>
@@ -292,12 +364,12 @@ L’élément `prosody` est utilisé pour spécifier des modifications apportée
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
-| pitch | Indique la tonalité de base pour le texte. Vous pouvez spécifier la tonalité comme suit :<ul><li>Valeur absolue, exprimée sous la forme d’un nombre suivi de « Hz » (Hertz). Par exemple, 600 Hz.</li><li>Valeur relative, exprimée sous la forme d’un nombre précédé du signe « + » ou « - » et suivi de « Hz » ou « st », qui spécifie l’importance d’un changement de tonalité. Par exemple, +80 Hz ou -2 st. « st » indique que l’unité de changement est le demi-ton, c’est-à-dire la moitié d’un ton sur l’échelle diatonique standard.</li><li>Valeur constante :<ul><li>x-low</li><li>low</li><li>moyenne</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul>. | Facultatif |
-| contour | Le contour n’est pas pris en charge pour la voix neuronale. Le contour représente les variations de la tonalité du contenu vocal sous la forme de cibles à des positions temporelles spécifiées dans la sortie vocale. Chaque cible est définie par des ensembles de paires de paramètres. Par exemple : <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>La première valeur dans chaque paire de paramètres spécifie l’emplacement du changement de tonalité sous la forme d’un pourcentage de la durée du texte. La deuxième valeur spécifie la quantité de hausse ou de baisse de la tonalité, à l’aide d’une valeur relative ou une valeur d’énumération pour la tonalité (voir `pitch`). | Facultatif |
-| range  | Valeur représentant la plage de tonalités pour le texte. Vous pouvez exprimer `range` à l’aide des mêmes valeurs absolues, relatives ou d’énumération que celles utilisées pour décrire `pitch`. | Facultatif |
-| rate  | Indique la cadence d’énonciation du texte. Vous pouvez exprimer `rate` comme suit :<ul><li>Valeur relative exprimée sous forme de nombre agissant comme multiplicateur de la valeur par défaut. Par exemple, la valeur *1* n’entraîne aucun changement de cadence. La valeur *.5* entraîne une réduction de moitié de la cadence. La valeur *3* entraîne un triplement de la cadence.</li><li>Valeur constante :<ul><li>x-slow</li><li>slow</li><li>moyenne</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Facultatif |
-| duration  | Période de temps qui doit s’écouler pendant que le service de synthèse vocale (TTS) lit le texte, exprimée en secondes ou millisecondes. Par exemple, *2 s* ou *1800 ms*. | Facultatif |
-| volume  | Indique le niveau de volume de la voix. Vous pouvez exprimer le volume comme suit :<ul><li>Valeur absolue, exprimée sous la forme d’un nombre dans la plage de 0,0 à 100,0, du *plus bas* au *plus fort*. Par exemple, 75. La valeur par défaut est 100,0.</li><li>Valeur relative, exprimée sous la forme d’un nombre précédé du signe « + » ou « - » spécifie une quantité de changement de volume. Par exemple, + 10 ou - 5,5.</li><li>Valeur constante :<ul><li>silent</li><li>x-soft</li><li>soft</li><li>moyenne</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Facultatif |
+| `pitch` | Indique la tonalité de base pour le texte. Vous pouvez spécifier la tonalité comme suit :<ul><li>Valeur absolue, exprimée sous la forme d’un nombre suivi de « Hz » (Hertz). Par exemple, 600 Hz.</li><li>Valeur relative, exprimée sous la forme d’un nombre précédé du signe « + » ou « - » et suivi de « Hz » ou « st », qui spécifie l’importance d’un changement de tonalité. Par exemple : +80 Hz ou-2st. « st » indique que l’unité de changement est le demi-ton, c’est-à-dire la moitié d’un ton sur l’échelle diatonique standard.</li><li>Valeur constante :<ul><li>x-low</li><li>low</li><li>moyenne</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul>. | Facultatif |
+| `contour` | Le contour n’est pas pris en charge pour la voix neuronale. Le contour représente les changements de tonalité. Ces changements sont représentés sous la forme d’un tableau de cibles aux positions temporelles spécifiées dans la sortie vocale. Chaque cible est définie par des ensembles de paires de paramètres. Par exemple : <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>La première valeur dans chaque paire de paramètres spécifie l’emplacement du changement de tonalité sous la forme d’un pourcentage de la durée du texte. La deuxième valeur spécifie la quantité de hausse ou de baisse de la tonalité, à l’aide d’une valeur relative ou une valeur d’énumération pour la tonalité (voir `pitch`). | Facultatif |
+| `range` | Valeur représentant la plage de tonalités pour le texte. Vous pouvez exprimer `range` à l’aide des mêmes valeurs absolues, relatives ou d’énumération que celles utilisées pour décrire `pitch`. | Facultatif |
+| `rate` | Indique la cadence d’énonciation du texte. Vous pouvez exprimer `rate` comme suit :<ul><li>Valeur relative exprimée sous forme de nombre agissant comme multiplicateur de la valeur par défaut. Par exemple, la valeur *1* n’entraîne aucun changement de cadence. La valeur *0.5* entraîne une réduction de moitié de la cadence. La valeur *3* entraîne un triplement de la cadence.</li><li>Valeur constante :<ul><li>x-slow</li><li>slow</li><li>moyenne</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Facultatif |
+| `duration` | Période de temps qui doit s’écouler pendant que le service de synthèse vocale (TTS) lit le texte, exprimée en secondes ou millisecondes. Par exemple, *2 s* ou *1800 ms*. | Facultatif |
+| `volume` | Indique le niveau de volume de la voix. Vous pouvez exprimer le volume comme suit :<ul><li>Valeur absolue, exprimée sous la forme d’un nombre dans la plage de 0,0 à 100,0, du *plus bas* au *plus fort*. Par exemple, 75. La valeur par défaut est 100,0.</li><li>Valeur relative, exprimée sous la forme d’un nombre précédé du signe « + » ou « - » spécifie une quantité de changement de volume. Par exemple, +10 ou -5.5.</li><li>Valeur constante :<ul><li>silent</li><li>x-soft</li><li>soft</li><li>moyenne</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Facultatif |
 
 ### <a name="change-speaking-rate"></a>Modifier le débit
 
@@ -307,7 +379,7 @@ La cadence d’élocution peut s’appliquer aux voix standard au niveau de la p
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice  name="en-US-Guy24kRUS">
+    <voice name="en-US-Guy24kRUS">
         <prosody rate="+30.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -323,7 +395,7 @@ Les modifications de volume peuvent s’appliquer aux voix standard au niveau de
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice  name="en-US-Jessa24kRUS">
+    <voice name="en-US-Jessa24kRUS">
         <prosody volume="+20.00%">
             Welcome to Microsoft Cognitive Services Text-to-Speech API.
         </prosody>
@@ -339,7 +411,7 @@ Les modifications de ton peuvent s’appliquer aux voix standard au niveau de la
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice  name="en-US-Guy24kRUS">
+    <voice name="en-US-Guy24kRUS">
         Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
     </voice>
 </speak>
@@ -354,16 +426,16 @@ Les modifications de ton peuvent s’appliquer aux voix standard au niveau de la
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice  name="en-US-Jessa24kRUS">
+    <voice name="en-US-Jessa24kRUS">
         <prosody contour="(80%,+20%) (90%,+30%)" >
             Good morning.
         </prosody>
     </voice>
 </speak>
 ```
-## <a name="say-as-element"></a>élément say-as  
+## <a name="say-as-element"></a>élément say-as
 
-`say-as` est un élément facultatif qui indique le type de contenu (nombre ou date, par exemple) du texte de l’élément. Il fournit des conseils au moteur de synthèse vocale sur la manière de prononcer le texte. 
+`say-as` est un élément facultatif qui indique le type de contenu (nombre ou date, par exemple) du texte de l’élément. Il fournit des conseils au moteur de synthèse vocale sur la manière de prononcer le texte.
 
 **Syntaxe**
 
@@ -375,9 +447,9 @@ Les modifications de ton peuvent s’appliquer aux voix standard au niveau de la
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
-| interpret-as | Indique le type de contenu du texte de l’élément. Pour obtenir la liste des types, consultez le tableau ci-dessous. | Obligatoire |
-| format | Fournit des informations supplémentaires sur la mise en forme précise du texte de l’élément pour les types de contenu susceptibles de présenter des formats ambigus. SSML définit les formats des types de contenu qui les utilisent (voir le tableau ci-dessous). | Facultatif |
-| détails | Indique le niveau de détail à prononcer. Par exemple, cet attribut peut demander à ce que le moteur de synthèse vocale prononce les signes de ponctuation. Aucune valeur standard n’est définie pour `detail`. | Facultatif |
+| `interpret-as` | Indique le type de contenu du texte de l’élément. Pour obtenir la liste des types, consultez le tableau ci-dessous. | Obligatoire |
+| `format` | Fournit des informations supplémentaires sur la mise en forme précise du texte de l’élément pour les types de contenu susceptibles de présenter des formats ambigus. SSML définit les formats des types de contenu qui les utilisent (voir le tableau ci-dessous). | Facultatif |
+| `detail` | Indique le niveau de détail à prononcer. Par exemple, cet attribut peut demander à ce que le moteur de synthèse vocale prononce les signes de ponctuation. Aucune valeur standard n’est définie pour `detail`. | Facultatif |
 
 <!-- I don't understand the last sentence. Don't we know which one Cortana uses? -->
 
@@ -385,15 +457,15 @@ Les types de contenu suivants sont pris en charge pour les attributs `interpret-
 
 | interpret-as | format | Interprétation |
 |--------------|--------|----------------|
-| address | | Le texte est prononcé sous forme d'adresse. Le moteur de synthèse vocale prononce :<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />Par exemple, « Je suis au 150th court north east redmond washington ». |
-| cardinal, number | | Le texte est prononcé sous forme de nombre cardinal. Le moteur de synthèse vocale prononce :<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />Par exemple, « Il existe trois alternatives ». |
-| characters, spell-out | | Le texte est prononcé sous forme de lettres individuelles (épelées). Le moteur de synthèse vocale prononce :<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />Par exemple, « T E S T ». |
-| Date  | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | Le texte est prononcé sous forme de date. L’attribut `format` spécifie le format de la date (*j=day (jour), m=month (mois) et y=year (année)* ). Le moteur de synthèse vocale prononce :<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Par exemple, « Nous sommes le 19 octobre 2016 ». |
-| digits, number_digit | | Le texte est prononcé sous forme de séquence de chiffres individuels. Le moteur de synthèse vocale prononce :<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />Par exemple, « 1 2 3 4 5 6 7 8 9 ». |
-| fraction | | Le texte est prononcé sous forme de nombre fractionnaire. Le moteur de synthèse vocale prononce :<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />Par exemple, « Trois huitièmes de pouce ». |
-| ordinal  | | Le texte est prononcé sous forme de nombre ordinal. Le moteur de synthèse vocale prononce :<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Par exemple, « Sélectionnez la troisième option ». |
-| telephone  | | Le texte est prononcé sous forme de numéro de téléphone. L’attribut `format` peut contenir des chiffres correspondant à l’indicatif d’un pays. Par exemple, « 1 » pour les États-Unis ou « 39 » pour l’Italie. Le moteur de synthèse vocale peut utiliser ces informations pour guider la prononciation d’un numéro de téléphone. Le numéro de téléphone peut également inclure l’indicatif du pays qui, le cas échéant, est prioritaire sur l’indicatif du pays dans `format`. Le moteur de synthèse vocale prononce :<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />Par exemple, « Mon numéro avec indicatif régional est huit huit huit cinq cinq cinq un deux un deux ». |
-| time | hms12, hms24 | Le texte est prononcé sous forme d'heure. L’attribut `format` indique si l’heure correspond à l'horloge de 12 heures (hms12) ou 24 heures (hms24). Utilisez deux points pour séparer les nombres représentant les heures, les minutes et les secondes. Voici quelques exemples d'heure valides : 12:35, 1:14:32, 08:15 et 02:50:45. Le moteur de synthèse vocale prononce :<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />Par exemple, « Le train part à 4 heures ». |
+| `address` | | Le texte est prononcé sous forme d'adresse. Le moteur de synthèse vocale prononce :<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />Par exemple, « Je suis au 150e court nord est redmond washington. » |
+| `cardinal`, `number` | | Le texte est prononcé sous forme de nombre cardinal. Le moteur de synthèse vocale prononce :<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />Par exemple, « Il existe trois alternatives ». |
+| `characters`, `spell-out` | | Le texte est prononcé sous forme de lettres individuelles (épelées). Le moteur de synthèse vocale prononce :<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />Par exemple, « T E S T ». |
+| `date` | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | Le texte est prononcé sous forme de date. L’attribut `format` spécifie le format de la date (*j=day (jour), m=month (mois) et y=year (année)* ). Le moteur de synthèse vocale prononce :<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Par exemple, « Nous sommes le 19 octobre 2016 ». |
+| `digits`, `number_digit` | | Le texte est prononcé sous forme de séquence de chiffres individuels. Le moteur de synthèse vocale prononce :<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />Par exemple, « 1 2 3 4 5 6 7 8 9 ». |
+| `fraction` | | Le texte est prononcé sous forme de nombre fractionnaire. Le moteur de synthèse vocale prononce :<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />Par exemple, « Trois huitièmes de pouce ». |
+| `ordinal` | | Le texte est prononcé sous forme de nombre ordinal. Le moteur de synthèse vocale prononce :<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Par exemple, « Sélectionnez la troisième option ». |
+| `telephone` | | Le texte est prononcé sous forme de numéro de téléphone. L’attribut `format` peut contenir des chiffres correspondant à l’indicatif d’un pays. Par exemple, « 1 » pour les États-Unis ou « 39 » pour l’Italie. Le moteur de synthèse vocale peut utiliser ces informations pour guider la prononciation d’un numéro de téléphone. Le numéro de téléphone peut également inclure l’indicatif du pays qui, le cas échéant, est prioritaire sur l’indicatif du pays dans `format`. Le moteur de synthèse vocale prononce :<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />Par exemple, « Mon numéro avec indicatif régional est huit huit huit cinq cinq cinq un deux un deux ». |
+| `time` | hms12, hms24 | Le texte est prononcé sous forme d'heure. L’attribut `format` indique si l’heure correspond à l'horloge de 12 heures (hms12) ou 24 heures (hms24). Utilisez deux points pour séparer les nombres représentant les heures, les minutes et les secondes. Voici quelques exemples d'heure valides : 12:35, 1:14:32, 08:15 et 02:50:45. Le moteur de synthèse vocale prononce :<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />Par exemple, « Le train part à 4 heures ». |
 
 **Utilisation**
 
@@ -401,18 +473,18 @@ L’élément `say-as` peut uniquement contenir du texte.
 
 **Exemple**
 
-Le moteur de synthèse vocale prononce l’exemple ci-dessous comme suit : « Votre première requête portait sur une chambre le 19 octobre 2010, avec une arrivée à 12h35 ».
+Le moteur de synthèse vocale prononce l’exemple ci-dessous comme suit : « Votre première requête portait sur une chambre le dix-neuf octobre deux mille dix, avec une arrivée à douze heure trente-cinq. »
  
 ```XML
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice  name="en-US-Jessa24kRUS">
-    <p>
-    Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
-    on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
-    </p>
+    <voice name="en-US-Jessa24kRUS">
+        <p>
+        Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
+        on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
+        </p>
+    </voice>
 </speak>
 ```
-
 
 ## <a name="add-recorded-audio"></a>Ajouter un audio enregistré
 
@@ -437,18 +509,21 @@ Tout audio inclus dans le document SSML doit respecter les exigences suivantes 
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
-| src | Spécifie l’emplacement/URL du fichier audio. | Obligatoire en cas d’utilisation de l’élément audio dans votre document SSML. |
+| `src` | Spécifie l’emplacement/URL du fichier audio. | Obligatoire en cas d’utilisation de l’élément audio dans votre document SSML. |
 
 **Exemple**
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <p>
-        <audio src="https://contoso.com/opinionprompt.wav"/>
-        Thanks for offering your opinion. Please begin speaking after the beep.
-        <audio src="https://contoso.com/beep.wav">
-        Could not play the beep, please voice your opinion now. </audio>
-    </p>
+    <voice name="en-US-Jessa24kRUS">
+        <p>
+            <audio src="https://contoso.com/opinionprompt.wav"/>
+            Thanks for offering your opinion. Please begin speaking after the beep.
+            <audio src="https://contoso.com/beep.wav">
+                Could not play the beep, please voice your opinion now.
+            </audio>
+        </p>
+    </voice>
 </speak>
 ```
 
@@ -470,10 +545,10 @@ Un seul fichier audio en arrière-plan est autorisé par document SSML. Toutefoi
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
-| src | Spécifie l’emplacement/URL du fichier audio en arrière-plan. | Obligatoire en cas d’utilisation de l’audio en arrière-plan dans votre document SSML. |
-| volume | Spécifie le volume du fichier audio en arrière-plan. Les **valeurs acceptées** vont de `0` à `100` inclus. La valeur par défaut est `1`. | Facultatif |
-| fadein | Spécifie la durée de l’apparition en fondu de l’audio d’arrière-plan, en millisecondes. La valeur par défaut est `0`, ce qui équivaut à aucune apparition en fondu audio. Les **valeurs acceptées** vont de `0` à `10000` inclus.  | Facultatif |
-| fadeout | Spécifie la durée de la disparition en fondu de l’audio d’arrière-plan, en millisecondes. La valeur par défaut est `0`, ce qui équivaut à aucune disparition en fondu audio. Les **valeurs acceptées** vont de `0` à `10000` inclus.  | Facultatif |
+| `src` | Spécifie l’emplacement/URL du fichier audio en arrière-plan. | Obligatoire en cas d’utilisation de l’audio en arrière-plan dans votre document SSML. |
+| `volume` | Spécifie le volume du fichier audio en arrière-plan. Les **valeurs acceptées** vont de `0` à `100` inclus. La valeur par défaut est `1`. | Facultatif |
+| `fadein` | Spécifie la durée de l’apparition en fondu de l’audio d’arrière-plan, en millisecondes. La valeur par défaut est `0`, ce qui équivaut à aucune apparition en fondu audio. Les **valeurs acceptées** vont de `0` à `10000` inclus.  | Facultatif |
+| `fadeout` | Spécifie la durée de la disparition en fondu de l’audio d’arrière-plan, en millisecondes. La valeur par défaut est `0`, ce qui équivaut à aucune disparition en fondu audio. Les **valeurs acceptées** vont de `0` à `10000` inclus.  | Facultatif |
 
 **Exemple**
 

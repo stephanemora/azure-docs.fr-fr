@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 28c971993721744245a5d3d57f1f5b68df58b492
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1d203fd0c6777eee96311f45f4d5dfb8728ff431
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841180"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210599"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Chiffrement côté serveur de Disques managés Azure
 
@@ -38,7 +38,7 @@ Vous pouvez choisir de gérer le chiffrement au niveau de chaque disque managé,
 
 Le diagramme suivant montre comment les disques managés utilisent Azure Active Directory et Azure Key Vault pour effectuer des demandes en utilisant la clé gérée par le client :
 
-![Flux de travail de clés gérées par le client pour disques managés](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
+![Disques managés et workflow de clés gérées par le client. Un administrateur crée un Azure Key Vault et crée et configure un ensemble de chiffrement de disque. L’ensemble est associé à une machine virtuelle qui permet au disque d’utiliser Azure AD pour s’authentifier.](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
 La liste suivante décrit le diagramme plus en détail :

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: b0b5147faf82fedb6dc3c2eea54dcff1b9343f7a
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 119690b9046821ab538d879e1209c6ef77277370
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77088933"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370684"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Tutoriel : Configurer Genesys PureCloud pour l’approvisionnement automatique d’utilisateurs
 
@@ -90,7 +90,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Onglet Approvisionnement](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, entrez votre URL d’API et votre jeton OAuth Genesys PureCloud respectivement dans les champs **URL du locataire** et **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Genesys PureCloud. Si la connexion échoue, vérifiez que votre compte Genesys PureCloud dispose des autorisations Administrateur, puis réessayez.
+5. Dans la section **Informations d’identification de l’administrateur**, entrez votre URL d’API et votre jeton OAuth Genesys PureCloud respectivement dans les champs **URL du locataire** et **Jeton secret**. L’URL de l’API sera structurée comme suit : `{{API Url}}/api/v2/scim/v2`, en utilisant l’URL de l’API pour votre région PureCloud fournie par le [centre de développement PureCloud](https://developer.mypurecloud.com/api/rest/index.html). Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Genesys PureCloud. Si la connexion échoue, vérifiez que votre compte Genesys PureCloud dispose des autorisations Administrateur, puis réessayez.
 
     ![approvisionnement](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
 

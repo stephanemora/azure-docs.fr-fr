@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/12/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76e2b1c221475a90dc63498d13d4ede7a78e0779
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: fc01bd5c868cddd448e3a262960af64f50b78d74
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185587"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372975"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -51,13 +51,31 @@ L’élément **ClaimType** contient les éléments suivants :
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | Titre présenté aux utilisateurs sur différents écrans. La valeur peut être [localisée](localization.md). |
-| DataType | 1:1 | Type de la revendication. Vous pouvez utiliser les types de données suivants : boolean, date, dateTime, int, long, string, stringCollection et phoneNumber. Le type de données primitif représente l’équivalent d’un type de données variable en C#. stringCollection représente une collection de chaînes. Pour plus d’informations, consultez [Types et variables C#](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables). La date respecte la convention ISO 8601. |
+| DataType | 1:1 | Type de la revendication. |
 | DefaultPartnerClaimTypes | 0:1 | Types de revendications par défaut de partenaire à utiliser pour un protocole spécifié. La valeur peut être substituée dans le **PartnerClaimType** spécifié dans l’élément **InputClaim** ou **OutputClaim**. Utilisez cet élément pour spécifier le nom par défaut d’un protocole.  |
 | Mask | 0:1 | Chaîne facultative de caractères de masquage qui peuvent être appliqués lors de l’affichage de la revendication. Par exemple, le numéro téléphone 324-232-4343 peut être masqué comme suit : XXX-XXX-4343. |
 | UserHelpText | 0:1 | Description du type de revendication qui peut aider les utilisateurs à comprendre sa raison d’être. La valeur peut être [localisée](localization.md). |
 | UserInputType | 0:1 | Type de contrôle d’entrée qui doit être accessible à l’utilisateur lors de l’entrée manuelle des données de revendication pour le type de revendication. Voir les types d’entrées utilisateur définis plus loin dans cette page. |
 | Restriction | 0:1 | Restrictions de la valeur de cette revendication, par exemple une expression régulière (Regex) ou une liste de valeurs acceptables. La valeur peut être [localisée](localization.md). |
 PredicateValidationReference| 0:1 | Référence à un élément **PredicateValidationsInput**. Les éléments **PredicateValidationReference** vous permettent d’effectuer un processus de validation afin de vous assurer que seules des données correctement formées sont entrées. Pour plus d’informations, consultez [Predicates](predicates.md). |
+
+### <a name="datatype"></a>DataType
+
+L’élément **DataType** prend en charge les valeurs suivantes :
+
+| Type | Description |
+| ------- | ----------- | 
+|boolean|Représente une valeur booléenne (`true` ou `false`).|
+|Date| Représente un instant, généralement exprimé sous la forme d’une date. La valeur de la date est conforme à la convention ISO 8601.|
+|dateTime|Représente un instant, généralement exprimé sous la forme d’une date ou d’une heure. La valeur de la date est conforme à la convention ISO 8601.|
+|duration|Représente un intervalle de temps en années, mois, jours, heures, minutes et secondes. Le format est `PnYnMnDTnHnMnS`, où `P` indique une valeur positive, ou `N` pour une valeur négative. `nY` correspond au nombre d’années suivi du littéral `Y`. `nMo` correspond au nombre de mois suivi du littéral `Mo`. `nD` correspond au nombre de jours suivi du littéral `D`. Exemples : `P21Y` représente 21 ans. `P1Y2Mo` représente un an et deux mois. `P1Y2Mo5D` représente un an, deux mois et cinq jours.  `P1Y2M5DT8H5M620S` représente un an, deux mois, cinq jours, huit heures, cinq minutes et vingt secondes.  |
+|phoneNumber|Représente un numéro de téléphone. |
+|int| Représente un nombre compris entre -2,147,483,648 et 2,147,483,647.|
+|long| Représente un nombre compris entre -9,223,372,036,854,775,808 et 9,223,372,036,854,775,807. |
+|string| Représente du texte sous la forme d’une séquence d’unités de code UTF-16.|
+|stringCollection|Représente une collection de `string`.|
+|userIdentity| Représente une identité d’utilisateur.|
+|userIdentityCollection|Représente une collection de `userIdentity`.|
 
 ### <a name="defaultpartnerclaimtypes"></a>DefaultPartnerClaimTypes
 
@@ -71,7 +89,7 @@ L’élément **Protocol** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Name | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C. Les valeurs possibles sont les suivantes :  OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| Nom | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C. Les valeurs possibles sont les suivantes :  OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | Oui | Nom du type de revendication à utiliser. |
 
 Dans l’exemple suivant, quand l’Infrastructure d’expérience d’identité interagit avec un fournisseur d’identité SAML2 ou une application de confiance, la revendication **surname** est mappée à `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`. Avec OpenIdConnect et OAuth2, la revendication est mappée à `family_name`.
@@ -155,7 +173,7 @@ L’élément **Restriction** contient les éléments suivants :
 | Énumération | 1:n | Options que l’utilisateur peut sélectionner dans l’interface utilisateur pour une revendication, telles qu’une valeur dans une liste déroulante. |
 | Modèle | 1:1 | Expression régulière à utiliser. |
 
-### <a name="enumeration"></a>Énumération
+#### <a name="enumeration"></a>Énumération
 
 L’élément **Enumeration** contient les attributs suivants :
 
@@ -214,11 +232,26 @@ L’Infrastructure d’expérience d’identité affiche la revendication d’ad
 
 ![TextBox présentant le message d’erreur déclenché par la restriction regex](./media/claimsschema/pattern.png)
 
-## <a name="userinputtype"></a>UserInputType
+### <a name="userinputtype"></a>UserInputType
 
-Azure AD B2C prend en charge toute une gamme de types d’entrée d’utilisateur, telles qu’une zone de texte, un mot de passe et une liste déroulante pouvant être utilisées lors de l’entrée manuelle de données de revendications pour le type de revendication. Vous devez spécifier le **UserInputType** quand vous recueillez des informations à partir de l’utilisateur à l’aide d’un [profil technique autodéclaré](self-asserted-technical-profile.md).
+Azure AD B2C prend en charge toute une gamme de types d’entrée d’utilisateur, telles qu’une zone de texte, un mot de passe et une liste déroulante pouvant être utilisées lors de l’entrée manuelle de données de revendications pour le type de revendication. Vous devez spécifier le **UserInputType** quand vous recueillez des informations de l’utilisateur à l’aide d’un [profil technique autodéclaré](self-asserted-technical-profile.md) et de [contrôles d’affichage](display-controls.md).
 
-### <a name="textbox"></a>TextBox
+Les types d’entrée utilisateur disponibles pour l’élément **UserInputType** :
+
+| UserInputType | ClaimType pris en charge | Description |
+| --------- | -------- | ----------- |
+|CheckboxMultiSelect| `string` |Zone de liste déroulante à sélection multiple. La valeur de la revendication est représentée dans une chaîne délimitée par des virgules qui contient les valeurs sélectionnées. |
+|DateTimeDropdown | `date`, `dateTime` |Listes déroulantes pour sélectionner un jour, un mois et une année. |
+|DropdownSingleSelect |`string` |Zone de liste déroulante à sélection simple. La valeur de la revendication est la valeur sélectionnée.|
+|EmailBox | `string` |Champ d’entrée de l’e-mail. |
+|Paragraph | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|Champ qui affiche le texte uniquement dans une balise de paragraphe. |
+|Mot de passe | `string` |Zone de texte pour mot de passe.|
+|RadioSingleSelect |`string` | Collection de cases d’option. La valeur de la revendication est la valeur sélectionnée.|
+|Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| Zone de texte en lecture seule. |
+|TextBox |`boolean`, `int`, `string` |Zone de texte sur une seule ligne. |
+
+
+#### <a name="textbox"></a>TextBox
 
 Le type d’entrée d’utilisateur **TextBox** sert à fournir une zone de texte sur une seule ligne.
 
@@ -233,7 +266,7 @@ Le type d’entrée d’utilisateur **TextBox** sert à fournir une zone de text
 </ClaimType>
 ```
 
-### <a name="emailbox"></a>EmailBox
+#### <a name="emailbox"></a>EmailBox
 
 Le type d’entrée d’utilisateur **EmailBox** sert à fournir un champ d’entrée d’e-mail de base.
 
@@ -251,7 +284,7 @@ Le type d’entrée d’utilisateur **EmailBox** sert à fournir un champ d’en
 </ClaimType>
 ```
 
-### <a name="password"></a>Mot de passe
+#### <a name="password"></a>Mot de passe
 
 Le type d’entrée d’utilisateur **Password** sert à enregistrer un mot de passe entré par l’utilisateur.
 
@@ -266,7 +299,7 @@ Le type d’entrée d’utilisateur **Password** sert à enregistrer un mot de p
 </ClaimType>
 ```
 
-### <a name="datetimedropdown"></a>DateTimeDropdown
+#### <a name="datetimedropdown"></a>DateTimeDropdown
 
 Le type d’entrée d’utilisateur **DateTimeDropdown** sert à fournir un ensemble de listes déroulantes pour sélectionner un jour, un mois et une année. Vous pouvez utiliser des éléments Predicates et PredicateValidations pour contrôler les valeurs de date minimale et maximale. Pour plus d’informations, consultez la section **Configurer une plage de dates** de [Predicates et PredicateValidations](predicates.md).
 
@@ -281,7 +314,7 @@ Le type d’entrée d’utilisateur **DateTimeDropdown** sert à fournir un ense
 </ClaimType>
 ```
 
-### <a name="radiosingleselect"></a>RadioSingleSelect
+#### <a name="radiosingleselect"></a>RadioSingleSelect
 
 Le type d’entrée d’utilisateur **RadioSingleSelect** sert à fournir une collection de cases d’option qui permet à l’utilisateur de sélectionner une option.
 
@@ -300,7 +333,7 @@ Le type d’entrée d’utilisateur **RadioSingleSelect** sert à fournir une co
 </ClaimType>
 ```
 
-### <a name="dropdownsingleselect"></a>DropdownSingleSelect
+#### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
 Le type d’entrée d’utilisateur **DropdownSingleSelect** sert à fournir une zone de liste déroulante qui permet à l’utilisateur de sélectionner une option.
 
@@ -319,7 +352,7 @@ Le type d’entrée d’utilisateur **DropdownSingleSelect** sert à fournir une
 </ClaimType>
 ```
 
-### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
+#### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
 Le type d’entrée d’utilisateur **CheckboxMultiSelect** sert à fournir une collection de cases à cocher qui permet à l’utilisateur de sélectionner plusieurs options.
 
@@ -338,7 +371,7 @@ Le type d’entrée d’utilisateur **CheckboxMultiSelect** sert à fournir une 
 </ClaimType>
 ```
 
-### <a name="readonly"></a>Readonly
+#### <a name="readonly"></a>Readonly
 
 Le type d’entrée d’utilisateur **Readonly** sert à fournir un champ en lecture seule pour afficher la revendication et la valeur.
 
@@ -354,9 +387,9 @@ Le type d’entrée d’utilisateur **Readonly** sert à fournir un champ en lec
 ```
 
 
-### <a name="paragraph"></a>Paragraph
+#### <a name="paragraph"></a>Paragraph
 
-Le type d’entrée d’utilisateur **Paragraph** sert à fournir un champ qui affiche du texte uniquement dans une balise de paragraphe. Par exemple, &lt;p&gt;texte&lt;/p&gt;.
+Le type d’entrée d’utilisateur **Paragraph** sert à fournir un champ qui affiche du texte uniquement dans une balise de paragraphe.  Par exemple, &lt;p&gt;texte&lt;/p&gt;. Un type d’entrée utilisateur **Paragraphe** `OutputClaim` du profil technique autodéclaré doit définir l’attribut `Required` sur `false` (valeur par défaut).
 
 ![Utilisation du type de revendication avec paragraph](./media/claimsschema/paragraph.png)
 

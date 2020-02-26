@@ -4,15 +4,15 @@ description: Décrit les sources de données et les connecteurs pris en charge p
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4a99bfe8d8235400f9122423aa4592fc6898abc1
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: f65d8fa2c2e522c718c637e32defc4c56fca8364
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922282"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461655"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -23,7 +23,7 @@ Les sources de données et connecteurs figurant dans Obtenir des données ou l�
 |Source de données  |En mémoire  |DirectQuery  |Notes |
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Oui      |    Oui      |<sup>[2](#azprovider)</sup>, <sup>[3](#azsqlmanaged)</sup>|
-|Azure SQL Data Warehouse.      |   Oui      |   Oui       |<sup>[2](#azprovider)</sup>|
+|Azure Synapse Analytics (SQL Data Warehouse)      |   Oui      |   Oui       |<sup>[2](#azprovider)</sup>|
 |Stockage Blob Azure      |   Oui       |    Non      | <sup>[1](#tab1400a)</sup> |
 |Stockage de table Azure     |   Oui       |    Non      | <sup>[1](#tab1400a)</sup>|
 |Azure Cosmos DB     |  Oui        |  Non        |<sup>[1](#tab1400a)</sup> |
@@ -120,7 +120,7 @@ Pour les sources de données cloud :
 
 ## <a name="oauth-credentials"></a>Informations d’identification OAuth
 
-Pour les modèles tabulaires au niveau de compatibilité 1400 ou plus utilisant le mode en mémoire, Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365 et la liste SharePoint prennent en charge les informations d’identification OAuth. Azure Analysis Services gère l’actualisation des jetons pour les sources de données OAuth afin d’éviter un dépassement des délais d’expiration pour les opérations d’actualisation de longue durée. Pour générer des jetons valides, définissez les informations d’identification à l’aide de SSMS.
+Pour les modèles tabulaires au niveau de compatibilité 1400 ou plus utilisant le mode en mémoire, Azure SQL Database, Azure Synapse Analytics (SQL Data Warehouse), Dynamics 365 et la liste SharePoint prennent en charge les informations d’identification OAuth. Azure Analysis Services gère l’actualisation des jetons pour les sources de données OAuth afin d’éviter un dépassement des délais d’expiration pour les opérations d’actualisation de longue durée. Pour générer des jetons valides, définissez les informations d’identification à l’aide de SSMS.
 
 Le mode de requête directe n’est pas compatible avec les informations d’identification OAuth.
 

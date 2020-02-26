@@ -1,22 +1,14 @@
 ---
 title: Bonnes pratiques - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Suivez ces bonnes pratiques pour améliorer votre base de connaissances et fournir des résultats plus pertinents aux utilisateurs finaux de votre application/bot conversationnel.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: 2fd85e43fb2aa53299b4e37eca5163b7da8fc6ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/15/2020
+ms.openlocfilehash: fb935aeed7b492a3a0c213d6d7166bd5d80144c1
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843801"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370104"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bonnes pratiques pour une base de connaissances QnA Maker
 
@@ -31,8 +23,6 @@ En général, les pages FAQ doivent être autonomes et ne pas être combinées a
 ### <a name="configuring-multi-turn"></a>Configuration de l’extraction multitours
 
 [Créez votre base de connaissances](../how-to/multiturn-conversation.md#create-a-multi-turn-conversation-from-a-documents-structure) avec extraction multitours activée. Si votre base de connaissances prend en charge la hiérarchie de questions, ou doit la prendre en charge, vous pouvez extraire ladite hiérarchie du document, ou la créer une fois le document extrait.
-
-<!--is this a global setting that can only be configured at kb creation time? -->
 
 ## <a name="creating-good-questions-and-answers"></a>Créer de bonnes questions et réponses
 
@@ -104,7 +94,7 @@ Essayez d’optimiser l’utilisation des fonctionnalités de classement que QnA
 
 ### <a name="choosing-a-threshold"></a>Choix d’un seuil
 
-Le [score de confiance](confidence-score.md) par défaut utilisé comme seuil est de 50, mais vous pouvez [le changer](confidence-score.md#set-threshold) pour votre base de connaissances, en fonction de vos besoins. Chaque base de connaissances étant différente, vous devez procéder à des test et choisir le seuil qui convient le mieux à votre base de connaissances.
+Le [score de confiance](confidence-score.md) par défaut utilisé comme seuil est de 0, mais vous pouvez [le changer](confidence-score.md#set-threshold) pour votre base de connaissances, en fonction de vos besoins. Chaque base de connaissances étant différente, vous devez procéder à des test et choisir le seuil qui convient le mieux à votre base de connaissances.
 
 ### <a name="choosing-ranker-type"></a>Sélection du type d’outil de classement
 Par défaut, QnA Maker recherche dans les questions et les réponses. Pour rechercher dans les questions uniquement afin de générer une réponse, utilisez le paramètre `RankerType=QuestionOnly` dans le corps POST de la requête GenerateAnswer.

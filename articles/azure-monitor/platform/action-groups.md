@@ -3,15 +3,15 @@ title: Créer et gérer des groupes d’actions sur le Portail Azure
 description: Découvrez comment créer et gérer des groupes d’action sur le Portail Azure.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 8/19/2019
+ms.date: 2/18/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 01d3edb3de9e57fa7fa8db2ede863c2aa3e100ed
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 6ba48f3c40e45afa02e03a7589e968cca723118e
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030742"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467332"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. Vous pouvez configurer jusqu'à 2 000 groupes d'actions au sein d'un abonnement.
@@ -80,7 +80,7 @@ Vous pouvez avoir un nombre limité d’actions de runbook par groupe d’action
 ### <a name="azure-app-push-notifications"></a>Notifications Push Azure App
 Vous pouvez avoir un nombre limité d’actions d’application Azure par groupe d’actions.
 
-### <a name="email"></a>Email
+### <a name="email"></a>E-mail
 Les e-mails seront envoyés à partir des adresses e-mail suivantes. Vérifiez que le filtrage e-mail est correctement configuré
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com
@@ -89,7 +89,7 @@ Les e-mails seront envoyés à partir des adresses e-mail suivantes. Vérifiez q
 Vous pouvez avoir un nombre limité d’actions d’e-mail par groupe d’actions. Consultez l’article [Informations de limitation du débit](./../../azure-monitor/platform/alerts-rate-limiting.md).
 
 ### <a name="email-azure-resource-manager-role"></a>Envoyer un message au rôle Azure Resource Manager
-Envoyer un message aux membres du rôle de l’abonnement.
+Envoyer un message aux membres du rôle de l’abonnement. L’e-mail sera envoyé uniquement aux **utilisateurs Azure AD** membres du rôle. L’e-mail ne sera pas envoyé aux groupes ou principaux du service Azure AD.
 
 Vous pouvez avoir un nombre limité d’actions d’e-mail par groupe d’actions. Consultez l’article [Informations de limitation du débit](./../../azure-monitor/platform/alerts-rate-limiting.md).
 
@@ -107,8 +107,6 @@ Vous pouvez avoir un nombre limité d’actions ITSM par groupe d’actions.
 Vous pouvez avoir un nombre limité d’actions d’application logique par groupe d’actions.
 
 ### <a name="secure-webhook"></a>Webhook sécurisé
-**Pour l’instant, la fonctionnalité Webhook sécurisé n’existe qu’en préversion.**
-
 L’action de webhook de groupes d’actions vous permet de tirer parti d’Azure Active Directory pour sécuriser la connexion entre votre groupe d’actions et votre API web protégée (point de terminaison webhook). Le workflow global pour tirer parti de cette fonctionnalité est décrit ci-dessous. Pour obtenir une vue d’ensemble des applications Azure AD et des principaux de service, consultez [Présentation de la plateforme d’identités Microsoft (v2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
 
 1. Créez une application Azure AD pour votre API web protégée. Consultez https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview.

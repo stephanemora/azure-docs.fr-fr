@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 02/11/2020
 ms.author: yushwang
-ms.openlocfilehash: 5bedf5bd6d061d74201dbac3f1f99ed0d4c381aa
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: a95cd6ea85a16b0e0bf5f67f5dfc20d57f11463b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902436"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198091"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante (Classic)
 
@@ -55,10 +55,13 @@ Avant de commencer la configuration, vérifiez que les conditions suivantes sont
 
 * Matériel VPN compatible pour chaque emplacement local. Voir [À propos des périphériques VPN pour la connectivité au réseau virtuel](vpn-gateway-about-vpn-devices.md) pour vérifier si l’appareil que vous souhaitez utiliser est bien compatible.
 * Une adresse IP IPv4 publique exposée en externe pour chaque périphérique VPN. L’adresse IP ne peut pas se trouver derrière un NAT. Cela est obligatoire.
-* Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure. Veillez à installer à la fois la version Gestion des services et la version Resource Manager. Pour plus d’informations, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) .
 * Un expert en configuration du matériel VPN. Vous devez avoir une bonne maîtrise de la façon de configurer votre périphérique VPN ou de collaborer avec quelqu’un disposant des connaissances nécessaires.
 * Les plages d’adresses IP que vous souhaitez utiliser pour votre réseau virtuel (si vous n’en avez pas déjà créé).
 * Les plages d’adresses IP pour chacun des sites du réseau local auxquels vous vous connecterez. Vous devez vous assurer que les plages d’adresses IP pour chacun des sites du réseau local auxquels vous souhaitez vous connecter ne se chevauchent ne pas. Dans le cas contraire, le portail ou l’API REST rejette la configuration en cours de chargement.<br>Par exemple, si vous avez deux sites de réseau local contenant la plage d’adresse IP 10.2.3.0/24 et que vous disposez d’un package avec une adresse de destination 10.2.3.3, Azure ne saura pas à quel site envoyer le package, car les plages d’adresses se chevauchent. Pour éviter les problèmes de routage, Azure ne vous permet pas de télécharger un fichier de configuration ayant des plages qui se chevauchent.
+
+### <a name="working-with-azure-powershell"></a>Utilisation d’Azure PowerShell
+
+[!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
 ## <a name="1-create-a-site-to-site-vpn"></a>1. Créer un VPN de site à site
 Si vous avez déjà un VPN de site à site avec une passerelle de routage dynamique, bravo ! Vous pouvez [Exporter les paramètres de configuration de réseau virtuel](#export). Sinon, procédez ainsi :
@@ -72,6 +75,19 @@ Si vous avez déjà un VPN de site à site avec une passerelle de routage dynami
 2. Configurez une passerelle de routage dynamique à l’aide des instructions suivantes : [Configurer une passerelle VPN](vpn-gateway-configure-vpn-gateway-mp.md). Veillez à sélectionner le **routage dynamique** pour le type de passerelle.
 
 ## <a name="export"></a>2. Exporter le fichier de configuration réseau
+
+Ouvrez la console PowerShell avec des privilèges élevés. Pour passer au management des services, utilisez cette commande :
+
+```powershell
+azure config mode asm
+```
+
+Se connecter à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
+
+```powershell
+Add-AzureAccount
+```
+
 Exportez votre fichier de configuration réseau Azure en exécutant la commande suivante. Vous pouvez modifier l’emplacement d’exportation du fichier si nécessaire.
 
 ```powershell

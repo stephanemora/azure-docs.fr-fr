@@ -9,41 +9,48 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3c3c9950aab9a5a422ebc9e858daded2888fd82e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: dcd0371d275c3a46fe9bf07c96516a2d0820abb7
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834272"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430531"
 ---
 # <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Résoudre les problèmes liés à la configuration de l’état souhaité Azure Automation
 
 Cet article fournit des informations sur la résolution des problèmes de la Configuration de l’état souhaité.
 
-## <a name="steps-to-troubleshoot-desired-state-configuration-dsc"></a>Étapes à suivre pour dépanner la Configuration de l’état souhaité
+## <a name="diagnosing-an-issue"></a>Diagnostic d’un problème
 
-Si vous rencontrez des erreurs en compilant ou en déployant des configurations dans Azure State Configuration, voici quelques étapes pour diagnostiquer le problème.
+Si vous rencontrez des erreurs lors de la compilation ou du déploiement de configurations dans Azure State Configuration, voici quelques étapes pour diagnostiquer le problème.
 
-1. **Veillez à ce que votre configuration compile avec succès sur votre ordinateur local :**  Azure State configuration repose sur PowerShell DSC. Vous trouverez la documentation relative à la syntaxe et au langage DSC dans les [documents PowerShell DSC](https://docs.microsoft.com/powershell/scripting/overview).
+### <a name="1-ensure-that-your-configuration-compiles-successfully-on-the-local-machine"></a>1. Vérifier que votre configuration est correctement compilée sur l’ordinateur local
 
-   En compilant votre configuration DSC sur votre ordinateur local, vous pouvez détecter et résoudre les erreurs courantes, telles que :
+Azure State configuration repose sur PowerShell DSC. Vous trouverez la documentation relative à la syntaxe et au langage DSC dans les [documents PowerShell DSC](https://docs.microsoft.com/powershell/scripting/overview).
 
-   - **Modules manquants**
-   - **Erreurs de syntaxe**
-   - **Erreurs logiques**
+En compilant votre configuration DSC sur votre ordinateur local, vous pouvez détecter et résoudre les erreurs courantes, telles que :
 
-2. **Afficher les journaux DSC sur votre nœud :** Si votre configuration compile avec succès, mais échoue lorsqu’elle est appliquée à un nœud, vous pouvez trouver les informations détaillées dans les journaux. Pour plus d’informations sur l’emplacement des journaux DSC, consultez [Où sont les journaux d’activité DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
+   - Modules manquants
+   - Erreurs de syntaxe
+   - Erreurs logiques
 
-   De plus, le [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) peut vous aider à analyser des informations détaillées dans les journaux DSC. Si vous contactez le support technique, vous aurez besoin de ces journaux pour diagnostiquer votre problème.
+### <a name="2-view-dsc-logs-on-your-node"></a>2. Afficher les journaux DSC sur votre nœud
 
-   Vous pouvez installer **xDscDiagnostics** sur votre ordinateur local à l’aide des instructions figurant sous [Installer le module de version stable](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
+Si votre configuration est correctement compilée, mais échoue lorsqu’elle est appliquée à un nœud, vous pouvez trouver les informations détaillées dans les journaux DSC. Pour plus d’informations sur l’emplacement de ces journaux, consultez [Où se trouvent les journaux des événements DSC ?](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs)
 
-   Pour installer **xDscDiagnostics** sur votre machine Azure, vous pouvez utiliser [az vm run-command](/cli/azure/vm/run-command) ou [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). Vous pouvez aussi utiliser l’option **Run Command** depuis le portail, en suivant les étapes dans [Exécuter des scripts PowerShell dans votre machine virtuelle Windows avec Run Command](../../virtual-machines/windows/run-command.md).
+Le module [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) peut vous aider à analyser des informations détaillées dans les journaux DSC. Si vous contactez le support, ces journaux sont nécessaires pour diagnostiquer votre problème.
 
-   Pour plus d’informations sur l’utilisation de **xDscDiagnostics**, consultez [Utilisation de xDscDiagnostics pour analyser des journaux DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), ainsi que les [Cmdlets xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
-3. **Veillez à ce que vos nœuds et votre espace de travail Automation disposent des modules nécessaires :** La configuration d’état souhaité dépend des modules installés sur le nœud.  Lorsque vous utilisez la configuration de l’état d’Azure Automation, importez les modules requis dans votre compte Automation à l’aide des étapes indiquées dans [Importer des modules](../shared-resources/modules.md#import-modules). Les configurations peuvent également avoir une dépendance sur des versions de modules spécifiques.  Pour plus d’informations, consultez [Résoudre les problèmes liés aux modules](shared-resources.md#modules).
+Vous pouvez installer le module xDscDiagnostics sur votre ordinateur local à l’aide des instructions figurant dans la section [Install the stable version module](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module) (Installer le module de version stable).
 
-## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Erreurs courantes avec la Configuration d’état souhaité (DSC)
+Pour installer le module xDscDiagnostics sur votre machine Azure, utilisez la commande [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). Vous pouvez aussi utiliser l’option **Run Command** depuis le portail, en suivant les étapes dans [Exécuter des scripts PowerShell dans votre machine virtuelle Windows avec Run Command](../../virtual-machines/windows/run-command.md).
+
+Pour plus d’informations sur l’utilisation de xDscDiagnostics, consultez [Utilisation de xDscDiagnostics pour analyser les journaux DSC](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs). Consultez également les [cmdlets xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
+
+### <a name="3-ensure-that-nodes-and-the-automation-workspace-have-required-modules"></a>3. S’assurer que les nœuds et l’espace de travail Automation disposent des modules nécessaires
+
+DSC dépend des modules installés sur le nœud. Lorsque vous utilisez Azure Automation State Configuration, importez tous les modules requis dans votre compte Automation à l’aide des étapes indiquées dans [Importer des modules](../shared-resources/modules.md#import-modules). Les configurations peuvent également avoir une dépendance sur des versions de modules spécifiques. Pour plus d’informations, consultez [Résoudre les problèmes liés aux modules](shared-resources.md#modules).
+
+## <a name="common-errors-when-working-with-dsc"></a>Erreurs courantes avec DSC
 
 ### <a name="unsupported-characters"></a>Scénario : Une configuration contenant des caractères spéciaux ne peut pas être supprimée à partir du portail
 
@@ -97,7 +104,7 @@ Vérifiez que votre machine a accès aux points de terminaison appropriés pour 
 Lors de l’inscription d’un nœud à l’aide de State Configuration (DSC), vous recevez l’un des messages d’erreur suivants :
 
 ```error
-The attempt to send status report to the server https://{your automation account url}/accounts/xxxxxxxxxxxxxxxxxxxxxx/Nodes(AgentId='xxxxxxxxxxxxxxxxxxxxxxxxx')/SendReport returned unexpected response code Unauthorized.
+The attempt to send status report to the server https://{your Automation account URL}/accounts/xxxxxxxxxxxxxxxxxxxxxx/Nodes(AgentId='xxxxxxxxxxxxxxxxxxxxxxxxx')/SendReport returned unexpected response code Unauthorized.
 ```
 
 ```error
@@ -229,7 +236,7 @@ Vous avez utilisé des informations d’identification dans une configuration, m
 
 #### <a name="resolution"></a>Résolution
 
-* Assurez-vous de transmettre la bonne valeur **ConfigurationData** pour définir **PSDscAllowPlainTextPassword** sur true pour chaque configuration de nœud mentionnée dans la configuration. Pour plus d’informations, consultez les [ressources d’Azure Automation DSC](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation).
+* Assurez-vous de transmettre la bonne valeur **ConfigurationData** pour définir **PSDscAllowPlainTextPassword** sur true pour chaque configuration de nœud mentionnée dans la configuration. Pour plus d’informations, consultez [Compilation de configurations DSC dans Azure Automation State Configuration](../automation-dsc-compile.md).
 
 ### <a name="failure-processing-extension"></a>Scénario : Intégration à partir de l’extension dsc, erreur « Échec lors du traitement de l’extension »
 
@@ -331,6 +338,6 @@ La meilleure solution de contournement consiste à compiler localement ou dans u
 
 Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez un des canaux suivants pour obtenir de l’aide :
 
-* Obtenez des réponses de la part d’experts Azure via les [Forums Windows](https://azure.microsoft.com/support/forums/)
+* Obtenez des réponses de la part d’experts Azure via les [Forums Azure](https://azure.microsoft.com/support/forums/).
 * Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), qui est le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 * Si vous avez besoin de plus d’aide, vous pouvez signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur **Obtenir un support**.

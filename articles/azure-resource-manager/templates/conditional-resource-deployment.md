@@ -3,12 +3,12 @@ title: Déploiement conditionnel avec des modèles
 description: Décrit comment déployer une ressource de manière conditionnelle dans un modèle Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: b4ee733e81f3a923f268f33f5826387059923bcb
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 83aa22ba57e0111d060665778922437723481c69
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121996"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207789"
 ---
 # <a name="conditional-deployment-in-resource-manager-templates"></a>Déploiement conditionnel dans des modèles Azure Resource Manager
 
@@ -88,4 +88,4 @@ Si vous déployez un modèle en [mode complet](deployment-modes.md) et qu’une 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour obtenir des recommandations sur la création de modèles, consultez [Bonnes pratiques relatives aux modèles Azure Resource Manager](template-best-practices.md).
-* Pour créer plusieurs instances d’une ressource, voir [Itération de variable, de propriété ou de ressource dans les modèles Azure Resource Manager](create-multiple-instances.md).
+* Pour créer plusieurs instances d’une ressource, consultez [Itération de ressources dans des modèles Azure Resource Manager](copy-resources.md).

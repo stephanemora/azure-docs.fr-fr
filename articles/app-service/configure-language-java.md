@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9ee989a079366a470d086a8b931685a6c1dbc757
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: e5beb60107b3632da336a20f167e1c2f5b53140a
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889352"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461264"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Configurer une application Windows Java pour Azure App Service
 
@@ -24,11 +24,12 @@ Ce guide fournit les concepts et instructions clés aux développeurs Java qui u
 
 ## <a name="deploying-your-app"></a>Déploiement de votre application
 
-Vous pouvez utiliser le [plug-in Maven pour Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) pour déployer vos fichiers .war. Le déploiement avec des IDE populaires est également pris en charge avec [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) ou [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
+Vous pouvez utiliser le [plug-in Azure Web App pour Maven](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) pour déployer vos fichiers .war. Le déploiement avec des IDE populaires est également pris en charge avec [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) ou [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
 
 Sinon, votre méthode de déploiement dépend du type de votre archive :
 
 - Pour déployer des fichiers .war sur Tomcat, utilisez le point de terminaison `/api/wardeploy/` pour effectuer un POST de votre fichier d’archive. Pour plus d’informations sur cette API, voir [cette documentation](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
+- Pour déployer des fichiers .jar dans Java SE, utilisez le point de terminaison `/api/zipdeploy/` du site Kudu. Pour plus d’informations sur cette API, voir [cette documentation](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
 
 Ne déployez pas votre fichier .war à l’aide du protocole FTP. L’outil FTP est conçu pour charger des scripts de démarrage, des dépendances ou d’autres fichiers de runtime. Il ne s’agit pas du meilleur choix pour le déploiement d’applications web.
 
@@ -128,9 +129,9 @@ Les applications Java exécutées dans App Service exigent les mêmes [bonnes pr
 
 Configurez l’authentification de l’application dans le portail Azure avec l’option **Authentification et autorisation**. À partir de là, vous pouvez activer l’authentification en utilisant Azure Active Directory ou des identifiants de réseaux sociaux tels que Facebook, Google ou GitHub. La configuration du portail Azure fonctionne seulement si vous configurez un seul fournisseur d’authentification. Pour plus d’informations, consultez [Configurer votre application App Service pour utiliser une connexion Azure Active Directory](configure-authentication-provider-aad.md) et les articles connexes sur d’autres fournisseurs d’identités. Si vous devez activer plusieurs fournisseurs de connexion, suivez les instructions de l’article [Personnaliser l’authentification App Service](app-service-authentication-how-to.md).
 
-#### <a name="tomcat-and-wildfly"></a>Tomcat et Wildfly
+#### <a name="tomcat"></a>Tomcat
 
-Votre application Tomcat ou Wildfly peut accéder directement aux revendications de l’utilisateur à partir du servlet en castant l’objet Principal en objet Map. L’objet Map mappe chaque type de revendication avec une collection des revendications de ce type. Dans le code ci-dessous, `request` est une instance de `HttpServletRequest`.
+Votre application Tomcat peut accéder directement aux revendications de l’utilisateur à partir du servlet en forçant le type de l’objet Principal en objet Map. L’objet Map mappe chaque type de revendication avec une collection des revendications de ce type. Dans le code ci-dessous, `request` est une instance de `HttpServletRequest`.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
@@ -287,6 +288,10 @@ Pour modifier le `server.xml` ou d’autres fichiers de configuration Tomcat, no
 
 Pour terminer, redémarrez votre instance App Service. Vos déploiements doivent atteindre `D:\home\site\wwwroot\webapps` comme avant.
 
+## <a name="configure-java-se"></a>Configurer Java SE
+
+Lors de l’exécution d’une application .JAR sur Java SE sur Windows, `server.port` est transmis comme option de ligne de commande au démarrage de votre application. Vous pouvez résoudre manuellement le port HTTP à partir de la variable d’environnement, `HTTP_PLATFORM_PORT`. La valeur de cette variable d’environnement sera le port HTTP sur lequel votre application doit écouter. 
+
 ## <a name="java-runtime-statement-of-support"></a>Informations de prise en charge du runtime Java
 
 ### <a name="jdk-versions-and-maintenance"></a>Versions JDK et maintenance
@@ -300,6 +305,8 @@ Les kits JDK pris en charge sont automatiquement mis à jour tous les trimestres
 ### <a name="security-updates"></a>Mises à jour de sécurité
 
 Les correctifs des principales vulnérabilités de sécurité seront publiés dès qu’Azul Systems les mettra à disposition. Une vulnérabilité « majeure » est définie par un score de base de 9.0 ou supérieur dans le système [NIST Common Vulnerability Scoring System, version 2](https://nvd.nist.gov/cvss.cfm).
+
+Tomcat 8.0 a atteint sa [fin de vie (EOL) le 30 septembre 2018](https://tomcat.apache.org/tomcat-80-eol.html). Bien que le runtime soit toujours disponible sur Azure App Service, Azure n’appliquera pas de correctifs de sécurité à Tomcat 8.0. Si possible, migrez vos applications vers Tomcat 8.5 ou 9.0. Tomcat 8.5 et 9.0 sont tous deux disponibles sur Azure App Service. Pour plus d’informations, rendez-vous sur le [site officiel de Tomcat](https://tomcat.apache.org/whichversion.html). 
 
 ### <a name="deprecation-and-retirement"></a>Dépréciation et retrait
 

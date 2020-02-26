@@ -1,6 +1,6 @@
 ---
 title: Ajouter une couche d’images à une carte | Microsoft Azure Maps
-description: Dans cet article, vous allez apprendre à superposer une image sur une carte à l’aide du SDK web Microsoft Azure Maps.
+description: Dans cet article, vous allez apprendre à superposer une image sur une carte à l’aide du Kit de développement logiciel (SDK) web Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: cfdf7dfd4c16f70065e338f8983d2124d3f6f0ef
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 69bf41f9d88081b9a416b9bee91e8650a84f12c7
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933210"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209713"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Ajouter une couche d’images à une carte
 
-Cet article vous montre comment vous pouvez superposer une image à un ensemble fixe de coordonnées sur une carte. Voici quelques exemples d’images qui sont souvent superposées à des cartes :
+Cet article vous montre comment superposer une image à un ensemble fixe de coordonnées. Voici quelques exemples de différents types d’images qui peuvent être superposées sur des cartes :
 
 * Images capturées à l’aide de drones
 * Plans au sol d’un immeuble
@@ -62,9 +62,9 @@ Voici l’exemple complet du code précédent.
 
 ## <a name="import-a-kml-file-as-ground-overlay"></a>Importer un fichier KML en tant que calque de relief
 
-L’exemple suivant montre comment superposer les informations de calque de relief KML comme couche d’images sur la carte. Les calques de relief KML fournissent les coordonnées des points cardinaux ainsi qu’une rotation à gauche, alors que la couche d’images attend des coordonnées pour chaque angle de l’image. Le calque de relief KML de cet exemple est celui de la cathédrale de Chartres et a été tiré de [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
+Cet exemple montre comment ajouter des informations de calque de relief KML comme couche d’image sur la carte. Les calques de relief KML fournissent les coordonnées des points cardinaux et une rotation dans le sens inverse des aiguilles d’une montre. Toutefois, la couche d’image attend des coordonnées pour chaque coin de l’image. Le calque de relief KML de cet exemple est celui de la cathédrale de Chartres et provient de [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 
-Le code suivant utilise la fonction statique `getCoordinatesFromEdges` de la classe [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest). Il calcule les quatre coins de l’image à partir des informations relatives aux points cardinaux et à la rotation issues du calque de relief KML.
+Le code utilise la fonction statique `getCoordinatesFromEdges` de la classe [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest). Il calcule les quatre coins de l’image à partir des informations relatives aux points cardinaux et à la rotation issues du calque de relief KML.
 
 <br/>
 

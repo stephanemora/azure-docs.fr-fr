@@ -6,16 +6,16 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 122e1f69e952acc00aba3cad2d75cb87b8fd08ee
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8caf502db91ab09eea48fc8a902dacf6bf40f24c
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421590"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462205"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Contrôle d’accès en fonction du rôle dans Azure Automation
 
-Le contrôle d’accès en fonction du rôle (RBAC) permet de gérer les accès des ressources Azure. Avec [RBAC](../role-based-access-control/overview.md), vous pouvez répartir les tâches au sein de votre équipe et accorder aux utilisateurs, groupes et applications uniquement les accès nécessaires pour accomplir leur travail. L’accès en fonction du rôle peut être accordé aux utilisateurs à l’aide du portail Azure, des outils en ligne de commande Azure ou des API de gestion Azure.
+Le contrôle d’accès en fonction du rôle (RBAC) permet de gérer les accès des ressources Azure. Avec [RBAC](../role-based-access-control/overview.md), vous pouvez répartir les tâches au sein de votre équipe et accorder aux utilisateurs, groupes et applications uniquement les accès nécessaires pour accomplir leur travail. Vous pouvez accorder un accès en fonction du rôle aux utilisateurs à l’aide du Portail Azure, des outils en ligne de commande Azure ou des API de gestion Azure.
 
 ## <a name="roles-in-automation-accounts"></a>Rôles dans les comptes Automation
 
@@ -26,7 +26,7 @@ Dans Azure Automation, l’accès est octroyé en attribuant le rôle RBAC app
 | Propriétaire |Le rôle Propriétaire autorise l’accès à l’ensemble des ressources et actions d’un compte Automation, notamment l’accès aux autres utilisateurs, groupes et applications pour gérer le compte Automation. |
 | Contributeur |Le rôle Collaborateur vous permet de gérer tous les éléments excepté la modification des autorisations d’accès des autres utilisateurs à un compte Automation. |
 | Lecteur |Le rôle Lecteur vous permet d’afficher toutes les ressources d’un compte Automation, mais vous ne pouvez pas y apporter de modifications. |
-| Opérateur Automation |Le rôle Opérateur Automation vous permet de voir le nom et les propriétés du runbook, et de créer et gérer des travaux pour tous les runbooks dans un compte Automation. Ce rôle est utile si vous souhaitez protéger vos ressources de compte Automation telles que les ressources d’informations d’identification et les Runbooks et empêcher leur affichage ou leur modification, tout en autorisant les membres de votre organisation à exécuter ces Runbooks. |
+| Opérateur Automation |Le rôle Opérateur Automation vous permet de voir le nom et les propriétés du runbook, et de créer et gérer des travaux pour tous les runbooks dans un compte Automation. Ce rôle est utile si vous souhaitez protéger vos ressources de compte Automation telles que les ressources d’informations d’identification et les runbooks et empêcher leur affichage ou leur modification, tout en autorisant les membres de votre organisation à exécuter ces runbooks. |
 |Opérateur de travaux Automation|Le rôle Opérateur de travaux Automation vous permet de créer et de gérer des travaux pour tous les runbooks dans un compte Automation.|
 |Opérateur de runbook Automation|Le rôle Opérateur de runbook Automation vous permet de voir le nom et les propriétés d’un runbook.|
 | Contributeur Log Analytics | Le rôle Contributeur Log Analytics vous permet de lire toutes les données de surveillance et de modifier les paramètres de surveillance. La modification des paramètres de supervision inclut l’ajout de l’extension de machine virtuelle aux machines virtuelles, la lecture des clés de comptes de stockage permettant de configurer la collection de journaux d’activité du stockage Azure, la création et la configuration de comptes Automation, l’ajout de solutions et la configuration de diagnostics Azure sur toutes les ressources Azure.|
@@ -212,23 +212,21 @@ Les tableaux suivants indiquent les autorisations minimales nécessaires pour l�
 
 |**Action**  |**Permission**  |**Étendue minimale**  |
 |---------|---------|---------|
-|Écrire le nouveau déploiement      | Microsoft.Resources/deployments/*          |Subscription          |
-|Écrire le nouveau groupe de ressources      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
+|Écrire le nouveau déploiement      | Microsoft.Resources/deployments/*          |Abonnement          |
+|Écrire le nouveau groupe de ressources      | Microsoft.Resources/subscriptions/resourceGroups/write        | Abonnement          |
 |Créer le nouvel espace de travail par défaut      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
 |Créer un compte      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
 |Lier l’espace de travail et le compte      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Espace de travail</br>Compte Automation
-|Créer une solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Resource group          |
 |Créer une extension MMA      | Microsoft.Compute/virtualMachines/write         | Machine virtuelle         |
 |Créer une recherche enregistrée      | Microsoft.OperationalInsights/workspaces/write          | Espace de travail         |
 |Créer une configuration d’étendue      | Microsoft.OperationalInsights/workspaces/write          | Espace de travail         |
-|Lier la solution à la configuration d’étendue      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solution         |
 |Vérification de l’état d’intégration - Lire l’espace de travail      | Microsoft.OperationalInsights/workspaces/read         | Espace de travail         |
 |Vérification de l’état d’intégration - Lire la propriété de l’espace de travail lié du compte     | Microsoft.Automation/automationAccounts/read      | Compte Automation        |
 |Vérification de l’état d’intégration - Lire la solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solution         |
 |Vérification de l’état d’intégration - Lire la machine virtuelle      | Microsoft.Compute/virtualMachines/read         | Machine virtuelle         |
 |Vérification de l’état d’intégration - Lire le compte      | Microsoft.Automation/automationAccounts/read  |  Compte Automation   |
-| Vérification de l’espace de travail d’intégration de la machine virtuelle<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscription         |
-| Inscrire le fournisseur Log Analytics |Microsoft.Insights/register/action | Subscription|
+| Vérification de l’espace de travail d’intégration de la machine virtuelle<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Abonnement         |
+| Inscrire le fournisseur Log Analytics |Microsoft.Insights/register/action | Abonnement|
 
 <sup>1</sup> Cette autorisation est nécessaire pour effectuer une intégration via le portail de la machine virtuelle.
 
@@ -236,19 +234,17 @@ Les tableaux suivants indiquent les autorisations minimales nécessaires pour l�
 
 |**Action**  |**Permission** |**Étendue minimale**  |
 |---------|---------|---------|
-|Créer un déploiement     | Microsoft.Resources/deployments/*        | Subscription         |
-|Créer un groupe de ressources     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
+|Créer un déploiement     | Microsoft.Resources/deployments/*        | Abonnement         |
+|Créer un groupe de ressources     | Microsoft.Resources/subscriptions/resourceGroups/write         | Abonnement        |
 |Panneau AutomationOnboarding - Créer un espace de travail     |Microsoft.OperationalInsights/workspaces/write           | Resource group        |
 |Panneau AutomationOnboarding - Lire l’espace de travail lié     | Microsoft.Automation/automationAccounts/read        | Compte Automation       |
 |Panneau AutomationOnboarding - Lire la solution     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Solution        |
 |Panneau AutomationOnboarding - Lire l’espace de travail     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Espace de travail        |
 |Créer un lien pour l’espace de travail et le compte     | Microsoft.OperationalInsights/workspaces/write        | Espace de travail        |
 |Écrire le compte pour shoebox      | Microsoft.Automation/automationAccounts/write        | Compte        |
-|Créer une solution      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write        | Groupe de ressources         |
 |Créer/modifier la recherche enregistrée     | Microsoft.OperationalInsights/workspaces/write        | Espace de travail        |
 |Créer/modifier la configuration d’étendue     | Microsoft.OperationalInsights/workspaces/write        | Espace de travail        |
-|Lier la solution à la configuration d’étendue      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solution         |
-| Inscrire le fournisseur Log Analytics |Microsoft.Insights/register/action | Subscription|
+| Inscrire le fournisseur Log Analytics |Microsoft.Insights/register/action | Abonnement|
 |**Étape 2 : Intégrer plusieurs machines virtuelles**     |         |         |
 |Panneau VMOnboarding - Créer l’extension MMA     | Microsoft.Compute/virtualMachines/write           | Machine virtuelle        |
 |Créer/modifier la recherche enregistrée     | Microsoft.OperationalInsights/workspaces/write           | Espace de travail        |
@@ -263,49 +259,49 @@ La gestion des mises à jour s’étend à plusieurs services pour fournir son s
 |Compte Automation     | Contributeur Log Analytics       | Compte Automation        |
 |Compte Automation    | Contributeur de machine virtuelle        | Groupe de ressources pour le compte        |
 |Espace de travail Log Analytics     | Contributeur Log Analytics| Espace de travail Log Analytics        |
-|Espace de travail Log Analytics |Lecteur Log Analytics| Subscription|
+|Espace de travail Log Analytics |Lecteur Log Analytics| Abonnement|
 |Solution     |Contributeur Log Analytics         | Solution|
 |Machine virtuelle     | Contributeur de machine virtuelle        | Machine virtuelle        |
 
 ## <a name="configure-rbac-for-your-automation-account"></a>Configurer RBAC pour votre compte Automation
 
-La section suivante vous explique comment configurer RBAC sur votre compte Automation via le [portail](#configure-rbac-using-the-azure-portal) et [PowerShell](#configure-rbac-using-powershell)
+La section suivante vous explique comment configurer RBAC sur votre compte Automation via le [portail](#configure-rbac-using-the-azure-portal) et [PowerShell](#configure-rbac-using-powershell).
 
 ### <a name="configure-rbac-using-the-azure-portal"></a>Configurer RBAC à l’aide du portail Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) et ouvrez votre compte Automation depuis la page Comptes Automation.
-2. Cliquez sur le contrôle **Contrôle d’accès (IAM)** en haut à gauche. Dans la page **Contrôle d’accès (IAM)** qui s’ouvre, vous pouvez ajouter de nouveaux utilisateurs, groupes et applications pour gérer votre compte Automation et afficher les rôles existants qui peuvent être configurés pour le compte Automation.
+2. Cliquez sur le contrôle **Contrôle d’accès (IAM)** en haut à gauche pour ouvrir la page Contrôle d’accès (IAM). Vous pouvez utiliser cette page pour ajouter de nouveaux utilisateurs, groupes et applications pour gérer votre compte Automation et afficher les rôles existants qui peuvent être configurés pour le compte Automation.
 3. Cliquez sur l’onglet **Attributions de rôles**.
 
    ![Bouton Accéder](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>Ajouter un nouvel utilisateur et affecter un rôle
 
-1. Dans la page **Contrôle d’accès (IAM)** , cliquez sur **+ Ajouter une attribution de rôle**  pour ouvrir la page **Ajouter une attribution de rôle** dans laquelle vous pouvez ajouter un utilisateur, un groupe ou une application, puis lui attribuer un rôle.
+1. Dans la page Contrôle d’accès (IAM), cliquez sur **+ Ajouter une attribution de rôle**. Cette action ouvre la page Ajouter une attribution de rôle dans laquelle vous pouvez ajouter un utilisateur, un groupe ou une application et attribuer le rôle correspondant.
 
 2. Dans la liste des rôles disponibles, sélectionnez un rôle. Vous pouvez choisir l’un des rôles intégrés disponibles pris en charge par un compte Automation ou un rôle personnalisé que vous avez défini.
 
-3. Tapez le nom d’utilisateur de l’utilisateur auquel vous souhaitez donner des autorisations dans le champ **Sélectionner**. Sélectionnez l’utilisateur dans la liste et cliquez sur **Enregistrer**.
+3. Saisissez le nom d’utilisateur de l’utilisateur auquel vous souhaitez accorder des autorisations dans le champ **Sélectionner**. Choisissez l’utilisateur dans la liste et cliquez sur **Enregistrer**.
 
    ![Ajouter des utilisateurs](media/automation-role-based-access-control/automation-04-add-users.png)
 
-   L’utilisateur doit maintenant apparaître dans la page **Utilisateurs** avec le rôle sélectionné qui lui a été affecté.
+   L’utilisateur doit maintenant apparaître dans la page Utilisateurs avec le rôle sélectionné qui lui a été attribué.
 
    ![Répertorier les utilisateurs](media/automation-role-based-access-control/automation-05-list-users.png)
 
-   Vous pouvez également affecter un rôle à l’utilisateur à partir de la page **Rôles** .
-4. Cliquez sur **Rôles** dans la page **Contrôle d’accès (IAM)** pour ouvrir la page **Rôles**. Dans cette page, vous pouvez voir le nom du rôle, ainsi que le nombre d’utilisateurs et de groupes affectés à ce rôle.
+   Vous pouvez également attribuer un rôle à l’utilisateur à partir de la page Rôles.
+4. Cliquez sur **Rôles** dans la page Contrôle d’accès (IAM) pour ouvrir la page Rôles. Vous pouvez voir le nom du rôle, ainsi que le nombre d’utilisateurs et de groupes auxquels ce rôle a été attribué.
 
     ![Affecter un rôle à partir de la page Utilisateurs](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
 
    > [!NOTE]
-   > Le contrôle d’accès en fonction du rôle ne peut être défini qu’au niveau de l’étendue du compte Automation, et pas au niveau d’une ressource située sous ce compte.
+   > Vous pouvez uniquement définir le contrôle d’accès en fonction du rôle au niveau de l’étendue du compte Automation, et non à celui d’une ressource située sous ce compte.
 
 #### <a name="remove-a-user"></a>Supprimer un utilisateur
 
 Vous pouvez supprimer l’autorisation d’accès d’un utilisateur qui ne gère pas le compte Automation ou qui ne travaille plus pour l’organisation. Pour supprimer un utilisateur, procédez comme suit :
 
-1. Dans la page **Contrôle d’accès (IAM)** , sélectionnez l’utilisateur à supprimer, puis cliquez sur **Supprimer**.
+1. Dans la page Contrôle d’accès (IAM), sélectionnez l’utilisateur à supprimer, puis cliquez sur **Supprimer**.
 2. Cliquez sur le bouton **Supprimer** dans le volet des détails de l’affectation.
 3. Cliquez sur **Oui** pour confirmer la suppression.
 
@@ -313,9 +309,9 @@ Vous pouvez supprimer l’autorisation d’accès d’un utilisateur qui ne gèr
 
 ### <a name="configure-rbac-using-powershell"></a>Configurer RBAC à l’aide de PowerShell
 
-L’accès en fonction du rôle peut également être configuré pour un compte Automation à l’aide des [applets de commande Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) ci-dessous :
+Vous pouvez également configurer l’accès en fonction du rôle pour un compte Automation à l’aide des [cmdlets Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) suivantes :
 
-[Get-AzureRmRoleDefinition](/previous-versions/azure/mt603792(v=azure.100)) répertorie tous les rôles RBAC qui sont disponibles dans Azure Active Directory. Vous pouvez utiliser cette commande avec la propriété **Name** pour dresser la liste de toutes les actions qui peuvent être effectuées par un rôle spécifique.
+[Get-AzureRmRoleDefinition](/previous-versions/azure/mt603792(v=azure.100)) répertorie tous les rôles RBAC qui sont disponibles dans Azure Active Directory. Vous pouvez utiliser cette cmdlet avec le paramètre *Name* pour répertorier toutes les actions qu’un rôle spécifique peut effectuer.
 
 ```azurepowershell-interactive
 Get-AzureRmRoleDefinition -Name 'Automation Operator'
@@ -334,8 +330,9 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzureRmRoleAssignment](/previous-versions/azure/mt619413(v=azure.100)) répertorie les affectations de rôle RBAC d’Azure AD dans l’étendue spécifiée. Sans paramètres, cette commande renvoie toutes les affectations de rôle effectuées dans l’abonnement. Utilisez le paramètre **ExpandPrincipalGroups** pour répertorier les affectations d’accès de l’utilisateur spécifié et des groupes dont il est membre.
-    **Exemple :** Utilisez la commande suivante pour lister tous les utilisateurs et leurs rôles dans un compte Automation.
+[Get-AzureRmRoleAssignment](/previous-versions/azure/mt619413(v=azure.100)) répertorie les affectations de rôle RBAC d’Azure AD dans l’étendue spécifiée. Sans paramètres, cette cmdlet renvoie toutes les attributions de rôle effectuées dans l’abonnement. Utilisez le paramètre *ExpandPrincipalGroups* pour répertorier les affectations d’accès de l’utilisateur spécifié, ainsi que les groupes auxquels l’utilisateur appartient.
+
+**Exemple :** Utilisez la cmdlet suivante pour lister tous les utilisateurs et leurs rôles dans un compte Automation.
 
 ```azurepowershell-interactive
 Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -355,8 +352,9 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-Utilisez [New-AzureRmRoleAssignment](/previous-versions/azure/mt603580(v=azure.100)) pour affecter un accès à des utilisateurs, des groupes et des applications à une étendue particulière.
-    **Exemple :** Utilisez la commande suivante pour attribuer le rôle « Opérateur d’Automation » à un utilisateur dans l’étendue du compte Automation.
+Utilisez [New-AzureRmRoleAssignment](/previous-versions/azure/mt603580(v=azure.100)) pour attribuer un accès à des utilisateurs, des groupes et des applications à une étendue particulière.
+    
+**Exemple :** Utilisez la commande suivante pour attribuer le rôle « Opérateur d’Automation » à un utilisateur dans l’étendue du compte Automation.
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -377,56 +375,56 @@ ObjectType         : User
 ```
 
 Utilisez [Remove-AzureRmRoleAssignment](/previous-versions/azure/mt603781(v=azure.100)) pour supprimer l’accès d’un utilisateur, groupe ou application spécifié dans une étendue particulière.
-    **Exemple :** Utilisez la commande suivante pour supprimer l’utilisateur du rôle « Opérateur d’Automation » dans l’étendue du compte Automation.
+
+**Exemple :** Utilisez la commande suivante pour supprimer l’utilisateur du rôle « Opérateur d’Automation » dans l’étendue du compte Automation.
 
 ```azurepowershell-interactive
 Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-Dans les exemples ci-dessus, remplacez **l’ID de connexion**, **l’ID d’abonnement**, le **nom du groupe de ressources** et le **nom du compte Automation** par les détails de votre compte. Choisissez **oui** lorsque vous êtes invité à confirmer avant de supprimer une affectation de rôle d’utilisateur.
+Dans les exemples précédents, remplacez « sign-in ID of a user you wish to remove » (ID de connexion de l’utilisateur que vous souhaitez supprimer), « SubscriptionID » (ID d’abonnement), « Resource Group Name » (Nom du groupe de ressources) et « Automation account name » (Nom du compte Automation) par les détails de votre compte. Choisissez **oui** quand vous êtes invité à confirmer la suppression des attributions de rôle de l’utilisateur.
 
-### <a name="user-experience-for-automation-operator-role---automation-account"></a>Expérience utilisateur pour le rôle d’opérateur Automation - Compte Automation
+### <a name="user-experience-for-automation-operator-role---automation-account"></a>Expérience utilisateur pour le rôle d’opérateur Automation – Compte Automation
 
-Quand un utilisateur affecté au rôle Opérateur Automation sur l’étendue du compte Automation consulte le compte Automation auquel il est affecté, il peut afficher uniquement la liste des runbooks ainsi que les tâches et les planifications de runbook créées dans le compte Automation, mais il ne peut pas afficher leur définition. Il peut démarrer, arrêter, suspendre, reprendre ou planifier la tâche de Runbook. L’utilisateur n’a pas accès aux autres ressources Automation telles que les configurations, les groupes de Workers hybrides ou les nœuds DSC.
+Quand un utilisateur affecté au rôle Opérateur Automation sur l’étendue du compte Automation consulte le compte Automation auquel il est affecté, il peut afficher uniquement la liste des runbooks, des tâches de runbook et des planifications créés dans le compte Automation. Cet utilisateur ne peut pas afficher les définitions de ces éléments. Il peut démarrer, arrêter, interrompre, reprendre ou planifier la tâche de runbook. Toutefois, l’utilisateur n’a pas accès aux autres ressources Automation telles que les configurations, les groupes de Workers hybrides ou les nœuds DSC.
 
 ![Aucun accès aux ressources](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
 
 ## <a name="configure-rbac-for-runbooks"></a>Configurer RBAC pour les runbooks
 
-Azure Automation vous permet d’affecter RBAC aux runbooks spécifiques. Pour cela, exécutez le script suivant afin d’ajouter un utilisateur à un runbook spécifique. Le script suivant peut être exécuté par un administrateur de compte Automation ou un administrateur de locataire.
+Azure Automation vous permet d’attribuer RBAC à des runbooks spécifiques. Pour cela, exécutez le script suivant afin d’ajouter un utilisateur à un runbook spécifique. Un administrateur de compte Automation ou un administrateur de locataire peut exécuter ce script.
 
 ```azurepowershell-interactive
-$rgName = "<Resource Group Name>" # Resource Group name for the Automation Account
-$automationAccountName ="<Automation Account Name>" # Name of the Automation Account
+$rgName = "<Resource Group Name>" # Resource Group name for the Automation account
+$automationAccountName ="<Automation account name>" # Name of the Automation account
 $rbName = "<Name of Runbook>" # Name of the runbook
 $userId = "<User ObjectId>" # Azure Active Directory (AAD) user's ObjectId from the directory
 
-# Gets the Automation Account resource
+# Gets the Automation account resource
 $aa = Get-AzureRmResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts" -ResourceName $automationAccountName
 
 # Get the Runbook resource
 $rb = Get-AzureRmResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts/runbooks" -ResourceName "$automationAccountName/$rbName"
 
-# The Automation Job Operator role only needs to be ran once per user.
+# The Automation Job Operator role only needs to be run once per user.
 New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job Operator" -Scope $aa.ResourceId
 
 # Adds the user to the Automation Runbook Operator role to the Runbook scope
 New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook Operator" -Scope $rb.ResourceId
 ```
 
-Une fois exécuté, invitez l’utilisateur à se connecter au portail Azure et à consulter **Toutes les ressources**. La liste affiche le runbook auquel il a été ajouté en tant **qu’opérateur de runbook Automation**.
+Une fois le script exécuté, invitez l’utilisateur à se connecter au Portail Azure et à consulter **Toutes les ressources**. Dans la liste, l’utilisateur peut voir le runbook pour lequel il a été ajouté en tant qu’opérateur de runbook Automation.
 
 ![RBAC de runbook dans le portail](./media/automation-role-based-access-control/runbook-rbac.png)
 
 ### <a name="user-experience-for-automation-operator-role---runbook"></a>Expérience utilisateur pour le rôle d’opérateur Automation - Runbook
 
-Lorsqu’un utilisateur à qui le rôle d’opérateur Automation a été attribué sur l’étendue runbook consulte un runbook auquel il a été affecté, il peut seulement démarrer le runbook et afficher les travaux de runbook.
+Lorsqu’un utilisateur affecté au rôle Opérateur Automation sur l’étendue Runbook consulte un runbook qui lui a été attribué, il peut seulement démarrer le runbook et afficher les tâches de runbook.
 
 ![Accès uniquement pour démarrer](media/automation-role-based-access-control/automation-only-start.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur les différentes façons de configurer RBAC pour Azure Automation, reportez-vous à l’article [Gestion du Contrôle d’accès en fonction du rôle (RBAC) avec Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* Pour plus d’informations sur les différentes façons de démarrer un Runbook, consultez l’article [Démarrage d’un Runbook](automation-starting-a-runbook.md)
-* Pour en savoir plus sur les différents types de Runbook, consultez l’article [Types de Runbook Azure Automation](automation-runbook-types.md)
-
+* Pour plus d’informations sur les façons de configurer RBAC pour Azure Automation, reportez-vous à l’article [Gérer RBAC avec Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+* Pour plus d’informations sur les façons de démarrer un runbook, consultez l’article [Démarrage d’un runbook](automation-starting-a-runbook.md).
+* Pour en savoir plus sur les types de runbooks, reportez-vous à l’article [Types de runbooks Azure Automation](automation-runbook-types.md).

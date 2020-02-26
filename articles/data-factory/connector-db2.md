@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 02/17/2020
 ms.author: jingwang
-ms.openlocfilehash: 3d3a1704b75de53bf65012329fba5f8522adff3a
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 22ecac12e049e58e533cdde0078f4a25f6bb2aa6
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941763"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423825"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copier des données de DB2 à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -46,7 +46,10 @@ En particulier, ce connecteur DB2 prend en charge les plateformes et versions IB
 * IBM DB2 pour LUW 10.5
 * IBM DB2 pour LUW 10.1
 
-## <a name="prerequisites"></a>Conditions préalables requises
+>[!TIP]
+>Le connecteur DB2 s’appuie sur le Fournisseur OLE DB Microsoft pour DB2. Pour résoudre les erreurs du connecteur DB2, reportez-vous à [Codes d’erreur du fournisseur de données](https://docs.microsoft.com/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
+
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 

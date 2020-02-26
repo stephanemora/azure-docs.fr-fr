@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: ea7c695ddb92d441018503839b974c1f4bb33473
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 673cda4005d9c985d8d6ee5ef1d28a3d8c241ac0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047842"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482882"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Questions fréquentes sur Azure Monitor pour machines virtuelles (version en disponibilité générale)
 
@@ -24,7 +24,9 @@ Nous avons publié une nouvelle version d'Azure Monitor pour machines virtuelle
 
 Avec cette mise à niveau, les données de performances d’Azure Monitor pour machines virtuelles sont stockées dans la même table *InsightsMetrics* que [Azure Monitor pour conteneurs](container-insights-overview.md), ce qui vous permet d’interroger plus facilement les deux jeux de données. De plus, cette table vous permet de stocker des jeux de données plus diversifiés que la table utilisée auparavant. 
 
-D’ici une semaine ou deux, nos affichages sur les performances vont également être mis à jour pour utiliser cette nouvelle table.
+Nos affichages de performances utilisent désormais les données que nous stockons dans la table *InsightsMetrics*.  Si vous n’avez pas encore effectué la mise à niveau pour utiliser la dernière solution VMInsights sur votre espace de travail, vos graphiques n’afficheront plus d’informations.  Vous pouvez effectuer la mise à niveau à partir de notre page **Prise en main**, comme décrit ci-dessous.
+
+Avec cette mise à niveau, les données de performances d’Azure Monitor pour machines virtuelles sont stockées dans la même table *InsightsMetrics* qu’[Azure Monitor pour conteneurs](container-insights-overview.md), ce qui vous permet d’interroger plus facilement les deux jeux de données. Cette table vous permet également de stocker des jeux de données plus diversifiés que la table utilisée auparavant. 
 
 Conscients de la gêne occasionnée par la mise à niveau des workflows pour les clients existants, nous avons choisi d’effectuer ce changement maintenant dans le cadre de la Préversion publique plutôt que de le faire plus tard après la mise en disponibilité générale.
 
@@ -34,6 +36,8 @@ Conscients de la gêne occasionnée par la mise à niveau des workflows pour les
 Nous avons publié une nouvelle solution, appelée VMInsights, qui offre des fonctionnalités supplémentaires pour la collecte des données ainsi qu’un nouvel emplacement de stockage de ces données dans votre espace de travail Log Analytics. 
 
 Auparavant, nous avons activé la solution ServiceMap sur votre espace de travail et configuré les compteurs de performance dans votre espace de travail Log Analytics pour envoyer les données à la table de*Perf*. Cette nouvelle solution envoie les données dans une table nommée *InsightsMetrics*, qui est aussi utilisée par Azure Monitor pour conteneurs. Le schéma de cette table nous permet de stocker des indicateurs de performance et des jeux de données de service supplémentaires qui ne sont pas compatibles avec le format de la table *Perf*.
+
+Nous avons mis à jour nos graphiques de performances afin d’utiliser les données que nous stockons dans la table *InsightsMetrics*. Vous pouvez effectuer la mise à niveau pour utiliser la table *InsightsMetrics* à partir de notre page **Prise en main**, comme décrit ci-dessous.
 
 
 ## <a name="how-do-i-upgrade"></a>Comment effectuer la mise à niveau ?

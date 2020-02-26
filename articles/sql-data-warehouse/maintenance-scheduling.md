@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 11/07/2019
+ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: e9d5a137247c072516c0b25d7f6147ef48fec248
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 1cf4cc9cf4d98dfca59e01cc264549af3a4d5cb4
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839790"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471786"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>Utiliser les planifications de maintenance pour gérer les mises à jour et la maintenance des services
 
@@ -55,7 +55,7 @@ Par défaut, toutes les nouvelles instances Azure SQL Data Warehouse ont deux fe
 
 Pour afficher la planification de maintenance qui a été appliquée à votre entrepôt de données, procédez comme suit :
 
-1.  Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1.  Connectez-vous au [portail Azure](https://portal.azure.com/).
 2.  Sélectionnez l’entrepôt de données à afficher. 
 3.  L’entrepôt de données sélectionné s’ouvre dans le panneau de vue d’ensemble. La planification de maintenance appliquée à l’entrepôt de données s’affiche sous **Planification de la maintenance**.
 
@@ -71,9 +71,9 @@ Il est possible de mettre à jour ou de modifier une planification de maintenanc
 Les fenêtres principale et secondaire doivent avoir des plages de jour distinctes. Par exemple, une fenêtre principale allant du mardi au jeudi, et une fenêtre secondaire allant du samedi au dimanche.
 
 Pour modifier la planification de maintenance de votre entrepôt de données, procédez comme suit :
-1.  Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1.  Connectez-vous au [portail Azure](https://portal.azure.com/).
 2.  Sélectionnez l’entrepôt de données à mettre à jour. La page s’ouvre dans le panneau Vue d’ensemble. 
-3.  Ouvrez la page de paramètres de planification de maintenance en sélectionnant le lien **Maintenance Schedule (preview) summary** (Résumé de la planification de maintenance (préversion)) du panneau Vue d’ensemble. Ou sélectionnez l’option **Planification de la maintenance** dans le menu de ressource à gauche.  
+3.  Ouvrez la page de paramètres de planification de maintenance en sélectionnant le lien **Résumé de la planification de maintenance** du panneau Vue d’ensemble. Ou sélectionnez l’option **Planification de la maintenance** dans le menu de ressource à gauche.  
 
     ![Options du panneau Vue d’ensemble](media/sql-data-warehouse-maintenance-scheduling/maintenance-change-option.png)
 

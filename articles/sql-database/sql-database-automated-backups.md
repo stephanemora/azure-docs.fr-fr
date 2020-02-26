@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: f460bc3e4809b8a1cbabe1161c888255a7a484db
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 16ee8c1e271f0aa3e6565322f9a4a422dd90b8b8
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157497"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461768"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
@@ -81,10 +81,14 @@ Les sauvegardes antérieures à la période de rétention sont automatiquement p
 
 Azure SQL Database calcule votre stockage de sauvegarde total en rétention en tant que valeur cumulée. Toutes les heures, cette valeur est consignée dans le pipeline de facturation Azure, qui est responsable de l’agrégation de cette utilisation horaire afin de calculer votre consommation à la fin de chaque mois. Une fois la base de données supprimée, la consommation diminue à mesure que les sauvegardes vieillissent. Une fois que les sauvegardes sont antérieures à la période de rétention, la facturation s’arrête. 
 
+   > [!IMPORTANT]
+   > Les sauvegardes d’une base de données sont conservées pendant la période de rétention spécifiée, même si la base de données a été supprimée. Si le fait de supprimer et de recréer fréquemment une base de données peut permettre d’économiser sur les coûts de stockage et de calcul, cela peut augmenter les coûts de stockage des sauvegardes, car nous conservons une sauvegarde pendant la période de rétention spécifiée (sept jours au minimum) pour chaque base de données supprimée et à chaque suppression. 
 
-### <a name="monitoring-consumption"></a>Surveillance de la consommation
 
-Chaque type de sauvegarde (complète, différentielle et journal) est signalé dans le panneau de surveillance de la base de données sous la forme d’une mesure distincte. Le diagramme suivant montre comment surveiller la consommation de stockage des sauvegardes.  
+
+### <a name="monitor-consumption"></a>Surveiller la consommation
+
+Chaque type de sauvegarde (complète, différentielle et journal) est signalé dans le panneau de surveillance de la base de données sous la forme d’une mesure distincte. Le diagramme suivant montre comment surveiller la consommation de stockage des sauvegardes pour une base de données unique. Cette fonctionnalité n’est pas disponible actuellement pour les instances gérées.
 
 ![Surveiller la consommation de sauvegarde de base de données dans le panneau de surveillance de la base de données du Portail Azure](media/sql-database-automated-backup/backup-metrics.png)
 
@@ -105,6 +109,7 @@ Cette consommation de stockage de sauvegarde excessive dépend de la charge de t
 
 ## <a name="storage-costs"></a>Coûts de stockage
 
+Le prix du stockage varie selon que vous utilisez le modèle DTU ou le modèle vCore. 
 
 ### <a name="dtu-model"></a>Modèle DTU
 
@@ -120,11 +125,14 @@ Supposons que la base de données ait accumulé 744 Go de stockage de sauvegard
 
 À présent, un exemple plus complexe. Supposons que la durée de rétention de la base de données ait augmenté de 14 jours au milieu du mois et que cela (de façon hypothétique) double la taille du stockage de sauvegarde (1 488 Go). SQL DB signale 1 Go d’utilisation pour les heures 1 à 372, puis signale l’utilisation de 2 Go pour les heures 373 à 744. Il s’agit d’une facture finale de 1116 Go/mois. 
 
-Vous pouvez utiliser l’analyse du coût d’abonnement Azure pour déterminer vos dépenses actuelles sur le stockage de sauvegarde.
+### <a name="monitor-costs"></a>Superviser les coûts
+
+Pour comprendre les coûts de stockage des sauvegardes, accédez à **Azure Cost Management + facturation** dans le Portail Azure, sélectionnez **Cost Management** (Gestion des coûts), puis sélectionnez **Cost analysis** (Analyse des coûts). Sélectionnez l’abonnement souhaité comme **Scope** (Étendue), puis filtrez la période et le service qui vous intéressent. 
+
+Ajoutez un filtre pour **Service name** (Nom de service), puis choisissez **sql database** dans la liste déroulante. Utilisez le filtre **Meter subcategory** (Sous-catégorie du compteur) pour choisir le compteur de facturation pour votre service. Pour une base de données unique ou un pool élastique, choisissez **single/elastic pool pitr backup storage**. Pour une instance gérée, choisissez **mi pitr backup storage**. Les sous-catégories **Storage** (Stockage) et **Compute** (Calcul) peuvent vous également intéresser, bien qu’elles ne soient pas associées à des coûts de stockage de sauvegarde. 
 
 ![Analyse du coût du stockage de sauvegarde](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
 
-Par exemple, pour comprendre les coûts de stockage de sauvegarde pour l’instance managée, accédez à votre abonnement dans le Portail Azure et ouvrez le panneau Analyse des coûts. Sélectionnez la sous-catégorie du compteur **mi pitr backup storage** pour afficher le coût réel de la sauvegarde et la prévision des frais. Vous pouvez aussi inclure d’autres sous-catégories de compteur, par exemple **managed instance general purpose - storage** ou **managed instance general purpose - compute gen5**, pour comparer le coût de stockage de sauvegarde avec d’autres catégories de coût.
 
 ## <a name="backup-retention"></a>Rétention des sauvegardes
 

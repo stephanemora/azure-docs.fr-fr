@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: tarcher
 ms.subservice: common
-ms.openlocfilehash: f8cdd7b950a11045f795ac93d4a0904f2dc526fa
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a89439f49dd53f09d5cd40be0bf2e4981e9235d4
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970192"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201383"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Utilisation d’Azure Storage avec une solution d’intégration continue Hudson
 ## <a name="overview"></a>Vue d’ensemble
@@ -35,14 +35,14 @@ L'utilisation du service BLOB pour héberger vos artefacts de build dans un envi
 * Performances lorsque vos clients et partenaires téléchargent vos artefacts de build.
 * Contrôle sur les stratégies d'accès utilisateur, avec choix entre accès anonyme, accès par signature d'accès partagé basé sur l'expiration, accès privé, etc.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Pour utiliser le service BLOB avec votre solution Hudson CI, vous avez besoin des éléments suivants :
 
 * Une solution d'intégration continue Hudson.
   
     Si vous ne disposez pas d’une solution Hudson CI, vous pouvez en exécuter une à l’aide de la technique suivante :
   
-  1. Sur une machine compatible Java, téléchargez le WAR Hudson à partir de <http://hudson-ci.org/>.
+  1. Sur une machine compatible Java, [téléchargez le fichier WAR Hudson](https://www.eclipse.org/hudson/download.php).
   2. Accédez au dossier contenant le WAR Hudson et exécutez ce dernier à l’aide d’une invite de commandes. Par exemple, si vous avez téléchargé la version 3.1.2 :
      
       `java -jar hudson-3.1.2.war`

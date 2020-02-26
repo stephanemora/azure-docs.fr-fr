@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 59c38423f771685dc79a8be12a383cfdec6a0266
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 798c80ec2290a96b6f76116120292720c05c9198
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031524"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426239"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-cli"></a>Créer et gérer Private Link pour Azure Database pour MySQL (préversion) à l’aide de l’interface CLI
 
@@ -20,7 +20,7 @@ Private Endpoint est le composant fondamental de Private Link dans Azure. Il per
 > [!NOTE]
 > Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour MySQL prend en charge les niveaux tarifaires Usage général et Mémoire optimisée.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -127,7 +127,7 @@ Connectez-vous à la machine virtuelle *myVm* à partir d’Internet comme suit�
 
 1. Sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier de protocole RDP (Remote Desktop Protocol) ( *.rdp*) et le télécharge sur votre ordinateur.
 
-1. Ouvrez le fichier .rdp* téléchargé.
+1. Ouvrez le fichier *downloaded.rdp*.
 
     1. Si vous y êtes invité, sélectionnez **Connexion**.
 
@@ -155,30 +155,31 @@ Connectez-vous à la machine virtuelle *myVm* à partir d’Internet comme suit�
     Non-authoritative answer:
     Name:    mydemomysqlserver.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the MySQL server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
+3. Testez la connexion de liaison privée pour le serveur MySQL à l’aide de tout client disponible. Dans l’exemple ci-dessous, j’ai utilisé [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) pour effectuer l’opération.
 
 
-4. In **New connection**, enter or select this information:
+4. Dans **Nouvelle connexion**, entrez ou sélectionnez les informations suivantes :
 
-    | Setting | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
-    | Connection Name| Select the connection name of your choice.|
-    | Hostname | Select *mydemoserver.privatelink.mysql.database.azure.com* |
-    | Username | Enter username as *username@servername* which is provided during the MySQL server creation. |
-    | Password | Enter a password provided during the MySQL server creation. |
+    | Nom de connexion| Sélectionnez le nom de connexion de votre choix.|
+    | HostName | Sélectionnez *mydemoserver.privatelink.mysql.database.azure.com*. |
+    | Nom d’utilisateur | Entrez le nom d’utilisateur au format *username@servername* qui est fourni lors de la création du serveur MySQL. |
+    | Mot de passe | Entrez le mot de passe fourni lors de la création du serveur MySQL. |
     ||
 
-5. Select Connect.
+5. Sélectionnez Se connecter.
 
-6. Browse databases from left menu.
+6. Parcourez les bases de données dans le menu de gauche.
 
-7. (Optionally) Create or query information from the MySQL database.
+7. (Facultatif) Créez ou interrogez des informations à partir de la base de données MySQL.
 
-8. Close the remote desktop connection to myVm.
+8. Fermez la connexion Bureau à distance à myVm.
 
-## Clean up resources 
-When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
+## <a name="clean-up-resources"></a>Nettoyer les ressources 
+Lorsque vous n'en avez plus besoin, vous pouvez utiliser az group delete pour supprimer le groupe de ressources, ainsi que toutes les ressources qu’il contient : 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes 

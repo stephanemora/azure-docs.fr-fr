@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 21a11863bd2bc9882d4336f5c5d2bf1d7b7f49da
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 49ef78ac5a7d58d86583d91bf072f0f3131796fe
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133762"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444092"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Configurer un labo axé sur le deep learning dans le cadre du traitement en langage naturel avec Azure Lab Services
 Cet article vous montre comment configurer un labo axé sur le deep learning dans le cadre du traitement en langage naturel (NLP) avec Azure Lab Services. Le traitement en langage naturel (NLP) est une forme d’intelligence artificielle (IA) qui fournit aux ordinateurs des fonctionnalités de traduction, de reconnaissance vocale et d’autres fonctionnalités de compréhension de la langue.  
@@ -32,7 +32,7 @@ Après avoir créé le compte lab, activez les paramètres suivants dans celui-c
 
 | Paramètres du compte lab | Instructions |
 | ----------- | ------------ |  
-| Images de la Place de marché | Activez l’image Data Science Virtual Machine pour Linux (Ubuntu) à utiliser au sein de votre compte lab.  Pour obtenir des instructions, consultez les articles suivants : [Spécifier les images de la Place de marché accessibles aux créateurs de labo](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators). | 
+| Images de la Place de marché | Activez l’image Data Science Virtual Machine pour Linux (Ubuntu) à utiliser au sein de votre compte lab.  Pour obtenir des instructions, consultez l’article suivant : [Spécifier les images de la Place de marché accessibles aux créateurs de labo](specify-marketplace-images.md). | 
 
 Suivez [ce tutoriel](tutorial-setup-classroom-lab.md) pour créer un labo et appliquer les paramètres suivants :
 

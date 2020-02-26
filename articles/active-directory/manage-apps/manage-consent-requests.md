@@ -12,12 +12,12 @@ ms.date: 12/27/2019
 ms.author: mimart
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 528aff73b931776ef9a6542437db271bb214c7fb
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 0451fe18629a572c9b49f14924bfa50293f42a2b
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290697"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367849"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>Gestion du consentement pour les applications et évaluation des demandes de consentement
 
@@ -100,7 +100,7 @@ Pour des instructions pas à pas sur l’octroi d’un consentement de l’admin
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>Octroi de consentement pour le compte d’un utilisateur spécifique
 
-Au lieu d’accorder un consentement pour toute l’organisation, un administrateur peut également utiliser l’[API Graph Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) pour accorder un consentement aux autorisations déléguées pour le compte d’un seul utilisateur. Pour ce faire, envoyez une demande `POST` pour créer une entité [OAuth2PermissionGrant](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) où `consentType` est défini sur « Principal » et `principalId` sur l’ID d’objet de l’utilisateur pour le compte duquel le consentement est accordé.
+Au lieu d’accorder un consentement pour toute l’organisation, un administrateur peut également utiliser l’[API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api) pour accorder un consentement aux autorisations déléguées pour le compte d’un seul utilisateur. Pour plus d’informations, consultez [Obtenir l’accès pour le compte d’un utilisateur](https://docs.microsoft.com/graph/auth-v2-user).
 
 ## <a name="limiting-user-access-to-applications"></a>Limitation de l’accès utilisateur aux applications
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: f76fd7bce539ebcf79216aabb5bf868b2d18107a
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: f88053c93884e10e46a0f7d70106bda67b057562
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780179"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425717"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Résoudre les problèmes de connexion VPN point à site à partir de clients Mac OS X
 
@@ -48,7 +48,7 @@ Cet article vous aidera à résoudre les problèmes de connectivité point à si
 4. L’**identifiant local** peut être vide.
 5. Cliquez sur le bouton **Réglages d’authentification** et vérifiez que « Nom d’utilisateur » est sélectionné dans la liste déroulante.
 
-   ![Authentication settings](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.jpg)
+   ![Authentication settings](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
 6. Vérifiez que les informations d’identification saisies sont correctes.
 
 ## <a name="additional"></a>Étapes supplémentaires
@@ -60,7 +60,7 @@ Si vous avez suivi les étapes précédentes et que tout est correctement config
 
    ![Paquet](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
   
-3. S’il n’existe aucune réponse du serveur sur les traces réseau, vérifiez que vous avez activé le protocole IKEv2 dans la page Configuration de la passerelle Azure sur le site web du portail Azure.
+3. S’il n’existe aucune réponse du serveur sur les traces réseau, vérifiez que vous avez activé le protocole IKEv2 dans la page Configuration de la passerelle Azure sur le site web du Portail Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir de l’aide supplémentaire, consultez [Support Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

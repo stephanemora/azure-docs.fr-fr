@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: de60b4ea1b09998e84bab4d204e3c8c3bc8779a4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: fe1260982edc877c049716bd74f1bb3e90d33b0f
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050359"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370525"
 ---
 # <a name="tutorial-configure-azure-databricks-scim-connector-for-automatic-user-provisioning"></a>Tutoriel : Configurer Azure Databricks SCIM Connector pour l'approvisionnement automatique d'utilisateurs
 
@@ -34,7 +34,7 @@ Ce tutoriel décrit les étapes à suivre dans Azure Databricks SCIM Connector e
 > * Maintenir la synchronisation des attributs utilisateur entre Azure AD et Azure Databricks SCIM Connector
 > * Approvisionner des groupes et des appartenances à des groupes dans Azure Databricks SCIM Connector
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
@@ -96,7 +96,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Onglet Approvisionnement](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d'identification d'administrateur**, entrez vos informations d'identification d'administrateur Azure Databricks SCIM Connector et votre nom d'utilisateur. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à Azure Databricks SCIM Connector. Si la connexion échoue, vérifiez que votre compte Azure Databricks SCIM Connector dispose des autorisations d'administrateur, puis réessayez.
+5. Sous la section **Informations d’identification de l’administrateur**, entrez la valeur de point de terminaison SCIM dans **URL de locataire**. L’URL du locataire doit être au format `https://<region>.azuredatabricks.net/api/2.0/preview/scim` où la **région** peut être trouvée dans votre URL de page d’accueil Azure Databricks. Par exemple, un point de terminaison SCIM pour la région **westus** sera `https://westus.azuredatabricks.net/api/2.0/preview/scim`. Saisissez la valeur de jeton récupérée précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à Azure Databricks SCIM Connector. Si la connexion échoue, vérifiez que votre compte Azure Databricks SCIM Connector dispose des autorisations d'administrateur, puis réessayez.
 
     ![approvisionnement](./media/azure-databricks-scim-provisioning-connector-provisioning-tutorial/provisioning.png)
 

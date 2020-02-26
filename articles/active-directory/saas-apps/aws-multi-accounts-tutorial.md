@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Amazon Web Services (AWS) pour connecter plusieurs comptes | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Amazon Web Services (AWS) pour connecter plusieurs comptes | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure AD et plusieurs comptes Amazon Web Services (AWS).
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb528d71b94449b282947a487e4fc79b343df778
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: edd54352b1328c95ae2c3e466003b64eaa0fcfde
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195903"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367997"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Didacticiel : Intégration d’Azure Active Directory à plusieurs comptes Amazon Web Services (AWS)
+# <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Tutoriel : Intégration d’Azure Active Directory à plusieurs comptes Amazon Web Services (AWS)
 
 Dans ce tutoriel, vous allez apprendre à intégrer Azure Active Directory (Azure AD) à plusieurs comptes Amazon Web Services (AWS).
 
@@ -42,7 +42,7 @@ Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, co
 
 **Nous vous déconseillons d’utiliser cette approche pour les raisons suivantes :**
 
-* Vous devez utiliser l’approche de l’Afficheur Graph pour appliquer tous les rôles à l’application. Nous vous déconseillons d’utiliser l’approche du fichier manifeste.
+* Vous devez utiliser l’approche Microsoft Graph Explorer pour appliquer un correctif à tous les rôles à l’application. Nous vous déconseillons d’utiliser l’approche du fichier manifeste.
 
 * Des clients nous ont signalé qu’après l’ajout d’environ 1 200 rôles d’application pour une seule application AWS, toute opération sur l’application commençait par lever les erreurs liées à la taille. Il existe une limite inconditionnelle de taille sur l’objet d’application.
 
@@ -142,7 +142,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     | Nom  | Attribut source  | Espace de noms |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-    | Rôle            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
+    | Role            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     | SessionDuration             | [Indiquez une valeur comprise entre 900 secondes (15 minutes) et 43 200 secondes (12 heures)] |  https://aws.amazon.com/SAML/Attributes |
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
@@ -159,7 +159,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
 
-    f. Cliquez sur **OK**.
+    f. Cliquez sur **OK**
 
     g. Cliquez sur **Enregistrer**.
 
@@ -247,7 +247,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 16. Exécutez l’étape ci-dessus pour tous les rôles dans tous les comptes, et stockez-les au format **Role ARN,Trusted entities** dans un bloc-notes.
 
-17. Ouvrez [l’Explorateur graphique Azure AD](https://developer.microsoft.com/graph/graph-explorer) dans une autre fenêtre.
+17. Ouvrez l’[afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) dans une autre fenêtre.
 
     a. Connectez-vous au site Graph Explorer en utilisant les informations d’identification d’administrateur global/coadministrateur de votre locataire.
 
@@ -325,9 +325,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!Note]
     > Vous pouvez uniquement ajouter de nouveaux rôles après le **msiam_access** de l’opération de correction. En outre, vous pouvez ajouter autant de rôles que vous le souhaitez selon les besoins de votre organisation. Azure AD envoie la **valeur** de ces rôles conformément à la valeur de revendication dans la réponse SAML.
 
-    j. Revenez à Graph Explorer et modifiez la méthode de **GET** à **PATCH**. Corrigez l’objet du principal du service pour obtenir les rôles souhaités en mettant à jour la propriété appRoles similaire à celle affichée dans l’exemple ci-dessus. Cliquez sur **Exécuter la requête** pour exécuter l’opération de correction. Un message de réussite confirme la création du rôle pour votre application Amazon Web Services.
+    j. Revenez à Microsoft Graph Explorer et modifiez la méthode de **GET** à **PATCH**. Corrigez l’objet du principal du service pour obtenir les rôles souhaités en mettant à jour la propriété appRoles similaire à celle affichée dans l’exemple ci-dessus. Cliquez sur **Exécuter la requête** pour exécuter l’opération de correction. Un message de réussite confirme la création du rôle pour votre application Amazon Web Services.
 
-    ![Boîte de dialogue de l’Explorateur graphique](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+    ![Boîte de dialogue Microsoft Graph Explorer](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 18. Une fois le principal du service corrigé avec d’autres rôles, vous pouvez assigner des utilisateurs/groupes aux rôles respectifs. Pour ce faire, accédez au portail et à l’application Amazon Web Services. Cliquez sur l’onglet **Utilisateurs et groupes** dans la partie supérieure.
 
@@ -363,7 +363,7 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Procédure de configuration de l’approvisionnement à l’aide des API Microsoft Graph](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
+* [Comment configurer l’approvisionnement à l’aide des API Microsoft Graph](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 

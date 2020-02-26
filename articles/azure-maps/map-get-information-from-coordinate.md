@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0b1ab7b2c233eb1e6e231b0ae7935b6c24363948
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 1a6b3b4665e6141fb4c95508a8d8405268de6d19
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988530"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208520"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obtenir des informations à partir d’une coordonnée
 
 Cet article explique comment effectuer une recherche d’adresses inversée qui affiche l’adresse d’un emplacement d’une fenêtre contextuelle sur lequel l’utilisateur a cliqué.
 
-Deux méthodes permettent d’effectuer une recherche d’adresses inversée. La première consiste à interroger [l’API Azure Maps Reverse Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) via un module de service. La seconde consiste à utiliser l'[API de récupération](https://fetch.spec.whatwg.org/) pour demander à l'[API de recherche d'adresses inversée Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) de rechercher une adresse. Les deux méthodes sont examinées ci-dessous.
+Deux méthodes permettent d’effectuer une recherche d’adresses inversée. La première consiste à interroger [l’API Azure Maps Reverse Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) via un module de service. La seconde consiste à utiliser l’[API Fetch](https://fetch.spec.whatwg.org/) pour demander à l’[API Azure Maps Reverse Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) de rechercher une adresse. Les deux méthodes sont examinées ci-dessous.
 
 ## <a name="make-a-reverse-search-request-via-service-module"></a>Demande de recherche inversée via un module de service
 
@@ -37,7 +37,7 @@ Le quatrième bloc de code ajoute un [détecteur d’événements](https://docs.
 
 Le cinquième bloc de code définit le contenu de la fenêtre contextuelle HTML pour afficher l’adresse de réponse correspondant à la position des coordonnées sur lesquelles vous avez cliqué.
 
-Le changement de curseur, un objet de fenêtre contextuelle et l’événement de clic sont tous créés dans le [détecteur d’événements de chargement](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) de la carte pour garantir que la carte est entièrement chargée avant la récupération des informations de coordonnées.
+Les modifications du curseur, de l’objet popup et de l’événement de clic sont toutes créées dans le [détecteur d’événements de chargement](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) de la carte. Cette structure de code garantit le chargement complet de la carte avant de récupérer les informations de coordonnées.
 
 ## <a name="make-a-reverse-search-request-via-fetch-api"></a>Requête de recherche inversée via l'API de récupération
 
@@ -52,7 +52,7 @@ Le deuxième bloc de code modifie en pointeur le style du curseur de la souris. 
 
 Le troisième bloc de code ajoute un détecteur d’événements pour les clics de souris. À la suite d’un clic de souris, il utilise l’[API Fetch](https://fetch.spec.whatwg.org/) pour interroger l’[API Azure Maps Reverse Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) et obtenir l’adresse des coordonnées activées. Pour une réponse correcte, il collecte l’adresse de l’emplacement sur lequel l’utilisateur a cliqué. Il définit le contenu et la position de la fenêtre contextuelle à l’aide de la fonction [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) de la classe de fenêtre contextuelle.
 
-Le changement de curseur, un objet de fenêtre contextuelle et l’événement de clic sont tous créés dans le [détecteur d’événements de chargement](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) de la carte pour garantir que la carte est entièrement chargée avant la récupération des informations de coordonnées.
+Les modifications du curseur, de l’objet popup et de l’événement de clic sont toutes créées dans le [détecteur d’événements de chargement](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) de la carte. Cette structure de code garantit le chargement complet de la carte avant de récupérer les informations de coordonnées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,6 +1,6 @@
 ---
-title: Exporter ou importer votre configuration de provisionnement à l’aide de l’API Graph | Microsoft Docs
-description: Découvrez comment exporter et importer une configuration de provisionnement à l’aide de l’API Graph.
+title: Exporter ou importer votre configuration d’approvisionnement à l’aide de l’API Microsoft Graph | Microsoft Docs
+description: Découvrez comment exporter et importer une configuration d’approvisionnement à l’aide de l’API Microsoft Graph.
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -15,21 +15,21 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af699fa2201bce5627426dcdefc1b98c1d885ae5
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e2fa80726875c82cfa4b5d4cf6a14f4e0dae1871
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77065760"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367798"
 ---
-# <a name="export-or-import-your-provisioning-configuration-by-using-graph-api"></a>Exporter ou importer votre configuration de provisionnement à l’aide de l’API Graph
+# <a name="export-or-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Exporter ou importer votre configuration d’approvisionnement à l’aide de l’API Microsoft Graph
 
-Vous pouvez utiliser l’API Microsoft Graph et l’Afficheur Graph pour exporter vos mappages d’attributs et votre schéma de provisionnement utilisateur dans un fichier JSON et le réimporter dans Azure AD. Vous pouvez aussi utiliser les étapes capturées ici pour créer une sauvegarde de votre configuration de provisionnement. 
+Vous pouvez utiliser l’API Microsoft Graph et Microsoft Graph Explorer pour exporter vos mappages d’attributs et votre schéma Attribution d’utilisateurs dans un fichier JSON et l’importer dans Azure AD. Vous pouvez aussi utiliser les étapes capturées ici pour créer une sauvegarde de votre configuration de provisionnement. 
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Étape 1 : Récupérer l’ID de principal du service de l’application de provisionnement (ID d’objet)
 
 1. Lancez le [portail Azure](https://portal.azure.com) et accédez à la section Propriétés de votre application de provisionnement. Par exemple, si vous souhaitez exporter votre mappage d’*application de provisionnement de Workday vers AD*, accédez à la section Propriétés de cette application. 
-1. Dans la section Propriétés de votre application d'approvisionnement, copiez la valeur GUID associée au champ *ID de l'objet*. Cette valeur, également appelée **ServicePrincipalId** de votre application, sera utilisée dans les opérations de l'Afficheur Graph.
+1. Dans la section Propriétés de votre application d'approvisionnement, copiez la valeur GUID associée au champ *ID de l'objet*. Cette valeur, également appelée **ServicePrincipalId** de votre application, sera utilisée dans les opérations de Microsoft Graph Explorer.
 
    ![ID du principal de service de l'application Workday](./media/export-import-provisioning-configuration/wd_export_01.png)
 
@@ -38,7 +38,7 @@ Vous pouvez utiliser l’API Microsoft Graph et l’Afficheur Graph pour exporte
 1. Lancez l'[Afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer).
 1. Cliquez sur le bouton « Se connecter avec Microsoft » et connectez-vous à l'aide des informations d'identification d'administrateur de l'application ou d'administrateur global d'Azure AD.
 
-    ![Connexion à Graph](./media/export-import-provisioning-configuration/wd_export_02.png)
+    ![Connexion Microsoft Graph](./media/export-import-provisioning-configuration/wd_export_02.png)
 
 1. Une fois connecté, les détails du compte d'utilisateur apparaissent dans le volet de gauche.
 

@@ -6,21 +6,16 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: fe5ced96a74bfbfbacf3ce1874d64711f6db7449
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 566b6db829c9694a7e5e83cc25695e71ada0bc8d
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668759"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461451"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Utiliser le Kit de développement logiciel (SDK) Node.js pour Mobile Apps
 
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
-
-> [!NOTE]
-> Visual Studio App Center prend en charge les services intégrés essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud.
->
->  Si vous souhaitez intégrer des services cloud à votre application mobile, inscrivez-vous à [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) dès aujourd’hui.
 
 Cet article fournit des informations détaillées, ainsi que des exemples sur l’utilisation d’un serveur principal Node.js dans la fonctionnalité Mobile Apps d’Azure App Service.
 
@@ -136,7 +131,7 @@ Visual Studio 2015 requiert une extension pour développer les applications No
 
 ### <a name="create-node-backend-portal"></a>Créer un serveur principal Node.js à l’aide du portail Azure
 
-Vous pouvez créer un serveur principal Mobile Apps dans le [portail Azure]. Vous pouvez suivre la procédure ci-dessous, ou créer simultanément un client et un serveur en suivant le didacticiel [Créer une application mobile](app-service-mobile-ios-get-started.md). Ce didacticiel contient une version simplifiée de ces instructions et convient mieux aux projets de preuve de concept.
+Vous pouvez créer un serveur principal Mobile Apps dans le [Azure portal]. Vous pouvez suivre la procédure ci-dessous, ou créer simultanément un client et un serveur en suivant le didacticiel [Créer une application mobile](app-service-mobile-ios-get-started.md). Ce didacticiel contient une version simplifiée de ces instructions et convient mieux aux projets de preuve de concept.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
@@ -145,7 +140,7 @@ Cochez la case **Je reconnais que cette opération va remplacer tout le contenu 
 
 ### <a name="download-quickstart"></a>Télécharger le projet de code de démarrage rapide du serveur principal Node.js à l’aide de Git
 
-Lorsque vous créez un serveur principal Node.js pour Mobile Apps à l’aide du volet **Démarrage rapide** du portail, un projet Node.js est créé et déployé sur votre site. Dans le portail, vous pouvez ajouter des tables et des API et modifier les fichiers de code pour le serveur principal Node.js. Vous pouvez également utiliser l’un des divers outils de déploiement pour télécharger le projet de serveur principal, afin de pouvoir ajouter ou modifier des tables et des API, avant de publier à nouveau le projet. Pour plus d’informations, consultez le guide [Déploiement Git local vers Azure App Service].
+Lorsque vous créez un serveur principal Node.js pour Mobile Apps à l’aide du volet **Démarrage rapide** du portail, un projet Node.js est créé et déployé sur votre site. Dans le portail, vous pouvez ajouter des tables et des API et modifier les fichiers de code pour le serveur principal Node.js. Vous pouvez également utiliser l’un des divers outils de déploiement pour télécharger le projet de serveur principal, afin de pouvoir ajouter ou modifier des tables et des API, avant de publier à nouveau le projet. Pour plus d’informations, consultez le [Déploiement Git local vers Azure App Service].
 
 La procédure suivante utilise un référentiel Git pour télécharger le code de projet de démarrage rapide :
 
@@ -333,7 +328,7 @@ Accédez à la base de données via une connexion TCP/IP. Fournissez un nom d’
 
 ### <a name="howto-config-localdev"></a>Configurer votre projet pour un développement local
 
-Mobile Apps lit un fichier JavaScript appelé *azureMobile.js* à partir du système de fichiers local. N’utilisez pas ce fichier pour configurer le Kit de développement logiciel (SDK) Mobile Apps en production. Utilisez plutôt **Paramètres de l’application** dans le [portail Azure].
+Mobile Apps lit un fichier JavaScript appelé *azureMobile.js* à partir du système de fichiers local. N’utilisez pas ce fichier pour configurer le Kit de développement logiciel (SDK) Mobile Apps en production. Utilisez plutôt **Paramètres de l’application** dans le [Azure portal].
 
 Le fichier azureMobile.js doit exporter un objet de configuration. Les paramètres les plus courants sont les suivants :
 
@@ -361,15 +356,15 @@ module.exports = {
 };
 ```
 
-Nous vous recommandons d’ajouter **azureMobile.js** à votre fichier **.gitignore** (ou un autre fichier ignore de contrôle du code source) pour éviter que les mots de passe soient stockés dans le cloud. Veillez à toujours configurer les paramètres de production dans **Paramètres de l’application** du [portail Azure].
+Nous vous recommandons d’ajouter **azureMobile.js** à votre fichier **.gitignore** (ou un autre fichier ignore de contrôle du code source) pour éviter que les mots de passe soient stockés dans le cloud. Veillez à toujours configurer les paramètres de production dans **Paramètres de l’application** du [Azure portal].
 
 ### <a name="howto-appsettings"></a>Configurer des paramètres d’application pour votre application mobile
 
-La plupart des paramètres du fichier azureMobile.js ont un paramètre équivalent dans le [portail Azure]. Utilisez la liste suivante pour configurer votre application dans **Paramètres de l’application** :
+La plupart des paramètres du fichier azureMobile.js ont un paramètre équivalent dans le [Azure portal]. Utilisez la liste suivante pour configurer votre application dans **Paramètres de l’application** :
 
 | Paramètre d’application | Paramètre azureMobile.js | Description | Valeurs valides |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |Nom |Le nom de l’application |string |
+| **MS_MobileAppName** |name |Le nom de l’application |string |
 | **MS_MobileLoggingLevel** |logging.level |Niveau minimal de journal pour les messages à consigner |error, warning, info, verbose, debug, silly |
 | **MS_DebugMode** |debug |Active ou désactive le mode de débogage |true, false |
 | **MS_TableSchema** |data.schema |Nom de schéma par défaut pour les tables SQL |string (valeur par défaut : dbo) |
@@ -379,7 +374,7 @@ La plupart des paramètres du fichier azureMobile.js ont un paramètre équivale
 
 Pour définir un paramètre d’application :
 
-1. Connectez-vous au [Portail Azure].
+1. Connectez-vous au [Azure portal].
 1. Sélectionnez **Toutes les ressources** ou **App Services**, puis sélectionnez le nom de votre application mobile.
 1. Le volet **Paramètres** s’ouvre par défaut. Si ce n’est pas le cas, sélectionnez **Paramètres**.
 1. Dans le menu **GÉNÉRAL**, sélectionnez **Paramètres de l’application**.
@@ -396,8 +391,8 @@ La modification de la plupart des paramètres requiert le redémarrage du servic
 
 L’utilisation d’Azure SQL Database en tant que datastore est identique pour tous les types d’applications Azure App Service. Si vous ne l’avez pas déjà fait, suivez ces étapes pour créer un serveur principal Mobile Apps :
 
-1. Connectez-vous au [Portail Azure].
-1. Dans le coin supérieur gauche de la fenêtre, sélectionnez le bouton **+ NOUVEAU** > **Web + Mobile**>**Application mobile**, puis indiquez un nom pour votre serveur principal Mobile Apps.
+1. Connectez-vous au [Azure portal].
+1. Dans le coin supérieur gauche de la fenêtre, sélectionnez le bouton **+ NOUVEAU** > **Web + Mobile** > **Application mobile**, puis indiquez un nom pour votre serveur principal Mobile Apps.
 1. Dans la zone **Groupe de ressources** , entrez le même nom que votre application.
 1. Le plan App Service par défaut est sélectionné. Si vous souhaitez modifier votre plan App Service :
 
@@ -434,7 +429,7 @@ La création de la base de données prend quelques minutes. Utilisez la zone **N
 
 ### <a name="howto-tables-auth"></a>Exiger une authentification pour l’accès aux tables
 
-Si vous souhaitez utiliser l’authentification App Service avec le point de terminaison `tables`, vous devez d’abord configurer l’authentification App Service dans le [portail Azure]. Pour plus d’informations, consultez le guide de configuration correspondant au fournisseur d’identité que vous souhaitez utiliser :
+Si vous souhaitez utiliser l’authentification App Service avec le point de terminaison `tables`, vous devez d’abord configurer l’authentification App Service dans le [Azure portal]. Pour plus d’informations, consultez le guide de configuration correspondant au fournisseur d’identité que vous souhaitez utiliser :
 
 * [Configurer votre application App Service pour utiliser une connexion Azure Active Directory]
 * [Comment configurer votre application App Service de manière à utiliser la connexion via Facebook]
@@ -745,7 +740,7 @@ Quand vous vous inscrivez à des notifications Push à partir d’un client auth
 
 Outre l’API d’accès aux données via le point de terminaison `/tables`, Mobile Apps peut fournir une couverture d’API personnalisée. Les API personnalisées sont définies de manière similaire aux définitions de table et sont accessibles à toutes les mêmes fonctionnalités, y compris l’authentification.
 
-Si vous souhaitez utiliser l’authentification App Service avec une API personnalisée, vous devez d’abord configurer l’authentification App Service dans le [portail Azure]. Pour plus d’informations, consultez le guide de configuration correspondant au fournisseur d’identité que vous souhaitez utiliser :
+Si vous souhaitez utiliser l’authentification App Service avec une API personnalisée, vous devez d’abord configurer l’authentification App Service dans le [Azure portal]. Pour plus d’informations, consultez le guide de configuration correspondant au fournisseur d’identité que vous souhaitez utiliser :
 
 * [Configurer votre application App Service pour utiliser une connexion Azure Active Directory]
 * [Comment configurer votre application App Service de manière à utiliser la connexion via Facebook]
@@ -899,7 +894,7 @@ Consultez les articles suivants pour prendre en main la résolution des problèm
 * [Activer la journalisation des diagnostics pour les applications web dans Azure App Service]
 * [Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio]
 
-Les applications Node.js ont accès à un large éventail d’outils de journaux de diagnostic. En interne, le Kit de développement logiciel (SDK) Node.js dans Azure Mobile Apps utilise [Winston] pour la journalisation des diagnostics. La journalisation est activée automatiquement lorsque vous activez le mode de débogage ou définissez le paramètre d’application `MS_DebugMode` sur true dans le [portail Azure]. Les journaux d’activité générés s’affichent dans les journaux de diagnostic sur le [portail Azure].
+Les applications Node.js ont accès à un large éventail d’outils de journaux de diagnostic. En interne, le Kit de développement logiciel (SDK) Node.js dans Azure Mobile Apps utilise [Winston] pour la journalisation des diagnostics. La journalisation est activée automatiquement lorsque vous activez le mode de débogage ou définissez le paramètre d’application `MS_DebugMode` sur true dans le [Azure portal]. Les journaux d’activité générés s’affichent dans les journaux de diagnostic sur le [Azure portal].
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png
@@ -935,7 +930,7 @@ Les applications Node.js ont accès à un large éventail d’outils de journaux
 [Express]: https://expressjs.com/
 [Swagger]: https://swagger.io/
 
-[Portail Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [OData]: https://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [exemple basicapp sur GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

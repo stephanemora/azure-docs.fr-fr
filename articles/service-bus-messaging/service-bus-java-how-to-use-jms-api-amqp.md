@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/22/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: c0c7e8b6066626966e2a72d474306bae4ead14c2
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: cd06838abbb69af5684fdea18c42f6a8f95ffe2f
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027219"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371252"
 ---
 # <a name="use-the-java-message-service-jms-with-azure-service-bus-and-amqp-10"></a>Utiliser Java Message Service (JMS) avec Azure Service Bus et AMQP 1.0
 Cet article explique comment utiliser les fonctionnalités de messagerie d’Azure Service Bus (files d’attente et rubriques de publication/d’abonnement) à partir d’applications Java en utilisant la populaire API standard Java Message Service (JMS). Un [article complémentaire](service-bus-amqp-dotnet.md) explique comment réaliser les mêmes opérations à l’aide de l’API .NET Azure Service Bus. Vous pouvez utiliser ces deux guides ensemble pour découvrir la messagerie interplateforme en utilisant AMQP 1.0.
@@ -29,7 +29,7 @@ Advanced Message Queuing Protocol (AMQP) 1.0 est un protocole de messagerie «�
 La prise en charge d'AMQP 1.0 dans Azure Service Bus signifie que vous pouvez utiliser des fonctionnalités de messagerie répartie de mise en file d’attente et de publication/d'abonnement à partir de diverses plateformes, à l'aide d'un protocole binaire efficace. De plus, vous pouvez générer des applications constituées de composants créés à l'aide de divers langages, structures et systèmes d'exploitation.
 
 ## <a name="get-started-with-service-bus"></a>Prise en main de Service Bus
-Ce guide présuppose que vous disposez déjà d’un espace de noms Service Bus contenant une file d’attente nommée **basicqueue**. Dans le cas contraire, vous pouvez [créer l’espace de noms et la file d’attente](service-bus-create-namespace-portal.md) à l’aide du [portail Azure](https://portal.azure.com). Pour plus d’informations sur la création d’espaces de noms et de files d’attente Service Bus, consultez [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md).
+Ce guide présuppose que vous disposez déjà d’un espace de noms Service Bus contenant une file d’attente nommée `basicqueue`. Dans le cas contraire, vous pouvez [créer l’espace de noms et la file d’attente](service-bus-create-namespace-portal.md) à l’aide du [Portail Azure](https://portal.azure.com). Pour plus d’informations sur la création d’espaces de noms et de files d’attente Service Bus, consultez [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
 > Les files d’attente et rubriques partitionnées prennent également en charge AMQP. Pour plus d’informations, consultez [Files d’attente et rubriques partitionnées](service-bus-partitioning.md) et [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus](service-bus-partitioned-queues-and-topics-amqp-overview.md).
@@ -66,7 +66,7 @@ queue.QUEUE = queue1
 
 #### <a name="setup-jndi-context-and-configure-the-connectionfactory"></a>Installer le contexte JNDI et configurer ConnectionFactory
 
-**ConnectionString** référencé dans celui disponible dans les « Stratégies d’accès partagé » dans le [portail Azure](https://portal.azure.com) sous **Chaîne de connexion principale**
+**ConnectionString** référencé dans celui disponible dans les « Stratégies d’accès partagé » dans le [Portail Azure](https://portal.azure.com) sous **Chaîne de connexion principale**
 ```java
 // The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
@@ -136,7 +136,7 @@ Context context = new InitialContext(hashtable);
 ### <a name="a-simple-jms-application-using-a-service-bus-queue"></a>Une simple application JMS utilisant une file d’attente Service Bus
 L’exemple de programme suivant envoie JMS TextMessages vers une file d’attente Service Bus avec le nom logique JNDI « QUEUE » et reçoit les messages en retour.
 
-Vous pouvez accéder à toutes les informations sur le code source et la configuration dans [Exemples Azure Service Bus, file d’attente JMS, Démarrage rapide](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client/JmsQueueQuickstart)
+Vous pouvez accéder à toutes les informations relatives au code source et à la configuration dans le guide de démarrage rapide [Azure Service Bus Samples JMS Queue](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/qpid-jms-client/JmsQueueQuickstart) (Exemples Azure Service Bus de files d’attente JMS).
 
 ```java
 // Copyright (c) Microsoft. All rights reserved.
@@ -342,15 +342,15 @@ MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
 ## <a name="jms-topics-vs-service-bus-topics"></a>Rubriques JMS vs. Rubriques de Service Bus
-L'utilisation de rubriques et d'abonnements Azure Service Bus via l'API JMS (Java Message Service) offre des fonctionnalités d'envoi et de réception de base. Il s'agit d'un choix pratique pour déplacer des applications d'autres courtiers de messages avec des API compatibles JMS, même si les rubriques Service Bus sont différentes des rubriques JMS et nécessitent quelques ajustements. 
+L'utilisation de rubriques et d'abonnements Azure Service Bus via l'API JMS (Java Message Service) offre des fonctionnalités d'envoi et de réception de base. Il s’agit d’un choix pratique pour déplacer des applications d’autres courtiers de messages avec des API compatibles JMS, même si les rubriques Service Bus sont différentes des rubriques JMS et nécessitent quelques ajustements. 
 
-Les rubriques Azure Service Bus acheminent les messages vers des abonnements nommés, partagés et durables gérés via l'interface de gestion des ressources Azure, les outils de ligne de commande Azure ou le portail Azure. Chaque abonnement permet jusqu'à 2 000 règles de sélection, chacune pouvant s'accompagner d'une condition de filtre et, pour les filtres SQL, d'une action de transformation des métadonnées. Chaque correspondance de condition de filtre sélectionne le message d’entrée à copier dans l’abonnement.  
+Les rubriques Azure Service Bus acheminent les messages vers des abonnements nommés, partagés et durables gérés via l’interface de gestion des ressources Azure, les outils de ligne de commande Azure ou le Portail Azure. Chaque abonnement permet jusqu'à 2 000 règles de sélection, chacune pouvant s'accompagner d'une condition de filtre et, pour les filtres SQL, d'une action de transformation des métadonnées. Chaque correspondance de condition de filtre sélectionne le message d’entrée à copier dans l’abonnement.  
 
-La réception de messages provenant d'abonnements est identique à la réception de messages provenant de files d'attente. Chaque abonnement dispose d'une file d'attente de lettres mortes et peut transférer automatiquement les messages vers une autre file d'attente ou d'autres rubriques. 
+La réception de messages provenant d'abonnements est identique à la réception de messages provenant de files d'attente. Chaque abonnement dispose d’une file d’attente de lettres mortes et peut transférer automatiquement les messages vers une autre file d’attente ou d’autres rubriques. 
 
-Avec les rubriques JMS, les clients peuvent dynamiquement créer des abonnés non durables et durables qui permettent éventuellement de filtrer les messages avec des sélecteurs de messages. Ces entités non partagées ne sont pas prises en charge par Service Bus. La syntaxe des règles de filtrage SQL pour Service Bus est toutefois très semblable à celle du sélecteur de messages pris en charge par JMS. 
+Avec les rubriques JMS, les clients peuvent dynamiquement créer des abonnés non durables et durables qui permettent éventuellement de filtrer les messages avec des sélecteurs de messages. Ces entités non partagées ne sont pas prises en charge par Service Bus. La syntaxe des règles de filtrage SQL pour Service Bus est toutefois semblable à celle du sélecteur de messages prise en charge par JMS. 
 
-Le côté éditeur de rubrique JMS est compatible avec Service Bus, comme le montre cet exemple, mais les abonnés dynamiques ne le sont pas. Les API JMS liées à la topologie suivantes ne sont pas prises en charge par Service Bus. 
+Le côté éditeur de rubrique JMS est compatible avec Service Bus, comme le montre cet exemple, mais les abonnés dynamiques ne le sont pas. Les API JMS liées à la topologie qui suivent ne sont pas prises en charge par Service Bus. 
 
 ## <a name="unsupported-features-and-restrictions"></a>Fonctionnalités non prises en charge et restrictions
 Les restrictions suivantes existent pour l’utilisation de JMS sur AMQP 1.0 avec Service Bus, à savoir :
@@ -358,7 +358,7 @@ Les restrictions suivantes existent pour l’utilisation de JMS sur AMQP 1.0 av
 * Un seul **MessageProducer** ou **MessageConsumer** est autorisé par **Session**. Si vous devez créer plusieurs **MessageProducers** ou **MessageConsumers** dans une application, créez une **Session** dédiée pour chacun d’eux.
 * Les abonnements aux rubriques volatiles ne sont actuellement pas pris en charge.
 * Les **MessageSelectors** ne sont actuellement pas pris en charge.
-* Les sessions traitées et les transactions distribuées ne sont pas prises en charge.
+* Les transactions distribuées ne sont pas prises en charge (mais les sessions traitées sont prises en charge).
 
 En outre, Azure Service Bus sépare le plan de contrôle du plan de données et par conséquent ne prend pas en charge plusieurs des fonctions de topologie dynamique de JMS :
 

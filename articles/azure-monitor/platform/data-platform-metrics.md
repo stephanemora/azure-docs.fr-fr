@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: e534754e46e6f2ad9b99b67d24d9f7da63a51a4f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: cd30803735c5453c286788b8669a3d2f02c418a5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258376"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468046"
 ---
 # <a name="metrics-in-azure-monitor"></a>Mesures dans Azure Monitor
 
@@ -37,7 +37,7 @@ Le tableau suivant répertorie les différentes façons d’utiliser des donnée
 | Visualisation | Épinglez un graphique à partir de Metrics Explorer dans un [tableau de bord Azure](../learn/tutorial-app-dashboards.md).<br>Créez un [classeur](../app/usage-workbooks.md) à combiner avec plusieurs jeux de données dans un rapport interactif. Exportez les résultats d’une requête dans [Grafana](grafana-plugin.md) pour bénéficier de la création de tableaux de bord et les combiner avec d’autres sources de données. |
 | Alerte | Configurez une [règle d’alerte sur les métriques](alerts-metric.md) qui envoie une notification ou prend [une action de façon automatique](action-groups.md) lorsque la valeur métrique dépasse le seuil défini. |
 | Automatisation |  Utilisez la [mise à l’échelle automatique](autoscale-overview.md) pour augmenter ou diminuer les ressources si une valeur métrique dépasse le seuil défini. |
-| Exportation | [Acheminez les métriques vers les journaux d’activité](resource-logs-collect-storage.md) pour analyser les données des métriques Azure Monitor avec les données des journaux d’activité Azure Monitor et stocker les valeurs métriques pendant plus de 93 jours.<br>Transmettez en continu les métriques vers un [Event Hub](stream-monitoring-data-event-hubs.md) pour les acheminer vers des systèmes externes. |
+| Exporter | [Acheminez les métriques vers les journaux d’activité](resource-logs-collect-storage.md) pour analyser les données des métriques Azure Monitor avec les données des journaux d’activité Azure Monitor et stocker les valeurs métriques pendant plus de 93 jours.<br>Transmettez en continu les métriques vers un [Event Hub](stream-monitoring-data-event-hubs.md) pour les acheminer vers des systèmes externes. |
 | Récupération | Accédez à des valeurs métriques à partir d’une ligne de commande à l’aide des [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights).<br>Accédez à des valeurs métriques à partir d’une application personnalisée à l’aide de [l’API REST](rest-api-walkthrough.md).<br>Accédez à des valeurs métriques à partir d’une ligne de commande à l’aide de [l’interface de ligne de commande](/cli/azure/monitor/metrics). |
 | Archivage | [Archivez](..//learn/tutorial-archive-data.md) l’historique des performances ou d’intégrité de votre ressource à des fins de conformité, d’audit ou de création de rapports hors connexion. |
 
@@ -102,7 +102,7 @@ Pour la plupart des ressources dans Azure, les métriques sont stockées pendant
 
 **Métriques de système d’exploitation invité**
 -   **Métriques de système d’exploitation invité classiques**. Il s’agit des compteurs de performances collectés par [Windows Diagnostic Extension (WAD)](../platform/diagnostics-extension-overview.md) ou [Linux Diagnostic Extension (LAD)](../../virtual-machines/extensions/diagnostics-linux.md), puis routés vers un compte de stockage Azure. La période de conservation de ces métriques s’élève à 14 jours.
--   **Métriques de système d’exploitation invité envoyées à Azure Monitor Metrics**. Il s’agit des compteurs de performances collectés par Windows Diagnostic Extension (WAD) et envoyés à [Azure Monitor Sink](diagnostics-extension-overview.md#data-storage), ou par le biais d’[InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/) sur des machines Linux. La période de conservation de ces métriques s’élève à 93 jours.
+-   **Métriques de système d’exploitation invité envoyées à Azure Monitor Metrics**. Il s’agit des compteurs de performances collectés par [l’extension de diagnostic Windows (WAD)](diagnostics-extension-overview.md) et envoyés au [récepteur de données Azure Monitor](diagnostics-extension-overview.md#data-destinations) ou par le biais de [l’agent InfluxData Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) sur des machines Linux. La période de conservation de ces métriques s’élève à 93 jours.
 -   **Métriques de système d’exploitation invité collectées par l’agent Log Analytics**. Il s’agit des compteurs de performances collectés par l’agent Log Analytics et envoyés à un espace de travail Log Analytics. La période de rétention de ces métriques s’élève à 31 jours et peut aller jusqu’à 2 ans.
 
 **Métriques reposant sur un journal d’Application Insights**. 
@@ -118,6 +118,6 @@ Pour la plupart des ressources dans Azure, les métriques sont stockées pendant
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez-en plus sur la [plateforme de données Azure Monitor](data-platform.md).
+- Apprenez-en davantage sur la [plateforme de données Azure Monitor](data-platform.md).
 - Apprenez-en davantage sur les [données de journal dans Azure Monitor](data-platform-logs.md).
 - Découvrez les [données de surveillance disponibles](data-sources.md) pour différentes ressources dans Azure.

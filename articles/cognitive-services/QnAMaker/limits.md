@@ -2,13 +2,13 @@
 title: Limites et frontières - QnA Maker
 description: QnA Maker présente des limites de métadonnées pour certaines parties de la base de connaissances et du service. Il est important de maintenir votre base de connaissances à l’intérieur de ces limites pour les tests et la publication.
 ms.topic: article
-ms.date: 01/23/2020
-ms.openlocfilehash: 32e12d9e983795d2fb403a5b6bc304289ece92c2
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.date: 02/14/2020
+ms.openlocfilehash: 7fdf45a4a22f6d9ffe123f5998592739402be55f
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760230"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252006"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites de la base de connaissances QnA Maker
 
@@ -55,6 +55,8 @@ Le nombre maximal de liens ciblés pouvant être analysés pour l’extraction d
 
 ## <a name="metadata-limits"></a>Limites de métadonnées
 
+Les métadonnées sont stockées et comparées en minuscules.
+
 ### <a name="by-azure-cognitive-search-pricing-tier"></a>Par niveau tarifaire de Recherche cognitive Azure
 
 Le nombre maximal de champs de métadonnées par base de connaissances est basé sur les **[limites de niveau de Recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)** .
@@ -69,7 +71,7 @@ La longueur et les caractères acceptables pour le nom et la valeur des métadon
 
 |Élément|Caractères autorisés|Modèle d’expression régulière|Caractères max.|
 |--|--|--|--|
-|Name|Sont autorisés<br>les caractères alphanumériques (lettres et chiffres) et<br>`_` (trait de soulignement)|`^[a-zA-Z0-9_]+$`|100|
+|Nom|Sont autorisés<br>les caractères alphanumériques (lettres et chiffres) et<br>`_` (trait de soulignement)|`^[a-zA-Z0-9_]+$`|100|
 |Valeur|Tous sauf<br>`:` (deux points)<br>`|` (barre verticale)|`^[^:|]+$`|500|
 |||||
 

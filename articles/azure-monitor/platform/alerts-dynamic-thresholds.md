@@ -5,15 +5,15 @@ author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 02/16/2020
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 750aded128804468ae557d7c016a50c5378d9217
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: f67dcf7f1f4f39a11eb995995a8d0acc278b5d4a
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74762508"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373411"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertes de métrique avec seuils dynamiques dans Azure Monitor
 
@@ -92,11 +92,11 @@ Probablement pas. Les seuils dynamiques excellent à détecter des écarts signi
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Quelle quantité de données est utilisée pour prévoir, puis calculer les seuils ?
 
-Quand une alerte est créée, les seuils qui apparaissent dans le graphique reposent sur un nombre suffisant de données d’historique pour calculer des modèles saisonniers horaires ou journaliers (10 jours). Une fois la règle d’alerte créée, les seuils dynamiques utilisent toutes les données d’historique nécessaires disponibles et s’adaptent aux nouvelles données afin de proposer des seuils plus précis. Dès lors, après ce calcul, le graphique affiche aussi des modèles hebdomadaires.
+Quand une règle d’alerte est créée pour la première fois, les seuils qui apparaissent dans le graphique reposent sur un nombre suffisant de données d’historique pour calculer des modèles saisonniers horaires ou journaliers (10 jours). Une fois la règle d’alerte créée, les seuils dynamiques utilisent toutes les données d’historique nécessaires disponibles et s’adaptent aux nouvelles données afin de proposer des seuils plus précis. Dès lors, après ce calcul, le graphique affiche aussi des modèles hebdomadaires.
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Quelle est la quantité de données requises pour déclencher une alerte ?
 
-En présence d'une nouvelle ressource ou si des données métriques sont manquantes, les seuils dynamiques ne déclenchent pas d'alertes avant que trois jours de données soient disponibles et ce, afin de proposer des seuils précis.
+En présence d’une nouvelle ressource ou si des données métriques sont manquantes, les seuils dynamiques ne déclenchent pas d’alertes avant que 3 jours ou 30 échantillons de données métriques soient disponibles et ce, afin de proposer des seuils précis.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Bonnes pratiques concernant les seuils dynamiques
 

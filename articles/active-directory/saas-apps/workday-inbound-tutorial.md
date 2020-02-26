@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acc458c59858196ea110d0ff2030ccd7f7b6fc58
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: feedce112110b1c944e3cb0af79e76fe1bda4778
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121743"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77365636"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutoriel : Configurer Workday pour l'approvisionnement automatique d'utilisateurs
 
@@ -93,7 +93,7 @@ Cette section traite des aspects suivants de la planification :
 * [Intégration à plusieurs domaines Active Directory](#integrating-with-multiple-active-directory-domains)
 * [Planification du mappage et des transformations des attributs utilisateur de Workday vers Active Directory](#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
@@ -801,7 +801,7 @@ Non, la solution ne met pas les profils utilisateur en cache. Le service d'appro
 
 #### <a name="does-the-solution-support-assigning-on-premises-ad-groups-to-the-user"></a>La solution prend-elle en charge l'attribution de groupes AD locaux à l'utilisateur ?
 
-Cette fonctionnalité n'est actuellement pas prise en charge. La solution de contournement recommandée consiste à déployer un script PowerShell qui interroge le point de terminaison de l'API Azure AD Graph pour accéder aux données du journal d'audit et utilise celles-ci pour déclencher des scénarios tels que l'attribution de groupes. Ce script PowerShell peut être associé à un planificateur de tâches et déployé sur le boîtier qui exécute l'agent d'approvisionnement.  
+Cette fonctionnalité n'est actuellement pas prise en charge. La solution de contournement recommandée consiste à déployer un script PowerShell qui interroge le point de terminaison de l’API Microsoft Graph pour accéder aux [données du journal d’audit](https://docs.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) et utilise celles-ci pour déclencher des scénarios tels que l’attribution de groupes. Ce script PowerShell peut être associé à un planificateur de tâches et déployé sur le boîtier qui exécute l'agent d'approvisionnement.  
 
 #### <a name="which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles"></a>Quelles API Workday la solution utilise-t-elle pour interroger et mettre à jour les profils d'employé Workday ?
 

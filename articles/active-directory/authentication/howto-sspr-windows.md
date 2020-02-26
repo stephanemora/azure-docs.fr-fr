@@ -11,14 +11,14 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be1c0e93a51064870635d4f06bd5b365bbfe517a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a1f0e5242d87bc68efd92a52619e8d48cff9ac87
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847284"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370073"
 ---
-# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Activation Activer la réinitialisation de mot de passe à partir de l’écran de connexion Windows
+# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Procédure : Activer la réinitialisation de mot de passe à partir de l’écran de connexion Windows
 
 Pour les machines exécutant Windows 7, 8, 8.1 et 10, vous pouvez autoriser les utilisateurs à réinitialiser leur mot de passe sur l’écran de connexion Windows. Les utilisateurs n’ont plus besoin de trouver d’appareil avec un navigateur Web pour accéder au [portail de réinitialisation de mot de passe en libre-service](https://aka.ms/sspr).
 
@@ -27,7 +27,9 @@ Pour les machines exécutant Windows 7, 8, 8.1 et 10, vous pouvez autoriser les
 ## <a name="general-limitations"></a>Limitations générales
 
 - Actuellement, la réinitialisation du mot de passe n’est pas prise en charge à partir d’un bureau à distance ou des sessions améliorées Hyper-V.
-- Cette fonctionnalité ne fonctionne pas pour les réseaux avec l’authentification de réseau 802.1x déployée et l’option « Immédiatement avant l’ouverture de session de l’utilisateur ». Pour les réseaux avec l’authentification de réseau 802.1x déployée, il est recommandé d’utiliser l’authentification de la machine pour activer cette fonctionnalité.
+- Certains fournisseurs tiers d’informations d’identification sont connus pour poser des problèmes avec cette fonctionnalité.
+- La désactivation du Contrôle de compte d’utilisateur via la modification de la [clé de Registre EnableLUA](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) est connue pour provoquer des problèmes.
+- Cette fonctionnalité ne fonctionne pas pour les réseaux avec l’authentification de réseau 802.1x déployée et l’option « Immédiatement avant l’ouverture de session de l’utilisateur ». Pour les réseaux avec l’authentification de réseau 802.1x déployée, il est recommandé d’utiliser l’authentification de la machine pour activer cette fonctionnalité.
 - Les machines jointes Azure AD Hybride doivent disposer d’une connectivité réseau à un contrôleur de domaine pour utiliser le nouveau mot de passe et mettre à jour les informations d’identification mises en cache.
 - Si vous utilisez une image, avant d’exécuter sysprep, vérifiez que le cache web est effacé pour le compte Administrateur intégré avant d’effectuer l’étape CopyProfile. Vous trouverez plus d’informations au sujet de cette étape dans l’article de support [Performances médiocres lors de l’utilisation du profil d’utilisateur par défaut personnalisé](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Les paramètres suivants sont connus pour leur interférence avec la fonctionnalité de réinitialisation des mots de passe sur les appareils Windows 10

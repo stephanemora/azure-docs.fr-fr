@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/27/2019
-ms.openlocfilehash: b64b0f32b7e8d94115facf43646a5a030697d80f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cf79a670db4e2729c6e0a5fb7112cdc6114f465a
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444409"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460703"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copier des données depuis et vers le stockage Table Azure à l’aide d’Azure Data Factory
 
@@ -239,13 +239,16 @@ Pour copier des données de Table Azure, définissez **AzureTableSource** comme 
 
 ### <a name="azuretablesourcequery-examples"></a>Exemples azureTableSourceQuery
 
-Si la colonne de Table Azure est de type datetime :
+>[!NOTE]
+>L’opération de requête Table Azure expire dans 30 secondes, [conformément au service de Table Azure](https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations). Découvrez comment optimiser la requête dans l’article [Conception pour l’interrogation](../storage/tables/table-storage-design-for-query.md).
+
+Dans Azure Data Factory, si vous souhaitez filtrer les données par rapport à une colonne de type DateHeure, reportez-vous à l’exemple suivant :
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime gt datetime'2017-10-01T00:00:00' and LastModifiedTime le datetime'2017-10-02T00:00:00'"
 ```
 
-Si la colonne de Table Azure est de type chaîne :
+Si vous souhaitez filtrer les données par rapport à une colonne de type chaîne, reportez-vous à l’exemple suivant :
 
 ```json
 "azureTableSourceQuery": "LastModifiedTime ge '201710010000_0000' and LastModifiedTime le '201710010000_9999'"

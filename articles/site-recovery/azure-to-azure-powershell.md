@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 254f64c6405fb214bfbc61b3e45747d9e119565d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 583511194fb100add1d5fc4ea9c06a869cf652b5
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509323"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212283"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure à l’aide d’Azure PowerShell
 
@@ -36,16 +36,16 @@ Vous allez apprendre à effectuer les actions suivantes :
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer :
 - Assurez-vous que vous comprenez [l’architecture et les composants du scénario](azure-to-azure-architecture.md).
 - Vérifiez les [exigences de prise en charge](azure-to-azure-support-matrix.md) pour tous les composants.
 - Vous devez disposer du module Azure PowerShell `Az`. Si vous devez installer ou mettre à niveau Azure PowerShell, consultez le [guide sur l’installation et la configuration d’Azure PowerShell](/powershell/azure/install-az-ps).
 
-## <a name="log-in-to-your-microsoft-azure-subscription"></a>Connexion à un abonnement Microsoft Azure
+## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Se connecter à un abonnement Microsoft Azure
 
-Connectez-vous à votre abonnement Azure à l’aide de la cmdlet `Connect-AzAccount`.
+Connectez-vous à votre abonnement Azure avec la cmdlet `Connect-AzAccount`.
 
 ```azurepowershell
 Connect-AzAccount
@@ -57,9 +57,9 @@ Sélectionnez votre abonnement Azure. Utilisez la cmdlet `Get-AzSubscription` po
 Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-## <a name="get-details-of-the-virtual-machines-to-be-replicated"></a>Obtenir les informations détaillées de la ou les machines virtuelles à répliquer
+## <a name="get-details-of-the-virtual-machine-to-be-replicated"></a>Obtenir les informations détaillées de la machine virtuelle à répliquer
 
-Dans l’exemple de cet article, une machine virtuelle dans la région USA Est sera répliquée vers la région USA Ouest 2, où elle sera également récupérée. La machine virtuelle répliquée dispose d’un disque de système d’exploitation et d’un seul disque de données. Le nom de la machine virtuelle utilisée dans cet exemple est `AzureDemoVM`.
+Dans cet article, une machine virtuelle dans la région USA Est est répliquée vers la région USA Ouest 2, où elle est également récupérée. La machine virtuelle répliquée dispose d’un disque de système d’exploitation et d’un seul disque de données. Le nom de la machine virtuelle utilisée dans cet exemple est `AzureDemoVM`.
 
 ```azurepowershell
 # Get details of the virtual machine
@@ -68,7 +68,7 @@ $VM = Get-AzVM -ResourceGroupName "A2AdemoRG" -Name "AzureDemoVM"
 Write-Output $VM
 ```
 
-```
+```Output
 ResourceGroupName  : A2AdemoRG
 Id                 : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/A2AdemoRG/providers/Microsoft.Compute/virtualMachines/AzureDemoVM
 VmId               : 1b864902-c7ea-499a-ad0f-65da2930b81b
@@ -107,7 +107,7 @@ Dans l’exemple de cet article, la machine virtuelle protégée se trouve dans 
 New-AzResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
 ```
 
-```
+```Output
 ResourceGroupName : a2ademorecoveryrg
 Location          : westus2
 ProvisioningState : Succeeded
@@ -115,7 +115,7 @@ Tags              :
 ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg
 ```
 
-Créez un coffre Recovery Services. Dans l’exemple ci-dessous, un coffre Recovery Services nommé `a2aDemoRecoveryVault` est créé dans la région USA Ouest 2.
+Créez un coffre Recovery Services. Dans cet exemple, un coffre Recovery Services nommé `a2aDemoRecoveryVault` est créé dans la région USA Ouest 2.
 
 ```azurepowershell
 #Create a new Recovery services vault in the recovery region
@@ -124,7 +124,7 @@ $vault = New-AzRecoveryServicesVault -Name "a2aDemoRecoveryVault" -ResourceGroup
 Write-Output $vault
 ```
 
-```
+```Output
 Name              : a2aDemoRecoveryVault
 ID                : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg/providers/Microsoft.RecoveryServices/vaults/a2aDemoRecoveryVault
 Type              : Microsoft.RecoveryServices/vaults
@@ -136,14 +136,14 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 ## <a name="set-the-vault-context"></a>Définir le contexte du coffre
 
-Définissez le contexte du coffre pour l’utiliser dans la session PowerShell. Ensuite, les opérations suivantes d’Azure Site Recovery dans la session PowerShell sont effectuées dans le contexte du coffre sélectionné.
+Définissez le contexte du coffre pour l’utiliser dans la session PowerShell. Une fois le contexte de coffre défini, les opérations Azure Site Recovery dans la session PowerShell sont effectuées dans le contexte du coffre sélectionné.
 
 ```azurepowershell
 #Setting the vault context.
 Set-AzRecoveryServicesAsrVaultContext -Vault $vault
 ```
 
-```
+```Output
 ResourceName         ResourceGroupName ResourceNamespace          ResourceType
 ------------         ----------------- -----------------          -----------
 a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
@@ -170,7 +170,7 @@ L’objet de structure dans le coffre représente une région Azure. L’objet d
 - Un seul objet de structure peut être créé par région.
 - Si vous avez activé la réplication Site Recovery pour une machine virtuelle dans le portail Azure, Site Recovery crée automatiquement un objet de structure. S’il existe un objet de structure pour une région, vous ne pouvez en pas créer.
 
-Avant de commencer, notez que les opérations Azure Site Recovery sont exécutées de façon asynchrone. Lorsque vous lancez une opération, un travail Azure Site Recovery est envoyé et un objet de suivi de travail est renvoyé. Utilisez l’objet de suivi du travail pour obtenir l’état récent du travail (`Get-AzRecoveryServicesAsrJob`), et pour surveiller l’état de l’opération.
+Avant de commencer, sachez que les opérations Azure Site Recovery sont exécutées de façon asynchrone. Lorsque vous lancez une opération, un travail Azure Site Recovery est envoyé et un objet de suivi de travail est renvoyé. Utilisez l’objet de suivi du travail pour obtenir l’état récent du travail (`Get-AzRecoveryServicesAsrJob`), et pour surveiller l’état de l’opération.
 
 ```azurepowershell
 #Create Primary ASR fabric
@@ -193,7 +193,7 @@ Si des machines virtuelles de plusieurs régions Azure sont protégées vers le 
 
 ### <a name="create-a-site-recovery-fabric-object-to-represent-the-recovery-region"></a>Créer un objet de structure Site Recovery pour représenter la région de récupération
 
-L’objet de structure de récupération représente l’emplacement Azure de récupération. Les machines virtuelles seront répliquées vers et récupérées dans (en cas de basculement) la région de récupération représentée par la structure de récupération. La région Azure de récupération utilisée dans cet exemple est USA Ouest 2.
+L’objet de structure de récupération représente l’emplacement Azure de récupération. En cas de basculement, les machines virtuelles sont répliquées vers la région de récupération représentée par la structure de récupération et y sont récupérées. La région Azure de récupération utilisée dans cet exemple est USA Ouest 2.
 
 ```azurepowershell
 #Create Recovery ASR fabric
@@ -289,10 +289,10 @@ $EusToWusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -Protec
 
 ### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>Créer un mappage de conteneur de protection pour la restauration automatique (réplication inverse après basculement)
 
-Après un basculement, lorsque vous êtes prêt à ramener la machine virtuelle basculée dans la région Azure d’origine, vous effectuez une restauration automatique. Pour l’effectuer, la machine virtuelle basculée est répliquée de façon inverse depuis la région basculée vers la région d’origine. En cas de réplication inverse, les rôles de la région d’origine et de la région de récupération sont inversés. La région d’origine devient alors la nouvelle région de récupération, tandis que celle qui était la région de récupération devient la région principale. Le mappage de conteneur de protection pour une réplication inverse représente les rôles inversés des régions d’origine et de récupération.
+Après un basculement, lorsque vous êtes prêt à ramener la machine virtuelle basculée dans la région Azure d’origine, vous effectuez une restauration automatique. Pour cela, la machine virtuelle basculée est répliquée de façon inverse depuis la région basculée vers la région d’origine. En cas de réplication inverse, les rôles de la région d’origine et de la région de récupération sont inversés. La région d’origine devient alors la nouvelle région de récupération, tandis que celle qui était la région de récupération devient la région principale. Le mappage de conteneur de protection pour une réplication inverse représente les rôles inversés des régions d’origine et de récupération.
 
 ```azurepowershell
-#Create Protection container mapping (for failback) between the Recovery and Primary Protection Containers with the Replication policy
+#Create Protection container mapping (for fail back) between the Recovery and Primary Protection Containers with the Replication policy
 $TempASRJob = New-AzRecoveryServicesAsrProtectionContainerMapping -Name "A2ARecoveryToPrimary" -Policy $ReplicationPolicy -PrimaryProtectionContainer $RecoveryProtContainer -RecoveryProtectionContainer $PrimaryProtContainer
 
 #Track Job status to check for completion
@@ -303,11 +303,13 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
 
 #Check if the Job completed successfully. The updated job state of a successfully completed job should be "Succeeded"
 Write-Output $TempASRJob.State
+
+$WusToEusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $RecoveryProtContainer -Name "A2ARecoveryToPrimary"
 ```
 
-## <a name="create-cache-storage-accounts-and-target-storage-accounts"></a>Créer des comptes de stockage de cache et des comptes de stockage cible
+## <a name="create-cache-storage-account-and-target-storage-account"></a>Créer un compte de stockage de cache et un compte de stockage cible
 
-Un compte de stockage de cache est un compte de stockage standard situé dans la même région Azure que la machine virtuelle répliquée. Il est utilisé pour conserver temporairement les modifications de réplication, avant qu’ils ne soient déplacés vers la région Azure de récupération. Vous pouvez choisir (mais n’y êtes pas obligé) de spécifier différents comptes de stockage de cache pour les différents disques d’une machine virtuelle.
+Un compte de stockage de cache est un compte de stockage standard situé dans la même région Azure que la machine virtuelle répliquée. Il est utilisé pour conserver temporairement les modifications de réplication, avant qu’ils ne soient déplacés vers la région Azure de récupération. Vous pouvez choisir, mais n’y êtes pas obligé, de spécifier différents comptes de stockage de cache pour les différents disques d’une machine virtuelle.
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
@@ -323,7 +325,7 @@ $WestUSTargetStorageAccount = New-AzStorageAccount -Name "a2atargetstorage" -Res
 
 ## <a name="create-network-mappings"></a>Créer des mappages réseau
 
-Un mappage réseau mappe des réseaux virtuels dans la région principale à des réseaux virtuels dans la région de récupération. Le mappage réseau spécifie le réseau virtuel Azure dans la région de récupération, vers lequel doit basculer une machine virtuelle du réseau virtuel principal. Un réseau virtuel Azure peut être mappé à un seul réseau virtuel Azure seulement, dans une région de récupération.
+Un mappage réseau mappe des réseaux virtuels dans la région principale à des réseaux virtuels dans la région de récupération. Le mappage réseau spécifie le réseau virtuel Azure dans la région de récupération vers lequel doit basculer une machine virtuelle du réseau virtuel principal. Un réseau virtuel Azure peut être mappé à un seul réseau virtuel Azure seulement, dans une région de récupération.
 
 - Créer un réseau virtuel Azure dans la région de récupération vers laquelle basculer :
 
@@ -336,7 +338,7 @@ Un mappage réseau mappe des réseaux virtuels dans la région principale à des
     $WestUSRecoveryNetwork = $WestUSRecoveryVnet.Id
    ```
 
-- Récupérer le réseau virtuel principal (celui auquel est connectée la machine virtuelle) :
+- Récupérez le réseau virtuel principal. Réseau virtuel auquel la machine virtuelle est connectée :
 
    ```azurepowershell
     #Retrieve the virtual network that the virtual machine is connected to
@@ -379,7 +381,7 @@ Un mappage réseau mappe des réseaux virtuels dans la région principale à des
 - Créer le mappage réseau pour la direction inverse (restauration automatique) :
 
     ```azurepowershell
-    #Create an ASR network mapping for failback between the recovery Azure virtual network and the primary Azure virtual network
+    #Create an ASR network mapping for fail back between the recovery Azure virtual network and the primary Azure virtual network
     $TempASRJob = New-AzRecoveryServicesAsrNetworkMapping -AzureToAzure -Name "A2AWusToEusNWMapping" -PrimaryFabric $RecoveryFabric -PrimaryAzureNetworkId $WestUSRecoveryNetwork -RecoveryFabric $PrimaryFabric -RecoveryAzureNetworkId $EastUSPrimaryNetwork
 
     #Track Job status to check for completion
@@ -477,7 +479,7 @@ FriendlyName ProtectionState ReplicationHealth
 AzureDemoVM  Protected       Normal
 ```
 
-## <a name="perform-a-test-failover-validate-and-cleanup-test-failover"></a>Effectuer un test de basculement, puis valider et supprimer le test de basculement
+## <a name="do-a-test-failover-validate-and-cleanup-test-failover"></a>Effectuer un test de basculement, puis valider et supprimer le test de basculement
 
 Une fois la réplication de la machine virtuelle à l’état Protégé, une opération de basculement de test peut être effectuée sur la machine virtuelle (sur l’élément de réplication protégé de la machine virtuelle).
 
@@ -490,7 +492,7 @@ Add-AzVirtualNetworkSubnetConfig -Name "default" -VirtualNetwork $TFOVnet -Addre
 $TFONetwork= $TFOVnet.Id
 ```
 
-Exécutez un basculement de test.
+Effectuez un test de basculement.
 
 ```azurepowershell
 $ReplicationProtectedItem = Get-AzRecoveryServicesAsrReplicationProtectedItem -FriendlyName "AzureDemoVM" -ProtectionContainer $PrimaryProtContainer
@@ -504,7 +506,7 @@ Attendez que l’opération se termine.
 Get-AzRecoveryServicesAsrJob -Job $TFOJob
 ```
 
-```
+```Output
 Name             : 3dcb043e-3c6d-4e0e-a42e-8d4245668547
 ID               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg/providers/Microsoft.RecoveryServices/vaults/a2aDemoR
                    ecoveryVault/replicationJobs/3dcb043e-3c6d-4e0e-a42e-8d4245668547
@@ -534,13 +536,13 @@ $Job_TFOCleanup = Start-AzRecoveryServicesAsrTestFailoverCleanupJob -Replication
 Get-AzRecoveryServicesAsrJob -Job $Job_TFOCleanup | Select State
 ```
 
-```
+```Output
 State
 -----
 Succeeded
 ```
 
-## <a name="failover-to-azure"></a>Basculement vers Azure
+## <a name="fail-over-to-azure"></a>Basculer vers Azure
 
 Basculez la machine virtuelle vers un point de récupération spécifique.
 
@@ -551,12 +553,12 @@ $RecoveryPoints = Get-AzRecoveryServicesAsrRecoveryPoint -ReplicationProtectedIt
 "{0} {1}" -f $RecoveryPoints[0].RecoveryPointType, $RecoveryPoints[-1].RecoveryPointTime
 ```
 
-```
+```Output
 CrashConsistent 4/24/2018 11:10:25 PM
 ```
 
 ```azurepowershell
-#Start the failover job
+#Start the fail over job
 $Job_Failover = Start-AzRecoveryServicesAsrUnplannedFailoverJob -ReplicationProtectedItem $ReplicationProtectedItem -Direction PrimaryToRecovery -RecoveryPoint $RecoveryPoints[-1]
 
 do {
@@ -567,11 +569,11 @@ do {
 $Job_Failover.State
 ```
 
-```
+```Output
 Succeeded
 ```
 
-Une fois basculée, vous pouvez valider l’opération de basculement.
+Une fois le travail de basculement réussi, vous pouvez valider l’opération de basculement.
 
 ```azurepowershell
 $CommitFailoverJOb = Start-AzRecoveryServicesAsrCommitFailoverJob -ReplicationProtectedItem $ReplicationProtectedItem
@@ -579,7 +581,7 @@ $CommitFailoverJOb = Start-AzRecoveryServicesAsrCommitFailoverJob -ReplicationPr
 Get-AzRecoveryServicesAsrJob -Job $CommitFailoverJOb
 ```
 
-```
+```Output
 Name             : 58afc2b7-5cfe-4da9-83b2-6df358c6e4ff
 ID               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg/providers/Microsoft.RecoveryServices/vaults/a2aDemoR
                    ecoveryVault/replicationJobs/58afc2b7-5cfe-4da9-83b2-6df358c6e4ff
@@ -599,7 +601,7 @@ Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```
 
-## <a name="reprotect-and-failback-to-source-region"></a>Reprotection et restauration automatique dans la région source
+## <a name="reprotect-and-fail-back-to-the-source-region"></a>Reprotéger et effectuer une restauration automatique dans la région source
 
 Après un basculement, lorsque vous êtes prêt à revenir à la région d’origine, démarrez la réplication inverse pour l’élément protégé de la réplication à l’aide de la cmdlet `Update-AzRecoveryServicesAsrProtectionDirection`.
 
@@ -609,12 +611,12 @@ $WestUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestoragewestus" 
 ```
 
 ```azurepowershell
-#Use the recovery protection container, new cache storage accountin West US and the source region VM resource group
+#Use the recovery protection container, new cache storage account in West US and the source region VM resource group
 Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $ReplicationProtectedItem -AzureToAzure
--ProtectionContainerMapping $RecoveryProtContainer -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.Id
+-ProtectionContainerMapping $WusToEusPCMapping -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.ResourceId
 ```
 
-Une fois la reprotection terminée, vous pouvez lancer le basculement dans le sens inverse (de la région USA Ouest vers la région USA Est) ainsi que la restauration automatique vers la région source.
+Une fois la reprotection terminée, vous pouvez basculer dans le sens inverse,de la région USA Ouest vers la région USA Est, ainsi qu’effectuer la restauration automatique vers la région source.
 
 ## <a name="disable-replication"></a>Désactiver la réplication
 
@@ -626,4 +628,4 @@ Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Affichez la [référence Azure Site Recovery PowerShell](/powershell/module/az.RecoveryServices) pour savoir comment effectuer d’autres tâches, telles que la création de plans de récupération et le test de basculement des plans de récupération via PowerShell.
+Consultez la [référence Azure Site Recovery PowerShell](/powershell/module/az.RecoveryServices) pour savoir comment effectuer d’autres tâches, telles que la création de plans de récupération et le test de basculement des plans de récupération via PowerShell.

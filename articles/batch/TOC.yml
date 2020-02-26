@@ -49,7 +49,7 @@
       href: batch-api-basics.md
     - name: API et outils
       href: batch-apis-tools.md
-    - name: Meilleures pratiques
+    - name: Bonnes pratiques
       href: best-practices.md
     - name: Quotas et limites
       href: batch-quota-limit.md
@@ -59,6 +59,8 @@
       href: high-availability-disaster-recovery.md
     - name: Variables d’environnement d’exécution des tâches
       href: batch-compute-node-environment-variables.md
+    - name: Intégration de Batch avec les stratégies Azure
+      href: batch-integration-policies.md
 - name: Guides pratiques
   items:
     - name: Gestion des comptes Batch
@@ -229,7 +231,7 @@
       href: 'https://feedback.azure.com/forums/269742-batch'
     - name: Forum Azure Batch
       href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch'
-    - name: Lot chantier
+    - name: Batch Shipyard
       href: 'https://github.com/Azure/batch-shipyard'
     - name: Blog
       href: 'https://blogs.technet.microsoft.com/windowshpc/'

@@ -1,6 +1,6 @@
 ---
 title: Ajouter une couche de carte thermique à une carte | Microsoft Azure Maps
-description: Dans cet article, vous découvrirez comment ajouter une couche de carte thermique à une carte à l’aide du SDK web Microsoft Azure Maps.
+description: Dans cet article, vous découvrirez comment ajouter une couche thermique à une carte à l’aide du Kit de développement logiciel (SDK) web Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d52d808813078c2aca7de59aa626e83f96221720
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 4a853871ef5f66881235e5a6ffec0886b81f5a92
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986238"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208537"
 ---
 # <a name="add-a-heat-map-layer"></a>Ajouter un calque de carte thermique
 
@@ -79,10 +79,10 @@ Dans l’exemple précédent, la carte thermique a été personnalisée à l’a
   | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25, 'green',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.50, 'yellow',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.75, 'red'<br/>\] |   
 
 - `opacity`: spécifie le niveau d’opacité ou de transparence de la couche de carte thermique.
-- `intensity`: applique un multiplicateur à l’épaisseur de chaque point de données pour augmenter l’intensité globale de la carte thermique. Cela permet de distinguer l’épaisseur des points de données, ce qui facilite la visualisation.
+- `intensity`: applique un multiplicateur à l’épaisseur de chaque point de données pour augmenter l’intensité globale de la carte thermique. Cela différencie l’épaisseur des points de données et facilite la visualisation.
 - `weight`: par défaut, tous les points de données ont une épaisseur de 1, et ont donc tous la même épaisseur. L’option d’épaisseur fait office de multiplicateur, et vous pouvez la définir en tant que nombre ou expression. Si un nombre est défini comme épaisseur, cela équivaut à placer deux fois chaque point de données sur la carte. Par exemple, si l’épaisseur est de 2, alors la densité est doublée. Le fait de définir l’option d’épaisseur sur un nombre permet d’afficher la carte thermique comme vous le feriez à l’aide d’une option d’intensité. 
 
-  Toutefois, si vous utilisez une expression, le poids de chaque point de données peut être basé sur les propriétés de chaque point de données. Par exemple, supposons que chaque point de données représente un tremblement de terre. Une métrique importante de chaque point de données de tremblement de terre est la valeur de magnitude. Des tremblements de terre se produisent constamment, mais la plupart d’entre eux ont une magnitude faible et ne sont pas remarqués. Le fait d’utiliser la valeur de magnitude dans une expression dans le but d’affecter un poids à chaque point de données vous donne une meilleure représentation des tremblements de terre majeurs sur la carte thermique.
+  Toutefois, si vous utilisez une expression, le poids de chaque point de données peut être basé sur les propriétés de chaque point de données. Par exemple, supposons que chaque point de données représente un tremblement de terre. La valeur de magnitude est une métrique importante de chaque point de données de tremblement de terre. Des tremblements de terre se produisent constamment, mais la plupart d’entre eux ont une magnitude faible et ne sont pas remarqués. Utilisez la valeur de magnitude dans une expression pour attribuer l’épaisseur à chaque point de données. Le fait d’utiliser la valeur de magnitude pour attribuer une épaisseur vous donne une meilleure représentation de la précision des tremblements de terre sur la carte thermique.
 - `source` et `source-layer` : vous permettent de mettre à jour la source de données.
 
 Voici un outil permettant de tester les options de couche de carte thermique.

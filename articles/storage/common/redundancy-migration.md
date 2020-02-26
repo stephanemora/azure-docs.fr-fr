@@ -10,12 +10,12 @@ ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 78a7f3eb920d2f656b91cff187ca22b1e15973b7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 14ad6dbf139b34f501e0b0ea8c16d8570b2ace5b
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163786"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212567"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modifier la manière dont un compte de stockage est répliqué
 
@@ -38,10 +38,10 @@ Le tableau suivant fournit une vue d’ensemble de la façon de passer de chaque
 
 | Basculement | … vers LRS | … vers GRS/RA-GRS | … vers ZRS | … vers GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>… depuis LRS</b> | N/A | Utiliser le Portail Azure, PowerShell ou l’interface CLI pour modifier le paramètre de réplication | Effectuer une migration manuelle <br /><br />Demander une migration dynamique | Effectuer une migration manuelle <br /><br />Demander une migration dynamique |
-| <b>… depuis GRS/RA-GRS</b> | Utiliser le Portail Azure, PowerShell ou l’interface CLI pour modifier le paramètre de réplication | N/A | Effectuer une migration manuelle <br /><br />Demander une migration dynamique | Effectuer une migration manuelle <br /><br />Demander une migration dynamique |
-| <b>… depuis ZRS</b> | Effectuer une migration manuelle <br /><br />Demander une migration dynamique | Effectuer une migration manuelle <br /><br />Demander une migration dynamique | N/A | Utiliser le Portail Azure, PowerShell ou l’interface CLI pour modifier le paramètre de réplication |
-| <b>… depuis GZRS/RA-GZRS</b> | Effectuer une migration manuelle <br /><br />Demander une migration dynamique | Effectuer une migration manuelle <br /><br />Demander une migration dynamique | Utiliser le Portail Azure, PowerShell ou l’interface CLI pour modifier le paramètre de réplication | N/A |
+| <b>… depuis LRS</b> | N/A | Utiliser le Portail Azure, PowerShell ou l’interface CLI pour modifier le paramètre de réplication<sup>1</sup> | Effectuer une migration manuelle <br /><br />Demander une migration dynamique | Effectuer une migration manuelle <br /><br /> OR <br /><br /> Basculer d’abord sur GRS/RA-GRS, puis demander une migration dynamique<sup>1</sup> |
+| <b>… depuis GRS/RA-GRS</b> | Utiliser le Portail Azure, PowerShell ou l’interface CLI pour modifier le paramètre de réplication | N/A | Effectuer une migration manuelle <br /><br /> OR <br /><br /> Basculer d’abord sur LRS, puis demander une migration dynamique | Effectuer une migration manuelle <br /><br /> Demander une migration dynamique |
+| <b>… depuis ZRS</b> | Effectuer une migration manuelle | Effectuer une migration manuelle | N/A | Utiliser le Portail Azure, PowerShell ou l’interface CLI pour modifier le paramètre de réplication<sup>1</sup> |
+| <b>… depuis GZRS/RA-GZRS</b> | Effectuer une migration manuelle | Effectuer une migration manuelle | Utiliser le Portail Azure, PowerShell ou l’interface CLI pour modifier le paramètre de réplication | N/A |
 
 <sup>1</sup> Implique des frais de sortie ponctuels.
 

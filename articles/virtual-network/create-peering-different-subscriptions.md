@@ -1,5 +1,5 @@
 ---
-title: Créer un peering de réseaux virtuels Azure - Resource Manager - Abonnements différents
+title: Créer un Peering de réseau virtuel – différents abonnements
 titlesuffix: Azure Virtual Network
 description: Découvrez comment créer un peering de réseaux virtuels entre des réseaux virtuels créés via Resource Manager dans des abonnements Azure différents.
 services: virtual-network
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: da85d8904fcd44788d6a87a22ea14d683982e333
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d085279167b498b13cfb79b97703cfdff7d6dd8a
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020010"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201745"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Créer un peering de réseaux virtuels - Resource Manager - Abonnements différents
 

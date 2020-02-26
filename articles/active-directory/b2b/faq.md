@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8be047caf8631cda4e48b7bf10987db616a9b86f
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: d51359896b7a0d03626ead6843d3666f3ad3ef57
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608606"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368102"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>FAQ sur Azure Active Directory B2B Collaboration
 
@@ -97,7 +97,7 @@ Azure AD dispose d’un ensemble fixe d'exigences en matière de nombre de carac
 Pour les comptes fédérés, la stratégie de mot de passe dépend de la stratégie qui s’applique dans la location locale et des paramètres de compte Microsoft de l’utilisateur.
 
 ### <a name="an-organization-might-want-to-have-different-experiences-in-their-applications-for-tenant-users-and-guest-users-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-correct-model-to-use"></a>Une organisation peut avoir différentes expériences dans ses applications pour les utilisateurs clients et les utilisateurs invités. Une assistance standard est-elle disponible pour cela ? La présence de la revendication de fournisseur d’identité représente-t-elle le bon modèle ?
-Un utilisateur invité peut utiliser n’importe quel fournisseur d’identité pour s’authentifier. Pour plus d’informations, consultez la page [Propriétés d’un utilisateur B2B Collaboration](user-properties.md). Utilisez la propriété **UserType** pour déterminer l’expérience utilisateur. La revendication **UserType** n’est pour le moment pas incluse dans le jeton. Les applications doivent utiliser l’API Graph pour interroger le répertoire de l’utilisateur et obtenir le UserType.
+Un utilisateur invité peut utiliser n’importe quel fournisseur d’identité pour s’authentifier. Pour plus d’informations, consultez la page [Propriétés d’un utilisateur B2B Collaboration](user-properties.md). Utilisez la propriété **UserType** pour déterminer l’expérience utilisateur. La revendication **UserType** n’est pour le moment pas incluse dans le jeton. Les applications doivent utiliser l’API Microsoft Graph pour interroger le répertoire de l’utilisateur et obtenir le UserType.
 
 ### <a name="where-can-i-find-a-b2b-collaboration-community-to-share-solutions-and-to-submit-ideas"></a>Où puis-je trouver une communauté B2B Collaboration pour partager des solutions et envoyer des idées ?
 Nous sommes constamment à l’écoute de vos commentaires afin d’améliorer B2B Collaboration. Veuillez partager vos scénarios utilisateur, vos meilleures pratiques et ce que vous appréciez par rapport à Azure AD B2B Collaboration. Participez à la discussion dans la [Communauté Microsoft Tech](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).

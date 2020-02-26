@@ -4,14 +4,14 @@ description: Prérequis à l’utilisation d’Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 02/12/2020
 ms.author: rohogue
-ms.openlocfilehash: 90b84d936bda4e3a974e60934e82ac6c3389d85a
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 135c231f84d95ea2418fab4647d715473378e41c
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645767"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251955"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prérequis pour Azure HPC Cache
 
@@ -70,12 +70,6 @@ Le cache prend en charge les conteneurs d’objets blob Azure et les exportation
 
 Chaque type de stockage possède des conditions préalables spécifiques.
 
-### <a name="nfs-storage-requirements"></a>Conditions requises pour le stockage NFS
-
-Si vous utilisez du stockage matériel local, le cache doit disposer d’un accès réseau à bande passante élevée afin de pouvoir accéder au centre de ressources à partir de son sous-réseau. Il est recommandé de disposer d’un accès [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) ou similaire.
-
-Le stockage back-end NFS doit être une plateforme matérielle ou logicielle compatible. Pour plus d’informations, contactez l’équipe Azure HPC Cache.
-
 ### <a name="blob-storage-requirements"></a>Exigences relatives au stockage Blob
 
 Si vous souhaitez utiliser le stockage Blob Azure avec votre cache, vous aurez besoin d’un compte de stockage compatible, et soit d’un conteneur d’objets blob vide, soit d’un conteneur comprenant des données au format Azure HPC Cache. Pour plus d’informations, consultez [Déplacer des données vers le stockage Blob Azure](hpc-cache-ingest.md).
@@ -93,6 +87,52 @@ Il est recommandé d’utiliser un compte de stockage se trouvant au même empla
 <!-- clarify location - same region or same resource group or same virtual network? -->
 
 Vous devez également autoriser l’application de cache à accéder à votre compte de stockage Azure, tel que mentionné dans [Autorisations](#permissions), ci-dessus. Suivez la procédure indiquée dans [Ajouter des cibles de stockage](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) pour accorder au cache les rôles d’accès requis. Si vous n’êtes pas le propriétaire du compte de stockage, demandez au propriétaire d’effectuer cette étape.
+
+### <a name="nfs-storage-requirements"></a>Conditions requises pour le stockage NFS
+
+Si vous utilisez un système de stockage NFS (par exemple, un système NAS matériel local), assurez-vous qu’il répond à ces exigences. Vous devrez peut-être travailler avec les administrateurs réseau ou les managers de pare-feu de votre système de stockage (ou centre de données) pour vérifier ces paramètres.
+
+> [!NOTE]
+> La création de la cible de stockage échoue si le cache ne dispose pas d’un accès suffisant au système de stockage NFS.
+
+* **Connectivité réseau :** Azure HPC Cache a besoin d’un accès réseau à bande passante élevée entre le sous-réseau du cache et le centre de données du système NFS. Il est recommandé de disposer d’un accès [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) ou similaire. Si vous utilisez un VPN, vous devrez peut-être le configurer pour fixer la MSS TCP à 1350 afin de vous assurer que les paquets volumineux ne sont pas bloqués.
+
+* **Accès au port :** Le cache a besoin d’accéder à des ports TCP/UDP spécifiques sur votre système de stockage. Les différents types de stockage ont des exigences de port différentes.
+
+  Pour vérifier les paramètres de votre système de stockage, procédez comme suit.
+
+  * Adressez une commande `rpcinfo` à votre système de stockage pour vérifier les ports nécessaires. La commande ci-dessous répertorie les ports et met en forme les résultats pertinents dans une table. (Utilisez l’adresse IP de votre système à la place du terme *<storage_IP>* .)
+
+    Vous pouvez lancer cette commande à partir de tout client Linux doté d’une infrastructure NFS. Si vous utilisez un client à l’intérieur du sous-réseau du cluster, il peut également vous aider à vérifier la connectivité entre le sous-réseau et le système de stockage.
+
+    ```bash
+    rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+tcp|100024\s+1\s+tcp|100021\s+4\s+tcp"| awk '{print $4 "/" $3 " " $5}'|column -t
+    ```
+
+  * En plus des ports renvoyés par la commande `rpcinfo`, assurez-vous que ces ports couramment utilisés autorisent le trafic entrant et sortant :
+
+    | Protocol | Port  | Service  |
+    |----------|-------|----------|
+    | TCP/UDP  | 111   | rpcbind  |
+    | TCP/UDP  | 2049  | NFS      |
+    | TCP/UDP  | 4045  | nlockmgr |
+    | TCP/UDP  | 4046  | mountd   |
+    | TCP/UDP  | 4047  | status   |
+
+  * Vérifiez les paramètres du pare-feu pour vous assurer qu’ils autorisent le trafic sur tous ces ports requis. Veillez à vérifier les pare-feux utilisés dans Azure ainsi que ceux de votre centre de données.
+
+* **Accès au répertoire :** Activez la commande `showmount` sur le système de stockage. Azure HPC Cache utilise cette commande pour vérifier que la configuration de votre cible de stockage pointe vers une exportation valide ainsi que pour s’assurer que plusieurs montages n’accèdent pas aux mêmes sous-répertoires (ce qui risque de provoquer des collisions de fichiers).
+
+  > [!NOTE]
+  > Si votre système de stockage NFS utilise le système d’exploitation ONTAP 9.2 de NetApp, **n’activez pas `showmount`** . [Contactez les services du Support Technique Microsoft](hpc-cache-support-ticket.md) pour obtenir de l’aide.
+
+* **Accès racine :** Le cache se connecte au système principal en tant qu’identifiant utilisateur 0. Vérifiez ces paramètres sur votre système de stockage :
+  
+  * Activez `no_root_squash`. Cette option permet de s’assurer que l’utilisateur racine distant peut accéder aux fichiers appartenant à la racine.
+
+  * Vérifiez les stratégies d’exportation pour vous assurer qu’elles n’incluent pas de restrictions sur l’accès à la racine depuis le sous-réseau du cache.
+
+* Le stockage back-end NFS doit être une plateforme matérielle ou logicielle compatible. Pour plus d’informations, contactez l’équipe Azure HPC Cache.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

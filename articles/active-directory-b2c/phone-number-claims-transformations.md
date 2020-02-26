@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 38763f414b1e5373af79d2501850a44e8e813451
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: c5beef98f03c52ca022a7ab8047d3b392755c0bf
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185470"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212204"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Définir des transformations de revendications de numéro de téléphone dans Azure AD B2C
 
@@ -32,7 +32,8 @@ Cette revendication valide le format du numéro de téléphone. Si son format es
 
 | Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | string | Revendication du type de chaîne à partir duquel la conversion est effectuée. |
+| InputClaim | phoneNumberString | string |  Revendication de chaîne pour le numéro de téléphone. Le numéro de téléphone doit être au format international, précédé du signe « + » et d’un indicatif de pays. Si la revendication d’entrée `country` est fournie, le numéro de téléphone est au format local (sans l’indicatif téléphonique international). |
+| InputClaim | country | string | [Facultatif] Revendication de chaîne pour l’indicatif téléphonique international au format ISO3166 (indicatif téléphonique international ISO-3166 à deux lettres). |
 | OutputClaim | outputClaim | phoneNumber | Résultat de cette transformation de revendications. |
 
 La transformation de revendications **ConvertStringToPhoneNumberClaim** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md) ou un [contrôle d’affichage](display-controls.md). Les métadonnées du profil technique autodéclaré **UserMessageIfClaimsTransformationInvalidPhoneNumber** contrôlent le message d’erreur présenté à l’utilisateur.
@@ -44,7 +45,8 @@ Vous pouvez utiliser cette transformation de revendications pour vous assurer qu
 ```XML
 <ClaimsTransformation Id="ConvertStringToPhoneNumber" TransformationMethod="ConvertStringToPhoneNumberClaim">
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="inputClaim" />
+    <InputClaim ClaimTypeReferenceId="phoneString" TransformationClaimType="phoneNumberString" />
+    <InputClaim ClaimTypeReferenceId="countryCode" TransformationClaimType="country" />
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
@@ -63,11 +65,19 @@ Le profil technique auto-déclaré qui appelle le profil technique de validation
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>Exemple
+### <a name="example-1"></a>Exemple 1
 
 - Revendications d’entrée :
-  - **inputClaim** : +1 (123) 456-7890
+  - **phoneNumberString** : 045 456-7890
+  - **country** : DK
 - Revendications de sortie :
+  - **outputClaim** : +450546148120
+
+### <a name="example-2"></a>Exemple 2
+
+- Revendications d’entrée :
+  - **phoneNumberString** : +1 (123) 456-7890
+- Revendications de sortie : 
   - **outputClaim** : +11234567890
 
 ## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberAndCountryCodeFromPhoneNumberString

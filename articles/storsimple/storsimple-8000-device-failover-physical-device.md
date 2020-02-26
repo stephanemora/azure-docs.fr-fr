@@ -1,5 +1,5 @@
 ---
-title: Basculement, récupération d’urgence StorSimple vers un appareil physique de la gamme StorSimple 8000 | Microsoft Docs
+title: Basculement et récupération d’urgence vers un autre appareil StorSimple 8000
 description: Découvrez comment basculer votre appareil physique de la gamme StorSimple 8000 vers un autre appareil physique.
 services: storsimple
 documentationcenter: ''
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 5fcf95a1a3033a5150945dbd841f12d50ebb023b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9e4e890ab5491e46ffe5ea0e1c168d168f9cc729
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60577179"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468607"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Basculer vers appareil physique de la gamme StorSimple 8000
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
-Ce didacticiel décrit les étapes requises pour basculer un appareil physique de la gamme StorSimple 8000 vers un autre appareil physique StorSimple en cas d’incident. StorSimple utilise l’option de basculement d’appareil pour migrer des données d’un appareil physique source dans le centre de données vers un autre appareil physique. Les instructions de ce didacticiel s’appliquent aux appareils physiques de la gamme StorSimple 8000 exécutant le logiciel Update 3 et versions ultérieures.
+Ce didacticiel décrit les étapes requises pour basculer un appareil physique de la gamme StorSimple 8000 vers un autre appareil physique StorSimple en cas d’incident. StorSimple utilise l’option de basculement d’appareil pour migrer les données d’un appareil physique source dans le centre de données vers un autre appareil physique. Les instructions de ce didacticiel s’appliquent aux appareils physiques de la gamme StorSimple 8000 exécutant le logiciel Update 3 et versions ultérieures.
 
-Pour en savoir plus sur le basculement d’appareil et comment il est utilisé pour effectuer une récupération après un incident, accédez à [Failover and disaster recovery for your StorSimple 8000 series device](storsimple-8000-device-failover-disaster-recovery.md) (Basculement et récupération d’urgence pour vos appareils StorSimple de la gamme 8000).
+Pour plus d’informations sur le basculement d’appareil et son utilisation à des fins de récupération après un incident, accédez à [Failover and disaster recovery for your StorSimple 8000 series device](storsimple-8000-device-failover-disaster-recovery.md) (Basculement et récupération d’urgence pour vos appareils StorSimple de la gamme 8000).
 
-Pour basculer un appareil physique StorSimple vers StorSimple Cloud Appliance, accédez à [Fail over to your StorSimple Cloud Appliance](storsimple-8000-device-failover-cloud-appliance.md) (Baculement vers votre StorSimple Cloud Appliance). Pour basculer un appareil physique vers lui-même, accédez à [Fail over your StorSimple physical device to same device](storsimple-8000-device-failover-same-device.md) (Basculer votre appareil physique StorSimple vers lui-même).
+Pour basculer un appareil physique StorSimple vers une instance StorSimple Cloud Appliance, accédez à [Fail over to your StorSimple Cloud Appliance](storsimple-8000-device-failover-cloud-appliance.md) (Basculement vers votre StorSimple Cloud Appliance). Pour basculer un appareil physique vers lui-même, accédez à [Fail over your StorSimple physical device to same device](storsimple-8000-device-failover-same-device.md) (Basculer votre appareil physique StorSimple vers lui-même).
 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Assurez-vous d’avoir passé en revue les considérations relatives au basculement d’appareil. Pour plus d’informations, accédez à [Common considerations for device failover](storsimple-8000-device-failover-disaster-recovery.md) (Considérations courantes relatives au basculement d’appareil).
+- Assurez-vous d’avoir passé en revue les considérations relatives au basculement d’appareil. Pour plus d’informations, accédez à [Considérations courantes relatives au basculement d’appareil](storsimple-8000-device-failover-disaster-recovery.md).
 
 - Vous devez disposer d’un appareil physique de la gamme StorSimple 8000 déployé dans le centre de données. L’appareil doit exécuter la version logicielle Update 3 ou une version ultérieure. Pour plus d’informations, accédez à la page [Déployer votre appareil local StorSimple](storsimple-8000-deployment-walkthrough-u2.md).
 
@@ -43,7 +43,7 @@ Pour basculer un appareil physique StorSimple vers StorSimple Cloud Appliance, a
 
 Procédez comme suit pour restaurer votre appareil vers un appareil physique.
 
-1. Vérifiez que le conteneur de volumes que vous souhaitez basculer est associé à des instantanés cloud. Pour plus d’informations, accédez à [Use the StorSimple Device Manager service in Azure portal to manage backup policies](storsimple-8000-manage-backup-policies-u2.md) (Utiliser le service StorSimple Device Manager dans le portail Azure pour gérer les stratégies de sauvegardes).
+1. Vérifiez que le conteneur de volumes que vous souhaitez basculer est associé à des instantanés cloud. Pour plus d’informations, accédez à [Utiliser le service StorSimple Device Manager dans le portail Azure pour gérer les stratégies de sauvegarde](storsimple-8000-manage-backup-policies-u2.md).
 2. Accédez à votre StorSimple Device Manager et cliquez sur **Appareils**. Dans le panneau **Appareils**, accédez à la liste des appareils connectés à votre service.
     ![Sélectionner l’appareil](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev1.png)
 3. Sélectionnez votre appareil source et cliquez dessus. L’appareil source comprend les conteneurs de volumes que vous souhaitez basculer. Accédez à **Paramètres > Conteneurs de volumes**.

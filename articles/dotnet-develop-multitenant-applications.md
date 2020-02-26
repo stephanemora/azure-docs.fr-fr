@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-ms.openlocfilehash: 92a0caedca34756228dbf57ec9099fd2ece3d84e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d3e267eab056589ed38c436620dd0db185291da1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66225972"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425899"
 ---
 # <a name="multitenant-applications-in-azure"></a>Applications mutualisées dans Azure
-Une application mutualisée est une ressource partagée qui autorise des utilisateurs distincts, appelés « locataires », à afficher l'application comme s'il s'agissait de la leur. Un scénario typique qui se prête à une application mutualisée est celui dans lequel tous les utilisateurs de l'application peuvent personnaliser leur expérience utilisateur, tout en ayant les mêmes besoins professionnels de base. Exemples d'applications mutualisées : Office 365, Outlook.com et visualstudio.com.
+Une application mutualisée est une ressource partagée qui autorise des « utilisateurs de locataires distincts » à afficher l’application comme s’il s’agissait de la leur. Un scénario typique qui se prête à une application mutualisée est celui dans lequel tous les utilisateurs de l’application répartis dans différents locataires peuvent personnaliser leur expérience utilisateur, tout en ayant les mêmes besoins professionnels de base. Exemples d'applications mutualisées : Office 365, Outlook.com et visualstudio.com.
 
 Du point de vue du fournisseur d'application, les avantages d'une architecture mutualisée touchent principalement à l'efficacité opérationnelle et à la réduction des coûts. Une version de votre application peut répondre aux besoins de plusieurs locataires/clients, autorisant ainsi la consolidation des tâches d'administration système telles que la surveillance, le réglage des performances, les mises à jour logicielles et les sauvegardes de données.
 
@@ -30,13 +30,13 @@ Voici une liste des objectifs et exigences les plus significatifs du point de vu
 
 * **Approvisionnement** : vous devez être en mesure d’approvisionner de nouveaux locataires pour l’application.  Pour les applications mutualisées incluant un grand nombre de locataires, il est généralement nécessaire d'automatiser ce processus en activant l'approvisionnement libre-service.
 * **Maintenabilité** : vous devez pouvoir mettre à niveau l’application et effectuer d’autres tâches de maintenance pendant que plusieurs locataires sont en train de l’utiliser.
-* **Surveillance** : vous devez pouvoir surveiller l’application en toutes circonstances afin d’identifier et de résoudre d’éventuels problèmes. Cela inclut la surveillance de la façon dont chaque locataire utilise l'application.
+* **Supervision** : vous devez pouvoir surveiller l’application en toutes circonstances afin d’identifier et de résoudre d’éventuels problèmes. Cela inclut la surveillance de la façon dont chaque locataire utilise l'application.
 
 Une application mutualisée correctement mise en œuvre offre les avantages suivants aux utilisateurs.
 
-* **Isolement** : les activités de locataires individuels n’affectent pas l’utilisation de l’application par d’autres locataires. Les locataires ne peuvent pas accéder aux données des uns et des autres. Le locataire a ainsi l’impression d’avoir une utilisation exclusive de l’application.
+* **Isolation** : les activités de locataires individuels n’affectent pas l’utilisation de l’application par d’autres locataires. Les locataires ne peuvent pas accéder aux données des uns et des autres. Le locataire a ainsi l’impression d’avoir une utilisation exclusive de l’application.
 * **Disponibilité** : les locataires individuels veulent que l’application soit constamment disponible, éventuellement avec des garanties définies dans un contrat de niveau de service. À nouveau, les activités des autres locataires ne doivent pas affecter la disponibilité de l'application.
-* **Extensibilité** : l’application s’adapte à l’échelle de la demande des locataires individuels. La présence et les actions des autres locataires ne doivent pas affecter les performances de l'application.
+* **Scalabilité** : l’application s’adapte à l’échelle de la demande des locataires individuels. La présence et les actions des autres locataires ne doivent pas affecter les performances de l'application.
 * **Coûts** : les coûts sont inférieurs au coût d’exécution d’une application dédiée à un seul locataire, car une architecture mutualisée permet de partager les ressources.
 * **Possibilités de personnalisation**. possibilité de personnaliser l'application d'un locataire individuel de diverses façons telles qu'en ajoutant ou en supprimant des fonctionnalités, en changeant les couleurs et les logos, ou même en ajoutant son propre code ou script.
 
@@ -85,9 +85,9 @@ Azure offre une série de méthodes permettant d’approvisionner de nouveaux lo
 * Options pour l'approvisionnement de ressources de la base de données SQL pour un locataire :
   
   * Langage DDL dans les scripts ou incorporé en tant que ressource au sein d’assemblys.
-  * Packages DAC SQL Server 2008 R2 déployés par programme.
+  * Packages DAC SQL Server 2008 R2 déployés par programme
   * Copie à partir d’une base de données de référence principale.
-  * Utilisation de l'importation et de l'exportation de base de données pour approvisionner de nouvelles bases de données à partir d'un fichier.
+  * Utilisation de l'importation et de l'exportation de base de données pour approvisionner de nouvelles bases de données à partir d'un fichier
 
 <!--links-->
 

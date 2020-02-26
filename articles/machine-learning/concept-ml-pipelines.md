@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: 840c5cf061658f3210fec963b82b490185b92a4b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: fd10a3e62bcbe438eb17edfc71a5285ad071e29a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905719"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366219"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Présentation des pipelines Azure Machine Learning
 
@@ -40,11 +40,12 @@ Découvrez comment [créer votre premier pipeline](how-to-create-your-first-pipe
 
 Le cloud Azure offre plusieurs autres pipelines, chacun ayant un objectif différent. Le tableau suivant liste les différents pipelines et une explication de leur utilisation :
 
-| Pipeline | Résultat | Canal canonique |
-| ---- | ---- | ---- |
-| Pipelines Azure Machine Learning | Définit des workflows Machine Learning réutilisables qui peuvent être utilisés comme modèle pour vos scénarios de Machine Learning. | Données -> modèle |
-| [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Regroupe les activités de déplacement, de transformation et de contrôle des données nécessaires pour effectuer une tâche.  | Données -> données |
-| [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) | Intégration et livraison continues de votre application à n’importe quelle plateforme/n’importe quel cloud  | Code -> application/service |
+| Scénario | Personnage principal | Offre Azure | Offre OSS | Canal canonique | Forces | 
+| -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
+| Orchestration de modèle (Machine Learning) | Scientifique des données | Pipelines Azure Machine Learning | Pipelines Kubeflow | Données -> Modèle | Distribution, mise en cache, orienté code, réutilisation | 
+| Orchestration de données (préparation des données) | Ingénierie de données | [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Apache Airflow | Données -> Données | Mouvement fortement typé. Activités centrées sur les données. |
+| Orchestration de code et d’application (CI/CD) | Développeur d’applications/opérations | [Azure DevOps Pipelines](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Code + modèle -> application/service | Prise en charge de l’activité la plus ouverte et flexible, files d’attente d’approbation, phases avec vérification | 
+
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>Que peuvent faire les pipelines Azure ML ?
 
@@ -52,7 +53,7 @@ Un pipeline Azure Machine Learning est un workflow exécutable indépendamment d
 
 + Préparation des données, notamment l’importation, la validation et le nettoyage, la description et la transformation, la normalisation et la mise en lots
 + Configuration de la formation, notamment le paramétrage des arguments, les filePaths et les configurations de journalisation/création de rapports
-+ Formation et validation efficaces et répétées, qui peuvent inclure la spécification de sous-ensembles de données spécifiques, différentes ressources de calcul matériel, le traitement distribué et la surveillance de la progression
++ Formation et validation efficaces et répétées. L’efficacité peut provenir de la spécification de sous-ensembles de données spécifiques, de différentes ressources de calcul matériel, du traitement distribué et de la surveillance de la progression
 + Déploiement, y compris le contrôle de version, la mise à l’échelle, l’approvisionnement et le contrôle d’accès 
 
 Ces étapes indépendantes permettent à plusieurs scientifiques de données de travailler en même temps sur le même pipeline sans surcharger les ressources de calcul. Des étapes distinctes facilitent également l'utilisation de différents types/tailles de calcul pour chaque étape.
@@ -69,7 +70,7 @@ En résumé, toutes les tâches complexes du cycle de vie Machine Learning peuve
 
 Un pipeline Azure ML effectue un workflow logique complet avec une séquence ordonnée d’étapes. Chaque étape est une action de traitement séparée. Les pipelines s’exécutent dans le contexte d’une [expérience](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Azure Machine Learning.
 
-Lors des premières étapes d’un projet ML, il est bien d’avoir un seul notebook Jupyter ou script Python qui effectue toutes les tâches de configuration des ressources et de l’espace de travail Azure, la préparation des données, la configuration d’exécution, la formation et la validation. Toutefois, tout comme les fonctions et les classes deviennent rapidement préférables à un seul bloc de code impératif, les workflows ML deviennent rapidement préférables à un notebook ou un script monolithique. 
+Lors des premières étapes d’un projet ML, il convient d’avoir un seul notebook Jupyter ou script Python qui effectue toutes les tâches de configuration des ressources et de l’espace de travail Azure, la préparation des données, la configuration d’exécution, la formation et la validation. Toutefois, tout comme les fonctions et les classes deviennent rapidement préférables à un seul bloc de code impératif, les workflows ML deviennent rapidement préférables à un notebook ou un script monolithique. 
 
 Grâce à la modularisation des tâches ML, les pipelines prennent en charge l’impératif informatique selon lequel un composant doit « faire une (seule) chose bien ». La modularité est clairement essentielle à la réussite du projet lors de la programmation en équipe, mais même en cas de travail seul, même un petit projet ML implique des tâches distinctes, chacune présentant un bon niveau de complexité. Tâches incluses : configuration de l’espace de travail et accès aux données, préparation des données, définition et configuration du modèle, et déploiement. Tandis que les sorties d’une ou plusieurs tâches forment les entrées vers une autre, les détails d’implémentation exacts d’une tâche sont, au mieux, des distractions inutiles dans la suivante. Au pire, l’état de calcul d’une tâche peut provoquer un bogue dans une autre. 
 

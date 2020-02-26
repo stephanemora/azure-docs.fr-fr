@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c92048d2fce4a098da1e707ec8f7d75479d563f1
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: aa66299753ab11dcad280361cb5fb6f0c31ef242
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161577"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368161"
 ---
 # <a name="what-is-password-writeback"></a>Qu’est-ce que la réécriture du mot de passe ?
 
@@ -158,13 +158,13 @@ Les mots de passe sont réécrits dans les situations suivantes :
 Les mots de passe ne sont *pas* réécrits dans les situations suivantes :
 
 * **Opérations de l’utilisateur final non prises en charge**
-   * Tout utilisateur final réinitialisant son mot de passe à l’aide de PowerShell (version 1 ou version 2) ou l’API Azure AD Graph
+   * Tout utilisateur final réinitialisant son mot de passe à l’aide de PowerShell (version 1 ou version 2) ou l’API Microsoft Graph
 * **Opérations de l’administrateur non prises en charge**
-   * Toute réinitialisation du mot de passe de l’utilisateur final réalisée par l’administrateur à l’aide de PowerShell (version 1 ou version 2) ou l’API Azure AD Graph
+   * Toute réinitialisation du mot de passe de l’utilisateur final réalisée par l’administrateur à l’aide de PowerShell (version 1 ou version 2) ou l’API Microsoft Graph
    * Toute réinitialisation du mot de passe de l’utilisateur final réalisée par l’administrateur depuis le [Centre d’administration Microsoft 365](https://admin.microsoft.com)
 
 > [!WARNING]
-> L’utilisation de la case à cocher « L’utilisateur doit changer de mot de passe à la prochaine ouverture de session » dans les outils d’administration d’Active Directory locaux, comme Utilisateurs et ordinateurs Active Directory ou le Centre d’administration Active Directory, est prise en charge comme fonctionnalité en préversion d’Azure AD Connect. Pour plus d’informations, consultez l’article [Implémenter la synchronisation de hachage du mot de passe avec la synchronisation Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon).
+> L’utilisation de la case à cocher « L’utilisateur doit changer de mot de passe à la prochaine ouverture de session » dans les outils d’administration d’Active Directory locaux, comme Utilisateurs et ordinateurs Active Directory ou le Centre d’administration Active Directory, est prise en charge comme fonctionnalité en préversion d’Azure AD Connect. Pour plus d’informations, consultez l’article [Implémenter la synchronisation de hachage du mot de passe avec la synchronisation Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

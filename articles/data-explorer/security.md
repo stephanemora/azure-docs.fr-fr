@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 5f3bceb8398f9837f6f8eaa390def41456daf08d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 786950011f10e25d6bcb72061212c1878e79d45a
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271588"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373358"
 ---
 # <a name="secure-azure-data-explorer-clusters-in-azure"></a>Sécuriser les clusters Azure Data Explorer dans Azure
 
@@ -34,10 +34,10 @@ La fonctionnalité des identités managées Azure Active Directory (Azure AD) po
 
 Par défaut, les données sont chiffrées avec des clés managées par Microsoft Pour plus de contrôle sur les clés de chiffrement, vous pouvez fournir des clés gérées par le client à utiliser pour le chiffrement des données. Vous pouvez gérer le chiffrement de vos données au niveau du stockage à l’aide de vos propres clés. Une clé gérée par le client est utilisée pour protéger et contrôler l’accès à la clé de chiffrement racine, laquelle est utilisée pour chiffrer et déchiffrer toutes les données. Les clés managées par le client offrent plus de flexibilité pour créer, permuter, désactiver et révoquer des contrôles d’accès. Vous pouvez également effectuer un audit sur les clés de chiffrement utilisées pour protéger vos données.
 
-Utilisez Azure Key Vault pour stocker vos clés gérées par le client. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser une API d’Azure Key Vault pour générer des clés. Le cluster Azure Data Explorer et l’instance Azure Key Vault se trouver dans la même région, mais ils peuvent appartenir à des abonnements différents. Pour plus d’informations sur Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](/azure/key-vault/key-vault-overview). Pour obtenir une explication détaillée sur les clés gérées par le client, consultez [Clés gérées par le client avec Azure Key Vault](/azure/storage/common/storage-service-encryption)
+Utilisez Azure Key Vault pour stocker vos clés gérées par le client. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser une API d’Azure Key Vault pour générer des clés. Le cluster Azure Data Explorer et l’instance Azure Key Vault se trouver dans la même région, mais ils peuvent appartenir à des abonnements différents. Pour plus d’informations sur Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](/azure/key-vault/key-vault-overview). Pour obtenir une explication détaillée sur les clés gérées par le client, consultez [Clés gérées par le client avec Azure Key Vault](/azure/storage/common/storage-service-encryption). Configurer des clés gérées par le client dans votre cluster Azure Data Explorer à l’aide du langage [C#](/azure/data-explorer/customer-managed-keys-csharp) ou du [modèle Azure Resource Manager](/azure/data-explorer/customer-managed-keys-resource-manager)
 
 > [!Note]
-> Les clés managées par le client s’appuient sur des identités managées pour ressources Azure, une fonctionnalité d’Azure Active Directory (Azure AD). Pour configurer des clés gérées par le client dans le Portail Azure, vous devez configurer une identité managée **SystemAssigned** sur votre cluster.
+> Les clés managées par le client s’appuient sur des identités managées pour ressources Azure, une fonctionnalité d’Azure Active Directory (Azure AD). Pour configurer des clés gérées par le client dans le Portail Azure, vous devez configurer une identité managée **SystemAssigned** sur votre cluster, comme indiqué dans [Configurer des identités managées pour votre cluster Azure Data Explorer](/azure/data-explorer/managed-identities).
 
 #### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Stocker les clés gérées par le client dans Azure Key Vault
 
@@ -60,8 +60,8 @@ Grâce au [contrôle d’accès en fonction du rôle (RBAC)](/azure/role-based-a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Configurer des identités managées pour votre cluster Azure Data Explorer](managed-identities.md)
 * [Sécuriser votre cluster dans Azure Data Explorer – Portail](manage-cluster-security.md) en activant le chiffrement au repos.
+* [Configurer des identités managées pour votre cluster Azure Data Explorer](managed-identities.md)
 * [Configurer des clés gérées par le client à l’aide du modèle Azure Resource Manager](customer-managed-keys-resource-manager.md)
 * [Configurer des clés gérées par le client à l’aide de C#](customer-managed-keys-csharp.md)
 

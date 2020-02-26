@@ -1,18 +1,18 @@
 ---
 title: Capacité réservée dans Azure Cosmos DB pour optimiser les coûts
 description: Découvrez comment acheter une capacité réservée Azure Cosmos DB pour réduire vos coûts de calcul.
-author: bandersmsft
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/29/2019
-ms.author: banders
+ms.date: 02/14/2020
+ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 83ecb0ad85a02c8c05b9d7e504e578afd98ed7b6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8e29683b994d66e769a24bb2d386a2120cf8eab9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969350"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367717"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimiser les coûts avec une capacité réservée dans Azure Cosmos DB
 
@@ -30,13 +30,29 @@ Vous pouvez acheter de la capacité réservée Azure Cosmos DB sur le [portail A
 
 ## <a name="determine-the-required-throughput-before-purchase"></a>Déterminer le débit requis avant l’achat
 
-La taille de la réservation doit être basée sur la quantité totale de débit qui sera utilisée par les ressources Azure Cosmos DB existantes ou sur le point d’être déployées. Vous pouvez déterminer le débit requis de plusieurs manières :
+La taille de la réservation doit être basée sur la quantité totale de débit qui sera utilisée par les ressources Azure Cosmos DB existantes ou sur le point d’être déployées. Vous pouvez afficher les tailles de réservation recommandées dans le Portail Azure en procédant comme suit :
 
-* Obtenez les données historiques du débit provisionné total pour l’ensemble de vos comptes, bases de données et collections Azure Cosmos DB dans toutes les régions. Par exemple, vous pouvez évaluer le débit provisionné moyen par jour en téléchargeant votre relevé d’utilisation quotidienne à partir de `https://account.azure.com`.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).  
 
-* Si vous avez un Contrat Entreprise, téléchargez votre fichier d’utilisation pour obtenir les détails du débit Azure Cosmos DB. Recherchez la valeur **Type de service** dans la section **Infos supplémentaires** du fichier d’utilisation.
+2. Sélectionnez **Tous les services** > **Réservations** > **Ajouter**.
 
-* Vous pouvez calculer la somme du débit moyen de toutes les charges de travail sur vos comptes Azure Cosmos DB que vous prévoyez d’exécuter au cours de la prochaine année ou des trois prochaines années. Vous pouvez ensuite vous baser sur cette quantité pour la réservation.
+3. À partir du volet **Acheter des réservations**, choisissez **Azure Cosmos DB**.
+
+4. Sélectionnez l’onglet **Recommandé** pour afficher les réservations recommandées :
+
+Vous pouvez filtrer les recommandations selon les attributs suivants :
+
+- **Durée** (1 an ou 3 ans)
+- **Périodicité de facturation** (mensuelle ou comptant)
+- **Type de débit** (RU vs RU multimaître)
+
+En outre, vous pouvez choisir l’étendue des recommandations pour qu’elles se trouvent dans un seul groupe de ressources, dans un seul abonnement ou dans l’intégralité de votre inscription Azure. Vous pouvez afficher des recommandations en fonction de l’utilisation au cours des 7 derniers jours, 30 derniers jours ou 60 derniers jours.
+
+Voici un exemple de recommandation :
+
+![Recommandations sur la capacité de réserve](./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png)
+
+Cette recommandation d’achat indique que, parmi les réservations d’une durée de 3 ans, une taille de réservation de 30 000 RU/s maximisera les économies. Dans ce cas, la recommandation est calculée sur la base des 30 derniers jours d’utilisation d’Azure Cosmos DB. Si ce client s’attend à ce que les 30 derniers jours d’utilisation d’Azure Cosmos DB soient représentatifs de son utilisation future, il maximisera ses économies en achetant une réservation de 30 000 RU/s.
 
 ## <a name="buy-azure-cosmos-db-reserved-capacity"></a>Acheter une capacité réservée Azure Cosmos DB
 
@@ -53,11 +69,11 @@ La taille de la réservation doit être basée sur la quantité totale de débit
    |Champ  |Description  |
    |---------|---------|
    |Étendue   |   Option qui contrôle le nombre d’abonnements pouvant bénéficier de la remise sur la facturation associé à la réservation. Elle contrôle également la manière dont la réservation est appliquée à des abonnements spécifiques. <br/><br/>  Si vous sélectionnez **Partagé**, la remise de réservation est appliquée aux instances Azure Cosmos DB qui sont exécutées dans tous les abonnements de votre contexte de facturation. Le contexte de facturation est basé sur la façon dont vous vous êtes inscrit dans Azure. Pour les clients Entreprise, l'étendue partagée correspond à l'inscription et inclut tous les abonnements compris dans l'inscription. Pour les clients avec paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements individuels avec des tarifs de paiement à l’utilisation créés par l’administrateur de compte.  <br/><br/>  Si vous sélectionnez **Abonnement unique**, la remise de réservation est appliquée aux instances Azure Cosmos DB incluses dans l’abonnement sélectionné. <br/><br/> Si vous sélectionnez **Groupe de ressources unique**, la remise de réservation est appliquée aux instances Azure Cosmos DB incluses dans l’abonnement sélectionné et dans le groupe de ressources sélectionné dans cet abonnement. <br/><br/> Vous pouvez changer l’étendue de la réservation après l’achat de la capacité réservée.  |
-   |Subscription  |   Abonnement utilisé pour payer la capacité réservée Azure Cosmos DB. Les coûts sont facturés selon le mode de paiement défini sur l’abonnement sélectionné. L’abonnement doit être de l’un des types suivants : <br/><br/>  Contrat Entreprise (références de l’offre : MS-AZR-0017P ou MS-AZR-0148P) : Pour un abonnement Entreprise, les frais sont déduits du solde de l’engagement financier de l’inscription, ou facturés comme un dépassement. <br/><br/> Abonnement individuel avec tarifs de paiement à l’utilisation (références de l’offre : MS-AZR-0003P ou MS-AZR-0023P) : Pour un abonnement individuel avec tarifs de paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture, défini sur l’abonnement.    |
+   |Abonnement  |   Abonnement utilisé pour payer la capacité réservée Azure Cosmos DB. Les coûts sont facturés selon le mode de paiement défini sur l’abonnement sélectionné. L’abonnement doit être de l’un des types suivants : <br/><br/>  Contrat Entreprise (références de l’offre : MS-AZR-0017P ou MS-AZR-0148P) : Pour un abonnement Entreprise, les frais sont déduits du solde de l’engagement financier de l’inscription, ou facturés comme un dépassement. <br/><br/> Abonnement individuel avec tarifs de paiement à l’utilisation (références de l’offre : MS-AZR-0003P ou MS-AZR-0023P) : Pour un abonnement individuel avec tarifs de paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture, défini sur l’abonnement.    |
    | Groupe de ressources | Groupe de ressources auquel la remise de capacité réservée est appliquée. |
    |Terme  |   Une année ou trois ans.   |
    |Type de débit   |  Le débit est provisionné en unités de requête. Vous pouvez acheter une réservation pour le débit approvisionné pour les deux configurations (écritures dans une seule région et écritures dans plusieurs régions). Le type de débit propose deux valeurs à sélectionner : 100 RU/s par heure et 100 RU multimaîtres/s par heure.|
-   | Unités de capacité réservée| Quantité de débit que vous souhaitez réserver. Pour calculer cette valeur, déterminez d’abord le débit nécessaire pour toutes vos ressources Cosmos DB (par exemple, les bases de données ou les conteneurs) par région. Ensuite, multipliez cette quantité par le nombre de régions à associer à votre base de données Cosmos. Par exemple :  Si vous avez cinq régions avec chacune 1 million d’unités de requête par seconde (RU/s), sélectionnez 5 millions de RU/s comme capacité réservée à acheter. |
+   | Unités de capacité réservée| Quantité de débit que vous souhaitez réserver. Pour calculer cette valeur, déterminez d’abord le débit nécessaire pour toutes vos ressources Cosmos DB (par exemple, les bases de données ou les conteneurs) par région. Ensuite, multipliez cette quantité par le nombre de régions à associer à votre base de données Cosmos. Par exemple : Si vous avez cinq régions avec chacune 1 million d’unités de requête par seconde (RU/s), sélectionnez 5 millions de RU/s comme capacité réservée à acheter. |
 
 
 5. Le prix requis pour acheter la capacité réservée est calculé une fois le formulaire rempli. La sortie indique également le pourcentage de remise que vous obtenez avec les options sélectionnées. Cliquez ensuite sur **Sélectionner**
@@ -73,8 +89,6 @@ Une fois achetée, une réservation est immédiatement appliquée à toutes les 
 Quand votre réservation expire, vos instances Azure Cosmos DB continuent de s’exécuter et sont facturées aux prix habituels du paiement à l’utilisation.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annuler, échanger ou rembourser des réservations
-
-Pour obtenir de l’aide sur l’identification de la capacité réservée appropriée, consultez [Comprendre comment la remise de réservation est appliquée à Azure Cosmos DB](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md).
 
 Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: e202eed8e3694245b5b4527578c02cfb518723f4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4db6ad83c44e0c811df0a3b91a473861e4e1ab87
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705339"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367147"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Créer une unité d’organisation (UO) sur un domaine dans un domaine managé Azure AD Domain Services
 
@@ -40,7 +40,7 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
     * Si nécessaire, suivez le tutoriel pour [créer et configurer une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Une machine virtuelle de gestion Windows Server jointe au domaine managé Azure AD DS.
+* Une machine virtuelle de gestion Windows Server jointe au domaine managé Azure AD DS.
     * Si nécessaire, suivez le tutoriel [Créer une machine virtuelle de gestion][tutorial-create-management-vm].
 * Un compte d’utilisateur membre du groupe *Administrateurs Azure AD DC* dans votre locataire Azure AD.
 
@@ -54,11 +54,11 @@ Lorsque vous créez des unités d’organisation personnalisées dans un domaine
 * Une unité d’organisation pour *Utilisateurs AADDC* est créée et contient tous les comptes d’utilisateur synchronisés à partir de votre locataire Azure AD.
     * Vous ne pouvez pas déplacer des utilisateurs ou des groupes de l’unité d’organisation *Utilisateurs AADDC* vers des unités d’organisation personnalisées que vous créez. Seuls les comptes d’utilisateurs ou les ressources créés dans le domaine managé Azure AD DS peuvent être déplacés dans des unités d’organisation personnalisées.
 * Les comptes d’utilisateur, groupes, comptes de service et objets ordinateur que vous créez dans des unités d’organisation personnalisées ne sont pas disponibles dans votre locataire Azure AD.
-    * Ces objets n’apparaissent pas à l’aide de l’API Graph Azure AD ou dans l’interface utilisateur Azure AD ; ils sont uniquement disponibles dans votre domaine managé Azure AD DS.
+    * Ces objets n’apparaissent pas à l’aide de l’API Microsoft Graph ou dans l’interface utilisateur Azure AD ; ils sont uniquement disponibles dans votre domaine managé Azure AD DS.
 
 ## <a name="create-a-custom-ou"></a>Créer une unité d’organisation personnalisée
 
-Pour créer une unité d’organisation personnalisée, vous utilisez les outils d’administration Active Directory à partir d’une machine virtuelle jointe à un domaine. Le Centre d’administration Active Directory vous permet d’afficher, de modifier et de créer des ressources dans un domaine managé Azure AD DS, y compris des unités d’organisation.
+Pour créer une unité d’organisation personnalisée, vous utilisez les outils d’administration Active Directory à partir d’une machine virtuelle jointe à un domaine. Le Centre d’administration Active Directory vous permet d’afficher, de modifier et de créer des ressources dans un domaine managé Azure AD DS, notamment des unités d’organisation.
 
 > [!NOTE]
 > Pour créer une unité d’organisation personnalisée dans un domaine managé Azure AD DS, vous devez être connecté à un compte d’utilisateur membre du groupe d *administrateurs du contrôleur de domaine AAD*.

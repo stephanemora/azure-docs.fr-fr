@@ -141,15 +141,17 @@
       items:
         - name: Automatiser les générations d’images conteneur
           items:
-            - name: Générer à partir d’un contexte source
+            - name: 1 - Générer à partir d’un contexte source
               href: container-registry-tutorial-quick-task.md
-            - name: Générer sur validation du code
+            - name: 2a - Générer sur validation du code
               href: container-registry-tutorial-build-task.md
-            - name: Tâche multiétape sur validation du code
+            - name: 2b - Tâche multiétape lors de la validation du code
               href: container-registry-tutorial-multistep-task.md
-            - name: Générer sur mise à jour d’images de base
+            - name: 3a - Générer sur mise à jour d’images de base
               href: container-registry-tutorial-base-image-update.md
-            - name: Planifier une tâche
+            - name: 3b - Générer sur mise à jour d’images de base
+              href: container-registry-tutorial-private-base-image-update.md
+            - name: 4 - Générer sur planification
               href: container-registry-tasks-scheduled.md
     - name: Exemples
       expanded: false
@@ -160,6 +162,8 @@
       items:
         - name: Tâches multiétapes
           href: container-registry-tasks-multi-step.md
+        - name: Mises à jour d’images de base
+          href: container-registry-tasks-base-images.md
     - name: Guides pratiques
       expanded: false
       items:

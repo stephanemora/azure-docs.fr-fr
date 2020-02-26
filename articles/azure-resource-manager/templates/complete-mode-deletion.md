@@ -2,13 +2,13 @@
 title: Effectuer la suppression du mode
 description: Montre comment les types de ressources gèrent la suppression du mode complet dans les modèles Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.openlocfilehash: b24bf2d8076dbaa1975f5444d597647156a31f4f
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/13/2020
+ms.openlocfilehash: 80d2ee356e3bc15a178862c453bf7f1ab8d66c77
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715597"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207806"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Suppression de ressources Azure pour les déploiements en mode complet
 
@@ -121,6 +121,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.Migrate](#microsoftmigrate)
 > - [Microsoft.MixedReality](#microsoftmixedreality)
 > - [Microsoft.NetApp](#microsoftnetapp)
+> - [Microsoft.Notebooks](#microsoftnotebooks)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft.ObjectStore](#microsoftobjectstore)
@@ -153,6 +154,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft.SpoolService](#microsoftspoolservice)
 > - [Microsoft.SQL](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
@@ -372,6 +374,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | billingAccounts / billingProfiles / instructions | Non |
 > | billingAccounts / billingProfiles / invoices | Non |
 > | billingAccounts / billingProfiles / invoices / pricesheet | Non |
+> | billingAccounts / billingProfiles / invoices / transactions | Non |
 > | billingAccounts / billingProfiles / invoiceSections | Non |
 > | billingAccounts / billingProfiles / invoiceSections / billingPermissions | Non |
 > | billingAccounts / billingProfiles / invoiceSections / billingRoleAssignments | Non |
@@ -489,7 +492,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Effectuer la suppression du mode |
 > | ------------- | ----------- |
 > | Redis | Oui |
-> | RedisConfigDefinition | Non |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
@@ -712,6 +714,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | registries / getBuildSourceUploadUrl | Non |
 > | registries / GetCredentials | Non |
 > | registries / importImage | Non |
+> | registries / privateEndpointConnectionProxies | Non |
+> | registries / privateEndpointConnectionProxies / validate | Non |
+> | registries / privateLinkResources | Non |
 > | registries / queueBuild | Non |
 > | registries / regenerateCredential | Non |
 > | registries / regenerateCredentials | Non |
@@ -1397,6 +1402,13 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | netAppAccounts / capacityPools / volumes | Oui |
 > | netAppAccounts / capacityPools / volumes / mountTargets | Oui |
 > | netAppAccounts / capacityPools / volumes / snapshots | Oui |
+
+## <a name="microsoftnotebooks"></a>Microsoft.Notebooks
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Effectuer la suppression du mode |
+> | ------------- | ----------- |
+> | NotebookProxies | Non |
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1512,7 +1524,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Effectuer la suppression du mode |
 > | ------------- | ----------- |
 > | clusters | Oui |
-> | périphériques | Non |
 > | linkTargets | Non |
 > | storageInsightConfigs | Non |
 > | workspaces | Oui |
@@ -1523,6 +1534,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | workspaces / privateEndpointConnections | Non |
 > | workspaces / privateLinkResources | Non |
 > | workspaces / query | Non |
+> | workspaces / scopedPrivateLinkProxies | Non |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
@@ -1745,8 +1757,10 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | bookmarks | Non |
 > | cas | Non |
 > | dataConnectors | Non |
+> | dataConnectorsCheckRequirements | Non |
 > | entities | Non |
 > | entityQueries | Non |
+> | incidents | Non |
 > | officeConsents | Non |
 > | paramètres | Non |
 
@@ -1780,6 +1794,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | containerGroupSets | Oui |
 > | edgeclusters | Oui |
 > | edgeclusters / applications | Non |
+> | managedclusters | Oui |
+> | managedclusters / nodetypes | Non |
 > | networks | Oui |
 > | secretstores | Oui |
 > | secretstores / certificates | Non |
@@ -1837,6 +1853,14 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | applicationDefinitions | Oui |
 > | applications | Oui |
 > | jitRequests | Oui |
+
+## <a name="microsoftspoolservice"></a>Microsoft.SpoolService
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Effectuer la suppression du mode |
+> | ------------- | ----------- |
+> | registeredSubscriptions | Non |
+> | spools | Oui |
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
 
@@ -1993,6 +2017,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | périphériques | Oui |
 > | vendors | Non |
 > | vendors / skus | Non |
+> | vendors / vnfs | Non |
 > | vnfs | Oui |
 
 ## <a name="microsoftweb"></a>Microsoft.Web

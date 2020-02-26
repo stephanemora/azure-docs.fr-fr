@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: dapine
-ms.openlocfilehash: ca7e7f7460db82a357ed8aa240467a6894254217
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 5d30693eb13104504d1cf27ffdbfb8d098d4ef9e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086991"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367758"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installer et exécuter des conteneurs du service Speech (préversion)
 
@@ -35,7 +35,7 @@ Les conteneurs Speech permettent aux clients de créer une architecture d’appl
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 L’utilisation des conteneurs Speech est soumise aux prérequis suivants :
 
@@ -261,7 +261,16 @@ Cette commande :
 
 # <a name="custom-speech-to-text"></a>[Reconnaissance vocale personnalisée](#tab/cstt)
 
-Le conteneur *Reconnaissance vocale personnalisée* s’appuie sur un modèle Speech personnalisé. Le modèle personnalisé doit avoir été [entraîné](how-to-custom-speech-train-model.md) à l’aide du [portail Custom Speech](https://speech.microsoft.com/customspeech). L’**ID du modèle** Custom Speech est nécessaire pour exécuter le conteneur. Il figure dans la page **Entraînement** du portail Custom Speech. À partir du portail Custom Speech, accédez à la page **Entraînement** et sélectionnez le modèle.
+Le conteneur *Reconnaissance vocale personnalisée* s’appuie sur un modèle Speech personnalisé. Le modèle personnalisé doit avoir été [entraîné](how-to-custom-speech-train-model.md) à l’aide du [portail Custom Speech](https://speech.microsoft.com/customspeech).
+
+> [!IMPORTANT]
+> Le modèle Custom Speech doit être formé à partir de l’une des versions de modèle suivantes :
+> * **20181201 (v3.3 unifiée)**
+> * **20190520 (v4.14 unifiée)**
+> * **20190701 (v4.17 unifiée)**<br>
+> ![Modèle de conteneur formé à Custom Speech](media/custom-speech/custom-speech-train-model-container-scoped.png)
+
+L’**ID du modèle** Custom Speech est nécessaire pour exécuter le conteneur. Il figure dans la page **Entraînement** du portail Custom Speech. À partir du portail Custom Speech, accédez à la page **Entraînement** et sélectionnez le modèle.
 <br>
 
 ![Page Entraînement de Custom Speech](media/custom-speech/custom-speech-model-training.png)

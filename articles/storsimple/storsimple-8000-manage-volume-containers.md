@@ -1,5 +1,5 @@
 ---
-title: Gérer vos conteneurs de volumes StorSimple sur un appareil de la gamme 8000 StorSimple | Microsoft Docs
+title: Gérer les conteneurs de volumes pour les appareils StorSimple de la série 8000
 description: Explique comment utiliser la page des conteneurs de volumes du service StorSimple Device Manager pour ajouter, modifier ou supprimer un conteneur de volumes.
 services: storsimple
 documentationcenter: NA
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 7e1a5ac2c2b734c77fc3dbe788206f8c75044953
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbdad3c68848ce552811ee658bb29df74a6fad19
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60724615"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467026"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>Utiliser le service StorSimple Device Manager pour gérer les conteneurs de volumes StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce didacticiel explique comment utiliser le service StorSimple Device Manager pour créer et gérer des conteneurs de volumes StorSimple.
 
 Un conteneur de volumes créé dans un appareil Microsoft Azure StorSimple contient un ou plusieurs volumes hébergeant les paramètres de consommation du compte de stockage, du chiffrement et de la bande passante. Un appareil peut comporter plusieurs conteneurs de volumes pour l’ensemble de ses volumes. 

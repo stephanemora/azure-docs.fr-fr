@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: fa8bc56376704b96f5ddee09db7b09e28f10a936
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 6ad8726e61f4f8e79cfa9c437b3f0ea876b55e27
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281238"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425474"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-preview-using-portal"></a>Créer et gérer Private Link pour Azure Database pour MySQL (préversion) à l’aide du portail
 
@@ -37,11 +37,11 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Name | Entrez *MyVirtualNetwork*. |
+    | Nom | Entrez *MyVirtualNetwork*. |
     | Espace d’adressage | Entrez *10.1.0.0/16*. |
-    | Subscription | Sélectionnez votre abonnement.|
+    | Abonnement | Sélectionnez votre abonnement.|
     | Resource group | Sélectionnez **Créer nouveau**, entrez *myResourceGroup* et sélectionnez **OK**. |
-    | Location | Sélectionnez **Europe Ouest**.|
+    | Emplacement | Sélectionnez **Europe Ouest**.|
     | Sous-réseau - Nom | Entrez *mySubnet*. |
     | Plage d’adresses du sous-réseau | Entrez *10.1.0.0/24*. |
     |||
@@ -56,7 +56,7 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
     | Paramètre | Valeur |
     | ------- | ----- |
     | **DÉTAILS DU PROJET** | |
-    | Subscription | Sélectionnez votre abonnement. |
+    | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.  |
     | **DÉTAILS DE L’INSTANCE** |  |
     | Nom de la machine virtuelle | Entrez *myVm*. |
@@ -106,13 +106,13 @@ Dans cette section, vous allez créer un serveur Azure Database pour MySQL dans 
     | Paramètre | Valeur |
     | ------- | ----- |
     | **Détails du projet** | |
-    | Subscription | Sélectionnez votre abonnement. |
+    | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.|
     | **Détails du serveur** |  |
     |Nom du serveur  | Entrez *myServer*. Si ce nom est utilisé, créez un nom unique.|
     | Nom d’utilisateur administrateur| Entrez le nom d’un administrateur de votre choix. |
     | Mot de passe | Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 8 caractères et satisfaire aux exigences définies. |
-    | Location | Sélectionnez une région Azure dans laquelle vous souhaitez que votre serveur MySQL réside. |
+    | Emplacement | Sélectionnez une région Azure dans laquelle vous souhaitez que votre serveur MySQL réside. |
     |Version  | Sélectionnez la version de base de données du serveur MySQL qui est requise.|
     | Calcul + Stockage| Sélectionnez le niveau tarifaire requis pour le serveur en fonction de la charge de travail. |
     |||
@@ -137,10 +137,10 @@ Dans cette section, vous allez créer un serveur MySQL et lui ajouter un point d
     | Paramètre | Valeur |
     | ------- | ----- |
     | **Détails du projet** | |
-    | Subscription | Sélectionnez votre abonnement. |
+    | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.|
     | **Détails de l’instance** |  |
-    | Name | Entrez *myPrivateEndpoint*. Si ce nom est utilisé, créez un nom unique. |
+    | Nom | Entrez *myPrivateEndpoint*. Si ce nom est utilisé, créez un nom unique. |
     |Région|Sélectionnez **Europe Ouest**.|
     |||
 
@@ -150,7 +150,7 @@ Dans cette section, vous allez créer un serveur MySQL et lui ajouter un point d
     | Paramètre | Valeur |
     | ------- | ----- |
     |Méthode de connexion  | Sélectionnez Se connecter à une ressource Azure dans mon répertoire.|
-    | Subscription| Sélectionnez votre abonnement. |
+    | Abonnement| Sélectionnez votre abonnement. |
     | Type de ressource | Sélectionnez **Microsoft.DBforMySQL/servers**. |
     | Ressource |Sélectionnez *myServer*|
     |Sous-ressource cible |Sélectionnez *mysqlServer*|
@@ -212,35 +212,36 @@ Après avoir créé **myVm**, connectez-vous à cette machine virtuelle à parti
     Non-authoritative answer:
     Name:    myServer.privatelink.mysql.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the MySQL server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
+3. Testez la connexion de liaison privée pour le serveur MySQL à l’aide de tout client disponible. Dans l’exemple ci-dessous, j’ai utilisé [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) pour effectuer l’opération.
 
-4. In **New connection**, enter or select this information:
+4. Dans **Nouvelle connexion**, entrez ou sélectionnez les informations suivantes :
 
-    | Setting | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
-    | Server type| Select **MySQL**.|
-    | Server name| Select *myServer.privatelink.mysql.database.azure.com* |
-    | User name | Enter username as username@servername which is provided during the MySQL server creation. |
-    |Password |Enter a password provided during the MySQL server creation. |
-    |SSL|Select **Required**.|
+    | Type de serveur| Sélectionnez **MySQL**.|
+    | Nom du serveur| Sélectionnez *myServer.privatelink.mysql.database.azure.com*. |
+    | Nom d'utilisateur | Entrez le nom d’utilisateur au format username@servername qui est fourni lors de la création du serveur MySQL. |
+    |Mot de passe |Entrez le mot de passe fourni lors de la création du serveur MySQL. |
+    |SSL|Sélectionnez **Obligatoire**.|
     ||
 
-5. Select Connect.
+5. Sélectionnez Se connecter.
 
-6. Browse databases from left menu.
+6. Parcourez les bases de données dans le menu de gauche.
 
-7. (Optionally) Create or query information from the MySQL server.
+7. (Facultatif) Créez ou interrogez des informations à partir du serveur MySQL.
 
-8. Close the remote desktop connection to myVm.
+8. Fermez la connexion Bureau à distance à myVm.
 
-## Clean up resources
-When you're done using the private endpoint, MySQL server, and the VM, delete the resource group and all of the resources it contains:
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+Lorsque vous avez fini d’utiliser le point de terminaison privé, le serveur MySQL et la machine virtuelle, supprimez le groupe de ressources et toutes les ressources qu’il contient :
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results.
-2. Select **Delete resource group**.
-3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+1. Entrez *myResourceGroup* dans la zone **Rechercher** en haut du portail, puis sélectionnez *myResourceGroup* dans les résultats de la recherche.
+2. Sélectionnez **Supprimer le groupe de ressources**.
+3. Entrez myResourceGroup dans **TAPER LE NOM DU GROUPE DE RESSOURCES**, puis sélectionnez **Supprimer**.
 
-## Next steps
+## <a name="next-steps"></a>Étapes suivantes
 
-In this how-to, you created a VM on a virtual network, an Azure Database for MySQL, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the MySQL server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+Dans ce guide pratique, vous avez créé une machine virtuelle sur un réseau virtuel, une instance Azure Database pour MySQL et un point de terminaison privé pour un accès privé. Vous vous êtes connecté à une machine virtuelle à partir d’Internet et avez communiqué de façon sécurisée avec le serveur MySQL via Azure Private Link. Pour plus d’informations sur les points de terminaison privés, consultez [Qu’est-ce qu’Azure Private Endpoint ?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).

@@ -1,5 +1,5 @@
 ---
-title: Afficher et gérer les alertes Microsoft Azure StorSimple Virtual Array | Microsoft Docs
+title: Afficher et gérer les alertes pour le StorSimple Virtual Array
 description: Décrit les conditions et la gravité des alertes StorSimple Virtual Array et comment utiliser le service StorSimple Manager pour gérer les alertes.
 services: storsimple
 documentationcenter: NA
@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bb6ef5a87c5610d90188471db961ef20dfb18835
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7c469be4a1d8aba23857b1ba52ee829c126a431
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60302729"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466941"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Utiliser StorSimple Device Manager pour gérer les alertes liées au StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La fonctionnalité Alertes dans le service StorSimple Device Manager vous permet d’examiner et d’effacer en temps réel les alertes relatives au StorSimple Virtual Array. Vous pouvez utiliser les alertes du panneau **Résumé de service** afin de surveiller de manière centralisée les problèmes d’état d’intégrité de vos instances StorSimple Virtual Array et de la solution globale Microsoft Azure StorSimple.
 
@@ -39,7 +39,7 @@ Vous pouvez choisir d’être averti par e-mail de la condition des alertes pour
 > [!NOTE]
 > Vous pouvez entrer un maximum de 20 adresses e-mail par tableau virtuel.
 
-Après avoir activé la notification par e-mail pour un tableau virtuel, les membres de la liste de notification reçoivent un e-mail chaque fois qu’une alerte critique survient. Les messages seront envoyés depuis *storsimple-alertes-noreply\@mail.windowsazure.com* et décriront la condition d’alerte. Les destinataires peuvent cliquer sur **Se désabonner** pour ne plus faire partie de la liste des notifications par e-mail.
+Après avoir activé la notification par e-mail pour un tableau virtuel, les membres de la liste de notification reçoivent un e-mail chaque fois qu’une alerte critique survient. Les messages seront envoyés à partir de *storsimple-alerts-noreply\@mail.windowsazure.com* et décriront la condition d’alerte. Les destinataires peuvent cliquer sur **Se désabonner** pour ne plus faire partie de la liste des notifications par e-mail.
 
 #### <a name="to-enable-email-notification-for-alerts"></a>Pour activer la notification par e-mail des alertes
 
@@ -143,7 +143,7 @@ Les tableaux suivants répertorient certaines des alertes StorSimple que vous po
 
 | Texte d'alerte | Événement | Plus d'informations/actions recommandées |
 |:--- |:--- |:--- |
-| <*Nom de l'appareil*\> n'a pas pu être sauvegardé. |Échec du travail de sauvegarde. |Impossible de créer une sauvegarde. Envisagez l’une des possibilités suivantes :<ul><li>Des problèmes de connectivité peuvent empêcher la bonne exécution de l’opération de sauvegarde. Vérifiez qu’il n’existe aucun problème de connectivité. Pour plus d’informations sur la résolution des problèmes de connectivité, accédez à [l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md) de votre appareil virtuel.</li><li>Vous avez atteint la limite de stockage disponible. Pour libérer de l’espace, envisagez de supprimer les sauvegardes devenues inutiles.</li></ul> Résolvez les problèmes, effacez l’alerte et recommencez l’opération. |
+| <*Nom de l'appareil*\> n'a pas pu être sauvegardé. |Échec du travail de sauvegarde. |Impossible de créer une sauvegarde. Envisagez l’une des possibilités suivantes :<ul><li>Des problèmes de connectivité peuvent empêcher la réalisation de l'opération de sauvegarde. Vérifiez qu’il n’existe aucun problème de connectivité. Pour plus d’informations sur la résolution des problèmes de connectivité, accédez à [l’interface utilisateur web locale](storsimple-ova-web-ui-admin.md) de votre appareil virtuel.</li><li>Vous avez atteint la limite de stockage disponible. Pour libérer de l’espace, envisagez de supprimer les sauvegardes devenues inutiles.</li></ul> Résolvez les problèmes, effacez l’alerte et recommencez l’opération. |
 | <*Nom de l'appareil*\> n'a pas pu être cloné. |Échec du travail de clonage. |La création d’un clone a échoué. Envisagez l’une des possibilités suivantes :<ul><li>Votre liste de sauvegarde n’est peut-être pas valide. Actualisez-la pour vérifier qu’elle est toujours valide.</li><li>Des problèmes de connectivité peuvent empêcher la bonne exécution de l’opération de clonage. Vérifiez qu’il n’existe aucun problème de connectivité.</li><li>Vous avez atteint la limite de stockage disponible. Pour libérer de l’espace, envisagez de supprimer les sauvegardes devenues inutiles.</li></ul>Résolvez les problèmes, effacez l’alerte et recommencez l’opération. |
 
 ### <a name="networking-alerts"></a>Alertes de réseau

@@ -6,22 +6,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 741d286126bedb8b92828486927283fa9887658e
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 1c9fba3c13cc6e5476377d59130a95a2edaa324d
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668464"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459189"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Utilisation du client géré pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-> [!NOTE]
-> Visual Studio App Center prend en charge les services intégrés essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud.
->
-> Si vous souhaitez intégrer des services cloud à votre application mobile, inscrivez-vous à [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) dès aujourd’hui.
-
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce guide vous montre comment mettre en place des scénarios courants à l’aide de la bibliothèque cliente gérée pour Azure App Service Mobile Apps pour les applications Windows et Xamarin. Si vous débutez avec Mobile Apps, suivez le didacticiel [Démarrage rapide avec Azure Mobile Apps][1] . Dans ce guide, nous nous concentrons sur le Kit de développement logiciel (SDK) géré côté client. Pour plus d’informations sur les kits SDK côté serveur pour Mobile Apps, consultez la documentation du [SDK .NET Server][2] ou du [SDK Node.js Server][3].
 
 ## <a name="reference-documentation"></a>Documentation de référence
@@ -59,13 +54,13 @@ public class TodoItem
 
 L’attribut [JsonPropertyAttribute][6] est utilisé pour définir le mappage *PropertyName* entre le champ client et le champ de la table.
 
-Pour savoir comment créer des tables dans votre back-end Mobile Apps, consultez la [rubrique SDK .NET Server][7] ou la [rubrique SDK Node.js Server][8]. Si vous avez créé votre backend Mobile Apps dans le Portail Azure avec le démarrage rapide, vous pouvez également utiliser le paramètre **Tables facile** dans le [Portail Azure].
+Pour savoir comment créer des tables dans votre back-end Mobile Apps, consultez la [rubrique SDK .NET Server][7] ou la [rubrique SDK Node.js Server][8]. Si vous avez créé votre backend Mobile Apps dans le Portail Azure avec le démarrage rapide, vous pouvez également utiliser le paramètre **Tables facile** dans le [Azure portal].
 
-### <a name="how-to-install-the-managed-client-sdk-package"></a>Activation Installer le package du Kit de développement logiciel (SDK) client géré
+### <a name="how-to-install-the-managed-client-sdk-package"></a>Procédure : Installer le package du Kit de développement logiciel (SDK) client géré
 Utilisez une des méthodes suivantes pour installer le package du Kit de développement logiciel (SDK) client géré pour applications mobiles à partir de [NuGet][9]:
 
 * **Visual Studio** Cliquez avec le bouton droit sur votre projet, puis cliquez sur **Gérer les packages NuGet**, recherchez le package `Microsoft.Azure.Mobile.Client` et cliquez sur **Installer**.
-* **Xamarin Studio** Cliquez avec le bouton droit sur votre projet, cliquez sur **Ajouter**>**Ajouter des packages NuGet**, recherchez le package `Microsoft.Azure.Mobile.Client`, puis cliquez sur **Ajouter un package**.
+* **Xamarin Studio** Cliquez avec le bouton droit sur votre projet, cliquez sur **Ajouter** > **Ajouter des packages NuGet**, recherchez le package `Microsoft.Azure.Mobile.Client`, puis cliquez sur **Ajouter un package**.
 
 Dans votre fichier d’activité principal, pensez à ajouter l’instruction **using** suivante :
 
@@ -76,7 +71,7 @@ using Microsoft.WindowsAzure.MobileServices;
 > [!NOTE]
 > Notez que tous les packages de support référencés dans votre projet Android doivent avoir la même version. Le SDK a la dépendance `Xamarin.Android.Support.CustomTabs` pour la plateforme Android. Ainsi, si votre projet utilise des packages de support plus récents, vous devez installer directement ce package avec la version nécessaire pour éviter les conflits.
 
-### <a name="symbolsource"></a>Procédure : Utilisation des symboles de débogage dans Visual Studio
+### <a name="symbolsource"></a>Procédure : Utilisation des symboles de débogage dans Visual Studio
 Les symboles de l’espace de noms Microsoft.Azure.Mobile sont disponibles sur [SymbolSource][10].  Consultez les [instructions SymbolSource][11] pour intégrer SymbolSource à Visual Studio.
 
 ## <a name="create-client"></a>Création du client Mobile Apps
@@ -86,10 +81,10 @@ Le code suivant permet de créer l’objet [MobileServiceClient][12] utilisé po
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
-Dans le code précédent, remplacez `MOBILE_APP_URL` par l’URL du backend Mobile Apps, qui se trouve dans le panneau de votre backend Mobile Apps du [portail Azure]. L’objet MobileServiceClient doit être un singleton.
+Dans le code précédent, remplacez `MOBILE_APP_URL` par l’URL du backend Mobile Apps, qui se trouve dans le panneau de votre backend Mobile Apps du [Azure portal]. L’objet MobileServiceClient doit être un singleton.
 
 ## <a name="work-with-tables"></a>Utilisation des tables
-La section suivante explique comment rechercher et récupérer les enregistrements et modifier les données dans la table.  Cet article contient les rubriques suivantes :
+La section suivante explique comment rechercher et récupérer les enregistrements et modifier les données dans la table.  Les rubriques suivantes sont traitées :
 
 * [Création d'une référence de table](#instantiating)
 * [Données de requête](#querying)
@@ -106,7 +101,7 @@ La section suivante explique comment rechercher et récupérer les enregistremen
 * [Liaison à une Interface utilisateur Windows](#binding)
 * [Modification de la taille de page](#pagesize)
 
-### <a name="instantiating"></a>Procédure : Création d’une référence de table
+### <a name="instantiating"></a>Procédure : Création d’une référence de table
 L’ensemble du code permettant d’accéder aux données d’une table du backend ou de les modifier appelle des fonctions sur l’objet `MobileServiceTable` . Obtenez une référence à la table en appelant la méthode [GetTable] , comme suit :
 
 ```csharp
@@ -122,7 +117,7 @@ IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
 
 Dans les requêtes non typées, vous devez spécifier la chaîne de requête OData sous-jacente.
 
-### <a name="querying"></a>Procédure : Interrogation des données à partir de votre application mobile
+### <a name="querying"></a>Procédure : Interrogation des données à partir de votre application mobile
 Cette section explique comment émettre des requêtes à destination du backend Mobile Apps, qui inclut les fonctionnalités suivantes :
 
 * [Filtrer les données renvoyées](#filtering)
@@ -134,7 +129,7 @@ Cette section explique comment émettre des requêtes à destination du backend 
 > [!NOTE]
 > Une taille de page gérée par le serveur est imposée pour empêcher le renvoi de toutes les lignes.  La pagination permet d'éviter que les requêtes par défaut associées à des jeux de données volumineux aient un impact négatif sur le service.  Pour obtenir le renvoi de plus de 50 lignes, utilisez les méthodes `Skip` et `Take`, comme décrit dans la section [Renvoyer les données dans les pages](#paging).
 
-### <a name="filtering"></a>Procédure : Filtrer les données renvoyées
+### <a name="filtering"></a>Procédure : Filtrer les données renvoyées
 Le code suivant montre comment filtrer des données en incluant une clause `Where` dans une requête. Il renvoie tous les éléments de `todoTable` dont la propriété `Complete` est égale à `false`. La fonction [Where] applique un prédicat de filtrage de ligne à la requête au niveau de la table.
 
 ```csharp
@@ -199,7 +194,7 @@ La clause `Where` prend en charge les opérations traduites dans le sous-ensembl
 
 Quand vous envisagez ce que le SDK Serveur prend en charge, vous pouvez consulter la [documentation OData v3].
 
-### <a name="sorting"></a>Procédure : Trier les données renvoyées
+### <a name="sorting"></a>Procédure : Trier les données renvoyées
 Le code suivant montre comment trier les données en incluant une fonction [OrderBy] ou [OrderByDescending] dans la requête. Il renvoie des éléments de `todoTable`, triés par ordre croissant dans le champ `Text`.
 
 ```csharp
@@ -214,7 +209,7 @@ MobileServiceTableQuery<TodoItem> query = todoTable
 List<TodoItem> items = await query.ToListAsync();
 ```
 
-### <a name="paging"></a>Procédure : Renvoyer les données de pages
+### <a name="paging"></a>Procédure : Renvoyer les données de pages
 Par défaut, le backend renvoie uniquement les 50 premières lignes. Vous pouvez augmenter le nombre de lignes renvoyées en appelant la méthode [Take] . Associez `Take` à la méthode [Skip] pour demander une « page » spécifique du jeu de données total renvoyé par la requête. Lorsqu'elle est exécutée, la requête suivante renvoie les trois premiers éléments de la table.
 
 ```csharp
@@ -245,7 +240,7 @@ Dans une application réelle, vous pouvez utiliser des requêtes semblables à c
 > `[EnableQuery(MaxTop=1000)]`
 
 
-### <a name="selecting"></a>Procédure : Sélectionner des colonnes spécifiques
+### <a name="selecting"></a>Procédure : Sélectionner des colonnes spécifiques
 Vous pouvez indiquer le jeu de propriétés à inclure dans les résultats en ajoutant une clause [Select] à la requête. Par exemple, le code suivant montre comment sélectionner un seul champ et comment sélectionner et mettre en forme plusieurs champs :
 
 ```csharp
@@ -273,7 +268,7 @@ MobileServiceTableQuery<TodoItem> query = todoTable
 List<string> items = await query.ToListAsync();
 ```
 
-### <a name="lookingup"></a>Procédure : Rechercher des données par ID
+### <a name="lookingup"></a>Procédure : Rechercher des données par ID
 La fonction [LookupAsync] permet de rechercher des objets dans la base de données à partir d'un ID particulier.
 
 ```csharp
@@ -281,7 +276,7 @@ La fonction [LookupAsync] permet de rechercher des objets dans la base de donné
 TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 ```
 
-### <a name="untypedqueries"></a>Procédure : Exécution de requêtes non typées
+### <a name="untypedqueries"></a>Procédure : Exécution de requêtes non typées
 Quand vous exécutez une requête avec un objet de table non typé, vous devez spécifier explicitement la chaîne de requête OData en appelant [ReadAsync], comme dans l’exemple suivant :
 
 ```csharp
@@ -291,7 +286,7 @@ JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$o
 
 Vous obtenez en retour des valeurs JSON que vous pouvez utiliser comme conteneur de propriétés. Pour plus d’informations sur JToken et Newtonsoft Json.NET, consultez le site [Json.NET] .
 
-### <a name="inserting"></a>Procédure : Insertion de données dans un backend Mobile Apps
+### <a name="inserting"></a>Procédure : Insertion de données dans un backend Mobile Apps
 Tous les types clients doivent contenir un membre nommé **Id**, par défaut une chaîne. Cet **Id** est requis pour effectuer des opérations CRUD et de synchronisation hors connexion. Le code suivant montre comment utiliser la méthode [InsertAsync] pour insérer de nouvelles lignes dans une table. Le paramètre contient les données à insérer sous forme d'objet .NET.
 
 ```csharp
@@ -334,7 +329,7 @@ JObject jo = new JObject();
 jo.Add("id", Guid.NewGuid().ToString("N"));
 ```
 
-### <a name="modifying"></a>Procédure : Modification de données dans un backend Mobile Apps
+### <a name="modifying"></a>Procédure : Modification de données dans un backend Mobile Apps
 Le code suivant montre comment utiliser la méthode [UpdateAsync] pour mettre à jour un enregistrement existant avec le même ID avec des informations nouvelles. Le paramètre contient les données à mettre à jour sous forme d'objet .NET.
 
 ```csharp
@@ -353,7 +348,7 @@ var inserted = await table.UpdateAsync(jo);
 
 Vous devez spécifier un champ `id` si vous effectuez une mise à jour. Le backend utilise le champ `id` pour identifier la ligne à mettre à jour. Le champ `id` peut être obtenu à partir du résultat de l’appel de `InsertAsync`. Si vous essayez de mettre à jour un élément sans fournir de valeur `ArgumentException`, une `id` se déclenche.
 
-### <a name="deleting"></a>Procédure : Suppression de données dans un backend Mobile Apps
+### <a name="deleting"></a>Procédure : Suppression de données dans un backend Mobile Apps
 Le code suivant montre comment utiliser la méthode [DeleteAsync] pour supprimer une instance existante. L’instance est identifiée par le champ `id` défini au niveau de `todoItem`.
 
 ```csharp
@@ -370,7 +365,7 @@ await table.DeleteAsync(jo);
 
 Vous devez spécifier un ID lorsque vous effectuez une requête de suppression. Les autres propriétés ne sont pas transmises au service ou sont ignorées au niveau du service. Le résultat d’un appel `DeleteAsync` a généralement la valeur `null`. L'ID à transmettre peut être obtenu à partir du résultat de l'appel `InsertAsync` . Une `MobileServiceInvalidOperationException` est levée quand vous essayez de supprimer un élément sans spécifier le champ `id`.
 
-### <a name="optimisticconcurrency"></a>Procédure : Utilisation de l’accès concurrentiel optimiste pour résoudre les conflits
+### <a name="optimisticconcurrency"></a>Procédure : Utilisation de l’accès concurrentiel optimiste pour résoudre les conflits
 Plusieurs clients peuvent écrire à un même moment des modifications dans un même élément. En l'absence de détection de conflits, la dernière écriture remplace les mises à jour précédentes. **contrôle d'accès concurrentiel optimiste** considère que chaque transaction peut être validée et, qu’à ce titre, elle ne fait appel à aucun verrouillage de ressources.  Avant de valider une transaction, le contrôle d'accès concurrentiel optimiste vérifie qu'aucune autre transaction n'a modifié les données. Si les données ont été modifiées, la transaction de validation est annulée.
 
 Mobile Apps prend en charge le contrôle d'accès concurrentiel optimiste en suivant les modifications apportées à chaque élément à l'aide de la colonne de la propriété système `version` définie pour chaque table de votre serveur principal Mobile Apps. Chaque fois qu’un enregistrement est mis à jour, Mobile Apps attribue une nouvelle valeur à la propriété `version` de cet enregistrement. À chaque demande de mise à jour, la propriété `version` de l'enregistrement inclus dans la demande est comparée à celle de l'enregistrement basé sur le serveur. Si la version transmise avec la demande ne correspond pas à celle du serveur principal, la bibliothèque cliente déclenche une exception `MobileServicePreconditionFailedException<T>` . Le type inclus avec l’exception est l’enregistrement du backend contenant la version serveur de l’enregistrement. À partir de cette information, l’application peut décider ou non d’exécuter à nouveau la requête de mise à jour avec la valeur `version` correcte du serveur principal pour valider les modifications.
@@ -461,7 +456,7 @@ private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 
 Pour en savoir plus, consultez la rubrique [Synchronisation des données hors connexion dans Azure Mobile Apps] .
 
-### <a name="binding"></a>Procédure : liaison de données Mobile Apps à une interface utilisateur Windows
+### <a name="binding"></a>Procédure : liaison de données Mobile Apps à une interface utilisateur Windows
 Cette section montre comment afficher des objets de données renvoyés à l'aide d'éléments d'interface utilisateur dans une application Windows.  L’exemple de code suivant est lié à la source de la liste avec une requête pour les éléments incomplets. [MobileServiceCollection] permet de créer une collection de liaisons prenant en charge Mobile Apps.
 
 ```csharp
@@ -651,7 +646,7 @@ Vous pouvez utiliser la bibliothèque d’authentification Active Directory (ADA
 2. Dans Visual Studio ou Xamarin Studio, ouvrez votre projet et ajoutez une référence au package NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` . Au cours de la recherche, incluez les versions préliminaires.
 3. Ajoutez le code suivant à votre application, en fonction de la plateforme utilisée. Dans chaque cas, effectuez les remplacements suivants :
 
-   * Remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez approvisionné votre application. Le format doit être https://login.microsoftonline.com/contoso.onmicrosoft.com. Cette valeur peut être copiée depuis l’onglet Domaine de votre Azure Active Directory dans le [Portail Azure].
+   * Remplacez **INSERT-AUTHORITY-HERE** par le nom du client dans lequel vous avez approvisionné votre application. Le format doit être https://login.microsoftonline.com/contoso.onmicrosoft.com. Cette valeur peut être copiée depuis l’onglet Domaine de votre Azure Active Directory dans le [Azure portal].
    * Remplacez **INSERT-RESOURCE-ID-HERE** par l’ID client du serveur principal de votre application mobile. Vous pouvez obtenir l’ID client sur le portail, sous l’onglet **Avancé** du menu **Paramètres Azure Active Directory**.
    * Remplacez **INSERT-CLIENT-ID-HERE** par l’ID client que vous avez copié depuis l’application cliente native.
    * Remplacez **INSERT-REDIRECT-URI-HERE** par le point de terminaison */.auth/login/done* de votre site, en utilisant le modèle HTTPS. Cette valeur doit être similaire à *https://contoso.azurewebsites.net/.auth/login/done* .
@@ -826,7 +821,7 @@ Si vous utilisez un fournisseur d'identité autre que Facebook, remplacez la val
 
 Dans un flux serveur, Azure App Service gère le flux d’authentification OAuth en affichant la page de connexion du fournisseur sélectionné.  Après le retour du fournisseur identité, Azure App Service génère un jeton d’authentification App Service. La [LoginAsync] renvoie un [MobileServiceUser], qui fournit à la fois [l'UserId] de l'utilisateur authentifié et le [MobileServiceAuthenticationToken], sous la forme d'un jeton Web JSON (JWT). Ce jeton peut être mis en cache et réutilisé jusqu'à ce qu'il arrive à expiration. Pour plus d'informations, consultez la section [Mise en cache du jeton d'authentification](#caching).
 
-### <a name="caching"></a>Mise en cache du jeton d’authentification
+### <a name="caching"></a>Mise en cache du jeton d'authentification
 Dans certains cas, il est possible d’éviter l’appel à la méthode de connexion après la première authentification réussie en stockant le jeton d’authentification à partir du fournisseur.  Les applications Microsoft Store et UWP peuvent utiliser [PasswordVault] pour mettre en cache le jeton d’authentification en cours après une connexion réussie, comme suit :
 
 ```csharp
@@ -882,7 +877,7 @@ Les rubriques suivantes traitent des notifications Push :
 * [Obtention d’un SID de package Microsoft Store](#package-sid)
 * [Inscription avec des modèles inter-plateformes](#register-xplat)
 
-### <a name="register-for-push"></a>Procédure : Inscription aux notifications Push
+### <a name="register-for-push"></a>Procédure : Inscription aux notifications Push
 Le client Mobile Apps permet de s’inscrire aux notifications Push avec Azure Notification Hubs. Lors de l'inscription, vous obtenez un handle à partir de spécifique à la plate-forme Push Notification Service (PNS). Vous fournissez ensuite cette valeur, ainsi que toutes les balises lorsque vous créez l'inscription. Le code suivant inscrit votre application Windows aux notifications push avec le service de notification Windows (Windows Notification Service, WNS) :
 
 ```csharp
@@ -919,7 +914,7 @@ Les applications Xamarin nécessitent un code supplémentaire pour pouvoir enreg
 * [Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md#add-push)
 * [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started-push.md#add-push-notifications-to-your-app)
 
-### <a name="register-xplat"></a>Procédure : Inscrire des modèles Push pour envoyer des notifications multiplateforme
+### <a name="register-xplat"></a>Procédure : Inscrire des modèles Push pour envoyer des notifications multiplateforme
 Pour enregistrer les modèles, utilisez la méthode `RegisterAsync()` avec les modèles, comme suit :
 
 ```csharp
@@ -963,7 +958,7 @@ Toutes les balises sont supprimées lors de l’inscription pour la sécurité. 
 Pour envoyer des notifications à l’aide de ces modèles inscrits, consultez les [API Notification Hubs].
 
 ## <a name="misc"></a>Rubriques diverses
-### <a name="errors"></a>Procédure : des erreurs
+### <a name="errors"></a>Procédure : des erreurs
 Quand une erreur se produit sur le backend, le Kit de développement logiciel (SDK) client déclenche une `MobileServiceInvalidOperationException`.  L’exemple suivant montre comment gérer une exception renvoyée par le backend :
 
 ```csharp
@@ -985,7 +980,7 @@ private async void InsertTodoItem(TodoItem todoItem)
 
 Vous trouverez un autre exemple de traitement des conditions d’erreur dans l’ [exemple de fichiers Mobile Apps]. L’exemple [LoggingHandler] fournit un gestionnaire de délégué de journalisation pour consigner les requêtes envoyées au backend.
 
-### <a name="headers"></a>Procédure : Personnalisation des en-têtes de requête
+### <a name="headers"></a>Procédure : Personnalisation des en-têtes de requête
 Pour prendre en charge votre scénario d’application en particulier, vous devrez peut-être personnaliser la communication avec le backend Mobile Apps. Par exemple, il est possible que vous vouliez ajouter un en-tête personnalisé à chaque demande sortante ou même modifier le code d'état des réponses. Pour cela, utilisez un [DelegatingHandler]personnalisé, comme dans l'exemple suivant :
 
 ```csharp
@@ -1065,7 +1060,7 @@ public class MyHandler : DelegatingHandler
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [l'UserId]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
-[Portail Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx

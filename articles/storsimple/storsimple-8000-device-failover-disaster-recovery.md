@@ -1,5 +1,5 @@
 ---
-title: Basculement et récupération d’urgence pour les appareils de la gamme StorSimple 8000 | Microsoft Docs
+title: Basculement et récupération d’urgence pour les appareils StorSimple de la gamme 8000
 description: Découvrez comment basculer votre appareil StorSimple vers lui-même, un autre appareil physique ou une appliance cloud.
 services: storsimple
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 079a2f153f257040d1899a33c9e255d633e526ad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1acc084d5abe3385fe311873dfd64c9009e83f2
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60576382"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468590"
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-8000-series-device"></a>Basculement et récupération d’urgence pour votre appareil de la gamme StorSimple 8000
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cet article décrit la fonctionnalité de basculement d’appareil pour les appareils de la gamme StorSimple 8000 et comment cette fonctionnalité peut être utilisée pour récupérer les appareils StorSimple si un incident se produit. StorSimple utilise le basculement d’appareil pour migrer des données d’un appareil source dans le centre de données vers un autre appareil cible. Les instructions de cet article s’appliquent aux appareils physiques de gamme StorSimple 8000 et aux appliances cloud exécutant des versions logicielles Update 3 et versions ultérieures.
 
@@ -104,7 +104,7 @@ Une fois un basculement terminé, StorSimple effectue les actions suivantes :
 
 Si vous envisagez de tester les basculements ou restaurations automatiques, nous vous recommandons de tester des conteneurs de volumes comprenant moins de données (Go). Généralement, vous pouvez démarrer la restauration automatique 24 heures après la fin du basculement.
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 Q. **Que se passe-t-il si la récupération d’urgence échoue ou réussit partiellement ?**
 

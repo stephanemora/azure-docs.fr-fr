@@ -1,23 +1,23 @@
 ---
 title: Afficher les métriques d’utilisation de l’API Azure Maps | Microsoft Azure Maps
 description: Dans cet article, vous allez apprendre à afficher les métriques pour vos appels de l’API Microsoft Azure Maps dans le portail Azure.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 7ba50f63fb015a8696904df3decd13c811625459
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: cc9834f4e1df1a68f78230ec587254c72aeabbcf
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911331"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208683"
 ---
 # <a name="view-azure-maps-api-usage-metrics"></a>Afficher les métriques d’utilisation de l’API Azure Maps
 
-Cet article vous montre comment afficher les métriques d’utilisation de l’API pour votre compte Azure Maps dans le [portal](https://portal.azure.com). Les métriques sont affichées dans un format graphique pratique le long d’une chronologie personnalisable.
+Cet article vous montre comment afficher les mesures d’utilisation de l’API pour votre compte Azure Maps dans le [Portail Azure](https://portal.azure.com). Les métriques sont affichées dans un format graphique pratique le long d’une chronologie personnalisable.
 
 ## <a name="view-metric-snapshot"></a>Afficher l’instantané d’une métrique
 
@@ -46,11 +46,11 @@ Si vous avez besoin de personnaliser ces graphiques pour votre analyse, passez �
 
     ![Intervalle de temps des métriques d’Azure Maps](media/how-to-view-api-usage/time-range.png)
 
-6. Après avoir ajouté votre métrique, vous pouvez **Ajouter un filtre** à partir des propriétés pertinentes pour cette métrique, puis sélectionner la valeur de la propriété dont vous souhaitez voir le graphique.
+6. Une fois que vous avez ajouté votre métrique, vous pouvez **Ajouter un filtre** à partir des propriétés correspondant à cette métrique. Ensuite, sélectionnez la valeur de la propriété que vous souhaitez voir reflétée sur le graphique.
 
     ![Filtre des métriques d’utilisation d’Azure Maps](media/how-to-view-api-usage/filter.png)
 
-7. Vous pouvez également **Appliquer un fractionnement** à votre métrique en fonction de la propriété de la métrique sélectionnée. Cela a pour effet de fractionner le graphique en plusieurs graphiques, un pour chaque valeur de cette propriété. Dans l’image suivante, la couleur de chaque graphique correspond à la valeur de propriété affichée au bas du graphique.
+7. Vous pouvez également **Appliquer un fractionnement** à votre métrique en fonction de la propriété de la métrique sélectionnée. Cela permet de fractionner le graphique en plusieurs graphiques, un pour chaque valeur de cette propriété. Dans l’image suivante, la couleur de chaque graphique correspond à la valeur de propriété affichée au bas du graphique.
 
     ![Fractionnement des métriques d’utilisation d’Azure Maps](media/how-to-view-api-usage/splitting.png)
 

@@ -1,19 +1,19 @@
 ---
 title: Styles de cartes pris en charge | Microsoft Azure Maps
 description: Dans cet article, vous allez découvrir les différents styles de rendu de carte pris en charge par Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 92e48486777d82589a56074790dd709c5d525859
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 9cdfd0d029057e36e010203b7c35a5aafee4b574
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910638"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208282"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Styles de cartes pris en charge dans Azure Maps
 Azure Maps prend en charge plusieurs styles de mappage intégrés, qui sont décrits ci-dessous.
@@ -31,7 +31,7 @@ Une carte **routière** est une carte standard qui affiche les routes, les élé
 
 ## <a name="blank-and-blank_accessible"></a>blank et blank_accessible
 
-Les styles de carte **blank** et **blank_accessible** fournissent un canevas vide sur lequel visualiser les données. Le type **blank_accessible** continue de fournir des mises à jour de lecteur d’écran avec les détails de l’emplacement où se trouve la carte, même si la carte de base n’est pas affichée.
+Les styles de carte **blank** et **blank_accessible** fournissent un canevas vide sur lequel visualiser les données. Le style **blank_accessible** continue de fournir des mises à jour de lecteur d’écran avec les détails d’emplacement de la carte, même si la carte de base n’est pas affichée.
 
 > [!Note]
 > Dans le SDK web, vous pouvez modifier la couleur d’arrière-plan de la carte en définissant le style `background-color` CSS de l’élément div de la carte.

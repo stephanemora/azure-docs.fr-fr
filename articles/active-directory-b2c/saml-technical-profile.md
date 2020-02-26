@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/04/2019
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a0a6581e0eed74725a7186e528618da5d8a4f890
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 3a3df4d3a955926381a664ab872e03ae987f0839
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840245"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77197970"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique SAML dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -135,6 +135,7 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 | AuthenticationRequestExtensions | Non | Éléments d’extension de message de protocole facultatifs convenus entre Azure AD BC et le fournisseur d’identité. L’extension est présentée au format XML. Vous ajoutez les données XML dans l’élément CDATA `<![CDATA[Your IDP metadata]]>`. Pour voir si l’élément d’extensions est pris en charge, consultez la documentation de votre fournisseur d’identité. |
 | IncludeAuthnContextClassReferences | Non | Spécifie une ou plusieurs références d’URI identifiant des classes de contexte d’authentification. Par exemple, pour autoriser un utilisateur à se connecter uniquement avec un nom d’utilisateur et un mot de passe, définissez la valeur sur `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`. Pour autoriser la connexion avec nom d’utilisateur et mot de passe sur une session protégée (SSL/TLS), spécifiez `PasswordProtectedTransport`. Pour obtenir des conseils concernant les URI **AuthnContextClassRef** pris en charge, consultez la documentation de votre fournisseur d’identité. Spécifiez plusieurs URI sous la forme d’une liste délimitée par des virgules. |
 | IncludeKeyInfo | Non | Indique si la demande d’authentification SAML contient la clé publique ou le certificat lorsque la liaison est définie sur `HTTP-POST`. Valeurs possibles : `true` ou `false`. |
+| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
 

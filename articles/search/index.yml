@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Documentation Recherche cognitive Azure
+title: Documentation sur la recherche cognitive Azure
 summary: Effectuez des recherches cloud de contenu hétérogène privé, avec des options d’enrichissement par IA si votre contenu n’est pas structuré ou qu’il ne peut pas faire l’objet de recherche sous forme brute.
 metadata:
-  title: Documentation Recherche cognitive Azure
+  title: Documentation sur la recherche cognitive Azure
   description: Effectuez des recherches cloud de contenu hétérogène privé, avec des options d’enrichissement par IA si votre contenu n’est pas structuré ou qu’il ne peut pas faire l’objet de recherche sous forme brute.
   services: search
   ms.service: service
@@ -10,94 +10,78 @@ metadata:
   ms.collection: collection
   author: HeidiSteen
   ms.author: heidist
-  ms.date: 09/20/2019
-  ms.openlocfilehash: 3d011bdf1f0da04efec86adc121326a877532b6f
-  ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+  ms.date: 02/25/2020
+  ms.openlocfilehash: b1df45b155e9c9d1bd4433d7ddc765c126686a07
+  ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 01/24/2020
-  ms.locfileid: "76721062"
+  ms.lasthandoff: 02/26/2020
+  ms.locfileid: "77614969"
 landingContent:
-- title: À propos de la Recherche cognitive
+- title: À propos de la recherche cognitive
   linkLists:
   - linkListType: overview
     links:
-    - text: Qu’est-ce que la Recherche cognitive Azure ?
+    - text: Qu’est-ce que la Recherche cognitive Azure
       url: search-what-is-azure-search.md
-  - linkListType: architecture
-    links:
-    - text: Fonctionnement de la recherche en texte intégral dans la Recherche cognitive
-      url: search-lucene-query-architecture.md
+    - text: Qu’est-ce que l’enrichissement par IA
+      url: cognitive-search-concept-intro.md
+    - text: Qu’est-ce qu’un indexeur
+      url: search-indexer-overview.md
   - linkListType: video
     links:
-    - text: Qu’est-ce que la Recherche cognitive ? (1 min 27 s)
+    - text: Qu’est-ce que la recherche cognitive ? (1 min 27 s)
       url: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
-- title: Bien démarrer
+- title: Indexer des données Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Indexer à partir du stockage Blob Azure
+      url: search-blob-storage-integration.md
+    - text: Indexer à partir d’Azure SQL Database
+      url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+    - text: Indexer à partir de Cosmos DB
+      url: search-howto-index-cosmosdb.md
+  - linkListType: tutorial
+    links:
+    - text: Indexer les données blob semi-structurées
+      url: search-semi-structured-data.md
+- title: Guides de démarrage rapide de 10 minutes
   linkLists:
   - linkListType: quickstart
     links:
     - text: Créer un service
       url: search-create-service-portal.md
-    - text: Création d'un index
+    - text: Créer un index
       url: search-get-started-portal.md
-    - text: Créer un pipeline d’enrichissement
-      url: cognitive-search-quickstart-blob.md
-  - linkListType: tutorial
-    links:
     - text: Créer une application
-      url: tutorial-csharp-create-first-app.md
-  - linkListType: learn
-    links:
-    - text: Présentation de la Recherche cognitive Azure
-      url: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
-- title: Utiliser avec le stockage Blob
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Utiliser l’IA pour comprendre les données blob
-      url: search-blob-ai-integration.md
-    - text: Rechercher dans le contenu de votre objet bob
-      url: search-blob-storage-integration.md
-    - text: Stocker les enrichissements par IA
-      url: knowledge-store-concept-intro.md
-  - linkListType: tutorial
-    links:
-    - text: Indexer les données blob semi-structurées
-      url: search-semi-structured-data.md
-- title: Indexer vos données
+      url: search-create-app-portal.md
+    - text: Ingérer et extraire du texte brut et des images
+      url: cognitive-search-quickstart-blob.md
+- title: Indexer des données
   linkLists:
   - linkListType: concept
     links:
-    - text: Définition d’un index
+    - text: Définir un index
       url: search-what-is-an-index.md
-    - text: Importation de données
+    - text: Importer des données
       url: search-what-is-data-import.md
-    - text: Utiliser un indexeur
-      url: search-indexer-overview.md
-  - linkListType: how-to-guide
-    links:
-    - text: Indexer à partir d’Azure SQL Database
-      url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-    - text: Indexer à partir de données Cosmos DB
-      url: search-howto-index-cosmosdb.md
   - linkListType: reference
     links:
     - text: Créer un index (REST)
       url: https://docs.microsoft.com/rest/api/searchservice/create-index
     - text: Créer un indexeur (REST)
       url: https://docs.microsoft.com/rest/api/searchservice/create-indexer
-- title: Enrichir vos données
+- title: Enrichir avec l’intelligence artificielle
   linkLists:
   - linkListType: concept
     links:
-    - text: Pipeline d’enrichissement de l’IA
-      url: cognitive-search-concept-intro.md
     - text: Ensemble de compétences
       url: cognitive-search-defining-skillset.md
     - text: Bases de connaissances
       url: knowledge-store-concept-intro.md
     - text: Projections
-      url: knowledge-store-projection-overview.md
+      url: knowledge-store-projections-examples.md
   - linkListType: how-to-guide
     links:
     - text: Attacher Cognitive Services
@@ -110,11 +94,11 @@ landingContent:
     links:
     - text: Compétences prédéfinies
       url: cognitive-search-predefined-skills.md
-- title: Interroger vos données
+- title: Interroger des données
   linkLists:
   - linkListType: concept
     links:
-    - text: Vue d’ensemble
+    - text: Types de requêtes et composition
       url: search-query-overview.md
     - text: Syntaxe simple (par défaut)
       url: query-simple-syntax.md

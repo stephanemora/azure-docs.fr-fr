@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/01/2019
-ms.openlocfilehash: 0d8890eeba7fcb53517d6ee653c8dd09866805ef
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.date: 02/12/2020
+ms.openlocfilehash: 3d8f4a28961be7e0ece517e00026d9711d8f67e9
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177366"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198869"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Optimiser les travaux Apache Spark dans Azure HDInsight
 
-Découvrez comment optimiser la configuration de cluster [Apache Spark](https://spark.apache.org/) pour votre charge de travail.  La principale difficulté est une sollicitation trop importante de la mémoire, causée par une configuration incorrecte (en particulier, par des exécuteurs de taille non adaptée), des opérations longues et des tâches qui entraînent des opérations cartésiennes. Vous pouvez accélérer les travaux avec une mise en cache appropriée et en autorisant [l’asymétrie des données](#optimize-joins-and-shuffles). Pour des performances optimales, surveillez les exécutions de travaux Spark de longue durée et consommatrices de ressources.
+Découvrez comment optimiser la configuration de cluster [Apache Spark](https://spark.apache.org/) pour votre charge de travail.  La principale difficulté est une sollicitation trop importante de la mémoire, causée par une configuration incorrecte (en particulier, par des exécuteurs de taille non adaptée), des opérations longues et des tâches qui entraînent des opérations cartésiennes. Vous pouvez accélérer les travaux avec une mise en cache appropriée et en autorisant [l’asymétrie des données](#optimize-joins-and-shuffles). Pour des performances optimales, surveillez les exécutions de travaux Spark de longue durée et consommatrices de ressources. Pour plus d’informations sur la prise en main d’Apache Spark sur HDInsight, consultez [Créer un cluster Apache Spark à l’aide de Portail Azure](apache-spark-jupyter-spark-sql-use-portal.md).
 
 Les sections suivantes décrivent des recommandations et des optimisations courantes de travaux Spark.
 
@@ -59,11 +59,13 @@ Quand vous créez un cluster Spark, vous pouvez sélectionner Stockage Blob Azur
 
 | Type de magasin | Système de fichiers | Vitesse | Temporaire | Cas d'utilisation |
 | --- | --- | --- | --- | --- |
-| un stockage Azure Blob | **wasb:** //url/ | **Standard** | OUI | Cluster temporaire |
-| Stockage Blob Azure (sécurisé) | **wasbs:** //url/ | **Standard** | OUI | Cluster temporaire |
-| Azure Data Lake Storage Gen 2| **abfs:** //url/ | **Plus rapide** | OUI | Cluster temporaire |
-| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Plus rapide** | OUI | Cluster temporaire |
+| Stockage Blob Azure | **wasb:** //url/ | **Standard** | Oui | Cluster temporaire |
+| Stockage Blob Azure (sécurisé) | **wasbs:** //url/ | **Standard** | Oui | Cluster temporaire |
+| Azure Data Lake Storage Gen 2| **abfs:** //url/ | **Plus rapide** | Oui | Cluster temporaire |
+| Azure Data Lake Storage Gen 1| **adl:** //url/ | **Plus rapide** | Oui | Cluster temporaire |
 | HDFS local | **hdfs:** //url/ | **Le plus rapide** | Non | Cluster 24/7 interactif |
+
+Pour obtenir une description complète des options de disponibles pour les clusters HDInsight, consultez [Comparer les options de stockage à utiliser avec les clusters Azure HDInsight](../hdinsight-hadoop-compare-storage-options.md).
 
 ## <a name="use-the-cache"></a>Utiliser le cache
 
@@ -74,7 +76,7 @@ Spark fournit ses propres mécanismes de mise en cache native, que vous pouvez u
     * Ne fonctionne pas avec le partitionnement, mais ceci pourra changer dans les versions ultérieures de Spark
 
 * Mise en cache au niveau du stockage (recommandée)
-    * Peut être implémentée à l’aide de [Alluxio](https://www.alluxio.io/)
+    * Peut être implémenté sur HDInsight à l’aide de la fonctionnalité [Cache d’E/S](apache-spark-improve-performance-iocache.md).
     * Utilise la mise en cache en mémoire et SSD
 
 * HDFS local (recommandé)
@@ -106,6 +108,8 @@ Pour éviter les messages « Mémoire insuffisante », essayez les solutions sui
 * Privilégiez `TreeReduce`, qui effectue plus de travail sur les partitions ou les exécuteurs, à `Reduce`, qui effectue tout le travail sur le pilote.
 * Tirez parti des DataFrames plutôt que des objets RDD de niveau inférieur.
 * Créez des ComplexTypes qui encapsulent des actions, telles que « N premiers », différentes agrégations ou opérations de fenêtrage.
+
+Pour obtenir des étapes supplémentaires de résolution des problèmes, consultez [Exceptions OutOfMemoryError pour Apache Spark dans Azure HDInsight](apache-spark-troubleshoot-outofmemory.md).
 
 ## <a name="optimize-data-serialization"></a>Optimiser la sérialisation des données
 
@@ -193,7 +197,11 @@ Lors de l’exécution de requêtes simultanées, considérez les points suivant
 3. Distribuez les requêtes parmi les applications parallèles.
 4. Modifiez la taille en fonction des tests d’évaluation et de facteurs tels que la surcharge de garbage collection.
 
-Surveillez les performances de vos requêtes afin de détecter les valeurs hors norme ou autres problèmes de performances, en examinant l’affichage de la chronologie, le graphique SQL, les statistiques des travaux, et ainsi de suite. Parfois, un ou plusieurs exécuteurs sont plus lents que les autres, et l’exécution des tâches prend beaucoup plus de temps. Cela se produit fréquemment sur les clusters de grande taille (> 30 nœuds). Dans ce cas, répartissez le travail parmi un plus grand nombre de tâches afin que le planificateur puisse compenser cette lenteur. Par exemple, faites en sorte d’avoir au moins deux fois plus de tâches que le nombre de cœurs d’exécuteur dans l’application. Vous pouvez également activer l’exécution spéculative des tâches avec `conf: spark.speculation = true`.
+Pour plus d’informations sur l’utilisation d’Ambari pour configurer des exécuteurs, consultez [Paramètres Apache Spark : exécuteurs Spark](apache-spark-settings.md#configuring-spark-executors).
+
+Surveillez les performances de vos requêtes afin de détecter les valeurs hors norme ou autres problèmes de performances, en examinant l’affichage de la chronologie, le graphique SQL, les statistiques des travaux, et ainsi de suite. Pour plus d’informations sur le débogage des travaux Spark à l’aide de YARN et du serveur d’historique Spark, consultez [Déboguer des travaux Apache Spark en cours d’exécution sur Azure HDInsight](apache-spark-job-debugging.md). Pour obtenir des conseils sur l’utilisation du serveur de chronologie YARN, consultez [Accéder aux journaux d’activité d’applications YARN Apache Hadoop](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+
+Parfois, un ou plusieurs exécuteurs sont plus lents que les autres, et l’exécution des tâches prend beaucoup plus de temps. Cela se produit fréquemment sur les clusters de grande taille (> 30 nœuds). Dans ce cas, répartissez le travail parmi un plus grand nombre de tâches afin que le planificateur puisse compenser cette lenteur. Par exemple, faites en sorte d’avoir au moins deux fois plus de tâches que le nombre de cœurs d’exécuteur dans l’application. Vous pouvez également activer l’exécution spéculative des tâches avec `conf: spark.speculation = true`.
 
 ## <a name="optimize-job-execution"></a>Optimiser l’exécution des travaux
 
@@ -215,7 +223,7 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Déboguer des travaux Apache Spark en cours d’exécution sur Azure HDInsight](apache-spark-job-debugging.md)
-* [Gérer les ressources d’un cluster Apache Spark dans HDInsight](apache-spark-resource-manager.md)
+* [Gérer les ressources d’un cluster Apache Spark sur HDInsight](apache-spark-resource-manager.md)
 * [Utiliser l’API REST Apache Spark pour envoyer des travaux à distance à un cluster Apache Spark](apache-spark-livy-rest-interface.md)
 * [Optimisation d’Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
 * [Guide pratique pour paramétrer vos travaux Apache Spark afin qu’ils fonctionnent](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)

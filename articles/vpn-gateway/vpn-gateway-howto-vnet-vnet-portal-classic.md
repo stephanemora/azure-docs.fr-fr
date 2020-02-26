@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/09/2020
+ms.date: 02/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: ddcc7fcc14c7958e8c0d012c2395ad2b6c422f4f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 63c6329ad62289cd127902c1438073b28fc8683e
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157905"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201847"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurer une connexion de réseau virtuel à réseau virtuel (classique)
 
@@ -61,9 +61,9 @@ Vous pouvez décider de connecter des réseaux virtuels pour les raisons suivant
 
 Pour plus d’informations sur les connexions de réseau virtuel à réseau virtuel, consultez la partie [Interconnexion de réseaux virtuels](#faq) à la fin de cet article.
 
-### <a name="before-you-begin"></a>Avant de commencer
+### <a name="powershell"></a>Utilisation d’Azure PowerShell
 
-Avant de commencer cet exercice, téléchargez et installez la dernière version des applets de commande PowerShell Azure Service Management (SM). Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/overview). Nous utilisons le portail pour la plupart des étapes, mais vous devez utiliser PowerShell pour créer les connexions entre les réseaux virtuels. Vous ne pouvez pas créer des connexions à l’aide du portail Azure.
+Nous utilisons le portail pour la plupart des étapes, mais vous devez utiliser PowerShell pour créer les connexions entre les réseaux virtuels. Vous ne pouvez pas créer des connexions à l’aide du portail Azure. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
 ## <a name="plan"></a>Étape 1 : planifier vos plages d’adresses IP
 
@@ -209,37 +209,34 @@ Lorsque vous créez des réseaux virtuels classiques dans le portail Azure, le n
 
 Dans les étapes suivantes, vous allez vous connecter à votre compte Azure et télécharger et afficher le fichier de configuration réseau pour obtenir les valeurs nécessaire pour établir les connexions.
 
-1. Téléchargez et installez la dernière version des applets de commande PowerShell Azure Service Management (SM). Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/overview).
+1. Téléchargez et installez la dernière version des applets de commande PowerShell Azure Service Management (SM). Pour plus d’informations, consultez [Utilisation d’Azure PowerShell](#powershell).
 
-2. Ouvrez la console PowerShell avec des droits élevés et connectez-vous à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
-
-   ```powershell
-   Connect-AzAccount
-   ```
-
-   Vérifiez les abonnements associés au compte.
+2. Ouvrez la console PowerShell avec des droits élevés. Utilisez les exemples suivants pour faciliter votre connexion. Vous devez exécuter ces commandes localement à l’aide du module PowerShell Service Management. Pour passer au management des services, utilisez cette commande :
 
    ```powershell
-   Get-AzSubscription
+   azure config mode asm
    ```
-
-   Si vous avez plusieurs abonnements, sélectionnez celui que vous souhaitez utiliser.
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-   Utilisez l’applet de commande suivante pour ajouter votre abonnement Azure à PowerShell pour le modèle de déploiement classique.
+3. Se connecter à votre compte. Utilisez l’exemple suivant pour faciliter votre connexion :
 
    ```powershell
    Add-AzureAccount
    ```
-3. Exportez et affichez le fichier de configuration réseau. Créez un répertoire sur votre ordinateur, puis exportez le fichier de configuration réseau dans ce répertoire. Dans cet exemple, le fichier de configuration réseau est exporté vers **C:\AzureNet**.
+4. Vérifiez les abonnements associés au compte.
+
+   ```powershell
+   Get-AzureSubscription
+   ```
+5. Si vous avez plusieurs abonnements, sélectionnez celui que vous souhaitez utiliser.
+
+   ```powershell
+   Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
+   ```
+6. Exportez et affichez le fichier de configuration réseau. Créez un répertoire sur votre ordinateur, puis exportez le fichier de configuration réseau dans ce répertoire. Dans cet exemple, le fichier de configuration réseau est exporté vers **C:\AzureNet**.
 
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-4. Dans un éditeur de texte, ouvrez le fichier, puis affichez les noms de vos réseaux virtuels et de vos sites. Ces noms sont ceux que vous utiliserez lorsque vous allez créer vos connexions.<br>Les noms des réseaux virtuels sont répertoriés comme suit : **VirtualNetworkSite name =**<br>Les noms des sites sont répertoriés comme suit : **LocalNetworkSiteRef name =**
+7. Dans un éditeur de texte, ouvrez le fichier, puis affichez les noms de vos réseaux virtuels et de vos sites. Ces noms sont ceux que vous utiliserez lorsque vous allez créer vos connexions.<br>Les noms des réseaux virtuels sont répertoriés comme suit : **VirtualNetworkSite name =**<br>Les noms des sites sont répertoriés comme suit : **LocalNetworkSiteRef name =**
 
 ## <a name="createconnections"></a>Étape 8 : créer les connexions de passerelle VPN
 

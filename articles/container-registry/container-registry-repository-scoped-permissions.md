@@ -1,22 +1,24 @@
 ---
-title: Autorisations d’accès aux référentiels
-description: Créer un jeton avec des autorisations étendues à des référentiels spécifiques dans un registre pour tirer (pull) ou envoyer (push) des images
+title: Autorisations pour des référentiels dans Azure Container Registry
+description: Créer un jeton avec des autorisations étendues à des référentiels spécifiques dans un registre pour tirer (pull) ou envoyer (push) des images ou effectuer d’autres actions
 ms.topic: article
-ms.date: 10/31/2019
-ms.openlocfilehash: cf36a49ffd6c04897e6f44b844f0c813d0992b18
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 02/13/2020
+ms.openlocfilehash: 7d390bf4d97561e374c70f184534ac4f98a40611
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454916"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444285"
 ---
-# <a name="repository-scoped-permissions-in-azure-container-registry"></a>Autorisations d’étendue de référentiel dans Azure Container Registry 
+# <a name="create-a-token-with-repository-scoped-permissions"></a>Créer un jeton avec des autorisations délimitées par le référentiel
 
-Azure Container Registry prend en charge plusieurs [options d’authentification](container-registry-authentication.md) à l’aide d’identités qui ont [accès en fonction du rôle](container-registry-roles.md) à un registre entier. Toutefois, pour certains scénarios, vous devrez peut-être fournir un accès uniquement à des *référentiels* spécifiques dans un registre. 
+Cet article explique comment créer des jetons et des mappages d’étendue pour gérer les autorisations délimitées par le référentiel dans votre registre de conteneurs. En créant des jetons, le propriétaire du registre peut fournir aux utilisateurs ou aux services un accès étendu et limité dans le temps aux référentiels pour tirer (pull) ou envoyer (push) des images ou effectuer d’autres actions. Un jeton fournit des autorisations plus précises que les autres [options d’authentification](container-registry-authentication.md) du registre, qui délimitent les autorisations à un registre entier. 
 
-Cet article explique comment créer et utiliser un jeton d’accès qui dispose des autorisations nécessaires pour effectuer des actions uniquement sur des référentiels spécifiques d’un registre. Avec un jeton d’accès, vous pouvez fournir aux utilisateurs ou aux services un accès étendu et limité dans le temps aux référentiels pour tirer (pull) ou envoyer (push) des images ou effectuer d’autres actions. 
+Les scénarios de création d’un jeton sont les suivants :
 
-Consultez [À propos des autorisations d’étendue de référentiel](#about-repository-scoped-permissions), plus loin dans cet article pour obtenir un arrière-plan sur les concepts et scénarios.
+* Autoriser les appareils IoT dotés de jetons individuels pour tirer (pull) une image d’un référentiel
+* Fournir à une organisation externe des autorisations sur un référentiel spécifique 
+* Limiter l’accès au référentiel à différents groupes d’utilisateurs de votre organisation. Par exemple, fournissez un accès en écriture et en lecture aux développeurs qui génèrent des images ciblant des référentiels spécifiques, ainsi qu’un accès en lecture aux équipes qui déploient à partir de ces référentiels.
 
 > [!IMPORTANT]
 > Cette fonctionnalité est actuellement en préversion et certaines [limitations s’appliquent](#preview-limitations). Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
@@ -24,50 +26,73 @@ Consultez [À propos des autorisations d’étendue de référentiel](#about-rep
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
 * Cette fonctionnalité est disponible uniquement dans un registre de conteneurs **Premium**. Pour plus d’informations sur les niveaux de service et les limites de registre, consultez [Références SKU Azure Container Registry](container-registry-skus.md).
-* Vous ne pouvez pas actuellement attribuer des autorisations d’étendue de référentiel à un objet Azure Active Directory tel qu’un principal de service ou une identité managée.
+* Vous ne pouvez pas actuellement attribuer des autorisations délimites par le référentiel à une identité Azure Active Directory telle qu’un principal de service ou une identité managée.
+
+## <a name="concepts"></a>Concepts
+
+Pour configurer des autorisations délimitées par le référentiel, vous créez un *jeton* avec un *mappage d’étendue* associé. 
+
+* Un **jeton** accompagné d’un mot de passe généré permet à l’utilisateur de s’authentifier auprès du registre. Vous pouvez définir une date d’expiration pour un mot de passe de jeton ou désactiver un jeton à tout moment.  
+
+  Après l’authentification à l’aide d’un jeton, l’utilisateur ou le service peut effectuer une ou plusieurs *actions* délimitées par un ou plusieurs référentiels.
+
+  |Action  |Description  | Exemple |
+  |---------|---------|--------|
+  |`content/delete`    | Supprimer des données du référentiel  | Supprimer un référentiel ou un manifeste |
+  |`content/read`     |  Lire des données du référentiel |  Tirer (pull) un artefact |
+  |`content/write`     |  Écrire des données dans le référentiel     | Utiliser avec `content/read` pour envoyer (push) un artefact |
+  |`metadata/read`    | Lire des métadonnées du référentiel   | Répertorier des balises ou des manifestes |
+  |`metadata/write`     |  Écrire des métadonnées dans le référentiel  | Activer ou désactiver les opérations de lecture, d’écriture ou de suppression |
+
+* Un **mappage d’étendue** regroupe les autorisations de référentiel que vous appliquez à un jeton et peut s’appliquer à nouveau à d’autres jetons. Chaque jeton est associé à un mappage d’étendue unique. 
+
+   Avec un mappage d’étendue :
+
+    * Configurer plusieurs jetons avec des autorisations identiques sur un ensemble de référentiels
+    * Mettre à jour les autorisations de jeton lorsque vous ajoutez ou supprimez des actions de référentiel dans le mappage d’étendue, ou appliquer un autre mappage d’étendue 
+
+  Azure Container Registry fournit également plusieurs mappages d’étendue définis par le système que vous pouvez appliquer, avec des autorisations fixes sur tous les référentiels.
+
+L’image suivante illustre la relation entre les jetons et les mappages d’étendue. 
+
+![Jetons de registre et mappages d’étendue](media/container-registry-repository-scoped-permissions/token-scope-map-concepts.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **Azure CLI** : cet article requiert une installation locale d’Azure CLI (version 2.0.76 ou ultérieure). Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
-* **Docker** : pour vous authentifier auprès du registre, vous avez également besoin d’une installation du Docker locale. Docker fournit des instructions d’installation pour les systèmes [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
-* **Registre de conteneurs avec référentiels** : créez un registre de conteneurs dans votre abonnement Azur, si vous n’en avez pas. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md). 
+* **Azure CLI** : les commandes Azure CLI permettant de créer et gérer des jetons sont disponibles dans la version 2.0.76 ou ultérieure d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
+* **Docker** : pour vous authentifier auprès du registre afin de tirer (pull) ou d’envoyer (push) des images, vous avez besoin d’une installation locale de Docker. Docker fournit des instructions d’installation pour les systèmes [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+* **Registre de conteneurs** : créez un registre de conteneurs Premium dans votre abonnement Azure si vous n’en avez pas ou mettez à niveau un registre existant. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md). 
 
-  À des fins de test, [envoyer (push)](container-registry-get-started-docker-cli.md) ou [importer](container-registry-import-images.md) un ou plusieurs exemples d’images dans le registre. Les exemples de cet article font référence aux images suivantes dans deux référentiels : `samples/hello-world:v1` et `samples/nginx:v1`. 
+## <a name="create-token---cli"></a>Créer un jeton – CLI
 
-## <a name="create-an-access-token"></a>Créer un jeton d’accès
+### <a name="create-token-and-specify-repositories"></a>Créer un jeton et spécifier des référentiels
 
-Créez un jeton à l’aide de la commande [az acr token create][az-acr-token-create]. Lorsque vous créez un jeton, spécifiez un ou plusieurs référentiels et actions associées sur chaque référentiel ou spécifiez un mappage d’étendue existant avec ces paramètres.
+Créez un jeton à l’aide de la commande [az acr token create][az-acr-token-create]. Lorsque vous créez un jeton, vous pouvez spécifier un ou plusieurs référentiels et actions associées sur chaque référentiel. Il n’est pas nécessaire que les référentiels soient déjà dans le registre de conteneurs. Pour créer un jeton en spécifiant un mappage d’étendue existant, consultez la section suivante.
 
-### <a name="create-access-token-and-specify-repositories"></a>Créer un jeton d’accès et spécifier des référentiels
-
-L’exemple suivant crée un jeton d’accès avec les autorisations nécessaires pour effectuer des actions `content/write` et `content/read` sur le référentiel `samples/hello-world`, ainsi que l’action `content/read` sur le référentiel `samples/nginx`. Par défaut, la commande génère deux mots de passe. 
-
-Cet exemple définit l’état du jeton sur `enabled` (paramètre par défaut), mais vous pouvez mettre à jour le jeton à tout moment et définir l’état sur `disabled`.
+L’exemple suivant crée un jeton dans le registre *myregistry* avec les autorisations suivantes sur le référentiel `samples/hello-world` : `content/write` et `content/read`. Par défaut, la commande définit l’état du jeton sur `enabled` par défaut, mais vous pouvez mettre à jour l’état sur `disabled` à tout moment.
 
 ```azurecli
 az acr token create --name MyToken --registry myregistry \
-  --repository samples/hello-world content/write content/read \
-  --repository samples/nginx content/read --status enabled
+  --repository samples/hello-world \
+  content/write content/read
 ```
 
-La sortie affiche des détails sur le jeton, y compris les mots de passe générés et le mappage de l’étendue. Il est recommandé d’enregistrer les mots de passe dans un endroit sûr pour les utiliser ultérieurement avec `docker login`. Les mots de passe ne peuvent pas être récupérés à nouveau, mais d’autres peuvent être générés.
-
-La sortie indique également qu’un mappage d’étendue est créé automatiquement, nommé `MyToken-scope-map`. Vous pouvez utiliser le mappage d’étendue pour appliquer les mêmes actions de référentiel à d’autres jetons. Ou, mettez à jour le mappage d’étendue ultérieurement pour modifier les autorisations de jeton.
+La sortie affiche des détails sur le jeton, y compris deux mots de passe générés. Il est recommandé d’enregistrer les mots de passe dans un endroit sûr pour les utiliser ultérieurement à des fins d’authentification. Les mots de passe ne peuvent pas être récupérés à nouveau, mais d’autres peuvent être générés.
 
 ```console
 {
-  "creationDate": "2019-10-22T00:15:34.066221+00:00",
+  "creationDate": "2020-01-18T00:15:34.066221+00:00",
   "credentials": {
     "certificates": [],
     "passwords": [
       {
-        "creationTime": "2019-10-22T00:15:52.837651+00:00",
+        "creationTime": "2020-01-18T00:15:52.837651+00:00",
         "expiry": null,
         "name": "password1",
         "value": "uH54BxxxxK7KOxxxxRbr26dAs8JXxxxx"
       },
       {
-        "creationTime": "2019-10-22T00:15:52.837651+00:00",
+        "creationTime": "2020-01-18T00:15:52.837651+00:00",
         "expiry": null,
         "name": "password2",
         "value": "kPX6Or/xxxxLXpqowxxxxkA0idwLtmxxxx"
@@ -85,62 +110,98 @@ La sortie indique également qu’un mappage d’étendue est créé automatique
   "type": "Microsoft.ContainerRegistry/registries/tokens"
 ```
 
-### <a name="create-a-scope-map-and-associated-token"></a>Créer un mappage d’étendue et un jeton associé
+La sortie contient des détails sur le mappage d’étendue que la commande a créé. Vous pouvez utiliser le mappage d’étendue, nommé ici `MyToken-scope-map`, pour appliquer les mêmes actions de référentiel à d’autres jetons. Ou mettez à jour le mappage d’étendue ultérieurement pour modifier les autorisations des jetons associés.
 
-Vous pouvez également spécifier un mappage d’étendue avec les référentiels et les actions associées lors de la création d’un jeton. Pour créer un mappage d’étendue, utilisez la commande [az acr scope-map create][az-acr-scope-map-create].
+### <a name="create-token-and-specify-scope-map"></a>Créer un jeton et spécifier le mappage d’étendue
 
-L’exemple de commande suivant crée un mappage d’étendue avec les mêmes autorisations que celles utilisées dans l’exemple précédent. Il permet les actions `content/write` et `content/read` sur le référentiel `samples/hello-world`, ainsi que l’action `content/read` sur le référentiel `samples/nginx` :
+Une autre façon de créer un jeton consiste à spécifier un mappage d’étendue existant. Si vous n’avez pas encore de mappage d’étendue, commencez par en créer un en spécifiant des référentiels et des actions associées. Ensuite, spécifiez le mappage d’étendue lors de la création d’un jeton. 
+
+Pour créer un mappage d’étendue, utilisez la commande [az acr scope-map create][az-acr-scope-map-create]. La commande suivante crée un mappage d’étendue avec les mêmes autorisations que celles du référentiel `samples/hello-world` utilisé précédemment. 
 
 ```azurecli
 az acr scope-map create --name MyScopeMap --registry myregistry \
-  --repository samples/hello-world content/write content/read \
-  --repository samples/nginx content/read \
+  --repository samples/hello-world \
+  content/write content/read \
   --description "Sample scope map"
 ```
 
-Le résultat ressemble à ce qui suit :
-
-```console
-{
-  "actions": [
-    "repositories/samples/hello-world/content/write",
-    "repositories/samples/nginx/content/read"
-  ],
-  "creationDate": "2019-10-22T05:07:35.194413+00:00",
-  "description": "Sample scope map.",
-  "id": "/subscriptions/fxxxxxxxx-adbd-4cb4-c864-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry/scopeMaps/MyScopeMap",
-  "name": "MyScopeMap",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myresourcegroup",
-  "scopeMapType": "UserDefined",
-  "type": "Microsoft.ContainerRegistry/registries/scopeMaps"
-```
-
-Exécutez la commande [az acr token create][az-acr-token-create] pour créer un jeton associé au mappage d’étendue *MyScopeMap*. Par défaut, la commande génère deux mots de passe. Cet exemple définit l’état du jeton sur `enabled` (paramètre par défaut), mais vous pouvez mettre à jour le jeton à tout moment et définir l’état sur `disabled`.
+Exécutez la commande [az acr token create][az-acr-token-create] pour créer un jeton, en spécifiant le mappage d’étendue *MyScopeMap*. Comme dans l’exemple précédent, la commande définit l’état du jeton sur `enabled` par défaut.
 
 ```azurecli
-az acr token create --name MyToken --registry myregistry --scope-map MyScopeMap --status enabled
+az acr token create --name MyToken \
+  --registry myregistry \
+  --scope-map MyScopeMap
 ```
 
-La sortie affiche des détails sur le jeton, y compris les mots de passe générés et le mappage d’étendue appliqué. Il est recommandé d’enregistrer les mots de passe dans un endroit sûr pour les utiliser ultérieurement avec `docker login`. Les mots de passe ne peuvent pas être récupérés à nouveau, mais d’autres peuvent être générés.
+La sortie affiche des détails sur le jeton, y compris deux mots de passe générés. Il est recommandé d’enregistrer les mots de passe dans un endroit sûr pour les utiliser ultérieurement à des fins d’authentification. Les mots de passe ne peuvent pas être récupérés à nouveau, mais d’autres peuvent être générés.
 
-## <a name="generate-passwords-for-token"></a>Générer des mots de passe pour le jeton
+## <a name="create-token---portal"></a>Créer un jeton – Portail
 
-Si des mots de passe ont été créés lors de la création du jeton, passez à [Authentifier avec le registre](#authenticate-using-token).
+Vous pouvez utiliser le Portail Azure pour créer des jetons et des mappages d’étendue. Comme avec la commande CLI `az acr token create`, vous pouvez appliquer un mappage d’étendue existant ou en créer un lorsque vous créez un jeton en spécifiant un ou plusieurs référentiels et actions associées. Il n’est pas nécessaire que les référentiels soient déjà dans le registre de conteneurs. 
 
-Si vous n’avez pas de mot de passe de jeton ou si vous souhaitez générer de nouveaux mots de passe, exécutez la commande [az acr token credential generate][az-acr-token-credential-generate].
+L’exemple suivant crée un jeton, puis crée un mappage d’étendue avec les autorisations suivantes sur le référentiel `samples/hello-world` : `content/write` et `content/read`.
 
-L’exemple suivant génère un nouveau mot de passe pour le jeton que vous avez créé, avec une période d’expiration de 30 jours. Elle stocke le mot de passe dans la variable d’environnement TOKEN_PWD. Cet exemple est mis en forme pour l’interpréteur de commandes Bash.
+1. Dans le portail, accédez à votre registre de conteneurs.
+1. Sous **Services**, sélectionnez **Tokens (Preview) [Jetons (préversion)] > + Add (Ajouter)** .
+  ![Créer un jeton dans le portail](media/container-registry-repository-scoped-permissions/portal-token-add.png)
+1. Entrez un nom de jeton.
+1. Sous **Scope map** (Mappage d’étendue), sélectionnez **Create new** (Créer).
+1. Configurer le mappage d’étendue :
+    1. Entrez un nom et une description pour le mappage d’étendue. 
+    1. Sous **Repositories** (Référentiels), entrez `samples/hello-world` et, sous **Permissions** (Autorisations), sélectionnez `content/read` et `content/write`. Sélectionnez ensuite **+Add** (+Ajouter).  
+    ![Créer un mappage d’étendue dans le portail](media/container-registry-repository-scoped-permissions/portal-scope-map-add.png)
 
-```azurecli
-TOKEN_PWD=$(az acr token credential generate \
-  --name MyToken --registry myregistry --days 30 \
-  --password1 --query 'passwords[0].value' --output tsv)
+    1. Après avoir ajouté des référentiels et des autorisations, sélectionnez **Add** (Ajouter) pour ajouter le mappage d’étendue.
+1. Acceptez le **Status** (État) par défaut **Enabled** (Activé) du jeton, puis sélectionnez **Create** (Créer).
+
+Une fois le jeton validé et créé, les détails du jeton s’affichent dans l’écran **Tokens** (Jetons).
+
+### <a name="add-token-password"></a>Ajouter un mot de passe de jeton
+
+Générez un mot de passe après avoir créé un jeton. Pour s’authentifier auprès du registre, le jeton doit être activé et avoir un mot de passe valide.
+
+Vous pouvez générer un ou deux mots de passe et définir une date d’expiration pour chacun d’entre eux. 
+
+1. Dans le portail, accédez à votre registre de conteneurs.
+1. Sous **Services**, sélectionnez **Tokens (Preview) [Jetons (préversion)]** , puis sélectionnez un jeton.
+1. Dans les détails du jeton, sélectionnez **password1** ou **password2**, puis sélectionnez l’icône de génération.
+1. Dans l’écran du mot de passe, définissez éventuellement une date d’expiration pour le mot de passe, puis sélectionnez **Generate** (Générer).
+1. Après avoir généré un mot de passe, copiez-le et enregistrez-le dans un emplacement sûr. Vous ne pouvez pas récupérer un mot de passe généré après avoir fermé l’écran, mais vous pouvez en générer un nouveau.
+
+    ![Créer un mot de passe de jeton dans le portail](media/container-registry-repository-scoped-permissions/portal-token-password.png)
+
+## <a name="authenticate-with-token"></a>S’authentifier avec un jeton
+
+Lorsqu’un utilisateur ou un service utilise un jeton pour s’authentifier auprès du registre cible, il fournit le nom du jeton comme nom d’utilisateur et l’un de ses mots de passe générés. La méthode d’authentification utilisée dépend des actions configurées associées au jeton.
+
+|Action  |Comment s’authentifier  |
+  |---------|---------|
+  |`content/delete`    | `az acr repository delete` dans Azure CLI |
+  |`content/read`     |  `docker login`<br/><br/>`az acr login` dans Azure CLI  |
+  |`content/write`     |  `docker login`<br/><br/>`az acr login` dans Azure CLI     |
+  |`metadata/read`    | `az acr repository show`<br/><br/>`az acr repository show-tags`<br/><br/>`az acr repository show-manifests` dans Azure CLI   |
+  |`metadata/write`     |  `az acr repository untag`<br/><br/>`az acr repository update` dans Azure CLI |
+
+## <a name="examples-use-token"></a>Exemples : Utiliser un jeton
+
+Les exemples suivants utilisent le jeton créé plus haut dans cet article pour effectuer des opérations courantes sur un référentiel : envoyer (push) et tirer (pull) des images, supprimer des images et répertorier des balises de référentiel. Le jeton a été configuré initialement avec des autorisations d’envoi (push) [actions `content/write` et `content/read`] sur le référentiel `samples/hello-world`.
+
+### <a name="pull-and-tag-test-images"></a>Tirer (pull) et baliser des images de test
+
+Pour les exemples suivants, tirez (pull) les images `hello-world` et `alpine` de Docker Hub, puis balisez-les pour votre registre et votre référentiel.
+
+```bash
+docker pull hello-world
+docker pull alpine
+docker tag hello-world myregistry.azurecr.io/samples/hello-world:v1
+docker tag hello-world myregistry.azurecr.io/samples/alpine:v1
 ```
 
-## <a name="authenticate-using-token"></a>Authentifier à l'aide du jeton
+### <a name="authenticate-using-token"></a>Authentifier à l'aide du jeton
 
-Exécutez `docker login` pour vous authentifier auprès du registre à l’aide des informations d’identification du jeton. Entrez le nom du jeton en tant que nom d’utilisateur et fournissez l’un de ses mots de passe. L’exemple suivant est mis en forme pour l’interpréteur de commandes Bash et fournit les valeurs à l’aide de variables d’environnement.
+Exécutez `docker login` pour vous authentifier auprès du registre, indiquez le nom du jeton comme nom d’utilisateur et indiquez l’un de ses mots de passe. Le jeton doit avoir l’état `Enabled`.
+
+L’exemple suivant est mis en forme pour l’interpréteur de commandes Bash et fournit les valeurs à l’aide de variables d’environnement.
 
 ```bash
 TOKEN_NAME=MyToken
@@ -155,109 +216,206 @@ La sortie doit afficher l’authentification réussie :
 Login Succeeded
 ```
 
-## <a name="verify-scoped-access"></a>Vérifier l’accès délimité
+### <a name="push-images-to-registry"></a>Envoyer des images au registre
 
-Vous pouvez vérifier que le jeton fournit des autorisations délimitées aux référentiels dans le registre. Dans cet exemple, les commandes `docker pull` suivantes s’exécutent correctement pour tirer (pull) les images disponibles dans les référentiels `samples/hello-world` et `samples/nginx` :
+Une fois la connexion établie, tentez d’envoyer (push) les images balisées dans le registre. Étant donné que le jeton dispose d’autorisations pour envoyer (push) des images vers le référentiel `samples/hello-world`, l’envoi (push) suivant fonctionne :
 
-```console
-docker pull myregistry.azurecr.io/samples/hello-world:v1
-docker pull myregistry.azurecr.io/samples/nginx:v1
+```bash
+docker push myregistry.azurecr.io/samples/hello-world:v1
 ```
 
-Étant donné que l’exemple de jeton autorise l’action `content/write` uniquement sur le référentiel `samples/hello-world`, `docker push` réussit pour ce référentiel mais échoue pour `samples/nginx` :
+Le jeton ne dispose pas des autorisations d’accès au `samples/alpine`. Par conséquent, la tentative d’envoi (push) suivant échoue avec une erreur semblable à `requested access to the resource is denied` :
 
-```console
-# docker push succeeds
-docker pull myregistry.azurecr.io/samples/hello-world:v1
-
-# docker push fails
-docker pull myregistry.azurecr.io/samples/nginx:v1
+```bash
+docker push myregistry.azurecr.io/samples/alpine:v1
 ```
 
-## <a name="update-scope-map-and-token"></a>Mettre à jour le mappage d’étendue et le jeton
+### <a name="change-pushpull-permissions"></a>Modifier les autorisations Push/Pull
 
-Pour mettre à jour les autorisations de jeton, mettez à jour les autorisations dans le mappage d’étendue associé, à l’aide de la commande [az acr scope-map update][az-acr-scope-map-update]. Par exemple, pour mettre à jour *MyScopeMap* pour supprimer l’action `content/write` sur le référentiel `samples/hello-world` :
+Pour mettre à jour les autorisations d’un jeton, mettez à jour les autorisations dans le mappage d’étendue associé. Le mappage d’étendue mis à jour est appliqué immédiatement à tous les jetons associés. 
+
+Par exemple, mettez à jour `MyToken-scope-map` avec les actions `content/write` et `content/read` sur le référentiel `samples/alpine`, et supprimez l’action `content/write` sur le référentiel `samples/hello-world`.  
+
+Pour utiliser Azure CLI, exécutez [az acr scope-map update][az-acr-scope-map-update] pour mettre à jour le mappage d’étendue :
 
 ```azurecli
-az acr scope-map update --name MyScopeMap --registry myregistry \
-  --remove samples/hello-world content/write
+az acr scope-map update \
+  --name MyScopeMap \
+  --registry myregistry \
+  --add samples/alpine content/write content/read \
+  --remove samples/hello-world content/write 
 ```
 
-Si le mappage d’étendue est associé à plusieurs jetons, la commande met à jour l’autorisation de tous les jetons associés.
+Dans le portail Azure :
 
-Si vous souhaitez mettre à jour un jeton avec un mappage d’étendue différent, exécutez la commande [az acr token update][az-acr-token-update]. Par exemple :
+1. Accédez à votre registre de conteneurs.
+1. Sous **Services**, sélectionnez **Scope maps (Preview)** [Mappages d’étendues (préversion)], puis sélectionnez le mappage d’étendue à mettre à jour.
+1. Sous **Repositories** (Référentiels), entrez `samples/alpine` et, sous **Permissions** (Autorisations), sélectionnez `content/read` et `content/write`. Sélectionnez ensuite **+Add** (+Ajouter).
+1. Sous **Repositories** (Référentiels), sélectionnez `samples/hello-world` et, sous **Permissions** (Autorisations), désélectionnez `content/write`. Ensuite, sélectionnez **Enregistrer**.
+
+Après la mise à jour du mappage d’étendue, l’envoi (push) suivant est réussi :
+
+```bash
+docker push myregistry.azurecr.io/samples/alpine:v1
+```
+
+Étant donné que le mappage d’étendue dispose uniquement de l’autorisation `content/read` sur le référentiel `samples/hello-world`, une tentative d’envoi (push) vers le référentiel `samples/hello-world` échoue désormais :
+ 
+```bash
+docker push myregistry.azurecr.io/samples/hello-world:v1
+```
+
+L’extraction d’images des deux pensions est réussie, car le mappage d’étendue fournit des autorisations `content/read` sur les deux référentiels :
+
+```bash
+docker pull myregistry.azurecr.io/samples/alpine:v1
+docker pull myregistry.azurecr.io/samples/hello-world:v1
+```
+### <a name="delete-images"></a>Supprimer des images
+
+Mettez à jour le mappage d’étendue en ajoutant l’action `content/delete` au référentiel `alpine`. Cette action permet de supprimer des images dans le référentiel ou de supprimer l’intégralité du référentiel.
+
+Par souci de concision, nous affichons uniquement la commande [az acr scope-map update][az-acr-scope-map-update] pour mettre à jour le mappage d’étendue :
+
+```azurecli
+az acr scope-map update \
+  --name MyScopeMap \
+  --registry myregistry \
+  --add samples/alpine content/delete
+``` 
+
+Pour mettre à jour le mappage d’étendue à l’aide du portail, consultez la section précédente.
+
+Utilisez la commande [az acr repository delete][az-acr-repository-delete] suivante pour supprimer le référentiel `samples/alpine`. Pour supprimer des images ou des référentiels, le jeton ne s’authentifie pas via `docker login`. Au lieu de cela, transmettez le nom et le mot de passe du jeton à la commande. L’exemple suivant utilise les variables d’environnement créées plus haut dans l’article :
+
+```azurecli
+az acr repository delete \
+  --name myregistry --repository samples/alpine \
+  --username $TOKEN_NAME --password $TOKEN_PWD
+```
+
+### <a name="show-repo-tags"></a>Afficher les balises de référentiel 
+
+Mettez à jour le mappage d’étendue en ajoutant l’action `metadata/read` au référentiel `hello-world`. Cette action permet de lire les données de manifeste et de balise dans le référentiel.
+
+Par souci de concision, nous affichons uniquement la commande [az acr scope-map update][az-acr-scope-map-update] pour mettre à jour le mappage d’étendue :
+
+```azurecli
+az acr scope-map update \
+  --name MyScopeMap \
+  --registry myregistry \
+  --add samples/hello-world metadata/read 
+```  
+
+Pour mettre à jour le mappage d’étendue à l’aide du portail, consultez la section précédente.
+
+Pour lire les métadonnées dans le référentiel `samples/hello-world`, exécutez la commande [az acr repository show-manifests][az-acr-repository-show-manifests] ou [az acr repository show-tags][az-acr-repository-show-tags]. 
+
+Pour lire les métadonnées, le jeton ne s’authentifie pas via `docker login`. Au lieu de cela, transmettez le nom et le mot de passe du jeton à l’une ou l’autre des commandes. L’exemple suivant utilise les variables d’environnement créées plus haut dans l’article :
+
+```azurecli
+az acr repository show-tags \
+  --name myregistry --repository samples/hello-world \
+  --username $TOKEN_NAME --password $TOKEN_PWD
+```
+
+Exemple de sortie :
+
+```console
+[
+  "v1"
+]
+```
+## <a name="manage-tokens-and-scope-maps"></a>Gérer les jetons et les mappages d’étendue
+
+### <a name="list-scope-maps"></a>Répertorier les mappages d’étendue
+
+Utilisez la commande [az acr scope-map list][az-acr-scope-map-list] ou l’écran **Scope maps (Preview)** [Mappages d’étendue (préversion)] dans le portail pour répertorier tous les mappages d’étendue configurés dans un registre. Par exemple :
+
+```azurecli
+az acr scope-map list \
+  --registry myregistry --output table
+```
+
+La sortie affiche les mappages d’étendue que vous avez définis et plusieurs mappages d’étendue définis par le système que vous pouvez utiliser pour configurer des jetons :
+
+```
+NAME                 TYPE           CREATION DATE         DESCRIPTION
+-------------------  -------------  --------------------  ------------------------------------------------------------
+_repositories_admin  SystemDefined  2020-01-20T09:44:24Z  Can perform all read, write and delete operations on the ...
+_repositories_pull   SystemDefined  2020-01-20T09:44:24Z  Can pull any repository of the registry
+_repositories_push   SystemDefined  2020-01-20T09:44:24Z  Can push to any repository of the registry
+MyScopeMap           UserDefined    2019-11-15T21:17:34Z  Sample scope map
+```
+
+### <a name="show-token-details"></a>Afficher les détails du jeton
+
+Pour afficher les détails d’un jeton, tels que son état et les dates d’expiration de ses mots de passe, exécutez la commande [az acr token show][az-acr-token-show] ou sélectionnez le jeton dans l’écran **Tokens (Preview)** [Jetons (préversion)] dans le portail. Par exemple :
+
+```azurecli
+az acr scope-map show \
+  --name MyScopeMap --registry myregistry
+```
+
+Utilisez la commande [az acr token list][az-acr-token-list] ou l’écran **Tokens (Preview)** [Jetons (préversion)] dans le portail pour répertorier tous les jetons configurés dans un registre. Par exemple :
+
+```azurecli
+az acr token list --registry myregistry --output table
+```
+
+### <a name="generate-passwords-for-token"></a>Générer des mots de passe pour le jeton
+
+Si vous n’avez pas de mot de passe de jeton ou si vous souhaitez générer de nouveaux mots de passe, exécutez la commande [az acr token credential generate][az-acr-token-credential-generate]. 
+
+L’exemple suivant génère une nouvelle valeur password1 pour le jeton *MyToken*, avec une période d’expiration de 30 jours. Cela stocke le mot de passe dans la variable d’environnement `TOKEN_PWD`. Cet exemple est mis en forme pour l’interpréteur de commandes Bash.
+
+```azurecli
+TOKEN_PWD=$(az acr token credential generate \
+  --name MyToken --registry myregistry --days 30 \
+  --password1 --query 'passwords[0].value' --output tsv)
+```
+
+Pour utiliser le Portail Azure afin de générer un mot de passe de jeton, consultez les étapes décrites dans [Créer un jeton – Portail](#create-token---portal) plus haut dans cet article.
+
+### <a name="update-token-with-new-scope-map"></a>Mettre à jour le jeton avec le nouveau mappage d’étendue
+
+Si vous souhaitez mettre à jour un jeton avec un mappage d’étendue différent, exécutez la commande [az acr token update][az-acr-token-update] et spécifiez le nouveau mappage d’étendue. Par exemple :
 
 ```azurecli
 az acr token update --name MyToken --registry myregistry \
   --scope-map MyNewScopeMap
 ```
 
-Après la mise à jour d’un jeton ou d’un mappage d’étendue associé à un jeton, les modifications apportées aux autorisations prennent effet lors de la `docker login` suivante ou d’une autre authentification à l’aide du jeton.
+Sur le portail, dans l’écran **Tokens (preview)** [Jetons (préversion)], sélectionnez le jeton, puis sous **Scope map** (Mappage d’étendue), sélectionnez un autre mappage d’étendue.
 
-Après la mise à jour d’un jeton, vous souhaiterez peut-être générer de nouveaux mots de passe pour accéder au registre. Exécutez [az acr token credential generate][az-acr-token-credential-generate]. Par exemple :
+> [!TIP]
+> Après la mise à jour d’un jeton avec un nouveau mappage d’étendue, vous souhaiterez peut-être générer de nouveaux mots de passe de jeton. Utilisez la commande [az acr token credential generate][az-acr-token-credential-generate] ou régénérez un mot de passe de jeton dans le Portail Azure.
+
+## <a name="disable-or-delete-token"></a>Désactiver ou supprimer un jeton
+
+Vous devrez peut-être désactiver temporairement l’utilisation des informations d’identification du jeton pour un utilisateur ou un service. 
+
+À l’aide d’Azure CLI, exécutez la commande [az acr token update][az-acr-token-update] pour définir le paramètre `status` sur `disabled` :
 
 ```azurecli
-az acr token credential generate \
-  --name MyToken --registry myregistry --days 30
+az acr token update --name MyToken --registry myregistry \
+  --status disabled
 ```
 
-## <a name="about-repository-scoped-permissions"></a>À propos des autorisations délimitées par le référentiel
+Dans le portail, sélectionnez le jeton dans l’écran **Tokens (Preview)** [Jetons (préversion)], puis sélectionnez **Disabled** (Désactivé) sous **Status** (État).
 
-### <a name="concepts"></a>Concepts
+Pour supprimer un jeton afin d’invalider l’accès de manière permanente pour toute personne utilisant ses informations d’identification, exécutez la commande [az acr token delete][az-acr-token-delete]. 
 
-Pour configurer des autorisations délimitées par le référentiel, créez un *jeton d’accès* et un *mappage d’étendue* associé à l’aide des commandes de l’interface de ligne de commande Azure.
+```azurecli
+az acr token delete --name MyToken --registry myregistry
+```
 
-* Un **jeton d’accès** est une information d’identification utilisée avec un mot de passe pour s’authentifier auprès du registre. Les actions associées à chaque jeton sont des *actions* autorisées délimitées à un ou plusieurs référentiels. Vous pouvez définir un délai d’expiration pour chaque jeton. 
-
-* Les **actions** sur chaque référentiel spécifié incluent un ou plusieurs des éléments suivants.
-
-  |Action  |Description  |
-  |---------|---------|
-  |`content/read`     |  Lisez les données du référentiel. Par exemple, tirer (pull) un artefact.  |
-  |`metadata/read`    | Lisez les métadonnées du référentiel. Par exemple, répertorier les balises ou afficher les métadonnées du manifeste.   |
-  |`content/write`     |  Écrivez des données dans le référentiel. Utilisez avec `content/read` pour envoyer (push) un artefact.    |
-  |`metadata/write`     |  Écrivez des métadonnées dans le référentiel. Par exemple, mettre à jour les attributs de manifeste.  |
-  |`content/delete`    | Supprimez les données du référentiel. Par exemple, supprimer un référentiel ou un manifeste. |
-
-* Un **mappage d’étendue** est un objet de registre qui regroupe des autorisations de référentiel que vous appliquez à un jeton ou qui peut s’appliquer à nouveau à d’autres jetons. Si vous n’appliquez pas de mappage d’étendue lors de la création d’un jeton, un mappage d’étendue est automatiquement créé pour vous, afin d’enregistrer les paramètres d’autorisation. 
-
-  Un mappage d’étendue vous aide à configurer plusieurs utilisateurs avec un accès identique à un ensemble de référentiels. Azure Container Registry fournit également des mappages d’étendue définis par le système que vous pouvez appliquer lors de la création de jetons d’accès.
-
-L’image suivante résume la relation entre les jetons et les mappages d’étendue. 
-
-![Mappages d’étendues et jetons de registre](media/container-registry-repository-scoped-permissions/token-scope-map-concepts.png)
-
-### <a name="scenarios"></a>Scénarios
-
-Les scénarios d’utilisation d’un jeton d’accès sont les suivants :
-
-* Fournir aux appareils IoT des jetons individuels pour tirer (pull) une image d’un référentiel
-* Fournir à une organisation externe des autorisations sur un référentiel spécifique 
-* Limiter l’accès au référentiel à des groupes d’utilisateurs spécifiques dans votre organisation. Par exemple, fournissez un accès en écriture et en lecture aux développeurs qui génèrent des images ciblant des référentiels spécifiques, ainsi qu’un accès en lecture aux équipes qui déploient à partir de ces référentiels.
-
-### <a name="authentication-using-token"></a>Authentification à l’aide d’un jeton
-
-Utilisez un nom de jeton en tant que nom d’utilisateur et l’un de ses mots de passe associés pour l’authentification auprès du registre cible. La méthode d’authentification utilisée dépend des actions configurées.
-
-### <a name="contentread-or-contentwrite"></a>contenu/lecture ou contenu/écriture
-
-Si le jeton autorise uniquement des actions `content/read` ou `content/write`, fournissez les informations d’identification du jeton dans l’un des flux d’authentification suivants :
-
-* S’authentifier avec Docker à l’aide de `docker login`
-* S’authentifier avec le registre à l’aide de la commande [az acr login][az-acr-login] dans l’interface de ligne de commande Azure
-
-Après l’authentification, le jeton autorise les actions configurées sur le ou les référentiels délimités. Par exemple, si le jeton autorise l’action `content/read` sur un référentiel, les opérations `docker pull` sont autorisées sur les images dans ce référentiel.
-
-#### <a name="metadataread-metadatawrite-or-contentdelete"></a>métadonnées/lecture, métadonnées/écriture ou contenu/supprimer
-
-Si le jeton permet les actions `metadata/read`, `metadata/write` ou `content/delete` sur un référentiel, les informations d’identification du jeton doivent être fournies en tant que paramètres avec les commandes [az acr repository][az-acr-repository] dans l’interface de ligne de commande Azure.
-
-Par exemple, si les actions `metadata/read` sont autorisées sur un référentiel, transmettez les informations d’identification du jeton lors de l’exécution de la commande [az acr repository show-tags][az-acr-repository-show-tags] pour répertorier les balises.
+Dans le portail, sélectionnez le jeton dans l’écran **Tokens (Preview)** [Jetons (préversion)], puis sélectionnez **Discard** (Abandonner).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour gérer les mappages d’étendue et les jetons d’accès, utilisez des commandes supplémentaires dans le groupe de commandes [az acr scope-map][az-acr-scope-map] et [az acr token][az-acr-token].
-* Consultez l’[aperçu de l’authentification](container-registry-authentication.md) pour les scénarios permettant de s’authentifier avec un registre de conteneurs Azure à l’aide d’un compte d’administrateur ou d’une identité Azure Active Directory.
+* Pour gérer les mappages d’étendue et les jetons, utilisez des commandes supplémentaires dans les groupes de commande [az acr scope-map][az-acr-scope-map] et [az acr token][az-acr-token].
+* Consultez la [page de présentation de l’authentification](container-registry-authentication.md) pour obtenir d’autres options d’authentification avec un registre de conteneurs Azure, notamment à l’aide d’une identité Azure Active Directory, d’un principal de service ou d’un compte administrateur.
 
 
 <!-- LINKS - External -->
@@ -267,12 +425,18 @@ Par exemple, si les actions `metadata/read` sont autorisées sur un référentie
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-repository]: /cli/azure/acr/repository/
 [az-acr-repository-show-tags]: /cli/azure/acr/repository/#az-acr-repository-show-tags
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository/#az-acr-repository-show-manifests
+[az-acr-repository-delete]: /cli/azure/acr/repository/#az-acr-repository-delete
 [az-acr-scope-map]: /cli/azure/acr/scope-map/
 [az-acr-scope-map-create]: /cli/azure/acr/scope-map/#az-acr-scope-map-create
+[az-acr-scope-map-list]: /cli/azure/acr/scope-map/#az-acr-scope-map-show
+[az-acr-scope-map-show]: /cli/azure/acr/scope-map/#az-acr-scope-map-list
 [az-acr-scope-map-update]: /cli/azure/acr/scope-map/#az-acr-scope-map-update
 [az-acr-scope-map-list]: /cli/azure/acr/scope-map/#az-acr-scope-map-list
 [az-acr-token]: /cli/azure/acr/token/
 [az-acr-token-show]: /cli/azure/acr/token/#az-acr-token-show
+[az-acr-token-list]: /cli/azure/acr/token/#az-acr-token-list
+[az-acr-token-delete]: /cli/azure/acr/token/#az-acr-token-delete
 [az-acr-token-create]: /cli/azure/acr/token/#az-acr-token-create
 [az-acr-token-update]: /cli/azure/acr/token/#az-acr-token-update
 [az-acr-token-credential-generate]: /cli/azure/acr/token/credential/#az-acr-token-credential-generate

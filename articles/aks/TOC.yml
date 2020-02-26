@@ -67,13 +67,13 @@
     - name: Sécurité
       href: concepts-security.md
       items: null
-    - name: Mise en réseau
+    - name: Réseau
       href: concepts-network.md
     - name: Stockage
       href: concepts-storage.md
-    - name: Scale
+    - name: Mise à l’échelle
       href: concepts-scale.md
-    - name: Meilleures pratiques
+    - name: Bonnes pratiques
       items:
         - name: Vue d’ensemble
           href: best-practices.md
@@ -143,6 +143,8 @@
           href: availability-zones.md
         - name: Utiliser des pools multinœuds
           href: use-multiple-node-pools.md
+        - name: Utiliser des pools de nœuds Spot (préversion)
+          href: spot-node-pool.md
         - name: Déployer AKS avec Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true

@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1300ecff416962bda4da800c5eff134951658846
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 600cd3f3ad8826b52648b51beb8c66a382766b80
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159163"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367884"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurer le comportement de la connexion Azure Active Directory pour une application à l’aide d’une stratégie de découverte du domaine d’accueil
 
@@ -100,9 +100,7 @@ Les stratégies prennent effet pour une application spécifique uniquement lorsq
 
 Une seule stratégie de découverte du domaine d’accueil peut être active sur un principal de service à tout moment.  
 
-Vous pouvez utiliser l’API Microsoft Azure Active Directory Graph directement ou les applets de commande Azure Active Directory PowerShell pour créer et gérer une stratégie de découverte du domaine d’accueil.
-
-L’API Graph qui manipule la stratégie est décrite dans l’article [Operations on policy](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) (Opérations sur la stratégie) sur MSDN.
+Vous pouvez utiliser les cmdlets PowerShell Azure Active Directory pour créer et gérer la stratégie de découverte du domaine d’accueil.
 
 Voici un exemple de définition de la stratégie de découverte du domaine d’accueil :
     
@@ -152,7 +150,7 @@ Nous allons utiliser des applets de commande PowerShell Azure AD dans le cadre d
 - Répertorier les applications pour lesquelles une stratégie est configurée.
 
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 Dans les exemples suivants, vous créez, mettez à jour, liez et supprimez des stratégies sur des principaux de service d’application dans Azure AD.
 
 1.  Pour commencer, téléchargez la dernière préversion des applets de commande Azure AD PowerShell. 
@@ -209,7 +207,7 @@ Pour appliquer une stratégie de découverte du domaine d’accueil après l’a
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Étape 2 : Rechercher le principal de service auquel affecter la stratégie  
 Vous avez besoin de **l’ID d’objet** des principaux de service auxquels vous souhaitez affecter la stratégie. Il existe plusieurs façons de rechercher **l’ID d’objet** des principaux de service.    
 
-Vous pouvez utiliser le portail, ou vous pouvez interroger [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Vous pouvez également accéder à [l’outil Afficheur Graph](https://developer.microsoft.com/graph/graph-explorer) et vous connecter à votre compte Azure AD pour voir tous les principaux de service de votre organisation. 
+Vous pouvez utiliser le portail, ou vous pouvez interroger [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta). Vous pouvez également accéder à [l’outil Afficheur Graph](https://developer.microsoft.com/graph/graph-explorer) et vous connecter à votre compte Azure AD pour voir tous les principaux de service de votre organisation. 
 
 Étant donné que vous utilisez PowerShell, vous pouvez utiliser l’applet de commande suivante pour lister les principaux de service et leurs identifiants.
 

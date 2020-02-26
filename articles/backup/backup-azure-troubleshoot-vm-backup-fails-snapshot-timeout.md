@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 47adda38bb39a95fe9abc0775a1822d677f19dab
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 0a4d7f152e555ed89bd0a6aee0a7bc83b9815492
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513845"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469134"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -64,6 +64,7 @@ Cette erreur se produit lorsqu’un des échecs d’extension met la machine vir
 
 - Ce problème peut se produire si un verrou dans le groupe de ressources des points de récupération empêche le nettoyage automatique des points de récupération.
 - Ce problème peut également se produire si plusieurs sauvegardes sont déclenchées tous les jours. Actuellement, nous recommandons une seule sauvegarde par jour, car les points de restauration instantanés sont conservés pendant 1 à 5 jours conformément à la rétention d’instantanés configurée, et seuls 18 points de restauration instantanés peuvent être associés à une machine virtuelle à un moment donné. <br>
+- Le nombre de points de restauration entre les regroupements de points de restauration et les groupes de ressources d’une machine virtuelle ne peut pas dépasser 18. Pour créer un nouveau point de restauration, supprimez les points de restauration existants.
 
 Action recommandée :<br>
 Pour résoudre ce problème, supprimez le verrou du groupe de ressources de la machine virtuelle et recommencez l’opération pour déclencher le nettoyage.

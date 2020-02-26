@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/10/2019
+ms.date: 02/19/2020
 ms.author: ryanwi
-ms.reviewer: jmprieur, lenalepa, sureshja
+ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 7e19e9067052c516427391adcc615767446c4049
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: b3338edf644aee8409cfca05d4ac801594cbf66b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697147"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467757"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procédure : Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire
 
@@ -37,7 +37,7 @@ Il existe quatre étapes simples pour convertir votre application en une applica
 3. [Mettre à jour votre code pour gérer plusieurs valeurs issuer](#update-your-code-to-handle-multiple-issuer-values)
 4. [Comprendre le consentement de l’utilisateur et de l’administrateur et apporter des modifications de code appropriées](#understand-user-and-admin-consent)
 
-Examinons chaque étape en détail. Vous pouvez également accéder directement à [cette liste d’exemples d’architectures mutualisées](https://docs.microsoft.com/samples/browse/?products=azure-active-directory).
+Examinons chaque étape en détail. Vous pouvez également accéder directement à l’exemple [Créer une application web SaaS mutualisée qui appelle Microsoft Graph à l’aide d’Azure AD et d’OpenID Connect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md).
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Conversion d’une inscription en inscription mutualisée
 
@@ -176,7 +176,7 @@ Cet article vous a montré comment créer une application pouvant connecter un u
 
 ## <a name="related-content"></a>Contenu connexe
 
-* [Exemples d’applications mutualisées](https://docs.microsoft.com/samples/browse/?products=azure-active-directory)
+* [Exemple d’application mutualisée](https://github.com/mspnp/multitenant-saas-guidance)
 * [Directives de personnalisation des applications][AAD-App-Branding]
 * [Objets principal de service et application][AAD-App-SP-Objects]
 * [Intégration d’applications dans Azure Active Directory][AAD-Integrating-Apps]

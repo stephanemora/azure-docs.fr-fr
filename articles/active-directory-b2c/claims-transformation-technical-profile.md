@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bf06fe7d4e529eb04b156a2d61011198a6fe0978
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: fbc1d59ac401adedcf897d0c16edb6904c89acc3
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949421"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193433"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de transformation de revendications dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -99,6 +99,12 @@ Le profil technique de transformation de revendications permet d’exécuter une
   </OrchestrationSteps>
 </UserJourney>
 ```
+
+## <a name="metadata"></a>Métadonnées
+
+| Attribut | Obligatoire | Description |
+| --------- | -------- | ----------- |
+| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la[résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
 
 ## <a name="use-a-validation-technical-profile"></a>Utiliser un profil technique de validation
 

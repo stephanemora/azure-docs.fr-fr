@@ -3,14 +3,14 @@ title: Automatiser le service Mobility pour la récupération d’urgence de l�
 description: Comment installer automatiquement le service Mobility pour la récupération d’urgence d’un serveur VMware/physique avec Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.topic: how-to
-ms.date: 12/22/2019
+ms.date: 2/5/2020
 ms.author: ramamill
-ms.openlocfilehash: 235b96cfd2da0c097bc576c63f5bd1c8ed224781
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f24d321e882024d324435498adf11694037547f7
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896016"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252225"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatiser l’installation du service mobilité
 
@@ -18,9 +18,9 @@ Cet article explique comment automatiser l’installation et les mises à jour d
 
 Lorsque vous déployez Site Recovery pour la récupération d’urgence de machines virtuelles VMware et de serveurs physiques locaux sur Azure, vous installez l’agent du service Mobility sur chaque ordinateur que vous souhaitez répliquer. Le service Mobility enregistre les écritures de données sur la machine et les transmet au serveur de traitement Site Recovery à des fins de réplication. Vous pouvez déployer le service Mobility de différentes manières :
 
-- **Installation Push** : Laissez Site Recovery installer l’agent du service Mobility lorsque vous activez la réplication pour un ordinateur dans le portail Azure.
+- **Installation Push** : Laissez Site Recovery installer l’agent du service Mobility lorsque vous activez la réplication pour un ordinateur dans le Portail Azure.
 - **Installation manuelle** : Installez le service Mobility manuellement sur chaque ordinateur. [En savoir plus](vmware-physical-mobility-service-overview.md) sur l’installation Push et manuelle.
-- **Déploiement automatisé** : Automatisez l’installation avec des outils de déploiement de logiciels tels que Microsoft Endpoint Configuration Manager ou des outils tiers tels que Intigua JetPatch.
+- **Déploiement automatisé** : Automatisez l’installation avec des outils de déploiement de logiciels tels que Microsoft Endpoint Configuration Manager ou des outils tiers tels que JetPatch.
 
 L’installation et la mise à jour automatisées fournissent une solution dans les cas suivants :
 
@@ -31,7 +31,7 @@ L’installation et la mise à jour automatisées fournissent une solution dans 
 - Vous devez mettre à l’échelle les installations de l’agent sur un grand nombre de serveurs simultanément.
 - Vous souhaitez planifier des installations et des mises à niveau pendant les fenêtres de maintenance planifiée.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour automatiser l'installation, vous avez besoin des éléments suivants :
 

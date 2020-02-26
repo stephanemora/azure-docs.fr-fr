@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: e833ca92004c678808ec5e294de2df7c90121be7
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: ce2b4200496938e6cffb935207df8c7027eaf37a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835108"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486132"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Utilisez Azure CLI pour les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2 (préversion)
 
@@ -24,7 +24,7 @@ Cet article vous explique comment utiliser l’[interface de ligne de commande (
 > L’extension `storage-preview` qui est présentée dans cet article est actuellement une fonctionnalité d’évaluation publique.
 
 [Exemple](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) | [Mappage de Gen1 à Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [Envoyer des commentaires](https://github.com/Azure/azure-cli-extensions/issues)
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 > [!div class="checklist"]
 > * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -77,7 +77,7 @@ Un système de fichiers agit comme un conteneur pour vos fichiers. Vous pouvez e
 Cet exemple crée un système de fichiers nommé `my-file-system`.
 
 ```azurecli
-az storage container create --name my-file-system
+az storage container create --name my-file-system --account-name mystorageaccount
 ```
 
 ## <a name="create-a-directory"></a>Créer un répertoire
@@ -237,6 +237,12 @@ Cet exemple définit l’ACL d’un répertoire pour l’utilisateur propriétai
 
 ```azurecli
 az storage blob directory access set -a "user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
+```
+
+Cet exemple définit l’ACL *par défaut* d’un répertoire pour l’utilisateur propriétaire, le groupe propriétaire ou d’autres utilisateurs, puis imprime l’ACL sur la console.
+
+```azurecli
+az storage blob directory access set -a "default:user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
 ```
 
 Utilisez la commande `az storage blob access set` pour définir l’ACL d’un **fichier**. 

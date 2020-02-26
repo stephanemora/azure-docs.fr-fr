@@ -4,17 +4,18 @@ description: Découvrez comment mettre à l’échelle votre ressource par une m
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: f8aaaf8890c3642884b72cc6c8fc2759fec357fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7758c440c75af5819099110dcbdaf5a86a1d2a04
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364541"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425117"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Prise en main de la mise à l’échelle automatique par métrique personnalisée dans Azure
 Cet article décrit comment mettre à l’échelle votre ressource par une mesure personnalisée dans le portail Azure.
 
-La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [groupes de machines virtuelles identiques](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aux [services cloud](https://azure.microsoft.com/services/cloud-services/), à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et aux [services de gestion des API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+La mise à l’échelle automatique Azure Monitor s’applique uniquement à [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service – Web Apps](https://azure.microsoft.com/services/app-service/web/), [Azure Data Explorer Cluster](https://azure.microsoft.com/services/data-explorer/),   
+l’environnement de service d’intégration et aux [services Gestion des API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## <a name="lets-get-started"></a>Prise en main
 Cet article suppose que vous disposez d’une application web avec Application Insights déjà configuré. Si vous n’en avez pas encore, vous pouvez [configurer Application Insights pour votre site web ASP.NET][1].

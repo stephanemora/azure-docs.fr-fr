@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: d89d506d8912706bbdb802801b16d01036ecb8e2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 99c6ee5d58655350d14add61530fae647a675508
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583636"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443225"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurer et gérer un pool de machines virtuelles 
 Cet article explique comment effectuer les tâches suivantes :
@@ -96,6 +96,9 @@ Le créateur de laboratoire (formateur/professeur) peut se connecter à une mach
  Pour vous connecter à la machine virtuelle d’étudiant, pointez la souris sur la machine virtuelle dans la liste et sélectionnez le bouton ordinateur.  
 
 ![Se connecter au bouton de machines virtuelles d’étudiant](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
+
+> [!NOTE]
+> Lorsque le professeur démarre la machine virtuelle et se connecte à celle-ci, le quota d’étudiants n’est pas modifié. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les autres options d’utilisation que vous pouvez configurer pour les étudiants (en tant que propriétaire du labo), consultez l’article suivant : [Configure student usage](how-to-configure-student-usage.md) (Configurer l’utilisation pour les étudiants).

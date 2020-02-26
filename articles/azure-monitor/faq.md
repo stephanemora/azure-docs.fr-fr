@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/23/2020
-ms.openlocfilehash: 9f377f93ab8fef2c1ad713da6fcd6c6f14107c3f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 33af9c8f3fbe4de57d65be432f249d4aeb5d3e27
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986816"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485333"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Questions fréquemment posées sur Azure Monitor
 
@@ -697,7 +697,10 @@ Les seuils des critères d’intégrité Linux suivants ne peuvent pas être mod
 Les règles d’alerte définies pour chaque critère d’intégrité ne sont pas affichées dans le portail Azure. Elles ne peuvent être activées ou désactivées qu’à partir de l’[API de supervision de charge de travail](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). En outre, il est impossible d'affecter un [groupe d'actions Azure Monitor](platform/action-groups.md) pour des alertes d'intégrité sur le portail Azure. Vous pouvez utiliser l’API de paramètre de notification uniquement pour configurer le déclenchement d’un groupe d’actions chaque fois qu’une alerte d’intégrité est déclenchée. Actuellement, il est possible d’affecter des groupes d’action pour une machine virtuelle, si bien que toutes les *alertes d’intégrité* déclenchées sur la machine virtuelle déclenchent les mêmes groupes d’actions. Contrairement aux alertes Azure classiques, il ne peut pas exister un groupe d’action distinct pour chaque règle d’alerte d’intégrité. De plus, seuls les groupes d’actions configurés pour adresser des notifications par e-mail ou SMS sont pris en charge quand des alertes d’intégrité sont déclenchées. 
 
 ### <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>Aucune donnée ne figure dans les tableaux de performances de ma machine virtuelle, ou certaines ne s’affichent pas
+Nos graphiques de performances ont été mis à jour pour utiliser les données stockées dans la table *InsightsMetrics*.  Pour afficher les données de ces graphiques, vous devez effectuer une mise à niveau pour utiliser la nouvelle solution VM Insights.  Pour plus d’informations, reportez-vous à notre [FAQ sur la disponibilité générale](insights/vminsights-ga-release-faq.md).
+
 Si les données de performance ne s’affichent pas dans le tableau du disque ou dans certains graphiques de performance, vos compteurs de performance ne sont peut-être pas configurés dans l’espace de travail. Pour résoudre ce problème, exécutez le [script PowerShell](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell) suivant.
+
 
 ### <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>Quelle est la différence entre la fonctionnalité de mappage d’Azure Monitor pour machines virtuelles et celle de Service Map ?
 La fonctionnalité de mappage d’Azure Monitor pour machines virtuelles est basée sur celle de Service Map, mais présente les différences suivantes :

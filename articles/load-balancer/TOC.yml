@@ -62,10 +62,14 @@
       href: load-balancer-security-controls.md
 - name: Procédures
   items:
-    - name: Passer d’un équilibreur de charge public De base à un équilibreur de charge public Standard
-      href: upgrade-basic-standard.md
-    - name: Passer d’un équilibreur de charge interne De base à un équilibreur de charge interne Standard
-      href: upgrade-basicInternal-standard.md
+    - name: Passer d’un équilibreur de charge De base à un équilibreur de charge Standard
+      items:
+        - name: Mettre à niveau un équilibreur de charge public De base
+          href: upgrade-basic-standard.md
+        - name: Mettre à niveau un équilibreur de charge interne De base - Aucune connexion sortante nécessaire
+          href: upgrade-basicInternal-standard.md
+        - name: Mettre à niveau un équilibreur de charge interne De base - Connexion sortante nécessaire
+          href: upgrade-InternalBasic-To-PublicStandard.md
     - name: Configurer des règles de trafic sortant
       items:
         - name: Portail Azure

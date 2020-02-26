@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/08/2019
+ms.date: 02/19/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da2d598c7bb6d7b06e57dd497d1e2aebf1b63694
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: cd37374ab6341356d84f205e92c9612d8481818f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898888"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468845"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codes d’erreur du rapport d’activité de connexion 
 
@@ -133,6 +133,7 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |50178|Le contrôle de session n’est pas pris en charge pour les utilisateurs PassThrough.|
 |50180|L’authentification Windows intégrée est nécessaire. Activez le locataire pour l’authentification unique transparente.|
 |50181|Défaillance liée au mot de passe à usage unique lors de la connexion. |
+|50194|L’application « {appId} » ({appName}) n’est pas configurée en tant qu’application mutualisée. L’utilisation du point de terminaison /common n’est pas prise en charge pour les applications créées après « {time} ». Utilisez un point de terminaison spécifique au locataire ou configurez l’application pour qu’elle soit mutualisée.|
 |50201|Ce message d’invite s’affiche lors de la connexion quand des informations supplémentaires doivent être fournies à l’utilisateur.|
 |51001|L’indicateur de domaine n’est pas présent avec identificateur de sécurité local - UPN local.|
 |51004|Le compte d’utilisateur n’existe pas dans le répertoire.|
@@ -188,13 +189,19 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |90072| Le compte doit d’abord être ajouté comme utilisateur externe dans le locataire. Déconnectez-vous, puis connectez-vous avec un autre compte Azure AD.|
 |90094| L’application a demandé des autorisations pour lesquelles l’utilisateur connecté n’est pas autorisé à donner son consentement, et celui-ci a été bloqué. |
 |90095| L’application a demandé des autorisations pour lesquelles l’utilisateur connecté n’est pas autorisé à donner son consentement, et l’utilisateur a affiché le formulaire de [demande de consentement d’administrateur](../manage-apps/configure-admin-consent-workflow.md). |
+|130500|La connexion par téléphone a été bloquée en raison de la stratégie relative aux informations d’identification de l’utilisateur.|
 |500011| Le principal de ressource nommé <site address> est introuvable dans le locataire nommé <tenant ID>. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre demande d’authentification au locataire incorrect.|
+|500014|La ressource « {identifier} » est désactivée.|
 |500021| Le locataire est restreint par le proxy de l’entreprise. L’accès aux ressources est refusé.|
 |500121| Échec de l’authentification lors d’une requête d’authentification forte.|
 |500133| L’intervalle de temps de l’assertion n’est pas valide. Vérifiez que le jeton d’accès n’est pas arrivé à expiration avant de l’utiliser pour l’assertion de l’utilisateur, ou demandez-en un nouveau.|
+|500172|Le certificat « {name} » émis par « {issuer} » n’est pas valide. Heure actuelle : « {curTime} ». Certificat NotBefore : « {startTime} ». Certificat NotAfter : « {endTime} ».|
+|501291|L’application cliente est une application GAM, l’appareil n’est pas inscrit et la requête est envoyée à l’aide d’un répartiteur. La connexion au lieu de travail doit être effectuée pour inscrire l’appareil avant de pouvoir accéder à l’application.|
+|530003|Votre appareil doit être managé pour accéder à cette ressource.|
 |530021|L’application ne répond pas aux conditions d’accès conditionnel des applications approuvées.|
 |530032|Bloqué par la stratégie de sécurité.| 
 |700016|L’application associée à l’identificateur « {appIdentifier} » est introuvable dans le répertoire « {tenantName} ». Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre requête d’authentification au locataire incorrect.|
+|700051|Response_type « jeton » n’est pas activé pour l’application. L’application a demandé un type de réponse non pris en charge pour les raisons suivantes : response_type « jeton » n’est pas activé pour l’application. Le propriétaire de l’application doit accéder au Portail Azure ou appeler MS Graph pour activer l’octroi implicite de jeton d’accès.|
 |900432|Le client confidentiel n’est pas pris en charge dans une requête intercloud.|
 |5000811|Impossible de vérifier la signature du jeton SAML. L’identificateur de clé de signature ne correspond à aucune clé inscrite valide.|
 |7000215|Une clé secrète client non valide a été fournie.|

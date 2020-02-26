@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 65006b8357db44c3e1b8f8d9e819615b5dd9db6e
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 571be831d337c71a084780da18b480cdd1e42d20
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031746"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77365215"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Résoudre les erreurs avec les runbooks
 
@@ -64,7 +64,7 @@ Si vous essayez d’accéder à des ressources dans un autre abonnement, vous po
 
 1. Accédez au compte d’identification Automation, puis copiez l’ID d’application et l’empreinte.
   ![Copier l’ID d’application et l’empreinte](../media/troubleshoot-runbooks/collect-app-id.png)
-1. Accédez du contrôle d’accès de l’abonnement où le compte Automation n’est pas hébergé, puis ajoutez une nouvelle attribution de rôle.
+1. Accédez au service Access Control de l’abonnement où le compte Automation n’est PAS hébergé, puis ajoutez une nouvelle attribution de rôle.
   ![Contrôle d’accès](../media/troubleshoot-runbooks/access-control.png)
 1. Ajoutez l’ID d’application que vous avez collecté à l’étape précédente. Sélectionnez des autorisations Contributeur.
    ![Ajouter une attribution de rôle](../media/troubleshoot-runbooks/add-role-assignment.png)
@@ -164,7 +164,7 @@ At line:16 char:1
 
 ### <a name="cause"></a>Cause :
 
-Cette erreur est due à l'utilisation des applets de commande AzureRM et Az dans un runbook. Elle se produit lorsque vous importez `Az` avant d’importer `AzureRM`.
+Cette erreur est due à l'utilisation des cmdlets AzureRM et Az dans un runbook. Elle se produit lorsque vous importez `Az` avant d’importer `AzureRM`.
 
 ### <a name="resolution"></a>Résolution
 
@@ -245,14 +245,14 @@ The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, fun
 
 Cette erreur peut se produire pour les raisons suivantes :
 
-* Le module contenant l’applet de commande n’est pas importé dans le compte Automation.
+* Le module contenant la cmdlet n’est pas importé dans le compte Automation.
 * Le module contenant l’applet de commande est importé, mais il est obsolète.
 
 ### <a name="resolution"></a>Résolution
 
 Cette erreur peut être résolue en effectuant une des tâches suivantes :
 
-Si le module est un module Azure, consultez [Guide pratique pour mettre à jour des modules Azure PowerShell dans Azure Automation](../automation-update-azure-modules.md) pour découvrir comment mettre à jour vos modules dans votre compte Automation.
+Si le module est un module Azure, consultez [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](../automation-update-azure-modules.md) pour découvrir comment mettre à jour vos modules dans votre compte Automation.
 
 S’il s’agit d’un module distinct, assurez-vous que le module est importé dans votre compte Automation.
 
@@ -438,7 +438,7 @@ Si vous voulez utiliser plus de 500 minutes de traitement par mois, vous devez c
 3. Cliquez sur **Paramètres**, puis sur **Tarifs**.
 4. Cliquez sur **Activer** en bas de page pour actualiser votre compte au niveau **De base**.
 
-## <a name="cmdlet-not-recognized"></a>Scénario : L’applet de commande n’est pas reconnue lors de l’exécution d’un runbook
+## <a name="cmdlet-not-recognized"></a>Scénario : La cmdlet n’est pas reconnue lors de l’exécution d’un runbook
 
 ### <a name="issue"></a>Problème
 
@@ -450,14 +450,14 @@ Le travail de votre runbook échoue avec l’erreur :
 
 ### <a name="cause"></a>Cause :
 
-Cette erreur survient quand le moteur PowerShell ne trouve pas l’applet de commande que vous utilisez dans votre runbook. Cette erreur peut être dû au fait que le module contenant l’applet de commande n’est pas présent dans le compte, qu’il existe un conflit de nom avec un nom de runbook ou que l’applet de commande existe déjà dans un autre module et Automation ne peut pas résoudre le nom.
+Cette erreur survient quand le moteur PowerShell ne trouve pas la cmdlet que vous utilisez dans votre runbook. Cette erreur peut être dû au fait que le module contenant la cmdlet n’est pas présent dans le compte, qu’il existe un conflit de nom avec un nom de runbook ou que la cmdlet existe déjà dans un autre module et Automation ne peut pas résoudre le nom.
 
 ### <a name="resolution"></a>Résolution
 
 Une des solutions suivantes corrige ce problème :
 
-* Vérifiez que vous avez correctement entré le nom de l’applet de commande.
-* Vérifiez que l’applet de commande existe dans votre compte Automation et qu’il n’existe aucun conflit. Pour vérifier si l’applet de commande est présente, ouvrez un runbook en mode édition et recherchez l’applet de commande dans la bibliothèque ou exécutez `Get-Command <CommandName>`. Une fois que vous avez vérifié que l’applet de commande est disponible pour le compte, et qu’il n’existe aucun conflit de nom avec d’autres applets de commande ou runbooks, ajoutez l’applet de commande dans le canevas et veillez à utiliser un paramètre valide défini dans votre runbook.
+* Vérifiez que vous avez correctement entré le nom de la cmdlet.
+* Assurez-vous que l’applet de commande existe dans votre compte Automation et qu’il n’y a aucun conflit. Pour vérifier si l’applet de commande est présente, ouvrez un runbook en mode édition et recherchez l’applet de commande dans la bibliothèque ou exécutez `Get-Command <CommandName>`. Une fois que vous avez vérifié que l’applet de commande est disponible pour le compte, et qu’il n’existe aucun conflit de nom avec d’autres applets de commande ou runbooks, ajoutez l’applet de commande dans le canevas et veillez à utiliser un paramètre valide défini dans votre runbook.
 * Si vous rencontrez un conflit de noms et si l’applet de commande est disponible dans deux modules différents, vous pouvez résoudre ce problème en utilisant le nom qualifié complet de l’applet de commande. Vous pouvez par exemple utiliser **Nom_module\Nom_applet_de_commande**.
 * Si vous exécutez le runbook localement dans un groupe de Workers hybrides, assurez-vous que le module et l’applet de commande sont installés sur la machine qui héberge le Worker hybride.
 
@@ -528,7 +528,7 @@ Cette erreur peut se produire lors de la récupération d’une sortie de tâche
 Il existe deux façons de résoudre cette erreur :
 
 * Modifiez le runbook et réduisez le nombre de flux de tâches émis.
-* Réduisez le nombre de flux à récupérer lors de l’exécution de l’applet de commande. Pour suivre ce comportement, vous pouvez spécifier le paramètre `-Stream Output` sur l’applet de commande `Get-AzureRmAutomationJobOutput` afin de ne récupérer que les flux de sortie. 
+* Réduisez le nombre de flux à récupérer lors de l’exécution de la cmdlet. Pour suivre ce comportement, vous pouvez spécifier le paramètre `-Stream Output` sur l’applet de commande `Get-AzureRmAutomationJobOutput` afin de ne récupérer que les flux de sortie. 
 
 ## <a name="cannot-invoke-method"></a>Scénario : Le travail PowerShell échoue avec l’erreur : Impossible d’appeler la méthode
 
@@ -569,53 +569,77 @@ Le compte nxautomationuser de l’agent Log Analytics pour Linux n’est pas cor
 
 * Vérifiez la configuration du compte nxautomationuser dans le fichier sudoers. Consultez [Exécution de runbooks sur un Runbook Worker hybride](../automation-hrw-run-runbooks.md).
 
+## <a name="scenario-cmdlet-failing-in-pnp-powershell-runbook-on-azure-automation"></a>Scénario : Échec de la cmdlet dans le runbook PowerShell PnP sur Azure Automation
+
+### <a name="issue"></a>Problème
+
+Lorsqu’un runbook écrit directement un objet généré par PowerShell PnP dans la sortie Azure Automation, la sortie de la cmdlet ne peut pas être renvoyée à Automation.
+
+### <a name="cause"></a>Cause :
+
+Ce problème est généralement dû au fait qu’Azure Automation traite les runbooks qui appellent des cmdlets PowerShell PnP, par exemple **add-pnplistitem**, sans intercepter les objets de retour.
+
+### <a name="resolution"></a>Résolution
+
+Modifiez vos scripts pour attribuer des valeurs renvoyées à des variables afin que les cmdlets n’essaient pas d’écrire des objets entiers dans la sortie standard. Un script peut rediriger le flux de sortie vers une cmdlet, comme indiqué ci-dessous.
+
+```azurecli
+  $null = add-pnplistitem
+```
+Si votre script analyse la sortie de la cmdlet, le script doit stocker la sortie dans une variable et manipuler la variable au lieu de simplement diffuser la sortie.
+
+```azurecli
+$SomeVariable = add-pnplistitem ....
+if ($SomeVariable.someproperty -eq ....
+```
+
 ## <a name="other"></a>Mon problème n’est pas listé ci-dessus
 
 Les sections ci-dessous répertorient d'autres erreurs courantes en plus de la documentation de prise en charge pour vous aider à résoudre votre problème.
 
-## <a name="hybrid-runbook-worker-doesnt-run-jobs-or-isnt-responding"></a>Le runbook Worker hybride n’exécute pas de travaux ou ne répond pas
+### <a name="hybrid-runbook-worker-doesnt-run-jobs-or-isnt-responding"></a>Le runbook Worker hybride n’exécute pas de travaux ou ne répond pas
 
 Si vous exécutez des travaux à l'aide d'un Worker hybride plutôt qu'avec Azure Automation, vous devrez peut-être [résoudre les problèmes du Worker hybride lui-même](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker).
 
-## <a name="runbook-fails-with-no-permission-or-some-variation"></a>Échec du runbook avec l’erreur « Aucune autorisation » ou une variante
+### <a name="runbook-fails-with-no-permission-or-some-variation"></a>Échec du runbook avec l’erreur « Aucune autorisation » ou une variante
 
 Les comptes d’identification n’ont peut-être pas les mêmes autorisations sur les ressources Azure que votre compte actuel. Vérifiez que votre compte d’identification dispose des [autorisations nécessaires pour accéder aux ressources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) utilisées dans votre script.
 
-## <a name="runbooks-were-working-but-suddenly-stopped"></a>Les runbooks fonctionnaient, mais se sont soudainement arrêtés
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>Les runbooks fonctionnaient, mais se sont soudainement arrêtés
 
 * Si les runbooks s’exécutaient auparavant et qu’ils se sont arrêtés, vérifiez que le [compte d’identification](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal) n’a pas expiré.
 * Si vous utilisez des webhooks pour démarrer les runbooks, vérifiez qu’aucun [webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook) n’a expiré.
 
-## <a name="issues-passing-parameters-into-webhooks"></a>Problèmes liés au passage de paramètres dans des webhooks
+### <a name="issues-passing-parameters-into-webhooks"></a>Problèmes liés au passage de paramètres dans des webhooks
 
 Pour obtenir de l’aide sur le passage des paramètres dans des webhooks, consultez [Démarrer un runbook à partir d’un webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
 
-## <a name="issues-using-az-modules"></a>Problèmes liés à l’utilisation de modules Az
+### <a name="issues-using-az-modules"></a>Problèmes liés à l’utilisation de modules Az
 
-L’utilisation de modules Az et AzureRM dans le même compte Automation n’est pas prise en charge. Pour plus d’informations, consultez [Modules Az dans les runbooks](https://docs.microsoft.com/azure/automation/az-modules) pour plus d’informations.
+L’utilisation de modules Az et AzureRM dans le même compte Automation n’est pas prise en charge. Pour plus d’informations, consultez [Modules Az dans les runbooks](https://docs.microsoft.com/azure/automation/az-modules) pour plus d’informations.
 
-## <a name="inconsistent-behavior-in-runbooks"></a>Comportement incohérent dans des runbooks
+### <a name="inconsistent-behavior-in-runbooks"></a>Comportement incohérent dans des runbooks
 
 Suivez l’aide fournie dans [Exécution de runbooks](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior) pour éviter les problèmes liés aux travaux simultanés, à des ressources créées plusieurs fois ou à une logique liée à la chronologie dans les runbooks.
 
-## <a name="runbook-fails-with-the-error-no-permission-forbidden-403-or-some-variation"></a>Échec du runbook avec l’erreur Aucune autorisation, Interdit (403) ou toute autre variante
+### <a name="runbook-fails-with-the-error-no-permission-forbidden-403-or-some-variation"></a>Échec du runbook avec l’erreur Aucune autorisation, Interdit (403) ou toute autre variante
 
 Les comptes d’identification n’ont peut-être pas les mêmes autorisations sur les ressources Azure que votre compte actuel. Vérifiez que votre compte d’identification dispose des [autorisations nécessaires pour accéder aux ressources](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) utilisées dans votre script.
 
-## <a name="runbooks-were-working-but-suddenly-stopped"></a>Les runbooks fonctionnaient, mais se sont soudainement arrêtés
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>Les runbooks fonctionnaient, mais se sont soudainement arrêtés
 
 * Si les runbooks s’exécutaient auparavant et qu’ils se sont arrêtés, vérifiez que le compte d’identification n’a pas expiré. Consultez [Renouvellement de certification](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
 * Si vous utilisez des webhooks pour démarrer les runbooks, vérifiez qu’aucun webhook [n’a expiré](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
 
-## <a name="passing-parameters-into-webhooks"></a>Passage de paramètres dans des webhooks
+### <a name="passing-parameters-into-webhooks"></a>Passage de paramètres dans des webhooks
 
 Pour obtenir de l’aide sur le passage des paramètres dans des webhooks, consultez [Démarrer un runbook à partir d’un webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
 
-## <a name="using-az-modules"></a>Utilisation de modules Az
+### <a name="using-az-modules"></a>Utilisation de modules Az
 
-L’utilisation de modules Az et AzureRM dans le même compte Automation n’est pas prise en charge. Consultez [Modules Az dans les runbooks](https://docs.microsoft.com/azure/automation/az-modules).
+L’utilisation de modules Az et AzureRM dans le même compte Automation n’est pas prise en charge. Consultez [Modules Az dans les runbooks](https://docs.microsoft.com/azure/automation/az-modules).
 
-## <a name="using-self-signed-certificates"></a>Utilisation de certificats auto-signés
+### <a name="using-self-signed-certificates"></a>Utilisation de certificats auto-signés
 
 Pour utiliser des certificats auto-signés, consultez [Création d’un certificat](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
 

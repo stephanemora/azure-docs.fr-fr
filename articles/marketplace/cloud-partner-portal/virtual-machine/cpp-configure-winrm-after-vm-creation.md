@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: pabutler
-ms.openlocfilehash: ae5a55c6d640852cbd873bc6b36e502b5fe17165
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7d050b32b212f66623a24bcf87d40111fc5973a5
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817952"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77481372"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Configurer WinRM après la création d’une machine virtuelle
 
@@ -25,7 +25,7 @@ Cet article explique comment configurer une machine virtuelle hébergée sur Azu
 
 ## <a name="enabling-port-traffic"></a>Activer le trafic sur le port
 
-Le protocole WinRM sur HTTPS utilise le port 5896, qui n’est pas activé par défaut sur les machines virtuelles Windows préconfigurées proposées sur la Place de marché Azure. Pour activer ce protocole, procédez comme suit pour ajouter une nouvelle règle au groupe de sécurité réseau (NSG) dans le [portail Azure](https://portal.azure.com).  Pour plus d’informations sur les groupes de sécurité réseau, voir [Groupes de sécurité](https://docs.microsoft.com/azure/virtual-network/security-overview).
+Le protocole WinRM sur HTTPS utilise le port 5986, qui n’est pas activé par défaut sur les machines virtuelles Windows préconfigurées proposées sur la Place de marché Azure. Pour activer ce protocole, procédez comme suit pour ajouter une nouvelle règle au groupe de sécurité réseau (NSG) dans le [portail Azure](https://portal.azure.com).  Pour plus d’informations sur les groupes de sécurité réseau, voir [Groupes de sécurité](https://docs.microsoft.com/azure/virtual-network/security-overview).
 
 1.  Accédez au panneau **Machines virtuelles >**   <*nom de la machine virtuelle*>   **> Paramètres/Mise en réseau**.
 2.  Cliquez sur le nom du groupe de sécurité réseau (dans cet exemple, **testvm11002**) pour afficher ses propriétés :

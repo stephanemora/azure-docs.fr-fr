@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c3c0aea6ecaccc972702a8c87e4d127c71c75d6
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: a3b1b38063dcef1c61fbfb6fec529aeeed40a662
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121370"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367778"
 ---
 # <a name="how-provisioning-works"></a>Comment fonctionne le provisionnement
 
@@ -91,7 +91,7 @@ Notez que le paramètre userPrincipalName d’un utilisateur invité est souvent
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Cycles de provisionnement : cycle initial et cycle incrémentiel
 
-Lorsque Azure AD est le système source, le service d’approvisionnement utilise la [fonctionnalité de requête différentielle de l’API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) pour surveiller les utilisateurs et groupes. Le service de provisionnement exécute un cycle initial sur le système source et le système cible, qui est suivi de cycles incrémentiels périodiques.
+Lorsqu’Azure AD est le système source, le service d’approvisionnement utilise la fonctionnalité [Utilisation des requêtes différentielles pour suivre les modifications apportées aux données de Microsoft Graph](https://docs.microsoft.com/graph/delta-query-overview) pour surveiller les utilisateurs et groupes. Le service de provisionnement exécute un cycle initial sur le système source et le système cible, qui est suivi de cycles incrémentiels périodiques.
 
 ### <a name="initial-cycle"></a>Cycle initial
 
@@ -142,8 +142,8 @@ Après le cycle initial, tous les autres cycles effectuent les opérations suiva
 
 Le service de provisionnement continue à exécuter indéfiniment des cycles incrémentiels consécutifs, à des intervalles définis dans le [tutoriel propre à chaque application](../saas-apps/tutorial-list.md). Les cycles incrémentiels se poursuivent jusqu’à ce que l’un des événements suivants se produise :
 
-- Le service est arrêté manuellement à l’aide du portail Azure, ou à l’aide de la commande API Graph appropriée 
-- Un nouveau cycle initial est déclenché au moyen de l’option **Effacer l’état en cours et redémarrer** dans le portail Azure, ou à l’aide de la commande API Graph appropriée. Cette action permet d’effacer les filigranes stockés et de rendre tous les objets source disponibles pour une nouvelle évaluation.
+- Le service est arrêté manuellement à l’aide du Portail Azure ou à l’aide de la commande appropriée de l’API Microsoft Graph.
+- Un nouveau cycle initial est déclenché au moyen de l’option **Effacer l’état en cours et redémarrer** dans le Portail Azure ou à l’aide de la commande appropriée de l’API Microsoft Graph. Cette action permet d’effacer les filigranes stockés et de rendre tous les objets source disponibles pour une nouvelle évaluation.
 - Une nouveau cycle initial est déclenché en raison d’une modification dans les mappages d’attributs ou les filtres d’étendue. Cette action permet également d’effacer les filigranes stockés et de rendre tous les objets source disponibles pour une nouvelle évaluation.
 - Le processus d’approvisionnement est mis en quarantaine (voir ci-dessous) en raison d’un taux d’erreur élevé et reste en quarantaine pendant plus de quatre semaines. Dans ce cas, le service sera automatiquement désactivé.
 

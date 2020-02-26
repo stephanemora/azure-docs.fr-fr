@@ -7,16 +7,16 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 3b0bb62de4a96a45d607e05b32a87feec692e4d4
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: e76ae2e072bb780ac9788902e9157db871e4f09d
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75722202"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373375"
 ---
 # <a name="configure-managed-identities-for-your-azure-data-explorer-cluster"></a>Configurer des identités managées pour votre cluster Azure Data Explorer
 
-Une [identité managée issue d’Azure Active Directory](/azure/active-directory/managed-identities-azure-resources/overview) permet à votre cluster d’accéder facilement aux autres ressources protégées par AAD telles qu’Azure Key Vault. Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Cet article explique comment créer une identité managée pour des clusters Azure Data Explorer. 
+Une [identité managée issue d’Azure Active Directory](/azure/active-directory/managed-identities-azure-resources/overview) permet à votre cluster d’accéder facilement aux autres ressources protégées par AAD telles qu’Azure Key Vault. Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Cet article explique comment créer une identité managée pour des clusters Azure Data Explorer. La configuration des identités managées est actuellement prise en charge uniquement pour [activer les clés gérées par le client pour votre cluster](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault).
 
 > [!Note]
 > Les identités managées pour Azure Data Explorer ne se comportent pas comme prévu si votre application est migrée entre des abonnements ou des locataires. L’application devra obtenir une nouvelle identité, ce qui peut être effectué par la désactivation et la réactivation de la caractéristique au moyen de [supprimer une identité](#remove-an-identity). Les stratégies d’accès des ressources en aval devront également être mises à jour pour utiliser la nouvelle identité.
