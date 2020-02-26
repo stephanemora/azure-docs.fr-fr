@@ -142,6 +142,9 @@
             - name: Variables
               displayName: 'iteration,copy'
               href: copy-variables.md
+            - name: Outputs
+              displayName: 'iteration,copy'
+              href: copy-outputs.md
         - name: Ressources de niveau abonnement
           href: deploy-to-subscription.md
         - name: Ressources de niveau groupe d’administration
