@@ -3,12 +3,12 @@ title: Restaurer des machines virtuelles VMware avec le serveur de sauvegarde Az
 description: Utilisez le serveur de sauvegarde Azure (MABS) pour restaurer des machines virtuelles VMware s’exécutant sur un serveur VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 08/18/2019
-ms.openlocfilehash: 7c93c3100d8756fd9faf8cf02152a870bd0c106c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ab2fb4f8f79fa5a664f5cb0ba1bb537c1df658c2
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171925"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212356"
 ---
 # <a name="restore-vmware-virtual-machines"></a>Restaurer les machines virtuelles VMware
 
@@ -52,24 +52,28 @@ Cet article explique comment utiliser le serveur de sauvegarde Microsoft Azure (
 
 Vous pouvez restaurer des fichiers individuels à partir d’un point de récupération de machine virtuelle protégé. Cette fonctionnalité est uniquement disponible pour les machines virtuelles Windows Server. La restauration de fichiers individuels est similaire à la restauration de l’ensemble de la machine virtuelle, sauf que vous accédez à VMDK et que vous recherchez les fichiers souhaités avant de commencer le processus de récupération. Pour récupérer un fichier individuel ou sélectionner des fichiers à partir d’une machine virtuelle Windows Server :
 
+>[!NOTE]
+>La restauration d’un fichier individuel à partir d’une machine virtuelle est disponible uniquement pour les points de récupération de disque et de machine virtuelle Windows.
+
 1. Dans la console d’administrateur MABS, cliquez sur la vue **Récupération**.
 
 2. À l’aide du volet **Parcourir**, parcourez ou filtrez pour rechercher la machine virtuelle que vous souhaitez récupérer. Une fois que vous sélectionnez une machine virtuelle ou un dossier, les points de récupération du volet affichent les points de récupération disponibles.
 
-    ![Points de récupération disponibles](./media/restore-azure-backup-server-vmware/recovery-points.png)
+    ![Points de récupération disponibles](./media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 
 3. Dans le volet **Points de récupération pour :** , utilisez le calendrier pour sélectionner la date qui contient le ou les points de récupération souhaités. Selon la façon dont la stratégie de sauvegarde a été configurée, les dates peuvent avoir plusieurs points de récupération. Une fois que vous avez sélectionné le jour de la prise du point de récupération, vérifiez que vous avez choisi la bonne **Heure de récupération**. Si la date sélectionnée comporte plusieurs points de récupération, choisissez votre point de récupération en le sélectionnant dans le menu déroulant Heure de récupération. Une fois que vous avez choisi le point de récupération, la liste des éléments récupérables s’affiche dans le volet **Chemin**.
 
 4. Pour rechercher les fichiers que vous souhaitez récupérer, dans le volet **Chemin**, double-cliquez sur l'élément dans la colonne **Élément récupérable** pour l’ouvrir. Sélectionnez le fichier, les fichiers ou les dossiers que vous souhaitez récupérer. Pour sélectionner plusieurs éléments, appuyez sur la touche **Ctrl** tout en sélectionnant chaque élément. Utilisez le volet **Chemin** pour effectuer une recherche dans la liste des fichiers ou des dossiers figurant dans la colonne **Élément récupérable**. **Rechercher dans la liste ci-dessous** n’effectue pas de recherche dans les sous-dossiers. Pour effectuer une recherche dans des sous-dossiers, double-cliquez sur le dossier. Utilisez le bouton **Haut** pour vous déplacer d’un dossier enfant vers le dossier parent. Vous pouvez sélectionner plusieurs éléments (fichiers et dossiers), mais ils doivent se trouver dans le même dossier parent. Vous ne pouvez pas récupérer d’éléments de dossiers différents lors de la même tâche de récupération.
 
+    ![Vérifier la sélection à restaurer](./media/restore-azure-backup-server-vmware/vmware-rp-disk-ilr-2.png)
+
 5. Une fois que vous avez sélectionné le ou les éléments à récupérer, dans la barre d’outils Console d’administrateur, cliquez sur **Récupérer**  pour ouvrir l’**Assistant Récupération**. Dans l’Assistant Récupération, l'écran **Vérifier la récupération sélectionnée** affiche les éléments sélectionnés à récupérer.
-    ![Vérifier la sélection à restaurer](./media/restore-azure-backup-server-vmware/review-recovery.png)
 
 6. Dans l'écran **Spécifier les options de récupération**, si vous souhaitez activer la limitation de bande passante réseau, cliquez sur **Modifier**. Pour désactiver la limitation de réseau, cliquez sur **Suivant**. Aucune autre option de cet écran de l’Assistant n’est disponible pour les machines virtuelles VMware. Si vous choisissez de modifier la limitation de bande passante réseau, dans la boîte de dialogue Limitation, sélectionnez **Activer la limitation de l’utilisation de la bande passante réseau** pour l’activer. Une fois la limitation activée, configurez les **Paramètres** et la **Planification des tâches**.
 7. Dans l'écran **Sélectionner le type de récupération**, cliquez sur **Suivant**. Vous ne pouvez récupérer votre ou vos fichiers ou dossiers que dans un dossier réseau.
 8. Dans l'écran **Spécifier la destination**, cliquez sur **Parcourir** afin de rechercher un emplacement réseau pour vos fichiers ou dossiers. MABS crée un dossier où tous les éléments récupérés sont copiés. Le nom du dossier a le préfixe MABS_day-month-year. Lorsque vous sélectionnez un emplacement pour les fichiers ou le dossier récupérés, les détails de cet emplacement (destination, chemin de destination et espace disponible) sont fournis.
 
-       ![Specify location to recover files](./media/restore-azure-backup-server-vmware/specify-destination.png)
+    ![Spécifier l’emplacement de récupération des fichiers](./media/restore-azure-backup-server-vmware/specify-destination.png)
 
 9. Dans l’écran **Spécifier les options de récupération**, choisissez quels paramètres de sécurité appliquer. Vous pouvez choisir de modifier la limitation de l’utilisation de la bande passante réseau, mais la limitation est désactivée par défaut. Par ailleurs, **Récupération SAN** et la **Notification** ne sont pas activées.
 10. Dans l'écran **Résumé**, passez en revue vos paramètres et cliquez sur **Récupérer** pour démarrer le processus de récupération. L'écran **État de la récupération** affiche la progression de l’opération de récupération.

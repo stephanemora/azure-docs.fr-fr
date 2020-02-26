@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: e457fbe5b8dd23c93110fb8ccc7d8857128de82c
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169377"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468760"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -47,7 +47,7 @@ L’article décrit comment télécharger et indexer vos vidéos avec les option
 
     S’il s’agit d’une URL privée, le jeton d’accès doit être fourni dans la requête.
 - L’URL doit emmener vers un fichier multimédia valide et non vers une page Web, par exemple un lien vers la page de `www.youtube.com`.
-- Vous pouvez charger jusqu’à 60 films par minute.
+- Vous pouvez charger jusqu’à 50 films par minute dans un compte payant et jusqu’à 5 films par minute dans un compte de version d’essai.
 
 > [!Tip]
 > Il est recommandé d’utiliser la version 4.6.2 du .NET Framework. ou une version ultérieure, car les anciens .NET Framework ne sont pas définis par défaut sur TLS 1.2.
@@ -93,7 +93,7 @@ URL qui est utilisée pour notifier le client (à l’aide d’une requête POST
 - Changement de l’état d’indexation : 
     - Propriétés :    
     
-        |Name|Description|
+        |Nom|Description|
         |---|---|
         |id|L’ID de la vidéo|
         |state|État de la vidéo|  
@@ -101,7 +101,7 @@ URL qui est utilisée pour notifier le client (à l’aide d’une requête POST
 - Personne identifiée dans la vidéo :
   - Propriétés
     
-      |Name|Description|
+      |Nom|Description|
       |---|---|
       |id| L’ID de la vidéo|
       |faceId|ID de visage qui apparaît dans l’index de la vidéo|
@@ -123,6 +123,10 @@ Utilisez ce paramètre si des enregistrements bruts ou externes contiennent un b
 - `VideoOnly` – Permet d’indexer et d’extraire des insights de la vidéo uniquement (l’audio est ignoré)
 - `Default` – Permet d’indexer et d’extraire des insights de l’audio et de la vidéo
 - `DefaultWithNoiseReduction` – Permet d’indexer et d’extraire des insights de l’audio et vidéo, tout en appliquant des algorithmes de réduction du bruit sur les flux audio
+
+> [!NOTE]
+> Video Indexer prend en charge jusqu’à deux pistes audio. Si le fichier contient plus de pistes audio, elles sont traitées comme une seule piste.<br/>
+Si vous souhaitez indexer les pistes séparément, vous devez extraire le fichier audio approprié et l’indexer comme `AudioOnly`.
 
 Le prix dépend de l’option d’indexation sélectionnée.  
 
@@ -348,6 +352,7 @@ Les codes d’état répertoriés dans le tableau suivant peuvent être renvoyé
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|La même vidéo est déjà en cours de traitement dans le compte en question.|
 |400|VIDEO_ALREADY_FAILED|La même vidéo n’a pas pu être traitée dans le compte en question moins de 2 heures auparavant. Les clients API doivent attendre au moins 2 heures avant de recharger une vidéo.|
+|429||Les comptes de version d’essai sont autorisés à effectuer 5 chargements par minute. Les comptes payants sont autorisés à effectuer 50 chargements par minute.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

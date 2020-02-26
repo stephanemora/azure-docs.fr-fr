@@ -3,12 +3,12 @@ title: Matrice de prise en charge pour l’agent MARS
 description: Cet article décrit la prise en charge de Sauvegarde Azure quand vous sauvegardez des machines qui exécutent l’agent MARS (Microsoft Azure Recovery Services).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: a87d778bff5a52f4251d83e401028c9949713e33
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8f5ce33b5057b11caa33c0ae80cf72e1b13da5d0
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988071"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425015"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Tableau de prise en charge de la sauvegarde avec l’agent MARS (Microsoft Azure Recovery Services)
 
@@ -44,7 +44,7 @@ Quand vous utilisez l’agent MARS pour sauvegarder des données, l’agent pren
 **Cache** | **Détails**
 --- | ---
 Size |  L’espace disponible dans le dossier de cache doit représenter au moins 5 à 10 % de la taille globale de vos données de sauvegarde.
-Location | Le dossier de cache doit être stocké en local sur la machine en cours de sauvegarde et il doit être en ligne. Le dossier de cache ne doit pas se trouver sur un partage réseau, sur un média amovible ou sur un volume hors connexion.
+Emplacement | Le dossier de cache doit être stocké en local sur la machine en cours de sauvegarde et il doit être en ligne. Le dossier de cache ne doit pas se trouver sur un partage réseau, sur un média amovible ou sur un volume hors connexion.
 Dossier | Le dossier de cache ne doit pas être chiffré sur un volume dédupliqué ou dans un dossier compressé, partiellement alloué ou contenant un point d’analyse.
 Changements d’emplacement | Vous pouvez modifier l’emplacement du cache en arrêtant le moteur de sauvegarde (`net stop bengine`) et en copiant le dossier de cache sur un nouveau lecteur. (Assurez-vous que le nouveau lecteur possède suffisamment d’espace.) Remplacez ensuite les deux entrées de Registre sous **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** et **Config/CloudBackupProvider/ScratchLocation**) par le nouvel emplacement et redémarrez le moteur.
 
@@ -132,6 +132,7 @@ Chiffré et partiellement alloué |Non pris en charge. Ignoré.
 Flux compressé| Non pris en charge. Ignoré.
 Flux partiellement alloué| Non pris en charge. Ignoré.
 OneDrive (les fichiers synchronisés sont des flux partiellement alloués)| Non pris en charge.
+Dossiers avec réplication DFS activée | Non pris en charge.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Lecteurs ou volumes pris en charge pour la sauvegarde
 

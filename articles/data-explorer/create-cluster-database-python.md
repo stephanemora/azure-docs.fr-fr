@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 8d43965e87ab57d9f0c79c6661a761b06ccb7073
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 50e050a05fd364a4b1f880e3501b04274ffd360c
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76902106"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444228"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Créer un cluster et une base de données Azure Data Explorer en utilisant Python
 
@@ -24,11 +24,15 @@ ms.locfileid: "76902106"
 > * [Python](create-cluster-database-python.md)
 > * [Modèle ARM](create-cluster-database-resource-manager.md)
 
-Azure Data Explorer est un service d’analytique données rapide et complètement managé pour l’analyse en temps réel de gros volumes de données diffusées en continu par des applications, des sites web, des appareils IoT, etc. Pour utiliser Azure Data Explorer, créez tout d’abord un cluster et une ou plusieurs bases de données dans ce cluster. Ensuite, ingérez (chargez) des données dans une base de données pour pouvoir exécuter des requêtes dessus. Dans cet article, vous créez un cluster et une base de données en utilisant Python.
+Dans cet article, vous allez créer un cluster et une base de données Azure Data Explorer en utilisant Python. Azure Data Explorer est un service d’analytique données rapide et complètement managé pour l’analyse en temps réel de gros volumes de données diffusées en continu par des applications, des sites web, des appareils IoT, etc. Pour utiliser Azure Data Explorer, créez tout d’abord un cluster, puis une ou plusieurs bases de données dans celui-ci. Ensuite, ingérez (chargez) des données dans une base de données pour pouvoir envoyer des requêtes à celle-ci.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
+* Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+* [Python 3.4+](https://www.python.org/downloads/).
+
+* [Une application Azure AD et un principal de service ayant accès aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Obtenez les valeurs de `Directory (tenant) ID`, `Application ID` et `Client Secret`.
 
 ## <a name="install-python-package"></a>Installer le package Python
 

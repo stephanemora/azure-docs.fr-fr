@@ -1,5 +1,5 @@
 ---
-title: Basculement, récupération d’urgence StorSimple vers une StorSimple Cloud Appliance| Microsoft Docs
+title: Basculement et reprise d’activité vers une instance StorSimple Cloud Appliance
 description: Découvrez comment basculer votre appareil physique de la gamme StorSimple 8000 vers une appliance cloud.
 services: storsimple
 documentationcenter: ''
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 45c521fd044fa258b8052a3f0de48784cf4160e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 347b899608d4322a7873b9f80f38ca1c767194d7
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584395"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468743"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Basculer vers votre StorSimple Cloud Appliance
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Ce didacticiel décrit les étapes requises pour basculer un appareil physique de la gamme StorSimple 8000 vers une StorSimple Cloud Appliance en cas de sinistre. StorSimple utilise l’option de basculement d’appareil pour migrer des données d’un appareil physique source dans le centre de données vers une appliance cloud exécutée dans Azure. Les instructions de ce didacticiel s’appliquent aux appareils physiques de gamme StorSimple 8000 et aux appliances cloud exécutant des versions logicielles Update 3 et versions ultérieures.
 
-Pour en savoir plus sur le basculement d’appareil et comment il est utilisé après un sinistre, accédez à [Basculement et récupération d’urgence pour les appareils StorSimple de la gamme 8000](storsimple-8000-device-failover-disaster-recovery.md).
+Pour plus d’informations sur le basculement d’appareil et son utilisation à des fins de récupération après un incident, accédez à [Failover and disaster recovery for your StorSimple 8000 series device](storsimple-8000-device-failover-disaster-recovery.md) (Basculement et récupération d’urgence pour vos appareils StorSimple de la gamme 8000).
 
 Pour basculer un appareil physique StorSimple vers un autre appareil physique, accédez à [Basculer vers un appareil physique StorSimple](storsimple-8000-device-failover-physical-device.md). Pour basculer un appareil vers lui-même, accédez à [Basculer vers le même appareil physique StorSimple](storsimple-8000-device-failover-same-device.md).
 
@@ -41,14 +41,14 @@ Pour basculer un appareil physique StorSimple vers un autre appareil physique, a
 
 Procédez comme suit pour restaurer l’appareil vers une StorSimple Cloud Appliance cible.
 
-1.  Vérifiez que le conteneur de volumes que vous souhaitez basculer est associé à des instantanés cloud. Pour plus d’informations, accédez à [Utiliser le service StorSimple Device Manager pour créer des sauvegardes](storsimple-8000-manage-backup-policies-u2.md).
+1.  Vérifiez que le conteneur de volumes que vous souhaitez basculer est associé à des instantanés cloud. Pour plus d’informations, accédez à [Utiliser le service StorSimple Device Manager dans le portail Azure pour gérer les stratégies de sauvegarde](storsimple-8000-manage-backup-policies-u2.md).
 2. Accédez à votre service StorSimple Device Manager et cliquez sur **Appareils**. Dans le panneau **Appareils**, accédez à la liste des appareils connectés à votre service.
     ![Sélectionner l’appareil](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev1.png)
 3. Sélectionnez votre appareil source et cliquez dessus. L’appareil source comprend les conteneurs de volumes que vous souhaitez basculer. Accédez à **Paramètres > Conteneurs de volumes**.
 
     ![Sélectionnez l’appareil](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev2.png)
     
-4. Sélectionnez un conteneur de volume que vous souhaitez basculer vers un autre appareil. Cliquez sur le conteneur de volume pour afficher la liste des volumes dans ce conteneur. Sélectionnez un volume, cliquez avec le bouton droit, puis cliquez sur **Mettre hors connexion** afin de mettre le volume hors connexion.
+4. Sélectionnez un conteneur de volume que vous souhaitez basculer vers un autre appareil. Cliquez sur le conteneur de volume pour afficher la liste des volumes dans ce conteneur. Sélectionnez un volume, cliquez dessus avec le bouton droit, puis cliquez sur **Mettre hors connexion** afin de mettre le volume hors connexion.
 
     ![Sélectionnez l’appareil](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev5.png)
 
@@ -61,7 +61,7 @@ Procédez comme suit pour restaurer l’appareil vers une StorSimple Cloud Appli
 7. Revenez au panneau **Appareils**. Dans la barre de commandes, cliquez sur **Effectuer un basculement**.
 
     ![Cliquer sur Effectuer un basculement](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev8.png)
-8. Dans le panneau **Effectuer un basculement**, procédez comme suit :
+8. Dans le panneau **Effectuer un basculement**, procédez comme suit :
    
     1. Cliquez sur **Source**. Sélectionnez les conteneurs de volumes à basculer. **Seuls les conteneurs de volumes associés à des instantanés cloud et des volumes hors connexion sont affichés.**
         ![Sélectionner une source](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev11.png)

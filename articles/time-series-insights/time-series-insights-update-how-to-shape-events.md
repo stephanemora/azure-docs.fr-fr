@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/16/2019
+ms.date: 02/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: fd744e6283b00b0dfdd50805cb628f5bc40ab8d6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e814d9be4a0db2852bd9e21f3d3c1d54a45bd268
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846140"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368646"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Mettre en forme avec Azure Time Series Insights (préversion)
 
@@ -148,7 +148,7 @@ Examinons le code JSON suivant :
   "data_flow" : 1.76435072345733643
 }
 ```
-Dans l’exemple ci-dessus, la propriété `data_flow` aplatie présenterait une collision de noms avec la propriété `data_flow`. Dans ce cas, la valeur de propriété *la plus récente* remplacerait la plus ancienne. Si ce comportement présente un défi pour vos scénarios d’entreprise, veuillez contacter l’équipe TSI.
+Dans l’exemple ci-dessus, la propriété `data_flow` aplatie présenterait une collision de noms avec la propriété `data_flow`. Dans ce cas, la valeur de propriété *la plus récente* remplacerait la plus ancienne. Si ce comportement présente un défi pour vos scénarios métier, veuillez contacter l’équipe TSI.
 
 > [!WARNING] 
 > Dans les cas où des propriétés dupliquées sont présentes dans la même charge utile d’événement en raison d’une mise à plat ou d’un autre mécanisme, la valeur de propriété la plus récente est stockée, remplaçant toutes les valeurs antérieures.

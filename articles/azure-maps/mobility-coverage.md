@@ -1,27 +1,27 @@
 ---
 title: Couverture de la mobilité (transports en commun) | Microsoft Azure Maps
 description: Dans cet article, vous allez découvrir la couverture Mobilité dans Microsoft Azure Maps
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8dcbfe7a47dba5a1783d6010d41e33073bc0bb20
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 04804f28b2b0b5c45ed8f523d2f465f81b6ab151
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048916"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208248"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Couverture de la mobilité Azure Maps
 
-Azure Maps offre un [service Mobility](https://aka.ms/AzureMapsMobilityService). Le service Mobility améliore les temps de développement pour les applications avec des fonctionnalités de transport public, de partage de vélos et de partage de scooters. Il offre une option de routage avec des options de planification de déplacement multimodal. Les fonctionnalités pour les transports publics incluent la recherche de stations proches, la recherche d’arrêts, la recherche de lignes de transport, la récupération d’informations sur les horaires, la récupération des arrivées des transports publics en temps réel, la liste des arrêts et des guides d’itinéraires. Le service retourne des informations de disponibilité statiques et en temps réel pour les véhicules partagés, comme les voitures, les vélos et les scooters. L’API retourne des itinéraires pas à pas détaillés et multimodaux, et des alertes de service.
+Azure Maps offre un [service Mobility](https://aka.ms/AzureMapsMobilityService). Le service Mobility améliore les temps de développement pour les applications avec des fonctionnalités de transport public, de partage de vélos et de partage de scooters. Les fonctionnalités pour les transports publics incluent la recherche de stations proches, la recherche d’arrêts, la recherche de lignes de transport, la récupération d’informations sur les horaires, la récupération des arrivées des transports publics en temps réel, la liste des arrêts et la liste des guides d’itinéraires. Le service retourne des informations de disponibilité statiques et en temps réel pour les véhicules partagés, comme les voitures, les vélos et les scooters. De plus, le service Mobility fournit des fonctionnalités de routage avec des options de planification de déplacement multimodal. La planification de trajet multimodal permet de combiner vélo, course à la demande et transport public. Les utilisateurs peuvent accéder à des itinéraires pas à pas détaillés et multimodaux, et à des alertes de service.
 
-Azure Maps n’a pas le même niveau d’information et de précision pour toutes les villes et tous les pays/régions. La possibilité d’appeler des données de transport dépend de la localité. Les données peuvent ne pas inclure toutes les options de transport public et des agences qui desservent la localité.
+Azure Maps n’a pas le même niveau d’information et de précision pour toutes les villes et tous les pays/régions. La possibilité d’appeler des données de transport dépend de la localité. En outre, les données peuvent ne pas inclure toutes les options de transport public et agences qui desservent la localité.
 
-Le tableau suivant fournit des informations sur la couverture du service Mobility d’Azure Maps.
+Le tableau suivant fournit des informations sur la couverture du service Mobilité d’Azure Maps.
 
 
 | Symbole | Signification |
@@ -104,7 +104,7 @@ Le tableau suivant fournit des informations sur la couverture du service Mobilit
 | Luxembourg | Luxembourg* |
 | Moldova | Chișinău |
 | Monténégro | Podgorica |
-| Pays-bas | Pays-Bas* |
+| Pays-Bas | Pays-Bas* |
 | Norvège | Norvège* | 
 | Pologne | <p>Wrocław, Białystok, Bydgoszcz, Elbląg, Gorzow, Kętrzyn, Cracovie, Leszno, Lodz, Lublin, Mrągowo, Olsztyn, Poznań, Rzeszów, Sanok, Starachowice, Świnoujście, Szczecin, Tricity, Varsovie, Wodzisław Śląski, Wrocław, Zakopane</p> |
 | Portugal | Bragance, Coimbra, Funchal, Leiria, Lisbonne, Portimão, Porto|
@@ -118,7 +118,7 @@ Le tableau suivant fournit des informations sur la couverture du service Mobilit
 | Suède | Göteborg/Jönköping, Malmö, Norrköping, Linköping, Stockholm, Sundsvall |
 | Suisse | Bâle, Genève, Yverdon-les-Bains, Zurich | 
 | Turquie | Adana-Mersin, Ankara, Antalya, Balıkesir, Bilecik, Bolu, Bursa, Denizli, Düzce, Elâzığ, Eskişehir, Istanbul, Izmir, Aydin, Kahramanmaraş, Kayseri, Konya, Malatya, Muğla, Samsun, Şanlıurfa |    
-| United Kingdom | Est-Anglie, Midlands de l’Est, Londres et Sud-Est, Nord-Est, Nord-Ouest, Irlande du Nord, Écosse, Sud-Ouest, Pays de Galles, Midlands de l’Ouest, Yorkshire |
+| Royaume-Uni | Est-Anglie, Midlands de l’Est, Londres et Sud-Est, Nord-Est, Nord-Ouest, Irlande du Nord, Écosse, Sud-Ouest, Pays de Galles, Midlands de l’Ouest, Yorkshire |
 | Ukraine | Kharkiv, Zhytomyr, Kiev, Lviv, Tchernivtsi |
 
 
@@ -141,17 +141,17 @@ Le tableau suivant fournit des informations sur la couverture du service Mobilit
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment demander des données de transport public avec le service Mobility :
+Découvrez comment demander des données de transit à l’aide de Mobility Service :
 
 > [!div class="nextstepaction"]
 > [Comment demander des données de transit](how-to-request-transit-data.md)
 
-Découvrez comment demander des données en temps réel avec le service Mobility :
+Découvrez comment demander des données en temps réel à l’aide de Mobility Service :
 
 > [!div class="nextstepaction"]
 > [Comment demander des données en temps réel](how-to-request-real-time-data.md)
 
-Explorer la documentation de l’API du service Mobility Azure Maps
+Explorer la documentation de l’API Mobility Service d’Azure Maps
 
 > [!div class="nextstepaction"]
-> [Documentation de l’API du service Mobility](https://aka.ms/AzureMapsMobilityService)
+> [Documentation de l’API Mobility Service](https://aka.ms/AzureMapsMobilityService)

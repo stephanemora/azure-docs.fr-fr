@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 19dd0051985231a0274baf550755cc61782ce740
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: d982771d5c7ebc864991026e399e9648d333cc8f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281306"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425525"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-cli"></a>Créer et gérer le service Liaison privé pour Azure Database pour PostgreSQL – Serveur unique (préversion) à l’aide de l’interface CLI
 
@@ -20,7 +20,7 @@ Private Endpoint est le composant fondamental de Private Link dans Azure. Il per
 > [!NOTE]
 > Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour PostgreSQL – Serveur unique prend en charge les niveaux tarifaires Usage général et Mémoire optimisée.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 
@@ -131,7 +131,7 @@ Connectez-vous à la machine virtuelle *myVm* à partir d’Internet comme suit�
 
 1. Sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier de protocole RDP (Remote Desktop Protocol) ( *.rdp*) et le télécharge sur votre ordinateur.
 
-1. Ouvrez le fichier .rdp* téléchargé.
+1. Ouvrez le fichier *downloaded.rdp*.
 
     1. Si vous y êtes invité, sélectionnez **Connexion**.
 
@@ -159,30 +159,31 @@ Connectez-vous à la machine virtuelle *myVm* à partir d’Internet comme suit�
     Non-authoritative answer:
     Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
+3. Testez la connexion de liaison privée pour le serveur PostgreSQL à l’aide de n’importe quel client disponible. Dans l’exemple ci-dessous, j’ai utilisé [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) pour effectuer l’opération.
 
-4. In **New connection**, enter or select this information:
+4. Dans **Nouvelle connexion**, entrez ou sélectionnez les informations suivantes :
 
-    | Setting | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
-    | Server type| Select **PostgreSQL**.|
-    | Server name| Select *mydemopostgresserver.privatelink.postgres.database.azure.com* |
-    | User name | Enter username as username@servername which is provided during the PostgreSQL server creation. |
-    |Password |Enter a password provided during the PostgreSQL server creation. |
-    |SSL|Select **Required**.|
+    | Type de serveur| Sélectionnez **PostgreSQL**.|
+    | Nom du serveur| Sélectionnez *mydemopostgresserver.privatelink.postgres.database.azure.com* |
+    | Nom d'utilisateur | Entrez le nom d’utilisateur au format username@servername qui est fourni lors de la création du serveur PostgreSQL. |
+    |Mot de passe |Entrez le mot de passe fourni lors de la création du serveur PostgreSQL. |
+    |SSL|Sélectionnez **Obligatoire**.|
     ||
 
-5. Select Connect.
+5. Sélectionnez Se connecter.
 
-6. Browse databases from left menu.
+6. Parcourez les bases de données dans le menu de gauche.
 
-7. (Optionally) Create or query information from the postgreSQL server.
+7. (Facultatif) Créez ou interrogez des informations à partir du serveur PostgreSQL.
 
-8. Close the remote desktop connection to myVm.
+8. Fermez la connexion Bureau à distance à myVm.
 
-## Clean up resources 
-When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
+## <a name="clean-up-resources"></a>Nettoyer les ressources 
+Lorsque vous n'en avez plus besoin, vous pouvez utiliser az group delete pour supprimer le groupe de ressources, ainsi que toutes les ressources qu’il contient : 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes 

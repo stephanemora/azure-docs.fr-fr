@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 11/27/2019
-ms.openlocfilehash: 90f39a5edd32225b7fed259ca48dcf4802d0ced3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: eed0ed96efdc84697797c50578e11eee37d4d495
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443831"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201728"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -38,8 +38,8 @@ L’instance gérée a des caractéristiques et des limites de ressources qui d�
 | Stockage réservé d’instance max. |  Usage général : 8 To<br/>Critique pour l’entreprise : 1 To | Usage général : 8 To<br/> Critique pour l’entreprise 1 To, 2 To ou 4 To, en fonction du nombre de cœurs |
 
 > [!IMPORTANT]
-> - Le matériel Gen4 est graduellement abandonné. Il est recommandé de déployer de nouvelles instances gérées sur du matériel Gen5.
-> - Pour le moment, le matériel Gen4 n’est encore disponible que dans les régions suivantes : Europe Nord, Europe Ouest, USA Est, USA Centre Sud, USA Centre Nord, USA Ouest 2, USA Centre, Canada Centre, Inde Sud, Asie Sud-Est et Corée Centre.
+> - Le matériel Gen4 est en cours de retrait et n’est plus disponible pour les nouveaux déploiements. Toutes les nouvelles instances managées doivent être déployées sur le matériel Gen5.
+> - Envisagez de [déplacer vos instances managées vers le matériel de génération 5](sql-database-service-tiers-vcore.md) pour profiter d’une plus grande scalabilité en termes de vCore et de stockage, d’une accélération réseau, de performances d’E/S optimales et d’une latence minimale.
 
 ### <a name="in-memory-oltp-available-space"></a>Espace disponible OLTP en mémoire 
 
@@ -142,7 +142,7 @@ Le tableau suivant montre les **limites régionales par défaut** pour les types
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional et plateformes MSDN|2|32|
 
-\* Lors de la planification de déploiements, prenez en considération le fait que le niveau de service critique pour l’entreprise (BC) requiert quatre (4) fois plus de capacité vCore que le niveau de service usage général (GP). Par exemple :  1 GP vCore = 1 unité vCore et 1 BC vCore = 4 unités vCore. Pour simplifier votre analyse de la consommation par rapport aux limites par défaut, récapitulez les unités vCore de tous les sous-réseaux de la région où les instances gérées sont déployées et comparez les résultats avec les limites d’unités d’instance pour votre type d’abonnement. La limite **Nombre maximal d’unités de vCore** s’applique à chaque abonnement dans une région. Il n’y a pas de limite par sous-réseau individuel sauf que la somme de tous les vCores déployés sur plusieurs sous-réseaux doit être inférieure ou égale à **nombre maximum d’unités vCore**.
+\* Lors de la planification de déploiements, prenez en considération le fait que le niveau de service critique pour l’entreprise (BC) requiert quatre (4) fois plus de capacité vCore que le niveau de service usage général (GP). Par exemple : 1 GP vCore = 1 unité vCore et 1 BC vCore = 4 unités vCore. Pour simplifier votre analyse de la consommation par rapport aux limites par défaut, récapitulez les unités vCore de tous les sous-réseaux de la région où les instances gérées sont déployées et comparez les résultats avec les limites d’unités d’instance pour votre type d’abonnement. La limite **Nombre maximal d’unités de vCore** s’applique à chaque abonnement dans une région. Il n’y a pas de limite par sous-réseau individuel sauf que la somme de tous les vCores déployés sur plusieurs sous-réseaux doit être inférieure ou égale à **nombre maximum d’unités vCore**.
 
 \*\* Des limites de sous-réseau et de vCore plus importantes s’appliquent dans les régions suivantes : Australie Est, USA Est, USA Est 2, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Europe Ouest, USA Ouest 2.
 

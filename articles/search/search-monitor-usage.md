@@ -1,181 +1,131 @@
 ---
-title: Superviser l’utilisation des ressources et les métriques des requêtes
+title: Superviser les opérations et l’activité
 titleSuffix: Azure Cognitive Search
 description: Activer la journalisation, obtenir des métriques d’activité des requêtes, l’utilisation des ressources et d’autres données système à partir d’un service Recherche cognitive Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 7ef868f156ac537cb066f293872f69135c4df25f
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 02/15/2020
+ms.openlocfilehash: 353e00f902a7314e5e5b7c8ee03e8b925a510b26
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77059644"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462324"
 ---
-# <a name="monitor-resource-consumption-and-query-activity-in-azure-cognitive-search"></a>Superviser la consommation des ressources et l’activité des requêtes dans Recherche cognitive Azure
+# <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Superviser les opérations et l’activité de Recherche cognitive Azure
 
-Dans la page Vue d’ensemble de votre service Recherche cognitive Azure, vous pouvez voir les données système relatives à l’utilisation des ressources, aux métriques des requêtes et au quota disponible pour créer des index, des indexeurs et des sources de données supplémentaires. Vous pouvez également utiliser le portail pour configurer l’analytique des journaux d’activité ou une autre ressource utilisée pour la collecte des données persistantes. 
+Cet article présente la supervision au niveau du service (ressource), au niveau de la charge de travail (requêtes et indexation) et suggère un framework pour superviser l’accès des utilisateurs.
 
-La configuration de journaux d’activité est utile pour les autodiagnostics et la conservation de l’historique opérationnel. En interne, les journaux d’activité existent sur le back-end pendant une courte période, suffisante pour l’investigation et l’analyse si vous émettez un ticket de support. Si vous voulez contrôler les informations des journaux et y accéder, vous devez configurer l’une des solutions décrites dans cet article.
+Dans tous les domaines, vous utiliserez une combinaison d’infrastructures intégrées et de services fondamentaux comme Azure Monitor ainsi que des API de service qui retournent des statistiques, des nombres et un état. La compréhension de la gamme de fonctionnalités peut vous aider à construire une boucle de rétroaction afin de pouvoir résoudre les problèmes au fur et à mesure de leur apparition.
 
-Dans cet article, découvrez vos options de supervision, comment activer la journalisation et le stockage des journaux, et comment voir le contenu des journaux.
+## <a name="use-azure-monitor"></a>Utiliser Azure Monitor
 
-## <a name="metrics-at-a-glance"></a>Aperçu des métriques
+De nombreux services, notamment Recherche cognitive Azure, tirent parti d’[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) pour les alertes, les métriques et la journalisation des données de diagnostic. Pour Recherche cognitive Azure, l’infrastructure de supervision intégrée est principalement utilisée pour la supervision au niveau des ressources (intégrité du service) et la [supervision des requêtes](search-monitor-queries.md).
 
-Les sections **Utilisation** et **Supervision** intégrées à la page Vue d’ensemble exposent la consommation des ressources et les mesures d’exécution des requêtes. Ces informations deviennent disponibles dès que vous commencez à utiliser le service, sans qu’aucune configuration ne soit nécessaire. Cette page est actualisée à des intervalles de quelques minutes. Si vous finalisez des décisions concernant le [niveau à utiliser pour les charges de travail de production](search-sku-tier.md) ou la nécessité d’[ajuster le nombre de partitions et de réplicas actifs](search-capacity-planning.md), ces métriques peuvent vous aider dans vos décisions en vous montrant rapidement les ressources consommées et l’efficacité de la configuration actuelle pour gérer la charge existante.
+La capture d’écran suivante vous aide à trouver les fonctionnalités Azure Monitor dans le portail.
 
-L’onglet **Utilisation** affiche la disponibilité des ressources par rapport aux [limites](search-limits-quotas-capacity.md) actuelles. L’illustration suivante concerne le service gratuit, qui est limité à 3 objets de chaque type et à 50 Mo de stockage. Un service De base ou Standard a des limites plus élevées. De plus, si vous augmentez le nombre de partitions, le stockage maximal augmente proportionnellement.
++ L’onglet **Supervision**, situé dans la page de présentation principale, affiche un aperçu rapide des métriques clés.
++ Le **journal d’activité**, juste en dessous de la vue d’ensemble, signale les actions au niveau des ressources : intégrité du service et notifications de demande de clé API.
++ **Supervision**, plus bas dans la liste, fournit des alertes configurables, des métriques et des journaux de diagnostic. Créez-les lorsque vous en avez besoin. Une fois les données collectées et stockées, vous pouvez interroger ou visualiser les informations pour obtenir des insights.
 
-![État d’utilisation par rapport aux limites effectives](./media/search-monitor-usage/usage-tab.png
- "État d’utilisation par rapport aux limites effectives")
+![Intégration d’Azure Monitor dans un service de recherche](./media/search-monitor-usage/azure-monitor-search.png
+ "Intégration d’Azure Monitor dans un service de recherche")
 
-## <a name="queries-per-second-qps-and-other-metrics"></a>Nombre de requêtes par seconde (RPS) et autres métriques
+### <a name="precision-of-reported-numbers"></a>Précision des nombres signalés
 
-L’onglet **Supervision** affiche les moyennes mobiles pour des métriques telles que la recherche du *Nombre de requêtes par seconde* (QPS), agrégées par minute. 
-La *Latence de recherche* est la durée nécessaire au service de recherche pour traiter les requêtes de recherche, agrégées par minute. Le *Pourcentage de requêtes de recherche limitées* (non affiché) est le pourcentage de requêtes de recherche qui ont été limitées, également agrégées par minute.
+Les pages du portail sont actualisées à des intervalles de quelques minutes. Par conséquent, les nombres signalés dans le portail sont approximatifs et sont destinés à vous donner une idée générale de l’efficacité avec laquelle votre système traite les demandes. Les métriques réelles, telles que les requêtes par seconde, peuvent être supérieures ou inférieures au nombre indiqué dans la page.
 
-Ces valeurs sont approximatives et sont destinées à vous donner une idée générale de l’efficacité avec laquelle votre système traite les requêtes. Le nombre de requêtes par seconde réel peut être supérieur ou inférieur au nombre indiqué dans le portail.
+## <a name="activity-logs-and-service-health"></a>Journaux d’activité et intégrité du service
 
-![Requêtes par seconde d’activité](./media/search-monitor-usage/monitoring-tab.png "Requêtes par seconde d’activité")
+Le [**journal d’activité**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) collecte des informations auprès d’Azure Resource Manager et signale les changements de l’intégrité du service. Vous pouvez superviser les conditions critiques, d’erreur et d’avertissement relatives à l’intégrité du service dans le journal d’activité.
 
-## <a name="activity-logs"></a>Journaux d’activité
-
-Le **journal d’activité** collecte des informations à partir d’Azure Resource Manager. La création ou la suppression d’un service, la mise à jour d’un groupe de ressources, la vérification de la disponibilité d’un nom ou l’obtention d’une clé d’accès au service pour traiter une requête sont des exemples d’informations figurant dans le journal d’activité. 
+Pour les tâches intégrées au service, telles que les requêtes, l’indexation ou la création d’objets, vous verrez des notifications d’informations génériques comme *Obtenir une clé d’administration* et *Obtenir des clés de requête* pour chaque demande, mais pas l’action spécifique elle-même. Pour plus d’informations de ce fragment, vous devez configurer la journalisation des diagnostics.
 
 Vous pouvez accéder au **journal d’activité** à partir du volet de navigation de gauche, à partir de l’option Notifications dans la barre de commandes située en haut de la fenêtre ou à partir de la page **Diagnostiquer et résoudre les problèmes**.
 
-Pour les tâches intégrées au service, comme la création d’un index ou la suppression d’une source de données, vous verrez des notifications génériques comme « Obtenir une clé d’administration » pour chaque requête, mais pas l’action spécifique proprement dite. Pour ce niveau d’informations, vous devez activer une solution de supervision de module complémentaire.
+## <a name="monitor-storage"></a>Superviser le stockage
 
-## <a name="add-on-monitoring-solutions"></a>Solutions de supervision de module complémentaire
+Les pages à onglets intégrées à la page de présentation indiquent l’utilisation des ressources. Ces informations deviennent disponibles dès que vous commencez à utiliser le service, sans qu’aucune configuration ne soit nécessaire, et la page est actualisée à des intervalles de quelques minutes. 
 
-Recherche cognitive Azure ne stocke pas de données qui ne figurent pas dans les objets qu’elle gère, ce qui signifie que les données de journal doivent être stockées en externe. Vous pouvez configurer n’importe laquelle des ressources ci-dessous si vous voulez conserver les données de journal. 
+Si vous finalisez des décisions concernant le [niveau à utiliser pour les charges de travail de production](search-sku-tier.md) ou la nécessité d’[ajuster le nombre de partitions et de réplicas actifs](search-capacity-planning.md), ces métriques peuvent vous aider dans vos décisions en vous montrant rapidement les ressources consommées et l’efficacité de la configuration actuelle pour gérer la charge existante.
 
-Le tableau suivant compare les options de stockage des journaux d’activité et d’ajout d’une supervision des opérations de service et des charges de travail de requêtes par le biais d’Application Insights.
+Les alertes liées au stockage ne sont pas disponibles pour l’instant ; la consommation de stockage n’est pas agrégée ni consignée dans la table **AzureMetrics** dans Azure Monitor. Vous devez [générer une solution personnalisée](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-creating) qui émet des notifications liées aux ressources, où votre code recherche la taille de stockage et gère la réponse. Pour plus d’informations sur les métriques de stockage, consultez [GET Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response).
 
-| Ressource | Utilisé pour |
-|----------|----------|
-| [Journaux d’activité Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Événements et métriques des requêtes journalisés, basés sur l’un des schémas ci-dessous. Les événements sont journalisés dans un espace de travail Log Analytics. Vous pouvez exécuter des requêtes sur un espace de travail pour retourner des informations détaillées du journal. Pour plus d’informations, consultez [Bien démarrer avec les journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Événements et métriques des requêtes journalisés, basés sur l’un des schémas ci-dessous. Les événements sont journalisés dans un conteneur d’objets blob et stockés dans des fichiers JSON. Utilisez un éditeur JSON pour afficher le contenu des fichiers.|
-| [Concentrateur d’événements](https://docs.microsoft.com/azure/event-hubs/) | Événements et métriques des requêtes journalisés, basés sur les schémas présentés dans cet article. Choisissez cette option comme autre service de collecte de données pour les journaux d’activité très volumineux. |
+Pour la supervision visuelle dans le portail, l’onglet **Utilisation** affiche la disponibilité des ressources par rapport aux [limites](search-limits-quotas-capacity.md) actuelles imposées par le niveau de service. 
 
-Les journaux Azure Monitor et le Stockage Blob sont tous les deux disponibles sous la forme d’un service gratuit pour vous permettre de l’essayer sans frais pendant la durée de vie de votre abonnement Azure. L’inscription à Application Insights et son utilisation sont gratuits tant que la taille de données d’application n’excède pas certaines limites. (Pour plus d’informations, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/monitor/).)
+L’illustration suivante concerne le service gratuit, qui est limité à 3 objets de chaque type et à 50 Mo de stockage. Un service De base ou Standard a des limites plus élevées. De plus, si vous augmentez le nombre de partitions, le stockage maximal augmente proportionnellement.
 
-La section suivante vous guide tout au long des étapes d’activation et d’utilisation du Stockage Blob Azure pour collecter des données de journal créées par les opérations Recherche cognitive Azure et y accéder.
+![État d’utilisation par rapport aux limites du niveau](./media/search-monitor-usage/usage-tab.png
+ "État d’utilisation par rapport aux limites du niveau")
 
-## <a name="enable-logging"></a>Activation de la journalisation
+## <a name="monitor-workloads"></a>Superviser les charges de travail
 
-La journalisation pour l’indexation et les charges de travail de requêtes est désactivée par défaut et dépend des solutions de module complémentaire pour l’infrastructure de journalisation et le stockage externe à long terme. En soi, les seules données persistantes dans Recherche cognitive Azure sont les objets qu’elle crée et gère. Les journaux d’activité doivent donc être stockés ailleurs.
+Les événements journalisés incluent ceux qui sont liés à l’indexation et aux requêtes. La table **AzureDiagnostics** dans Log Analytics collecte les données opérationnelles relatives aux requêtes et à l’indexation.
 
-Dans cette section, vous allez apprendre à utiliser le Stockage Blob pour stocker des événements journalisés et des données de métriques.
+La plupart des données journalisées concernent les opérations en lecture seule. Pour les autres opérations de création, mise à jour et suppression qui ne sont pas capturées dans le journal, vous pouvez interroger le service de recherche pour obtenir des informations système.
 
-1. [Créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) si vous n’en avez pas déjà un. Vous pouvez le placer dans le même groupe de ressources que la Recherche cognitive Azure pour simplifier le nettoyage ultérieur si vous voulez supprimer toutes les ressources utilisées dans cet exercice.
+| NomOpération | Description |
+|---------------|-------------|
+| ServiceStats | Cette opération est un appel de routine à l’API [GET Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), appelée directement ou implicitement pour remplir une page de présentation du portail lors de son chargement ou de son actualisation. |
+| Query.Search |  Demandes de requêtes par rapport à un index. Consultez [Superviser les requêtes](search-monitor-queries.md) pour plus d’informations sur les requêtes journalisées.|
+| Indexing.Index  | Cette opération est un appel à [Ajout, mise à jour ou suppression de documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
+| indexes.Prototype | Il s’agit d’un index créé par l’Assistant Importation de données. |
+| Indexers.Create | Créez un indexeur de manière explicite ou implicite à l’aide de l’Assistant Importation de données. |
+| Indexers.Get | Retourne le nom d’un indexeur chaque fois que l’indexeur est exécuté. |
+| Indexers.Status | Retourne l’état d’un indexeur chaque fois que l’indexeur est exécuté. |
+| DataSources.Get | Retourne le nom de la source de données chaque fois qu’un indexeur est exécuté.|
+| Indexes.Get | Retourne le nom d’un index chaque fois qu’un indexeur est exécuté. |
 
-   Votre compte de stockage doit exister dans la même région que Recherche cognitive Azure.
+### <a name="kusto-queries-about-workloads"></a>Requêtes Kusto sur les charges de travail
 
-2. Ouvrez la page Vue d’ensemble de votre service de recherche. Dans le volet de navigation de gauche, faites défiler l’écran vers le bas jusqu’à **Supervision**, puis cliquez sur **Paramètres de diagnostic**.
+Si vous avez activé la journalisation, vous pouvez interroger **AzureDiagnostics** pour obtenir la liste des opérations exécutées sur votre service et à quel moment. Vous pouvez également mettre en corrélation l’activité pour examiner les changements de performances.
 
-   ![Paramètres de diagnostic](./media/search-monitor-usage/diagnostic-settings.png "Paramètres de diagnostic")
+#### <a name="example-list-operations"></a>Exemple : Lister les opérations 
 
-3. Sélectionnez **Ajouter un paramètre de diagnostic**.
-
-4. Choisissez les données à exporter : Journaux d’activité, Métriques ou les deux. Vous pouvez les copier sur un compte de stockage, les envoyer à un Event Hub ou les exporter vers les journaux Azure Monitor.
-
-   Pour l’archivage dans le Stockage Blob, seul le compte de stockage doit exister. Les conteneurs et les objets blob sont créés au besoin lors de l’exportation des données de journal.
-
-   ![Configurer l’archive de stockage Blob](./media/search-monitor-usage/configure-blob-storage-archive.png "Configurer l’archive de stockage Blob")
-
-5. Enregistrer le profil
-
-6. Testez la journalisation en créant ou en supprimant des objets (ce qui crée des événements de journal) et en soumettant des requêtes (ce qui génère des métriques). 
-
-La journalisation est activée une fois que vous enregistrez le profil. Les conteneurs sont créés uniquement quand il existe une activité à journaliser ou à mesurer. Quand les données sont copiées dans un compte de stockage, les données sont au format JSON et sont placées dans deux conteneurs :
-
-* journaux d’activité-Insights-operationlogs : pour les journaux d’activité de trafic de recherche
-* mesures-Insights-pt1m : pour les mesures
-
-**Une heure est nécessaire pour que les conteneurs s’affichent dans le Stockage Blob. Il y a un seul objet blob par heure et par conteneur.**
-
-Vous pouvez utiliser [Visual Studio Code](#download-and-open-in-visual-studio-code) ou un autre éditeur JSON pour afficher les fichiers. 
-
-### <a name="example-path"></a>Exemple de chemin
+Retournez une liste d’opérations et un nombre de chacune d’elles.
 
 ```
-resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2018/m=12/d=25/h=01/m=00/name=PT1H.json
+AzureDiagnostics
+| summarize count() by OperationName
 ```
 
-## <a name="log-schema"></a>Schéma du journal
-Les objets blob contenant vos journaux d’activité du trafic de votre service de recherche sont structurés comme décrit dans cette section. Chaque objet blob a un objet racine appelé **records** contenant un tableau d’objets de journal. Chaque objet blob contient des enregistrements de toutes les opérations qui ont eu lieu au cours de la même heure.
+#### <a name="example-correlate-operations"></a>Exemple : Mettre en corrélation les opérations
 
-| Name | Type | Exemple | Notes |
-| --- | --- | --- | --- |
-| time |DATETIME |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
-| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
-| operationName |string |« Query.Search » |Nom de l’opération |
-| operationVersion |string |"2019-05-06" |Version d’API utilisée |
-| catégorie |string |« OperationLogs » |constant |
-| resultType |string |« Success » |Valeurs possibles : Réussite ou Échec |
-| resultSignature |int |200 |Code de résultat HTTP |
-| durationMS |int |50 |Durée de l’opération en millisecondes |
-| properties |object |consultez le tableau suivant |Objet contenant des données propres à l’opération |
+Associez une demande de requête à des opérations d’indexation et restituez les points de données sur un graphique de temps pour voir si les opérations coïncident.
 
-**Schéma de propriétés**
+```
+AzureDiagnostics
+| summarize OperationName, Count=count()
+| where OperationName in ('Query.Search', 'Indexing.Index')
+| summarize Count=count(), AvgLatency=avg(DurationMs) by bin(TimeGenerated, 1h), OperationName
+| render timechart
+```
 
-| Name | Type | Exemple | Notes |
-| --- | --- | --- | --- |
-| Description |string |« GET /indexes(’content’)/docs » |Point de terminaison de l’opération |
-| Requête |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Paramètres de requête |
-| Documents |int |42 |Nombre de documents traités |
-| IndexName |string |« testindex » |Nom de l’index associé à l’opération |
+### <a name="use-search-apis"></a>Utiliser les API de recherche
 
-## <a name="metrics-schema"></a>Schéma de mesures
-
-Les métriques sont capturées pour les demandes de requête.
-
-| Name | Type | Exemple | Notes |
-| --- | --- | --- | --- |
-| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |votre ID de ressource |
-| metricName |string |« Latency » |Nom de la mesure |
-| time |DATETIME |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
-| average |int |64 |Valeur moyenne des échantillons bruts dans l’intervalle de temps de la mesure |
-| minimum |int |37 |Valeur minimale des échantillons bruts dans l’intervalle de temps de la mesure |
-| maximum |int |78 |Valeur maximale des échantillons bruts dans l’intervalle de temps de la mesure |
-| total |int |258 |Valeur totale des échantillons bruts dans l’intervalle de temps de la mesure |
-| count |int |4 |Nombre d’échantillons bruts utilisés pour générer la mesure |
-| timegrain |string |« PT1M » |Fragment de temps de la mesure au format ISO 8601 |
-
-Toutes les mesures sont consignées dans des intervalles d’une minute. Chaque mesure expose des valeurs minimales, maximales et moyennes par minute.
-
-Dans le cas de la mesure SearchQueriesPerSecond, la valeur minimale correspondra à la valeur la plus faible des requêtes de recherche par seconde qui a été enregistrée pendant cette minute. Il en va de même pour la valeur maximale. La moyenne représentera l’agrégat de ces valeurs pour toute la minute.
-Imaginez ce scénario : pendant une minute, vous pouvez avoir 58 secondes de charge très élevée, qui représentera votre valeur SearchQueriesPerSecond maximale, puis 58 secondes de charge moyenne, et enfin une seconde avec une seule requête, qui représentera la valeur minimale.
-
-Pour ThrottledSearchQueriesPercentage, les valeurs minimales, maximales, moyennes et totales seront identiques : il s’agit du pourcentage de requêtes de recherche qui ont été limitées, en fonction du nombre total de requêtes de recherche pendant une minute.
-
-## <a name="download-and-open-in-visual-studio-code"></a>Télécharger et ouvrir dans Visual Studio Code
-
-Vous pouvez utiliser n’importe quel éditeur JSON pour voir le fichier journal. Si vous n’en avez pas, nous vous recommandons [Visual Studio Code](https://code.visualstudio.com/download).
-
-1. Dans le portail Azure, ouvrez votre compte de stockage. 
-
-2. Dans le volet de navigation de gauche, cliquez sur **Objets blob**. **insights-logs-operationlogs** et **insights-metrics-pt1m** doivent s’afficher. Ces conteneurs sont créés par Recherche cognitive Azure quand les données de journal sont exportées vers le stockage Blob.
-
-3. Faites défiler l’arborescence des dossiers vers le bas jusqu’à atteindre le fichier .json.  Utilisez le menu contextuel pour télécharger le fichier.
-
-Une fois le fichier téléchargé, ouvrez-le dans un éditeur JSON pour en voir le contenu.
-
-## <a name="use-system-apis"></a>Utiliser des API système
 L’API REST de Recherche cognitive Azure et le kit de développement logiciel (SDK) .NET fournissent tous les deux un accès programmatique aux métriques de service, aux informations sur les index et l’indexeur ainsi qu’aux décomptes de documents.
 
-* [Obtenir les statistiques des services](/rest/api/searchservice/get-service-statistics)
-* [Obtention de statistiques d’index](/rest/api/searchservice/get-index-statistics)
-* [Nombre de documents](/rest/api/searchservice/count-documents)
-* [Obtention de l’état d’indexeur](/rest/api/searchservice/get-indexer-status)
++ [GET Service Statistics](/rest/api/searchservice/get-service-statistics)
++ [GET Index Statistics](/rest/api/searchservice/get-index-statistics)
++ [GET Document Counts](/rest/api/searchservice/count-documents)
++ [GET Indexer Status](/rest/api/searchservice/get-indexer-status)
 
-Pour activer à l’aide de PowerShell ou de l’interface de ligne de commande Azure, consultez la documentation qui se trouve [ici](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
+## <a name="monitor-user-access"></a>Superviser l’accès des utilisateurs
+
+Étant donné que les index de recherche sont un composant d’une plus grande application cliente, il n’existe aucune méthodologie intégrée pour contrôler ni superviser l’accès par utilisateur à un index. Les demandes sont supposées provenir d’une application cliente, que ce soit pour des demandes d’administration ou de requête. Les opérations de lecture-écriture d’administration incluent la création, la mise à jour et la suppression d’objets dans l’ensemble du service. Les opérations en lecture seule sont des requêtes sur la collection de documents, délimitées à un seul index. 
+
+Par conséquent, ce que vous verrez dans les journaux d’activité sont des références à des appels avec des clés d’administration ou des clés de requête. La clé appropriée est incluse dans les demandes provenant du code client. Le service n’est pas équipé pour gérer les jetons d’identité ni l’emprunt d’identité.
+
+Quand il existe des exigences commerciales pour l’autorisation par utilisateur, la recommandation est l’intégration à Azure Active Directory. Vous pouvez utiliser $filter et des identités utilisateur pour [filtrer les résultats de recherche](search-security-trimming-for-azure-search-with-aad.md) des documents qu’un utilisateur ne doit pas voir. 
+
+Il n’existe aucun moyen de consigner ces informations séparément de la chaîne de requête qui inclut le paramètre $filter. Consultez [Superviser les requêtes](search-monitor-queries.md) pour plus d’informations sur la création de rapports sur les chaînes de requête.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Gérer votre service Recherche sur Microsoft Azure](search-manage.md) pour plus d’informations sur l’administration des services. [Performances et optimisation](search-performance-optimization.md) pour obtenir de l’aide sur le paramétrage.
+Une bonne maîtrise d’Azure Monitor est essentielle pour la surveillance de tout service Azure, dont des ressources comme Recherche cognitive Azure. Si vous n’êtes pas familiarisé avec Azure Monitor, prenez le temps de consulter les articles relatifs aux ressources. En plus des tutoriels, l’article suivant est un bon point de départ.
+
+> [!div class="nextstepaction"]
+> [Supervision de ressources Azure avec Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)

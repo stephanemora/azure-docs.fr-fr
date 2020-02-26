@@ -5,34 +5,45 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: d093d4c23fcc44e7e9f3461f875607926f4b612d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 1/8/2019
+ms.openlocfilehash: 674fd4372bdf7c3782d18aaf04b48eb0067a9b2e
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977571"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484925"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Créer des utilisateurs dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
-Cet article décrit comment créer des utilisateurs dans un groupe de serveurs Hyperscale (Citus). Pour en savoir plus sur les utilisateurs de l’abonnement Azure et leurs privilèges, consultez l’article [Contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/built-in-roles.md) ou lisez [comment personnaliser les rôles](../role-based-access-control/custom-roles.md).
+> [!NOTE]
+> Le terme « utilisateurs » fait référence aux utilisateurs au sein d’un groupe de serveurs Hyperscale (Citus). Pour en savoir plus sur les utilisateurs de l’abonnement Azure et leurs privilèges, consultez l’article [Contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/built-in-roles.md) ou lisez [comment personnaliser les rôles](../role-based-access-control/custom-roles.md).
 
 ## <a name="the-server-admin-account"></a>Compte d’administrateur de serveur
 
-Un groupe de serveurs Hyperscale (Citus) nouvellement créé est fourni avec plusieurs rôles prédéfinis :
+Le moteur PostgreSQL utilise des [rôles](https://www.postgresql.org/docs/current/sql-createrole.html) pour contrôler l’accès aux objets de base de données, et un groupe de serveurs Hyperscale (Citus) nouvellement créé est fourni avec plusieurs rôles prédéfinis :
 
 * Les [rôles PostgreSQL par défaut](https://www.postgresql.org/docs/current/default-roles.html)
-* *azure_pg_admin*
-* *postgres*
-* *citus*
+* `azure_pg_admin`
+* `postgres`
+* `citus`
 
-Le moteur PostgreSQL utilise des privilèges pour contrôler l’accès aux objets de base de données, comme indiqué dans la [documentation du produit PostgreSQL](https://www.postgresql.org/docs/current/static/sql-createrole.html).
-Votre utilisateur administrateur de serveur *citus* est un membre du rôle *azure_pg_admin*.
-Toutefois, il ne fait pas partie du rôle *postgre* (super utilisateur).  Étant donné qu’Hyperscale est un service PaaS géré, seul Microsoft fait partie du rôle de super utilisateur. L’utilisateur *citus* dispose d’autorisations limitées et ne peut pas créer de nouvelles bases de données.
+Étant donné qu’Hyperscale est un service PaaS managé, seul Microsoft peut se connecter avec le rôle de superutilisateur `postgres`. Pour un accès administratif limité, Hyperscale fournit le rôle `citus`.
 
-## <a name="how-to-create-additional-users"></a>Comment créer des utilisateurs supplémentaires
+Autorisations pour le rôle `citus` :
 
-Le compte administrateur *citus* ne dispose pas des autorisations nécessaires pour créer des utilisateurs supplémentaires. Pour ajouter un utilisateur, utilisez le portail Azure.
+* Lire toutes les variables de configuration, même les variables normalement visibles uniquement par les superutilisateurs.
+* Lire tous les affichages pg\_stat\_\* et utiliser diverses extensions liées aux statistiques (même des affichages ou des extensions normalement visibles uniquement par les superutilisateurs).
+* Exécuter des fonctions de supervision qui peuvent prendre des verrous ACCESS SHARE sur des tables, potentiellement pendant une longue période.
+* [Créer des extensions PostgreSQL](concepts-hyperscale-extensions.md) (car le rôle est membre d’`azure_pg_admin`).
+
+Notez que le rôle `citus` présente des restrictions :
+
+* Impossibilité de créer des rôles
+* Impossibilité de créer des bases de données
+
+## <a name="how-to-create-additional-user-roles"></a>Comment créer des rôles d’utilisateur supplémentaires
+
+Comme mentionné, le compte administrateur `citus` ne dispose pas des autorisations nécessaires pour créer des utilisateurs supplémentaires. Pour ajouter un utilisateur, utilisez le portail Azure.
 
 1. Accédez à la page **Rôles** pour votre groupe de serveurs Hyperscale, puis cliquez sur **+ Ajouter** :
 
@@ -42,27 +53,19 @@ Le compte administrateur *citus* ne dispose pas des autorisations nécessaires p
 
    ![Ajouter un rôle](media/howto-hyperscale-create-users/2-add-user-fields.png)
 
-L’utilisateur est créé sur le nœud coordinateur du groupe de serveurs et est propagé à tous les nœuds Worker.
+L’utilisateur est créé sur le nœud coordinateur du groupe de serveurs et est propagé à tous les nœuds Worker. Les rôles créés via le portail Azure comportent l’attribut `LOGIN`, ce qui signifie qu’il s’agit d’utilisateurs véritables qui peuvent se connecter à la base de données.
 
-## <a name="how-to-delete-a-user-or-change-their-password"></a>Suppression d’un utilisateur ou modification de son mot de passe
+## <a name="how-to-modify-privileges-for-user-role"></a>Comment modifier des privilèges pour un rôle d’utilisateur
 
-Accédez à la page **Rôles** pour votre groupe de serveurs Hyperscale, puis cliquez sur l’ellipse **...** à côté d’un utilisateur. L’ellipse ouvre un menu pour supprimer l’utilisateur ou réinitialiser son mot de passe.
+De nouveaux rôles d’utilisateur sont couramment utilisés pour fournir un accès à la base de données avec des privilèges restreints. Pour modifier des privilèges d’utilisateur, utilisez des commandes PostgreSQL standard, à l’aide d’un outil tel que PgAdmin ou psql. (Voir [Connexion avec psql](quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql) dans le démarrage rapide Hyperscale (Citus).)
 
-   ![Modifier un rôle](media/howto-hyperscale-create-users/edit-role.png)
-
-Le rôle *citus* est privilégié et ne peut pas être supprimé.
-
-## <a name="how-to-modify-privileges-for-role"></a>Comment modifier des privilèges pour un rôle
-
-De nouveaux rôles sont couramment utilisés pour fournir un accès à la base de données avec des privilèges restreints. Pour modifier des privilèges d’utilisateur, utilisez des commandes PostgreSQL standard, à l’aide d’un outil tel que PgAdmin ou psql. (Voir [Connexion avec psql](quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql) dans le démarrage rapide Hyperscale (Citus).)
-
-Par exemple, pour autoriser *db_user* à lire *mytable*, accordez l’autorisation :
+Par exemple, pour autoriser `db_user` à lire `mytable`, accordez l’autorisation :
 
 ```sql
 GRANT SELECT ON mytable TO db_user;
 ```
 
-Hyperscale (Citus) propage les instructions GRANT sur une table unique à travers l’ensemble du cluster, en les appliquant à tous les nœuds Worker. Toutefois, les allocations à l’échelle du système (par exemple, pour toutes les tables d’un schéma) doivent être exécutées sur chaque nœud.  Utilisez la fonction d’assistance *run_command_on_workers()* :
+Hyperscale (Citus) propage les instructions GRANT sur une table unique à travers l’ensemble du cluster, en les appliquant à tous les nœuds Worker. Toutefois, les allocations à l’échelle du système (par exemple, pour toutes les tables d’un schéma) doivent être exécutées sur chaque nœud de date.  Utilisez la fonction d’assistance `run_command_on_workers()` :
 
 ```sql
 -- applies to the coordinator node
@@ -73,6 +76,14 @@ SELECT run_command_on_workers(
   'GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;'
 );
 ```
+
+## <a name="how-to-delete-a-user-role-or-change-their-password"></a>Comment supprimer un rôle d’utilisateur ou modifier son mot de passe
+
+Pour mettre à jour un utilisateur, accédez à la page **Rôles** pour votre groupe de serveurs Hyperscale, puis cliquez sur les points de suspension **...** à côté de l’utilisateur. L’ellipse ouvre un menu pour supprimer l’utilisateur ou réinitialiser son mot de passe.
+
+   ![Modifier un rôle](media/howto-hyperscale-create-users/edit-role.png)
+
+Le rôle `citus` est privilégié et ne peut pas être supprimé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

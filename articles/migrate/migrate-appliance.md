@@ -2,13 +2,13 @@
 title: Appliance Azure Migrate
 description: Présente une vue d’ensemble de l’utilisation de l’appliance Azure Migrate pour l’évaluation et la migration de serveurs.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 652fe9d379d6e2ba50e9e282f384905e154368d8
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.date: 02/17/2020
+ms.openlocfilehash: d02227747be4bc7d994e2ea84cd74e7f2fd2531f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031661"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425457"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -55,7 +55,7 @@ Machine physique |  Azure Migrate : Server Assessment |  Détection des serveur
 **Valeur de hachage** | MD5 : 29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256 : 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 **Hôte Hyper-V** | Exécution de Windows Server 2012 R2 ou version ultérieure.
 **Projet Azure Migrate** | Une appliance peut être associée à un seul projet. <br/> Un nombre quelconque d’appliances peut être associé à un même projet.<br/> 
-**Découverte** | Une appliance peut découvrir jusqu’à 5 000 machines virtuelles VMware sur un serveur vCenter.<br/> Une appliance peut connecter à jusqu’à 300 hôtes Hyper-V.
+**Découverte** | Une appliance peut détecter jusqu’à 5 000 machines virtuelles Hyper-V.<br/> Une appliance peut connecter à jusqu’à 300 hôtes Hyper-V.
 **Composants de l’appliance** | Application de gestion : Application Web dans l’appliance pour les entrées d’utilisateurs pendant le déploiement.<br/> Agent de découverte : recueille les données de configuration de l’ordinateur.<br/> Agent d’évaluation : collecte les données de performances.<br/>  Service de mise à jour automatique : met à jour les composants (s’exécute toutes les 24 heures).
 
 
@@ -159,7 +159,7 @@ Adresses IPv6 | vm.Guest.Net
 Débit de lecture (Mo par seconde) | net.received.average
 Débit d’écriture (Mo par seconde) | net.transmitted.average
 **Détails de chemin d’accès d’inventaire** | 
-Name | container.GetType().Name
+Nom | container.GetType().Name
 Type d’objet enfant | container.ChildType
 Détails de référence | container.MoRef
 Détails du parent | Container.Parent

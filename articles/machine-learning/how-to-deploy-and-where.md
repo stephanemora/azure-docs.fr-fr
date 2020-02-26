@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: bbb0992eaeef7892e5940130131ac139a339b47d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: fa73cb690fafb67f75abafab1b0dd27ffa0b8e32
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083240"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210497"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Déployer des modèles avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -584,6 +584,20 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 [!INCLUDE [aml-local-deploy-config](../../includes/machine-learning-service-local-deploy-config.md)]
 
 Pour plus d’informations, consultez la documentation sur [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
+
+### <a name="understanding-service-state"></a>Fonctionnement de l’état du service
+
+Pendant le déploiement du modèle, vous pouvez voir le changement de l’état du service lors de son déploiement complet.
+
+Le tableau ci-après décrit les différents états de service :
+
+| État du service web | Description | État final ?
+| ----- | ----- | ----- |
+| Transition | Le service est en cours de déploiement. | Non |
+| Unhealthy | Le service a été déployé, mais est actuellement inaccessible.  | Non |
+| Non planifiable | Le service ne peut pas être déployé pour l’instant en raison d’un manque de ressources. | Non |
+| Échec | Le déploiement du service a échoué en raison d’une erreur ou d’un plantage. | Oui |
+| Healthy | Le service est sain et le point de terminaison est disponible. | Oui |
 
 ### <a id="notebookvm"></a>Service web d’instances de calcul (développement/test)
 

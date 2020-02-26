@@ -1,23 +1,23 @@
 ---
 title: Ingérer des objets blob Azure dans Azure Data Explorer
 description: Cet article vous montre comment envoyer des données de compte de stockage à Azure Data Explorer en utilisant un abonnement Event Grid.
-author: radennis
-ms.author: radennis
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: da701dc91781ef72c29e6454e79523073810dbe4
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: a07a5a5956d8ea295d269d81ed264177bc8805f2
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667477"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424981"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingérer des objets blob dans Azure Data Explorer en s’abonnant à des notifications Event Grid
 
 > [!div class="op_single_selector"]
-> * [Portal](ingest-data-event-grid.md)
+> * [Portail](ingest-data-event-grid.md)
 > * [C#](data-connection-event-grid-csharp.md)
 > * [Python](data-connection-event-grid-python.md)
 > * [Modèle Azure Resource Manager](data-connection-event-grid-resource-manager.md)
@@ -117,7 +117,7 @@ Créez une table dans Azure Data Explorer, à laquelle Event Hubs enverra les do
 
      **Paramètre** | **Valeur suggérée** | **Description du champ**
     |---|---|---|
-    | Table | *TestTable* | Table que vous avez créée dans **TestDatabase**. |
+    | Table de charge de travail | *TestTable* | Table que vous avez créée dans **TestDatabase**. |
     | Format de données | *JSON* | Les formats pris en charge sont Avro, CSV, JSON, JSON MULTILIGNE, PSV, SOH, SCSV, TSV et TXT. Options de compression prises en charge : ZIP et GZIP |
     | Mappage de colonnes | *TestMapping* | Le mappage que vous avez créé dans **TestDatabase**, qui mappe les données JSON entrantes dans les colonnes des noms de colonne et les types de données de **TestTable**.|
     | | |
@@ -158,6 +158,11 @@ Enregistrez les données dans un fichier et chargez celui-ci avec ce script :
     echo "Done"
 ```
 
+> [!NOTE]
+> Azure Data Explorer ne supprimera pas les objets blob après l’ingestion.
+> Conservez les objets blob pendant trois à cinq jours.
+> Pour gérer la suppression des objets blob, utilisez le [cycle de vie du stockage Blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal). 
+
 ## <a name="review-the-data-flow"></a>Examiner le flux de données
 
 > [!NOTE]
@@ -186,7 +191,7 @@ Vous pouvez modifier la stratégie ultérieurement si nécessaire. Dans cet arti
 
     ![Jeu de résultats des messages](media/ingest-data-event-grid/table-result.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous ne prévoyez pas de réutiliser votre grille d’événement, effacez **test-hub-rg** pour éviter des frais.
 

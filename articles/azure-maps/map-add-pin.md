@@ -1,6 +1,6 @@
 ---
 title: Ajouter une couche de symboles à une carte | Microsoft Azure Maps
-description: Dans cet article, vous allez découvrir comment utiliser la couche de symboles pour personnaliser et ajouter des symboles sur une carte à l’aide du SDK web Microsoft Azure Maps.
+description: Dans cet article, vous allez découvrir comment utiliser la couche de symboles pour personnaliser un symbole et ajouter des symboles sur une carte à l’aide du SDK web Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,16 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8c39c7b57167d65dfa639d41665f5d5b38110183
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: b8d131dcc798fb2fe1d4bb650cd5b0a68903381b
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933141"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209696"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Ajouter une couche de symboles à une carte
 
-Symbole connecté à une source de données et utilisé pour afficher une icône et/ou un texte à un point donné. Les couches de symboles sont rendues à l’aide de WebGL et sont utilisées pour afficher de grandes collections de points sur la carte. Par rapport au marqueur HTML, le calque de symboles affiche un grand nombre de données de point sur la carte de façon plus performante. Toutefois, la couche de symboles ne prend pas en charge les éléments CSS et HTML traditionnels pour le style.  
+Connectez un symbole à une source de données et utilisez-le pour afficher une icône ou un texte à un point donné. 
+
+Les couches de symboles sont affichées à l’aide de WebGL. Utilisez une couche de symboles pour afficher de grandes collections de points sur la carte. Par rapport au marqueur HTML, le calque de symboles affiche un grand nombre de données de point sur la carte de façon plus performante. Toutefois, la couche de symboles ne prend pas en charge les éléments CSS et HTML traditionnels pour le style.  
 
 > [!TIP]
 > Les couches de symboles par défaut affichent les coordonnées de toutes les données géométriques d’une source de données. Pour limiter le calque afin qu’il n’affiche que les caractéristiques de géométrie de point, définissez la propriété `filter` de la couche sur `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`. Si vous le voulez, vous pouvez également inclure des caractéristiques MultiPoint.
@@ -33,7 +35,9 @@ Le gestionnaire de sprites d’images de cartes charge les images personnalisée
 
 ## <a name="add-a-symbol-layer"></a>Ajouter un calque de symboles
 
-Avant de pouvoir ajouter une couche de symboles à la carte, vous devez effectuer quelques étapes. Commencez par créer une source de données et l’ajouter à la carte. Vous pouvez ensuite créer et transmettre une couche de symboles dans la source de données pour récupérer les données de la source de données. Enfin, vous devez ajouter des données à la source de données afin qu’il y ait quelque chose à afficher. Le code suivant affiche le code à ajouter à la carte après son chargement. Le code restitue un point unique sur la carte à l’aide d’une couche de symboles. 
+Avant de pouvoir ajouter une couche de symboles à la carte, vous devez effectuer quelques étapes. Commencez par créer une source de données et l’ajouter à la carte. Créez une couche de symboles. Ensuite, transmettez la source de données à la couche de symboles pour récupérer les données de la source de données. Enfin, ajoutez des données à la source de données, afin qu’il y ait quelque chose à afficher. 
+
+Le code ci-dessous montre ce qui doit être ajouté à la carte après son chargement. Cet exemple restitue un point unique sur la carte à l’aide d’une couche de symboles. 
 
 ```javascript
 //Create a data source and add it to the map.

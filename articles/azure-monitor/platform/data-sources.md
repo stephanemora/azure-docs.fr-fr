@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: 8f17a3ffbbee2bc702be1c2c690a1d6c85d792cb
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d429a21f409afc9780b3cd90d16d46b4f4671912
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751043"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467349"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Sources des données de surveillance pour Azure Monitor
 Azure Monitor repose sur une [plateforme commune de données de surveillance](data-platform.md) qui inclut des [journaux](data-platform-logs.md) et des [métriques](data-platform-metrics.md). La collecte des données dans cette plate-forme permet d'analyser ensemble des données provenant de plusieurs ressources à l'aide d'un ensemble commun d'outils dans Azure Monitor. Les données de surveillance peuvent également être envoyées à d'autres endroits pour étayer certains scénarios, et certaines ressources peuvent écrire des données sur d'autres sites afin de consigner ces informations dans des journaux ou des métriques.
@@ -120,10 +120,11 @@ L'activation de l'extension Azure Diagnostics pour les machines virtuelles Azure
 
 | Destination | Description | Informations de référence |
 |:---|:---|:---|
-| Stockage | Lorsque vous activez l'extension Diagnostics Extension, elle écrit par défaut sur un compte de stockage. | [Stocker et afficher des données de diagnostic dans le stockage Azure](diagnostics-extension-to-storage.md) |
+| Stockage | L’extension Diagnostics Azure écrit toujours dans un compte Stockage Azure. | [Installer et configurer l’extension Diagnostics Azure pour Azure (WAD)](diagnostics-extension-windows-install.md)<br>[Utiliser l’extension de diagnostic Linux pour superviser les métriques et les journaux](../../virtual-machines/extensions/diagnostics-linux.md) |
 | Métriques Azure Monitor | Lorsque vous configurez l'extension Diagnostics Extension pour collecter les compteurs de performances, ces informations sont écrites dans la base de données de métriques Azure Monitor. | [Envoyer des métriques de système d’exploitation invité vers le magasin de métriques d’Azure Monitor à l’aide d’un modèle Resource Manager pour une machine virtuelle Windows](collect-custom-metrics-guestos-resource-manager-vm.md) |
+| Event Hubs | Configurez l'extension Diagnostics pour diffuser en continu les données sur d'autres emplacements à l'aide d’Event Hubs.  | [Streaming des données Diagnostics Azure à l’aide d’Event Hubs](diagnostics-extension-stream-event-hubs.md)<br>[Utiliser l’extension de diagnostic Linux pour superviser les métriques et les journaux](../../virtual-machines/extensions/diagnostics-linux.md) |
 | Journaux Application Insights | Collectez les journaux et les compteurs de performances de la ressource de calcul prenant en charge votre application pour les analyser avec d'autres données de l'application. | [Envoyer des données de diagnostic de service cloud, de machine virtuelle ou de Service Fabric à Application Insights](diagnostics-extension-to-application-insights.md) |
-| Event Hubs | Configurez l'extension Diagnostics pour diffuser en continu les données sur d'autres emplacements à l'aide d’Event Hubs.  | [Diffusion des données de Diagnostics Azure dans le chemin réactif à l’aide d’Event Hubs](diagnostics-extension-stream-event-hubs.md) |
+
 
 ### <a name="log-analytics-agent"></a>Agent Log Analytics 
 Installez l'agent Log Analytics pour une surveillance et une gestion complètes de vos machines virtuelles Windows ou Linux. La machine virtuelle peut s’exécuter dans Azure, dans un autre cloud ou localement.

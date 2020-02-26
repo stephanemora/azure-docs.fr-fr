@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 359f2b42ca6f56087be53a5aeb328fe43a478d63
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 63f7eac52a555be1877f235bd2f7f1d9315d53d5
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988278"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208503"
 ---
 # <a name="show-directions-from-a-to-b"></a>Afficher des directions de A à B
 
@@ -43,7 +43,7 @@ Le sixième bloc de code interroge le service de routage Azure Maps, qui fait pa
 
 Le dernier bloc de code définit les limites de la carte à l’aide de la propriété [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) de la carte.
 
-La requête d’itinéraire, la source de données, le symbole, les couches de lignes et les limites de la caméra sont créés et définis à l’intérieur du [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) de la carte. Cette structure de code garantit que les résultats s’affichent uniquement après le chargement complet de la carte.
+La requête d’itinéraire, la source de données, le symbole, les couches de lignes et les limites de la caméra sont créés à l’intérieur du [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Cette structure de code garantit que les résultats s’affichent uniquement après le chargement complet de la carte.
 
 ## <a name="query-the-route-via-fetch-api"></a>Demander l'itinéraire via l'API de récupération
 
@@ -54,7 +54,7 @@ Dans le code ci-dessus, le premier bloc de code construit un objet de carte et d
 
 Le deuxième bloc de code crée et ajoute un objet [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) à la carte.
 
-Le troisième bloc de code crée les points de début et de destination pour la route et les ajoute à la source de données. Consultez la section relative à [l’ajout d’un repère sur la carte](map-add-pin.md) pour en savoir plus sur l’utilisation de [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest).
+Le troisième bloc de code crée les points de début et de destination pour la route. Ensuite, il les ajoute à la source de données. Consultez la section relative à [l’ajout d’un repère sur la carte](map-add-pin.md) pour en savoir plus sur l’utilisation de [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest).
 
 Un élément [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) affiche les objets de ligne encapsulés dans [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) sous forme de lignes sur la carte. Le quatrième bloc de code crée une couche de lignes et l’ajoute à la carte. Consultez les propriétés d’une couche de lignes dans [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest).
 
@@ -64,7 +64,7 @@ Le bloc de code suivant crée les points `SouthWest` et `NorthEast` à partir de
 
 Le dernier bloc de code utilise l'[API de récupération](https://fetch.spec.whatwg.org/) pour effectuer une requête de recherche pour l'[API de routage Azure Maps](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). La réponse est ensuite analysée. Si la réponse est correcte, les informations de latitude et longitude sont utilisées pour créer une ligne en reliant ces points. Les données de la ligne sont ensuite ajoutées à la source de données pour afficher l’itinéraire sur la carte. Pour plus d’instructions, consultez la section relative à [l’ajout d’une ligne sur la carte](map-add-line-layer.md).
 
-La requête d’itinéraire, la source de données, le symbole, les couches de lignes et les limites de la caméra sont créés et définis à l’intérieur du [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) de la carte. Là encore, nous voulons nous assurer que les résultats s’affichent après le chargement complet de la carte.
+La requête d’itinéraire, la source de données, le symbole, les couches de lignes et les limites de la caméra sont créés à l’intérieur du [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Là encore, nous voulons nous assurer que les résultats s’affichent après le chargement complet de la carte.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 02/04/2020
-ms.openlocfilehash: 901868da8ed859a846a507557d383db760f297c9
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: e2e1ddd031041f49107545cd0b3d3de4eaebcd6d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029518"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472126"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Résoudre les problèmes de flux de données dans Azure Data Factory
 
@@ -29,8 +29,8 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 ### <a name="error-code-df-executor-systemimplicitcartesian"></a>Code d’erreur : DF-Executor-SystemImplicitCartesian
 
 - **Message** : Le produit cartésien implicite pour la jointure INNER n’est pas pris en charge. Utilisez plutôt CROSS JOIN. Les colonnes utilisées dans la jointure doivent créer une clé unique pour les lignes.
-- **Causes** : Le produit cartésien implicite pour la jointure INNER entre plans logiques n’est pas pris en charge. Si les colonnes utilisées dans la jointure créent la clé unique
-- **Recommandation** : Pour les jointures non basées sur l’égalité, vous devez opter pour CROSS JOIN.
+- **Causes** : Le produit cartésien implicite pour la jointure INNER entre plans logiques n’est pas pris en charge. Si les colonnes utilisées dans la jointure créent la clé unique, vous avez besoin d’au moins une colonne provenant de chaque côté de la relation.
+- **Recommandation** : Pour les jointures non basées sur l’égalité, vous devez opter pour CUSTOM CROSS JOIN.
 
 ### <a name="error-code-df-executor-systeminvalidjson"></a>Code d’erreur : DF-Executor-SystemInvalidJson
 

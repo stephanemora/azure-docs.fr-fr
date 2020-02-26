@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 81aded7639cc0bed86c3d3ab3be9e6ef7b355734
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: c08271286373ab8c3e621ee6fa59782ba2d16fb4
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964530"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444177"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-python"></a>Créer une connexion de données au hub d’événements pour Azure Data Explorer à l’aide de Python
 
@@ -22,15 +22,21 @@ ms.locfileid: "76964530"
 > * [Python](data-connection-event-hub-python.md)
 > * [Modèle Azure Resource Manager](data-connection-event-hub-resource-manager.md)
 
-L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Azure Data Explorer offre une ingestion (chargement de données) à partir de hubs d’événements, de hubs IoT et d’objets blob écrits dans des conteneurs d’objets blob. Dans cet article, vous créez une connexion de données au hub d’événements pour Azure Data Explorer à l’aide de Python.
+Dans cet article, vous créez une connexion de données au hub d’événements pour Azure Data Explorer à l’aide de Python. L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Azure Data Explorer permet une ingestion (chargement de données) à partir de hubs d’événements, de hubs IoT et d’objets blob écrits dans des conteneurs d’objets blob.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-* Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
-* Créez [un cluster et une base de données](create-cluster-database-python.md).
-* Créez [une table et un mappage de colonnes](python-ingest-data.md#create-a-table-on-your-cluster).
-* Définissez [des stratégies de base de données et de table](database-table-policies-python.md) (facultatif).
-* Créez [un hub d’événements avec des données pour l’ingestion](ingest-data-event-hub.md#create-an-event-hub). 
+* Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+* [Python 3.4+](https://www.python.org/downloads/).
+
+* [Un cluster et une base de données](create-cluster-database-python.md).
+
+* [Un mappage des tables et des colonnes](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
+
+* [Des stratégies de base de données et de table](database-table-policies-python.md) (facultatif).
+
+* [Hub d’événements avec des données pour l’ingestion](ingest-data-event-hub.md#create-an-event-hub).
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
 

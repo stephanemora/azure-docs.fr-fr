@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e27288f95f07c481ab98a112ed9f02a34046600a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9f00bebfbab7b3726930e212893ae9dd2f5c17c8
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76835791"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193441"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique Azure Active Directory dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -262,6 +262,7 @@ Le profil technique suivant supprime un compte d’utilisateur social en utilisa
 | UserMessageIfClaimsPrincipalAlreadyExists | Non | Si une erreur doit être déclenchée (voir la description de l’attribut RaiseErrorIfClaimsPrincipalAlreadyExists), spécifiez le message à afficher à l’utilisateur si l’objet utilisateur existe déjà. La valeur peut être [localisée](localization.md).|
 | ApplicationObjectId | Non | Identificateur d’objet d’application pour les attributs d’extension. Valeur : ObjectId d'une application. Pour plus d’informations, voir [Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil](custom-policy-custom-attributes.md). |
 | ClientId | Non | Identificateur client pour accéder au locataire en tant que tiers. Pour plus d’informations, voir [Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil](custom-policy-custom-attributes.md). |
+| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous voulez utiliser un résolveur de revendications dans le profil technique, définissez ceci sur `true`. |
 
 
 

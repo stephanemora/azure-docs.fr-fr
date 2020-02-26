@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/03/2020
-ms.openlocfilehash: e1eb852b7cf7aea887dea429e19b0a3b1ac5805a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.date: 02/14/2020
+ms.openlocfilehash: 14b04f7d6068863c79c7060d29b58232be1f40cb
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989856"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201796"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Niveau de compatibilité pour les travaux Azure Stream Analytics
 
@@ -52,6 +52,10 @@ Quand vous mettez à jour le niveau de compatibilité, le compilateur T valide l
 ## <a name="compatibility-level-12"></a>Niveau de compatibilité 1.2
 
 Les principales modifications introduites dans le niveau de compatibilité 1.2 sont les suivantes :
+
+###  <a name="amqp-messaging-protocol"></a>Protocole de messagerie AMQP
+
+**Niveau 1.2** : Azure Stream Analytics utilise le protocole de messagerie [AMQP (Advanced Message Queueing Protocol)](../service-bus-messaging/service-bus-amqp-overview.md) pour écrire dans les files d’attente et les rubriques Service Bus. Le protocole AMQP vous permet de développer des applications hybrides interplateforme à l’aide d’un protocole open standard.
 
 ### <a name="geospatial-functions"></a>Fonctions géospatiales
 
@@ -149,4 +153,4 @@ Voici les principales modifications introduites dans le niveau de compatibilité
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Résoudre les problèmes liés aux entrées Azure Stream Analytics](stream-analytics-troubleshoot-input.md)
-* [Stream Analytics Resource health](stream-analytics-resource-health.md) (Intégrité des ressources Stream Analytics)
+* [Intégrité des ressources Stream Analytics](stream-analytics-resource-health.md)

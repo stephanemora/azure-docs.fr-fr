@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 59ac2f74d4753c1f647bedfa2c402e729e25ee62
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6e629f3c83d847cf20eccbe7a3fb0d3f444dac62
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850728"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430327"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurer les exigences de complexité pour les mots de passe dans Azure Active Directory B2C
 
@@ -73,7 +73,7 @@ Permet de contrôler les critères de longueur du mot de passe.
 Permet de contrôler les différents types de caractères utilisés dans le mot de passe.
 
 - **2 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (2 sur 4 : minuscule, majuscule, chiffre (0-9), symbole) garantit que le mot de passe contient au moins trois types de caractères, par exemple, un nombre et une minuscule.
-- **3 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (2 sur 4 : minuscule, majuscule, chiffre (0-9), symbole) garantit que le mot de passe contient au moins trois types de caractères, par exemple, un chiffre, une minuscule et une majuscule.
+- **3 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (3 sur 4 : Minuscule, Majuscule, Chiffre (0-9), Symbole) garantit que le mot de passe contient au moins trois types de caractères. par exemple, un chiffre, une minuscule et une majuscule.
 - **4 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (4 sur 4 : minuscule, majuscule, chiffre (0-9), symbole) garantit que le mot de passe contient les quatre types de caractères.
 
     > [!NOTE]

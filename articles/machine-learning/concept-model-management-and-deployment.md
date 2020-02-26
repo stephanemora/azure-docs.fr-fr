@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: f6819ddce777a5740ef1f5f9ab887a0646c4e464
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: e53db645875646b1e021cc0d3d760677e1128c0c
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122336"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486374"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps : Gestion des modèles, déploiement et surveillance avec Azure Machine Learning
 
@@ -24,7 +24,7 @@ Dans cet article, découvrez comment utiliser Azure Machine Learning pour gérer
 
 Azure Machine Learning propose les fonctionnalités MLOps suivantes :
 
-- **Créer des pipelines ML reproductibles**. Les pipelines vous permettent de définir des étapes reproductibles et réutilisables pour vos processus de préparation, d’apprentissage et de scoring de données.
+- **Créer des pipelines ML reproductibles**. Les pipelines vous permettent de définir des étapes reproductibles et réutilisables pour vos processus de préparation, d’entraînement et de scoring de données.
 - **Inscrire, empaqueter et déployer des modèles à partir de n’importe où**, et suivre les métadonnées associées requises pour utiliser le modèle.
 - **Capturer les données de gouvernance requises pour la capture de bout en bout du cycle de vie ML**, notamment qui publie des modèles, pourquoi des modifications sont apportées et quand les modèles ont été déployés ou utilisés en production.
 - **Notifier et alerter sur les événements du cycle de vie ML** tels que l’accomplissement d’expérimentation, l’inscription de modèle, le déploiement de modèle et la détection de dérive des données.
@@ -138,6 +138,19 @@ La supervision vous permet de comprendre les données envoyées à votre modèle
 Ces informations vous aident à comprendre l’utilisation de votre modèle. Les données d’entrée collectées peuvent également être utiles dans l’entraînement des futures versions du modèle.
 
 Pour plus d’informations, consultez [Guide pratique pour activer la collecte des données de modèle](how-to-enable-data-collection.md).
+
+## <a name="retrain-your-model-on-new-data"></a>Réentraîner votre modèle sur de nouvelles données
+
+Vous souhaiterez souvent mettre à jour votre modèle, ou même le réentraîner depuis le début, à mesure que vous recevrez de nouvelles informations. Parfois, la réception de nouvelles données est une partie attendue du domaine. Dans d’autres cas, comme indiqué dans [Détecter une dérive de données (préversion) sur des jeux de données](how-to-monitor-datasets.md), les performances du modèle peuvent se dégrader en fonction de modifications apportées à un capteur particulier, de modifications de données naturelles telles que l’impact des saisons, ou de fonctionnalités qui évoluent dans leur relation avec d’autres fonctionnalités. 
+
+Il n’y a aucune réponse universelle à la question « Comment savoir si je dois réentraîner ? » mais les outils de supervision et d’événements Azure ML étudiés précédemment constituent de bons points de départ pour l’automatisation. Une fois que vous avez décidé de réentraîner, vous devez : 
+
+- Prétraiter vos données à l’aide d’un processus reproductible et automatisé
+- Entraîner votre nouveau modèle
+- Comparer les sorties de votre nouveau modèle à celles de votre ancien modèle
+- Utiliser des critères prédéfinis pour choisir de remplacer ou non votre ancien modèle 
+
+Un thème des étapes ci-dessus est que votre nouvel entraînement doit être automatisé et non ad hoc. Les [pipelines Azure Machine Learning](concept-ml-pipelines.md) sont une bonne réponse pour créer des workflows relatifs à la préparation des données, à l’entraînement, à la validation et au déploiement. Lisez [Réentraîner des modèles à l’aide du concepteur Azure Machine Learning (préversion)](how-to-retrain-designer.md) pour voir comment les pipelines et le concepteur Azure Machine Learning s’intègrent dans un scénario de nouvel entraînement. 
 
 ## <a name="automate-the-ml-lifecycle"></a>Automatiser le cycle de vie ML 
 

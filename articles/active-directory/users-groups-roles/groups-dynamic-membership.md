@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1df823776208418eae3e465693dd51e108c5a8bb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: da983f87977de922ec547c3ade2972dfb4d69363
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841027"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206257"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -341,13 +341,13 @@ device.objectId -ne null
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Attributs d’extension et propriétés d’extension personnalisée
 
-Les attributs d’extension et les propriétés d’extension personnalisées sont pris en charge en tant que propriétés de chaîne dans les règles d’appartenance dynamique. Les attributs d’extension sont synchronisés à partir de Windows Server AD local et prennent le format « ExtensionAttributeX », lorsque X est égal à 1-15. Voici en exemple de règle utilisant un attribut d’extension en tant que propriété :
+Les attributs d’extension et les propriétés d’extension personnalisées sont pris en charge en tant que propriétés de chaîne dans les règles d’appartenance dynamique. Les [attributs d’extension](https://docs.microsoft.com/graph/api/resources/onpremisesextensionattributes?view=graph-rest-1.0) sont synchronisés à partir de Windows Server AD local et prennent le format « ExtensionAttributeX », où X a une valeur de 1 à 15. Voici en exemple de règle utilisant un attribut d’extension en tant que propriété :
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-Les propriétés d’extension personnalisée sont synchronisées à partir de l’Active Directory Windows Server AD ou à partir d’une application SaaS connectée, et leur format est `user.extension_[GUID]_[Attribute]`, où :
+Les [propriétés d’extension personnalisées](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) sont synchronisées à partir de Windows Server AD local ou à partir d’une application SaaS connectée, et leur format est `user.extension_[GUID]_[Attribute]`, où :
 
 * [GUID] est l’identificateur unique dans Azure AD pour l’application qui a créé la propriété dans Azure AD
 * [Attribute] est le nom attribué à la propriété lors de sa création

@@ -1,6 +1,6 @@
 ---
-title: Utiliser les API MS Graph pour configurer l’approvisionnement - Azure Active Directory | Microsoft Docs
-description: Vous devez configurer l’approvisionnement de plusieurs instances d’une application ? Découvrez comment gagner du temps en utilisant les API MS Graph pour automatiser la configuration de l’approvisionnement automatique.
+title: Utiliser les API Microsoft Graph pour configurer le provisionnement - Azure Active Directory | Microsoft Docs
+description: Vous devez configurer l’approvisionnement de plusieurs instances d’une application ? Découvrez comment gagner du temps en utilisant les API Microsoft Graph pour automatiser la configuration du provisionnement automatique.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,16 +16,16 @@ ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f19f6e4add9bd677b05e09c627532a7a48354ce
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f5780227274e8f9574fcdfcd388d75e333cc3d42
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77065936"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367830"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Configurer l’approvisionnement à l’aide des API Microsoft Graph
 
-Le portail Azure constitue un moyen pratique pour configurer séparément l’approvisionnement d’applications individuelles. Toutefois, si vous créez plusieurs instances d’une application, voire des centaines, il peut être plus simple d’automatiser la création et la configuration d’applications avec des API Microsoft Graph. Cet article explique comment automatiser la configuration de l’approvisionnement à l’aide d’API. Cette méthode est couramment utilisée pour les applications telles que [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso).
+Le portail Azure constitue un moyen pratique pour configurer séparément l’approvisionnement d’applications individuelles. Cependant, si vous créez plusieurs ou même des centaines d’instances d’une application, il peut être plus simple d’automatiser la création et la configuration d’applications avec les API Microsoft Graph. Cet article explique comment automatiser la configuration de l’approvisionnement à l’aide d’API. Cette méthode est couramment utilisée pour les applications telles que [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso).
 
 **Vue d’ensemble de la procédure d’automatisation de la configuration de l’approvisionnement à l’aide des API Microsoft Graph**
 

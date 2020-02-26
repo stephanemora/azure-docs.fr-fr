@@ -1,31 +1,31 @@
 ---
 title: Afficher des données personnalisées sur une carte raster | Microsoft Azure Maps
 description: Dans cet article, vous allez apprendre à afficher des données personnalisées sur une carte raster à l’aide du service d’image statique Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f036847a9d46231d65d150cd4e0a76471d1ad612
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 78068a8deda68434daaeb18cc994099d74d9ccdf
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766016"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209951"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Afficher des données personnalisées sur une carte raster
 
-Cet article explique comment utiliser le [service d’image statique](https://docs.microsoft.com/rest/api/maps/render/getmapimage) avec la fonctionnalité de composition d’image, afin de permettre les superpositions sur une carte raster. La composition d’image inclut la possibilité d’obtenir une vignette raster dotée de données supplémentaires, telles que des repères personnalisés, des étiquettes et des superpositions géométriques.
+Cet article explique comment utiliser le [service d’image statique](https://docs.microsoft.com/rest/api/maps/render/getmapimage), avec la fonctionnalité de composition d’image, afin de permettre les superpositions sur une carte raster. La composition d’image inclut la possibilité d’obtenir une vignette raster dotée de données supplémentaires, telles que des repères personnalisés, des étiquettes et des superpositions géométriques.
 
 Pour afficher une superposition géométrique, des étiquettes et des repères personnalisés, vous pouvez utiliser l’application Postman. Vous pouvez utiliser les [API du service de données](https://docs.microsoft.com/rest/api/maps/data) d’Azure Maps pour stocker et afficher les superpositions.
 
 > [!Tip]
 > Il est souvent plus économique d’utiliser le kit SDK d’Azure Maps Web pour afficher une carte simple sur une page Web que d’utiliser le service d’images statiques. Le kit SDK Web utilise des vignettes de carte et, sauf si l’utilisateur effectue un panoramique et un zoom sur la carte, il ne génère souvent qu’une fraction de transaction par charge de carte. Notez que le kit SDK Azure Maps Web dispose d’options pour désactiver le panoramique et le zoom. En outre, le kit de développement logiciel (SDK) web Azure Maps offre beaucoup plus d’options de visualisation de données qu’un service web de cartes statiques.  
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="create-an-azure-maps-account"></a>Créer un compte Azure Maps
 
@@ -43,7 +43,7 @@ Pour afficher les repères avec les étiquettes et une image personnalisée, eff
 
 1. Créez une collection dans laquelle stocker les demandes. Dans l’application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection**. Nommez la collection puis sélectionnez le bouton **Create** (Créer). 
 
-2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour les clics-infos. Sélectionnez la collection que vous avez créée à l’étape précédente comme emplacement dans lequel enregistrer la requête, puis sélectionnez **Save** (Enregistrer).
+2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour les clics-infos. Sélectionnez la collection que vous avez créée à l’étape précédente comme emplacement dans lequel enregistrer la demande. Sélectionnez ensuite **Enregistrer**.
     
     ![Créer une demande dans Postman](./media/how-to-render-custom-data/postman-new.png)
 
@@ -148,7 +148,7 @@ Vous pouvez aussi obtenir les informations sur le chemin et l’emplacement du r
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. Pour obtenir l’udId, ouvrez un nouvel onglet dans l’application Postman, sélectionnez la méthode HTTP GET sous l’onglet Builder (Générateur) et effectuez une requête GET sur l’URI d’état. Si le chargement de données réussit, vous recevez un udId dans le corps de la réponse. Copiez l’udId.
+6. Pour obtenir l’udId, ouvrez un nouvel onglet dans l’application Postman. Sélectionnez la méthode HTTP GET sous l’onglet Builder (Générateur). Effectuez une requête GET sur l’URI d’état. Si le chargement de données réussit, vous recevez un udId dans le corps de la réponse. Copiez l’udId.
 
    ```JSON
    {

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d8bdae5a860eb19741aa321606feb3f0825740a9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6451c5d32fffc0290592a2489c9cdc99be1b7b7c
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850572"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483293"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum Aux Questions (FAQ)
 
@@ -86,15 +86,17 @@ Il n’existe actuellement aucun moyen de modifier le champ « De : » de l�
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>Comment puis-je migrer mes noms d’utilisateur, mots de passe et profils existants à partir de ma base de données vers Azure AD B2C ?
 
-Vous pouvez utiliser l’API Graph Azure AD pour écrire l’outil de migration. Consultez le [guide de migration des utilisateurs](user-migration.md) pour plus d’informations.
+Vous pouvez utiliser l’API Microsoft Graph pour écrire l’outil de migration. Consultez le [guide de migration des utilisateurs](user-migration.md) pour plus d’informations.
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Quel flux d’utilisateur de mot de passe est utilisé pour les comptes locaux dans Azure AD B2C ?
 
-Le flux d’utilisateur de mot de passe Azure AD B2C pour les comptes locaux est basé sur la stratégie pour Azure AD. Les flux d’utilisateur de réinitialisation du mot de passe, d’inscription ou de connexion et d’inscription Azure AD B2C utilisent des mots de passe « forts » et qui n’expirent pas. Pour plus d’informations, consultez [Stratégie de mot de passe dans Azure AD](/previous-versions/azure/jj943764(v=azure.100)) . Pour plus d’informations sur les verrouillages de compte et mots de passe, voir l’article sur la [gestion les menaces pesant sur les ressources et données dans Azure Active Directory B2C](threat-management.md).
+Le flux d’utilisateur de mot de passe Azure AD B2C pour les comptes locaux est basé sur la stratégie pour Azure AD. Les flux d’utilisateur de réinitialisation du mot de passe, d’inscription ou de connexion et d’inscription Azure AD B2C utilisent des mots de passe « forts » et qui n’expirent pas. Pour plus d’informations, consultez [Stratégies et restrictions de mot de passe dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy).
+
+Pour plus d’informations sur les verrouillages de compte et mots de passe, voir l’article sur la [gestion les menaces pesant sur les ressources et données dans Azure Active Directory B2C](threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>Puis-je utiliser Azure AD Connect pour migrer les identités de clients stockées dans mon répertoire Active Directory local vers Azure AD B2C ?
 
-Non, Azure AD Connect n'est pas conçu pour fonctionner avec Azure AD B2C. Utilisez l’[API Graph Azure AD](manage-user-accounts-graph-api.md) pour la migration des utilisateurs. Consultez le [guide de migration des utilisateurs](user-migration.md) pour plus d’informations.
+Non, Azure AD Connect n'est pas conçu pour fonctionner avec Azure AD B2C. Vous pouvez envisager d’utiliser l’[API Microsoft Graph](manage-user-accounts-graph-api.md) pour la migration des utilisateurs. Consultez le [guide de migration des utilisateurs](user-migration.md) pour plus d’informations.
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>Mon application peut-elle ouvrir des pages Azure Active Directory B2C dans un iFrame ?
 
@@ -134,7 +136,7 @@ Procédez comme suit pour supprimer votre locataire Azure AD B2C.
 
 Vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle expérience unifiée **Inscriptions d’applications (préversion)** . [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
+#### <a name="applications"></a>[Applications](#tab/applications/)
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/) en tant qu’*administrateur d’abonnements*. Utilisez le compte professionnel ou scolaire ou le compte Microsoft que vous avez utilisé pour vous inscrire à Azure.
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
@@ -155,7 +157,7 @@ Vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle
 1. Sélectionnez **Azure Active Directory** dans le menu à gauche.
 1. Dans la page **Vue d’ensemble**, sélectionnez **Supprimer le répertoire**. Suivez les instructions à l’écran pour achever le processus.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/) en tant qu’*administrateur d’abonnements*. Utilisez le compte professionnel ou scolaire ou le compte Microsoft que vous avez utilisé pour vous inscrire à Azure.
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.

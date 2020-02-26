@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/18/2010
-ms.openlocfilehash: 9fae39f8c03206a7a63338890101b820a585595b
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/14/2020
+ms.openlocfilehash: cfd4c113391f2ead238f5288c255b599e91b7e3a
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190621"
+ms.locfileid: "77201456"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 
@@ -193,6 +193,8 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 ## <a name="service-bus-queues"></a>Files d’attente Service Bus
 
 Les [files d’attente Service Bus](../service-bus-messaging/service-bus-queues-topics-subscriptions.md) permettent de livrer des messages FIFO à un ou plusieurs destinataires concurrents. En règle générale, les messages sont reçus et traités par les destinataires dans l’ordre dans lequel ils ont été ajoutés à la file d’attente. Chaque message est reçu et traité par un seul destinataire du message.
+
+Dans le [niveau de compatibilité 1.2](stream-analytics-compatibility-level.md), Azure Stream Analytics utilise le protocole de messagerie [AMQP (Advanced Message Queueing Protocol)](../service-bus-messaging/service-bus-amqp-overview.md) pour écrire dans les files d’attente et les rubriques Service Bus. Le protocole AMQP vous permet de développer des applications hybrides interplateforme à l’aide d’un protocole open standard.
 
 Le tableau suivant répertorie les noms de propriétés et leur description pour la création d’une sortie de file d’attente.
 

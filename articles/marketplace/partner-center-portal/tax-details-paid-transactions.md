@@ -1,18 +1,18 @@
 ---
 Description: Pour comprendre vos motifs fiscaux pour la sélection des prix, les implications en termes de paiement et la responsabilité fiscale, consultez vos pays/régions de distribution dans les tableaux ci-dessous.
 title: Détails des taxes | Place de marché Azure
-ms.date: 12/10/2019
+ms.date: 2/13/2020
 ms.topic: article
 author: MaggiePucciEvans
 manager: evansma
 ms.author: evansma
 ms.service: marketplace
-ms.openlocfilehash: a5d11216b43a1361e4f8d108ce6d289e67e31e0a
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: cd580c43aa25dd4cc33ceb7138785a94a021b771
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933563"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210446"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Détails des taxes pour les éditeurs de la place de marché commerciale
 
@@ -22,7 +22,7 @@ Pour comprendre vos motifs fiscaux pour la sélection des prix et la responsabil
 > L’ajustement relatif à l’expansion du commerce peut avoir des implications de paiement dans un nombre limité de pays/régions. Pour plus d’informations sur l’ajustement relatif à l’expansion du commerce et sur les marchés auxquels il s’applique, consultez le [Contrat d’éditeur de la Place de marché Microsoft Azure](https://go.microsoft.com/fwlink/p/?LinkID=699560) et la liste des pays/régions concernés.
 
 > [!IMPORTANT]
-> La responsabilité fiscale pour les pays/régions et la situation financière des revendeurs (comme décrit [ci-dessous](#reseller-countriesregions)) est couverte par l’annexe C du [Contrat d’éditeur de la Place de marché Microsoft Azure](https://go.microsoft.com/fwlink/p/?LinkID=699560), nonobstant les informations du tableau ci-dessous.
+> La responsabilité fiscale pour les pays/régions et la situation financière des revendeurs (comme décrit [ci-dessous](#reseller-countriesregions)) est couverte par l’annexe A du [Contrat d’éditeur de la Place de marché Microsoft Azure](https://go.microsoft.com/fwlink/p/?LinkID=699560), nonobstant les informations du tableau ci-dessous.
 > Notez que la colonne **Implication de paiement** s’applique uniquement aux éditeurs. Les taux d’imposition notés dans cette colonne sont susceptibles d’être modifiés à tout moment, et Microsoft ne peut pas garantir que les taux indiqués dans les tableaux ci-dessous seront toujours exacts.
 
 
@@ -178,7 +178,7 @@ Pour comprendre vos motifs fiscaux pour la sélection des prix et la responsabil
 | Namibie                          | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Nauru                            | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Népal                            | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
-| Pays-bas                      | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. Les taxes sont soustraites du prix avant paiement.              | Prix moins 21 % de taxe, moins les frais de Store | Microsoft          |
+| Pays-Bas                      | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. Les taxes sont soustraites du prix avant paiement.              | Prix moins 21 % de taxe, moins les frais de Store | Microsoft          |
 | Nouvelle-Zélande                      | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. Les taxes sont soustraites du prix avant paiement.              | Prix moins 15 % de taxe, moins les frais de Store | Microsoft          |
 | Nicaragua                        | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Niger                            | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
@@ -250,7 +250,7 @@ Pour comprendre vos motifs fiscaux pour la sélection des prix et la responsabil
 | Ouganda                           | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Ukraine                          | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Émirats Arabes Unis             | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins 5 % de taxe, moins les frais de Store                 | Microsoft          |
-| United Kingdom                   | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. Les taxes sont soustraites du prix avant paiement.            | Prix moins 20 % de taxe, moins les frais de Store | Microsoft          |
+| Royaume-Uni                   | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables. Les taxes sont soustraites du prix avant paiement.            | Prix moins 20 % de taxe, moins les frais de Store | Microsoft          |
 | États-Unis (avec Porto Rico)  | Les taxes sont ajoutées au prix sélectionné.                                                                                                      | Prix moins les frais de Store                 | Microsoft          |
 | Uruguay                          | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |
 | Ouzbékistan                       | Le prix sélectionné est le prix de vente final et comprend toutes les taxes applicables.                                                                   | Prix moins les frais de Store                 | Serveur de publication          |

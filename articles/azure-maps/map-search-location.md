@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 08d9245201a8e0899d47847eb10dcdff3c0d8d16
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 13daf20e364b1e629b3ae13be2c9406da3702211
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984674"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209645"
 ---
 # <a name="show-search-results-on-the-map"></a>Afficher les résultats de recherche sur la carte
 
@@ -37,7 +37,7 @@ Le quatrième bloc de code utilise la méthode [SearchFuzzy](/javascript/api/azu
 
 Le dernier bloc de code ajuste les limites d’appareil photo pour la carte à l’aide de la propriété [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) de la carte.
 
-La demande de recherche, la source de données, la couche de symboles et les limites d’appareil photo se trouvent à l’intérieur du [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) compatible de la carte. Nous voulons nous assurer que les résultats s’affichent après le chargement complet de la carte.
+La demande de recherche, la source de données, la couche de symboles et les limites d’appareil photo se trouvent à l’intérieur du [détecteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) de la carte. Nous voulons nous assurer que les résultats s’affichent après le chargement complet de la carte.
 
 
 ## <a name="make-a-search-request-via-fetch-api"></a>Requête de recherche via l'API de récupération

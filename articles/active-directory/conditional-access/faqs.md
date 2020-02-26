@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baa44481c4641f69ead5335298316c837062d2c0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 6842338bd27e4bea3436f0b249380ab773d60de6
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186046"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368091"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Forum aux questions sur l’accès conditionnel dans Azure Active Directory
 
@@ -40,7 +40,7 @@ Une stratégie d’accès conditionnel définit les conditions requises pour acc
 
 Les stratégies d’accès conditionnel s’appliquent à tous les comptes d’utilisateur. Cela inclut les comptes d’utilisateur utilisés comme comptes de service. Souvent, un compte de service qui s’exécute sans assistance ne peut pas répondre aux exigences d’une stratégie d’accès conditionnel. Par exemple, l’authentification multifacteur peut être obligatoire. Les comptes de service peuvent être exclus d’une stratégie à l’aide des paramètres de gestion des stratégies d’accès conditionnel. 
 
-## <a name="are-graph-apis-available-for-configuring-conditional-access-policies"></a>Des API Graph sont-elles disponibles pour la configuration des stratégies d’accès conditionnel ?
+## <a name="are-microsoft-graph-apis-available-for-configuring-conditional-access-policies"></a>Des API Microsoft Graph sont-elles disponibles pour la configuration de stratégies d’accès conditionnel ?
 
 Actuellement, non. 
 

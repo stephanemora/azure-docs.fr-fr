@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: b65b7a9fd38b690729fafd86fe213ff56760a1bb
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169834"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252074"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
@@ -141,11 +141,11 @@ Les instances de calcul peuvent être utilisées comme [cible de calcul d’entr
 
 ## <a name="notebookvm"></a>Qu’est-il arrivé à la machine virtuelle Notebook ?
 
-Les instances de calcul remplacent la machine virtuelle Notebook.  Dans les régions où les instances de calcul ne sont pas encore disponibles, vous pouvez continuer à utiliser des machines virtuelles Notebook avec toutes leurs fonctionnalités et à en créer d’autres.
+Les instances de calcul remplacent la machine virtuelle Notebook.  
 
 Tous les fichiers notebook stockés dans le partage de fichiers de l’espace de travail et les données dans les banques de données de l’espace de travail sont accessibles à partir d’une instance de calcul. Toutefois, tous les packages personnalisés qui ont été précédemment installés sur une machine virtuelle Notebook devront être réinstallés sur l’instance de calcul. Les limitations de quota qui s’appliquent à la création des clusters de calcul s’appliquent aussi à la création des instances de calcul. 
 
-Dans les régions où les instances de calcul sont disponibles, il n’est pas possible de créer de machines virtuelles Notebook. Toutefois, vous pouvez toujours accéder aux machines virtuelles Notebook que vous avez créées et les utiliser, avec toutes leurs fonctionnalités. Des instances de calcul peuvent être créées dans le même espace de travail que les machines virtuelles Notebook existantes. 
+Impossible de créer des machines virtuelles de notebooks. Toutefois, vous pouvez toujours accéder aux machines virtuelles Notebook que vous avez créées et les utiliser, avec toutes leurs fonctionnalités. Des instances de calcul peuvent être créées dans le même espace de travail que les machines virtuelles Notebook existantes. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,5 +1,6 @@
 ---
-title: Résolution des problèmes de chargement des données Azure Data Box Disk avec des journaux | Microsoft Docs
+title: Résoudre les problèmes de chargements de données à l’aide des journaux
+titleSuffix: Azure Data Box Disk
 description: Décrit comment utiliser les journaux et résoudre des problèmes rencontrés lors du chargement des données dans Azure Data Box Disk.
 services: databox
 author: alkohli
@@ -8,12 +9,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: alkohli
-ms.openlocfilehash: deaa9a220ee4d765650779b40742225e300ffdb7
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 7c14988706ef193ef5da868c55f6c4f55e7d98f9
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807490"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471973"
 ---
 # <a name="understand-logs-to-troubleshoot-data-upload-issues-in-azure-data-box-disk"></a>Comprendre les journaux pour résoudre les problèmes liés au chargement des données dans Azure Data Box Disk
 

@@ -4,12 +4,12 @@ description: Découvrez comment déployer des groupes de conteneurs dans un rés
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 40f312ce8bc08c9b59e7c47f05b6a5d3dc94a994
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 318576e9b5c5b32bbc993ea16494c938b74bd2f4
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901866"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200059"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
 
@@ -260,7 +260,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 ### <a name="delete-network-resources"></a>Supprimer des ressources réseau
 
-Cette fonctionnalité nécessite pour le moment plusieurs commandes supplémentaires pour supprimer les ressources réseau que vous avez créées précédemment. Si vous avez utilisé les exemples de commande dans les sections précédentes de cet article pour créer votre réseau virtuel et votre sous-réseau, vous pouvez utiliser le script suivant pour supprimer ces ressources réseau.
+Cette fonctionnalité nécessite pour le moment plusieurs commandes supplémentaires pour supprimer les ressources réseau que vous avez créées précédemment. Si vous avez utilisé les exemples de commande dans les sections précédentes de cet article pour créer votre réseau virtuel et votre sous-réseau, vous pouvez utiliser le script suivant pour supprimer ces ressources réseau. Le script suppose que votre groupe de ressources contient un seul réseau virtuel avec un seul profil réseau.
 
 Avant d’exécuter le script, attribuez à la variable `RES_GROUP` le nom du groupe de ressources contenant le réseau virtuel et le sous-réseau à supprimer. Mettez à jour le nom du réseau virtuel si vous n’avez pas utilisé le nom `aci-vnet` suggéré précédemment. Le script est mis en forme pour l’interpréteur de commandes Bash. Si vous préférez un autre interpréteur de commandes, PowerShell ou l’invite de commande, vous devrez ajuster les variables et les accesseurs en conséquence.
 
@@ -269,9 +269,11 @@ Avant d’exécuter le script, attribuez à la variable `RES_GROUP` le nom du gr
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group
+# Assumes one virtual network in resource group
 RES_GROUP=<my-resource-group>
 
 # Get network profile ID
+# Assumes one profile in virtual network
 NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query [0].id --output tsv)
 
 # Delete the network profile

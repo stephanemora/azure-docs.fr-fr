@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59e4e527f25a32c8a5274db5eab5d33a7843bc3c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1046c11e064e69ed0ddb18c77bf5935ba60fb5aa
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275581"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461281"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Authentification unique SAML pour les applications locales avec le proxy d’application
 
@@ -41,17 +41,15 @@ Les diagrammes de protocole ci-dessous décrivent la séquence de l’authentifi
 
 1. Dans le portail Azure, sélectionnez **Azure Active Directory > Applications d’entreprise**, puis sélectionnez **Nouvelle application**.
 
-2. Dans la section **Applications locales**, sélectionnez **Ajouter une application locale**.
+2. Entrez le nom d’affichage de votre nouvelle application, sélectionnez **Intégrer une autre application que vous ne trouvez pas dans la galerie**, puis sélectionnez **Créer**.
 
-3. Entrez le nom d’affichage de votre nouvelle application, puis sélectionnez **Ajouter**.
+3. Dans la page **Vue d’ensemble** de l’application, sélectionnez **Authentification unique**.
 
-4. Dans la page **Vue d’ensemble** de l’application, sélectionnez **Authentification unique**.
+4. Sélectionnez **SAML** comme méthode d’authentification unique.
 
-5. Sélectionnez **SAML** comme méthode d’authentification unique.
+5. Configurez d’abord l’authentification unique SAML pour qu’elle fonctionne sur le réseau d’entreprise. Dans la page **Configurer l’authentification unique avec SAML**, accédez au titre **Configuration SAML de base** et sélectionnez l’icône **Modifier** (un crayon). Suivez les étapes de [Entrer la configuration SAML de base](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) pour configurer l’authentification basée sur SAML pour l’application.
 
-6. Configurez d’abord l’authentification unique SAML pour qu’elle fonctionne sur le réseau d’entreprise. Dans la page **Configurer l’authentification unique avec SAML**, accédez au titre **Configuration SAML de base** et sélectionnez l’icône **Modifier** (un crayon). Suivez les étapes de [Entrer la configuration SAML de base](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) pour configurer l’authentification basée sur SAML pour l’application.
-
-7. Ajoutez au moins un utilisateur à l’application et vérifiez que le compte de test a accès à l’application. En étant connecté au réseau d’entreprise, utilisez le compte de test pour vérifier si vous avez une authentification unique pour l’application. 
+6. Ajoutez au moins un utilisateur à l’application et vérifiez que le compte de test a accès à l’application. En étant connecté au réseau d’entreprise, utilisez le compte de test pour vérifier si vous avez une authentification unique pour l’application. 
 
    > [!NOTE]
    > Une fois que vous avez configuré le proxy d’application, vous revenez et vous mettez à jour l’**URL de réponse** de SAML.
@@ -74,7 +72,7 @@ Pour fournir l’authentification unique aux applications locales, vous devez ac
 
 1. Avec l’application encore ouverte dans le portail Azure, sélectionnez **Authentification unique**. 
 
-2. Dans la page **Configurer l’authentification unique avec SAML**, accédez au titre **Configuration SAML de base** et sélectionnez l’icône **Modifier** (un crayon). L’**URL externe** que vous avez configurée dans le proxy d’application remplit automatiquement les champs **Identificateur**, **URL de réponse** et **URL de déconnexion**. Ne modifiez pas ces URL, car elles sont nécessaires au bon fonctionnement du proxy d’application.
+2. Dans la page **Configurer l’authentification unique avec SAML**, accédez au titre **Configuration SAML de base** et sélectionnez l’icône **Modifier** (un crayon). Vérifiez que l’**URL externe** que vous avez configurée dans le proxy d’application est renseignée dans les champs **Identificateur**, **URL de réponse** et **URL de déconnexion**. Ces URL sont nécessaires au bon fonctionnement du proxy d’application. 
 
 3. Modifiez l’**URL de réponse** configurée précédemment afin que son domaine soit accessible par le proxy d’application. Par exemple, si votre **URL externe** est `https://contosotravel-f128.msappproxy.net` et que l’**URL de réponse** d’origine était `https://contosotravel.com/acs`, vous devez mettre à jour l’**URL de réponse** en `https://contosotravel-f128.msappproxy.net/acs`. 
 

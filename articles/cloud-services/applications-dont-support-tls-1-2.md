@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/17/2020
 ms.author: tagore
-ms.openlocfilehash: c4cbe2a99de97b2938d494e80d410a44c4143629
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 85fb87e23fa11781587572e836d1439dd813170e
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026433"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425032"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Résolution des problèmes liés aux applications qui ne prennent pas en charge TLS 1.2
 Cet article décrit comment activer les anciens protocoles TLS (TLS 1.0 et 1.1) et appliquer les suites de chiffrement héritées pour prendre en charge les protocoles supplémentaires sur les rôles web et worker du service cloud Windows Server 2019. 
@@ -27,7 +27,7 @@ Cet article décrit comment activer les anciens protocoles TLS (TLS 1.0 et 1.1)
 Parallèlement à nos mesures visant à déprécier TLS 1.0 et TLS 1.1, nous comprenons que certains clients aient besoin de prendre en charge les anciens protocoles et suites de chiffrement dans le but de planifier correctement leur dépréciation.  Bien nous ne recommandions pas de réactiver ces valeurs héritées, les conseils suivants sont destinés aux clients qui peuvent en avoir besoin. Nous encourageons les clients à évaluer le risque de régression avant d’implémenter les changements décrits dans cet article. 
 
 > [!NOTE]
-> Les versions de la famille 6 du système d’exploitation invité imposent le protocole TLS 1.2 en désactivant les chiffrements 1.0/1.0. 
+> Les versions de la famille 6 du système d’exploitation invité imposent le protocole TLS 1.2 en désactivant les chiffrements 1.0/1.1. 
 
   
 ## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Fin de la prise en charge de TLS 1.0/TLS 1.1 et des anciennes suites de chiffrement 

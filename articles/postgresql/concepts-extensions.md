@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/20/2019
-ms.openlocfilehash: 069fc83e773c00be41e21e23fc01c589c13d687d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/13/2020
+ms.openlocfilehash: a12738f5de783c8a34718b8d9cb4bbf54f230589
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372701"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201269"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensions PostgreSQL dans Azure Database pour PostgreSQL - Serveur unique
 PostgreSQL offre la possibilité d’étendre les fonctionnalités d’une base de données à l’aide des extensions. Les extensions regroupent plusieurs objets SQL associés au sein d’un package qui peut être chargé ou supprimé de votre base de données à l’aide d’une seule commande. Une fois chargées dans la base de données, les extensions fonctionnent comme des fonctionnalités intégrées.
@@ -204,22 +204,26 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements
-L’extension pg_stat_statements est préchargée sur chaque serveur Azure Database pour PostgreSQL afin de vous fournir un moyen de suivre les statistiques d’exécution des instructions SQL.
+L’[extension pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) est préchargée sur chaque serveur Azure Database pour PostgreSQL afin de vous fournir un moyen de suivre les statistiques d’exécution des instructions SQL.
 Le paramètre `pg_stat_statements.track`, qui contrôle quelles instructions sont comptées par l’extension, a la valeur par défaut `top`, ce qui signifie que toutes les instructions exécutées directement par les clients sont suivies. Les deux autres niveaux de suivi sont `none` et `all`. Ce paramètre peut être configuré comme paramètre de serveur via le [portail Azure](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) ou [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
 Un compromis existe entre les informations d’exécution des requêtes fournies par pg_stat_statements et l’impact sur les performances du serveur en raison de la journalisation de chaque instruction SQL. Si vous n’utilisez pas l’extension pg_stat_statements de façon active, nous vous recommandons de définir `pg_stat_statements.track` sur `none`. Notez que certains services de surveillance tiers peuvent s’appuyer sur pg_stat_statements pour fournir des insights sur les performances des requêtes : vérifiez donc si c’est ou non le cas pour vous.
 
 ## <a name="dblink-and-postgres_fdw"></a>dblink et postgres_fdw
-dblink et postgres_fdw vous permettent de vous connecter à partir d’un serveur PostgreSQL à un autre ou à une autre base de données dans le même serveur. Le serveur de réception doit autoriser les connexions à partir du serveur d’envoi via son pare-feu. Quand vous utilisez ces extensions pour établir une connexion entre des serveurs Azure Database pour PostgreSQL, vous pouvez effectuer cette opération en définissant « Autoriser l’accès aux services Azure » sur Activé. Vous devez faire de même si vous souhaitez utiliser les extensions pour établir la connexion vers le même serveur. Le paramètre « Autoriser l’accès aux services Azure » se trouve dans la page du portail Azure dédiée au serveur Postgres, sous Sécurité de la connexion. L’activation du paramètre « Autoriser l’accès aux services Azure » place toutes les adresses IP Azure sur liste verte.
+[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) et [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) vous permettent de vous connecter d’un serveur PostgreSQL à un autre ou à une autre base de données dans le même serveur. Le serveur de réception doit autoriser les connexions à partir du serveur d’envoi via son pare-feu. Quand vous utilisez ces extensions pour établir une connexion entre des serveurs Azure Database pour PostgreSQL, vous pouvez effectuer cette opération en définissant « Autoriser l’accès aux services Azure » sur Activé. Vous devez faire de même si vous souhaitez utiliser les extensions pour établir la connexion vers le même serveur. Le paramètre « Autoriser l’accès aux services Azure » se trouve dans la page du portail Azure dédiée au serveur Postgres, sous Sécurité de la connexion. L’activation du paramètre « Autoriser l’accès aux services Azure » place toutes les adresses IP Azure sur liste verte.
 
 Actuellement, les connexions sortantes d’Azure Database pour PostgreSQL ne sont pas prises en charge, à l’exception des connexions à d’autres serveurs Azure Database pour PostgreSQL.
 
 ## <a name="uuid"></a>uuid
-Si vous envisagez d’utiliser `uuid_generate_v4()` à partir de l’extension uuid-ossp, envisagez la comparaison avec `gen_random_uuid()` à partir de l’extension pgcrypto pour optimiser les performances.
-
+Si vous pensez utiliser `uuid_generate_v4()` à partir de l’[extension uuid-ossp](https://www.postgresql.org/docs/current/uuid-ossp.html), envisagez la comparaison avec `gen_random_uuid()` à partir de l’[extension pgcrypto](https://www.postgresql.org/docs/current/pgcrypto.html) pour optimiser les performances.
 
 ## <a name="pgaudit"></a>pgAudit
-L’extension pgAudit permet la journalisation d’audit des sessions et des objets. Pour savoir comment utiliser cette extension dans Azure Database pour PostgreSQL, consultez l’[article sur les concepts d’audit](concepts-audit.md). 
+L’[extension pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md) permet la journalisation d’audit des sessions et des objets. Pour savoir comment utiliser cette extension dans Azure Database pour PostgreSQL, consultez l’[article sur les concepts d’audit](concepts-audit.md). 
+
+## <a name="pg_prewarm"></a>pg_prewarm
+L’extension pg_prewarm charge des données relationnelles dans le cache. Le préchauffage de vos caches signifie que vos requêtes ont de meilleurs temps de réponse lors de leur première exécution après un redémarrage. Dans Postgres 10 et versions antérieures, le préchauffage est effectué manuellement à l’aide de la [fonction de préchauffage](https://www.postgresql.org/docs/10/pgprewarm.html).
+
+Dans Postgres 11 et versions ultérieures, vous pouvez configurer le préchauffage pour qu’il se produise [automatiquement](https://www.postgresql.org/docs/current/pgprewarm.html). Vous devez inclure pg_prewarm dans la liste de votre paramètre `shared_preload_libraries` et redémarrer le serveur pour appliquer la modification. Les paramètres peuvent être définis à partir du [portail Azure](howto-configure-server-parameters-using-portal.md), de [CLI](howto-configure-server-parameters-using-cli.md), de l’API REST ou du modèle ARM. 
 
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB est une base de données de séries chronologiques empaquetée en tant qu’extension pour PostgreSQL. TimescaleDB fournit des fonctions analytiques axées sur le temps et des optimisations et met à l’échelle PostgreSQL pour les charges de travail de série chronologique.

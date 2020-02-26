@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.date: 12/23/2019
-ms.openlocfilehash: 57b4440a29dde470f91bbaae091bf65a0d2a1b51
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.date: 02/14/2020
+ms.openlocfilehash: 0b746963cea5a950ba47d8b4dfeb074cb0910436
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552268"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471021"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Ajouter des bibliothèques Apache Hive personnalisées lors de la création de votre cluster HDInsight
 
@@ -33,7 +33,7 @@ L’utilisation de l’action de script dans cet article rend les bibliothèques
 
 [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-**Configuration requise**
+### <a name="requirements"></a>Spécifications
 
 * Les scripts doivent être appliqués à la fois aux **nœuds principaux** et aux **nœuds de travail**.
 
@@ -50,7 +50,7 @@ L’utilisation de l’action de script dans cet article rend les bibliothèques
 
 ## <a name="create-a-cluster-using-the-script"></a>Créer un cluster à l'aide du script
 
-1. Démarrez le provisionnement d’un cluster à l’aide de la procédure décrite dans [Provisionner des clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md), mais n’achevez pas le provisionnement. Vous pouvez également utiliser Azure PowerShell ou le Kit de développement logiciel (SDK) .NET HDInsight pour créer un cluster à l’aide de ce script. Pour plus d’informations sur ces méthodes, consultez [Personnaliser des clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md). Pour le portail Azure, vous devez sélectionner l’option **Accéder à l’expérience de création classique**, puis **Personnalisé (taille, paramètres, applications)** .
+1. Démarrez le provisionnement d’un cluster à l’aide de la procédure décrite dans [Provisionner des clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md), mais n’achevez pas le provisionnement. Vous pouvez également utiliser Azure PowerShell ou le Kit de développement logiciel (SDK) .NET HDInsight pour créer un cluster à l’aide de ce script. Pour plus d’informations sur ces méthodes, consultez [Personnaliser des clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md). Dans le portail Azure, sous l’onglet **Configuration + prix**, sélectionnez **+ Ajouter une action de script**.
 
 1. Pour **Stockage**, si le compte de stockage contenant la bibliothèque de fichiers jar sera différent du compte utilisé pour le cluster, effectuez la procédure sous **Comptes de stockage supplémentaires**.
 
@@ -59,14 +59,17 @@ L’utilisation de l’action de script dans cet article rend les bibliothèques
     |Propriété |Valeur |
     |---|---|
     |Type de script|- Personnalisé|
-    |Name|Bibliothèques |
+    |Nom|Bibliothèques |
     |URI de script bash|`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`|
     |Type(s) de nœud|Head, Worker|
     |Paramètres|entrez l’adresse WASB du compte de stockage et du conteneur qui contiennent les fichiers jar. Par exemple : `wasbs://libs@mystorage.blob.core.windows.net/`.|
 
+    > [!NOTE]
+    > Pour Apache Spark 2.1, utilisez cet URI de script bash : `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh`.
+
 1. Continuez l’approvisionnement du cluster, comme indiqué dans [Approvisionner des clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
-Lorsque la création du cluster est terminée, vous pouvez utiliser les fichiers jar ajoutés via ce script à partir de Hive, sans avoir à utiliser l’instruction `ADD JAR`.
+Quand la création du cluster est terminée, vous pouvez utiliser les fichiers jar ajoutés avec ce script à partir de Hive sans avoir à utiliser l’instruction `ADD JAR`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

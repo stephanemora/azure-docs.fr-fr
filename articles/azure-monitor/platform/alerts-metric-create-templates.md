@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 1/14/2020
+ms.date: 2/17/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 463a389116cd58e50839d717b700b604f545e5f2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: f402effe40042740e74220d177c54963f6c45916
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190117"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444007"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Créer une alerte de mesure avec un modèle Resource Manager
 
@@ -107,8 +107,8 @@ Enregistrez le code JSON ci-après sous le nom simplestaticmetricalert.json pour
             }
         },
         "threshold": {
-            "type": "double",
-            "defaultValue": 0,
+            "type": "string",
+            "defaultValue": "0",
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -1510,7 +1510,7 @@ az group deployment create \
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Modèle pour une alerte de métrique qui supervise plusieurs ressources
 
-Les sections précédentes décrivent des exemples de modèles Azure Resource Manager pour créer des alertes de métrique qui supervisent une seule ressource. Azure Monitor prend désormais en charge la supervision de plusieurs ressources avec une seule règle d’alerte de métrique. Cette fonctionnalité est actuellement prise en charge uniquement dans le cloud public Azure et uniquement pour les machines virtuelles, les bases de données SQL, les pools élastiques SQL et les appareils DataBox Edge.
+Les sections précédentes décrivent des exemples de modèles Azure Resource Manager pour créer des alertes de métrique qui supervisent une seule ressource. Azure Monitor prend désormais en charge la supervision de plusieurs ressources (du même type) avec une seule règle d’alerte de métrique, pour les ressources qui existent dans la même région Azure. Pour l’instant, cette fonctionnalité est prise en charge uniquement dans le cloud public Azure et uniquement pour les machines virtuelles, les bases de données SQL Server, les pools élastiques SQL Server et les appareils en périphérie DataBox. Cette fonctionnalité est aussi uniquement disponible pour les métriques de plateforme et n’est pas prise en charge pour les métriques personnalisées.
 
 Une règle d’alerte de seuil dynamique permet aussi de créer simultanément des seuils adaptés à des centaines de séries de métriques (même de différents types), ce qui permet d’avoir moins de règles d’alerte à gérer.
 
@@ -1657,8 +1657,8 @@ Enregistrez le fichier JSON ci-après sous le nom all-vms-in-resource-group-stat
             }
         },
         "threshold": {
-            "type": "double",
-            "defaultValue": 0,
+            "type": "string",
+            "defaultValue": "0",
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -2304,8 +2304,8 @@ Enregistrez le fichier JSON ci-après sous le nom all-vms-in-subscription-static
             }
         },
         "threshold": {
-            "type": "double",
-            "defaultValue": 0,
+            "type": "string",
+            "defaultValue": "0",
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -2946,8 +2946,8 @@ Enregistrez le fichier JSON ci-après sous le nom list-of-vms-static.json pour l
             }
         },
         "threshold": {
-            "type": "double",
-            "defaultValue": 0,
+            "type": "string",
+            "defaultValue": "0",
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }

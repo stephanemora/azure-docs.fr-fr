@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aa6bc856fc7b7de071a45f3aa11c051e36eca4f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e17e0f1f01e836a7a240100c1c0e1f015da5f00
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475023"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368156"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Bonnes pratiques relatives à Azure Active Directory B2B
 Cet article contient des recommandations et des meilleures pratiques pour la collaboration interentreprises (B2B) dans Azure Active Directory (Azure AD).
@@ -33,7 +33,7 @@ Cet article contient des recommandations et des meilleures pratiques pour la col
 | Appliquer des stratégies d’accès conditionnel pour la Multi-Factor Authentication (MFA) | Nous vous recommandons d’appliquer des stratégies MFA sur les applications que vous souhaitez partager avec les utilisateurs B2B partenaires. De cette façon, l’authentification MFA est appliquée de manière cohérente sur les applications de votre locataire, que l’organisation partenaire utilise ou non l’authentification multifacteur. Consultez [Accès conditionnel pour les utilisateurs de B2B Collaboration](conditional-access.md) |
 | Si vous appliquez des stratégies d’accès conditionnel en fonction de l’appareil, utilisez des listes d’exclusion pour autoriser l’accès aux utilisateurs B2B | Si les stratégies d’accès conditionnel en fonction de l’appareil sont activées dans votre organisation, les appareils des utilisateurs invités B2B sont bloqués, car ils ne sont pas gérés par votre organisation. Vous pouvez créer des listes d’exclusion contenant des utilisateurs partenaires spécifiques pour les exclure de la stratégie d’accès conditionnel en fonction de l’appareil. Consultez [Accès conditionnel pour les utilisateurs de B2B Collaboration](conditional-access.md) |
 | Utilisez une URL spécifique au locataire lorsque vous fournissez des liens directs à vos utilisateurs invités B2B | Comme alternative à l’e-mail d’invitation, vous pouvez donner à un invité un lien direct à votre application ou à votre portail. Ce lien direct doit être spécifique au client, ce qui signifie qu’il doit inclure un ID de locataire ou un domaine vérifié afin que l’invité puisse être authentifié dans votre locataire, où se trouve l’application partagée. Consultez [Expérience d’échange pour l’utilisateur invité](redemption-experience.md). |
-| Lorsque vous développez une application, utilisez UserType pour déterminer l’expérience de l’utilisateur invité  | Si vous développez une application et que vous souhaitez fournir une expérience différente pour les utilisateurs clients et les utilisateurs invités, utilisez la propriété UserType. La revendication UserType n’est pour le moment pas incluse dans le jeton. Les applications doivent utiliser le API Graph pour demander à l’utilisateur d’obtenir son UserType. |
+| Lorsque vous développez une application, utilisez UserType pour déterminer l’expérience de l’utilisateur invité  | Si vous développez une application et que vous souhaitez fournir une expérience différente pour les utilisateurs clients et les utilisateurs invités, utilisez la propriété UserType. La revendication UserType n’est pour le moment pas incluse dans le jeton. Les applications doivent utiliser l’API Microsoft Graph pour interroger l’annuaire de l’utilisateur afin d’obtenir son UserType. |
 | Modifiez la propriété UserType *uniquement* si la relation de l’utilisateur avec l’organisation change | Bien qu’il soit possible d’utiliser PowerShell pour convertir la propriété UserType d’un utilisateur de membre en invité (et inversement), vous devez modifier cette propriété uniquement si la relation de l’utilisateur avec votre organisation change. Consultez [Propriétés d’un utilisateur invité B2B](user-properties.md).|
 
 ## <a name="next-steps"></a>Étapes suivantes

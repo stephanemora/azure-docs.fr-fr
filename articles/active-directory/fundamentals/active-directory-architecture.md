@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d0511f008a3d5bc39a0fb2d9406d33b72dbede6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 854fb4649f8c1113f20abe5807dd0ce473ba6ee3
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532946"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368069"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Qu’est-ce que l’architecture Azure Active Directory ?
 
@@ -100,7 +100,7 @@ Le modèle de répertoire est l’une des cohérences finales. Un problème clas
 
 Azure AD fournit une cohérence en lecture-écriture pour les applications qui ciblent un réplica secondaire en routant ses écritures vers le réplica principal et en extrayant simultanément les écritures sur le réplica secondaire.
 
-Les écritures d’application utilisant l’API Graph d’Azure AD n’ont pas à conserver des affinités avec le réplica de répertoire pour la cohérence en lecture-écriture. Le service Azure AD Graph conserve une session logique qui possède une affinité avec un réplica secondaire utilisé pour les lectures. L’affinité est capturée dans un « jeton de réplica » mis en cache par le service Graph à l’aide d’un cache distribué dans le centre de données de réplica secondaire. Ce jeton est ensuite utilisé pour les opérations suivantes dans la même session logique. Pour continuer à utiliser la même session logique, les demandes suivantes doivent être acheminées vers le même centre de données Azure AD. Vous ne pouvez pas poursuivre une session logique si les demandes client de répertoire sont acheminées vers plusieurs centres de données Azure AD. Dans cette situation, le client a plusieurs sessions logiques présentant des cohérences en lecture-écriture indépendantes.
+Les écritures d’application utilisant l’API Microsoft Graph d’Azure AD n’ont pas à conserver des affinités avec le réplica de répertoire pour la cohérence en lecture-écriture. Le service API Microsoft Graph conserve une session logique qui a une affinité avec un réplica secondaire utilisé pour les lectures. L’affinité est capturée dans un « jeton de réplica » mis en cache par le service à l’aide d’un cache distribué dans le centre de données de réplica secondaire. Ce jeton est ensuite utilisé pour les opérations suivantes dans la même session logique. Pour continuer à utiliser la même session logique, les demandes suivantes doivent être acheminées vers le même centre de données Azure AD. Vous ne pouvez pas poursuivre une session logique si les demandes client de répertoire sont acheminées vers plusieurs centres de données Azure AD. Dans cette situation, le client a plusieurs sessions logiques présentant des cohérences en lecture-écriture indépendantes.
 
  >[!NOTE]
  >Les écritures sont immédiatement répliquées sur le réplica secondaire pour lequel les lectures de la session logique ont été émises.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2019
 ms.author: mlottner
-ms.openlocfilehash: c189ece9763e484b969b91f9c1ab9120e5665261
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: c385be0c21e7a61f66eb274ec293f4aabd4208ba
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71305904"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77458883"
 ---
 # <a name="customize-your-azure-security-center-for-iot-solution"></a>Personnaliser votre solution Microsoft Azure Security Center pour IoT 
 
@@ -32,7 +32,7 @@ Dans ce guide, découvrez comment personnaliser différents paramètres dans Azu
 
 ## <a name="change-settings"></a>Modifier les paramètres
 
-« Gérer votre paramètre Azure Security Center pour IoT :
+Gérez votre paramètre Azure Security Center pour IoT :
 
 Sur votre IoT Hub, accédez au panneau de vue d’ensemble de la sécurité dans l’angle supérieur gauche, consultez les « paramètres ». Pour configurer vos paramètres Azure Security Center pour IoT, procédez comme suit :
 

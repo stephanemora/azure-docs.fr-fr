@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 01/09/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 77eb54f5d7194f3006ce463fc5f905165bdfc659
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 0e7a814c1607b15e3af0e76a5ae6dfad1594a3b3
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833927"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474117"
 ---
 ## <a name="limitations"></a>Limites
 
 - Actuellement, les hôtes dédiés ne prennent pas en charge les groupes de machines virtuelles identiques.
-- La version initiale prend en charge les séries de machines virtuelles suivantes : DSv3 et ESv3. 
+- La version initiale prend en charge les séries de machines virtuelles suivantes : DSv3, ESv3, FSv2, LSv2 et MSv2. 
 
 ## <a name="create-a-host-group"></a>Créer un groupe hôte
 
@@ -54,7 +54,7 @@ Cette opération ne prend que quelques instants.
 
 ## <a name="create-a-dedicated-host"></a>Créer un hôte dédié
 
-Créez maintenant un hôte dédié dans le groupe hôte. En plus d’un nom pour l’hôte, vous devez fournir la référence SKU pour l’hôte. La référence SKU de l’hôte capture la série de machines virtuelles prises en charge, ainsi que la génération du matériel pour l’hôte dédié. Les valeurs SKU de l’hôte sont prises en charge : DSv3_Type1 et ESv3_Type1.
+Créez maintenant un hôte dédié dans le groupe hôte. En plus d’un nom pour l’hôte, vous devez fournir la référence SKU pour l’hôte. La référence SKU de l’hôte capture la série de machines virtuelles prises en charge, ainsi que la génération du matériel pour l’hôte dédié.
 
 Pour en savoir plus sur les références SKU et la tarification des hôtes, consultez la section relative à la [tarification des hôtes dédiés Azure](https://aka.ms/ADHPricing).
 

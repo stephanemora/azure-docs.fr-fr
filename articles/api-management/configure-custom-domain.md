@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 3c2cc3c280ba0da474898bed93bb8533a42ab07f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 72075d4eff336af625bbf6d62f1276d2997bfed4
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967343"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251207"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configuration d’un nom de domaine personnalisé
 
@@ -27,9 +27,9 @@ Lorsque vous créez une instance du service Gestion des API Azure, Azure lui att
 > Le service Gestion des API accepte uniquement les demandes avec des valeurs d’[en-tête d’hôte](https://tools.ietf.org/html/rfc2616#section-14.23) correspondant au nom de domaine par défaut ou à l’un des noms de domaine personnalisés configurés.
 
 > [!WARNING]
-> Les clients qui souhaitent utiliser un épinglage de certificat pour améliorer la sécurité de leurs applications doivent utiliser un nom de domaine personnalisé > et le certificat qu’ils gèrent, pas le certificat par défaut. Les clients qui épinglent le certificat par défaut à la place auront une dépendance forte vis-à-vis des propriétés du certificat qu’ils ne contrôlent pas, ce qui n’est pas une pratique recommandée.
+> Les clients qui souhaitent utiliser un épinglage de certificat pour améliorer la sécurité de leurs applications doivent utiliser un nom de domaine personnalisé et un certificat qu’ils gèrent, et non pas le certificat par défaut. Les clients qui épinglent le certificat par défaut à la place auront une dépendance forte vis-à-vis des propriétés du certificat qu’ils ne contrôlent pas, ce qui n’est pas une pratique recommandée.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 
@@ -55,7 +55,7 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
     - **SCM** (valeur par défaut : `<apim-service-name>.scm.azure-api.net`)
 
     > [!NOTE]
-    > Seul le point de terminaison de la **passerelle** peut être configuré dans le niveau de consommation.
+    > Seul le point de terminaison de la **passerelle** peut être configuré dans le niveau Consommation.
     > Vous pouvez mettre à jour tous les points de terminaison ou certains d’entre eux. En règle générale, les clients mettent à jour les points de terminaison **Passerelle** (cette URL est utilisée pour appeler l’API exposée via la gestion des API) et **Portail** (URL du portail des développeurs).
     > Les points de terminaison **Gestion** et **SCM** sont utilisés en interne par les propriétaires d’instance APIM uniquement. Pour cette raison, ils se voient moins fréquemment attribuer un nom de domaine personnalisé.
     > Toutefois, le niveau **Premium** prend en charge la définition de plusieurs noms d’hôte pour le point de terminaison **Passerelle**.
@@ -73,7 +73,7 @@ Pour effectuer les étapes décrites dans cet article, vous devez disposer des �
     > Nous vous recommandons d’utiliser Azure Key Vault pour gérer les certificats et les définir sur Rotation automatique.
     > Si vous utilisez Azure Key Vault pour gérer le certificat SSL de domaine personnalisé, assurez-vous que le certificat est inséré dans Key Vault [comme un _certificat_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), et non un _secret_.
     >
-    > Pour extraire un certificat SSL, APIM doit disposer de la liste et des autorisations nécessaires pour obtenir les secrets sur le coffre de clés Azure Key Vault contenant le certificat. Lorsque vous utilisez le portail Azure, toutes les étapes nécessaires pour la configuration sont effectuées automatiquement. Lorsque vous utilisez les outils de ligne de commande ou APIM, ces autorisations doivent être accordées manuellement. Cette opération comprend deux étapes. Utilisez tout d’abord la page Identités managées sur votre instance APIM pour vous assurer que l’identité managée est activée. Notez aussi l’ID du principal qui s’affiche sur cette page. Ensuite, sur le coffre de clés Azure Key Vault contenant le certificat, fournissez la liste des autorisations à cet ID du principal et accordez-lui les autorisations nécessaires pour obtenir les secrets.
+    > Pour extraire un certificat SSL, Gestion des API doit disposer de la liste et des autorisations nécessaires pour obtenir les secrets sur le coffre de clés Azure Key Vault contenant le certificat. Lorsque vous utilisez le portail Azure, toutes les étapes nécessaires pour la configuration sont effectuées automatiquement. Lorsque vous utilisez les outils de ligne de commande ou APIM, ces autorisations doivent être accordées manuellement. Cette opération comprend deux étapes. Utilisez tout d’abord la page Identités managées sur votre instance APIM pour vous assurer que l’identité managée est activée. Notez aussi l’ID du principal qui s’affiche sur cette page. Ensuite, sur le coffre de clés Azure Key Vault contenant le certificat, fournissez la liste des autorisations à cet ID du principal et accordez-lui les autorisations nécessaires pour obtenir les secrets.
     >
     > Si le certificat est défini sur Rotation automatique, APIM utilisera automatiquement la dernière version sans que le service ne rencontre le moindre temps d’arrêt (si votre niveau d’APIM comprend un contrat de niveau de service, c’est-à-dire tous les niveaux sauf le niveau Développeur).
 

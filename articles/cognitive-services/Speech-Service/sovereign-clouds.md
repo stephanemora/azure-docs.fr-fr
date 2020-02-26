@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 1/14/2020
 ms.author: cbasoglu
-ms.openlocfilehash: 3b96ded52aa2148df9e96d6f1e878d50b821abab
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 00617fc09f471eaf3dc13a5aa691c4aab2e1e2ec
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170455"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424913"
 ---
 # <a name="speech-services-with-sovereign-clouds"></a>Services Speech avec les clouds souverains
 
@@ -54,7 +54,7 @@ Centre de données Azure situé en Chine avec un accès direct à China Mobile, 
 - Régions : Chine Est 2 (Shanghai)
 - Reconnaissance vocale dans SpeechSDK :*config.FromHost("wss://chinaeast2.stt.speech.azure.cn", "\<your-key\>");*
 - Conversion de texte par synthèse vocale dans SpeechSDK :  *config.FromHost("https[]()://chinaeast2.tts.speech.azure.cn", "\<your-key\>");*
-- Jetons d’authentification : https[]()://chinaeast2.api.cognitive.microsoft.cn/sts/v1.0/issueToken
+- Jetons d’authentification : https[]()://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken
 - Portail Azure : https://portal.azure.cn
 - Portail Custom Speech : https://chinaeast2.cris.azure.cn/Home/CustomSpeech
 - Références SKU disponibles : S0

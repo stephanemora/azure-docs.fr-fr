@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: b7d99c3bf61de17f9cebba834234cc8ea52f30d6
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 701e42caba5325df34bdbb2381389708b9b5a03f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131879"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198852"
 ---
 # <a name="install-azure-farmbeats"></a>Installer Azure FarmBeats
 
@@ -71,7 +71,7 @@ Actuellement, Azure FarmBeats est pris en charge dans les environnement de cloud
 
 L’installation complète d’Azure FarmBeats, préparation et installation comprises, prend moins d’une heure.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant d'entamer l'installation proprement dite d'Azure FarmBeats, vous devez suivre les étapes ci-dessous :
 
@@ -83,7 +83,9 @@ Pour installer Azure FarmBeats, vous devez disposer des autorisations suivantes 
 - Abonnement - Propriétaire
 - Groupe de ressources dans lequel FarmBeats est installé - Propriétaire
 
-Les deux premières autorisations sont requises pour l'étape de [création de l'application AAD](#create-an-aad-application). Si nécessaire, vous pouvez demander à une personne disposant des autorisations appropriées de créer l'application AAD. La personne qui installe FarmBeats doit être propriétaire du groupe de ressources dans lequel FarmBeats est installé.
+Les deux premières autorisations sont requises pour l'étape de [création de l'application AAD](#create-an-aad-application). Si nécessaire, vous pouvez demander à une personne disposant des autorisations appropriées de créer l'application AAD.
+
+La personne qui exécute l’installation de FarmBeats à partir de la Place de Marché doit être propriétaire du groupe de ressources dans lequel FarmBeats est installé. Les propriétaires d’abonnement le sont automatiquement quand le groupe de ressources est créé. Pour d’autres, vous devez créer préalablement le groupe de ressources et demander au propriétaire de l’abonnement de vous ajouter comme propriétaire du groupe de ressources.
 
 Vous pouvez vérifier vos autorisations d'accès sur le portail Azure en suivant les instructions relatives au [contrôle d'accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
@@ -120,7 +122,15 @@ Suivez les étapes ci-dessous sur une instance de Cloud Shell à l'aide de l'env
         ./create_aad_script.ps1
     ```
 
-4. Le script AAD, dont l'exécution prend environ 2 minutes, génère des valeurs à l'écran ainsi que dans un fichier JSON situé dans le même répertoire. Si le script a été exécuté par une autre personne, demandez-lui de partager cette sortie avec vous.
+4. Le script demande les trois entrées suivantes :
+
+    - Nom du site web FarmBeats : il s’agit du préfixe d’URL unique pour votre application web FarmBeats. Si le préfixe est déjà utilisé, le script génère une erreur. Une fois l’installation terminée, votre déploiement FarmBeats est accessible à l’adresse https://\<FarmBeats-nom-siteweb>.azurewebsites.net et les API Swagger à l’adresse https://\<FarmBeats-nom-siteweb>-api.azurewebsites.net.
+
+    - ID de connexion Azure : indiquez l’ID de connexion Azure de l’utilisateur que vous souhaitez ajouter comme administrateur de FarmBeats. Cet utilisateur peut ensuite accorder l’accès à l’application web FarmBeats à d’autres utilisateurs. L’ID de connexion se présente généralement sous la forme john.doe@domain.com. Le nom d’utilisateur principal Azure est également pris en charge.
+
+    - ID d’abonnement : il s’agit de l’ID de l’abonnement dans lequel vous souhaitez installer Azure FarmBeats.
+
+5. Le script AAD, dont l'exécution prend environ 2 minutes, génère des valeurs à l'écran ainsi que dans un fichier JSON situé dans le même répertoire. Si le script a été exécuté par une autre personne, demandez-lui de partager cette sortie avec vous.
 
 ### <a name="create-sentinel-account"></a>Créer un compte Sentinel
 

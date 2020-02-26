@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 33b3f9292a2fd185ea5487c0111dc294a6f163cf
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 11b8ade765a2b1c1ee25421073983b96c34e5d15
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030810"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462171"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -23,10 +23,53 @@ Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obte
 
 Consultez la [liste des problèmes connus](resource-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
 
+## <a name="2020-02-18"></a>18-02-2020
+
+### <a name="azure-machine-learning-sdk-for-python-v111rc0"></a>SDK Azure Machine Learning pour Python v1.1.1rc0
+
++ **Résolutions de bogue et améliorations**
+  + **azure-cli-ml**
+    + Le profilage d’instance unique a été corrigé pour produire une recommandation et a été mis à disposition dans le kit SDK Core.
+  + **azureml-automl-core**
+    + La journalisation des erreurs a été améliorée.
+  + **azureml-automl-runtime**
+    + Correction du problème avec les prévisions lorsque le jeu de données contient des fragments réduits avec de longs laps de temps.
+    + Correction du problème lorsque l’horizon maximal automatique est activé et que la colonne de date contient des dates sous forme de chaînes. Nous avons ajouté une conversion correcte et une erreur raisonnable si la conversion en date n’est pas possible
+    + Utilisation de NumPy et SciPy en mode natif pour la sérialisation et la désérialisation des données intermédiaires pour FileCacheStore (utilisé pour les exécutions AutoML locales)
+    + Correction d’un bogue où les exécutions enfants ayant échoué pouvaient rester bloquées dans l’état d’exécution.
+  + **azureml-cli-common**
+    + Le profilage d’instance unique a été corrigé pour produire une recommandation et a été mis à disposition dans le kit SDK Core.
+  + **azureml-core**
+    + Ajout de `--grant-workspace-msi-access` en tant que paramètre supplémentaire pour l’interface CLI de magasin de données pour l’inscription du conteneur d’objets blob Azure, ce qui vous permet d’inscrire un conteneur d’objets blob qui se trouve derrière un réseau virtuel
+    + Le profilage d’instance unique a été corrigé pour produire une recommandation et a été mis à disposition dans le kit SDK Core.
+    + Correction du problème dans aks.py _deploy
+    + Valide l’intégrité des modèles en cours de chargement afin d’éviter les échecs de stockage en mode silencieux.
+  + **azureml-interpret**
+    + Ajout d’exceptions de style azureml à azureml-interpret
+    + Correction de la sérialisation DeepScoringExplainer pour les modèles Keras
+  + **azureml-pipeline-core**
+    + Le notebook de scoring par lots du pipeline utilise désormais ParallelRunStep
+  + **azureml-pipeline-steps**
+    + Déplacement d’`AutoMLStep` dans le package `azureml-pipeline-steps`. Dépréciation d’`AutoMLStep` dans `azureml-train-automl-runtime`.
+  + **azureml-contrib-pipeline-steps**
+    + Paramètre facultatif side_inputs ajouté à ParallelRunStep. Ce paramètre peut être utilisé pour monter le dossier sur le conteneur. Les types actuellement pris en charge sont DataReference et PipelineData.
+  + **azureml-tensorboard**
+    + Mise à jour d’azureml-tensorboard pour prendre en charge TensorFlow 2.0
+  + **azureml-train-automl-client**
+    + Correction du problème de substitution FeaturizationConfig qui filtre la configuration de caractérisation personnalisée.
+  + **azureml-train-automl-runtime**
+    + Déplacement d’`AutoMLStep` dans le package `azureml-pipeline-steps`. Dépréciation d’`AutoMLStep` dans `azureml-train-automl-runtime`.
+  + **azureml-train-core**
+    + Prise en charge de la version 1.4 de PyTorch dans l’estimateur PyTorch
+  
 ## <a name="2020-02-04"></a>2020-02-04
 
 ### <a name="azure-machine-learning-sdk-for-python-v110rc0"></a>SDK Azure Machine Learning pour Python v1.1.0rc0
 
++ **Dernières modifications**
+  + **Gestion sémantique de version 2.0.0**
+    + Depuis la version 1.1, le SDK Python Azure Machine Learning a adopté la gestion sémantique de version 2.0.0. [En savoir plus ici](https://semver.org/). Toutes les versions ultérieures suivront le nouveau schéma de numérotation et le contrat de gestion sémantique de version. 
+  
 + **Résolutions de bogue et améliorations**
   + **azureml-automl-runtime**
     + Augmentation de la vitesse de caractérisation.
@@ -118,8 +161,7 @@ Consultez la [liste des problèmes connus](resource-known-issues.md) pour en sav
     + Ajout d’informations CreatedBy aux objets Model et Service, accessibles avec <var>.created_by.
     + Correction de ContainerImage.Run(), qui ne configurait pas correctement le port HTTP du conteneur Docker.
     + Possibilité de rendre `azureml-dataprep` facultatif pour la commande CLI `az ml dataset register`.
-  + **azureml-dataprep**
-    + Correction du bogue selon lequel TabularDataset.to_pandas_dataframe revenait à tort sur un autre lecteur et imprimait un avertissement.
+    + Correction du bogue selon lequel `TabularDataset.to_pandas_dataframe` revenait à tort sur un autre lecteur et imprimait un avertissement.
   + **azureml-explain-model**
     + Report de la dépendance Shap sur interpret-community à partir de azureml-interpret.
   + **azureml-pipeline-core**
@@ -251,7 +293,7 @@ Consultez la [liste des problèmes connus](resource-known-issues.md) pour en sav
 
 La page d’accueil de l’espace de travail collaboratif à l’adresse [https://ml.azure.com](https://ml.azure.com) a été améliorée et rebaptisée en tant que Azure Machine Learning Studio (préversion).
 
-À partir de Studio, vous pouvez effectuer l’apprentissage, le test, le déploiement et la gestion de ressources Azure Machine Learning comme des jeux de données, des pipelines, des modèles, des points de terminaison, etc.
+À partir de Studio, vous pouvez entraîner, tester, déployer et gérer les ressources Azure Machine Learning comme des jeux de données, des pipelines, des modèles, des points de terminaison, etc.
 
 Accédez aux outils de création web suivants à partir de Studio :
 
@@ -329,7 +371,7 @@ Azure Machine Learning est désormais un fournisseur de ressources pour Event Gr
     + Ajout de l’indicateur de remplacement pour le déploiement de service (ACI et AKS) dans le SDK et l’interface CLI. S’il est fourni, l’indicateur remplace le service existant si le service portant le nom existe déjà. Si le service n’existe pas, un nouveau service est créé.
     + Les modèles peuvent être inscrits avec deux nouveaux frameworks, Onnx et Tensorflow. - L’inscription de modèle accepte les exemples de données d’entrée, les exemples de données de sortie et la configuration des ressources pour le modèle.
   + **azureml-automl-core**
-    + L’apprentissage d’une itération s’exécute dans un processus enfant uniquement lorsque des contraintes d’exécution sont définies.
+    + L’entraînement d’une itération s’exécute dans un processus enfant uniquement lorsque des contraintes d’exécution sont définies.
     + Ajout d’une barrière de sécurité pour les tâches de prévision, afin de vérifier si une valeur max_horizon spécifiée entraînera un problème de mémoire sur l’ordinateur donné. Si c’est le cas, un message de barrière de sécurité s’affiche.
     + Ajout de la prise en charge de fréquences complexes comme 2 ans et 1 mois. -Ajout d’un message d’erreur compréhensible si la fréquence ne peut pas être déterminée.
     + Ajout d’azureml-defaults à la génération automatique conda env pour résoudre l’échec du déploiement du modèle
@@ -513,8 +555,8 @@ L’onglet Expérience dans le [nouveau portail des espaces de travail](https://
   + **[azureml-train-automl](/python/api/azureml-train-automl-runtime/)**
     + BERT et BiLSTM pris en charge en tant que caractériseur de texte (préversion uniquement)
     + Personnalisation de caractérisation prise en charge pour les paramètres d’objet de colonne et de transformateur (préversion uniquement)
-    + Explications brutes prises en charge lorsque l’utilisateur active l’explication du modèle pendant l’apprentissage (préversion uniquement)
-    + Ajout de Prophet pour les prévisions `timeseries` en tant que pipeline apte à l’apprentissage (préversion uniquement)
+    + Explications brutes prises en charge lorsque l’utilisateur active l’explication du modèle pendant l’entraînement (préversion uniquement)
+    + Ajout de Prophet pour les prévisions `timeseries` en tant que pipeline entraînable (préversion uniquement)
 
   + **azureml-contrib-datadrift**
     + Déplacement de packages d’azureml-contrib-datadrift vers azureml-datadrift ; le package `contrib` sera supprimé dans une mise en production ultérieure
@@ -526,13 +568,13 @@ L’onglet Expérience dans le [nouveau portail des espaces de travail](https://
       + Remplacement de l’objectif de la colonne pour caractérisation avec une colonne et un type de caractéristique donnés
       + Remplacement des paramètres du transformateur
     + Ajout d’un message de dépréciation pour explain_model() et retrieve_model_explanations()
-    + Ajout de Prophet en tant que pipeline apte à l’apprentissage (préversion uniquement)
+    + Ajout de Prophet en tant que pipeline entraînable (préversion uniquement)
     + Ajout d’un message de dépréciation pour explain_model() et retrieve_model_explanations().
-    + Ajout de Prophet en tant que pipeline apte à l’apprentissage (préversion uniquement).
-    + Ajout de la prise en charge de la détection automatique des décalages cibles, de la taille de fenêtre dynamique et de l’horizon maximal. Si l’une des valeurs target_lags, target_rolling_window_size ou max_horizon est définie sur « auto », les heuristiques sont appliquées pour estimer la valeur du paramètre correspondant en fonction des données d’apprentissage.
-    + Correction des prévisions lorsque le jeu de données contient une colonne de grain ; ce grain est de type numérique et il y a un écart entre l’apprentissage et le jeu de test
+    + Ajout de Prophet en tant que pipeline entraînable (préversion uniquement).
+    + Ajout de la prise en charge de la détection automatique des décalages cibles, de la taille de fenêtre dynamique et de l’horizon maximal. Si l’une des valeurs target_lags, target_rolling_window_size ou max_horizon est définie sur « auto », les heuristiques sont appliquées pour estimer la valeur du paramètre correspondant en fonction des données d’entraînement.
+    + Correction des prévisions lorsque le jeu de données contient une colonne de grain ; ce grain est de type numérique et il y a un écart entre le jeu d’entraînement et le jeu de test
     + Correction du message d’erreur relatif à l’index dupliqué dans la série distante des tâches de prévision
-    + Correction des prévisions lorsque le jeu de données contient une colonne de grain ; ce grain est de type numérique et il y a un écart entre l’apprentissage et le jeu de test.
+    + Correction des prévisions lorsque le jeu de données contient une colonne de grain ; ce grain est de type numérique et il y a un écart entre le jeu d’entraînement et le jeu de test.
     + Correction du message d’erreur relatif à l’index dupliqué dans la série distante des tâches de prévision.
     + Ajout d’une barrière de sécurité pour vérifier si un jeu de données est déséquilibré. Si c’est le cas, un message de barrière de sécurité s’affiche sur la console.
   + **azureml-core**
@@ -721,9 +763,9 @@ Au moment de cette publication, les navigateurs suivants sont pris en charge : 
 
 + **Résolutions de bogue et améliorations**
   + **automl-client-core-nativeclient**
-    + Correction de l’erreur déclenchée lorsque des étiquettes d’apprentissage et/ou de validation (y et y_valid) sont fournies sous la forme de trames de données Pandas, mais pas en tant que tableau numpy.
+    + Correction de l’erreur déclenchée lorsque des étiquettes d’entraînement et/ou de validation (y et y_valid) sont fournies sous la forme de trames de données Pandas, mais pas en tant que tableau numpy.
     + Interface mise à jour pour créer un `RawDataContext` pour exiger uniquement les données et l’objet `AutoMLBaseSettings`.
-    +  Autoriser les utilisateurs AutoML à supprimer des séries d’apprentissage qui ne sont pas suffisamment longues lors des prévisions. - Autoriser les utilisateurs AutoML à supprimer des grains du jeu de test qui n’existe pas dans le jeu d’apprentissage lors de la prévision.
+    +  Autoriser les utilisateurs AutoML à supprimer des séries d’entraînement qui ne sont pas suffisamment longues lors des prévisions. - Autoriser les utilisateurs AutoML à supprimer des grains du jeu de test qui n’existe pas dans le jeu d’entraînement lors de la prévision.
   + **azure-cli-ml**
     + Vous pouvez maintenant mettre à jour le certificat SSL pour le point de terminaison de score déployé sur le cluster AKS pour les certificats générés par Microsoft et par le client.
   + **azureml-automl-core**
@@ -731,10 +773,10 @@ Au moment de cette publication, les navigateurs suivants sont pris en charge : 
     + Amélioration de la journalisation des erreurs dans AutoML. Les messages d’erreur complets seront désormais toujours écrits dans le fichier journal.
     + AutoML a mis à jour son épinglage de package pour inclure `azureml-defaults`, `azureml-explain-model` et`azureml-dataprep`. AutoML n’avertira plus en cas d’incompatibilité de package (à l’exception du package `azureml-train-automl`).
     + Correction d’un problème dans `timeseries` où les fractionnements du CV sont de taille inégale, ce qui provoque l’échec du calcul des fichiers binaires.
-    + Lors de l’exécution de l’ensemble d’itération pour le type d’apprentissage de validation croisée, si nous avons rencontré un problème lors du téléchargement des modèles formés sur l’ensemble du jeu de données, nous avons une incohérence entre la pondération des modèles et les modèles qui ont été intégrés à l’ensemble de vote.
-    + Correction de l’erreur déclenchée lorsque des étiquettes d’apprentissage et/ou de validation (y et y_valid) sont fournies sous la forme de trames de données Pandas, mais pas en tant que tableau numpy.
+    + Lors de l’exécution de l’ensemble d’itération pour le type d’entraînement de validation croisée, si nous avons rencontré un problème lors du téléchargement des modèles formés sur l’ensemble du jeu de données, nous avons une incohérence entre la pondération des modèles et les modèles qui ont été intégrés à l’ensemble de vote.
+    + Correction de l’erreur déclenchée lorsque des étiquettes d’entraînement et/ou de validation (y et y_valid) sont fournies sous la forme de trames de données Pandas, mais pas en tant que tableau numpy.
     + Résolution du problème lié aux tâches de prévision quand Aucune a été trouvé dans les colonnes booléennes des tables d’entrée.
-    + Autoriser les utilisateurs AutoML à supprimer des séries d’apprentissage qui ne sont pas suffisamment longues lors des prévisions. - Autoriser les utilisateurs AutoML à supprimer des grains du jeu de test qui n’existe pas dans le jeu d’apprentissage lors de la prévision.
+    + Autoriser les utilisateurs AutoML à supprimer des séries d’entraînement qui ne sont pas suffisamment longues lors des prévisions. - Autoriser les utilisateurs AutoML à supprimer des grains du jeu de test qui n’existe pas dans le jeu d’entraînement lors de la prévision.
   + **azureml-core**
     + Correction du problème de classement du paramètre blob_cache_timeout.
     + Ajout des types d’exceptions d’ajustement externe et de transformation aux erreurs système.
@@ -771,14 +813,14 @@ Au moment de cette publication, les navigateurs suivants sont pris en charge : 
   + **azureml-train-automl**
     + Correction du bogue à l’origine de l’échec de l’installation, l’erreur n’étant pas consignée dans le champ Erreurs de l’exécution et donc pas stockée dans le champ Erreurs du parent.
     + Résolution d’un problème dans AutoML où les lignes avec des étiquettes manquantes ne sont pas correctement supprimées.
-    + Autoriser les utilisateurs AutoML à supprimer des séries d’apprentissage qui ne sont pas suffisamment longues lors des prévisions.
-    + Autoriser les utilisateurs AutoML à supprimer des grains du jeu de test qui n’existent pas dans le jeu d’apprentissage lors de la prévision.
+    + Autoriser les utilisateurs AutoML à supprimer des séries d’entraînement qui ne sont pas suffisamment longues lors des prévisions.
+    + Autoriser les utilisateurs AutoML à supprimer des grains du jeu de test qui n’existent pas dans le jeu d’entraînement lors de la prévision.
     + Désormais, AutoMLStep passe par la configuration `automl` à backend pour éviter tout problème concernant la modification ou l’ajout de paramètres de configuration.
-    + AutoML Data Guardrail est désormais en préversion publique. L’utilisateur verra un rapport Data Guardrail (pour les tâches de classification/régression) après l’apprentissage et pourra également y accéder via l’API du SDK.
+    + AutoML Data Guardrail est désormais en préversion publique. L’utilisateur verra un rapport Data Guardrail (pour les tâches de classification/régression) après l’entraînement et pourra également y accéder via l’API du SDK.
   + **azureml-train-core**
     + Ajout de la prise en charge de Torch 1.2 dans PyTorch Estimator.
   + **azureml-widgets**
-    + Amélioration des graphiques de la matrice de confusion pour l’apprentissage de la classification.
+    + Amélioration des graphiques de la matrice de confusion pour l’entraînement de la classification.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1112"></a>Kit de développement logiciel (SDK) de préparation de données Azure Machine Learning v1.1.12
 + **Nouvelles fonctionnalités**
@@ -1056,9 +1098,9 @@ Nous avons rétabli une modification qui a amélioré les performances, car elle
   + Dépendance `paramiko` supprimée de azureml-core. Ajout d’avertissements d’obsolescence pour les méthodes d’attache cible de calcul héritées.
   + Amélioration des performances de run.create_children
   + Dans un explicatif mimique avec classifieur binaire, résolution de l’ordre des probabilités lorsque la probabilité de professeur est utilisée pour la mise à l’échelle des valeurs de forme.
-  + Amélioration de la gestion des erreurs et des messages pour l’apprentissage automatique.
-  + Résolution du problème de délai d’attente d’itération pour l’apprentissage automatique.
-  + Amélioration des performances de transformation de séries chronologiques pour l’apprentissage automatique.
+  + Amélioration de la gestion des erreurs et des messages pour le machine Learning automatisé.
+  + Résolution du problème de délai d’attente d’itération pour le machine Learning automatisé.
+  + Amélioration des performances de transformation de séries chronologiques pour le machine Learning automatisé.
 
 ## <a name="2019-06-24"></a>2019-06-24
 
@@ -1084,7 +1126,7 @@ Nous avons rétabli une modification qui a amélioré les performances, car elle
   + Ajout de la prise en charge de la création de ModuleStep dans les pipelines ainsi que des classes Module et ModuleVersion pour gérer des unités de calcul réutilisables.
   + Les services ACI webServices prennent désormais en charge scoring_uri persistantes par le biais des mises à jour. Le scoring_uri changera à partir de l’adresse IP pour le nom de domaine complet. L’étiquette du nom Dns pour le nom de domaine complet peut être configurée en définissant le dns_name_label sur deploy_configuration.
   + Nouvelles fonctionnalités de Machine Learning automatisé :
-    + Préapprentissage STL pour la prévision
+    + Caractériseur STL pour la prévision
     + Le clustering k-moyennes est activé pour le balayage de fonctionnalité
   + Les approbations de Quota de AmlCompute ont gagné en vitesse ! Nous avons maintenant automatisé le processus pour approuver des demandes de votre quota dans un seuil. Pour plus d’informations sur le fonctionnement des quotas, Découvrez [comment gérer les quotas](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas).
 
@@ -1182,7 +1224,7 @@ Dans le portail Azure, vous pouvez désormais :
   + Si la création de l’espace de travail échoue, les ressources dépendantes sont nettoyées.
   + La référence (SKU) par défaut d’Azure Container Registry a été basculée en De base.
   + Azure Container Registry est créé en différé, si nécessaire pour la création d’image ou d’exécution.
-  + Prise en charge des environnements pour les exécutions d’apprentissage.
+  + Prise en charge des environnements pour les exécutions d’entraînement.
 
 ### <a name="notebook-virtual-machine"></a>Machine virtuelle de notebook 
 
@@ -1222,7 +1264,7 @@ Utiliser une machine virtuelle de notebook comme un environnement d’hébergeme
   + Vous pouvez maintenant utiliser la validation croisée d’origine propagée sur les données de séries chronologiques
   + Nouvelles fonctionnalités ajoutées pour configurer les séries chronologiques en retard
   + Nouvelles fonctionnalités ajoutées pour prendre en charge des fonctionnalités de regroupement de la fenêtre propagée
-  + Nouvelle détection de vacances et préapprentissage lorsque le code de pays est défini dans les paramètres d’expérience
+  + Nouvelle détection de vacances et caractériseur lorsque le code de pays est défini dans les paramètres d’expérience
 
 + Azure Databricks
   + Capacité de prévision des séries chronologiques et d’interprétabilité/explication de modèle activée

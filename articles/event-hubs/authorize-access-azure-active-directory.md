@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 021d00b9fb02f2f5ea2560038741efec11b8cbc0
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 16d8faa1f20227241d1a582dd4d80e0123f7a31e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169184"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368496"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autoriser l’accès aux ressources Event Hubs à l'aide d'Azure Active Directory
 Azure Event Hubs prend en charge l’utilisation d'Azure Active Directory (Azure AD) pour autoriser les requêtes de ressources Event Hubs. Avec Azure AD, vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder des autorisations à un principal de sécurité, qui peut être un utilisateur ou un principal de service d’application. Pour en savoir plus sur les rôles et les attributions de rôles, consultez [Comprendre les différents rôles](../role-based-access-control/overview.md).
@@ -54,9 +54,13 @@ La liste suivante décrit les niveaux auxquels vous pouvez étendre l’accès a
 - **Abonnement**: L’attribution de rôle s’applique à toutes les ressources Event Hubs dans tous les groupes de ressources de l’abonnement.
 
 > [!NOTE]
-> Gardez à l’esprit que les attributions de rôles RBAC peuvent prendre jusqu’à cinq minutes pour se propager. 
+> - Gardez à l’esprit que les attributions de rôles RBAC peuvent prendre jusqu’à cinq minutes pour se propager. 
+> - Ce contenu s’applique à la fois à Event Hubs et à Event Hubs pour Apache Kafka. Pour plus d’informations sur la prise en charge d’Event Hubs pour Kafka, consultez [Event Hubs pour Kafka - Sécurité et authentification](event-hubs-for-kafka-ecosystem-overview.md#security-and-authentication).
+
 
 Pour plus d’informations sur la définition des rôles intégrés, consultez [Comprendre les définitions de rôles](../role-based-access-control/role-definitions.md#management-and-data-operations). Pour plus d’informations sur la création de rôles RBAC personnalisés, consultez l’article [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](../role-based-access-control/custom-roles.md).
+
+
 
 ## <a name="samples"></a>Exemples
 - [Exemples Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
@@ -65,6 +69,8 @@ Pour plus d’informations sur la définition des rôles intégrés, consultez [
 - [Exemples Azure.Messaging.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     Cet exemple a été mis à jour pour utiliser la dernière bibliothèque **Azure.Messaging.EventHubs**.
+- [Event Hubs pour Kafka - Exemples OAuth](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth). 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour savoir comment attribuer un rôle RBAC intégré à un principal de sécurité, consultez [Authentifier l’accès aux ressources Event hubs à l’aide d'Azure Active Directory.](authenticate-application.md)

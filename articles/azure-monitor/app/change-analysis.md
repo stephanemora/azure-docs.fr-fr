@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: 9d55d91dbb2e62e87c34dc8ea8a23fb375eb9a53
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: f2602dbee12f82c32ab3a3c2ec0566d8dfbeaa83
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665355"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77211829"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Utilise l’analyse des changements applicatifs (préversion) dans Azure Monitor
 
@@ -23,7 +23,7 @@ Reposant sur la puissance [d’Azure Resource Graph](https://docs.microsoft.com/
 > [!IMPORTANT]
 > L’analyse des changements applicatifs est actuellement en préversion. Cette préversion est fournie sans contrat de niveau de service. Cette version n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 L’analyse des changements détecte les différents types de modifications, de la couche d’infrastructure au déploiement des applications. C’est un fournisseur de ressources Azure de niveau d’abonnement qui vérifie les modifications des ressources dans l’abonnement. L’analyse des changements fournit les données de divers outils de diagnostic pour aider les utilisateurs à comprendre les modifications susceptibles d’avoir entraîné des problèmes.
 
@@ -31,7 +31,7 @@ Le diagramme suivant illustre l’architecture de l’analyse des changements :
 
 ![Diagramme d’architecture de la façon dont l’analyse des changements obtient les données modifiées et les fournit aux outils clients](./media/change-analysis/overview.png)
 
-L’analyse des changements est intégrée à l’expérience **Diagnostiquer et résoudre les problèmes** dans l’application web App Service et est également disponible en tant que panneau autonome dans le portail Azure.
+L’analyse des changements est intégrée à l’expérience **Diagnostiquer et résoudre les problèmes** dans l’application web App Service et est également disponible en tant qu’onglet autonome dans le portail Azure.
 Plus loin dans cet article, consultez la section *Afficher les modifications de toutes les ressources dans Azure*, pour savoir comment accéder au panneau Analyse des changements, et à la section *Analyse des changements pour la fonctionnalité Web Apps*, pour savoir comment l’utiliser dans le portail d’applications web.
 
 ### <a name="azure-resource-manager-tracked-properties-changes"></a>Modifications des propriétés suivies Azure Resource Manager
@@ -56,8 +56,9 @@ Actuellement, les dépendances suivantes sont prises en charge :
 - Azure SQL
 
 ### <a name="enablement"></a>Activation
-Le fournisseur de ressources « Microsoft.ChangeAnalysis » doit être inscrit avec un abonnement pour que les données sur les modifications des propriétés suivies et des paramètres de proxy Azure Resource Manager soient disponibles. Quand vous entrez dans l’outil Diagnostiquer et résoudre les problèmes de l’application web ou que vous affichez le panneau autonome Analyse des changements, ce fournisseur de ressources est automatiquement inscrit. Il est sans incidence sur votre abonnement concernant les performances et les coûts.
-Pour les modifications d’une application web dans l’invité, une activation distincte est requise pour l’analyse des fichiers de code au sein de l’application web. Pour plus d’informations, consultez *Activer l’analyse des changements dans l’outil Diagnostiquer et résoudre les problèmes* plus loin dans cet article.
+Le fournisseur de ressources « Microsoft.ChangeAnalysis » doit être inscrit avec un abonnement pour que les données sur les modifications des propriétés suivies et des paramètres de proxy Azure Resource Manager soient disponibles. Quand vous entrez dans l’outil Diagnostiquer et résoudre les problèmes de l’application web ou que vous affichez l’onglet autonome Analyse des changements, ce fournisseur de ressources est automatiquement inscrit. Il est sans incidence sur votre abonnement concernant les performances et les coûts. Quand vous activez Analyse des changements pour les applications web (ou que vous procédez à l’activation dans l’outil Diagnostiquer et résoudre les problèmes), l’opération a un impact négligeable sur les performances de l’application web et n’entraîne aucun coût de facturation.
+Pour les modifications d’une application web dans l’invité, une activation distincte est requise pour l’analyse des fichiers de code au sein de l’application web. Pour plus d’informations, consultez [Activer l’analyse des changements dans l’outil Diagnostiquer et résoudre les problèmes](https://docs.microsoft.com/azure/azure-monitor/app/change-analysis#enable-change-analysis-in-the-diagnose-and-solve-problems-tool) plus loin dans cet article.
+
 
 ## <a name="viewing-changes-for-all-resources-in-azure"></a>Afficher les modifications de toutes les ressources dans Azure
 Il existe dans Azure Monitor un panneau autonome pour l’Analyse des changements qui permet d’afficher toutes les modifications avec des insights et les ressources des dépendances de l’application.
@@ -119,7 +120,7 @@ Si votre abonnement inclut de nombreuses applications web, l’activation du ser
 Conditions préalables :
 * Module PowerShell Az. Suivez les instructions dans la rubrique[Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.6.0)
 
-Exécutez le script qui suit :
+Exécutez le script suivant :
 
 ```PowerShell
 # Log in to your Azure subscription

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 0ea9da894b9738fff634937294a07cc4b10624f0
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: bc15ee42fd7ef8e41b332104b28af808c336789f
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048872"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430406"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Chiffrement côté serveur de Disques managés Azure
 
@@ -38,7 +38,7 @@ Vous pouvez choisir de gérer le chiffrement au niveau de chaque disque managé,
 
 Le diagramme suivant montre comment les disques managés utilisent Azure Active Directory et Azure Key Vault pour effectuer des demandes en utilisant la clé gérée par le client :
 
-![Flux de travail de clés gérées par le client pour disques managés](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
+![Workflow de disques managés et de clés gérées par le client. Un administrateur crée un Azure Key Vault, puis crée et configure un jeu de chiffrement de disque. Le jeu est associé à une machine virtuelle qui permet au disque d’utiliser Azure AD pour s’authentifier](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
 La liste suivante décrit le diagramme plus en détail :
@@ -58,7 +58,7 @@ Pour révoquer l’accès aux clés managées par le client, consultez [Azure Ke
 
 Actuellement, seules les régions suivantes sont prises en charge :
 
-- Disponible en tant qu’offre en disponibilité générale dans les régions USA Est, USA Ouest 2 et USA Centre Sud.
+- Disponible en tant qu’offre en disponibilité générale dans les régions USA Est, USA Ouest 2, USA Centre Sud et Royaume-Uni Sud.
 - Disponible en préversion publique dans les régions USA Centre-Ouest, USA Est 2, Canada Centre et Europe Nord.
 
 ### <a name="restrictions"></a>Restrictions

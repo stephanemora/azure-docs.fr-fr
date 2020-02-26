@@ -3,30 +3,27 @@ title: Détection avancée des attaques multiphases dans Azure Sentinel
 description: Utilisez la technologie Fusion d’Azure Sentinel pour réduire l’épuisement des alertes et créer des incidents actionnables basés sur la détection avancée des attaques multiphases.
 services: sentinel
 documentationcenter: na
-author: cabailey
-manager: rkarlin
+author: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/24/2019
-ms.author: cabailey
-ms.openlocfilehash: e6ddb1b01b705d2a7857682bd84e9482e064a8db
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.date: 02/12/2020
+ms.author: rkarlin
+ms.openlocfilehash: ada2ad67bc3634d8e6a31d3c8a69fc0c8b08a93a
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241205"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77369695"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Détection avancée des attaques multiphases dans Azure Sentinel
 
 À l’aide de la technologie Fusion basée sur le machine learning, Azure Sentinel peut détecter automatiquement les attaques multiphases en combinant les comportements anormaux et les activités suspectes observés à différentes phases de la chaîne de destruction. Azure Sentinel génère alors des incidents qui, sans cela, seraient très difficiles à identifier. Ces incidents couvrent au moins deux alertes ou activités. Le système est conçu pour générer des incidents haute fidélité, à faible volume, présentant un niveau de gravité élevé.
 
 Personnalisée pour votre environnement, cette détection réduit les taux de faux positifs et peut également détecter les attaques avec des informations limitées ou manquantes.
-
-Pour plus d’informations sur les alertes dans les scénarios pris en charge, consultez la section [Scénarios pris en charge pour la détection d’attaques multiphases](#scenarios-supported-for-advanced-multistage-attack-detection) de cette page.
 
 ## <a name="configuration-for-advanced-multistage-attack-detection"></a>Configuration de la détection avancée des attaques multiphases
 
@@ -44,7 +41,17 @@ Cette détection est activée par défaut dans Azure Sentinel. Suivez les instru
 
 Les modèles de règles ne s’appliquent pas à la détection avancée des attaques multiphases.
 
-## <a name="scenarios-supported-for-advanced-multistage-attack-detection"></a>Scénarios pris en charge pour la détection avancée des attaques multiphases
+## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-atp"></a>Fusion avec Palo Alto Networks et Microsoft Defender ATP
+
+- Demande réseau au service d’anonymisation TOR, suivie d’un trafic anormal signalé par le pare-feu Palo Alto Networks
+
+- PowerShell a établi une connexion réseau suspecte suivie d’un trafic anormal signalé par le pare-feu Palo Alto Networks
+
+- Connexion sortante à l’adresse IP avec un historique des tentatives d’accès non autorisées suivie d’un trafic anormal signalé par le pare-feu Palo Alto Networks
+
+
+
+## <a name="fusion-using-identity-protection-and-microsoft-cloud-app-security"></a>Fusion avec Identity Protection et Microsoft Cloud App Security
 
 Dans le cadre de la détection avancée des attaques multiphases, Azure Sentinel prend en charge les scénarios suivants, combinant les événements d’anomalie provenant d’Azure Active Directory Identity Protection et de Microsoft Cloud App Security :
 

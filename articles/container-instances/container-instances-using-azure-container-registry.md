@@ -1,23 +1,23 @@
 ---
 title: Déployer une image conteneur depuis Azure Container Registry
-description: Découvrez comment déployer des conteneurs dans Azure Container Instances à l’aide d’images conteneur stockées dans un registre de conteneurs Azure.
+description: Découvrez comment déployer des conteneurs dans Azure Container Instances en extrayant (pull) des images conteneur d’un registre de conteneurs Azure.
 services: container-instances
 ms.topic: article
-ms.date: 12/30/2019
+ms.date: 02/18/2020
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0d39c83646357cf9426239d28e445c4791ddceb0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bcb1b02b8a2605a42acbe7f33973bef315ca6f54
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981688"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468913"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Déployer sur Azure Container Instances à partir d’Azure Container Registry
 
-[Azure Container Registry](../container-registry/container-registry-intro.md) est un service de registre de conteneurs managé basé sur Azure, utilisé pour stocker des images de conteneurs Docker privés. Cet article explique comment déployer des images conteneur stockées dans un registre de conteneurs Azure sur Azure Container Instances.
+[Azure Container Registry](../container-registry/container-registry-intro.md) est un service de registre de conteneurs managé basé sur Azure, utilisé pour stocker des images de conteneurs Docker privés. Cet article explique comment extraire des images conteneur d’un registre de conteneurs Azure lors d’un déploiement sur Azure Container Instances. Pour configurer l’accès au registre, il est recommandé de créer un principal de service Azure Active Directory et un mot de passe, et de stocker les informations d’identification de connexion dans un coffre de clés Azure.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 **Azure Container Registry** : Vous avez besoin d’un registre de conteneurs Azure et au moins d’une image conteneur dans le registre pour effectuer les étapes décrites dans cet article. Si vous avez besoin d’un registre, consultez [Créer un registre de conteneurs à l’aide de Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
 
@@ -28,6 +28,9 @@ ms.locfileid: "75981688"
 Dans un scénario de production où vous fournissez l’accès à des services et applications « sans affichage », il est recommandé de configurer l’accès au registre avec un [principal de service](../container-registry/container-registry-auth-service-principal.md). Un principal de service vous permet de fournir un [contrôle d’accès en fonction du rôle](../container-registry/container-registry-roles.md) à vos images conteneur. Par exemple, vous pouvez configurer un principal de service avec uniquement un accès d’extraction à un registre.
 
 Azure Container Registry offre des [options d’authentification](../container-registry/container-registry-authentication.md) supplémentaires.
+
+> [!NOTE]
+> Vous ne pouvez pas vous authentifier auprès d’Azure Container Registry pour extraire des images pendant le déploiement d’un groupe de conteneurs à l’aide d’une [identité managée](container-instances-managed-identity.md) configurée dans le même groupe de conteneurs.
 
 Dans la section suivante, vous créez un coffre de clés Azure et un principal de service et vous stockez des informations d’identification du principal de service dans le coffre. 
 

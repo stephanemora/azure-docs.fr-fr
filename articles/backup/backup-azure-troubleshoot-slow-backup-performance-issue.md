@@ -4,12 +4,12 @@ description: Apporte des conseils visant à vous aider à diagnostiquer la cause
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 2b7b8903da0d8dd83591b260bacb496b0c253ae3
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 01fff1d970a76d0d4d38c2536b41d58a4db301c8
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172584"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198612"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Résolution des problèmes de sauvegarde lente de fichiers et de dossiers dans Azure Backup
 
@@ -25,6 +25,18 @@ Avant de commencer à résoudre le problème, nous vous recommandons de téléch
 Par ailleurs, nous vous recommandons vivement de passer en revue le [Forum aux questions sur le service Azure Backup](backup-azure-backup-faq.md) pour vous assurer que vous ne rencontrez pas des problèmes de configuration courants.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+## <a name="cause-backup-job-running-in-unoptimized-mode"></a>Cause : Travail de sauvegarde en cours d’exécution en mode non optimisé
+
+* L’agent MARS peut exécuter le travail de sauvegarde en **mode optimisé** en utilisant le journal des modifications USN (nombre de séquences de mise à jour) ou en **mode non optimisé** en vérifiant les modifications apportées aux répertoires ou aux fichiers en analysant l’ensemble du volume.
+* Le mode non optimisé est lent, car l’agent doit analyser chaque fichier sur le volume et effectuer une comparaison avec les métadonnées afin de déterminer les fichiers modifiés.
+* Pour effectuer cette vérification, ouvrez **Détails du travail** à partir de la console de l’agent MARS et vérifiez si l’état indique **Transfert de données (non optimisé, peut prendre plus de temps)** comme indiqué ci-dessous :
+
+    ![Exécution en mode non optimisé](./media/backup-azure-troubleshoot-slow-backup-performance-issue/unoptimized-mode.png)
+
+* Les conditions suivantes peuvent entraîner l’exécution du travail de sauvegarde en mode non optimisé :
+  * La première sauvegarde (également appelée réplication initiale) s’exécute toujours en mode non optimisé
+  * Si le travail de sauvegarde précédent échoue, la tâche de sauvegarde planifiée suivante s’exécute en mode non optimisée.
 
 <a id="cause1"></a>
 

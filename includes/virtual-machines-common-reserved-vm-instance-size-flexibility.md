@@ -3,14 +3,16 @@ author: yashar
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 11-20-2018
-ms.openlocfilehash: 9a7de2b41c8016bdb7849cdef428d6f54a8ccf64
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 02-18-2020
+ms.openlocfilehash: aebe8f05bd1a3607da6d1153c87490891fc6b299
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005443"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471451"
 ---
+Quand vous achetez une instance de machine virtuelle réservée, vous pouvez choisir d’optimiser la flexibilité de la taille ou la priorité de capacité de l’instance. Pour plus d’informations sur la définition ou la modification du paramètre d’optimisation pour des instances de machine virtuelle réservées, consultez [Modifier le paramètre d’optimisation pour des instances de machine virtuelle réservées](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
+
 Avec une instance de machine virtuelle réservée optimisée pour la flexibilité de la taille de l’instance, la réservation que vous achetez peut s’appliquer aux tailles de machine virtuelle d’un même groupe de flexibilité de la taille d'instance. Par exemple, si vous achetez une réservation pour une taille de machine virtuelle qui est répertoriée dans la série DSv2, comme Standard_DS5_v2, la remise sur réservation peut s’appliquer aux quatre autres tailles répertoriées dans ce même groupe :
 
 - Standard_DS1_v2

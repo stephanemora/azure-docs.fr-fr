@@ -3,12 +3,12 @@ title: Utiliser un serveur de sauvegarde Azure pour sauvegarder des charges de t
 description: Dans cet article, découvrez comment préparer votre environnement à la protection et à la sauvegarde des charges de travail avec le serveur de sauvegarde Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: ff5df19d3e2d42af9a45fbc1b71980cee1cdb8a0
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: efa54eac2e3e134fb285d38242ca1b59727c2c86
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111599"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425185"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installer et mettre à niveau Azure Backup Server
 
@@ -163,14 +163,15 @@ Une fois le processus d’extraction terminé, cochez la case pour exécuter le 
 2. Dans l’écran d’accueil, cliquez sur le bouton **Suivant**. Vous êtes redirigé vers la section *Vérification des conditions préalables* . Dans cet écran, cliquez sur **Vérifier** afin de déterminer si les configurations matérielle et logicielle requises pour serveur de sauvegarde Azure sont respectées. Si toutes les conditions préalables sont réunies, un message indiquant que la machine présente la configuration requise s’affiche. Cliquez sur le bouton **Suivant** .
 
     ![Azure Backup Server - Accueil et contrôle des conditions préalables requises](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
-3. Le serveur de sauvegarde Microsoft Azure requiert SQL Server Entreprise. Le package d’installation d’Azure Backup Server fait partie d’une offre groupée avec les fichiers binaires SQL Server appropriés nécessaires si vous ne souhaitez pas utiliser votre propre SQL. Lorsque vous démarrez avec une nouvelle installation du serveur de sauvegarde Azure, vous devez sélectionner l’option **Installer une nouvelle instance de SQL Server avec ce programme d’installation** et cliquer sur le bouton **Vérifier et installer**. Une fois les composants requis installés, cliquez sur **Suivant**.
+3. Le package d’installation du serveur de sauvegarde Azure fait partie d’un bundle. Il est fourni avec les fichiers binaires SQL Server appropriés requis. Quand vous démarrez une nouvelle installation du serveur de sauvegarde Azure, sélectionnez l’option **Installer une nouvelle instance de SQL Server avec ce programme d’installation** et cliquez sur le bouton **Vérifier et installer**. Une fois les composants requis installés, cliquez sur **Suivant**.
+
+    >[!NOTE]
+    >Si vous souhaitez utiliser votre propre serveur SQL, les versions de SQL Server prises en charge sont SQL Server 2014 SP1 ou ultérieur, 2016 et 2017.  Toutes les versions de SQL Server doivent être Standard ou Entreprise 64 bits.
+    >Azure Backup Server ne fonctionne pas avec une instance de serveur SQL distante. L’instance utilisée par le serveur de sauvegarde Azure doit être installée en local. Si vous utilisez un serveur SQL existant pour MABS, la configuration MABS prend uniquement en charge l’utilisation d’*instances nommées* du serveur SQL.
 
     ![Serveur de sauvegarde Azure - Vérification SQL](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
     Si une défaillance se produit et qu’il est conseillé de redémarrer la machine, faites-le, puis cliquez sur **Vérifier à nouveau**. En cas de problèmes de configuration de SQL, reconfigurez SQL conformément aux instructions SQL et réessayez d’installer/de mettre à niveau MABS à l’aide de l’instance existante de SQL.
-
-   > [!NOTE]
-   > Azure Backup Server ne fonctionne pas avec une instance de serveur SQL distante. L’instance utilisée par le serveur de sauvegarde Azure doit être installée en local. Si vous utilisez un serveur SQL existant pour MABS, la configuration MABS prend uniquement en charge l’utilisation d’*instances nommées* du serveur SQL.
 
    **Configuration manuelle**
 

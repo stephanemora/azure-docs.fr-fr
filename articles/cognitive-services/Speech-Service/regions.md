@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: f1379202fc59e9cca7a3543be201f8ebff276bef
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 560575ca7f51218e472abecb4319f4a3db69b1ff
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168358"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431160"
 ---
 # <a name="speech-service-supported-regions"></a>Régions prises en charge pour le service Speech
 
@@ -44,7 +44,7 @@ Si vous utilisez le [SDK Speech](speech-sdk.md), les régions sont spécifiées 
 
 Les régions disponibles pour la **reconnaissance de l'intention** via le kit de développement logiciel (SDK) Speech sont les suivantes :
 
-| Région globale | Région           | Paramètre du SDK Speech |
+| Région globale | Région           | Identificateur de la région |
 | ------------- | ---------------- | -------------------- |
 | Asia          | Asie Est        | `eastasia`           |
 | Asia          | Asie Sud-Est   | `southeastasia`      |
@@ -65,7 +65,7 @@ Il s'agit d'un sous-ensemble des régions de publication prises en charge par le
 
 Le [Kit de développement logiciel (SDK) Speech](speech-sdk.md) prend en charge les fonctionnalités d’**assistant vocal** dans les régions suivantes :
 
-| Région         | Paramètre du SDK Speech |
+| Région         | Identificateur de la région |
 | -------------- | -------------------- |
 | USA Ouest        | `westus`             |
 | USA Ouest 2      | `westus2`            |
@@ -89,7 +89,7 @@ Le point de terminaison de l’API REST a le format suivant :
 https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
 ```
 
-Remplacez `<REGION_IDENTIFIER>` par l’identificateur correspondant à la région de votre abonnement dans le tableau suivant :
+Remplacez `<REGION_IDENTIFIER>` par l'identificateur correspondant à la région de votre abonnement dans le tableau suivant :
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 

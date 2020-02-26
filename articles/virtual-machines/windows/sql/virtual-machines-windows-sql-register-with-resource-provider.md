@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 148ded0eba61221a2bdf0b8a50392da47a4c5f20
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 01e683e31905281d25fdcf976bc58397c052a6c3
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122492"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201626"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Inscrire une machine virtuelle SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL
 
@@ -57,7 +57,7 @@ Pour plus d’informations sur les avantages du fournisseur de ressources de mac
 <iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Avantages du fournisseur de ressources de machine virtuelle SQL lors de l’installation automatique de SQL Server sur Azure - Vidéo sur Microsoft Channel 9"></iframe>
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources, voici ce dont vous avez besoin : 
 
@@ -126,7 +126,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ### <a name="lightweight-management-mode"></a>Mode de gestion léger
 
-Si l’[extension SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md) n’a pas été installée sur la machine virtuelle, nous vous recommandons d’effectuer l’inscription auprès du fournisseur de ressources de machines virtuelles SQL en mode léger. Cette opération installe l’extension SQL IaaS en [mode léger](#management-modes) et empêche le redémarrage du service SQL Server. Vous pouvez ensuite effectuer une mise à niveau vers le mode complet à tout moment ; cependant, comme cela entraîne le redémarrage du service SQL Server, nous vous recommandons d’attendre une fenêtre de maintenance planifiée. Vous devez fournir le type de licence SQL Server en tant que paiement à l’utilisation (`PAYG`), pour payer selon l’utilisation, ou Azure Hybrid Benefit (`AHUB`), pour utiliser votre propre licence.
+Si l’[extension SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md) n’a pas été installée sur la machine virtuelle, nous vous recommandons d’effectuer l’inscription auprès du fournisseur de ressources de machines virtuelles SQL en mode léger. Cette opération installe l’extension SQL IaaS en [mode léger](#management-modes) et empêche le redémarrage du service SQL Server. Vous pouvez ensuite effectuer une mise à niveau vers le mode complet à tout moment ; cependant, comme cela entraîne le redémarrage du service SQL Server, nous vous recommandons d’attendre une fenêtre de maintenance planifiée. 
+
+Indiquez une licence SQL Server de type paiement à l’utilisation (`PAYG`) pour payer en fonction de l’utilisation, Azure Hybrid Benefit (`AHUB`) pour utiliser votre propre licence ou récupération d’urgence (`DR`) pour activer la [licence de réplica de récupération d’urgence gratuite](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure).
 
 Les instances de cluster de basculement et les déploiements multi-instances ne peuvent être inscrits auprès du fournisseur de ressources de machine virtuelle SQL qu’en mode léger. 
 
@@ -176,7 +178,7 @@ Pour inscrire directement votre machine virtuelle SQL Server en mode complet (et
 
 Les instances de SQL Server 2008 et 2008 R2 installées sur Windows Server 2008 (_non R2_) peuvent être inscrites auprès du fournisseur de ressources de machines virtuelles SQL en [mode sans agent](#management-modes). Cette option garantit la conformité et permet de surveiller la machine virtuelle SQL Server dans le portail Azure avec des fonctionnalités limitées.
 
-Spécifiez `AHUB` ou `PAYG` comme **sqlLicenseType**, et `SQL2008-WS2008` ou `SQL2008R2-WS2008` comme **sqlImageOffer**. 
+Spécifiez `AHUB`, `PAYG` ou `DR` pour **sqlLicenseType** et `SQL2008-WS2008` ou `SQL2008R2-WS2008`pour **sqlImageOffer**. 
 
 Pour inscrire votre instance SQL Server 2008 ou 2008 R2 sur une instance Windows Server 2008, utilisez l’extrait de code PowerShell ou Azure CLI suivant : 
 

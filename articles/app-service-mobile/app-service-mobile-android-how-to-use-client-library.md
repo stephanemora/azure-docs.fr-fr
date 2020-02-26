@@ -6,19 +6,14 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 32e0584478031226ed52d6ed5f6849f7ad6d3cfe
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 52e91d900ce0f22862904695ba8adf463219c469
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668891"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461587"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure Mobile Apps pour Android
-
-> [!NOTE]
-> Visual Studio App Center prend en charge les services intégrés essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud.
->
-> Si vous souhaitez intégrer des services cloud à votre application mobile, inscrivez-vous à [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) dès aujourd’hui.
 
 Ce guide vous montre comment utiliser le Kit de développement logiciel (SDK) du client Android pour Mobile Apps afin d’implémenter des scénarios courants tels que :
 
@@ -51,7 +46,7 @@ Si vous décidez de ne pas suivre le didacticiel de démarrage rapide, effectuez
 
 Modifiez les deux fichiers **build.gradle** :
 
-1. ajoutez ce code au fichier de niveau *projet* **build.gradle** :
+1. ajoutez ce code au fichier de niveau *projet***build.gradle** :
 
     ```gradle
     buildscript {
@@ -69,7 +64,7 @@ Modifiez les deux fichiers **build.gradle** :
     }
     ```
 
-2. Ajoutez ce code au fichier de niveau *Module app* **build.gradle** à l’intérieur de la balise *dependencies* :
+2. Ajoutez ce code au fichier de niveau *Module app***build.gradle** à l’intérieur de la balise *dependencies* :
 
     ```gradle
     implementation 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
@@ -291,8 +286,8 @@ MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToD
 Commencez par obtenir une référence de table.  Ensuite, exécutez une requête sur la référence de table.  Une requête est une combinaison des éléments suivants :
 
 * Une [clause de filtre](#filtering) `.where()`.
-* Une [clause de classement](#sorting) `.orderBy()`.
-* Une [clause de sélection de champ](#selection) `.select()`.
+* Une [clause de tri](#sorting) `.orderBy()`.
+* Une [clause de sélection de champs](#selection) `.select()`.
 * Un élément `.skip()` et `.top()` pour les [résultats paginés](#paging).
 
 Les clauses doivent être présentées dans l’ordre indiqué ci-dessus.
@@ -452,7 +447,7 @@ Une demande pour tous les enregistrements à l’aide de cette méthode crée un
 > [!TIP]
 > Le choix de la taille de page appropriée est un équilibre entre l’utilisation de la mémoire pendant l’exécution de la demande, l’utilisation de la bande passante et le délai de réception de toutes les données.  La valeur par défaut (50 enregistrements) convient à tous les appareils.  Si vous travaillez exclusivement sur des appareils avec une grande capacité de mémoire, augmentez cette valeur jusqu’à 500.  Nous avons constaté que l’augmentation de la taille de page au-delà de 500 enregistrements engendre des retards inacceptables et d’importants problèmes de mémoire.
 
-### <a name="chaining"></a>Procédure : Concaténer les méthodes de requête
+### <a name="chaining"></a>Procédure : Concaténer les méthodes de requête
 
 Les méthodes utilisées dans les requêtes de tables de backend peuvent être concaténées. La concaténation des méthodes de requêtes vous permet de sélectionner des colonnes spécifiques de lignes filtrées, qui sont triées et paginées. Vous pouvez créer des filtres logiques complexes.  Chaque méthode de requête retourne un objet de requête. Pour mettre fin à la série de méthodes et exécuter la requête, appelez la méthode **execute** . Par exemple :
 
@@ -678,7 +673,7 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>Procédure : Utiliser des données non typées
+## <a name="untyped"></a>Procédure : Utiliser des données non typées
 
 Le modèle de programmation non typé vous offre un contrôle total de la sérialisation JSON.  Il existe certains scénarios courants où vous pouvez utiliser un modèle de programmation non typé. Par exemple, si la table de votre backend contient un grand nombre de colonnes et que vous n’avez besoin de faire référence qu’à quelques-unes d’entre elles.  Avec le modèle typé, vous devez définir toutes les colonnes du serveur principal Mobile Apps dans votre classe de données.  La plupart des appels d'API permettant d'accéder aux données sont similaires à ceux des appels de programmation typés. La principale différence est que, dans le modèle non typé, vous appelez des méthodes dans l'objet **MobileServiceJsonTable** plutôt que dans l'objet **MobileServiceTable**.
 

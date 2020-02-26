@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 02/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 9e962a0e76cdc0d51a87df3c33927c34db991fc7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6d867ccd8704d4aba4627e7b81638394b7e1e8d3
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927408"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423777"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Format Avro dans Azure Data Factory
 
@@ -28,9 +28,9 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 | Propriété         | Description                                                  | Obligatoire |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| Type             | La propriété type du jeu de données doit être définie sur **Avro**. | OUI      |
-| location         | Paramètres d’emplacement du ou des fichiers. Chaque connecteur basé sur un fichier possède ses propres type d’emplacement et propriétés prises en charge sous `location`. **Consultez les détails dans l’article du connecteur -> section des propriétés du jeu de données**. | OUI      |
-| avroCompressionCodec | Codec de compression à utiliser lors de l’écriture dans des fichiers Avro. Lors de la lecture de fichiers Avro, Data Factory détermine automatiquement le codec de compression sur la base des métadonnées de fichier.<br>Les types pris en charge sont « **None** » (par défaut), « **deflate** » et « **snappy**». | Non       |
+| type             | La propriété type du jeu de données doit être définie sur **Avro**. | Oui      |
+| location         | Paramètres d’emplacement du ou des fichiers. Chaque connecteur basé sur un fichier possède ses propres type d’emplacement et propriétés prises en charge sous `location`. **Consultez les détails dans l’article du connecteur -> section des propriétés du jeu de données**. | Oui      |
+| avroCompressionCodec | Codec de compression à utiliser lors de l’écriture dans des fichiers Avro. Lors de la lecture de fichiers Avro, Data Factory détermine automatiquement le codec de compression sur la base des métadonnées de fichier.<br>Les types pris en charge sont « **None** » (par défaut), « **deflate** » et « **snappy**». Notez que l’activité de copie ne prend pas en charge Snappy lors de la lecture ou de l’écriture des fichiers Avro. | Non       |
 
 > [!NOTE]
 > Les espaces blancs dans le nom de colonne ne sont pas pris en charge pour les fichiers Avro.
@@ -69,7 +69,7 @@ Les propriétés prises en charge dans la section ***\*source\**** de l’activi
 
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |
-| Type          | La propriété de type de la source d’activité de copie doit être définie sur **AvroSource**. | OUI      |
+| type          | La propriété de type de la source d’activité de copie doit être définie sur **AvroSource**. | Oui      |
 | storeSettings | Un groupe de propriétés sur la façon de lire les données d’un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres de lecture pris en charge sous `storeSettings`. **Consultez les détails dans l’article du connecteur -> section des propriétés de l’activité de copie**. | Non       |
 
 ### <a name="avro-as-sink"></a>Avro en tant que récepteur
@@ -78,7 +78,7 @@ Les propriétés prises en charge dans la section ***\*récepteur\**** de l’ac
 
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |
-| Type          | La propriété type de la source d’activité de copie doit être définie sur **AvroSink**. | OUI      |
+| type          | La propriété type de la source d’activité de copie doit être définie sur **AvroSink**. | Oui      |
 | storeSettings | Groupe de propriétés sur la méthode d’écriture de données dans un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres d’écriture pris en charge sous `storeSettings`. **Consultez les détails dans l’article du connecteur -> section des propriétés de l’activité de copie**. | Non       |
 
 ## <a name="data-type-support"></a>Prise en charge des types de données

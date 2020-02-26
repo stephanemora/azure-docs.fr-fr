@@ -8,126 +8,40 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 42426e8249f3b6ceb592254833f38ab0df99c83c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8bb65e07a8360c434f73ff826ed21f380b036604
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76851084"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373080"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Quand vous aurez effectué toutes les étapes de cet article, vous disposerez d’une stratégie personnalisée d’inscription et de connexion avec votre marque et votre apparence. Avec Azure Active Directory B2C (Azure AD B2C), vous contrôlerez presque entièrement le contenu HTML et CSS présenté aux utilisateurs. Lorsque vous utilisez une stratégie personnalisée, vous configurez la personnalisation de l’interface utilisateur dans le code XML au lieu d’utiliser des contrôles dans le portail Azure.
+En effectuant les étapes de cet article, vous créez une stratégie personnalisée d’inscription et de connexion avec votre marque et votre apparence. Avec Azure Active Directory B2C (Azure AD B2C), vous contrôlerez presque entièrement le contenu HTML et CSS présenté aux utilisateurs. Lorsque vous utilisez une stratégie personnalisée, vous configurez la personnalisation de l’interface utilisateur dans le code XML au lieu d’utiliser des contrôles dans le portail Azure.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md). Vous devez disposer d’une stratégie personnalisée fonctionnelle pour l’inscription et la connexion avec des comptes locaux.
 
-## <a name="page-ui-customization"></a>Personnalisation de l’interface utilisateur de la page
+[!INCLUDE [active-directory-b2c-html-how-to](../../includes/active-directory-b2c-html-how-to.md)]
 
-Avec la fonctionnalité de personnalisation de l’interface utilisateur de la page, vous pouvez personnaliser l’apparence d’une stratégie personnalisée. Vous pouvez également conserver la cohérence visuelle et de la marque entre votre application et Azure AD B2C.
+## <a name="4-modify-the-extensions-file"></a>4. Modifier le fichier d’extensions
 
-Fonctionnement de l’opération : Azure AD B2C exécute le code dans le navigateur de votre client et adopte une approche moderne appelée [Partage des ressources cross-origin (CORS)](https://www.w3.org/TR/cors/). Tout d’abord, vous spécifiez une URL dans la stratégie personnalisée avec du contenu HTML personnalisé. Azure AD B2C fusionne des éléments de l’interface utilisateur avec le contenu HTML chargé depuis votre URL, puis affiche la page au client.
+Pour configurer la personnalisation de l’interface utilisateur, copiez l’élément **ContentDefinition** et ses éléments enfants du fichier de base vers le fichier d’extension.
 
-## <a name="create-your-html5-content"></a>Créer votre contenu HTML5
-
-Créez du contenu HTML dont le titre intègre le nom de la marque de votre produit.
-
-1. Copiez l’extrait de code HTML suivant. Cet extrait est un code HTML5 bien formé contenant un élément vide appelé *\<div id="api"\>\</div\>* qui se situe entre les balises *\<body\>* . Cet élément indique l’endroit où le contenu Azure AD B2C doit être inséré.
-
-   ```html
-   <!DOCTYPE html>
-   <html>
-   <head>
-       <title>My Product Brand Name</title>
-   </head>
-   <body>
-       <div id="api"></div>
-   </body>
-   </html>
-   ```
-
-1. Collez l’extrait de code que vous venez de copier dans un éditeur de texte, puis enregistrez le fichier sous *customize-ui.html*.
-
-> [!NOTE]
-> Les éléments de formulaire HTML seront supprimés à cause des restrictions de sécurité si vous utilisez login.microsoftonline.com. Utilisez b2clogin.com si vous souhaitez utiliser des éléments de formulaire HTML dans votre contenu HTML personnalisé. Pour connaître les autres avantages, consultez [Utiliser b2clogin.com](b2clogin.md).
-
-## <a name="create-an-azure-blob-storage-account"></a>Créer un compte de stockage d’objets blob Azure
-
->[!NOTE]
-> Dans cet article, nous utilisons le stockage Blob Azure pour héberger notre contenu. Vous pouvez choisir d’héberger votre contenu sur un serveur web, mais vous devez [activer CORS sur votre serveur web](https://enable-cors.org/server.html).
-
-Pour héberger ce contenu HTML dans Stockage Blob, effectuez les étapes suivantes :
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Dans le menu **Hub**, sélectionnez **Nouveau** > **Stockage** > **Compte de stockage**.
-1. Sélectionnez un **abonnement** pour votre compte de stockage.
-1. Créez un **Groupe de ressources** ou sélectionnez-en un.
-1. Entrez un **nom** unique pour votre compte de stockage.
-1. Sélectionnez un **emplacement géographique** pour votre compte de stockage.
-1. Le champ **Modèle de déploiement** peut conserver la valeur **Gestionnaire de ressources**.
-1. Le champ **Performances** peut conserver la valeur **Standard**.
-1. Modifiez **Type de compte** sur **Stockage Blob**.
-1. Le champ **Réplication** peut conserver la valeur **RA-GRS**.
-1. Le champ **Niveau d’accès** peut conserver la valeur **À chaud**.
-1. Cliquez sur **Vérifier + créer** pour créer le compte de stockage.
-    Une fois le déploiement terminé, la page **Compte de stockage** s’ouvre automatiquement.
-
-## <a name="create-a-container"></a>Créez un conteneur.
-
-Pour créer un conteneur public dans Stockage Blob, effectuez les étapes suivantes :
-
-1. Sous **Service Blob** dans le menu de gauche, sélectionnez **Objets Blob**.
-1. Cliquez sur **+Conteneur**.
-1. Pour **Nom**, entrez *root*. Cela peut être un nom de votre choix, par exemple *wingtiptoys*, mais nous utilisons *root* dans cet exemple par souci de simplicité.
-1. Pour **Niveau d’accès public**, sélectionnez **Objet blob**, puis **OK**.
-1. Cliquez sur **root** pour ouvrir le nouveau conteneur.
-1. Cliquez sur **Télécharger**.
-1. Cliquez sur l’icône de dossier en regard du champ **Sélectionner un fichier**.
-1. Accédez au fichier **customize-ui.html** que vous avez précédemment créé dans la section Personnalisation de l'interface utilisateur de la page, et sélectionnez-le.
-1. Si vous souhaitez le charger dans un sous-dossier, développez **Avancé** et entrez un nom de dossier dans **Charger dans le dossier**.
-1. Sélectionnez **Télécharger**.
-1. Sélectionnez l’objet blob **customize-ui.html** que vous venez de charger.
-1. À droite de la zone de texte **URL**, sélectionnez l’icône **Copier dans le Presse-papiers** pour copier l’URL dans le Presse-papiers.
-1. Dans le navigateur web, accédez à l’URL que vous avez copiée pour vérifier que l’objet blob que vous avez chargé est accessible. S’il est inaccessible, par exemple si vous rencontrez une erreur `ResourceNotFound`, assurez-vous que le type d’accès du conteneur est défini sur **objet blob**.
-
-## <a name="configure-cors"></a>Configuration de CORS
-
-Configurez Stockage Blob pour le Partage des ressources cross-origin en effectuant les étapes suivantes :
-
-1. Dans le menu, sélectionnez **CORS**.
-1. Pour **Origines autorisées**, entrez `https://your-tenant-name.b2clogin.com`. Remplacez `your-tenant-name` par le nom de votre locataire Azure AD B2C. Par exemple : `https://fabrikam.b2clogin.com`. Vous devez utiliser des minuscules quand vous entrez le nom de votre locataire.
-1. Pour **Méthodes autorisées**, sélectionnez `GET` et `OPTIONS`.
-1. Pour **En-têtes autorisés**, saisissez un astérisque (*).
-1. Pour **En-têtes exposés**, saisissez un astérisque (*).
-1. Pour **Âge maximal**, tapez 200.
-1. Cliquez sur **Enregistrer**.
-
-## <a name="test-cors"></a>Tester CORS
-
-Vérifiez que vous êtes prêt en effectuant les étapes suivantes :
-
-1. Accédez au site web [www.test-cors.org](https://www.test-cors.org/), puis collez l’URL dans le champ **URL distante**.
-1. Cliquez sur **Envoyer la demande**.
-    Si vous recevez une erreur, assurez-vous que vos [paramètres CORS](#configure-cors) sont corrects. Vous serez peut-être amené à vider le cache de votre navigateur ou à ouvrir une fenêtre de navigation privée, en appuyant sur Ctrl+Maj+P.
-
-## <a name="modify-the-extensions-file"></a>Modifier le fichier d’extensions
-
-Pour configurer la personnalisation de l’interface utilisateur, copiez l’élément **ContentDefinition** et ses éléments enfants entre le fichier de base et le fichier d’extension.
-
-1. Ouvrez le fichier de base de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em>. Il s’agit de l’un des fichiers de stratégie inclus dans le pack de démarrage des stratégies personnalisées, que vous avez dû obtenir dans le prérequis,[Bien démarrer avec les stratégies personnalisées](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Ouvrez le fichier de base de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em>. Ce fichier de base est un des fichiers de stratégie inclus dans le pack de démarrage des stratégies personnalisées, que vous avez dû obtenir en suivant la rubrique prérequise [Bien démarrer avec les stratégies personnalisées](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 1. Recherchez et copiez le contenu entier de l’élément **ContentDefinitions**.
 1. Ouvrez le fichier d’extension. Par exemple, *TrustFrameworkExtensions.xml*. Recherchez l’élément **BuildingBlocks**. Si l’élément n’existe pas, ajoutez-le.
 1. Collez le contenu entier de l’élément **ContentDefinitions** que vous avez copié en tant qu’enfant de l’élément **BuildingBlocks**.
 1. Recherchez l’élément **ContentDefinition** contenant `Id="api.signuporsignin"` dans le code XML que vous avez copié.
 1. Remplacez la valeur de **LoadUri** par l’URL du fichier HTML que vous avez chargé dans le stockage. Par exemple : `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
 
-    Votre stratégie personnalisée doit ressembler à ce qui suit :
+    Votre stratégie personnalisée doit se présenter comme l’extrait de code suivant :
 
     ```xml
     <BuildingBlocks>
@@ -146,9 +60,9 @@ Pour configurer la personnalisation de l’interface utilisateur, copiez l’él
 
 1. Enregistrez le fichier d’extensions.
 
-## <a name="upload-and-test-your-updated-custom-policy"></a>Téléchargez et testez votre stratégie personnalisée mise à jour
+## <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Téléchargez et testez votre stratégie personnalisée mise à jour
 
-### <a name="upload-the-custom-policy"></a>Téléchargez la stratégie personnalisée
+### <a name="51-upload-the-custom-policy"></a>5.1 Charger la stratégie personnalisée
 
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 1. Recherchez et sélectionnez **Azure AD B2C**.
@@ -156,55 +70,66 @@ Pour configurer la personnalisation de l’interface utilisateur, copiez l’él
 1. Sélectionnez **Charger une stratégie personnalisée**.
 1. Chargez le fichier d’extensions que vous avez modifié précédemment.
 
-### <a name="test-the-custom-policy-by-using-run-now"></a>Tester la stratégie personnalisée à l’aide de l’option **Exécuter maintenant**
+### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Tester la stratégie personnalisée en utilisant **Exécuter maintenant**
 
 1. Sélectionnez la stratégie que vous avez téléchargée, puis sélectionnez **Exécuter maintenant**.
 1. Vous devriez pouvoir vous inscrire avec une adresse e-mail.
 
-## <a name="reference"></a>Informations de référence
+[!INCLUDE [active-directory-b2c-html-templates](../../includes/active-directory-b2c-html-templates.md)]
 
-### <a name="sample-templates"></a>Exemples de modèles
-Vous trouverez ici des exemples de modèles pour la personnalisation de l’interface utilisateur :
+## <a name="configure-dynamic-custom-page-content-uri"></a>Configurer l’URI du contenu de la page personnalisée dynamique
 
+En utilisant des stratégies personnalisées Azure AD B2C, vous pouvez envoyer un paramètre dans le chemin de l’URL ou une chaîne de requête. En transmettant le paramètre à votre point de terminaison HTML, vous pouvez changer le contenu de la page de façon dynamique. Par exemple, vous pouvez changer l’image d’arrière-plan dans la page de connexion ou d’inscription Azure AD B2C en fonction d’un paramètre que vous transmettez depuis votre application web ou mobile. Le paramètre peut être n’importe quel [résolveur de revendications](claim-resolver-overview.md), comme l’ID d’application, l’ID de langue ou le paramètre de chaîne de requête personnalisée, comme `campaignId`.
+
+### <a name="sending-query-string-parameters"></a>Envoi des paramètres de chaîne de requête
+
+Pour envoyer des paramètres de chaîne de requête, dans la [stratégie de partie de confiance](relyingparty.md), ajoutez un élément `ContentDefinitionParameters` comme indiqué ci-dessous.
+
+```XML
+<RelyingParty>
+    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+    <UserJourneyBehaviors>
+    <ContentDefinitionParameters>
+        <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
+        <Parameter Name="lang">{Culture:LanguageName}</Parameter>
+        <Parameter Name="appId">{OIDC:ClientId}</Parameter>
+    </ContentDefinitionParameters>
+    </UserJourneyBehaviors>
+    ...
+</RelyingParty>
 ```
-git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
+
+Dans votre définition de contenu, remplacez la valeur de `LoadUri` par `https://<app_name>.azurewebsites.net/home/unified`. La `ContentDefinition` de votre stratégie personnalisée doit se présenter comme l’extrait de code suivant :
+
+```XML
+<ContentDefinition Id="api.signuporsignin">
+  <LoadUri>https://<app_name>.azurewebsites.net/home/unified</LoadUri>
+  ...
+</ContentDefinition>
 ```
 
-Le dossier sample_templates/wingtip contient les fichiers HTML suivants :
+Quand Azure AD B2C charge la page, il fait un appel au point de terminaison de votre serveur web :
 
-| Modèle HTML5 | Description |
-|----------------|-------------|
-| *phonefactor.html* | Utilisez ce fichier en tant que modèle pour une page d’authentification multifacteur. |
-| *resetpassword.html* | Utilisez ce fichier en tant que modèle pour une page relative à un mot de passe oublié. |
-| *selfasserted.html* | Utilisez ce fichier en tant que modèle pour une page d’inscription à un compte de réseau social, une page d’inscription à un compte local ou une page de connexion à un compte local. |
-| *unified.html* | Utilisez ce fichier en tant que modèle pour une page de connexion ou d’inscription unifiée. |
-| *updateprofile.html* | Utilisez ce fichier en tant que modèle pour une page de mise à jour de profil. |
+```http
+https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f893d6d3-3b6d-480d-a330-1707bf80ebea
+```
 
-Voici les étapes indiquant comment utiliser l’exemple :
+### <a name="dynamic-page-content-uri"></a>URI du contenu d’une page dynamique
 
-1. Clonez le référentiel sur votre ordinateur local. Choisissez un dossier de modèle sous sample_templates. Vous pouvez utiliser `wingtip` ou `contoso`.
-1. Chargez tous les fichiers sous les dossiers `css`, `fonts` et `images` vers le stockage d’objets blob, comme décrit dans les sections précédentes.
-1. Ensuite, ouvrez chaque fichier \*.html dans le dossier racine `wingtip` ou `contoso` (selon celui que vous avez sélectionné dans la première étape) et remplacez toutes les instances de « http://localhost  » par les URL des fichiers css, images et de polices que vous avez téléchargés à l’étape 2.
-1. Enregistrez les fichiers \*.html et chargez-les dans le stockage d’objets blob.
-1. À présent, modifiez le fichier d’extensions, comme indiqué précédemment dans [Modifier le fichier d’extensions](#modify-the-extensions-file).
-1. Si vous constatez qu’il manque des polices, des images ou des feuilles de style CSS, vérifiez vos références dans la stratégie d’extensions et les fichiers \*.html.
+Le contenu peut être extrait de différents emplacements en fonction des paramètres utilisés. Dans votre point de terminaison activé pour CORS, configurez une structure de dossiers pour héberger le contenu. Par exemple, vous pouvez organiser le contenu selon la structure suivante. *Dossier racine/dossier par langue/vos fichiers html*. Par exemple, votre URI de page personnalisée peut ressembler à ceci :
 
-### <a name="content-definition-ids"></a>ID de définition de contenu
+```XML
+<ContentDefinition Id="api.signuporsignin">
+  <LoadUri>https://contoso.blob.core.windows.net/{Culture:LanguageName}/myHTML/unified.html</LoadUri>
+  ...
+</ContentDefinition>
+```
 
-À la section Modifier votre stratégie personnalisée d'inscription ou de connexion, vous avez configuré la définition de contenu de `api.idpselections`. L’ensemble des identifiants de définition du contenu reconnus par l’infrastructure d’expérience d’identité Azure AD B2C et leurs descriptions sont regroupés dans le tableau suivant :
+Azure AD B2C envoie le code ISO à deux lettres pour la langue, `fr` pour le français :
 
-| ID de définition du contenu | Description |
-|-----------------------|-------------|
-| *api.error* | **Page d’erreur**. Cette page s’affiche lorsqu’une exception ou une erreur est rencontrée. |
-| *api.idpselections* | **Page de sélection du fournisseur d’identité**. Cette page contient une liste de fournisseurs d’identité parmi lesquels l’utilisateur peut faire son choix lors de la connexion. Il s’agit de fournisseurs d’identité d’entreprise, de fournisseurs d’identité de réseaux sociaux tels que Facebook et Google + ou de comptes locaux. |
-| *api.idpselections.signup* | **Sélection du fournisseur d’identité pour l’inscription**. Cette page contient une liste de fournisseurs d’identité parmi lesquels l’utilisateur peut faire son choix lors de l’inscription. Il s’agit de fournisseurs d’identité d’entreprise, de fournisseurs d’identité de réseaux sociaux tels que Facebook et Google + ou de comptes locaux. |
-| *api.localaccountpasswordreset* | **Page de mot de passe oublié**. Cette page contient un formulaire que l’utilisateur doit remplir pour lancer une réinitialisation de mot de passe.  |
-| *api.localaccountsignin* | **Page de connexion à un compte local**. Cette page contient un formulaire de connexion que l’utilisateur doit renseigner lors de la connexion à un compte local basé sur une adresse e-mail ou un nom d’utilisateur. Le formulaire peut contenir une zone de saisie de texte et une zone de saisie de mot de passe. |
-| *api.localaccountsignup* | **Page d’inscription à un compte local**. Cette page contient un formulaire d’inscription que l’utilisateur doit renseigner lors de la connexion à un compte local basé sur une adresse e-mail ou un nom d’utilisateur. Le formulaire peut contenir différentes commandes de saisie telles que la zone de saisie de texte, celle du mot de passe, un bouton radio, les zones de liste déroulante à sélection unique ou les cases à sélection multiples. |
-| *api.phonefactor* | **Page d’authentification multi-facteur**. Cette page permet aux utilisateurs de vérifier leurs numéros de téléphone (par voie textuelle ou vocale) au cours de l’inscription ou de la connexion. |
-| *api.selfasserted* | **Page d’inscription à un compte de réseau social**. Cette page contient un formulaire d’inscription que l’utilisateur doit remplir lors de l’inscription à l’aide d’un compte existant proposé par un fournisseur d’identité de réseaux sociaux tel que Facebook ou Google +. Cette page est similaire à la page d’inscription au compte de réseau social ci-dessus, à l’exception des champs de saisie de mot de passe. |
-| *api.selfasserted.profileupdate* | **Page de mise à jour de profil**. Cette page contient un formulaire dont l’utilisateur peut se servir pour mettre à jour son profil. Cette page est similaire à la page d’inscription au compte de réseau social, à l’exception des champs de saisie de mot de passe. |
-| *api.signuporsignin* | **Page de connexion ou d’inscription unifiée**. Cette page gère l’inscription et la connexion des utilisateurs, qui peuvent utiliser les fournisseurs d’identité d’entreprise ou de réseaux sociaux, tels que Facebook ou Google+, ou de comptes locaux.  |
+```http
+https://contoso.blob.core.windows.net/fr/myHTML/unified.html
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

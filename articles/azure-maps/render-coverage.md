@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 04e7aeddaa4e3aba38f1bf08893b0b0487109653
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 7821b0b76fb9be1b62aaf334b3c07aaff1d0021a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025450"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209543"
 ---
 # <a name="azure-maps-render-coverage"></a>Couverture du rendu Azure Maps
 
-Azure Maps utilise des vignettes Raster et Vecteurs pour créer des cartes. Dans la résolution la plus faible, le monde entier tient sur une seule vignette. Dans la résolution la plus élevée, une seule vignette représente 38 mètres carrés. Quand vous effectuez un zoom avant, vous voyez plus de détails sur les continents, les régions, les villes et les rues individuelles. Pour plus d’informations sur les vignettes, consultez [Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
+Azure Maps utilise des vignettes Raster et Vecteurs pour créer des cartes. Dans la résolution la plus faible, le monde entier tient sur une seule vignette. Dans la résolution la plus élevée, une seule vignette représente 38 mètres carrés. Vous voyez plus de détails sur les continents, les régions, les villes et les rues individuelles quand vous effectuez un zoom avant sur la carte. Pour plus d’informations sur les vignettes, consultez [Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
 
 Toutefois, Maps n’a pas le même niveau d’information et de précision pour toutes les régions. Les tableaux suivants détaillent le niveau d’informations que vous pouvez afficher pour chaque région.
 
@@ -278,7 +278,7 @@ Toutefois, Maps n’a pas le même niveau d’information et de précision pour 
 | Moldova                   | ✓ | ✓ |
 | Monaco                    | ✓ | ✓ |
 | Monténégro                | ✓ | ✓ |
-| Pays-bas               | ✓ | ✓ |
+| Pays-Bas               | ✓ | ✓ |
 | Norvège                    | ✓ | ✓ |
 | Pologne                    | ✓ | ✓ |
 | Portugal                  | ✓ | ✓ |
@@ -295,7 +295,7 @@ Toutefois, Maps n’a pas le même niveau d’information et de précision pour 
 | Suisse               | ✓ | ✓ |
 | Turquie                    | ✓ | ✓ |
 | Ukraine                   | ✓ | ✓ |
-| United Kingdom            | ✓ | ✓ |
+| Royaume-Uni            | ✓ | ✓ |
 | État de la Cité du Vatican              | ✓ | ✓ |
 
 ## <a name="next-steps"></a>Étapes suivantes

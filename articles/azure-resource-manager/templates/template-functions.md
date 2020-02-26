@@ -2,19 +2,21 @@
 title: Fonctions des modèles de gestionnaire des ressources Azure
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs, utiliser des chaînes et des valeurs numériques, et récupérer des informations sur le déploiement.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: aef813595df96449d5dd59ad1e95e77c4c198d0f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/13/2020
+ms.openlocfilehash: a9d10ad4899f35acd45069cb3d351a60632fed3a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476211"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207040"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Fonctions des modèles Azure Resource Manager
 
 Cet article décrit toutes les fonctions que vous pouvez utiliser dans un modèle Azure Resource Manager. Pour plus d’informations sur l’utilisation des fonctions dans votre modèle, voir [Syntaxe du modèle](template-expressions.md).
 
 Pour créer vos propres fonctions, consultez [Fonctions définies par l’utilisateur](template-syntax.md#functions).
+
+La plupart des fonctions opèrent de la même façon quand elles sont déployées sur un groupe de ressources, un abonnement, un groupe d’administration ou un locataire. Certaines fonctions ne peuvent pas être utilisées dans toutes les étendues. Elles sont indiquées dans les listes ci-dessous.
 
 <a id="array" aria-hidden="true" />
 <a id="coalesce" aria-hidden="true" />
@@ -35,6 +37,7 @@ Pour créer vos propres fonctions, consultez [Fonctions définies par l’utilis
 <a id="union" aria-hidden="true" />
 
 ## <a name="array-and-object-functions"></a>Fonctions de tableau et d’objet
+
 Resource Manager fournit les fonctions ci-après pour travailler avec des tableaux et des objets.
 
 * [array](template-functions-array.md#array)
@@ -62,6 +65,7 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des tablea
 <a id="greaterorequals" aria-hidden="true" />
 
 ## <a name="comparison-functions"></a>Fonctions de comparaison
+
 Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dans vos modèles.
 
 * [equals](template-functions-comparison.md#equals)
@@ -75,6 +79,7 @@ Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dan
 <a id="variables" aria-hidden="true" />
 
 ## <a name="deployment-value-functions"></a>Fonctions de valeur de déploiement
+
 Resource Manager offre les fonctions ci-après pour l’obtention de valeurs à partir des sections du modèle et de valeurs associées au déploiement :
 
 * [deployment](template-functions-deployment.md#deployment)
@@ -89,6 +94,7 @@ Resource Manager offre les fonctions ci-après pour l’obtention de valeurs à 
 <a id="or" aria-hidden="true" />
 
 ## <a name="logical-functions"></a>Fonctions logiques
+
 Resource Manager fournit les fonctions suivantes pour vous permettre de travailler avec des conditions logiques :
 
 * [and](template-functions-logical.md#and)
@@ -109,6 +115,7 @@ Resource Manager fournit les fonctions suivantes pour vous permettre de travaill
 <a id="sub" aria-hidden="true" />
 
 ## <a name="numeric-functions"></a>Fonctions Numériques
+
 Resource Manager fournit les expressions ci-après pour travailler avec des entiers :
 
 * [add](template-functions-numeric.md#add)
@@ -134,6 +141,7 @@ Resource Manager fournit les expressions ci-après pour travailler avec des enti
 <a id="tenantResourceId" aria-hidden="true" />
 
 ## <a name="resource-functions"></a>Fonctions de ressource
+
 Resource Manager offre les fonctions ci-après pour obtenir des valeurs de ressource :
 
 * [extensionResourceId](template-functions-resource.md#extensionresourceid)
@@ -143,9 +151,9 @@ Resource Manager offre les fonctions ci-après pour obtenir des valeurs de resso
 * [list*](template-functions-resource.md#list)
 * [fournisseurs](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
-* [resourceGroup](template-functions-resource.md#resourcegroup)
-* [resourceId](template-functions-resource.md#resourceid)
-* [subscription](template-functions-resource.md#subscription)
+* [resourceGroup](template-functions-resource.md#resourcegroup) - peut être utilisée uniquement dans les déploiements sur un groupe de ressources.
+* [resourceId](template-functions-resource.md#resourceid) - peut être utilisée dans n’importe quelle étendue, mais les paramètres valides changent en fonction de l’étendue.
+* [subscription](template-functions-resource.md#subscription) - peut être utilisée uniquement dans les déploiements sur un groupe de ressources ou un abonnement.
 * [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
 
@@ -181,6 +189,7 @@ Resource Manager offre les fonctions ci-après pour obtenir des valeurs de resso
 <a id="uricomponenttostring" aria-hidden="true" />
 
 ## <a name="string-functions"></a>Fonctions de chaînes
+
 Resource Manager fournit les fonctions ci-après pour travailler avec des chaînes de caractères :
 
 * [base64](template-functions-string.md#base64)
@@ -221,5 +230,5 @@ Resource Manager fournit les fonctions ci-après pour travailler avec des chaîn
 
 * Pour obtenir une description des sections d’un modèle Azure Resource Manager, voir [Création de modèles Azure Resource Manager](template-syntax.md)
 * Pour fusionner plusieurs modèles, consultez [Utilisation de modèles liés avec Azure Resource Manager](linked-templates.md)
-* Pour effectuer une itération un nombre de fois spécifié pendant la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](create-multiple-instances.md)
+* Pour itérer un nombre de fois spécifié lors de la création d'un type de ressource, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](copy-resources.md).
 * Pour savoir comment déployer le modèle que vous avez créé, consultez [Déployer une application avec un modèle Azure Resource Manager](deploy-powershell.md)

@@ -3,12 +3,12 @@ title: Déployer des ressources sur un abonnement
 description: Décrit comment créer un groupe de ressources dans un modèle Azure Resource Manager. Est également expliqué le déploiement des ressources sur l’étendue de l’abonnement Azure.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: c53d274303a203a427a36f8f729f6b43cee44e40
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 50db0b4d46ff4e367411829aa75fa017a168372f
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120616"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207653"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Créer des groupes de ressources et des ressources au niveau de l’abonnement
 
@@ -135,7 +135,7 @@ Le modèle suivant crée un groupe de ressources vide.
 }
 ```
 
-Pour créer plus d’un groupe de ressources, utilisez l’[élément copy](create-multiple-instances.md) avec des groupes de ressources.
+Pour créer plus d’un groupe de ressources, utilisez l’[élément copy](copy-resources.md) avec des groupes de ressources.
 
 ```json
 {
@@ -170,7 +170,7 @@ Pour créer plus d’un groupe de ressources, utilisez l’[élément copy](crea
 }
 ```
 
-Pour plus d’informations sur l’itération de ressource, consultez [Déployer plusieurs instances d’une ressource ou d’une propriété dans des modèles Azure Resource Manager](./create-multiple-instances.md) et [Didacticiel : Créer plusieurs instances de ressources grâce à des modèles Resource Manager](./template-tutorial-create-multiple-instances.md).
+Pour plus d’informations sur l’itération de ressource, consultez [Déployer plusieurs instances d’une ressource dans des modèles Azure Resource Manager](./copy-resources.md) et [Tutoriel : Créer plusieurs instances de ressources grâce à des modèles Resource Manager](./template-tutorial-create-multiple-instances.md).
 
 ## <a name="resource-group-and-resources"></a>Groupe de ressources et ressources
 

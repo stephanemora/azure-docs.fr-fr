@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e5ea4bba693a6785dae4075da7b13154593bb4c
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 83144738124b223e305b6c0d3ad1065f5dae408e
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087374"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212612"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Utiliser Azure pour héberger et exécuter des scénarios de charge de travail SAP
 
@@ -121,6 +121,8 @@ Pour plus d’informations sur l’intégration de services Azure dans des compo
 
 ## <a name="change-log"></a>Journal des modifications
 
+- 13/02/2020 : Modification de la [haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) et de la [haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur RHEL avec Azure NetApp Files](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) pour aligner les délais d’attente des ressources de cluster sur ceux suggérés pour Red Hat
+- 11/02/2020 : Publication de [Migration de grandes instances SAP HANA sur Azure vers des machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-large-instance-virtual-machine-migration)
 - 07/02/2020 : Modification de la [connectivité du point de terminaison public pour les machines virtuelles utilisant Azure Standard ILB dans les scénarios SAP HA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) afin de mettre à jour l'exemple de capture d'écran NSG
 - 03/02/2020 : Modification dans [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse) et [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server avec Azure NetApp Files pour les applications SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) pour supprimer l’avertissement relatif à l’utilisation d’un tiret dans les noms d’hôtes des nœuds de cluster sur SLES
 - 28/01/2020 : Modification de la [haute disponibilité de SAP HANA sur les machines virtuelles Azure sous RHEL](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) pour aligner les délais d’expiration des ressources de cluster SAP HANA sur les recommandations de Red Hat en matière de délai d’attente

@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: fd358801b5fe84aac754b5a975234688a707e544
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 6e5571604e6154408f2005ab4804b4270041e4cf
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169961"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444347"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Sécuriser l’expérimentation Azure Machine Learning et les travaux d’inférence au sein d’un réseau virtuel Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Cet article fournit aussi des informations détaillées sur les *paramètres de 
 > [!WARNING]
 > Microsoft ne prend pas en charge l’utilisation du concepteur Azure Machine Learning ou du Machine Learning automatisé (à partir de Studio) avec des ressources au sein d’un réseau virtuel.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 + Un [espace de travail](how-to-manage-workspace.md) Azure Machine Learning.
 
@@ -134,13 +134,14 @@ Pour utiliser une instance de calcul Machine Learning Azure ou un cluster de cal
 > * Si vous vous apprêtez à placer plusieurs instances ou clusters de calcul sur un réseau virtuel, vous devrez peut-être demander une augmentation du quota pour une ou plusieurs de vos ressources.
 > * Si le ou les comptes de stockage Azure pour l’espace de travail sont également sécurisés dans un réseau virtuel, ils doivent se trouver dans le même réseau virtuel que l’instance ou le cluster de capacité de calcul Azure Machine Learning. 
 
-La capacité de calcul ou le cluster Machine Learning Azure alloue automatiquement des ressources réseau supplémentaires au groupe de ressources qui contient le réseau virtuel. Pour chaque instance ou cluster de calcul, le service alloue les ressources suivantes :
-
-* Un seul groupe de sécurité réseau
-* Une seule adresse IP publique
-* Un seul équilibreur de charge
-
-Ces ressources sont limitées par les [quotas de ressources](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) de l’abonnement.
+> [!TIP]
+> La capacité de calcul ou le cluster Machine Learning Azure alloue automatiquement des ressources réseau supplémentaires au groupe de ressources qui contient le réseau virtuel. Pour chaque instance ou cluster de calcul, le service alloue les ressources suivantes :
+> 
+> * Un seul groupe de sécurité réseau
+> * Une seule adresse IP publique
+> * Un seul équilibreur de charge
+> 
+> Ces ressources sont limitées par les [quotas de ressources](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) de l’abonnement.
 
 
 ### <a id="mlcports"></a> Ports requis
@@ -500,6 +501,10 @@ Lorsque vous utilisez Pare-feu Azure, vous devez configurer une règle réseau p
 Lors de l’ajout de la règle, définissez __Protocole__ sur n’importe lequel, et les ports sur `*`.
 
 Pour plus d’informations sur la configuration d’une règle réseau, consultez [Déployer et configurer Pare-feu Azure](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule).
+
+## <a name="use-azure-container-registry"></a>Utilisation d’Azure Container Registry
+
+Lors de l’utilisation d’un réseau virtuel avec Azure Machine Learning, __ne__ placez pas Azure Container Registry pour l’espace de travail dans le réseau virtuel. Cette configuration n’est pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

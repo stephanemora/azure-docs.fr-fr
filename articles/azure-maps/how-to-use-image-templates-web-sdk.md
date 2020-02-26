@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: cb182a5db77a517b11fb1863665f8c54d58b254a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: f3b1141ea3c3c8e33b8a2ae12c22b6962a90d32b
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911570"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198222"
 ---
 # <a name="how-to-use-image-templates"></a>Guide pratique pour utiliser des modèles d’image
 
@@ -24,7 +24,7 @@ Les images peuvent être utilisées avec des marqueurs HTML et différentes couc
  - Les couches de polygones peuvent être rendues avec une image de motif de remplissage. 
  - Les marqueurs HTML peuvent afficher des points à l’aide d’images et d’autres éléments HTML.
 
-Pour garantir de bonnes performances avec les couches, ces images doivent être chargées dans la ressource de sprite d’image de carte avant le rendu. Par défaut, l’interface [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions) de SymbolLayer précharge dans le sprite d’image de carte quelques images de marqueur dans un certain nombre de couleurs. Ces mêmes images de marqueur, et bien d’autres, sont disponibles sous forme de modèles SVG. Elles peuvent être utilisées pour créer des images avec des échelles personnalisées ainsi qu’une couleur principale et une couleur secondaire du client. Au total, 42 modèles d’image sont fournis : 27 icônes de symbole et 15 motifs de remplissage de polygone.
+Pour garantir de bonnes performances avec les couches, chargez les images dans la ressource de sprite d’image de carte avant le rendu. Par défaut, l’interface [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions), de SymbolLayer, précharge dans le sprite d’image de carte quelques images de marqueur dans un certain nombre de couleurs. Ces images de marqueur, entre autres éléments, sont disponibles sous forme de modèles SVG. Elles peuvent être utilisées pour créer des images avec des échelles personnalisées ou être utilisées comme couleur principale et secondaire du client. Au total, 42 modèles d’images sont fournis : 27 icônes de symboles et 15 motifs de remplissage de polygones.
 
 Il est possible d’ajouter des modèles d’image aux ressources de sprite d’image de carte à l’aide de la fonction `map.imageSprite.createFromTemplate`. Cette fonction permet de passer jusqu’à cinq paramètres :
 
@@ -32,11 +32,11 @@ Il est possible d’ajouter des modèles d’image aux ressources de sprite d’
 createFromTemplate(id: string, templateName: string, color?: string, secondaryColor?: string, scale?: number): Promise<void>
 ```
 
-où `id` est un identificateur unique que vous créez et qui est affecté à l’image quand elle est ajoutée au sprite d’image des cartes. Utilisez cet identificateur dans les couches pour spécifier la ressource d’image à restituer. `templateName` spécifie le modèle d’image à utiliser. L’option `color` définit la couleur principale de l’image et les options `secondaryColor` définissent la couleur secondaire de l’image. L’option `scale` met à l’échelle le modèle d’image avant de l’appliquer au sprite d’image. Quand l’image est appliquée au sprite d’image, elle est convertie en image PNG. Pour garantir un rendu clair, il est préférable de mettre à l’échelle le modèle d’image avant de l’ajouter au sprite plutôt que de le mettre à l’échelle dans une couche.
+L’`id` est un identificateur unique que vous créez. L’`id` est attribué à l’image quand elle est ajoutée au sprite d’image de cartes. Utilisez cet identificateur dans les couches pour spécifier la ressource d’image à restituer. `templateName` spécifie le modèle d’image à utiliser. L’option `color` définit la couleur principale de l’image et les options `secondaryColor` définissent la couleur secondaire de l’image. L’option `scale` met à l’échelle le modèle d’image avant de l’appliquer au sprite d’image. Quand l’image est appliquée au sprite d’image, elle est convertie en image PNG. Pour garantir un rendu clair, il est préférable d’appliquer un scale-up au modèle d’image avant de l’ajouter au sprite plutôt que dans une couche.
 
-Cette fonction charge l’image de façon asynchrone dans le sprite d’image et retourne donc une promesse (Promise) dont vous pouvez attendre l’exécution par cette fonction.
+Cette fonction charge l’image de façon asynchrone dans le sprite d’image. Ainsi, elle retourne une promesse que vous pouvez attendre la fin de l’exécution de cette fonction.
 
-Le code suivant montre comment créer une image à partir de l’un des modèles intégrés et comment l’utiliser avec une couche de symboles.
+Le code suivant montre comment créer une image à partir de l’un des modèles intégrés, et comment l’utiliser avec une couche de symboles.
 
 ```javascript
 map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#fff').then(function () {
@@ -106,9 +106,9 @@ Consultez la page Pen <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>Marqueu
 
 ## <a name="create-custom-reusable-templates"></a>Créer des modèles réutilisables personnalisés
 
-Si votre application utilise la même icône avec des icônes différentes ou si vous créez un module qui ajoute des modèles d’image supplémentaires, vous pouvez facilement ajouter et récupérer ces icônes à partir du SDK web Azure Maps en utilisant les fonctions statiques suivantes sur l’espace de nom `atlas`.
+Si votre application utilise la même icône avec des icônes différentes ou si vous créez un module qui ajoute des modèles d’image supplémentaires, vous pouvez facilement ajouter et récupérer ces icônes à partir du SDK web Azure Maps. Utilisez les fonctions statiques suivantes sur l’espace de noms `atlas`.
 
-| Name | Type de retour | Description | 
+| Nom | Type de retour | Description | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Ajoute un modèle d’image SVG personnalisé à l’espace de noms atlas. |
 |  `getImageTemplate(templateName: string, scale?: number)`| string | Récupère un modèle SVG par son nom. |
@@ -133,7 +133,7 @@ Consultez la page Pen <a href='https://codepen.io/azuremaps/pen/NQyvEX/'>Ajouter
 
 ## <a name="list-of-image-templates"></a>Liste des modèles d’image
 
-Le tableau suivant liste tous les modèles d’image actuellement disponibles dans le SDK web Azure Maps avec le nom de modèle au-dessus de chaque image. Par défaut, la couleur principale est le bleu et la couleur secondaire est le blanc. Pour rendre la couleur secondaire plus visible sur un fond blanc, la couleur secondaire est définie sur noir pour les images suivantes.
+Ce tableau liste tous les modèles d’image actuellement disponibles dans le SDK web Azure Maps. Le nom de modèle se trouve au-dessus de chaque image. Par défaut, la couleur principale est le bleu et la couleur secondaire est le blanc. Pour rendre la couleur secondaire plus visible sur un fond blanc, la couleur secondaire est définie sur noir pour les images suivantes.
 
 **Modèles d’icône de symbole**
 

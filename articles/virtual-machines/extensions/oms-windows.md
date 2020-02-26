@@ -1,5 +1,5 @@
 ---
-title: Extension de machine virtuelle Azure Monitor pour Windows
+title: Extension de machine virtuelle Log Analytics pour Windows
 description: Déployez l’agent Log Analytics sur une machine virtuelle Windows avec une extension de machine virtuelle.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,29 +14,27 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/30/2020
 ms.author: akjosh
-ms.openlocfilehash: 604be42ec74f75e3aa9c790092ed83aee4ad25e1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 85b97f31e77736603bd0dc7003d4dbfb91a694dc
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76907010"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470698"
 ---
-# <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Azure Monitor pour Windows
+# <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Log Analytics pour Windows
 
-Les journaux Azure Monitor fournissent des fonctionnalités permettant de superviser les ressources cloud et locales. L’extension de machine virtuelle de l’agent Log Analytics pour Windows est publiée et prise en charge par Microsoft. L’extension installe l’agent Log Analytics sur les machines virtuelles Azure et inscrit les machines virtuelles dans un espace de travail Log Analytics existant. Ce document présente les plateformes, configurations et options de déploiement prises en charge pour l’extension de machine virtuelle Azure Monitor pour Windows.
+Les journaux Azure Monitor fournissent des fonctionnalités permettant de superviser les ressources cloud et locales. L’extension de machine virtuelle de l’agent Log Analytics pour Windows est publiée et prise en charge par Microsoft. L’extension installe l’agent Log Analytics sur les machines virtuelles Azure et inscrit les machines virtuelles dans un espace de travail Log Analytics existant. Ce document présente les plateformes, configurations et options de déploiement prises en charge pour l’extension de machine virtuelle Log Analytics pour Windows.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
-
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 
 Pour plus d’informations sur les systèmes d’exploitation Windows pris en charge, voir l’article [vue d’ensemble de l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems).
 
 ### <a name="agent-and-vm-extension-version"></a>Version de l’agent et de l’extension de machine virtuelle
-Le tableau ci-après établit une correspondance entre chaque version de l’extension de machine virtuelle Azure Monitor pour Windows et chaque version du bundle de l’agent Log Analytics. 
+Le tableau ci-après mappe la version de l’extension de machine virtuelle Log Analytics Windows à la version du bundle de l’agent Log Analytics pour chaque publication. 
 
-| Version du bundle de l’agent Log Analytics pour Windows | Version de l’extension de machine virtuelle Azure Monitor pour Windows | Date de sortie | Notes de publication |
+| Version du bundle de l’agent Log Analytics pour Windows | Version d’extension de machine virtuelle Windows Log Analytics | Date de sortie | Notes de publication |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.20.18018 | 1.0.18018 | 2 octobre 2019 | <ul><li> Correctifs de bogues mineurs et meilleure stabilité </li></ul> |
 | 10.20.18011 | 1.0.18011 | Juillet 2019 | <ul><li> Correctifs de bogues mineurs et meilleure stabilité </li><li> Augmentation de MaxExpressionDepth à 10 000 </li></ul> |
@@ -85,7 +83,7 @@ Le JSON suivant illustre le schéma de l’extension d’agent Log Analytics. L�
 ```
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| Name | Valeur/Exemple |
+| Nom | Valeur/Exemple |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
@@ -96,7 +94,8 @@ Le JSON suivant illustre le schéma de l’extension d’agent Log Analytics. L�
 
 \* La propriété workspaceId est appelée consumerId dans l’API Log Analytics.
 
-> [REMARQUE !] Pour obtenir des propriétés supplémentaires, consultez [Connecter des ordinateurs Windows à Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+> [!NOTE]
+> Pour obtenir des propriétés supplémentaires, consultez [Connecter des ordinateurs Windows à Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 
@@ -107,7 +106,7 @@ Les extensions de machines virtuelles Azure peuvent être déployées avec des m
 
 Le code JSON pour une extension de machine virtuelle peut être imbriqué à l’intérieur de la ressource de machine virtuelle ou placé à la racine ou au niveau supérieur d’un modèle de Resource Manager JSON. Le positionnement du JSON affecte la valeur du nom de la ressource et son type. Pour plus d’informations, consultez [Définition du nom et du type des ressources enfants](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
-L’exemple suivant suppose que l’extension Azure Monitor est imbriquée dans la ressource de machine virtuelle. Lors de l’imbrication de la ressource d’extension, le JSON est placé dans l’objet `"resources": []` de la machine virtuelle.
+L’exemple suivant suppose que l’extension Log Analytics est imbriquée dans la ressource de machine virtuelle. Lors de l’imbrication de la ressource d’extension, le JSON est placé dans l’objet `"resources": []` de la machine virtuelle.
 
 
 ```json

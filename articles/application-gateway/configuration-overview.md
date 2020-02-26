@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 146dbdbf2f4e107e81515ce83188fa48c52aef36
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 355909052a711773545114179cd5d1ca01811cec
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714857"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485078"
 ---
 # <a name="application-gateway-configuration-overview"></a>Présentation de la configuration d’Application Gateway
 
@@ -25,7 +25,7 @@ Cette image illustre une application dotée de trois écouteurs. Les deux premie
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Réseau virtuel Azure et sous-réseau dédié
 
@@ -210,7 +210,7 @@ Pour une règle basée sur un chemin, ajoutez plusieurs paramètres HTTP du back
 
 Si la redirection est configurée pour une règle de base, toutes les demandes sur l’écouteur associé sont redirigées vers la cible. Il s’agit d’une redirection *globale*. Si la redirection est configurée pour une règle basée sur un chemin, seules les demandes dans une zone de site spécifique sont redirigées. Prenons l’exemple d’une zone de panier d’achat indiquée par */cart/\** . Il s’agit d’une redirection *basée sur un chemin*.
 
-Pour plus d’informations sur les redirections, consultez [Vue d’ensemble de la redirection Application Gateway](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
+Pour plus d’informations sur les redirections, consultez [Vue d’ensemble de la redirection Application Gateway](redirect-overview.md).
 
 #### <a name="redirection-type"></a>Type de redirection
 
@@ -227,24 +227,24 @@ Choisissez l’écouteur comme cible de redirection pour rediriger le trafic dep
 ![Boîte de dialogue Composants d’Application Gateway](./media/configuration-overview/configure-redirection.png)
 
 Pour plus d’informations sur la redirection HTTP vers HTTPS, consultez :
-- [Redirection HTTP vers HTTPS à l’aide du portail Azure](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
-- [Redirection HTTP vers HTTPS à l’aide de PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
-- [Redirection HTTP vers HTTPS à l’aide d’Azure CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
+- [Redirection HTTP vers HTTPS à l’aide du portail Azure](redirect-http-to-https-portal.md)
+- [Redirection HTTP vers HTTPS à l’aide de PowerShell](redirect-http-to-https-powershell.md)
+- [Redirection HTTP vers HTTPS à l’aide d’Azure CLI](redirect-http-to-https-cli.md)
 
 ##### <a name="external-site"></a>Site externe
 
 Choisissez un site externe quand vous voulez rediriger le trafic sur l’écouteur associé à cette règle vers un site externe. Vous pouvez choisir d’inclure la chaîne de requête de la demande d’origine dans la demande transférée à la cible de redirection. Vous ne pouvez pas transférer le chemin au site externe qui était dans la demande d’origine.
 
 Pour plus d’informations sur la redirection, consultez :
-- [Rediriger le trafic vers un site externe à l’aide de PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-powershell)
-- [Rediriger le trafic vers un site externe à l’aide de l’interface de ligne de commande](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-cli)
+- [Rediriger le trafic vers un site externe à l’aide de PowerShell](redirect-external-site-powershell.md)
+- [Rediriger le trafic vers un site externe à l’aide de l’interface de ligne de commande](redirect-external-site-cli.md)
 
 #### <a name="rewrite-the-http-header-setting"></a>Réécrire le paramètre d’en-tête HTTP
 
 Ce paramètre ajoute, supprime et met à jour les en-têtes de demande et réponse HTTP pendant le déplacement des paquets de demande et réponse entre le pool client et le pool back-end. Pour plus d'informations, consultez les pages suivantes :
 
- - [Vue d’ensemble de la réécriture des en-têtes HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [Configurer la réécriture des en-têtes HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+ - [Vue d’ensemble de la réécriture des en-têtes HTTP](rewrite-http-headers.md)
+ - [Configurer la réécriture des en-têtes HTTP](rewrite-http-headers-portal.md)
 
 ## <a name="http-settings"></a>Paramètres HTTP
 
@@ -252,7 +252,18 @@ La passerelle d’application route le trafic vers les serveurs back-end en util
 
 ### <a name="cookie-based-affinity"></a>Affinité basée sur les cookies
 
-Cette fonctionnalité s’avère utile quand vous voulez garder une session utilisateur sur le même serveur. Les cookies gérés par la passerelle permettent à la passerelle d’application de diriger le trafic ultérieur d’une session utilisateur vers le même serveur à des fins de traitement. Ceci est important quand l’état de la session est enregistré localement sur le serveur pour une session utilisateur. Si l’application ne peut pas gérer l’affinité basée sur les cookies, vous ne pouvez pas utiliser cette fonctionnalité. Pour l’utiliser, assurez-vous que les clients prennent en charge les cookies.
+Azure Application Gateway utilise des cookies gérés par passerelle pour gérer les sessions utilisateur. Quand un utilisateur envoie la première demande à Application Gateway, il définit un cookie d’affinité dans la réponse avec une valeur de hachage qui contient les détails de la session, afin que les demandes suivantes incluant le cookie d’affinité soient routées vers le même serveur back-end pour conserver l’adhérence. 
+
+Cette fonctionnalité est pratique quand vous voulez conserver une session utilisateur sur le même serveur et quand l’état de session est enregistré localement sur le serveur pour une session utilisateur. Si l’application ne peut pas gérer l’affinité basée sur les cookies, vous ne pouvez pas utiliser cette fonctionnalité. Pour l’utiliser, assurez-vous que les clients prennent en charge les cookies.
+
+À compter du **17 février 2020**, la[mise à jour v80](https://chromiumdash.appspot.com/schedule) de [Chromium](https://www.chromium.org/Home) spécifie que les cookies HTTP sans attribut SameSite doivent être traités comme SameSite=Lax. Dans le cas de requêtes CORS (Cross-Origin Resource Sharing), si le cookie doit être envoyé dans un contexte tiers, il doit utiliser les attributs «SameSite=None; Secure » et il doit être envoyé seulement via HTTPS. Dans le cas contraire, dans un scénario HTTP uniquement, le navigateur n’envoie pas les cookies dans le contexte tiers. L’objectif de cette mise à jour à partir de Chrome est d’améliorer la sécurité et d’éviter les attaques par falsification de requête intersites (CSRF). 
+
+Pour prendre en charge cette modification, Application Gateway (tous les types de références SKU) injecte un autre cookie identique appelé **ApplicationGatewayAffinityCORS** en plus du cookie **ApplicationGatewayAffinity** existant, qui est similaire, mais ce cookie aura désormais deux attributs de plus **"SameSite=None; Secure"** , de sorte que la session rémanente puisse être conservée même pour les demandes intersites.
+
+Notez que le nom du cookie d’affinité par défaut est **ApplicationGatewayAffinity** et que ce nom peut être modifié par les utilisateurs. Si vous utilisez un nom de cookie d’affinité personnalisé, un cookie supplémentaire est ajouté avec le suffixe CORS, par exemple **CustomCookieNameCORS**.
+
+> [!NOTE]
+> Si l’attribut **SameSite=None** est défini, le cookie doit également contenir l’indicateur **Secure** et doit être envoyé via **HTTPS**. Par conséquent, si l’affinité de session est obligatoire sur CORS, vous devez migrer votre charge de travail vers HTTPS. Reportez-vous à la documentation sur le déchargement SSL et sur SSL de bout en bout pour Application Gateway ici : [Vue d’ensemble](ssl-overview.md), [Guide pratique pour configurer le déchargement SSL](create-ssl-portal.md) et [Guide pratique pour configurer SSL de bout en bout](end-to-end-ssl-portal.md).
 
 ### <a name="connection-draining"></a>Vidage des connexions
 
@@ -262,7 +273,7 @@ Le vidage des connexions vous permet de supprimer élégamment des membres du po
 
 Application Gateway prend en charge les protocoles HTTP et HTTPS pour router les demandes vers les serveurs back-end. Si vous choisissez HTTP, le trafic vers les serveurs back-end est non chiffré. Si des communications non chiffrées ne sont pas acceptables, sélectionnez HTTPS.
 
-Ce paramètre combiné avec HTTPS dans l’écouteur prend en charge le chiffrement [SSL de bout en bout](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Celui-ci vous permet de transmettre en toute sécurité des données sensibles chiffrées au serveur back-end. Chaque serveur back-end du pool de back-ends pour lequel un chiffrement SSL de bout en bout est activé doit être configuré avec un certificat pour permettre une communication sécurisée.
+Ce paramètre combiné avec HTTPS dans l’écouteur prend en charge le chiffrement [SSL de bout en bout](ssl-overview.md). Celui-ci vous permet de transmettre en toute sécurité des données sensibles chiffrées au serveur back-end. Chaque serveur back-end du pool de back-ends pour lequel un chiffrement SSL de bout en bout est activé doit être configuré avec un certificat pour permettre une communication sécurisée.
 
 ### <a name="port"></a>Port
 
@@ -301,7 +312,7 @@ Il s’agit d’un raccourci d’interface utilisateur uniquement qui sélection
 
 ### <a name="use-custom-probe"></a>Utiliser une sonde personnalisée
 
-Ce paramètre associe une [sonde personnalisée](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe) à un paramètre HTTP. Vous pouvez associer une seule sonde personnalisée à un paramètre HTTP. Si vous n’associez pas explicitement une sonde personnalisée, la [sonde par défaut](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe-settings) est utilisée pour superviser l’intégrité du back-end. Nous vous recommandons de créer une sonde personnalisée pour mieux contrôler la supervision de l’intégrité de vos back-ends.
+Ce paramètre associe une [sonde personnalisée](application-gateway-probe-overview.md#custom-health-probe) à un paramètre HTTP. Vous pouvez associer une seule sonde personnalisée à un paramètre HTTP. Si vous n’associez pas explicitement une sonde personnalisée, la [sonde par défaut](application-gateway-probe-overview.md#default-health-probe-settings) est utilisée pour superviser l’intégrité du back-end. Nous vous recommandons de créer une sonde personnalisée pour mieux contrôler la supervision de l’intégrité de vos back-ends.
 
 > [!NOTE]
 > La sonde personnalisée ne supervise pas l’intégrité du pool de back-ends, sauf si le paramètre HTTP correspondant est explicitement associé à un écouteur.
@@ -335,7 +346,7 @@ Après avoir créé un pool de back-ends, vous devez l’associer à une ou plus
 
 ## <a name="health-probes"></a>Sondes d’intégrité
 
-Par défaut, une passerelle d’application supervise l’intégrité de toutes les ressources dans son back-end. Mais nous vous recommandons vivement de créer une sonde personnalisée pour chaque paramètre HTTP de back-end afin de mieux contrôler la supervision de l’intégrité. Pour savoir comment configurer une sonde personnalisée, consultez [Paramètres de sonde d’intégrité personnalisée](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings).
+Par défaut, une passerelle d’application supervise l’intégrité de toutes les ressources dans son back-end. Mais nous vous recommandons vivement de créer une sonde personnalisée pour chaque paramètre HTTP de back-end afin de mieux contrôler la supervision de l’intégrité. Pour savoir comment configurer une sonde personnalisée, consultez [Paramètres de sonde d’intégrité personnalisée](application-gateway-probe-overview.md#custom-health-probe-settings).
 
 > [!NOTE]
 > Une fois que vous avez créé une sonde d’intégrité personnalisée, vous avez besoin de l’associer à un paramètre HTTP de back-end. Une sonde personnalisée ne supervise pas l’intégrité du pool de back-ends, sauf si le paramètre HTTP correspondant est explicitement associé à un écouteur à l’aide d’une règle.

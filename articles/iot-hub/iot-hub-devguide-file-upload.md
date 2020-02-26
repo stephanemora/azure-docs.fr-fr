@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 3ae87523e66ae49d17f198a1f70b0f449ca0a713
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 35e10c0f9babca7719ff496e7068ad1564670fee
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080414"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209152"
 ---
 # <a name="upload-files-with-iot-hub"></a>Chargement de fichiers avec IoT Hub
 
@@ -25,7 +25,7 @@ Avant de charger un fichier sur IoT Hub à partir d’un appareil, vous devez co
 
 Votre appareil peut ensuite [initialiser un chargement](iot-hub-devguide-file-upload.md#initialize-a-file-upload) et [notifier IoT Hub](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload) quand le chargement est terminé. Éventuellement, lorsqu’un appareil notifie IoT Hub que le chargement est terminé, le service peut générer un [message de notification](iot-hub-devguide-file-upload.md#file-upload-notifications).
 
-### <a name="when-to-use"></a>Quand utiliser
+### <a name="when-to-use"></a>Quand l’utiliser
 
 Utilisez le chargement des fichiers pour envoyer des fichiers multimédias et de gros traitements télémétriques par lots chargés par des appareils connectés par intermittence ou compressés pour économiser de la bande passante.
 
@@ -127,8 +127,10 @@ Chaque IoT Hub dispose des options de configuration suivantes pour les notificat
 | --- | --- | --- |
 | **enableFileUploadNotifications** |Indique si les notifications de téléchargement de fichier sont écrites dans le point de terminaison de notification de fichier. |Valeur booléenne. Valeur par défaut : True. |
 | **fileNotifications.ttlAsIso8601** |Durée de vie par défaut des notifications de téléchargement de fichier. |Intervalle ISO_8601 jusqu’à 48h (minimum 1 minute). Valeur par défaut : 1 heure. |
-| **fileNotifications.lockDuration** |Durée de verrouillage de la file d’attente des notifications de téléchargement de fichiers. |5 à 300 secondes (5 secondes au minimum). Valeur par défaut : 60 secondes. |
+| **fileNotifications.lockDuration** |Durée de verrouillage de la file d’attente des notifications de téléchargement de fichiers. |5 à 300 secondes (5 secondes au minimum). Valeur par défaut : 60 secondes. |
 | **fileNotifications.maxDeliveryCount** |Nombre maximal de diffusions pour la file d’attente de notification de téléchargement de fichier. |1 à 100. Valeur par défaut : 100. |
+
+Vous pouvez définir ces propriétés sur votre hub IoT en utilisant le portail Azure, Azure CLI ou PowerShell. Pour savoir comment procéder, consultez les rubriques sous [Configurer le chargement de fichiers](iot-hub-configure-file-upload.md).
 
 ## <a name="additional-reference-material"></a>Matériel de référence supplémentaire
 
@@ -138,7 +140,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 
 * La rubrique [Quotas et limitation IoT Hub](iot-hub-devguide-quotas-throttling.md) décrit les quotas et le comportement de limitation qui s’appliquent au service IoT Hub.
 
-* La rubrique [Kits Azure IoT device et service SDK](iot-hub-devguide-sdks.md) liste les kits SDK des différents langages que vous pouvez utiliser pour le développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
+* La rubrique [SDK des services et appareils Azure IoT](iot-hub-devguide-sdks.md), qui répertorie les SDK en différents langages que vous pouvez utiliser pour le développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
 
 * La rubrique [Langage de requête IoT Hub](iot-hub-devguide-query-language.md) décrit le langage de requête permettant de récupérer à partir d’IoT Hub des informations sur les jumeaux d’appareil et les travaux.
 

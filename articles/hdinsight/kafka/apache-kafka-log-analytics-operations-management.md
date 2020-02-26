@@ -7,19 +7,31 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/04/2019
-ms.openlocfilehash: d4263b8b338f057893c9dfcda1541fc338c2577f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 02/17/2020
+ms.openlocfilehash: 3f8ff3cbc24f6e3a7e0eccf1b18e01941c9584b9
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894273"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471178"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analyser les journaux d’activité pour Apache Kafka sur HDInsight
 
 Découvrez comment utiliser les journaux Azure Monitor pour analyser les journaux d’activité générés par Apache Kafka sur HDInsight.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+## <a name="logs-location"></a>Emplacement des journaux
+
+Les journaux Apache Kafka du cluster se trouvent sous `/var/log/kafka`. Les journaux Kafka ne sont pas enregistrés ni conservés sur les cycles de vie des clusters, et ce, que des disques managés soient utilisés ou non. Le tableau suivant présente les journaux disponibles.
+
+|Journal |Description |
+|---|---|
+|kafka.out|stdout et stderr du processus Kafka. Vous trouverez les journaux de démarrage et d’arrêt Kafka dans ce fichier.|
+|server.log|Journal principal du serveur Kafka. Tous les journaux du répartiteur Kafka se trouvent ici.|
+|controller.log|Journaux de contrôleur si le répartiteur agit comme contrôleur.|
+|statechange.log|Tous les événements de changement d’état des répartiteurs sont journalisés dans ce fichier.|
+|kafka-gc.log|Statistiques de nettoyage de la mémoire Kafka.|
 
 ## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Activer les journaux Azure Monitor pour Apache Kafka
 

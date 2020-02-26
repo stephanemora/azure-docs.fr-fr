@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 2234ae4ce8257559f78d6aa50ecae59ae742ba33
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: e20acb131b1a091fef858dab34705f4a8d3b4c4a
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910009"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251836"
 ---
 # <a name="url-path-based-routing-overview"></a>Présentation du routage basé sur le chemin d’accès de l’URL
 
@@ -27,7 +27,7 @@ Dans l’exemple suivant, Application Gateway achemine le trafic pour contoso.co
 Les requêtes pour http\://contoso.com/video/* sont routées vers VideoServerPool, et celles pour http\://contoso.com/images/* vers ImageServerPool. DefaultServerPool est sélectionné si aucun des modèles de chemin d’accès ne correspond.
 
 > [!IMPORTANT]
-> Les règles sont traitées suivant leur ordre d’affichage dans le portail. Il est vivement recommandé de configurer des écouteurs multisites avant un écouteur de base.  Vous avez ainsi l’assurance que le trafic est acheminé vers le serveur principal approprié. Si un écouteur de base est indiqué en premier et correspond à une demande entrante, elle est traitée par cet écouteur.
+> Pour la référence SKU v1, les règles sont traitées dans l’ordre où elles sont listées dans le portail. Si un écouteur de base est indiqué en premier et correspond à une demande entrante, elle est traitée par cet écouteur. Pour la référence SKU v2, les correspondances exactes ont une priorité plus élevée. Il est cependant vivement recommandé de configurer des écouteurs multisites avant de configurer un écouteur de base. Vous avez ainsi l’assurance que le trafic est acheminé vers le serveur principal approprié.
 
 ## <a name="urlpathmap-configuration-element"></a>Élément de configuration UrlPathMap
 
@@ -75,10 +75,10 @@ Les règles de chemin ne respectent pas la casse.
 |Modèle de chemin d’accès v1  |Prise en charge ?  |
 |---------|---------|
 |`/images/*`     |Oui|
-|`/images*`     |no|
-|`/images/*.jpg`     |no|
-|`/*.jpg`     |no|
-|`/Repos/*/Comments/*`     |no|
+|`/images*`     |non|
+|`/images/*.jpg`     |non|
+|`/*.jpg`     |non|
+|`/Repos/*/Comments/*`     |non|
 |`/CurrentUser/Comments/*`     |Oui|
 
 #### <a name="v2"></a>v2
@@ -89,9 +89,9 @@ Les règles de chemin ne respectent pas la casse.
 |---------|---------|
 |`/images/*`     |Oui|
 |`/images*`     |Oui|
-|`/images/*.jpg`     |no|
-|`/*.jpg`     |no|
-|`/Repos/*/Comments/*`     |no|
+|`/images/*.jpg`     |non|
+|`/*.jpg`     |non|
+|`/Repos/*/Comments/*`     |non|
 |`/CurrentUser/Comments/*`     |Oui|
 
 Pour plus d’informations, vous pouvez consulter un [modèle Resource Manager utilisant le routage basé sur URL](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing) .

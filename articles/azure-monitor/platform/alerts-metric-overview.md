@@ -7,12 +7,12 @@ ms.date: 12/5/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 8f84b5641b79514ffed493302f246ecc51a20a87
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: abcf7d100a1c195d4a49c3061bf22710285c2a9f
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850055"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444160"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
@@ -29,7 +29,7 @@ Supposons que vous avez créé une règle d’alerte de métrique de seuil stati
 - Ressource cible (ressource Azure à surveiller) : myVM
 - Mesure : Percentage CPU
 - Type de condition : statique
-- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; les agrégations de temps prises en charge sont Min, Max, Moy, Total, Nombre) : Moyenne
+- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; les agrégations de temps prises en charge sont Min, Max, Moy, Total, Nombre) : Average
 - Période (fenêtre de vérification des valeurs de métrique) : Au cours des 5 dernières minutes
 - Fréquence (fréquence à laquelle l’alerte de métrique vérifie si les conditions sont remplies) : 1 minute
 - Opérateur : Supérieur à
@@ -46,7 +46,7 @@ Supposons que vous avez créé une règle d’alerte de métrique de seuil dynam
 - Ressource cible (ressource Azure à surveiller) : myVM
 - Mesure : Percentage CPU
 - Type de condition : Dynamique
-- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; les agrégations de temps prises en charge sont Min, Max, Moy, Total, Nombre) : Moyenne
+- Agrégation du temps (statistique exécutée sur des valeurs de mesures brutes ; les agrégations de temps prises en charge sont Min, Max, Moy, Total, Nombre) : Average
 - Période (fenêtre de vérification des valeurs de métrique) : Au cours des 5 dernières minutes
 - Fréquence (fréquence à laquelle l’alerte de métrique vérifie si les conditions sont remplies) : 1 minute
 - Opérateur : Supérieur à
@@ -79,7 +79,7 @@ Supposons que vous avez un plan App Service pour votre site web. Vous souhaitez 
 - Type de condition : statique
 - Dimensions
   - Instance = InstanceName1, InstanceName2
-- Agrégation de temps : Moyenne
+- Agrégation de temps : Average
 - Période : Au cours des 5 dernières minutes
 - Fréquence : 1 minute
 - Opérateur : GreaterThan
@@ -94,7 +94,7 @@ Admettons que vous avez une application web soumise à une très forte demande e
 - Type de condition : statique
 - Dimensions
   - Instance = *
-- Agrégation de temps : Moyenne
+- Agrégation de temps : Average
 - Période : Au cours des 5 dernières minutes
 - Fréquence : 1 minute
 - Opérateur : GreaterThan
@@ -111,7 +111,7 @@ Supposons que vous ayez une application web avec de nombreuses instances et que 
 - Type de condition : Dynamique
 - Dimensions
   - Instance = *
-- Agrégation de temps : Moyenne
+- Agrégation de temps : Average
 - Période : Au cours des 5 dernières minutes
 - Fréquence : 1 minute
 - Opérateur : GreaterThan
@@ -125,15 +125,15 @@ L’allongement des périodes passées à vérifier et le nombre de violations p
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Surveillance à l’échelle à l’aide d’alertes de métrique dans Azure Monitor
 
-Pour l'instant, vous avez vu la manière d'utiliser une alerte de métrique unique pour surveiller une ou plusieurs séries chronologiques de métriques liées à une seule ressource Azure. Vous apprécierez de pouvoir appliquer la même règle d'alerte à de nombreuses ressources. Azure Monitor prend également en charge la supervision de plusieurs ressources avec une seule règle d’alerte de métrique. Cette fonctionnalité est actuellement prise en charge uniquement sur les machines virtuelles, les bases de données du serveur SQL, les pools élastiques de serveur SQL et les appareils Data Box Edge. En outre, une alerte de métrique unique ne peut superviser les ressources que dans une seule région Azure.
+Pour l'instant, vous avez vu la manière d'utiliser une alerte de métrique unique pour surveiller une ou plusieurs séries chronologiques de métriques liées à une seule ressource Azure. Vous apprécierez de pouvoir appliquer la même règle d'alerte à de nombreuses ressources. Azure Monitor prend également en charge la supervision de plusieurs ressources (du même type) avec une seule règle d’alerte de métrique, pour les ressources qui existent dans la même région Azure. Cette fonctionnalité est actuellement prise en charge uniquement dans le cloud public Azure et uniquement pour les machines virtuelles, les bases de données du serveur SQL, les pools élastiques de serveur SQL et les appareils Data Box. Cette fonctionnalité est aussi uniquement disponible pour les métriques de plateforme et n’est pas prise en charge pour les métriques personnalisées.
 
-Vous disposez de trois méthodes pour spécifier l’étendue de la supervision par une alerte de métrique unique :
+Vous disposez de trois méthodes pour spécifier l’étendue de la supervision par une règle d’alerte de métrique unique :
 
 - sous la forme d’une liste de machines virtuelles dans une seule région Azure d’un abonnement ;
 - pour toutes les machines virtuelles (dans une seule région Azure) dans un ou plusieurs groupes de ressources d’un abonnement ;
 - pour toutes les machines virtuelles (dans une seule région Azure) d’un abonnement.
 
-La création de règles d'alerte de métrique surveillant plusieurs ressources est similaire à la [création de toute autre alerte de métrique](alerts-metric.md) surveillant une seule ressource, à la différence près que vous sélectionnez toutes les ressources que vous souhaitez surveiller. Vous pouvez également créer ces règles par le biais des [modèles Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Vous recevrez des notifications individuelles pour chaque machine virtuelle.
+La création de règles d'alerte de métrique surveillant plusieurs ressources est similaire à la [création de toute autre alerte de métrique](alerts-metric.md) surveillant une seule ressource, à la différence près que vous sélectionnez toutes les ressources que vous souhaitez surveiller. Vous pouvez également créer ces règles par le biais des [modèles Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). Vous recevrez des notifications individuelles pour chaque ressource supervisée.
 
 ## <a name="typical-latency"></a>Latence classique
 

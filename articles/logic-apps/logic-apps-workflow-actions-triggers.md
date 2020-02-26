@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 01/19/2020
-ms.openlocfilehash: 336d2ef471e21e3157c7d8c81b3837bb6a962e2e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 18e9c9d330ffb8cc4e284fc649cff0840ec2c82c
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191306"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366230"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guide de référence du schéma des types d’actions et de déclencheurs dans Azure Logic Apps
 
@@ -2304,7 +2304,7 @@ Cette action de boucle contient des actions qui s’exécutent jusqu’à ce que
 | <*action-type*> | String | Type d’action à exécuter | 
 | <*action-inputs*> | Divers | Entrées pour l’action à exécuter | 
 | <*condition*> | String | Condition ou expression à évaluer une fois que toutes les actions de la boucle ont été exécutées | 
-| <*loop-count*> | Integer | Quantité limite de boucles que l’action peut exécuter. La valeur par défaut de `count` est 60. | 
+| <*loop-count*> | Integer | Quantité limite de boucles que l’action peut exécuter. Pour plus d’informations sur la limite par défaut et la limite maximale, consultez [Limites and configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). | 
 | <*loop-timeout*> | String | Durée d’exécution maximale de la boucle. La valeur par défaut de `timeout` est `PT1H`, qui est le [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) requis. |
 |||| 
 

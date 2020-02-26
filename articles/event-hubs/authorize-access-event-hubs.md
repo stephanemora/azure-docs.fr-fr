@@ -6,24 +6,30 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: b5a037eaf310aa28c76d831dc9fe56eefaddbe56
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d4304abf0ca089fbbea86f12cd03dea836db612e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123471"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368358"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Autoriser l’accès à Azure Event Hubs
 Chaque fois que vous publiez ou utilisez des événements/données à partir d'un hub d'événements, votre client tente d'accéder aux ressources Event Hubs. Chaque demande adressée à une ressource sécurisée doit être autorisée afin que le service puisse vérifier que le client dispose des autorisations requises pour publier/utiliser les données. 
 
 Pour autoriser l'accès aux ressources sécurisées, Azure Event Hubs propose les options suivantes :
 
-## <a name="azure-active-directory"></a>Azure Active Directory
-L'intégration Azure Active Directory (Azure AD) pour les ressources Event Hubs fournit un contrôle d'accès en fonction du rôle (RBAC) pour un contrôle affiné de l'accès d'un client aux ressources. Vous pouvez utiliser le contrôle d'accès en fonction du rôle (RBAC) pour accorder des autorisations à un principal de sécurité, qui peut être un utilisateur, un groupe ou un principal de service d'application. Le principal de sécurité est authentifié par Azure AD pour retourner un jeton OAuth 2.0. Le jeton peut être utilisé pour autoriser une demande d'accès à une ressource Event Hubs.
+- Azure Active Directory
+- Signature d’accès partagé
 
-Pour plus d'informations sur l'authentification à l'aide d'Azure AD, consultez les articles suivants :
+> [!NOTE]
+> Cet article s’applique à la fois aux scénarios Event Hubs et [Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
+
+## <a name="azure-active-directory"></a>Azure Active Directory
+L'intégration Azure Active Directory (Azure AD) pour les ressources Event Hubs fournit un contrôle d'accès en fonction du rôle (RBAC) pour un contrôle affiné de l'accès d'un client aux ressources. Vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder des autorisations à un principal de sécurité, qui peut être un utilisateur, un groupe ou un principal de service d’application. Le principal de sécurité est authentifié par Azure AD pour retourner un jeton OAuth 2.0. Le jeton peut être utilisé pour autoriser une demande d'accès à une ressource Event Hubs.
+
+Pour plus d’informations sur l’authentification avec Azure AD, consultez les articles suivants :
 
 - [Authentifier les requêtes adressées à Azure Event Hubs à l'aide d'Azure Active Directory](authenticate-application.md)
 - [Autoriser l'accès aux ressources Event Hubs à l'aide d'Azure Active Directory](authorize-access-azure-active-directory.md)
@@ -39,8 +45,8 @@ Pour plus d'informations sur l'autorisation à l'aide de SAS, consultez [Autoris
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez les [Exemples de RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) publiés dans notre référentiel GitHub. 
-- Consultez les articles suivants :
-    - [Authentifier les requêtes adressées à Azure Event Hubs à partir d'une application à l'aide d'Azure Active Directory](authenticate-application.md)
+- Voir les articles suivants :
+    - [Authentifier les requêtes adressées à Azure Event Hubs à partir d’une application à l’aide d’Azure Active Directory](authenticate-application.md)
     - [Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Event Hubs](authenticate-managed-identity.md)
     - [Authentifier les requêtes adressées à Azure Event Hubs à l’aide de signatures d’accès partagé](authenticate-shared-access-signature.md)
     - [Autoriser l’accès aux ressources Event Hubs à l’aide d’Azure Active Directory](authorize-access-azure-active-directory.md)

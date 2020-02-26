@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 934fe8271796ed6196c9e50a0eddd5d7de3d8432
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: bc5824fcb62477d4e6dc6c2b7390b1bfa916094f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76511890"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368042"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guide de référence des opérations de gestion de l’authentification Azure Active Directory
 
@@ -105,7 +105,7 @@ Pour mieux comprendre les options d’authentification disponibles, consultez [C
 
 ### <a name="programmatic-usage-of-credentials"></a>Utilisation par programmation des informations d’identification
 
-Les scripts Azure AD utilisant PowerShell ou les applications utilisant l’API Graph nécessitent une authentification sécurisée. Une mauvaise gestion des informations d’identification pour l’exécution de ces scripts et outils augmente le risque de vol des informations d’identification. Si vous utilisez des scripts ou des applications qui s’appuient sur des mots de passe ou des invites de mot de passe codés en dur, vous devez d’abord examiner les mots de passe dans les fichiers de configuration ou le code source, puis remplacer ces dépendances et utiliser les identités managées par Azure, l’authentification Windows intégrée ou des [certificats](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates) quand c’est possible. Pour les applications où les solutions qui précèdent ne sont pas possibles, envisagez d’utiliser [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Les scripts Azure AD utilisant PowerShell ou les applications utilisant l’API Microsoft Graph nécessitent une authentification sécurisée. Une mauvaise gestion des informations d’identification pour l’exécution de ces scripts et outils augmente le risque de vol des informations d’identification. Si vous utilisez des scripts ou des applications qui s’appuient sur des mots de passe ou des invites de mot de passe codés en dur, vous devez d’abord examiner les mots de passe dans les fichiers de configuration ou le code source, puis remplacer ces dépendances et utiliser les identités managées par Azure, l’authentification Windows intégrée ou des [certificats](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates) quand c’est possible. Pour les applications où les solutions qui précèdent ne sont pas possibles, envisagez d’utiliser [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 Si vous déterminez qu’il existe des principaux de service avec des informations d’identification de mot de passe, et que vous ne savez pas dans quelle mesure ces informations d’identification de mot de passe sont sécurisées par des scripts ou des applications, contactez le propriétaire de l’application pour mieux comprendre les modèles d’utilisation.
 
@@ -305,7 +305,7 @@ Vous trouverez ci-dessous une liste d’applications avec des permissions qu’i
 | Office 365 Exchange Online | EAS.AccessAsUser.All |
 | | EWS.AccessAsUser.All |
 | | Mail.Read |
-| Microsoft Graph | Mail.Read |
+| API Microsoft Graph | Mail.Read |
 | | Mail.Read.Shared |
 | | Mail.ReadWrite |
 
@@ -313,15 +313,14 @@ Vous trouverez ci-dessous une liste d’applications avec des permissions qu’i
 
 |Ressource | Autorisation |
 | :- | :- |
-| Azure AD Graph | Directory.AccessAsUser.All |
-| Microsoft Graph | Directory.AccessAsUser.All |
+| API Microsoft Graph| Directory.AccessAsUser.All |
 | API REST Azure | user_impersonation |
 
 Pour éviter ce scénario, vous devez vous référer à [Détecter et remédier aux octrois de consentement illicites dans Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) pour identifier et corriger les applications avec des consentements illicites ou les applications qui ont plus d’autorisations que nécessaire. Ensuite, [supprimez entièrement le libre-service](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent) et [établissez des procédures de gouvernance](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow). Enfin, planifiez des révisions régulières des permissions d’application et supprimez-les lorsqu’elles ne sont pas nécessaires.
 
 #### <a name="consent-grants-recommended-reading"></a>Lectures recommandées pour les octrois de consentement
 
-- [Autorisations pour Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference)
+- [Autorisations pour l’API Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference)
 
 ### <a name="user-and-group-settings"></a>Paramètres des utilisateurs et des groupes
 

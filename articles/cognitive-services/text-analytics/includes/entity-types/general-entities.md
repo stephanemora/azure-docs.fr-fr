@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: f95d7613926cf332a498cca84563dbc0ebcbbe9b
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: ba516a548fc8385ca86526a7f2dd082b27e53208
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086897"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77211384"
 ---
 ## <a name="general-entity-types"></a>Types d’entités générales
 
@@ -22,7 +22,7 @@ ms.locfileid: "77086897"
 Reconnaître les noms de personnes dans le texte.
 
 Langages :
-* Préversion publique : `English`
+* Préversion publique : `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` et `Turkish`
 
 | Nom de sous-type | Description                                                      | Disponible à partir de la version du modèle |
 |--------------|------------------------------------------------------------------|---------------------------------------|
@@ -44,12 +44,12 @@ Points de repère, structures et caractéristiques géographiques et entités g�
 
 Langages :
 
-* Préversion publique : `English`
+* Préversion publique : `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` et `Turkish`
 
 | Nom de sous-type              | Description                                                                              | Disponible à partir de la version du modèle |
 |---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
 | N/A                       | emplacements, par exemple `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty`  | `2019-10-01`                           |
-| Entité géopolitique (GPE) | Villes, pays, États, par exemple, `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
+| Entité géopolitique (GPE) – En anglais uniquement| Villes, pays, États, par exemple, `Seattle`, `Pennsylvania`, `South Africa`, `Tokyo` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organisation  
 
@@ -57,7 +57,7 @@ Organisations, entreprises, agences et autres groupes de personnes reconnus. Par
 
 Langages : 
 
-* Préversion publique : `English`
+* Préversion publique : `Arabic`, `Czech`, `Chinese-Simplified`, `Danish`, `Dutch`, `English`, `Finnish`, `French`, `German`, `Hungarian`, `Italian`, `Japanese`, `Korean`, `Norwegian (Bokmål)`, `Polish`, `Portuguese (Portugal)`, `Portuguese (Brazil)`, `Russian`, `Spanish`, `Swedish` et `Turkish`
 
 | Nom de sous-type | Description                                                                                             | Disponible à partir de la version du modèle |
 |--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
@@ -156,7 +156,7 @@ Entités de date et d’heure.
 
 Langages :
 
-* Préversion publique : `English`
+* Préversion publique : `Chinese-Simplified`, `English`, `French`, `German` et `Spanish`
 
 | Nom de sous-type    | Exemples                     |
 |-------------|------------------------------|
@@ -176,7 +176,7 @@ Nombres et quantités numériques.
 
 Langages :
 
-* Préversion publique : `English`
+* Préversion publique : `Chinese-Simplified`, `English`, `French`, `German` et `Spanish`
 
 | Nom de sous-type    | Exemples                     |
 |-------------|------------------------------|

@@ -2,13 +2,13 @@
 title: Prise en charge des étiquettes pour les ressources
 description: Indique les types de ressources Azure qui prennent en charge les étiquettes. Fournit des détails pour tous les services Azure.
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.openlocfilehash: e17e6a996f54d6211f87ec20765d3fde782b7d6d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/13/2020
+ms.openlocfilehash: 09dd71ef8c3ac4803a988dffbdca47116c967a0e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715608"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207925"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](tag-resources.md). La colonne intitulée **Prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **Balise dans le rapport des coûts** indique si ce type de ressource transmet la balise au rapport des coûts. Vous pouvez afficher les coûts à l’aide d’étiquettes dans l’[analyse Azure Cost Management](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) et les [données de facturation et d’utilisation quotidienne Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -116,6 +116,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.Migrate](#microsoftmigrate)
 > - [Microsoft.MixedReality](#microsoftmixedreality)
 > - [Microsoft.NetApp](#microsoftnetapp)
+> - [Microsoft.Notebooks](#microsoftnotebooks)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft.ObjectStore](#microsoftobjectstore)
@@ -148,6 +149,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft.SpoolService](#microsoftspoolservice)
 > - [Microsoft.SQL](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
@@ -367,6 +369,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | billingAccounts / billingProfiles / instructions | Non | Non |
 > | billingAccounts / billingProfiles / invoices | Non | Non |
 > | billingAccounts / billingProfiles / invoices / pricesheet | Non | Non |
+> | billingAccounts / billingProfiles / invoices / transactions | Non | Non |
 > | billingAccounts / billingProfiles / invoiceSections | Non | Non |
 > | billingAccounts / billingProfiles / invoiceSections / billingPermissions | Non | Non |
 > | billingAccounts / billingProfiles / invoiceSections / billingRoleAssignments | Non | Non |
@@ -484,7 +487,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
 > | Redis | Oui | Oui |
-> | RedisConfigDefinition | Non | Non |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
@@ -707,6 +709,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | registries / getBuildSourceUploadUrl | Non | Non |
 > | registries / GetCredentials | Non | Non |
 > | registries / importImage | Non | Non |
+> | registries / privateEndpointConnectionProxies | Non | Non |
+> | registries / privateEndpointConnectionProxies / validate | Non | Non |
+> | registries / privateLinkResources | Non | Non |
 > | registries / queueBuild | Non | Non |
 > | registries / regenerateCredential | Non | Non |
 > | registries / regenerateCredentials | Non | Non |
@@ -1393,6 +1398,13 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | netAppAccounts / capacityPools / volumes / mountTargets | Oui | Non |
 > | netAppAccounts / capacityPools / volumes / snapshots | Oui | Non |
 
+## <a name="microsoftnotebooks"></a>Microsoft.Notebooks
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | NotebookProxies | Non | Non |
+
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1514,7 +1526,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
 > | clusters | Oui | Oui |
-> | périphériques | Non | Non |
 > | linkTargets | Non | Non |
 > | storageInsightConfigs | Non | Non |
 > | workspaces | Oui | Oui |
@@ -1525,6 +1536,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | workspaces / privateEndpointConnections | Non | Non |
 > | workspaces / privateLinkResources | Non | Non |
 > | workspaces / query | Non | Non |
+> | workspaces / scopedPrivateLinkProxies | Non | Non |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
@@ -1658,7 +1670,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | notifyResourceJobs | Non | Non |
 > | fournisseurs | Non | Non |
 > | resourceGroups | Oui | Non |
-> | subscriptions | Non | Non |
+> | subscriptions | Oui | Non |
 > | tenants | Non | Non |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
@@ -1747,8 +1759,10 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | bookmarks | Non | Non |
 > | cas | Non | Non |
 > | dataConnectors | Non | Non |
+> | dataConnectorsCheckRequirements | Non | Non |
 > | entities | Non | Non |
 > | entityQueries | Non | Non |
+> | incidents | Non | Non |
 > | officeConsents | Non | Non |
 > | paramètres | Non | Non |
 
@@ -1782,6 +1796,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | containerGroupSets | Oui | Oui |
 > | edgeclusters | Oui | Oui |
 > | edgeclusters / applications | Non | Non |
+> | managedclusters | Oui | Oui |
+> | managedclusters / nodetypes | Non | Non |
 > | networks | Oui | Oui |
 > | secretstores | Oui | Oui |
 > | secretstores / certificates | Non | Non |
@@ -1839,6 +1855,14 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | applicationDefinitions | Oui | Oui |
 > | applications | Oui | Oui |
 > | jitRequests | Oui | Oui |
+
+## <a name="microsoftspoolservice"></a>Microsoft.SpoolService
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | registeredSubscriptions | Non | Non |
+> | spools | Oui | Oui |
 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
@@ -2004,6 +2028,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | périphériques | Oui | Oui |
 > | vendors | Non | Non |
 > | vendors / skus | Non | Non |
+> | vendors / vnfs | Non | Non |
 > | vnfs | Oui | Oui |
 
 ## <a name="microsoftweb"></a>Microsoft.Web

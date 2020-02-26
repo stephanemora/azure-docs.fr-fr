@@ -12,24 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: bb004d536d30d62116866581daeef9b42c23d470
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 7601a5f8abefd88de0f9a3682341c5366eec3fb0
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76936361"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431059"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Intégration d’Azure Container Registry à Security Center (préversion)
 
 Azure Container Registry (ACR) est un service de registre Docker privé et géré qui stocke et gère vos images conteneurs pour les déploiements Azure dans un registre central. Il est basé sur le registre Docker open source 2.0.
 
-Si vous êtes sur le niveau standard d’Azure Security Center, vous pouvez ajouter le pack de registres de conteneurs. Cette fonctionnalité facultative apporte une meilleure visibilité des vulnérabilités des images de vos registres basés sur ARM. Activez ou désactivez le pack au niveau de l’abonnement pour couvrir tous les registres d’un abonnement. Cette fonctionnalité est facturée par image et non par analyse comme indiquée sur la [page des tarifs](security-center-pricing.md). 
-
-L’activation du pack de registres de conteneur garantit que Security Center est prêt à analyser les images qui sont envoyées au registre. Les analyses ont lieu au niveau de l’image : Security Center n’analyse pas votre registre, il analyse les images stockées dans le registre. 
+Si vous êtes sur le niveau standard d’Azure Security Center, vous pouvez ajouter le pack de registres de conteneurs. Cette fonctionnalité facultative apporte une meilleure visibilité des vulnérabilités des images de vos registres basés sur ARM. Activez ou désactivez le pack au niveau de l’abonnement pour couvrir tous les registres d’un abonnement. Cette fonctionnalité est facturée par image, comme indiqué dans la [page des tarifs](security-center-pricing.md). L’activation du pack de registres de conteneur garantit que Security Center est prêt à analyser les images qui sont envoyées au registre. 
 
 Chaque fois qu’une image est envoyée à votre registre, Security Center analyse automatiquement cette image. Pour déclencher l’analyse d’une image, poussez-la vers votre référentiel.
 
-Une fois l’analyse terminée (généralement après environ 10 minutes), les résultats sont disponibles dans des suggestions de Security Center telles que la suivante :
+Une fois l’analyse terminée (généralement après environ 10 minutes), les résultats sont disponibles dans les suggestions Security Center comme suit :
 
 [![Exemple de suggestion Azure Security Center sur les vulnérabilités découvertes dans une image hébergée Azure Container Registry (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 

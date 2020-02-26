@@ -4,19 +4,19 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: 8946da455b4a395814d4cb5a833932c2e3d56f0a
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 4643bb7f95e4fd1249d3ab6699c1f835c77f18fe
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75658523"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198341"
 ---
 | Ressource | [Plan Consommation](../articles/azure-functions/functions-scale.md#consumption-plan) | [Plan Premium](../articles/azure-functions/functions-scale.md#premium-plan) | [Plan App Service](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
 | Montée en charge | Basé sur les événements | Basé sur les événements | [Manuel/Mise à l’échelle automatique](../articles/app-service/manage-scale-up.md) | 
 | Nombre maximal d’instances | 200 | 100 | 10-20 |
 |[Durée du délai d’expiration](../articles/azure-functions/functions-scale.md#timeout) (min) par défaut |5 | 30 |30<sup>2</sup> |
-|[Durée du délai d’expiration](../articles/azure-functions/functions-scale.md#timeout) maximum (min) |10 | 60 | illimité<sup>3</sup> |
+|[Durée du délai d’expiration](../articles/azure-functions/functions-scale.md#timeout) maximum (min) |10 | illimité<sup>8</sup> | illimité<sup>3</sup> |
 | Nbre max. de connexions sortantes (par instance) | 600 actives (1 200 au total) | unbounded | unbounded |
 | Taille de requête max. (Mo)<sup>4</sup> | 100 | 100 | 100 |
 | Longueur de chaîne de requête max.<sup>4</sup> | 4096 | 4096 | 4096 |
@@ -35,4 +35,5 @@ ms.locfileid: "75658523"
 <sup>4</sup> Ces limites sont [définies dans l’hôte](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  
 <sup>5</sup> Le nombre réel d’applications de fonction qui peuvent être hébergées dépend de l’activité des applications, de la taille des instances de machine et de l’utilisation de ressources correspondante.  
 <sup>6</sup> La limite de stockage est la taille totale du contenu dans le stockage temporaire de toutes les applications du même plan App Service. Le plan Consommation utilise Azure Files pour le stockage temporaire.  
-<sup>7</sup> Lorsque votre application de fonction est hébergée dans un [Plan Consommation](../articles/azure-functions/functions-scale.md#consumption-plan), seule l’option CNAME est prise en charge. Pour les applications de fonction présentes dans un [plan Premium](../articles/azure-functions/functions-scale.md#premium-plan) ou un [plan App Service](../articles/azure-functions/functions-scale.md#app-service-plan), vous pouvez mapper un domaine personnalisé en utilisant l’un ou l’autre des enregistrements : CNAME ou A.
+<sup>7</sup> Lorsque votre application de fonction est hébergée dans un [Plan Consommation](../articles/azure-functions/functions-scale.md#consumption-plan), seule l’option CNAME est prise en charge. Pour les applications de fonction présentes dans un [plan Premium](../articles/azure-functions/functions-scale.md#premium-plan) ou un [plan App Service](../articles/azure-functions/functions-scale.md#app-service-plan), vous pouvez mapper un domaine personnalisé en utilisant l’un ou l’autre des enregistrements : CNAME ou A.  
+<sup>8</sup> Garanti pour une durée maximale de 60 minutes.

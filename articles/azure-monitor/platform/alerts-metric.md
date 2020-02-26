@@ -1,22 +1,22 @@
 ---
-title: Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor
+title: Créer, afficher et gérer des alertes de métrique avec Azure Monitor
 description: Découvrez comment utiliser le portail Azure ou l’interface CLI pour créer, afficher et gérer des règles d’alerte de métrique.
 author: harelbr
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 02/16/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 00f5f37591ed2ed250cb756c686ea15136921512
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: ef712c38303de27214ce75c9ca2b8022a5410efc
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705528"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372761"
 ---
-# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor
+# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de métrique avec Azure Monitor
 
-Dans Azure Monitor, les alertes de métrique vous avertissent lorsque l’une de vos métriques dépasse un certain seuil. Les alertes de métrique fonctionnent sur toute une gamme de métriques de plateforme multidimensionnelles, de métriques personnalisées, mais aussi de métriques standard et personnalisées d’Application Insights. Dans cet article, nous allons décrire comment créer, afficher et gérer des règles d’alerte de métrique via le portail Azure et Azure CLI. Vous pouvez également créer des règles d’alerte de métrique à l’aide de modèles Azure Resource Manager. Cette méthode est décrite dans [un autre article](alerts-metric-create-templates.md).
+Dans Azure Monitor, les alertes de métrique vous avertissent quand l’une de vos métriques dépasse un certain seuil. Les alertes de métrique fonctionnent sur toute une gamme de métriques de plateforme multidimensionnelles, de métriques personnalisées, mais aussi de métriques standard et personnalisées d’Application Insights. Dans cet article, nous allons décrire comment créer, afficher et gérer des règles d’alerte de métrique par le biais du portail Azure et d’Azure CLI. Vous pouvez également créer des règles d’alerte de métrique à l’aide de modèles Azure Resource Manager, qui sont décrits dans [un autre article](alerts-metric-create-templates.md).
 
 Vous pouvez en savoir plus sur le fonctionnement des alertes de métrique dans la [vue d’ensemble des alertes de métrique](alerts-metric-overview.md).
 
@@ -39,21 +39,30 @@ La procédure suivante décrit comment créer une règle d’alerte de métrique
 
 6. Vous verrez alors une liste des signaux pris en charge pour la ressource. Sélectionnez la métrique sur laquelle vous souhaitez créer une alerte.
 
-7. Si vous le souhaitez, affinez la métrique en ajustant la **Période** et **l’Agrégation**. Si la métrique a des dimensions, une table **Dimensions** s’affiche. Sélectionnez une ou plusieurs valeurs par dimension. L’alerte de métrique évaluera la condition pour toutes les combinaisons de valeurs sélectionnées. [En savoir plus sur le fonctionnement de la génération d’alertes sur les métriques multidimensionnelles](alerts-metric-overview.md). Vous pouvez également **sélectionner \*** pour les dimensions. **Sélectionner \*** mettra à l’échelle la sélection de manière dynamique en fonction de toutes les valeurs actuelles et futures pour une dimension.
+7. Vous verrez un graphique de la métrique pendant les six dernières heures. Utilisez la liste déroulante **Période du graphique** pour voir un historique plus long de la métrique.
 
-8. Vous verrez un graphique de la métrique pendant les 6 dernières heures. Définissez les paramètres de l’alerte : le **type de condition**, la **fréquence**, **l’opérateur** et le **seuil** ou la **sensibilité** afin de déterminer la logique que la règle d’alerte de métrique évaluera. [Découvrez-en plus sur le type de condition des seuils dynamiques et les options de sensibilité](alerts-dynamic-thresholds.md).
+8. Si la métrique a des dimensions, une table dimensions s’affiche. Sélectionnez une ou plusieurs valeurs par dimension.
+    - Les valeurs de dimension affichées sont basées sur les données de métriques couvrant les trois derniers jours.
+    - Si la valeur de dimension que vous recherchez n’apparaît pas, cliquez sur « + » pour ajouter une valeur personnalisée.
+    - Vous pouvez également **sélectionner \*** pour les dimensions. **Sélectionner \*** mettra à l’échelle la sélection de manière dynamique en fonction de toutes les valeurs actuelles et futures pour une dimension.
 
-9. Si vous utilisez un seuil statique, le graphique de métriques peut vous aider à déterminer ce qui pourrait être un seuil raisonnable. Si vous utilisez des seuils dynamiques, le graphique de métriques affiche les seuils calculés en fonction des données récentes.
+    La règle d’alerte de métrique évaluera la condition pour toutes les combinaisons de valeurs sélectionnées. [En savoir plus sur le fonctionnement de la génération d’alertes sur les métriques multidimensionnelles](alerts-metric-overview.md).
 
-10. Cliquez sur **Terminé**.
+9. Sélectionnez le type de **Seuil**, l’**Opérateur** et le **Type d’agrégation**. Cela permet de déterminer la logique que la règle d’alerte de métrique évaluera.
+    - Si vous utilisez un seuil **Statique**, définissez une **Valeur du seuil**. Le graphique de métrique peut aider à déterminer un seuil raisonnable.
+    - Si vous utilisez un seuil **Dynamique**, définissez la **Sensibilité du seuil**. Le graphique de métriques affiche les seuils calculés en fonction des données récentes. [Découvrez-en plus sur le type de condition des seuils dynamiques et les options de sensibilité](alerts-dynamic-thresholds.md).
 
-11. Si vous le souhaitez, ajoutez un autre critère pour surveiller une règle d’alerte complexe. Actuellement, les utilisateurs peuvent avoir des règles d’alerte avec un critère Seuils dynamiques en tant que critère unique.
+10. Si vous le souhaitez, affinez la condition en réglant **Précision d’agrégation** et **Fréquence d’évaluation**. 
 
-12. Renseignez les **détails de l’alerte** (**Nom de règle d’alerte**, **Description** et **Gravité** par exemple).
+11. Cliquez sur **Done**.
 
-13. Ajoutez un groupe d’actions à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
+12. Si vous le souhaitez, ajoutez un autre critère pour surveiller une règle d’alerte complexe. Actuellement, les utilisateurs peuvent avoir des règles d’alerte avec un critère Seuils dynamiques en tant que critère unique.
 
-14. Cliquez sur **Terminé** pour enregistrer la règle d’alerte de métrique.
+13. Renseignez les **détails de l’alerte** (**Nom de règle d’alerte**, **Description** et **Gravité** par exemple).
+
+14. Ajoutez un groupe d’actions à l’alerte, soit en sélectionnant un groupe d’actions existant, soit en créant un nouveau groupe d’actions.
+
+15. Cliquez sur **Terminé** pour enregistrer la règle d’alerte de métrique.
 
 > [!NOTE]
 > Les règles d’alerte de métrique créées via le portail sont créées dans le même groupe de ressources que la ressource cible.

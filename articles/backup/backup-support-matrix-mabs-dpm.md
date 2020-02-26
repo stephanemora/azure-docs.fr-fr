@@ -3,12 +3,12 @@ title: Matrice de support MABS et System Center DPM
 description: Cet article résume la prise en charge de la Sauvegarde Azure quand vous utilisez un serveur de Sauvegarde Microsoft Azure (MABS) ou System Center DPM pour sauvegarder des ressources locales et celles de machines virtuelles Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 211a7e39dc9cda9e4bd96e3a66924b2195524be7
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 9441f7ce9069cd85475877f37abe669f3c4fd516
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111468"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444024"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 
@@ -70,9 +70,9 @@ Sauvegarde Azure peut sauvegarder les instances de DPM/MABS qui exécutent l'un 
 
 **Scénario** | **DPM/MABS**
 --- | ---
-**MABS sur une machine virtuelle Azure** | Windows Server 2012 R2.<br/><br/> Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> Nous vous recommandons de commencer avec une image de la Place de marché.<br/><br/> A2 Standard avec deux cœurs et 3,5 Go de RAM au minimum.
-**DPM sur une machine virtuelle Azure** | System Center 2012 R2 avec Update 3 ou ultérieur.<br/><br/> Système d’exploitation Windows conforme aux [exigences de System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Nous vous recommandons de commencer avec une image de la Place de marché.<br/><br/> A2 Standard avec deux cœurs et 3,5 Go de RAM au minimum.
-**MABS localement** | Systèmes d’exploitation 64 bits pris en charge :<br/><br/> MABS v3 et versions ultérieures : Windows Server 2019 (Standard, Datacenter, Essentials). <br/><br/> MABS v2 et versions ultérieures : Windows Server 2016 (Standard, Datacenter, Essentials).<br/><br/> Toutes les versions de MABS :  Windows Server 2012 R2.<br/><br/>Toutes les versions de MABS : Windows Storage Server 2012 R2.
+**MABS sur une machine virtuelle Azure** |  Windows 2016 Datacenter.<br/><br/> Windows 2019 Datacenter.<br/><br/> Nous vous recommandons de commencer avec une image de la Place de marché.<br/><br/> Standard_A4_v2 minimum avec quatre cœurs et 8 Go de RAM.
+**DPM sur une machine virtuelle Azure** | System Center 2012 R2 avec Update 3 ou ultérieur.<br/><br/> Système d’exploitation Windows conforme aux [exigences de System Center](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server).<br/><br/> Nous vous recommandons de commencer avec une image de la Place de marché.<br/><br/> Standard_A4_v2 minimum avec quatre cœurs et 8 Go de RAM.
+**MABS localement** |  MABS v3 et versions ultérieures : Windows Server 2016 ou Windows Server 2019
 **DPM localement** | Serveur physique/machine virtuelle Hyper-V : System Center 2012 SP1 ou ultérieur.<br/><br/> Machine virtuelle VMware : System Center 2012 R2 avec Update 5 ou ultérieur.
 
 >[!NOTE]

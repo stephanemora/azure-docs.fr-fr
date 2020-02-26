@@ -1,5 +1,5 @@
 ---
-title: Extension de machine virtuelle Azure Monitor pour Linux
+title: Extension de machine virtuelle Log Analytics pour Linux
 description: Déployez l’agent Log Analytics sur une machine virtuelle Linux avec une extension de machine virtuelle.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,38 +12,38 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/06/2019
+ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: a431ae8130e258664328fa32a364eb76c28ea811
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 9ddac229fc38a91a8b97b24dc2807080b2295758
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544733"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468777"
 ---
-# <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Azure Monitor pour Linux
+# <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Log Analytics pour Linux
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Les journaux Azure Monitor fournissent des fonctionnalités de surveillance, de création d’alertes et de correction des alertes sur les ressources cloud et locales. L’extension de machine virtuelle de l’agent Log Analytics pour Linux est publiée et prise en charge par Microsoft. L’extension installe l’agent Log Analytics sur les machines virtuelles Azure et inscrit les machines virtuelles dans un espace de travail Log Analytics existant. Ce document présente les plateformes, configurations et options de déploiement prises en charge pour l’extension de machine virtuelle Azure Monitor pour Linux.
+Les journaux Azure Monitor fournissent des fonctionnalités de supervision, d’alerte et de correction d’alertes pour les ressources cloud et locales. L’extension de machine virtuelle Log Analytics pour Linux est publiée et prise en charge par Microsoft. L’extension installe l’agent Log Analytics sur les machines virtuelles Azure et inscrit les machines virtuelles dans un espace de travail Log Analytics existant. Ce document présente les plateformes, configurations et options de déploiement prises en charge pour l’extension de machine virtuelle Log Analytics pour Linux.
 
 >[!NOTE]
 >Dans le cadre de la transition en cours entre Microsoft Operations Management Suite (OMS) et Azure Monitor, l’agent OMS pour Windows ou Linux sera appelé l’agent Log Analytics pour Windows et l’agent Log Analytics pour Linux.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 
 Pour plus d’informations sur les distributions Linux prises en charge, consultez l’article [Vue d’ensemble de l’agent Log Analytics](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems).
 
 ### <a name="agent-and-vm-extension-version"></a>Version de l’agent et de l’extension de machine virtuelle
-Le tableau ci-après mappe la version de l’extension de machine virtuelle Azure Monitor et du bundle de l’agent Log Analytics pour chaque version. Un lien vers les notes de publication pour la version du bundle de l’Agent Log Analytics est inclus. Les notes de version fournissent des détails sur les correctifs de bogues et les nouvelles fonctionnalités disponibles pour une version spécifique de l’agent.  
+Le tableau ci-après mappe la version de l’extension de machine virtuelle Log Analytics sur la version du bundle de l’agent Log Analytics pour chaque mise en production. Un lien vers les notes de publication pour la version du bundle de l’Agent Log Analytics est inclus. Les notes de version fournissent des détails sur les correctifs de bogues et les nouvelles fonctionnalités disponibles pour une version spécifique de l’agent.  
 
-| Version d’extension de machine virtuelle Azure Monitor | Version du bundle de l’Agent Log Analytics | 
+| Version d’extension de machine virtuelle Linux Log Analytics | Version du bundle de l’Agent Log Analytics | 
 |--------------------------------|--------------------------|
-| 1.12.15 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
+| 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
 | 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
@@ -100,11 +100,10 @@ Le JSON suivant illustre le schéma pour l’extension d’agent Log Analytics. 
 
 >[!NOTE]
 >Le schéma ci-dessus repose sur le principe qu’il est placé au niveau racine du modèle. Si vous le placez à l’intérieur de la ressource de machine virtuelle dans le modèle, vous devez modifier les propriétés `type` et `name`, comme décrit [dans la suite de cet article](#template-deployment).
->
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| Name | Valeur/Exemple |
+| Nom | Valeur/Exemple |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |

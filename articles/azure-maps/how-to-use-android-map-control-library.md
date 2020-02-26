@@ -1,32 +1,32 @@
 ---
 title: Bien démarrer avec le contrôle de carte Android | Microsoft Azure Maps
 description: Dans cet article, vous allez découvrir comment prendre en main le contrôle de carte Android à l’aide de Android SDK Microsoft Azure Maps.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: bb9dc16eabbd6065e05d26258c1421aa7a46dbd7
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 57ad9992bec3f070366134d8dfbcdafa8f2e16d4
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911394"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209849"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Bien démarrer avec Android SDK Azure Maps
 
 Android SDK Azure Maps est une bibliothèque de cartes de vecteur pour Android. Cet article vous guide tout au long des processus d’installation d’Android SDK Azure Maps et de chargement d’une carte.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="create-an-azure-maps-account"></a>Créer un compte Azure Maps
 
 Pour accomplir les procédures de cet article, vous devez d’abord [créer un compte Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps) de niveau tarifaire S1 et [obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) de votre compte.
 
-Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
+Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
 
 ### <a name="download-android-studio"></a>Télécharger Android Studio
 
@@ -103,7 +103,7 @@ L’étape suivante de la création de votre application consiste à installer A
     </FrameLayout>
     ```
 
-4. Dans le fichier **MainActivity.java**, vous devez :
+4. Dans le fichier **MainActivity.java**, vous devez :
     
     * Ajouter des importations pour le Kit de développement logiciel (SDK) Azure Maps
     * Définir vos informations d’authentification Azure Maps
@@ -111,7 +111,7 @@ L’étape suivante de la création de votre application consiste à installer A
 
     Si vous définissez les informations d’authentification sur la classe `AzureMaps` de façon globale à l’aide des méthodes `setSubscriptionKey` ou `setAadProperties`, vous n’aurez pas besoin d’ajouter vos informations d’authentification à chaque affichage. 
 
-    Le contrôle de carte contient ses propres méthodes de cycle de vie pour la gestion du cycle de vie OpenGL d’Android. Elles doivent être appelées directement à partir de l’activité contenante. Pour que votre application appelle correctement les méthodes de cycle de vie du contrôle de carte, vous devez remplacer les méthodes de cycle de vie suivantes dans l'activité qui contient le contrôle de carte et appeler la méthode de contrôle de carte correspondante. 
+    Le contrôle de carte contient ses propres méthodes de cycle de vie pour la gestion du cycle de vie OpenGL d’Android. Ces méthodes de cycle de vie doivent être appelées directement à partir de l’activité contenante. Pour que votre application appelle correctement les méthodes de cycle de vie du contrôle de carte, vous devez substituer les méthodes de cycle de vie suivantes dans l’activité qui contient le contrôle de carte. Vous devez aussi appeler la méthode de contrôle de carte correspondante. 
 
     * onCreate(Bundle) 
     * onStart() 

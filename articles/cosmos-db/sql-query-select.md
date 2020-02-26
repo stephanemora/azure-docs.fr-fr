@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: b90fc6f1f50ec2ea75619188cca36f78061f28df
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 013ebdcdbac41825c10a1362f73ab4c94052400d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326784"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469933"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Clause SELECT dans Azure Cosmos DB
 
@@ -58,7 +58,7 @@ SELECT <select_specification>
 
   Expression représentant la valeur à calculer. Consultez la section [Expressions scalaires](sql-query-scalar-expressions.md) pour plus d’informations.  
 
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
 
 La syntaxe `SELECT *` est valide uniquement si la clause FROM a déclaré exactement un alias. `SELECT *` fournit une projection d’identité, ce qui peut être utile si aucune projection n’est nécessaire. SELECT * est valide uniquement si la clause FROM est spécifiée et n’a introduit qu’une seule source d’entrée.  
   
@@ -169,9 +169,53 @@ Les résultats sont :
       }
     }]
 ```
+## <a name="reserved-keywords-and-special-characters"></a>Mots clés réservés et caractères spéciaux
+
+Si vos données contiennent des propriétés portant le même nom que des mots clés réservés tels que « order » ou « Group », les requêtes sur ces documents entraînent des erreurs de syntaxe. Vous devez placer explicitement la propriété entre `[]` pour exécuter la requête avec succès.
+
+Par exemple, voici un document avec une propriété nommée `order` et une propriété `price($)` qui contient des caractères spéciaux :
+
+```json
+{
+  "id": "AndersenFamily",
+  "order": [
+     {
+         "orderId": "12345",
+         "productId": "A17849",
+         "price($)": 59.33
+     }
+  ],
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
+
+Si vous exécutez des requêtes qui incluent la propriété `order` ou `price($)`, vous recevez une erreur de syntaxe.
+
+```sql
+SELECT * FROM c where c.order.orderid = "12345"
+```
+```sql
+SELECT * FROM c where c.order.price($) > 50
+```
+Le résultat est le suivant :
+
+`
+Syntax error, incorrect syntax near 'order'
+`
+
+Vous devez réécrire les mêmes requêtes comme indiqué ci-dessous :
+
+```sql
+SELECT * FROM c WHERE c["order"].orderId = "12345"
+```
+
+```sql
+SELECT * FROM c WHERE c["order"]["price($)"] > 50
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Prise en main](sql-query-getting-started.md)
+- [Bien démarrer](sql-query-getting-started.md)
 - [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Clause WHERE](sql-query-where.md)

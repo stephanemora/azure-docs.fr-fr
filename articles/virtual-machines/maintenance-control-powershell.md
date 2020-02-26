@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 58bdbdfcb82806dfa0b2779967bddf1242a8b702
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 7e4586a5fba91fbc7432aa352b9608be728e8654
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115700"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251938"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-azure-powershell"></a>Aperçu : Contrôler les mises à jour avec le contrôle de maintenance et Azure PowerShell
 
@@ -216,6 +216,7 @@ ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates
 Name           : default
 Type           : Microsoft.Maintenance/applyUpdates
 ```
+LastUpdateTime correspond à l’heure à laquelle la mise à jour est terminée, soit à votre initiative, soit à celle de la plateforme au cas où la fenêtre d’automaintenance n’aurait pas été utilisée. Si aucune mise à jour n’a jamais été appliquée par le biais du contrôle de maintenance, la valeur par défaut s’affiche.
 
 ### <a name="isolated-vm"></a>Machine virtuelle isolée
 

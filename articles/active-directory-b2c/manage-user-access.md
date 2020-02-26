@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 90be5b407708f6cca3748dd6d6fa09c28ab7fcdc
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fcdbf0d56b79662cccd90380489ede672e6a0a66
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840432"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484109"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gérer l’accès utilisateur dans Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Selon la législation relative à l’application, il peut être nécessaire d�
 
 Voici un exemple de flux utilisateur pour le recueil du consentement parental :
 
-1. Une opération d’[API Graph Azure Active Directory](/previous-versions/azure/ad/graph/api/api-catalog) identifie l’utilisateur en tant que mineur et retourne les données utilisateur à l’application sous la forme d’un jeton JSON non signé.
+1. Une opération de l’[API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api) identifie l’utilisateur comme étant mineur et retourne les données utilisateur à l’application sous la forme d’un jeton JSON non signé.
 
 2. L’application traite le jeton JSON et affiche un écran à l’intention du mineur pour l’informer que le consentement parental est nécessaire et pour le demander à un parent en ligne.
 
@@ -54,9 +54,9 @@ Voici un exemple de flux utilisateur pour le recueil du consentement parental :
 
 4. L’application permet au mineur de révoquer le consentement.
 
-5. Lorsqu’un mineur ou un adulte révoque le consentement, l’API Graph Azure AD peut servir à modifier la valeur de **consentProvidedForMinor** afin d’afficher **denied**. L’application peut également supprimer un mineur dont le consentement a été révoqué. Il est possible de personnaliser le flux utilisateur de façon à ce que le mineur authentifié (ou le parent utilisant le compte du mineur) puisse révoquer le consentement. Azure AD B2C enregistre **consentProvidedForMinor** avec la valeur **denied**.
+5. Quand un mineur ou un adulte révoque le consentement, l’API Microsoft Graph peut être utilisée pour changer la valeur de **consentProvidedForMinor** en **denied**. L’application peut également supprimer un mineur dont le consentement a été révoqué. Il est possible de personnaliser le flux utilisateur de façon à ce que le mineur authentifié (ou le parent utilisant le compte du mineur) puisse révoquer le consentement. Azure AD B2C enregistre **consentProvidedForMinor** avec la valeur **denied**.
 
-Pour plus d’informations sur **legalAgeGroupClassification**, **consentProvidedForMinor** et **ageGroup**, consultez [Type de ressource utilisateur](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Pour plus d’informations sur les attributs personnalisés, consultez [Utiliser des attributs personnalisés pour recueillir des informations sur vos consommateurs](user-flow-custom-attributes.md). Lorsque vous traitez des attributs étendus à l’aide de l’API Graph Azure AD, vous devez utiliser la version longue de l’attribut, par exemple *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth* : *2011-01-01T00:00:00Z*.
+Pour plus d’informations sur **legalAgeGroupClassification**, **consentProvidedForMinor** et **ageGroup**, consultez [Type de ressource utilisateur](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Pour plus d’informations sur les attributs personnalisés, consultez [Utiliser des attributs personnalisés pour recueillir des informations sur vos consommateurs](user-flow-custom-attributes.md). Quand vous traitez des attributs étendus en utilisant l’API Microsoft Graph, vous devez utiliser la version longue de l’attribut, comme *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth* : *2011-01-01T00:00:00Z*.
 
 ## <a name="gather-date-of-birth-and-countryregion-data"></a>Recueillir des données sur la date de naissance et le pays/région
 

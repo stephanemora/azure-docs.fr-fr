@@ -3,19 +3,19 @@ title: Bien démarrer avec Custom Speech – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Custom Speech est un ensemble d’outils en ligne qui vous permet d’évaluer et d’améliorer la précision de notre reconnaissance vocale pour vos applications, outils et produits. Pour bien démarrer, il vous suffit de quelques fichiers audio de test. Suivez les liens ci-dessous pour commencer à créer une expérience de reconnaissance vocale personnalisée.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.author: erhopf
-ms.openlocfilehash: c8c849cb83ecb1db5e972c660d94c795092c458e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 02/17/2020
+ms.author: dapine
+ms.openlocfilehash: 4a2887ef8b264628128872730422fd38d6b0ac0f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806009"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424998"
 ---
 # <a name="what-is-custom-speech"></a>Qu’est-ce que Custom Speech ?
 
@@ -60,6 +60,9 @@ Une fois que vous avez créé un compte Azure et un abonnement Speech, vous deve
 Le contenu que représentent les données, les modèles, les tests et les points de terminaison est organisé en **projets** sur le [portail Custom Speech](https://speech.microsoft.com/customspeech). Chaque projet est propre à un domaine et à un pays/langue. Par exemple, vous pouvez créer un projet pour des centres d’appel dont la langue est l’anglais des États-Unis.
 
 Pour créer votre premier projet, sélectionnez **Speech-to-text/Custom speech**, puis cliquez sur **New Project**. Suivez les instructions fournies par l’Assistant pour créer votre projet. Une fois le projet créé, vous devez disposer de quatre onglets : **Data**, **Testing**, **Training** et **Deployment**. Utilisez les liens fournis dans [Étapes suivantes](#next-steps) pour savoir comment utiliser chaque onglet.
+
+> [!IMPORTANT]
+> Le [portail Custom Speech](https://aka.ms/custom-speech) a été récemment mis à jour. Si vous avez créé antérieurement des données, modèles, tests et points de terminaison publiés sur le portail CRIS.ai ou à l’aide d’API, vous devez créer un projet sur le nouveau portail pour vous connecter à ces anciennes entités.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: b373691a6b9649a43d68c9da93b49fd20536c42b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 81db0889294360f74cb42d388e5d875de91c1019
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024634"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212475"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Premium Azure Functions
 
@@ -57,7 +57,7 @@ Azure Functions déployée sur un plan Premium tire parti de la [nouvelle expér
 
 Lors de l’attribution d’un sous-réseau à votre Function App dans un plan Premium, vous avez besoin d’un sous-réseau avec suffisamment d’adresses IP pour chaque instance potentielle. Nous imposons un bloc d’au moins 100 adresses IP disponibles.
 
-Pour plus d’informations, voir [intégrer votre Function App avec un réseau virtuel](functions-create-vnet.md).
+Pour plus d’informations, consultez [Intégrer votre application de fonction à un réseau virtuel](functions-create-vnet.md).
 
 ### <a name="rapid-elastic-scale"></a>Mise à l’échelle élastique rapide
 
@@ -93,6 +93,11 @@ Pendant la création ou la mise à l’échelle de votre plan, vous pouvez chois
 |EP1|1|3,5 GO|250 Go|
 |EP2|2|7 GO|250 Go|
 |EP3|4|14 GO|250 Go|
+
+### <a name="memory-utilization-considerations"></a>Considérations sur l’utilisation de la mémoire
+L’exécution sur une machine avec davantage de mémoire ne signifie pas toujours que votre application de fonction va utiliser toute la mémoire disponible.
+
+Par exemple, une application de fonction JavaScript est contrainte par la limite de mémoire par défaut dans Node.js. Pour augmenter cette limite de mémoire fixe, ajoutez le paramètre d’application `languageWorkers:node:arguments` avec la valeur `--max-old-space-size=<max memory in MB>`.
 
 ## <a name="regions"></a>Régions
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa282afdf910c2449b5d5ea0bc5e38a396f3aa02
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 70156335d0d5617b4c1ccb2d11ce8e9f8dc9d036
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608854"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368121"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriétés d’un utilisateur Azure Active Directory B2B Collaboration
 
@@ -73,7 +73,7 @@ Cette propriété indique le mode de connexion de l’utilisateur.
 
 - Utilisateur invité : Cet utilisateur a été invité, mais n’a pas encore utilisé une invitation.
 
-- Active Directory externe : Cet utilisateur est hébergé dans une organisation externe et s’authentifie à l’aide d’un compte Azure AD qui appartient à l’autre organisation. Ce type de connexion correspond à l’état 1.
+- Azure Active Directory externe : Cet utilisateur est hébergé dans une organisation externe et s’authentifie à l’aide d’un compte Azure AD qui appartient à l’autre organisation. Ce type de connexion correspond à l’état 1.
 
 - Compte Microsoft : Cet utilisateur est hébergé dans un compte Microsoft et s’authentifie à l’aide d’un compte Microsoft. Ce type de connexion correspond à l’état 2.
 

@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 01/24/2020
 ms.author: jgao
-ms.openlocfilehash: f18c9c6efb17f84446b9fee3d2df2c0977bed0c4
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: a67f360aa08f306d6462342d96f59e06a4d3b501
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76757301"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251853"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utiliser des scripts de déploiement dans des modèles (Préversion)
 
@@ -30,7 +30,7 @@ Les avantages du script de déploiement :
 
 - Facile à coder, utiliser et déboguer. Vous pouvez développer des scripts de déploiement dans vos environnements de développement préférés. Les scripts peuvent être incorporés aux modèles ou dans des fichiers de script externe.
 - Vous pouvez spécifier le langage de script et la plateforme. À l’heure actuelle, seuls les scripts de déploiement Azure PowerShell dans l’environnement Linux sont pris en charge.
-- Permet la spécification des identités utilisées pour exécuter les scripts. Actuellement, seule l’[identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/overview.md) est prise en charge.
+- Permet la spécification des identités utilisées pour exécuter les scripts. Actuellement, seule l’[identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) est prise en charge.
 - Permet la transmission des arguments de ligne de commande au script.
 - Peut spécifier des sorties de script et les renvoyer au déploiement.
 
@@ -40,7 +40,7 @@ Les avantages du script de déploiement :
 > [!IMPORTANT]
 > Deux ressources de script de déploiement, un compte de stockage et une instance de conteneur, sont créées dans le même groupe de ressources pour l’exécution du script et la résolution de problèmes. Ces ressources sont généralement supprimées par le service de script lorsque l’exécution du script de déploiement arrive à un état terminal. Vous êtes facturé pour les ressources jusqu’à ce qu’elles soient supprimées. Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](#clean-up-deployment-script-resources).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - **Une identité managée affectée par l’utilisateur avec le rôle de contributeur au niveau de l’abonnement**. Cette identité est utilisée pour exécuter les scripts de déploiement. Pour en créer un, consultez [Créer une identité managée affectée par l’utilisateur à l’aide du Portail Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) ou [à l’aide d’Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md), ou [à l’aide d’Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Vous avez besoin de l’ID d’identité lorsque vous déployez le modèle. Le format de l’identité est le suivant :
 
@@ -59,7 +59,7 @@ Les avantages du script de déploiement :
 
 - **Azure PowerShell version 2.7.0, 2.8.0 ou 3.0.0**. Vous n’avez pas besoin de ces versions pour déployer des modèles. Par contre, ces versions sont nécessaires pour tester les scripts de déploiement localement. Consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Vous pouvez utiliser une image Docker préconfigurée.  Consultez [Configurer l’environnement de développement](#configure-development-environment).
 
-## <a name="resource-schema"></a>Schéma de ressource
+## <a name="sample-template"></a>Exemple de modèle
 
 L’extrait json ci-dessous est un exemple.  Le schéma de modèle le plus récent est disponible [ici](/azure/templates/microsoft.resources/deploymentscripts).
 
@@ -87,7 +87,7 @@ L’extrait json ci-dessous est un exemple.  Le schéma de modèle le plus réce
       $DeploymentScriptOutputs = @{}
       $DeploymentScriptOutputs['text'] = $output
     ",
-    "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json",
+    "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
     "supportingScriptUris":[],
     "timeout": "PT30M",
     "cleanupPreference": "OnSuccess",
@@ -122,7 +122,7 @@ Le modèle suivant dispose d’une ressource définie avec le type `Microsoft.Re
 > [!NOTE]
 > Étant donné que les scripts de déploiement inclus sont placés entre guillemets doubles, les chaînes contenues dans les scripts de déploiement doivent être mises entre guillemets simples. Le caractère d’échappement pour PowerShell est **&#92;** . Vous pouvez également envisager d’utiliser la substitution de chaîne, comme montré dans l’exemple JSON précédent. Regardez la valeur par défaut du paramètre name.
 
-Le script accepte un paramètre, et génère la valeur du paramètre. **DeploymentScriptOutputs** s’utilise pour stocker les sorties.  À la section outputs, la ligne **value** montre comment accéder aux valeurs stockées. `Write-Output` s’utilise pour le débogage. Pour savoir comment accéder au fichier de sortie, consultez [Déboguer les scripts de déploiement](#debug-deployment-scripts).  Pour obtenir les descriptions des propriétés, consultez [Schéma de ressource](#resource-schema).
+Le script accepte un paramètre, et génère la valeur du paramètre. **DeploymentScriptOutputs** s’utilise pour stocker les sorties.  À la section outputs, la ligne **value** montre comment accéder aux valeurs stockées. `Write-Output` s’utilise pour le débogage. Pour savoir comment accéder au fichier de sortie, consultez [Déboguer les scripts de déploiement](#debug-deployment-scripts).  Pour obtenir les descriptions des propriétés, consultez [Exemple de modèle](#sample-template).
 
 Afin d’exécuter le script, sélectionnez **Try it** (Essayer) pour ouvrir Cloud Shell, puis collez le code suivant dans le volet de l’interpréteur de commandes.
 

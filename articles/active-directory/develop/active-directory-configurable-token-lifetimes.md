@@ -5,21 +5,20 @@ description: Découvrez comment définir les durées de vie des jetons émis par
 services: active-directory
 author: rwike77
 manager: CelesteDG
-ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 02/19/2020
 ms.author: ryanwi
-ms.custom: aaddev, annaba, identityplatformtop40
-ms.reviewer: hirsin
-ms.openlocfilehash: 55c7ee6711c6001745053b850c1b4e1859af5dbe
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.custom: aaddev, identityplatformtop40
+ms.reviewer: hirsin, jlu, annaba
+ms.openlocfilehash: 0b2b9dbe52a5696f21b287402fc4cbaa32b29c73
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699017"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461196"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (préversion)
 
@@ -33,9 +32,8 @@ Dans Azure AD, un objet de stratégie représente un ensemble de règles appliq
 Vous pouvez désigner une stratégie comme stratégie par défaut pour votre organisation. La stratégie est appliquée à toutes les applications de l’organisation tant qu’elle n’est pas remplacée par une stratégie pourvue d’une priorité plus élevée. Vous pouvez également affecter une stratégie à des applications spécifiques. L’ordre de priorité varie par type de stratégie.
 
 > [!NOTE]
-> La stratégie configurable de durée de vie des jetons n’est pas prise en charge par SharePoint Online.  Même si vous avez la possibilité de créer cette stratégie via PowerShell, SharePoint Online ne reconnaît pas cette stratégie. Reportez-vous au [blog SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) pour en savoir plus sur la configuration des délais d’expiration des sessions inactives.
->* Par défaut, la durée de vie d’un jeton d’accès SharePoint Online est d’une heure. 
->* Par défaut, la durée de vie d’un jeton d’actualisation SharePoint Online est de 90 jours.
+> La stratégie de durée de vie des jetons configurable s’applique seulement aux clients mobiles et de poste de travail qui accèdent aux ressources SharePoint Online et OneDrive Entreprise ; elle ne s’applique pas aux sessions de navigateur web.
+> Pour gérer la durée de vie des sessions de navigateur web pour SharePoint Online et OneDrive Entreprise, utilisez la fonctionnalité [Durée de vie de la session d’accès conditionnel](../conditional-access/howto-conditional-access-session-lifetime.md). Reportez-vous au [blog SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) pour en savoir plus sur la configuration des délais d’expiration des sessions inactives.
 
 ## <a name="token-types"></a>Types de jetons
 
@@ -210,7 +208,7 @@ Dans les exemples, vous pouvez apprendre à :
 * Créer une stratégie pour une application native qui appelle une API web
 * Gérer une stratégie avancée
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 Dans les exemples suivants, vous allez créer, mettre à jour, lier et supprimer des stratégies pour les applications, les principaux de service et votre organisation globale. Si vous débutez avec Azure AD, nous vous recommandons de vous documenter sur [l’obtention d’un client Azure Active Directory](quickstart-create-new-tenant.md) avant de continuer avec ces exemples.  
 
 Pour commencer, suivez les étapes ci-dessous :

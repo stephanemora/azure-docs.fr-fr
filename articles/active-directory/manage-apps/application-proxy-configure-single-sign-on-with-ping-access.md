@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec115e0fa76e695809ba140202d5f13a319d33dd
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: f3fb94629262519f8cfa5da72ee343726aa7d1c1
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062700"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367982"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Authentification basée sur l’en-tête pour une authentification unique avec le proxy d’application et PingAccess
 
@@ -50,14 +50,14 @@ Cet article s’adresse aux personnes qui souhaitent publier une application ave
 
 Si vous avez activé le proxy d’application et déjà activé et installé un connecteur, vous pouvez ignorer cette section et passer à [Ajouter votre application dans Azure AD avec le proxy d’application](#add-your-application-to-azure-ad-with-application-proxy).
 
-Le connecteur de proxy d’application est un service Windows Server qui dirige le trafic de vos employés distants vers vos applications publiées. Pour obtenir des instructions d’installation plus détaillées, consultez [Tutoriel : Ajouter une application locale pour un accès à distance via le service Proxy d'application d'Azure Active Directory](application-proxy-add-on-premises-application.md).
+Le connecteur de proxy d’application est un service Windows Server qui dirige le trafic de vos employés distants vers vos applications publiées. Pour obtenir des instructions d’installation plus détaillées, consultez [Tutoriel : Ajouter une application locale pour un accès à distance via le service Proxy d’application d’Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 1. Connectez-vous au [portail Azure Active Directory](https://aad.portal.azure.com/) en tant qu’administrateur d’application. La page du **Centre d’administration Azure Active Directory** s’affiche.
 1. Sélectionnez **Azure Active Directory** > **Proxy d’application** > **Télécharger le service de connecteur**. La page **Téléchargement du connecteur Proxy d’application** s’affiche.
 
    ![Téléchargement du connecteur Proxy d’application](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
 
-1. Suivez les instructions d’installation.
+1. Suivez les instructions d'installation.
 
 Le téléchargement du connecteur doit activer automatiquement le proxy d’application pour votre annuaire, mais si ce n’est pas le cas, vous pouvez sélectionner **Activer le proxy d’application**.
 
@@ -161,21 +161,7 @@ Pour collecter ces informations :
 1. Sélectionnez **Ajouter**. La clé de PingAccess s’affiche dans la table des secrets client, avec une chaîne aléatoire qui est automatiquement renseignée dans le champ **VALUE**.
 1. À côté du champ **VALUE** de la clé PingAccess, sélectionnez l’icône **Copier dans le Presse-papiers**, puis copiez et enregistrez-la. Vous allez spécifier cette valeur ultérieurement en tant que secret client de PingAccess.
 
-### <a name="update-graphapi-to-send-custom-fields-optional"></a>Mettre à jour GraphAPI pour envoyer des champs personnalisés (facultatif)
-
-Si vous avez besoin d’une revendication personnalisée qui envoie d’autres jetons dans l’élément access_token consommé par PingAccess, définissez le champ d’application `acceptMappedClaims` sur `True`. Vous pouvez utiliser l’afficheur Graph ou le manifeste d’application du portail Azure AD pour effectuer cette modification.
-
-**Cet exemple utilise l’afficheur Graph :**
-
-```
-PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
-
-{
-  "acceptMappedClaims":true
-}
-```
-
-**Cet exemple utilise le [portail Azure Active Directory](https://aad.portal.azure.com/) pour mettre à jour le champ `acceptMappedClaims` :**
+**Mettez à jour le champ `acceptMappedClaims` :**
 
 1. Connectez-vous au [portail Azure Active Directory](https://aad.portal.azure.com/) en tant qu’administrateur d’application.
 1. Sélectionnez **Azure Active Directory** > **Inscriptions des applications**. La liste des applications apparaît.
@@ -213,9 +199,9 @@ Pour que votre application utilise une revendication personnalisée et comprenne
 > [!NOTE]
 > Pour utiliser une revendication personnalisée, vous devez également disposer d’une stratégie personnalisée définie et affectée à l’application. Cette stratégie doit inclure tous les attributs personnalisés nécessaires.
 >
-> Vous pouvez effectuer la définition et l’attribution de la stratégie dans PowerShell, Azure AD Graph Explorer ou Microsoft Graph. Si vous utilisez PowerShell, vous devez d’abord utiliser `New-AzureADPolicy`, puis l’attribuer à l’application avec `Add-AzureADServicePrincipalPolicy`. Pour plus d’informations, consultez [Attribution de stratégie de mappage de revendications](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+> Vous pouvez effectuer la définition et l’affectation de la stratégie via PowerShell ou Microsoft Graph. Si vous utilisez PowerShell, vous devez d’abord utiliser `New-AzureADPolicy`, puis l’attribuer à l’application avec `Add-AzureADServicePrincipalPolicy`. Pour plus d’informations, consultez [Attribution de stratégie de mappage de revendications](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
-Exemple :
+Exemple :
 ```powershell
 $pol = New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","JwtClaimType":"employeeid"}]}}') -DisplayName "AdditionalClaims" -Type "ClaimsMappingPolicy"
 

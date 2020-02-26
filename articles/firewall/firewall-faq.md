@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 01/29/2020
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: 8b55f31f12ab1057ac2e0f625a0285b6518cc44a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 39c08a568a60c905394eec23dd27d5dd32ff0112
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845774"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460465"
 ---
 # <a name="azure-firewall-faq"></a>FAQ Pare-feu Azure
 
@@ -125,11 +125,13 @@ Oui. Toutefois, la configuration des UDR pour rediriger le trafic entre les sous
 
 ## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>La sortie de Pare-feu Azure traduit-elle l’adresse réseau source (SNAT) entre réseaux privés ?
 
-Pare-feu Azure ne traduit pas l’adresse réseau source lorsque l’adresse IP de destination est une plage d’adresses IP privées selon la norme [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Si votre organisation utilise une plage d’adresses IP publiques pour les réseaux privés, Pare-feu Azure traduit l’adresse réseau source du trafic en une des adresses IP privées du pare-feu dans AzureFirewallSubnet.
+Pare-feu Azure ne traduit pas l’adresse réseau source lorsque l’adresse IP de destination est une plage d’adresses IP privées selon la norme [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Si votre organisation utilise une plage d’adresses IP publiques pour les réseaux privés, Pare-feu Azure traduit l’adresse réseau source du trafic en une des adresses IP privées du pare-feu dans AzureFirewallSubnet. Vous pouvez configurer le pare-feu Azure pour ne **pas** traduire l’adresse réseau source (SNAT) de votre plage d’adresses IP publiques. Pour plus d’informations, consultez [Plages d’adresses IP privées SNAT de pare-feu Azure](snat-private-range.md).
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>Le tunneling/chaînage forcé à une appliance virtuelle réseau est-il pris en charge ?
 
-Le tunneling forcé n’est pas pris en charge pour le moment. Le Pare-feu Azure doit avoir une connectivité Internet directe. Si votre AzureFirewallSubnet prend connaissance d’un itinéraire par défaut pour votre réseau local via le protocole BGP, vous devez le remplacer par un UDR 0.0.0.0/0 avec la valeur **NextHopType** définie sur **Internet** pour garantir une connectivité Internet directe.
+Le tunneling forcé est pris en charge. Pour plus d’informations, consultez [Tunneling forcé du pare-feu Azure (préversion)](forced-tunneling.md). 
+
+Le Pare-feu Azure doit avoir une connectivité Internet directe. Si votre AzureFirewallSubnet prend connaissance d’un itinéraire par défaut pour votre réseau local via le protocole BGP, vous devez le remplacer par un UDR 0.0.0.0/0 avec la valeur **NextHopType** définie sur **Internet** pour garantir une connectivité Internet directe.
 
 Si votre configuration nécessite un tunneling forcé vers un réseau local et que vous pouvez déterminer les préfixes IP cibles pour vos destinations Internet, vous pouvez configurer ces plages en faisant du réseau local le tronçon suivant avec une route définie par l’utilisateur sur le sous-réseau AzureFirewallSubnet. Vous pouvez aussi utiliser le protocole BGP pour définir ces routes.
 
@@ -166,7 +168,7 @@ Non. Un sous-réseau de /26 suffit au Pare-feu Azure.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>Comment puis-je augmenter le débit de mon pare-feu ?
 
-La capacité de débit initiale du Pare-feu Azure est de 2,5 à 3 Gbits/s. À l’heure actuelle, le scale-out est basé uniquement sur l’utilisation du processeur. Dans certains cas, un pare-feu avec uniquement des règles de réseau ne subira pas de scale-up pour augmenter le débit, car les règles de réseau n’ont pas d’impact significatif sur l’utilisation du processeur. Si vous avez besoin d’un débit plus élevé pour votre pare-feu, contactez le support technique afin d’augmenter la capacité de débit initiale de votre pare-feu.
+La capacité de débit initiale du Pare-feu Azure est de 2,5 à 3 Gbits/s. À l’heure actuelle, le scale-out est basé sur l’utilisation et le débit du processeur. Dans certains cas, un pare-feu avec uniquement des règles de réseau ne subira pas de scale-up pour augmenter le débit, car les règles de réseau n’ont pas d’impact significatif sur l’utilisation du processeur. Si vous avez besoin d’un débit plus élevé pour votre pare-feu, contactez le support technique afin d’augmenter la capacité de débit initiale de votre pare-feu.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Combien de temps le scale-out du Pare-feu Azure prend-il ?
 

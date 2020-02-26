@@ -1,25 +1,24 @@
 ---
-title: Exemple de script Azure PowerShell - Configurer des points de terminaison de réseau virtuel IPv6 avec Standard Load Balancer (préversion)
+title: Exemple de script Azure PowerShell – Configurer un front-end IPv6 avec Standard Load Balancer (préversion)
 titlesuffix: Azure Virtual Network
 description: Activer les points de terminaison IPv6 à l’aide de Powershell dans un réseau virtuel Azure
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: fc5bc23ffec0956cb53e62f0cd14d7135d5fbcca
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 24d25813a5cafc98f04d3daef2803aa44acc7f69
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68269602"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201320"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>Exemple de script de configuration de points de terminaison IPv6 dans un réseau virtuel avec Standard Load Balancer (préversion)
+# <a name="configure-ipv6-frontend-in-virtual-network-script-sample-with-standard-load-balancerpreview"></a>Configurer un front-end IPv6 dans un exemple de script de réseau virtuel avec Standard Load Balancer (préversion)
 
 Cet article montre comment déployer dans Azure une application double pile (IPv4 + IPv6) incluant un réseau virtuel double pile avec un sous-réseau double pile, un équilibreur de charge avec des configurations frontales doubles (IPv4 + IPv6), des machines virtuelles dont les cartes réseau ont une configuration double IP, des règles de Groupe de sécurité réseau doubles et des adresses IP publiques doubles.
 

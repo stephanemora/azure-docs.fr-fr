@@ -6,19 +6,19 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 125f92b64ee745a595d15ccacafb6a62414955a9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 5516bfcb3ed32ba6635943298db2a7773db0a622
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157531"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198698"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Chiffrement des données d'Azure Database pour PostgreSQL Serveur unique à l'aide d'une clé gérée par le client
 
 > [!NOTE]
 > À ce stade, vous devez demander l’accès pour utiliser cette fonctionnalité. Pour ce faire, contactez AskAzureDBforPostgreSQL@service.microsoft.com.
 
-Le chiffrement des données d'Azure Database pour PostgreSQL Serveur unique à l'aide d'une clé gérée par le client permet le scénario Bring Your Own Key (BYOK) pour la protection des données au repos. Il permet également aux organisations d'implémenter la séparation des tâches dans la gestion des clés et des données. Avec le chiffrement géré par le client, vous êtes responsable du cycle de vie des clés, des autorisations d'utilisation des clés et de l'audit des opérations sur les clés, et contrôlez totalement le processus.
+Le chiffrement des données avec des clés gérées par le client pour un seul serveur Azure Database pour PostgreSQL permet le scénario BYOK (Bring Your Own Key) pour la protection des données au repos. Il permet également aux organisations d'implémenter la séparation des tâches dans la gestion des clés et des données. Avec le chiffrement géré par le client, vous êtes responsable du cycle de vie des clés, des autorisations d'utilisation des clés et de l'audit des opérations sur les clés, et contrôlez totalement le processus.
 
 Le chiffrement des données d'Azure Database pour PostgreSQL Serveur unique à l'aide d'une clé gérée par le client est défini au niveau du serveur. Pour un serveur donné, une clé gérée par le client, appelée clé de chiffrement de clé (KEK), sert à chiffrer la clé de chiffrement de données (DEK) utilisée par le service. La KEK est une clé asymétrique stockée dans une instance d'[Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) détenue et gérée par le client. La clé de chiffrement de clé (KEK) et la clé de chiffrement de données (DEK) sont décrites plus en détail plus loin dans cet article.
 
@@ -32,7 +32,7 @@ Key Vault est un système de gestion de clés externe basé sur le cloud. Il fou
 Le chiffrement des données pour Azure Database pour PostgreSQL Serveur unique offre les avantages suivants :
 
 * L'accès aux données est entièrement contrôlé par vous puisque vous avez la possibilité de retirer la clé et de rendre la base de données inaccessible 
-*   Contrôle total sur le cycle de vie de la clé, y compris la rotation de la clé à aligner avec les stratégies d’entreprise
+*   Contrôle total sur le cycle de vie de la clé, y compris la rotation de la clé à aligner avec les stratégies d'entreprise
 *   Gestion centralisée et organisation des clés dans Azure Key Vault
 *   Possibilité d'implémenter une séparation des tâches entre les responsables de la sécurité, les administrateurs de base de données et les administrateurs système
 
@@ -70,7 +70,7 @@ Les exigences suivantes s'appliquent à la configuration de Key Vault :
 
 Les exigences suivantes s'appliquent à la configuration de la clé gérée par le client :
 
-* La clé gérée par le client à utiliser pour chiffrer la clé de chiffrement peut être asymétrique, RSA 2028, uniquement.
+* La clé managée par le client à utiliser pour chiffrer la clé de chiffrement peut être asymétrique, RSA 2028, uniquement.
 * La date d’activation de la clé (si définie) doit être une date et une heure passées. La date d'expiration (si définie) doit correspondre à une date et une heure ultérieures.
 * La clé doit être dans l’état *activé*.
 * Si vous importez une clé existante dans le coffre de clés, veillez à ce qu'elle respecte les formats de fichiers pris en charge (`.pfx`, `.byok`, `.backup`).
@@ -90,7 +90,7 @@ Suivez les recommandations ci-dessous pour configurer une clé gérée par le cl
 
 * Si Key Vault génère la clé, créez une sauvegarde de celle-ci avant sa première utilisation. La sauvegarde ne peut être restaurée que dans Key Vault. Pour plus d'informations sur la commande de sauvegarde, consultez [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyVault/backup-azkeyVaultkey).
 
-## <a name="inaccessible-customer-managed-key-condition"></a>Condition de clé gérée par le client inaccessible
+## <a name="inaccessible-customer-managed-key-condition"></a>Condition de clé managée par le client inaccessible
 
 Lorsque vous configurez le chiffrement des données avec une clé gérée par le client dans Key Vault, un accès continu à cette clé est requis pour que le serveur reste en ligne. Si le serveur perd l'accès à la clé gérée par le client dans Key Vault, il commence à refuser toutes les connexions dans un délai de 10 minutes. Le serveur émet un message d'erreur et affiche l'état *Inaccessible*. La seule action autorisée sur une base de données inaccessible est de la supprimer.
 
@@ -105,7 +105,7 @@ Il peut arriver qu'une personne disposant de droits d'accès suffisants à Key V
 
 * supprimant l'identité managée du serveur dans Azure AD.
 
-## <a name="monitor-the-customer-managed-key-in-key-vault"></a>Surveiller la clé gérée par le client dans le Key Vault
+## <a name="monitor-the-customer-managed-key-in-key-vault"></a>Surveiller la clé gérée par le client dans Key Vault
 
 Pour surveiller l'état de la base de données et activer les alertes liées à la perte d'accès au protecteur TDE (Transparent Data Encryption), configurez les fonctionnalités Azure suivantes :
 

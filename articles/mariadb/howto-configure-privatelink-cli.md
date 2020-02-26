@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 2d39afcea056c76b6c9672e1963d7529fbfce549
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 19613ab917d303863a8d90133bcce2e1353289c1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280932"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426205"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-cli"></a>Créer et gérer Private Link pour Azure Database for MariaDB (préversion) à l’aide de l’interface CLI
 
@@ -20,7 +20,7 @@ Private Endpoint est le composant fondamental de Private Link dans Azure. Il per
 > [!NOTE]
 > Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database for MariaDB prend en charge les niveaux tarifaires Usage général et Mémoire optimisée.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 
@@ -131,7 +131,7 @@ Connectez-vous à la machine virtuelle *myVm* à partir d’Internet comme suit�
 
 1. Sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier de protocole RDP (Remote Desktop Protocol) ( *.rdp*) et le télécharge sur votre ordinateur.
 
-1. Ouvrez le fichier .rdp* téléchargé.
+1. Ouvrez le fichier *downloaded.rdp*.
 
     1. Si vous y êtes invité, sélectionnez **Connexion**.
 
@@ -159,27 +159,28 @@ Connectez-vous à la machine virtuelle *myVm* à partir d’Internet comme suit�
     Non-authoritative answer:
     Name:    mydemoserver.privatelink.mariadb.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the MariaDB server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
+3. Testez la connexion de liaison privée pour le serveur MariaDB à l’aide de n’importe quel client disponible. Dans l’exemple ci-dessous, j’ai utilisé [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) pour effectuer l’opération.
 
-4. In **New connection**, enter or select this information:
+4. Dans **Nouvelle connexion**, entrez ou sélectionnez les informations suivantes :
 
-    | Setting | Value |
+    | Paramètre | Valeur |
     | ------- | ----- |
-    | Connection Name| Select the connection name of your choice.|
-    | Hostname | Select *mydemoserver.privatelink.mariadb.database.azure.com* |
-    | Username | Enter username as *username@servername* which is provided during the MariaDB server creation. |
-    | Password | Enter a password provided during the MariaDB server creation. |
+    | Nom de connexion| Sélectionnez le nom de connexion de votre choix.|
+    | HostName | Sélectionnez *mydemoserver.privatelink.mariadb.database.azure.com* |
+    | Nom d’utilisateur | Entrez le nom d’utilisateur au format *username@servername* qui est fourni lors de la création du serveur MariaDB. |
+    | Mot de passe | Entrez le mot de passe fourni lors de la création du serveur MariaDB. |
     ||
 
-5. Select **Test Connection** or **OK**.
+5. Sélectionnez **Tester la connexion** ou **OK**.
 
-6. (Optionally) Browse databases from left menu and Create or query information from the MariaDB database
+6. (Facultatif) Parcourez les bases de données à partir du menu de gauche et créez ou interrogez des informations à partir de la base de données MariaDB
 
-8. Close the remote desktop connection to myVm.
+8. Fermez la connexion Bureau à distance à myVm.
 
-## Clean up resources 
-When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
+## <a name="clean-up-resources"></a>Nettoyer les ressources 
+Lorsque vous n'en avez plus besoin, vous pouvez utiliser az group delete pour supprimer le groupe de ressources, ainsi que toutes les ressources qu’il contient : 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes 

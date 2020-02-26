@@ -13,20 +13,21 @@ ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6341f58791c2fad71a65650e32cff02fb52d78c0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0275d30f2314073af07eced224ade47c49e580c1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098676"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425374"
 ---
 # <a name="operating-system-upgrade"></a>Mise à niveau du système d’exploitation
 Ce document décrit en détail les mises à niveau du système d’exploitation sur les grandes instances HANA.
 
 >[!NOTE]
->La mise à niveau du système d’exploitation est la responsabilité des clients. Le support opérations de Microsoft peut vous orienter vers les endroits clés à surveiller pendant la mise à niveau. Consultez également le fournisseur de votre système d’exploitation avant de planifier une mise à niveau.
+>La mise à niveau du système d’exploitation relève de la responsabilité du client. Le support des opérations Microsoft peut vous indiquer les éléments clés à surveiller pendant la mise à niveau. Consultez également le fournisseur de votre système d’exploitation avant de planifier une mise à niveau.
 
-Au moment du provisionnement de l’unité HLI, l’équipe des opérations de Microsoft installe le système d’exploitation. Au fil du temps, il vous appartient d’effectuer la maintenance du système d’exploitation sur l’unité HLI : mise à jour corrective, réglage, mise à niveau, etc.
+Pendant le provisionnement de l’unité HLI, l’équipe des opérations Microsoft installe le système d’exploitation.
+Au fil du temps, il vous appartient d’effectuer la maintenance du système d’exploitation sur l’unité HLI : mise à jour corrective, réglage, mise à niveau, etc.
 
 Avant d’apporter des modifications majeures au système d’exploitation (par exemple, une mise à niveau de SP1 vers SP2), vous devez contacter l’équipe des opérations de Microsoft en ouvrant un ticket de support.
 
@@ -48,6 +49,85 @@ Pour consulter la matrice de prise en charge des différentes versions SAP HANA 
 Voici quelques problèmes affectant couramment la mise à niveau :
 - Dans la référence SKU de classe de type II, le logiciel SFS est supprimé après la mise à niveau du système d’exploitation. Vous devez réinstaller le logiciel SFS compatible après la mise à niveau du système d’exploitation.
 - Une version antérieure des pilotes de cartes Ethernet (ENIC et FNIC) est restaurée. Vous devez réinstaller la version compatible des pilotes après la mise à niveau.
+
+## <a name="sap-hana-large-instance-type-i-recommended-configuration"></a>Configuration recommandée pour les grandes instances SAP HANA (type I)
+
+Au fil du temps, la configuration du système d’exploitation peut s’écarter des paramètres recommandés en raison des mises à jour correctives, des mises à niveau du système et des modifications apportées par les clients. De plus, Microsoft identifie les mises à jour nécessaires pour que les systèmes existants soient configurés de manière optimale pour offrir les meilleurs niveaux de performance et de résilience possibles. Les instructions suivantes décrivent les suggestions relatives au niveau de performance réseau, à la stabilité du système et au niveau de performance optimal de HANA.
+
+### <a name="compatible-enicfnic-driver-versions"></a>Versions compatibles des pilotes eNIC/fNIC
+  Pour bénéficier d’un bon niveau de performance réseau et d’une stabilité du système adéquate, il est recommandé de vérifier que la version propre au système d’exploitation des pilotes eNIC et fNIC est installée comme indiqué dans la tableau de compatibilité suivant. Les serveurs sont fournis aux clients avec des versions compatibles. Dans certains cas, notez que la mise à jour corrective du système d’exploitation et/ou du noyau peut entraîner la restauration de la version par défaut des pilotes. Vérifiez que les pilotes s’exécutant après les opérations de mise à jour corrective du système d’exploitation et/ou du noyau correspondent aux bonnes versions.
+       
+      
+  |  Fournisseur du système d’exploitation    |  Version du package du système d’exploitation     |  Pilote eNIC  |  Pilote fNIC |
+  |---------------|-------------------------|---------------|--------------|
+  |   SuSE        |  SLES 12 SP2            |   2.3.0.40    |   1.6.0.34   |
+  |   SuSE        |  SLES 12 SP3            |   2.3.0.44    |   1.6.0.36   |
+  |   Red Hat     |  RHEL 7.2               |   2.3.0.39    |   1.6.0.34   |
+ 
+
+### <a name="commands-for-driver-upgrade-and-to-clean-old-rpm-packages"></a>Commandes de mise à niveau des pilotes et de nettoyage des anciens packages rpm
+```
+rpm -U driverpackage.rpm
+rpm -e olddriverpackage.rpm
+```
+
+#### <a name="commands-to-confirm"></a>Commandes à confirmer
+```
+modinfo enic
+modinfo fnic
+```
+
+### <a name="suse-hlis-grub-update-failure"></a>Échec de la mise à jour de GRUB pour les HLI SuSE
+Les grandes instances SAP HANA sur Azure (type I) peuvent être dans un état qui les empêchent de démarrer après une mise à niveau. La procédure ci-dessous corrige ce problème.
+#### <a name="execution-steps"></a>Étapes d’exécution
+
+
+*   Exécutez la commande `multipath -ll`.
+*   Obtenez l’ID du numéro d’unité logique (« LUN ID ») dont la taille avoisine 50G ou utilisez la commande `fdisk -l | grep mapper`
+*   Mettez à jour le fichier `/etc/default/grub_installdevice` avec la ligne `/dev/mapper/<LUN ID>`. Exemple :/dev/mapper/3600a09803830372f483f495242534a56
+>[!NOTE]
+>L’ID du numéro d’unité logique varie d’un serveur à l’autre.
+
+
+### <a name="disable-edac"></a>Désactiver EDAC 
+   Le module EDAC (Error Detection And Correction) vise à détecter et corriger les erreurs de mémoire. Or, le matériel sous-jacent pour les grandes instances SAP HANA sur Azure (type I) assure déjà la même fonction. Le fait que la même fonctionnalité soit activée au niveau du matériel et du système d’exploitation peut occasionner des conflits et entraîner l’arrêt occasionnel et inopiné du serveur. Par conséquent, il est recommandé de désactiver le module du système d’exploitation.
+
+#### <a name="execution-steps"></a>Étapes d’exécution
+
+* Vérifiez si le module EDAC est activé. Si une sortie est retournée par la commande ci-dessous, cela signifie que le module est activé. 
+```
+lsmod | grep -i edac 
+```
+* Désactivez les modules en ajoutant les lignes suivantes au fichier `/etc/modprobe.d/blacklist.conf`
+```
+blacklist sb_edac
+blacklist edac_core
+```
+Un redémarrage est nécessaire pour que les modifications soient prises en compte. Exécutez la commande `lsmod` et vérifiez que le module n’est pas présent dans la sortie.
+
+
+### <a name="kernel-parameters"></a>Paramètres de noyau
+   Vérifiez que les paramètres `transparent_hugepage`, `numa_balancing`, `processor.max_cstate`, `ignore_ce` et `intel_idle.max_cstate` sont correctement définis.
+
+* intel_idle.max_cstate=1
+* processor.max_cstate=1
+* transparent_hugepage=never
+* numa_balancing=disable
+* mce=ignore_ce
+
+
+#### <a name="execution-steps"></a>Étapes d’exécution
+
+* Ajoutez ces paramètres à la ligne `GRB_CMDLINE_LINUX` du fichier `/etc/default/grub`
+```
+intel_idle.max_cstate=1 processor.max_cstate=1 transparent_hugepage=never numa_balancing=disable mce=ignore_ce
+```
+* Créez un nouveau fichier grub.
+```
+grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+* Relancez le système.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour la classe de références SKU de type I de sauvegarde du système d’exploitation, consultez [Sauvegarde et restauration](hana-overview-high-availability-disaster-recovery.md).

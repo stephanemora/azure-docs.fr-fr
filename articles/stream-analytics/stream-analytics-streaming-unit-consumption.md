@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: d270d38bce45c45f9323a971ad69dc2b931a9169
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dd7579c97e2166e2822ee5674bbcd5a8ad64d2c7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369845"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201490"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Comprendre et ajuster les unités de streaming
 
@@ -59,6 +59,8 @@ Les éléments de requête temporelle (orientée sur le temps) sont l’ensemble
 Notez qu’un travail avec une logique de requête complexe peut avoir une utilisation élevée d’unités de streaming, même s’il ne reçoit pas continuellement des événements d’entrée. Cela peut se produire après un pic soudain des événements d’entrée et de sortie. Le travail peut continuer à maintenir l’état en mémoire si la requête est complexe.
 
 Le pourcentage d'utilisation des unités de streaming peut soudainement et brièvement passer à 0 avant de revenir aux niveaux prévus. Ce phénomène est dû à des erreurs transitoires ou à des mises à niveau lancées par le système. Augmenter le nombre d’unités de streaming d’un travail ne diminue pas forcément le pourcentage d’utilisation des unités de streaming si votre requête n’est pas [entièrement parallèle](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
+
+Lorsque vous comparez l’utilisation sur une période donnée, utilisez les [métriques de taux d’événements](stream-analytics-monitoring.md). Les métriques InputEvents et OutputEvents montrent le nombre d’événements qui ont été lus et traités. Des métriques indiquent également le nombre d’événements d’erreur, tels que les erreurs de désérialisation. Lorsque le nombre d’événements par unité de temps augmente, le pourcentage de SU augmente dans la plupart des cas.
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Logique de requête avec état dans les éléments temporels
 L’une des caractéristiques propres à un travail Azure Stream Analytics consiste à effectuer un traitement avec état, comme des agrégations fenêtrées, jointures temporelles et fonctions d’analyse temporelle. Chacun de ces opérateurs conserve des informations d’état. La taille maximale de la fenêtre pour ces éléments de requête est de sept jours. 

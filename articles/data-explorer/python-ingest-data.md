@@ -7,26 +7,28 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: f109f2dd45fe90884d3947b244b3dafffd547725
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 91401031945d0ec3ac22fc8cbcea8ba73580ee50
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68355938"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77442001"
 ---
 # <a name="ingest-data-using-the-azure-data-explorer-python-library"></a>Ingérer des données à l’aide de la bibliothèque Python de l’Explorateur de données Azure
 
-L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. L’Explorateur de données Azure fournit deux bibliothèques clientes pour Python : une [bibliothèque d’ingestion](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) et une [bibliothèque de données](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Ces bibliothèques vous permettent d’ingérer (charger) des données dans un cluster et d’interroger les données de votre code. Dans cet article, vous allez d’abord créer une table et un mappage de données dans un cluster. Ensuite, vous allez mettre en file d’attente l’ingestion sur le cluster et valider les résultats.
+Dans cet article, vous allez ingérer des données à l’aide de la bibliothèque Python d’Azure Data Explorer. L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. L’Explorateur de données Azure fournit deux bibliothèques clientes pour Python : une [bibliothèque d’ingestion](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-ingest) et une [bibliothèque de données](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Ces bibliothèques vous permettent d’ingérer (charger) des données dans un cluster et d’interroger les données à partir de votre code.
+
+Vous allez d’abord créer une table et un mappage de données dans un cluster. Ensuite, vous allez mettre en file d’attente l’ingestion sur le cluster et valider les résultats.
 
 Cet article est également disponible dans [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueuedIngestSingleBlob.ipynb).
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
+* Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Un cluster et une base de données](create-cluster-database-portal.md)
+* [Python 3.4+](https://www.python.org/downloads/).
 
-* [Python](https://www.python.org/downloads/) installé sur votre ordinateur de développement
+* [Un cluster et une base de données](create-cluster-database-portal.md).
 
 ## <a name="install-the-data-and-ingest-libraries"></a>Installer les données et ingérer les bibliothèques
 
@@ -173,7 +175,7 @@ Exécutez la commande suivante pour voir l’état de toutes les opérations d�
 | summarize arg_max(LastUpdatedOn, *) by OperationId
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez de suivre nos autres articles, conservez les ressources que vous avez créées. Dans le cas contraire, exécutez la commande suivante dans votre base de données pour nettoyer la table StormEvents.
 

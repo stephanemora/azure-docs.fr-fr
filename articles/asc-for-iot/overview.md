@@ -7,7 +7,6 @@ documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
-ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
 ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
@@ -15,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 6a4fc842113218294b3e2ab449e27cfa94c5cfd3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 1c85f0205f568f065a7959a9b33890b2117e45a0
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766524"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462222"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Présentation d’Azure Security Center pour IoT
 
 Unifiez les fonctionnalités de gestion de la sécurité et activez l’analyse et la détection contre les menaces de bout en bout dans l’ensemble des charges de travail cloud hybrides et votre solution Azure IoT. 
 
-## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Sécurisez l’ensemble de votre solution IoT, des appareils IoT jusqu’au cloud Azure.
+## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Sécuriser l’ensemble de votre solution IoT, des appareils IoT au cloud Azure
 
 Optez pour notre solution fluide sans agent, ou tirez parti d’une sécurité complète basée sur un agent : Azure Security Center pour IoT assure la prévention et l’analyse des menaces pour chaque appareil (IoT Edge et IoT Hub) sur l’ensemble de vos ressources IoT.
 

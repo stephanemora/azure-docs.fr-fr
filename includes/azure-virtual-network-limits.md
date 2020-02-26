@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: networking
 author: anavinahar
 ms.service: networking
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 17558b44c91425ce1a06625f8fd5c1806a762ba2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 28724f85ada989cbe3ce754418fb781bb0468de4
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76020982"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77465965"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau - Azure Resource Manager 
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais **d’Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
@@ -52,10 +52,13 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 #### <a name="publicip-address"></a>Limites de l’adresse IP publique
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
-| Adresses IP publiques (dynamiques) | 1 000 pour De base. |Contactez le support technique. |
-| Adresses IP publiques (statiques) | 1 000 pour De base. |Contactez le support technique. |
-| Adresses IP publiques (statiques) | 1 000 pour Standard.|Contactez le support technique. |
+| Adresse IP publique<sup>1</sup> | 10 pour De base. | Contactez le support technique. |
+| Adresses IP publiques statiques<sup>1</sup> | 10 pour De base. | Contactez le support technique. |
+| Adresses IP publiques standard<sup>1</sup> | 10 | Contactez le support technique. |
+| Préfixes d’adresses IP publiques | Limités par le nombre d’adresses IP publiques standard dans un abonnement | Contactez le support technique. |
 | Taille de préfixe d’adresse IP publique | /28 | Contactez le support technique. |
+
+<sup>1</sup>Les limites par défaut pour les adresses IP publiques varient selon le type de catégorie d’offre, comme Essai gratuit, Paiement à l’utilisation, CSP. Par exemple, la valeur par défaut pour les abonnements Accord Entreprise est 1 000.
 
 #### <a name="load-balancer"></a>Limites de l’équilibreur de charge
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’Azure Resource Manager par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).

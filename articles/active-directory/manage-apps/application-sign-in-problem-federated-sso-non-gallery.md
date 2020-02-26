@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70a85a81996766b862cd6fbc3b605636385e0fda
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 8cd951f0b4d2f4887630e29cbd3b0ae429b9f6f7
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159180"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367861"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problèmes de connexion à une application non issue de la galerie configurée pour l’authentification unique fédérée
 
@@ -164,7 +164,7 @@ Le fournisseur d’application doit confirmer sa prise en charge de l’impléme
 
 ## <a name="misconfigured-application"></a>Application mal configurée
 
-*Erreur AADSTS650056 : Application mal configurée. La raison peut être l’une des suivantes : Le client n’a pas répertorié toutes les autorisations pour « AAD Graph » dans les autorisations demandées de l’inscription d’application du client. Ou l’administrateur n’a pas donné son consentement dans le locataire. Vous pouvez aussi vérifier l’identificateur d’application dans la requête pour vous assurer qu’il correspond à l’identificateur d’application cliente configuré. Contactez votre administrateur pour corriger la configuration ou donner un consentement au nom du locataire.* .
+*Erreur AADSTS650056 : Application mal configurée. La raison peut être l’une des suivantes : Le client n’a listé aucune autorisation parmi les autorisations nécessaires dans l’inscription d’application du client. Ou l’administrateur n’a pas donné son consentement dans le locataire. Vous pouvez aussi vérifier l’identificateur d’application dans la requête pour vous assurer qu’il correspond à l’identificateur d’application cliente configuré. Contactez votre administrateur pour corriger la configuration ou donner un consentement au nom du locataire.* .
 
 **Cause possible**
 

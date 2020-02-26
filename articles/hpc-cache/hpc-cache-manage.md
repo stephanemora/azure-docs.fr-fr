@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: rohogue
-ms.openlocfilehash: 9ad6348e15c8a25f721a89be7eab3e17c58ae17c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: da260074fc69fac9e98d3698bb2d40fdf80d7118
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988849"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252040"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Gérer votre cache à partir du Portail Azure
 
@@ -73,6 +73,8 @@ L’accès client n’est pas interrompu pendant une mise à niveau de logiciel,
 La mise à jour de logiciel peut prendre plusieurs heures. Les caches configurés avec un débit plus élevé prennent plus de temps à mettre à niveau les caches avec des valeurs de débit de pic plus faibles.
 
 Lorsqu’une mise à niveau de logiciel est disponible, il faudra une semaine environ pour l’appliquer manuellement. La date de fin est indiquée dans le message de mise à niveau. Si vous n’effectuez pas de mise à niveau pendant cette période, Azure applique automatiquement la mise à jour à votre cache. Le minutage de la mise à niveau automatique n’est pas configurable. Si vous vous inquiétez de l’impact sur les performances du cache, vous devez vous-même mettre à niveau le logiciel avant l’expiration du délai.
+
+Si votre cache est arrêté au moment où la date de fin est atteinte, il met à niveau le logiciel automatiquement au prochain démarrage. (Il se peut que la mise à jour ne démarre pas immédiatement. Elle démarrera cependant durant la première heure.)
 
 Cliquez sur le bouton **Mettre à niveau** pour lancer la mise à jour de logiciel. L’état du cache prend la valeur **Mise à niveau** jusqu’à ce que l’opération se termine.
 

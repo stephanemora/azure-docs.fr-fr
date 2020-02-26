@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 12/03/2019
-ms.openlocfilehash: cf343773695275bc5600ab59e1cd719374d65700
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: ea132578a08b9f0002084374838c615a01fa820f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152361"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425797"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceptions et codes d’erreur du concepteur (préversion)
 
@@ -74,7 +74,7 @@ Il y a deux façons d’obtenir le texte complet d’un message d’erreur dans 
 |Messages d’exception|
 |------------------------|
 |Une ou plusieurs des entrées sont null ou vides.|
-|L’entrée « {0} » est nulle ou vide.|
+|L’entrée « {name} » est Null ou vide.|
 
 
 ## <a name="error-0004"></a>Erreur 0004  
@@ -87,8 +87,8 @@ Il y a deux façons d’obtenir le texte complet d’un message d’erreur dans 
 |Messages d’exception|
 |------------------------|
 |Le paramètre doit être supérieur à la valeur limite.|
-|La valeur du paramètre « {0} » doit être supérieure à {1}.|
-|Le paramètre « {0} » contient la valeur « {1} » qui doit être supérieure à {2}.|
+|La valeur du paramètre « {arg_name} » doit être supérieure à {lower_boundary}.|
+|Le paramètre « {arg_name} » a la valeur « {actual_value} » qui doit être supérieure à {lower_boundary}.|
 
 
 ## <a name="error-0005"></a>Erreur 0005  
@@ -101,8 +101,8 @@ Il y a deux façons d’obtenir le texte complet d’un message d’erreur dans 
 |Messages d’exception|
 |------------------------|
 |Le paramètre doit être supérieur ou égal à la valeur limite.|
-|La valeur du paramètre « {nom_argument} » doit être supérieure ou égale à {valeur_cible}.|
-|Le paramètre « {nom_argument} » a la valeur « {valeur_réelle} » qui doit être supérieure ou égale à {valeur_cible}.|
+|La valeur du paramètre « {arg_name} » doit être supérieure ou égale à {lower_boundary}.|
+|Le paramètre « {arg_name} » a la valeur « {value} » qui doit être supérieure ou égale à {lower_boundary}.|
 
 
 ## <a name="error-0006"></a>Erreur 0006  
@@ -115,8 +115,8 @@ Il y a deux façons d’obtenir le texte complet d’un message d’erreur dans 
 |Messages d’exception|
 |------------------------|
 |Paramètres différents. L’un des paramètres doit être inférieur à un autre.|
-|La valeur du paramètre « {0} » doit être inférieure à celle du paramètre « {1} ».|
-|Le paramètre « {0} » contient la valeur « {1} » qui doit être inférieure à {2}.|
+|La valeur du paramètre « {nom_argument} » doit être inférieure à la valeur du paramètre « {nom_paramètre_limite_supérieure} ».|
+|Le paramètre « {arg_name} » a la valeur « {value} » qui doit être inférieure à {upper_boundary_parameter_name}.|
 
 
 ## <a name="error-0007"></a>Erreur 0007  
@@ -137,8 +137,9 @@ Il y a deux façons d’obtenir le texte complet d’un message d’erreur dans 
 |Messages d’exception|
 |------------------------|
 |Paramètres différents. L’un des paramètres doit être inférieur ou égal à un autre.|
-|La valeur du paramètre « {0} » doit être inférieure ou égale à la valeur du paramètre « {1} ».|
-|Le paramètre « {0} » contient la valeur « {1} » qui doit être inférieure ou égale à {2}.|
+|La valeur du paramètre « {arg_name} » doit être inférieure ou égale à la valeur du paramètre « {upper_boundary_parameter_name} ».|
+|Le paramètre « {arg_name} » a la valeur « {actual_value} » qui doit être inférieure ou égale à {upper_boundary}.|
+|La valeur« {actual_value} » du paramètre « {arg_name} » doit être inférieure ou égale à la valeur {upper_boundary} du paramètre « {upper_boundary_parameter_name} ».|
 
 
 ## <a name="error-0008"></a>Erreur 0008  
@@ -154,8 +155,8 @@ Il y a deux façons d’obtenir le texte complet d’un message d’erreur dans 
 |------------------------|
 |La valeur du paramètre n’est pas dans la plage spécifiée.|
 |La valeur du paramètre « {nom_argument} » n’est pas comprise dans la plage.|
-|La valeur du paramètre « {nom_argument} » doit être comprise dans la plage [{a}, {b}].|
-|La valeur du paramètre « {nom_argument} » n’est pas comprise dans la plage.{raison}|
+|La valeur du paramètre « {arg_name} » doit être comprise dans la plage [{lower_boundary}, {upper_boundary}].|
+|La valeur du paramètre « {nom_argument} » n’est pas comprise dans la plage. {raison}|
 
 
 ## <a name="error-0009"></a>Erreur 0009  
@@ -187,7 +188,7 @@ Si le chemin d’accès complet à un blob a été spécifié, vérifiez que le 
 |Messages d’exception|
 |------------------------|
 |Le nom du compte de stockage Azure ou le nom du conteneur est incorrect.|
-|Le nom du compte de stockage « {0} » ou le nom du conteneur « {1} » est incorrect ; un nom de conteneur était attendu dans le format conteneur/blob.|
+|Le nom du compte de stockage Azure « {account_name} » ou le nom du conteneur « {container_name} » est incorrect ; un nom de conteneur était attendu au format conteneur/blob.|
 
 
 ## <a name="error-0010"></a>Erreur 0010  
@@ -200,7 +201,7 @@ Si le chemin d’accès complet à un blob a été spécifié, vérifiez que le 
 |Messages d’exception|
 |------------------------|
 |Les colonnes avec l’index correspondant dans les jeux de données d’entrée possèdent des noms différents.|
-|Les noms de colonne sont différents pour la colonne {0} (de base zéro) des jeux de données d’entrée ({1} et {2} respectivement).|
+|Les noms de colonne sont différents pour la colonne {col_index} (de base zéro) des jeux de données d’entrée ({dataset1} et {dataset2} respectivement).|
 
 
 ## <a name="error-0011"></a>Erreur 0011  
@@ -219,7 +220,7 @@ Si le chemin d’accès complet à un blob a été spécifié, vérifiez que le 
 |Messages d’exception|
 |------------------------|
 |Le jeu de colonnes spécifié ne s’applique à aucune des colonnes du jeu de données.|
-|Le jeu de colonnes spécifié « {0} » ne s’applique à aucune des colonnes du jeu de données.|
+|Le jeu de colonnes spécifié « {column_set} » ne s’applique à aucune des colonnes du jeu de données.|
 
 
 ## <a name="error-0012"></a>Erreur 0012  
@@ -301,7 +302,7 @@ Pour les colonnes que vous souhaitez utiliser pour le regroupement ou la catégo
 |Messages d’exception|
 |------------------------|
 |Erreur lors de l’établissement d’une connexion à la base de données.|
-|Erreur lors de l’établissement d’une connexion à la base de données : {0}.|
+|Erreur lors de l’établissement d’une connexion à la base de données : {connection_str}.|
 
 
 ## <a name="error-0016"></a>Erreur 0016  
@@ -384,8 +385,8 @@ Pour les colonnes que vous souhaitez utiliser pour le regroupement ou la catégo
 |Messages d’exception|
 |------------------------|
 |Les valeurs de la colonne ne sont pas triées.|
-|Les valeurs de la colonne « {0} » ne sont pas triées.|
-|Les valeurs de la colonne « {0} » du jeu de données « {1} » ne sont pas triées.|
+|Les valeurs de la colonne « {col_index} » ne sont pas triées.|
+|Les valeurs de la colonne « {col_index} » du jeu de données « {dataset} » ne sont pas triées.|
 
 
 ## <a name="error-0020"></a>Erreur 0020  
@@ -398,6 +399,7 @@ Pour les colonnes que vous souhaitez utiliser pour le regroupement ou la catégo
 |Messages d’exception|
 |------------------------|
 |Le nombre de colonnes du jeu de données d’entrée est inférieur au minimum autorisé.|
+|Le nombre de colonnes du jeu de données d’entrée « {arg_name} » est inférieur au minimum autorisé.|
 |Le nombre de colonnes du jeu de données d’entrée est inférieur au minimum autorisé de {nombre_de_colonnes_requises} colonne(s).|
 |Le nombre de colonnes du jeu de données d’entrée « {nom_argument} » est inférieur au minimum autorisé de {nombre_de_colonnes_requises} colonne(s).|
 
@@ -450,9 +452,9 @@ Pour les colonnes que vous souhaitez utiliser pour le regroupement ou la catégo
 |Messages d’exception|
 |------------------------|
 |Le nombre de colonnes sélectionnées dans le jeu de données en entrée n’est pas égal au nombre attendu.|
-|Le nombre de colonnes sélectionnées dans le jeu de données en entrée n’est pas égal à {0}.|
-|Le modèle de sélection de colonnes « {0} » fournit un nombre de colonnes sélectionnées dans le jeu de données en entrée différent de {1}.|
-|Le modèle de sélection de colonnes « {0} » est censé fournir {1} colonne(s) sélectionnée(s) dans le jeu de données d’entrée, mais {2} colonne(s) est (sont) fournie(s).|
+|Le nombre de colonnes sélectionnées dans le jeu de données d’entrée n’est pas égal à {expected_col_count}.|
+|Le modèle de sélection de colonnes « {selection_pattern_friendly_name} » fournit un nombre de colonnes sélectionnées dans le jeu de données d’entrée différent de {expected_col_count}.|
+|Le modèle de sélection de colonnes « {selection_pattern_friendly_name} » est supposé fournir {expected_col_count} colonnes sélectionnées dans le jeu de données d’entrée, mais {selected_col_count} colonnes est en réalité fourni.|
 
 
 ## <a name="error-0023"></a>Erreur 0023  
@@ -466,8 +468,8 @@ Cette erreur se produit dans Azure Machine Learning si la colonne cible (telle q
 |Messages d’exception|
 |------------------------|
 |Le jeu de données d’entrée comporte une colonne cible non prise en charge.|
-|Le jeu de données d’entrée comporte la colonne cible « {0} » qui n’est pas prise en charge.|
-|Le jeu de données d’entrée comporte la colonne cible « {0} » qui n’est pas prise en charge pour l’apprenant de type {1}.|
+|Le jeu de données d’entrée comporte la colonne cible « {column_index} » qui n’est pas prise en charge.|
+|Le jeu de données d’entrée comporte la colonne cible « {column_index} » qui n’est pas prise en charge pour l’apprenant de type {learner_type}.|
 
 
 ## <a name="error-0024"></a>Erreur 0024  
@@ -500,8 +502,8 @@ Il peut aussi arriver qu’une colonne d’étiquette soit présente dans le jeu
 |Messages d’exception|
 |------------------------|
 |Il n’y a pas de colonne de score dans le jeu de données.|
-|Il n’y a pas de colonne de score dans « {0} ».|
-|Il n’y a pas de colonne de score dans « {0} » produite par un « {1} ». Notez le jeu de données en utilisant le bon type d’apprenant.|
+|Il n’y a pas de colonne de score dans « {dataset_name} ».|
+|Il n’y a pas de colonne de score dans « {dataset_name} » produite par un « {learner_type} ». Notez le jeu de données en utilisant le bon type d’apprenant.|
 
 
 ## <a name="error-0026"></a>Erreur 0026  
@@ -514,7 +516,7 @@ Il peut aussi arriver qu’une colonne d’étiquette soit présente dans le jeu
 |Messages d’exception|
 |------------------------|
 |Les noms de colonnes Equal (Égal à) sont spécifiés dans les arguments. Les noms de colonnes Equal (Égal à) ne sont pas autorisés par le module.|
-|Les noms de colonnes Equal (Égal à) ne sont pas autorisés dans les arguments « {0} » et « {1} ». Spécifiez des noms différents.|
+|Les noms de colonne identiques dans les arguments « {arg_name_1} » et « {arg_name_2} » ne sont pas autorisés. Spécifiez des noms différents.|
 
 
 ## <a name="error-0027"></a>Erreur 0027  
@@ -533,7 +535,7 @@ Il peut aussi arriver qu’une colonne d’étiquette soit présente dans le jeu
 |Messages d’exception|
 |------------------------|
 |La taille des objets transmis est incohérente.|
-|La taille de « {0} » est incompatible avec la taille de « {1} ».|
+|La taille de « {friendly_name1} » n’est pas cohérente avec la taille de « {friendly_name2} ».|
 
 
 ## <a name="error-0028"></a>Erreur 0028  
@@ -571,7 +573,7 @@ Il peut aussi arriver qu’une colonne d’étiquette soit présente dans le jeu
 |Messages d’exception|
 |------------------------|
 |Un URI non valide est transmis.|
-|L’URI « {0} » n’est pas valide.|
+|L’URI « {invalid_url} » n’est pas valide.|
 
 
 ## <a name="error-0030"></a>Erreur 0030  
@@ -584,7 +586,7 @@ Il peut aussi arriver qu’une colonne d’étiquette soit présente dans le jeu
 |Messages d’exception|
 |------------------------|
 |Impossible de télécharger un fichier.|
-|Erreur lors du téléchargement du fichier : {0}.|
+|Erreur lors du téléchargement du fichier : {file_url}.|
 
 
 ## <a name="error-0031"></a>Erreur 0031  
@@ -597,7 +599,8 @@ Il peut aussi arriver qu’une colonne d’étiquette soit présente dans le jeu
 |Messages d’exception|
 |------------------------|
 |Le nombre de colonnes du jeu de colonnes est inférieur au nombre requis.|
-|Au moins {0} colonne(s) doit (doivent) être spécifiée(s). Le nombre effectif de colonnes est de {1}.|
+|Au moins {required_columns_count} colonnes doivent être spécifiées pour l’argument d’entrée « {arg_name} ».|
+|Au moins {required_columns_count} colonnes doivent être spécifiées pour l’argument d’entrée « {arg_name} ». Le nombre réel de colonnes spécifiées est {input_columns_count}.|
 
 
 ## <a name="error-0032"></a>Erreur 0032  
@@ -610,7 +613,7 @@ Il peut aussi arriver qu’une colonne d’étiquette soit présente dans le jeu
 |Messages d’exception|
 |------------------------|
 |L’argument n’est pas numérique.|
-|« {0} » n’est pas un nombre.|
+|« {arg_name} » n’est pas un nombre.|
 
 
 ## <a name="error-0033"></a>Erreur 0033  
@@ -623,7 +626,7 @@ Il peut aussi arriver qu’une colonne d’étiquette soit présente dans le jeu
 |Messages d’exception|
 |------------------------|
 |L’argument doit être fini.|
-|« {0} » n’est pas fini.|
+|« {arg_name} » n’est pas fini.|
 
 
 ## <a name="error-0034"></a>Erreur 0034  
@@ -663,7 +666,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |Messages d’exception|
 |------------------------|
 |Aucune fonctionnalité n’a été fournie pour un utilisateur ou un élément requis.|
-|Les fonctionnalités pour {0} ne sont pas fournies alors qu’elles sont requises.|
+|Les fonctionnalités pour {required_feature_name} ne sont pas fournies alors qu’elles sont requises.|
 
 
 ## <a name="error-0036"></a>Erreur 0036  
@@ -676,7 +679,6 @@ For general information about how the Matchbox recommendation algorithm works, a
 |Messages d’exception|
 |------------------------|
 |Définition de fonctionnalité en double pour un utilisateur ou un élément.|
-|Définition de fonctionnalité en double pour {0}.|
 
 
 ## <a name="error-0037"></a>Erreur 0037  
@@ -742,9 +744,9 @@ Cette erreur peut également se produire si vous essayez d’utiliser une colonn
 |Messages d’exception|
 |------------------------|
 |La conversion n’est pas autorisée.|
-|Impossible de convertir une colonne de type {0} en colonne de type {1}.|
-|Impossible de convertir la colonne « {2} » de type {0} en colonne de type {1}.|
-|Impossible de convertir la colonne « {2} » de type {0} en colonne « {3} » de type {1}.|
+|Impossible de convertir la colonne de type {type1} en colonne de type {type2}.|
+|Impossible de convertir la colonne « {col_name1} » de type {type1} en colonne de type {type2}.|
+|Impossible de convertir la colonne « {col_name1} » de type {type1} en colonne « {col_name2} » de type {type2}.|
 
 
 ## <a name="error-0044"></a>Erreur 0044  
@@ -757,8 +759,8 @@ Cette erreur peut également se produire si vous essayez d’utiliser une colonn
 |Messages d’exception|
 |------------------------|
 |Impossible de dériver le type d’élément de la colonne.|
-|Impossible de dériver le type d’élément pour la colonne « {0} »--tous les éléments sont des références null.|
-|Impossible de dériver le type d’élément pour la colonne « {0} » du jeu de données « {1} » --tous les éléments sont des références null.|
+|Impossible de dériver le type d’élément pour la colonne « {column_name} » : tous les éléments sont des références Null.|
+|Impossible de dériver le type d’élément pour la colonne « {column_name} » du jeu de données « {dataset_name} » : tous les éléments sont des références Null.|
 
 
 ## <a name="error-0045"></a>Erreur 0045  
@@ -771,8 +773,8 @@ Cette erreur peut également se produire si vous essayez d’utiliser une colonn
 |Messages d’exception|
 |------------------------|
 |Impossible de créer la colonne avec des types d’éléments mixtes.|
-|Impossible de créer la colonne avec l’ID « {ID_colonne} » comportant les types d’éléments combinés : \n\tLe type de données[{ligne_1}, {ID_colonne}] est "{type_1}". Le type de données [{ligne_2}, {ID_colonne}] est « {type_2} ».|
-|Impossible de créer la colonne avec l’ID « {ID_colonne} » comportant les types d’éléments combinés : \n\tLe type dans le bloc {ID_bloc_1} est « {type_1} ». Le type dans le bloc {ID_bloc_2} est « {type_2} » avec la taille de bloc : {taille_bloc}.|
+|Impossible de créer la colonne avec l’ID « {column_id} » des types d’éléments mixtes :<br />Le type de données [{row_1}, {column_id}] est « {type_1} ». <br />Le type de données [{ligne_2}, {ID_colonne}] est « {type_2} ».|
+|Impossible de créer la colonne avec l’ID « {column_id} » des types d’éléments mixtes :<br />Le type dans le bloc {chunk_id_1} est « {type_1} ». <br />Le type dans le bloc {ID_bloc_2} est « {type_2} » avec la taille de bloc : {taille_bloc}.|
 
 
 ## <a name="error-0046"></a>Erreur 0046  
@@ -785,7 +787,7 @@ Cette erreur peut également se produire si vous essayez d’utiliser une colonn
 |Messages d’exception|
 |------------------------|
 |Spécifiez un répertoire de sortie valide.|
-|Répertoire : {0} ne peut pas être créé. Spécifiez un chemin valide.|
+|Répertoire : impossible de créer {path}. Spécifiez un chemin valide.|
 
 
 ## <a name="error-0047"></a>Erreur 0047  
@@ -824,8 +826,8 @@ Cette erreur peut également se produire si vous essayez d’utiliser une colonn
 |Messages d’exception|
 |------------------------|
 |Impossible d’ouvrir un fichier.|
-|Erreur lors de l’ouverture du fichier : {0}.|
-|Erreur lors de l’ouverture du fichier : {0}. Message d’exception de stockage : {1}.|
+|Erreur lors de l’ouverture du fichier : {file_name}.|
+|Erreur lors de l’ouverture du fichier : {file_name}. Message d’exception de stockage : {exception}.|
 
 
 ## <a name="error-0049"></a>Erreur 0049  
@@ -910,7 +912,7 @@ Cette erreur peut également se produire si vous essayez d’utiliser une colonn
 |Messages d’exception|
 |------------------------|
 |Le fichier ou le blob existe déjà.|
-|Le fichier ou le blob « {0} » existe déjà.|
+|Le fichier ou l’objet blob « {file_path} » existe déjà.|
 
 
 ## <a name="error-0058"></a>Erreur 0058  
@@ -945,7 +947,7 @@ Cette erreur peut également se produire si vous essayez d’utiliser une colonn
 |Messages d’exception|
 |------------------------|
 |Un ou plusieurs index de colonne ou plages d’index spécifiés n’ont pas pu être analysés.|
-|L’index de colonne ou la plage « {0} » n’a pas pu être analysé.|
+|L’index ou la plage de colonnes « {column_index_or_range} » n’a pas pu être analysé.|
 
 
 ## <a name="error-0060"></a>Erreur 0060  
@@ -958,7 +960,7 @@ Cette erreur peut également se produire si vous essayez d’utiliser une colonn
 |Messages d’exception|
 |------------------------|
 |Plage d’index de colonnes non valide ou hors limites spécifiée.|
-|La plage de colonnes « {0} » est non valide ou hors limites.|
+|La plage de colonnes « {column_range} » est non valide ou hors limites.|
 
 
 ## <a name="error-0061"></a>Erreur 0061  
@@ -1035,7 +1037,7 @@ Cette erreur peut également se produire si vous essayez d’utiliser une colonn
 |Messages d’exception|
 |------------------------|
 |La ressource n’a pas pu être chargée vers le stockage Azure.|
-|Le fichier « {0} » n’a pas pu être chargé vers le stockage Azure en tant que « {1} ».|
+|Le fichier « {source_path} » n’a pas pu être chargé sur le stockage Azure en tant que « {dest_path} ».|
 
 
 ## <a name="error-0067"></a>Erreur 0067  
@@ -1079,7 +1081,6 @@ Consultez les articles suivants pour obtenir de l’aide sur les requêtes Hive 
 |Messages d’exception|
 |------------------------|
 |Le script Hive est incorrect.|
-|Le script Hive {0} est incorrect.|
 
 
 ## <a name="error-0069"></a>Erreur 0069  
@@ -1101,8 +1102,8 @@ Consultez les articles suivants pour obtenir de l’aide sur les requêtes Hive 
 |Messages d’exception|
 |------------------------|
 |Le script SQL est incorrect.|
-|La requête SQL « {0} » n’est pas correcte.|
-|La requête SQL « {0} » n’est pas correcte : {1}.|
+|La requête SQL « {sql_query} » n’est pas correcte.|
+|La requête SQL « {sql_query} » n’est pas correcte. Message d’exception : {exception}.|
 
 
 ## <a name="error-0070"></a>Erreur 0070  
@@ -1115,7 +1116,7 @@ Consultez les articles suivants pour obtenir de l’aide sur les requêtes Hive 
 |Messages d’exception|
 |------------------------|
 |La table Azure n’existe pas.|
-|La table Azure « {0} » n’existe pas.|
+|La table Azure « {table_name} » n’existe pas.|
 
 
 ## <a name="error-0072"></a>Erreur 0072  
@@ -1140,7 +1141,7 @@ Consultez les articles suivants pour obtenir de l’aide sur les requêtes Hive 
 |Messages d’exception|
 |------------------------|
 |Échec de conversion de colonne.|
-|Échec de conversion de colonne en {0}.|
+|Échec de conversion de colonne en {target_type}.|
 
 
 ## <a name="error-0075"></a>Erreur 0075  
@@ -1169,7 +1170,7 @@ La gestion des erreurs pour cet événement a été introduite dans une version 
 |Messages d’exception|
 |------------------------|
 |Mode écriture d’objet blob non pris en charge.|
-|Mode écriture d’objet blob non pris en charge : {0}.|
+|Mode écriture d’objet blob non pris en charge : {blob_write_mode}.|
 
 
 ## <a name="error-0078"></a>Erreur 0078  
@@ -1194,7 +1195,7 @@ La gestion des erreurs pour cet événement a été introduite dans une version 
 |Messages d’exception|
 |------------------------|
 |Le nom du conteneur de stockage Azure est incorrect.|
-|Le nom de conteneur de stockage « {0} » est incorrect ; un nom de conteneur était attendu dans le format nomconteneur/nomblob.|
+|Le nom de conteneur de stockage Azure « {container_name} » est incorrect ; un nom de conteneur était attendu au format conteneur/blob.|
 
 
 ## <a name="error-0080"></a>Erreur 0080  
@@ -1207,7 +1208,7 @@ La gestion des erreurs pour cet événement a été introduite dans une version 
 |Messages d’exception|
 |------------------------|
 |Les colonnes ne comportant aucune valeur ne sont pas autorisées.|
-|Aucune valeur ne figure dans la colonne {0}.|
+|Toutes les valeurs de la colonne {col_index_or_name} sont manquantes.|
 
 
 ## <a name="error-0081"></a>Erreur 0081  
@@ -1244,9 +1245,9 @@ La gestion des erreurs pour cet événement a été introduite dans une version 
 |Messages d’exception|
 |------------------------|
 |Le jeu de données utilisé pour la formation n’est pas valide.|
-|{0} contient des données non valides pour l’apprentissage.|
-|{0} contient des données non valides pour l’apprentissage. Type d’apprenant : {1}.|
-|{0} contient des données non valides pour l’apprentissage. Type d’apprenant : {1}. Raison : {2}.|
+|{data_name} contient des données non valides pour l’entraînement.|
+|{data_name} contient des données non valides pour l’entraînement. Type d’apprenant : {learner_type}.|
+|{data_name} contient des données non valides pour l’entraînement. Type d’apprenant : {learner_type}. Raison : « {raison} ».|
 
 
 ## <a name="error-0084"></a>Erreur 0084  
@@ -1271,7 +1272,7 @@ La gestion des erreurs pour cet événement a été introduite dans une version 
 |Messages d’exception|
 |------------------------|
 |Erreur lors de l’évaluation du script.|
-|L’erreur suivante s’est produite lors de l’évaluation du script. Consultez le journal de sortie pour plus d’informations : ---------- Début du message d’erreur de l’interpréteur {langage_script} ---------- {message} ----------Fin du message d’erreur de l’interpréteur {langage_script} ----------|
+|L’erreur suivante s’est produite lors de l’évaluation du script. Pour plus d’informations, consultez le journal de sortie :<br />----------Début du message d’erreur de l’interpréteur {script_language}----------<br />{message}<br />----------Fin du message d’erreur de l’interpréteur {script_language}----------|
 
 
 ## <a name="error-0090"></a>Erreur 0090  
@@ -1284,8 +1285,8 @@ La gestion des erreurs pour cet événement a été introduite dans une version 
 |Messages d’exception|
 |------------------------|
 |Impossible de créer la table Hive. Pour un cluster HDInsight, vérifiez que le nom du compte de stockage Azure associé au cluster est identique à la valeur transmise par le paramètre de module.|
-|Impossible de créer la table Hive « {0} ». Pour un cluster HDInsight, vérifiez que le nom du compte de stockage Azure associé au cluster est identique à la valeur transmise par le paramètre de module.|
-|Impossible de créer la table Hive « {0} ». Pour un cluster HDInsight, vérifiez que le nom du compte de stockage Azure associé au cluster est « {1} ».|
+|Impossible de créer la table Hive « {table_name} ». Pour un cluster HDInsight, vérifiez que le nom du compte de stockage Azure associé au cluster est identique à la valeur transmise par le paramètre de module.|
+|Impossible de créer la table Hive « {table_name} ». Pour un cluster HDInsight, vérifiez que le nom du compte de stockage Azure associé au cluster est « {cluster_name} ».|
 
 
 ## <a name="error-0102"></a>Erreur 0102  
@@ -1317,6 +1318,19 @@ La gestion des erreurs pour cet événement a été introduite dans une version 
 |Le type de paramètre « {0} » non pris en charge est spécifié.|  
 
 
+## <a name="error-0107"></a>Erreur 0107  
+ Une exception se produit lorsqu’un fichier de définition de module définit un type de sortie non pris en charge  
+  
+ Cette erreur se produit dans Azure Machine Learning lorsque le type d’un port de sortie dans une définition xml de module personnalisé ne correspond pas à un type pris en charge.  
+  
+**Résolution :** Assurez-vous que la propriété de type d’un élément Output du fichier de définition xml du module personnalisé est un type pris en charge.  
+  
+|Messages d’exception|  
+|------------------------|  
+|Type de sortie non pris en charge.|  
+|Type de sortie « {output_type} » non pris en charge spécifié.|  
+
+
 ## <a name="error-0125"></a>Erreur 0125  
  Une exception se produit lorsque les schémas de plusieurs jeux de données ne correspondent pas.  
 
@@ -1342,7 +1356,7 @@ La gestion des erreurs pour cet événement a été introduite dans une version 
 |Messages d’exception|
 |------------------------|
 |La taille en pixels de l’image dépasse la limite autorisée.|
-|La taille en pixels de l’image dans le fichier « {0} » dépasse la limite autorisée : « {1} ».|
+|La taille en pixels de l’image dans le fichier « {file_path} » dépasse la limite autorisée : « {size_limit} ».|
 
 
 ## <a name="error-0128"></a>Erreur 0128  
@@ -1353,7 +1367,7 @@ La gestion des erreurs pour cet événement a été introduite dans une version 
 |Messages d’exception|
 |------------------------|
 |Le nombre de probabilités conditionnelles dépasse la limite pour les colonnes catégorielles.|
-|Le nombre de probabilités conditionnelles dépasse la limite pour les colonnes catégorielles. Les colonnes « {0} » et « {1} » posent problème.|
+|Le nombre de probabilités conditionnelles dépasse la limite pour les colonnes catégorielles. Les colonnes « {column_name_or_index_1} » et « {column_name_or_index_2} » sont la paire problématique.|
 
 
 ## <a name="error-0129"></a>Erreur 0129  
@@ -1424,7 +1438,7 @@ Résolution :
 |Messages d’exception|
 |------------------------|
 |Le nombre de colonnes numériques sélectionnées est trop faible et les valeurs uniques dans les colonnes catégorielles et de chaînes sont trop petites.|
-|Le nombre de colonnes numériques sélectionnées est trop faible et les valeurs uniques dans les colonnes catégorielles et de chaînes (actuellement {0}) doivent être au moins égales à {1}.|
+|Le nombre total de colonnes numériques sélectionnées et les valeurs uniques dans les colonnes catégorielles et de chaînes (actuellement {actual_num}) doivent être au moins égaux à {lower_boundary}.|
 
 
 ## <a name="error-0154"></a>Erreur 0154  
@@ -1473,6 +1487,6 @@ Pour obtenir plus d’aide, nous vous recommandons de publier le message détail
 |Messages d’exception|
 |------------------------|
 |Exception de la bibliothèque.|
-|Exception de la bibliothèque : {0}.|
-|Exception de bibliothèque inconnue : {0}. {1}.|
+|Exception de bibliothèque : {exception}.|
+|Exception de bibliothèque inconnue : {exception}. {customer_support_guidance}.|
 

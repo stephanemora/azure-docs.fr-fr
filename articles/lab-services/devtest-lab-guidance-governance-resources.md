@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: dc65d368eb4c1beb57099cb6c16fb33bbe5c1f79
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8bb00c770c61a0a5462a01ae552bd7e40a7cdb36
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981505"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470647"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Gouvernance de l’infrastructure Azure DevTest Labs – Ressources
 Cet article traite de l’alignement et de la gestion des ressources pour DevTest Labs au sein de votre organisation. 
@@ -38,7 +38,7 @@ Avant qu’une organisation utilise Azure pour le développement général d’a
 
 La **première pratique recommandée** est d’examiner la taxonomie Azure des organisations. Cette taxonomie souligne les divisions entre les abonnements de développement et de production. Dans le diagramme suivant, la taxonomie suggérée permet une séparation logique entre l’environnement de développement/test et celui de production. Grâce à cette approche, une organisation peut introduire des codes de facturation, qui lui permettront d’effectuer un suivi des coûts associés à chaque environnement séparément. Pour plus d’informations, consultez la section sur la [gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption/appendix/azure-scaffold). En outre, vous pouvez utiliser les [balises Azure](../azure-resource-manager/management/tag-resources.md) pour organiser les ressources à des fins de suivi et de facturation.
 
-La **deuxième pratique recommandée** consiste à activer l’abonnement DevTest au sein du portail Azure Enterprise. L’activation permet à une organisation d’exécuter des systèmes d’exploitation clients qui ne sont en principe pas disponibles dans un abonnement Azure Enterprise. Utilisez ensuite des logiciels d’entreprise où vous payez uniquement pour le calcul, et ne vous inquiétez pas pour les licences. Cela garantit que la facturation pour les services désignés (y compris les images de galerie dans les systèmes IaaS telles que Microsoft SQL Server) est basée sur la consommation uniquement. Pour accéder à plus d’informations sur l’abonnement Azure DevTest, [cliquez ici](https://azure.microsoft.com/offers/ms-azr-0148p/) pour les clients Contrat Entreprise (EA) et [cliquez ici](https://azure.microsoft.com/offers/ms-azr-0023p/) pour les clients Go.
+La **deuxième pratique recommandée** consiste à activer l’abonnement DevTest au sein du portail Azure Enterprise. L’activation permet à une organisation d’exécuter des systèmes d’exploitation clients qui ne sont en principe pas disponibles dans un abonnement Azure Enterprise. Utilisez ensuite des logiciels d’entreprise où vous payez uniquement pour le calcul sans vous soucier des licences. Cela garantit que la facturation pour les services désignés (y compris les images de galerie dans les systèmes IaaS telles que Microsoft SQL Server) est basée sur la consommation uniquement. Pour accéder à plus d’informations sur l’abonnement Azure DevTest, [cliquez ici](https://azure.microsoft.com/offers/ms-azr-0148p/) pour les clients Contrat Entreprise (EA) et [cliquez ici](https://azure.microsoft.com/offers/ms-azr-0023p/) pour les clients Go.
 
 ![Alignement des ressources avec des abonnements](./media/devtest-lab-guidance-governance/resource-alignment-with-subscriptions.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour ajouter un utilisateur en tant que propriétaire de labo dans Azure Lab Services
-description: Cet article explique comment un administrateur peut ajouter à un labo un utilisateur en tant que propriétaire.
+title: Guide pratique pour ajouter des propriétaires à un labo dans Azure Lab Services
+description: Cet article explique comment un administrateur peut ajouter un utilisateur à un labo comme propriétaire dans Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,19 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: 9e007ee6c95843b7e8ef9d7a701237034811489e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9302cadf0b900c9faac382bad86b51cea7d828fb
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475251"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443514"
 ---
-# <a name="how-to-add-a-user-as-an-owner-of-a-classroom-lab-in-azure-lab-services"></a>Guide pratique pour ajouter un utilisateur en tant que propriétaire d’un labo de classe dans Azure Lab Services
-Cet article explique comment ajouter un utilisateur en tant que propriétaire d’un labo dans Azure Lab Services.
+# <a name="how-to-add-additional-owners-to-an-existing-lab-in-azure-lab-services"></a>Guide pratique pour ajouter des propriétaires à un labo existant dans Azure Lab Services
+Cet article vous explique comment, en tant qu’administrateur, vous pouvez ajouter des propriétaires à un labo existant.
 
 ## <a name="add-user-to-the-reader-role-for-the-lab-account"></a>Ajouter un utilisateur au rôle de lecteur pour le compte Lab
+Pour ajouter un utilisateur à un labo existant comme propriétaire supplémentaire, vous devez d’abord lui accorder les autorisations de **lecture** sur le compte lab.
+
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le menu de gauche, sélectionnez **Tous les services**. Effectuez une recherche sur **Lab Services**, puis sélectionnez-le.
 3. Sélectionnez votre **compte Lab** dans la liste. 

@@ -3,12 +3,12 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 3ad3682e301eb98d48372c3955c6ff049422c517
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: b9c57378df1510179c5a45b6aa669bab804aca5e
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024668"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484432"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
@@ -21,9 +21,9 @@ Le fichier de métadonnées *host.json* contient les options de configuration gl
 > [!NOTE]
 > Cet article concerne Azure Functions versions 2.x et ultérieures.  Pour obtenir une référence de host.json dans Functions 1.x, consultez [Informations de référence sur le fichier host.json pour Azure Functions 1.x](functions-host-json-v1.md).
 
-Les autres options de configuration d’application de fonction sont managées dans vos [paramètres d’application](functions-app-settings.md).
+D’autres options de configuration d’application de fonction sont gérées dans vos [paramètres d’application](functions-app-settings.md) (pour les applications déployées) ou dans votre fichier [local.settings.json](functions-run-local.md#local-settings-file) (pour un développement local).
 
-Certains paramètres host.json sont uniquement utilisés lors de l’exécution locale dans le fichier [local.settings.json](functions-run-local.md#local-settings-file).
+Les configurations dans host.json relatives aux liaisons sont appliquées de façon égale à chaque fonction de l’application de fonction. 
 
 ## <a name="sample-hostjson-file"></a>Exemple de fichier host.json
 
@@ -69,11 +69,11 @@ L’exemple de fichier *host.json* suivant pour la version 2.x+ contient toutes 
               "isEnabled": true,
               "maxTelemetryItemsPerSecond" : 20,
               "evaluationInterval": "01:00:00",
-              "initialSamplingPercentage": 1.0, 
+              "initialSamplingPercentage": 100.0, 
               "samplingPercentageIncreaseTimeout" : "00:00:01",
               "samplingPercentageDecreaseTimeout" : "00:00:01",
               "minSamplingPercentage": 0.1,
-              "maxSamplingPercentage": 0.1,
+              "maxSamplingPercentage": 100.0,
               "movingAverageRatio": 1.0,
               "excludedTypes" : "Dependency;Event",
               "includedTypes" : "PageView;Trace"
@@ -278,7 +278,7 @@ Paramètres de configuration de l’[analyse d’intégrité d’hôtes](https:/
 
 ## <a name="http"></a>http
 
-Les paramètres de configuration se trouvent dans les [déclencheurs et liaisons HTTP](functions-bindings-http-webhook.md#hostjson-settings).
+Les paramètres de configuration se trouvent dans les [déclencheurs et liaisons HTTP](functions-bindings-http-webhook-output.md#hostjson-settings).
 
 ## <a name="logging"></a>journalisation
 
@@ -341,7 +341,7 @@ La dépendance managée est une fonctionnalité qui est actuellement prise en ch
 
 ## <a name="queues"></a>queues
 
-Les paramètres de configuration se trouvent dans les [déclencheurs et liaisons de la file d'attente de stockage](functions-bindings-storage-queue.md#host-json).  
+Les paramètres de configuration se trouvent dans les [déclencheurs et liaisons de la file d'attente de stockage](functions-bindings-storage-queue-output.md#host-json).  
 
 ## <a name="sendgrid"></a>sendGrid
 
@@ -349,7 +349,7 @@ Le paramètre de configuration se trouve dans les [déclencheurs et liaisons Sen
 
 ## <a name="servicebus"></a>serviceBus
 
-Le paramètre de configuration se trouve dans les [déclencheurs et liaisons Service Bus](functions-bindings-service-bus.md#host-json).
+Le paramètre de configuration se trouve dans les [déclencheurs et liaisons Service Bus](functions-bindings-service-bus-output.md#host-json).
 
 ## <a name="singleton"></a>singleton
 

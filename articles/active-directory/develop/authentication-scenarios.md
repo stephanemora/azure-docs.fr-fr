@@ -13,18 +13,18 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 9760f09f2588f09263c96cf8c1be74129b117009
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 6e14284b5d653af01631d56acf954f9c2a1f10ab
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085382"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77194993"
 ---
 # <a name="authentication-basics"></a>Principes fondamentaux de l’authentification
 
 ## <a name="what-is-authentication"></a>Présentation de l’authentification
 
-Cet article aborde la plupart des concepts d’authentification que vous devez comprendre pour créer des applications web protégées, des API web ou des applications appelant des API web protégées. Si vous rencontrez un terme qui ne vous est pas familier, essayez notre [glossaire](developer-glossary.md).
+Cet article aborde la plupart des concepts d’authentification que vous devez comprendre pour créer des applications web protégées, des API web ou des applications appelant des API web protégées. Si vous voyez un terme que vous ne connaissez pas, consultez notre [glossaire](developer-glossary.md) ou nos [Vidéos sur la plateforme d’identités Microsoft](identity-videos.md), qui couvrent les concepts de base.
 
 L’**authentification** est le processus visant à prouver que vous êtes bien qui vous prétendez être. On abrège parfois l’authentification de cette manière : AuthN.
 

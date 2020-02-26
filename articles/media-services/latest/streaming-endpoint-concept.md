@@ -10,14 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: c8901dccb67e91c608e999f823cf7d2e757da08b
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: c1e9be605a6f01695f2472ae76a9e5a786388aa0
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186015"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206104"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Points de terminaison de streaming (origine) dans Azure Media Services
 
@@ -64,16 +64,16 @@ Fonctionnalité|standard|Premium
 Débit |Jusqu’à 600 Mbits/s, et le débit fourni peut être beaucoup plus élevé avec un CDN.|200 Mbits/s par unité de streaming (SU). Le débit fourni peut être beaucoup plus élevé avec un CDN.
 CDN|Azure CDN, CDN tiers ou sans CDN.|Azure CDN, CDN tiers ou sans CDN.
 La facturation est calculée sur la base d'un taux| Quotidien|Quotidien
-Chiffrement dynamique|OUI|OUI
-l’empaquetage dynamique|OUI|OUI
+Chiffrement dynamique|Oui|Oui
+l’empaquetage dynamique|Oui|Oui
 Scale|Mise à l’échelle automatique vers le débit cible.|Unités de streaming supplémentaires
-Hôte de filtrage d’IP/G20/personnalisé <sup>1</sup>|OUI|OUI
-Téléchargement progressif|OUI|OUI
+Hôte de filtrage d’IP/G20/personnalisé <sup>1</sup>|Oui|Oui
+Téléchargement progressif|Oui|Oui
 Utilisation recommandée |Recommandé pour la plupart des scénarios de streaming.|Utilisation professionnelle.
 
 <sup>1</sup> Uniquement utilisé directement sur le point de terminaison de streaming quand le CDN n’est pas activé sur le point de terminaison.<br/>
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>Propriétés
 
 Cette section fournit des détails sur certaines propriétés du point de terminaison de streaming. Pour obtenir des exemples montrant comment créer un nouveau point de terminaison de streaming et les descriptions de toutes les propriétés, consultez [Point de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints/create).
 
@@ -147,16 +147,21 @@ Vous devez également prendre en compte le fonctionnement du streaming adaptif. 
 
 ### <a name="enable-azure-cdn-integration"></a>Activer l’intégration au CDN Azure
 
+> [!IMPORTANT]
+> Vous ne pouvez pas activer le CDN pour les comptes Azure d’évaluation ou d’étudiant.
+>
+> L’intégration du CDN est activée dans tous les centres de données Azure, sauf dans les régions Chine et du gouvernement fédéral.
+
 Une fois le point de terminaison de streaming provisionné et le CDN activé, il existe un délai d’attente défini sur Media Services avant la mise à jour des DNS pour le mappage du point de terminaison de streaming au point de terminaison CDN.
 
 Si vous souhaitez activer/désactiver le CDN ultérieurement, votre point de terminaison de streaming doit avoir l’état **Arrêté**. Il peut s’écouler jusqu’à deux heures avant que l’intégration d’Azure CDN soit active et que les modifications soient actives sur tous les comptes POP CDN. Toutefois, vous pouvez démarrer votre point de terminaison de streaming et le flux sans interruptions à partir du point de terminaison de streaming. Une fois l’intégration terminée, le flux est émis à partir du CDN. Pendant la durée de l’approvisionnement, votre point de terminaison de streaming est en état de **démarrage** et vous pouvez observer une dégradation des performances.
 
 Lorsque le point de terminaison de streaming Standard est créé, il est configuré par défaut avec Standard Verizon. Vous pouvez configurer les fournisseurs Premium Verizon ou Standard Akamai à l’aide des API REST.
 
-L’intégration du CDN est activée dans tous les centres de données Azure, sauf dans les régions Gouvernement fédéral et Chine.
+L’intégration d’Azure Media Services au CDN Azure est implémentée sur le **CDN Azure fourni par Verizon** pour les points de terminaison de streaming Standard. Les points de terminaison de streaming Premium peuvent être configurés à l’aide de l’ensemble des **fournisseurs et niveaux de tarification Azure CDN**. 
 
-> [!IMPORTANT]
-> L’intégration d’Azure Media Services au CDN Azure est implémentée sur le **CDN Azure fourni par Verizon** pour les points de terminaison de streaming Standard. Les points de terminaison de streaming Premium peuvent être configurés à l’aide de l’ensemble des **fournisseurs et niveaux de tarification Azure CDN**. Pour plus d’informations sur les fonctionnalités du CDN Azure, consultez [Vue d’ensemble du réseau de distribution de contenu (CDN)](../../cdn/cdn-overview.md).
+> [!NOTE]
+> Pour plus d’informations sur Azure CDN, consultez [Présentation du CDN](../../cdn/cdn-overview.md).
 
 ### <a name="determine-if-dns-change-was-made"></a>Déterminer si des modifications ont été apportées aux DNS
 
@@ -165,6 +170,10 @@ Vous pouvez déterminer si les DNS ont été modifiés sur un point de terminais
 ## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
+
+## <a name="see-also"></a>Voir aussi
+
+[Présentation du CDN](../../cdn/cdn-overview.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

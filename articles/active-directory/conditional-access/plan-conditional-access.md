@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 266fa2403ef96e808a0c1f1eb46b4f7065c06252
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 3c8c5e3c2552101437bfed17906f94861e676568
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185904"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468435"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procédure : Planifier votre déploiement d’accès conditionnel Azure Active Directory
 
@@ -31,6 +31,9 @@ Si des fonctionnalités supplémentaires sont nécessaires, vous devez peut-êtr
 Il existe deux types de stratégies d’accès conditionnel : de référence et standard. Une [stratégie de référence](baseline-protection.md) est une stratégie d’accès conditionnel prédéfinie. L’objectif de ces stratégies est d’avoir au moins le niveau de référence de sécurité activé. Stratégies de référence. Les stratégies de référence sont disponibles dans toutes les éditions d’Azure AD et fournissent seulement des options de personnalisation limitées. Si un scénario nécessite plus de souplesse, désactivez la stratégie de référence et implémentez vos exigences dans une stratégie standard personnalisée.
 
 Dans une stratégie d’accès conditionnel standard, vous pouvez personnaliser tous les paramètres pour ajuster la stratégie à vos exigences commerciales. Les stratégies standard nécessitent une licence Azure AD Premium P1.
+
+>[!NOTE]
+> Nous vous recommandons d’utiliser une stratégie d’accès conditionnel en fonction de l’appareil d’Azure AD pour obtenir la meilleure mise en œuvre après l’authentification initiale de l’appareil. Ceci comprend la fermeture des sessions si l’appareil devient non conforme et le flux de code d’appareil.
 
 ## <a name="draft-policies"></a>Rédiger des stratégies
 

@@ -1,22 +1,14 @@
 ---
 title: Conversations multitours dans QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Servez-vous des invites et du contexte pour gérer plusieurs tours (ou « multitour ») pour votre bot d’une question à l’autre. La conversation multitour est la possibilité d’avoir une conversation nourrie où le contexte de la question précédente influence la question et la réponse suivantes.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.author: diberry
-ms.openlocfilehash: 681f00adde1d440fbb41f2e66652db34d53fbf99
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/13/2020
+ms.openlocfilehash: abdde09fbb1f6b066772366c5cea933824cb5864
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843258"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210412"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utiliser des invites de suivi pour créer plusieurs tours de conversation
 
@@ -31,6 +23,9 @@ Pour voir comment fonctionne la conversation multitour, regardez la vidéo de d�
 Il n’est pas possible de répondre à certaines questions en un seul tour. Quand vous concevez votre application cliente (bot conversationnel), un utilisateur peut poser une question qui a besoin d’être filtrée ou affinée pour déterminer la bonne réponse. Pour que ce flux puisse se dérouler par le biais des questions, vous devez présenter des *invites de suivi* à l’utilisateur.
 
 Quand un utilisateur pose une question, QnA Maker retourne la réponse _et_ les éventuelles invites de suivi. Cette réponse vous permet de présenter les questions de suivi sous forme de choix.
+
+> [!CAUTION]
+> Les invites multitours ne sont pas extraites des documents de FAQ. Si vous avez besoin d’une extraction multitour, supprimez les points d’interrogation qui désignent les paires de questions/réponses en tant que FAQ.
 
 ## <a name="example-multi-turn-conversation-with-chat-bot"></a>Exemple de conversation multitour avec un bot conversationnel
 

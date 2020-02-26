@@ -3,12 +3,12 @@ title: Guide pratique pour remplacer votre infrastructure sur bande
 description: Découvrir comment la Sauvegarde Azure fournit une sémantique de type bande qui vous permet de sauvegarder et de restaurer des données dans Azure
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.openlocfilehash: 4659a4d6fcc7213f8323e23d59411680276fcb28
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: aeda1cefc84d425855c40b793f8334936541e63f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173307"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425100"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Déplacement de votre stockage à long terme de la bande vers le cloud Azure
 
@@ -43,9 +43,9 @@ Le nombre total de « points de rétention » spécifié dans cette stratégie
 ![Exemple d’écran](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Stratégie de rétention quotidienne** : Les sauvegardes effectuées quotidiennement sont stockées pendant sept jours.
-2. **Stratégie de rétention hebdomadaire** : Les sauvegardes effectuées tous les jours à minuit et à 18 h 00 le samedi sont conservées pendant quatre semaines
-3. **Stratégie de rétention mensuelle** : Les sauvegardes effectuées le dernier samedi de chaque mois à minuit et à 18 h 00 sont conservées pendant 12 mois
-4. **Stratégie de rétention annuelle** : Les sauvegardes effectuées le dernier samedi de chaque mois de mars à minuit sont conservées pendant 10 ans
+2. **Stratégie de rétention hebdomadaire** : Les sauvegardes effectuées à minuit et à 18h00 le samedi sont conservées pendant quatre semaines.
+3. **Stratégie de rétention mensuelle** : Les sauvegardes effectuées le dernier samedi de chaque mois à minuit et à 18h00 sont conservées pendant 12 mois.
+4. **Stratégie de rétention annuelle** : Les sauvegardes effectuées le dernier samedi de chaque mois de mars à minuit sont conservées pendant 10 ans.
 
 Le nombre total de « points de rétention » (points à partir duquel un client peut restaurer des données) dans le schéma précédent est calculé comme suit :
 

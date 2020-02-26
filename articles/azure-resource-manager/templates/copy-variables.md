@@ -1,0 +1,319 @@
+---
+title: Définir plusieurs instances d’une variable
+description: Utilisez l’opération copy dans un modèle Azure Resource Manager pour effectuer une itération à plusieurs reprises lors de la création d’une variable.
+ms.topic: conceptual
+ms.date: 02/13/2020
+ms.openlocfilehash: 9e252a0b9721ffec99535c5d30e609e12e9e67eb
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210654"
+---
+# <a name="variable-iteration-in-azure-resource-manager-templates"></a>Itération de variables dans des modèles Azure Resource Manager
+
+Cet article explique comment créer plusieurs valeurs pour une variable dans votre modèle Azure Resource Manager. En ajoutant l’élément **copy** dans la section variables de votre modèle, vous pouvez définir dynamiquement le nombre d’éléments pour une variable pendant le déploiement. Cela vous évite également de répéter la syntaxe du modèle.
+
+Vous pouvez également utiliser copy avec les [ressources](copy-resources.md) et les [propriétés d’une ressource](copy-properties.md).
+
+## <a name="variable-iteration"></a>Itération de variable
+
+L’élément copy utilise le format général suivant :
+
+```json
+"copy": [
+  {
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "input": <values-for-the-variable>
+  }
+]
+```
+
+La propriété **name** est toute valeur qui identifie la boucle. La propriété **count** spécifie le nombre d’itérations que vous souhaitez pour la variable.
+
+La propriété **input** spécifie les propriétés que vous souhaitez répéter. Vous créez un tableau d’éléments construits à partir de la valeur de la propriété **input**. Il peut s’agir d’une propriété unique (par exemple, une chaîne) ou d’un objet avec plusieurs propriétés.
+
+L’exemple suivant montre comment créer un tableau de valeurs de chaîne :
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "itemCount": {
+            "type": "int",
+            "defaultValue": 5
+        }
+     },
+    "variables": {
+        "copy": [
+            {
+                "name": "stringArray",
+                "count": "[parameters('itemCount')]",
+                "input": "[concat('item', copyIndex('stringArray', 1))]"
+            }
+        ]
+    },
+    "resources": [],
+    "outputs": {
+        "arrayResult": {
+            "type": "array",
+            "value": "[variables('stringArray')]"
+        }
+    }
+}
+```
+
+Le modèle précédent retourne un tableau avec les valeurs suivantes :
+
+```json
+[
+    "item1",
+    "item2",
+    "item3",
+    "item4",
+    "item5"
+]
+```
+
+L’exemple suivant montre comment créer un tableau d’objets avec trois propriétés : name, diskSizeGB et diskIndex.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "itemCount": {
+            "type": "int",
+            "defaultValue": 5
+        }
+    },
+    "variables": {
+        "copy": [
+            {
+                "name": "objectArray",
+                "count": "[parameters('itemCount')]",
+                "input": {
+                    "name": "[concat('myDataDisk', copyIndex('objectArray', 1))]",
+                    "diskSizeGB": "1",
+                    "diskIndex": "[copyIndex('objectArray')]"
+                }
+            }
+        ]
+    },
+    "resources": [],
+    "outputs": {
+        "arrayResult": {
+            "type": "array",
+            "value": "[variables('objectArray')]"
+        }
+    }
+}
+```
+
+L’exemple précédent retourne un tableau avec les valeurs suivantes :
+
+```json
+[
+    {
+        "name": "myDataDisk1",
+        "diskSizeGB": "1",
+        "diskIndex": 0
+    },
+    {
+        "name": "myDataDisk2",
+        "diskSizeGB": "1",
+        "diskIndex": 1
+    },
+    {
+        "name": "myDataDisk3",
+        "diskSizeGB": "1",
+        "diskIndex": 2
+    },
+    {
+        "name": "myDataDisk4",
+        "diskSizeGB": "1",
+        "diskIndex": 3
+    },
+    {
+        "name": "myDataDisk5",
+        "diskSizeGB": "1",
+        "diskIndex": 4
+    }
+]
+```
+
+> [!NOTE]
+> L’itération de variable prend en charge un argument de contrepartie. La contrepartie doit venir après le nom de l’itération, par exemple copyIndex('diskNames', 1). Si vous ne fournissez pas de valeur de contrepartie, la valeur par défaut est 0 pour la première instance.
+>
+
+Vous pouvez également utiliser l’élément copy dans une variable. L’exemple suivant crée un objet dont l’une des valeurs est un tableau.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "itemCount": {
+            "type": "int",
+            "defaultValue": 5
+        }
+    },
+    "variables": {
+        "topLevelObject": {
+            "sampleProperty": "sampleValue",
+            "copy": [
+                {
+                    "name": "disks",
+                    "count": "[parameters('itemCount')]",
+                    "input": {
+                        "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+                        "diskSizeGB": "1",
+                        "diskIndex": "[copyIndex('disks')]"
+                    }
+                }
+            ]
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "objectResult": {
+            "type": "object",
+            "value": "[variables('topLevelObject')]"
+        }
+    }
+}
+```
+
+L’exemple précédent retourne un objet avec les valeurs suivantes :
+
+```json
+{
+    "sampleProperty": "sampleValue",
+    "disks": [
+        {
+            "name": "myDataDisk1",
+            "diskSizeGB": "1",
+            "diskIndex": 0
+        },
+        {
+            "name": "myDataDisk2",
+            "diskSizeGB": "1",
+            "diskIndex": 1
+        },
+        {
+            "name": "myDataDisk3",
+            "diskSizeGB": "1",
+            "diskIndex": 2
+        },
+        {
+            "name": "myDataDisk4",
+            "diskSizeGB": "1",
+            "diskIndex": 3
+        },
+        {
+            "name": "myDataDisk5",
+            "diskSizeGB": "1",
+            "diskIndex": 4
+        }
+    ]
+}
+```
+
+L’exemple suivant montre les différentes façons d’utiliser copy avec des variables.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "disk-array-on-object": {
+      "copy": [
+        {
+          "name": "disks",
+          "count": 5,
+          "input": {
+            "name": "[concat('myDataDisk', copyIndex('disks', 1))]",
+            "diskSizeGB": "1",
+            "diskIndex": "[copyIndex('disks')]"
+          }
+        },
+        {
+          "name": "diskNames",
+          "count": 5,
+          "input": "[concat('myDataDisk', copyIndex('diskNames', 1))]"
+        }
+      ]
+    },
+    "copy": [
+      {
+        "name": "top-level-object-array",
+        "count": 5,
+        "input": {
+          "name": "[concat('myDataDisk', copyIndex('top-level-object-array', 1))]",
+          "diskSizeGB": "1",
+          "diskIndex": "[copyIndex('top-level-object-array')]"
+        }
+      },
+      {
+        "name": "top-level-string-array",
+        "count": 5,
+        "input": "[concat('myDataDisk', copyIndex('top-level-string-array', 1))]"
+      },
+      {
+        "name": "top-level-integer-array",
+        "count": 5,
+        "input": "[copyIndex('top-level-integer-array')]"
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "exampleObject": {
+      "value": "[variables('disk-array-on-object')]",
+      "type": "object"
+    },
+    "exampleArrayOnObject": {
+      "value": "[variables('disk-array-on-object').disks]",
+      "type" : "array"
+    },
+    "exampleObjectArray": {
+      "value": "[variables('top-level-object-array')]",
+      "type" : "array"
+    },
+    "exampleStringArray": {
+      "value": "[variables('top-level-string-array')]",
+      "type" : "array"
+    },
+    "exampleIntegerArray": {
+      "value": "[variables('top-level-integer-array')]",
+      "type" : "array"
+    }
+  }
+}
+```
+
+## <a name="copy-limits"></a>Limites de copie
+
+Le nombre ne peut pas dépasser 800.
+
+Le nombre ne peut pas être négatif. Si vous déployez un modèle avec Azure PowerShell 2.6 (ou une version ultérieure), l’interface Azure CLI 2.0.74 (ou une version ultérieure) ou l’API REST version **2019-05-10** (ou une version ultérieure), vous pouvez définir le nombre sur zéro. Les versions antérieures de PowerShell, de l’interface CLI et de l’API REST ne prennent pas en charge le nombre zéro.
+
+## <a name="example-templates"></a>Exemples de modèles
+
+Les exemples suivants illustrent des scénarios courants de création de plusieurs valeurs pour une variable.
+
+|Modèle  |Description  |
+|---------|---------|
+|[Copie de variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Illustre les différentes façons d’itérer sur des variables. |
+|[Règles de sécurité multiples](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Déploie plusieurs règles de sécurité sur un groupe de sécurité réseau. Crée les règles de sécurité à partir d’un paramètre. Pour le paramètre, consultez [plusieurs fichiers de paramètre NSG](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* Pour effectuer un didacticiel, consultez [Tutoriel : créer plusieurs instances de ressources à l’aide de modèles Resource Manager](template-tutorial-create-multiple-instances.md).
+* Pour les autres utilisations de l’élément copy, consultez [Itération de ressources dans des modèles Azure Resource Manager](copy-resources.md) et [Itération de propriétés dans des modèles Azure Resource Manager](copy-properties.md).
+* Pour en savoir plus sur les sections d’un modèle, consultez [Création de modèles Azure Resource Manager](template-syntax.md).
+* Pour savoir comment déployer votre modèle, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](deploy-powershell.md).
+

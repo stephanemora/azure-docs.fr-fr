@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4ba7326d9c23bed2406e62fe1a206501d05a1b1
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 021941339bbbf72112628c54f5b05d5fd305bd0f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666179"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198579"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurer une app App Service dans le portail Azure
 
@@ -90,7 +90,7 @@ Dans le [portail Azure], recherchez et sélectionnez **App Services**, puis sél
 
 ![Paramètres de l’application](./media/configure-common/open-ui.png)
 
-Les développeurs ASP.NET et ASP.NET Core définissent les chaînes de connexion dans App Service comme ils le font avec `<connectionStrings>` dans *Web.config*, mais les valeurs que vous définissez dans App Service remplacent celles du fichier *Web.config*. Vous pouvez conserver les paramètres de développement (par exemple un fichier de base de données) dans *Web.config*, et garder les secrets de production (par exemple des informations d'identification SQL Database) en sécurité dans App Service. Le même code utilise vos paramètres de développement lorsque vous déboguez localement, et utilise vos secrets de production lorsque vous les déployez sur Azure.
+Les développeurs ASP.NET et ASP.NET Core définissent les chaînes de connexion dans App Service comme ils le font avec `<connectionStrings>` dans *Web.config*, mais les valeurs que vous définissez dans App Service remplacent celles du fichier *Web.config*. Vous pouvez conserver en lieu sûr les paramètres de développement (par exemple un fichier de base de données) dans *Web.config* et les secrets de production (par exemple des informations d’identification SQL Database) dans App Service. Le même code utilise vos paramètres de développement lorsque vous déboguez localement, et utilise vos secrets de production lorsque vous les déployez sur Azure.
 
 Pour d’autres piles de langage, il est préférable d'utiliser des [paramètres d’application](#configure-app-settings) car les chaînes de connexion nécessitent un formatage spécial dans les clés variables pour pouvoir accéder aux valeurs. Il y a cependant une exception : certains types de bases de données Azure sont sauvegardés avec l'application si vous configurez leurs chaînes de connexion dans votre application. Pour plus d’informations, consultez [Éléments sauvegardés](manage-backup.md#what-gets-backed-up). Si vous n'avez pas besoin de cette sauvegarde automatisée, utilisez les paramètres de l'application.
 

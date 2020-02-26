@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: ef0eed330dd7a5b338cdbf36a159d1f046d3939d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a028a0b5d79b2c79f1da336f033d3e8cac21a2e2
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76020809"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474116"
 ---
 La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images managées. Les galeries d’images partagées proposent les éléments suivants :
 
@@ -159,7 +159,7 @@ Les images peuvent également être partagées à grande échelle, même entre l
 
 ## <a name="billing"></a>Facturation
 L’utilisation du service Galerie d’images partagées n’engendre aucuns frais supplémentaires. Vous êtes facturé pour les ressources suivantes :
-- Coûts de stockage des versions d’Image partagée. Ils dépendent du nombre de réplicas de la version d’image et du nombre de régions dans lesquelles la version est répliquée. Par exemple, si vous avez 2 images et qu’elles sont toutes deux répliquées dans 3 régions, vous serez facturé pour 6 disques managés, en fonction de leur taille. Pour plus d’informations, consultez [Tarification de la fonctionnalité Disques managés](https://azure.microsoft.com/pricing/details/managed-disks/).
+- Coûts de stockage des versions d’Image partagée. Ils dépendent du nombre de réplicas de la version d’image et du nombre de régions dans lesquelles la version est répliquée. Par exemple, si vous avez deux images et qu’elles sont toutes deux répliquées dans trois régions, vous serez facturé pour six disques managés, en fonction de leur taille. Pour plus d’informations, consultez [Tarification de la fonctionnalité Disques managés](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Coûts de sortie de réseau pour la réplication de la première version d’image de la région source vers les régions répliquées. Les réplicas suivants sont gérés au sein de la région, donc aucun coût supplémentaire n’est prévu. 
 
 ## <a name="updating-resources"></a>Mise à jour des ressources

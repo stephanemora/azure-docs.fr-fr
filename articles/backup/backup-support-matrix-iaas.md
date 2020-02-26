@@ -3,12 +3,12 @@ title: Tableau de prise en charge pour la sauvegarde de machines virtuelles Azur
 description: Fournit un récapitulatif des limitations et des paramètres de prise en charge de la sauvegarde de machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 990e97274d9e35201dfb7930167dc4f9da975d83
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5d83d3426a80acc12c2a53051dcfd7b889f47f02
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988122"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468998"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -65,7 +65,7 @@ Le tableau suivant récapitule les systèmes d’exploitation pris en charge lor
 
 **Scénario** | **Système d’exploitation pris en charge**
 --- | ---
-Sauvegarder avec l’extension de l’agent de machine virtuelle Azure | - Client Windows 10 (uniquement 64 bits) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM et SP1 Standard)
+Sauvegarder avec l’extension de l’agent de machine virtuelle Azure | - Client Windows 10 (64 bits uniquement) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM et SP1 Standard)  <br/><br/> - Windows Server 2008 (64 bits uniquement)
 Sauvegarder avec l’agent MARS | Systèmes d’exploitation [pris en charge](backup-support-matrix-mars-agent.md#support-for-direct-backups).
 Sauvegarder avec DPM/MABS | Systèmes d’exploitation pris en charge pour la sauvegarde avec [MABS](backup-mabs-protection-matrix.md) et [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
@@ -171,6 +171,7 @@ Sauvegarder et restaurer des machines virtuelles/disques dédupliqués | Sauvega
 Ajouter un disque à une machine virtuelle protégée | Pris en charge.
 Redimensionner un disque sur une machine virtuelle protégée | Pris en charge.
 Stockage partagé| La sauvegarde des machines virtuelles à l’aide d’un volume partagé de cluster (CSV) ou d’un serveur de fichiers avec montée en puissance parallèle n’est pas recommandée. En effet, il existe un risque d’échec pour les enregistreurs de volumes partagés de cluster lors de la sauvegarde. Lors de la restauration, les disques contenant des volumes partagés de cluster risquent de ne pas apparaître.
+[Disques partagés](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable) | Non pris en charge.
 
 ## <a name="vm-network-support"></a>Prise en charge des réseaux de machines virtuelles
 

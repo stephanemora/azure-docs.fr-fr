@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: e298aad6dc43f85f5b6c344eec56f5d8b37980d4
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 2ae84b59cd70a5b27ad3e501db6cfae110d90fbd
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933300"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209781"
 ---
 # <a name="building-an-accessible-application"></a>Création d’une application accessible
 
@@ -61,7 +61,7 @@ Il existe plusieurs façons d’effectuer des zooms, des panoramiques, des rotat
 - Quand le focus est placé sur la carte, utilisez la touche Maj et les touches de direction haut ou bas. 
 - Utilisez le contrôle de tangage avec une souris, une interaction tactile ou les touches Tab/Entrée du clavier.
 
-**Changer le style de carte** Tous les développeurs ne veulent pas que tous les styles de carte possibles soient disponibles dans leur application. Le développeur peut définir le style de carte et le changer par programmation comme bon lui semble. Si le développeur affiche le contrôle sélecteur de style de carte, l’utilisateur peut changer le style de carte à l’aide de la souris, d’une interaction tactile ou du clavier avec les touches Tab/Entrée. Le développeur peut spécifier les styles de carte qu’il souhaite rendre disponibles dans le contrôle sélecteur de style de carte. 
+**Changer le style de carte** Tous les développeurs ne veulent pas que tous les styles de carte possibles soient disponibles dans leur application. Le développeur peut définir le style de carte et le changer par programmation. Si le développeur affiche le contrôle sélecteur de style de la carte, l’utilisateur peut changer le style de carte à l’aide de la souris, d’une interaction tactile ou du clavier avec la touches Tab ou Entrée. Le développeur peut spécifier les styles de carte qu’il souhaite rendre disponibles dans le contrôle sélecteur de style de carte. 
 
 ## <a name="keyboard-shortcuts"></a>Raccourcis clavier
 
@@ -94,7 +94,7 @@ Toutes les informations supplémentaires placées sur la carte de la base doiven
 
 ## <a name="make-popups-keyboard-accessible"></a>Rendre les fenêtres indépendantes accessibles par le biais du clavier
 
-Un marqueur ou un symbole est souvent utilisé pour représenter une position sur la carte. Des informations supplémentaires sur la position s’affichent généralement dans une fenêtre indépendante quand l’utilisateur interagit avec le marqueur. Dans la plupart des applications, des fenêtres contextuelles s’affichent quand l’utilisateur clique ou appuie sur un marqueur, à la condition qu’il utilise une souris ou un écran tactile. Une bonne pratique consiste à rendre les fenêtres indépendantes accessibles lors de l’utilisation d’un clavier. Cette fonctionnalité nécessite de créer une fenêtre contextuelle pour chaque point de données et de l’ajouter à la carte. 
+Un marqueur ou un symbole est souvent utilisé pour représenter une position sur la carte. Des informations supplémentaires sur la position s’affichent généralement dans une fenêtre indépendante quand l’utilisateur interagit avec le marqueur. Dans la plupart des applications, des fenêtres indépendantes s’affichent quand un utilisateur clique ou appuie sur un marqueur. Toutefois, pour cliquer et appuyer, l’utilisateur doit utiliser une souris et un écran tactile, respectivement. Une bonne pratique consiste à rendre les fenêtres indépendantes accessibles lors de l’utilisation d’un clavier. Cette fonctionnalité nécessite de créer une fenêtre contextuelle pour chaque point de données et de l’ajouter à la carte. 
 
 L’exemple suivant charge des points d’intérêt sur la carte à l’aide d’une couche de symboles et ajoute une fenêtre indépendante à la carte pour chaque point d’intérêt. Une référence à chaque menu contextuel est stockée dans les propriétés de chaque point de données. Il est également possible de la récupérer pour un marqueur, par exemple, en cas de clic sur celui-ci. Quand le focus est placé sur la carte, l’utilisateur peut passer de l’une à l’autre des fenêtres indépendantes de la carte à l’aide de la touche Tab.
 
@@ -116,12 +116,12 @@ Voici quelques conseils supplémentaires pour améliorer l’accessibilité de v
     - Limitez les mises à jour à une fois toutes les poignées de secondes. 
     - Combinez les messages de manière logique. 
 - Évitez d’utiliser la couleur comme seul moyen de transmettre des informations. Utilisez du texte, des icônes ou des modèles pour compléter ou remplacer la couleur. Certaines considérations s’appliquent :
-    - Si vous utilisez une couche de bulles pour afficher la valeur relative entre les points de données, envisagez de mettre à l’échelle le rayon de chaque bulle en plus ou au lieu de les colorier. 
+    - Si vous utilisez une couche de bulles pour afficher la valeur relative entre les points de données, envisagez de mettre à l’échelle le rayon de chaque bulle et/ou de définir la couleur des bulles. 
     - Envisagez d’utiliser une couche de symboles avec différentes icônes pour différentes catégories de métriques, telles que des triangles, des étoiles et des carrés. La couche de symboles prend également en charge la mise à l’échelle de la taille de l’icône. Une étiquette de texte peut également être affichée.
     - Si vous affichez des données de ligne, la largeur peut être utilisée pour représenter la pondération ou la taille. Un modèle de tableau de tirets peut être utilisé pour représenter différentes catégories de lignes. Une couche de symboles peut être utilisée en combinaison avec une ligne pour superposer les icônes le long de la ligne. L’utilisation d’une icône représentant une flèche est utile pour indiquer le flux ou la direction de la ligne.
     - Si vous affichez des données de polygone, vous pouvez utiliser un modèle, tel que des bandes, à la place de la couleur. 
 - Certaines visualisations telles que les cartes thermiques, les couches de mosaïques et les couches d’images, ne sont pas accessibles aux utilisateurs atteints de troubles de la vision. Certaines considérations s’appliquent :
-    - Faites en sorte que le lecteur d’écran décrive ce que la couche affiche quand elle est ajoutée à la carte. Par exemple, si une couche de mosaïques de radar météo s’affiche, faites en sorte que le lecteur d’écran indique quelque chose comme « données de radar météo sur la carte ».
+    - Faites en sorte que le lecteur d’écran décrive ce que la couche affiche quand elle est ajoutée à la carte. Par exemple, si une couche de mosaïques de radar météo s’affiche, faites en sorte que le lecteur d’écran indique « Les données de radar météo sont superposées sur la carte ».
 - Limitez la quantité de fonctionnalités qui nécessitent un pointage avec la souris. Ces fonctionnalités sont inaccessibles aux utilisateurs qui utilisent un clavier ou un appareil tactile pour interagir avec votre application. Notez qu’il est toujours conseillé d’avoir un style de survol pour du contenu interactif, tel que des boutons, des liens et des icônes cliquables.
 - Essayez de naviguer dans votre application à l’aide du clavier. Assurez-vous que l’ordre de tabulation est logique.
 - Si vous créez des raccourcis clavier, essayez de les limiter à deux touches. 

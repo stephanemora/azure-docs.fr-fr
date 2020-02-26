@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 1948151dfa07e565a929b4506273e3f88f5408c4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3e41f92f9e41f7a05102e8c0e1c2edb81fa50bf3
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76907236"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426324"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurer les journaux d'activité Azure Monitor et collecter des données de diagnostic pour Azure Logic Apps
 
@@ -21,7 +21,7 @@ Pour configurer la journalisation de votre application logique, vous pouvez [act
 
 Cet article explique comment activer Log Analytics lors de la création d'applications logiques, comment installer et configurer la solution Logic Apps Management, et comment configurer et créer des requêtes pour les journaux d'activité Azure Monitor.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vous devez disposer d'un [espace de travail Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) Si vous n'en avez pas, apprenez à [créer un espace de travail Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
@@ -145,7 +145,7 @@ Après les exécutions de votre application logique, vous pouvez consulter les d
    ![Afficher les propriétés suivies pour une application de logique](./media/monitor-logic-apps-log-analytics/logic-app-tracked-properties.png)
 
    > [!NOTE]
-   > Les propriétés suivies ou les événements terminés peuvent apparaître dans votre espace de travail Log Analytics avec un décalage de 10 à 15 minutes.
+   > Les propriétés suivies ou les événements terminés peuvent apparaître dans votre espace de travail Log Analytics avec un décalage de 10 à 15 minutes.
    > En outre, la fonction **Renvoyer** de cette page n'est actuellement pas disponible.
 
 1. Pour filtrer vos résultats, vous pouvez effectuer un filtrage côté client et côté serveur.

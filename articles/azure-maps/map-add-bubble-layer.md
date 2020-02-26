@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 462d820824ad6c53ad4b93ad5c88c66128619467
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 7ae11734eb804715f3eb1b5edcb02fc328dafec8
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933663"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208554"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Ajouter une couche de bulles à une carte
 
@@ -25,7 +25,7 @@ Cet article vous montre comment afficher des données de point sur une carte à 
 
 ## <a name="add-a-bubble-layer"></a>Ajouter un calque de bulles
 
-Le code suivant charge un tableau de points dans une source de données. Ensuite, les points de données sont connectés à un [calque de bulles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). Le calque de bulles affiche le rayon de chaque bulle avec cinq pixels, le blanc comme couleur de remplissage, le bleu comme couleur de trait et une largeur de trait de six pixels. 
+Le code suivant charge un tableau de points dans une source de données. Ensuite, il connecte les points de données à une [couche de bulles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). La couche de bulles affiche le rayon de chaque bulle avec cinq pixels et le blanc comme couleur de remplissage. Il utilise également le bleu comme couleur de trait et une largeur de trait de six pixels. 
 
 ```javascript
 //Add point locations.
@@ -62,7 +62,7 @@ Vous trouverez ci-dessous l’exemple de code d’exécution complet de la fonct
 
 ## <a name="show-labels-with-a-bubble-layer"></a>Afficher les étiquettes avec une couche de bulles
 
-Le code suivant vous montre comment utiliser une couche de bulles pour afficher un point sur la carte et une couche de symboles pour afficher une étiquette. Pour masquer l’icône de la couche de symboles, affectez la valeur `'none'` à la propriété `image` des options d’icône.
+Ce code montre comment utiliser une couche de bulles pour afficher un point sur la carte. Il montre également comment utiliser une couche de symboles pour afficher une étiquette. Pour masquer l’icône de la couche de symboles, affectez la valeur `'none'` à la propriété `image` des options d’icône.
 
 <br/>
 

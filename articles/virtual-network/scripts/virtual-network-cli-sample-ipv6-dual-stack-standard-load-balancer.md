@@ -1,5 +1,5 @@
 ---
-title: Exemple de script Azure CLI - Configurer des points de terminaison de réseau virtuel IPv6 - Standard Load Balancer (préversion)
+title: Exemple de script Azure CLI – Configurer un front-end IPv6 – Standard Load Balancer
 titlesuffix: Azure Virtual Network
 description: Activer les points de terminaison IPv6 à l’aide d’Azure CLI dans un réseau virtuel Azure
 services: virtual-network
@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: afeb0c83c6e9afca16d0f0b21adafac4b7f3f2c2
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 86c8acedb230989fa7a7f28690bd4be9c51ead9e
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68269606"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201337"
 ---
 # <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-using-standard-load-balancerpreview"></a>Exemple de script de configuration de points de terminaison IPv6 dans un réseau virtuel avec Standard Load Balancer (préversion)
 

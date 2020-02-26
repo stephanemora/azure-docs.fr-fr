@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 797475bfe0f1ec077ad39c6fce1f0facdf679802
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: eb094d04a7210d76a98f3e47af750e49b617e493
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483472"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77195060"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurer la gestion de session d’authentification avec l’accès conditionnel
 
@@ -50,6 +50,23 @@ Le paramètre de fréquence de connexion fonctionne avec les applications qui on
 - Client web Teams
 - Dynamics CRM en ligne
 - Portail Azure
+
+### <a name="user-sign-in-frequency-and-device-identities"></a>Fréquence de connexion des utilisateurs et identités des appareils
+
+Si vous avez des appareils joints à Azure AD, joints à Hybrid Azure AD ou inscrits auprès d’Azure AD, quand un utilisateur déverrouille son appareil ou se connecte de façon interactive, cet événement satisfait également à la stratégie de fréquence de connexion. Dans les 2 exemples suivants, la fréquence de connexion de l’utilisateur est définie sur 1 heure :
+
+Exemple 1 :
+
+- À 00:00, un utilisateur se connecte à son appareil Windows 10 joint à Azure AD et commence à travailler sur un document stocké sur SharePoint Online.
+- L’utilisateur continue à travailler au même document sur son appareil pendant une heure.
+- À 01:00, l’utilisateur est invité à se reconnecter en fonction de la fréquence de connexion spécifiée dans la stratégie d’accès conditionnel configurée par son administrateur.
+
+Exemple 2 :
+
+- À 00:00, un utilisateur se connecte à son appareil Windows 10 joint à Azure AD et commence à travailler sur un document stocké sur SharePoint Online.
+- À 00:30, l’utilisateur se lève et fait une pause en bloquant son appareil.
+- À 00:45, l’utilisateur revient de sa pause et déverrouille l’appareil.
+- À 01:45, l’utilisateur est invité à se reconnecter en fonction de la fréquence de connexion spécifiée dans la stratégie d’accès conditionnel configurée par son administrateur, car la dernière connexion s’est faite à 00:45.
 
 ## <a name="persistence-of-browsing-sessions"></a>Persistance des sessions de navigation
 

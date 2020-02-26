@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: 695b87540178fb5c1012a095c2a86937a189ef24
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: dfb133f9aa3dd9b76f8b4ea4c6188cfaf9a67b75
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133749"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444109"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Configurer un laboratoire pour enseigner la science des données avec Python et Jupyter Notebooks
 
@@ -30,7 +30,7 @@ Pour configurer ce labo, vous avez besoin d’un abonnement Azure et d’un comp
 
 ### <a name="lab-account-settings"></a>Paramètres du compte Lab
 
-Activez les paramètres décrits dans le tableau ci-dessous pour le compte lab. Pour plus d’informations sur l’activation des images de la Place de marché, consultez [Spécifier les images de la Place de marché accessibles aux créateurs de labo](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators).
+Activez les paramètres décrits dans le tableau ci-dessous pour le compte lab. Pour plus d’informations sur l’activation des images de la Place de Marché, consultez [Spécifier les images de la Place de Marché accessibles aux créateurs de labo](specify-marketplace-images.md).
 
 | Paramètres du compte lab | Instructions |
 | ------------------- | ------------ |
@@ -56,7 +56,7 @@ La tâche restante pour configurer la classe consiste à fournir des notebooks l
 
 ## <a name="cost-estimate"></a>Estimation du coût
 
-Nous allons aborder une estimation de coût possible pour cette classe.  Nous allons utiliser une classe de 25 élèves.  Nous prévoyons 20 heures de temps de classe.  En outre, chaque étudiant obtient un quota de 10 heures pour les devoirs ou travaux en dehors des heures de cours planifiées.  La taille de machine virtuelle que nous avons choisie était avec un petit GPU (calcul), soit 139 unités Lab.
+Nous allons aborder une estimation de coût possible pour cette classe.  Nous allons utiliser une classe de 25 élèves.  Nous prévoyons 20 heures de temps de classe.  En outre, chaque étudiant obtient un quota de 10 heures pour les devoirs ou travaux en dehors des heures de cours planifiées.  La taille de machine virtuelle que nous avons choisie était avec un petit GPU (calcul), soit 139 unités Lab.
 
 Voici un exemple d’estimation de coût possible pour cette classe :
 

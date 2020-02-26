@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97954123b6fc31dce09282c08c702438cd64c476
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 874d273e26a728afc0a1dc1a16852016797067ca
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159248"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367905"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problèmes de connexion à une application de la galerie configurée pour l’authentification unique fédérée
 
@@ -162,7 +162,7 @@ Le fournisseur d’application doit confirmer sa prise en charge de l’impléme
 
 ## <a name="misconfigured-application"></a>Application mal configurée
 
-*Erreur AADSTS650056 : Application mal configurée. La raison peut être l’une des suivantes : Le client n’a pas répertorié toutes les autorisations pour « AAD Graph » dans les autorisations demandées de l’inscription d’application du client. Ou l’administrateur n’a pas donné son consentement dans le locataire. Vous pouvez aussi vérifier l’identificateur d’application dans la requête pour vous assurer qu’il correspond à l’identificateur d’application cliente configuré. Contactez votre administrateur pour corriger la configuration ou donner un consentement au nom du locataire.* .
+*Erreur AADSTS650056 : Application mal configurée. La raison peut être l’une des suivantes : Le client n’a listé aucune autorisation parmi les autorisations nécessaires dans l’inscription d’application du client. Ou l’administrateur n’a pas donné son consentement dans le locataire. Vous pouvez aussi vérifier l’identificateur d’application dans la requête pour vous assurer qu’il correspond à l’identificateur d’application cliente configuré. Contactez votre administrateur pour corriger la configuration ou donner un consentement au nom du locataire.* .
 
 **Cause possible**
 

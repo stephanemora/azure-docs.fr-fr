@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 5517b6434d8d654e8aa7e28bec8f6d2a3d9ca73b
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 46d566dc7527097d36b72886ada1f8c94f727535
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77056680"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198749"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
-Quand vous utilisez des règles d’équilibrage de charge avec Azure Load Balancer, vous devez spécifier une sonde d’intégrité pour permettre à Load Balancer de détecter l’état du point de terminaison back-end.  La configuration de la sonde d’intégrité et les réponses de la sonde déterminent quelles instances de pool de back-ends recevront de nouveaux flux. Vous pouvez utiliser des sondes d’intégrité pour détecter la défaillance d’une application sur un point de terminaison back-end. Vous pouvez également générer une réponse personnalisée pour une sonde d’intégrité, et utiliser celle-ci pour contrôler le flux de façon à gérer la charge ou les temps d’arrêt planifiés. Lors de l’échec d’une sonde d’intégrité, Load Balancer cesse d’envoyer de nouveaux flux à l’instance non intègre concernée. La connectivité sortante n’est pas affectée, seule la connectivité entrante l’est.
+Quand vous utilisez des règles d’équilibrage de charge avec Azure Load Balancer, vous devez spécifier des sondes d’intégrité pour permettre à Load Balancer de détecter l’état du point de terminaison back-end.  La configuration de la sonde d’intégrité et les réponses de la sonde déterminent quelles instances de pool de back-ends recevront de nouveaux flux. Vous pouvez utiliser des sondes d’intégrité pour détecter la défaillance d’une application sur un point de terminaison back-end. Vous pouvez également générer une réponse personnalisée pour une sonde d’intégrité, et utiliser celle-ci pour contrôler le flux de façon à gérer la charge ou les temps d’arrêt planifiés. Lors de l’échec d’une sonde d’intégrité, Load Balancer cesse d’envoyer de nouveaux flux à l’instance non intègre concernée. La connectivité sortante n’est pas affectée, seule la connectivité entrante l’est.
 
 Les sondes d’intégrité prennent en charge plusieurs protocoles. La disponibilité d’un type spécifique de sonde d’intégrité varie en fonction de la référence SKU de Load Balancer.  De plus, le comportement du service varie en fonction de la référence SKU de Load Balancer tel qu’indiqué dans le tableau suivant :
 

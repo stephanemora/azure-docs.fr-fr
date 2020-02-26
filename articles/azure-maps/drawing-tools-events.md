@@ -1,6 +1,6 @@
 ---
 title: Ajouter une barre d’outils de dessin à une carte | Microsoft Azure Maps
-description: Dans cet article, vous allez apprendre à ajouter une barre d’outils de dessin à une carte à l’aide du Kit de développement logiciel (SDK) web Microsoft Azure Maps
+description: Dans cet article, vous allez apprendre à ajouter une barre d’outils de dessin à une carte à l’aide du kit SDK web Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/05/2019
@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: fd235f3f39d67f86c8387add79ca0dbf17dc5906
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: cf9c79f608aa3ffd1137be41ff3348f62b890867
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911679"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198307"
 ---
 # <a name="drawing-tool-events"></a>Événements des outils de dessin
 
-Il est souvent utile de réagir à certains événements lorsque l’utilisateur utilise les outils de dessin sur la carte. Le tableau suivant présente tous les événements pris en charge par la classe `DrawingManager`.
+Il est utile de réagir à certains événements quand l’utilisateur utilise les outils de dessin sur la carte. Ce tableau présente tous les événements pris en charge par la classe `DrawingManager`.
 
 | Événement | Description |
 |-------|-------------|
 | `drawingchanged` | Se déclenche en cas d’ajout ou de modification d’une coordonnée dans une forme. | 
-| `drawingchanging` | Se déclenche lorsqu’une coordonnée d’aperçu d’une forme est affichée. Par exemple, se déclenche plusieurs fois en cas de glisser-déposer d’une coordonnée. | 
+| `drawingchanging` | Se déclenche lorsqu’une coordonnée d’aperçu d’une forme est affichée. Par exemple, cet événement se déclenche plusieurs fois en cas de glisser-déposer d’une coordonnée. | 
 | `drawingcomplete` | Se déclenche lorsqu’une forme vient d’être dessinée ou sort du mode d’édition. |
 | `drawingmodechanged` | Se déclenche lorsque le mode de dessin change. Le nouveau mode de dessin est passé dans le gestionnaire d’événements. |
 | `drawingstarted` | Se déclenche lorsque l’utilisateur commence à dessiner une forme ou en met une en mode d’édition.  |
@@ -39,11 +39,11 @@ Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/dyPMRWo'
 
 ## <a name="examples"></a>Exemples
 
-Voici quelques exemples de scénarios courants qui utilisent les événements des outils de dessin.
+Examinons quelques scénarios courants qui utilisent les événements des outils de dessin.
 
 ### <a name="select-points-in-polygon-area"></a>Sélectionner des points dans une zone polygonale
 
-Le code suivant montre comment surveiller le dessin de formes représentant des zones polygonales (polygones, rectangles et cercles) et identifier les points de données de la carte qui se trouvent dans la zone dessinée. L’événement `drawingcomplete` est utilisé pour déclencher la logique de sélection. La logique de sélection boucle sur tous les points de données de la carte et teste la présence d’une intersection avec la zone polygonale de la forme dessinée. Cet exemple utilise la bibliothèque open source [Turf.js](https://turfjs.org/) pour effectuer un calcul d’intersection spatiale.
+Ce code montre comment superviser un événement de dessin de formes par un utilisateur. Pour cet exemple, le code supervise les formes de polygones, de rectangles et de cercles. Ensuite, il détermine les points de données de la carte qui se trouvent dans la zone dessinée. L’événement `drawingcomplete` est utilisé pour déclencher la logique de sélection. Dans la logique de sélection, le code parcourt tous les points de données sur la carte. Il vérifie s’il existe une intersection entre le point et la zone de la forme dessinée. Cet exemple utilise la bibliothèque open source [Turf.js](https://turfjs.org/) pour effectuer un calcul d’intersection spatiale.
 
 <br/>
 
@@ -55,7 +55,7 @@ Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/XWJdeja'
 
 ### <a name="draw-and-search-in-polygon-area"></a>Dessiner une zone polygonale et effectuer une recherche
 
-Le code suivant montre comment effectuer une recherche de points d’intérêt à l’intérieur d’une zone de forme une fois que l’utilisateur a terminé de dessiner la forme. L’événement `drawingcomplete` est utilisé pour déclencher la logique de recherche. Si l’utilisateur dessine un rectangle ou un polygone, une recherche est effectuée dans la forme géométrique. Si un cercle est dessiné, le rayon et la position du centre sont utilisés pour effectuer une recherche de point d’intérêt. L’événement `drawingmodechanged` est utilisé pour déterminer quand l’utilisateur bascule en mode de dessin, et efface la zone de dessin.
+Ce code recherche des points d’intérêt à l’intérieur de la zone d’une forme une fois que l’utilisateur a terminé de dessiner celle-ci. Vous pouvez modifier et exécuter le code en cliquant sur « Edit on CODEPEN » en haut à droite du cadre. L’événement `drawingcomplete` est utilisé pour déclencher la logique de recherche. Si l’utilisateur dessine un rectangle ou un polygone, une recherche est effectuée dans la forme géométrique. Si un cercle est dessiné, le rayon et la position du centre sont utilisés pour effectuer une recherche de point d’intérêt. L’événement `drawingmodechanged` est utilisé pour déterminer quand l’utilisateur bascule vers le mode de dessin, et cet événement efface la zone de dessin.
 
 <br/>
 
@@ -67,7 +67,7 @@ Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/eYmZGNv'
 
 ### <a name="create-a-measuring-tool"></a>Créer un outil de mesure
 
-Le code suivant montre comment utiliser les événements de dessin pour créer un outil de mesure. `drawingchanging` permet de surveiller la forme en cours de dessin. Lorsque l’utilisateur déplace la souris, les dimensions de la forme sont calculées. L’événement `drawingcomplete` permet d’effectuer un calcul final sur la forme une fois dessinée. L’événement `drawingmodechanged` est utilisé pour déterminer quand l’utilisateur bascule en mode de dessin, et efface la zone de dessin et les anciennes informations de mesure.
+Le code ci-dessous montre comment utiliser les événements de dessin pour créer un outil de mesure. `drawingchanging` permet de superviser la forme en cours de dessin. Lorsque l’utilisateur déplace la souris, les dimensions de la forme sont calculées. L’événement `drawingcomplete` permet d’effectuer un calcul final sur la forme une fois dessinée. L’événement `drawingmodechanged` est utilisé pour déterminer quand l’utilisateur bascule en mode de dessin. De plus, l’événement `drawingmodechanged` efface la zone de dessin et les anciennes informations de mesure.
 
 <br/>
 

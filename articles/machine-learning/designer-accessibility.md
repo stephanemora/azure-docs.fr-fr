@@ -1,5 +1,5 @@
 ---
-title: Utiliser les fonctionnalités d’accessibilité dans le concepteur
+title: Utiliser les fonctionnalités d’accessibilité dans le concepteur (préversion)
 titleSuffix: Azure Machine Learning
 description: Découvrez les raccourcis clavier et les fonctionnalités d’accessibilité du lecteur d’écran disponibles dans le concepteur.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
-ms.openlocfilehash: 7d5c8047fea8e9081de08b582c537711714ea463
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 59199291589a81d0a0d96b7867078b8196be086f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314230"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366200"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>Employer un clavier pour utiliser le concepteur Azure Machine Learning
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Employer un clavier pour utiliser le concepteur Azure Machine Learning (préversion)
 
 Découvrez comment employer un clavier et un lecteur d’écran pour utiliser le concepteur Azure Machine Learning. Pour obtenir une liste des raccourcis clavier qui fonctionnent partout dans le portail Azure, consultez [Raccourcis clavier du portail Azure](../azure-portal/azure-portal-keyboard-shortcuts.md)
 
@@ -24,7 +24,7 @@ Ce workflow a été testé avec le [Narrateur](https://support.microsoft.com/hel
 
 ## <a name="navigate-the-pipeline-graph"></a>Parcourir le graphe de pipeline
 
-Le graphe de pipeline est organisé sous la forme d’une liste de listes. La liste de modules de niveau supérieur contient tous les modules dans le pipeline. Chaque élément de la liste de modules contient une liste de connexions qui décrit toutes ses connexions. 
+Le graphe de pipeline est organisé sous la forme d’une liste imbriquée. La liste externe est une liste de modules, qui décrit tous les modules dans le graphe de pipeline. La liste interne est une liste de connexions, qui décrit toutes les connexions d’un module spécifique.  
 
 1. Dans la liste de modules, utilisez la touche de direction pour basculer entre les modules.
 1. Utilisez la touche Tab pour ouvrir la liste de connexions du module cible.

@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 39bcaac2ca94eedebd991a1c4e93f324ef651888
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 2bfdf1046c67ed1651f792191923bf4c533d0299
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76961350"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77205683"
 ---
 Dans cet article, nous allons répondre à certaines questions fréquentes sur Azure Disques managés et les disques SSD Premium Azure.
 
@@ -160,6 +160,44 @@ La réservation de disque Azure est achetée pour une région et une référence
 
 **Que se passe-t-il lorsque ma réservation de disques Azure expire ?**    
 Vous recevez une notification par e-mail 30 jours avant l’expiration, puis à nouveau au moment de l’expiration. Une fois la réservation expirée, les disques déployés continuent à fonctionner et sont facturés en fonction au [tarif de paiement à l'utilisation](https://azure.microsoft.com/pricing/details/managed-disks/) le plus récent.
+
+### <a name="azure-shared-disks"></a>Disques partagés Azure
+
+**La fonctionnalité Disques partagés est-elle prise en charge pour les disques non managés ou les objets blob de pages ?**
+
+Non, elle est prise en charge uniquement pour les disques managés SSD Premium.
+
+**Dans quelles régions les disques partagés sont pris en charge ?**
+
+Pour l’heure, seulement dans la région USA Centre-Ouest.
+
+**Les disques partagés peuvent-ils être utilisés comme disque de système d’exploitation ?**
+
+Non, les disques partagés sont pris en charge uniquement pour les disques de données.
+
+**Quelles sont les tailles de disque qui prennent en charge les disques partagés ?**
+
+Seuls les disques SSD Premium P15 ou supérieurs prennent en charge les disques partagés.
+
+**Est-il possible d’activer la fonctionnalité Disques partagés sur un disque SSD Premium existant ?**
+
+La fonctionnalité Disques partagés peut être activée sur tous les disques managés créés avec l’API version 2019-07-01 ou supérieure. Pour cela, vous devez démonter le disque sur toutes les machines virtuelles auxquelles il est attaché. Ensuite, modifiez la propriété `maxShares` sur le disque.
+
+**Si je ne souhaite plus utiliser un disque en mode partagé, que dois-je faire pour le désactiver ?**
+
+Démontez le disque sur toutes les machines virtuelles auxquelles il est attaché. Modifiez ensuite la propriété maxShare sur le disque en lui attribuant la valeur 1.
+
+**Est-il possible de redimensionner un disque partagé ?**
+
+Oui.
+
+**Est-ce que je peux activer l’accélérateur d’écriture pour un disque sur lequel la fonctionnalité Disques partagés est aussi activée ?**
+
+Non.
+
+**Est-ce que je peux activer la mise en cache de l’hôte pour un disque sur lequel la fonctionnalité Disques partagés est activée ?**
+
+Seule l’option de mise en cache de l’hôte « Aucune » est prise en charge.
 
 ## <a name="ultra-disks"></a>Disques Ultra
 

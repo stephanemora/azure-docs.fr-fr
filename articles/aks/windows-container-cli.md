@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: mlearned
-ms.openlocfilehash: d1d04ab3ebb96d2739b991620b05aa307d9eaf91
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 0583e773a344a6786d13a5da30be24369d75f11f
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767436"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251700"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Préversion - Créer un conteneur Windows Server sur un cluster Azure Kubernetes Service (AKS) à l’aide d’Azure CLI
 
@@ -148,6 +148,10 @@ az aks create \
 > [!Note]
 > Si vous obtenez une erreur de validation de mot de passe, essayez de créer votre groupe de ressources dans une autre région.
 > Puis essayez de créer le cluster avec le nouveau groupe de ressources.
+
+> [!Note]
+> Si vous ne parvenez pas à créer le cluster AKS parce que la version n’est pas prise en charge dans cette région, vous pouvez utiliser la commande [az aks get-versions --location eastus] pour trouver la liste des versions prises en charge pour cette région.
+
 
 Au bout de quelques minutes, la commande se termine et retourne des informations au format JSON sur le cluster. Parfois, le provisionnement du cluster peut prendre plus de quelques minutes. Autorisez jusqu’à 10 minutes dans ces cas de figure. 
 
@@ -288,6 +292,9 @@ sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 Pour voir l’exemple d’application en action, ouvrez un navigateur web en utilisant l’adresse IP externe de votre service.
 
 ![Image de la navigation vers l’exemple d’application ASP.NET](media/windows-container/asp-net-sample-app.png)
+
+> [!Note]
+> Si vous dépassez le délai d’expiration en tentant de charger la page, vous devez vérifier que l’exemple d’application est prêt avec la commande [kubectl get pods --watch] suivante. Parfois, le conteneur Windows n’est pas démarré au moment où votre adresse IP externe est disponible.
 
 ## <a name="delete-cluster"></a>Supprimer un cluster
 

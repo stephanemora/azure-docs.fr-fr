@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d94237d2cfeb814b2e15d43c9f8863a76c0bcd11
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 94a376c01229de20e6a1264da3f29532becefa8a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190673"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368664"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Activer et créer des partages de fichiers volumineux
 
@@ -43,7 +43,7 @@ L’activation de partages de fichiers volumineux sur un compte est un processus
     ![Capture d’écran montrant comment créer un groupe de ressources sur le portail](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. Ensuite, entrez un nom pour votre compte de stockage. Le nom doit être unique dans tout Azure. Le nom doit comporter entre 3 et 24 caractères, et être constitué seulement de chiffres et de lettres minuscules.
-1. Sélectionnez un emplacement pour votre compte de stockage et vérifiez qu’il s’agit de l’[une des régions prises en charge pour les partages de fichiers volumineux](storage-files-planning.md#regional-availability).
+1. Sélectionnez un emplacement pour votre compte de stockage et vérifiez qu’il s’agit de l’[une des réplications prises en charge pour les partages de fichiers volumineux](storage-files-planning.md#regional-availability).
 1. Définissez la réplication sur **Stockage localement redondant** ou sur **Stockage redondant interzone**.
 1. Laissez ces champs définis sur leur valeur par défaut :
 

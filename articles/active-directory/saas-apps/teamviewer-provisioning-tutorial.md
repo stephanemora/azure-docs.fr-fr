@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0602757fad0eb4424e10fb0c1cf0272826ed0024
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: dc33cf9249a5b804ef46e75ff1822eaa5c6f9d6a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77150695"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366438"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>Tutoriel : Configurer TeamViewer pour l'approvisionnement automatique d'utilisateurs
 
@@ -34,7 +34,7 @@ Ce tutoriel décrit les étapes à suivre dans TeamViewer et Azure Active Direct
 > * Maintenir la synchronisation des attributs utilisateur entre Azure AD et TeamViewer
 > * [Authentification unique](https://docs.microsoft.com/azure/active-directory/saas-apps/teamviewer-tutorial) auprès de TeamViewer (recommandée)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
@@ -101,7 +101,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Onglet Approvisionnement](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d'identification d'administrateur**, entrez vos informations d'identification d'administrateur TeamViewer et votre nom d'utilisateur. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à TeamViewer. Si la connexion échoue, vérifiez que votre compte TeamViewer dispose des autorisations d'administrateur, puis réessayez.
+5. Dans la section **Informations d’identification de l’administrateur**, entrez `ttps://webapi.teamviewer.com/scim/v2` dans le champ **URL du locataire** et entrez le jeton de script créé plus tôt dans le **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu'Azure AD peut se connecter à TeamViewer. Si la connexion échoue, vérifiez que votre compte TeamViewer dispose des autorisations d'administrateur, puis réessayez.
 
     ![approvisionnement](./media/teamViewer-provisioning-tutorial/provisioning.png)
 

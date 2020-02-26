@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 34f5de01df72b48d275448e028ab0f8cb71e51f8
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: aae11facd2fea5413b2996b3088cb2edc23f0dc1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132060"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424930"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Résoudre des problèmes de requête lors de l’utilisation d’Azure Cosmos DB
 
@@ -302,7 +302,7 @@ Si le nombre de documents récupérés est à peu près égal au nombre de docum
 
 Azure Cosmos DB utilise le [partitionnement](partitioning-overview.md) pour mettre à l’échelle des conteneurs en fonction de l’augmentation des besoins en unités de requête et en stockage des données. Chaque partition physique a un index distinct et indépendant. Si votre requête a un filtre d’égalité qui correspond à la clé de partition de votre conteneur, vous devrez uniquement vérifier l’index de la partition pertinente. Cette optimisation réduit le nombre total de RU requis par la requête.
 
-Si vous disposez d’un grand nombre d’unités de requête provisionnées (plus de 30 000) ou d’une grande quantité de données stockées (plus de 100 Go), vous disposez probablement d’un conteneur suffisamment grand pour constater une réduction significative des frais en RU liés aux requêtes.
+Si vous disposez d’un grand nombre d’unités de requête provisionnées (plus de 30 000) ou d’une grande quantité de données stockées (plus de 100 Go environ), vous disposez probablement d’un conteneur suffisamment grand pour constater une réduction significative des frais en RU liés aux requêtes.
 
 Par exemple, si nous créons un conteneur avec la clé de partition foodGroup, les requêtes suivantes ne devront vérifier qu’une seule partition physique :
 

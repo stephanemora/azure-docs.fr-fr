@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 607b65d6a6893901ce23cd48c277c14209128866
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 0622aca5579c64c6d840761abb151665af559eea
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137967"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367641"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte
 
@@ -28,7 +28,9 @@ La liaison d’entités est la possibilité d’identifier une entité présente
 
 ### <a name="named-entity-recognition-ner"></a>Reconnaissance d’entité nommée (NER)
 
-La reconnaissance d’entités nommées (NER) est la capacité d’identifier différentes entités dans du texte et de les classer en classes ou types prédéfinis. Il peut s’agir de personnes, de lieux ou d’organisations.
+La reconnaissance d’entités nommées (NER) est la capacité d’identifier différentes entités dans du texte et de les classer en classes ou types prédéfinis tels que : personne, lieu, événement, produit et organisation.  
+
+Depuis la version 3, cette fonctionnalité de l’API Analyse de texte peut aussi identifier les types d’informations personnelles et sensibles tels que : numéro de téléphone, numéro de sécurité sociale, adresse e-mail et numéro de compte bancaire.  L’identification de ces entités peut vous aider à classer des documents sensibles et à rédiger des informations personnelles.
 
 ## <a name="named-entity-recognition-versions-and-features"></a>Fonctionnalités et versions de la reconnaissance d’entités nommées
 
@@ -81,9 +83,9 @@ Liaison d’entités
 
 | Type  | Subtype | Exemple |
 |:-----------   |:------------- |:---------|
-| Person        | N/A\*         | « Jeff », « Bill Gates »     |
-| Location      | N/A\*         | « Redmond, Washington », « Paris »  |
-| Organization  | N/A\*         | « Microsoft »   |
+| Personne        | N/A\*         | « Jeff », « Bill Gates »     |
+| Emplacement      | N/A\*         | « Redmond, Washington », « Paris »  |
+| Organisation  | N/A\*         | « Microsoft »   |
 | Quantité      | Number        | « 6 », « six »     |
 | Quantité      | Pourcentage    | « 50 % », « cinquante pour cent »|
 | Quantité      | Ordinal       | « 2nd », « second »     |
@@ -99,7 +101,7 @@ Liaison d’entités
 | DateTime      | Duration      | « 1 minute et 45 secondes »   |
 | DateTime      | Définissez           | « Chaque mardi »     |
 | URL           | N/A\*         | "https:\//www.bing.com"    |
-| Email         | N/A\*         | "support@contoso.com" |
+| E-mail         | N/A\*         | "support@contoso.com" |
 | Numéro de téléphone aux États-Unis  | N/A\*         | (Numéros de téléphone américains uniquement) « (312) 555-0176 » |
 | Adresse IP    | N/A\*         | « 10.0.0.100 » |
 

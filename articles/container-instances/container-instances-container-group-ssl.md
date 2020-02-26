@@ -1,16 +1,16 @@
 ---
-title: Activer le protocole SSL dans un groupe de conteneurs
-description: Créer un point de terminaison SSL ou TLS pour un groupe de conteneurs exécuté sur Azure Container Instances
+title: Activer SSL avec un conteneur side-car
+description: Créer un point de terminaison SSL ou TLS pour un groupe de conteneurs exécuté sur Azure Container Instances en exécutant Nginx dans un conteneur side-car
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 541d53a9a9530f7ac80227dbae598b3da2691301
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 02/14/2020
+ms.openlocfilehash: 524e997cf6c7c464cc352048b1abf4be119d2f37
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773074"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460550"
 ---
-# <a name="enable-an-ssl-endpoint-in-a-container-group"></a>Activer un point de terminaison SSL dans un groupe de conteneurs
+# <a name="enable-an-ssl-endpoint-in-a-sidecar-container"></a>Activer un point de terminaison SSL dans un conteneur side-car
 
 Cet article montre comment créer un [groupe de conteneurs](container-instances-container-groups.md) avec un conteneur d’application et un conteneur side-car exécutant un fournisseur SSL. En configurant un groupe de conteneurs avec un point de terminaison SSL distinct, vous activez les connexions SSL pour votre application sans modifier votre code d’application.
 
@@ -18,7 +18,9 @@ Vous configurez un exemple de groupe de conteneurs composé de deux conteneurs 
 * Un conteneur d’applications qui exécute une application web simple à l’aide de l’image [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) Microsoft publique. 
 * Un conteneur side-car exécutant l’image [Nginx](https://hub.docker.com/_/nginx) publique, configuré pour utiliser SSL. 
 
-Dans cet exemple, le groupe de conteneurs expose uniquement le port 443 pour Nginx avec son adresse IP publique. Nginx achemine les requêtes HTTPS vers l’application web, qui écoute en interne sur le port 80. Vous pouvez adapter l’exemple pour les applications de conteneur qui écoutent sur les autres ports. Reportez-vous à la section [Étapes suivantes](#next-steps) pour découvrir d'autres approches d'activation du protocole SSL dans un groupe de conteneurs.
+Dans cet exemple, le groupe de conteneurs expose uniquement le port 443 pour Nginx avec son adresse IP publique. Nginx achemine les requêtes HTTPS vers l’application web, qui écoute en interne sur le port 80. Vous pouvez adapter l’exemple pour les applications de conteneur qui écoutent sur les autres ports. 
+
+Reportez-vous à la section [Étapes suivantes](#next-steps) pour découvrir d'autres approches d'activation du protocole SSL dans un groupe de conteneurs.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -56,7 +58,7 @@ Dans cette section, vous créez un fichier de configuration afin que Nginx utili
 code nginx.conf
 ```
 
-Dans `location`, veillez à définir `proxy_pass` avec le port approprié pour l’application. Dans cet exemple, nous avons défini le port 80 pour le conteneur `aci-helloworld`.
+Dans `location`, veillez à définir `proxy_pass` avec le port approprié pour votre application. Dans cet exemple, nous avons défini le port 80 pour le conteneur `aci-helloworld`.
 
 ```console
 # nginx Configuration File
@@ -85,7 +87,7 @@ http {
 
         # Protect against the BEAST attack by not using SSLv3 at all. If you need to support older browsers (IE6) you may need to add
         # SSLv3 to the list of protocols below.
-        ssl_protocols              TLSv1 TLSv1.1 TLSv1.2;
+        ssl_protocols              TLSv1.2;
 
         # Ciphers set to best allow protection from Beast, while providing forwarding secrecy, as defined by Mozilla - https://wiki.mozilla.org/Security/Server_Side_TLS#Nginx
         ssl_ciphers                ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:ECDHE-RSA-RC4-SHA:ECDHE-ECDSA-RC4-SHA:AES128:AES256:RC4-SHA:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!3DES:!MD5:!PSK;
@@ -125,9 +127,9 @@ http {
 Encodez le fichier de configuration Nginx, le certificat SSL et la clé SSL au format Base64. Dans la section suivante, vous entrez le contenu encodé dans un fichier YAML qui permet de déployer le groupe de conteneurs.
 
 ```console
-cat nginx.conf | base64 -w 0 > base64-nginx.conf
-cat ssl.crt | base64 -w 0 > base64-ssl.crt
-cat ssl.key | base64 -w 0 > base64-ssl.key
+cat nginx.conf | base64 > base64-nginx.conf
+cat ssl.crt | base64 > base64-ssl.crt
+cat ssl.key | base64 > base64-ssl.key
 ```
 
 ## <a name="deploy-container-group"></a>Déployer le groupe de conteneurs
@@ -216,17 +218,18 @@ Si votre déploiement est exécuté avec succès, vous voyez une sortie ressembl
 ```console
 Name          ResourceGroup    Status    Image                                                    IP:ports             Network    CPU/Memory       OsType    Location
 ------------  ---------------  --------  -------------------------------------------------------  -------------------  ---------  ---------------  --------  ----------
-app-with-ssl  myresourcegroup  Running   mcr.microsoft.com/azuredocs/nginx, aci-helloworld        52.157.22.76:443     Public     1.0 core/1.5 gb  Linux     westus
+app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-helloworld        52.157.22.76:443     Public     1.0 core/1.5 gb  Linux     westus
 ```
 
 ## <a name="verify-ssl-connection"></a>Vérifier la connexion SSL
 
-Pour voir l’application en cours d’exécution, accédez à son adresse IP dans votre navigateur. Dans cet exemple, l’adresse IP est `52.157.22.76`. Vous devez utiliser `https://<IP-ADDRESS>` pour voir l’application en cours d’exécution, en raison de la configuration du serveur Nginx. Les tentatives de connexion à `http://<IP-ADDRESS>` échouent.
+Utilisez votre navigateur pour accéder à l’adresse IP publique du groupe de conteneurs. L’adresse IP indiquée dans cet exemple étant `52.157.22.76`, l’URL est **https://52.157.22.76** . Vous devez utiliser HTTPS pour voir l’application en cours d’exécution, en raison de la configuration du serveur Nginx. Les tentatives de connexion via HTTP échouent.
 
 ![Capture d’écran du navigateur représentant une application exécutée dans une instance de conteneur Azure](./media/container-instances-container-group-ssl/aci-app-ssl-browser.png)
 
 > [!NOTE]
-> Étant donné que cet exemple utilise un certificat auto-signé et non un certificat émanant d’une autorité de certification, le navigateur affiche un avertissement de sécurité lors de la connexion au site via le protocole HTTPS. Il s’agit du comportement attendu.
+> Étant donné que cet exemple utilise un certificat auto-signé et non un certificat émanant d’une autorité de certification, le navigateur affiche un avertissement de sécurité lors de la connexion au site via le protocole HTTPS. Vous devrez peut-être accepter l’avertissement ou ajuster les paramètres du navigateur ou du certificat pour passer à la page. Il s’agit du comportement attendu.
+
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -239,6 +242,4 @@ Si vous déployez votre groupe de conteneurs dans un [réseau virtuel Azure](con
 
 * [Azure Functions Proxies](../azure-functions/functions-proxies.md)
 * [Gestion des API Azure](../api-management/api-management-key-concepts.md)
-* [Application Gateway Azure](../application-gateway/overview.md)
-
-Pour utiliser une passerelle d'application, consultez un exemple de [modèle de déploiement](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).
+* [Azure Application Gateway](../application-gateway/overview.md) : consultez un exemple de [modèle de déploiement](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).

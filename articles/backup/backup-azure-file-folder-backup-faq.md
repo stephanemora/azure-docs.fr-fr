@@ -3,16 +3,16 @@ title: Sauvegarde des fichiers et des dossiers - Questions courantes
 description: Cette section répond aux questions courantes liées à la sauvegarde des fichiers et des dossiers avec Sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 45c01a08151060b60b0f3e3b27b2fcc16ec8e60b
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 7b80932d49038bb42fa93f71b3ac0194c2869489
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720359"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425066"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Questions courantes sur la sauvegarde de fichiers et de dossiers
 
-Dans cet article, nous répondons aux questions courantes concernant la sauvegarde de fichiers et de dossiers avec l’agent Microsoft Azure Recovery Services (MARS) dans le service [Sauvegarde Microsoft Azure](backup-overview.md).
+Cet article répond aux questions courantes sur la sauvegarde de fichiers et de dossiers avec l’agent MARS (Microsoft Azure Recovery Services) dans le service [Sauvegarde Microsoft Azure](backup-overview.md).
 
 ## <a name="configure-backups"></a>Configurer des sauvegardes
 
@@ -90,7 +90,7 @@ Cet avertissement, qui peut s’afficher même si vous avez configuré une strat
 La taille du dossier du cache détermine la quantité de données que vous sauvegardez.
 
 * Les volumes de dossier de cache doivent disposer d’un espace disponible correspondant à 5 à 10 % minimum de la taille totale des données de sauvegarde.
-* Si le volume dispose de moins de 5 % de l’espace libre, augmentez la taille du volume, ou déplacez le dossier de cache vers un volume ayant suffisamment d’espace disponible.
+* Si le volume dispose de moins de 5 % de l’espace libre, augmentez la taille du volume, ou déplacez le dossier de cache vers un volume ayant suffisamment d’espace disponible en suivant [ces étapes](#how-do-i-change-the-cache-location-for-the-mars-agent).
 * Si vous sauvegardez l’état du système Windows, il vous faut 30 à 35 Go d’espace disponible de plus sur le volume contenant le dossier du cache.
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Comment vérifier si le dossier de travail est valide et accessible ?
@@ -98,35 +98,35 @@ La taille du dossier du cache détermine la quantité de données que vous sauve
 1. Par défaut, le dossier de travail se trouve ici : `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Vérifiez que le chemin de l’emplacement de votre dossier de travail correspond aux valeurs des entrées de clé de Registre ci-dessous :
 
-  | Chemin d’accès au Registre | Clé de Registre | Valeur |
-  | --- | --- | --- |
-  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
-  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
+    | Chemin d’accès au Registre | Clé de Registre | Valeur |
+    | --- | --- | --- |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
 
 ### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>Comment faire pour modifier l’emplacement du cache pour l’agent MARS ?
 
 1. Pour arrêter le moteur de sauvegarde, exécutez cette commande dans une invite de commandes avec élévation de privilèges :
 
     ```Net stop obengine```
-
 2. Si vous avez configuré la sauvegarde de l’état du système, ouvrez gestion des disques et démontez le ou les disques avec des noms au format `"CBSSBVol_<ID>"`.
-3. Ne déplacez pas les fichiers, mais copiez le dossier d’espace de cache sur un autre lecteur disposant d’un espace suffisant.
-4. Mettez à jour les entrées de registre suivantes en utilisant le chemin d’accès au nouveau dossier de cache.
+3. Par défaut, le dossier de travail se trouve ici : `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+4. Copiez la totalité du dossier `\Scratch` sur un autre lecteur disposant d’un espace suffisant. Assurez-vous que le contenu est copié et non déplacé.
+5. Mettez à jour les entrées de registre suivantes en utilisant le chemin du dossier de travail qui vient d’être déplacé.
 
     | Chemin d’accès au Registre | Clé de Registre | Valeur |
     | --- | --- | --- |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Emplacement du nouveau dossier de cache* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nouvel emplacement du dossier de travail* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nouvel emplacement du dossier de travail* |
 
-5. Redémarrez le moteur de sauvegarde via une invite de commandes avec élévation de privilèges :
+6. Redémarrez le moteur de sauvegarde via une invite de commandes avec élévation de privilèges :
 
-  ```command
-  Net stop obengine
+    ```command
+    Net stop obengine
 
-  Net start obengine
-  ```
+    Net start obengine
+    ```
 
-6. Exécutez une sauvegarde à la demande. Une fois la sauvegarde terminée au nouvel emplacement, vous pouvez supprimer le dossier du cache d’origine.
+7. Exécutez une sauvegarde à la demande. Une fois la sauvegarde terminée au nouvel emplacement, vous pouvez supprimer le dossier du cache d’origine.
 
 ### <a name="where-should-the-cache-folder-be-located"></a>Où le dossier du cache doit-il se trouver ?
 

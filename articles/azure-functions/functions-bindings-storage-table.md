@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 1be6420598e7983ef9014f617da1f87f5550fa6a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: dbc2e08ab131c591d8857e1cf88b5c9f91db9610
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705358"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425236"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Liaisons de stockage Table Azure pour Azure Functions
 
@@ -36,11 +36,11 @@ Les liaisons du Stockage Table sont fournies dans le package NuGet [Microsoft.Az
 
 La liaison d’entrée de stockage de table Azure permet de lire une table dans un compte de stockage Azure.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="one-entity"></a>Une entité
 
-L’exemple suivant illustre une [fonction C#](functions-dotnet-class-library.md) qui lit une ligne de table unique. 
+L’exemple suivant illustre une [fonction C#](functions-dotnet-class-library.md) qui lit une ligne de table unique. Pour chaque enregistrement inséré dans la table, la fonction est déclenchée.
 
 La valeur de clé de ligne "{queueTrigger}" indique que la clé de ligne provient de la chaîne de message de file d’attente.
 
@@ -143,7 +143,7 @@ Pour plus d’informations sur l’utilisation de CloudTable, consultez [Bien d�
 
 Si vous essayez de lier à `CloudTable` et obtenez un message d’erreur, vérifiez que vous avez une référence à [la bonne version du SDK Stockage](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 ### <a name="one-entity"></a>Une entité
 
@@ -310,7 +310,7 @@ Pour plus d’informations sur l’utilisation de CloudTable, consultez [Bien d�
 Si vous essayez de lier à `CloudTable` et obtenez un message d’erreur, vérifiez que vous avez une référence à [la bonne version du SDK Stockage](#azure-storage-sdk-version-in-functions-1x).
 
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L’exemple suivant montre une liaison d’entrée de table dans un fichier *function.json* et un [code JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction utilise un déclencheur de file d’attente pour lire une seule ligne du tableau. 
 
@@ -352,7 +352,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Ligne de table unique 
 
@@ -401,7 +401,7 @@ def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
     return func.HttpResponse(f"Table row: {messageJSON}")
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 L’exemple suivant illustre une fonction déclenchée par HTTP, qui retourne le nombre total d’éléments dans une partition spécifiée dans le Stockage Table.
 
@@ -423,7 +423,7 @@ public int run(
 
 ## <a name="input---attributes-and-annotations"></a>Sortie – Attributs et annotations
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
  Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez les attributs suivants pour configurer un déclencheur d’entrée de table :
 
@@ -481,19 +481,19 @@ Le compte de stockage à utiliser est déterminé dans l’ordre suivant :
 * L’attribut `StorageAccount` appliqué à la classe.
 * Le compte de stockage par défaut pour l’application de fonction (paramètre d’application « AzureWebJobsStorage »).
 
-# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 Les attributs ne sont pas pris en charge par le script C#.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Les attributs ne sont pas pris en charge par JavaScript.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Les attributs ne sont pas pris en charge par Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@TableInput` sur les paramètres dont la valeur proviendrait du Stockage Table.  Vous pouvez utiliser cette annotation avec des types Java natifs, des objets POJO ou des valeurs Null à l’aide de `Optional<T>`.
 
@@ -519,7 +519,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 ## <a name="input---usage"></a>Entrée - utilisation
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 * **Lire une ligne dans**
 
@@ -532,7 +532,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
   > [!NOTE]
   > `IQueryable` n’est pas pris en charge dans le [runtime Functions v2](functions-versions.md). Une alternative consiste à utiliser un [paramètre de méthode CloudTable paramName](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) pour lire la table à l’aide du SDK Stockage Azure. Si vous essayez de lier à `CloudTable` et obtenez un message d’erreur, vérifiez que vous avez une référence à [la bonne version du SDK Stockage](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 * **Lire une ligne dans**
 
@@ -545,15 +545,15 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
   > [!NOTE]
   > `IQueryable` n’est pas pris en charge dans le [runtime Functions v2](functions-versions.md). Une alternative consiste à utiliser un [paramètre de méthode CloudTable paramName](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable) pour lire la table à l’aide du SDK Stockage Azure. Si vous essayez de lier à `CloudTable` et obtenez un message d’erreur, vérifiez que vous avez une référence à [la bonne version du SDK Stockage](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Définissez les propriétés `filter` et `take`. Ne définissez pas `partitionKey` ni `rowKey`. Accédez à l’entité (ou les entités) de table d’entrée à l’aide de `context.bindings.<BINDING_NAME>`. Les objets désérialisés ont des propriétés `RowKey` et `PartitionKey`.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Les données de table sont passées à la fonction sous la forme d’une chaîne JSON. Désérialisez le message en appelant `json.loads` comme dans l’[exemple](#input) d’entrée.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 L’attribut [TableInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableinput) vous donne accès à la ligne de table qui ayant déclenché la fonction.
 
@@ -566,7 +566,7 @@ Utilisez une liaison de sortie de stockage de table Azure pour écrire des entit
 > [!NOTE]
 > Cette liaison de sortie ne prend pas en charge la mise à jour d’entités existantes. Utilisez l’opération `TableOperation.Replace`[à partir du Kit de développement logiciel (SDK) Stockage Azure](../cosmos-db/tutorial-develop-table-dotnet.md#delete-an-entity) pour mettre à jour une entité existante.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 L’exemple suivant illustre une [fonction C#](functions-dotnet-class-library.md) qui utilise un déclencheur HTTP pour écrire une ligne de table. 
 
@@ -590,7 +590,7 @@ public class TableStorage
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 L’exemple suivant montre une liaison de sortie de table dans un fichier *function.json* et un code [Script C#](functions-reference-csharp.md) qui utilise la liaison. La fonction écrit plusieurs entités de table.
 
@@ -645,7 +645,7 @@ public class Person
 
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L’exemple suivant montre une liaison de sortie de table dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction écrit plusieurs entités de table.
 
@@ -692,7 +692,7 @@ module.exports = function (context) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 L’exemple suivant montre comment utiliser la liaison de sortie de stockage de table. La liaison `table` est configurée dans le fichier *function.json* en assignant des valeurs à `name`, `tableName`, `partitionKey`et `connection` :
 
@@ -751,7 +751,7 @@ def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
     return func.HttpResponse(f"Message created with the rowKey: {rowKey}")
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 L’exemple suivant illustre une fonction Java utilisant un déclencheur HTTP pour écrire une seule ligne de table.
 
@@ -831,7 +831,7 @@ public class AddPersons {
 
 ## <a name="output---attributes-and-annotations"></a>Sortie – Attributs et annotations
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs).
 
@@ -865,19 +865,19 @@ Pour obtenir un exemple complet, consultez [Sortie - exemple C#](#output).
 
 Vous pouvez utiliser l’attribut `StorageAccount` pour spécifier le compte de stockage au niveau de la classe, de la méthode ou du paramètre. Pour plus d’informations, consultez [Entrée - attributs](#input---attributes-and-annotations).
 
-# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 Les attributs ne sont pas pris en charge par le script C#.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Les attributs ne sont pas pris en charge par JavaScript.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Les attributs ne sont pas pris en charge par Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Dans la [bibliothèque runtime de fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation [TableOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/TableOutput.java/) sur les paramètres pour écrire des valeurs dans le stockage de table.
 
@@ -903,23 +903,23 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 ## <a name="output---usage"></a>Sortie - utilisation
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Accédez à l’entité de table de sortie à l’aide d’un paramètre de méthode `ICollector<T> paramName` ou `IAsyncCollector<T> paramName`, où `T` contient les propriétés `PartitionKey` et `RowKey`. Ces propriétés sont souvent accompagnées de l’implémentation de `ITableEntity` ou de l’héritage de `TableEntity`.
 
 Une autre solution consiste à utiliser un paramètre de méthode `CloudTable` pour écrire dans la table en utilisant le Kit de développement logiciel (SDK) Stockage Azure. Si vous essayez de lier à `CloudTable` et obtenez un message d’erreur, vérifiez que vous avez une référence à [la bonne version du SDK Stockage](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 Accédez à l’entité de table de sortie à l’aide d’un paramètre de méthode `ICollector<T> paramName` ou `IAsyncCollector<T> paramName`, où `T` contient les propriétés `PartitionKey` et `RowKey`. Ces propriétés sont souvent accompagnées de l’implémentation de `ITableEntity` ou de l’héritage de `TableEntity`. La valeur `paramName` est spécifiée dans la propriété `name` de *function.json*.
 
 Une autre solution consiste à utiliser un paramètre de méthode `CloudTable` pour écrire dans la table en utilisant le Kit de développement logiciel (SDK) Stockage Azure. Si vous essayez de lier à `CloudTable` et obtenez un message d’erreur, vérifiez que vous avez une référence à [la bonne version du SDK Stockage](#azure-storage-sdk-version-in-functions-1x).
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Accédez à l’événement de sortie à l’aide de `context.bindings.<name>` où `<name>` est la valeur spécifiée dans la propriété `name` de *function.json*.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Il existe deux options pour générer en sortie un message de ligne de stockage de table à partir d’une fonction :
 
@@ -927,7 +927,7 @@ Il existe deux options pour générer en sortie un message de ligne de stockage 
 
 - **Impératif** : Passez une valeur à la méthode [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) du paramètre déclaré en tant que type [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python). La valeur transmise à `set` est conservée en tant que message d’Event Hub.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Il existe deux options pour produire en sortie une ligne de stockage de table à partir d’une fonction en utilisant l’annotation [TableStorageOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet) :
 

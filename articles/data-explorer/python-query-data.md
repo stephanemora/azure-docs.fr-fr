@@ -7,24 +7,26 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 2c32e67bb2b47a24036a341ea4e1b83037abbaee
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: ebd65f2dcbb0040b764290627bbfd2901aa9a7d3
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827537"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443973"
 ---
 # <a name="query-data-using-the-azure-data-explorer-python-library"></a>Interroger des données à l’aide de la bibliothèque Python d’Azure Data Explorer
 
-L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. L’Explorateur de données Azure fournit une [bibliothèque cliente de données pour Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Cette bibliothèque vous permet d’interroger les données de votre code. Dans cet article, vous vous connectez à un tableau sur le *cluster d’aide* que nous avons configuré pour faciliter l’apprentissage. Ensuite, vous interrogez une table sur ce cluster, puis retournez les résultats.
+Dans cet article, vous allez interroger des données en utilisant Azure Data Explorer. L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie.
+
+L’Explorateur de données Azure fournit une [bibliothèque cliente de données pour Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Cette bibliothèque vous permet d’interroger les données de votre code. Connectez-vous à une table du *cluster d’aide* que nous avons configuré pour faciliter l’apprentissage. Vous pouvez interroger une table de ce cluster, puis retourner les résultats.
 
 Cet article est également disponible dans [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un compte e-mail professionnel qui est membre d’Azure Active Directory (AAD)
+* [Python 3.4+](https://www.python.org/downloads/).
 
-* [Python](https://www.python.org/downloads/) installé sur votre ordinateur de développement
+* Un compte e-mail professionnel qui est membre d’Azure Active Directory (AAD)
 
 ## <a name="install-the-data-library"></a>Installer la bibliothèque de données
 
