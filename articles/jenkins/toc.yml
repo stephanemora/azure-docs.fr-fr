@@ -18,7 +18,7 @@
     - name: 2. Configurer
       items:
         - name: Mettre à l’échelle avec Azure Container Instances
-          href: /azure/container-instances/container-instances-jenkins
+          href: container-instances-jenkins.md
           maintainContext: true
         - name: Mettre à l’échelle avec les agents de machines virtuelles Azure
           href: jenkins-azure-vm-agents.md

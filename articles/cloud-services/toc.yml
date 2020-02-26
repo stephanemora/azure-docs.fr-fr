@@ -139,8 +139,6 @@
           href: cloud-services-allocation-failures.md
         - name: Causes courantes de recyclage des rôles de service cloud
           href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
-        - name: "L’application ne prend pas en charge TLS\_1.2"
-          href: applications-dont-support-tls-1-2.md
         - name: Taille par défaut du dossier TEMP trop petite pour un rôle
           href: cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md
         - name: Problèmes de déploiement courants

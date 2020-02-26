@@ -1,5 +1,5 @@
 - name: "Documentation Mobile\_Apps"
-  href: index.md
+  href: index.yml
 - name: Vue d’ensemble
   items:
     - name: Présentation de Mobile Apps
