@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 40dd7066d959b56f4554ea9d0390e8b1eb41e77f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896274"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587564"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Importer des données en bloc dans un compte d’API SQL Azure Cosmos DB à l’aide du kit SDK .NET
 
@@ -37,11 +37,11 @@ Avant de suivre les instructions de cet article, vérifiez que vous disposez bie
 
 * [Kit de développement logiciel (SDK) .NET Core 3](https://dotnet.microsoft.com/download/dotnet-core) Pour connaître la version disponible dans votre environnement, exécutez `dotnet --version`.
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a>Étape 1 : Création d’un compte Azure Cosmos DB
+## <a name="step-1-create-an-azure-cosmos-db-account"></a>Étape 1 : Création d’un compte Azure Cosmos DB
 
 [Créez un compte d'API SQL Azure Cosmos DB](create-cosmosdb-resources-portal.md) à partir du portail Azure ou à l'aide de l'[émulateur Azure Cosmos DB](local-emulator.md).
 
-## <a name="step-2-set-up-your-net-project"></a>Étape 2 : Configurer votre projet .NET
+## <a name="step-2-set-up-your-net-project"></a>Étape 2 : Configurer votre projet .NET
 
 Ouvrez l’invite de commandes Windows ou une fenêtre de terminal à partir de votre ordinateur local. Vous allez exécuter toutes les commandes des sections suivantes à partir de l’invite de commandes ou du terminal. Exécutez la commande dotnet new suivante pour créer une application nommée *bulk-import-demo*. Le paramètre `--langVersion` définit la propriété *LangVersion* dans le fichier projet créé.
 
@@ -81,7 +81,7 @@ Tout en restant dans le répertoire de l’application, installez la bibliothèq
 
 L’exemple d’application doit s’authentifier auprès de votre compte Azure Cosmos. Pour vous authentifier, vous devez transmettre les informations d’identification du compte Azure Cosmos à l’application. Pour obtenir les informations d’identification de votre compte Azure Cosmos, procédez comme suit :
 
-1.  Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1.  Connectez-vous au [portail Azure](https://portal.azure.com/).
 1.  Accédez à votre compte Azure Cosmos.
 1.  Ouvrez le volet **Clés** et copiez l’**URI** et la **CLÉ PRIMAIRE** de votre compte.
 
@@ -120,13 +120,13 @@ Commencez par remplacer la méthode `Main` par défaut et définir les variables
 
 Dans la méthode `Main`, ajoutez le code suivant pour initialiser l’objet CosmosClient :
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=CreateClient)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="CreateClient":::
 
 Une fois l’exécution en bloc activée, CosmosClient regroupe en interne les opérations simultanées en appels de service unique. Ainsi, il optimise l’utilisation du débit en distribuant les appels de service entre les partitions, puis en attribuant les résultats individuels aux appelants d’origine.
 
 Vous pouvez ensuite créer un conteneur pour stocker tous les éléments.  Définissez `/pk` en tant que clé de partition, 50 000 RU/s en tant que débit approvisionné, et une stratégie d’indexation personnalisée qui exclut tous les champs afin d'optimiser le débit d’écriture. Ajoutez le code suivant après l’instruction d’initialisation CosmosClient :
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Initialize)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Initialize":::
 
 ## <a name="step-6-populate-a-list-of-concurrent-tasks"></a>Étape 6 : Remplir une liste de tâches simultanées
 
@@ -141,22 +141,22 @@ Tout d’abord, ajoutez le package fictif à la solution à l’aide de la comma
 
 Définissez les éléments que vous souhaitez enregistrer. Vous devez définir la classe `Item` dans le fichier `Program.cs` :
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Model)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Model":::
 
 Ensuite, créez une fonction d’assistance au sein la classe `Program`. Cette fonction d’assistance obtient le nombre d’éléments que vous avez définis à des fins d'insertion et génère des données aléatoires :
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Bogus)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Bogus":::
 
 Lisez les éléments et sérialisez-les dans des instances de flux à l’aide de la classe `System.Text.Json`. Compte tenu de la nature des données générées automatiquement, vous sérialisez les données sous forme de flux. Vous pouvez aussi utiliser directement l’instance d’élément, mais en les convertissant en flux, tirez pleinement parti des performances des API de flux CosmosClient. En règle générale, vous pouvez utiliser les données directement, sous réserve de connaître la clé de partition. 
 
 
 Pour convertir les données en instances de flux, dans la méthode `Main`, ajoutez le code suivant juste après avoir créé le conteneur :
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Operations)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Operations":::
 
 Utilisez ensuite les flux de données pour créer des tâches simultanées et remplissez la liste des tâches afin d'insérer les éléments dans le conteneur. Pour effectuer cette opération, ajoutez le code suivant à la classe `Program` :
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=ConcurrentTasks)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="ConcurrentTasks":::
 
 Toutes ces opérations de point simultanées sont exécutées ensemble (en bloc), comme décrit dans la section Introduction.
 
