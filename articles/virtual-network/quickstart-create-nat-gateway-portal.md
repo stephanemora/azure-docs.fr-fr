@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 8913c956554fa7bf1d0362b44dc6f8031ffd74f9
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 429c221609005136663d5e64a1b8650027cba411
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429130"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588737"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Démarrage rapide : Créer une passerelle NAT avec le portail Azure
 
@@ -30,11 +30,7 @@ Ce guide de démarrage rapide vous montre comment utiliser le service NAT de Ré
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-> [!IMPORTANT]
-> Une fois la [préversion du service NAT de Réseau virtuel activée](./nat-overview.md#enable-preview) sur votre abonnement, utilisez https://aka.ms/natportal pour accéder au portail.
-
-Connectez-vous au [portail Azure](https://aka.ms/natportal).
-
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
