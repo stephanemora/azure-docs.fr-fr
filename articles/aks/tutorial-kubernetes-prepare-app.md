@@ -2,20 +2,17 @@
 title: Didacticiel Kubernetes sur Azure - Préparer une application
 description: Dans ce didacticiel Azure Kubernetes Service (AKS), vous découvrez comment préparer et créer une application à plusieurs conteneurs avec Docker Compose que vous pouvez ensuite déployer sur AKS.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 3ff93d006b7599eaa3f97c33efb047ce480c301c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: feab8495536b3306fd96793323d51644570b401b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71264467"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593158"
 ---
-# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Didacticiel : Préparer une application pour Azure Kubernetes Service (AKS)
+# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutoriel : Préparer une application pour Azure Kubernetes Service (AKS)
 
 Dans ce didacticiel (le premier d’une série de sept), vous allez préparer une application à plusieurs conteneurs à son utilisation dans Kubernetes. Les outils de développement existants tels que Docker Compose servent à créer et tester en local une application. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -93,7 +90,7 @@ Pour voir l’application en cours d’exécution, entrez `http://localhost:8080
 
 ![Image du cluster Kubernetes sur Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Maintenant que la fonctionnalité de l’application a été validée, les conteneurs en cours d’exécution peuvent être arrêtés et supprimés. Ne supprimez pas les images de conteneur. Dans le didacticiel suivant, l’image *azure-vote-front* est chargée dans une instance Azure Container Registry.
 
@@ -107,7 +104,7 @@ Lorsque l’application locale a été supprimée, vous disposez d’une image D
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, une application a été testée et les images de conteneur créées pour l’application. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, une application a été testée et les images de conteneur créées pour l’application. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Cloner un exemple de source de l’application à partir de GitHub

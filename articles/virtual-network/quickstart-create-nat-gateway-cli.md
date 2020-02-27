@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 816dc9c4460792b56a7dbf0c5d77f92afd257e73
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: df1e363f31aa8c88be54454c9dc060f4ed6b7ca1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429150"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588856"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-azure-cli"></a>Démarrage rapide : Créer une passerelle NAT avec Azure CLI
 
@@ -33,8 +33,6 @@ Ce guide de démarrage rapide vous montre comment utiliser le service NAT de Ré
 Vous pouvez suivre ce tutoriel en utilisant Azure Cloud Shell ou exécuter les commandes respectives localement.  Si vous n’avez jamais utilisé Azure Cloud Shell, [connectez-vous maintenant](https://shell.azure.com) pour procéder à l’installation initiale.
 Si vous choisissez d’exécuter ces commandes localement, vous devez installer l’interface CLI.  Ce tutoriel nécessite l’exécution d’une instance d’Azure CLI version 2.0.71 ou ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
-> [!IMPORTANT]
-> Une fois la [préversion du service NAT de Réseau virtuel activée](./nat-overview.md#enable-preview) sur votre abonnement, utilisez https://aka.ms/natportal pour accéder au portail.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -75,7 +73,7 @@ Vous pouvez utiliser une ou plusieurs ressources d’adresse IP publique, des pr
 ### <a name="create-a-nat-gateway-resource"></a>Créer une ressource de passerelle NAT
 
 Cette section explique en détail comment vous pouvez créer et configurer les composants suivants du service NAT à l’aide de la ressource de passerelle NAT :
-  - Un pool d’adresses IP publiques et un préfixe d’adresse IP publique à utiliser pour les flux sortants traduits par la ressource de passerelle NAT.
+  - Un pool d’adresses IP publiques et un préfixe d’adresse IP publique à utiliser pour les flux sortants qui sont traduits par la ressource de passerelle NAT.
   - Passer la valeur par défaut du délai d’inactivité de 4 minutes à 10 minutes.
 
 Créez une passerelle NAT Azure globale avec la commande [az network nat gateway create](https://docs.microsoft.com/cli/azure/network/nat?view=azure-cli-latest) nommée **myNATgateway**. La commande utilise à la fois l’adresse IP publique **myPublicIP** et le préfixe d’adresse IP publique **myPublicIPprefix**. La commande passe le délai d’inactivité à **10** minutes.
