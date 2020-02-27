@@ -67,13 +67,13 @@
     - name: Sécurité
       href: concepts-security.md
       items: null
-    - name: Réseau
+    - name: Mise en réseau
       href: concepts-network.md
     - name: Stockage
       href: concepts-storage.md
-    - name: Mise à l’échelle
+    - name: Scale
       href: concepts-scale.md
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       items:
         - name: Vue d’ensemble
           href: best-practices.md
@@ -105,8 +105,8 @@
               href: developer-best-practices-pod-security.md
     - name: Quotas et limites régionales
       href: quotas-skus-regions.md
-    - name: Migrer des services ACS vers AKS
-      href: acs-aks-migration.md
+    - name: Migrer vers AKS
+      href: aks-migration.md
     - name: Version de Kubernetes prise en charge
       href: supported-kubernetes-versions.md
     - name: Durcissement de la sécurité dans le système d’exploitation hôte

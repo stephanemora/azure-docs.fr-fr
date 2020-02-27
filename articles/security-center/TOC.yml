@@ -161,7 +161,7 @@
           href: security-center-adaptive-network-hardening.md
     - name: Archivage
       items:
-        - name: Apply disk encryption
+        - name: Appliquer le chiffrement de disque
           href: security-center-apply-disk-encryption.md
         - name: Appliquer des mises à jour système
           href: security-center-apply-system-updates.md
@@ -181,6 +181,20 @@
   items:
     - name: API REST
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: Questions fréquentes (FAQ) sur Azure Security Center
+      items:
+        - name: Questions générales
+          href: faq-general.md
+        - name: Questions sur la facturation
+          href: faq-billing.md
+        - name: Questions sur les autorisations
+          href: faq-permissions.md
+        - name: Questions sur la collecte de données et les agents
+          href: faq-data-collection-agents.md
+        - name: Questions sur les machines virtuelles
+          href: faq-vms.md
+        - name: Utilisateurs existants d’Azure Log Analytics
+          href: faq-azure-monitor-logs.md
     - name: Notes de publication
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: "Retrait de fonctionnalités et d’API (juillet\_2019)"
@@ -195,8 +209,6 @@
       href: security-center-privacy.md
     - name: Documentation Azure Security Center pour IoT
       href: 'https://docs.microsoft.com/azure/asc-for-iot/'
-    - name: Questions fréquentes (FAQ)
-      href: security-center-faq.md
     - name: Documentation sur la sécurité Azure
       href: /azure/security/
     - name: Mises à jour Azure

@@ -417,6 +417,8 @@
               href: vmware-physical-secondary-disaster-recovery.md
         - name: Machines virtuelles Hyper-V
           items:
+            - name: Dépréciation du scénario de site à site pour les machines virtuelles Hyper-V
+              href: site-to-site-deprecation.md
             - name: Guide pour la récupération d’urgence des machines virtuelles Hyper-V dans des clouds VMM vers un site secondaire
               href: hyper-v-vmm-disaster-recovery.md
             - name: Exécuter une simulation de récupération d’urgence des machines virtuelles Hyper-V vers un site secondaire

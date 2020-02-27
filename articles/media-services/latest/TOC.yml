@@ -124,11 +124,11 @@
               href: widevine-license-template-overview.md
             - name: Conditions de licence FairPlay
               href: fairplay-license-overview.md
-        - name: Stratégies de diffusion en continu
+        - name: Stratégies de streaming
           href: streaming-policy-concept.md
         - name: Stratégies de clé de contenu
           href: content-key-policy-concept.md
-    - name: Vidéo en flux continu
+    - name: Streaming en direct
       items:
         - name: Vue d’ensemble
           href: live-streaming-overview.md
@@ -148,6 +148,8 @@
           href: live-event-states-billing.md
         - name: Latence
           href: live-event-latency.md
+        - name: Codes d’erreur d’événement en direct
+          href: live-event-error-codes.md
     - name: Surveillance
       items:
         - name: Événements avec Event Grid
@@ -175,6 +177,8 @@
           items:
             - name: Codes d’erreur du point de terminaison de streaming
               href: streaming-endpoint-error-codes.md
+            - name: Codes d’erreur d’événement en direct
+              href: live-event-error-codes.md
             - name: Codes d’erreur des tâches
               href: job-error-codes.md
     - name: Conseils de migration de v2 vers v3
@@ -325,6 +329,8 @@
       items:
         - name: Codes d’erreur du point de terminaison de streaming
           href: streaming-endpoint-error-codes.md
+        - name: Codes d’erreur d’événement en direct
+          href: live-event-error-codes.md
         - name: Codes d’erreur des tâches
           href: job-error-codes.md
 - name: Ressources

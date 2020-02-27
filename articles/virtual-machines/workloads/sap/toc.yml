@@ -120,6 +120,11 @@
       href: sap-deployment-checklist.md
     - name: Planifier et implémenter NetWeaver dans Azure
       href: planning-guide.md
+      items:
+        - name: Charge de travail SAP sur les machines virtuelles Azure - Scénarios pris en charge
+          href: sap-planning-supported-configurations.md
+        - name: Logiciels SAP pris en charge pour les déploiements Azure
+          href: sap-supported-product-on-azure.md
     - name: Guide de déploiement NetWeaver SAP
       href: deployment-guide.md
     - name: Guides de déploiement SGBD pour charge de travail SAP
@@ -220,6 +225,8 @@
               href: sap-ascs-ha-multi-sid-wsfc-file-share.md
             - name: SLES avec Pacemaker multi-SID pour une instance A(SCS)
               href: high-availability-guide-suse-multi-sid.md
+            - name: RHEL avec Pacemaker multi-SID pour une instance A(SCS)
+              href: high-availability-guide-rhel-multi-sid.md
     - name: Azure Site Recovery pour la reprise d’activité après sinistre SAP
       href: '../../../site-recovery/site-recovery-workload.md#protect-sap'
     - name: Groupes de placement de proximité Azure pour une latence réseau optimale avec les applications SAP

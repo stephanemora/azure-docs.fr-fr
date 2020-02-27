@@ -11,14 +11,14 @@
           href: secure-aad-app.md
     - name: Solutions conformes du secteur
       items:
-        - name: Payment card industry
+        - name: Secteur des cartes de paiement
           href: secure-pci-web-app.md
 - name: Concepts
   expanded: true
   items:
     - name: Bonnes pratiques
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: secure-dev-overview.md
         - name: Concevoir des applications sécurisées
           href: secure-design.md
@@ -31,7 +31,7 @@
   items:
     - name: Analyse du code de sécurité Microsoft
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: security-code-analysis-overview.md
         - name: Intégration et installation
           href: security-code-analysis-onboard.md
@@ -45,7 +45,7 @@
       displayName: stride
       href: threat-modeling-tool.md
       items:
-        - name: Prise en main
+        - name: Démarrage
           href: threat-modeling-tool-getting-started.md
         - name: Présentation des fonctionnalités
           href: threat-modeling-tool-feature-overview.md
@@ -62,10 +62,12 @@
               href: threat-modeling-tool-releases-71601261.md
             - name: "Version mise à jour de Threat Modeling Tool\_7.1.60408.1\_- 9\_avril\_2019"
               href: threat-modeling-tool-releases-71604081.md
-            - name: "Version mise à jour de Threat Modeling Tool\_ 7.1.60702.1 - 02 juillet\_2019"
+            - name: "Version mise à jour de Threat Modeling Tool\_7.1.60702.1\_- 2\_juillet\_2019"
               href: threat-modeling-tool-releases-71607021.md
-            - name: "Version mise à jour de Threat Modeling Tool\_7.1.61015.1 - 16 octobre\_2019"
+            - name: "Version mise à jour de Threat Modeling Tool\_7.1.61015.1 - 16\_octobre\_2019"
               href: threat-modeling-tool-releases-71610151.md
+            - name: "Version mise à jour de Threat Modeling Tool\_7.3.00206.1 - 11\_février\_2020"
+              href: threat-modeling-tool-releases-73002061.md
         - name: Corrections
           href: threat-modeling-tool-mitigations.md
           items:
@@ -73,13 +75,13 @@
               href: threat-modeling-tool-auditing-and-logging.md
             - name: Authentication
               href: threat-modeling-tool-authentication.md
-            - name: Authorization
+            - name: Autorisation
               href: threat-modeling-tool-authorization.md
             - name: Sécurité des communications
               href: threat-modeling-tool-communication-security.md
             - name: Gestion des configurations
               href: threat-modeling-tool-configuration-management.md
-            - name: Cryptographie
+            - name: Chiffrement
               href: threat-modeling-tool-cryptography.md
             - name: Gestion des exceptions
               href: threat-modeling-tool-exception-management.md

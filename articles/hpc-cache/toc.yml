@@ -1,6 +1,6 @@
 - name: Documentation Azure HPC Cache
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure HPC Cache\_?"
       href: hpc-cache-overview.md
@@ -42,6 +42,8 @@
       href: hpc-cache-support-ticket.md
     - name: Contourner les paramètres de pare-feu de compte de stockage Blob
       href: hpc-cache-blob-firewall-fix.md
+    - name: Résoudre les problèmes de création de cibles de stockage NFS
+      href: troubleshoot-nas.md
     - name: Récupérer après une panne régionale
       href: hpc-region-recovery.md
     - name: Utiliser Azure NetApp Files avec Azure HPC Cache

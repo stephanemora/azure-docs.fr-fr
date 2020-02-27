@@ -1,0 +1,11 @@
+- name: Documentation sur l’ingénierie SRE
+  href: ../index.yml
+- name: Ressources
+  expanded: true
+  items:
+    - name: Livres sur l’ingénierie SRE
+      href: books.md
+    - name: Événements sur l’ingénierie SRE
+      href: events.md
+    - name: Synthèses et collections de liens sur l’ingénierie SRE
+      href: links.md

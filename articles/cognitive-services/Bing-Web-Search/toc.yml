@@ -1,6 +1,6 @@
 - name: Documentation de l’API Recherche Web Bing
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que la Recherche web Bing\_?"
       href: overview.md
@@ -27,14 +27,8 @@
           href: quickstarts/ruby.md
     - name: Kits SDK
       items:
-        - name: 'C#'
-          href: web-search-sdk-quickstart.md
-        - name: Java
-          href: web-sdk-java-quickstart.md
-        - name: Node.js
-          href: web-search-sdk-node-quickstart.md
-        - name: Python
-          href: web-sdk-python-quickstart.md
+        - name: Bibliothèques clientes Recherche Web Bing
+          href: ./quickstarts/client-libraries.md
 - name: Tutoriels
   items:
     - name: Application web à page unique
@@ -73,7 +67,7 @@
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference'
     - name: API Recherche web Bing v5
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v5-reference'
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
     - name: Azure PowerShell
       href: 'https://aka.ms/azure-powershell-cognitiveservices'

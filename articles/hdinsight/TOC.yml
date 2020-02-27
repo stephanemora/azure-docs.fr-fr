@@ -43,7 +43,7 @@
           href: ./apache-ambari-usage.md
         - name: Machine Learning dans HDInsight
           href: ./hdinsight-machine-learning-overview.md
-        - name: Streaming à grande échelle dans HDInsight
+        - name: Diffusion en continu à l’échelle dans HDInsight
           href: ./hdinsight-streaming-at-scale-overview.md
         - name: Architecture Apache Hadoop dans HDInsight
           href: ./hdinsight-hadoop-architecture.md
@@ -69,7 +69,7 @@
               href: ./hdinsight-hadoop-create-linux-clusters-portal.md
             - name: Créer des clusters avec des modèles
               href: ./hdinsight-hadoop-create-linux-clusters-arm-templates.md
-            - name: Créer des clusters avec la ligne de commande
+            - name: Créer des clusters avec Azure CLI
               href: ./hdinsight-hadoop-create-linux-clusters-azure-cli.md
             - name: Créer des clusters avec PowerShell
               href: ./hdinsight-hadoop-create-linux-clusters-azure-powershell.md
@@ -154,7 +154,7 @@
               href: ./hdinsight-use-external-metadata-stores.md
             - name: Base de données Ambari personnalisée
               href: ./hdinsight-custom-ambari-db.md
-            - name: "Gérer les journaux pour un cluster\_HDInsight"
+            - name: "Gérer les journaux d’activité pour un cluster\_HDInsight"
               href: ./hdinsight-log-management.md
             - name: Ajouter des comptes de stockage
               href: ./hdinsight-hadoop-add-storage.md
@@ -200,9 +200,9 @@
               href: ./hdinsight-hadoop-emulator-visual-studio.md
         - name: Surveillance
           items:
-            - name: Utiliser les journaux Azure Monitor
+            - name: Utiliser les journaux d’activité Azure Monitor
               href: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
-            - name: Utiliser des requêtes avec les journaux Azure Monitor
+            - name: Utiliser des requêtes avec les journaux d’activité Azure Monitor
               href: ./hdinsight-hadoop-oms-log-analytics-use-queries.md
             - name: Surveiller les performances du cluster
               href: ./hdinsight-key-scenarios-to-monitor.md
@@ -246,7 +246,7 @@
           href: ./hdinsight-hadoop-linux-information.md
         - name: Performances et mémoire Apache Hadoop
           href: ./hdinsight-hadoop-stack-trace-error-messages.md
-        - name: Accéder aux journaux d’applications YARN Apache Hadoop dans Linux
+        - name: Accéder aux journaux d’activité d’applications YARN Apache Hadoop sous Linux
           href: ./hdinsight-hadoop-access-yarn-app-logs-linux.md
         - name: Activer les dumps de tas pour les services Apache Hadoop
           href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
@@ -318,15 +318,15 @@
                   href: ./spark/apache-spark-streaming-overview.md
                 - name: Vue d’ensemble de Structured streaming
                   href: ./spark/apache-spark-structured-streaming-overview.md
-                - name: Créer des travaux de streaming Apache Spark hautement disponibles dans Apache Hadoop YARN
+                - name: Créer des travaux de diffusion en continu Apache Spark hautement disponibles dans Apache Hadoop YARN
                   href: ./spark/apache-spark-streaming-high-availability.md
-                - name: Créer des travaux de streaming Apache Spark avec traitement unique des événements
+                - name: Créer des travaux de diffusion en continu Apache Spark avec traitement unique des événements
                   href: ./spark/apache-spark-streaming-exactly-once.md
             - name: Apache Spark et Machine Learning
               items:
                 - name: Prévoir les résultats d’inspections alimentaires
                   href: ./spark/apache-spark-machine-learning-mllib-ipython.md
-                - name: Analyser les journaux des sites web
+                - name: Analyser les journaux d’activité des sites web
                   href: ./spark/apache-spark-custom-library-website-log-analysis.md
                 - name: Utiliser avec Microsoft Cognitive Toolkit
                   href: ./spark/apache-spark-microsoft-cognitive-toolkit.md
@@ -336,7 +336,7 @@
               items:
                 - name: Utiliser Apache Spark pour lire et écrire des données Apache HBase
                   href: ./hdinsight-using-spark-query-hbase.md
-                - name: Analyser les journaux de télémétrie Application Insights
+                - name: Analyser les journaux d’activité Application Insights Telemetry
                   href: ./spark/apache-spark-analyze-application-insight-logs.md
         - name: Gérer
           items:
@@ -546,7 +546,7 @@
               href: ./kafka/apache-kafka-connect-vpn-gateway.md
             - name: Répliquer les données Apache Kafka
               href: ./kafka/apache-kafka-mirroring.md
-            - name: Analyser les journaux Apache Kafka
+            - name: Analyser les journaux d’activité Apache Kafka
               href: ./kafka/apache-kafka-log-analytics-operations-management.md
             - name: BYOK (Bring Your Own Key)
               href: ./kafka/apache-kafka-byok.md

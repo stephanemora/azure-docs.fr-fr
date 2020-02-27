@@ -23,9 +23,11 @@
     - name: Fonctionnement de Personalizer
       href: how-personalizer-works.md
       displayName: 'rank, reward, api, explore, exploit, score, design, research, loop, action, context, feature, JSON, event, inactive, model'
-    - name: "Où utiliser Personalizer\_?"
+    - name: Où utiliser Personalizer
       href: where-can-you-use-personalizer.md
       displayName: 'checklist, considerations, effectiveness, recommendation engine'
+    - name: Terminologie
+      href: terminology.md
     - name: Déontologie et utilisation responsable
       href: ethics-responsible-use.md
       displayName: 'best practice, design'
@@ -34,9 +36,11 @@
         - name: "Caractéristiques\_: action et contexte"
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set, ID, guid, event id,'
-        - name: Événements actifs et inactifs
+        - name: Stratégie d’apprentissage
           href: concept-active-learning.md
           displayName: 'active, inactive'
+        - name: Événements actifs et inactifs
+          href: concept-active-inactive-events.md
         - name: Récompenses
           href: concept-rewards.md
           displayName: 'reward, wait time, default reward'
@@ -56,15 +60,15 @@
       href: concepts-scalability-performance.md
 - name: Guides pratiques
   items:
-    - name: Créer et configurer Personalizer
+    - name: Créer une ressource Personalizer
+      href: how-to-create-resource.md
+    - name: Configurer une boucle d’apprentissage
       href: how-to-settings.md
       displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
-    - name: Gérer votre stratégie d’apprentissage
-      href: how-to-learning-policy.md
-    - name: Analyser
-      items:
-        - name: Évaluation hors connexion
-          href: how-to-offline-evaluation.md
+    - name: Gérer les paramètres de modèle et d’apprentissage
+      href: how-to-manage-model.md
+    - name: Analyser avec une évaluation hors connexion
+      href: how-to-offline-evaluation.md
 - name: Informations de référence
   items:
     - name: Exemples

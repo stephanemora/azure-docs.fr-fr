@@ -42,9 +42,9 @@
     - name: 13 - Gérer la sécurité des machines virtuelles
       href: tutorial-azure-security.md
     - name: 14a - Générer avec Jenkins
-      href: tutorial-jenkins-github-docker-cicd.md
+      href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md
     - name: 14b - Intégrer Jenkins avec Azure DevOps
-      href: tutorial-build-deploy-jenkins.md
+      href: ../../jenkins/tutorial-build-deploy-jenkins.md
     - name: 15a - DevOps pour IaaS et PaaS sur Azure
       href: tutorial-devops-azure-pipelines-classic.md
     - name: 15b - CI/CD avec Azure Pipelines (YAML)
@@ -91,8 +91,8 @@
               href: ../av2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Série B modulable
               href: ../sizes-b-series-burstable.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-            - name: Série DC
-              href: ../dc-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Série DCv2
+              href: ../dcv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Séries Dv2 et DSv2
               href: ../dv2-dsv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Séries Dv3 et Dsv3
@@ -534,7 +534,7 @@
             - name: Mettre à l’échelle avec les agents de machines virtuelles
               href: ../../jenkins/jenkins-azure-vm-agents.md
             - name: Publier des artefacts vers le stockage
-              href: ../../storage/common/storage-java-jenkins-continuous-integration-solution.md
+              href: ../../jenkins/storage-java-jenkins-continuous-integration-solution.md
             - name: Jenkins sécurisé
               href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: Exécuter des conteneurs

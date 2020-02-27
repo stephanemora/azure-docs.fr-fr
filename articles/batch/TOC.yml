@@ -49,7 +49,7 @@
       href: batch-api-basics.md
     - name: API et outils
       href: batch-apis-tools.md
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       href: best-practices.md
     - name: Quotas et limites
       href: batch-quota-limit.md
@@ -123,6 +123,8 @@
           href: large-number-tasks.md
         - name: Rechercher les erreurs de travail et de tâche
           href: batch-job-task-error-checking.md
+        - name: Détection et gestion des erreurs du service Batch
+          href: batch-retry-after-errors.md
     - name: Créer des fichiers de ressources
       href: resource-files.md
     - name: Conserver les résultats des tâches et des travaux
@@ -231,7 +233,7 @@
       href: 'https://feedback.azure.com/forums/269742-batch'
     - name: Forum Azure Batch
       href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch'
-    - name: Batch Shipyard
+    - name: Lot chantier
       href: 'https://github.com/Azure/batch-shipyard'
     - name: Blog
       href: 'https://blogs.technet.microsoft.com/windowshpc/'

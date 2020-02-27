@@ -109,6 +109,8 @@
           href: search-capacity-planning.md
         - name: Mettre à l’échelle pour les performances
           href: search-performance-optimization.md
+        - name: Déplacer un service d’une région à l’autre
+          href: search-howto-move-across-regions.md
         - name: Architecture multilocataire
           href: search-modeling-multitenant-saas-applications.md
     - name: Sécurité
