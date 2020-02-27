@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: d2df67479d8b6ab490bf06bda1ec033f9bf7866e
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: fadf42e7bd7d754dea64542f06866a439eb460ec
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429120"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588771"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-azure-powershell"></a>Démarrage rapide : Créer une passerelle NAT avec Azure PowerShell
 
@@ -34,9 +34,6 @@ Ce guide de démarrage rapide vous montre comment utiliser le service NAT de Ré
 Vous pouvez suivre ce tutoriel en utilisant Azure Cloud Shell, ou exécuter les commandes localement.  Si vous n’avez pas utilisé Azure Cloud Shell, [connectez-vous maintenant](https://shell.azure.com).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-> [!IMPORTANT]
-> Une fois la [préversion du service NAT de Réseau virtuel activée](./nat-overview.md#enable-preview) sur votre abonnement, utilisez https://aka.ms/natportal pour accéder au portail.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
