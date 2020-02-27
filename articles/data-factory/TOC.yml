@@ -515,6 +515,8 @@
           href: data-flow-unpivot.md
         - name: Fenêtre
           href: data-flow-window.md
+        - name: Aplatir
+          href: data-flow-flatten.md
     - name: Paramétrable
       items:
         - name: Paramétrage des services liés

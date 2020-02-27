@@ -8,9 +8,10 @@
   expanded: true
   items:
     - name: Créer une application Unity
-      href: unity-overview.yml
       expanded: true
       items:
+        - name: Vue d’ensemble de Unity
+          href: unity-overview.md
         - name: HoloLens
           href: quickstarts/get-started-unity-hololens.md
         - name: Android
