@@ -3,12 +3,12 @@ title: Sauvegarder une batterie de serveurs SharePoint dans Azure avec MABS
 description: Le serveur de sauvegarde Azure vous permet de sauvegarder et de restaurer vos données SharePoint. Cet article fournit des informations vous permettant de configurer votre batterie de serveurs SharePoint, afin de pouvoir stocker les données souhaitées dans Azure. Vous pouvez restaurer des données SharePoint protégées à partir d’un disque ou d’Azure.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: a48afd84f6c4e1ec80015696dc4b14beea8ebfa4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ba9d79270da839cf99574322d68ccdba27fe2d93
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173209"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584249"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure avec MABS
 
@@ -32,7 +32,7 @@ Avant de commencer, assurez-vous d’avoir [installé et préparé le serveur de
 
 ### <a name="protection-agent"></a>Agent de protection
 
-L’agent Sauvegarde Azure doit être installé sur le serveur qui exécute SharePoint, ceux qui exécutent SQL Server et tous ceux qui font partie de la batterie de serveurs SharePoint. Pour plus d’informations sur la configuration de l’agent de protection, consultez [Configuration de l’agent de protection](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  La seule exception concerne l’installation de l’agent uniquement sur un seul serveur Web frontal (WFE). Le serveur de sauvegarde Azure n’a besoin de l’agent que sur un serveur WFE pour servir de point d’entrée pour la protection.
+L’agent Sauvegarde Azure doit être installé sur le serveur qui exécute SharePoint, ceux qui exécutent SQL Server et tous ceux qui font partie de la batterie de serveurs SharePoint. Pour plus d’informations sur la configuration de l’agent de protection, consultez [Configuration de l’agent de protection](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019).  La seule exception concerne l’installation de l’agent uniquement sur un seul serveur Web frontal (WFE). Le serveur de sauvegarde Azure n’a besoin de l’agent que sur un serveur WFE pour servir de point d’entrée pour la protection.
 
 ### <a name="sharepoint-farm"></a>Batterie de serveurs SharePoint
 

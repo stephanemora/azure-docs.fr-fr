@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: cdf07c6a4cb98f17a9bc15934a7be42ba70810f6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f61b6193a0d2082296a17128b41d7220f9b7e05f
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840449"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565891"
 ---
 # <a name="azure-identity-management-security-overview"></a>Vue d’ensemble de la sécurité et de la gestion des identités Azure
 
@@ -64,7 +64,7 @@ En savoir plus :
 
 * [Présentation de l’authentification unique](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Intégrer l’authentification unique Azure Active Directory aux applications SaaS](../../active-directory/manage-apps/configure-single-sign-on-portal.md)
+* [Intégrer l’authentification unique Azure Active Directory aux applications SaaS](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md)
 
 ## <a name="reverse-proxy"></a>Proxy inversé
 

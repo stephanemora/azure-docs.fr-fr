@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: e29ac6671d71ea02b432c9843541796984737c8b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 51b9c827d453eef2e2e75e1aa5222204eaa38d0e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459612"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525530"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Détection d’anomalies dans Azure Stream Analytics
 
@@ -21,6 +21,12 @@ Disponible à la fois dans le cloud et Azure IoT Edge, Azure Stream Analytics of
 Les modèles Machine Learning supposent une série chronologique équitablement échantillonnée. Si la série chronologique n’est pas uniforme, vous pouvez insérer une étape d’agrégation avec une fenêtre bascule avant l’appel de la détection des anomalies.
 
 Actuellement, les opérations Machine Learning ne prennent pas en charge les tendances de saisonnalité ni les corrélations multivariées.
+
+## <a name="anomaly-detection-using-machine-learning-in-azure-stream-analytics"></a>Détection des anomalies à laide de Machine Learning dans Azure Stream Analytics
+
+La vidéo suivante montre comment détecter une anomalie en temps réel à l’aide des fonctions Machine Learning dans Azure Stream Analytics. 
+
+> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Real-Time-ML-Based-Anomaly-Detection-In-Azure-Stream-Analytics/player]
 
 ## <a name="model-behavior"></a>Comportement du modèle
 
@@ -147,12 +153,6 @@ Un exemple de code permettant d'exécuter les configurations non partitionnées 
 
 ### <a name="identifying-bottlenecks"></a>Identification des goulots d’étranglement
 Utilisez le volet Métriques de votre travail Azure Stream Analytics pour identifier les goulots d’étranglement de votre pipeline. Examinez les **événements d’entrée/sortie** pour le débit, ainsi que le [ « Délai en filigrane »](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou les **Événements en backlog**, pour voir si le travail suit la vitesse d’entrée. Pour les métriques Event Hub, recherchez les **Demandes limitées** et ajustez les Unités de seuil en conséquence. Pour les métriques de Cosmos DB, examinez la valeur **Nombre maximal de RU/s consommées par groupe de clés de partition** sous Débit pour vous assurer que les groupes de clés de partition sont consommés de manière uniforme. Pour Azure SQL DB, surveillez **E/S journal** et **UC**.
-
-## <a name="anomaly-detection-using-machine-learning-in-azure-stream-analytics"></a>Détection des anomalies à laide de Machine Learning dans Azure Stream Analytics
-
-La vidéo suivante montre comment détecter une anomalie en temps réel à l’aide des fonctions Machine Learning dans Azure Stream Analytics. 
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Anomaly-detection-using-machine-learning-in-Azure-Stream-Analytics/player]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

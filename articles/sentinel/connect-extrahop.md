@@ -3,7 +3,7 @@ title: Connecter ExtraHop Reveal(x) à Azure Sentinel | Microsoft Docs
 description: Découvrez comment connecter ExtraHop Reveal(x) à Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: cabailey
-ms.openlocfilehash: 90d2a5a985e904217a461b509fb171822d266f60
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 8d82d8c5a76c34875e9a4aae22c547aec897c18a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610575"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588295"
 ---
 # <a name="connect-extrahop-revealx"></a>Connecter ExtraHop Reveal(x)
 
 Le connecteur de données ExtraHop Reveal(x) vous permet de connecter facilement votre système Reveal(x) à Azure Sentinel afin de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer l’Investigation. Cette intégration vous permet d’obtenir des informations sur le réseau de votre organisation et d’améliorer vos capacités en matière d’opérations de sécurité.
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Lire et écrire des autorisations dans l’espace de travail Azure Sentinel.
 
@@ -44,6 +44,6 @@ Le connecteur de données ExtraHop Reveal(x) vous permet de connecter facilement
 Dans ce document, vous avez appris à connecter ExtraHop Reveal(x) à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour analyser vos données.
+- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
 
 

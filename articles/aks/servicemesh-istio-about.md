@@ -2,20 +2,19 @@
 title: Vue d’ensemble d’Istio
 description: Obtenir une vue d’ensemble d’Istio
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: 3db2a3d75df08e7c668b1983ad9b4493446475df
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 8518e30a54c2486abf84cd9ac026cc4dccb3fa84
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529865"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593898"
 ---
 # <a name="istio"></a>Istio
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 [Istio][istio] est un maillage de services (service mesh) complet, personnalisable et extensible.
 

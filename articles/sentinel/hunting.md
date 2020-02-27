@@ -3,7 +3,7 @@ title: Fonctionnalités de repérage dans Azure Sentinel | Microsoft Docs
 description: Cet article décrit comment utiliser les fonctionnalités de repérage Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 6aa9dd27-6506-49c5-8e97-cc1aebecee87
@@ -15,13 +15,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
-ms.author: rkarlin
-ms.openlocfilehash: edba2a18e3b086a132f0bba7622df5df389671c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: yelevin
+ms.openlocfilehash: 54ddf6818b95a4037188ab222501ddfa69b28149
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489192"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587896"
 ---
 # <a name="hunt-for-threats-with-azure-sentinel"></a>Repérer les menaces avec Azure Sentinel
 
@@ -143,4 +143,4 @@ Dans cet article, vous avez appris à effectuer un examen de repérage à l’ai
 
 
 - [Use notebooks to run automated hunting campaigns](notebooks.md) (Utiliser des notebooks pour exécuter des campagnes de repérage automatisées)
-- [Use bookmarks to save interesting information while hunting](bookmarks.md) (Utiliser des signets pour enregistrer des informations intéressantes lors du repérage)
+- [Keep track of data during hunting](bookmarks.md) (Suivre des données pendant la recherche)

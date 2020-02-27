@@ -3,22 +3,22 @@ title: Conditions d’intégration pour SAP HANA sur Azure (grandes instances) |
 description: Conditions d’intégration pour SAP HANA sur Azure (grandes instances).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/31/2019
-ms.author: saghorpa
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 99ad334a526b269879034dcc0e1cd0b1b22f1f7f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101192"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617002"
 ---
 # <a name="onboarding-requirements"></a>Conditions d’intégration
 
@@ -61,7 +61,7 @@ Pour la matrice de compatibilité des versions de système d’exploitation et d
 > Pour les unités de Type II, seule la version SLES 12 SP2 du système d’exploitation est actuellement prise en charge. 
 
 
-**Base de données**
+**Sauvegarde de la base de données**
 
 - Licences et composants d’installation logiciels pour SAP HANA (édition Enterprise ou Platform).
 

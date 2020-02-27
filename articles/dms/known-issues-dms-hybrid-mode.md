@@ -2,21 +2,21 @@
 title: Problèmes connus/limitations de migration avec le mode hybride
 description: Découvrez les problèmes connus/limitations de migration d’Azure Database Migration Service en mode hybride.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2019
-ms.openlocfilehash: 60d1fc46ada70dc67c161f048a0206e7081ba591
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: aedc7ea3d778d52f6f348837430987568af188ef
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475947"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649600"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>Problèmes connus/limitations de migration avec le mode hybride
 

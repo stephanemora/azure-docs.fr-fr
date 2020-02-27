@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: b0a8deb5f656fafde358dbcf2e1a2724f1a84113
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: ff439083ca9c648ceec95b89b041bb5b60785c91
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "64727616"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603005"
 ---
 # <a name="linux-virtual-machines-documentation"></a>Documentation sur les machines virtuelles Linux
 
@@ -25,7 +25,7 @@ Découvrez comment déployer un serveur web NGINX au sein d’une machine virtue
 
 - [Portail Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Interface de ligne de commande Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Azure CLI](/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="step-by-step-tutorials"></a>Didacticiels pas à pas
 
@@ -42,7 +42,7 @@ Découvrez comment déployer, gérer et mettre à l’échelle des machines virt
 - [Sauvegarder les machines virtuelles](/azure/virtual-machines/linux/tutorial-backup-vms)
 - [Surveiller les machines virtuelles](/azure/virtual-machines/linux/tutorial-monitoring)
 - [Gérer la sécurité sur les machines virtuelles](/azure/virtual-machines/linux/tutorial-azure-security)
-- [Créer une infrastructure CI/CD avec Jenkins, Docker et GitHub](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
+- [Créer une infrastructure CI/CD avec Jenkins, Docker et GitHub](/azure/jenkins/tutorial-jenkins-github-docker-cicd)
 
 ## <a name="free-pluralsight-video-training"></a>Formation vidéo gratuite Pluralsight
 
@@ -52,7 +52,7 @@ Découvrez comment déployer, gérer et mettre à l’échelle des machines virt
 
 Déployez votre première application dans Azure.
 
-- [Interface de ligne de commande Azure](/azure/virtual-machines/virtual-machines-linux-cli-samples)
+- [Azure CLI](/azure/virtual-machines/virtual-machines-linux-cli-samples)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-powershell-samples)
 
 ## <a name="more"></a>En savoir plus

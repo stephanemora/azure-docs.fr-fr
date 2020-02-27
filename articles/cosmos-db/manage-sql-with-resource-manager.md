@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: ce9ca202ee57fe9c42906ebeb62a44c724bd1a52
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 72a87c3b23e0eed6cfbf1614388702443f4e99d0
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978724"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588785"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>Gérer les ressources de l’API SQL (Core) Azure Cosmos DB avec des modèles Azure Resource Manager
 
@@ -39,7 +39,7 @@ Pour créer les ressources Azure Cosmos DB, copiez l’exemple de modèle suivan
 > * Les noms de compte sont limités à 44 caractères, tout en minuscules.
 > * Pour changer les valeurs de débit, renvoyez le modèle avec les valeurs de RU/s mises à jour.
 
-[!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
 > [!NOTE]
 > Pour créer un conteneur avec une grande clé de partition, modifiez le modèle précédent en incluant la propriété `"version":2` dans l’objet `partitionKey`.
@@ -136,7 +136,7 @@ Copiez l’exemple de modèle suivant et déployez-le comme décrit, avec [Power
 * Si vous le souhaitez, vous pouvez consulter la [galerie Démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) et déployer le modèle à partir du portail Azure.
 * Vous pouvez également télécharger le modèle sur votre ordinateur local ou créer un modèle et spécifier le chemin d’accès local avec le paramètre `--template-file`.
 
-[!code-json[create-cosmosdb-sql-sprocs](~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json":::
 
 ### <a name="deploy-with-powershell"></a>Déployer avec PowerShell
 

@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 81db0889294360f74cb42d388e5d875de91c1019
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: cf70124f2e310dd62fd32de0e17edb40c047a318
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212475"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615678"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Premium Azure Functions
 
@@ -107,28 +107,29 @@ Vous trouverez ci-dessous les régions prises en charge actuellement pour chaque
 |--| -- | -- |
 |Centre de l’Australie| ✔<sup>1</sup> | |
 |Centre de l’Australie 2| ✔<sup>1</sup> | |
-|Australie Est| ✔ | |
+|Australie Est| ✔ | ✔<sup>1</sup> |
 |Sud-Australie Est | ✔ | ✔<sup>1</sup> |
 |Brésil Sud| ✔<sup>2</sup> |  |
-|Centre du Canada| ✔ |  |
+|Centre du Canada| ✔ | ✔<sup>1</sup> |
 |USA Centre| ✔ |  |
 |Asie Est| ✔ |  |
 |USA Est | ✔ | ✔<sup>1</sup> |
-|USA Est 2| ✔ |  |
+|USA Est 2| ✔ | ✔<sup>1</sup> |
 |France Centre| ✔ |  |
 |Allemagne Centre-Ouest| ✔ | |
 |Japon Est| ✔ | ✔<sup>1</sup> |
-|OuJapon Est| ✔ | |
-|Centre de la Corée| ✔ |  |
+|OuJapon Est| ✔ | ✔<sup>1</sup> |
+|Centre de la Corée| ✔ | ✔<sup>1</sup> |
 |Centre-Nord des États-Unis| ✔ |  |
 |Europe Nord| ✔ | ✔<sup>1</sup> |
 |États-Unis - partie centrale méridionale| ✔ | ✔<sup>1</sup> |
 |Inde Sud | ✔ | |
 |Asie Sud-Est| ✔ | ✔<sup>1</sup> |
-|Sud du Royaume-Uni| ✔ | |
+|Sud du Royaume-Uni| ✔ | ✔<sup>1</sup> |
 |Ouest du Royaume-Uni| ✔ |  |
 |Europe Ouest| ✔ | ✔<sup>1</sup> |
 |Inde Ouest| ✔ |  |
+|Centre-USA Ouest| | ✔<sup>1</sup> |
 |USA Ouest| ✔ | ✔<sup>1</sup> |
 |USA Ouest 2| ✔ |  |
 

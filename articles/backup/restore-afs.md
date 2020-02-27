@@ -3,12 +3,12 @@ title: Restaurer des partages de fichiers Azure
 description: Découvrez comment utiliser le portail Azure pour restaurer un partage de fichiers entier ou des fichiers spécifiques à partir d’un point de restauration créé par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: 8ecb5850c90e5a92e59d17f7949bd5b6cd6205f5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: c22078ebd89f5f6f8299e1424d4d9e21edce8b92
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930940"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586857"
 ---
 # <a name="restore-azure-file-shares"></a>Restaurer des partages de fichiers Azure
 
@@ -21,6 +21,7 @@ Dans cet article, vous allez apprendre à :
 * suivre le statut de l’opération de restauration.
 
 ## <a name="steps-to-perform-a-restore-operation"></a>Procédure d’exécution d’une opération de restauration
+
 Pour exécuter une opération de restauration, procédez comme suit.
 
 ### <a name="select-the-file-share-to-restore"></a>Sélectionner le partage de fichiers à restaurer
@@ -110,7 +111,7 @@ Vous pouvez utiliser cette option de restauration pour restaurer des fichiers ou
 
     ![Emplacement d’origine pour la récupération au niveau de l’élément](./media/restore-afs/original-location-item-level.png)
 
-2. Choisissez **Sélectionner un fichier** pour sélectionner les fichiers ou dossiers à restaurer.
+1. Choisissez **Sélectionner un fichier** pour sélectionner les fichiers ou dossiers à restaurer.
 
     ![Choisir Sélectionner un fichier](./media/restore-afs/select-file.png)
 

@@ -2,21 +2,21 @@
 title: Surveiller l’activité de migration – Azure Database Migration Service
 description: Apprenez à utiliser Azure Database Migration Service pour surveiller l’activité de migration.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: b3ba634ddb084b5637d0a0c97c0ac4ff72193c1d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437928"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648510"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Surveiller l’activité de migration avec Azure Database Migration Service
 Dans cet article, vous allez apprendre à surveiller la progression d’une migration aux niveaux de la base de données et de la table.

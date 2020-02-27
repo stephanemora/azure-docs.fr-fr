@@ -2,16 +2,15 @@
 title: À propos des maillages de services
 description: Obtenez une vue d’ensemble des maillages de services, de leur architecture et de leurs fonctionnalités, et découvrez les critères de sélection à prendre en compte avant d’en déployer un.
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: 226a4e5cf97be2e23ef13a95b80be07b7fbf5d7a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: eca49a3fac1ea0398ebe1d05bde20fbca3c81232
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529925"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594309"
 ---
 # <a name="about-service-meshes"></a>À propos des maillages de services
 

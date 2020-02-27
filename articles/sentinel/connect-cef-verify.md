@@ -3,7 +3,7 @@ title: Valider la connectivité à Azure Sentinel | Microsoft Docs
 description: Validez la connectivité de votre solution de sécurité pour vous assurer que les messages CEF sont transférés vers Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: e192f5db212faae9a8a93fbf3991f05b0adef0f8
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: e224f6d5cfd82dfc6cb1ce107d111ee0e031247b
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615276"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588431"
 ---
 # <a name="step-3-validate-connectivity"></a>ÉTAPE 3 : Valider la connectivité
 
@@ -41,5 +41,5 @@ Après avoir déployé l’agent et configuré votre solution de sécurité pour
 Dans ce document, vous avez appris à connecter les appliances CEF à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour analyser vos données.
+- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
 

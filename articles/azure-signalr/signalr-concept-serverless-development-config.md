@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: f86a63315798d982f7e78fd1ff293061daf50132
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e1157a695d34c75b237391427b37365421366ef8
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786773"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523168"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Développement et configuration Azure Functions avec Azure SignalR Service
 
@@ -40,7 +40,7 @@ Une application cliente nécessite un jeton d’accès valide pour se connecter 
 
 Utilisez une fonction Azure déclenchée via HTTP et la liaison d’entrée *SignalRConnectionInfo* pour générer l’objet d’informations de connexion. La fonction doit avoir une route HTTP qui se termine par `/negotiate`.
 
-Pour plus d’informations sur la création de la fonction negotiate, consultez les [informations de référence sur la liaison d’entrée *SignalRConnectionInfo*](../azure-functions/functions-bindings-signalr-service.md#input).
+Pour plus d’informations sur la création de la fonction negotiate, consultez les [informations de référence sur la liaison d’entrée *SignalRConnectionInfo*](../azure-functions/functions-bindings-signalr-service-input.md).
 
 Pour en savoir plus sur la création d’un jeton authentifié, reportez-vous à [Utilisation de l’authentification App Service](#using-app-service-authentication).
 
@@ -50,7 +50,7 @@ Utilisez la liaison de sortie *SignalR* pour envoyer des messages aux clients co
 
 Les utilisateurs peuvent être ajoutés à un ou plusieurs groupes. Vous pouvez également utiliser la liaison de sortie *SignalR* pour ajouter des utilisateurs à des groupes ou en en supprimer.
 
-Pour plus d’informations, consultez les [informations de référence sur la liaison de sortie *SignalR*](../azure-functions/functions-bindings-signalr-service.md#output).
+Pour plus d’informations, consultez les [informations de référence sur la liaison de sortie *SignalR*](../azure-functions/functions-bindings-signalr-service-output.md).
 
 ### <a name="signalr-hubs"></a>Hubs SignalR
 
@@ -107,7 +107,7 @@ Quand vous exécutez l’application de fonction sur votre ordinateur local, vou
 * `CORS` : entrez l’URL de base qui est l’origine de l’application cliente
 * `CORSCredentials` : définissez cette propriété sur `true` pour autoriser les demandes « withCredentials »
 
-Exemple :
+Exemple :
 
 ```json
 {

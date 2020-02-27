@@ -2,17 +2,14 @@
 title: 'Concepts : Accès et identité dans Azure Kubernetes Service (AKS)'
 description: Découvrez l’accès et l’identité dans Azure Kubernetes Service (AKS), entre autres l’intégration d’Azure Active Directory, le contrôle d’accès en fonction du rôle (RBAC) Kubernetes ainsi que les rôles et les liaisons.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: mlearned
-ms.openlocfilehash: 5d29598b0962fc42c855e7a26917a34269c30ddb
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: e4945535417f7d8d33308121267ba97e1f835e13
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158060"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596366"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Options d’accès et d’identité pour Azure Kubernetes Service (AKS)
 

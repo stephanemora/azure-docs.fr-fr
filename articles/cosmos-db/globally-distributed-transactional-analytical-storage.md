@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 18cf43ba137c92fc00d5f8e82e13501d03b4b6a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1c2b79f8d0641b1a1386329a2add14ded766bf5a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445405"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623395"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Stockage transactionnel et analytique distribué à l’échelle mondiale pour les conteneurs Azure Cosmos
 
@@ -30,7 +30,7 @@ Le moteur de stockage transactionnel s’appuie sur des disques SSD locaux, tand
 |Fonctionnalité  |Stockage transactionnel  |Stockage analytique |
 |---------|---------|---------|
 |Capacité de stockage maximale par conteneur Azure Cosmos |   Illimité      |    Illimité     |
-|Capacité de stockage maximale par clé de partition logique   |   10 Go      |   Illimité      |
+|Capacité de stockage maximale par clé de partition logique   |   20 Go      |   Illimité      |
 |Encodage du stockage  |   Orienté lignes avec format interne   |   Orienté colonnes avec format Apache Parquet |
 |Emplacement de stockage |   Stockage répliqué s’appuyant sur des disques SSD locaux/dans un cluster |  Stockage répliqué s’appuyant sur des disques SSD distants/hors cluster peu coûteux       |
 |Durabilité  |    99,99999 (7-9 s)     |  99,99999 (7-9 s)       |

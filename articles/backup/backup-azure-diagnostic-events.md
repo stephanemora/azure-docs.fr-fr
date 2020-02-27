@@ -3,12 +3,12 @@ title: Utilisation des paramètres de diagnostic pour les coffres Recovery Servi
 description: Article décrivant comment utiliser les anciens et nouveaux événements de diagnostic pour Sauvegarde Azure
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 875adb82aeeb56b378a84ca01e716c7189abc64f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7abf8873aafeb996476d818376057bfd8732d906
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280991"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583943"
 ---
 # <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Utilisation des paramètres de diagnostic pour les coffres Recovery Services
 
@@ -21,14 +21,15 @@ Vous pouvez configurer les paramètres de diagnostic d’un coffre Recovery Serv
 ## <a name="diagnostics-events-available-for-azure-backup-users"></a>Événements de diagnostic disponibles pour les utilisateurs de Sauvegarde Azure
 
 Sauvegarde Azure fournit les événements de diagnostic suivants, chacun d’entre eux fournissant des données détaillées sur un ensemble spécifique d’artefacts liés à la sauvegarde :
+
 * CoreAzureBackup
 * AddonAzureBackupAlerts
 * AddonAzureBackupProtectedInstance
 * AddonAzureBackupJobs
 * AddonAzureBackupPolicy
-* AddonAzureBackupStorage 
+* AddonAzureBackupStorage
 
-[Modèle de données pour les événements de diagnostics de Sauvegarde Azure](https://aka.ms/diagnosticsdatamodel)
+[Modèle de données pour les événements de diagnostics de Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
 
 Les données de ces événements peuvent être envoyées à un compte de stockage, à un espace de travail LA ou à un Event Hub. Si vous envoyez ces données à un espace de travail LA, vous devez sélectionner l’option **Spécifique de la ressource** dans l’écran **Paramètre de diagnostic** (voir plus d’informations dans les sections ci-dessous).
 
@@ -37,6 +38,7 @@ Les données de ces événements peuvent être envoyées à un compte de stockag
 En s’alignant sur la feuille de route Azure Log Analytics, Sauvegarde Azure vous permet d’envoyer des données de diagnostic de coffre à des tables LA dédiées pour LA. Celles-ci sont appelées [Tables Spécifique de la ressource](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#resource-specific).
 
 Pour envoyer les données de diagnostic du coffre à LA :
+
 1.  Accédez à votre coffre, puis cliquez sur **Paramètres de diagnostic**. Cliquez sur **+ Ajouter le paramètre de diagnostic**.
 2.  Donnez un nom au paramètre de diagnostic.
 3.  Cochez la case **Envoyer à Log Analytics** et sélectionnez un espace de travail Log Analytics.
@@ -84,4 +86,4 @@ L’image ci-dessous représente l’exemple d’un utilisateur ayant trois para
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[En savoir plus sur le modèle de données Log Analytics pour les événements de diagnostic](https://aka.ms/diagnosticsdatamodel)
+[En savoir plus sur le modèle de données Log Analytics pour les événements de diagnostic](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)

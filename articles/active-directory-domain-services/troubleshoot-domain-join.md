@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 73a76c4442bb8af70168e54a294f2cb100ff653c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 286e2ad460e98cfeceab52a3ac21bcba8da2cc7f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703654"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612809"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Résoudre les problèmes de jonction à un domaine avec un domaine managé Azure AD Domain Services
 
@@ -32,7 +32,7 @@ Si la machine virtuelle ne peut pas trouver le domaine managé Azure AD DS, il 
 
 1. Vérifiez que la machine virtuelle est connectée au même réseau virtuel, ou à un réseau virtuel appairé, qui est activé pour Azure AD DS. Si ce n’est pas le cas, la machine virtuelle ne peut pas trouver le domaine et s’y connecter pour le rejoindre.
     * Si la machine virtuelle n’est pas connectée au même réseau virtuel, vérifiez que l’appairage de réseau virtuel ou la connexion VPN est *Active* (Actif) ou *Connected* (Connecté) pour permettre au trafic de circuler correctement.
-1. Effectuez un test Ping du domaine en utilisant le nom du domaine managé Azure AD DS (par exemple, `ping aadds.contoso.com`).
+1. Effectuez un test Ping du domaine en utilisant le nom du domaine managé Azure AD DS (par exemple, `ping aaddscontoso.com`).
     * Si la réponse au test Ping échoue, essayez d’effectuer un test Ping des adresses IP du domaine affiché dans la page de présentation du portail pour votre domaine managé Azure AD DS, par exemple `ping 10.0.0.4`.
     * Si le test Ping de l’adresse IP aboutit contrairement à celui du domaine, il se peut que la fonction DNS ne soit pas correctement configurée. Vérifiez que vous avez configuré les serveurs DNS du domaine managé Azure AD DS pour le réseau virtuel.
 1. Essayez de vider le cache de résolution DNS sur la machine virtuelle, par exemple `ipconfig /flushdns`.
@@ -53,7 +53,7 @@ Si une boîte de dialogue s’affiche et vous demande d’entrer des information
 
 Pour résoudre les problèmes liés aux informations d’identification, passez en revue les étapes suivantes de résolution des problèmes :
 
-1. Essayez en utilisant le format UPN pour spécifier les informations d’identification, par exemple `dee@contoso.onmicrosoft.com`. Vérifiez que cet UPN est correctement configuré dans Azure AD.
+1. Essayez en utilisant le format UPN pour spécifier les informations d’identification, par exemple `dee@aaddscontoso.onmicrosoft.com`. Vérifiez que cet UPN est correctement configuré dans Azure AD.
     * La valeur de *SAMAccountName* pour votre compte peut être générée automatiquement s’il existe plusieurs utilisateurs avec le même préfixe UPN dans votre locataire ou si votre préfixe UPN est trop long. Par conséquent, le format *SAMAccountName* de votre compte peut être différent de ce que vous attendiez ou de celui que vous utilisez dans votre domaine local.
 1. Essayez d’utiliser les informations d’identification d’un compte d’utilisateur appartenant au groupe *AAD DC Administrators* pour joindre des machines virtuelles au domaine managé Azure AD DS.
 1. Vérifiez que vous avez [activé la synchronisation de mot de passe][enable-password-sync] et que vous avez attendu suffisamment de temps pour que la synchronisation de mot de passe initiale se termine.

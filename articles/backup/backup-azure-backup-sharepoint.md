@@ -4,12 +4,12 @@ description: Cet article fournit une vue d’ensemble de la protection du serveu
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 1750270b3383e815b9255273923b50d2879fdba6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b766c0401dde10fdc257044e004de3dbf8a7b84c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173337"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586476"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure avec DPM
 
@@ -33,7 +33,7 @@ Avant de continuer, vérifiez que toutes les [conditions préalables](backup-azu
 
 ### <a name="dpm-agent"></a>Agent DPM
 
-L’agent DPM doit être installé sur le serveur qui exécute SharePoint, les serveurs qui exécutent SQL et tous les serveurs qui font partie de la batterie de serveurs SharePoint. Pour plus d’informations sur la configuration de l’agent de protection, consultez [Configuration de l’agent de protection](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  La seule exception concerne l’installation de l’agent uniquement sur un seul serveur Web frontal (WFE). DPM n’a besoin de l’agent que sur un serveur WFE pour servir de point d’entrée pour la protection.
+L’agent DPM doit être installé sur le serveur qui exécute SharePoint, les serveurs qui exécutent SQL et tous les serveurs qui font partie de la batterie de serveurs SharePoint. Pour plus d’informations sur la configuration de l’agent de protection, consultez [Configuration de l’agent de protection](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019).  La seule exception concerne l’installation de l’agent uniquement sur un seul serveur Web frontal (WFE). DPM n’a besoin de l’agent que sur un serveur WFE pour servir de point d’entrée pour la protection.
 
 ### <a name="sharepoint-farm"></a>Batterie de serveurs SharePoint
 
@@ -74,7 +74,7 @@ Le fichier **ConfigureSharePoint.exe** se trouve dans le dossier [Chemin d’ins
    * Accordez au groupe WSS_Admin_WPG un droit d'accès en lecture à la clé de registre DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
-> Vous devrez réexécuter le fichier ConfigureSharePoint.exe à chaque fois modification des informations d'identification de l'administrateur de la batterie de serveurs SharePoint.
+> Vous devrez réexécuter le fichier ConfigureSharePoint.exe à chaque modification des informations d'identification de l'administrateur de la batterie de serveurs SharePoint.
 >
 >
 
@@ -102,7 +102,7 @@ Une fois que vous avez configuré DPM et la batterie de serveurs SharePoint comm
     ![Sélectionner la méthode de protection des données](./media/backup-azure-backup-sharepoint/select-data-protection-method1.png)
 
    > [!NOTE]
-   > La méthode de protection du disque permet de répondre aux objectifs de temps de récupération courts. Azure est une cible de protection à long terme économique par rapport aux bandes. Pour plus d’informations, consultez [Utilisation d’Azure Backup pour remplacer votre infrastructure sur bande](https://azure.microsoft.com/documentation/articles/backup-azure-backup-cloud-as-tape/)
+   > La méthode de protection du disque permet de répondre aux objectifs de temps de récupération courts. Azure est une cible de protection à long terme économique par rapport aux bandes. Pour plus d’informations, consultez [Utilisation d’Azure Backup pour remplacer votre infrastructure sur bande](./backup-azure-backup-cloud-as-tape.md)
    >
    >
 5. Dans la page **Spécifier les objectifs à court terme**, sélectionnez votre **plage de rétention** préférée et indiquez quand vous souhaitez effectuer les sauvegardes.
@@ -119,7 +119,7 @@ Une fois que vous avez configuré DPM et la batterie de serveurs SharePoint comm
     ![Choisir la méthode de création d’un réplica](./media/backup-azure-backup-sharepoint/choose-replica-creation-method.png)
 
    > [!NOTE]
-   > Pour s’assurer que le trafic réseau ne soit pas affecté, sélectionnez une heure en dehors des heures de production.
+   > Pour vérifier que le trafic réseau n’est pas affecté, sélectionnez une heure en dehors des heures de production.
    >
    >
 8. DPM garantit l'intégrité des données en effectuant des vérifications de cohérence sur le réplica. Deux options sont disponibles. Vous pouvez planifier des vérifications de cohérence ou autoriser DPM à vérifier automatiquement la cohérence du réplica chaque fois qu’il devient incohérent. Sélectionnez votre option préférée, puis cliquez sur **Suivant**.
@@ -153,7 +153,7 @@ Une fois que vous avez configuré DPM et la batterie de serveurs SharePoint comm
 
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-dpm"></a>Restauration d’un élément SharePoint à partir du disque à l'aide de DPM
 
-Dans l'exemple ci-dessous, l’ *élément de récupération SharePoint* a été supprimé accidentellement et doit être récupéré.
+Dans l’exemple ci-dessous, *l’élément de récupération SharePoint* a été supprimé accidentellement et doit être récupéré.
 ![DPM SharePoint Protection4](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png)
 
 1. Ouvrez la **console administrateur DPM**. Toutes les batteries de serveurs SharePoint protégées par DPM apparaissent dans l’onglet **Protection** .
@@ -162,7 +162,7 @@ Dans l'exemple ci-dessous, l’ *élément de récupération SharePoint* a été
 2. Pour commencer la récupération de l’élément, sélectionnez l’onglet **Récupération** .
 
     ![DPM SharePoint Protection5](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection6.png)
-3. Vous pouvez rechercher l’ *élément de récupération SharePoint* dans SharePoint à l’aide d’une recherche avec des caractères génériques dans une plage de points de récupération.
+3. Vous pouvez rechercher *l’élément de récupération SharePoint* dans SharePoint à l’aide d’une recherche avec des caractères génériques dans une plage de points de récupération.
 
     ![DPM SharePoint Protection6](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection7.png)
 4. Sélectionnez le point de récupération approprié dans les résultats de la recherche, cliquez avec le bouton droit sur l’élément, puis sélectionnez **Restaurer**.
@@ -243,5 +243,5 @@ Dans l'exemple ci-dessous, l’ *élément de récupération SharePoint* a été
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur la protection DPM de SharePoint, consultez la [série de vidéos - Protection DPM de SharePoint](https://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
-* Consultez les [notes de publication pour System Center 2012 - Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
-* Consultez les [notes de publication pour Data Protection Manager dans System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)
+* Consultez les [notes de publication pour System Center 2012 - Data Protection Manager](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj860415(v=sc.12)?redirectedfrom=MSDN)
+* Consultez les [notes de publication pour Data Protection Manager dans System Center 2012 SP1](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj860394(v=sc.12)?redirectedfrom=MSDN)

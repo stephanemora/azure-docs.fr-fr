@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: 685e4f841ba077c81f46a27af8040fa6c57c0021
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: bf0710ebef21226d8d8582a920d64027bb015d34
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846214"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622718"
 ---
 # <a name="what-is-personalizer"></a>Qu’est-ce que Personalizer ?
 
@@ -63,7 +63,7 @@ L’[API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer
 
 Utilisez Personalizer si votre contenu :
 
-* Comprend un ensemble restreint d’éléments (environ 50 max.). Si vous disposez d’une liste plus longue, [utilisez un moteur de recommandations](where-can-you-use-personalizer.md#use-personalizer-with-recommendation-engines) pour réduire la liste à 50 éléments.
+* Comprend un ensemble restreint d’éléments (environ 50 max.). Si vous disposez d’une liste plus longue, [utilisez un moteur de recommandations](where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) pour réduire la liste à 50 éléments.
 * Contient des informations décrivant le contenu que vous souhaitez classer : _actions avec caractéristiques_ et _caractéristiques de contexte_.
 * A besoin d’un minimum de 1 000 événements de contenu par jour pour que Personalizer soit efficace. Si Personalizer ne reçoit pas le trafic minimal nécessaire, le service met plus de temps à déterminer l’élément de contenu le mieux adapté.
 

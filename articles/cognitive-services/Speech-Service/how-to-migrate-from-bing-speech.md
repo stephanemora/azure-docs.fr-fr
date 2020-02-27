@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 01/21/2020
 ms.author: nitinme
-ms.openlocfilehash: c0e1cc2fc1b3d4aed82c5442d2d3e23a1272fab5
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: d6d9cb4dda93523b1136c8cc4cd307ae82c8b674
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805941"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560931"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrer de la Reconnaissance vocale Bing vers le service Speech
 
@@ -51,7 +51,7 @@ Reconnaissance de l’intention vocale | Nécessite un appel d’API LUIS sépar
 Reconnaissance de l’intention simple | :heavy_minus_sign: | :heavy_check_mark:
 Transcription par lots de fichiers audio longs | :heavy_minus_sign: | :heavy_check_mark:
 Mode de reconnaissance | Manuel via URI de point de terminaison | Automatique | Le mode de reconnaissance n’est pas disponible dans le service Speech.
-Lieu du point de terminaison | Globale | Zones géographiques | Les points de terminaison régionaux améliorent la latence.
+Lieu du point de terminaison | Global | Zones géographiques | Les points de terminaison régionaux améliorent la latence.
 API REST | :heavy_check_mark: | :heavy_check_mark: | Les API REST du service Speech sont compatibles avec la Reconnaissance vocale Bing (point de terminaison différent). Les API REST prennent en charge les fonctionnalités de synthèse vocale et de reconnaissance vocale limitée.
 Protocoles WebSocket | :heavy_check_mark: | :heavy_check_mark: | L’API WebSocket du service Speech est compatible avec la Reconnaissance vocale Bing (point de terminaison différent). Migrez vers le Kit de développement logiciel (SDK) Speech si possible afin de simplifier votre code.
 Appels d’API de service à service | :heavy_check_mark: | :heavy_minus_sign: | Fournis dans la Reconnaissance vocale Bing via la bibliothèque de services C#.
@@ -61,7 +61,7 @@ Le service Speech utilise un modèle tarifaire basé sur un temps donné (plutô
 
 ## <a name="migration-strategies"></a>Stratégies de migration
 
-Si votre organisation ou vous-même disposez d’applications en développement ou en production qui utilisent l’API Reconnaissance vocale Bing, vous devez les mettre à jour pour qu’elles utilisent le service Speech dès que possible. Pour accéder aux kits SDK, aux exemples de code et aux tutoriels disponibles, consultez la [documentation du service Speech](index.md).
+Si votre organisation ou vous-même disposez d’applications en développement ou en production qui utilisent l’API Reconnaissance vocale Bing, vous devez les mettre à jour pour qu’elles utilisent le service Speech dès que possible. Pour accéder aux kits SDK, aux exemples de code et aux tutoriels disponibles, consultez la [documentation du service Speech](index.yml).
 
 Les [API REST](rest-apis.md) du service Speech sont compatibles avec les API Reconnaissance vocale Bing. Si vous utilisez les API REST Reconnaissance vocale Bing, vous devez uniquement changer le point de terminaison REST et basculer vers une clé d’abonnement Speech.
 
@@ -90,7 +90,7 @@ Pour la prise en charge du service Speech, du SDK et de l’API, consultez la [p
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Essayer gratuitement le service Speech](get-started.md)
-* [Démarrage rapide : Reconnaissance vocale dans une application UWP à l’aide du kit SDK Speech](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
+* [Démarrage rapide : Reconnaissance vocale dans une application UWP à l’aide du kit SDK Speech](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## <a name="see-also"></a>Voir aussi
 * [Notes de publication du service Speech](releasenotes.md)

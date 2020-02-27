@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: f76b5443d6c1e3fd2cebf87cba39ba0a6bbdeaee
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: cfa39799e44cee0a2d36efccd454ccf8ca15157f
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521427"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603223"
 ---
 # <a name="update-to-dynamic-compliance-packages-in-your-regulatory-compliance-dashboard-preview"></a>Mise à jour des packages de conformité dynamique dans votre tableau de bord de conformité réglementaire (préversion)
 
@@ -77,4 +77,3 @@ Pour d’autres informations connexes, consultez les articles suivants :
 - [Tableau de bord de conformité réglementaire de Security Center](security-center-compliance-dashboard.md)
 - [Utilisation de stratégies de sécurité](tutorial-security-policy.md)
 - [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez comment utiliser les recommandations proposées par Azure Security Center pour protéger vos ressources Azure.
-- [FAQ Azure Security Center](security-center-faq.md) : obtenez des réponses aux questions concernant l’utilisation de Security Center.

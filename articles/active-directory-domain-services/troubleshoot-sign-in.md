@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: aa03e388019bf696324ea7af6062ec98386df5fa
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 0585ced3bc53f216ab203b4686b5800b5e14bbbd
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827049"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612748"
 ---
 # <a name="troubleshoot-account-sign-in-problems-with-an-azure-ad-domain-services-managed-domain"></a>Résoudre les problèmes de connexion de compte avec un domaine managé Azure AD Domain Services
 
@@ -59,7 +59,7 @@ Les domaines managés Azure AD DS sans synchronisation locale (comptes Azure AD 
     * [Modifiez le mot de passe du compte][enable-user-accounts] pour générer les hachages de mot de passe requis, puis attendez 15 minutes avant d’essayer de vous reconnecter.
     * Si vous désactivez Azure AD DS, puis le réactivez, chaque compte doit suivre à nouveau la procédure de changement du mot de passe et de génération du hachage de mot de passe requise.
 * **Oui, le mot de passe a été modifié.**
-    * Essayez de vous connecter en utilisant le format *UPN*, tel que `driley@contoso.com`, et non pas le format *SAMAccountName*, tel que `CONTOSO\deeriley`.
+    * Essayez de vous connecter en utilisant le format *UPN*, tel que `driley@aaddscontoso.com`, et non pas le format *SAMAccountName*, tel que `AADDSCONTOSO\deeriley`.
     * Le format *SAMAccountName* peut être généré automatiquement pour les utilisateurs dont le préfixe UPN est trop long ou identique à un autre utilisateur sur le domaine managé. Le format *UPN* garantit des données uniques au sein d’Azure AD.
 
 ## <a name="the-account-is-locked-out"></a>Le compte est verrouillé
@@ -72,7 +72,7 @@ Pour plus d’informations et pour savoir comment résoudre les problèmes de bl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous avez encore des problèmes pour joindre votre machine virtuelle au domaine managé Azure AD DS, [trouvez de l’aide et ouvrez un ticket de support pour Azure Active Directory][azure-ad-support].
+Si vous rencontrez toujours des problèmes pour joindre votre machine virtuelle au domaine managé Azure AD DS, [trouvez de l’aide et ouvrez un ticket de support pour Azure Active Directory][azure-ad-support].
 
 <!-- INTERNAL LINKS -->
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md

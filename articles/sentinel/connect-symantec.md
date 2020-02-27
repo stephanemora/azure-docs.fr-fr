@@ -3,7 +3,7 @@ title: Connecter des données Symantec ICDx à Azure Sentinel | Microsoft Docs
 description: Découvrez comment connecter des données Symantec ICDx à Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: d068223f-395e-46d6-bb94-7ca1afd3503c
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 111bc7cd0439eee2026a6a980e9e126b63ac58c6
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: cac63aee5f9ebf3859b138e6444e40b1e2dd30f7
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610486"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588091"
 ---
 # <a name="connect-your-symantec-icdx-appliance"></a>Connecter votre appliance Symantec ICDx 
 
@@ -42,7 +42,7 @@ Symantec ICDx peut intégrer et exporter des journaux d'activité directement da
 4. Sous **Redirecteurs**, en regard de Microsoft Azure Sentinel (Log Analytics), cliquez sur **Ajouter**. 
 4. Dans la fenêtre **Microsoft Azure Sentinel (Log Analytics)** , cliquez sur **Afficher les options avancées**. 
 5. En haut de la fenêtre développée Microsoft Azure Sentinel (Log Analytics), procédez comme suit :
-    -   **Name** : Entrez un nom pour le redirecteur ne dépassant pas 30 caractères. Choisissez un nom unique et explicite. Ce nom apparaît dans la liste des redirecteurs de l'écran **Configuration**, ainsi que dans les tableaux de bord de l'écran **Tableau de bord**. Par exemple :  Microsoft Azure Log Analytics Est. Ce champ est obligatoire.
+    -   **Name** : Entrez un nom pour le redirecteur ne dépassant pas 30 caractères. Choisissez un nom unique et explicite. Ce nom apparaît dans la liste des redirecteurs de l'écran **Configuration**, ainsi que dans les tableaux de bord de l'écran **Tableau de bord**. Par exemple : Microsoft Azure Log Analytics Est. Ce champ est obligatoire.
     -   **Description** : Entrez une description pour le redirecteur. Cette description apparaît également dans la liste des redirecteurs de l'écran **Configuration**. Incluez des détails tels que le type d’événement transféré et le groupe chargé d'inspecter les données.
     -   **Type de démarrage** : Sélectionnez la méthode de démarrage pour la configuration du redirecteur. Les options dont vous disposez sont Manuel et Automatique.<br>L'option Automatique est sélectionnée par défaut. 
 6. Sous **Événements**, procédez comme suit : 

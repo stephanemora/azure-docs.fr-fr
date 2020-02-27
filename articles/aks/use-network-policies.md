@@ -2,17 +2,14 @@
 title: Sécuriser les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)
 description: Découvrez comment sécuriser le trafic qui transite par des pods à l’aide de stratégies réseau Kubernetes dans Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: mlearned
-ms.openlocfilehash: 350e553563aa152c61c922727fb87937bedd14b5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 92e726529f2c81b169dc5ad485148ad8118bbc81
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928497"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592864"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Sécuriser le trafic entre les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)
 
@@ -22,7 +19,7 @@ Cet article vous explique comment installer le moteur de stratégie réseau et c
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-L’interface de ligne de commande Azure (Azure CLI) version 2.0.61 ou une version ultérieure doit avoir été installée et configurée. Exécutez  `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez  [Installer Azure CLI][install-azure-cli].
+L’interface de ligne de commande Azure (Azure CLI) version 2.0.61 ou une version ultérieure doit avoir été installée et configurée. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
 
 > [!TIP]
 > Si vous utilisiez la fonctionnalité de stratégie réseau disponible dans la préversion, nous vous recommandons de [créer un autre cluster](#create-an-aks-cluster-and-enable-network-policy).
@@ -57,7 +54,7 @@ Ces deux implémentations appliquent les stratégies spécifiées à l’aide du
 | Plateformes prises en charge                      | Linux                      | Linux                       |
 | Options de mise en réseau prises en charge             | Azure CNI                  | Azure CNI et kubenet       |
 | Conformité à la spécification Kubernetes | Prise en charge de tous les types de stratégies |  Prise en charge de tous les types de stratégies |
-| Fonctionnalités supplémentaires                      | Aucun                       | Modèle de stratégie étendu composé d’une stratégie réseau globale, d’un ensemble réseau global et d’un point de terminaison d’hôte. Pour plus d’informations sur l’utilisation de la CLI `calicoctl` pour gérer ces fonctionnalités étendues, consultez les [informations de référence utilisateur concernant calicoctl][calicoctl]. |
+| Fonctionnalités supplémentaires                      | None                       | Modèle de stratégie étendu composé d’une stratégie réseau globale, d’un ensemble réseau global et d’un point de terminaison d’hôte. Pour plus d’informations sur l’utilisation de la CLI `calicoctl` pour gérer ces fonctionnalités étendues, consultez les [informations de référence utilisateur concernant calicoctl][calicoctl]. |
 | Support                                  | Pris en charge par l’équipe d’ingénierie et de support Azure | Support de la communauté Calico Pour plus d’informations sur les offres de support payantes supplémentaires, consultez l’article présentant les [options de support de Project Calico][calico-support]. |
 | Journalisation                                  | Les règles ajoutées/supprimées dans IPTables sont journalisées sur chaque hôte sous */var/log/azure-npm.log* | Pour plus d’informations, consultez les [journaux de composant Calico][calico-logs]. |
 
@@ -444,7 +441,7 @@ Quittez la session de terminal attachée. Le pod de test est automatiquement sup
 exit
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Dans cet article, nous avons créé deux espaces de noms et appliqué une stratégie réseau. Pour nettoyer ces ressources, utilisez la commande [kubectl delete][kubectl-delete] et spécifiez les noms des ressources :
 

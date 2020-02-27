@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: dcb0ffef0cf48a7bcbfbdb0107999f7e90333559
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 1a74ec3610367193b5eee53ea0e0818901433e96
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77151987"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598569"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 
@@ -35,7 +35,7 @@ La ressource parente d’un partage de fichiers Azure est un compte de stockage 
 
 Il existe trois catégories de limitations à prendre en compte pour Azure Files : les comptes de stockage, les partages et les fichiers.
 
-Par exemple :  Avec des partages de fichiers premium, un partage unique peut atteindre 100 000 IOPS et un seul fichier peut scale up jusqu’à 5 000 IOPS. Par conséquent, si vous avez trois fichiers dans un partage, celui-ci peut vous permettre d’obtenir jusqu’à 15 000 IOPS.
+Par exemple : Avec des partages de fichiers premium, un partage unique peut atteindre 100 000 IOPS et un seul fichier peut scale up jusqu’à 5 000 IOPS. Par conséquent, si vous avez trois fichiers dans un partage, celui-ci peut vous permettre d’obtenir jusqu’à 15 000 IOPS.
 
 ### <a name="standard-storage-account-limits"></a>Limites d’un compte de stockage standard
 
@@ -51,8 +51,8 @@ Consultez la section [Objectifs de mise à l’échelle d’un compte de stockag
 ### <a name="file-share-and-file-scale-targets"></a>Partage de fichiers et objectifs de mise à l’échelle des fichiers
 
 > [!NOTE]
-> Les partages de fichiers standard d’une taille supérieure à 5 Tio présentent certaines limitations.
-> Pour obtenir la liste des limitations, des informations régionales et des instructions permettant d’activer ces tailles de partage de fichiers plus volumineuses, consultez la section [Intégrer des partages de fichiers plus grands](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) du guide de planification.
+> Les partages de fichiers standard supérieurs à 5 Tio présentent certaines limitations et restrictions régionales.
+> Pour obtenir la liste des limitations, des informations régionales et des instructions permettant d’activer ces tailles de partage de fichiers plus volumineuses, consultez la section [Intégrer des partages de fichiers plus grands](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) du guide de planification.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 1bdd6552c3d418d761ffaf1df4ebb769421693f5
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b27baed20d8e36bf5790036e2fdc0804a94a4ea1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484993"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589434"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>Présentation du service NAT de Réseau virtuel (préversion publique)
 
@@ -140,9 +140,6 @@ NAT est actuellement disponible dans les régions suivantes :
 
 Les abonnements doivent être inscrits pour permettre la participation à la préversion publique.  La participation nécessite un processus en deux étapes et des instructions sont fournies ci-dessous pour Azure CLI et Azure PowerShell.  L’activation peut prendre plusieurs minutes.
 
-> [!IMPORTANT]
-> Une fois la [préversion du service NAT de Réseau virtuel activée](./nat-overview.md#enable-preview) sur votre abonnement, utilisez https://aka.ms/natportal pour accéder au portail.
-
 ### <a name="azure-cli"></a>Azure CLI
 
 1. inscrire un abonnement à la préversion publique
@@ -168,7 +165,7 @@ Les abonnements doivent être inscrits pour permettre la participation à la pr�
 2. activer l’inscription
 
     ```azurepowershell-interactive
-      Register-AzProviderFeature -ProviderNamespace Microsoft.Network
+      Register-AzResourceProvider -ProviderNamespace Microsoft.Network
     ```
 
 ## <a name="pricing"></a>Tarifs
@@ -197,7 +194,6 @@ Nous aimerions savoir comment nous pouvons améliorer le service. Faites-nous pa
 
 - NAT est compatible avec des ressources d’adresses IP publiques, de préfixes d’adresses IP publiques et d’équilibreur de charge de la référence SKU standard.   Les ressources de base (par exemple, un équilibreur de charge de base) et tous les produits dérivés de celles-ci ne sont pas compatibles avec NAT.  Les ressources de base doivent être placées sur un sous-réseau non configuré avec NAT.
 - La famille d’adresses IPv4 est prise en charge.  NAT n’interagit pas avec la famille d’adresses IPv6.
-- Un groupe de sécurité réseau sur un sous-réseau ou une carte réseau n’est pas honoré pour des flux sortants vers les points de terminaison publics utilisant NAT.
 - La journalisation des flux de groupe de sécurité réseau n’est pas prise en charge lors de l’utilisation de NAT.
 - NAT ne peut pas s’étendre sur plusieurs réseaux virtuels.
 

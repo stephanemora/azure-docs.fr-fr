@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 023a52f373844e026de0e588e9cd46323abdcf34
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 73de446513915bbc5cba9d8b9cf23d08d18cc362
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149828"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585983"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
 
@@ -95,7 +95,8 @@ Une fois que vous avez activé les paramètres de sécurité par défaut dans vo
 
 Si l’utilisateur n’est pas inscrit pour Multi-Factor Authentication, celui-ci devra s’inscrire à l’aide de l’application d’authentification Microsoft Authenticator pour continuer. Aucune période d’inscription Multi-Factor Authentication de 14 jours n’est fournie.
 
-L’authentification moderne est désactivée par défaut pour les locataires Exchange Online antérieurs à 2017. Pour éviter la possibilité d’une boucle de connexion lors de l’authentification par le biais de ces locataires, vous devez [activer l’authentification moderne](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+> [!NOTE]
+> L’authentification moderne est désactivée par défaut pour les locataires Exchange Online antérieurs à 2017. Pour éviter la possibilité d’une boucle de connexion lors de l’authentification par le biais de ces locataires, vous devez [activer l’authentification moderne](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 > [!NOTE]
 > Le compte de synchronisation Azure AD Connect est exclu des paramètres de sécurité par défaut et ne sera pas invité à s’inscrire ou à effectuer une authentification multifacteur. Les organisations ne doivent pas utiliser ce compte à d’autres fins.

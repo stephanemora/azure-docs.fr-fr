@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/12/2020
-ms.openlocfilehash: d030e44f59d41c32c9a76c0b89c0bce1c8c54a69
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: b9d923b3272f9d8b3da39d7cdb771a766eee4eab
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186856"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561780"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gérer des clusters Apache Hadoop dans HDInsight à l’aide du portail Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "77186856"
 
 Le [portail Azure](https://portal.azure.com) vous permet de gérer des clusters [Apache Hadoop](https://hadoop.apache.org/) dans Azure HDInsight. Utilisez le sélecteur d’onglets ci-dessus pour obtenir des informations sur la gestion de clusters Hadoop dans HDInsight à l’aide d’autres outils.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Un cluster Apache Hadoop existant dans HDInsight.  Consultez [Création de clusters Linux dans HDInsight à l’aide du portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -222,25 +222,13 @@ Le mot de passe est modifié sur tous les nœuds du cluster.
    | Champ | Valeur |
    | --- | --- |
    | Type de script | Sélectionnez **- Personnalisé** dans la liste déroulante.|
-   | Name |« Modifier le mot de passe SSH » |
+   | Nom |« Modifier le mot de passe SSH » |
    | URI de script bash |URI du fichier changepassword.sh |
    | Types de nœud : (Principal, Worker, Nimbus, Superviseur ou Zookeeper) |✓ pour tous les types de nœuds répertoriés |
    | Paramètres |Entrez le nom d’utilisateur SSH, puis le nouveau mot de passe. Il doit y avoir un espace entre le nom d’utilisateur et le mot de passe. |
    | Conservez cette action de script... |Laissez ce champ non coché. |
 
 6. Sélectionnez **Créer** pour appliquer le script. Une fois le script terminé, vous pouvez vous connecter au cluster à l’aide de SSH avec le nouveau mot de passe.
-
-## <a name="grantrevoke-access"></a>Octroyer/Révoquer l’accès
-
-Les clusters HDInsight disposent des services web HTTP suivants (tous ces services ont des points de terminaison RESTful) :
-
-- ODBC
-- JDBC
-- Ambari
-- Oozie
-- Templeton
-
-Par défaut, l'accès à ces services est octroyé. Vous pouvez révoquer ou octroyer l’accès à l’aide d’[Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
 ## <a name="find-the-subscription-id"></a>Rechercher l’ID d’abonnement
 

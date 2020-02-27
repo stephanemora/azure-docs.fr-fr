@@ -4,12 +4,12 @@ description: Explication étape par étape pour la restauration de l’état du 
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.openlocfilehash: 8e256fbac0651b4c237c540151b3377927989d36
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 6d46a091a4e620e26d05735f12a201009663e65d
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172817"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602466"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurer l’état du système sur Windows Server
 
@@ -159,7 +159,7 @@ Une fois que vous avez récupéré l’état du système sous forme de fichiers 
 La sauvegarde de l’état du système inclut les données Active Directory. Effectuez les étapes suivantes pour restaurer les services de domaine Active Directory (AD DS) de leur état actuel vers un état antérieur.
 
 1. Redémarrez le contrôleur de domaine en Mode restauration des services d’annuaire (DSRM).
-2. Suivez les étapes [ici](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) pour utiliser les applets de commande Windows Server Backup afin de récupérer AD DS.
+2. Suivez les étapes [ici](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) pour utiliser les applets de commande Windows Server Backup afin de récupérer AD DS.
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>Résoudre les problèmes d’échec de restauration de l’état du système
 

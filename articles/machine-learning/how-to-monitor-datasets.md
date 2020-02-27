@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/04/2019
-ms.openlocfilehash: 4efdc47e65f0f29f74f1477b02efdc6b8767ffb2
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 401019c537cb0eb51fa6002637e170a79210f7d2
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264761"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617633"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Détecter une dérive de données (préversion) sur des jeux de données
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Les métriques et insights sont disponibles par le biais de la ressource [Azure 
 > [!Important]
 > Notez que la surveillance de la dérive des données avec le SDK est disponible dans toutes les éditions, tandis que la surveillance de la dérive des données via le studio sur le web est disponible uniquement dans l’édition Entreprise.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour créer et utiliser des analyses de jeux de données, vous avez besoin des éléments suivants :
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
@@ -131,7 +131,7 @@ Cette table contient les paramètres de base utilisés pour l’analyse du jeu d
 
 | Paramètre | Description | Conseils | Mutable | 
 | ------- | ----------- | ---- | ------- | 
-| Name | Nom de l’analyse du jeu de données | | Non |
+| Nom | Nom de l’analyse du jeu de données | | Non |
 | Jeu de données de référence | Jeu de données tabulaires qui sera utilisé comme ligne de base pour la comparaison du jeu de données cible au fil du temps. | Le jeu de données de référence doit avoir des caractéristiques communes avec le jeu de données cible. En règle générale, la ligne de base doit être définie sur le jeu de données de formation d’un modèle ou sur un segment du jeu de données cible. | Non |
 | Jeu de données cible | Jeu de données tabulaires avec colonne timestamp qui sera analysé pour la dérive des données. | Le jeu de données cible doit avoir des caractéristiques en commun avec le jeu de données de base et il doit s’agir d’un jeu de données `timeseries` auquel de nouvelles données sont ajoutées. Les données d’historique peuvent être analysées dans le jeu de données cible ou de nouvelles données peuvent être surveillées. | Non | 
 | Fréquence | Fréquence qui permettra de planifier le travail de pipeline et d’analyser les données d’historique si vous exécutez un renvoi. Les options disponibles sont quotidienne, hebdomadaire ou mensuelle. | Ajustez ce paramètre pour inclure une taille comparable de données à la ligne de base. | Non | 
@@ -326,6 +326,6 @@ Dans le jeu de données, les colonnes, ou caractéristiques, sont classées comm
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour configurer une analyse de jeu de données, accédez à [Azure Machine Learning studio](https://ml.azure.com) ou au [notebook Python](https://aka.ms/datadrift-notebook).
+* Pour configurer une analyse de jeu de données, accédez à [Azure Machine Learning studio](https://ml.azure.com) ou au [notebook Python](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb).
 * Découvrez comment configurer la dérive de données sur les [modèles déployés sur Azure Kubernetes Service](how-to-monitor-data-drift.md).
 * Configurez des superviseurs de dérive de jeu de données avec [Event Grid](how-to-use-event-grid.md). 

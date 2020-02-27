@@ -2,21 +2,21 @@
 title: Matrice d’outils Azure Database Migration Service
 description: Découvrez plus d’informations sur les services et les outils disponibles pour migrer des bases de données et prendre en charge les différentes phases du processus de migration.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/10/2020
-ms.openlocfilehash: 6259f365edeb3c3d94646a4b2ae019d0776dcc23
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 02/20/2020
+ms.openlocfilehash: c64e9392173f2f329f6c95d4cf9f40614060066e
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75860841"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650996"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>Services et outils disponibles pour les scénarios de migration de données
 

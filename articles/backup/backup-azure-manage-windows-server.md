@@ -3,12 +3,12 @@ title: Gérer les serveurs et les coffres Azure Recovery Services
 description: Dans cet article, découvrez comment utiliser le tableau de bord Vue d’ensemble du coffre Recovery Services pour gérer et effectuer le monitorage de vos coffres Recovery Services.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: f043d50a2b0e4efbda957a9c4ccb8f1d472dce15
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 5ae875b2e767768e90a9fbc6ff4ecfc6efb239c5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173039"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586442"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Surveiller et gérer les coffres Recovery Services
 
@@ -81,7 +81,7 @@ La liste Alertes de sauvegarde affiche les informations sélectionnées pour les
 | ----------- | ----------- |
 | Critique | Vous recevez des alertes critiques quand : Des travaux de sauvegarde échouent, des travaux de récupération échouent, et quand vous suspendez la protection sur un serveur mais conservez les données.|
 | Avertissement | Vous recevez des alertes d’avertissement quand : Des travaux de sauvegarde se terminent avec des avertissements, par exemple lorsque moins de 100 fichiers n’ont pas été sauvegardés en raison de problèmes d’altération, ou lorsque plus de 1 000 000 fichiers ont été correctement sauvegardés. |
-| Informations | Actuellement, les alertes d’information ne sont pas utilisées. |
+| Informationnel | Actuellement, les alertes d’information ne sont pas utilisées. |
 
 ### <a name="viewing-alert-details"></a>Affichage des détails de l’alerte
 
@@ -215,10 +215,10 @@ Le type d’élément correspond au type de gestion des sauvegardes de l’insta
 Vous pouvez afficher une seule opération ou toutes les opérations. Vous ne pouvez pas sélectionner deux ou trois opérations. Les opérations disponibles sont les suivantes :
 
 * Toutes les opérations
-* Register
+* Inscrire
 * Configurer une sauvegarde
-* Sauvegarde
-* Restore
+* Backup
+* Restaurer
 * Désactiver la sauvegarde
 * Supprimer les données de sauvegarde
 
@@ -230,7 +230,7 @@ Vous pouvez afficher tous les états ou un seul état. Vous ne pouvez pas sélec
 * Completed
 * En cours
 * Échec
-* Canceled
+* Opération annulée
 * Terminé avec des avertissements
 
 #### <a name="start-time"></a>Heure de début
@@ -256,7 +256,7 @@ Dans le tableau de bord, la vignette Stockage de sauvegarde indique le stockage 
 
 ## <a name="troubleshooting-monitoring-issues"></a>Résolution des problèmes de surveillance
 
-**Problème :** Les travaux et/ou les alertes de l’agent de sauvegarde Azure n’apparaissent pas dans le portail.
+**Problème :** Les travaux et/ou les alertes de l’agent de sauvegarde Azure n’apparaissent pas dans le portail.
 
 **Procédure de résolution :** le processus ```OBRecoveryServicesManagementAgent``` envoie au service de sauvegarde Azure les données relatives à l’alerte et au travail. Il peut arriver que ce processus se bloque ou s’arrête.
 
@@ -272,4 +272,4 @@ Dans le tableau de bord, la vignette Stockage de sauvegarde indique le stockage 
 
 * [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
 * Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md)
-* Consultez le [forum Azure Backup](https://go.microsoft.com/fwlink/p/?LinkId=290933)
+

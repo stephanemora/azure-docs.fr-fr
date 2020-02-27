@@ -1,19 +1,19 @@
 ---
 title: Customer Lockbox pour Microsoft Azure
 description: Vue d’ensemble technique de Customer Lockbox pour Microsoft Azure, qui permet de contrôler les accès de fournisseur cloud lorsque Microsoft doit accéder aux données client.
-author: cabailey
+author: TerryLanfear
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: cabailey
-manager: barbkess
+ms.author: terrylan
+manager: rkarlin
 ms.date: 11/04/2019
-ms.openlocfilehash: 7c0409d48876a0f830366381c2a46821c4aa03a0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: abc16ae7f7ab8bf15173248a6e7668e689e127de
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466406"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561967"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox pour Microsoft Azure
 
@@ -42,37 +42,37 @@ Les étapes suivantes décrivent un workflow classique pour une demande Customer
     - Étendue de la ressource
     - Si l’auteur de la demande est une identité isolée ou utilise l’authentification multifacteur
     - Niveaux d’autorisation
-    
+
     Selon la règle JIT, cette demande peut également inclure une approbation des approbateurs Microsoft internes. Par exemple, l’approbateur peut être le responsable du support client ou le responsable DevOps.
 
 6. Lorsque la demande nécessite un accès direct aux données client, une demande Customer Lockbox est lancée. Par exemple, pour un accès Bureau à distance à la machine virtuelle d’un client.
-    
+
     La demande a désormais l’état **Client averti** : elle attend l’approbation du client avant que l’accès soit accordé.
 
 7. Dans l’organisation du client, l’utilisateur qui a le [rôle de propriétaire](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) pour l’abonnement Azure reçoit un e-mail de la part de Microsoft l’informant de la demande d’accès en attente. Pour les demandes Customer Lockbox, cette personne est l’approbateur désigné.
-    
+
     Exemple d’e-mail :
-    
+
     ![Azure Customer Lockbox - Notification par courrier électronique](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
 
 8. La notification par courrier électronique contient un lien vers le panneau **Customer Lockbox** dans le portail Azure. Via ce lien, l’approbateur désigné se connecte au portail Azure pour afficher des demandes en attente de l’organisation pour Customer Lockbox :
-    
+
     ![Azure Customer Lockbox - Page d’accueil](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
-    
+
    La demande reste dans la file d’attente du client pendant quatre jours. Passé ce délai, la demande d’accès expire automatiquement et aucun accès n’est accordé aux ingénieurs Microsoft.
 
 9. Pour obtenir les détails de la demande en attente, l’approbateur désigné peut sélectionner la demande Customer Lockbox sous les **demandes en attente** :
-    
+
     ![Azure Customer Lockbox - Afficher la demande en attente](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
 10. L’approbateur désigné peut également sélectionner l’**ID DE DEMANDE DE SERVICE** pour afficher la demande de ticket de support créée par l’utilisateur d’origine. Ces informations permettent de comprendre pourquoi le support Microsoft a été sollicité et de connaître l’historique du problème signalé. Par exemple :
-    
+
     ![Azure Customer Lockbox - Afficher la demande du ticket de support](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 
 11. Après avoir examiné la demande, l’approbateur désigné sélectionne **Approuver** ou **Refuser** :
-    
+
     ![Azure Customer Lockbox - Sélectionner Approuver ou Refuser](./media/customer-lockbox-overview/customer-lockbox-approval.png)
-    
+
     Selon la sélection :
     - **Approuver** :  l’accès est accordé à l’ingénieur Microsoft. L’accès est accordé pour une durée par défaut de huit heures.
     - **Refuser** : la demande d’accès avec élévation de privilèges de l’ingénieur Microsoft est rejetée, et aucune action supplémentaire n’est nécessaire.
@@ -113,13 +113,13 @@ Pour les scénarios qui impliquent l’accès Bureau à distance, vous pouvez ut
 
 Les services suivants sont désormais en version préliminaire pour Customer Lockbox :
 
-- Stockage Azure 
+- Stockage Azure
 
-- Base de données SQL Azure 
+- Azure SQL DB
 
-- Explorateur de données Azure 
+- Explorateur de données Azure
 
-- Machines virtuelles (qui couvrent désormais également l’accès aux images mémoire et aux disques managés) 
+- Machines virtuelles (qui couvrent désormais également l’accès aux images mémoire et aux disques managés)
 
 - Transfert d'abonnement Azure
 

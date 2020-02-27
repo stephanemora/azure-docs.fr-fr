@@ -2,17 +2,14 @@
 title: Utiliser des stratégies de sécurité des pods dans Azure Kubernetes Service (AKS)
 description: Apprendre à contrôler les admissions pod à l’aide de PodSecurityPolicy dans Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
-ms.author: mlearned
-ms.openlocfilehash: 5aec645c19ee5f813fdefb57d728c14688da8712
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: bc22a577777e50724fbafa04cf01f28362113cc7
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926405"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592830"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Aperçu - Sécuriser votre cluster à l’aide de stratégies de sécurité des pods dans Azure Kubernetes Service (AKS)
 
@@ -73,7 +70,7 @@ Dans un cluster Kubernetes, un contrôleur d’admission est utilisé pour inter
 
 Lorsque vous activez la stratégie de sécurité des pods dans un cluster AKS, certaines stratégies par défaut sont appliquées. Ces stratégies par défaut fournissent une expérience prête à l’emploi pour définir les pods à planifier. Toutefois, les utilisateurs de cluster peuvent rencontrer des problèmes de déploiement de pods jusqu'à ce que vous définissez vos propres stratégies. L'approche recommandée consiste à :
 
-* Créer un cluster AKS
+* Créer un cluster AKS
 * Définir vos propres stratégies de sécurité des pods
 * Activer la fonctionnalité de stratégie de sécurité des pods
 
@@ -468,7 +465,7 @@ Supprimez le pod non privilégié NGINX à l’aide de la commande [kubectl dele
 kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour désactiver la stratégie de sécurité des pods, utilisez la commande [az aks update][az-aks-update] à nouveau. L’exemple suivant désactive la stratégie de sécurité des pods sur le nom de cluster *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup* :
 

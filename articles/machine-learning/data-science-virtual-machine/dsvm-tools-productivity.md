@@ -1,5 +1,5 @@
 ---
-title: Outils de productivité sur la machine virtuelle DSVM
+title: Outils de productivité
 titleSuffix: Azure Data Science Virtual Machine
 description: Découvrez les outils de productivité présents sur les machines virtuelles Data Science VM.
 keywords: formation approfondie, IA, outils de science des données, machine virtuelle de science des données, analyse géospatiale, processus de science des données en équipe
@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/20/2019
-ms.openlocfilehash: df415ce06afa8be80c0e0ed4375950e20474bcbb
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: cfafd680e4f4907248d3d79a504aa04696988021
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615316"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526074"
 ---
 # <a name="productivity-tools-on-the-data-science-virtual-machine"></a>Outils de productivité sur la machine virtuelle DSVM
 

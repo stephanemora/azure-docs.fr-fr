@@ -3,7 +3,7 @@ title: Utiliser le flux temps réel de chasse dans Azure Sentinel pour détecter
 description: Cet article décrit comment utiliser le flux temps réel de chasse dans Azure Sentinel pour effectuer le suivi des données.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2019
-ms.author: cabailey
-ms.openlocfilehash: 5b347848c9c6a58a70ab1093a6f9c70b62f3f769
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.author: yelevin
+ms.openlocfilehash: b392644e504fa8187e637278bef8718c9c2caa3f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900452"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582124"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Utiliser le livestream de chasse dans Azure Sentinel pour détecter les menaces
 
@@ -111,5 +111,5 @@ Cette action ouvre l’Assistant Création de règle, qui est prérempli avec la
 
 Dans cet article, vous avez appris à utiliser le livestream de chasse dans Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
-- [Proactively hunt for threats](hunting.md) (Rechercher des menaces de façon proactive)
-- [Use notebooks to run automated hunting campaigns](notebooks.md) (Utiliser des blocs-notes pour exécuter des campagnes de repérage automatisées)
+- [Hunt for threats with in Azure Sentinel Preview](hunting.md) (Rechercher des menaces dans Azure Sentinel en préversion)
+- [Use notebooks to run automated hunting campaigns](notebooks.md) (Utiliser des notebooks pour exécuter des campagnes de repérage automatisées)

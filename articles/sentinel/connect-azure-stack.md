@@ -3,7 +3,7 @@ title: Intégrer vos machines virtuelles Azure Stack à Azure Sentinel | Microso
 description: Cet article vous montre comment approvisionner l’extension de machine virtuelle Azure Monitor, Update and Configuration Management sur des machines virtuelles Azure Stack et commencer à les surveiller avec Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: fb306ec3f8abe2eedb97f83d01836745779db914
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.author: yelevin
+ms.openlocfilehash: a8213bd57936f95870324950204dbd6c1473739a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240773"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588516"
 ---
 # <a name="connect-azure-stack-virtual-machines-to-azure-sentinel"></a>Connecter des machines virtuelles Azure Stack à Azure Sentinel
 
@@ -55,7 +55,7 @@ Pour plus d’informations sur la résolution des problèmes lié à l’agent L
 
 Dans le portail Azure Sentinel sur Azure, la fenêtre **Machines Virtuelles** affiche une vue d’ensemble de toutes les machines virtuelles et de tous les ordinateurs ainsi que du statut correspondant. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Quand vous n’en avez plus besoin, vous pouvez supprimer l’extension de la machine virtuelle par le biais du portail Azure Stack.
 
 Pour supprimer l’extension :
@@ -69,5 +69,5 @@ Pour supprimer l’extension :
 
 Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
 - Diffusez des données à partir d’[appliances de format d’erreur courants](connect-common-event-format.md) vers Azure Sentinel.

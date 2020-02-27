@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: efb0a9229d6061d4df8d67ba8455801d9d2a2964
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 32b680acdee29bf97a0e132fee93d5fee3377245
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548881"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604948"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Créer plusieurs déclencheurs Azure Functions pour Cosmos DB
 
@@ -38,7 +38,7 @@ Le but de cet article est de vous guider jusqu’à parvenir à la deuxième opt
 
 ## <a name="configuring-a-shared-leases-container"></a>Configuration d’un conteneur de baux partagé
 
-Pour configurer le conteneur de baux partagé, la seule tâche de configuration supplémentaire que vous devez effectuer au niveau de vos déclencheurs consiste à ajouter l’[attribut](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---attributes-and-annotations) `LeaseCollectionPrefix` si vous utilisez C# ou l’[attribut](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger) `leaseCollectionPrefix` si vous utilisez JavaScript. La valeur de l’attribut doit être un descripteur logique de l’action effectuée par le déclencheur en question.
+Pour configurer le conteneur de baux partagé, la seule tâche de configuration supplémentaire que vous devez effectuer au niveau de vos déclencheurs consiste à ajouter l’[attribut](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#attributes-and-annotations) `LeaseCollectionPrefix` si vous utilisez C# ou l’[attribut](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) `leaseCollectionPrefix` si vous utilisez JavaScript. La valeur de l’attribut doit être un descripteur logique de l’action effectuée par le déclencheur en question.
 
 Par exemple, supposez que vous disposez de trois déclencheurs : un qui envoie des e-mails, un qui effectue une agrégation pour créer une vue matérialisée et un autre qui envoie les modifications à un autre espace de stockage pour une analyse ultérieure. Vous pouvez affecter à l’attribut `LeaseCollectionPrefix` la valeur « e-mails » au premier, « matérialisé » au deuxième et « analytique » au troisième.
 
@@ -108,6 +108,6 @@ Et pour JavaScript, vous pouvez appliquer la configuration au fichier `function.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez la configuration complète du [déclencheur Azure Functions pour Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration).
-* Vérifiez la [liste d’exemples](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger) étendue pour tous les langages.
+* Consultez la configuration complète du [déclencheur Azure Functions pour Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration).
+* Vérifiez la [liste d’exemples](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) étendue pour tous les langages.
 * Pour obtenir d’autres exemple, visitez les recettes serverless avec Azure Cosmos DB et Azure Functions sur le [dépôt GitHub](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios).

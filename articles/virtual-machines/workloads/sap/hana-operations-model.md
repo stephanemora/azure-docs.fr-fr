@@ -3,22 +3,22 @@ title: Modèle d’opération de SAP HANA sur Azure (grandes instances) | Micros
 description: Modèle d’opération de SAP HANA sur Azure (grandes Instances).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
-ms.author: saghorpa
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a8ea845dd53048766abc337a1351a408ea7f1bb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e147e4a5f104ca4cd1a10a776c907e3f9f1d6128
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099692"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616972"
 ---
 # <a name="operations-model-and-responsibilities"></a>Responsabilités et modèle opérationnel
 
@@ -34,7 +34,7 @@ La liste suivante fournit plus de détails sur chacune des couches et vos respon
 
 **Réseau** : Tous les réseaux internes pour le tampon de grande Instance exécutant SAP HANA. Votre responsabilité inclut l’accès au stockage, la connectivité entre les instances (pour la montée en puissance et d’autres fonctions), la connectivité avec le paysage et la connectivité à Azure, à l’endroit où la couche Application SAP est hébergée dans les machines virtuelles Azure. Elle inclut également la connectivité WAN entre les centres de données Azure pour la réplication à des fins de récupération d’urgence. Tous les réseaux sont partitionnés par l’abonné et la qualité de service est appliquée.
 
-**Stockage** : Le stockage virtualisé partitionné pour tous les volumes requis par les serveurs de SAP HANA, ainsi que pour les captures instantanées. 
+**Stockage** : Le stockage virtualisé partitionné pour tous les volumes requis par les serveurs de SAP HANA, ainsi que pour les captures instantanées. 
 
 **Serveurs** : Les serveurs physiques dédiés à l’exécution des bases de données SAP HANA assignées aux abonnés. Les serveurs de classe Type I des références SKU font abstraction du matériel. Avec ces types de serveurs, la configuration du serveur est collectée et gérée dans des profils, qui peuvent être déplacés d’un matériel physique à un autre. Ce déplacement (manuel) d’un profil par des opérations peut être comparé à la réparation des services Azure. Les serveurs des références SKU de classe Type II n’offrent pas ce type de fonction.
 

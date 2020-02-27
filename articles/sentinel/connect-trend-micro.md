@@ -3,7 +3,7 @@ title: Connecter Trend Micro Deep Security à Azure Sentinel | Microsoft Docs
 description: Découvrez comment connecter Trend Micro Deep Security à Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: cabailey
-ms.openlocfilehash: ba5b560f068d453f07e2dbbfdf5140ca1f4ac2b8
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: a25d76b4b8a6f516de70604146bd1b236ba3ca1e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610435"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588023"
 ---
 # <a name="connect-trend-micro-deep-security"></a>Connecter Trend Micro Deep Security
 
 Le connecteur Trend Micro Deep Security vous permet de connecter facilement vos journaux Deep Security à Azure Sentinel afin de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer l’investigation. Cela vous donne plus d’informations sur les réseaux et systèmes de votre organisation et améliore vos capacités d’opération de sécurité.
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Lire et écrire des autorisations dans l’espace de travail Azure Sentinel.
 

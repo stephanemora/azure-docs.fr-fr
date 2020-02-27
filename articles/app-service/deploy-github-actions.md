@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: e3d6e730846388c4b74cfa0b6361629e836b0517
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 4a8b3cf47235e061e5dbcc08a409fce84d421771
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670188"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562205"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Déployer sur App Service à l’aide de GitHub Actions
 
@@ -49,11 +49,11 @@ Dans cet exemple, remplacez les espaces réservés dans la ressource par votre I
 
 ## <a name="configure-the-github-secret"></a>Configurer le secret GitHub
 
-Vous pouvez également utiliser des informations d’identification au niveau de l’application, par exemple un profil de publication pour le déploiement. Suivez les étapes pour configurer le secret :
+Vous pouvez également utiliser des informations d’identification au niveau de l’application, par exemple un profil de publication pour le déploiement. Suivez les étapes pour configurer le secret :
 
 1. Téléchargez le profil de publication de l’application App Service à partir du portail à l’aide de l’option **Obtenir le profil de publication**.
 
-2. Dans [GitHub](https://github.com/), parcourez votre dépôt, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret**
+2. Dans [GitHub](https://github.com/), parcourez votre référentiel, sélectionnez **Paramètres > Secrets > Ajouter un nouveau secret**
 
     ![secrets](media/app-service-github-actions/secrets.png)
 
@@ -189,7 +189,7 @@ Pour déployer votre code dans une application App Service, utilisez l’action 
 | **app-name** | (Requis) Nom de l’application App Service | 
 | **publish-profile** | (Facultatif) Publier le contenu du fichier de profil avec les secrets Web Deploy |
 | **package** | (Facultatif) Chemin d’accès au package ou dossier. *.zip, *.war, *.jar ou un dossier à déployer |
-| **slot-name** | (Facultatif) Entrez un emplacement existant autre que l'emplacement de production |
+| **slot-name** | (Facultatif) Entrer un emplacement existant autre que l’emplacement de production |
 
 ### <a name="deploy-using-publish-profile"></a>Déployer à l’aide d’un profil de publication
 
@@ -205,7 +205,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # checkout the repo
-    - name: 'Checkout Github Action' 
+    - name: 'Checkout GitHub Action' 
       uses: actions/checkout@master
     
     - name: Setup Node 10.x
@@ -239,7 +239,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # checkout the repo
-    - name: 'Checkout Github Action' 
+    - name: 'Checkout GitHub Action' 
       uses: actions/checkout@master
    
     - uses: azure/login@v1
@@ -270,7 +270,7 @@ jobs:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez trouver notre ensemble d’Actions regroupées dans différents dépôts GitHub, chacun contenant de la documentation et des exemples pour vous aider à utiliser GitHub pour les opérations de CI/CD et à déployer vos applications sur Azure.
+Vous pouvez trouver notre ensemble d’Actions regroupées dans différents référentiels GitHub, chacun contenant de la documentation et des exemples pour vous aider à utiliser GitHub pour les opérations de CI/CD et à déployer vos applications sur Azure.
 
 - [Flux de travail d’actions pour déployer sur Azure](https://github.com/Azure/actions-workflow-samples)
 

@@ -1,19 +1,19 @@
 ---
 title: Intégration de Time Series Insights à une solution de supervision à distance | Microsoft Docs
 description: Dans cette procédure, vous allez apprendre à configurer Time Series Insights pour une solution de supervision à distance existante qui ne contient pas déjà Time Series Insights.
-author: aditidugar
+author: Philmea
 manager: timlt
-ms.author: adugar
+ms.author: philmea
 ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 4cc9b0051eaa12eee07f067352126ad159107a83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 752529454a5b6293d9cbfdf8378b46947aed5a0e
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442929"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564642"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Intégrer Azure Time Series Insights à la Supervision à distance
 
@@ -49,7 +49,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 À présent, déployez Time Series Insights comme ressource supplémentaire dans votre solution de supervision à distance et connectez-le au hub IoT.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Sélectionnez **Créer une ressource** > **Internet des objets** > **Time Series Insights**.
 
@@ -61,8 +61,8 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
     | ------- | ----- |
     | Nom de l’environnement | La capture d’écran suivante utilise le nom **contorosrmtsi**. Choisissez votre propre nom unique quand vous effectuez cette étape. |
     | Abonnement | Sélectionnez votre abonnement Azure dans la liste déroulante. |
-    | Groupe de ressources | **Utilisez la valeur existante**. Sélectionnez le nom de votre groupe de ressources existant pour la surveillance à distance. |
-    | Lieu | Nous utilisons **USA Est**. Si possible, créez votre environnement dans la même région que votre solution de supervision à distance. |
+    | Resource group | **Utilisez la valeur existante**. Sélectionnez le nom de votre groupe de ressources existant pour la surveillance à distance. |
+    | Emplacement | Nous utilisons **USA Est**. Si possible, créez votre environnement dans la même région que votre solution de supervision à distance. |
     | Sku |**S1** |
     | Capacité | **1** |
 
@@ -169,7 +169,7 @@ L’étape suivante consiste à configurer le microservice Azure Stream Analytic
 docker pull azureiotpcs/asa-manager-dotnet:1.0.2
 ```
 
-Java :
+Java :
 
 ```cmd/sh
 docker pull azureiotpcs/asa-manager-java:1.0.2
@@ -185,7 +185,7 @@ Extrayez les dernières modifications apportées au microservice Telemetry en ta
 docker pull azureiotpcs/telemetry-dotnet:1.0.2
 ```
 
-Java :
+Java :
 
 ```cmd/sh
 docker pull azureiotpcs/telemetry-java:1.0.2

@@ -4,12 +4,12 @@ ms.service: azure-cdn
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
-ms.openlocfilehash: f21a768733456a6c00e5a87612f3055dd76d416c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 41f2d4540f665137d34d262546cdc1a2edfbae3a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594144"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77608734"
 ---
 ## <a name="prerequisites"></a>Prérequis
 Avant d’écrire le code de gestion CDN, vous devez effectuer certaines tâches de préparation pour permettre à ce code d’interagir avec Azure Resource Manager. Ce travail de préparation implique les opérations suivantes :
@@ -41,7 +41,7 @@ La création d’un principal de service comprend plusieurs étapes, dont la cr�
 >
 > Lorsque vous arrivez à l’étape intitulée Configurer une application mutualisée, sélectionnez **Non**.
 >
-> Lorsque vous arrivez à l’étape [Affecter l’application à un rôle](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role), utilisez le groupe de ressources créé précédemment, *CdnConsoleTutorial*, mais à la place du rôle **Lecteur**, affectez-lui le rôle **Contributeur de profil CDN**.  Après avoir affecté à l’application le rôle **Contributeur du profil CDN** dans votre groupe de ressources, revenez dans ce didacticiel. 
+> Lorsque vous arrivez à l’étape [Affecter l’application à un rôle](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), utilisez le groupe de ressources créé précédemment, *CdnConsoleTutorial*, mais à la place du rôle **Lecteur**, affectez-lui le rôle **Contributeur de profil CDN**.  Après avoir affecté à l’application le rôle **Contributeur du profil CDN** dans votre groupe de ressources, revenez dans ce didacticiel. 
 >
 >
 

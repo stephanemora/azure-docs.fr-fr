@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: ca2afaa9f4e01ac56657681ce71e32e3c5375fdf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8aa17f473c550c99d91862754e6a746575aca202
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355644"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604388"
 ---
 # <a name="alert-confidence-score-preview"></a>Score de confiance des alertes (préversion)
 
@@ -47,14 +47,6 @@ Pour afficher les données sur lesquelles se base Security Center pour lancer un
   ![Score de confiance suspect][2]
 
 Utilisez le score de confiance de Security Center pour hiérarchiser le tri des alertes dans votre environnement. Pour vous faire gagner du temps, le score de confiance lance automatiquement des enquêtes sur les alertes, applique les meilleures pratiques du secteur et des algorithmes intelligents, et fait office d’analyste virtuel pour déterminer les menaces réelles et les points nécessitant une attention particulière.
-
-
-## <a name="next-steps"></a>Étapes suivantes
-Cet article a expliqué comment utiliser le score de confiance pour hiérarchiser les enquêtes sur les alertes. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
-
-* [FAQ de Azure Security Center](security-center-faq.md): forum aux questions concernant l’utilisation de ce service.
-* [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md): découvrez comment surveiller l’intégrité de vos ressources Azure.
-
 
 
 <!--Image references-->

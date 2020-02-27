@@ -12,18 +12,18 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37dc4a618f01022f4963a14aba921edcce9f4b60
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: abb5c6939d8c88db35a776aa8f2c075a4bdcc609
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74268857"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565415"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Comment procéder pour inviter des utilisateurs invités à accéder à une application ?
 
 Une fois qu’un utilisateur invité a été ajouté au répertoire dans Azure AD, un propriétaire d’application peut lui envoyer un lien direct vers l’application qu’il souhaite partager. Les administrateurs Azure AD peuvent également configurer la gestion en libre-service pour les applications SAML ou de la galerie dans leur locataire Azure AD. Les propriétaires d’application peuvent ainsi gérer leurs propres utilisateurs invités, même si ces derniers n’ont pas encore été ajoutés au répertoire. Lorsqu’une application est configurée pour être utilisée en libre-service, le propriétaire de l’application utilise le Panneau d’accès pour inviter un utilisateur invité ou ajouter un utilisateur invité à un groupe ayant accès à l’application. La gestion des applications en libre-service pour les applications SAML et de la galerie nécessite que l’administrateur procède à une configuration initiale. Voici un résumé des étapes de configuration (pour obtenir des instructions plus détaillées, consultez la section [Conditions préalables](#prerequisites) ci après) :
 
- - Activer la gestion des groupes en libre-service pour votre abonné
+ - Activer la gestion de groupes en libre-service pour votre abonné
  - Créer un groupe à affecter à l’application et convertir l’utilisateur en propriétaire
  - Configurer l’application pour le libre-service et affecter le groupe à l’application
 
@@ -105,7 +105,7 @@ La gestion des applications en libre-service nécessite qu’un administrateur g
 2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
 3. Sous **Gérer**, sélectionnez **Applications d’entreprise** > **Toutes les applications**.
 4. Dans la liste des applications, recherchez l’application et ouvrez-la.
-5. Sous **Gérer**, sélectionnez **Authentification unique** et configurez l’application pour l’authentification unique. (Pour en savoir plus, consultez [Gérer l’authentification unique pour les applications d’entreprise](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).)
+5. Sous **Gérer**, sélectionnez **Authentification unique** et configurez l’application pour l’authentification unique. (Pour en savoir plus, consultez [Gérer l’authentification unique pour les applications d’entreprise](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications).)
 6. Sous **Gérer**, sélectionnez **Libre-service** et configurez l’accès à l’application en libre-service. (Pour en savoir plus, consultez [Utiliser l’accès aux applications en libre-service](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).) 
 
     > [!NOTE]

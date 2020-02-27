@@ -3,7 +3,7 @@ title: Connecter des données F5 BIG-IP à Azure Sentinel | Microsoft Docs
 description: Découvrez comment connecter des données F5 Big-IP à Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: d068223f-395e-46d6-bb94-7ca1afd3503c
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 273bea7fa8629dd907c228416d06dac087b0ec85
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: ae361c74b261bdd6a5673040f868392282b573ef
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610588"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588278"
 ---
 # <a name="connect-your-f5-big-ip-appliance"></a>Connecter votre appliance F5 BIG-IP 
 
@@ -55,6 +55,6 @@ Plus de 20 minutes peuvent être nécessaires avant que vos journaux ne commenc
 Dans ce document, vous avez appris à connecter F5 BIG-IP à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour analyser vos données.
+- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
 
 

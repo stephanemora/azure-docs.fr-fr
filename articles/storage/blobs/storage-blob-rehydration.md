@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 1c06c1d0403e526e1ed58a193cfe9b57bb9fe561
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 0a7012d9daa808933a51ac05862a8a9aa4cfcf77
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780235"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614796"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Réalimenter les données d’objets blob à partir du niveau Archive
 
@@ -51,7 +51,7 @@ Les objets blob dans le niveau Archive doivent être stockés pendant un minimum
 ## <a name="quickstart-scenarios"></a>Scénarios de démarrage rapide
 
 ### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>Réalimenter un objet blob d’archive dans un niveau en ligne
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Dans la Portail Azure, recherchez et sélectionnez **Toutes les ressources**.
@@ -68,16 +68,16 @@ Les objets blob dans le niveau Archive doivent être stockés pendant un minimum
 
 1. Sélectionnez **Enregistrer** en bas.
 
-![Modifier le niveau du compte de stockage](media/storage-tiers/blob-access-tier.png)
+![Changer le niveau du compte de stockage](media/storage-tiers/blob-access-tier.png)
 
-# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 Le script PowerShell suivant peut être utilisé pour modifier le niveau d’objet blob d’un objet blob d’archive. La variable `$rgName` doit être initialisée avec le nom de votre groupe de ressources. La variable `$accountName` doit être initialisée avec le nom de votre compte de stockage. La variable `$containerName` doit être initialisée avec le nom de votre conteneur. La variable `$blobName` doit être initialisée avec le nom de votre objet blob. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
 $rgName = ""
 $accountName = ""
 $containerName = ""
-$blobName == ""
+$blobName = ""
 
 #Select the storage account and get the context
 $storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
@@ -99,8 +99,8 @@ $rgName = ""
 $accountName = ""
 $srcContainerName = ""
 $destContainerName = ""
-$srcBlobName == ""
-$destBlobName == ""
+$srcBlobName = ""
+$destBlobName = ""
 
 #Select the storage account and get the context
 $storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName

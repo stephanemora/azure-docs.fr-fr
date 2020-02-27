@@ -1,16 +1,16 @@
 ---
 title: Utiliser GitHub Actions pour effectuer des mises à jour de code dans Azure Functions
 description: Découvrez comment utiliser GitHub Actions pour définir un workflow afin de générer et déployer des projets Azure Functions dans GitHub.
-author: ahmedelnably
+author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: aelnably
-ms.openlocfilehash: c34847577b7e83228fafad431f541497be9a21ae
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.author: cshoe
+ms.openlocfilehash: dd74fd5c38e5a8800d2092afc1db1b412b126861
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769147"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649906"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Livraison continue à l’aide de GitHub Actions
 
@@ -69,7 +69,7 @@ GitHub peut à présent s’authentifier auprès de votre application de fonctio
 
 La configuration de l’environnement s’effectue à l’aide d’une action de configuration de publication spécifique à une langue.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L’exemple suivant illustre la partie du flux de travail qui utilise l’action `actions/setup-node` pour configurer l’environnement :
 
@@ -84,7 +84,7 @@ L’exemple suivant illustre la partie du flux de travail qui utilise l’action
         node-version: '10.x'
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 L’exemple suivant illustre la partie du flux de travail qui utilise l’action `actions/setup-python` pour configurer l’environnement :
 
@@ -99,7 +99,7 @@ L’exemple suivant illustre la partie du flux de travail qui utilise l’action
         python-version: 3.6
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 L’exemple suivant illustre la partie du flux de travail qui utilise l’action `actions/setup-dotnet` pour configurer l’environnement :
 
@@ -114,7 +114,7 @@ L’exemple suivant illustre la partie du flux de travail qui utilise l’action
         dotnet-version: '2.2.300'
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 L’exemple suivant illustre la partie du flux de travail qui utilise l’action `actions/setup-java` pour configurer l’environnement :
 
@@ -138,7 +138,7 @@ Cela dépend du langage et pour les langages pris en charge par Azure Functions,
 
 L’exemple suivant illustre la partie du flux de travail qui génère l’application de fonction, qui est propre à la langue :
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```yaml
     - name: 'Run npm'
@@ -153,7 +153,7 @@ L’exemple suivant illustre la partie du flux de travail qui génère l’appli
         popd
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```yaml
     - name: 'Run pip'
@@ -167,7 +167,7 @@ L’exemple suivant illustre la partie du flux de travail qui génère l’appli
         popd
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'
@@ -180,7 +180,7 @@ L’exemple suivant illustre la partie du flux de travail qui génère l’appli
         popd
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```yaml
     - name: 'Run mvn'

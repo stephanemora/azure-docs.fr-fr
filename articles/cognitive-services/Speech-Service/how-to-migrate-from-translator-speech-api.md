@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: ba9484bd5b04e5a79da53a0bb78877153be42a43
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 75a456c4a297b0465c34b8e0af2e87056ad565b3
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805907"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560896"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Effectuer une migration de l’API de traduction de conversation Translator Speech vers le service Speech
 
-Utilisez cet article pour effectuer la migration de vos applications entre l’API de traduction de conversation Microsoft Translator Speech et le [service Speech](index.md). Ce guide souligne les différences entre l’API de traduction de conversation Translator Speech et le service Speech. Il propose également des stratégies pour la migration de vos applications.
+Utilisez cet article pour effectuer la migration de vos applications entre l’API de traduction de conversation Microsoft Translator Speech et le [service Speech](index.yml). Ce guide souligne les différences entre l’API de traduction de conversation Translator Speech et le service Speech. Il propose également des stratégies pour la migration de vos applications.
 
 > [!NOTE]
 > La clé d’abonnement de votre API de traduction de conversation Translator Speech ne sera pas acceptée par le service Speech. Vous devrez créer un abonnement au service Speech.
@@ -35,7 +35,7 @@ Utilisez cet article pour effectuer la migration de vos applications entre l’A
 | Limite en termes de durée de connexion                             | 90 minutes                                               | Illimitée avec le kit de développement logiciel (SDK). 10 minutes avec une connexion WebSockets.                                                                                                                                                                                                                                                                                   |
 | Clé d’authentification de l’en-tête                                | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Plusieurs langues traduites en une seule requête | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Kits de développement logiciel (SDK) disponibles                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Pour connaître les kits SDK disponibles, consultez la [documentation du service Speech](index.md).                                                                                                                                                    |
+| Kits de développement logiciel (SDK) disponibles                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | Pour connaître les kits SDK disponibles, consultez la [documentation du service Speech](index.yml).                                                                                                                                                    |
 | Connexions WebSockets                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | API de langues                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | Le service Speech prend en charge les langues décrites dans l’article [Informations de référence sur les langues de l’API de traduction Translator](../translator-speech/languages-reference.md). |
 | Filtre et marqueur de propos vulgaires                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
@@ -49,7 +49,7 @@ Utilisez cet article pour effectuer la migration de vos applications entre l’A
 
 ## <a name="migration-strategies"></a>Stratégies de migration
 
-Si vous ou votre organisation disposez d’applications en développement ou en production qui utilisent l’API de traduction de conversation Translator Speech, vous devez les mettre à jour pour utiliser le service Speech. Pour accéder aux SDK, aux exemples de code et aux tutoriels disponibles, consultez la documentation du [service Speech](index.md). Prenez en compte les éléments suivants lors de la migration :
+Si vous ou votre organisation disposez d’applications en développement ou en production qui utilisent l’API de traduction de conversation Translator Speech, vous devez les mettre à jour pour utiliser le service Speech. Pour accéder aux SDK, aux exemples de code et aux tutoriels disponibles, consultez la documentation du [service Speech](index.yml). Prenez en compte les éléments suivants lors de la migration :
 
 * Le service Speech n’offre pas de point de terminaison global. Vous devez déterminer si votre application fonctionne efficacement lorsqu’elle utilise un point de terminaison régional unique pour tout son trafic. Autrement, utilisez la géolocalisation pour déterminer le point de terminaison plus efficace.
 
@@ -62,7 +62,7 @@ Si vous ou votre organisation disposez d’applications en développement ou en 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Essayer gratuitement le service Speech](get-started.md)
-* [Démarrage rapide : Reconnaissance vocale dans une application UWP à l’aide du kit SDK Speech](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
+* [Démarrage rapide : Reconnaissance vocale dans une application UWP à l’aide du kit SDK Speech](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## <a name="see-also"></a>Voir aussi
 

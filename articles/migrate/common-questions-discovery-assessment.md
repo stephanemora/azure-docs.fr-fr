@@ -3,12 +3,12 @@ title: Questions courantes sur la découverte, l’évaluation et l’analyse de
 description: Obtenez des réponses aux questions courantes sur la découverte, l’évaluation et l’analyse des dépendances dans Azure Migrate.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 2ae534e50cbee3ebd17d703f957aa7200460dbfe
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 179be4f5b39806c717e94789c9fe52842d2a07d8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426290"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589230"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Questions courantes sur la découverte, l’évaluation et l’analyse des dépendances
 
@@ -92,7 +92,7 @@ Vous n’avez pas besoin de ces agents, sauf si vous utilisez la visualisation d
 
 ## <a name="can-i-use-an-existing-workspace"></a>Puis-je utiliser un espace de travail existant ?
 
-Oui, vous pouvez attacher un espace de travail existant au projet de migration et l’utiliser pour la visualisation des dépendances. [Plus d’informations](concepts-dependency-visualization.md#how-does-it-work)
+Oui, vous pouvez attacher un espace de travail existant au projet de migration et l’utiliser pour la visualisation des dépendances. 
 
 ## <a name="can-i-export-the-dependency-visualization-report"></a>Puis-je exporter le rapport de visualisation des dépendances ?
 

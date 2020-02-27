@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: b2a1bcedcc459a21bbc8a461ba9c8d9a8d65aebe
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 7e0e904b182a57a51b5d76f0acebc13bce5902b2
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132202"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612919"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Synchronisation des objets et des informations d’identification dans un domaine managé Azure AD Domain Services
 
@@ -47,9 +47,9 @@ Le tableau suivant répertorie certains attributs courants et la façon dont ils
 | Historique des SID des utilisateurs et groupes | SID d’utilisateur et de groupe principal local | L'attribut *SidHistory* pour les utilisateurs et les groupes dans Azure AD DS est défini de sorte à correspondre au SID de groupe ou d’utilisateur principal correspondant dans un environnement AD DS local. Cette fonctionnalité permet de faciliter la migration des applications sur site vers Azure AD DS, étant donné que vous n’avez pas besoin de redéfinir les ACL des ressources. |
 
 > [!TIP]
-> **Se connecter au domaine managé en utilisant le format UPN** : l’attribut *SAMAccountName*, tel que `CONTOSO\driley`, peut être généré automatiquement pour certains comptes d’utilisateurs dans un domaine managé Azure AD DS. La valeur de *SAMAccountName* générée automatiquement pour l’utilisateur peut différer du préfixe UPN de ce dernier, donc n’est pas toujours un moyen fiable de se connecter.
+> **Se connecter au domaine managé en utilisant le format UPN** : l’attribut *SAMAccountName*, tel que `AADDSCONTOSO\driley`, peut être généré automatiquement pour certains comptes d’utilisateurs dans un domaine managé Azure AD DS. La valeur de *SAMAccountName* générée automatiquement pour l’utilisateur peut différer du préfixe UPN de ce dernier, donc n’est pas toujours un moyen fiable de se connecter.
 >
-> Par exemple, si plusieurs utilisateurs ont le même attribut *mailNickname* ou si des utilisateurs ont des préfixes UPN anormalement longs, la valeur *SAMAccountName* pour ces utilisateurs peut être générée automatiquement. Utilisez le format UPN, tel que `driley@contoso.com`, pour vous connecter de manière fiable à un domaine managé Azure AD DS.
+> Par exemple, si plusieurs utilisateurs ont le même attribut *mailNickname* ou si des utilisateurs ont des préfixes UPN anormalement longs, la valeur *SAMAccountName* pour ces utilisateurs peut être générée automatiquement. Utilisez le format UPN, tel que `driley@aaddscontoso.com`, pour vous connecter de manière fiable à un domaine managé Azure AD DS.
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Mappage d’attributs pour les comptes d’utilisateur
 

@@ -3,16 +3,15 @@ title: Créer, tester et déployer des conteneurs sur Azure Kubernetes Service �
 description: Découvrez comment utiliser GitHub Actions pour déployer votre conteneur sur Kubernetes
 services: container-service
 author: azooinmyluggage
-ms.service: container-service
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
-ms.openlocfilehash: 62fcdf01250728cf84726db7e9b39452a4d4e5ff
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 5ee8ee4d2c9e225d82e58daffeef9e5f09e43e6b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046346"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595363"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub Actions pour un déploiement sur le service Kubernetes
 

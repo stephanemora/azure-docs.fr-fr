@@ -3,7 +3,7 @@ title: Connecter One Identity Safeguard à Azure Sentinel | Microsoft Docs
 description: Découvrez comment connecter One Identity Safeguard à Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: cabailey
-ms.openlocfilehash: 7e33580c253c98279644e10305557a7e60701c90
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 849087cbbe91be799c51929353b9f020859c85b8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610503"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588142"
 ---
 # <a name="connect-one-identity-safeguard"></a>Connecter One Identity Safeguard
 Le connecteur de données One Identity Safeguard améliore le connecteur CEF (Common Event format) standard grâce à une protection pour les tableaux de bord spécifiques des sessions privilégiées. Utilisez ce connecteur pour commencer à utiliser facilement les événements générés par votre appareil pour la visualisation, les alertes, les investigations, etc.
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Lire et écrire des autorisations dans l’espace de travail Azure Sentinel.
 
@@ -42,6 +42,6 @@ Le connecteur de données One Identity Safeguard améliore le connecteur CEF (Co
 Dans ce document, vous avez appris à connecter One Identity Safeguard à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour analyser vos données.
+- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
 
 

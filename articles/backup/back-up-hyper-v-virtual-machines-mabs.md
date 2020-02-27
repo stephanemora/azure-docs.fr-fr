@@ -3,12 +3,12 @@ title: Sauvegarder des machines virtuelles Hyper-V à l’aide de MABS
 description: Cet article contient les procédures de sauvegarde et de récupération des machines virtuelles à l’aide du serveur de sauvegarde Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 69e415b5aef179c2b64bb04e933593010c8b47d3
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: e23a3a5ad57e07f95958d8a21e091d663a5c1185
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444058"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586510"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Sauvegarder des machines virtuelles Hyper-V avec le serveur de sauvegarde Azure
 
@@ -145,7 +145,7 @@ Pour configurer la protection pour la migration dynamique :
 
 3. Affectez le compte MABSMachineName$ en tant que compte d’administrateur en lecture seule sur le serveur d’administration VMM.
 
-4. Connectez tous les serveurs hôtes Hyper-V à tous les serveurs MABS à l’aide de l’applet de commande PowerShell `Set-DPMGlobalProperty`. L’applet de commande accepte plusieurs noms de serveurs MABS. Utilisez le format : `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Pour plus d’informations, consultez [Set-DPMGlobalProperty](https://technet.microsoft.com/library/hh881752.aspx).
+4. Connectez tous les serveurs hôtes Hyper-V à tous les serveurs MABS à l’aide de l’applet de commande PowerShell `Set-DPMGlobalProperty`. L’applet de commande accepte plusieurs noms de serveurs MABS. Utilisez le format : `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Pour plus d’informations, consultez [Set-DPMGlobalProperty](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmglobalproperty?view=systemcenter-ps-2019).
 
 5. Une fois que toutes les machines virtuelles exécutées sur les hôtes Hyper-V dans les clouds VMM sont découvertes dans VMM, configurez un groupe de protection et ajoutez les machines virtuelles que vous souhaitez protéger. Les vérifications de cohérence automatiques doivent être activées au niveau du groupe de protection pour la protection dans les scénarios de mobilité des machines virtuelles.
 

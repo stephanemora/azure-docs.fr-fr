@@ -1,16 +1,16 @@
 ---
 title: Mettre à jour continuellement le code d’application de fonction à l’aide d’Azure DevOps
 description: Découvrez comment configurer un pipeline Azure DevOps qui cible Azure Functions.
-author: ahmedelnably
+author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/18/2019
-ms.author: aelnably
-ms.openlocfilehash: e6ea7edb16aa28428754cbe920e1d350aded0cff
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.author: cshoe
+ms.openlocfilehash: 1d627329a6d5f4c283a4480c1b0b1077a8e856cf
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834019"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649940"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Livraison continue à l’aide d’Azure DevOps
 
@@ -29,7 +29,7 @@ Pour créer un pipeline YAML, commencez par créer votre application et ensuite 
 
 La façon dont vous créez votre application dans Azure Pipelines varie en fonction du langage de programmation de votre application. Chaque langage possède des étapes spécifiques qui créent un artefact de déploiement. Un artefact de déploiement est utilisé pour déployer votre application Functions dans Azure.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 Vous pouvez utiliser l’exemple suivant pour créer un fichier YAML pour générer votre application .NET :
 
@@ -60,7 +60,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Vous pouvez utiliser l’exemple suivant pour créer un fichier YAML pour générer votre application JavaScript :
 
@@ -88,7 +88,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Vous pouvez utiliser l’un des exemples suivants pour créer un fichier YAML afin de générer une application pour une version spécifique de Python. Python est pris en charge uniquement pour les applications de fonction s’exécutant sur Linux.
 
@@ -150,7 +150,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Vous pouvez utiliser l’exemple suivant pour créer un fichier YAML pour générer une application PowerShell. PowerShell est pris en charge uniquement Azure Functions sur Windows.
 

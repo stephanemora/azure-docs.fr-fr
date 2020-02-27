@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: c82a67bbbf8f1a4f77db6ca965031e85e69ee100
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 804b46cd5238c189063608d067c0b40fcd3e306d
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514168"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505676"
 ---
-::: zone target="docs"
+::: zone target="docs" 
 
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutoriel : Copier des données sur Azure Data Box Disk par le biais de SMB
 
@@ -35,12 +35,12 @@ Ce tutoriel explique comment vous connecter à votre ordinateur hôte et copier 
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Conditions préalables requises
+> * Prérequis
 > * Se connecter à Data Box
 > * Copier des données sur Data Box
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous que :
 
@@ -283,7 +283,7 @@ Pour obtenir des instructions pas à pas, consultez le [Tutoriel : Utiliser Dat
 Ce tutoriel vous a apporté des connaissances concernant Azure Data Box, notamment concernant les points suivants :
 
 > [!div class="checklist"]
-> * Conditions préalables requises
+> * Prérequis
 > * Se connecter à Data Box
 > * Copier des données sur Data Box
 

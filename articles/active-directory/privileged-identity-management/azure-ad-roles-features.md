@@ -16,18 +16,19 @@ ms.date: 12/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69c633dd3e28047d542e16a58211f997669188f0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3f7bc881cee362103fc611cbf8a094e07ad50699
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896427"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499038"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Fonctionnalités de gestion des rôles Azure AD dans Privileged Identity Management
 
 L’expérience de gestion des rôles Azure AD dans Privileged Identity Management a été mise à jour dans un souci de cohérence avec l’expérience de gestion des rôles de ressources Azure. Auparavant, Privileged Identity Management pour les rôles de ressources Azure comportait quelques fonctionnalités clés qui n’étaient pas disponibles pour les rôles Azure AD.
 
 Dans le cadre de la mise à jour en cours de déploiement, nous fusionnons les deux en une expérience de gestion unique offrant les mêmes fonctionnalités pour les rôles Azure AD que pour les rôles de ressources Azure. Cet article vous informe des fonctionnalités mises à jour et des conditions requises.
+
 
 ## <a name="time-bound-assignments"></a>Attributions limitées dans le temps
 
@@ -66,6 +67,6 @@ Pour les clients qui l’utilisent pour les rôles Azure AD, le module PowerShel
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Attribuer un rôle personnalisé Azure AD](azure-ad-custom-roles-assign.md)
-- [Supprimer ou mettre à jour une attribution de rôle personnalisée Azure AD](azure-ad-custom-roles-update-remove.md)
+- [Supprimer ou mettre à jour une attribution de rôle personnalisé Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Configurer une attribution de rôle Azure AD personnalisée](azure-ad-custom-roles-configure.md)
 - [Définitions de rôles dans Azure AD](../users-groups-roles/directory-assign-admin-roles.md)

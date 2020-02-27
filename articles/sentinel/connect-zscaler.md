@@ -3,7 +3,7 @@ title: Connecter des données Zscaler à Azure Sentinel | Microsoft Docs
 description: Découvrez comment connecter des données Zscaler à Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: d64ec43c255813b99d7ceefc1e526884c99f1873
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: cc784afe5db64ccc4aad13fae7a2fa748e4befa3
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610384"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587989"
 ---
 # <a name="connect-zscaler-internet-access-to-azure-sentinel"></a>Connecter Zscaler Internet Access à Azure Sentinel
 
@@ -44,13 +44,13 @@ Cet article explique comment connecter votre appliance Zscaler Internet Access �
 
 
 1. Pour utiliser le schéma pertinent dans Log Analytics pour les événements CEF, recherchez `CommonSecurityLog`.
-1. Continuez avec l’[ÉTAPE 3. Valider la connectivité](connect-cef-verify.md).
+1. Passez à l’[ÉTAPE 3 : Valider la connectivité](connect-cef-verify.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à connecter Zscaler Internet Access à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour analyser vos données.
+- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
 
 

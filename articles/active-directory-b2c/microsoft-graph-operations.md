@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/14/2020
+ms.date: 02/20/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1f23d3ffa14deccae9825568dee2f3c8b9ac7e7e
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 5eeae1ab6866435311eeec944b4a51ecf2793dee
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492366"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522966"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Opérations Microsoft Graph disponibles pour Azure AD B2C
 
@@ -30,7 +30,7 @@ Chaque lien dans les sections suivantes cible la page correspondante dans la ré
 - [Créer un utilisateur consommateur](https://docs.microsoft.com/graph/api/user-post-users)
 - [Obtenir un utilisateur](https://docs.microsoft.com/graph/api/user-get)
 - [Mettre à jour un utilisateur](https://docs.microsoft.com/graph/api/user-update)
-- [Supprimer un utilisateur](https://docs.microsoft.com/graph/api/user-delete)
+- [Suppression d’un utilisateur](https://docs.microsoft.com/graph/api/user-delete)
 
 Pour plus d’informations sur la gestion des comptes d’utilisateur Azure AD B2C avec l’API Microsoft Graph, voir [Gérer les comptes d’utilisateur Azure AD B2C avec Microsoft Graph](manage-user-accounts-graph-api.md).
 
@@ -44,7 +44,7 @@ Gérez les fournisseurs d’identité disponibles pour vos flux d’utilisateurs
 - [Mettre à jour un fournisseur d’identité](https://docs.microsoft.com/graph/api/identityprovider-update)
 - [Supprimer un fournisseur d’identité](https://docs.microsoft.com/graph/api/identityprovider-delete)
 
-## <a name="user-flow"></a>Flux d’utilisateur
+## <a name="user-flow"></a>Flux utilisateur
 
 Configurez des stratégies prédéfinies pour l’inscription, la connexion, l’inscription et la connexion combinées, la réinitialisation de mot de passe et la mise à jour de profil.
 
@@ -57,7 +57,7 @@ Configurez des stratégies prédéfinies pour l’inscription, la connexion, l�
 
 Les opérations suivantes vous permettent de gérer vos stratégies d’infrastructure de confiance Azure AD B2C, appelées [stratégies personnalisées](custom-policy-overview.md).
 
-- [Répertorier toutes les stratégies d’infrastructure de confiance configurées dans un locataire](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies.md)
+- [Répertorier toutes les stratégies d’infrastructure de confiance configurées dans un locataire](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies)
 - [Créer une stratégie d’infrastructure de confiance](https://docs.microsoft.com/graph/api/trustframework-post-trustframeworkpolicy)
 - [Lire les propriétés d’une stratégie d’infrastructure de confiance existante](https://docs.microsoft.com/graph/api/trustframeworkpolicy-get)
 - [Mettre à jour ou créer une stratégie d’infrastructure de confiance](https://docs.microsoft.com/graph/api/trustframework-put-trustframeworkpolicy)
@@ -87,7 +87,7 @@ La ressource de niveau supérieur pour les clés de stratégies dans l’API Mic
 
 ## <a name="applications"></a>Applications
 
-- [Répertorier des applications](https://docs.microsoft.com/graph/api/application-list)
+- [Liste des applications](https://docs.microsoft.com/graph/api/application-list)
 - [Créer une application](https://docs.microsoft.com/graph/api/resources/application)
 - [Mettre à jour une application](https://docs.microsoft.com/graph/api/application-update)
 - [Créer un principal de service](https://docs.microsoft.com/graph/api/resources/serviceprincipal)

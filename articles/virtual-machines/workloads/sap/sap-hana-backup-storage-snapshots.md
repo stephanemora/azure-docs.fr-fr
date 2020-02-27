@@ -4,20 +4,20 @@ description: Il existe deux grandes méthodes permettant d’effectuer des sauve
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
-ms.author: rclaus
-ms.openlocfilehash: 8bcfdefa2ea9de12ca6029839a41c91111a5c61c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: hermannd
+ms.openlocfilehash: c977bc7db5608e5718e98a26ed594e5ebf2be998
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078597"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617412"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Sauvegarde SAP HANA à partir de captures instantanées de stockage
 
@@ -144,7 +144,7 @@ Il est possible de restaurer uniquement les disques de données d’une machine 
 - Après le démarrage de la machine virtuelle, tout ce qui se trouvait sur le RAID logiciel fonctionnait correctement et a été rétabli à l’heure de création de la capture instantanée d’objets blob
 - HANA a été rétabli à l’heure de création de la capture instantanée HANA
 
-S’il était possible d’arrêter SAP HANA avant les captures instantanées d’objets blob, la procédure serait moins complexe. Dans ce cas, on pourrait ignorer la capture instantanée HANA et, s’il ne se passe rien de plus dans le système, ignorer également le blocage du système de fichiers. Tout devient plus complexe dès lors qu’il est nécessaire d’effectuer des captures instantanées alors que tout est en ligne. Consultez la section relative à _la cohérence des données SAP HANA lors de la création de captures instantanées de stockage_ dans l’article [Guide de sauvegarde pour SAP HANA sur les machines virtuelles Azure](sap-hana-backup-guide.md).
+S’il était possible d’arrêter SAP HANA avant les captures instantanées d’objets blob, la procédure serait moins complexe. Dans ce cas, on pourrait ignorer la capture instantanée HANA et, s’il ne se passe rien de plus dans le système, ignorer également le blocage du système de fichiers. Tout devient plus complexe dès lors qu’il est nécessaire d’effectuer des captures instantanées alors que tout est en ligne. Consultez la section relative à _la cohérence des données SAP HANA lors de la création de captures instantanées de stockage_ dans l’article [Backup guide for SAP HANA on Azure Virtual Machines](sap-hana-backup-guide.md) (Guide de sauvegarde pour SAP HANA sur les machines virtuelles Azure).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * L’article [Guide de sauvegarde pour SAP HANA sur les machines virtuelles Azure](sap-hana-backup-guide.md) fournit une vue d’ensemble et des informations sur la mise en route.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: b19c23c7adb8dce84530b8f3f8d994f4e32869cc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b8b3dbf515aa3bcc9075a748b9d717cfa36b6ab0
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988938"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648919"
 ---
 # <a name="azure-maps-routing-coverage"></a>Couverture de routage Azure Maps
 
@@ -195,7 +195,7 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 | Moldova                        |        ✓       |                      |             |
 | Monaco                         |        ✓       |         ✓            |             |
 | Monténégro                     |        ✓       |                      |     ✓      | 
-| Pays-bas                    |        ✓       |         ✓            |     ✓      | 
+| Pays-Bas                    |        ✓       |         ✓            |     ✓      | 
 | \+ Aruba                         |        ✓       |                      |             | 
 | \+ Pays-Bas caribéens         |        ✓       |                      |             |
 | \+ Curaçao                       |        ✓       |                      |             |
@@ -206,7 +206,6 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 | Roumanie                        |        ✓       |         ✓            |     ✓      | 
 | Fédération de Russie             |        ✓       |         ✓            |     ✓      | 
 | Saint-Marin                     |        ✓       |         ✓            |             |
-| \+ Saint-Martin (partie néerlandaise)                  |        ✓       |                      |             |
 | Serbie                         |        ✓       |                      |     ✓      | 
 | Slovaquie                       |        ✓       |         ✓            |     ✓      | 
 | Slovénie                       |        ✓       |         ✓            |     ✓      |
@@ -215,7 +214,7 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 | Suisse                    |        ✓       |         ✓            |     ✓      | 
 | Turquie                         |        ✓       |         ✓            |     ✓      | 
 | Ukraine                        |        ✓       |         ✓            |             | 
-| United Kingdom                 |        ✓       |         ✓            |     ✓      | 
+| Royaume-Uni                 |        ✓       |         ✓            |     ✓      | 
 | \+ Anguilla                      |        ✓       |                      |             |
 | \+ Bermudes                       |        ✓       |                      |             |
 | \+ Îles Vierges britanniques        |        ✓       |                      |             |

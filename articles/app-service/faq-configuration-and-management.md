@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 598fdd5e3682226253ef8f2611ede2bbeba596f7
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: afa3b0f3ed345ccc7f4c627ec485351838ab2bee
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190439"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649276"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQ sur la configuration et la gestion de Web Apps dans Azure
 
@@ -199,7 +199,7 @@ Actuellement, vous ne pouvez pas avoir de connexion VPN point à site à un rés
 
 Actuellement, la connexion d’une application web App Service à un réseau virtuel disposant d’une passerelle de routage statique (basée sur une stratégie) n’est pas prise en charge. Si votre réseau virtuel cible existe déjà, pour que vous puissiez le connecter à une application, il doit prendre en charge le réseau VPN de point à site avec une passerelle de routage dynamique. Si votre passerelle est configurée pour un routage statique, vous ne pouvez pas activer un réseau VPN de point à site. 
 
-Pour plus d’informations, voir [Intégrer une application à un réseau Azure Virtual Network](web-sites-integrate-with-vnet.md#getting-started).
+Pour plus d’informations, voir [Intégrer une application à un réseau Azure Virtual Network](web-sites-integrate-with-vnet.md).
 
 ## <a name="in-my-app-service-environment-why-can-i-create-only-one-app-service-plan-even-though-i-have-two-workers-available"></a>Dans mon App Service Environment, pourquoi ne puis-je créer qu’un seul plan App Service, même si j’ai deux workers disponibles ?
 

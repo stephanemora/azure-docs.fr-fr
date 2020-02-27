@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/02/2019
 ms.author: juliako
-ms.openlocfilehash: 3520b7d6b0fd67fdbff3e1dd78d038f36ad5f0af
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: dc3b122ab7f4a243f3a4ecd6f220caa00beb044e
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133422"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505772"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Conseils de migration pour le passage de Media Services v2 à Media Services v3
 
@@ -79,7 +79,7 @@ Si vous avez un service vidéo développé aujourd’hui sur la base des [API h�
 * Dans la v2, les fichiers XML de métadonnées [entrants](../previous/media-services-input-metadata-schema.md) et [sortants](../previous/media-services-output-metadata-schema.md) sont générés à la suite d’un travail d’encodage. Dans la v3, le format de métadonnées est passé de XML à JSON. 
 
 > [!NOTE]
-> Examinez les conventions d’affectation de noms appliquées aux [ressources Media Services v3](media-services-apis-overview.md#naming-conventions). Voir également [Attribution de noms à des objets blob](assets-concept.md#naming-blobs).
+> Examinez les conventions d’affectation de noms appliquées aux [ressources Media Services v3](media-services-apis-overview.md#naming-conventions). Voir également [Attribution de noms à des objets blob](assets-concept.md#naming).
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Différences de fonctionnalités par rapport aux API v2
 

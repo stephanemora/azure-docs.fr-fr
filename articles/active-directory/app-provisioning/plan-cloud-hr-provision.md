@@ -6,18 +6,18 @@ author: martincoetzer
 manager: CelesteDG
 tags: azuread
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha
-ms.openlocfilehash: 10bd6f1f8582ba048a3f77ff329d90f1b4463675
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 28abe2dfa5a1a13ba09e20202180cb5e47d94072
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77065700"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522430"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planifier une application RH cloud pour l’approvisionnement d’utilisateurs Azure Active Directory
 
@@ -80,7 +80,7 @@ Pour configurer l’application RH cloud à l’intégration de l’approvisionn
 
 Vous avez également besoin d’une licence valide à un abonnement Azure AD Premium P1 ou supérieur pour chaque utilisateur provenant de l’application RH cloud et approvisionné dans Active Directory ou Azure AD. Tout nombre incorrect de licences détenues dans l’application RH cloud peut entraîner des erreurs pendant l’approvisionnement d’utilisateurs.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 - Accès administrateur général Azure AD pour configurer l’agent d’approvisionnement Azure AD Connect.
 - Une instance de test et de production de l’application RH cloud.

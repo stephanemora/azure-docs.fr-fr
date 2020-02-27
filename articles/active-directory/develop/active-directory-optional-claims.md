@@ -12,12 +12,12 @@ ms.date: 12/08/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1bc2c3a17aef232df184926dca5f70eac61b03ac
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 23433c816fc7b002c3426a0aac7c0aade8cdb338
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76698762"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585847"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procédure : Fournir des revendications facultatives à votre application Azure AD
 
@@ -49,7 +49,7 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 
 **Tableau 2 : ensemble de revendications facultatives v1.0 et v2.0**
 
-| Name                       |  Description   | Type de jeton | Type d’utilisateur | Notes  |
+| Nom                       |  Description   | Type de jeton | Type d’utilisateur | Notes  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Heure de dernière authentification de l’utilisateur. Voir les spécifications OpenID Connect.| JWT        |           |  |
 | `tenant_region_scope`      | Région du locataire de ressource. | JWT        |           | |
@@ -78,7 +78,7 @@ Ces revendications sont toujours incluses dans les jetons Azure AD v1.0, mais pa
 
 **Tableau 3 : revendications facultatives spécifiques de V2.0**
 
-| Revendication JWT     | Name                            | Description                                | Notes |
+| Revendication JWT     | Nom                            | Description                                | Notes |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | Adresse IP                      | Adresse IP à partir de laquelle le client s’est connecté.   |       |
 | `onprem_sid`  | Identificateur de sécurité local |                                             |       |
@@ -186,7 +186,7 @@ Déclare les revendications facultatives demandées par une application. Une app
 
 **Tableau 5 : Propriétés de type OptionalClaims**
 
-| Name        | Type                       | Description                                           |
+| Nom        | Type                       | Description                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Collection (OptionalClaim) | Revendications facultatives retournées dans le jeton d’ID JWT. |
 | `accessToken` | Collection (OptionalClaim) | Revendications facultatives retournées dans le jeton d’accès JWT. |
@@ -199,7 +199,7 @@ En cas de prise en charge par une revendication spécifique, vous pouvez égalem
 
 **Tableau 6 : Propriétés de type OptionalClaim**
 
-| Name                 | Type                    | Description                                                                                                                                                                                                                                                                                                   |
+| Nom                 | Type                    | Description                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nom de la revendication facultative.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | Source (objet d’annuaire) de la revendication. Il existe des revendications prédéfinies et définies par l’utilisateur à partir des propriétés d’extension. Si la valeur source est null, la revendication est une revendication facultative prédéfinie. Si la valeur source est user, la valeur de la propriété name est la propriété d’extension à partir de l’objet utilisateur. |
@@ -207,7 +207,7 @@ En cas de prise en charge par une revendication spécifique, vous pouvez égalem
 | `additionalProperties` | Collection (Edm.String) | Propriétés supplémentaires de la revendication. Si une propriété existe dans cette collection, elle modifie le comportement de la revendication facultative spécifiée dans la propriété name.                                                                                                                                               |
 ## <a name="configuring-directory-extension-optional-claims"></a>Configuration des revendications facultatives d’extension d’annuaire
 
-En plus de l’ensemble de revendications facultatives standard, vous pouvez configurer des jetons pour inclure des extensions. Pour plus d’informations, consultez [Ajouter des données personnalisées à des ressources à l’aide d’extensions](https://docs.microsoft.com/graph/extensibility-overview). Cette fonctionnalité est utile pour joindre des informations utilisateur supplémentaires utilisables par votre application, par exemple un identificateur supplémentaire ou une option de configuration importante que l’utilisateur a définie. Pour obtenir un exemple, consultez le bas de cette page.
+En plus de l’ensemble de revendications facultatives standard, vous pouvez configurer des jetons pour inclure des extensions. Cette fonctionnalité est utile pour joindre des informations utilisateur supplémentaires utilisables par votre application, par exemple un identificateur supplémentaire ou une option de configuration importante que l’utilisateur a définie. Pour obtenir un exemple, consultez le bas de cette page.
 
 > [!NOTE]
 > - Les extensions de schéma d’annuaire sont une fonctionnalité spécifique d’Azure AD. Par conséquent, si le manifeste de votre application demande une extension personnalisée et qu’un utilisateur MSA se connecte à votre application, ces extensions ne sont pas retournées.

@@ -1,5 +1,6 @@
 ---
-title: 'Démarrage rapide : Créer une Geo AI DSVM'
+title: 'Démarrage rapide : Créer une instance Geo AI de Data Science Virtual Machine'
+titleSuffix: Azure Data Science Virtual Machine
 description: Configurez et créez un environnement Geo AI Data Science Virtual Machine dans Azure à des fins d’analytique géospatiale et de Machine Learning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -7,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/13/2019
-ms.openlocfilehash: 6b32d1f76091d7bbb8f870402020d0ac247d425b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: f3ff9bd64f54d8f83fd1889078e8a4c01827d135
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170727"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525887"
 ---
 # <a name="quickstart-set-up-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Démarrage rapide : Configurer une machine virtuelle d’intelligence artificielle géographique sur Azure 
 
@@ -41,9 +42,9 @@ Pour créer une instance de la Geo AI Data Science VM, effectuez les étapes sui
 
 **Paramètres de base**:
 
-- **Nom** : Nom du serveur de science des données que vous créez.
+- **Name** : Nom du serveur de science des données que vous créez.
     
-- **Nom d’utilisateur :** ID de connexion du compte d’administrateur.
+- **Nom d’utilisateur** : ID de connexion du compte d’administrateur.
     
 - **Mot de passe** : mot de passe du compte Administrateur.
     

@@ -3,12 +3,12 @@ title: Nouveautés du serveur de sauvegarde Microsoft Azure
 description: Le serveur de sauvegarde Microsoft Azure offre des capacités de sauvegarde améliorées pour protéger les machines virtuelles, les fichiers et dossiers, les charges de travail et plus encore. Découvrez comment installer le serveur de sauvegarde Azure v3 ou effectuer une mise à niveau vers ce dernier.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 564b11ebf14652166733c226485dfab94e69dfbb
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 61430ce06d3e441fcfe0443eaaf5de3755b04624
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172216"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582804"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Nouveautés du serveur de sauvegarde Microsoft Azure
 
@@ -18,7 +18,7 @@ Les fonctionnalités suivantes sont incluses dans MABS v3 :
 
 ## <a name="volume-to-volume-migration"></a>Migration de volume à volume
 
-Avec le stockage de sauvegarde moderne (MBS) de MABS v2, nous avons annoncé la mise en place du stockage adapté à la charge de travail : avec cette fonctionnalité, vous configurez certaines charges de travail à sauvegarder dans un stockage spécifique, selon les propriétés de stockage. Toutefois, après la configuration, vous pourriez avoir besoin de déplacer des sauvegardes de certaines sources de données vers un autre stockage pour optimiser l’utilisation des ressources. MABS v3 offre la possibilité de migrer des sauvegardes et de les configurer de façon à les stocker sur un autre volume en [trois étapes](https://blogs.technet.microsoft.com/dpm/2017/10/24/storage-migration-with-dpm-2016-mbs/).
+Avec le stockage de sauvegarde moderne (MBS) de MABS v2, nous avons annoncé la mise en place du stockage adapté à la charge de travail : avec cette fonctionnalité, vous configurez certaines charges de travail à sauvegarder dans un stockage spécifique, selon les propriétés de stockage. Toutefois, après la configuration, vous pourriez avoir besoin de déplacer des sauvegardes de certaines sources de données vers un autre stockage pour optimiser l’utilisation des ressources. MABS v3 offre la possibilité de migrer des sauvegardes et de les configurer de façon à les stocker sur un autre volume en [trois étapes](https://techcommunity.microsoft.com/t5/system-center-blog/sc-2016-dpm-ur4-migrate-backup-storage-in-3-simple-steps/ba-p/351842).
 
 ## <a name="prevent-unexpected-data-loss"></a>Empêcher les pertes de données imprévues
 

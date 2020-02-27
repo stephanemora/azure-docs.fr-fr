@@ -3,17 +3,16 @@ title: Durcissement de la sécurité des hôtes de machines virtuelles AKS
 description: Découvrir le durcissement de la sécurité du système d’exploitation hôte des machines virtuelles AKS
 services: container-service
 author: saudas
-ms.service: container-service
 ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 8b7e50fdc02ab47c50cecb95073f1b51393db898
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d4105a9fba3c40c563198040afb811625727ead0
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885647"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594378"
 ---
 # <a name="security-hardening-in-aks-virtual-machine-hosts"></a>Durcissement de la sécurité des hôtes de machines virtuelles AKS 
 

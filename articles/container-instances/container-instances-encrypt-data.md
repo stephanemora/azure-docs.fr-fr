@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: dkkapur
 ms.author: dekapur
-ms.openlocfilehash: 14a51ce103d831bcf1dfd52c892102f72531a4c8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 41c7fc7380ca2b58326c4a35a3b5fdab1c64c4a3
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934315"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544315"
 ---
 # <a name="encrypt-deployment-data"></a>Chiffrer les données de déploiement
 
@@ -89,7 +89,7 @@ La stratégie d’accès doit maintenant apparaître dans les stratégies d’ac
 > Le chiffrement des données de déploiement avec une clé gérée par le client est disponible dans la dernière version de l’API (2019-12-01) qui est en cours de déploiement. Spécifiez cette version d’API dans votre modèle de déploiement. Si vous rencontrez des problèmes, contactez le support Azure.
 
 Une fois la clé du coffre de clés et la stratégie d’accès définies, ajoutez les propriétés suivantes à votre modèle de déploiement ACI. Apprenez-en davantage sur le déploiement de ressources ACI à l’aide d’un modèle dans le [Tutoriel : Déployer un groupe de plusieurs conteneurs avec un modèle Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
-* Sous `resources`, définissez `apiVersion` sur `2012-12-01`.
+* Sous `resources`, définissez `apiVersion` sur `2019-12-01`.
 * Dans la section Propriétés du groupe de conteneurs du modèle de déploiement, ajoutez une propriété `encryptionProperties` contenant les valeurs suivantes :
   * `vaultBaseUrl` : nom DNS de votre coffre de clés. Vous le trouverez dans le panneau de vue d’ensemble de la ressource Coffre de clés dans le portail
   * `keyName` : nom de la clé générée précédemment

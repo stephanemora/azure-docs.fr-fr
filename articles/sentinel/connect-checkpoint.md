@@ -3,7 +3,7 @@ title: Connecter des données Check Point à Azure Sentinel | Microsoft Docs
 description: Découvrez comment connecter des données Check Point à Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 94658e34679a4cf99ad0e1ad02e60c6a1d190361
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 70836ec557eff1be035d92e8e7db30a882e05fc6
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610673"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588414"
 ---
 # <a name="connect-check-point-to-azure-sentinel"></a>Connecter Check Point à Azure Sentinel
 
@@ -44,6 +44,6 @@ Configurez Check Point pour transférer les messages Syslog au format CEF à vot
 Dans ce document, vous avez appris à connecter des appliances Check Point à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - [Valider la connectivité](connect-cef-verify.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour analyser vos données.
+- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
 
 

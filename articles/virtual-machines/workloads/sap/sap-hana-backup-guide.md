@@ -4,20 +4,20 @@ description: Le guide de sauvegarde pour SAP HANA couvre deux méthodes de sauve
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
-ms.author: rclaus
-ms.openlocfilehash: 05a4b8e8034e1c354a4209244694aeb2fc2c6007
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: hermannd
+ms.openlocfilehash: 8de83cbb7060e6ca5390720a4a241be71bb9dc92
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078743"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617426"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guide de sauvegarde pour SAP HANA sur Machines Virtuelles Azure
 
@@ -131,7 +131,7 @@ Le guide d’administration HANA fournit un exemple de liste. Il suggère de ré
 2. Sauvegarde différentielle
 3. Sauvegarde incrémentielle 1
 4. Sauvegarde incrémentielle 2
-5. Sauvegardes de fichiers journaux
+5. Sauvegarde de journaux
 
 Il n’est pas possible de fournir une recommandation générale quant à la planification exacte et à la fréquence d’un type de sauvegarde spécifique. Cela dépend beaucoup du client et du nombre de modifications de données se produisant sur le système. SAP fournit cependant une recommandation de base pouvant être considérée comme une directive générale. Celle-ci consiste à créer une sauvegarde HANA complète une fois par semaine.
 Pour ce qui concerne les sauvegardes de fichiers journaux, consultez la documentation SAP HANA [Log Backups](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/bb7e33bb571014a03eeabba4e37541/content.htm) (Sauvegardes de fichiers journaux).
@@ -204,7 +204,7 @@ Pour le système de test, la sortie de cette instruction SQL correspond de faço
 
 ![La console de sauvegarde HANA Studio permet de limiter la taille maximale des fichiers de sauvegarde HANA.](media/sap-hana-backup-guide/image010.png)
 
-La console de sauvegarde HANA Studio permet de limiter la taille maximale des fichiers de sauvegarde HANA. Dans l’exemple d’environnement, cette fonctionnalité permet d’obtenir plusieurs fichiers de sauvegarde de taille inférieure au lieu d’un fichier de sauvegarde unique de 230 Go. Cette taille de fichier inférieure a un impact significatif sur les performances (consultez l’article connexe [Sauvegarde SAP HANA sur Azure au niveau fichier](sap-hana-backup-file-level.md)).
+La console de sauvegarde HANA Studio permet de limiter la taille de fichier maximale des fichiers de sauvegarde HANA. Dans l’exemple d’environnement, cette fonctionnalité permet d’obtenir plusieurs fichiers de sauvegarde de taille inférieure au lieu d’un fichier de sauvegarde unique de 230 Go. Cette taille de fichier inférieure a un impact significatif sur les performances (consultez l’article connexe [Sauvegarde SAP HANA sur Azure au niveau fichier](sap-hana-backup-file-level.md)).
 
 ## <a name="summary"></a>Résumé
 
@@ -232,5 +232,5 @@ Les tableaux suivants s’appuient sur les résultats de test pour présenter le
 
 ## <a name="next-steps"></a>Étapes suivantes
 * L’article [Sauvegarde SAP HANA sur Azure au niveau fichier](sap-hana-backup-file-level.md) décrit l’option de sauvegarde basée sur des fichiers.
-* L’article [Sauvegarde SAP HANA à partir de captures instantanées de stockage](sap-hana-backup-storage-snapshots.md) décrit l’option de sauvegarde à partir de captures instantanées de stockage.
+* L’article [Sauvegarde SAP HANA à partir de captures instantanées de stockage](sap-hana-backup-storage-snapshots.md) décrit l’option de sauvegarde à partir d’instantanés de stockage.
 * Pour savoir comment établir une haute disponibilité et planifier la récupération d’urgence de SAP HANA sur Azure (grandes instances), consultez [Haute disponibilité et récupération d’urgence de SAP HANA (grandes instances) sur Azure](hana-overview-high-availability-disaster-recovery.md).

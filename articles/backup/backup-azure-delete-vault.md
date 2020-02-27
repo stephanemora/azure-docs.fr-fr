@@ -3,12 +3,12 @@ title: Supprimer un coffre Recovery Services Microsoft Azure
 description: Dans cet article, découvrez comment supprimer les dépendances, puis supprimer un coffre Recovery Services Sauvegarde Microsoft Azure (MARS).
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 23e0d2874229616037c44800639411f66bc4d1b6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 172c632ae27c789f96e2e5cc1bdef492ef09f667
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173170"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586459"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Supprimer un coffre Recovery Services Sauvegarde Azure
 
@@ -28,7 +28,7 @@ Vous ne pouvez pas supprimer un coffre Recovery Services qui a des dépendances 
 
   ![Supprimez l’erreur du serveur protégé.](./media/backup-azure-delete-vault/error-message.jpg)
 
-- Si les éléments de sauvegarde se trouvent dans un état de suppression réversible, le message d’avertissement ci-dessous s’affiche et il faut attendre qu’ils soient définitivement supprimés. Pour plus d’informations, consultez cet [article](https://aka.ms/SoftDeleteCloudWorkloads).
+- Si les éléments de sauvegarde se trouvent dans un état de suppression réversible, le message d’avertissement ci-dessous s’affiche et il faut attendre qu’ils soient définitivement supprimés. Pour plus d’informations, consultez cet [article](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
 
    ![Supprimez l’erreur du coffre.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
   

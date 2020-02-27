@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f3af350c96d1dd9eaf4773db503acb10d8a08a8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f382406d164aa7378631753c2cfc85bc69003a4f
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441120"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605075"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnostiquer et résoudre les problèmes lors de l’utilisation du déclencheur Azure Functions pour Cosmos DB
 
@@ -66,7 +66,7 @@ Il existe plusieurs causes possibles pour ce scénario et vous devez vérifier c
 
 1. Votre fonction Azure est-elle déployée dans la même région que votre compte Azure Cosmos ? Pour une latence réseau optimale, la fonction Azure et votre compte Azure Cosmos doivent être colocalisés dans la même région Azure.
 2. Les modifications se produisant dans votre conteneur Azure Cosmos sont-elles continues ou sporadiques ?
-Dans le deuxième cas, il peut y avoir un délai entre le stockage de vos modifications et leur récupération par la fonction Azure. En effet, en interne, lorsque le déclencheur recherche les modifications dans votre conteneur Azure Cosmos et n’en trouve aucune en attente de lecture, il se met en veille pendant une durée configurable (par défaut, cinq secondes) avant de recommencer à chercher de nouvelles modifications (ce qui permet d’éviter une consommation trop élevée d’unités de requête). Vous pouvez configurer la durée de veille à l’aide du paramètre `FeedPollDelay/feedPollDelay` dans la [configuration](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) de votre déclencheur (la valeur indiquée est en millisecondes).
+Dans le deuxième cas, il peut y avoir un délai entre le stockage de vos modifications et leur récupération par la fonction Azure. En effet, en interne, lorsque le déclencheur recherche les modifications dans votre conteneur Azure Cosmos et n’en trouve aucune en attente de lecture, il se met en veille pendant une durée configurable (par défaut, cinq secondes) avant de recommencer à chercher de nouvelles modifications (ce qui permet d’éviter une consommation trop élevée d’unités de requête). Vous pouvez configurer la durée de veille à l’aide du paramètre `FeedPollDelay/feedPollDelay` dans la [configuration](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) de votre déclencheur (la valeur indiquée est en millisecondes).
 3. Votre conteneur Azure Cosmos peut avoir une [limitation de débit](./request-units.md).
 4. Vous pouvez utiliser l’attribut `PreferredLocations` dans votre déclencheur pour spécifier une liste de régions Azure séparée par des virgules permettant de définir un ordre de connexion privilégié et personnalisé.
 
@@ -93,10 +93,10 @@ Un moyen simple pour contourner cette situation consiste à appliquer un préfix
 Pour traiter à nouveau tous les éléments d’un conteneur à partir du début :
 1. Arrêtez votre fonction Azure si elle est en cours d’exécution. 
 1. Supprimez les documents de la collection de baux (ou supprimez et recréez la collection de baux pour qu’elle soit vide)
-1. Affectez la valeur True à l’attribut [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) CosmosDBTrigger dans votre fonction. 
+1. Affectez la valeur True à l’attribut [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) CosmosDBTrigger dans votre fonction. 
 1. Redémarrez la fonction Azure. Elle va maintenant lire et traiter toutes les modifications depuis le début. 
 
-La définition de [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) sur True indique à la fonction Azure de commencer à lire les modifications à partir du début de l’historique de la collection au lieu de l’heure actuelle. Cela ne fonctionne que si aucun bail n’est déjà créé (c’est-à-dire des documents dans la collection de baux). L’affectation de la valeur True à cette propriété lorsque des baux ont déjà été créés n’a aucun effet. Dans ce scénario, lorsqu’une fonction est arrêtée et redémarrée, elle commence la lecture à partir du dernier point de contrôle, tel que défini dans la collection de baux. Pour effectuer un nouveau traitement à partir du début, suivez les étapes ci-dessus 1-4.  
+La définition de [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) sur True indique à la fonction Azure de commencer à lire les modifications à partir du début de l’historique de la collection au lieu de l’heure actuelle. Cela ne fonctionne que si aucun bail n’est déjà créé (c’est-à-dire des documents dans la collection de baux). L’affectation de la valeur True à cette propriété lorsque des baux ont déjà été créés n’a aucun effet. Dans ce scénario, lorsqu’une fonction est arrêtée et redémarrée, elle commence la lecture à partir du dernier point de contrôle, tel que défini dans la collection de baux. Pour effectuer un nouveau traitement à partir du début, suivez les étapes ci-dessus 1-4.  
 
 ### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Une liaison peut uniquement être établie avec IReadOnlyList\<Document> ou JArray
 
@@ -106,7 +106,7 @@ Pour contourner cette situation, supprimez la référence NuGet manuelle qui a �
 
 ### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>Modification de l’intervalle d’interrogation de Fonction Azure pour la détection des modifications
 
-Comme expliqué précédemment pour [La réception de mes modifications prend trop de temps](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received), Azure Function reste en veille pendant un laps de temps configurable (5 secondes, par défaut) avant de vérifier la présence de nouvelles modifications (pour éviter une consommation élevée de RU). Vous pouvez configurer la durée de veille à l’aide du paramètre `FeedPollDelay/feedPollDelay` dans la [configuration](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) de votre déclencheur (la valeur indiquée est en millisecondes).
+Comme expliqué précédemment pour [La réception de mes modifications prend trop de temps](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received), Azure Function reste en veille pendant un laps de temps configurable (5 secondes, par défaut) avant de vérifier la présence de nouvelles modifications (pour éviter une consommation élevée de RU). Vous pouvez configurer la durée de veille à l’aide du paramètre `FeedPollDelay/feedPollDelay` dans la [configuration](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) de votre déclencheur (la valeur indiquée est en millisecondes).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

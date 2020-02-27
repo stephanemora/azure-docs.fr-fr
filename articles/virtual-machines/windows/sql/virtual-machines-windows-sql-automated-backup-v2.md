@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 009a480add9d808115f24a69a400118fec7cb293
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 458012982531e228f7c4968f29e79e8b2e29aa48
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790581"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651427"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Sauvegarde automatisée version 2 pour les machines virtuelles Azure (Resource Manager)
 
@@ -118,11 +118,7 @@ Puis des sauvegardes complètes de toutes les bases de données seront relancée
 > [!IMPORTANT]
 > Lorsque vous planifiez des sauvegardes quotidiennes, il est recommandé de planifier une fenêtre de temps assez large pour s’assurer que toutes les bases de données puissent être sauvegardées durant cet intervalle. Ceci est particulièrement important dans le cas où vous avez une grande quantité de données à sauvegarder.
 
-## <a name="configure-in-the-portal"></a>Configurer dans le portail
-
-Vous pouvez utiliser le portail Azure pour configurer la sauvegarde automatisée version 2 lors du provisionnement ou pour des machines virtuelles SQL Server 2016/2017 existantes.
-
-## <a name="configure-for-new-vms"></a>Configurer pour les nouvelles machines virtuelles
+## <a name="configure-new-vms"></a>Configurer de nouvelles machines virtuelles
 
 Utilisez le portail Azure pour configurer la sauvegarde automatisée version 2 quand vous créez une machine virtuelle SQL Server 2016 ou 2017 dans le modèle de déploiement Resource Manager.
 

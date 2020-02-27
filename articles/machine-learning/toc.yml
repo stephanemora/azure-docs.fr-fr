@@ -38,7 +38,7 @@
               href: tutorial-1st-experiment-sdk-train.md
         - name: Classification d’images (données MNIST)
           items:
-            - name: 1. Entraîner un modèle
+            - name: 1. Effectuer l’apprentissage d’un modèle
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
             - name: 2. Déployer un modèle
@@ -83,8 +83,10 @@
       href: concept-workspace.md
     - name: Environnements
       href: concept-environments.md
-    - name: Données
+    - name: Accès aux données
       href: concept-data.md
+    - name: Ingestion de données
+      href: concept-data-ingestion.md
     - name: Apprentissage du modèle
       displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
       href: concept-train-machine-learning-model.md

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3ce754a67643f4506fa825f0780969dc4a06f826
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 38339defc9d06f3e809bc24f957ebbb30abb46d3
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299586"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598780"
 ---
 # <a name="how-to-deploy-azure-files"></a>Comment déployer Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles via le protocole SMB standard. Cet article explique comment déployer pratiquement Azure Files au sein de votre organisation.
@@ -26,7 +26,7 @@ Cet article suppose que vous avez déjà accompli les étapes suivantes :
 - Créé un partage de fichiers Azure avec le quota de votre choix dans votre compte de stockage. Pour obtenir des instructions pas à pas concernant la création d’un partage de fichiers, voir [Créer un partage de fichiers](storage-how-to-create-file-share.md).
 
 ## <a name="transfer-data-into-azure-files"></a>Transférer des données dans des fichiers Azure
-Vous pouvez migrer des partages de fichiers existants tels que ceux stockés localement vers votre nouveau partage de fichiers Azure. Cette section montre comment déplacer des données dans un partage de fichiers Azure à l’aide de plusieurs méthodes populaires détaillées dans le [guide de planification](storage-files-planning.md#data-transfer-method).
+Vous pouvez migrer des partages de fichiers existants tels que ceux stockés localement vers votre nouveau partage de fichiers Azure. Cette section montre comment déplacer des données dans un partage de fichiers Azure à l’aide de plusieurs méthodes populaires détaillées dans le [guide de planification](storage-files-planning.md#migration).
 
 ### <a name="azure-file-sync"></a>Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Pour ce faire, Azure File Sync transforme vos serveurs Windows en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible sur Windows Server pour accéder à vos données localement (y compris SMB, NFS et FTPS) et vous pouvez avoir autant de caches que nécessaire dans le monde entier.

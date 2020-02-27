@@ -3,7 +3,7 @@ title: Créer des incidents à partir d’alertes dans Azure Sentinel | Microso
 description: Découvrez comment créer des incidents à partir d’alertes dans Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: 722feb29a08cd5e1113eae197fbcae9769ed5550
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.author: yelevin
+ms.openlocfilehash: b29b337d7487087bec268528ff26617f7a995235
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029768"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587972"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Créer automatiquement des incidents à partir d’alertes de sécurité Microsoft
 
@@ -62,11 +62,11 @@ Utilisez les règles intégrées disponibles dans Azure Sentinel pour choisir le
 
 1. Connectez une source de données de solution de sécurité Microsoft. 
 
-   ![Gérer des incidents de sécurité](media/incidents-from-alerts/generate-security-incidents.png)
+   ![Générer des incidents de sécurité](media/incidents-from-alerts/generate-security-incidents.png)
 
-1. Sous **Créer des incidents**, sélectionnez **Activer** pour activer la règle d’analytique par défaut qui crée des incidents automatiquement à partir des alertes générées dans le service de sécurité associé. Vous pouvez ensuite modifier cette règle sous **Analytique**, puis **Règles actives**.
+1. Sous **Créer des incidents**, sélectionnez **Activer** pour activer la règle analytique par défaut qui crée automatiquement des incidents à partir des alertes générées dans le service de sécurité connecté. Vous pouvez ensuite modifier cette règle sous **Analytique**, puis **Règles actives**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour commencer à utiliser Azure Sentinel, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/free/).
+- Pour utiliser Azure Sentinel, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/free/).
 - Découvrez comment [intégrer vos données à Azure Sentinel](quickstart-onboard.md) et [obtenir une visibilité de vos données et des menaces potentielles](quickstart-get-visibility.md).

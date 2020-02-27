@@ -3,12 +3,12 @@ title: Matrice de support MABS et System Center DPM
 description: Cet article résume la prise en charge de la Sauvegarde Azure quand vous utilisez un serveur de Sauvegarde Microsoft Azure (MABS) ou System Center DPM pour sauvegarder des ressources locales et celles de machines virtuelles Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9441f7ce9069cd85475877f37abe669f3c4fd516
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 6664f7b226b75b364fd1c83f2abc56b5a275eff9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444024"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582651"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 
@@ -113,11 +113,34 @@ Vous pouvez déployer MABS sur une machine virtuelle Azure Stack pour gérer la 
 
 Le serveur DPM/MABS doit accéder à ces URL :
 
-- http://www.msftncsi.com/ncsi.txt
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.MicrosoftAzure.com
 - *.microsoftonline.com
 - \* .windows.net
+
+### <a name="azure-expressroute-support"></a>Support Azure ExpressRoute
+
+Vous pouvez sauvegarder vos données sur Azure ExpressRoute avec le Peering publique (disponible pour les anciens circuits) et le Peering Microsoft. La sauvegarde sur le Peering privé n’est pas prise en charge.
+
+Avec le Peering public : Garantissez l’accès aux domaines/adresses suivants :
+
+* `http://www.msftncsi.com/ncsi.txt`
+* `microsoft.com`
+* `.WindowsAzure.com`
+* `.microsoftonline.com`
+* `.windows.net`
+
+Avec le Peering Microsoft, sélectionnez les services/régions suivants et les valeurs de communauté pertinentes :
+
+* Azure Active Directory (12076:5060)
+* Région Microsoft Azure (en fonction de l’emplacement de votre coffre Recovery Services)
+* Stockage Azure (en fonction de l’emplacement de votre coffre Recovery Services)
+
+Pour plus d’informations, consultez [Configuration requise pour le routage ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+
+>[!NOTE]
+>Le peering public Azure est déconseillé pour les nouveaux circuits.
 
 ### <a name="dpmmabs-connectivity-to-azure-backup"></a>Connectivité de DPM/MABS à Sauvegarde Azure
 

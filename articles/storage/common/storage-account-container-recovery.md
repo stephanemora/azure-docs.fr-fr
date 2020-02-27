@@ -1,17 +1,19 @@
 ---
 title: Récupération d’un conteneur de compte de stockage
 description: Récupération d’un conteneur de compte de stockage
+services: storage
 author: v-miegge
 ms.topic: troubleshooting
 ms.author: kartup
 ms.date: 10/30/2019
 ms.service: storage
-ms.openlocfilehash: f095bdfe7bbb5777a2ad2aabb3bda92d0974457d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: dcscontentpm
+ms.openlocfilehash: 8b9b69fb32edab54fb2df558ea292df264e00cbb
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693798"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562273"
 ---
 # <a name="storage-account-container-recovery"></a>Récupération d’un conteneur de compte de stockage
 
@@ -39,7 +41,7 @@ Le stockage Azure fournit la résilience des données via des réplicas automati
 
    |Type de contenu|LRS|ZRS|GRS|RA-GRS| 
    |---|---|---|---|---|
-   |Conteneur de stockage|Non|Non|OUI|OUI| 
+   |Conteneur de stockage|Non|Non|Oui|Oui| 
 
    * Nous pouvons tenter de restaurer le conteneur de compte de stockage, mais sans aucune garantie. 
 
