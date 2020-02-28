@@ -3,7 +3,7 @@
     - name: Guide du développeur
       href: azure-developer-guide.md
     - name: Kits de développement logiciel (SDK) et outils
-      href: 'https://docs.microsoft.com/azure/index#pivot=sdkstools'
+      href: 'https://aka.ms/azsdkpackages'
 - name: Démarrage rapide
   items:
     - name: "Web\_Apps"
