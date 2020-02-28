@@ -2,18 +2,15 @@
 title: Didacticiel Kubernetes sur Azure - Créer un registre de conteneurs
 description: Dans le cadre de ce didacticiel Azure Kubernetes Service (AKS), vous allez créer une instance Azure Container Registry et y charger un exemple d’image conteneur d’application.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 04fbea9714224f0ecbac0e14618caaf39fa3cedf
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 6b8d520a539f69889b1e1bd23d255f3fe19b8717
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291139"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593204"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutoriel : Déployer et utiliser Azure Container Registry
 

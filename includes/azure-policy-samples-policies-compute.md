@@ -2,14 +2,14 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/13/2020
+ms.date: 02/19/2020
 ms.author: dacoulte
-ms.openlocfilehash: db30b18a7027a62e6cd5bb1ad8d069a41f8a943f
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 372850975873c9a6af02846612445edc2899c308
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77370824"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77495285"
 ---
 |Nom |Description |Effet(s) |Version |Source |
 |---|---|---|---|
@@ -23,4 +23,4 @@ ms.locfileid: "77370824"
 |[Seules les extensions de machine virtuelle approuvées doivent être installées](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc0e996f8-39cf-4af9-9f45-83fbde810432) |Cette stratégie régit les extensions de machine virtuelle qui ne sont pas approuvées. |Audit, Refuser, Désactivé |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VirtualMachines_ApprovedExtensions_Audit.json)
 |[Exiger la mise à jour corrective automatique de l’image du système d’exploitation sur les groupes de machines virtuelles identiques](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F465f0161-0087-490a-9ad9-ad6217f4f43a) |Cette stratégie applique l’activation de la mise à jour corrective automatique des images de système d’exploitation sur les groupes de machines virtuelles identiques afin d’assurer la sécurité des machines virtuelles par l’application sécurisée mensuelle des derniers correctifs de sécurité. |deny |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/VMSSOSUpgradeHealthCheck_Deny.json)
 |[Les disques non attachés doivent être chiffrés](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2c89a2e5-7285-40fe-afe0-ae8654b92fb2) |Cette stratégie permet d’auditer tous les disques non attachés sans chiffrement activé. |Audit, Désactivé |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/UnattachedDisk_Encryption_Audit.json)
-|[Les machines virtuelles doivent être migrées vers de nouvelles ressources Azure Resource Manager](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d84d5fb-01f6-4d12-ba4f-4a26081d403d) |Utilisez le nouvel Azure Resource Manager pour renforcer la sécurité de vos machines virtuelles : contrôle d’accès plus puissant, audit amélioré, déploiement et gouvernance basés sur Azure Resource Manager, accès aux identités managées, accès au coffre de clés pour les secrets, authentification basée sur Azure AD, et prise en charge des étiquettes et des groupes de ressources pour faciliter la gestion de la sécurité. |Audit, Refuser, Désactivé |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ClassicCompute_Audit.json)
+|[Les machines virtuelles doivent être migrées vers de nouvelles ressources Azure Resource Manager](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1d84d5fb-01f6-4d12-ba4f-4a26081d403d) |Profitez des améliorations apportées à Azure Resource Manager pour durcir la sécurité de vos machines virtuelles : contrôle d’accès plus puissant (RBAC), audit amélioré, déploiement et gouvernance basés sur ARM, accès aux identités managées, accès au coffre de clés pour les secrets, authentification basée sur Azure AD, prise en charge des étiquettes et des groupes de ressources pour faciliter la gestion de la sécurité |Audit, Refuser, Désactivé |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Compute/ClassicCompute_Audit.json)

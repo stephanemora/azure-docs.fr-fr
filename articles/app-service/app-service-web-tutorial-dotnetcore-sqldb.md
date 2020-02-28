@@ -1,18 +1,18 @@
 ---
-title: 'Didacticiel : ASP.NET Core avec SQL Database'
+title: 'Tutoriel : ASP.NET Core avec SQL Database'
 description: Découvrez comment faire fonctionner une application .NET Core dans Azure App Service en établissant une connexion avec une instance SQL Database.
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7f444ad9b32ca5da923ce5ac711c9947971c4d1e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 28dc5131366c54db30e9233ea1061cc9bc7a54ce
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672015"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500078"
 ---
-# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Didacticiel : Générer une application ASP.NET Core et SQL Database dans Azure App Service
+# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Tutoriel : Générer une application ASP.NET Core et SQL Database dans Azure App Service
 
 > [!NOTE]
 > Cet article explique comment déployer une application sur App Service sous Windows. Pour déployer sur App Service sur _Linux_, consultez [Créer une application .NET Core et SQL Database dans Azure App Service sur Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
@@ -90,7 +90,7 @@ Pour l’instance SQL Database, ce tutoriel utilise [Azure SQL Database](/azure/
 
 Dans Cloud Shell, créez un serveur logique Azure SQL Database avec la commande [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create).
 
-Remplacez l’espace réservé *\<server_name>* par un nom unique d’instance SQL Database. Ce nom est utilisé en tant que point de terminaison de l’instance SQL Database `<server_name>.database.windows.net`. Pour cette raison, le nom doit être unique sur l’ensemble des serveurs logiques dans Azure. Le nom ne peut contenir que des minuscules, des chiffres, le tiret -) et doit compter entre 3 et 50 caractères. En outre, remplacez  *\<db_username>* et  *\<db_password>* par le nom d’utilisateur et le mot de passe de votre choix. 
+Remplacez l’espace réservé *\<server_name>* par un nom unique d’instance SQL Database. Ce nom est utilisé en tant que point de terminaison de l’instance SQL Database `<server_name>.database.windows.net`. Pour cette raison, le nom doit être unique sur l’ensemble des serveurs logiques dans Azure. Le nom ne peut contenir que des minuscules, des chiffres, le tiret -) et doit compter entre 3 et 50 caractères. En outre, remplacez *\<db_username>* et *\<db_password>* par le nom d’utilisateur et le mot de passe de votre choix. 
 
 
 ```azurecli-interactive
@@ -129,7 +129,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 > Vous pouvez être encore plus restrictif dans votre règle de pare-feu en [choisissant uniquement les adresses IP sortantes que votre application utilise](overview-inbound-outbound-ips.md#find-outbound-ips).
 >
 
-### <a name="create-a-database"></a>Créer une base de données
+### <a name="create-a-database"></a>Création d'une base de données
 
 Créez une base de données avec un [niveau de performance S0](../sql-database/sql-database-service-tiers-dtu.md) sur le serveur avec la commande [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create).
 
@@ -422,7 +422,7 @@ Vous avez appris à effectuer les opérations suivantes :
 > * Créer une base de données SQL dans Azure
 > * Connecter une application .NET Core à une instance SQL Database
 > * Déploiement de l’application dans Azure
-> * Mettre à jour le modèle de données et redéployer l’application
+> * Mise à jour du modèle de données et redéploiement de l’application
 > * Diffuser des journaux d’activité à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 

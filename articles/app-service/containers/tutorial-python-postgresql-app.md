@@ -8,12 +8,13 @@ ms.custom:
 - mvc
 - seodec18
 - seo-python-october2019
-ms.openlocfilehash: 3aa5b5085a6120ca513f0aeba344e7f541f0fd72
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+- cli-validate
+ms.openlocfilehash: 13431b62e64774a4c31cf95200def3ba77f973d7
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713415"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523929"
 ---
 # <a name="tutorial-run-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Tutoriel : Exécuter une application web Python (Django) avec PostgreSQL dans Azure App Service
 
@@ -31,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Vous pouvez suivre les étapes de cet article sur macOS, Linux ou Windows. Les étapes sont similaires dans la plupart des cas, bien que les différences ne soient pas détaillées dans ce tutoriel. La plupart des exemples ci-dessous utilisent une fenêtre de terminal `bash` sur Linux. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel :
 

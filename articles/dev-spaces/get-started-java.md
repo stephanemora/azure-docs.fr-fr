@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: Ce tutoriel vous montre comment utiliser Azure Dev Spaces et Visual Studio Code pour déboguer et itérer rapidement une application Java sur Azure Kubernetes Service.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 47948b0ce4ac0cb9a78552891e42d7634335839e
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 2c086c952528d5521ace44d56eaf11c14ac1cabb
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121749"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602833"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Créer un espace de développement Kubernetes : Visual Studio Code et Java avec Azure Dev Spaces
 
@@ -64,7 +64,7 @@ az group create --name MyResourceGroup --location <region>
 Créez un cluster Kubernetes avec la commande suivante :
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
 La création du cluster ne prend que quelques minutes.
@@ -103,7 +103,7 @@ Pour l’heure, vous disposez d’une application web de base qui peut s’exéc
 1. Exécutez cette commande (vérifiez que **webfrontend** est bien votre dossier actuel) :
 
     ```cmd
-    azds prep --public
+    azds prep --enable-ingress
     ```
 
 La commande `azds prep` d’Azure CLI génère des ressources Docker et Kubernetes avec les paramètres par défaut :

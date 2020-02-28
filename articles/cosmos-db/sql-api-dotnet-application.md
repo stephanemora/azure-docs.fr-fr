@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: b0da9f2f2d14c0487e61c1927b5456d09052cff3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6af5f4c3ab028f8f0c6945eba86ec79dd6027680
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444928"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587462"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutoriel : Développer une application web ASP.NET Core MVC avec Azure Cosmos DB à l’aide du kit SDK .NET
 
@@ -110,7 +110,7 @@ Ajoutons à présent les modèles, les vues et les contrôleurs à cette applica
 
 1. Remplacez le contenu de la classe *Item.cs* par le code suivant :
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs":::
 
 Azure Cosmos DB utilise JSON pour déplacer et stocker des données. Vous pouvez utiliser l’attribut `JsonProperty` pour contrôler la façon dont JSON sérialise et désérialise les objets. La classe `Item` offre une démonstration de l’attribut `JsonProperty`. Ce code contrôle le format du nom de propriété qui va dans JSON. Il renomme aussi la propriété .NET `Completed`.
 
@@ -183,7 +183,7 @@ Une fois ces étapes terminées, fermez tous les documents *cshtml* dans Visual 
 
 1. Remplacez le contenu de *ItemController.cs* par le code suivant :
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs":::
 
 L’attribut **ValidateAntiForgeryToken** est utilisé ici pour protéger cette application contre les attaques de type falsification de requête intersites. Vos vues doivent aussi fonctionner avec ce jeton anti-contrefaçon. Pour plus d’informations et d’exemples, consultez [Prévention des attaques par falsification de requête intersites (CSRF) dans une application ASP.NET MVC][Preventing Cross-Site Request Forgery]. Le code source fourni sur [GitHub][GitHub] comporte l’implémentation complète.
 
@@ -203,11 +203,11 @@ Pour commencer, nous allons ajouter une classe qui contient la logique permettan
 
 1. Remplacez le contenu de *CosmosDBService.cs* par le code suivant :
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
 
 1. Répétez les deux étapes précédentes, mais cette fois-ci, utilisez le nom *ICosmosDBService*, puis utilisez le code suivant :
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
 1. Dans le gestionnaire **Configure les services**, ajoutez la ligne suivante :
 
@@ -219,7 +219,7 @@ Pour commencer, nous allons ajouter une classe qui contient la logique permettan
 
 1. Dans le même fichier, ajoutez la méthode **InitializeCosmosClientInstanceAsync** suivante, qui lit la configuration et initialise le client.
 
-    [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)]
+    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync":::
 
 1. Définissez la configuration dans le fichier *appsettings.json* du projet. Ouvrez le fichier et ajoutez une section nommée **CosmosDb** :
 

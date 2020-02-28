@@ -1,16 +1,16 @@
 ---
-title: 'Didacticiel : Application Linux PHP avec MySQL'
+title: 'Tutoriel : Application Linux PHP avec MySQL'
 description: Découvrez comment faire fonctionner une application Linux Node.js dans Azure App Service en établissant une connexion à une base de données MySQL dans Azure. Laravel est utilisé dans ce tutoriel.
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: be8bbfde7e9873f9cef3a85cacc2dfcf4db9039b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 89b8d9fb1d929e0598469ba582049c61216e923a
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687431"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524017"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Générer une application PHP et MySQL dans Azure App Service sous Linux
 
@@ -22,7 +22,7 @@ ms.locfileid: "74687431"
 
 ![Application PHP exécutée dans Azure App Service](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Création d’une base de données MySQL dans Azure
@@ -587,7 +587,7 @@ Le menu de gauche fournit des pages vous permettant de configurer votre applicat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Création d’une base de données MySQL dans Azure
@@ -600,7 +600,7 @@ Dans ce tutoriel, vous avez appris à :
 Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Mappage d’un nom DNS personnalisé à une application](../app-service-web-tutorial-custom-domain.md)
+> [Tutoriel : Mappage d’un nom DNS personnalisé à une application](../app-service-web-tutorial-custom-domain.md)
 
 Ou consultez les autres ressources :
 

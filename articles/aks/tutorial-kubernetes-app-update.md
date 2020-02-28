@@ -2,20 +2,17 @@
 title: Didacticiel Kubernetes sur Azure - Mettre à jour une application
 description: Dans le cadre de ce didacticiel Azure Kubernetes Service (AKS), vous allez apprendre à mettre à jour un déploiement d’application existant vers ACS avec une nouvelle version du code d’application.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b645fc9f67229d087a5d1655f733e2f3e50d4471
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d5457d790cd3c95bb23ec0c517097b443a2389ed
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614376"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593374"
 ---
-# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Didacticiel : Mettre à jour une application dans Azure Kubernetes Service (AKS)
+# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutoriel : Mettre à jour une application dans Azure Kubernetes Service (AKS)
 
 Après avoir déployé une application dans Kubernetes, vous pouvez la mettre à jour en spécifiant une nouvelle image conteneur ou une nouvelle version de l’image. Une mise à jour se fait alors étape par étape, afin que seule une partie du déploiement soit mise à jour en même temps. Cette mise à jour progressive permet à l’application de poursuivre son exécution pendant la mise à jour. Elle fournit également un mécanisme de restauration en cas d’échec du déploiement.
 
@@ -152,7 +149,7 @@ kubectl get service azure-vote-front
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, nous avons mis à jour une application et nous avons déployé cette mise à jour sur votre cluster AKS. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, nous avons mis à jour une application et nous avons déployé cette mise à jour sur votre cluster AKS. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Mise à jour du code de l’application frontale

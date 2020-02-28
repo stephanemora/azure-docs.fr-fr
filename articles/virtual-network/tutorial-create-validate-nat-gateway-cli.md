@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: bc815281a005f750072176015a937547ff6d4670
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 26a427baddc99fa702b638c36b5378750364c849
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429070"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587020"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Tutoriel : Créer une passerelle NAT avec Azure CLI et tester le service NAT
 
@@ -34,8 +34,6 @@ Vous pouvez suivre ce tutoriel en utilisant Azure Cloud Shell ou exécuter les c
 
 Si vous choisissez d’exécuter ces commandes localement, vous devez installer l’interface CLI.  Ce tutoriel nécessite l’exécution d’une instance d’Azure CLI version 2.0.71 ou ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
-> [!IMPORTANT]
-> Une fois la [préversion du service NAT de Réseau virtuel activée](./nat-overview.md#enable-preview) sur votre abonnement, utilisez https://aka.ms/natportal pour accéder au portail.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 

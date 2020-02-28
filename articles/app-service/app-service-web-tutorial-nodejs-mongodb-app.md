@@ -1,25 +1,25 @@
 ---
-title: 'Didacticiel : Application Node.js avec MongoDB'
+title: 'Tutoriel : Application Node.js avec MongoDB'
 description: Découvrez comment faire fonctionner une application Node.js dans Azure, avec une connexion à une base de données MongoDB dans Azure (Cosmos DB). MEAN.js est utilisé dans le tutoriel.
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 05/04/2017
 ms.custom: seodec18
-ms.openlocfilehash: 7d0a1d89b0547b1cd982b2717ac7548bec848a77
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 2ab67743a349c33000d4b6f8b8566ff48e5e1d24
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671314"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500021"
 ---
-# <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Didacticiel : Créer une application Node.js et MongoDB dans Azure
+# <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutoriel : Créer une application Node.js et MongoDB dans Azure
 
 > [!NOTE]
 > Cet article explique comment déployer une application sur App Service sous Windows. Pour déployer une application App Service sur _Linux_, consultez [Créer une application Node.js et MongoDB dans Azure App Service sur Linux](./containers/tutorial-nodejs-mongodb-app.md).
 >
 
-Azure App Service offre un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques. Ce tutoriel montre comment créer une application Node.js dans App Service et comment la connecter à une base de données MongoDB. Lorsque vous aurez terminé, vous disposerez d’une application MEAN (MongoDB, Express, AngularJS et Node.js) exécutée sous [Azure App Service](overview.md). Pour plus de simplicité, l’exemple d’application utilise [l’infrastructure de développement web MEAN.js](https://meanjs.org/).
+Azure App Service offre un service d’hébergement web capable d’auto-correction et hautement scalable. Ce tutoriel montre comment créer une application Node.js dans App Service et comment la connecter à une base de données MongoDB. Lorsque vous aurez terminé, vous disposerez d’une application MEAN (MongoDB, Express, AngularJS et Node.js) exécutée sous [Azure App Service](overview.md). Pour plus de simplicité, l’exemple d’application utilise [l’infrastructure de développement web MEAN.js](https://meanjs.org/).
 
 ![Application MEAN.js exécutée dans Azure App Service](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -47,7 +47,7 @@ Pour suivre ce tutoriel :
 
 ## <a name="test-local-mongodb"></a>Tester la base de données MongoDB locale
 
-Ouvrez la fenêtre du terminal et `cd` dans le répertoire `bin` de votre installation MongoDB. Vous pouvez utilisez cette fenêtre de terminal pour exécuter toutes les commandes de ce didacticiel.
+Ouvrez la fenêtre du terminal et `cd` dans le répertoire `bin` de votre installation MongoDB. Vous pouvez utiliser cette fenêtre de terminal pour exécuter toutes les commandes de ce didacticiel.
 
 Exécutez `mongo` dans le terminal pour vous connecter à votre serveur MongoDB local.
 
@@ -477,7 +477,7 @@ Pour arrêter la diffusion de journaux à tout moment, tapez `Ctrl+C`.
 
 ## <a name="manage-your-azure-app"></a>Gérer votre application Azure
 
-Accédez au [portail Azure](https://portal.azure.com) pour voir l’application que vous avez créée.
+Accédez au [Portail Azure](https://portal.azure.com) pour voir l’application que vous avez créée.
 
 Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
 
@@ -498,7 +498,7 @@ Vous avez appris à effectuer les opérations suivantes :
 > * Créer une base de données MongoDB dans Azure
 > * Connecter une application Node.js à MongoDB
 > * Déploiement de l’application dans Azure
-> * Mettre à jour le modèle de données et redéployer l’application
+> * Mise à jour du modèle de données et redéploiement de l’application
 > * Diffuser des journaux d’activité à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 

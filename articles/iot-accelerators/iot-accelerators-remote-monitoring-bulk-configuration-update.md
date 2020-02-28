@@ -1,19 +1,19 @@
 ---
 title: Gérer en bloc des appareils connectés à la supervision à distance - Azure | Microsoft Docs
 description: Dans ce tutoriel, vous découvrez comment gérer en bloc les appareils connectés à une solution de supervision à distance.
-author: aditidugar
+author: Philmea
 manager: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: adugar
-ms.openlocfilehash: 8ba2d4eca3287efc746c0d4902b6bcc4bd0c796e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.author: philmea
+ms.openlocfilehash: eaca93ac8a4e8c660be9618aefb27921a4e0a2eb
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980545"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565576"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Tutoriel : Gérer vos appareils connectés en bloc
 
@@ -39,7 +39,7 @@ If this is going to be a tutorial - we need to split this include into two so th
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 -->
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel, vous avez besoin d’une instance déployée de l’accélérateur de solution de supervision à distance dans votre abonnement Azure.
 
@@ -228,7 +228,7 @@ Dans cette section, vous créez et exécutez un déploiement qui applique la con
 
     |Option|Valeur|
     |---|---|
-    |Name|Déployer la mise à jour du microprogramme|
+    |Nom|Déployer la mise à jour du microprogramme|
     |Type de package|Configuration de l’appareil|
     |Type de configuration|Microprogramme|
     |Package|firmware-update.json|

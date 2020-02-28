@@ -2,18 +2,16 @@
 title: Centre de déploiement pour Azure Kubernetes
 description: Le centre de déploiement dans Azure DevOps simplifie la configuration d’un pipeline Azure DevOps robuste pour votre application.
 ms.author: puagarw
-ms.prod: devops
-ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
 monikerRange: vsts
-ms.openlocfilehash: 5384180720d391c6b4ae830f9316a70e80003063
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 84e5533a17dc70fb5c835089f3a3cec1a86e35bf
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972972"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596077"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centre de déploiement pour Azure Kubernetes
 
@@ -33,7 +31,7 @@ Ce didacticiel présente les procédures suivantes :
 
 * Un cluster Azure Kubernetes Service (AKS).
 
-## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
+## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
 
 1. Connectez-vous à votre [portail Azure](https://portal.azure.com/).
 
@@ -136,7 +134,7 @@ Le centre de déploiement crée et configure automatiquement la relation entre v
 
 1. Sélectionnez **Journaux d’activité**. Les journaux contiennent des informations de déploiement utiles, que vous pouvez afficher pendant et après les déploiements.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’en avez plus besoin, vous pouvez supprimer les ressources associées que vous avez créées. Utilisez la fonctionnalité Supprimer du tableau de bord DevOps Projects.
 

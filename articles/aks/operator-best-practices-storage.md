@@ -2,17 +2,14 @@
 title: Meilleures pratiques de l’opérateur - Stockage dans Azure Kubernetes Service (AKS)
 description: Découvrir les meilleures pratiques relatives au stockage, au chiffrement des données et aux sauvegardes dans Azure Kubernetes Service (AKS) pour les opérateurs de clusters
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.author: mlearned
-ms.openlocfilehash: 8e5f394987de06feaeb9a635face643eecc97cb9
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: a58a42f65472a9c4b495e0cb964eefa40bf82041
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174224"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649617"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Meilleures pratiques relatives au stockage et aux sauvegardes dans Azure Kubernetes Service (AKS)
 
@@ -36,9 +33,9 @@ Le tableau suivant présente les types de stockage disponibles et leurs fonction
 
 | Cas d’utilisation | Plug-in de volume | Lecture/écriture unique | Nombreuses lectures seules | Nombreuses lectures/écritures | Prise en charge de conteneur Windows Server |
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
-| Configuration partagée       | Azure Files   | OUI | OUI | OUI | OUI |
-| Données d’application structurées        | Disques Azure   | OUI | Non  | Non  | OUI |
-| Données non structurées, opérations sur le système de fichiers | [BlobFuse (préversion)][blobfuse] | OUI | OUI | OUI | Non |
+| Configuration partagée       | Azure Files   | Oui | Oui | Oui | Oui |
+| Données d’application structurées        | Disques Azure   | Oui | Non  | Non  | Oui |
+| Données non structurées, opérations sur le système de fichiers | [BlobFuse][blobfuse] | Oui | Oui | Oui | Non |
 
 Les deux principaux types de stockage fournis pour les volumes dans AKS reposent sur des disques Azure ou Azure Files. Pour améliorer la sécurité, ces deux types de stockage utilisent Azure Storage Service Encryption (SSE) par défaut pour chiffrer les données au repos. Les disques ne peuvent actuellement pas être chiffrés à l’aide d’Azure Disk Encryption au niveau des nœuds AKS.
 
