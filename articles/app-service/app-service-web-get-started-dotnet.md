@@ -86,8 +86,8 @@ Créez une application web ASP.NET Core en effectuant les étapes suivantes :
    | Paramètre | Valeur suggérée | Description |
    |-|-|-|
    |Plan App Service| myAppServicePlan | Nom du plan App Service. |
-   | Location | Europe Ouest | Centre de données dans lequel l’application web est hébergée. |
-   | Size | Gratuit | Le [niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) détermine les fonctionnalités d’hébergement. |
+   | Emplacement | Europe Ouest | Centre de données dans lequel l’application web est hébergée. |
+   | Taille | Gratuit | Le [niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) détermine les fonctionnalités d’hébergement. |
 
    ![Créer un plan App Service](./media/app-service-web-get-started-dotnet/app-service-plan-vs2019.png)
 

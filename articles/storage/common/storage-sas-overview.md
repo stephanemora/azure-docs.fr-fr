@@ -19,13 +19,13 @@ ms.locfileid: "77121924"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)
 
-Une signature d’accès partagé (SAP) fournit un accès délégué sécurisé aux ressources de votre compte de stockage sans compromettre la sécurité de vos données. Avec une SAP, vous avez un contrôle granulaire sur la manière dont un client peut accéder à vos données. Vous pouvez contrôler, entre autres paramètres, les ressources auxquelles le client peut accéder, les autorisations dont il dispose pour ces ressources ainsi que la durée de validité de la SAP, parmi d’autres paramètres.
+Une signature d’accès partagé (SAP) fournit un accès délégué sécurisé aux ressources de votre compte de stockage sans compromettre la sécurité de vos données. Avec une SAP, vous avez un contrôle granulaire sur la manière dont un client peut accéder à vos données. Vous pouvez contrôler, entre autres paramètres, les ressources auxquelles le client peut accéder, les autorisations dont il dispose pour ces ressources ainsi que la durée de validité de la SAP.
 
 ## <a name="types-of-shared-access-signatures"></a>Types de signatures d’accès partagé
 
 Le service Stockage Azure prend en charge trois types de signatures d’accès partagé :
 
-- **SAS de délégation d’utilisateur.** Une SAP de délégation d’utilisateur est sécurisée avec les informations d’identification Azure Active Directory (Azure AD) ainsi que par les autorisations spécifiées pour la SAP. Une SAP de délégation d’utilisateur s’applique uniquement au stockage d’objets blob.
+- **SAS de délégation d’utilisateur.** Une SAP de délégation d’utilisateur est sécurisée avec les informations d’identification Azure Active Directory (Azure AD) ainsi que par les autorisations spécifiées pour la SAP. Une SAP de délégation d’utilisateur s’applique uniquement au stockage d’objets Blob.
 
     Pour plus d’informations sur la SAP de délégation d’utilisateur, consultez [Créer une SAP de délégation d’utilisateur (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
@@ -54,7 +54,7 @@ Une signature d’accès partagé est un URI signé qui désigne une ou plusieur
 
 ### <a name="sas-signature"></a>SAP
 
-Vous pouvez signer une SAP de l’une des deux méthodes suivantes :
+Vous pouvez signer une SAP grâce à l’une des deux méthodes suivantes :
 
 - Avec une *clé de délégation d’utilisateur* créée à l’aide des informations d’identification d’Azure Active Directory (Azure AD). Une SAP de délégation d’utilisateur est signée avec la clé de délégation d’utilisateur.
 
@@ -64,7 +64,7 @@ Vous pouvez signer une SAP de l’une des deux méthodes suivantes :
 
 ### <a name="sas-token"></a>Jeton SAS
 
-Le jeton SAS est une chaîne que vous générez côté client, par exemple à l’aide de l’une des bibliothèques clientes de stockage Azure. Le jeton SAS n’est suivi par le stockage Azure de quelque manière que ce soit. Vous pouvez créer un nombre illimité de jetons de SAP côté client. Après avoir créé une SAP, vous pouvez la distribuer aux applications clientes qui requièrent l’accès aux ressources de votre compte de stockage.
+Le jeton SAS est une chaîne que vous générez côté client, par exemple à l’aide de l’une des bibliothèques clientes de stockage Azure. Le jeton SAS n’est pas suivi par le stockage Azure de quelque manière que ce soit. Vous pouvez créer un nombre illimité de jetons de SAP côté client. Après avoir créé une SAP, vous pouvez la distribuer aux applications clientes qui requièrent l’accès aux ressources de votre compte de stockage.
 
 Lorsqu’une application cliente fournit un URI de SAP au stockage Azure dans le cadre d’une demande, le service vérifie les paramètres et la signature de la SAP pour s’assurer que celle-ci est valide pour l’autorisation de la demande. Si le service vérifie que la signature est valide, la demande est autorisée. Dans le cas contraire, la demande est refusée avec le code d’erreur 403 (Interdit).
 
