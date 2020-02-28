@@ -3,14 +3,12 @@
 - name: Démarrage rapide
   expanded: true
   items:
-    - name: Modèle Marketplace Docker
-      href: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS'
+    - name: Déployer une machine virtuelle Ubuntu avec Docker
+      href: 'https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/'
 - name: Tutoriels
   items:
     - name: Application web Python avec Docker et PostgreSQL
       href: ../app-service/containers/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
-    - name: Intégration et déploiement continus avec Docker Swarm et Azure DevOps
-      href: /azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine
     - name: 'CI/CD avec Docker, Jenkins et Linux'
       href: /azure/jenkins/tutorial-jenkins-github-docker-cicd
 - name: Guides pratiques

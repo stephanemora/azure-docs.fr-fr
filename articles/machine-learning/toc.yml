@@ -77,6 +77,8 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
     - name: Exemples MLOps de bout en bout
       href: 'https://github.com/microsoft/MLOps'
+    - name: Exemples de jeux de données du concepteur
+      href: designer-sample-datasets.md
 - name: Concepts
   items:
     - name: Espace de travail

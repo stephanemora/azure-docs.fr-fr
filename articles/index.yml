@@ -10,15 +10,15 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 02/24/2020
+  ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 9615b3df4c48ef073413ce0ecdec93264a0b9711
-  ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+  ms.openlocfilehash: 89c9b59a1f258e57adc98a917160d2ed2d6f4e33
+  ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 02/26/2020
-  ms.locfileid: "77622629"
+  ms.lasthandoff: 02/28/2020
+  ms.locfileid: "78163911"
 highlightedContent:
   items:
   - title: Guide de prise en main pour les développeurs Azure
@@ -135,7 +135,6 @@ productDirectory:
     azureCategories:
     - featured
     - ai-machine-learning
-    - containers
     url: cognitive-services/index.yml
   - title: Vision par ordinateur
     summary: Diffuser des informations actionnables à partir d’images
@@ -778,7 +777,6 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/active-directory-b2c.svg
     azureCategories:
     - identity
-    - security
     url: active-directory-b2c/index.yml
   - title: Azure Active Directory Domain Services
     summary: Joignez des machines virtuelles Azure à un domaine sans contrôleur de domaine
@@ -849,8 +847,8 @@ productDirectory:
     - mobile
     - web
     url: azure-maps/index.yml
-  - title: Azure Sphere (préversion)
-    summary: Connectez de façon sécurisée des appareils MCU du silicone au cloud
+  - title: Azure Sphere
+    summary: Connectez de façon sécurisée des appareils MCU du silicium au cloud
     imageSrc: https://static.docs.com/ui/media/product/azure/sphere.svg
     azureCategories:
     - iot
@@ -938,6 +936,12 @@ productDirectory:
     azureCategories:
     - management-and-governance
     url: azure-resource-manager/index.yml
+  - title: Modèles Microsoft Azure Resource Manager
+    summary: Livrez une infrastructure en tant que code pour toutes vos ressources Azure en utilisant Resource Manager
+    imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
+    azureCategories:
+    - management-and-governance
+    url: azure-resource-manager/templates/index.yml
   - title: Azure Service Health
     summary: Conseils et support personnalisés quand des problèmes avec les services Azure vous affectent
     imageSrc: https://static.docs.com/ui/media/product/azure/service-health.svg
@@ -964,7 +968,7 @@ productDirectory:
     - management-and-governance
     - migration
     url: cost-management-billing/index.yml
-  - title: Portail Azure
+  - title: Portail Microsoft Azure
     summary: Générez, gérez et surveillez tous les produits Azure dans une seule et même console
     imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
     azureCategories:
@@ -1103,7 +1107,7 @@ productDirectory:
     azureCategories:
     - networking
     url: internet-analyzer/index.yml
-  - title: Azure Private Link (préversion)
+  - title: Azure Private Link
     summary: Accès privé aux services hébergés sur la plateforme Azure, tout en conservant vos données sur le réseau Microsoft
     imageSrc: https://static.docs.com/ui/media/product/azure/private-link.svg
     azureCategories:
@@ -1263,6 +1267,9 @@ tools:
   - title: Azure CLI
     imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
     url: https://docs.microsoft.com/cli/azure/
+  - title: Modèles ARM
+    imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
+    url: azure-resource-manager/templates/index.yml
   - title: Jenkins
     imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
     url: jenkins/index.yml
@@ -1272,9 +1279,6 @@ tools:
   - title: Ansible
     imageSrc: ./media/index/ansible.svg
     url: ansible/index.yml
-  - title: Chef
-    imageSrc: ./chef/media/Chef_Regular.svg
-    url: chef/index.yml
 additionalContent:
   sections:
   - title: Clouds souverains
