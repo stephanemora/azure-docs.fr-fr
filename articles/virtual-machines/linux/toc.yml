@@ -272,6 +272,24 @@
               href: spot-template.md
             - name: Codes d’erreur
               href: ../error-codes-spot.md?toc=/azure/virtual-machines/linux/toc.json
+    - name: Migrer de Classic vers Azure Resource Manager
+      items:
+        - name: Retrait à partir du 1er mars 2023
+          href: ../classic-vm-deprecation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Vue d’ensemble
+          href: migration-classic-resource-manager-overview.md
+        - name: Présentation détaillée de la migration
+          href: migration-classic-resource-manager-deep-dive.md
+        - name: Planifier la migration
+          href: migration-classic-resource-manager-plan.md
+        - name: Migrer à l’aide de l’interface de ligne de commande
+          href: migration-classic-resource-manager-cli.md
+        - name: Erreurs courantes de migration
+          href: migration-classic-resource-manager-errors.md
+        - name: Outils de la communauté pour la migration
+          href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Questions fréquentes (FAQ)
+          href: migration-classic-resource-manager-faq.md
     - name: Sécuriser des machines virtuelles
       items:
         - name: Recommandations
@@ -713,21 +731,6 @@
               href: upload-vhd.md
             - name: Utiliser Azure Site Recovery
               href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        - name: Migrer de Classic vers Azure Resource Manager
-          href: migration-classic-resource-manager-overview.md
-          items:
-            - name: Présentation détaillée de la migration
-              href: migration-classic-resource-manager-deep-dive.md
-            - name: Planifier la migration
-              href: migration-classic-resource-manager-plan.md
-            - name: Migrer à l’aide de l’interface de ligne de commande
-              href: migration-classic-resource-manager-cli.md
-            - name: Erreurs courantes de migration
-              href: migration-classic-resource-manager-errors.md
-            - name: Outils de la communauté pour la migration
-              href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-            - name: Questions fréquentes (FAQ)
-              href: migration-classic-resource-manager-faq.md
 - name: Informations de référence
   items:
     - name: Azure CLI

@@ -1,27 +1,23 @@
-- name: Documentation sur Liaison privée Azure
+- name: Documentation Azure Private Link
   href: index.yml
 - name: Vue d’ensemble
   items:
-    - name: "Qu’est-ce que Liaison privée Azure\_?"
+    - name: "Qu’est-ce qu’Azure Private Link\_?"
       href: private-link-overview.md
 - name: Démarrages rapides
   items:
-    - name: Créer un point de terminaison privé
-      items:
-        - name: Portail Azure
-          href: create-private-endpoint-portal.md
-        - name: Azure CLI
-          href: create-private-endpoint-cli.md
-        - name: Azure PowerShell
-          href: create-private-endpoint-powershell.md
-    - name: Créer un service Liaison privée
-      items:
-        - name: Portail Azure
-          href: create-private-link-service-portal.md
-        - name: Azure PowerShell
-          href: create-private-link-service-powershell.md
-        - name: Azure CLI
-          href: create-private-link-service-cli.md
+    - name: Créer un point de terminaison privé - Portail
+      href: create-private-endpoint-portal.md
+    - name: Créer un point de terminaison privé - PowerShell
+      href: create-private-endpoint-powershell.md
+    - name: Créer un point de terminaison privé - Azure CLI
+      href: create-private-endpoint-cli.md
+    - name: Créer un service Private Link - Portail
+      href: create-private-link-service-portal.md
+    - name: Créer un service Private Link - PowerShell
+      href: create-private-link-service-powershell.md
+    - name: Créer un service Private Link - Azure CLI
+      href: create-private-link-service-cli.md
 - name: Concepts
   items:
     - name: Point de terminaison privé

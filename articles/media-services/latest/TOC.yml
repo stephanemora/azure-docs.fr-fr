@@ -54,11 +54,13 @@
         - name: Compte de stockage
           href: storage-account-concept.md
           displayName: Storage side encryption
-    - name: Chargement
+    - name: Éléments multimédias
       items:
         - name: Éléments multimédias
           href: assets-concept.md
-          displayName: 'name, naming, file name'
+        - name: Gérer les ressources
+          href: manage-asset-concept.md
+          displayName: 'name, naming, file name, upload, output, download'
     - name: Traitement des fichiers
       items:
         - name: Transformations et travaux
@@ -124,11 +126,11 @@
               href: widevine-license-template-overview.md
             - name: Conditions de licence FairPlay
               href: fairplay-license-overview.md
-        - name: Stratégies de streaming
+        - name: Stratégies de diffusion en continu
           href: streaming-policy-concept.md
         - name: Stratégies de clé de contenu
           href: content-key-policy-concept.md
-    - name: Streaming en direct
+    - name: Vidéo en flux continu
       items:
         - name: Vue d’ensemble
           href: live-streaming-overview.md
@@ -300,6 +302,8 @@
       items:
         - name: Publier un actif multimédia - CLI
           href: cli-publish-asset.md
+        - name: Télécharger les résultats
+          href: download-results-howto.md
         - name: Signal audio descriptif
           href: signal-descriptive-audio-howto.md
 - name: Informations de référence

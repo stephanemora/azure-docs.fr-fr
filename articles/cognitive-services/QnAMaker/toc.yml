@@ -88,6 +88,8 @@
         - name: Cycle de vie de développement
           href: Concepts/development-lifecycle-knowledge-base.md
           displayName: 'version control, test, index, publish, monitor usage, create'
+        - name: Améliorer avec les suggestions d’apprentissage actif
+          href: Concepts/active-learning-suggestions.md
     - name: Interroger une base de connaissances
       items:
         - name: Obtenir une réponse
@@ -163,7 +165,7 @@
       items:
         - name: Instructions relatives au format de contenu
           href: reference-document-format-guidelines.md
-        - name: URL
+        - name: URLs
           href: reference-document-type-url.md
         - name: Conseils sur l’importation et l’exportation de données
           href: reference-data-guidelines.md

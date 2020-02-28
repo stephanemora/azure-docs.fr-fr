@@ -46,6 +46,8 @@
       href: select-columns-transform.md
     - name: Sélectionner des colonnes dans le jeu de données
       href: select-columns-in-dataset.md
+    - name: Fractionner les données
+      href: split-data.md
 - name: Sélection de caractéristiques
   items:
     - name: Sélection de caractéristiques par filtrage
@@ -142,5 +144,11 @@
       href: score-svd-recommender.md
     - name: Entraîner le générateur de recommandations SVD
       href: train-svd-recommender.md
+- name: Détection des anomalies
+  items:
+    - name: Détection des anomalies reposant sur le PCA
+      href: pca-based-anomaly-detection.md
+    - name: Entraîner un modèle de détection des anomalies
+      href: train-anomaly-detection-model.md
 - name: Erreurs de module et résolution des problèmes
   href: designer-error-codes.md
