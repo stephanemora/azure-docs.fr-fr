@@ -1,17 +1,17 @@
 ---
-title: 'Didacticiel : Linux ASP.NET Core avec SQL DB'
+title: 'Tutoriel : Linux ASP.NET Core avec SQL DB'
 description: Découvrez comment faire fonctionner une application Linux ASP.NET Core pilotée par les données dans Azure App Service en établissant une connexion à une instance SQL Database.
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 67ea11b2e1457bf4a788f54664ed54ff7ca9c8d9
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 9012f09f75c60ebd0b3743d030b83c0a3aa78648
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688918"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524085"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Créer une application ASP.NET Core et SQL Database dans Azure App Service sur Linux
 
@@ -19,11 +19,11 @@ ms.locfileid: "74688918"
 > Cet article explique comment déployer une application sur App Service sous Linux. Pour effectuer un déploiement dans App Service sur _Windows_, consultez [Générer une application .NET Core et SQL Database dans Azure App Service](../app-service-web-tutorial-dotnetcore-sqldb.md).
 >
 
-[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce tutoriel vous montre comment créer une application .NET Core et comment la connecter à une instance SQL Database. Quand vous avez terminé, vous disposez d’une application MVC .NET Core en cours d’exécution dans App Service sur Linux.
+[App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce tutoriel montre comment créer une application .NET Core et comment la connecter à une instance SQL Database. Quand vous avez terminé, vous disposez d’une application MVC .NET Core en cours d’exécution dans App Service sur Linux.
 
 ![Application exécutée dans App Service sur Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une base de données SQL dans Azure
@@ -91,7 +91,7 @@ Pour l’instance SQL Database, ce tutoriel utilise [Azure SQL Database](/azure/
 
 Dans Cloud Shell, créez un serveur logique Azure SQL Database avec la commande [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create).
 
-Remplacez l’espace réservé *\<server-name>* par un nom unique d’instance SQL Database. Ce nom est utilisé en tant que point de terminaison de l’instance SQL Database `<server-name>.database.windows.net`. Pour cette raison, le nom doit être unique sur l’ensemble des serveurs logiques dans Azure. Le nom ne peut contenir que des minuscules, des chiffres, le tiret -) et doit compter entre 3 et 50 caractères. En outre, remplacez  *\<db-username>* et  *\<db-password>* par le nom d’utilisateur et le mot de passe de votre choix. 
+Remplacez l’espace réservé *\<server-name>* par un nom unique d’instance SQL Database. Ce nom est utilisé en tant que point de terminaison de l’instance SQL Database `<server-name>.database.windows.net`. Pour cette raison, le nom doit être unique sur l’ensemble des serveurs logiques dans Azure. Le nom ne peut contenir que des minuscules, des chiffres, le tiret -) et doit compter entre 3 et 50 caractères. En outre, remplacez *\<db-username>* et *\<db-password>* par le nom d’utilisateur et le mot de passe de votre choix. 
 
 
 ```azurecli-interactive
@@ -126,7 +126,7 @@ Créez une [règle de pare-feu au niveau du serveur Azure SQL Database](../../sq
 az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
-### <a name="create-a-database"></a>Créer une base de données
+### <a name="create-a-database"></a>Création d'une base de données
 
 Créez une base de données avec un [niveau de performance S0](../../sql-database/sql-database-service-tiers-dtu.md) sur le serveur avec la commande [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create).
 
@@ -355,7 +355,7 @@ git push azure master
 
 Une fois le `git push` terminé, accédez à votre application Azure et testez la nouvelle fonctionnalité.
 
-![Application Azure après l’activation de Code First Migration](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
+![Application Azure après l’activation des Migrations Code First](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
 Toutes les tâches existantes sont toujours affichées. Lorsque vous republiez votre application .NET Core, les données existantes dans votre instance SQL Database ne sont pas perdues. En outre, Entity Framework Core Migrations modifie uniquement le schéma de données, sans toucher à vos données existantes.
 
@@ -376,7 +376,7 @@ Pour plus d’informations sur la personnalisation des journaux d’activité AS
 
 ## <a name="manage-your-azure-app"></a>Gérer votre application Azure
 
-Accédez au [portail Azure](https://portal.azure.com) pour voir l’application que vous avez créée.
+Accédez au [Portail Azure](https://portal.azure.com) pour voir l’application que vous avez créée.
 
 Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
 
@@ -397,14 +397,14 @@ Vous avez appris à effectuer les opérations suivantes :
 > * Créer une base de données SQL dans Azure
 > * Connecter une application .NET Core à une instance SQL Database
 > * Déploiement de l’application dans Azure
-> * Mettre à jour le modèle de données et redéployer l’application
+> * Mise à jour du modèle de données et redéploiement de l’application
 > * Diffuser des journaux d’activité à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 
 Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Mappage d’un nom DNS personnalisé à une application](../app-service-web-tutorial-custom-domain.md)
+> [Tutoriel : Mappage d’un nom DNS personnalisé à une application](../app-service-web-tutorial-custom-domain.md)
 
 Ou consultez les autres ressources :
 

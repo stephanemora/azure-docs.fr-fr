@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 69e6b7beecb95c0e89b60640353155fc7802a881
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: d0a5790e84364bf34072977d5d3976fd880996bb
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982940"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620588"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Exemples de code Azure Active Directory B2C
 
@@ -39,7 +39,6 @@ Les tableaux suivants fournissent des liens vers des exemples pour des applicati
 | [dotnet-webapp-and-webapi](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi) | Un exemple combiné d’application web .NET qui appelle une API web .NET, toutes deux protégées via Azure AD B2C. |
 | [dotnetcore-webapp](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp) | Une application web ASP.NET Core qui peut connecter un utilisateur à l’aide d’Azure AD B2C, récupérer un jeton d’accès à l’aide de MSAL.NET et appeler une API. |
 | [openidconnect-nodejs](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS) | Une application Node.js qui offre un moyen simple et rapide pour configurer une application web avec Express à l’aide d’OpenID Connect. |
-| [javascript-nodejs-webapp](https://github.com/AzureADQuickStarts/active-directory-b2c-javascript-nodejs-webapp) | Un serveur node.js qui offre un moyen simple et rapide pour configurer un service API REST à l’aide du protocole OAuth2. |
 | [javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | Une petite API web node.js pour Azure AD B2C qui montre comment protéger votre API web et accepter les jetons d’accès B2C à l’aide de passport.js. |
 | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/README_B2C.md) | Illustre comment intégrer B2C de la Plateforme d’identités Microsoft à une application web Python.  |
 

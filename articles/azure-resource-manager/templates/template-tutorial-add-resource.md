@@ -2,21 +2,21 @@
 title: Tutoriel - Ajouter une ressource au modèle
 description: Décrit les étapes de la création de votre premier modèle Azure Resource Manager. Vous découvrez la syntaxe du fichier de modèle et comment déployer un compte de stockage.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 02/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8686b15501e267ab23efe654d28a3e67369a8d03
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: af571b6503f04c809b62c530f6d6254082b838be
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765585"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586680"
 ---
 # <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>Tutoriel : Ajouter une ressource à votre modèle Resource Manager
 
 Dans le [précédent tutoriel](template-tutorial-create-first-template.md), vous avez appris à créer un modèle vide et à le déployer. Vous voici prêt à déployer une ressource réelle. Dans ce tutoriel, vous ajoutez un compte de stockage. Comptez environ **9 minutes** pour suivre ce tutoriel.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Nous vous recommandons de suivre le [tutoriel de présentation sur les modèles](template-tutorial-create-first-template.md), mais ce n’est pas obligatoire.
 
@@ -26,7 +26,10 @@ Vous devez disposer de Visual Studio Code avec l’extension Outils Resource Man
 
 Pour ajouter une définition de compte de stockage au modèle existant, examinez le code JSON mis en évidence dans l’exemple suivant. Plutôt que d’essayer de copier des sections du modèle, copiez l’intégralité du fichier et remplacez votre modèle par son contenu.
 
-Remplacez **{provide-unique-name}** par un nom de compte de stockage unique. Le nom du compte de stockage doit être unique dans Azure. Le nom ne doit contenir que des lettres minuscules ou des chiffres. Il ne doit pas compter plus de 24 caractères. Vous pouvez essayer un modèle de nommage, par exemple en utilisant **store1** comme préfixe et le faisant suivre de vos initiales et de la date du jour. Ainsi, le nom que vous utilisez peut ressembler à **store1abc09092019**.
+Remplacez **{provide-unique-name}** par un nom de compte de stockage unique.
+
+> [!IMPORTANT]
+> Le nom du compte de stockage doit être unique dans Azure. Le nom ne doit contenir que des lettres minuscules ou des chiffres. Il ne doit pas compter plus de 24 caractères. Vous pouvez essayer un modèle de nommage, par exemple en utilisant **store1** comme préfixe et le faisant suivre de vos initiales et de la date du jour. Ainsi, le nom que vous utilisez peut ressembler à **store1abc09092019**.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json" range="1-19" highlight="5-17":::
 
@@ -58,7 +61,7 @@ Vous pouvez déployer le modèle pour créer le compte de stockage. Donnez un no
 
 Si vous n’avez pas créé le groupe de ressources, consultez [Créer un groupe de ressources](template-tutorial-create-first-template.md#create-resource-group). L’exemple suppose que vous avez défini la variable **templateFile** sur le chemin du fichier de modèle, comme indiqué dans le [premier tutoriel](template-tutorial-create-first-template.md#deploy-template).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -67,7 +70,7 @@ New-AzResourceGroupDeployment `
   -TemplateFile $templateFile
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az group deployment create \

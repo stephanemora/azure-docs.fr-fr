@@ -1,17 +1,17 @@
 ---
-title: 'Didacticiel : Application Linux Node.js avec MongoDB'
+title: 'Tutoriel : Application Linux Node.js avec MongoDB'
 description: Découvrez comment faire fonctionner une application Linux Node.js dans Azure App Service en établissant une connexion à une base de données MongoDB dans Azure (Cosmos DB). MEAN.js est utilisé dans le tutoriel.
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: ca73c7e610b8bd818355f30b9d08bceffeddfc73
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: a68392d003e4e2a81801a903302badd99c1e9e87
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688888"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523966"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Générer une application Node.js et MongoDB dans Azure App Service sur Linux
 
@@ -23,7 +23,7 @@ ms.locfileid: "74688888"
 
 ![Application MEAN.js exécutée dans Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une base de données à l’aide de l’API Azure Cosmos DB pour MongoDB
@@ -46,7 +46,7 @@ Pour suivre ce tutoriel :
 
 ## <a name="test-local-mongodb"></a>Tester la base de données MongoDB locale
 
-Ouvrez la fenêtre du terminal et `cd` dans le répertoire `bin` de votre installation MongoDB. Vous pouvez utilisez cette fenêtre de terminal pour exécuter toutes les commandes de ce didacticiel.
+Ouvrez la fenêtre du terminal et `cd` dans le répertoire `bin` de votre installation MongoDB. Vous pouvez utiliser cette fenêtre de terminal pour exécuter toutes les commandes de ce didacticiel.
 
 Exécutez `mongo` dans le terminal pour vous connecter à votre serveur MongoDB local.
 
@@ -448,7 +448,7 @@ Si vous avez ajouté des articles précédemment, vous pouvez toujours les visua
 
 ## <a name="manage-your-azure-app"></a>Gérer votre application Azure
 
-Accédez au [portail Azure](https://portal.azure.com) pour voir l’application que vous avez créée.
+Accédez au [Portail Azure](https://portal.azure.com) pour voir l’application que vous avez créée.
 
 Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
 
@@ -470,14 +470,14 @@ Vous avez appris à effectuer les opérations suivantes :
 > * Créer une base de données à l’aide de l’API Azure Cosmos DB pour MongoDB
 > * Connecter une application Node.js à une base de données
 > * Déploiement de l’application dans Azure
-> * Mettre à jour le modèle de données et redéployer l’application
+> * Mise à jour du modèle de données et redéploiement de l’application
 > * Diffuser des journaux d’activité à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 
 Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Mappage d’un nom DNS personnalisé à une application](../app-service-web-tutorial-custom-domain.md)
+> [Tutoriel : Mappage d’un nom DNS personnalisé à une application](../app-service-web-tutorial-custom-domain.md)
 
 Ou consultez les autres ressources :
 

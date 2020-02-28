@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Copier des données vers un stockage Azure Data Box Heavy via des API REST | Microsoft Docs'
+title: 'Tutoriel : Copier des données vers le stockage Blob Azure Data Box par le biais des API REST'
 description: Découvrez comment copier des données dans votre stockage blob Azure Data Box Heavy via des API REST
 services: databox
 author: alkohli
@@ -8,18 +8,18 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: adc48acbadaef56958587dc79be377b76a21fdc0
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 43f6404a483cad8377e70591f5454180f0dd07a6
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606293"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560335"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Didacticiel : Copier des données vers le stockage Blob Azure Data Box par le biais des API REST  
+# <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutoriel : Copier des données vers le stockage Blob Azure Data Box par le biais des API REST  
 
 Ce tutoriel explique comment se connecter au stockage Blob Azure Data Box par le biais des API REST sur *http* ou *https*. Une fois la connexion effectuée, les étapes nécessaires à la copie des données dans le stockage Blob Data Box sont décrites.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Prérequis
@@ -159,7 +159,7 @@ Suivez les mêmes étapes que celles effectuées pour [configurer des logiciels 
 
 Une fois que vous êtes connecté au stockage Blob Data Box, l’étape suivante consiste à copier les données. Avant de copier les données, passez en revue les considérations suivantes :
 
--  Durant la copie des données, vérifiez que leur taille est conforme aux restrictions décrites dans [Limites relatives au stockage Azure et à Data Box Heavy](data-box-limits.md).
+-  Quand vous copiez des données, vérifiez que leur taille est conforme aux limites de taille spécifiées dans l’article [Limitations relatives au Stockage Azure et à Data Box Heavy](data-box-limits.md).
 - Si les données chargées par Data Box Heavy sont chargées en même temps par d’autres applications en dehors de Data Box Heavy, cela peut entraîner l’échec des travaux de chargement et une altération des données.
 
 Dans ce tutoriel, nous utilisons AzCopy pour copier des données vers le stockage Blob Data Box. Vous pouvez également utiliser l’Explorateur Stockage Azure (si vous préférez un outil basé sur une interface graphique utilisateur) ou un logiciel de partenaire pour copier les données.

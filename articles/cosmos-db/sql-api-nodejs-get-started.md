@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: a273b89d864d97d9bc71acff476371f77cfff066
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 5204c7cf80a5b52b0c30b3165d522aa2648cd95c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754835"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587428"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutoriel : Générer une application console Node.js avec le SDK JavaScript pour gérer des données de l’API SQL Azure Cosmos DB
 
@@ -61,7 +61,7 @@ Avant de commencer à écrire du code pour générer l’application, vous pouve
 2. Recherchez le dossier ou le répertoire où vous souhaitez enregistrer votre application Node.js.
 3. Créez deux fichiers JavaScript vides avec les commandes suivantes :
 
-   * Windows :
+   * Windows :
      * ```fsutil file createnew app.js 0```
      * ```fsutil file createnew config.js 0```
 
@@ -95,7 +95,7 @@ Maintenant que votre application existe, vous devez vous assurer qu’elle peut 
 
 1. Copiez et collez les données ```database```, ```container``` et ```items``` dans votre objet ```config``` ci-dessous, où vous avez défini vos propriétés ```config.endpoint``` et ```config.key```. Si vous disposez déjà de données que vous souhaitez stocker dans votre base de données, vous pouvez utiliser l’outil de migration de données d’Azure Cosmos DB au lieu de définir les données ici. Votre fichier config.js doit comporter le code suivant :
 
-   [!code-javascript[nodejs-get-started](~/cosmosdb-nodejs-get-started/config.js)]
+   :::code language="javascript" source="~/cosmosdb-nodejs-get-started/config.js":::
 
    Le SDK JavaScript utilise les termes génériques *conteneur* et *élément*. Un conteneur peut être une collection, un graphique ou une table. Un élément peut être un document, arête/sommet ou ligne, et correspond au contenu à l’intérieur d’un conteneur. 
    
@@ -133,7 +133,7 @@ Maintenant que votre application existe, vous devez vous assurer qu’elle peut 
 
 Maintenant que vous avez le code permettant d’initialiser le client Azure Cosmos DB, voyons comment utiliser les ressources Azure Cosmos DB.
 
-## <a name="create-a-database"></a>Créer une base de données
+## <a name="create-a-database"></a>Création d'une base de données
 
 1. Copiez et collez le code ci-dessous pour définir l’ID de la base de données et l’ID du conteneur. Le client Azure Cosmos DB utilise ces ID pour trouver la base de données et le conteneur appropriés.
 
@@ -602,7 +602,7 @@ Supprimer la base de données créée revient à supprimer la base de données e
 
 Votre code définitif doit ressembler à ceci :
 
-[!code-javascript[nodejs-get-started](~/cosmosdb-nodejs-get-started/app.js)]
+:::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js":::
 
 Sur votre terminal, recherchez votre fichier ```app.js``` et exécutez la commande : 
 
@@ -670,7 +670,7 @@ Sur votre terminal, recherchez votre fichier ```app.js``` et exécutez la comman
 node app.js 
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Dès que vous n’avez plus besoin de ces ressources, vous pouvez supprimer le groupe de ressources, le compte Azure Cosmos DB et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources que vous avez utilisé pour le compte Azure Cosmos DB, sélectionnez **Supprimer**, puis confirmez le nom du groupe de ressources à supprimer.
 

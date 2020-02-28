@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: a49f641561aa7a293628e914c964020145e0ae62
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: f0367a195ca0aa5f26ff0819b00c50fabae1d271
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486419"
+ms.locfileid: "77505824"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutoriel : Implémenter l’analytique spatiale IoT avec Azure Maps
 
@@ -157,7 +157,7 @@ Pour se connecter au hub IoT, un appareil doit être inscrit. Pour inscrire un a
 
 3. Enregistrez la **chaîne de connexion principale** de votre appareil pour l’utiliser dans une étape ultérieure, dans laquelle vous devez remplacer un espace réservé par cette chaîne de connexion.
 
-    ![add-device](./media/tutorial-iot-hub-maps/connectionString.png)
+    ![add-device](./media/tutorial-iot-hub-maps/connection-string.png)
 
 ## <a name="upload-geofence"></a>Charger une limite géographique
 

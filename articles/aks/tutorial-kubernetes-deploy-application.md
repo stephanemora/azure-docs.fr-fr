@@ -2,20 +2,17 @@
 title: Didacticiel Kubernetes sur Azure - Déployer une application
 description: Dans le cadre de ce didacticiel Azure Kubernetes Service (AKS), vous allez déployer une application multiconteneur dans votre cluster à l’aide d’une image personnalisée stockée dans Azure Container Registry.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: cc01b12e493f3e0d3cd63786c27819d4704f97f4
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 3b614fcb6692f35884af2fc4e19210267ab8ab04
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263880"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593272"
 ---
-# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Didacticiel : Exécuter des applications dans Azure Kubernetes Service (AKS)
+# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutoriel : Exécuter des applications dans Azure Kubernetes Service (AKS)
 
 Kubernetes fournit une plateforme distribuée destinée aux applications en conteneur. Vous générez et déployez vos propres applications et services dans un cluster Kubernetes, et vous laissez le cluster gérer la disponibilité et la connectivité. Dans ce didacticiel (le quatrième d’une série de sept), un exemple d’application est déployé dans un cluster Kubernetes. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -119,7 +116,7 @@ Si l’application ne s’est pas chargée, il y a peut-être un problème d’a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, l’exemple d’application de vote Azure a été déployée sur un cluster Kubernetes dans AKS. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, l’exemple d’application de vote Azure a été déployée sur un cluster Kubernetes dans AKS. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Mise à jour d’un fichier manifeste Kubernetes

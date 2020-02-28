@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 12/26/2019
+ms.date: 02/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: bebc7dde30dad57157d0abee7f2294d9da58fd5c
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: af15a7366fd07cecb376ff76ad383f784202a887
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861810"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526810"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Tutoriel : Configurer un environnement Azure Time Series Insights (préversion)
 
@@ -37,7 +37,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Souscrivez un [abonnement Azure gratuit](https://azure.microsoft.com/free/) si vous n’en avez pas déjà un.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Au minimum, vous devez disposer du rôle **Contributeur** pour l’abonnement Azure. Pour plus d’informations, consultez [Gérer l’accès à l’aide d’un contrôle d’accès en fonction du rôle et du portail Azure](../role-based-access-control/role-assignments-portal.md).
 

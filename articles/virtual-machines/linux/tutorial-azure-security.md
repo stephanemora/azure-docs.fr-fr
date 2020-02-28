@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4046aac5e8362bf315eca11d9cd96a6e862e2c55
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 5c5a8bc06c676121c20f6e1f83a26dd9343e6847
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034606"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605523"
 ---
-# <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Didacticiel : Utiliser Azure Security Center pour superviser les machines virtuelles Linux
+# <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutoriel : Utiliser Azure Security Center pour superviser les machines virtuelles Linux
 
 Azure Security Center peut vous aider à acquérir une meilleure visibilité des pratiques de sécurité de vos ressources Azure. Azure Security Center assure une surveillance intégrée de la sécurité. Il peut détecter des menaces qui sans cela pourraient passer inaperçues. Ce didacticiel décrit Azure Security Center et comment effectuer les opérations suivantes :
  
@@ -123,7 +123,7 @@ Sélectionnez une alerte pour afficher des informations la concernant. Par exemp
 ![Attaque RDP](./media/tutorial-azure-security/rdp-attack.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ce didacticiel vous a montré comment configurer Azure Security Center, puis examiner les machines virtuelles dans Azure Security Center. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous a montré comment configurer Azure Security Center, puis examiner les machines virtuelles dans Azure Security Center. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Configurer la collecte de données
@@ -134,5 +134,5 @@ Ce didacticiel vous a montré comment configurer Azure Security Center, puis exa
 Passez au didacticiel suivant pour en savoir plus sur la création d’un pipeline d’intégration continue/de livraison continue avec Jenkins, GitHub et Docker.
 
 > [!div class="nextstepaction"]
-> [Créer une infrastructure d’intégration continue/de livraison continue avec Jenkins, GitHub et Docker](tutorial-jenkins-github-docker-cicd.md)
+> [Créer une infrastructure d’intégration continue/de livraison continue avec Jenkins, GitHub et Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
 

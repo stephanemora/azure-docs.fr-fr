@@ -1,19 +1,19 @@
 ---
-title: 'Didacticiel : Application PHP avec MySQL'
+title: 'Tutoriel : Application PHP avec MySQL'
 description: Découvrez comment faire fonctionner une application PHP dans Azure en établissant une connexion à une base de données MySQL dans Azure. Laravel est utilisé dans le tutoriel.
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: d827270c89160097f76a7fdb36f9a6f97525064b
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 9375a59fedcd134a64cfa3bf8b92e33d326ee925
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671985"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500047"
 ---
-# <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Didacticiel : Créer une application PHP et MySQL dans Azure
+# <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>Tutoriel : Créer une application PHP et MySQL dans Azure
 
 > [!NOTE]
 > Cet article explique comment déployer une application sur App Service sous Windows. Pour déployer une application App Service sur _Linux_, consultez [Créer une application PHP et MySQL dans Azure App Service sur Linux](./containers/tutorial-php-mysql-app.md).
@@ -23,7 +23,7 @@ ms.locfileid: "74671985"
 
 ![Application PHP exécutée dans Azure App Service](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Création d’une base de données MySQL dans Azure
@@ -615,7 +615,7 @@ Le menu de gauche fournit des pages vous permettant de configurer votre applicat
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Création d’une base de données MySQL dans Azure

@@ -1,30 +1,30 @@
 ---
-title: 'Didacticiel : Héberger des API RESTful avec CORS'
+title: 'Tutoriel : Héberger des API RESTful avec CORS'
 description: Découvrir comment Azure App Service vous aide à héberger vos API RESTful avec prise en charge de CORS. App Service peut héberger des applications web front-end et des API back-end.
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/21/2018
+ms.date: 02/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: e2eca624fabf30eae86c480ede6c4bdffc2226bc
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 28848d8b676bb5f4182a887f5efdd48c6221041a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671122"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500058"
 ---
-# <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Didacticiel : Héberger une API RESTful avec CORS dans Azure App Service
+# <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutoriel : Héberger une API RESTful avec CORS dans Azure App Service
 
 [Azure App Service](overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. De plus, App Service intègre la prise en charge du [partage des ressources cross-origin (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) pour les API RESTful. Ce didacticiel montre comment déployer une application ASP.NET Core API sur App Service avec prise en charge CORS. Vous configurez l’application à l’aide d’outils en ligne de commande, et vous la déployez à l’aide de Git. 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer des ressources App Service à l’aide d’Azure CLI
 > * Déployer une API RESTful sur Azure à l’aide de Git
 > * Activer la prise en charge de CORS sur App Service
 
-Vous pouvez suivre les étapes de ce didacticiel sur macOS, Linux, Windows.
+Vous pouvez suivre les étapes de ce tutoriel sur macOS, Linux, Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -202,4 +202,4 @@ Vous avez appris à effectuer les opérations suivantes :
 Passez au tutoriel suivant pour découvrir comment authentifier et autoriser des utilisateurs.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout](app-service-web-tutorial-auth-aad.md)
+> [Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout](app-service-web-tutorial-auth-aad.md)
