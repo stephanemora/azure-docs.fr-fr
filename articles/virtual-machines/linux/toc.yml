@@ -276,7 +276,7 @@
       items:
         - name: Retrait à partir du 1er mars 2023
           href: ../classic-vm-deprecation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble de la migration
           href: migration-classic-resource-manager-overview.md
         - name: Présentation détaillée de la migration
           href: migration-classic-resource-manager-deep-dive.md
