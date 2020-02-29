@@ -27,7 +27,7 @@
       items:
         - name: JavaScript
           href: quickstart-v2-javascript.md
-    - name: Applications web
+    - name: les applications web
       items:
         - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
@@ -405,6 +405,8 @@
           href: v2-admin-consent.md
         - name: Expériences du consentement d’application
           href: application-consent-experience.md
+    - name: Accès conditionnel
+      href: v2-conditional-access-dev-guide.md
     - name: Clouds nationaux
       items:
         - name: Vue d’ensemble

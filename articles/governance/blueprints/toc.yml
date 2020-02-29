@@ -1,4 +1,4 @@
-- name: Documentation Azure Blueprints
+- name: Documentations Azure Blueprints
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -140,6 +140,17 @@
         - name: Étapes de déploiement
           displayName: 'standards, iso, 27001'
           href: ./samples/iso27001-ase-sql-workload/deploy.md
+    - name: Médias
+      items:
+        - name: Vue d’ensemble
+          displayName: 'standards, Media MPAA'
+          href: ./samples/media/index.md
+        - name: Correspondance des contrôles
+          displayName: 'standards, Media'
+          href: ./samples/media/control-mapping.md
+        - name: Étapes de déploiement
+          displayName: 'standards, Media'
+          href: ./samples/media/deploy.md
     - name: NIST SP 800-53 Rev4
       items:
         - name: Vue d’ensemble
