@@ -5,6 +5,8 @@
   items:
     - name: Qu’est-ce que le service Vision par ordinateur ?
       href: Home.md
+    - name: Nouveautés
+      href: whats-new.md
 - name: Démarrages rapides
   items:
     - name: Utilisation du kit de développement logiciel (SDK) client
