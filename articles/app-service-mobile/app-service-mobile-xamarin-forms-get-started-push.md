@@ -1,5 +1,5 @@
 ---
-title: Ajout de notifications Push à votre application Xamarin.Forms
+title: Ajouter des notifications Push à votre application Xamarin.Forms
 description: Découvrez comment utiliser les services Azure pour envoyer des notifications Push multiplateforme à vos applications Xamarin.Forms.
 ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b
 ms.tgt_pltfrm: mobile-xamarin
@@ -13,7 +13,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 02/19/2020
 ms.locfileid: "77461468"
 ---
-# <a name="add-push-notifications-to-your-xamarinforms-app"></a>Ajout de notifications Push à votre application Xamarin.Forms
+# <a name="add-push-notifications-to-your-xamarinforms-app"></a>Ajouter des notifications Push à votre application Xamarin.Forms
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
