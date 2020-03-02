@@ -72,7 +72,7 @@ Une fois que vous avez configuré votre méthode de vérification à deux facteu
 
 - [Gérer les paramètres de la vérification à deux facteurs](multi-factor-authentication-end-user-manage-settings.md)
 
-- [Manage app passwords](multi-factor-authentication-end-user-app-passwords.md) (Gérer les mots de passe d’application)
+- [Gérer les mots de passe d’application](multi-factor-authentication-end-user-app-passwords.md)
 
 - [Se connecter à l’aide de la vérification en deux étapes](multi-factor-authentication-end-user-signin.md)
 
