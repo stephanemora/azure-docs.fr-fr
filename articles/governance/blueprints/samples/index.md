@@ -1,14 +1,14 @@
 ---
 title: Index des exemples de blueprint
 description: Index d’exemples de conformité et standard pour le déploiement d’environnements, de stratégies et de bases du Framework d’adoption du cloud avec Azure Blueprints.
-ms.date: 02/11/2020
+ms.date: 02/26/2020
 ms.topic: sample
-ms.openlocfilehash: 88dde10efefd8153eff9aa6ad2ea47a1e00e2c87
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 703c383f41cd833fb47ca489682258158f9fe179
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77150457"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196822"
 ---
 # <a name="azure-blueprints-samples"></a>Exemples Azure Blueprints
 
@@ -28,6 +28,7 @@ Le tableau suivant inclut des liens vers des exemples pour Azure Blueprints. Cha
 | [ISO 27001](./iso27001/index.md) | Propose des garde-fous pour la conformité à la norme ISO 27001. |
 | [Services partagés ISO 27001](./iso27001-shared/index.md) | Fournit un ensemble de modèles d’infrastructure conformes et de garde-fou stratégiques qui facilitent l’attestation ISO 27001. |
 | [Charge de travail App Service Environment/SQL Database ISO 27001](./iso27001-ase-sql-workload/index.md) | Fournit une infrastructure supplémentaire à l’exemple de blueprint [Services partagés ISO 27001](./iso27001-shared/index.md). |
+| [Média](./media/index.md) | Fournit un ensemble de stratégies vous permettant de vous conformer à Media MPAA. |
 | [NIST SP 800-53 R4](./nist-sp-800-53-rev4/index.md) | Propose des rails de sécurité pour la conformité à NIST SP 800-53 R4. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Fournit un ensemble de stratégies pour la mise en conformité à PCI-DSS v3.2.1. |
 | [SWIFT CSP-CSCF v2020](./swift-2020/index.md) | Facilite la mise en conformité à SWIFT CSP-CSCF v2020. |

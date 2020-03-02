@@ -6,8 +6,16 @@
       href: security-center-intro.md
     - name: Plateformes prises en charge
       href: security-center-os-coverage.md
-    - name: Fonctionnalités prises en charge
-      href: security-center-services.md
+    - name: Fonctionnalités Security Center
+      items:
+        - name: Couverture des fonctionnalités pour les machines virtuelles
+          href: security-center-services.md
+        - name: Couverture des fonctionnalités pour les ressources PaaS Azure
+          href: features-paas.md
+    - name: Recommandations de sécurité
+      href: recommendations-reference.md
+    - name: Alertes de sécurité et chaîne de destruction d’intention
+      href: alerts-reference.md
 - name: Démarrages rapides
   expanded: true
   items:

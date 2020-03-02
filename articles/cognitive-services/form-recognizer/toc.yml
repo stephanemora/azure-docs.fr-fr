@@ -1,6 +1,7 @@
 - name: Documentation Form Recognizer
   href: index.yml
 - name: Vue d’ensemble
+  expanded: true
   items:
     - name: "Qu’est-ce que Form Recognizer\_?"
       href: overview.md
@@ -45,6 +46,8 @@
   items:
     - name: Créer un jeu de données d’entraînement
       href: build-training-data-set.md
+    - name: Déployer l’outil d’étiquetage des exemples
+      href: deploy-label-tool.md
     - name: Utiliser des conteneurs
       items:
         - name: Installer et exécuter des conteneurs

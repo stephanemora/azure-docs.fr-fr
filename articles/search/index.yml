@@ -11,12 +11,12 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.date: 02/25/2020
-  ms.openlocfilehash: b1df45b155e9c9d1bd4433d7ddc765c126686a07
-  ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+  ms.openlocfilehash: fbfa0b08fbe8230253c9b1d8fca835538f2884ca
+  ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 02/26/2020
-  ms.locfileid: "77614969"
+  ms.lasthandoff: 03/01/2020
+  ms.locfileid: "78205957"
 landingContent:
 - title: À propos de la recherche cognitive
   linkLists:
@@ -52,11 +52,11 @@ landingContent:
     links:
     - text: Créer un service
       url: search-create-service-portal.md
-    - text: Créer un index
+    - text: Création d'un index
       url: search-get-started-portal.md
     - text: Créer une application
       url: search-create-app-portal.md
-    - text: Ingérer et extraire du texte brut et des images
+    - text: Extraire du texte à partir d’images et de fichiers d’application
       url: cognitive-search-quickstart-blob.md
 - title: Indexer des données
   linkLists:

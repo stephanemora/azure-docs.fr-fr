@@ -43,6 +43,8 @@
       href: active-directory-data-storage-australia-newzealand.md
     - name: "Nouveautés de Microsoft\_365 Government"
       href: whats-new-microsoft-365-government.md
+    - name: Comparer Azure AD à ADDS
+      href: active-directory-compare-azure-ad-to-ad.md
     - name: Informations de référence sur les opérations Azure AD
       items:
         - name: Introduction
@@ -58,7 +60,7 @@
 - name: Guides pratiques
   expanded: true
   items:
-    - name: Organization
+    - name: Organisation
       items:
         - name: S’inscrire à Azure AD en tant qu’organisation
           href: sign-up-organization.md

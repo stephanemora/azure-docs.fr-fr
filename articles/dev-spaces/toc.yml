@@ -97,6 +97,8 @@
           href: how-to/ingress-https-nginx.md
         - name: Connecter l’ordinateur de développement à un cluster AKS (préversion)
           href: how-to/connect.md
+        - name: "Configurer votre cluster Azure Dev Spaces pour utiliser Helm\_3 (préversion)"
+          href: how-to/helm-3.md
     - name: Dépannage
       href: troubleshooting.md
     - name: Questions fréquentes (FAQ)
