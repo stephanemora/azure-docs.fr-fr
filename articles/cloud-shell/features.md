@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 60832f9438a602945c63910a436d7638f15a201d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 20ac4fabdc5f0e70191d6886d43a5376bcf4cad5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969432"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586289"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Fonctionnalités et outils pour Azure Cloud Shell
 
@@ -27,7 +27,7 @@ ms.locfileid: "74969432"
 
 Azure Cloud Shell s’exécute sur `Ubuntu 16.04 LTS`.
 
-## <a name="features"></a>Caractéristiques
+## <a name="features"></a>Fonctionnalités
 
 ### <a name="secure-automatic-authentication"></a>Authentification automatique sécurisée
 
@@ -73,7 +73,7 @@ Cloud Shell inclut une authentification préconfigurée pour des outils open sou
 |---|---|
 |Outils Linux            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Outils Azure            |[Azure CLI](https://github.com/Azure/azure-cli) et [Azure Classic CLI](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Interface de ligne de commande Azure Functions](https://github.com/Azure/azure-functions-core-tools)<br> [Interface de ligne de commande de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Lot chantier](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
-|Éditeurs de texte           |code (Éditeur Cloud Shell)<br> vim<br> nano<br> emacs    |
+|Éditeurs de texte           |code (Éditeur Cloud Shell)<br> Vim<br> nano<br> emacs    |
 |Contrôle de code source         |git                    |
 |Outils de génération            |make<br> maven<br> npm<br> pip         |
 |Containers             |[Machine Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [CLI DC/OS](https://github.com/dcos/dcos-cli)         |
@@ -88,7 +88,7 @@ Cloud Shell inclut une authentification préconfigurée pour des outils open sou
 |Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.16.0      |
-|PowerShell |[6.2.3](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[7.0.0-rc.2](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 et 3.5 (par défaut)|
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 7ad10ad2d4393c1d25a835d0ff8cd0b98ed25879
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 6156557d10210535b287aa516070c0b5da416512
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756394"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539363"
 ---
 # <a name="message-browsing"></a>Parcours des messages
 
@@ -34,7 +34,7 @@ Peek retourne également les messages qui ont été verrouillés et dont le trai
 
 ## <a name="peek-apis"></a>API de l’outil Peek
 
-Les méthodes [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) et [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) sont fournies dans toutes les bibliothèques de client .NET et Java, ainsi que sur tous les objets récepteurs : **MessageReceiver**, **MessageSession**, **QueueClient** et **SubscriptionClient**. Peek traite l’ensemble des files d’attente et des abonnements, ainsi que leurs files d’attente de lettres mortes respectives.
+Les méthodes [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) et [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) sont fournies dans toutes les bibliothèques de client .NET et Java, ainsi que sur tous les objets récepteurs : **MessageReceiver**, **MessageSession**. Peek traite l’ensemble des files d’attente et des abonnements, ainsi que leurs files d’attente de lettres mortes respectives.
 
 Quand elle est appelée à plusieurs reprises, la méthode Peek énumère tous les messages contenus dans le journal des files d’attente ou des abonnements, dans l’ordre de leur numéro séquentiel (du plus petit au plus grand). Cela correspond à l’ordre dans lequel les messages ont été mis en file d’attente, et pas à l’ordre dans lequel ils peuvent être récupérés au final.
 
