@@ -47,7 +47,7 @@ Avant de pouvoir associer ou ajouter votre abonnement, effectuez les tâches sui
   - Les utilisateurs dont le rôle a été attribué à l’aide de RBAC perdront leur accès
   - L’administrateur de services fédérés et le coadministrateur perdront leur accès
   - Si vous avez des coffres de clés, ces derniers seront inaccessibles et vous devrez les corriger après l’association
-  - Si vous disposez d’identités managées pour des ressources telles que Machines Virtuelles ou Logic Apps, vous devez les réactiver ou les recréer après l’association
+  - Si vous disposez d''identités gérées pour des ressources telles que Machines Virtuelles ou Logic Apps, vous devez les réactiver ou les recréer après l’association
   - Si vous disposez d’un Azure Stack inscrit, vous devrez le réinscrire après l’association
 
 - Connectez-vous avec un compte qui :
@@ -85,7 +85,7 @@ La modification du répertoire de l’abonnement est une opération de niveau de
 
 Après avoir associé un abonnement à un autre annuaire, vous pouvez être amené à effectuer les tâches suivantes pour reprendre le cours des opérations :
 
-- Si vous avez des coffres de clés, vous devez modifier l’ID de tenant des coffres de clés. Pour plus d’informations, consultez [Modifier l’ID client d’un coffre de clés après un déplacement d’abonnement](../../key-vault/key-vault-subscription-move-fix.md).
+- Si vous avez des coffres de clés, vous devez modifier l''ID de locataire des coffres de clés. Pour plus d’informations, consultez [Modifier l’ID client d’un coffre de clés après un déplacement d’abonnement](../../key-vault/key-vault-subscription-move-fix.md).
 
 - Si vous utilisiez des identités managées attribuées par le système pour les ressources, vous devez réactiver ces identités. Si vous utilisiez des identités managées affectées par l’utilisateur pour les ressources, vous devez réactiver ces identités. Après la réactivation ou la recréation des identités managées, vous devez rétablir les autorisations attribuées à ces identités. Pour plus d’informations, consultez [Identités managées pour les ressources Azure](../managed-identities-azure-resources/overview.md).
 
