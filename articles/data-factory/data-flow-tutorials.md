@@ -5,17 +5,17 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 02/06/2020
-ms.openlocfilehash: 1449b34a9bbeb5692d25a5f84c4ee38e6c4e0a33
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.date: 02/16/2020
+ms.openlocfilehash: 1d0264a0b7ac4e97d9a2811ba61ab64fcedd6fb9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460533"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587547"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Tutoriels vidéo sur le flux de données de mappage
 
-Vous trouverez ci-dessous une liste de tutoriels vidéo sur le flux de données de mappage créés par l’équipe Azure Data Factory.
+Vous trouverez ci-dessous une liste de tutoriels vidéo sur le flux de données de mappage créés par l’équipe Azure Data Factory. 
 
 Des mises à jour étant apportées en permanence au produit, certaines fonctionnalités ont été ajoutées ou sont différentes de l’expérience utilisateur Azure Data Factory actuelle.
 
@@ -32,6 +32,8 @@ Des mises à jour étant apportées en permanence au produit, certaines fonction
 [Actions rapides d’aperçu des données](https://www.youtube.com/watch?v=CP0TnNmaLA0)
 
 [Superviser et gérer les performances du flux de données de mappage](https://www.youtube.com/watch?v=fktIWdJiqTk)
+
+[Minutages des tests d’évaluation](http://youtu.be/6CSbWm4lRhw?hd=1)
 
 ## <a name="transformation-overviews"></a>Vues d’ensemble de la transformation
 
@@ -100,6 +102,8 @@ Des mises à jour étant apportées en permanence au produit, certaines fonction
 [Réduire les temps de démarrage](https://youtu.be/FFCbU4ujCiY?t=528)
 
 [Performances des base de données SQL](https://youtu.be/iyZT5CY3V_4)
+
+[Journalisation et audit](https://www.youtube.com/watch?v=UC__LOyuf8M)
 
 ## <a name="mapping-data-flow-scenarios"></a>Scénarios de flux de données de mappage
 

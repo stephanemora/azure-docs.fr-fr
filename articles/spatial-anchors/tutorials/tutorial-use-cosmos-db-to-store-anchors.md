@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Partager des ancres avec Azure Cosmos DB'
+title: 'Tutoriel : Partager des ancres avec Azure Cosmos DB'
 description: Dans ce tutoriel, vous allez apprendre à partager des identificateurs Azure Spatial Anchors entre des appareils Android/iOS dans Unity avec un service back-end et Azure Cosmos DB.
 author: ramonarguelles
 manager: vriveras
@@ -8,14 +8,14 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 57bf9c9752cf2203ffcac08c213373fd71a79148
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 71b3027d86400d6921895f86e257ddff2961f91f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276876"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615152"
 ---
-# <a name="tutorial-sharing-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Didacticiel : Partage d’Azure Spatial Anchors entre plusieurs sessions et appareils avec un back-end Azure Cosmos DB
+# <a name="tutorial-sharing-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Tutoriel : Partage d’Azure Spatial Anchors entre plusieurs sessions et appareils avec un back-end Azure Cosmos DB
 
 Ce tutoriel est la suite du [partage d’Azure Spatial Anchors entre des sessions et des appareils](../../../articles/spatial-anchors/tutorials/tutorial-share-anchors-across-devices.md). Il vous guide tout au long du processus d’ajout de quelques fonctionnalités supplémentaires permettant de faire d’Azure Cosmos DB le stockage back-end tout en partageant des ancres spatiales Azure entre des sessions et des appareils.
 
@@ -42,6 +42,12 @@ Dans l’**Explorateur de solutions**, ouvrez `SharingService\appsettings.json`.
 Recherchez la propriété `StorageConnectionString` et affectez-lui la valeur `Connection String` que vous avez copiée lors de l’[étape de création d’un compte de base de données](#create-a-database-account). Enregistrez le fichier .
 
 Vous pouvez republier le service de partage et exécuter l’exemple d’application.
+
+## <a name="troubleshooting"></a>Dépannage
+
+### <a name="unity-20193"></a>Unity 2019.3
+
+En raison de changements cassants, Unity 2019.3 n’est pas pris en charge pour le moment. Utilisez Unity 2019.1 ou 2019.2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

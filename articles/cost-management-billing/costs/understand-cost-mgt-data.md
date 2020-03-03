@@ -4,17 +4,17 @@ description: Cet article vous aide à mieux comprendre les données incluses dan
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 39f2aab72491ffdf2b583879181a247d3653647f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 44953a3986b5c03afa9cc4668e2563c5c5cd6c46
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199889"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560607"
 ---
 # <a name="understand-cost-management-data"></a>Comprendre les données Cost Management
 
@@ -35,12 +35,12 @@ Les informations suivantes présentent les [offres Microsoft Azure](https://azur
 | **Contrat client Microsoft** | [Offre Microsoft Azure pour Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | N/A | Mars 2019<sup>3</sup> |
 | **Contrat client Microsoft pris en charge par les partenaires** | Offre Microsoft Azure | CSP_2015-05-01, CSP_MG_2017-12-01 et CSPDEVTEST_2018-05-01<br><br>L’ID de quota est réutilisé pour le contrat client Microsoft et les abonnements CSP hérités. Actuellement, seuls les abonnements aux contrats clients Microsoft sont pris en charge. | N/A | 2 octobre 2019 |
 | **MSDN (Microsoft Developer Network)** | [Plateformes MSDN](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 octobre 2018<sup>2</sup> |
-| **Pay-As-You-Go** | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 octobre 2018<sup>2</sup> |
-| **Pay-As-You-Go** | [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 octobre 2018<sup>2</sup> |
-| **Pay-As-You-Go** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p)      | MPN_2014-09-01 | MS-AZR-0025P | 2 octobre 2018<sup>2</sup> |
-| **Pay-As-You-Go** | [Version d’évaluation gratuite](https://azure.microsoft.com/offers/ms-azr-0044p)<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2 octobre 2018<sup>2</sup> |
-| **Pay-As-You-Go** | [Azure dans Open](https://azure.microsoft.com/offers/ms-azr-0111p)<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2 octobre 2018<sup>2</sup> |
-| **Pay-As-You-Go** | Pass Azure<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | 2 octobre 2018<sup>2</sup> |
+| **Paiement à l’utilisation** | [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 octobre 2018<sup>2</sup> |
+| **Paiement à l’utilisation** | [Dev/Test – Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 octobre 2018<sup>2</sup> |
+| **Paiement à l’utilisation** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p)      | MPN_2014-09-01 | MS-AZR-0025P | 2 octobre 2018<sup>2</sup> |
+| **Paiement à l’utilisation** | [Version d’évaluation gratuite](https://azure.microsoft.com/offers/ms-azr-0044p)<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2 octobre 2018<sup>2</sup> |
+| **Paiement à l’utilisation** | [Azure dans Open](https://azure.microsoft.com/offers/ms-azr-0111p)<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2 octobre 2018<sup>2</sup> |
+| **Paiement à l’utilisation** | Pass Azure<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | 2 octobre 2018<sup>2</sup> |
 | **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2 octobre 2018<sup>2</sup> |
 | **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2 octobre 2018<sup>2</sup> |
 | **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2 octobre 2018<sup>2</sup> |
@@ -60,20 +60,20 @@ Les offres suivantes ne sont pas encore prises en charge :
 | Category  | **Nom de l’offre** | **ID du quota** | **Numéro de l’offre** |
 | --- | --- | --- | --- |
 | **Azure Allemagne** | [Azure Allemagne - Paiement à l'utilisation](https://azure.microsoft.com/offers/ms-azr-de-0003p) | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
-| **Azure Government** | Paiement à l’utilisation Azure Government | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P |
+| **Azure Government** | Azure Government – Paiement à l’utilisation | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P |
 | **Fournisseur de solutions cloud (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Fournisseur de solutions cloud (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Fournisseur de solutions cloud (CSP)** | Azure Germany en tant que fournisseur CSP pour Microsoft Cloud Germany   | CSP_2015-05-01 | MS-AZR-DE-0145P |
-| **Pay-As-You-Go**                 | Kit de démarrage Azure pour les étudiants | DreamSpark_2015-02-01 | MS-AZR-0144P |
-| **Pay-As-You-Go** | [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p)<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
-| **Pay-As-You-Go**                 | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
+| **Paiement à l’utilisation**                 | Kit de démarrage Azure pour les étudiants | DreamSpark_2015-02-01 | MS-AZR-0144P |
+| **Paiement à l’utilisation** | [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p)<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **Paiement à l’utilisation**                 | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **Plans de support** | Support standard                    | Default_2014-09-01 | MS-AZR-0041P |
 | **Plans de support** | Support Professional Direct         | Default_2014-09-01 | MS-AZR-0042P |
-| **Plans de support** | Support Developer Support                   | Default_2014-09-01 | MS-AZR-0043P |
-| **Plans de support** | Plan de support Germany                | Default_2014-09-01 | MS-AZR-DE-0043P |
+| **Plans de support** | Developer Support                   | Default_2014-09-01 | MS-AZR-0043P |
+| **Plans de support** | Plan de support Allemagne                | Default_2014-09-01 | MS-AZR-DE-0043P |
 | **Plans de support** | Support standard Azure Government   | Default_2014-09-01 | MS-AZR-USGOV-0041P |
 | **Plans de support** | Support Professional Direct Azure Government | Default_2014-09-01 | MS-AZR-USGOV-0042P |
-| **Plans de support** | Support Developer Support Azure Government  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
+| **Plans de support** | Developer Support Azure Government  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
 ## <a name="determine-your-offer-type"></a>Déterminer le type de votre offre
 Si vous ne voyez pas de données pour un abonnement et que vous souhaitez déterminer si votre abonnement figure dans les offres prises en charge, vous pouvez valider que votre abonnement est pris en charge. Pour valider la prise en charge d’un abonnement Azure, connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez ensuite **Tous les services** dans le volet du menu de gauche. Dans la liste des services, sélectionnez **Abonnements**. Dans le menu de la liste des abonnements, sélectionnez l’abonnement que vous souhaitez vérifier. Votre abonnement est affiché sous l’onglet Vue d’ensemble et vous pouvez voir les éléments **Offre** et **ID de l’offre**. L’image suivante en montre un exemple.
@@ -135,9 +135,9 @@ Voici quelques conseils pour l’utilisation des étiquettes :
 - Utilisez l’API Tags conjointement avec Query ou UsageDetails pour obtenir tous les coûts en fonction des étiquettes actuelles.
 
 
-**Mise à niveau de l’évaluation gratuite vers un abonnement avec paiement à l’utilisation**
+## <a name="free-trial-to-pay-as-you-go-upgrade"></a>Passer d’un essai gratuit au paiement à l’utilisation
 
-Les clients bénéficiant d’une offre d’évaluation gratuite (044P) qui sera convertie en offre PAYG (003P) peuvent voir leur utilisation pendant la période d’évaluation gratuite. Toutefois, ils perdent la visibilité du traçage gratuit après la conversion. Après la conversion, seuls l’utilisation et les coûts PAYG sont affichés dans Cost Management.
+Pour des informations sur la disponibilité des services de niveau gratuit après être passé d’un essai gratuit au paiement à l’utilisation, consultez les [Questions fréquentes (FAQ) sur les comptes gratuits Azure](https://azure.microsoft.com/free/free-account-faq/).
 
 ## <a name="rated-usage-data-refresh-schedule"></a>Planification d’actualisation des données sur l’utilisation estimée
 
@@ -157,6 +157,17 @@ Abonnements avec paiement à l’utilisation. Si le mois de facturation se termi
 ### <a name="rerated-data"></a>Données réestimées
 
 Que vous utilisiez les [API Cost Management](../index.yml), Power BI ou le portail Azure pour récupérer des données, prévoyez une réestimation des frais de la période de facturation en cours, et donc des changements, jusqu’à la clôture de la facture.
+
+## <a name="cost-rounding"></a>Arrondi
+
+Les coûts indiqués dans Cost Management sont arrondis. Les coûts retournés par l’API de requête ne le sont pas. Par exemple :
+
+- Analyse des coûts sur le portail Azure – Les frais sont arrondis selon les règles d’arrondi standard : les valeurs avec une partie décimale de 0,5 et plus sont arrondies par excès. Sinon, les coûts sont arrondis par défaut. L’arrondi se produit uniquement au moment où les valeurs sont affichées. Il ne se produit pas pendant le traitement et l’agrégation de données. Par exemple, l’analyse des coûts agrège les coûts comme suit :
+  - Frais 1 : 0,004 USD
+  - Frais 2 : 0,004 USD
+  - Rendu des frais agrégés : 0,004 + 0.004 = 0,008. Les frais affichés sont de 0,01 USD.
+- API de requête – Les frais affichés présentent huit décimales et ne sont pas arrondis.
+
 
 ## <a name="usage-data-update-frequency-varies"></a>La fréquence de mise à jour des données d’utilisation varie
 

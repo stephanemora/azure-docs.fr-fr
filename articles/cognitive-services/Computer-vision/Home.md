@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 17dd428f79f66bc70da47527314ad43a27955c82
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: eb338c39ed3b1a095c1ad31e3f695e8d3fec0ed3
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772502"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565959"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
@@ -48,7 +48,7 @@ Vous pouvez analyser des images pour obtenir des informations détaillées sur l
 
 ## <a name="extract-text-from-images"></a>Extraire du texte à partir des images
 
-Vous pouvez utiliser l’API [Read](concept-recognizing-text.md#read-api) du service Vision par ordinateur pour extraire le texte imprimé ou manuscrit d’images dans un flux de caractères exploitable automatiquement. L’API Read utilise nos derniers modèles et fonctionne avec le texte dont les surfaces et arrière-plans diffèrent, tels que les accusés de réception, les affiches, les cartes de visite, les lettres et les tableaux blancs. Actuellement, l’anglais est la seule langue prise en charge.
+Vous pouvez utiliser l’API [Read](concept-recognizing-text.md#read-api) du service Vision par ordinateur pour extraire le texte imprimé ou manuscrit d’images dans un flux de caractères exploitable automatiquement. L’API Read utilise nos derniers modèles et fonctionne avec le texte dont les surfaces et arrière-plans diffèrent, tels que les accusés de réception, les affiches, les cartes de visite, les lettres et les tableaux blancs. Actuellement, l’anglais et l’espagnol sont les seules langues prises en charge.
 
 Vous pouvez également utiliser l’API [OCR (reconnaissance optique des caractères)](concept-recognizing-text.md#ocr-optical-character-recognition-api) pour extraire le texte imprimé en plusieurs langues. Le cas échéant, la fonction OCR corrige la rotation du texte reconnu et fournit les coordonnées du cadre de chaque mot. La fonction OCR prend en charge 25 langues et détecte automatiquement la langue du texte reconnu.
 

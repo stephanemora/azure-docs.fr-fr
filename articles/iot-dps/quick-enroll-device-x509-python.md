@@ -9,38 +9,35 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 65945c9c12f4c5c41cac79022d0e11d1f07844d1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6f4457397f358d893a5735cc7401394adda8d62b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434606"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605505"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Démarrage rapide : Inscrire des appareils X.509 auprès du service Device Provisioning avec Python
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-Les appareils sont inscrits à une instance du service d’approvisionnement en créant un [Groupe d’inscriptions](concepts-service.md#enrollment-group), ou une [Inscription individuelle](concepts-service.md#individual-enrollment). Ce démarrage rapide montre comment utiliser Python pour créer par programmation un [Groupe d’inscriptions](concepts-service.md#enrollment-group) qui utilise des certificats racine ou intermédiaire d’autorité de certification X.509. Un groupe d’inscription contrôle l’accès au service d’approvisionnement pour les appareils qui partagent un certificat de signature commun dans leur chaîne de certificats. Le groupe d’inscriptions est créé à l’aide du [kit SDK du service de provisionnement Python V1](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) et d’un exemple d’application Python. La création d’inscriptions individuelles via le *Kit de développement logiciel (SDK) du service d’approvisionnement de Python* est encore en cours. Pour en savoir plus, voir [Contrôle de l’accès des appareils au service de provisionnement avec des certificats X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Pour plus d’informations sur l’utilisation d’une infrastructure de clé publique (PKI) basée sur le certificat X.509 avec Azure IoT Hub et le service Device Provisioning, consultez [Vue d’ensemble d’un certificat d’autorité de certification X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview).
+Dans ce guide de démarrage rapide, vous allez utiliser Python pour créer programmatiquement un groupe d’inscriptions qui utilise des certificats X.509 d’autorité de certification racine ou intermédiaire. Un groupe d’inscription contrôle l’accès au service d’approvisionnement pour les appareils qui partagent un certificat de signature commun dans leur chaîne de certificats. Le groupe d’inscriptions est créé à l’aide du kit SDK du service de provisionnement Python et un exemple d’application Python.
+
+## <a name="prerequisites"></a>Prérequis
+
+- Exécution des étapes décrites dans [Configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md).
+- Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Python 2.x ou 3.x](https://www.python.org/downloads/). Ajoutez Python aux variables d’environnement propres à votre plateforme. Ce guide de démarrage rapide installe le kit [SDK du service de provisionnement Python](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) ci-dessous.
+- [Pip](https://pip.pypa.io/en/stable/installing/), s’il n’est pas fourni avec votre distribution de Python.
+- [Git](https://git-scm.com/download/).
 
 > [!IMPORTANT]
 > Cet article s’applique uniquement au kit SDK Python V1 déprécié. Les clients d’appareil et de service pour le service IoT Hub Device Provisioning ne sont pas encore disponibles dans la V2. L’équipe travaille actuellement sur la parité des fonctionnalités pour la V2.
 
-
-Ce démarrage rapide nécessite que vous ayez déjà créé un IoT Hub et une instance du service Device Provisioning. Si vous n’avez pas encore créé ces ressources, effectuez le démarrage rapide de la [Configuration du service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md) avant de poursuivre cet article.
-
-Bien que les étapes de cet article fonctionnent à la fois sous Windows et Linux, cet article est développé pour une machiner de développement Windows.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="prerequisites"></a>Conditions préalables requises
-
-- Installer [Python 2.x ou 3.x](https://www.python.org/downloads/). Veillez à utiliser l’installation 32 bits ou 64 bits comme requis par votre programme d’installation. Lorsque vous y êtes invité pendant l’installation, veillez à ajouter Python à votre variable d’environnement propre à la plateforme.
-- [Installez ou mettez à niveau *pip*, le système de gestion des packages Python](https://pip.pypa.io/en/stable/installing/).
-- Installez [Git](https://git-scm.com/download/).
-
 ## <a name="prepare-test-certificates"></a>Préparer les certificats de test
 
-Pour ce démarrage rapide, vous devez disposer d’un fichier .pem ou d’un fichier .cer qui contient la partie publique d’un certificat racine ou intermédiaire d’autorité de certification X.509. Ce certificat doit être chargé vers votre service d’approvisionnement, puis vérifié par le service. 
+Pour ce démarrage rapide, vous devez disposer d’un fichier .pem ou d’un fichier .cer qui contient la partie publique d’un certificat racine ou intermédiaire d’autorité de certification X.509. Ce certificat doit être chargé vers votre service d’approvisionnement, puis vérifié par le service.
+
+Pour plus d’informations sur l’utilisation d’une infrastructure de clé publique (PKI) basée sur le certificat X.509 avec Azure IoT Hub et le service Device Provisioning, consultez [Vue d’ensemble d’un certificat d’autorité de certification X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview).
 
 Le [Kit de développement logiciel (SDK) Azure IoT C](https://github.com/Azure/azure-iot-sdk-c) contient des outils de test qui peuvent vous aider à créer une chaîne de certificats X.509, à charger un certificat racine ou intermédiaire à partir de cette chaîne et à générer une preuve de possession avec le service afin de vérifier le certificat. Les certificats créés avec les outils du kit de développement logiciel (SDK) sont conçus pour être utilisés **uniquement pour le développement**. Ces certificats **ne doivent pas être utilisés dans la production**. Ils contiennent des mots de passe codés en dur (« 1234 ») qui expirent après 30 jours. Pour en savoir plus sur l’obtention de certificats appropriés pour la production, consultez [Guide pratique pour obtenir un certificat d’autorité de certification X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) dans la documentation Azure IoT Hub.
 
@@ -119,6 +116,13 @@ Cette section montre comment ajouter les détails de l’approvisionnement de vo
  
 
 ## <a name="run-the-sample-group-enrollment"></a>Exécuter l’exemple d’inscription de groupe
+
+Le service Azure IoT Device Provisioning prend en charge deux types d’inscriptions :
+
+- [Groupes d’inscription](concepts-service.md#enrollment-group) : utilisés pour inscrire plusieurs appareils connexes.
+- [Inscriptions individuelles](concepts-service.md#individual-enrollment) : utilisées pour inscrire un seul appareil.
+
+La création d’inscriptions individuelles via le [Kit de développement logiciel (SDK) du service d’approvisionnement de Python](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated/provisioning_service_client) est encore en cours. Pour en savoir plus, voir [Contrôle de l’accès des appareils au service de provisionnement avec des certificats X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 1. Ouvrez une invite de commandes et exécutez la commande suivante pour installer le client [azure-iot-approvisionnement-device-client](https://pypi.org/project/azure-iot-provisioning-device-client).
 

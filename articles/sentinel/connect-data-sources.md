@@ -3,7 +3,7 @@ title: Connecter des sources de données à Azure Sentinel | Microsoft Docs
 description: Découvrez comment connecter des sources de données à Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: angrobe
 editor: ''
 ms.service: azure-sentinel
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
-ms.author: rkarlin
-ms.openlocfilehash: 33fddcf22793e50287fb590dee3547d5e7be4d2b
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.author: yelevin
+ms.openlocfilehash: 311bb367748be98af704ab11919abea6e38d0ff3
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462545"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588329"
 ---
 # <a name="connect-data-sources"></a>Connecter des sources de données
 
@@ -45,35 +45,46 @@ Les méthodes de connexion de données suivantes sont prises en charge par Azure
 
 - **Intégration de service à service** :<br> Certains services sont connectés en mode natif, tels que les services Microsoft et AWS. Ces services tirent parti de la base Azure pour une intégration prête à l’emploi ; les solutions suivantes peuvent être connectées en quelques clics :
     - [Amazon Web Services - CloudTrail](connect-aws.md)
-    - [Office 365](connect-office-365.md)
-    - [Journaux d’audit et infos d’identification Azure AD](connect-azure-active-directory.md)
     - [Activité Azure](connect-azure-activity.md)
+    - [Journaux d’audit et infos d’identification Azure AD](connect-azure-active-directory.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
-    - [Centre de sécurité Azure](connect-azure-security-center.md)
-    - [Azure Information Protection](connect-azure-information-protection.md)
     - [Azure Advanced Threat Protection](connect-azure-atp.md)
+    - [Azure Information Protection](connect-azure-information-protection.md)
+    - [Centre de sécurité Azure](connect-azure-security-center.md)
     - [Cloud App Security](connect-cloud-app-security.md)
+    - [Serveur de noms de domaine](connect-dns.md)
+    - [Office 365](connect-office-365.md)
+    - [Microsoft Defender ATP](connect-microsoft-defender-advanced-threat-protection.md)
+    - [Pare-feu d’application web Microsoft](connect-microsoft-waf.md)
     - [Événements de sécurité Windows](connect-windows-security-events.md) 
     - [Pare-feu Windows](connect-windows-firewall.md)
+    - [Événements de sécurité Windows](connect-windows-security-events.md)
 
 - **Solutions externes via API** : Certaines sources de données sont connectées à l’aide d’API fournies par la source de données connectée. En général, la plupart des technologies de sécurité fournissent un ensemble d’API par le biais duquel les journaux des événements peuvent être récupérés. Les API se connectent à Azure Sentinel, collectent des types de données spécifiques et les envoient à Azure Log Analytics. Les appliances connectées via une API sont les suivantes :
     - [Barracuda](connect-barracuda.md)
-    - [Symantec](connect-symantec.md)
+    - [Pare-feu Barracuda CloudGen](connect-barracuda-cloudgen-firewall.md)
     - [Citrix Analytics (Sécurité)](connect-citrix-analytics.md)
+    - [F5 BIG-IP](connect-f5-big-ip.md)
+    - [Forcepoint DLP](connect-forcepoint-dlp.md)
+    - [Squadra Technologies secRMM](connect-squadra-secrmm.md)
+    - [Symantec ICDX](connect-symantec.md)
+    - [Zimperium](connect-zimperium-mtd.md)
+
 
 - **Solutions externes via un agent** : Sentinel Azure peut être connecté à toute source de données capable d’effectuer une diffusion en continu de journal en temps réel à l’aide du protocole Syslog, via un agent. <br>La plupart des appliances utilisent le protocole Syslog pour envoyer des messages d’événement incluant le journal proprement dit et des données sur le journal. Le format des journaux varie, mais la plupart des appliances prennent en charge la mise en forme basée sur la norme CEF (Common Event Format) pour les données de journaux. <br>L’agent Azure Sentinel, qui est basé sur l’agent Log Analytics, convertit les journaux au format CEF dans un format que Log Analytics peut ingérer. Selon le type d’appliance, l’agent est installé directement sur l’appliance ou sur un serveur Linux dédié. L’agent pour Linux reçoit des événements du démon Syslog en utilisant le protocole UDP mais, si une machine Linux est supposée collecter un volume important d’événements Syslog, ceux-ci sont envoyés, en utilisant le protocole TCP, du démon Syslog à l’agent, puis de celui-ci à Log Analytics.
     - Pare-feu, proxys et points de terminaison :
-        - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
+        - [ExtraHop Reveal(x)](connect-extrahop.md)
+        - [F5](connect-f5.md)
+        - [Produits Forcepoint](connect-forcepoint-casb-ngfw.md)
         - [Fortinet](connect-fortinet.md)
-        - [Palo Alto](connect-paloalto.md)
+        - [Palo Alto Networks](connect-paloalto.md)
+        - [One Identity Safeguard](connect-one-identity.md)
         - [Autres appliances CEF](connect-common-event-format.md)
         - [Autres appliances Syslog](connect-syslog.md)
-        - [Pare-feu Barracuda CloudGen](connect-barracuda-cloudgen-firewall.md)
-        - [ExtraHop Reveal(x)](connect-extrahop.md)
-        - [One Identity Safeguard](connect-one-identity.md)
         - [Trend Micro Deep Security](connect-trend-micro.md)
+        - [Zscaler](connect-zscaler.md)
     - Solutions DLP
     - [Fournisseurs de renseignement sur les menaces](connect-threat-intelligence.md)
     - [Machines DNS](connect-dns.md) : agent installé directement sur la machine DNS

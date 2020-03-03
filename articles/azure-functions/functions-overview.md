@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 01/16/2020
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 1cd7b3db92de339b7614a4271f9e6793cdf8f2ad
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: f0948cb58ba9403a34fbfd61ec43c29bed3440bc
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292891"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621003"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Présentation d’Azure Functions
 
@@ -29,7 +29,7 @@ Voici quelques fonctionnalités clés d’Azure Functions :
 
 - **Choix du langage** : Écrivez des fonctions en choisissant parmi les langages [C#, Java, JavaScript, Python et PowerShell](supported-languages.md).
 
-- **Modèle tarifaire avec paiement à l’utilisation** : Payez seulement pour le temps passé à exécuter votre code. Reportez-vous à l’option de plan d’hébergement de consommation dans la [section sur les prix](#pricing).  
+- **Modèle tarifaire avec paiement à l’utilisation** : Payez seulement pour le temps passé à exécuter votre code. Reportez-vous à l’option de plan d’hébergement de consommation dans la [section relative à la tarification](#pricing).  
 
 - **Apportez vos propres dépendances** : Functions prend en charge NuGet et NPM, ce qui vous donne accès à vos bibliothèques favorites.
 
@@ -77,7 +77,7 @@ Azure Functions propose trois sortes de plans tarifaires. Choisissez celui qui r
 
 - **Plan App Service** : Exécutez vos fonctions exactement comme vos applications web. Si vous utilisez App Service pour vos autres applications, vos fonctions peuvent s’exécuter sur le même plan, sans coûts supplémentaires.
 
-Pour plus d’informations sur les plans d’hébergement, consultez [Comparaison des plans d’hébergement Azure Functions](functions-scale.md). Vous trouverez tout le détail des prix dans la [page Tarification de Functions](https://azure.microsoft.com/pricing/details/functions/).
+Pour plus d’informations sur les plans d’hébergement, consultez [Comparaison des plans d’hébergement Azure Functions](functions-scale.md). Vous trouverez toutes les informations sur la tarification sur la [page Tarification de Functions](https://azure.microsoft.com/pricing/details/functions/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

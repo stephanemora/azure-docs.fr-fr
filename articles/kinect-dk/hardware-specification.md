@@ -14,12 +14,12 @@ ms.custom:
 audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
-ms.openlocfilehash: dbe4cac64e324c1188ec5a01b4da3935a5d5b479
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: e0d42a3ce1dd9deb5e73500371c367134ca852e1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371295"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619958"
 ---
 # <a name="azure-kinect-dk-hardware-specifications"></a>Spécifications matérielles Azure Kinect DK
 
@@ -71,7 +71,7 @@ Azure Kinect DK comprend une caméra à profondeur de champ ToF 1 Mpx conçue 
 | WFOV sans compartimentation   | 1024 x 1024  | 120°x°120 | 0, 5, 15           | 0,25 - 2,21 m      | 20,3 ms        |
 | Infrarouge passif      | 1024 x 1024  | N/A       | 0, 5, 15, 30       | N/A              | 1,6 ms         |
 
-\*Réflectivité de 15 à 95 % à 850 nm, 2,2 μW/cm<sup>2</sup>/nm, erreur aléatoire écart type ≤ 17 mm, erreur systématique typique < 11 mm + 0,1 % de la distance sans interférence multichemin. Profondeur fournie en dehors de la plage indiquée, selon la réflectivité de l’objet.
+\*Réflectivité de 15 à 95 % à 850 nm, 2,2 μW/cm<sup>2</sup>/nm, erreur aléatoire écart type ≤ 17 mm, erreur systématique typique < 11 mm + 0,1 % de la distance sans interférence multichemin. Une profondeur peut être fournie en dehors de la plage de fonctionnement indiquée ci-dessus. Elle dépend de la réflectivité d’un objet.
 
 ## <a name="color-camera-supported-operating-modes"></a>Modes de fonctionnement pris en charge pour la caméra couleur
 

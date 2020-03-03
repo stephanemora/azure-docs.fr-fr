@@ -9,25 +9,27 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 5a713018cb616fd1b82c253554932f6589185e0b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 746f4adbf616f95c21874d7c1c48881f88c38d34
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976466"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605410"
 ---
 # <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Démarrage rapide : Créer et provisionner un appareil X.509 simulé à l’aide du Kit de développement logiciel Azure IoT device SDK pour Node.js pour le service IoT Hub Device Provisioning
+
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-Ces étapes montrent comment créer une entrée d’inscription dans le service Device Provisioning, simuler un appareil X.509 sur votre ordinateur de développement, connectez l’appareil simulé avec le service Device Provisioning et inscrire l’appareil auprès du service IoT Hub à l’aide du [Kit de développement logiciel (SDK) Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node).
+Dans ce guide de démarrage rapide, vous allez créer un appareil X.509 simulé sur un ordinateur Windows. Vous allez utiliser l’exemple de code Node.js de l’appareil pour connecter cet appareil simulé à votre hub IoT en utilisant une inscription individuelle auprès du service de provisionnement des appareils (DPS).
 
-Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez à consulter également l’article [Concepts de provisionnement automatique](concepts-auto-provisioning.md). Vérifiez également que vous avez suivi la procédure décrite dans [Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer. 
+## <a name="prerequisites"></a>Prérequis
 
-Le service Azure IoT Device Provisioning prend en charge deux types d’inscriptions :
-- [Groupes d’inscription](concepts-service.md#enrollment-group) : utilisés pour inscrire plusieurs appareils connexes.
-- [Inscriptions individuelles](concepts-service.md#individual-enrollment) : utilisées pour inscrire un seul appareil.
-
-Cet article présente les inscriptions individuelles.
+- Examen des [concepts de provisionnement automatique](concepts-auto-provisioning.md).
+- Exécution des étapes décrites dans [Configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md).
+- Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Node.js v4.0+](https://nodejs.org).
+- [Git](https://git-scm.com/download/).
+- [OpenSSL](https://www.openssl.org/).
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -54,6 +56,12 @@ Dans cette section, vous allez utiliser un certificat X.509 auto-signé pour leq
 
 Vous allez utiliser l’exemple de code du [Kit de développement logiciel (SDK) Azure IoT pour Node.js](https://github.com/Azure/azure-iot-sdk-node.git) pour créer le certificat à utiliser avec l’entrée d’inscription individuelle de l’appareil simulé.
 
+Le service Azure IoT Device Provisioning prend en charge deux types d’inscriptions :
+
+- [Groupes d’inscription](concepts-service.md#enrollment-group) : utilisés pour inscrire plusieurs appareils connexes.
+- [Inscriptions individuelles](concepts-service.md#individual-enrollment) : utilisées pour inscrire un seul appareil.
+
+Cet article présente les inscriptions individuelles.
 
 1. Ouvrez une invite de commandes. Clonez le référentiel GitHub pour les exemples de code :
     
@@ -125,14 +133,14 @@ Le [Kit de développement logiciel (SDK) Azure IoT Hub Node.js Device SDK](https
     node register_x509.js
     ```   
 
-6. Dans le portail, accédez au hub IoT lié à votre service de provisionnement et ouvrez le panneau **Appareils IoT**. En cas de réussite du provisionnement de l’appareil X.509 simulé auprès du hub, son ID d’appareil s’affiche sur le panneau **Appareils IoT**, avec un *ÉTAT* **activé**. Notez que vous devrez peut-être appuyer sur le bouton **Actualiser** dans la partie supérieure si vous avez déjà ouvert le panneau avant d’exécuter l’exemple d’application de l’appareil. 
+6. Dans le portail, accédez au hub IoT lié à votre service de provisionnement et ouvrez le panneau **Appareils IoT**. En cas de réussite du provisionnement de l’appareil X.509 simulé auprès du hub, son ID d’appareil s’affiche sur le panneau **Appareils IoT**, avec un *ÉTAT***activé**. Notez que vous devrez peut-être appuyer sur le bouton **Actualiser** dans la partie supérieure si vous avez déjà ouvert le panneau avant d’exécuter l’exemple d’application de l’appareil. 
 
     ![L’appareil est inscrit avec le hub IoT](./media/quick-create-simulated-device-x509-node/hubregistration.png) 
 
     Si vous avez modifié la valeur par défaut de l’*état du jumeau d’appareil initial* dans l’entrée d’inscription de votre appareil, l’état du jumeau souhaité peut être extrait du hub et agir en conséquence. Pour en savoir plus, consultez [Comprendre et utiliser les jumeaux d’appareil IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez de manipuler et d’explorer davantage l’exemple de client d’appareil, ne nettoyez pas les ressources créées dans ce guide de démarrage rapide. Sinon, effectuez les étapes suivantes pour supprimer toutes les ressources créées par ce guide.
 

@@ -9,35 +9,32 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 4bb3af4ddad7e40cbf7edd58cf5899ced2757512
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 35f5cc4914689fd171cc3fa8ec7d809924127f28
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548796"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605537"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Démarrage rapide : Inscrire des appareils X.509 auprès du service Device Provisioning avec Node.js
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-Ce démarrage rapide montre comment utiliser Node.js pour créer par programmation un [Groupe d’inscriptions](concepts-service.md#enrollment-group) qui utilise des certificats racine ou intermédiaire d’autorité de certification X.509. Le groupe d’inscriptions est créé à l’aide du [Kit de développement logiciel (SDK) IoT pour Node.js](https://github.com/Azure/azure-iot-sdk-node) et un exemple d’application Node.js. Un groupe d’inscription contrôle l’accès au service d’approvisionnement pour les appareils qui partagent un certificat de signature commun dans leur chaîne de certificats. Pour en savoir plus, voir [Contrôle de l’accès des appareils au service de provisionnement avec des certificats X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Pour plus d’informations sur l’utilisation d’une infrastructure de clé publique (PKI) basée sur le certificat X.509 avec Azure IoT Hub et le service Device Provisioning, consultez [Vue d’ensemble d’un certificat d’autorité de certification X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
+Dans ce démarrage rapide, vous allez utiliser Node.js pour créer par programmation un groupe d’inscriptions qui utilise des certificats X.509 d’autorité de certification racine ou intermédiaire. Le groupe d’inscriptions est créé à l’aide du kit SDK IoT pour Node.js et un exemple d’application Node.js.
 
-Ce démarrage rapide nécessite que vous ayez déjà créé un IoT Hub et une instance du service Device Provisioning. Si vous n’avez pas encore créé ces ressources, effectuez le démarrage rapide de la [Configuration du service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md) avant de poursuivre cet article.
+## <a name="prerequisites"></a>Prérequis
 
-Bien que les étapes de cet article fonctionnent à la fois sous Windows et Linux, cet article est développé pour une machiner de développement Windows.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-
-## <a name="prerequisites"></a>Conditions préalables requises
-
-- Installez [Node.js v4.0 ou une version ultérieure](https://nodejs.org).
-- Installez [Git](https://git-scm.com/download/).
-
+- Exécution des étapes décrites dans [Configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md).
+- Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Node.js v4.0+](https://nodejs.org). Ce démarrage rapide installe le kit [SDK IoT pour Node.js](https://github.com/Azure/azure-iot-sdk-node) ci-dessous.
+- [Git](https://git-scm.com/download/).
+- [SDK C Azure IoT](https://github.com/Azure/azure-iot-sdk-c).
 
 ## <a name="prepare-test-certificates"></a>Préparer les certificats de test
 
-Pour ce démarrage rapide, vous devez disposer d’un fichier .pem ou d’un fichier .cer qui contient la partie publique d’un certificat racine ou intermédiaire d’autorité de certification X.509. Ce certificat doit être chargé vers votre service d’approvisionnement, puis vérifié par le service. 
+Pour ce démarrage rapide, vous devez disposer d’un fichier .pem ou d’un fichier .cer qui contient la partie publique d’un certificat racine ou intermédiaire d’autorité de certification X.509. Ce certificat doit être chargé vers votre service d’approvisionnement, puis vérifié par le service.
+
+Pour plus d’informations sur l’utilisation d’une infrastructure de clé publique (PKI) basée sur le certificat X.509 avec Azure IoT Hub et le service Device Provisioning, consultez [Vue d’ensemble d’un certificat d’autorité de certification X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview).
 
 Le [Kit de développement logiciel (SDK) Azure IoT C](https://github.com/Azure/azure-iot-sdk-c) contient des outils de test qui peuvent vous aider à créer une chaîne de certificats X.509, à charger un certificat racine ou intermédiaire à partir de cette chaîne et à générer une preuve de possession avec le service afin de vérifier le certificat. Les certificats créés avec les outils du kit de développement logiciel (SDK) sont conçus pour être utilisés **uniquement pour le développement**. Ces certificats **ne doivent pas être utilisés dans la production**. Ils contiennent des mots de passe codés en dur (« 1234 ») qui expirent après 30 jours. Pour en savoir plus sur l’obtention de certificats appropriés pour la production, consultez [Guide pratique pour obtenir un certificat d’autorité de certification X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) dans la documentation Azure IoT Hub.
 
@@ -63,6 +60,12 @@ Pour utiliser ces outils de test pour générer des certificats, procédez comme
 
 ## <a name="create-the-enrollment-group-sample"></a>Créer un exemple de groupe d’inscription 
 
+Le service Azure IoT Device Provisioning prend en charge deux types d’inscriptions :
+
+- [Groupes d’inscription](concepts-service.md#enrollment-group) : utilisés pour inscrire plusieurs appareils connexes.
+- [Inscriptions individuelles](concepts-service.md#individual-enrollment) : utilisées pour inscrire un seul appareil.
+
+Un groupe d’inscription contrôle l’accès au service d’approvisionnement pour les appareils qui partagent un certificat de signature commun dans leur chaîne de certificats. Pour en savoir plus, voir [Contrôle de l’accès des appareils au service de provisionnement avec des certificats X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
  
 1. À partir d’une fenêtre de commande dans votre dossier de travail, exécutez :
   
@@ -125,7 +128,7 @@ Pour utiliser ces outils de test pour générer des certificats, procédez comme
 
     ![Certificat vérifié dans le portail](./media/quick-enroll-device-x509-node/verify-certificate.png) 
 
-1. Afin de créer un groupe d’inscription pour votre certificat, exécutez la commande suivante (sans oublier les guillemets autour des arguments de commande) :
+1. Pour créer un [groupe d’inscriptions](concepts-service.md#enrollment-group) pour votre certificat, exécutez la commande suivante (en mettant les arguments de commande entre guillemets) :
  
      ```cmd\sh
      node create_enrollment_group.js "<the connection string for your provisioning service>" "<your certificate's .pem file>"

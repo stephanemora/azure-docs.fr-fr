@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: deca7477c79fd2952bb57c0194202c382cd5279d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: c2a751367a96c995a24457d0357aa6a2bfe987e5
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132214"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612571"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>Tutoriel : Activer la synchronisation du mot de passe dans Azure Active Directory Domain Services pour les environnements hybrides
 
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez voir comment :
 
 Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce didacticiel, vous avez besoin des ressources suivantes :
 
@@ -68,7 +68,7 @@ Une fois Azure AD Connect installé et configuré pour se synchroniser avec Azu
 
     Dans cet exemple de capture d’écran, les connecteurs suivants sont utilisés :
 
-    * Le connecteur Azure AD est nommé *contoso.onmicrosoft.com - AAD*
+    * Le connecteur Azure AD est nommé *aaddscontoso.onmicrosoft.com - AAD*
     * Le connecteur AD DS local est nommé *onprem.contoso.com*
 
 1. Copiez et collez le script PowerShell suivant sur l’ordinateur sur lequel Azure AD Connect est installé. Le script déclenche une synchronisation de mot de passe complète qui inclut les hachages de mot de passe existants. Mettez à jour les variables `$azureadConnector` et `$adConnector` avec les noms de connecteurs notés à l’étape précédente.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 759cc3f22d8b57036bad48326ffec1d6fca42696
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 884f5ab6fa57b201e1a9105729bf96e10931dca1
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939435"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604069"
 ---
 # <a name="what-is-azure-security-center"></a>Qu’est-ce que le Centre de sécurité Azure ?
 
@@ -81,7 +81,7 @@ L’un des outils les plus puissants fournis par Security Center pour surveiller
 
 ![Mappage réseau Security Center](media/security-center-intro/sc-net-map.png)
 
-Security Center simplifie encore plus l’atténuation de vos alertes de sécurité en ajoutant un **score de sécurité**. Les scores de sécurité sont désormais associés à chaque recommandation que vous recevez pour vous aider à comprendre l’importance de chacune d’elles vis-à-vis de votre posture de sécurité globale. Cela est essentiel pour vous permettre de **prioriser votre travail de sécurité**.
+Security Center fait un pas de plus dans la simplification de l’atténuation de vos alertes de sécurité en ajoutant un **score de sécurité**. Les scores de sécurité sont désormais associés à chaque recommandation que vous recevez pour vous aider à comprendre l’importance de chacune d’elles vis-à-vis de votre situation de sécurité globale. Cela est essentiel pour vous permettre de **prioriser votre travail de sécurité**.
 
 ![Score de sécurité Security Center](media/security-center-intro/sc-secure-score.png)
 

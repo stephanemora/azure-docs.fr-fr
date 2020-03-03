@@ -1,36 +1,34 @@
 ---
 title: Exemple de script Azure CLI - Utiliser des clés-valeurs dans un magasin Azure App Configuration
 titleSuffix: Azure App Configuration
-description: Fournit des informations sur l’utilisation de clés-valeurs dans un magasin Azure App Configuration
+description: Utiliser un script Azure CLI pour créer, afficher, mettre à jour et supprimer des valeurs de clés dans le magasin App Configuration
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: azure-app-configuration
-ms.date: 11/08/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 931c2f738556404e2d58381f7152acb0613a057b
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 1a4edabe666a554ccd01d110f0f71226221dfc67
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468148"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523645"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Utiliser des clés-valeurs dans un magasin Azure App Configuration
 
-Cet exemple de script crée une clé-valeur dans un magasin Azure App Configuration liste toutes les clés-valeurs existantes, met à jour la clé-valeur nouvellement créée, et enfin, la supprime.
+Cet exemple de script montre comment :
+* Créer une paire clé-valeur
+* Lister toutes les paires clé-valeur existantes
+* Mettre à jour la valeur d’une clé nouvellement créée
+* Supprimer la nouvelle paire clé-valeur
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+Cet article nécessite la version 2.0 ou ultérieure d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exemple de script
 
@@ -81,13 +79,13 @@ az appconfig kv list --name $appConfigName
 
 ## <a name="script-explanation"></a>Explication du script
 
-Ce script utilise les commandes suivantes pour effectuer des opérations sur des paires clé-valeur dans un magasin App Configuration. Chaque commande du tableau renvoie à une documentation spécifique.
+Ce tableau liste les commandes utilisées dans notre exemple de script. 
 
 | Commande | Notes |
 |---|---|
-| [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Crée ou met à jour une clé-valeur. |
+| [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | Crée ou met à jour une paire clé-valeur. |
 | [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | Liste les paires clé-valeur dans un magasin App Configuration. |
-| [az appconfig kv delete](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Supprime une clé-valeur. |
+| [az appconfig kv delete](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | Supprime une paire clé-valeur. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

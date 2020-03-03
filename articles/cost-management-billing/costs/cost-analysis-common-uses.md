@@ -4,16 +4,16 @@ description: Cet article explique comment obtenir des résultats des tâches cou
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 2102e3af26c8f5c4ed85543bc19360a923d070f3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1d9a498185e76f9771ec98656b1cad914b0f3214
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199974"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562579"
 ---
 # <a name="common-cost-analysis-uses"></a>Usages courants de l’analyse des coûts
 
@@ -83,6 +83,9 @@ Le fichier de rapport des détails d’utilisation, au format CSV, fournit une d
 ## <a name="view-monthly-ea-cost-breakdown"></a>Voir la décomposition des coûts d’EA
 
 Votre inscription EA entraîne des coûts pour l’ensemble de votre organisation. Comprendre la façon dont ces coûts s’accumulent et sont facturés au fil du temps vous aide à impliquer les parties prenantes concernées. Vous pouvez ainsi vous assurer que les coûts sont gérés de manière responsable.
+
+Les coûts s’affichent uniquement pour votre inscription active. Si vous avez transféré une inscription (inactive) vers une nouvelle (active), les coûts de l’inscription précédente ne sont pas indiqués dans Cost Management.
+
 
 1. Dans le portail Azure, accédez à **Gestion des coûts + facturation** > **Vue d’ensemble**.
 1. Cliquez sur **Décomposition** pour le mois en cours afin de visualiser la ventilation de votre engagement financier.  

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, Update Management, Change Tracking, inventaire, runbooks, Python, graphique, hybride
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.topic: overview
-ms.openlocfilehash: 33681d5c9e296d7c292dabbd64560e3d95c45af2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 57b44db9c1bb9a607ad8478b7208df40441020c2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190319"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586238"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>Présentation d’Azure Arc pour serveurs (préversion)
 
@@ -43,14 +43,18 @@ Avec Azure Arc pour serveurs (préversion), seules certaines régions sont prise
 
 Dans la plupart des cas, l’emplacement que vous sélectionnez au moment de créer le script d’installation doit être la région Azure géographiquement la plus proche de l’emplacement de votre ordinateur. Les données au repos sont stockées dans la zone géographique Azure englobant la région que vous spécifiez, ce qui peut aussi affecter votre choix de région si vous avez des contraintes en matière de résidence des données. Si la région Azure à laquelle votre ordinateur est connecté subit une panne, l’ordinateur connecté n’est pas affecté, mais les opérations de gestion effectuées avec Azure risquent de ne pas aboutir. Pour bénéficier d’une résilience en cas de panne régionale, si vous avez plusieurs emplacements qui assurent un service géographiquement redondant, il est préférable de connecter les ordinateurs de chaque emplacement à une autre région Azure.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
 Les versions suivantes des systèmes d’exploitation Windows et Linux sont officiellement prises en charge pour l’agent Azure Connected Machine : 
 
-- Windows Server 2012 R2 et versions ultérieures
+- Windows Server 2012 R2 et versions ultérieures (y compris Windows Server Core)
 - Ubuntu 16.04 et 18.04
+- CentOS Linux 7
+- SLES (SUSE Linux Enterprise Server) 15
+- Red Hat Enterprise Linux (RHEL) 7
+- Amazon Linux 7
 
 >[!NOTE]
 >Cette préversion de l’agent Connected Machine pour Windows ne prend en charge que Windows Server configuré pour utiliser la langue anglaise.
@@ -65,6 +69,15 @@ Les versions suivantes des systèmes d’exploitation Windows et Linux sont offi
 ### <a name="azure-subscription-and-service-limits"></a>Limites du service et de l’abonnement Azure
 
 Avant de configurer vos machines avec Azure Arc pour serveurs (préversion), vous devez passer en revue les [limites de l’abonnement](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) et les [limites des groupes de ressources](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) Azure Resource Manager pour planifier le nombre de machines à connecter.
+
+## <a name="tls-12-protocol"></a>Protocole TLS 1.2
+
+Pour garantir la sécurité des données en transit vers Azure, nous vous encourageons vivement à configurer la machine de manière à utiliser le protocole TLS (Transport Layer Security) 1.2. Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées**. 
+
+|Plateforme/Langage | Support | Informations complémentaires |
+| --- | --- | --- |
+|Linux | Les distributions de Linux s’appuient généralement sur [OpenSSL](https://www.openssl.org) pour la prise en charge de TLS 1.2. | Vérifiez [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) pour vous assurer que votre version d’OpenSSL est prise en charge.|
+| Windows Server 2012 R2 et versions ultérieures | Pris en charge, activé par défaut. | Pour confirmer que vous utilisez toujours les [paramètres par défaut](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).|
 
 ### <a name="networking-configuration"></a>Configuration de la mise en réseau
 
@@ -122,13 +135,19 @@ Vous pouvez également inscrire les fournisseurs de ressources dans le portail A
 
 ## <a name="connected-machine-agent"></a>Agent Connected Machine
 
-Vous pouvez télécharger le package de l’agent Azure Connected Machine pour Windows et Linux à partir des points listés ci-dessous.
+Vous pouvez télécharger le package de l’agent Azure Connected Machine pour Windows et Linux à partir des emplacements listés ci-dessous.
 
 - [Package Windows Installer de l’agent pour Windows](https://aka.ms/AzureConnectedMachineAgent) à partir du centre de téléchargement Microsoft.
 - Le package de l’agent pour Linux est distribué à partir du [dépôt de packages](https://packages.microsoft.com/) de Microsoft à l’aide du format de package préféré pour la distribution (.RPM ou .DEB).
 
 >[!NOTE]
 >Pendant cette préversion, un seul package a été publié, qui convient pour Ubuntu 16.04 ou 18.04.
+
+L’agent Azure Connected Machine pour Windows et Linux peut être mis à niveau vers la dernière version de façon manuelle ou automatique selon vos besoins. Pour Windows, la mise à jour de l’agent peut être effectuée automatiquement à l’aide de Windows Update. Pour Ubuntu, elle peut être effectuée à l’aide de l’outil en ligne de commande [apt](https://help.ubuntu.com/lts/serverguide/apt.html).
+
+### <a name="agent-status"></a>État de l’agent
+
+L’agent Connected Machine envoie des messages de pulsation au service de façon régulière (toutes les 5 minutes). Sans réception d’un message de pulsation pendant 15 minutes, la machine est considérée comme étant hors connexion et son état devient automatiquement **Déconnecté** dans le portail. À la prochaine réception d’un message de pulsation de l’agent Connected Machine, son état devient automatiquement **Connecté**.
 
 ## <a name="install-and-configure-agent"></a>Installer et configurer l’agent
 
@@ -138,7 +157,6 @@ Selon vos besoins, plusieurs méthodes vous permettent de connecter des machines
 |--------|-------------|
 | de manière interactive, | Installer manuellement l’agent sur une seule machine ou un petit nombre de machines en suivant les étapes décrites dans [Connecter des machines à partir du portail Azure](onboard-portal.md).<br> À partir du portail Azure, vous pouvez générer un script et l’exécuter sur la machine pour automatiser les étapes d’installation et de configuration de l’agent.|
 | À grande échelle | Installer et configurer l’agent pour plusieurs machines en suivant les instructions indiquées dans [Connecter des machines à l’aide d’un principal de service](onboard-service-principal.md).<br> Cette méthode crée un principal de service pour connecter des machines de manière non interactive.|
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: iainfou
-ms.openlocfilehash: 8905f2a0a306ec4c9c6e19479c6adb96a6ed39ca
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 86097a8706956a768def107dd312c9a20c63c6ff
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931270"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612343"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutoriel : Créer et configurer une instance Azure Active Directory Domain Services
 
@@ -31,7 +31,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 
@@ -68,17 +68,17 @@ Quand vous créez une instance Azure AD DS, vous spécifiez un nom DNS. Voici qu
 * **Suffixes de domaine non routables :** D’une façon générale, nous vous recommandons d’éviter un suffixe de nom de domaine non routable, comme *contoso.local*. Le suffixe *.local* n’est pas routable et peut entraîner des problèmes de résolution DNS.
 
 > [!TIP]
-> Si vous créez un nom de domaine personnalisé, faites attention aux espaces de noms DNS existants. Il est recommandé d’inclure un préfixe unique pour le nom du domaine. Par exemple, si le nom DNS racine est *contoso.com*, créez un domaine managé Azure AD DS avec le nom de domaine personnalisé *corp.contoso.com* ou *ds.contoso.com*. Dans un environnement hybride avec un environnement AD DS local, ces préfixes sont peut-être déjà en cours d’utilisation. Utilisez un préfixe unique pour Azure AD DS.
+> Si vous créez un nom de domaine personnalisé, faites attention aux espaces de noms DNS existants. Il est recommandé d’utiliser un nom de domaine distinct de tout espace de noms DNS Azure ou local existant.
 >
-> Vous pouvez utiliser le nom DNS racine pour votre domaine managé Azure AD DS, mais vous devrez peut-être créer des enregistrements DNS supplémentaires pour d’autres services de votre environnement. Par exemple, si vous exécutez un serveur web qui héberge un site à l’aide du nom DNS racine, il peut y avoir des conflits de nommage qui nécessitent des entrées DNS supplémentaires.
+> Par exemple, si vous disposez de l’espace de noms DNS existant *contoso.com*, créez un domaine managé Azure AD DS avec le nom de domaine personnalisé *aaddscontoso.com*. Si vous devez utiliser le protocole LDAP sécurisé, vous devez inscrire et posséder ce nom de domaine personnalisé pour générer les certificats requis.
 >
-> Dans ces tutoriels et articles de guide pratique, le domaine personnalisé *aadds.contoso.com* est utilisé dans un petit exemple. Dans toutes les commandes, spécifiez votre propre nom de domaine, lequel peut inclure un préfixe unique.
+> Vous devrez peut-être créer des enregistrements DNS supplémentaires pour d’autres services dans votre environnement, ou des redirecteurs DNS conditionnels entre les espaces de noms DNS existants dans votre environnement. Par exemple, si vous exécutez un serveur web qui héberge un site à l’aide du nom DNS racine, il peut y avoir des conflits de nommage qui nécessitent des entrées DNS supplémentaires.
 >
-> Pour plus d’informations, consultez [Sélectionner un préfixe de nommage pour le domaine][naming-prefix].
+> Dans ces tutoriels et articles de guide pratique, le domaine personnalisé *aaddscontoso.com* est utilisé comme exemple simple. Dans toutes les commandes, spécifiez votre propre nom de domaine.
 
 Les restrictions de nom DNS suivantes s’appliquent également :
 
-* **Restrictions de préfixe de domaine :** Vous ne pouvez pas créer de domaine managé avec un préfixe de plus de 15 caractères. Le préfixe du nom de domaine spécifié (par exemple, *contoso* dans le nom de domaine *contoso.com*) doit contenir au maximum 15 caractères.
+* **Restrictions de préfixe de domaine :** Vous ne pouvez pas créer de domaine managé avec un préfixe de plus de 15 caractères. Le préfixe du nom de domaine spécifié (par exemple, *aaddscontoso* dans le nom de domaine *aaddscontoso.com*) doit contenir au maximum 15 caractères.
 * **Conflits de noms de réseau :** Le nom de domaine DNS de votre domaine managé ne doit pas déjà exister dans le réseau virtuel. En particulier, recherchez les scénarios suivants, qui aboutiraient à un conflit de noms :
     * Si vous avec un domaine Active Directory avec le même nom de domaine DNS sur le réseau virtuel Azure.
     * Si le réseau virtuel dans lequel vous envisagez d’activer le domaine managé a une connexion VPN avec votre réseau local. Dans ce scénario, veillez à ne pas avoir de domaine portant le même nom de domaine DNS sur votre réseau local.
@@ -120,7 +120,7 @@ Dans la page **Résumé** de l’Assistant, examinez les paramètres de configur
     ![Notification dans le portail Azure du déploiement en cours](./media/tutorial-create-instance/deployment-in-progress.png)
 
 1. La page se charge avec les mises à jour du processus de déploiement, y compris la création de ressources dans votre annuaire.
-1. Sélectionnez votre groupe de ressources, par exemple *myResourceGroup*, puis choisissez votre instance Azure AD DS dans la liste des ressources Azure, par exemple *aadds.contoso.com*. L’onglet **Vue d’ensemble** montre que le domaine managé est actuellement en cours de *Déploiement*. Vous ne pouvez pas configurer le domaine managé tant qu’il n’est pas entièrement provisionné.
+1. Sélectionnez votre groupe de ressources, tel que *myResourceGroup*, puis choisissez votre instance Azure AD DS dans la liste des ressources Azure, par exemple *aaddscontoso.com*. L’onglet **Vue d’ensemble** montre que le domaine managé est actuellement en cours de *Déploiement*. Vous ne pouvez pas configurer le domaine managé tant qu’il n’est pas entièrement provisionné.
 
     ![État des services de domaine pendant l’état Provisionnement](./media/tutorial-create-instance/provisioning-in-progress.png)
 

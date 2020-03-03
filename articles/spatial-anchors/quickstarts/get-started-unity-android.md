@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e6fbf0e4cbfc44692292c33fc46d9ea0eccec89d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7acff7f0249cdedcebd367fc315be92cafb9ab78
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75370211"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615445"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Démarrage rapide : Créer une application Android Unity avec Azure Spatial Anchors
 
@@ -30,11 +30,11 @@ Vous découvrirez comment effectuer les actions suivantes :
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce guide de démarrage rapide, veillez à avoir :
 
-- Un ordinateur Windows ou macOS avec <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1+</a>, incluant les modules Android Build Support et Android SDK & NDK Tools.
+- Un ordinateur Windows ou macOS doté de <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 ou 2019.2</a> avec les modules Android Build Support et Android SDK & NDK Tools.
   - Si vous exécutez Windows, vous avez aussi besoin de <a href="https://git-scm.com/download/win" target="_blank">Git pour Windows</a> et <a href="https://git-lfs.github.com/">Git LFS</a>.
   - Si vous exécutez macOS, installez Git via HomeBrew. Entrez la commande suivante sur une seule ligne du Terminal : `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Puis exécutez `brew install git` et `brew install git-lfs`.
 - Un appareil Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">prêt pour le développement</a> et <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">compatible ARCore</a>.
@@ -68,7 +68,13 @@ Suivez les instructions dans l’application pour placer et rappeler une ancre.
 
 ## <a name="troubleshooting"></a>Dépannage
 
+### <a name="rendering-issues"></a>Problèmes de rendu
+
 Pendant l’exécution de l’application, si vous ne voyez pas de caméra en arrière-plan (au lieu de cela, l’arrière-plan est vide, bleu ou présente d’autres textures), vous devez probablement réimporter les ressources dans Unity. Arrêtez l’application. Dans le menu supérieur d’Unity, choisissez **Assets -> Reimport all**. Ensuite, exécutez de nouveau l’application.
+
+### <a name="unity-20193"></a>Unity 2019.3
+
+En raison de changements cassants, Unity 2019.3 n’est pas pris en charge pour le moment. Utilisez Unity 2019.1 ou 2019.2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/03/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a77f32620d4e3a694806cdf6c247928fa3c7ede4
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: e8f95f4987d0ce421defaed63ed9a587233d2bf4
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045293"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561593"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutoriel : Créer des modèles Azure Resource Manager liés
 
@@ -35,7 +35,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
@@ -165,7 +165,7 @@ Le modèle lié crée un compte de stockage. Le modèle lié peut être utilisé
 
 ## <a name="upload-the-linked-template"></a>Charger le modèle lié
 
-Le modèle principal et le modèle lié doivent être accessibles à partir de l’emplacement où vous exécutez le déploiement. Dans ce tutoriel, vous utilisez la même méthode de déploiement Cloud Shell que celle utilisée dans le [Tutoriel : Créer des modèles Azure Resource Manager avec des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md). Le modèle principal (azuredeploy.json) est chargé dans l’interpréteur de commandes (shell). Le modèle lié (linkedTemplate.json) doit être partagé quelque part de manière sécurisée. Le script PowerShell suivant crée un compte Stockage Azure, charge le modèle sur le compte de stockage, puis génère un jeton SAS pour accorder un accès limité au fichier de modèle. Pour simplifier le tutoriel, le script télécharge un modèle lié terminé à partir d’un dépôt Github. Si vous souhaitez utiliser le modèle lié que vous avez créé, vous pouvez utiliser [Cloud Shell](https://shell.azure.com) pour charger votre modèle lié, puis modifier le script afin d’utiliser votre propre modèle lié.
+Le modèle principal et le modèle lié doivent être accessibles à partir de l’emplacement où vous exécutez le déploiement. Dans ce tutoriel, vous utilisez la même méthode de déploiement Cloud Shell que celle utilisée dans le [Tutoriel : Créer des modèles Azure Resource Manager avec des ressources dépendantes](./template-tutorial-create-templates-with-dependent-resources.md). Le modèle principal (azuredeploy.json) est chargé dans l’interpréteur de commandes (shell). Le modèle lié (linkedTemplate.json) doit être partagé quelque part de manière sécurisée. Le script PowerShell suivant crée un compte Stockage Azure, charge le modèle sur le compte de stockage, puis génère un jeton SAS pour accorder un accès limité au fichier de modèle. Pour simplifier ce tutoriel, le script télécharge un modèle lié terminé à partir d’un dépôt GitHub. Si vous souhaitez utiliser le modèle lié que vous avez créé, vous pouvez utiliser [Cloud Shell](https://shell.azure.com) pour charger votre modèle lié, puis modifier le script afin d’utiliser votre propre modèle lié.
 
 > [!NOTE]
 > Le script limite la durée d’utilisation du jeton SAS à huit heures. Si vous avez besoin de plus de temps pour suivre ce tutoriel, augmentez le délai d’expiration.

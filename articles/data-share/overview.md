@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: d1bfad64175ad5b29e4ec158ebe8d8e982b8b100
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 363feda1409d2bb54e60d1b2168cba38f2a8a41c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964445"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621852"
 ---
 # <a name="what-is-azure-data-share"></a>Qu’est-ce qu’Azure Data Share ?
 
@@ -23,7 +23,7 @@ Azure Data Share permet aux organisations de partager leurs données avec plusie
 
 Pour contrôler la façon dont ses données sont utilisées, le fournisseur de données doit spécifier des conditions d’utilisation. Le consommateur de données doit accepter ces conditions pour recevoir les données. Les fournisseurs de données peuvent spécifier la fréquence à laquelle les consommateurs de leurs données doivent recevoir des mises à jour. Le fournisseur de données peut à tout moment révoquer l’accès aux nouvelles mises à jour. 
 
-Azure Data Share améliore l’obtention d’insights en permettant la combinaison de données tierces dans le but d’enrichir les scénarios d’analytique et d’intelligence artificielle. Les outils d’analytique Azure sont faciles à utiliser et permettent de préparer, traiter et analyser les données partagées à l’aide de Azure Data Share. 
+Azure Data Share améliore l’obtention d’insights en permettant la combinaison de données tierces dans le but d’enrichir les scénarios d’analytique et d’intelligence artificielle. Les outils d’analytique Azure sont faciles à utiliser et permettent de préparer, de traiter et d’analyser les données partagées à l’aide d’Azure Data Share. 
 
 Le fournisseur de données et le consommateur de données doivent avoir un abonnement Azure pour partager et recevoir des données. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/).
 

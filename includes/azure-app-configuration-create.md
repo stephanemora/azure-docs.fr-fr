@@ -4,12 +4,12 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: include
 ms.date: 1/31/2020
-ms.openlocfilehash: 017833403beca6fb8689bd6f90cc8f460d56c65e
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 089a199da08503e13dbd42518970c3b7ed8a984d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76961564"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619290"
 ---
 1. Pour créer un magasin App Configuration, connectez-vous au [portail Azure](https://portal.azure.com). En haut à gauche de la page d’accueil, sélectionnez **Créer une ressource**. Dans la zone **Rechercher dans la Place de marché**, entrez **App Configuration** et sélectionnez Entrée.
 
@@ -27,6 +27,7 @@ ms.locfileid: "76961564"
     | **Abonnement** | Votre abonnement | Sélectionnez l’abonnement Azure à utiliser pour tester App Configuration. Si votre compte n’a qu’un seul abonnement, il est automatiquement sélectionné et la liste **Abonnement** n’est pas affichée. |
     | **Groupe de ressources** | *AppConfigTestResources* | Sélectionnez ou créez un groupe de ressources pour votre ressource du magasin App Configuration. Ce groupe est utile pour organiser plusieurs ressources que vous souhaitez supprimer en même temps que vous supprimez ce groupe de ressources. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](/azure/azure-resource-manager/resource-group-overview). |
     | **Lieu** | *USA Centre* | Utilisez **Emplacement** pour indiquer l’emplacement géographique de l’hébergement de votre magasin de configuration d’application. Pour des performances optimales, créez la ressource dans la même région que les autres composants de votre application. |
+    | **Niveau tarifaire** | *Gratuit* | Sélectionnez le niveau tarifaire souhaité. Pour plus de détails, consultez la [page de tarification App Configuration](https://azure.microsoft.com/pricing/details/app-configuration/).
 
     ![Créer une ressource de magasin App Configuration](media/azure-app-configuration-create/azure-portal-app-configuration-create-settings.png)
 

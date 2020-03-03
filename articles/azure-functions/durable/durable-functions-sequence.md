@@ -3,20 +3,18 @@ title: Chaînage de fonctions dans Fonctions durables - Azure
 description: Découvrez comment exécuter un exemple de fonctions durables qui exécute une séquence de fonctions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 11/29/2019
 ms.author: azfuncdf
-ms.openlocfilehash: de2fd1a46d931c5d1b625094940a981509bf1488
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 8da4ce7801cc98f9ffb32eb7b506eaf1ccd877dd
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769555"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562057"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Chaînage de fonctions dans Fonctions durables - Exemple de séquence Hello
 
 Un chaînage de fonctions fait référence au modèle d’exécution d’une séquence de fonctions dans un ordre particulier. La sortie d’une fonction doit souvent être appliquée à l’entrée d’une autre fonction. Cet article décrit la séquence de chaînage que vous créez quand vous suivez le guide de démarrage rapide de Durable Functions ([C#](durable-functions-create-first-csharp.md) ou [JavaScript](quickstart-js-vscode.md)). Pour plus d’informations sur Durable Functions, consultez [Vue d’ensemble de Durable Functions](durable-functions-overview.md).
-
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -24,79 +22,116 @@ Un chaînage de fonctions fait référence au modèle d’exécution d’une sé
 
 Cet article explique les fonctions suivantes dans l’exemple d’application :
 
-* `E1_HelloSequence`: Une fonction orchestrator qui appelle `E1_SayHello` plusieurs fois dans une séquence. Il stocke les sorties à partir des appels de `E1_SayHello` et enregistre les résultats.
-* `E1_SayHello`: Une fonction d’activité qui fait précéder une chaîne de « Hello ».
+* `E1_HelloSequence`: Une [fonction d’orchestrateur](durable-functions-bindings.md#orchestration-trigger) qui appelle `E1_SayHello` plusieurs fois dans une séquence. Il stocke les sorties à partir des appels de `E1_SayHello` et enregistre les résultats.
+* `E1_SayHello`: Une [fonction d’activité](durable-functions-bindings.md#activity-trigger) qui fait précéder une chaîne de « Hello ».
+* `HttpStart`: Une fonction déclenchée par HTTP qui démarre une instance de l’orchestrateur.
 
-Les sections suivantes décrivent la configuration et le code utilisés pour les scripts C# et JavaScript. Le code de développement de Visual Studio est affiché à la fin de l’article.
+### <a name="e1_hellosequence-orchestrator-function"></a>Fonction d’orchestrateur E1_HelloSequence
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=13-25)]
+
+Toutes les fonctions d’orchestration C# doivent avoir un paramètre de type `DurableOrchestrationContext`, qui existe dans l’assembly `Microsoft.Azure.WebJobs.Extensions.DurableTask`. Cet objet de contexte vous permet d’appeler d’autres fonctions *d’activité* et de passer les paramètres d’entrée à l’aide de sa méthode `CallActivityAsync`.
+
+Le code appelle trois fois `E1_SayHello` en séquence avec des valeurs de paramètre différentes. La valeur renvoyée de chaque appel est ajoutée à la liste `outputs`, qui est retournée à la fin de la fonction.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 > [!NOTE]
 > Les fonctions JavaScript Durable Functions sont disponibles uniquement pour le runtime de Functions 2.0.x.
 
-## <a name="e1_hellosequence"></a>E1_HelloSequence
-
-### <a name="functionjson-file"></a>Fichier function.json
+#### <a name="functionjson"></a>function.json
 
 Si vous utilisez Visual Studio Code ou le portail Azure pour le développement, voici le contenu du fichier *function.json* pour la fonction d’orchestrateur. La plupart des fichiers *function.json* d’orchestrateur ressemblent presque exactement à cela.
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/function.json)]
 
 Le point essentiel est le type de liaison `orchestrationTrigger`. Toutes les fonctions d’orchestrateur doivent utiliser ce type de déclencheur.
 
 > [!WARNING]
 > Pour respecter la règle « Aucune E/S » des fonctions d’orchestrateur, n’utilisez aucune liaison d’entrée ou de sortie lors de l’utilisation de la liaison de déclenchement `orchestrationTrigger`.  Si d’autres liaisons d’entrée ou de sortie sont nécessaires, elles doivent plutôt être utilisées dans le contexte des fonctions `activityTrigger`, qui sont appelées par l’orchestrateur. Pour plus d’informations, consultez l’article [Contraintes du code des fonctions d’orchestrateur](durable-functions-code-constraints.md).
 
-### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Script C# (exemple de code Visual Studio Code et portail Azure)
+#### <a name="indexjs"></a>index.js
 
-Voici le code source :
-
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/run.csx)]
-
-Toutes les fonctions d’orchestration C# doivent avoir un paramètre de type `DurableOrchestrationContext`, qui existe dans l’assembly `Microsoft.Azure.WebJobs.Extensions.DurableTask`. Si vous utilisez un script C#, l’assembly peut être référencée à l’aide de la notation `#r`. Cet objet de contexte vous permet d’appeler d’autres fonctions *d’activité* et de passer les paramètres d’entrée à l’aide de sa méthode `CallActivityAsync`.
-
-Le code appelle trois fois `E1_SayHello` en séquence avec des valeurs de paramètre différentes. La valeur renvoyée de chaque appel est ajoutée à la liste `outputs`, qui est retournée à la fin de la fonction.
-
-### <a name="javascript"></a>JavaScript
-
-Voici le code source :
+Voici la fonction :
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
 Toutes les fonctions d’orchestration JavaScript doivent inclure le module [`durable-functions`](https://www.npmjs.com/package/durable-functions). Il s’agit d’une bibliothèque qui vous permet d’écrire des fonctions Durable Functions en JavaScript. Il existe trois différences importantes entre une fonction d’orchestration et les autres fonctions JavaScript :
 
-1. La fonction est une [fonction de générateur.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
+1. La fonction est une [fonction de générateur](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript).
 2. La fonction est encapsulée dans un appel à la méthode `orchestrator` du module `durable-functions` (ici `df`).
 3. La fonction doit être synchrone. Étant donné que la méthode « orchestrator » gère l’appel à « context.done », la fonction doit simplement retourner (« return ») un résultat.
 
-L’objet `context` contient un objet `df` qui vous permet d’appeler d’autres fonctions d’*activité* et de passer les paramètres d’entrée à l’aide de sa méthode `callActivity`. Le code appelle `E1_SayHello` trois fois à la suite avec différentes valeurs de paramètre, en se servant de `yield` pour indiquer que l’exécution doit attendre les appels de fonction d’activité asynchrones à renvoyer. La valeur renvoyée de chaque appel est ajoutée à la liste `outputs`, qui est retournée à la fin de la fonction.
+L’objet `context` contient un objet de contexte d’orchestration durable `df` qui vous permet d’appeler d’autres fonctions d’*activité* et de passer des paramètres d’entrée à l’aide de sa méthode `callActivity`. Le code appelle `E1_SayHello` trois fois à la suite avec différentes valeurs de paramètre, en se servant de `yield` pour indiquer que l’exécution doit attendre les appels de fonction d’activité asynchrones à renvoyer. La valeur renvoyée de chaque appel est ajoutée au tableau `outputs` qui est retourné à la fin de l’exécution de la fonction.
 
-## <a name="e1_sayhello"></a>E1_SayHello
+---
 
-### <a name="functionjson-file"></a>Fichier function.json
+### <a name="e1_sayhello-activity-function"></a>Fonction d’activité E1_SayHello
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=27-32)]
+
+Les activités utilisent l’attribut `ActivityTrigger`. Utilisez la valeur `IDurableActivityContext` fournie pour effectuer des actions liées à l’activité, telles que l’accès à la valeur d’entrée à l’aide de `GetInput<T>`.
+
+L’implémentation de `E1_SayHello` est une opération de mise en forme de chaîne relativement simple.
+
+Au lieu de lier à une valeur `IDurableActivityContext`, vous pouvez établir une liaison directe au type passé dans la fonction d’activité. Par exemple :
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=34-38)]
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+#### <a name="e1_sayhellofunctionjson"></a>E1_SayHello/function.json
 
 Le fichier *function.json* pour la fonction de l’activité `E1_SayHello` est similaire à celle de `E1_HelloSequence` sauf qu’elle utilise un type de liaison `activityTrigger` à la place d’un type de liaison `orchestrationTrigger`.
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/function.json)]
 
 > [!NOTE]
 > N’importe quelle fonction appelée par une fonction d’orchestration doit utiliser la liaison `activityTrigger`.
 
 L’implémentation de `E1_SayHello` est une opération de mise en forme de chaîne relativement simple.
 
-### <a name="c"></a>C#
-
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
-
-Cette fonction a un paramètre de type `DurableActivityContext`, qu’elle utilise pour obtenir l’entrée qui lui a été passée par l’appel de la fonction d’orchestrateur à `CallActivityAsync<T>`.
-
-### <a name="javascript"></a>JavaScript
+#### <a name="e1_sayhelloindexjs"></a>E1_SayHello/index.js
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
 Contrairement à une fonction d’orchestration JavaScript, une fonction d’activité ne nécessite aucune configuration particulière. L’entrée transmise par la fonction d’orchestrateur se trouve sur l’objet `context.bindings` sous le nom de la liaison `activityTrigger`, ici `context.bindings.name`. Le nom de la liaison peut être défini en tant que paramètre de la fonction exportée et accessible directement, ce que fait l’exemple de code.
 
+---
+
+### <a name="httpstart-client-function"></a>Fonction cliente HttpStart
+
+Vous pouvez démarrer une instance de la fonction d’orchestrateur à l’aide d’une fonction cliente. Vous allez utiliser la fonction déclenchée par HTTP `HttpStart` pour démarrer des instances de `E1_HelloSequence`.
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs?range=13-30)]
+
+Pour interagir avec des orchestrateurs, la fonction doit inclure une liaison d’entrée `DurableClient`. Vous utilisez le client pour démarrer une orchestration. Il peut également vous aider à retourner une réponse HTTP contenant des URL pour vérifier l’état de la nouvelle orchestration.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+#### <a name="httpstartfunctionjson"></a>HttpStart/function.json
+
+[!code-json[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json?highlight=16-20)]
+
+Pour interagir avec des orchestrateurs, la fonction doit inclure une liaison d’entrée `durableClient`.
+
+#### <a name="httpstartindexjs"></a>HttpStart/index.js
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
+
+Utilisez `df.getClient` pour obtenir un objet `DurableOrchestrationClient`. Vous utilisez le client pour démarrer une orchestration. Il peut également vous aider à retourner une réponse HTTP contenant des URL pour vérifier l’état de la nouvelle orchestration.
+
+---
+
 ## <a name="run-the-sample"></a>Exécution de l'exemple
 
-Pour exécuter l’orchestration `E1_HelloSequence`, envoyez la requête HTTP POST suivante.
+Pour exécuter l’orchestration `E1_HelloSequence`, envoyez la requête HTTP POST suivante à la fonction `HttpStart`.
 
 ```
 POST http://{host}/orchestrators/E1_HelloSequence
@@ -137,15 +172,9 @@ Content-Type: application/json; charset=utf-8
 Comme vous pouvez le voir, le `runtimeStatus` de l’instance est *Terminé* et le `output` contient le résultat sérialisé en JSON de l’exécution de la fonction d’orchestration.
 
 > [!NOTE]
-> Le point de terminaison HTTP POST qui a démarré la fonction d’orchestrateur est implémenté dans l’application exemple en tant que fonction de déclenchement HTTP nommée « HttpStart ». Vous pouvez implémenter une logique de démarrage similaire pour d’autres types de déclenchement, comme `queueTrigger`, `eventHubTrigger`, ou `timerTrigger`.
+> Vous pouvez implémenter une logique de démarrage similaire pour d’autres types de déclenchement, comme `queueTrigger`, `eventHubTrigger`, ou `timerTrigger`.
 
 Examinez les journaux d’activité d’exécution de fonction. La fonction `E1_HelloSequence` a démarré et s’est terminée plusieurs fois en raison du comportement de relecture décrit dans la rubrique sur la [fiabilité de l’orchestration](durable-functions-orchestrations.md#reliability). En revanche, il n’y a eu que trois exécutions de `E1_SayHello` étant donné que les exécutions de la fonction ne sont pas relues.
-
-## <a name="visual-studio-sample-code"></a>Exemple de code Visual Studio
-
-Voici l’orchestration, présentée sous la forme d’un seul fichier C# dans un projet Visual Studio :
-
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

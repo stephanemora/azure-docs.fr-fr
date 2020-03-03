@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/28/2019
+ms.date: 02/21/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 38ee180fa59fec6619010a3ded1f6837a5ca5239
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371341"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77558881"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -26,7 +26,7 @@ Vous pouvez contrôler l’accès réseau sortant à partir d’un sous-réseau 
 
 Le trafic réseau est soumis aux règles de pare-feu configurées lorsque vous routez votre trafic réseau vers le pare-feu en tant que sous-réseau de passerelle par défaut.
 
-Pour ce didacticiel, vous devez créer un seul réseau virtuel simplifié avec trois sous-réseaux pour un déploiement facile. Pour les déploiements de production, un [modèle Hub and Spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), dans lequel le pare-feu est dans son propre réseau virtuel, est recommandé. Les serveurs de la charge de travail se trouvent dans des réseaux virtuels appairés dans la même région avec un ou plusieurs sous-réseaux.
+Pour ce didacticiel, vous devez créer un seul réseau virtuel simplifié avec trois sous-réseaux pour un déploiement facile. Pour les déploiements de production, l’utilisation d’un [modèle Hub and Spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) est recommandée. Le pare-feu se trouve dans son propre réseau virtuel. Les serveurs de la charge de travail se trouvent dans des réseaux virtuels appairés dans la même région avec un ou plusieurs sous-réseaux.
 
 * **AzureFirewallSubnet** : le pare-feu est dans ce sous-réseau.
 * **Workload-SN** : le serveur de la charge de travail est dans ce sous-réseau. Le trafic réseau de ce sous-réseau traverse le pare-feu.
@@ -60,7 +60,7 @@ Le groupe de ressources contient toutes les ressources utilisées dans ce didact
 2. Dans le menu du Portail Azure, sélectionnez **Groupes de ressources** ou recherchez et sélectionnez *Groupes de ressources* dans n’importe quelle page. Sélectionnez ensuite **Ajouter**.
 3. Dans **Nom du groupe de ressources**, entrez *Test-FW-RG*.
 4. Pour **Abonnement**, sélectionnez votre abonnement.
-5. Pour **Emplacement du groupe de ressources**, sélectionnez un emplacement. Toutes les ressources suivantes que vous créez doivent se trouver dans le même emplacement.
+5. Pour **Emplacement du groupe de ressources**, sélectionnez un emplacement. Toutes les autres ressources que vous créez doivent se trouver dans le même emplacement.
 6. Sélectionnez **Create** (Créer).
 
 ### <a name="create-a-vnet"></a>Créer un réseau virtuel
@@ -193,10 +193,11 @@ Il s’agit de la règle d’application qui autorise un accès sortant vers www
 6. Pour **Priorité**, entrez **200**.
 7. Pour **Action**, sélectionnez **Autoriser**.
 8. Sous **Règles**, **Noms de domaine complets cibles**, pour **Nom**, tapez **Allow-Google**.
-9. Pour **Adresses sources**, entrez **10.0.2.0/24**.
-10. Pour **Protocol:port**, entrez **http, https**.
-11. Pour **Noms de domaine complets cibles**, tapez **www.google.com**
-12. Sélectionnez **Ajouter**.
+9. Pour **Type de source**, sélectionnez **Adresse IP**.
+10. Pour **Source**, tapez **10.0.2.0/24**.
+11. Pour **Protocol:port**, entrez **http, https**.
+12. Pour **Noms de domaine complets cibles**, tapez **www.google.com**
+13. Sélectionnez **Ajouter**.
 
 Le Pare-feu Azure comprend un regroupement de règles intégré pour les noms de domaine complets d’infrastructure qui sont autorisés par défaut. Ces noms de domaine complets sont spécifiques à la plateforme et ne peuvent pas être utilisés à d’autres fins. Pour plus d’informations, consultez [Noms de domaine complets d’infrastructure](infrastructure-fqdns.md).
 
@@ -209,10 +210,11 @@ Il s’agit de la règle de réseau qui autorise un accès sortant à deux adres
 3. Pour **Nom**, entrez **Net-Coll01**.
 4. Pour **Priorité**, entrez **200**.
 5. Pour **Action**, sélectionnez **Autoriser**.
-6. Sous **Règles**, pour **Nom**, tapez **Allow-DNS**.
+6. Sous **Règles**, **Adresses IP**, pour **Nom**, tapez **Allow-DNS**.
 7. Pour **Protocole**, sélectionnez **UDP**.
-8. Pour **Adresses sources**, entrez **10.0.2.0/24**.
-9. Pour Adresse de destination, entrez **209.244.0.3,209.244.0.4**
+9. Pour **Type de source**, sélectionnez **Adresse IP**.
+1. Pour **Source**, tapez **10.0.2.0/24**.
+2. Pour **Adresse de destination**, tapez **209.244.0.3,209.244.0.4**
 
    Il s’agit de serveurs DNS publics gérés par CenturyLink.
 1. Pour **Ports de destination**, entrez **53**.

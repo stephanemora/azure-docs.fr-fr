@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 8598be504f62089cf20123918779c310b2fb8ec8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ee8dec821e8cbb4657323c167a463b94b7935ab1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445641"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623416"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Fonctionnalités Apache Cassandra prises en charge par l’API Cassandra Azure Cosmos DB 
 
@@ -96,7 +96,7 @@ L’API Cassandra Azure Cosmos DB prend en charge les fonctions CQL suivantes :
 
 ## <a name="cassandra-api-limits"></a>Limites de l’API Cassandra
 
-L’API Cassandra Azure Cosmos DB n’a aucune limite sur la taille des données stockées dans une table. Des centaines de téraoctets ou pétaoctets de données peuvent être stockées tout en garantissant le respect des limites de clé de partition. De même, chaque entité ou ligne équivalente n’a aucune limite de nombre de colonnes. Toutefois, la taille totale de l’entité ne doit pas dépasser 2 Mo. Les données par clé de partition ne peuvent pas dépasser 10 Go, comme dans toutes les autres API.
+L’API Cassandra Azure Cosmos DB n’a aucune limite sur la taille des données stockées dans une table. Des centaines de téraoctets ou pétaoctets de données peuvent être stockées tout en garantissant le respect des limites de clé de partition. De même, chaque entité ou ligne équivalente n’a aucune limite de nombre de colonnes. Toutefois, la taille totale de l’entité ne doit pas dépasser 2 Mo. Les données par clé de partition ne peuvent pas dépasser 20 Go, comme dans toutes les autres API.
 
 ## <a name="tools"></a>Outils 
 

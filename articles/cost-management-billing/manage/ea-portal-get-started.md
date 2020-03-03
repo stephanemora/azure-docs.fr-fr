@@ -3,16 +3,16 @@ title: Bien démarrer avec le portail Azure Enterprise
 description: Cet article explique comment les clients Contrat Entreprise Azure (Azure EA) utilisent le portail Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: e1c6eac81968ef6ecbc12ec52415c2aa9680f3e1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: fa55eebe6d051addcb5249908fd52e7e6ce44f12
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200827"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598406"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Bien démarrer avec le portail Azure Enterprise
 
@@ -559,7 +559,7 @@ Vous pouvez créer autant de services que nécessaire dans le cadre de votre ins
 
 Après avoir créé des services et des abonnements, vous pouvez voir les données dans le rapport d’utilisation. Ces informations peuvent vous aider à suivre l’utilisation ainsi qu’à gérer les coûts et les dépenses au niveau du service.
 
-Vous pouvez également accéder aux données d’utilisation par le biais de l’API de création de rapports. Pour obtenir des informations détaillées et des exemples de code, consultez [Documentation de l’API de création de rapports](https://ea.azure.com/helpdocs/reportingAPI).
+Vous pouvez également accéder aux données d’utilisation par le biais de l’API de création de rapports. Pour obtenir des informations détaillées et des exemples de code, consultez [API REST Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
 
 ### <a name="can-i-set-a-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>Puis-je définir un quota de dépenses et recevoir des alertes lorsque je m’approche de ma limite ?
 
@@ -571,7 +571,7 @@ Pour définir votre quota de dépenses, sélectionnez un service, puis sélectio
 
 Si vous utilisez des _groupes de ressources_ et des _balises_, ces informations sont suivies au niveau du service, et vous pouvez y accéder dans le fichier de téléchargement d’utilisation détaillé (CSV). Consultez le [rapport d’utilisation à télécharger](https://ea.azure.com/report/downloadusage) dans le portail Azure Enterprise.
 
-Vous pouvez également accéder à l’utilisation via l’API. Pour obtenir des informations détaillées et des exemples de code, consultez l’[API de création de rapports](https://ea.azure.com/helpdocs/reportingAPI) dans la documentation du portail Azure Enterprise.
+Vous pouvez également accéder à l’utilisation via l’API. Pour obtenir des informations détaillées et des exemples de code, consultez [API REST Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
 
 > [!NOTE]
 > Vous ne pouvez appliquer des balises qu’à des ressources qui prennent en charge les opérations Azure Resource Manager. Si vous avez créé une machine virtuelle, un réseau virtuel ou un stockage par le biais du modèle de déploiement classique (tel que via le portail Azure classique), vous ne pouvez pas appliquer de balise à cette ressource. Vous devez redéployer ces ressources via Resource Manager pour prendre en charge le balisage. Toutes les autres ressources prennent en charge le balisage.

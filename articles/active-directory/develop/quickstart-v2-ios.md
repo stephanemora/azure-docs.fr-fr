@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: c9eb8b3d909313470ee9febdc5b1c37eea834b08
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: f0b4d1f557006ba8a343a0497262cc5c8254e86c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484041"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561580"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application iOS ou macOS
 
@@ -117,7 +117,7 @@ Dans une fenêtre de terminal, accédez au dossier à l’aide de l’exemple de
 > 1. Générez et exécutez l'application !
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Ce guide de démarrage rapide prend en charge Enter_the_Supported_Account_Info_Here.
+> > Enter_the_Supported_Account_Info_Here
 > [!div renderon="docs"]
 >
 > 1. Extrayez le fichier zip et ouvrez le projet dans XCode.

@@ -1,18 +1,18 @@
 ---
 title: Configurer le pipeline CI/CD avec la tâche de génération d’émulateur Azure Cosmos DB
-description: Tutoriel sur la configuration des workflows de création et de mise en production dans Azure DevOps à l’aide de la tâche de génération de l’émulateur Cosmos DB
+description: Didacticiel sur la configuration des workflows de création et de mise en production dans Azure DevOps à l’aide de la tâche de génération de l’émulateur Cosmos DB
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 4b05b4b44df53846a4880249785c6a5deda62f8a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0a705ad81925491fe054d846143472c6e4432b69
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846545"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561900"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurer un pipeline CI/CD avec la tâche de génération d’émulateur Azure Cosmos DB
 
@@ -67,13 +67,13 @@ Start-CosmosDbEmulator
 
    ![Ajouter la tâche de génération d’émulateur à une définition de build](./media/tutorial-setup-ci-cd/addExtension_3.png)
 
-Dans ce tutoriel, vous allez ajouter la tâche au début, afin que l’émulateur soit disponible avant d’exécuter nos tests.
+Dans ce didacticiel, vous allez ajouter la tâche au début, afin que l’émulateur soit disponible avant d’exécuter nos tests.
 
 ## <a name="configure-tests-to-use-the-emulator"></a>Configurer des tests pour utiliser l’émulateur
 
 Maintenant, nous allons configurer nos tests pour utiliser l’émulateur. La tâche de génération d’émulateur exporte une variable d’environnement (CosmosDbEmulator.Endpoint) vers laquelle toutes les tâches suivantes du pipeline de build peuvent émettre des requêtes. 
 
-Dans ce tutoriel, nous allons utiliser la [tâche Visual Studio Test](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) pour exécuter des tests unitaires configurés via un fichier **.runsettings**. Pour en savoir plus sur l’initialisation de test unitaire, consultez la [documentation](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017). L’exemple complet de code d’application Todo que vous utilisez dans ce document est disponible sur [Github](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
+Dans ce tutoriel, nous allons utiliser la [tâche Visual Studio Test](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) pour exécuter des tests unitaires configurés via un fichier **.runsettings**. Pour en savoir plus sur l’initialisation de test unitaire, consultez la [documentation](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017). L’exemple complet de code d’application Todo que vous utilisez dans ce document est disponible sur [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app).
 
 Voici un exemple de fichier **.runsettings** qui définit les paramètres à transmettre dans les tests unitaires d’une application. Remarquez que la variable `authKey` utilisée est la [clé connue](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) pour l’émulateur. Cette `authKey` est la clé attendue par la tâche de génération d’émulateur Elle doit être définie dans votre fichier **.runsettings**.
 

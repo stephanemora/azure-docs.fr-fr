@@ -1,5 +1,5 @@
 ---
-title: Tutoriel pour copier des données sur un appareil Azure Data Box Heavy par le biais du service de copie des données | Microsoft Docs
+title: 'Tutoriel : Copier des données sur Azure Data Box Heavy via le service de copie des données'
 description: Dans ce tutoriel, vous allez apprendre à copier des données sur votre appareil Azure Data Box Heavy par le biais du service de copie des données.
 services: databox
 author: alkohli
@@ -8,14 +8,14 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: adc28ea5f74ad16d4387d246ef73618a53ea26e1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 67547db53d2b9ce05838335ffcb5d789b77ecbbe
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595818"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560218"
 ---
-# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Didacticiel : Utiliser le service de copie des données pour copier des données dans Azure Data Box Heavy (préversion)
+# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Tutoriel : Utiliser le service de copie des données pour copier des données dans Azure Data Box Heavy (préversion)
 
 Ce tutoriel explique comment ingérer des données par l’intermédiaire du service de copie des données, sans l’aide d’un hôte intermédiaire. Ce service s’exécute localement sur Azure Data Box Heavy, se connecte à votre périphérique NAS par le biais de SMB, puis copie les données sur Data Box Heavy.
 
@@ -24,7 +24,7 @@ Utilisez le service de copie des données :
 - Dans les environnements NAS où les hôtes intermédiaires ne sont pas disponibles.
 - Avec de petits fichiers dont l’ingestion et le chargement de données prend des semaines. Le service de copie des données améliore considérablement le temps d’ingestion et de chargement des petits fichiers.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Copier des données sur Data Box Heavy
@@ -111,7 +111,7 @@ Pour copier des données par l’intermédiaire du service de copie des données
 
 6. Pendant que la tâche est en cours d’exécution, dans la page **Copier des données** :
 
-    - Dans la colonne **État**, vous pouvez voir l’état du travail de copie. L’état peut être :
+    - Dans la colonne **État**, vous pouvez voir l’état du travail de copie. L'état peut prendre l'une des valeurs suivantes :
         - **Exécution**
         - **Échec**
         - **Réussi**

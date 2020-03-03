@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 97679ec48ee9120005118b6cacaf37e45657db08
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 69acb9152d1dc30d986276939e29e8c183095b18
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906632"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539601"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -27,12 +27,12 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Configurer l’hébergement de site web statique
 > * Déployer un site web Hello World
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 > [!NOTE] 
-> Créez un compte de stockage à usage général v2. Les sites web statiques ne sont pas disponibles dans les autres types de comptes de stockage.
+> Veillez à créer un compte de stockage Standard universel v2. Les sites web statiques ne sont pas disponibles dans les autres types de comptes de stockage.
 
 Ce tutoriel utilise [Visual Studio Code](https://code.visualstudio.com/download), outil gratuit pour les programmeurs qui s’en servent pour créer le site web statique et le déployer sur un compte Stockage Azure.
 

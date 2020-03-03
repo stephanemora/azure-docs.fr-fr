@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/20/2019
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: b0b48fea308b385fd8c66bf87d708b1c51f7f495
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d7b060a2b35ca41bf87b69be706284174d7b1012
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977352"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587156"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutoriel : Processus Apache Kafka pour les événements Event Hubs à l’aide de Stream Analytics 
 Cet article décrit comment diffuser des données dans des hubs d’événements Kafka et les traiter avec Azure Stream Analytics. Il vous guide dans les étapes suivantes : 
@@ -30,7 +30,7 @@ Cet article décrit comment diffuser des données dans des hubs d’événements
 Vous n’avez pas besoin de changer vos clients de protocole ou d’exécuter vos propres clusters quand vous utilisez le point de terminaison Kafka exposé par un hub d’événements. Azure Event Hubs prend en charge [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html) et versions ultérieures. 
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce démarrage rapide, vérifiez que vous avez :
 
@@ -42,34 +42,10 @@ Pour suivre ce démarrage rapide, vérifiez que vous avez :
 
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Créer un espace de noms Event Hubs prenant en charge Kafka
+Quand vous créez un espace de noms Event Hubs de niveau **Standard**, le point de terminaison Kafka pour l’espace de noms est automatiquement activé. Vous pouvez alors transmettre les événements de vos applications qui utilisent le protocole Kafka vers l’espace de noms Event Hubs de niveau Standard. Suivez les instructions pas à pas de l’article [Créer un hub d’événements avec le portail Azure](event-hubs-create.md) pour créer un espace de noms Event Hubs de niveau **Standard**. 
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com), puis cliquez sur **Créer une ressource** en haut à gauche de l’écran.
-2. Recherchez **Event Hubs** et sélectionnez les options indiquées ici :
-    
-    ![Rechercher Event Hubs dans le portail](./media/event-hubs-kafka-stream-analytics/select-event-hubs.png) 
-3. Dans la page **Event Hubs**, sélectionnez **Créer**.
-4. Dans la page **Créer un espace de noms**, effectuez les actions suivantes : 
-    1. Indiquez un **nom** unique pour l’espace de noms. 
-    2. Sélectionnez un **niveau tarifaire**. 
-    3. Sélectionnez **Activer Kafka**. Il s’agit d’une étape **importante**. 
-    4. Sélectionnez **l’abonnement** dans lequel vous voulez créer l’espace de noms du hub d’événements. 
-    5. Créez un **groupe de ressources** ou sélectionnez-en un. 
-    6. Sélectionnez un **emplacement**. 
-    7. Cliquez sur **Créer**.
-    
-        ![Créer un espace de noms](./media/event-hubs-kafka-stream-analytics/create-event-hub-namespace-page.png) 
-4. Dans le **message de notification**, sélectionnez le **nom du groupe de ressources**. 
-
-    ![Créer un espace de noms](./media/event-hubs-kafka-stream-analytics/creation-station-message.png)
-1. Sélectionnez **l’espace de noms du hub d’événements** dans le groupe de ressources. 
-2. Une fois l’espace de noms créé, sélectionnez **Stratégies d’accès partagé** sous **PARAMÈTRES**.
-
-    ![Cliquer sur Stratégies d’accès partagé](./media/event-hubs-kafka-stream-analytics/shared-access-policies.png)
-5. Vous pouvez choisir **RootManageSharedAccessKey** par défaut ou ajouter une nouvelle stratégie. Cliquez sur le nom de la stratégie et copiez la **chaîne de connexion**. Vous utilisez la chaîne de connexion pour configurer le client Kafka. 
-    
-    ![Sélectionner une stratégie](./media/event-hubs-kafka-stream-analytics/connection-string.png)  
-
-Vous pouvez désormais diffuser des événements à partir de vos applications qui utilisent le protocole Kafka dans Event Hubs.
+> [!NOTE]
+> Event Hubs pour Kafka est disponible uniquement avec le niveau **Standard** et les niveaux **dédiés**. Le niveau **De base** ne prend pas en charge Kafka sur Event Hubs.
 
 ## <a name="send-messages-with-kafka-in-event-hubs"></a>Envoyer des messages avec Kafka dans Event Hubs
 

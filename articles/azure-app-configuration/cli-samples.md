@@ -1,18 +1,17 @@
 ---
-title: Exemples Azure CLI - Azure App Configuration | Microsoft Docs
-description: Fournit des informations sur les exemples de scripts disponibles pour Azure App Configuration
+title: Exemples Azure CLI – Azure App Configuration
+description: Informations sur les exemples de scripts fournis pour Azure App Configuration
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: sample
-ms.date: 02/24/2019
-ms.custom: mvc
-ms.openlocfilehash: 0e559b3aa5d04cfdc2ab1152ae11bd80b9f89415
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/19/2020
+ms.openlocfilehash: a255db3fbce2c111a0a629c01b86cc891d71e803
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899650"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523745"
 ---
 # <a name="azure-cli-samples"></a>Exemples d’interface de ligne de commande Azure
 

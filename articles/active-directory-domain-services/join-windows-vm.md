@@ -7,24 +7,24 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 02/19/2020
 ms.author: iainfou
-ms.openlocfilehash: 4753cc9a98cd59c0c5d446b3d92280aabfb72c12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d15877107e49c57f8f33b8ec41caeb7d48230b91
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474699"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613874"
 ---
-# <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Didacticiel : Joindre une machine virtuelle Windows Server à un domaine géré
+# <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutoriel : Joindre une machine virtuelle Windows Server à un domaine géré
 
 Azure Active Directory Domain Services (Azure AD DS) fournit des services de domaine managés, comme la jonction de domaine, la stratégie de groupe, le protocole LDAP, et l’authentification Kerberos/NTLM entièrement compatible avec Windows Server Active Directory. Avec un domaine managé Azure AD DS, vous pouvez fournir des fonctionnalités de jonction de domaine et de gestion à des machines virtuelles dans Azure. Ce tutoriel vous montre comment créer une machine virtuelle Windows Server, puis la joindre à un domaine managé Azure AD DS.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une machine virtuelle Windows Server
-> * Se connecter à la machine virtuelle Windows Server sur un réseau virtuel Azure
+> * Connecter la machine virtuelle Windows Server à un réseau virtuel Azure
 > * Joindre la machine virtuelle au domaine managé Azure AD DS
 
 Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -41,6 +41,8 @@ Pour effectuer ce didacticiel, vous avez besoin des ressources suivantes :
     * Si nécessaire, [créez et configurez une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Un compte d’utilisateur membre du groupe *Administrateurs Azure AD DC* dans votre locataire Azure AD.
     * Vérifiez que la synchronisation du hachage de mot de passe ou que la réinitialisation du mot de passe en libre-service d’Azure AD Connect a été effectuée pour que le compte puisse se connecter au domaine managé Azure AD DS.
+* Un hôte Azure Bastion déployé dans votre réseau virtuel Azure AD DS.
+    * Si nécessaire, [créez un hôte Azure Bastion][azure-bastion].
 
 Si vous disposez déjà d’une machine virtuelle que vous voulez joindre à un domaine, passez à la section expliquant comment [joindre la machine virtuelle au domaine managé Azure AD DS](#join-the-vm-to-the-azure-ad-ds-managed-domain).
 
@@ -70,13 +72,13 @@ Si vous disposez déjà d’une machine virtuelle que vous voulez joindre à un 
     | Nom d’utilisateur             | Entrez un nom d’utilisateur pour le compte d’administrateur local à créer sur la machine virtuelle, par exemple *azureuser* |
     | Mot de passe             | Entrez puis confirmez un mot de passe sécurisé pour l’administrateur local à créer sur la machine virtuelle. Ne spécifiez pas les informations d’identification d’un compte d’utilisateur du domaine. |
 
-1. Par défaut, les machines virtuelles créées dans Azure ne sont pas accessibles depuis Internet. Cette configuration permet d’améliorer la sécurité de la machine virtuelle et de réduire le champ des attaques potentielles. Dans l’étape suivante de ce tutoriel, vous devez vous connecter à la machine virtuelle avec le protocole RDP (Remote Desktop Protocol), puis joindre le serveur Windows Server au domaine managé Azure AD DS.
+1. Par défaut, les machines virtuelles créées dans Azure sont accessibles à partir d’Internet à l’aide de RDP. Quand RDP est activé, des attaques de connexion automatique sont susceptibles de se produire, ce qui peut désactiver les comptes avec des noms communs, comme *admin* ou *administrator* en raison de plusieurs tentatives de connexion successives en échec.
 
-    Quand RDP est activé, des attaques de connexion automatique sont susceptibles de se produire, ce qui peut désactiver les comptes avec des noms communs, comme *admin* ou *administrator* en raison de plusieurs tentatives de connexion successives en échec. RDP doit être activé seulement quand c’est nécessaire et être limité à un ensemble de plages d’adresses IP autorisées. L’[accès juste-à-temps Azure aux machines virtuelles][jit-access] dans le cadre d’Azure Security Center peut permettre ces sessions RDP de courte durée et limitées. Vous pouvez également [créer et utiliser un hôte Azure Bastion (actuellement en préversion)][azure-bastion] pour autoriser l’accès uniquement via le portail Azure sur SSL.
+    RDP doit être activé seulement quand c’est nécessaire et être limité à un ensemble de plages d’adresses IP autorisées. Cette configuration permet d’améliorer la sécurité de la machine virtuelle et de réduire le champ des attaques potentielles. Ou, créez et utilisez un hôte Azure Bastion qui autorise l’accès uniquement via le portail Azure sur SSL. Dans l’étape suivante de ce tutoriel, vous allez utiliser un hôte Azure Bastion pour vous connecter de façon sécurisée à la machine virtuelle.
 
-    Pour ce tutoriel, activez manuellement les connexions RDP à la machine virtuelle.
+    Pour le moment, désactivez les connexions RDP directes à la machine virtuelle.
 
-    Sous **Ports d’entrée publics**, sélectionnez l’option pour **Autoriser les ports sélectionnés**. Dans le menu déroulant pour **Sélectionner les ports entrants**, choisissez *RDP (3389)* .
+    Sous **Ports d’entrée publics**, sélectionnez *Aucun*.
 
 1. Quand vous avez terminé, sélectionnez **Suivant : Disques**.
 1. Dans le menu déroulant pour le **Type de disque de système d’exploitation**, choisissez *SSD Standard*, puis sélectionnez **Suivant : Mise en réseau**.
@@ -120,20 +122,23 @@ La création de la machine virtuelle ne nécessite que quelques minutes. Le port
 
 ## <a name="connect-to-the-windows-server-vm"></a>Se connecter à la machine virtuelle Windows Server
 
-Connectons-nous maintenant à la machine virtuelle Windows Server nouvellement créée avec RDP et joignons-la au domaine managé Azure AD DS. Utilisez les informations d’identification de l’administrateur local que vous avez spécifiées lors de la création de la machine virtuelle à l’étape précédente, et non pas des informations d’identification du domaine existantes.
+Pour vous connecter de façon sécurisée à vos machines virtuelles, utilisez un hôte Azure Bastion. Avec Azure Bastion, un hôte managé est déployé dans votre réseau virtuel et fournit aux machines virtuelles des connexions RDP ou SSH basées sur le web. Aucune adresse IP publique n’est requise pour les machines virtuelles et vous n’avez pas besoin d’ouvrir de règles de groupe de sécurité réseau pour le trafic distant externe. Vous vous connectez aux machines virtuelles à l’aide du portail Azure à partir de votre navigateur web.
 
-1. Dans le volet **Vue d’ensemble** du laboratoire, sélectionnez **Connexion**.
+Pour utiliser un hôte Bastion pour vous connecter à votre machine virtuelle, procédez comme suit :
 
-    ![Se connecter à une machine virtuelle Windows dans le portail Azure](./media/join-windows-vm/connect-to-vm.png)
+1. Dans le volet **Vue d’ensemble** de votre machine virtuelle, sélectionnez **Se connecter**, puis **Bastion**.
 
-1. Sélectionnez l’option *Télécharger le fichier RDP*. Enregistrez ce fichier RDP dans votre navigateur web.
-1. Pour vous connecter à votre machine virtuelle, ouvrez le fichier RDP téléchargé. Si vous y êtes invité, sélectionnez **Connexion**.
-1. Entrez les informations d’identification de l’administrateur local que vous avez entrées à l’étape précédente pour créer la machine virtuelle, par exemple *localhost\azureuser*
-1. Si vous voyez un avertissement lié au certificat pendant le processus de connexion, sélectionnez **Oui** ou **Continuer** pour vous connecter.
+    ![Se connecter à une machine virtuelle Windows à l’aide de Bastion dans le portail Azure](./media/join-windows-vm/connect-to-vm.png)
+
+1. Entrez les informations d’identification pour votre machine virtuelle que vous avez spécifiées dans la section précédente, puis sélectionnez **Se connecter**.
+
+   ![Se connecter via l’hôte Bastion dans le portail Azure](./media/join-windows-vm/connect-to-bastion.png)
+
+Si nécessaire, autorisez votre navigateur web à ouvrir des fenêtres contextuelles pour afficher la connexion Bastion. Il faut quelques secondes pour établir la connexion à votre machine virtuelle.
 
 ## <a name="join-the-vm-to-the-azure-ad-ds-managed-domain"></a>Joindre la machine virtuelle au domaine managé Azure AD DS
 
-Une fois la machine virtuelle créée et une connexion RDP établie, joignons maintenant la machine virtuelle Windows Server au domaine managé Azure AD DS. Ce processus est identique à celui d’un ordinateur qui se connecte à un domaine Active Directory Domain Services local normal.
+Une fois la machine virtuelle créée et une connexion RDP basée sur le web établie à l’aide d’Azure Bastion, joignons maintenant la machine virtuelle Windows Server au domaine managé Azure AD DS. Ce processus est identique à celui d’un ordinateur qui se connecte à un domaine Active Directory Domain Services local normal.
 
 1. Si **Gestionnaire de serveur** ne s’ouvre pas par défaut lorsque vous vous connectez à la machine virtuelle, sélectionnez le menu **Démarrer**, puis choisissez **Gestionnaire de serveur**.
 1. Dans le volet gauche de la fenêtre **Gestionnaire de serveur**, cliquez sur l’option **Serveur local**. Sous **Propriétés** dans le volet droit, choisissez **Groupe de travail**.
@@ -144,16 +149,16 @@ Une fois la machine virtuelle créée et une connexion RDP établie, joignons ma
 
     ![Choisir de modifier les propriétés de groupe de travail ou du domaine](./media/join-windows-vm/change-domain.png)
 
-1. Dans la zone**Domaine**, spécifiez le nom de votre domaine managé Azure AD DS, par exemple *contoso.com*, puis sélectionnez **OK**.
+1. Dans la zone **Domaine**, spécifiez le nom de votre domaine managé Azure AD DS, par exemple *aaddscontoso.com*, puis sélectionnez **OK**.
 
     ![Spécifier le domaine managé Azure AD DS auquel se joindre](./media/join-windows-vm/join-domain.png)
 
 1. Entrez les informations d’identification du domaine pour vous joindre au domaine. Utilisez les informations d’identification d’un utilisateur appartenant au groupe *Administrateurs Azure AD DC*. Seuls les membres de ce groupe ont les privilèges nécessaires pour pouvoir joindre des machines au domaine managé Azure AD DS. Le compte doit faire partie du domaine géré Azure AD DS ou du Client Azure AD : les comptes de répertoires externes associés à votre Client Azure AD ne peuvent pas s’authentifier correctement au cours du processus de jonction de domaine. Les informations d’identification du compte peuvent être spécifiées de l’une des manières suivantes :
 
-    * **Format UPN** (recommandé) : Entrez le suffixe du nom de l’utilisateur principal (UPN) pour le compte d’utilisateur, tel qu’il est configuré dans Azure AD. Par exemple, le suffixe UPN de l’utilisateur *contosoadmin* serait `contosoadmin@contoso.onmicrosoft.com`. Il existe deux cas d’utilisation courants dans lesquels le format UPN peut être utilisé de façon fiable pour se connecter au domaine, au lieu du format *SAMAccountName* :
+    * **Format UPN** (recommandé) : Entrez le suffixe du nom de l’utilisateur principal (UPN) pour le compte d’utilisateur, tel qu’il est configuré dans Azure AD. Par exemple, le suffixe UPN de l’utilisateur *contosoadmin* serait `contosoadmin@aaddscontoso.onmicrosoft.com`. Il existe deux cas d’utilisation courants dans lesquels le format UPN peut être utilisé de façon fiable pour se connecter au domaine, au lieu du format *SAMAccountName* :
         * Si le préfixe UPN d’un utilisateur est long, par exemple *deehasareallylongname*, le *SAMAccountName* peut être généré automatiquement.
         * Si plusieurs utilisateurs ont le même préfixe UPN au sein de votre locataire Azure AD, par exemple, *dee*, leur format *SAMAccountName* peut être généré automatiquement.
-    * **Format SAMAccountName** : Entrez le nom du compte au format *SAMAccountName*. Par exemple, le *SAMAccountName* de l’utilisateur *contosoadmin* serait `CONTOSO\contosoadmin`.
+    * **Format SAMAccountName** : Entrez le nom du compte au format *SAMAccountName*. Par exemple, le *SAMAccountName* de l’utilisateur *contosoadmin* serait `AADDSCONTOSO\contosoadmin`.
 
 1. Quelques secondes sont nécessaires pour se joindre au domaine managé Azure AD DS. Quand c’est terminé, le message suivant vous accueille dans le domaine :
 
@@ -164,32 +169,23 @@ Une fois la machine virtuelle créée et une connexion RDP établie, joignons ma
 1. Pour terminer le processus de jonction au domaine managé Azure AD DS, redémarrez la machine virtuelle.
 
 > [!TIP]
-> Vous pouvez joindre une machine virtuelle à un domaine en utilisant PowerShell avec l’applet de commande [Add-Computer][add-computer]. L’exemple suivant effectue une jonction au domaine *CONTOSO*, puis redémarre la machine virtuelle. Quand vous y êtes invité, entrez les informations d’identification d’un utilisateur appartenant au groupe *Administrateurs Azure AD DC* :
+> Vous pouvez joindre une machine virtuelle à un domaine en utilisant PowerShell avec l’applet de commande [Add-Computer][add-computer]. L’exemple suivant joint le domaine *AADDSCONTOSO*, puis redémarre la machine virtuelle. Quand vous y êtes invité, entrez les informations d’identification d’un utilisateur appartenant au groupe *Administrateurs Azure AD DC* :
 >
-> `Add-Computer -DomainName CONTOSO -Restart`
+> `Add-Computer -DomainName AADDSCONTOSO -Restart`
 >
 > Pour joindre une machine virtuelle à un domaine sans vous y connecter et configurer manuellement la connexion, vous pouvez utiliser l’applet de commande Azure PowerShell [Set-AzVmAdDomainExtension][set-azvmaddomainextension].
 
 Une fois la machine virtuelle Windows Server redémarrée, toutes les stratégies appliquées dans le domaine managé Azure AD DS sont envoyées (push) à la machine virtuelle. Vous pouvez également vous connecter à la machine virtuelle Windows Server en utilisant des informations d’identification du domaine appropriées.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Dans le tutoriel suivant, vous utilisez cette machine virtuelle Windows Server pour installer les outils de gestion qui vous permettent d’administrer le domaine managé Azure AD DS. Si vous ne voulez pas continuer dans cette série de tutoriels, passez en revue les étapes de nettoyage suivantes pour [désactiver RDP](#disable-rdp) ou pour [supprimer la machine virtuelle](#delete-the-vm). Sinon, [passez au tutoriel suivant](#next-steps).
+Dans le tutoriel suivant, vous utilisez cette machine virtuelle Windows Server pour installer les outils de gestion qui vous permettent d’administrer le domaine managé Azure AD DS. Si vous ne voulez pas continuer cette série de tutoriels, passez en revue les étapes de nettoyage suivantes pour [supprimer la machine virtuelle](#delete-the-vm). Sinon, [passez au tutoriel suivant](#next-steps).
 
 ### <a name="un-join-the-vm-from-azure-ad-ds-managed-domain"></a>Annuler la jonction de la machine virtuelle au domaine managé Azure AD DS
 
 Pour supprimer la machine virtuelle du domaine managé Azure AD DS, suivez à nouveau les étapes permettant de [joindre la machine virtuelle à un domaine](#join-the-vm-to-the-azure-ad-ds-managed-domain). Au lieu de joindre le domaine managé Azure AD DS, choisissez de joindre un groupe de travail, comme le *WORKGROUP* (groupe de travail) par défaut. Une fois la machine virtuelle redémarrée, l’objet ordinateur est supprimé du domaine managé Azure AD DS.
 
 Si vous [supprimez la machine virtuelle](#delete-the-vm) sans annuler la jonction au domaine, un objet ordinateur orphelin est laissé dans Azure AD DS.
-
-### <a name="disable-rdp"></a>Désactiver RDP
-
-Si vous continuez à utiliser la machine virtuelle Windows Server créée dans ce tutoriel pour exécuter vos propres applications ou charges de travail, rappelez-vous que RDP a été ouvert sur Internet. Pour améliorer la sécurité et réduire le risque d’attaque, RDP doit être désactivé sur Internet. Pour désactiver RDP sur la machine virtuelle Windows Server sur Internet, effectuez les étapes suivantes :
-
-1. Dans le menu de gauche, sélectionnez **Groupes de ressources**.
-1. Choisissez votre groupe de ressources, par exemple *myResourceGroup*.
-1. Choisissez votre machine virtuelle, par exemple *myVM*, puis sélectionnez *Mise en réseau*.
-1. Sous **Règles de sécurité réseau de trafic entrant** pour le groupe de sécurité réseau, sélectionnez la règle qui autorise RDP, puis choisissez **Supprimer**. La suppression de la règle de sécurité de trafic entrant prend quelques secondes.
 
 ### <a name="delete-the-vm"></a>Supprimer la machine virtuelle
 
@@ -211,7 +207,7 @@ Si vous ne recevez pas d’invite demandant des informations d’identification 
 Après avoir essayé chacune de ces étapes de dépannage, réessayez de joindre la machine virtuelle Windows Server au domaine managé.
 
 * Vérifiez que la machine virtuelle est connectée au même réseau virtuel que celui où Azure AD DS est activé, ou qu’elle a une connexion réseau appairée.
-* Effectuez un test Ping du nom de domaine DNS du domaine managé, par exemple `ping contoso.com`.
+* Effectuez un test Ping du nom de domaine DNS du domaine managé, par exemple `ping aaddscontoso.com`.
     * Si le test Ping échoue, essayez d’effectuer un test Ping des adresses IP du domaine managé, par exemple `ping 10.0.0.4`. L’adresse IP de votre environnement est affiché dans la page *Propriétés* quand vous sélectionnez le domaine managé Azure AD DS dans votre liste de ressources Azure.
     * Si le test ping de l’adresse IP aboutit contrairement à celui du domaine, il se peut que la fonction DNS ne soit pas correctement configurée. Vérifiez que les adresses IP du domaine managé sont configurées en tant que serveurs DNS pour le réseau virtuel.
 * Essayez de vider le cache du résolveur DNS sur la machine virtuelle en utilisant la commande `ipconfig /flushdns`.
@@ -224,13 +220,13 @@ Après avoir essayé chacune de ces étapes de dépannage, réessayez de joindre
 
 * Vérifiez que le compte d’utilisateur que vous spécifiez appartient au groupe *Administrateurs AAD DC*.
 * Vérifiez que le compte fait partie du domaine géré par Azure AD DS ou par le Client Azure AD. Les comptes de répertoires externes associés à votre Client Azure AD ne peuvent pas s’authentifier correctement au cours du processus de jonction de domaine.
-* Essayez en utilisant le format UPN pour spécifier les informations d’identification, par exemple `contosoadmin@contoso.onmicrosoft.com`. S’il existe de nombreux utilisateurs avec le même préfixe UPN sur votre locataire, ou si votre préfixe UPN est très long, le *SAMAccountName* de votre compte peut être généré automatiquement. Dans ces cas-là, le format *SAMAccountName* de votre compte peut être différent de ce que vous attendez ou de ce que vous utilisez dans votre domaine local.
+* Essayez en utilisant le format UPN pour spécifier les informations d’identification, par exemple `contosoadmin@aaddscontoso.onmicrosoft.com`. S’il existe de nombreux utilisateurs avec le même préfixe UPN sur votre locataire, ou si votre préfixe UPN est très long, le *SAMAccountName* de votre compte peut être généré automatiquement. Dans ces cas-là, le format *SAMAccountName* de votre compte peut être différent de ce que vous attendez ou de ce que vous utilisez dans votre domaine local.
 * Vérifiez que vous avez [activé la synchronisation de mot de passe][password-sync] avec votre domaine managé. Sans cette étape de configuration, les hachages de mot de passe nécessaires ne sont pas présents dans le domaine managé Azure AD DS pour authentifier correctement votre tentative de connexion.
 * Attendez la fin de la synchronisation du mot de passe. Quand le mot de passe d’un compte d’utilisateur est changé, une synchronisation automatique en arrière-plan à partir d’Azure AD met à jour le mot de passe dans Azure AD DS. Il faut un certain temps pour que le mot de passe soit disponible pour être utilisé dans une jonction de domaine.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une machine virtuelle Windows Server
@@ -249,6 +245,5 @@ Pour administrer votre domaine managé Azure AD DS, configurez une machine virtu
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [password-sync]: active-directory-ds-getting-started-password-sync.md
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
-[jit-access]: ../security-center/security-center-just-in-time.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

@@ -4,17 +4,17 @@ description: Ce tutoriel vous aide à planifier et à prendre en compte les coû
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/10/2020
+ms.date: 02/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 9900a2f7a41a6b35be75326b9412ec628328e39b
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 3b479f85475be6409a6fa6621357400e954d22c8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132098"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582384"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -34,9 +34,9 @@ Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Créez un budget dans le portail Azure
 > * Créer et modifier des budgets avec PowerShell
-> * Modifier un budget
+> * Créer un budget avec un modèle Azure Resource Manager
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Les budgets sont pris en charge pour différents types de comptes Azure. Pour accéder à la liste complète des types de comptes pris en charge, voir [Comprendre les données de Cost Management](understand-cost-mgt-data.md). Pour afficher les budgets, vous devez au minimum disposer d'un accès en lecture à votre compte Azure.
 
@@ -160,6 +160,16 @@ $ActionGroupId = (Set-AzureRmActionGroup -ResourceGroupName YourResourceGroup -N
 
 New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
 ```
+## <a name="create-a-budget-with-an-azure-resource-manager-template"></a>Créer un budget avec un modèle Azure Resource Manager
+
+Vous pouvez créer un budget en utilisant un modèle Azure Resource Manager. Le modèle vous aide à créer un budget pour un groupe de ressources. Le modèle prend uniquement en charge les clients titulaires d’un contrat Entreprise.
+
+Sélectionnez l’image suivante pour vous connecter au portail Azure et ouvrir le modèle :
+
+[![Déployer le modèle Créer un budget dans Azure](./media/tutorial-acm-create-budgets/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fcreate-budget%2fazuredeploy.json)
+
+Pour voir la liste de tous les paramètres de modèle et leurs descriptions, consultez le modèle [Créer un budget](https://azure.microsoft.com/resources/templates/create-budget/).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -168,7 +178,7 @@ Dans ce didacticiel, vous avez appris à :
 > [!div class="checklist"]
 > * Créez un budget dans le portail Azure
 > * Créer et modifier des budgets avec PowerShell
-> * Modifier un budget
+> * Créer un budget avec un modèle Azure Resource Manager
 
 Passez au tutoriel suivant pour créer une exportation récurrente de vos données de gestion des coûts.
 

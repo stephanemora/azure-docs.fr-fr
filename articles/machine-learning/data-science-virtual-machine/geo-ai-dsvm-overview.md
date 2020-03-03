@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que l’intelligence artificielle géométrique DSVM ?
+title: Présentation de la Data Science Virtual Machine d’intelligence artificielle géographique
 titleSuffix: Azure Data Science Virtual Machine
 description: La Data Science Virtual Machine d’intelligence artificielle géographique fournit ArcGIS Pro pour le traitement de données géographiques, ainsi que Python, R et des kits de ressources de science des données pour exploiter le machine learning et l’intelligence artificielle.
 keywords: apprentissage profond, IA, outils de science des données, machine virtuelle de science des données, analyse géospatiale
@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
-ms.openlocfilehash: 7e2976596ca6b55ea57e00015e53b2721438e990
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: f5a094613b8722f96fccd1d1a6df359fa9b0ebd4
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899916"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526059"
 ---
 # <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Qu’est-ce que la Data Science Virtual Machine d’intelligence artificielle géographique ?
 

@@ -2,14 +2,14 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/13/2020
+ms.date: 02/19/2020
 ms.author: dacoulte
-ms.openlocfilehash: 1f949a5c13393758d69223fa49e9e84d91e27310
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 21f4e4234025ab4b9bb14a1e1338aa4b748ef1a6
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77370854"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77495237"
 ---
 |Nom |Description |Effet(s) |Version |Source |
 |---|---|---|---|
@@ -22,6 +22,8 @@ ms.locfileid: "77370854"
 |[Ajouter l’étiquette avec sa valeur du groupe de ressources](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9ea02ca2-71db-412d-8b00-7c7ca9fcd32d) |Ajoute l’étiquette indiquée avec sa valeur du groupe de ressources lors de la création ou de la mise à jour d’une ressource à laquelle cette étiquette manque. Ne modifie pas les étiquettes des ressources créées avant l’application de cette stratégie, tant que ces ressources ne sont pas modifiées. De nouvelles stratégies d’effet « modify » sont disponibles pour prendre en charge la correction des étiquettes sur les ressources existantes (voir https://aka.ms/modifydoc). |append |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_Append.json)
 |[Hériter d’une étiquette du groupe de ressources](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcd3aa116-8754-49c9-a813-ad46512ece54) |Ajoute ou remplace l’étiquette et la valeur indiquées du groupe de ressources parent lors de la création ou de la mise à jour d’une ressource. Il est possible de corriger des ressources existantes en déclenchant une tâche de correction. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_AddOrReplace_Modify.json)
 |[Hériter d’une étiquette du groupe de ressources en cas d’absence](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea3f2387-9b95-492a-a190-fcdc54f7b070) |Ajoute l’étiquette indiquée avec sa valeur du groupe de ressources parent lors de la création ou de la mise à jour d’une ressource à laquelle cette étiquette manque. Il est possible de corriger des ressources existantes en déclenchant une tâche de correction. Si l’étiquette existe avec une valeur différente, elle n’est pas modifiée. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_Add_Modify.json)
+|[Hériter une étiquette de l’abonnement](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb27a0cbd-a167-4dfa-ae64-4337be671140) |Ajoute ou remplace l’étiquette spécifiée et sa valeur de l’abonnement conteneur lors de la création ou de la mise à jour d’une ressource. Il est possible de corriger des ressources existantes en déclenchant une tâche de correction. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_AddOrReplace_FromSubscription.json)
+|[Hériter une étiquette de l’abonnement si elle est manquante](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F40df99da-1232-49b1-a39a-6da8d878f469) |Ajoute l’étiquette spécifiée avec sa valeur de l’abonnement conteneur lors de la création ou de la mise à jour d’une ressource qui n’a pas cette étiquette. Il est possible de corriger des ressources existantes en déclenchant une tâche de correction. Si l’étiquette existe avec une valeur différente, elle n’est pas modifiée. |modify |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/InheritTag_Add_FromSubscription.json)
 |[Exiger l’étiquette spécifiée](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F871b6d14-10aa-478d-b590-94f262ecfa99) |Applique l’existence d’une étiquette. Ne s’applique pas aux groupes de ressources. |deny |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/RequireTag_Deny.json)
 |[Exiger l’étiquette spécifiée sur des groupes de ressources](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F96670d01-0a4d-4649-9c89-2d3abc0a5025) |Applique l’existence d’une étiquette sur des groupes de ressources. |deny |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/ResourceGroupRequireTag_Deny.json)
 |[Exiger une étiquette et sa valeur](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1e30110a-5ceb-460c-a204-c1c3969c6d62) |Applique une balise requise et sa valeur. Ne s’applique pas aux groupes de ressources. |deny |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/RequireTagAndValue_Deny.json)

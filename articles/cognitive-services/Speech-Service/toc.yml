@@ -193,6 +193,10 @@
           items:
             - name: API REST de synthèse vocale
               href: rest-text-to-speech.md
+        - name: Utilisation du poste téléphonique
+          items:
+            - name: Utilisation du poste téléphonique avec l’API Speech (SAPI)
+              href: sapi-phoneset-usage.md
     - name: Ressources
       items:
         - name: Questions fréquentes (FAQ) sur la synthèse vocale

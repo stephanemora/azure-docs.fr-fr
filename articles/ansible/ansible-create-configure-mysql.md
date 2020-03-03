@@ -4,14 +4,14 @@ description: Découvrez comment utiliser Ansible pour créer et configurer un se
 keywords: ansible, azure, devops, bash, playbook, mysql, base de données
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: d8c8fd361f37a9cb961012807fe40b905c10c047
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f068b3022c94466a20b524240dc293392b1f42ff
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156532"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603111"
 ---
-# <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Didacticiel : Configurer des bases de données dans Azure Database pour MySQL avec Ansible
+# <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Tutoriel : Configurer des bases de données dans Azure Database pour MySQL avec Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
@@ -35,7 +35,7 @@ ms.locfileid: "74156532"
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Le code du playbook de cette section crée un groupe de ressources Azure. Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.  
+Le code de playbook dans cette section crée un groupe de ressources Azure. Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.  
 
 Enregistrez le playbook suivant en tant que `rg.yml` :
 
@@ -56,7 +56,7 @@ Avant d’exécuter le playbook, consultez les notes suivantes :
 * Un groupe de ressources nommé `myResourceGroup` est créé.
 * Le groupe de ressources est créé à l’emplacement `eastus` :
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook rg.yml
@@ -105,7 +105,7 @@ Avant d’exécuter le playbook, consultez les notes suivantes :
 * Dans la section `vars`, la valeur de `mysqlserver_name` doit être unique.
 * Dans la section `vars`, remplacez `<server_admin_password>` par un mot de passe.
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook mysql_create.yml
@@ -147,7 +147,7 @@ Avant d’exécuter le playbook, consultez les notes suivantes :
 * Les connexions à la base de données Azure pour MySQL communiquent via le port 3306. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 3306 peut être bloqué. Si c’est le cas, vous ne pouvez pas vous connecter à votre serveur, sauf si votre service informatique ouvre le port 3306.
 * Le playbook utilise le module `azure_rm_resource`, qui permet une utilisation directe de l’API REST.
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook mysql_firewall.yml
@@ -249,7 +249,7 @@ Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 ansible-playbook mysql_query.yml
 ```
 
-Le playbook devrait alors donner une sortie de ce type :
+Après avoir exécuté le playbook, vous voyez une sortie similaire aux résultats suivants :
 
 ```json
 "servers": [
@@ -309,9 +309,9 @@ La sortie suivante s’affiche également pour la base de données MySQL :
 ]
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Dès que vous n’avez plus besoin des ressources créées dans cet article, supprimez-les. 
+Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 
 Enregistrez le playbook suivant en tant que `cleanup.yml` :
 

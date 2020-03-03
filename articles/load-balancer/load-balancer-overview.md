@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 376741005f0755d01c95baad8d3a3d33e9952933
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: ce8ae7f2f4de3659dc8dde98dc71d39886341498
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023903"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602172"
 ---
 # <a name="what-is-azure-load-balancer"></a>Qu’est-ce qu’Azure Load Balancer ?
 
@@ -31,16 +31,16 @@ Un **[équilibreur de charge public](./concepts-limitations.md#publicloadbalance
 
 Un **[équilibreur de charge interne (ou privé)](./concepts-limitations.md#internalloadbalancer)** est utilisé lorsque des adresses IP privées sont nécessaires uniquement au niveau du serveur front-end. Les équilibreurs de charge internes sont utilisés pour équilibrer la charge du trafic au sein d’un réseau virtuel. Vous pouvez accéder au front-end d’un équilibreur de charge à partir d’un réseau local dans le cadre d’un scénario hybride.
 
-<div align="center">
-  <img src='./media/load-balancer-overview/IC744147.png'>
-</div>
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer.svg" width="512" title="Azure Load Balancer">
+</p>
 
 *Figure : Équilibrage d’applications multiniveaux à l’aide d’un Load Balancer public et d’un Load Balancer interne*
 
 Pour plus d’informations sur les composants de l’équilibreur de charge, consultez [Composants et limitations d’Azure Load Balancer](./concepts-limitations.md).
 
 >[!NOTE]
-> Azure offre une suite de solutions d’équilibrage de charge entièrement managées pour vos scénarios. Si vous avez besoin d’un équilibrage de charge haute performance, à faible latence et de couche 4, consultez [Qu’est-ce qu’Azure Load Balancer ?](../load-balancer/load-balancer-overview.md). Si vous recherchez un équilibrage de charge DNS global, consultez [Qu’est-ce que Traffic Manager ?](../traffic-manager/traffic-manager-overview.md). Vos scénarios de bout en bout peuvent tirer parti de la combinaison de ces solutions.
+> Azure offre une suite de solutions d’équilibrage de charge entièrement managées pour vos scénarios. Si vous avez besoin d’un équilibrage de charge hautement performant, à faible latence et de couche 4, consultez [Qu’est-ce qu’Azure Application Gateway ?](../application-gateway/overview.md) Si vous recherchez un équilibrage de charge DNS global, consultez [Qu’est-ce que Traffic Manager ?](../traffic-manager/traffic-manager-overview.md). Vos scénarios de bout en bout peuvent tirer parti de la combinaison de ces solutions.
 >
 > Pour obtenir une comparaison des options d’équilibrage de charge Azure, consultez [Vue d’ensemble des options d’équilibrage de charge dans Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
@@ -71,7 +71,7 @@ Voici les principaux scénarios que vous pouvez gérer avec Standard Load Balanc
 
 ### <a name="securebydefault"></a>Sécuriser par défaut
 
-Standard Load Balancer repose sur le modèle de sécurité réseau Confiance Zéro. Standard Load Balancer est sécurisé par défaut et fait partie de votre réseau virtuel. Le réseau virtuel est un réseau privé et isolé.  Cela signifie que les équilibreurs de charge Standard et les adresses IP publiques standard sont fermés aux flux entrants, sauf s’ils sont ouverts par des groupes de sécurité réseau. Les groupes de sécurité réseau sont utilisés pour autoriser explicitement et placer le trafic autorisé en liste verte.  Si vous n’avez pas de groupe de sécurité réseau sur un sous-réseau ou une carte réseau de votre ressource de machine virtuelle, le trafic n’est pas autorisé à atteindre cette ressource. Pour plus d’informations sur les Groupes de sécurité réseau et la façon de les appliquer à votre scénario, consultez [Filtrer le trafic réseau avec les groupes de sécurité réseau](../virtual-network/security-overview.md).
+Standard Load Balancer repose sur le modèle de sécurité réseau Confiance Zéro. Standard Load Balancer est sécurisé par défaut et fait partie de votre réseau virtuel. Le réseau virtuel est un réseau privé et isolé.  Cela signifie que les équilibreurs de charge Standard et les adresses IP publiques standard sont fermés aux flux entrants, sauf s’ils sont ouverts par des groupes de sécurité réseau. Les groupes de sécurité réseau sont utilisés pour autoriser explicitement le trafic autorisé.  Si vous n’avez pas de groupe de sécurité réseau sur un sous-réseau ou une carte réseau de votre ressource de machine virtuelle, le trafic n’est pas autorisé à atteindre cette ressource. Pour plus d’informations sur les Groupes de sécurité réseau et la façon de les appliquer à votre scénario, consultez [Filtrer le trafic réseau avec les groupes de sécurité réseau](../virtual-network/security-overview.md).
 Par défaut, Basic Load Balancer est ouvert sur Internet.
 
 

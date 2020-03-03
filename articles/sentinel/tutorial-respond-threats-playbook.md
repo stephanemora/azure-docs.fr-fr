@@ -1,9 +1,9 @@
 ---
-title: 'Didacticiel : Exécuter un playbook dans Azure Sentinel'
-description: 'Didacticiel : Cet article décrit comment exécuter un playbook dans Azure Sentinel.'
+title: 'Tutoriel : Exécuter un playbook dans Azure Sentinel'
+description: 'Tutoriel : Cet article décrit comment exécuter un playbook dans Azure Sentinel.'
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: e4afc5c8-ffad-4169-8b73-98d00155fa5a
@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2019
-ms.author: rkarlin
-ms.openlocfilehash: 7e26e901fdee8cac79cfb55aa0999487e87b8a78
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/18/2019
+ms.author: yelevin
+ms.openlocfilehash: f6adcb978dbe540d3bdd352089d4dde407d0fb4c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113911"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585082"
 ---
-# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Didacticiel : Configurer des réponses automatisées aux menaces dans Azure Sentinel
+# <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>Tutoriel : Configurer des réponses automatisées aux menaces dans Azure Sentinel
 
 
 
@@ -64,7 +64,7 @@ Pour créer un playbook de sécurité dans Azure Security, procédez comme suit
 
    ![Application logique](./media/tutorial-respond-threats-playbook/playbookimg.png)
 
-3. Dans la page **Security Center – Playbooks (préversion)** , cliquez sur le bouton **Ajouter**.
+3. Dans la page **Azure Sentinel - Playbooks**, cliquez sur le bouton **Ajouter**.
 
    ![Créer une application logique](./media/tutorial-respond-threats-playbook/create-playbook.png) 
 

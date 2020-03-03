@@ -6,16 +6,19 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 286b2fc349fc16a79dd3048a164f4c86924f0a1c
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: ca93b4fa85f5ef3ab87d108242e9cbfbd12036ab
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873571"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77521861"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-mongodb-api"></a>Exemples Azure PowerShell pour Azure Cosmos DB - API MongoDB
 
 Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerShell pour l’API MongoDB Azure Cosmos DB.
+
+> [!NOTE]
+> Actuellement, vous pouvez uniquement créer la version 3.2 (c’est-à-dire, les comptes utilisant le point de terminaison au format `*.documents.azure.com`) de l’API d’Azure Cosmos DB pour les comptes MongoDB à l’aide de PowerShell, de l’interface CLI et des modèles Resource Manager. Pour créer la version 3.6 des comptes, utilisez le portail Azure à la place.
 
 | | |
 |---|---|

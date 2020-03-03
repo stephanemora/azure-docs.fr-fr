@@ -5,12 +5,12 @@ author: mumian
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5379bf3c0a5127e5114ac819bd3e0e2ad12e8d69
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 82b6e3c1a3c17c624dec67093379e8a493b7264f
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045259"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561525"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Tutoriel : Déployer des extensions de machines virtuelles avec des modèles Azure Resource Manager
 
@@ -27,7 +27,7 @@ Ce tutoriel décrit les tâches suivantes :
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
@@ -42,7 +42,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="prepare-a-powershell-script"></a>Préparer un script PowerShell
 
-Un script PowerShell avec le contenu suivant est partagé à partir de [Github](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1) :
+Un script PowerShell avec le contenu suivant est partagé à partir de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1) :
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools

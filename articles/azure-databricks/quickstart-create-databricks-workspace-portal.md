@@ -10,18 +10,18 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: e212c95a827b01485d4bdfdc557e459a92162c88
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 46bad14978957ab474cfc0eda3e523874246d3f3
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263203"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586221"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks avec le portail Azure
 
 Dans ce guide de démarrage rapide, vous allez utiliser le portail Azure pour créer un espace de travail Azure Databricks avec un cluster Apache Spark. Vous exécutez un travail sur le cluster et utilisez des graphiques personnalisés pour produire des rapports en temps réel à partir de données de sécurité Boston.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 
@@ -55,7 +55,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     |**Lieu**     | Sélectionnez **USA Ouest 2**. Pour les autres régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/).        |
     |**Niveau tarifaire**     |  Choisissez **Standard**, **Premium** ou **Essai**. Pour plus d’informations sur ces niveaux, consultez la [page de tarification Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-4. Sélectionnez **Vérifier + créer**, puis **Créer**. La création de l’espace de travail dure quelques minutes. Pendant la création de l'espace de travail, vous pouvez consulter l'état du déploiement dans **Notifications**.
+3. Sélectionnez **Vérifier + créer**, puis **Créer**. La création de l’espace de travail dure quelques minutes. Pendant la création de l'espace de travail, vous pouvez consulter l'état du déploiement dans **Notifications**. À l’issue de ce processus, votre compte d’utilisateur est automatiquement ajouté comme utilisateur administrateur dans l’espace de travail.
 
     ![Vignette de déploiement Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Vignette de déploiement Databricks")
 

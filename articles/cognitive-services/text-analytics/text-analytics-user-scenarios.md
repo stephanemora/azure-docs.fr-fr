@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/29/2019
+ms.date: 02/25/2020
 ms.author: aahi
-ms.openlocfilehash: 027e6ec829e9de9956451e48e5f9e1cdd749f9f7
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 560f34d21a68cecc4950db5dcceb9c8ef7b05a49
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689332"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614435"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Exemples de scénarios utilisateur pour l’API Analyse de texte
 
@@ -44,6 +44,12 @@ Utilisez l’extraction de phrases clés et la reconnaissance d’entité pour t
 Supervisez les commentaires relatifs à votre produit sur la page Facebook ou twitter qui lui est consacrée. Utilisez les données pour analyser les sentiments des clients dans la perspective du lancement de nouveaux produits, extraire les phrases clés liées aux caractéristiques et aux demandes de caractéristiques ou traiter les plaintes des clients à mesure qu’elles se produisent. Consultez l’exemple [Modèle Microsoft Flow](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/).
 
 ![Image montrant comment superviser les commentaires portant sur votre produit et votre entreprise sur les réseaux sociaux à l’aide de l’extraction de phrases clés](media/use-cases/social-feed.svg)
+
+## <a name="classify-and-redact-documents-that-have-sensitive-information"></a>Classifier et biffer des documents contenant des informations sensibles
+
+Utilisez la reconnaissance d’entité nommée pour identifier les informations personnelles et sensibles dans les documents. Utilisez les données pour classifier les documents ou les biffer afin de pouvoir les partager de manière sécurisée.
+
+![Image décrivant l’utilisation de la reconnaissance d’entité nommée pour détecter les informations personnelles et pour classifier et biffer des documents](media/use-cases/sensitive-docs.jpg)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

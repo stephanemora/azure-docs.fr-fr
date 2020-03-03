@@ -8,42 +8,47 @@ ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: fd8a053eb4ff0805b95dc11db4206e1dd2edb184
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/25/2020
+ms.openlocfilehash: cbef6029b93f134f95ee54aa87ce0dd65bcdf50d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406934"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624006"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans Node.js à l’aide des API REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
-> * [Portal](search-get-started-portal.md)
+> * [Portail](search-get-started-portal.md)
 > * [PowerShell](search-create-index-rest-api.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Créez une application Node.js qui crée, charge et interroge un index Recherche cognitive Azure. Cet article explique comment créer l’application pas à pas. Vous pouvez également [télécharger le code source et les données](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/), puis exécuter l’application à partir de la ligne de commande.
+Créez une application Node.js qui crée, charge et interroge un index Recherche cognitive Azure. Cet article explique comment créer l’application pas à pas. Vous pouvez aussi [télécharger le code source et les données](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/), puis exécuter l’application à partir de la ligne de commande.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Voici les services, outils et données utilisés dans ce guide de démarrage rapide.
+Nous avons utilisé les services et logiciels suivants pour générer et tester ce guide de démarrage rapide :
 
-+ [Node.js](https://nodejs.org).
-+ [NPM](https://www.npmjs.com) doit être installé par Node.js.
-+ Des exemples de structure d’index et de documents correspondants sont fournis dans cet article, ou à partir du répertoire [**Démarrage rapide** du référentiel](https://github.com/Azure-Samples/azure-search-javascript-samples/).
++ [Node.JS](https://nodejs.org)
+
++ [NPM](https://www.npmjs.com) doit être installé par Node.js
+
++ Un exemple de structure d’index et les documents correspondants sont fournis dans cet article et se trouvent dans le répertoire [**quickstart** du dépôt ](https://github.com/Azure-Samples/azure-search-javascript-samples/)
+
 + [Créez un service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide.
 
 Recommandé :
 
-* [Visual Studio Code](https://code.visualstudio.com).
+* [Visual Studio Code](https://code.visualstudio.com)
+
 * Extensions [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) et [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) pour VSCode.
 
 <a name="get-service-info"></a>
+
 ## <a name="get-keys-and-urls"></a>Obtenir des clés et des URL
 
 Les appels au service nécessitent un point de terminaison d’URL et une clé d’accès pour chaque requête. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté la Recherche cognitive Azure à votre abonnement, effectuez ce qui suit pour obtenir les informations nécessaires :
@@ -108,16 +113,17 @@ Commencez par ouvrir une console PowerShell ou un autre environnement dans leque
       }
     }
     ```
-Créez un fichier **azure_search_config.json** pour stocker les données de votre service de recherche :
 
-```json
-{
-    "serviceName" : "[SERVICE_NAME]",
-    "adminKey" : "[ADMIN_KEY]",
-    "queryKey" : "[QUERY_KEY]",
-    "indexName" : "hotels-quickstart"
-}
-```
+5. Créez un fichier **azure_search_config.json** pour stocker les données de votre service de recherche :
+
+    ```json
+    {
+        "serviceName" : "[SEARCH_SERVICE_NAME]",
+        "adminKey" : "[ADMIN_KEY]",
+        "queryKey" : "[QUERY_KEY]",
+        "indexName" : "hotels-quickstart"
+    }
+    ```
 
 Remplacez la valeur `[SERVICE_NAME]` par le nom de votre service de recherche. Remplacez `[ADMIN_KEY]` et `[QUERY_KEY]` par les valeurs de clé que vous avez enregistrées précédemment. 
 
@@ -403,7 +409,7 @@ Le [package **nconf**](https://github.com/indexzero/nconf) permet de spécifier 
 ```javascript
 function getAzureConfiguration() {
     const config = nconf.file({ file: 'azure_search_config.json' });
-    if (config.get('serviceName') === '[SEARCH_SERVICE_NAME' ) {
+    if (config.get('serviceName') === '[SEARCH_SERVICE_NAME]' ) {
         throw new Error("You have not set the values in your azure_search_config.json file. Change them to match your search service's values.");
     }
     return config;
@@ -433,7 +439,7 @@ Enfin, spécifiez et appelez la fonction `run` asynchrone principale. Cette fonc
 const run = async () => {
     try {
         const cfg = getAzureConfiguration();
-        const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get["serviceName"]);
+        const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get("indexName));
         
         const exists = await client.indexExistsAsync();
         await exists ? client.deleteIndexAsync() : Promise.resolve();
@@ -452,7 +458,7 @@ N’oubliez pas l’appel final à `run()` ! C’est le point d’entrée de vot
 
 Notez que `AzureSearchClient.indexExistsAsync()` et `AzureSearchClient.deleteIndexAsync()` ne prennent pas de paramètres. Ces fonctions appellent `AzureSearchClient.request()` sans argument `bodyJson`. Dans `AzureSearchClient.request()`, étant donné que `bodyJson === null` est `true`, la structure `init` est configurée pour comprendre uniquement le verbe HTTP (« GET » pour `indexExistsAsync()` et « DELETE » pour `deleteIndexAsync()`) et les en-têtes, qui spécifient la clé de requête.  
 
-En revanche, la méthode `AzureSearchClient.createIndexAsync(indexDefinition)` _prend_ un paramètre. La fonction `run` dans `index.js` transmet le contenu du fichier **hotels_quickstart_index.json** à la méthode `AzureSearchClient.createIndexAsync(indexDefinition)`. La méthode `createIndexAsync()` transmet cette définition à `AzureSearchClient.request()`. Dans `AzureSearchClient.request()`, étant donné que `bodyJson === null` est désormais `false`, la structure `init` comprend non seulement le verbe HTTP (« PUT ») et les en-têtes, mais configure la valeur `body` sur les données de définition d’index.
+En revanche, la méthode `AzureSearchClient.createIndexAsync(indexDefinition)`_prend_ un paramètre. La fonction `run` dans `index.js` transmet le contenu du fichier **hotels_quickstart_index.json** à la méthode `AzureSearchClient.createIndexAsync(indexDefinition)`. La méthode `createIndexAsync()` transmet cette définition à `AzureSearchClient.request()`. Dans `AzureSearchClient.request()`, étant donné que `bodyJson === null` est désormais `false`, la structure `init` comprend non seulement le verbe HTTP (« PUT ») et les en-têtes, mais configure la valeur `body` sur les données de définition d’index.
 
 ### <a name="prepare-and-run-the-sample"></a>Préparer et exécuter l’exemple
 
@@ -684,7 +690,7 @@ La classe **AzureSearchClient** encapsule la configuration, les URL et les requ�
 
 Le comportement global de la fonction `run` consiste à supprimer l’index Recherche cognitive Azure s’il existe, à créer l’index, à ajouter des données et à effectuer des requêtes.  
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous travaillez dans votre propre abonnement, il est recommandé, à la fin de chaque projet, de déterminer si vous avez toujours besoin des ressources que vous avez créées. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
 

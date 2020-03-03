@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Partager des ancres entre plusieurs sessions et appareils'
+title: 'Tutoriel : Partager des ancres entre plusieurs sessions et appareils'
 description: Dans ce tutoriel, vous allez apprendre à partager des identificateurs Azure Spatial Anchor entre des appareils Android/iOS dans Unity avec un service back-end.
 author: ramonarguelles
 manager: vriveras
@@ -8,14 +8,14 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f0029fcf8e9efdea529212a7cca49cc8660c623f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3b377f87bdba40c90cb3af6caef2c089d7b7de49
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276961"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615498"
 ---
-# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Didacticiel : Partager Azure Spatial Anchors entre plusieurs sessions et appareils
+# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Tutoriel : Partager Azure Spatial Anchors entre plusieurs sessions et appareils
 
 Dans ce tutoriel, vous allez apprendre à utiliser [Azure Spatial Anchors](../overview.md) pour créer des ancres au cours d’une session et les localiser ensuite sur le même appareil ou un autre. Ces mêmes ancres pourront aussi être localisées par plusieurs appareils au même emplacement et au même moment.
 
@@ -44,13 +44,13 @@ Il est important de noter que vous allez utiliser Unity et une application web A
 
 ## <a name="deploy-your-sharing-anchors-service"></a>Déployer votre service de partage des ancres
 
-## <a name="visual-studiotabvs"></a>[Visual Studio](#tab/VS)
+## <a name="visual-studio"></a>[Visual Studio](#tab/VS)
 
 Ouvrez Visual Studio, puis ouvrez le projet au dossier `Sharing\SharingServiceSample`.
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
-## <a name="visual-studio-codetabvsc"></a>[Visual Studio Code](#tab/VSC)
+## <a name="visual-studio-code"></a>[Visual Studio Code](#tab/VSC)
 
 Vous devrez créer un groupe de ressources et un plan App Service avant de déployer le service dans VS Code.
 
@@ -77,7 +77,7 @@ Dans la boîte de dialogue **Configurer le plan d’hébergement**, utilisez ces
 | Paramètre | Valeur suggérée | Description |
 |-|-|-|
 |Plan App Service| MySharingServicePlan | Nom du plan App Service. |
-| Location | USA Ouest | Centre de données dans lequel l’application web est hébergée. |
+| Emplacement | USA Ouest | Centre de données dans lequel l’application web est hébergée. |
 | Size | Gratuit | [Niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) déterminant les fonctionnalités d’hébergement. |
 
 Sélectionnez **OK**.
@@ -89,6 +89,12 @@ Ouvrez Visual Studio Code, puis le projet situé dans le dossier `Sharing\Sharin
 ## <a name="deploy-the-sample-app"></a>Déployer l’exemple d’application
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
+
+## <a name="troubleshooting"></a>Dépannage
+
+### <a name="unity-20193"></a>Unity 2019.3
+
+En raison de changements cassants, Unity 2019.3 n’est pas pris en charge pour le moment. Utilisez Unity 2019.1 ou 2019.2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

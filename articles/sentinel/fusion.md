@@ -3,23 +3,30 @@ title: Détection avancée des attaques multiphases dans Azure Sentinel
 description: Utilisez la technologie Fusion d’Azure Sentinel pour réduire l’épuisement des alertes et créer des incidents actionnables basés sur la détection avancée des attaques multiphases.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/12/2020
-ms.author: rkarlin
-ms.openlocfilehash: ada2ad67bc3634d8e6a31d3c8a69fc0c8b08a93a
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.date: 02/18/2020
+ms.author: yelevin
+ms.openlocfilehash: 87ca322cbdfdd8a53a3ecefcb120a961ea1bb936
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77369695"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587921"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Détection avancée des attaques multiphases dans Azure Sentinel
+
+
+> [!IMPORTANT]
+> Certaines fonctionnalités de fusion dans Azure Sentinel sont actuellement en version préliminaire publique.
+> Ces fonctionnalités étant fournies sans contrat de niveau de service, elles sont déconseillées pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
 
 À l’aide de la technologie Fusion basée sur le machine learning, Azure Sentinel peut détecter automatiquement les attaques multiphases en combinant les comportements anormaux et les activités suspectes observés à différentes phases de la chaîne de destruction. Azure Sentinel génère alors des incidents qui, sans cela, seraient très difficiles à identifier. Ces incidents couvrent au moins deux alertes ou activités. Le système est conçu pour générer des incidents haute fidélité, à faible volume, présentant un niveau de gravité élevé.
 
@@ -41,13 +48,32 @@ Cette détection est activée par défaut dans Azure Sentinel. Suivez les instru
 
 Les modèles de règles ne s’appliquent pas à la détection avancée des attaques multiphases.
 
+> [!NOTE]
+> Azure Sentinel utilise actuellement 30 jours de données historiques pour former les systèmes de Machine Learning. Ces données sont toujours chiffrées à l’aide des clés de Microsoft à mesure qu’elles passent par le pipeline de Machine Learning. Cependant, les données d’apprentissage ne sont pas chiffrées à l’aide de [clés gérées par le client (CMK)](customer-managed-keys.md) si vous avez activé CMK dans votre espace de travail Azure Sentinel. Pour refuser la fusion, accédez à **Azure Sentinel** \> **configuration** \> **Analytics \> Règles actives \> Détection avancée des attaques en plusieurs étapes**, puis, dans la colonne **État**, sélectionnez **Désactiver**.
+
 ## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-atp"></a>Fusion avec Palo Alto Networks et Microsoft Defender ATP
 
-- Demande réseau au service d’anonymisation TOR, suivie d’un trafic anormal signalé par le pare-feu Palo Alto Networks
+Ces scénarios combinent deux des journaux fondamentaux qu’utilisent les analystes de sécurité : des journaux de pare-feu de Palo Alto Networks et des journaux de détection de points de terminaison de Microsoft Defender ATP. Dans tous les scénarios répertoriés ci-dessous, une activité suspecte est détectée au point de terminaison qui implique une adresse IP externe, puis est suivie d’un trafic anormal de l’adresse IP externe vers le pare-feu. Dans les journaux Palo Alto, Azure Sentinel se concentre sur les [journaux des menaces](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs), et le trafic est considéré comme suspect lorsque des menaces sont autorisées (données, fichiers, saturations, paquets, analyses, logiciels espions, URL, virus, vulnérabilités, virus d’incendie, incendies suspects).
 
-- PowerShell a établi une connexion réseau suspecte suivie d’un trafic anormal signalé par le pare-feu Palo Alto Networks
+### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Demande réseau au service d’anonymisation TOR, suivie d’un trafic anormal signalé par le pare-feu de Palo Alto Networks.
 
-- Connexion sortante à l’adresse IP avec un historique des tentatives d’accès non autorisées suivie d’un trafic anormal signalé par le pare-feu Palo Alto Networks
+Dans ce scénario, Azure Sentinel détecte d’abord une alerte indiquant que Microsoft Defender - Protection avancée contre les menaces a détecté une demande réseau adressée à un service d’anonymisation TOR, qui génère une activité anormale. Celle-ci a été initiée sous le compte {account name} avec l’ID d’identificateur de sécurité {sid} à {time}. L’adresse IP sortante de la connexion était {IndividualIp}.
+Ensuite, une activité inhabituelle a été détectée par le pare-feu de Palo Alto Networks à {TimeGenerated}. Cela indique qu’un trafic malveillant est entré dans votre réseau. L’adresse IP de destination pour le trafic réseau est {DestinationIP}.
+
+Ce scénario est actuellement en préversion publique.
+
+
+### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>PowerShell a établi une connexion réseau suspecte, suivie d’un trafic anormal signalé par le pare-feu de Palo Alto Networks.
+
+Dans ce scénario, Azure Sentinel détecte d’abord une alerte indiquant que Microsoft Defender - Protection avancée contre les menaces a détecté que PowerShell a établi une connexion réseau suspecte entraînant une activité anormale détectée par un pare-feu de Palo Alto Networks. Celle-ci a été initiée par le compte {account name} avec l’ID d’identificateur de sécurité {sid} à {time}. L’adresse IP sortante de la connexion était {IndividualIp}. Ensuite, une activité inhabituelle a été détectée par le pare-feu de Palo Alto Networks à {TimeGenerated}. Cela indique qu’un trafic malveillant est entré dans votre réseau. L’adresse IP de destination pour le trafic réseau est {DestinationIP}.
+
+Ce scénario est actuellement en préversion publique.
+
+### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Connexion sortante à l’adresse IP avec un historique des tentatives d’accès non autorisées suivie d’un trafic anormal signalé par le pare-feu Palo Alto Networks
+
+Dans ce scénario, Azure Sentinel détecte une alerte indiquant que Microsoft Defender - Protection avancée contre les menaces a détecté une connexion sortante vers une adresse IP avec un historique de tentatives d’accès non autorisées entraînant une activité anormale détectée le pare-feu de Palo Alto Networks. Celle-ci a été initiée par le compte {account name} avec l’ID d’identificateur de sécurité {sid} à {time}. L’adresse IP sortante de la connexion était {IndividualIp}. Après cela, une activité inhabituelle a été détectée par le pare-feu de Palo Alto Networks à {TimeGenerated}. Cela indique qu’un trafic malveillant est entré dans votre réseau. L’adresse IP de destination pour le trafic réseau est {DestinationIP}.
+
+Ce scénario est actuellement en préversion publique.
 
 
 

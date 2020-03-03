@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: e50d0772eaf706772aa89418a1ad25bf406945b5
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 166ec4db2a2891d25a1e80526f8c1bd9770f9eef
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134366"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592218"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutoriel : Configurer un laboratoire de salle de classe 
 Dans ce tutoriel, vous allez configurer un laboratoire de classe avec des machines virtuelles utilisées par les étudiants dans la classe.  
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez effectuer les actions suivantes :
 > * Définir un calendrier pour le labo
 > * Envoyer un e-mail d’invitation aux étudiants
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Dans ce tutoriel, vous allez configurer un labo avec des machines virtuelles pour votre classe. Pour configurer un lab de classe dans un compte lab, vous devez être membre de l’un des rôles suivants dans le compte lab : Propriétaire, Créateur de laboratoire ou Contributeur. Le compte que vous avez utilisé pour créer un compte lab est automatiquement ajouté au rôle Propriétaire. Vous pouvez donc utiliser le compte d’utilisateur que vous avez utilisé lors de la création d’un compte de laboratoire pour créer un laboratoire de classe. 
 
 Voici le workflow standard quand vous utilisez Azure Lab Services :
@@ -72,7 +72,7 @@ Dans cette étape, vous créez un laboratoire pour votre classe dans Azure.
     4. **Arrêtez** le modèle de machine virtuelle.  
 
 ## <a name="publish-the-template-vm"></a>Publier le modèle de machine virtuelle
-Au cours de cette étape, vous allez publier le modèle de machine virtuelle. Le processus de publication crée des machines virtuelles de laboratoire qui sont essentiellement des copies du modèle de machine virtuelle. 
+Au cours de cette étape, vous allez publier le modèle de machine virtuelle. Quand vous publiez le modèle de machine virtuelle, Azure Lab Services crée les machines virtuelles dans le labo à l’aide du modèle. Toutes les machines virtuelles ont la même configuration que le modèle.
 
 1. Dans la page **Modèle**, sélectionnez **Publier** dans la barre d’outils. 
 
@@ -89,6 +89,9 @@ Au cours de cette étape, vous allez publier le modèle de machine virtuelle. Le
 4. Attendez la fin de la publication, puis passez à la page **Pool de machines virtuelles** en sélectionnant **Machines virtuelles** dans le menu de gauche ou en sélectionnant la vignette **Machines virtuelles**. Vérifiez que des machines virtuelles se trouvent à l’état **Non affectée**. Ces machines virtuelles ne sont pas encore affectées aux étudiants. Elles doivent être à l’état **Arrêtée**. Vous pouvez démarrer la machine virtuelle d’un étudiant, vous y connecter, l’arrêter et la supprimer dans cette page. Vous pouvez démarrer les machines virtuelles dans cette page ou laisser les étudiants le faire. 
 
     ![Machines virtuelles à l’état Arrêtée](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)   
+
+    > [!NOTE]
+    > Lorsqu’un formateur active la machine virtuelle d’un étudiant, le quota de l’étudiant n’est pas affecté. Le quota d’un utilisateur spécifie le nombre d’heures de labo disponibles pour l’utilisateur en dehors des heures de classe planifiées. Pour plus d’informations sur les quotas, consultez [Définir des quotas pour les utilisateurs](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="set-a-schedule-for-the-lab"></a>Définir un calendrier pour le laboratoire
 Créez un événement planifié pour le labo de sorte que les machines virtuelles du labo démarrent ou s’arrêtent automatiquement à des moments précis. Le quota utilisateur (par défaut : 10 heures) que vous avez spécifié précédemment est le temps supplémentaire attribué à chaque utilisateur en dehors de ces heures planifiées. 

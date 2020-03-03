@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: e6ef4cc825d40615fa8a6aee7dff8d4542407974
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 4f9da6cbfe8d1e6b92c39148b275de193730c8f1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970862"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623576"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Prise en main pour les opérateurs informatiques Azure
 
@@ -112,7 +112,7 @@ Services de création et de fonctionnement des applications :
 
 - Azure HDInsight pour le traitement de big data
 
-- Azure Scheduler
+- Azure Logic Apps pour les workflows d’intégration et d’orchestration
 
 - Azure Media Services
 

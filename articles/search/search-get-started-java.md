@@ -8,31 +8,31 @@ ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 5e53167a083b5e89bd88a45452929dd40f0868f2
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/25/2020
+ms.openlocfilehash: 0b07e934625b09e7f6249dc00865465147f6f0ba
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406731"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624021"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Démarrage rapide : Créer un index Recherche cognitive Azure en Java à l’aide des API REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
-> * [Portal](search-get-started-portal.md)
+> * [Portail](search-get-started-portal.md)
 > * [PowerShell](search-create-index-rest-api.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Générez une application console Java qui crée, charge et interroge un index Recherche cognitive Azure à l’aide d’[IntelliJ](https://www.jetbrains.com/idea/), du [kit SDK Java 11](/java/azure/jdk/?view=azure-java-stable) et de l’[API REST de la Recherche cognitive Azure](/rest/api/searchservice/). Cet article fournit des instructions pas à pas pour la création de l’application. Vous pouvez aussi [télécharger et exécuter l’application complète](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Générez une application console Java qui crée, charge et interroge un index de recherche à l’aide de [IntelliJ](https://www.jetbrains.com/idea/), du [SDK Java 11](/java/azure/jdk/?view=azure-java-stable) et de l’[API REST Recherche cognitive Azure](/rest/api/searchservice/). Cet article fournit des instructions pas à pas pour créer l’application. Vous pouvez aussi [télécharger et exécuter l’application complète](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Nous avons utilisé les services et logiciels suivants pour générer et tester cet exemple :
+Nous avons utilisé les services et logiciels suivants pour générer et tester ce démarrage rapide :
 
 + [IntelliJ IDEA](https://www.jetbrains.com/idea/)
 
@@ -817,7 +817,7 @@ Maintenant que vous avez chargé les documents d’hôtels, vous pouvez créer d
 
     Recherchez un résumé de chaque requête et ses résultats. L’exécution doit se terminer par un message BUILD SUCCESS et un code de sortie zéro (0).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous travaillez dans votre propre abonnement, il est judicieux à la fin d’un projet de supprimer les ressources dont vous n’avez plus besoin. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
 

@@ -6,15 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 10/22/2019
+ms.date: 02/20/2020
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: cfb9db7c78c57e74bfe44fe4ce1c3092e2bf3ca5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 65fd9d06c8b25e0aff94429f8eb95bb922da330c
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437301"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505912"
 ---
 # <a name="what-is-azure-event-grid"></a>Qu'est-ce qu'Azure Event Grid ?
 
@@ -39,11 +39,15 @@ Pour plus d’informations sur les fonctionnalités de chaque source ainsi que l
 * [Rubriques personnalisées](event-sources.md#custom-topics)
 * [Hubs d'événements](event-sources.md#event-hubs)
 * [IoT Hub](event-sources.md#iot-hub)
+* [Key Vault (préversion)](event-sources.md#key-vault-preview)
 * [Media Services](event-sources.md#media-services)
 * [Groupes de ressources (opérations de gestion)](event-sources.md#resource-groups)
 * [Service Bus](event-sources.md#service-bus)
 * [Storage Blob](event-sources.md#storage)
 * [Azure Maps](event-sources.md#maps)
+* [Configuration de l’application](event-sources.md#app-configuration)
+* [Signal R](event-sources.md#azure-signalr)
+* [Machine Learning](event-sources.md#azure-machine-learning)
 
 ## <a name="event-handlers"></a>Gestionnaires d’événements
 
@@ -55,8 +59,8 @@ Pour plus d’informations sur les fonctionnalités de chaque gestionnaire, ains
 * [connexions hybrides](event-handlers.md#hybrid-connections)
 * [Logic Apps](event-handlers.md#logic-apps)
 * [Power Automate (anciennement Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
-* [Stockage de files d’attente](event-handlers.md#queue-storage)
 * [Service Bus](event-handlers.md#service-bus)
+* [Stockage de files d’attente](event-handlers.md#queue-storage)
 * [WebHooks](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>Concepts

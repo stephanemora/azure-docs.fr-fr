@@ -1,18 +1,18 @@
 ---
 title: Tutoriel - Exécuter Azure Functions dans des travaux Azure Stream Analytics
-description: Dans ce tutoriel, vous apprenez à configurer Azure Functions comme récepteur de sortie pour les travaux Stream Analytics.
+description: Dans ce didacticiel, vous apprenez à configurer Azure Functions comme récepteur de sortie pour les travaux Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/27/2020
-ms.openlocfilehash: 1797654f290d751eb5c1cb65a77aaa7ca7a35aa1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 837174b3ccc08a74583587cb9efd34f8f720aec5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772889"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589451"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutoriel : Exécuter Azure Functions à partir des travaux Azure Stream Analytics 
 
@@ -38,7 +38,7 @@ Cette section explique comment configurer un travail Stream Analytics pour exéc
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Créer un travail Stream Analytics en utilisant Event Hubs comme entrée
 
-Suivez le tutoriel [Détection des fraudes en temps réel](stream-analytics-real-time-fraud-detection.md) pour créer un concentrateur d’événements, démarrer l’application de générateur d’événements et créer un travail Stream Analytics. Ignorez les étapes de création de la requête et de la sortie. Consultez plutôt les sections suivantes pour configurer la sortie Azure Functions.
+Suivez le didacticiel [Détection des fraudes en temps réel](stream-analytics-real-time-fraud-detection.md) pour créer un concentrateur d’événements, démarrer l’application de générateur d’événements et créer un travail Stream Analytics. Ignorez les étapes de création de la requête et de la sortie. Consultez plutôt les sections suivantes pour configurer la sortie Azure Functions.
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Créer une instance Cache Redis Azure
 
@@ -152,7 +152,7 @@ Suivez le tutoriel [Détection des fraudes en temps réel](stream-analytics-real
    |Nombre maximal de lots|Spécifie le nombre maximal d’événements dans chaque lot envoyé à la fonction. La valeur par défaut est 100. Cette propriété est facultative.|
    |Clé|Vous permet d’utiliser une fonction d’un autre abonnement. Indiquez la valeur de la clé pour accéder à votre fonction. Cette propriété est facultative.|
 
-3. Indiquez un nom pour l’alias de sortie. Dans ce tutoriel, il est nommé **saop1**, mais vous pouvez utiliser n’importe quel nom de votre choix. Renseignez les autres détails.
+3. Indiquez un nom pour l’alias de sortie. Dans ce didacticiel, il est nommé **saop1**, mais vous pouvez utiliser n’importe quel nom de votre choix. Renseignez les autres détails.
 
 4. Ouvrez votre travail Stream Analytics et mettez à jour la requête comme suit. Si vous n’avez pas nommé votre récepteur de sortie **saop1**, n’oubliez pas de modifier le nom dans la requête.  
 
@@ -191,11 +191,16 @@ Suivez le tutoriel [Détection des fraudes en temps réel](stream-analytics-real
 
 Si une défaillance se produit lors de l’envoi d’événements à Azure Functions, Stream Analytics retente la plupart des opérations. Toutes les exceptions HTTP sont retentées jusqu’à réussite, à l’exception de l’erreur HTTP 413 (Entité trop volumineuse). L’erreur causée par une entité trop volumineuse est traitée comme une erreur de données soumise à la [stratégie Retenter ou supprimer](stream-analytics-output-error-policy.md).
 
+> [!NOTE]
+> Le délai d’expiration des requêtes HTTP adressées à Azure Functions par Stream Analytics est défini sur 100 secondes. Si le traitement d’un lot par votre application Azure Functions prend plus de 100 secondes, Stream Analytics génère une erreur.
+
 ## <a name="known-issues"></a>Problèmes connus
 
 Dans le portail Azure, lorsque vous essayez de rétablir les valeurs maximales de taille et de nombre de lots à des valeurs vides (par défaut), la valeur bascule sur la valeur précédemment saisie au moment de la sauvegarde. Dans ce cas, entrez manuellement les valeurs par défaut pour ces champs.
 
-Actuellement, l’utilisation du [routage Http](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) sur votre instance Azure Functions n’est pas prise en charge par Stream Analytics.
+Actuellement, l’utilisation du [routage HTTP](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) sur votre instance Azure Functions n’est pas prise en charge par Stream Analytics.
+
+La prise en charge de la connexion aux applications Azure Functions hébergées dans un réseau virtuel n’est pas activée.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
@@ -206,7 +211,7 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le trav
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez créé une tâche Stream Analytics simple qui exécute une fonction Azure. Pour en savoir plus sur les travaux Stream Analytics, passez au tutoriel suivant :
+Dans ce tutoriel, vous avez créé une tâche Stream Analytics simple qui exécute une fonction Azure. Pour en savoir plus sur les travaux Stream Analytics, passez au didacticiel suivant :
 
 > [!div class="nextstepaction"]
 > [Exécuter des fonctions JavaScript définies par l’utilisateur dans des travaux Stream Analytics](stream-analytics-javascript-user-defined-functions.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Vérifications de conformité réglementaire - Azure Security Center'
-description: 'Didacticiel : Découvrez comment améliorer la conformité aux réglementations à l’aide d’Azure Security Center.'
+title: 'Tutoriel : Vérifications de conformité réglementaire - Azure Security Center'
+description: 'Tutoriel : Découvrez comment améliorer la conformité aux réglementations à l’aide d’Azure Security Center.'
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: 01c0f1199ab8c376fe5bb5e864f81a2730879ed1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 1a6999c05c0b3dbaf572b376412f666c50c23df7
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112322"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604459"
 ---
-# <a name="tutorial-improve-your-regulatory-compliance"></a>Didacticiel : Améliorer votre conformité aux normes
+# <a name="tutorial-improve-your-regulatory-compliance"></a>Tutoriel : Améliorer votre conformité aux normes
 ---
 
 Le **tableau de bord Conformité avec la réglementation** d’Azure Security Center simplifie le processus visant à respecter les exigences de conformité aux règlementations. Dans le tableau de bord, Security Center fournit des insights sur votre niveau de conformité sur la base d’évaluations continues de votre environnement Azure. Security Center analyse les facteurs de risque dans votre environnement de cloud hybride conformément aux bonnes pratiques en matière de sécurité. Ces évaluations sont comparées à des contrôles de conformité provenant d’un ensemble de normes prises en charge. Le tableau de bord Conformité avec la réglementation indique l’état de toutes les évaluations au sein de votre environnement dans le contexte d’une norme ou d’une réglementation en particulier. Si vous suivez les recommandations et réduisez les facteurs de risque de votre environnement, votre niveau de conformité s’améliore.
 
-Ce didacticiel vous apprendra à effectuer les opérations suivantes :
+Dans ce didacticiel, vous apprendrez à :
 
 -   Évaluer votre conformité aux réglementations à l’aide du tableau de bord Conformité avec la réglementation
 
@@ -103,6 +103,4 @@ Pour plus d'informations, consultez les rubriques suivantes :
 
 -   [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez comment utiliser les recommandations proposées par Azure Security Center pour protéger vos ressources Azure.
 
--   [Améliorer votre score de sécurisation dans Azure Security Center](security-center-secure-score.md) : découvrez comment classer par ordre de priorité les vulnérabilités et les recommandations pour améliorer votre niveau de sécurité.
-
--   [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
+-   [Améliorer votre degré de sécurisation dans Azure Security Center](security-center-secure-score.md) : découvrez comment classer par ordre de priorité les vulnérabilités et les recommandations pour améliorer votre niveau de sécurité.

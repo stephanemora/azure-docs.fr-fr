@@ -1,21 +1,21 @@
 ---
-title: 'Didacticiel : Supervision de Key Vault avec Azure Event Grid'
-description: 'Didacticiel : Utilisez Azure Event Grid pour vous abonner aux événements Key Vault'
-services: media-services
+title: Supervision de Key Vault avec Azure Event Grid
+description: Utilisez Azure Event Grid pour vous abonner aux événements Key Vault
+services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5771af365b763d2152eea4ef4f662e08769b378c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 2424fbac3c95c1c60e6ef61cba53e481f4bb478a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133350"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650739"
 ---
-# <a name="tutorial-monitoring-key-vault-with-azure-event-grid-preview"></a>Didacticiel : Supervision de Key Vault avec Azure Event Grid (préversion)
+# <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Supervision de Key Vault avec Azure Event Grid (préversion)
 
 L’intégration de Key Vault avec Event Grid est actuellement en préversion. Cela permet aux utilisateurs d’être notifiés en cas de changement de l’état d’un secret stocké dans le coffre de clés. Un changement d’état se définit comme étant un secret sur le point d’expirer (dans les 30 jours suivant l’expiration), un secret ayant expiré ou un secret ayant une nouvelle version disponible. Les notifications relatives aux trois types de secret (clé, certificat et secret) sont prises en charge.
 
@@ -27,10 +27,10 @@ Event Grid utilise les [abonnements aux événements](../event-grid/concepts.md#
 
 Pour plus d’informations, consultez le [schéma d’événement Key Vault](../event-grid/event-schema-key-vault.md).
 
-> [!NOTE]
-> Les événements se déclenchent uniquement pour les versions des secrets (les trois types) créées après la définition de l’abonnement.
->
-> Pour les secrets existants, vous devez générer de nouvelles versions.
+> [!WARNING]
+> Les événements de notification sont déclenchés uniquement sur les nouvelles versions des secrets, clés et certificats, et vous devez d’abord vous abonner à l’événement sur votre coffre de clés pour recevoir ces notifications.
+> 
+> Vous recevrez des événements de notification sur les certificats uniquement lorsque le certificat est automatiquement renouvelé en fonction de la stratégie que vous avez spécifiée pour votre certificat.
 
 ## <a name="practices-for-consuming-events"></a>Pratiques pour la consommation d’événements
 
@@ -45,7 +45,7 @@ Les applications qui gèrent les événements Key Vault doivent suivre certaines
 
 - [Vue d’ensemble d’Azure Key Vault](key-vault-overview.md)
 - [Vue d’ensemble d’Azure Event Grid](../event-grid/overview.md)
-- Activation [Routez les événements Key Vault vers le runbook Automation (préversion)](event-grid-tutorial.md).
-- Activation [Recevoir un e-mail en cas de changement d’un secret de coffre de clés](event-grid-logicapps.md)
+- Procédure : [Routez les événements Key Vault vers le runbook Automation (préversion)](event-grid-tutorial.md).
+- Procédure : [Recevoir un e-mail en cas de changement d’un secret de coffre de clés](event-grid-logicapps.md)
 - [Schéma des événements Azure Event Grid pour Azure Key Vault (préversion)](../event-grid/event-schema-key-vault.md)
 - [Vue d’ensemble d’Azure Automation](../automation/index.yml)

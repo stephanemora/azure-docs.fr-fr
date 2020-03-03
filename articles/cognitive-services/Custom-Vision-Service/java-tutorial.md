@@ -8,31 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 02/25/2020
 ms.author: areddish
-ms.openlocfilehash: 2b3c6fc404e9a5fefc15aa7b7162ff5573c3be5a
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: a0cfa49dfe247a71e5c2d546e2bb7e9d9b2efc18
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166139"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616343"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Démarrage rapide : Créer un projet de classification d’images à l’aide du kit SDK Custom Vision pour Java
 
 Cet article vous montre comment bien démarrer avec le SDK Java de Vision par ordinateur pour générer un modèle de classification d’images. Après la création du projet, vous pouvez ajouter des mots clés, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet et utiliser ce point de terminaison pour tester par programmation une image. Utilisez cet exemple comme modèle pour générer votre propre application Java. Si vous voulez générer et utiliser un modèle de classification _sans_ code, consultez le [guide basé sur navigateur](getting-started-build-a-classifier.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Un IDE Java de votre choix
 - [JDK 7 ou 8](https://aka.ms/azure-jdks) est installé.
-- Maven est installé
+- [Maven](https://maven.apache.org/) est installé.
 - [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Obtenir le Kit de développement logiciel (SDK) Custom Vision et un exemple de code
 
 Pour écrire une application Java qui utilise Custom Vision, vous avez besoin des packages maven Custom Vision. Ces packages sont inclus dans l’exemple de projet que vous allez télécharger, mais vous pouvez y accéder individuellement ici.
 
-Vous pouvez installer le SDK Vision personnalisée à partir du référentiel central Maven :
+Vous trouverez le SDK Custom Vision dans le référentiel central Maven :
 
 - [SDK d’entraînement](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 - [SDK de prédiction](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
@@ -43,7 +43,10 @@ Ce projet Java crée un projet de classification d’images Custom Vision nommé
 
 [!INCLUDE [get-keys](includes/get-keys.md)]
 
-Le programme est configuré de manière à stocker vos données de clé en tant que variables d’environnement. Définissez ces variables en accédant au dossier **Vision/CustomVision** dans PowerShell. Entrez ensuite les commandes :
+Le programme est configuré de manière à référencer vos données de clé comme variables d’environnement. Accédez au dossier **Vision/CustomVision** et entrez les commandes PowerShell suivantes pour définir les variables d’environnement. 
+
+> [!NOTE]
+> Si vous utilisez un système d’exploitation autre que Windows, consultez [Configuration des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication) pour obtenir des instructions.
 
 ```powershell
 $env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
@@ -88,9 +91,9 @@ Le point de terminaison de prédiction, représenté par l’objet `predictor` i
 
 ## <a name="run-the-application"></a>Exécution de l'application
 
-Pour compiler et exécuter la solution à l’aide de maven, exécutez la commande suivante dans le répertoire du projet dans PowerShell :
+Pour compiler et exécuter la solution à l’aide de Maven, accédez au répertoire du projet (**Vision/CustomVision**) dans une invite de commandes et entrez la commande d’exécution :
 
-```powershell
+```bash
 mvn compile exec:java
 ```
 

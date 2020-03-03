@@ -1,5 +1,5 @@
 ---
-title: Se connecter à Azure Data Box Gateway, le configurer et l’activer dans le Portail Azure | Microsoft Docs
+title: Se connecter à Azure Data Box Gateway, le configurer et l’activer dans le portail Azure
 description: Ce troisième didacticiel sur le déploiement de Data Box Gateway vous apprend à connecter, configurer et activer votre appareil virtuel.
 services: databox
 author: alkohli
@@ -8,14 +8,14 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 898cb63f8868ce2abaee8784214322edf9a56997
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 33333f8df1e4809a330815e34074d1bca556cd14
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000315"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561831"
 ---
-# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Didacticiel : Se connecter à Azure Data Box Gateway, le configurer et l’activer
+# <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutoriel : Se connecter à Azure Data Box Gateway, le configurer et l’activer
 
 ## <a name="introduction"></a>Introduction
 
@@ -23,7 +23,7 @@ Ce tutoriel explique comment vous connecter à votre appareil Data Box Gateway, 
 
 Le processus de configuration et d’installation peut durer 10 minutes environ. 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Vous connecter à un appareil virtuel
@@ -134,7 +134,7 @@ La configuration de l’appareil est terminée. Vous pouvez maintenant ajouter d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Vous connecter à un appareil virtuel

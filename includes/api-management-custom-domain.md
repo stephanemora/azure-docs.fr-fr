@@ -4,12 +4,12 @@ ms.service: api-management
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: vlvinogr
-ms.openlocfilehash: dff01f8bc4a4cf58d1ed503b69a29dadc367fecb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b9e601c72395b4910850714460321a83a3113e69
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66248856"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649537"
 ---
 ## <a name="how-apim-proxy-server-responds-with-ssl-certificates-in-the-tls-handshake"></a>Réponse du serveur proxy APIM avec les certificats SSL durant la négociation TLS
 
@@ -20,7 +20,7 @@ Si le client possède un ou plusieurs domaines personnalisés configurés pour l
 Si le client utilise un client, qui n’envoie pas l’en-tête [SNI](https://tools.ietf.org/html/rfc6066#section-3), APIM crée des réponses en fonction de la logique suivante :
 
 * Si le service n’a qu’un seul domaine personnalisé configuré pour le proxy, le certificat par défaut est le certificat ayant été émis pour le domaine personnalisé du proxy.
-* Si le service a configuré plusieurs domaines personnalisés pour le proxy (uniquement pris en charge au niveau **Premium**), le client peut désigner le certificat par défaut. Pour définir le certificat par défaut, la propriété [defaultSslBinding](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/createorupdate#hostnameconfiguration) doit être définie sur true (« defaultSslBinding » : « true »). Si le client ne définit pas la propriété, le certificat par défaut est le certificat émis pour le domaine du proxy par défaut hébergé sur *.azure-api.net.
+* Si le service a configuré plusieurs domaines personnalisés pour le proxy (pris en charge aux niveaux **Développeur** et **Premium**), le client peut désigner le certificat par défaut. Pour définir le certificat par défaut, la propriété [defaultSslBinding](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/createorupdate#hostnameconfiguration) doit être définie sur true (« defaultSslBinding » : « true »). Si le client ne définit pas la propriété, le certificat par défaut est le certificat émis pour le domaine du proxy par défaut hébergé sur *.azure-api.net.
 
 ## <a name="support-for-putpost-request-with-large-payload"></a>Prise en charge pour la requête PUT/POST avec une charge utile de grande taille
 

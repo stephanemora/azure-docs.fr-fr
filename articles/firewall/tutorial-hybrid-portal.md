@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 01/18/2020
+ms.date: 02/21/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: e9ca891d2d92b6760d37108b66afc54c81ac125c
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 15901186194853aebf3b8222f271203161770380
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442579"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561440"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide du portail Azure
 
@@ -179,9 +179,10 @@ Tout d’abord, ajoutez une règle de réseau pour autoriser le trafic web.
 6. Pour **Action**, sélectionnez **Autoriser**.
 6. Sous **Règles**, pour **Nom**, tapez **AllowWeb**.
 7. Pour **Protocole**, sélectionnez **TCP**.
-8. Pour **Adresses sources**, tapez **192.168.1.0/24**.
-9. Pour Adresse de destination, tapez **10.6.0.0/16**.
-10. Pour **Ports de destination**, tapez **80**.
+8. Pour **Type de source**, sélectionnez **Adresse IP**.
+9. Pour **Source**, tapez **192.168.1.0/24**.
+10. Pour **Adresse de destination**, tapez **10.6.0.0/16**.
+11. Pour **Ports de destination**, tapez **80**.
 
 À présent, ajoutez une règle pour autoriser le trafic RDP.
 
@@ -189,10 +190,11 @@ Sur la deuxième ligne de la règle, tapez les informations suivantes :
 
 1. Pour **Nom**, tapez **AllowRDP**.
 2. Pour **Protocole**, sélectionnez **TCP**.
-3. Pour **Adresses sources**, tapez **192.168.1.0/24**.
-4. Pour Adresse de destination, tapez **10.6.0.0/16**.
-5. Pour **Ports de destination**, tapez **3389**.
-6. Sélectionnez **Ajouter**.
+3. Pour **Type de source**, sélectionnez **Adresse IP**.
+4. Pour **Source**, tapez **192.168.1.0/24**.
+5. Pour **Adresse de destination**, tapez **10.6.0.0/16**.
+6. Pour **Ports de destination**, tapez **3389**.
+7. Sélectionnez **Ajouter**.
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>Créer et connecter les passerelles VPN
 

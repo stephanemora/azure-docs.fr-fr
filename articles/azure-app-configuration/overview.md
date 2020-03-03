@@ -5,13 +5,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 02/24/2019
-ms.openlocfilehash: 67a76d3b347ef750b639225a009cc6968cb84c6f
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.date: 02/19/2020
+ms.openlocfilehash: 1f1cec68813d33e7fa19a414a30adfc9a41df91f
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467553"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523473"
 ---
 # <a name="what-is-azure-app-configuration"></a>Présentation d’Azure App Configuration
 
@@ -19,9 +19,9 @@ Azure App Configuration offre un service de gestion centralisée des paramètres
 
 ## <a name="why-use-app-configuration"></a>Pourquoi utiliser App Configuration
 
-Souvent, les applications cloud s’exécutent sur plusieurs machines virtuelles ou conteneurs situés dans plusieurs régions et elles utilisent plusieurs services externes. La création d’une application distribuée de ce type, à la fois robuste et scalable, est un défi.
+Souvent, les applications cloud s’exécutent sur plusieurs machines virtuelles ou conteneurs situés dans plusieurs régions et elles utilisent plusieurs services externes. La création d’une application robuste et scalable dans un environnement distribué représente un défi considérable.
 
-Différentes méthodologies de programmation aident les développeurs à gérer la complexité croissante de la génération de ces applications. Par exemple, l’[application Twelve-Factor](https://12factor.net/) décrit de nombreux modèles architecturaux bien testés ainsi que les bonnes pratiques à suivre pour les applications cloud. L’une des principales recommandations de ce guide consiste à séparer la configuration du code. Dans ce cas, les paramètres de configuration d’une application doivent être conservés à l’écart de son exécutable et être lus à partir de son environnement d’exécution ou d’une source externe.
+Différentes méthodologies de programmation aident les développeurs à gérer la complexité croissante de la génération de ces applications. Par exemple, l’[application Twelve-Factor](https://12factor.net/) décrit de nombreux modèles architecturaux bien testés ainsi que les bonnes pratiques à suivre pour les applications cloud. L’une des principales recommandations de ce guide consiste à séparer la configuration du code. Les paramètres de configuration d’une application doivent être conservés à l’écart de son exécutable et être lus à partir de son environnement d’exécution ou d’une source externe.
 
 Même si n’importe quelle application peut utiliser App Configuration, les types d’applications suivants sont des exemples qui tirent parti de son utilisation :
 
@@ -38,7 +38,7 @@ App Configuration offre les avantages suivants :
 * Interface utilisateur dédiée pour la gestion des indicateurs de fonctionnalités
 * Comparaison de deux jeux de configurations sur les dimensions personnalisées
 * Sécurité renforcée par le biais d’identités managées par Azure
-* Chiffrements complets des données au repos ou en transit
+* Chiffrement d’informations sensibles au repos et en transit
 * Intégration native à des frameworks connus
 
 App Configuration complète [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), qui est utilisé pour stocker des secrets d’application. App Configuration rend les scénarios suivants plus faciles à implémenter :
@@ -49,7 +49,7 @@ App Configuration complète [Azure Key Vault](https://azure.microsoft.com/servic
 
 ## <a name="use-app-configuration"></a>Utilisation d’App Configuration
 
-Le moyen le plus simple d’ajouter un magasin App Configuration à votre application fait intervenir une bibliothèque cliente fournie par Microsoft. Voici, en fonction du langage de programmation et du framework, les meilleures méthodes mises à votre disposition.
+Le moyen le plus simple d’ajouter un magasin App Configuration à votre application consiste à utiliser une bibliothèque de client fournie par Microsoft. La connexion à votre application peut s’effectuer à l’aide des méthodes suivantes, en fonction du langage et du framework choisis.
 
 | Langage de programmation et framework | Comment se connecter |
 |---|---|

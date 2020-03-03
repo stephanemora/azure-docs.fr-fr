@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3cbf0fa4a32145add0a5475f22ea0d936584c9bf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 37a82c4001dd42a4cfbbb9dabec29f28359afd75
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465199"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615398"
 ---
 # <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Démarrage rapide : Créer une application iOS Unity avec Azure Spatial Anchors
 
@@ -30,11 +30,11 @@ Vous découvrirez comment effectuer les actions suivantes :
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce guide de démarrage rapide, veillez à avoir :
 
-- Une machine macOS dotée de <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1+</a> et des dernières versions de <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> et <a href="https://cocoapods.org" target="_blank">CocoaPods</a>.
+- Un ordinateur macOS doté de <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 ou 2019.2</a> et des dernières versions de <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> et <a href="https://cocoapods.org" target="_blank">CocoaPods</a>.
 - Git installé via HomeBrew. Entrez la commande suivante sur une seule ligne du Terminal : `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Puis exécutez `brew install git` et `brew install git-lfs`.
 - Un appareil iOS <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">compatible ARKit</a> prêt pour le développement.
 
@@ -81,6 +81,10 @@ brew update
 brew install cocoapods --build-from-source
 brew link --overwrite cocoapods
 ```
+
+### <a name="unity-20193"></a>Unity 2019.3
+
+En raison de changements cassants, Unity 2019.3 n’est pas pris en charge pour le moment. Utilisez Unity 2019.1 ou 2019.2.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

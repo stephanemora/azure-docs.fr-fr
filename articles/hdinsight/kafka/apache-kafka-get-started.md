@@ -5,21 +5,21 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: mvc
 ms.topic: quickstart
-ms.date: 10/01/2019
-ms.openlocfilehash: 76360ec8de645d926daec0db878906c73d0da948
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.custom: mvc
+ms.date: 02/24/2020
+ms.openlocfilehash: 286b16d850b1c1c26069c50cd4045bf7f3dd3c14
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030009"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623505"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Démarrage rapide : Créer un cluster Apache Kafka dans Azure HDInsight à l’aide du portail Azure
 
-Apache Kafka est une plateforme de streaming open source distribuée. Elle est souvent utilisée comme broker de messages, car elle propose des fonctionnalités similaires à une file d’attente de messages de publication/abonnement.
+[Apache Kafka](./apache-kafka-introduction.md) est une plateforme de streaming open source distribuée. Elle est souvent utilisée comme broker de messages, car elle propose des fonctionnalités similaires à une file d’attente de messages de publication/abonnement.
 
-Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster [Apache Kafka](https://kafka.apache.org) à l’aide du Portail Azure. Il vous expliquera également comment utiliser les utilitaires inclus pour envoyer et recevoir des messages avec Apache Kafka.
+Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster Apache Kafka à l’aide du portail Azure. Il vous expliquera également comment utiliser les utilitaires inclus pour envoyer et recevoir des messages avec Apache Kafka. Pour obtenir des explications détaillées sur les configurations disponibles, consultez [Configurer des clusters dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Pour plus d’informations sur l’utilisation du portail pour créer des clusters, consultez [Créer des clusters dans le portail](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -27,29 +27,31 @@ L’API Apache Kafka n’est accessible qu’aux ressources se trouvant dans le 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-an-apache-kafka-cluster"></a>Créer un cluster Apache Kafka
 
-Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
+Pour créer un cluster Apache Kafka sur HDInsight, effectuez les étapes suivantes :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-1. À partir du menu gauche, accédez à **+ Créer une ressource** > **Analytique** > **HDInsight**.
+1. Dans le menu du haut, sélectionnez **+ Créer une ressource**.
 
-    ![Portail Azure > Créer une ressource > HDInsight](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
+    ![Portail Azure > Créer une ressource > HDInsight](./media/apache-kafka-get-started/azure-portal-create-resource.png)
 
-1. Sous **Informations de base**, entrez ou sélectionnez les valeurs suivantes :
+1. Sélectionnez **Analyse** > **Azure HDInsight** pour accéder à la page **Créer un cluster HDInsight**.
+
+1. Sous l’onglet **De base**, fournissez les informations suivantes :
 
     |Propriété  |Description  |
     |---------|---------|
-    |Subscription    |  Sélectionnez votre abonnement Azure. |
+    |Abonnement    |  Dans la liste déroulante, sélectionnez l’abonnement Azure utilisé pour le cluster. |
     |Resource group     | Sélectionnez un groupe de ressources existant ou créez-en un.  Un groupe de ressources est un conteneur de composants Azure.  Dans ce cas, le groupe de ressources contient le cluster HDInsight et le compte de stockage Azure dépendant. |
-    |Nom du cluster   | Entrez un nom pour le cluster Hadoop. Étant donné que tous les clusters HDInsight partagent le même espace de noms DNS, ce nom doit être unique. Le nom peut comporter jusqu’à 59 caractères, dont des lettres, des chiffres et des traits d’union. Le premier caractère et le dernier caractère du nom ne peuvent pas être des traits d’union. |
-    |Location    | Sélectionnez l’emplacement Azure où vous souhaitez créer votre cluster.  Choisissez un emplacement proche de vous pour obtenir des performances optimales. |
-    |Type de cluster| Choisissez **Sélectionner un type de cluster**. Sélectionnez ensuite **Kafka** comme type de cluster.|
+    |Nom du cluster   | Entrez un nom globalement unique. Le nom peut comporter jusqu’à 59 caractères, dont des lettres, des chiffres et des traits d’union. Le premier caractère et le dernier caractère du nom ne peuvent pas être des traits d’union. |
+    |Région    | Dans la liste déroulante, sélectionnez une région dans laquelle le cluster est créé.  Choisissez une région proche de votre emplacement pour obtenir de meilleures performances. |
+    |Type de cluster| Choisissez **Sélectionner un type de cluster** pour ouvrir une liste. Dans la liste, sélectionnez **Kafka** comme type de cluster.|
     |Version|La version par défaut du type de cluster sera spécifiée. Sélectionnez une version dans la liste déroulante si vous souhaitez en spécifier une différente.|
     |Nom d’utilisateur et mot de passe du cluster    | Le nom de connexion par défaut est **admin**. Le mot de passe doit comporter au moins 10 caractères et inclure au moins un chiffre, une lettre majuscule, une lettre minuscule et un caractère non alphanumérique (à l’exception de ’ " ` \). Veillez à **ne pas indiquer** des mots de passe courants comme « Pass@word1 ».|
     |Nom d’utilisateur SSH (Secure Shell) | Le nom d’utilisateur par défaut est **sshuser**.  Vous pouvez fournir un autre nom pour le nom d’utilisateur SSH. |
@@ -100,15 +102,13 @@ Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
 
 ## <a name="connect-to-the-cluster"></a>Se connecter au cluster
 
-1. Pour vous connecter au nœud principal primaire du cluster Apache Kafka, utilisez la commande suivante. Remplacez `sshuser` par le nom d’utilisateur SSH. Remplacez `mykafka` par le nom de votre cluster Apache Kafka.
+1. Utilisez la [commande ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) pour vous connecter à votre cluster. Modifiez la commande ci-dessous en remplaçant CLUSTERNAME par le nom de votre cluster, puis entrez la commande :
 
-    ```bash
-    ssh sshuser@mykafka-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Lors de votre première connexion au cluster, il est possible que votre client SSH affiche un message d’avertissement, indiquant que l’authenticité de l’hôte n’a pas pu être établie. À l’invite, tapez __yes__, puis appuyez sur __Entrée__ pour ajouter l’hôte à la liste de serveurs approuvés de votre client SSH.
-
-3. Lorsque vous y êtes invité, entrez le mot de passe de l’utilisateur SSH.
+1. Lorsque vous y êtes invité, entrez le mot de passe de l’utilisateur SSH.
 
     Une fois la connexion établie, des informations de ce type s’affichent :
 
@@ -155,6 +155,7 @@ Dans cette section, vous allez obtenir les informations sur l’hôte grâce à 
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+
     > [!Note]  
     > Si vous effectuez ce processus de l’extérieur du cluster, la procédure pour stocker le nom du cluster est différente. Récupérez le nom du cluster en minuscules à partir du portail Azure. Ensuite, remplacez le nom du cluster par `<clustername>` dans la commande suivante, puis exécutez-la : `export clusterName='<clustername>'`.
 
@@ -295,9 +296,7 @@ Pour supprimer le groupe de ressources à l’aide du portail Azure :
 3. Sélectionnez __Supprimer le groupe de ressources__ et confirmez.
 
 > [!WARNING]  
-> La facturation du cluster HDInsight démarre à la création du cluster et s’arrête à sa suppression. La facturation est effectuée au prorata des minutes écoulées. Par conséquent, vous devez toujours supprimer votre cluster lorsqu’il n’est plus utilisé.
->
-> La suppression d’un cluster Apache Kafka sur HDInsight supprime toutes les données stockées dans Kafka.
+> La suppression d’un cluster Apache Kafka sur HDInsight entraîne la suppression de toutes les données stockées dans Kafka.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

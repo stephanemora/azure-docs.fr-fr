@@ -1,5 +1,6 @@
 ---
 title: 'Démarrage rapide : Créer une machine virtuelle Data Science Virtual Machine CentOS'
+titleSuffix: Azure Data Science Virtual Machine
 description: Configurez et créez une machine virtuelle Data Science Virtual Machine pour Linux (CentOS) pour vos besoins d’analytique et de Machine Learning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -7,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/13/2019
-ms.openlocfilehash: 1761673198b3d8ffc3740d64f525c9e70bda9e3e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73541b31125ee6e99dc2351e26f6a564a1603487
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204174"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526023"
 ---
 # <a name="quickstart-set-up-a-centos-linux-data-science-virtual-machine-in-azure"></a>Démarrage rapide : Configurer une machine virtuelle Data Science Virtual Machine CentOS (Linux) dans Azure
 
@@ -33,7 +34,7 @@ Voici les étapes à suivre pour créer une instance de la machine virtuelle Dat
 
 1. Dans la fenêtre suivante, sélectionnez **Créer**.
 
-    [![](media/linux-dsvm-intro/create-centos.png "Bouton permettant de créer une machine CentOS")](media/linux-dsvm-intro/create-centos-expanded.png#lightbox)
+    [![](media/linux-dsvm-intro/create-centos.png "Button to create a CentOS machine")](media/linux-dsvm-intro/create-centos-expanded.png#lightbox)
 
 1. Vous devez être redirigé vers le panneau « Créer une machine virtuelle ».
    
@@ -48,7 +49,7 @@ Voici les étapes à suivre pour créer une instance de la machine virtuelle Dat
        * **Nom de la machine virtuelle** : Entrez le nom de la machine virtuelle. Voici comment il s’affichera dans votre portail Azure.
        * **Région** : Sélectionnez le centre de données qui convient le mieux. Pour un accès réseau plus rapide, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique. Apprenez-en davantage sur les [régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Image** : Conservez la valeur par défaut.
-       * **Taille**: Cette valeur doit être renseignée automatiquement avec une taille appropriée pour les charges de travail générales. Découvrez-en plus sur les [tailles des machines virtuelles Linux dans Azure](../../virtual-machines/linux/sizes.md).
+       * **Size** : Cette valeur doit être renseignée automatiquement avec une taille appropriée pour les charges de travail générales. Découvrez-en plus sur les [tailles des machines virtuelles Linux dans Azure](../../virtual-machines/linux/sizes.md).
        * **Type d'authentification** : Pour une configuration plus rapide, sélectionnez « Mot de passe ». 
          
          > [!NOTE]
@@ -101,7 +102,7 @@ La machine virtuelle Linux est déjà provisionnée avec le serveur X2Go et ell
      * **Hôte** : Entrez l’adresse IP de votre machine virtuelle, que vous avez notée précédemment.
      * **Connexion** : Entrez le nom d’utilisateur dans la machine virtuelle Linux.
      * **Port SSH** : conservez la valeur par défaut (22).
-     * **Type de session** : remplacez la valeur par **XFCE**. La machine virtuelle Linux prend uniquement en charge l’environnement de bureau XFCE.
+     * **Type de session** : remplacez la valeur par **XFCE**. La machine virtuelle Linux prend uniquement en charge l’environnement de bureau XFCE.
    * **Onglet Multimédia** : vous pouvez désactiver l’impression client et la prise en charge du son si vous n’en avez pas besoin.
    * **Dossiers partagés** : si vous voulez que des répertoires de vos ordinateurs clients soient montés sur la machine virtuelle Linux, ajoutez ceux que vous souhaitez partager avec la machine virtuelle sous cet onglet.
 

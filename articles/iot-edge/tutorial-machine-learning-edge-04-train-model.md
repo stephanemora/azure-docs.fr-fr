@@ -8,12 +8,12 @@ ms.date: 2/10/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5f576d28d30907f3834600d0a6a5c152025cf912
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: a5c754373ba9437c631e62acbb5d6d246db4c862
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133532"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650756"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Tutoriel : Entraîner et déployer un modèle Azure Machine Learning
 
@@ -83,7 +83,7 @@ Passons en revue les fichiers que vous avez chargés dans votre projet Azure Not
 * **01-turbomoteur\_regression.ipynb** : Ce notebook utilise l’espace de travail du service Machine Learning pour créer et exécuter une expérience Machine Learning. Le notebook implique plus ou moins les étapes suivantes :
 
   1. Téléchargement des données à partir du compte de stockage Azure qui a été généré par l’atelier d’appareils
-  1. Exploration et préparation des données pour l’entraînement et pour le modèle de classifieur
+  1. Explore et prépare les données, puis utilise ces données pour entraîner le modèle de classifieur.
   1. Évaluation du modèle à partir de l’expérience à l’aide d’un jeu de données de test (Test\_FD003.txt)
   1. Publication du meilleur modèle de classifieur dans l’espace de travail du service Machine Learning
 

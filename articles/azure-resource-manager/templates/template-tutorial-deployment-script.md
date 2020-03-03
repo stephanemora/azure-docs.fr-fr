@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5454d2f80d1febccb0c57ecf2e80d930bb5cb761
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 21725e64bb359b2f11086baceb186605f010b796
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988802"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561457"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutoriel : Utiliser des scripts de déploiement pour créer un certificat auto-signé (préversion)
 
@@ -39,7 +39,7 @@ Ce tutoriel décrit les tâches suivantes :
 > * Déboguer le script qui a échoué
 > * Nettoyer les ressources
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
@@ -266,13 +266,13 @@ Le script de déploiement ajoute un certificat au coffre de clés. Configurez le
     * **timeout** : précise la durée d’exécution maximale autorisée du script, définie au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). La valeur par défaut est **P1D**.
     * **arguments** : Spécifiez les valeurs de paramètre. Les valeurs sont séparées par des espaces.
     * **scriptContent** : Spécifiez le contenu du script. Pour exécuter un script externe, utilisez plutôt **primaryScriptURI**. Pour plus d’informations, consultez [Utiliser un script externe](./deployment-script-template.md#use-external-scripts).
-        La déclaration de **$DeploymentScriptOutputs** est uniquement nécessaire lors du test du script sur une machine locale. La déclaration de la variable permet d’exécuter le script sur une machine locale et dans une ressource deploymentScript sans avoir à apporter de modifications. La valeur affectée à $DeploymentScriptOutputs est disponible en tant que sortie dans les déploiements. Pour plus d’informations, consultez [Utiliser des sorties issues de scripts de déploiement](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
+        La déclaration de **$DeploymentScriptOutputs** est uniquement nécessaire lors du test du script sur une machine locale. La déclaration de la variable permet d’exécuter le script sur une machine locale et dans une ressource deploymentScript sans avoir à apporter de modifications. La valeur affectée à $DeploymentScriptOutputs est disponible en tant que sortie dans les déploiements. Pour plus d’informations, consultez [Utiliser les sorties des scripts de déploiement PowerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) ou [Utiliser les sorties des scripts de déploiement CLI](./deployment-script-template.md#work-with-outputs-from-cli-script).
     * **cleanupPreference** : Spécifiez votre préférence quant à la suppression des ressources de script de déploiement.  La valeur par défaut est **Toujours**, ce qui signifie que les ressources de script de déploiement sont supprimées quel que soit l’état terminal (réussite, échec, annulation). Dans ce tutoriel, **OnSuccess** est utilisé pour vous permettre de voir les résultats de l’exécution du script.
     * **retentionInterval** : Spécifiez l’intervalle pendant lequel le service conserve les ressources de script une fois qu’il a atteint un état terminal. Les ressources sont supprimées à l’issue de cet interval. La durée s’appuie sur le modèle ISO 8601. Ce tutoriel utilise P1D, ce qui correspond à une journée.  Cette propriété est utilisée quand **cleanupPreference** a la valeur **OnExpiration**. Cette propriété n’est pas activée actuellement.
 
     Le script de déploiement accepte trois paramètres : le nom du coffre de clés, le nom du certificat et le nom de l’objet.  Il crée un certificat, puis l’ajoute au coffre de clés.
 
-    **$DeploymentScriptOutputs** est utilisé pour stocker la valeur de sortie.  Pour plus d’informations, consultez [Utiliser des sorties issues de scripts de déploiement](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
+    **$DeploymentScriptOutputs** est utilisé pour stocker la valeur de sortie.  Pour en savoir plus, consultez [Utiliser les sorties des scripts de déploiement PowerShell](./deployment-script-template.md#work-with-outputs-from-powershell-script) ou [Utiliser les sorties des scripts de déploiement CLI](./deployment-script-template.md#work-with-outputs-from-cli-script).
 
     Le modèle complet est disponible [ici](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json).
 

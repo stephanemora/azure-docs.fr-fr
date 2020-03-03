@@ -7,15 +7,17 @@ ms.service: cost-management-billing
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: banders
-ms.openlocfilehash: a5a158ce67d2d0c7dd947f7b35a96d12429c8ec9
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 9f9552c134fa7653e4100cae3c731e4c670d44e3
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200674"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560539"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Vue d’ensemble des API de création de rapports pour les clients Enterprise
 Les API de création de rapports permettent aux clients Azure Enterprise d’extraire leurs données de consommation et de facturation par programme pour les transférer vers les outils d’analyse de données de leur choix. Les clients Entreprise ont signé un [contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/) avec Azure pour fixer des prix négociés et bénéficier de tarifs personnalisés pour les ressources Azure.
+
+Tous les paramètres de date et d’heure nécessaires aux API doivent être représentés sous forme de valeurs UTC (temps universel coordonné) combinées. Les valeurs retournées par les API s’affichent au format UTC.
 
 ## <a name="enabling-data-access-to-the-api"></a>Autoriser l’API à accéder aux données
 * **Générer ou récupérer la clé API** : connectez-vous au portail Entreprise et accédez à Rapports > Télécharger l’utilisation > Clé d’accès API pour générer ou récupérer la clé API.

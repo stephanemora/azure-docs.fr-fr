@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 02/04/2020
+ms.date: 02/24/2020
 ms.author: banders
-ms.openlocfilehash: 1affe81228b491ea45f610d741d454fa38f2029a
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 017f617bff14eb0c031c40240ca6c1ac62c9c941
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199107"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598219"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Comprendre votre facture Contrat Entreprise Azure
 
@@ -55,7 +55,7 @@ Vous recevez une facture Azure si l’un des événements suivants se produit au
     - Visual Studio Professional (annuel)
 - **Frais de la Place de marché** : les achats et l’utilisation liés à la Place de marché Azure ne sont pas couverts par le crédit de votre organisation. Les frais de la Place de marché vous sont donc facturés, malgré votre solde de crédit. Sur Enterprise Portal, un administrateur d’entreprise peut activer et désactiver les achats liés à la Place de marché.
 
-Votre facture montre toute votre utilisation d’Azure, suivie de tous les frais liés à la Place de marché. Si vous avez un solde de crédit, il est appliqué à l’utilisation d’Azure.
+Votre facture présentera les frais d’utilisation d’Azure avec les coûts associés affichés en premier, suivis des frais relatifs à la Place de marché. Si vous avez un solde créditeur, il s’appliquera à l’utilisation d’Azure et votre facture présentera l’utilisation d’Azure et celle de la Place de marché en dernier, sans aucun coût.
 
 Comparez votre montant total combiné indiqué sur Enterprise Portal dans **Rapports** > **Récapitulatif de l’utilisation** avec votre facture Azure. Les montants dans le **Récapitulatif de l’utilisation** n’incluent pas les taxes.
 

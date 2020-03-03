@@ -1,22 +1,23 @@
 ---
 title: "Démarrage rapide : Créer un blueprint avec l'API REST"
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts avec l’API REST.
-ms.date: 11/21/2019
+ms.date: 02/26/2020
 ms.topic: quickstart
-ms.openlocfilehash: 13a6cce25b17fdfbfa5f62dbf16cd2cfbbdc4fe2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3e7e7c67822eec939c7d7752f8771d3b486abc3c
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436591"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650229"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec l’API REST
 
 Un utilisateur qui sait comment créer et affecter des blueprints peut définir des modèles courants et développer des configurations réutilisables et rapides à déployer en fonction de modèles Resource Manager, de stratégies, d’exigences en matière de sécurité, etc. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Blueprint pour effectuer des tâches courantes liées à la création, à la publication et à l’affectation d’un blueprint dans votre organisation, notamment :
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
+- Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
+- Inscrivez le fournisseur de ressources `Microsoft.Blueprint`. Pour obtenir des instructions, consultez [Types et fournisseurs de ressources](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

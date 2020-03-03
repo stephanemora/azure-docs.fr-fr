@@ -3,16 +3,16 @@ title: Administration du portail Azure EA
 description: Cet article présente les tâches courantes à la charge d’un administrateur dans le portail Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 142ef421599cef4083efdf8b9ed700d2baa152b3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1da26b3a1c028a49655b9089ac0119e3274e37a4
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199770"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598389"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
@@ -118,6 +118,8 @@ L’offre Dev/Test ne s’applique pas aux clients Azure Gov pour le moment.
 
 Un transfert de compte déplace un propriétaire de compte d’une inscription à une autre. Tous les abonnements associés sous le propriétaire du compte seront déplacés vers l’inscription cible. Cette opération est effectuée quand vous avez plusieurs inscriptions actives et que vous souhaitez uniquement déplacer les propriétaires de comptes sélectionnés.
 
+Cette section est fournie à titre d’information uniquement, car l’action ne peut pas être effectuée par un administrateur d’entreprise. Pour transférer un compte d’entreprise vers une nouvelle inscription, une demande de support est nécessaire.
+
 Gardez les points suivants à l’esprit quand vous transférez un compte d’entreprise vers une nouvelle inscription :
 
 - Seuls les comptes spécifiés dans la demande sont transférés. Si tous les comptes sont choisis, ils sont tous transférés.
@@ -147,6 +149,8 @@ Un transfert d’inscription est envisagé dans les cas suivants :
 - La durée d’engagement d’une inscription en cours se termine.
 - Une inscription présente l’état expiré/étendu et un nouveau contrat est négocié.
 - Vous avez plusieurs inscriptions et souhaitez centraliser tous les comptes et la facturation dans le cadre d’une seule inscription.
+
+Cette section est fournie à titre d’information uniquement, car l’action ne peut pas être effectuée par un administrateur d’entreprise. Pour transférer une inscription d’entreprise vers une nouvelle, une demande de support est nécessaire.
 
 Lorsque vous demandez à transférer une inscription d’entreprise complète vers une autre inscription, les actions suivantes se produisent :
 

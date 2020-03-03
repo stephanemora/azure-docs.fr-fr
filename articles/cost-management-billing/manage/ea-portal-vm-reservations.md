@@ -3,16 +3,16 @@ title: Instances réservées de machine virtuelle Azure EA
 description: Cet article résume la façon dont les réservations Azure pour les instances réservées de machine virtuelle peuvent vous aider à faire des économies dans le cadre de l’inscription de votre entreprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/14/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 3eceef9dc0bc29f7e105ac0b110bd2550413fa61
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 53af5e69a90eb376c28ef364e7d9c5b29287790c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200708"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560575"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instances réservées de machine virtuelle Azure EA
 
@@ -57,10 +57,12 @@ Vous pouvez afficher les détails de votre achat d’instance réservée via le 
 
 ### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>Comment modifier l’abonnement associé à l’instance réservée ou transférer mes avantages d’instance réservée vers un abonnement sous le même compte ?
 
-À un moment donné, un seul abonnement peut recevoir des avantages d’instance réservée. Vous pouvez modifier l’abonnement qui reçoit les avantages d’instance réservée en procédant comme suit :
+Vous pouvez modifier l’abonnement qui reçoit les avantages d’instance réservée en procédant comme suit :
 
 - Connectez-vous au [portail Azure](https://aka.ms/reservations).
 - Mettez à jour l’étendue d’abonnement appliquée en associant un autre abonnement sous le même compte.
+
+Pour plus d’informations sur la modification de l’étendue d’une réservation, consultez [Modifier l’étendue de réservation](../reservations/manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 ### <a name="how-to-view-reserved-instance-usage-details"></a>Comment afficher les détails d’utilisation d’instance réservée
 

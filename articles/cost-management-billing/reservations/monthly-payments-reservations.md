@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.author: banders
-ms.openlocfilehash: 2689bdeb003cec0050141374165142a62f9ea337
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 77d663fa01e24acf63acd68d0b8d7cf4cc741055
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200399"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587088"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>Acheter des réservations avec paiements mensuels
 
@@ -30,7 +30,7 @@ Les paiements mensuels sont disponibles pour ce qui suit :
 - Frais de timbre App Service
 - Disque managé
 - Explorateur de données Azure
-- Azure Database pour MariaDB, PostgreSQL et MySQL
+- Azure Database for MariaDB, MySQL et PostgreSQL
 - Azure VMware Solution by CloudSimple
 
 
@@ -48,7 +48,7 @@ Pour afficher l’échéancier de paiement après l’achat, sélectionnez une r
 
 Vous pouvez afficher les paiements effectués à l’aide des API, des données d’utilisation et de l’analyse des coûts. Pour les réservations avec paiement mensuel, la fréquence a pour valeur **recurring** (périodique) dans les données d’utilisation et l’API de facturation des réservations. Pour les réservations avec paiement initial, la valeur est **onetime** (paiement en une seule fois).
 
-L’analyse des coûts affiche les achats mensuels dans la vue par défaut. Appliquez le filtre **purchase** (achat) pour **Charge type** (Type de frais) et **recurring** (périodique) pour **Frequency** (Fréquence) afin de voir tous les achats. Pour afficher uniquement les réservations, appliquez un filtre pour **Reservation**.
+L’analyse des coûts affiche les achats mensuels dans la vue par défaut. Appliquez le filtre **purchase** (achat) à **Charge type** (Type de frais) et **recurring** (périodique) pour **Frequency** (Fréquence) pour afficher tous les achats. Pour afficher uniquement les réservations, appliquez un filtre pour **Reservation**.
 
 ![Exemple montrant les coûts d’achat de réservation dans l’analyse des coûts](./media/monthly-payments-reservations/cost-analysis.png)
 
@@ -62,7 +62,7 @@ Comme les autres réservations, vous pouvez demander le remboursement ou l’éc
 
 Quand vous échangez une réservation qui est payée mensuellement, le coût total de la durée de vie du nouvel achat doit être supérieur aux paiements restants qui sont annulés pour la réservation retournée. Il n’y a pas d’autres limites ou frais pour les échanges. Vous pouvez échanger une réservation acquittée avec paiement initial pour acheter une nouvelle réservation avec facturation mensuelle. Toutefois, la valeur de la durée de vie de la nouvelle réservation doit être supérieure à la valeur au prorata de la réservation retournée.
 
-Si vous annulez une réservation qui est payée mensuellement, Microsoft peut appliquer des frais d’annulation aux futurs paiements validés qui sont annulés. Les paiements validés restants entrent dans la limite de remboursement de 50 000 USD.
+Si vous annulez une réservation qui est payée mensuellement, Microsoft peut appliquer des frais d’annulation de 12 % aux paiements validés annulés. Cependant, Microsoft ne facture pas la pénalité pour le moment. Les paiements validés annulés entrent dans la limite de remboursement de 50 000 USD. Si une pénalité d’annulation est facturée, cela n’a pas d’incidence sur la limite de remboursement.
 
 Pour plus d’informations sur les échanges et les remboursements, consultez [Échanges et remboursements en libre-service de réservations Azure](exchange-and-refund-azure-reservations.md).
 

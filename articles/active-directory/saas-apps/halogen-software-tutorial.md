@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 02/15/2020
+ms.date: 02/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ef7d5ec33786c3c4c38525cd5ab15bee53b3493
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 76c13a649e1c1888a11e02b83d969255615cdc67
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77373232"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561331"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-saba-talentspace"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Saba TalentSpace
 
@@ -44,7 +44,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Saba TalentSpace prend en charge l’authentification unique lancée par le **fournisseur de services**
-* Après avoir configuré Saba TalentSpace, vous pouvez appliquer des contrôles de session, qui protègent l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Après avoir configuré Saba TalentSpace, vous pouvez appliquer le contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-saba-talentspace-from-the-gallery"></a>Ajout de Saba TalentSpace à partir de la galerie
 
@@ -86,8 +86,10 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://global.hgncloud.com/[companyname]/saml/metadata`
 
+    c. Dans la zone de texte **URL de réponse (URL Assertion Consumer Service)** , tapez une URL à l’aide du modèle suivant : `https://global.hgncloud.com/[companyname]/saml/SSO`
+
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de Saba TalentSpace](https://support.halogensoftware.com/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez l’[équipe du support technique de Saba TalentSpace](https://support.saba.com/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 1. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -176,7 +178,7 @@ L’objectif de cette section est de créer un utilisateur appelé Britta Simon 
 
     a. Dans la zone de texte **First Name** (Prénom), tapez le prénom de l’utilisateur, par exemple **B**.
 
-    b. Dans la zone de texte **Last Name** (Nom), entrez le nom de l’utilisateur, par exemple **Simon**.
+    b. Dans la zone de texte **Nom**, entrez le nom de l’utilisateur, par exemple **Simon**.
 
     c. Dans la zone de texte **Username** (Nom d’utilisateur), entrez **B.Simon**, le nom d’utilisateur du portail Azure.
 
