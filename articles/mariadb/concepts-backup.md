@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 333e51782fd0dd88b3e8747fb831b841a22c8e6c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 02/25/2020
+ms.openlocfilehash: 3e10c23aaaef6315e072348d879d5f077e16382a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773087"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623652"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Sauvegarde et restauration dans Azure Database for MariaDB
 
@@ -20,6 +20,8 @@ Azure Database for MariaDB crée automatiquement des sauvegardes de serveur et l
 ## <a name="backups"></a>Sauvegardes
 
 Azure Database for MariaDB accepte les sauvegardes complètes, différentielles et de journal des transactions. Celles-ci vous permettent de restaurer un serveur à n’importe quel point dans le temps au sein de votre période de rétention de sauvegarde configurée. La période de rétention de sauvegarde par défaut est de sept jours. Vous pouvez éventuellement la configurer sur 35 jours maximum. Toutes les sauvegardes sont chiffrées à l’aide du chiffrement AES de 256 bits.
+
+Ces fichiers de sauvegarde ne peuvent pas être exportés. Les sauvegardes ne peuvent être utilisées que pour des opérations de restauration dans Azure Database for MariaDB. Vous pouvez utiliser [mysqldump](howto-migrate-dump-restore.md) pour copier une base de données.
 
 ### <a name="backup-frequency"></a>Fréquence de sauvegarde
 
@@ -40,7 +42,7 @@ Par exemple, si vous avez approvisionné un serveur avec 250 Go, vous bénéfici
 
 Pour plus d’informations sur le coût du stockage de sauvegarde, visitez la [page des tarifs MariaDB](https://azure.microsoft.com/pricing/details/mariadb/).
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Restaurer
 
 Dans Azure Database for MariaDB, l’exécution d’une restauration crée un serveur à partir de sauvegardes du serveur d’origine.
 
@@ -54,7 +56,7 @@ Le délai estimé de récupération dépend de plusieurs facteurs, notamment du 
 > [!IMPORTANT]
 > Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées.Pour protéger les ressources du serveur, après le déploiement, contre une suppression accidentelle ou des changements inattendus, les administrateurs peuvent utiliser [les verrous de gestion](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
-### <a name="point-in-time-restore"></a>Limite de restauration dans le temps
+### <a name="point-in-time-restore"></a>Restauration dans le temps
 
 Quelle que soit l’option de redondance de sauvegarde, vous pouvez effectuer une restauration à n’importe quel point dans le temps au sein de votre période de rétention de sauvegarde. Un serveur est créé dans la même région Azure que le serveur d’origine. Il est créé avec la configuration du serveur d’origine pour le niveau de tarification, la génération de calcul, le nombre de vCores, la taille de stockage, la période de rétention de sauvegarde et l’option de redondance de sauvegarde.
 
@@ -62,7 +64,7 @@ La restauration à un point dans le temps est utile dans plusieurs scénarios. P
 
 Vous devez peut-être attendre la prochaine sauvegarde du journal des transactions avant de pouvoir restaurer à un point dans le temps dans les cinq dernières minutes.
 
-### <a name="geo-restore"></a>Géo-restauration
+### <a name="geo-restore"></a>La géorestauration
 
 Vous pouvez restaurer un serveur dans une autre région Azure où le service est disponible si vous avez configuré votre serveur pour les sauvegardes géoredondantes. La géorestauration constitue l’option de récupération par défaut lorsque votre serveur est indisponible en raison d’un incident dans la région où il est hébergé. Si un incident à grande échelle dans une région entraîne l’indisponibilité de votre application de base de données, vous pouvez restaurer un serveur à partir des sauvegardes géoredondantes sur un serveur situé dans n’importe quelle autre région. Il peut y avoir un délai entre le moment où une sauvegarde est effectuée et celui où elle est répliquée dans une autre région. Ce délai peut atteindre une heure. En cas d’incident, il peut donc y avoir jusqu’à une heure de pertes de données.
 

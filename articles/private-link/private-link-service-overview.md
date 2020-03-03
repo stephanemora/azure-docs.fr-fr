@@ -2,17 +2,17 @@
 title: Qu’est-ce que le service Azure Private Link ?
 description: Découvrez le service Azure Private Link.
 services: private-link
-author: malopMSFT
+author: sumeetmittal
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: allensu
-ms.openlocfilehash: d2313bfc47026ed9655d0ca25f0a0fdf3f86d8a5
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.author: sumi
+ms.openlocfilehash: 97515b308323452e88cf6fd8a517c1f169c9ba6f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191083"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587411"
 ---
 # <a name="what-is-azure-private-link-service"></a>Qu’est-ce que le service Azure Private Link ?
 
@@ -98,7 +98,7 @@ L’approbation des connexions peut être automatisée à l’aide de la propri�
 
 ## <a name="getting-connection-information-using-tcp-proxy-v2"></a>Obtention d’informations de connexion à l’aide du proxy TCP v2
 
-Lors de l’utilisation du service de liaison privée, l’adresse IP source des paquets provenant du point de terminaison privé est traduite en adresse réseau (NAT) côté fournisseur de services à l’aide de l’adresse IP NAT allouée à partir du réseau virtuel du fournisseur. Ainsi, les applications reçoivent l’adresse IP NAT allouée au lieu de l’adresse IP source réelle des consommateurs de services. Si votre application a besoin d’une adresse IP source réelle du côté du consommateur, vous pouvez activer le protocole proxy sur votre service et récupérer les informations de l’en-tête du protocole proxy. En plus de l’adresse IP source, l’en-tête du protocole proxy comporte l’ID de lien du point de terminaison privé. La combinaison de l’adresse IP source et de l’ID de lien peut aider les fournisseurs de services à identifier leurs consommateurs de manière unique. Pour plus d’informations sur le protocole proxy, rendez-vous ici. 
+Lors de l’utilisation du service de liaison privée, l’adresse IP source des paquets provenant du point de terminaison privé est traduite en adresse réseau (NAT) côté fournisseur de services à l’aide de l’adresse IP NAT allouée à partir du réseau virtuel du fournisseur. Ainsi, les applications reçoivent l’adresse IP NAT allouée au lieu de l’adresse IP source réelle des consommateurs de services. Si votre application a besoin d’une adresse IP source réelle du côté du consommateur, vous pouvez activer le protocole proxy sur votre service et récupérer les informations de l’en-tête du protocole proxy. En plus de l’adresse IP source, l’en-tête du protocole proxy comporte l’ID de lien du point de terminaison privé. La combinaison de l’adresse IP source et de l’ID de lien peut aider les fournisseurs de services à identifier leurs consommateurs de manière unique. Pour plus d’informations sur le protocole de proxy, voir [ici](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt). 
 
 Ces informations sont encodées à l’aide d’un vecteur TLV (Type-Length-Value) personnalisé comme suit :
 
@@ -111,6 +111,8 @@ Détails TLV personnalisés :
 |Valeur  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
 |  |4        |UINT32 (4 octets) représentant l’ID de lien du point de terminaison privé. Encodé au format Little Endian.|
 
+ > [!NOTE]
+ > Le fournisseur de service est chargé de s’assurer que le service situé derrière l’équilibreur de charge standard est configuré pour analyser l’en-tête du protocole de proxy conformément à la [spécification](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) lorsque le protocole est activé sur un service de liaison privée. La demande échoue si le paramètre de protocole de proxy est activé sur un service de liaison privée qui n’est pas configuré pour analyser l’en-tête. De même, la demande échoue si le service attend un en-tête de protocole de proxy alors que le paramètre n’est pas activé sur le service de liaison privée. Une fois le paramètre de protocole de proxy activé, l’en-tête de protocole de proxy est également inclus dans les sondes d’intégrité HTTP/TCP de l’hôte vers les machines virtuelles principales, même s’il n’y a pas d’informations sur le client dans l’en-tête. 
 
 ## <a name="limitations"></a>Limites
 

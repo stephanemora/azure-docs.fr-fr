@@ -6,25 +6,25 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 02/25/2019
 ms.author: tamram
-ms.openlocfilehash: eb3523ca55e67d7a26ae608da8963dbf6124f2f7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 42cef26143eaeb49c4aa80dc5e1b05eb7be943cc
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975832"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616844"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Mettre à niveau vers un compte de stockage v2 à usage général
 
 Les comptes de stockage v2 à usage général prennent en charge les dernières fonctionnalités du Stockage Azure, et intègrent toutes les fonctionnalités des comptes de stockage v1 à usage général et des comptes de stockage d’objets blob. Les comptes de stockage v2 à usage général sont adaptés à la plupart des scénarios. Pour le Stockage Azure, ce sont les comptes v2 à usage général qui offrent les tarifs de capacité par gigaoctet les plus bas. En outre, le prix des transactions est l’un des plus compétitifs du secteur. Les comptes v2 universels prennent en charge les niveaux d’accès de compte par défaut chaud ou froid et la hiérarchisation des niveau des objets BLOB entre chaud, froid ou archive.
 
-La mise à niveau vers un compte de stockage v2 à usage général à partir d’un compte de stockage v1 à usage général ou d’un compte de stockage d’objets blob est une opération très simple. Pour ce faire, vous pouvez utiliser le Portail Azure, PowerShell ou Azure CLI.
+La mise à niveau vers un compte de stockage v2 à usage général à partir d’un compte de stockage v1 à usage général ou d’un compte de stockage d’objets blob est une opération très simple. Pour ce faire, vous pouvez utiliser le Portail Azure, PowerShell ou Azure CLI. Aucun temps d’arrêt ou risque de perte de données n’est associé à la mise à niveau vers un compte de stockage v2 à usage général. La mise à niveau du compte s’effectue via une simple opération d’Azure Resource Manager qui modifie le type de compte.
 
 > [!IMPORTANT]
 > La mise à niveau d’un compte de stockage v1 universel ou d’objets blob vers un compte v2 universel est définitive et ne peut pas être annulée.
 
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez à votre compte de stockage.
@@ -35,7 +35,7 @@ La mise à niveau vers un compte de stockage v2 à usage général à partir d�
 
     ![Mise à niveau du type de compte](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -46,7 +46,7 @@ Ensuite, appelez la commande suivante pour mettre à niveau le compte, en rempla
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pour mettre à niveau un compte v1 à usage général vers un compte v2 à usage général à l’aide d’Azure CLI, commencez par installer la dernière version d’Azure CLI. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez l’article [Installer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 

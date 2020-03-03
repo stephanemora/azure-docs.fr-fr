@@ -1,36 +1,35 @@
 ---
-title: Créer des travaux planifiés avec Azure Scheduler - Portail Azure | Microsoft Docs
-description: Découvrez comment créer, planifier et exécuter votre premier travail automatisé avec Azure Scheduler dans le portail Azure
+title: Créer des travaux planifiés – Portail Azure
+description: Créer, planifier et exécuter votre premier travail automatisé avec Azure Scheduler dans le portail Azure
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
-ms.author: deli
-ms.reviewer: klam
-ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
+ms.author: estfan
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/17/2018
-ms.openlocfilehash: 48e03f41fa0a39642330288fc05ef709179b4c62
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 02/29/2020
+ms.openlocfilehash: a9f7169f4b54dfc08612b1d53bfde48154ee2d1d
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300991"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524799"
 ---
-# <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Créer et planifier votre premier travail avec Azure Scheduler - Portail Azure
+# <a name="create-and-schedule-your-first-job-by-using-azure-scheduler---azure-portal"></a>Créer et planifier votre premier travail avec Azure Scheduler – Portail Azure
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est [en cours de retrait](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Pour poursuivre les travaux que vous avez configurés dans Scheduler, [migrez vers Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) dès que possible.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en phase de [mise hors service](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Pour poursuivre les travaux que vous avez configurés dans Scheduler, veuillez [migrer vers Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) dès que possible.
 
-Ce tutoriel montre comment vous pouvez créer et planifier facilement un travail, puis surveiller et gérer ce travail. 
+Ce tutoriel montre comment vous pouvez créer et planifier facilement un travail, puis surveiller et gérer ce travail.
 
-Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
+Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
 ## <a name="create-job"></a>Créer un travail
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).  
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-1. Dans le menu principal d’Azure, choisissez **Créer une ressource**. Dans la zone de recherche, entrez « planificateur ». Dans la liste des résultats, sélectionnez **Planificateur**, puis choisissez **Créer**.
+1. Dans la zone de recherche Azure, entrez `scheduler` en guise de filtre. Dans la liste des résultats, sélectionnez **Collections de tâches du planificateur**, puis sélectionnez **Créer**.
 
    ![Créer une ressource Scheduler](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
@@ -38,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/
 
 1. Sous **Tâche du planificateur**, entrez ces informations :
 
-   | Propriété | Exemple de valeur | Description |
+   | Propriété | Valeur d'exemple | Description |
    |----------|---------------|-------------| 
    | **Nom** | getMicrosoft | Nom pour votre travail | 
    | **Collection de travaux** | <*job-collection-name*> | Créez une collection de travaux ou sélectionnez une collection existante. | 
@@ -47,7 +46,7 @@ Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/
 
 1. Sélectionnez **Paramètres d’action - Configurer**, spécifiez ces informations, puis choisissez **OK** quand vous avez terminé :
 
-   | Propriété | Exemple de valeur | Description |
+   | Propriété | Valeur d'exemple | Description |
    |----------|---------------|-------------| 
    | **Action** | **HTTP** | Type d’action à exécuter | 
    | **Méthode** | **Get** | Méthode à appeler | 
@@ -60,7 +59,7 @@ Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/
 
    Bien qu’il soit possible de créer un travail ponctuel, cet exemple configure une planification périodique.
 
-   | Propriété | Exemple de valeur | Description |
+   | Propriété | Valeur d'exemple | Description |
    |----------|---------------|-------------| 
    | **Périodicité** | **Récurrent** | Un travail ponctuel ou récurrent | 
    | **Commencent le** | <*date du jour*> | Date de début du travail | 
@@ -93,7 +92,7 @@ Pour plus d’informations sur ces zones, sélectionnez une zone :
 
 <a name="properties"></a>
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Propriétés
 
 Pour voir les propriétés en lecture seule qui décrivent les métadonnées de gestion pour votre travail, sélectionnez **Propriétés**.
 
@@ -107,7 +106,7 @@ Pour modifier les paramètres avancés de votre travail, sélectionnez **Paramè
 
 ![Examiner les paramètres d’action](./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png)
 
-| Type d’action | Description | 
+| Type d'action | Description | 
 |-------------|-------------| 
 | Tous les types | Vous pouvez modifier les paramètres **Stratégie de nouvelle tentative** et **Action d’erreur**. | 
 | HTTP et HTTPS | Vous pouvez changer **Méthode** pour n’importe quelle méthode autorisée. Vous pouvez également ajouter, supprimer ou modifier les en-têtes et les informations d’authentification de base. | 
@@ -117,7 +116,7 @@ Pour modifier les paramètres avancés de votre travail, sélectionnez **Paramè
 
 <a name="schedule"></a>
 
-### <a name="schedule"></a>Planification
+### <a name="schedule"></a>Planifier
 
 Si vous configurez une planification via l’Assistant Travail, vous pouvez modifier cette planification, comme la date et l’heure de début, la planification de la récurrence, et la date et l’heure de fin pour les tâches récurrentes.
 Vous pouvez aussi créer des [planifications plus complexes et des récurrences avancées](scheduler-advanced-complexity.md).

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 02/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a18f0b1f83ae02b06344c332cfdd1cc093f37fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 90d958d2adc8920e4e6ccbccef20acf20aedca4c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424892"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561610"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Accès conditionnel : Exiger un appareil conforme
 
@@ -27,7 +27,7 @@ Les organisations qui ont déployé Microsoft Intune peuvent utiliser les inform
 * Exiger une version minimale ou maximale du système d’exploitation
 * Exiger qu’un appareil ne soit ni jailbroken ni rooté
 
-Ces informations de conformité de la stratégie sont transmises à Azure AD, où l’accès conditionnel peut prendre des décisions pour accorder ou bloquer l’accès aux ressources.
+Ces informations de conformité de la stratégie sont transmises à Azure AD, où l’accès conditionnel peut prendre des décisions pour accorder ou bloquer l’accès aux ressources. Pour plus d’informations sur les stratégies de conformité, voir [Définir des règles sur les appareils pour autoriser l’accès aux ressources de votre organisation à l’aide d’Intune](/intune/protect/device-compliance-get-started).
 
 ## <a name="create-a-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
@@ -49,6 +49,9 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
 1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
 1. Sélectionnez **Créer** pour créer votre stratégie.
 
+> [!NOTE]
+> Vous pouvez inscrire vos nouveaux appareils auprès d’Intune même si vous sélectionnez **Exiger que l’appareil soit marqué comme conforme** pour **Tous les utilisateurs** et **Toutes les applications Cloud** en procédant de la manière d’écrite ci-dessus. Le contrôle **Exiger que l’appareil soit marqué comme conforme** ne bloque pas l’inscription auprès d’Intune. 
+
 ### <a name="known-behavior"></a>Comportement connu
 
 Sur des systèmes Windows 7, iOS, Android, macOS, et dans certains navigateurs web tiers, Azure AD identifie l’appareil à l’aide d’un certificat client, qui est provisionné lorsque l’appareil est inscrit auprès d’Azure AD. Lorsqu’un utilisateur se connecte pour la première fois via le navigateur, l’utilisateur est invité à sélectionner le certificat. L’utilisateur final doit sélectionner ce certificat pour pouvoir continuer à utiliser le navigateur.
@@ -61,4 +64,4 @@ Sur des systèmes Windows 7, iOS, Android, macOS, et dans certains navigateurs 
 
 [Simuler le comportement de connexion à l’aide de l’outil What If pour l’accès conditionnel](troubleshoot-conditional-access-what-if.md)
 
-[Les stratégies de conformité des appareils fonctionnent avec Azure AD](https://docs.microsoft.com/intune/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)
+[Les stratégies de conformité des appareils fonctionnent avec Azure AD](/intune/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)

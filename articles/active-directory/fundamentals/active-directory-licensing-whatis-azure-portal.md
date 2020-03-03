@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a455f0e1959ad496a04f531cc0c3ece240c757ad
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 9eec896e6cccaf58c83820161c54c4f10cfadadd
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987144"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561559"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>À quoi correspondent les licences basées sur les groupes dans Azure Active Directory ?
 
@@ -34,12 +34,12 @@ Vous devez disposer d’une des licences suivantes pour utiliser les licences ba
 
 - Abonnement d’essai ou payant pour Azure AD Premium P1 et versions ultérieures
 
-- Édition d’essai ou payante d’Office 365 Enterprise E3 ou Office 365 A3 ou Office 365 GCC G3 et versions ultérieures
+- Édition payante ou d’évaluation d’Office 365 E3, d’Office 365 A3, d’Office 365 GCC G3, d’Office 365 E3 pour GCCH ou d’Office 365 E3 pour DOD et versions ultérieures
 
 ### <a name="required-number-of-licenses"></a>Nombre de licences requis
 Pour tous les groupes auxquels une licence est attribuée, chaque membre unique doit également disposer d’une licence. Même si vous n’êtes pas obligé d’attribuer une licence à chaque membre du groupe, vous devez disposer de suffisamment de licences pour inclure tous les membres. Par exemple, si vous avez 1 000 membres uniques dans des groupes sous licence dans votre locataire, vous devez disposer d’au moins 1 000 licences pour respecter le contrat de licence.
 
-## <a name="features"></a>Caractéristiques
+## <a name="features"></a>Fonctionnalités
 
 Voici les principales fonctionnalités de la gestion des licences par groupe :
 
@@ -63,7 +63,7 @@ Si vous avez des commentaires ou des demandes de fonctionnalités, partagez-les 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur d’autres scénarios de gestion des licences par le biais des licences basées sur les groupes, consultez :
+Pour plus d’informations sur d’autres scénarios de gestion des licences par le biais des licences basées sur les groupes, consultez :
 
 * [Affectation de licences à un groupe dans Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
 * [Identification et résolution des problèmes de licence pour un groupe dans Azure Active Directory](../users-groups-roles/licensing-groups-resolve-problems.md)

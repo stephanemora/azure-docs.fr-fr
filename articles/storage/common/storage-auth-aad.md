@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 2/23/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 820e7187332b02993d3d8bcba9c01958cfbdd61d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b8a42723a9b56665160e660c0ea1451253c3d185
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965815"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588975"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autoriser l’accès aux objets blob et aux files d’attente avec Azure Active Directory
 
@@ -27,7 +27,7 @@ L’autorisation avec Azure AD est disponible pour tous les comptes de stockage 
 
 Le stockage Blob prend également en charge la création de signatures d’accès partagé (SAS) signées avec des informations d’identification Azure AD. Pour plus d’informations, consultez [Accorder un accès limité aux données avec des signatures d’accès partagé](storage-sas-overview.md).
 
-Azure Files prend uniquement en charge l’autorisation avec Azure AD sur SMB pour les machines virtuelles jointes à un domaine. Pour en savoir plus sur l’utilisation d’Azure AD sur SMB pour Azure Files, consultez [Vue d’ensemble de l’autorisation Azure Active Directory sur SMB pour Azure Files](../files/storage-files-active-directory-overview.md).
+Azure Files prend uniquement en charge l’autorisation avec AD (en préversion) ou Azure AD DS (généralement disponible) sur SMB uniquement pour des machines virtuelles jointes au domaine. Pour en savoir plus sur l’utilisation d’AD (en préversion) ou d’Azure AD DS (généralement disponible) sur SMB pour Azure Files, voir [Vue d’ensemble de la prise en charge de l’authentification basée sur l’identité Azure Files pour l’accès SMB](../files/storage-files-active-directory-overview.md).
 
 L’autorisation avec Azure AD n’est pas prise en charge pour Stockage Table Azure. Utilisez la clé partagée pour autoriser les demandes au stockage Table.
 

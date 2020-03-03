@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 11/27/2019
-ms.openlocfilehash: eed0ed96efdc84697797c50578e11eee37d4d495
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/25/2020
+ms.openlocfilehash: 12d457d8d5e57dc4db16d9a191c7795a5f013574
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201728"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605017"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -74,7 +74,7 @@ L’instance gérée a deux niveaux de service : [Usage général](sql-database
 | Nombre maximal de fichiers de base de données par instance | Jusqu’à 280, sauf si la limite de taille de stockage d’instance ou d’[espace d’allocation de stockage sur disque Premium Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) a été atteinte. | 32 767 fichiers par base de données, sauf si la limite de taille de stockage d’instance a été atteinte. |
 | Taille maximale du fichier de données | Limitée à la taille de stockage d’instance actuellement disponible (maximum 2-8 To) et à l’[espace d’allocation de stockage sur disque Premium Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitée à la taille de stockage d’instances actuellement disponible (jusqu’à 1-4 To). |
 | Taille maximale du fichier journal | Limitée à 2 To et à la taille de stockage d’instance actuellement disponible. | Limitée à 2 To et à la taille de stockage d’instance actuellement disponible. |
-| IOPS de données/journal (approximatives) | Jusqu’à 30-40 K IOPS par instance*, 500-7500 par fichier<br/>\*[Augmentez la taille de fichier pour obtenir davantage d’IOPS](#file-io-characteristics-in-general-purpose-tier)| 5,5 K-110 K (1375 IOPS/vCore)<br/>Ajoutez plus de vCores pour obtenir de meilleures performances d’E/S. |
+| IOPS de données/journal (approximatives) | Jusqu’à 30-40 K IOPS par instance*, 500-7500 par fichier<br/>\*[Augmentez la taille de fichier pour obtenir davantage d’IOPS](#file-io-characteristics-in-general-purpose-tier)| 10 K - 200 K (2500 IOPS/vCore)<br/>Ajoutez plus de vCores pour obtenir de meilleures performances d’E/S. |
 | Limite du débit d’écriture du journal (par instance) | 3 Mo/s par vCore<br/>22 Mo/s max. | 4 Mo/s par vCore<br/>48 Mo/s max. |
 | Débit de données (approximatif) | 100 - 250 Mo/s par fichier<br/>\*[Augmentez la taille de fichier pour obtenir de meilleures performances d’E/S](#file-io-characteristics-in-general-purpose-tier) | Non limité. |
 | Latence d’E/S de stockage (approximative) | 5 - 10 ms | 1 - 2 ms |
@@ -96,7 +96,7 @@ L’instance gérée a deux niveaux de service : [Usage général](sql-database
 
 Avec le niveau de service Usage général, chaque fichier de base de données reçoit des IOPS et un débit dédiés qui dépendent de la taille du fichier. Les fichiers plus volumineux reçoivent plus d’IOPS et de débit. Les caractéristiques d’E/S des fichiers de base de données sont indiquées dans le tableau suivant :
 
-| Taille du fichier           | 0 - 128 Gio | 128 - 256 Gio | 256 - 512 Gio | 0,5 - 1 Tio    | 1 - 2 Tio    | 2 - 4 Tio | 4 - 8 Tio |
+| Taille du fichier | >= 0 et <= 128 Gio | > 128 et <= 256 Gio | > 256 et <= 512 Gio | > 0,5 et <= 1 Tio    | > 1 et <= 2 Tio    | > 2 et <= 4 Tio | > 4 et <= 8 Tio |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
 | IOPS par fichier       | 500   | 1100 | 2300              | 5 000              | 7500              | 7500              | 12 500   |
 | Débit par fichier | 100 Mio/s | 125 Mio/s | 150 Mio/s | 200 Mio/s | 250 Mio/s | 250 Mio/s | 480 Mio/s | 
@@ -107,7 +107,7 @@ Il existe également des limites au niveau de l’instance, telles que le débit
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
-Les instances gérées peuvent être créée uniquement dans des [régions prises en charge](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Si vous voulez créer une instance gérée dans une région qui n’est actuellement pas prise en charge, vous pouvez [envoyer une demande de support par le biais du Portail Microsoft Azure](#obtaining-a-larger-quota-for-sql-managed-instance).
+Les instances gérées peuvent être créée uniquement dans des [régions prises en charge](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Si vous voulez créer une instance gérée dans une région qui n’est actuellement pas prise en charge, vous pouvez [envoyer une demande de support par le biais du Portail Microsoft Azure](quota-increase-request.md).
 
 ## <a name="supported-subscription-types"></a>Types d’abonnements pris en charge
 
@@ -122,13 +122,13 @@ L’instance gérée prend actuellement en charge le déploiement uniquement sur
 
 ## <a name="regional-resource-limitations"></a>Limitations des ressources régionales
 
-Les types d’abonnements pris en charge peuvent contenir un nombre limité de ressources par région. Une instance managée a deux limites par défaut par région Azure (qui peuvent être augmentées à la demande en créant une [demande spéciale de support dans le portail Azure](#obtaining-a-larger-quota-for-sql-managed-instance)) en fonction du type d’abonnement :
+Les types d’abonnements pris en charge peuvent contenir un nombre limité de ressources par région. Une instance managée a deux limites par défaut par région Azure (qui peuvent être augmentées à la demande en créant une [demande spéciale de support dans le portail Azure](quota-increase-request.md)) en fonction du type d’abonnement :
 
 - **Limite de sous-réseaux** : nombre maximal de sous-réseaux dans lesquels des instances gérées sont déployées dans une seule et même région.
 - **Limite d’unités de vCore** : nombre maximal d’unités de vCores qui peuvent être déployées parmi toutes les instances dans une seule région. Un vCore GP utilise une unité de vCore et un vCore BC prend quatre unités de vCore. Le nombre total d’instances n’est pas limité du moment qu’il se trouve dans la limite du nombre d’unités de vCores.
 
 > [!Note]
-> Ces limites sont des paramètres par défaut : il ne s’agit pas de limitations techniques. Ces limites peuvent être augmentées en créant une [demande de support spéciale dans le Portail Microsoft Azure](#obtaining-a-larger-quota-for-sql-managed-instance) si vous avez besoin de plus d’instances gérées dans la région actuelle. Vous pouvez aussi créer des instances gérées dans une autre région Azure sans envoyer de demandes de support.
+> Ces limites sont des paramètres par défaut : il ne s’agit pas de limitations techniques. Ces limites peuvent être augmentées en créant une [demande de support spéciale dans le Portail Microsoft Azure](quota-increase-request.md) si vous avez besoin de plus d’instances gérées dans la région actuelle. Vous pouvez aussi créer des instances gérées dans une autre région Azure sans envoyer de demandes de support.
 
 Le tableau suivant montre les **limites régionales par défaut** pour les types d’abonnement pris en charge (les limites par défaut peuvent être étendues à l’aide de la demande de support décrite ci-dessous) :
 
@@ -146,39 +146,9 @@ Le tableau suivant montre les **limites régionales par défaut** pour les types
 
 \*\* Des limites de sous-réseau et de vCore plus importantes s’appliquent dans les régions suivantes : Australie Est, USA Est, USA Est 2, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Europe Ouest, USA Ouest 2.
 
-## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtention d’un quota plus élevé pour votre instance managée SQL
+## <a name="request-a-quota-increase-for-sql-managed-instance"></a>Demander une augmentation de quota pour une instance gérée SQL
 
-Si vous avez besoin de davantage d’instances gérées dans vos régions actuelles, vous pouvez envoyer une demande de support pour étendre le quota à l’aide du Portail Microsoft Azure.
-Pour lancer le processus d’obtention d’un quota plus élevé :
-
-1. Ouvrez **Aide + Support**, puis cliquez sur **Nouvelle demande de support**.
-
-   ![Aide et support](media/sql-database-managed-instance-resource-limits/help-and-support.png)
-2. Sous l’onglet De base de la nouvelle demande de support :
-   - Pour **Type de problème**, sélectionnez **Limites du service et des abonnements (quotas)** .
-   - Pour **Abonnement**, sélectionnez votre abonnement.
-   - Pour **Type de quota**, sélectionnez **SQL Database Managed Instance**.
-   - Pour **Plan de support**, sélectionnez votre plan de support.
-
-     ![Type de problème : Quota](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
-
-3. Cliquez sur **Suivant**.
-4. Sous l’onglet **Problème** de la nouvelle demande de support :
-   - Pour **Gravité**, sélectionnez le niveau de gravité du problème.
-   - Pour **Détails**, fournissez des informations supplémentaires concernant votre problème, notamment les messages d’erreur.
-   - Pour **Chargement de fichier**, joignez un fichier contenant plus d’informations (jusqu’à 4 Mo).
-
-     ![Détails du problème](media/sql-database-managed-instance-resource-limits/problem-details.png)
-
-     > [!IMPORTANT]
-     > Une demande valide doit inclure les éléments suivants :
-     > - Région dans laquelle la limite d’abonnement doit être augmentée.
-     > - Nombre nécessaire de vCores, par niveau de service dans les sous-réseaux existants après l’augmentation du quota (si l’un des sous-réseaux existants doit être développé).
-     > - Nombre nécessaire de nouveaux sous-réseaux et nombre total de vCores par niveau de service dans les nouveaux sous-réseaux (si vous devez déployer des instances gérées dans les nouveaux sous-réseaux).
-
-5. Cliquez sur **Suivant**.
-6. Sous l’onglet Informations de contact pour la nouvelle demande de support, entrez la méthode de communication préférée (e-mail ou téléphone) et les détails du contact.
-7. Cliquez sur **Créer**.
+Si vous avez besoin de davantage d’instances gérées dans vos régions actuelles, vous pouvez envoyer une demande de support pour étendre le quota à l’aide du Portail Microsoft Azure. Pour plus d’informations, voir [Demander des augmentations de quota pour Azure SQL Database](quota-increase-request.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

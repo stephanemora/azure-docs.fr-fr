@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: e7aa19c1d189eb19237ea85aae1ad2441d7e98b9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 8b1e4c60e6054141e71d2509fe34c7ca9baf9ca6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163192"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598457"
 ---
 # <a name="import-data-module"></a>Module Importer des données
 
@@ -48,9 +48,7 @@ Si votre source de données change, vous pouvez actualiser le jeu de données et
 
 1. Ajoutez le module **Importer des données** à votre pipeline. Vous trouverez ce module dans la catégorie **Data Input and Output** (Entrée et sortie de données) du concepteur.
 
-1. Cliquez sur **Launch Data Import Wizard** (Lancer l’Assistant Importation de données) pour configurer la source de données à l’aide d’un Assistant.
-
-    L’Assistant obtient le nom et les informations d’identification du compte, et vous aide à configurer d’autres options. Si vous modifiez une configuration existante, il charge tout d’abord les valeurs actuelles.
+1. Sélectionnez le module pour ouvrir le volet droit.
 
 1. Sélectionnez **Source de données**, puis choisissez le type de source de données. Cela peut être HTTP ou un magasin de données.
 
@@ -60,6 +58,11 @@ Si votre source de données change, vous pouvez actualiser le jeu de données et
 
     ![import-data-preview](media/module/import-data.png)
 
+1. La case à cocher **Régénérer la sortie** détermine s’il faut exécuter le module pour régénérer la sortie au moment de l’exécution. 
+
+    Elle est désélectionnée par défaut, ce qui signifie que, si le module a été exécuté avec les mêmes paramètres par le passé, le système réutilisera la sortie de la dernière exécution pour réduire le temps d’exécution. 
+
+    Si elle est sélectionnée, le système exécutera à nouveau le module pour régénérer la sortie. Sélectionnez donc cette option lorsque les données sous-jacentes dans le stockage sont mises à jour. Cela peut vous aider à obtenir les données les plus récentes.
 
 
 1. Exécuter le pipeline.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ad3bb41b6c5faa7bab0e618dd46c48427f364db
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: b7c4a0e64e1f08bb3e80eaf67937da10906bfce0
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167379"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591606"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -30,7 +30,7 @@ En mettant vos appareils sur Azure AD, vous optimisez la productivité de vos ut
 
 Si vous disposez d’un environnement Active Directory (AD) local et que vous souhaitez lier vos ordinateurs joints au domaine AD à Azure AD, vous pouvez y parvenir en effectuant une jonction Azure AD Hybride. Cet article présente les étapes à suivre pour implémenter une jointure Azure AD hybride dans un environnement. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous avez lu la [Présentation de la gestion des identités des appareils dans Azure Active Directory](../device-management-introduction.md).
 
@@ -73,20 +73,21 @@ La première étape de la planification consiste à examiner l’environnement e
 
 ## <a name="review-things-you-should-know"></a>Connaître les points à savoir
 
-La jonction Azure AD Hybride n'est pas prise en charge si votre environnement se compose d’une seule forêt AD synchronisant les données d’identité sur plusieurs locataires Azure AD.
+### <a name="unsupported-scenarios"></a>Scénarios non pris en charge
+- La jonction Azure AD Hybride n'est pas prise en charge si votre environnement se compose d’une seule forêt AD synchronisant les données d’identité sur plusieurs locataires Azure AD.
 
-Si votre environnement utilise l’infrastructure VDI (Virtual Desktop Infrastructure), consultez [Identité d’appareil et la virtualisation des services de Bureau](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
+- La jonction Azure AD Hybride n'est pas prise en charge pour Windows Server avec le rôle de contrôleur de domaine.
 
-La jonction Azure AD Hybride est prise en charge pour les modules TPM 2.0 compatibles FIPS, mais pas pour les modules TPM 1.2. Si vos appareils sont dotés de modules TPM 1.2 compatibles FIPS, vous devez les désactiver avant de procéder à la jonction Azure AD Hybride. Microsoft ne propose aucun outil permettant de désactiver le mode FIPS pour les modules TPM car il dépend du fabricant de ces modules. Pour obtenir de l'aide, contactez votre fabricant OEM. À compter de la version 1903 de Windows 10, les modules TPM 1.2 ne sont pas utilisés pour les jonctions Azure AD hybrides, et les appareils dotés de ces TPM sont considérés comme n’ayant pas de TPM.
+- La jonction Azure AD Hybride n’est pas prise en charge sur les appareils Windows de bas niveau lors de l’utilisation de l’itinérance des informations d’identification, de l’itinérance du profil utilisateur ou du profil obligatoire.
 
-La jonction Azure AD Hybride n'est pas prise en charge pour Windows Server avec le rôle de contrôleur de domaine.
+### <a name="os-imaging-considerations"></a>Considérations relatives aux images de système d’exploitation
+- Si vous comptez sur l’outil de préparation système (Sysprep) et utilisez une image **pré-Windows 10 1809** pour l’installation, vérifiez que cette image ne provient pas d'un appareil déjà inscrit auprès d’Azure AD en tant que jonction Azure AD Hybride.
 
-La jonction Azure AD Hybride n’est pas prise en charge sur les appareils Windows de bas niveau lors de l’utilisation de l’itinérance des informations d’identification, de l’itinérance du profil utilisateur ou du profil obligatoire.
+- Si vous utilisez une capture instantanée de machine virtuelle pour créer des machines virtuelles supplémentaires, vérifiez qu’elle ne provient pas d'une machine virtuelle déjà inscrite auprès d'Azure AD en tant que jonction Azure AD Hybride.
 
-Si vous comptez sur l’outil de préparation système (Sysprep) et utilisez une image **pré-Windows 10 1809** pour l’installation, vérifiez que cette image ne provient pas d'un appareil déjà inscrit auprès d’Azure AD en tant que jonction Azure AD Hybride.
+- Si vous utilisez [Filtre d’écriture unifié](https://docs.microsoft.com/windows-hardware/customize/enterprise/unified-write-filter) et des technologies similaires qui effacent les modifications apportées au disque au redémarrage, vous devez les appliquer une fois que l’appareil joint à l’Azure AD Hybride. L’activation de ces technologies avant la jonction à l’Azure AD Hybride entraînera la disjonction de l’appareil à chaque redémarrage
 
-Si vous utilisez une capture instantanée de machine virtuelle pour créer des machines virtuelles supplémentaires, vérifiez qu’elle ne provient pas d'une machine virtuelle déjà inscrite auprès d'Azure AD en tant que jonction Azure AD Hybride.
-
+### <a name="handling-devices-with-azure-ad-registered-state"></a>Gestion des appareils avec l’état inscrit auprès d’Azure AD
 Si vos appareils Windows 10 joints à un domaine sont [inscrits sur Azure AD](overview.md#getting-devices-in-azure-ad) auprès de votre locataire, cela peut entraîner un double état : appareil joint à Azure AD Hybride et appareil inscrit sur Azure AD. Nous vous recommandons de procéder à une mise à niveau vers Windows 10 1803 (avec KB4489894 appliqué) ou version ultérieure pour répondre automatiquement à ce scénario. Dans les versions antérieures à 1803, vous devrez supprimer manuellement l’état « appareil inscrit sur Azure AD » avant d’activer une jonction Azure AD Hybride. Dans les versions 1803 et ultérieures, les modifications suivantes ont été apportées pour éviter ce double état :
 
 - Tout état existant inscrit sur Azure AD est automatiquement supprimé <i>dès lors que l’appareil est joint à Azure AD Hybride</i>.
@@ -95,6 +96,11 @@ Si vos appareils Windows 10 joints à un domaine sont [inscrits sur Azure AD](o
 
 > [!NOTE]
 > L’appareil Azure AD inscrit n’est pas automatiquement supprimé s’il est géré par Intune.
+
+### <a name="additional-considerations"></a>Considérations supplémentaires
+- Si votre environnement utilise l’infrastructure VDI (Virtual Desktop Infrastructure), consultez [Identité d’appareil et la virtualisation des services de Bureau](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
+
+- La jonction Azure AD Hybride est prise en charge pour les modules TPM 2.0 compatibles FIPS, mais pas pour les modules TPM 1.2. Si vos appareils sont dotés de modules TPM 1.2 compatibles FIPS, vous devez les désactiver avant de procéder à la jonction Azure AD Hybride. Microsoft ne propose aucun outil permettant de désactiver le mode FIPS pour les modules TPM car il dépend du fabricant de ces modules. Pour obtenir de l'aide, contactez votre fabricant OEM. À compter de la version 1903 de Windows 10, les modules TPM 1.2 ne sont pas utilisés pour les jonctions Azure AD hybrides, et les appareils dotés de ces TPM sont considérés comme n’ayant pas de TPM.
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Vérifier la validation contrôlée de la jonction Azure AD Hybride
 

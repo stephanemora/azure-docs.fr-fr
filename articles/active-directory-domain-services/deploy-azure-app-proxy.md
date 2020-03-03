@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/6/2019
 ms.author: iainfou
-ms.openlocfilehash: c0fcb8c2c5f9afa7fabe2ffa63a715ec24aa4a26
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c6e4e6a45fbbeab64184d8ae4b0684ba055d7735
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720503"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613984"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-ad-domain-services-managed-domain"></a>Déployer le proxy d'application Azure AD pour un accès sécurisé aux applications internes dans un domaine managé Azure AD Domain Services
 
@@ -74,7 +74,7 @@ Une fois qu’une machine virtuelle est prête à être utilisée en tant que co
         > [!NOTE]
         > Le compte d'administrateur général utilisé pour inscrire le connecteur doit appartenir au même répertoire que celui dans lequel vous avez activé le service Proxy d’application.
         >
-        > Par exemple, si le domaine Azure AD est *contoso.com*, l’administrateur général doit être `admin@contoso.com` ou tout autre alias valide sur ce domaine.
+        > Par exemple, si le domaine Azure AD est *aaddscontoso.com*, l’administrateur général doit être `admin@aaddscontoso.com` ou tout autre alias valide sur ce domaine.
 
    * Si l’option Configuration de sécurité renforcée d’Internet Explorer est activée sur la machine virtuelle sur laquelle vous installez le connecteur, l’écran d’inscription risque d’être bloqué. Pour autoriser l’accès, suivez les instructions du message d’erreur ou désactivez la sécurité renforcée d’Internet Explorer au cours du processus d’installation.
    * Si l’inscription du connecteur échoue, consultez[Détecter un problème du Proxy d’application](../active-directory/manage-apps/application-proxy-troubleshoot.md).
@@ -99,16 +99,16 @@ Pour plus d’informations, consultez [Configurer la délégation Kerberos contr
 
 Utilisez la commande [Get-ADComputer][Get-ADComputer] pour récupérer les paramètres de l’ordinateur sur lequel est installé le connecteur de Proxy d’application Azure AD. Sur votre machine virtuelle de gestion jointe au domaine, connectez-vous avec un compte d’utilisateur membre du groupe *Azure AD DC Administrators*, puis exécutez les applets de commande suivantes.
 
-L’exemple suivant obtient des informations sur le compte d’ordinateur nommé *appproxy.contoso.com*. Fournissez votre propre nom d’ordinateur pour la machine virtuelle de Proxy d'application Azure AD configurée dans les étapes précédentes.
+L’exemple suivant obtient des informations sur le compte d’ordinateur nommé *appproxy.aaddscontoso.com*. Fournissez votre propre nom d’ordinateur pour la machine virtuelle de Proxy d'application Azure AD configurée dans les étapes précédentes.
 
 ```powershell
-$ImpersonatingAccount = Get-ADComputer -Identity appproxy.contoso.com
+$ImpersonatingAccount = Get-ADComputer -Identity appproxy.aaddscontoso.com
 ```
 
-Pour chaque serveur d’applications qui exécute les applications derrière le Proxy d'application Azure AD, utilisez la cmdlet PowerShell [Set-ADComputer][Set-ADComputer] pour configurer des KCD basés sur des ressources. Dans l’exemple suivant, le connecteur de Proxy d'application Azure AD a des autorisations accordées pour utiliser l’ordinateur *appserver.contoso.com* :
+Pour chaque serveur d’applications qui exécute les applications derrière le Proxy d'application Azure AD, utilisez la cmdlet PowerShell [Set-ADComputer][Set-ADComputer] pour configurer des KCD basés sur des ressources. Dans l’exemple suivant, le connecteur de Proxy d’application Azure AD est autorisé à utiliser l’ordinateur *appserver.aaddscontoso.com* :
 
 ```powershell
-Set-ADComputer appserver.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+Set-ADComputer appserver.aaddscontoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
 ```
 
 Si vous déployez plusieurs connecteurs de Proxy d’application Azure AD, vous devez configurer des KCD basés sur des ressources pour chaque instance de connecteur.

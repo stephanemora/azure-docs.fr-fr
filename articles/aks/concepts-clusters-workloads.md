@@ -2,17 +2,14 @@
 title: Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 description: Découvrez les composants de charge de travail et de cluster de base de Kubernetes et leur lien avec les fonctionnalités d’AKS (Azure Kubernetes Service)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: mlearned
-ms.openlocfilehash: 9efd053bde11a29c37e3ff6afb7c6fc4492338db
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bcf56aa89a42d65fdb7bf03696faad13c64cbc8a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967557"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596230"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -106,7 +103,7 @@ Pour conserver les fonctionnalités et les performances des nœuds, les ressourc
     - 6 % des 112 Go suivants de mémoire (jusqu’à 128 Go)
     - 2 % de la mémoire au-dessus de 128 Go
 
-Les règles ci-dessus relatives à l’allocation de mémoire et d’UC sont utilisées pour assurer l’intégrité des nœuds de l’agent, certains pods de système d’hébergement critiques pour l’intégrité du cluster. Ces règles d’allocation font également en sorte que le nœud signale moins de mémoire allouée et d’UC qu’il ne le ferait s’il faisait partie d’un cluster Kubernetes. Vous ne pouvez pas changer les réservations de ressources ci-dessus.
+Les règles ci-dessus relatives à l’allocation de mémoire et d’UC sont utilisées pour assurer l’intégrité des nœuds de l’agent, dont certains pods de système d’hébergement critiques pour l’intégrité du cluster. Ces règles d’allocation font également en sorte que le nœud signale moins de mémoire allouée et d’UC qu’il ne le ferait s’il faisait partie d’un cluster Kubernetes. Vous ne pouvez pas changer les réservations de ressources ci-dessus.
 
 Par exemple, si un nœud offre 7 Go, il signalera 34 % de la mémoire non allouable en plus du seuil d’éviction dur de 750Mi.
 
@@ -224,7 +221,7 @@ Il existe deux ressources Kubernetes qui vous permettent de gérer ces types d�
 
 ### <a name="statefulsets"></a>Ressources StatefulSet
 
-Le développement d’applications modernes s’adresse souvent aux applications sans état, mais vous pouvez utiliser des *ressources StatefulSet* pour les applications avec état, telles que les applications qui incluent des composants de base de données. Une ressource StatefulSet est similaire à un déploiement, car un ou plusieurs pods identiques sont créés et gérés. Les réplicas d’une ressource StatefulSet suivent une approche séquentielle et sans perte de données du déploiement, de la mise à l’échelle, des mises à niveau et des arrêts. Avec une ressource StatefulSet, la convention de nommage, les noms de réseau et le stockage persistent quand les réplicas sont replanifiés.
+Le développement d’applications modernes s’adresse souvent aux applications sans état, mais vous pouvez utiliser des *ressources StatefulSet* pour les applications avec état, telles que les applications qui incluent des composants de base de données. Une ressource StatefulSet est similaire à un déploiement, car un ou plusieurs pods identiques sont créés et gérés. Les réplicas d’une ressource StatefulSet suivent une approche séquentielle et sans perte de données du déploiement, de la mise à l’échelle, des mises à niveau et des arrêts. Avec une ressource StatefulSet (quand les réplicas sont replanifiés), la convention d’affectation de noms, les noms de réseau et le stockage persistent.
 
 Vous définissez l’application au format YAML en utilisant `kind: StatefulSet`, puis le contrôleur StatefulSet gère le déploiement et la gestion des réplicas requis. Les données sont écrites dans un stockage persistant, fourni par Azure Disques managés ou Azure Files. Avec une ressource StatefulSet, le stockage permanent sous-jacent demeure, même quand la ressource est supprimée.
 

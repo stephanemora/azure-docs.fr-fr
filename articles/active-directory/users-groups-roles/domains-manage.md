@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 750b49e149907f204b8b15f0b5728ab25f917743
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 2395aa5984de2a9fe41e4778d16aba69bfef5192
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844514"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559231"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestion des noms de domaine personnalisés dans Azure Active Directory
 
@@ -85,7 +85,7 @@ Une erreur est renvoyée quand :
 * Le nombre d’objets à renommer est supérieur à 1 000
 * L’une des applications à renommer est une application mutualisée
 
-### <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+### <a name="frequently-asked-questions"></a>Forum aux questions
 
 **Q : Pourquoi la suppression du domaine échoue-t-elle avec une erreur indiquant que je dispose de groupes Exchange contrôlés sur ce nom de domaine ?** <br>
 **R :** Aujourd'hui, certains groupes tels que les groupes de sécurité à extension messagerie et les listes distribuées sont approvisionnés par Exchange et doivent être nettoyés manuellement dans le [Centre d'administration Exchange](https://outlook.office365.com/ecp/). Des éléments ProxyAddresses, qui reposent sur le nom de domaine personnalisé, peuvent être en attente et devront être mis à jour manuellement vers un autre nom de domaine. 
@@ -102,12 +102,12 @@ Une erreur est renvoyée quand :
 
 Si vous remarquez que l’une des conditions n’a pas été respectée, nettoyez manuellement les références et essayez une nouvelle fois de supprimer le domaine.
 
-## <a name="use-powershell-or-graph-api-to-manage-domain-names"></a>Utiliser PowerShell ou API Graph pour gérer les noms de domaine
+## <a name="use-powershell-or-the-microsoft-graph-api-to-manage-domain-names"></a>Utiliser PowerShell ou l’API Microsoft Graph pour gérer les noms de domaine
 
-La plupart des tâches de gestion des noms de domaine dans Azure Active Directory peuvent également être accomplies à l’aide de Microsoft PowerShell, ou encore par programmation à l’aide d’API Graph d’Azure AD.
+La plupart des tâches de gestion des noms de domaine dans Azure Active Directory peuvent également être accomplies à l’aide de Microsoft PowerShell ou par programmation à l’aide de l’API Microsoft Graph.
 
 * [Utilisation de PowerShell pour gérer les noms de domaine dans Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#domains)
-* [Utilisation d’API Graph pour gérer les noms de domaine dans Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)
+* [Type de ressource de domaine](https://docs.microsoft.com/graph/api/resources/domain?view=graph-rest-1.0)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

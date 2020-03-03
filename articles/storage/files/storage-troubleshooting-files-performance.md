@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 00187051eec27ee7b6b2d4927510a2ab9dee442e
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 09e55abcd97317b87f8a272afa51c6b4ace572e8
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708255"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598083"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Résoudre les problèmes de niveau de performance d’Azure Files
 
@@ -22,7 +22,7 @@ Cet article répertorie certains problèmes courants liés à des partages de fi
 
 ### <a name="cause-1-share-experiencing-throttling"></a>Cause 1 : Limitation de bande passante lors du partage
 
-Le quota par défaut sur un partage premium est de 100 Gio, ce qui fournit 100 IOPS de ligne de base (avec un nombre potentiel en rafale pouvant atteindre 300 en une heure). Pour plus d’informations sur l’approvisionnement et sa relation avec les IOPS, consultez la section [Partages approvisionnés](storage-files-planning.md#provisioned-shares) du guide de planification.
+Le quota par défaut sur un partage premium est de 100 Gio, ce qui fournit 100 IOPS de ligne de base (avec un nombre potentiel en rafale pouvant atteindre 300 en une heure). Pour plus d’informations sur l’approvisionnement et sa relation avec les IOPS, consultez la section [Partages approvisionnés](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) du guide de planification.
 
 Pour confirmer la limitation de votre partage, vous pouvez utiliser les métriques Azure dans le portail.
 
@@ -102,7 +102,7 @@ Il s’agit d’un problème connu d’implémentation de client SMB sur Linux.
 
 - Répartissez la charge sur plusieurs machines virtuelles.
 - Sur la même machine virtuelle, utilisez plusieurs points de montage avec l’option **nosharesock** et répartissez la charge entre ces points de montage.
-- Sur Linux, essayez d’effectuer le montage avec l’option **nostrictsync** pour éviter de forcer le vidage SMB à chaque appel fsync. Pour Azure Files, cette option n’interfère pas avec la cohérence des données, mais elle peut entraîner des métadonnées de fichier obsolètes sur la liste des répertoires (commande **ls -l**). Interrogez directement les métadonnées du fichier (commande **stat**) pour retourner les métadonnées de fichier les plus récentes.
+- Sur Linux, essayez d’effectuer le montage avec l’option **nostrictsync** pour éviter de forcer le vidage SMB à chaque appel **fsync**. Pour Azure Files, cette option n’interfère pas avec la cohérence des données, mais elle peut entraîner des métadonnées de fichier obsolètes sur la liste des répertoires (commande **ls -l**). Interrogez directement les métadonnées du fichier (commande **stat**) pour retourner les métadonnées de fichier les plus récentes.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Latences élevées pour les charges de travail lourdes de métadonnées impliquant des opérations d’ouverture/de fermeture étendues.
 

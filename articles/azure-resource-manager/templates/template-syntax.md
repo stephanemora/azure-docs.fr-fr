@@ -2,19 +2,19 @@
 title: Structure et syntaxe des modèles
 description: Décrit la structure et les propriétés des modèles Azure Resource Manager à l’aide de la syntaxe JSON déclarative.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: 9cd602644ecf803e97254189cfc157d60713cc6c
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/25/2020
+ms.openlocfilehash: 08c688da3e812a4a67070c926cf11512bfc60667
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209458"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622897"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendre la structure et la syntaxe des modèles Azure Resource Manager
 
 Cet article décrit la structure d’un modèle Azure Resource Manager. Elle présente les différentes sections d’un modèle et les propriétés disponibles dans ces sections.
 
-Cet article est destiné aux utilisateurs qui possèdent des connaissances sur les modèles Resource Manager. Il fournit des informations détaillées sur la structure du modèle. Pour obtenir un didacticiel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :[Totoriel : Créer et déployer votre premier modèle Azure Resource Manager](template-tutorial-create-first-template.md)
+Cet article est destiné aux utilisateurs qui possèdent des connaissances sur les modèles Resource Manager. Il fournit des informations détaillées sur la structure du modèle. Pour obtenir un didacticiel pas à pas vous guidant tout au long du processus de création d’un modèle, consultez :[Tutoriel : Créer et déployer votre premier modèle Azure Resource Manager](template-tutorial-create-first-template.md)
 
 ## <a name="template-format"></a>Format de modèle
 
@@ -260,10 +260,14 @@ L'exemple suivant illustre la structure de la définition d'une sortie :
 
 ```json
 "outputs": {
-  "<output-name>" : {
+  "<output-name>": {
     "condition": "<boolean-value-whether-to-output-value>",
-    "type" : "<type-of-output-value>",
-    "value": "<output-value-expression>"
+    "type": "<type-of-output-value>",
+    "value": "<output-value-expression>",
+    "copy": {
+      "count": <number-of-iterations>,
+      "input": <values-for-the-variable>
+    }
   }
 }
 ```
@@ -273,7 +277,8 @@ L'exemple suivant illustre la structure de la définition d'une sortie :
 | output-name |Oui |Nom de la valeur de sortie. Doit être un identificateur JavaScript valide. |
 | condition |Non | Valeur booléenne qui indique si cette valeur de sortie est retournée. Si elle est égale à `true`, cela signifie que la valeur est incluse dans la sortie pour le déploiement. Si elle est égale à `false`, la valeur de sortie est ignorée pour ce déploiement. Lorsqu’elle n’est pas spécifiée, la valeur par défaut est `true`. |
 | type |Oui |Type de la valeur de sortie. Les valeurs de sortie prennent en charge les mêmes types que les paramètres d'entrée du modèle. Si vous spécifiez **securestring** pour le type de sortie, la valeur n’est pas affichée dans l’historique de déploiement et ne peut pas être récupérée à partir d’un autre modèle. Pour utiliser une valeur secrète dans plusieurs modèles, stockez la clé secrète dans un coffre de clés et référencez la clé secrète dans le fichier de paramètres. Pour plus d’informations, consultez l’article [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](key-vault-parameter.md). |
-| value |Oui |Expression du langage du modèle évaluée et retournée sous forme de valeur de sortie. |
+| value |Non |Expression du langage du modèle évaluée et retournée sous forme de valeur de sortie. Spécifiez **value**ou **copy**. |
+| copy |Non | Utilisé pour retourner plusieurs valeurs pour une sortie. Spécifiez **value**ou **copy**. Pour plus d’informations, voir [Itération de sorties dans des modèles Azure Resource Manager](copy-outputs.md). |
 
 Pour obtenir des exemples d’utilisation des sorties, consultez [Sorties dans un modèle Azure Resource Manager](template-outputs.md).
 
@@ -302,7 +307,7 @@ Pour les commentaires inclus, vous pouvez utiliser `//` ou `/* ... */`, mais cet
   ],
 ```
 
-Dans Visual Studio Code, l’[extension Azure Resource Manager Tools](use-vs-code-to-create-template.md#install-resource-manager-tools-extension) peut détecter automatiquement un modèle Resource Manager et modifier le mode de langage en conséquence. Si **Modèle Azure Resource Manager** s’affiche dans le coin inférieur droit de VS Code, vous pouvez utiliser les commentaires inclus. Les commentaires inclus ne sont plus signalés comme étant non valides.
+Dans Visual Studio Code, l’[extension Azure Resource Manager Tools](use-vs-code-to-create-template.md#install-resource-manager-tools-extension) peut détecter automatiquement un modèle Resource Manager et modifier le mode de langage en conséquence. Si **Modèle Azure Resource Manager** s’affiche dans l’angle inférieur droit de VS Code, vous pouvez utiliser les commentaires inclus. Les commentaires inclus ne sont plus signalés comme étant non valides.
 
 ![Mode de modèle Azure Resource Manager Visual Studio Code](./media/template-syntax/resource-manager-template-editor-mode.png)
 
@@ -379,7 +384,7 @@ Vous ne pouvez pas ajouter un objet de métadonnées aux fonctions définies par
 
 ## <a name="multi-line-strings"></a>Chaînes à lignes multiples
 
-Vous pouvez scinder une chaîne en plusieurs lignes. Par exemple, la propriété location et l’un des commentaires dans l’exemple JSON suivant.
+Vous pouvez scinder une chaîne en plusieurs lignes. Par exemple, voir la propriété location et l’un des commentaires dans l’exemple JSON suivant.
 
 ```json
 {
