@@ -16,12 +16,12 @@ ms.author: arjay
 ms.reviewer: arjay
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f500f662db11aaa63548f7d19ace00553d5159af
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: f2a01b74212e51dd7b5c31ffb59707068211c6d4
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547555"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562222"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Noms de produits et identificateurs de plans de service pour la gestion des licences
 
@@ -29,7 +29,7 @@ Lors de la gestion des licences dans le [Portail Azure](https://portal.azure.com
 
 - **Nom du produit** : utilisé dans les portails de gestion
 - **Identificateur de chaîne** : utilisé par les cmdlets PowerShell v1.0 lors des opérations sur les licences
-- **GUID** : utilisé par Azure AD Graph et Microsoft Graph
+- **GUID** : GUID utilisé par l’API Microsoft Graph
 - **Plans de service inclus** : liste des plans de service du produit qui correspondent aux identificateurs de chaîne et de GUID
 - **Plans de service compris (noms conviviaux)** : liste des plans de service (noms conviviaux) du produit qui correspondent aux identificateurs de chaîne et de GUID
 

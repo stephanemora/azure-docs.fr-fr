@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 601574cc2a478dc53a261cfcb074e43a556dd4c0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 76dc964b7fe7f5e8acfcfb03b2e89bebb2caa176
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979510"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613385"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Résoudre des erreurs d’annuaire incompatible pour des domaines managés Azure AD Domain Services existants
 
@@ -26,7 +26,7 @@ Cet article explique pourquoi l’erreur se produit et comment la résoudre.
 
 ## <a name="what-causes-this-error"></a>Quelle est la cause de cette erreur ?
 
-Une erreur d’annuaire incompatible se produit quand un domaine managé Azure AD DS et un réseau virtuel appartiennent à deux locataires Azure AD différents. Par exemple, vous pouvez avoir un domaine managé Azure AD DS nommé *aadds.contoso.com* qui s’exécute dans le locataire Azure AD de Contoso. Toutefois, le réseau virtuel Azure pour le domaine managé fait partie du locataire Azure AD Fabrikam.
+Une erreur d’annuaire incompatible se produit quand un domaine managé Azure AD DS et un réseau virtuel appartiennent à deux locataires Azure AD différents. Par exemple, vous pouvez avoir un domaine managé Azure AD DS nommé *aaddscontoso.com* qui s’exécute dans le locataire Azure AD de Contoso. Toutefois, le réseau virtuel Azure pour le domaine managé fait partie du locataire Azure AD Fabrikam.
 
 Azure utilise le contrôle d’accès en fonction du rôle (RBAC) pour limiter l’accès aux ressources. Lorsque vous activez Azure AD DS dans un locataire Azure AD, les hachages des informations d’identification sont synchronisés avec le domaine managé. Pour effectuer cette opération, vous devez être un administrateur de locataire pour l’annuaire Azure AD et l’accès aux informations d’identification doit être contrôlé. Pour déployer des ressources sur un réseau virtuel Azure et contrôler le trafic, vous devez disposer de privilèges d’administrateur sur le réseau virtuel sur lequel vous déployez Azure AD DS.
 

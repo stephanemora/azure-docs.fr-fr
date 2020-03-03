@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: memildin
-ms.openlocfilehash: 068fb9f61b7dcb3948e4f03c284ddfa680522c85
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: a2970ea3f5ad360deaedd7efc82154cd3bc50337
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907065"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617113"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Advanced Data Security pour SQL Server sur les machines virtuelles Azure (préversion)
 Advanced Data Security pour les serveurs SQL Server est un package unifié de fonctionnalités de sécurité SQL avancées. Cette fonctionnalité en préversion inclut des fonctions qui permettent d’identifier et d’atténuer les vulnérabilités potentielles de votre base de données, et de détecter les activités anormales susceptibles de présenter des menaces pour votre base de données. 
@@ -26,7 +26,7 @@ Advanced Data Security pour les serveurs SQL Server est un package unifié de fo
 Cette offre de sécurité pour les serveurs SQL de machines virtuelles Azure est basée sur la même technologie fondamentale que celle utilisée dans le [package Azure SQL Database Advanced Data Security](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security).
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Advanced Data Security fournit un ensemble de fonctionnalités de sécurité SQL avancées incluant l’Évaluation des vulnérabilités et la Protection avancée contre les menaces.
 
@@ -61,7 +61,7 @@ Pour créer un espace de travail, suivez les instructions fournies dans [Créer 
 Pour connecter la machine hôte SQL Server à un espace de travail, suivez les instructions données dans [Connecter des ordinateurs Windows à Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 
-## <a name="set-up-email-notification-for-atp-alerts"></a>Configurer la notification par e-mail pour les alertes ATP 
+## <a name="set-up-email-notification-for-security-alerts"></a>Configurer la notification par e-mail pour les alertes de sécurité 
 
 Vous pouvez définir une liste de destinataires devant recevoir une notification par e-mail quand des alertes Security Center sont générées. L’e-mail contient un lien direct vers l’alerte dans Azure Security Center avec tous les détails pertinents. 
 
@@ -72,7 +72,7 @@ Vous pouvez définir une liste de destinataires devant recevoir une notification
 1. Dans le menu Paramètres, cliquez sur **Notifications par e-mail**. 
 1. Dans la zone de texte **Adresse e-mail**, entrez les adresses e-mail devant recevoir les notifications. Vous pouvez entrer plusieurs adresses e-mail en les séparant par une virgule (,).  Par exemple admin1@mycompany.com,admin2@mycompany.com,admin3@mycompany.com.
 
-    ![Paramètres de courrier électronique](./media/security-center-advanced-iaas-data/email-settings.png)
+    ![Paramètres de messagerie](./media/security-center-advanced-iaas-data/email-settings.png)
 
 1. Dans les paramètres de **Notifications par e-mail**, définissez les options suivantes :
   

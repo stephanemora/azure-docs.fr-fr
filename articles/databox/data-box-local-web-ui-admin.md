@@ -1,5 +1,5 @@
 ---
-title: Administration de l’interface utilisateur web locale pour Azure Data Box et Azure Data Box Heavy | Microsoft Docs
+title: Administrer Azure Data Box/Azure Data Box Heavy via une interface utilisateur web locale
 description: Explique comment utiliser l’interface utilisateur web locale pour gérer vos appareils Data Box et Data Box Heavy
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: bf8af37b0caf51966e336bcb4cea0c4ece5ca9c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf7cf0a7aa2812d7a93c282cbda5f82dd83aac29
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66496265"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560182"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Utiliser l’interface utilisateur web locale pour gérer vos appareils Data Box et Data Box Heavy
 

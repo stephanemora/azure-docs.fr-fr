@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5013457aca99a63808077b86f5674460e83fdc41
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4ed604302ca187ad4953e865d68dc73030a37c02
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232973"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562137"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Contraintes de code des fonctions d’orchestrateur
 
@@ -38,9 +38,9 @@ Le tableau suivant présente des exemples d’API qui doivent être évitées, c
 | API de blocage | Les API de blocage comme `Thread.Sleep` en .NET ou autres peuvent entraîner des problèmes de performances et de mise à l’échelle pour les fonctions d’orchestrateur et doivent être évitées. Dans le plan de consommation Azure Functions, elles peuvent même entraîner des frais d’exécution inutiles. | Dans la mesure du possible, utilisez des alternatives aux API de blocage. Par exemple, utilisez `CreateTimer` pour introduire des délais lors de l’exécution de l’orchestration. Les retards de type [minuteur durable](durable-functions-timers.md) ne sont pas pris en compte dans la durée d’exécution d’une fonction d’orchestrateur. |
 | API asynchrones | Le code de l’orchestrateur ne doit jamais lancer d’opération asynchrone, sauf à utiliser l’API `IDurableOrchestrationContext` ou l’API de l’objet `context.df`. Par exemple, on ne peut pas utiliser `Task.Run`, `Task.Delay` et `HttpClient.SendAsync` en .NET, ou `setTimeout` et `setInterval` en JavaScript. Durable Task Framework exécute le code d’orchestrateur sur un thread unique. Il ne peut pas interagir avec d’autres threads pouvant être appelés par d’autres API asynchrones. | Une fonction d’orchestrateur doit effectuer uniquement des appels asynchrones durables. Tous les autres appels d’API asynchrones doivent être effectués par des fonctions d’activité. |
 | Fonctions JavaScript asynchrones | Il n’est pas possible de déclarer des fonctions d’orchestrateur JavaScript comme `async`, car le runtime node.js ne garantit pas que les fonctions asynchrones sont déterministes. | Déclarez Les fonctions d’orchestrateur JavaScript comme fonctions de générateur synchrones. |
-| API de thread | Durable Task Framework exécute le code d’orchestrateur sur un thread unique et ne peut pas interagir avec d’autres threads. L’introduction de nouveaux threads dans l’exécution d’une orchestration peut entraîner des blocages ou des exécutions non déterministes. | Les fonctions d’orchestrateur ne doivent quasiment jamais utiliser des API de thread. Si des API de thread sont nécessaires, limitez leur utilisation aux fonctions d’activité. |
+| API de thread | Durable Task Framework exécute le code d’orchestrateur sur un thread unique et ne peut pas interagir avec d’autres threads. L’introduction de nouveaux threads dans l’exécution d’une orchestration peut entraîner des blocages ou des exécutions non déterministes. | Les fonctions d’orchestrateur ne doivent quasiment jamais utiliser des API de thread. Par exemple, dans .NET, évitez d’utiliser `ConfigureAwait(continueOnCapturedContext: false)`. Cela garantit la poursuite de l’exécution des tâches sur le `SynchronizationContext` d’origine de la fonction d’orchestrateur. Si des API de thread sont nécessaires, limitez leur utilisation aux fonctions d’activité. |
 | Variables statiques | Évitez d’utiliser des variables statiques non constantes dans les fonctions d’orchestrateur, car leurs valeurs peuvent changer au fil du temps, générant un comportement d’exécution non déterministe. | Utilisez des constantes ou limitez l’utilisation des variables statiques aux fonctions d’activité. |
-| Variables d’environnement | N’utilisez pas de variables d’environnement dans les fonctions d’orchestrateur. Leurs valeurs peuvent changer au fil du temps, générant un comportement d’exécution non déterministe. | Les variables d’environnement doivent être référencées uniquement à partir de fonctions clientes ou de fonctions d’activité. |
+| Variables d'environnement | N’utilisez pas de variables d’environnement dans les fonctions d’orchestrateur. Leurs valeurs peuvent changer au fil du temps, générant un comportement d’exécution non déterministe. | Les variables d’environnement doivent être référencées uniquement à partir de fonctions clientes ou de fonctions d’activité. |
 | Boucles infinies | Evitez les boucles infinies dans les fonctions de l’orchestrateur. Étant donné que Durable Task Framework enregistre l’historique d’exécution à mesure que la fonction d’orchestration s’exécute, une boucle infinie risquerait de laisser une instance d’orchestrateur sans mémoire suffisante. | Dans les scénarios de boucle infinie, utilisez des API comme `ContinueAsNew` en .NET ou `continueAsNew` en JavaScript pour relancer l’exécution de la fonction et ignorer l’historique des précédentes exécutions. |
 
 Si l’application de ces contraintes peut sembler compliquée, elles sont, dans la pratique, faciles à suivre.

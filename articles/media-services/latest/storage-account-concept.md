@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: 5c5bfa224b87040f5142663e6adab01072c6e6ba
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 4bbadd7e10f0fd6896932dd79a5ca42d9906d2a2
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619297"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602141"
 ---
 # <a name="azure-storage-accounts"></a>Comptes de stockage Azure
 
@@ -47,7 +47,7 @@ Pour protéger vos éléments au repos, les ressources doivent être chiffrées 
 |Option de chiffrement|Description|Media Services v3|
 |---|---|---|
 |Chiffrement du stockage de Media Services| Chiffrement AES-256, clé gérée par Media Services|Non pris en charge<sup>(1)</sup>|
-|[Storage Service Encryption pour les données au repos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Chiffrement côté serveur proposé par le stockage Azure, clé gérée par Azure ou par un client|Pris en charge|
+|[Storage Service Encryption pour les données au repos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Chiffrement côté serveur proposé par le stockage Azure, clé gérée par Azure ou par un client|Prise en charge|
 |[Chiffrement de stockage côté client](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Chiffrement côté client proposé par le stockage Azure, clé gérée par un client dans un coffre de clés|Non pris en charge|
 
 <sup>1</sup> Dans Media Services v3, le chiffrement de stockage (chiffrement AES-256) est uniquement pris en charge pour la compatibilité descendante lorsque vos ressources ont été créées avec Media Services v2. Cela signifie que la version v3 fonctionne avec les ressources chiffrées du stockage existant mais qu’elle n’autorisera pas de nouvelles créations.
@@ -62,6 +62,10 @@ Voici les principaux scénarios qui aboutissent à un compte Media Services n’
 |---|---|
 |Le compte Media Services ou un ou plusieurs comptes de stockage attachés ont été migrés vers des abonnements distincts. |Migrez le ou les comptes de stockage ou le compte Media Services afin qu’ils soient tous dans le même abonnement. |
 |Le compte Media Services utilise un compte de stockage attaché dans un abonnement différent car il s’agissait d’un ancien compte Media Services où ceci était pris en charge. Tous les anciens comptes Media Services ont été convertis en comptes modernes basés sur Azure Resource Manager et ont un état Déconnecté. |Migrez le compte de stockage ou le compte Media Services afin qu’ils soient tous dans le même abonnement.|
+
+## <a name="azure-storage-firewall"></a>Pare-feu de Stockage Azure
+
+La plateforme Azure Media Services ne prend pas en charge les comptes de stockage avec le pare-feu de Stockage Azure ou les [Points de terminaison privés](https://docs.microsoft.com/azure/storage/common/storage-network-security) activés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: fdc98991134e0857d24575d22962a52e43266cbe
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 238c12baf55b525a24107a727d09588ef06a6bef
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939236"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598304"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du Stockage Blob Azure
 
@@ -58,7 +58,7 @@ Une stratégie peut être lue ou écrite dans son intégralité. Les mises à jo
 
 Cet article explique comment gérer une stratégie en utilisant le portail et des méthodes PowerShell.  
 
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 
 Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microsoft Azure. 
 
@@ -128,7 +128,7 @@ Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microso
 
 6. Pour plus d’informations sur cet exemple de JSON, voir les sections [Stratégie](#policy) et [Règles](#rules).
 
-# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 Le script PowerShell suivant permet d’ajouter une stratégie à votre compte de stockage. La variable `$rgname` doit être initialisée avec le nom de votre groupe de ressources. La variable `$accountName` doit être initialisée avec le nom de votre compte de stockage.
 
@@ -158,7 +158,7 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 ```
 
-# <a name="templatetabtemplate"></a>[Modèle](#tab/template)
+# <a name="template"></a>[Modèle](#tab/template)
 
 Vous pouvez définir une gestion du cycle de vie à l’aide de modèles Azure Resource Manager. Voici un exemple de modèle pour déployer un compte de stockage RA-GRS GPv2 avec une stratégie de gestion du cycle de vie.
 
@@ -304,7 +304,7 @@ La gestion du cycle de vie prend en charge la hiérarchisation et la suppression
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Prend actuellement en charge les objets blob au niveau chaud         | Non pris en charge |
 | tierToArchive | Prend actuellement en charge les objets blob au niveau chaud ou froid | Non pris en charge |
-| delete        | Prise en charge                                   | Prise en charge     |
+| supprimer        | Prise en charge                                   | Prise en charge     |
 
 >[!NOTE]
 >Si vous définissez plusieurs actions sur le même objet blob, la gestion du cycle de vie applique l’action la moins coûteuse à l’objet blob. Par exemple, l’action `delete` est moins coûteuse que l’action `tierToArchive`. L’action `tierToArchive` est moins coûteuse que l’action `tierToCool`.
@@ -438,7 +438,7 @@ Pour les données qui sont modifiées et consultées régulièrement tout au lon
 La plateforme exécute la stratégie de cycle de vie une fois par jour. Une fois que vous avez configuré une stratégie, jusqu’à 24 heures peuvent s’écouler avant que certaines actions s’exécutent pour la première fois.  
 
 **Si je mets à jour une stratégie existante, combien de temps dois-je attendre avant que les actions soient effectuées ?**  
-Cela peut prendre jusqu’à 24 heures avant que la stratégie mise à jour ne soit appliquée. Une fois la stratégie en vigueur, cela peut prendre jusqu’à 24 heures pour que les actions s’exécutent. Par conséquent, l’exécution de la stratégie peut prendre jusqu’à 48 heures.   
+Cela peut prendre jusqu’à 24 heures avant que la stratégie mise à jour ne soit appliquée. Une fois la stratégie en vigueur, cela peut prendre jusqu’à 24 heures pour que les actions s’exécutent. Par conséquent, l’exécution des actions de la stratégie peut prendre jusqu’à 48 heures.   
 
 **J’ai réactivé manuellement un blob archivé. Comment puis-je empêcher son renvoi temporaire au niveau Archives ?**  
 Quand un objet blob est déplacé d’un niveau d’accès vers un autre, l’heure de sa dernière modification ne change pas. Si vous réactivez manuellement un blob archivé à un chaud, il est renvoyé au niveau archive par le moteur de gestion du cycle de vie. Désactivez la règle qui affecte temporairement cet objet BLOB pour empêcher son archivage. Réactivez la règle lorsque le BLOB peut être renvoyé en toute sécurité au niveau archive. Vous pouvez aussi copier le blob vers un autre emplacement s’il doit rester en permanence au niveau chaud ou froid.

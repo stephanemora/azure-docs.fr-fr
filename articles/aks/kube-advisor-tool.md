@@ -3,16 +3,15 @@ title: Vérifiez vos déploiements Kubernetes sur Azure pour l’implémentation
 description: Découvrez comment vérifier l’implémentation des meilleures pratiques dans vos déploiements sur Azure Kubernetes Service à l’aide de kube-advisor
 services: container-service
 author: seanmck
-ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 03c5eb2e32a0a8ec51844511276d9efba5651068
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 29ea7dba1df8bc7c68e3d17563a51b784ce4a561
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "65073771"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595431"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Vérification des meilleures pratiques Kubernetes dans votre cluster
 
@@ -53,7 +52,7 @@ L’outil valide les meilleures pratiques Kubernetes suivantes, chacune ayant se
 
 ### <a name="resource-requests-and-limits"></a>Demandes et limites de ressources
 
-Kubernetes prend en charge la définition des [demande et limites de ressources pour les spécifications de pod][kube-cpumem]. La requête définit le nombre de processeurs et la mémoire minimums nécessaires pour exécuter le conteneur. La limite définit le nombre de processeurs et la mémoire maximums devant être autorisés.
+Kubernetes prend en charge la définition des [demandes et limites de ressources pour les spécifications de pod][kube-cpumem]. La requête définit le nombre de processeurs et la mémoire minimums nécessaires pour exécuter le conteneur. La limite définit le nombre de processeurs et la mémoire maximums devant être autorisés.
 
 Par défaut, aucune demande ni aucune limite ne sont définies dans les spécifications de pod. Cela peut entraîner une surplanification des nœuds et une sous-alimentation des conteneurs. L’outil kube-advisor met en évidence les pods sans demande ou limite définies.
 

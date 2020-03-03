@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 02/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cdff2305914ca6e4144f7784d1a60026a1d27c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0f75dea2cffbe710bf2778ceab5eacc91ffcca9c
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65988669"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523104"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Qu’est-ce que le degré de sécurisation Identity Secure Score dans Azure Active Directory ?
 
@@ -48,7 +48,7 @@ La mise en œuvre des actions d’amélioration vous offre les possibilités sui
 
 ## <a name="how-do-i-get-my-secure-score"></a>Comment faire pour obtenir mon degré de sécurisation ?
 
-Le degré de sécurisation Identity Secure Score est disponible avec toutes les éditions d’Azure AD. Pour obtenir votre degré de sécurisation, accédez au [tableau de bord de présentation Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/IdentitySecureScore).
+Le degré de sécurisation Identity Secure Score est disponible avec toutes les éditions d’Azure AD. Les organisations peuvent accéder à leur degré de sécurisation de sécurité à partir du **portail Azure** > **Azure Active Directory** > **Sécurité** > **Degré de sécurisation d’identité**.
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 

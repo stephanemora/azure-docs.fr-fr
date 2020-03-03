@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: da8c194b7911d2eeda8e0c903cb7412186aacfcb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: fa41649e002bd4845b95e787c1d0589ed1987588
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638253"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587241"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>Limites de ressources SQL Database et gouvernance des ressources
 
@@ -37,14 +37,14 @@ Cet article contient une vue d’ensemble des limites de ressources SQL Database
 | Nombre maximal de pools par serveur | Limité par le nombre de DTU ou de vCores. Par exemple, si chaque pool contient 1 000 unités DTU, alors un serveur peut prendre en charge 54 pools.|
 |||
 
-> [!NOTE]
-> Pour augmenter le quota DTU/eDTU ou vCore ou pour obtenir une quantité de serveurs supérieure à la quantité par défaut, vous pouvez envoyer une nouvelle demande de support dans le Portail Azure pour l’abonnement en indiquant le type de problème « Quota ». Le quota DTU/eDTU et le nombre maximal de bases de données par serveur limitent le nombre de pools élastiques par serveur.
-
 > [!IMPORTANT]
 > Le nombre de bases de données approchant la limite par serveur SQL Database, les éléments suivants peuvent se produire :
 >
 > - Augmentation de latence dans l’exécution de requêtes sur la base de données master.  Cela inclut les vues de statistiques d’utilisation des ressources telles que sys.resource_stats.
 > - Augmentation de latence des opérations de gestion et le rendu des points de vue de portails qui impliquent des bases de données sur le serveur.
+
+> [!NOTE]
+> Pour augmenter le quota DTU/eDTU ou vCore, ou pour obtenir une quantité de serveurs supérieure à la quantité par défaut, envoyez une nouvelle demande de support dans le Portail Azure. Pour plus d’informations, voir [Demander des augmentations de quota pour Azure SQL Database](quota-increase-request.md).
 
 ### <a name="storage-size"></a>Taille de stockage
 

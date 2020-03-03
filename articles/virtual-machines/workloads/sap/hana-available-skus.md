@@ -3,22 +3,22 @@ title: Références SKU pour SAP HANA sur Azure (grandes instances) | Microsoft 
 description: Références SKU pour SAP HANA sur Azure (grandes instances).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/03/2019
+ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5ed903eefea3a8c13bb9e43f5ef71063b453d93
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: aad4e3ff3df8b4aeecbbbee7883ba383b9fd0d9c
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806641"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617262"
 ---
 # <a name="available-skus-for-hli"></a>Références SKU disponibles pour HLI
 
@@ -55,6 +55,7 @@ Liste des [Références SKU certifiées SAP HANA des grandes instances HANA](htt
 | Optimisé pour OLTP : SAP Business Suite<br /> sur SAP HANA ou S/4HANA (OLTP),<br /> OLTP générique | SAP HANA sur Azure S72m<br /> \- 2 x processeurs Intel® Xeon® E7-8890 v3<br /> 36 cœurs et 72 threads d’UC |  1,5 To |  6 To | Plus proposé |
 |---| SAP HANA sur Azure S144m<br /> \- 4 x processeurs Intel® Xeon® E7-8890 v3<br /> 72 cœurs et 144 threads d’UC |  3 TO |  12 To | Plus proposé |
 |---| SAP HANA sur Azure S192m<br /> \- 4 x processeurs Intel® Xeon® E7-8890 v4<br /> 96 cœurs et 192 threads d’UC  |  4 TO |  16 TO | Plus proposé |
+| --- | SAP HANA sur Azure S224m<br /> – Processeur 4x Intel® Xeon® Platinum 8276 (également appelé Cascade Lake)<br /> 112 cœurs et 224 threads de processeur |  6,0 To |  10,5 To | Disponible dans les tampons des révisions 3 et 4  |
 |---| SAP HANA sur Azure S384m<br /> \- 8 x processeurs Intel® Xeon® E7-8890 v4<br /> 192 cœurs et 384 threads d’UC |  6,0 To |  18 To | Disponible dans les tampons de révision 4|
 |---| SAP HANA sur Azure S384xm<br /> \- 8 x processeurs Intel® Xeon® E7-8890 v4<br /> 192 cœurs et 384 threads d’UC |  8,0 To |  22 To |  Disponible dans les tampons de révision 4 |
 |---| SAP HANA sur Azure S576m<br /> \- 12 x processeurs Intel® Xeon® E7-8890 v4<br /> 288 cœurs et 576 threads d’UC |  12,0 To |  28 To | Disponible dans les tampons de révision 4|
@@ -90,7 +91,7 @@ Les configurations spécifiques choisies dépendent de la charge de travail, des
 
 La base matérielle des offres, à l’exception des unités pour les projets de redimensionnement spécifique au client, est certifiée SAP HANA TDI. Deux classes de matériel différentes divisent les références SKU comme suit :
 
-- S72, S72m, S96, S144, S144m, S192, S192m, S192xm et S224, nommées références SKU de « classe de type I ».
+- S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224 et S224m nommées références SKU de « Classe de type I ».
 - S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm et S960m, nommées références SKU de « classe de type II ».
 - Si vous vous intéressez à d’autres offres de références SKU S224 de 4,5 à 9 To avec Optane, contactez l’équipe des comptes Microsoft pour obtenir plus d’informations. 
 
@@ -98,7 +99,7 @@ La base matérielle des offres, à l’exception des unités pour les projets de
 Un tampon de grande instance HANA complet n’est pas exclusivement alloué à l’utilisation d’un client unique. Cela s’applique également aux racks de ressources de calcul et de stockage connectés par le biais d’une structure réseau déployée dans Azure. L’infrastructure de grande instance HANA, par exemple Azure, déploie plusieurs &quot;abonnés&quot; client isolés les uns des autres selon les trois niveaux suivants :
 
 - **Réseau** : isolation par le biais des réseaux virtuels dans le tampon de grande instance HANA.
-- **Stockage** : isolation par le biais de machines virtuelles auxquelles des volumes de stockage sont assignés et qui isolent les volumes de stockage entre les abonnés.
+- **Stockage** : isolation par le biais de machines virtuelles auxquelles des volumes de stockage sont assignés et qui isolent les volumes de stockage entre les abonnés.
 - **Calcul** : assignation dédiée des unités de serveur à un seul abonné. Aucun partitionnement matériel ou logiciel des unités de serveur. Aucun partage d’une unité de serveur ou hôte unique entre les locataires. 
 
 Les déploiements d’unités de grande instance HANA entre les différents abonnés ne sont pas visibles entre eux. Les unités de grande instance HANA déployées dans différents abonnés ne peuvent pas communiquer directement entre elles au niveau du tampon de grande instance HANA. Seules les unités de grande instance HANA d’un abonné unique peuvent communiquer entre elles au niveau du tampon de grande instance HANA.

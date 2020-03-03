@@ -9,15 +9,15 @@ ms.date: 11/11/2019
 ms.author: bwren
 ms.custom: subject-monitoring
 ms.subservice: logs
-ms.openlocfilehash: d131523e3031f55a818bb1919f39119bf073cb75
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: d243224192b5761af45d387690f5fb41b84481e6
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456537"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588720"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Informations de référence sur les données de monitoring Azure Cosmos DB
-Cet article fournit une référence des données de journal et de métriques collectées pour analyser les performances et la disponibilité d’Azure Cosmos DB. Pour plus d’informations sur la collecte et l’analyse des données de supervision de Cosmos DB, consultez [Surveiller Azure Cosmos DB](monitor-cosmos-db.md).
+Cet article fournit des informations de référence sur les données de journal et de métriques collectées pour analyser les performances et la disponibilité d’Azure Cosmos DB. Pour plus d’informations sur la collecte et l’analyse des données de supervision de Cosmos DB, consultez [Surveiller Azure Cosmos DB](monitor-cosmos-db.md).
 
 
 ## <a name="resource-logs"></a>Journaux d’activité de ressources
@@ -81,6 +81,8 @@ Pour obtenir la liste de toutes les métriques de prise en charge d’Azure Moni
 |Métrique (Nom d’affichage de la métrique)|Unité (Type d’agrégation)|Description|Dimensions| Granularités de temps| Usage |
 |---|---|---|---| ---| ---|
 | ReplicationLatency (Latence de réplication)| Millisecondes (Minimum, Maximum, Moyenne) | Latence de réplication P99 des régions source et cible pour le compte géolocalisé| SourceRegion, TargetRegion| Tous | Permet de surveiller la latence de réplication P99 entre deux régions pour un compte géorépliqué. |
+| Latence côté serveur| Millisecondes (moyenne) | Temps pris par le serveur pour traiter la demande. | CollectionName, ConnectionMode, DatabaseName, OperationType, PublicAPIType, Region | Tous | Utilisé pour surveiller la latence de demande sur le serveur Azure Cosmos DB. |
+
 
 
 #### <a name="availability-metrics"></a>Métriques de disponibilité

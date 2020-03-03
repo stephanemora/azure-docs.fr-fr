@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: 548a578365b03162396fb8618718ab1e7ce5b081
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 28b7a2b95e8ad23226f92f2b6fba085cc0fa1bfd
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400800"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565551"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Comment mettre à niveau l’agent Dependency pour Azure Monitor pour machines virtuelles
 
@@ -39,16 +39,9 @@ Vous pouvez télécharger la dernière version de l’agent Windows [ici](https:
 1. Connectez-vous à la machine avec un compte disposant des droits d’administration.
 
 2. Exécutez **InstallDependencyAgent-Windows.exe** pour démarrer l’Assistant d’installation.
+   
+3. Pour désinstaller la version précédente de l’agent de dépendances, puis installer la dernière version, suivez les instructions de l’Assistant **Installation de Dependency Agent**.
 
-3. Dans la boîte de dialogue **Installation de Dependency Agent 9.9.1**, cliquez sur **J’accepte** pour accepter le contrat de licence.
-
-5. Dans la boîte de dialogue **Désinstallation de Dependency Agent 9.9.0**, cliquez sur **Suivant**. La page d’état affiche la progression de la désinstallation de la version précédente.
-
-6. Dans la boîte de dialogue **Désinstallation de Dependency Agent 9.9.0**, cliquez sur **Désinstaller** afin de désinstaller la version précédente dans le chemin d’accès indiqué dans la boîte de dialogue. 
-
-7. La progression de la désinstallation s’affiche dans la boîte de dialogue **Désinstallation de Dependency Agent 9.9.0**. Une fois le traitement terminé, la page de confirmation **Completing Dependency Agent Uninstall** apparaît. Cliquez sur **Terminer**.
-
-8. Dans la boîte de dialogue **Configuration de Dependency Agent 9.9.1**, la progression de l’installation s’affiche. Lorsque la page **Completing Dependency Agent Uninstall** (Désinstallation de l’agent Dependency), cliquez sur **Terminer**. 
 
 ### <a name="from-the-command-line"></a>Depuis la ligne de commande
 

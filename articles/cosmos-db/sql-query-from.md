@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 4f6d7580ea7ff0e8968c0c3ce4b3ca6111c86ac8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3939594064b63c567720378b9d316acca64d3266
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873367"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587683"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Clause FROM dans Azure Cosmos DB
 
@@ -79,15 +79,15 @@ FROM <from_specification>
   
   Spécifie que le document doit être récupéré à partir de l’autre source définie par l’alias fourni.  
   
-- `<container_expression> '.' property_`  
+- `<container_expression> '.' property_name`  
   
-  Spécifie que le document doit être récupéré en accédant à la propriété `property_name` ou à l’élément de tableau array_index pour tous les documents récupérés par l’expression de conteneur spécifiée.  
+  Spécifie qu’un document doit être récupéré en accédant à la propriété `property_name`.  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   
   Spécifie que le document doit être récupéré en accédant à la propriété `property_name` ou à l’élément de tableau array_index pour tous les documents récupérés par l’expression de conteneur spécifiée.  
   
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
   
 Tous les alias fournis ou déduits dans la ou les `<from_source>(` doivent être uniques. La syntaxe `<container_expression>.`property_name est identique à `<container_expression>' ['"property_name"']'`. Toutefois, cette dernière syntaxe peut être utilisée si un nom de propriété contient un caractère hors identificateur.  
   
@@ -165,6 +165,6 @@ Les résultats sont :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Prise en main](sql-query-getting-started.md)
+- [Bien démarrer](sql-query-getting-started.md)
 - [Clause SELECT](sql-query-select.md)
 - [Clause WHERE](sql-query-where.md)
