@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b49949c1765c3cb1598d728e21479c65037930
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714479"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648423"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité d’audit dans le portail Azure Active Directory 
 
@@ -41,11 +41,11 @@ Cet article présente une vue d’ensemble du rapport d’audit.
  
 ## <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 
-* Les utilisateurs des rôles **Administrateur de la sécurité**, **Lecteur Sécurité**, **Lecteur de rapports** ou **Administrateur général**
+* Les utilisateurs des rôles **Administrateur de la sécurité**, **Lecteur Sécurité**, **Lecteur de rapports**, **Lecteur général** ou **Administrateur général**
 
 ## <a name="audit-logs"></a>Journaux d’audit
 
-Les journaux d’audit Azure AD fournissent des enregistrements des activités du système pour la conformité. Pour accéder au rapport d’audit, sélectionnez **Journaux d’audit** dans la section **Activité** d’**Azure Active Directory**. Notez que les journaux d’audit peuvent avoir une latence allant jusqu’à une heure, et il peut s’écouler un certain temps avant que les données d’activité d’audit s’affichent dans le portail une fois que vous avez terminé la tâche.
+Les journaux d’audit Azure AD fournissent des enregistrements des activités du système pour la conformité. Pour accéder au rapport d’audit, sélectionnez **Journaux d’audit** dans la section **Surveillance** d’**Azure Active Directory**. Notez que les journaux d’audit peuvent avoir une latence allant jusqu’à une heure, et il peut s’écouler un certain temps avant que les données d’activité d’audit s’affichent dans le portail une fois que vous avez terminé la tâche.
 
 
 
@@ -90,16 +90,20 @@ Vous pouvez filtrer les données d’audit des champs suivants :
 Le filtre **Service** vous permet de sélectionner les services suivants dans une liste déroulante :
 
 - Tous
+- AAD Management UX
 - Révisions d’accès
-- Approvisionnement des comptes 
-- Authentification unique des applications
+- Approvisionnement des comptes
+- Application Proxy (Proxy d’application)
 - Méthodes d’authentification
 - B2C
 - Accès conditionnel
 - Annuaire principal
 - Gestion des droits d’utilisation
+- Authentification hybride
 - Identity Protection
 - Utilisateurs invités
+- Service MIM
+- MyApps
 - PIM
 - Gestion des groupes en libre-service
 - Gestion des mots de passe en libre-service
@@ -118,7 +122,11 @@ Le filtre **Catégorie** vous permet de sélectionner un des filtres suivants :
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
+- KerberosDomain
+- KeyManagement
+- Étiquette
 - Autres
+- PermissionGrantPolicy
 - Stratégie
 - ResourceManagement
 - RoleManagement
@@ -134,14 +142,13 @@ Le filtre **État** vous permet de filtrer en fonction de l’état d’une opé
 - Succès
 - Échec
 
-Le filtre **Cible** vous permet de rechercher une cible donnée par nom ou nom d’utilisateur principal (UPN). Le nom et le nom d'utilisateur principal cibles sont sensibles à la casse. 
+Le filtre **Cible** vous permet de rechercher une cible donnée par début de nom ou de nom d’utilisateur principal (UPN). Le nom et le nom d'utilisateur principal cibles sont sensibles à la casse. 
 
-Le filtre **Initié par** vous permet de définir le nom d’un intervenant ou un nom d'utilisateur principal (UPN). Le nom et le nom d'utilisateur principal sont sensibles à la casse.
+Le filtre **Initié par** vous permet de définir le début du nom d’un intervenant ou du nom d’utilisateur principal (UPN). Le nom et le nom d'utilisateur principal sont sensibles à la casse.
 
 Le filtre **Plage de dates** vous permet de définir un intervalle de temps pour les données renvoyées.  
 Les valeurs possibles sont les suivantes :
 
-- 1 mois
 - 7 jours
 - 24 heures
 - Custom
@@ -179,11 +186,11 @@ Les rapports d’audit basés sur les utilisateurs et les groupes vous permetten
 
 - Quelles licences ont été attribuées à un groupe ou un utilisateur ?
 
-Si vous souhaitez simplement consulter les données d’audit connexes aux utilisateurs, vous pouvez filtrer l’affichage dans **Journaux d’activités d’audit** dans la section **Activité** de l’onglet **Utilisateurs**. La catégorie présélectionnée de ce point d'entrée est **UserManagement**.
+Si vous souhaitez simplement consulter les données d’audit connexes aux utilisateurs, vous pouvez filtrer l’affichage dans **Journaux d’audit** dans la section **Surveillance** de l’onglet **Utilisateurs**. La catégorie présélectionnée de ce point d'entrée est **UserManagement**.
 
 ![Journaux d’audit](./media/concept-audit-logs/users.png "Journaux d’audit")
 
-Si vous souhaitez simplement consulter les données d’audit connexes aux groupes, vous pouvez filtrer l’affichage dans **Journaux d’activité d’audit** dans la section **Activité** de l’onglet **Groupes**. La catégorie présélectionnée de ce point d'entrée est **GroupManagement**.
+Si vous souhaitez simplement consulter les données d’audit connexes aux groupes, vous pouvez filtrer l’affichage dans **Journaux d’audit** dans la section **Surveillance** de l’onglet **Groupes**. La catégorie présélectionnée de ce point d'entrée est **GroupManagement**.
 
 ![Journaux d’audit](./media/concept-audit-logs/groups.png "Journaux d’audit")
 

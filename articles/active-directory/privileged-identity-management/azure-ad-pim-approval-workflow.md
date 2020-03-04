@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2019
+ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3261e30d024cedba5885019a62cba1e296c1c00d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0b39336591e9939d0e5200304cbeced2d9831979
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025552"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498765"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Approuver ou rejeter des demandes de rôles Azure AD dans Privileged Identity Management
 
@@ -29,20 +29,20 @@ Avec Azure Active Directory (Azure AD) Privileged Identity Management (PIM), vou
 
 ## <a name="determine-your-version-of-pim"></a>Déterminer votre version de PIM
 
-Depuis novembre 2019, la partie Rôles Azure AD de Privileged Identity Management est mise à jour vers une nouvelle version qui correspond à l’expérience des rôles de ressources Azure. Cela permet de créer des fonctionnalités supplémentaires et d’apporter des [modifications à l’API existante](azure-ad-roles-features.md#api-changes). Pendant que la nouvelle version est déployée, les procédures que vous suivez dans cet article dépendent de la version de Privileged Identity Management que vous possédez actuellement. Pour déterminer la version de Privileged Identity Management dont vous disposez, procédez de la manière décrite dans cette section. Une fois que vous connaissez votre version de Privileged Identity Management, vous pouvez sélectionner les procédures de cet article qui correspondent à cette version.
+Depuis novembre 2019, la partie Rôles Azure AD de Privileged Identity Management est mise à jour vers une nouvelle version qui correspond à l’expérience des rôles Azure. Cela permet de créer des fonctionnalités supplémentaires et d’apporter des [modifications à l’API existante](azure-ad-roles-features.md#api-changes). Pendant que la nouvelle version est déployée, les procédures que vous suivez dans cet article dépendent de la version de Privileged Identity Management que vous possédez actuellement. Pour déterminer la version de Privileged Identity Management dont vous disposez, procédez de la manière décrite dans cette section. Une fois que vous connaissez votre version de Privileged Identity Management, vous pouvez sélectionner les procédures de cet article qui correspondent à cette version.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un utilisateur avec le rôle [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 1. Ouvrez **Azure AD Privileged Identity Management**. Si une bannière figure en haut de la page de présentation, suivez les instructions sous l’onglet **Nouvelle version** de cet article. Sinon, suivez les instructions sous l’onglet **Version précédente**.
 
-    ![Nouvelle version des rôles Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+    [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 Suivez les étapes décrites dans cet article pour approuver ou refuser des demandes de rôles requête HTTP.
 
-# <a name="new-versiontabnew"></a>[Nouvelle version](#tab/new)
+# <a name="new-version"></a>[Nouvelle version](#tab/new)
 
 ## <a name="view-pending-requests"></a>Afficher les demandes en attente
 
-En tant qu’approbateur délégué, vous recevez une notification par e-mail quand une demande de rôle de ressource Azure est en attente d’approbation. Ces demandes en attente sont affichées dans Privileged Identity Management.
+En tant qu’approbateur délégué, vous recevez une notification par e-mail quand une demande de rôle Azure AD est en attente d’approbation. Ces demandes en attente sont affichées dans Privileged Identity Management.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
@@ -50,7 +50,7 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
 1. Sélectionnez **Approuver les demandes**.
 
-    ![Approuver les demandes : page Ressources Azure montrant une demande de révision](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![Approuver les demandes : page montrant une demande de révision des rôles Azure AD](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
 
     Dans la section **Demandes d’activations de rôles**, vous voyez la liste des demandes en attente d’approbation.
 
@@ -64,7 +64,7 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
 1. Sélectionnez **Approuver**. Vous allez recevoir une notification Azure de votre approbation.
 
-    ![Notification d’approbation montrant que la demande a été approuvée](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+    ![Notification d’approbation montrant que la demande a été approuvée](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png))
 
 ## <a name="deny-requests"></a>Refuser des demandes
 
@@ -83,12 +83,12 @@ Voici quelques informations sur les notifications de flux de travail :
 - Les approbateurs sont avertis par courrier électronique lorsqu’une demande concernant un rôle est en attente de leur examen. Les notifications par e-mail comportent un lien direct vers la demande, grâce auquel l’approbateur peut approuver ou refuser cette demande.
 - Les demandes sont traitées par le premier approbateur qui les approuve ou les rejette.
 - Lorsqu’un approbateur répond à la demande, tous les approbateurs sont informés de l’action.
-- Les administrateurs de ressources sont avertis de l’activation d’un utilisateur approuvé dans leur rôle.
+- Les Administrateurs généraux et les Administrateurs de rôle privilégié sont avertis de l’activation d’un utilisateur approuvé dans leur rôle.
 
 >[!NOTE]
->Un administrateur de ressources qui estime qu’un utilisateur approuvé ne doit pas être actif peut supprimer l’attribution de rôle active dans Privileged Identity Management. Bien que les administrateurs de ressources ne soient informés des demandes en attente que s’ils sont approbateurs, ils peuvent voir et annuler les demandes en attente de tous les utilisateurs en les affichant dans Privileged Identity Management.
+>Un Administrateur général ou un Administrateur de rôle privilégié qui estime qu’un utilisateur approuvé ne doit pas être actif peut supprimer l’attribution du rôle actif dans Privileged Identity Management. Bien que les administrateurs ne soient informés des demandes en attente que s’ils sont approbateurs, ils peuvent voir et annuler toute demande en attente des utilisateurs en affichant les demandes en attente dans Privileged Identity Management.
 
-# <a name="previous-versiontabprevious"></a>[Version précédente](#tab/previous)
+# <a name="previous-version"></a>[Version précédente](#tab/previous)
 
 ## <a name="view-pending-requests"></a>Afficher les demandes en attente
 
@@ -132,7 +132,7 @@ En tant qu’approbateur délégué, vous recevez une notification par e-mail qu
 
     ![Volet Refuser des demandes sélectionnées avec motif de refus](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
 
-1. Cliquez sur **Refuser**.
+1. Sélectionner **Rejeter**.
 
     Le symbole d’état sera actualisé avec votre refus.
 

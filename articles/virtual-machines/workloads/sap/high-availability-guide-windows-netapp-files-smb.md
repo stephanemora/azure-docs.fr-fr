@@ -1,5 +1,5 @@
 ---
-title: Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Windows avec Azure NetApp Files (SMB) | Microsoft Docs
+title: Haute disponibilité des machines virtuelles Azure pour SAP NW sur Windows avec Azure NetApp Files (SMB) | Microsoft Docs
 description: Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure sur Windows avec Azure NetApp Files (SMB) pour les applications SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/29/2019
 ms.author: radeltch
-ms.openlocfilehash: d7c2bfbe3f277bbaf652191977434ea5fe4dbffd
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: b41db629c5308348f632b3dc51c75822ba361c60
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555296"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591351"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure sur Windows avec Azure NetApp Files (SMB) pour les applications SAP
 
@@ -83,7 +83,7 @@ Commencez par lire les notes et publications SAP suivantes :
 * [Créer un volume SMB pour Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb#requirements-for-active-directory-connections)
 * [Applications SAP NetApp su Microsoft Azure avec Azure NetApp Files][anf-sap-applications-azure]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 SAP a développé une nouvelle approche et une alternative aux disques partagés pour le clustering d’une instance SAP ASCS/SCS sur un cluster de basculement Windows. Au lieu d’utiliser des disques partagés de cluster, il est possible d’utiliser un partage de fichiers SMB pour déployer des fichiers d’hôte global SAP. Azure NetApp Files prend en charge SMBv3 (ainsi que NFS) avec la liste de contrôle d’accès NTFS à l’aide d’Active Directory. Azure NetApp Files est automatiquement hautement disponible (car il s’agit d’un service PaaS). Ces fonctionnalités font d’Azure NetApp Files l’option idéale pour héberger le partage de fichiers SMB pour SAP global.  
 [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/overview) et [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) sont tous deux pris en charge. Vous pouvez utiliser des contrôleurs de domaine Active Directory existants avec Azure NetApp Files. Les contrôleurs de domaine peuvent figurer dans Azure en tant que machines virtuelles ou en local via ExpressRoute ou S2S VPN. Dans cet article, nous allons utiliser un contrôleur de domaine dans une machine virtuelle Azure.  

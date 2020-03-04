@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: 34f102b43de669b5ea03324db47ac4dfcb554133
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: eefaaa59a3dc0f0900666bc697f64e4f405a0d74
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190763"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498719"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Réglage automatique dans Azure SQL Database
 
@@ -82,8 +82,8 @@ Vous pouvez activer ou désactiver les options de réglage automatique par base 
 > [!IMPORTANT]
 > Depuis mars 2020, les modifications apportées aux paramètres par défaut Azure pour le réglage automatique prennent effet comme suit :
 > - Les nouveaux paramètres par défaut Azure sont FORCE_LAST_GOOD_PLAN = enabled, CREATE_INDEX = disabled, and DROP_INDEX = disabled.
-> - Les serveurs existants sans préférences de réglage automatique configurées sont automatiquement configurés avec les nouveaux paramètres par défaut Azure. Cela s’applique à tous les clients qui ont actuellement un réglage automatique dans un état non défini.
-> - Les nouveaux serveurs créés sont automatiquement configurés avec les nouveaux paramètres par défaut Azure (contrairement à auparavant, où la configuration de réglage automatique était dans un état non défini lors de la création d’un serveur).
+> - Les serveurs existants sans préférences de réglage automatique configurées sont automatiquement configurés pour HÉRITER les nouveaux paramètres par défaut Azure. Cela s’applique à tous les clients qui ont actuellement des paramètres de serveur pour un réglage automatique dans un état non défini.
+> - Les nouveaux serveurs créés sont automatiquement configurés pour HÉRITER les nouveaux paramètres par défaut Azure (contrairement à auparavant, où la configuration de réglage automatique était dans un état non défini lors de la création d’un serveur).
 >
 
 Une méthode recommandée consiste à configurer les options de réglage automatique sur un serveur et à hériter des paramètres des bases de données appartenant au serveur parent. Cette méthode simplifie la gestion des options de réglage automatique pour un grand nombre de bases de données.

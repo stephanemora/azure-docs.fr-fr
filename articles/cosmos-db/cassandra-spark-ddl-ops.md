@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 5c12787cd6e0df19fd842dd44da49aa5ea97aa05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0df05eff5dc84ef24e1ed5afcaf705d99f447ef
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60898880"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622571"
 ---
 # <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>Opérations DDL dans l’API Cassandra Azure Cosmos DB à partir de Spark
 
@@ -85,11 +85,11 @@ DESCRIBE keyspaces;
 **Considérations :**  
 
 - Le débit peut être assigné au niveau de la table à l’aide de l’instruction create table.  
-- Une clé de partition peut stocker 10 Go de données.  
+- Une clé de partition peut stocker 20 Go de données.  
 - Un enregistrement peut stocker un maximum de 2 Mo de données.  
 - Une plage de clés de partition peut stocker plusieurs clés de partition.
 
-### <a name="create-a-table"></a>Création d’une table
+### <a name="create-a-table"></a>Créer une table
 
 ```scala
 val cdbConnector = CassandraConnector(sc)
@@ -120,7 +120,7 @@ val cdbConnector = CassandraConnector(sc)
 cdbConnector.withSessionDo(session => session.execute("ALTER TABLE books_ks.books WITH cosmosdb_provisioned_throughput=8000, WITH default_time_to_live=0;"))
 ```
 
-### <a name="drop-table"></a>Suppression de table
+### <a name="drop-table"></a>Supprimer une table
 
 ```scala
 val cdbConnector = CassandraConnector(sc)

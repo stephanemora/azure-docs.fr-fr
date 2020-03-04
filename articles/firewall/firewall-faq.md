@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 39c08a568a60c905394eec23dd27d5dd32ff0112
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 4792c0bce7d9119f5198490d62f49f000e1567d3
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460465"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621959"
 ---
 # <a name="azure-firewall-faq"></a>FAQ Pare-feu Azure
 
@@ -50,11 +50,11 @@ Il existe trois types de regroupement de règles :
 
 * *Règles d’application* : Configurez des noms de domaine pleinement qualifiés (FQDN) qui sont accessibles depuis un sous-réseau.
 * *Règles de réseau* : Configurez des règles contenant les adresses sources, les protocoles, les ports de destination et les adresses de destination.
-* *Règles NAT* : Configurez des règles DNAT pour autoriser les connexions entrantes.
+* *Règles NAT* : Configurez des règles DNAT pour autoriser les connexions Internet entrantes.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Pare-feu Azure prend-il en charge le filtrage du trafic entrant ?
 
-Pare-feu Azure prend en charge le filtrage du trafic entrant et sortant. La protection du trafic entrant est généralement utilisée pour les protocoles non HTTP/S. Par exemple, les protocoles RDP, SSH et FTP. Pour une protection HTTP/S du trafic entrant optimale, utilisez un pare-feu d’applications web comme le [pare-feu d’applications web Azure Application Gateway](../web-application-firewall/ag/ag-overview.md).
+Pare-feu Azure prend en charge le filtrage du trafic entrant et sortant. La protection du trafic entrant est généralement utilisée pour les protocoles non HTTP/S. Par exemple, les protocoles RDP, SSH et FTP. Pour une protection HTTP/S optimale du trafic entrant, utilisez un pare-feu d’applications web comme le [pare-feu d’applications web Azure (WAF)](../web-application-firewall/overview.md).
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Quels sont les services de journalisation et d’analyse pris en charge par Pare-feu d’Azure ?
 
@@ -117,7 +117,7 @@ Pour connaître les limites du service Pare-feu Azure, voir [Limites, quotas et
 
 ## <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>Dans un réseau virtuel de hub, Pare-feu Azure peut-il envoyer et filtrer le trafic réseau entre deux réseaux virtuels spoke ?
 
-Oui, vous pouvez utiliser Pare-feu Azure dans un réseau virtuel de hub pour acheminer et filtrer le trafic entre deux réseaux virtuels spoke. Afin de fonctionner, les sous-réseaux dans chaque réseau virtuel spoke doivent disposer de routes définies par l’utilisateur pointant vers le Pare-feu Azure en tant que passerelle par défaut pour ce scénario.
+Oui, vous pouvez utiliser Pare-feu Azure dans un réseau virtuel de hub pour acheminer et filtrer le trafic entre deux réseaux virtuels spoke. Afin de fonctionner correctement, les sous-réseaux de chaque réseau virtuel spoke doivent disposer d’un UDR pointant vers Pare-feu Azure en tant que passerelle par défaut pour ce scénario.
 
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Pare-feu Azure peut-il envoyer et filtrer le trafic réseau entre des sous-réseaux d’un même réseau virtuel ou réseau virtuel appairé ?
 
@@ -137,9 +137,9 @@ Si votre configuration nécessite un tunneling forcé vers un réseau local et q
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Les groupes de ressources de pare-feu font-ils l’objet de restrictions ?
 
-Oui. Le pare-feu, le sous-réseau, le réseau virtuel et l’adresse IP publique doivent tous être dans le même groupe de ressources.
+Oui. Le pare-feu, le réseau virtuel et l’IP publique doivent tous être dans le même groupe de ressources.
 
-## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Lorsque je configure DNAT pour le trafic réseau entrant, dois-je également configurer une règle de réseau correspondante pour autoriser ce trafic ?
+## <a name="when-configuring-dnat-for-inbound-internet-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Lorsque je configure DNAT pour le trafic Internet entrant, dois-je également configurer une règle de réseau correspondante pour autoriser ce trafic ?
 
 Non. Les règles NAT ajoutent implicitement une règle de réseau correspondante pour autoriser le trafic traduit. Vous pouvez remplacer ce comportement en ajoutant explicitement une collection de règles de réseau avec des règles de refus correspondant au trafic traduit. Pour plus d’informations sur la logique de traitement des règles de Pare-feu Azure, consultez l’article [Logique de traitement des règles du service Pare-feu Azure](rule-processing.md).
 
@@ -168,11 +168,11 @@ Non. Un sous-réseau de /26 suffit au Pare-feu Azure.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>Comment puis-je augmenter le débit de mon pare-feu ?
 
-La capacité de débit initiale du Pare-feu Azure est de 2,5 à 3 Gbits/s. À l’heure actuelle, le scale-out est basé sur l’utilisation et le débit du processeur. Dans certains cas, un pare-feu avec uniquement des règles de réseau ne subira pas de scale-up pour augmenter le débit, car les règles de réseau n’ont pas d’impact significatif sur l’utilisation du processeur. Si vous avez besoin d’un débit plus élevé pour votre pare-feu, contactez le support technique afin d’augmenter la capacité de débit initiale de votre pare-feu.
+La capacité de débit initiale de Pare-feu Azure est de 2,5 à 3 Gbits/s et monte en charge jusqu’à 30 Gbits/s. Elle s’adapte en fonction de l’utilisation de l’UC et du débit. Contactez le support pour augmenter la capacité de débit de votre pare-feu si votre pare-feu ne s’adapte pas à vos besoins et que vous avez besoin d’une capacité de débit plus importante.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Combien de temps le scale-out du Pare-feu Azure prend-il ?
 
-Actuellement, le scale-out du Pare-feu Azure prend entre cinq et sept minutes. Si vous avez des rafales nécessitant une mise à l’échelle automatique plus rapide, contactez le support technique afin d’augmenter la capacité de débit initiale de votre pare-feu.
+La montée en charge de Pare-feu Azure prend entre cinq et sept minutes. Si vous avez des rafales nécessitant une mise à l’échelle automatique plus rapide, contactez le support afin d’augmenter la capacité de débit initiale de votre pare-feu.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Le Pare-feu Azure autorise-t-il l’accès à Active Directory par défaut ?
 

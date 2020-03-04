@@ -1,5 +1,6 @@
 ---
-title: 'Référence : DSVM CentOS'
+title: 'Référence : Instance CentOS de Data Science Virtual Machine'
+titleSuffix: Azure Data Science Virtual Machine
 description: Détails sur les outils inclus dans CentOS Data Science Virtual Machine
 author: gvashishtha
 ms.service: machine-learning
@@ -7,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 0f71a8af2f7d2cfbfe43c0cfcc84cc7c08109c32
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: db49a9f5e0e6675d93cb58d6af9c92fac21e8b74
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493713"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525836"
 ---
 # <a name="reference-centos-linux-data-science-virtual-machine"></a>Référence : CentOS (Linux) Data Science Virtual Machine
 
@@ -213,7 +214,7 @@ Les outils Azure suivants sont installés sur la machine virtuelle DSVM :
 * **Bibliothèques Azure** : Les bibliothèques suivantes sont préinstallées sur la machine DSVM :
   
   * **Python** : les bibliothèques Azure Python sont *azure*, *azureml*, *pydocumentdb* et *pyodbc*. Avec les trois premières bibliothèques, vous pouvez accéder aux services de stockage Azure, à Azure Machine Learning et à Azure Cosmos DB (base de données NoSQL sur Azure). La quatrième bibliothèque, pyodbc (avec le pilote Microsoft ODBC pour SQL Server), permet l’accès à SQL Server, Azure SQL Database et Azure SQL Data Warehouse à partir de Python à l’aide d’une interface ODBC. Entrez **pip list** pour voir la liste de toutes les bibliothèques. Veillez à exécuter cette commande dans les environnements Python 2.7 et 3.5.
-  * **R** : les bibliothèques Azure R sont AzureML et RODBC.
+  * **R** : les bibliothèques Azure R sont AzureML et RODBC.
   * **Java** : la liste des bibliothèques Java Azure est disponible dans le répertoire /dsvm/sdk/AzureSDKJava de la machine virtuelle DSVM. Les bibliothèques principales sont les API de gestion et de stockage Azure, Azure Cosmos DB et les pilotes JDBC pour SQL Server.  
 
 Vous pouvez accéder au [portail Azure](https://portal.azure.com) à partir du navigateur Firefox préinstallé. Sur le portail Azure, vous pouvez créer, gérer et superviser les ressources Azure.
@@ -235,13 +236,13 @@ Pour plus d’informations sur le déploiement des modèles en R et en Python d
 
 ## <a name="machine-learning-tools"></a>Outils de Machine Learning
 
-La machine virtuelle DSVM est fournie avec quelques outils et algorithmes de Machine Learning qui ont été précompilés et installés localement. Il s’agit des actions suivantes :
+La machine virtuelle DSVM est fournie avec quelques outils et algorithmes de Machine Learning qui ont été précompilés et installés localement. notamment :
 
 * **Microsoft Cognitive Toolkit** : kit de ressources d’apprentissage profond.
 * **Vowpal Wabbit** : algorithme d’apprentissage en ligne rapide.
 * **XGBoost** : outil qui fournit des algorithmes d’arborescence optimisés.
-* **Python** : Anaconda Python est fourni avec des algorithmes de machine learning et des bibliothèques comme Scikit-learn. Vous pouvez installer d’autres bibliothèques à l’aide de la commande `pip install` .
-* **R** : bibliothèque étendue de fonctions de Machine Learning disponibles pour le langage R. Parmi les bibliothèques préinstallées figurent lm, glm, randomForest et rpart. Vous pouvez installer d’autres bibliothèques en exécutant `install.packages(<lib name>)`.
+* **Python** : Anaconda Python est fourni avec des algorithmes de machine learning et des bibliothèques comme Scikit-learn. Vous pouvez installer d’autres bibliothèques à l’aide de la commande `pip install` .
+* **R** : bibliothèque étendue de fonctions de Machine Learning disponibles pour le langage R. Parmi les bibliothèques préinstallées figurent lm, glm, randomForest et rpart. Vous pouvez installer d’autres bibliothèques en exécutant `install.packages(<lib name>)`.
 
 Microsoft Cognitive Toolkit, Vowpal Wabbit et XGBoost sont décrits plus en détail dans les sections suivantes.
 

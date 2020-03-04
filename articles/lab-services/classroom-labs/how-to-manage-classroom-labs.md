@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: ad7fd664f0dce08e4482b4fb2cba2831208396fc
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: ac990141ccc694ed7460763e84126d9fefdbb609
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264829"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539448"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gérer des laboratoires de classe dans Azure Lab Services 
 Cet article décrit comment créer et supprimer un laboratoire de classe. Il montre également comment afficher tous les laboratoires de classe dans un compte de laboratoire. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Pour configurer un laboratoire de classe dans un compte de laboratoire, vous devez être membre du rôle **Créateur de laboratoire** dans le compte de laboratoire. Le compte utilisé pour créer un compte de laboratoire est ajouté automatiquement à ce rôle. Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle Créateur de laboratoire à l’aide des étapes fournies dans l’article suivant : [Ajouter un utilisateur au rôle Créateur de laboratoire](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 ## <a name="create-a-classroom-lab"></a>Créer un laboratoire de classe
@@ -41,6 +41,9 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
     6. Sélectionnez **Enregistrer**.
 
         ![Fenêtre Nouveau labo](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+
+        > [!NOTE]
+        > Vous voyez une option permettant de sélectionner un emplacement pour votre lab si le compte de laboratoire a été configuré pour l’option [Autoriser le créateur du lab à choisir l’emplacement du lab](allow-lab-creator-pick-lab-location.md). 
 4. Dans la page **Informations d’identification de machine virtuelle**, spécifiez les informations d’identification par défaut pour toutes les machines virtuelles du labo.
     1. Spécifiez le **nom d’utilisateur** pour toutes les VM du laboratoire.
     2. Spécifiez le **mot de passe** de l’utilisateur. 
@@ -52,12 +55,14 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
         Un enseignant peut choisir d’utiliser le même mot de passe pour toutes les machines virtuelles du laboratoire ou d’autoriser les étudiants à des mots de passe pour leurs machines virtuelles. Par défaut, ce paramètre est activé pour toutes les images Windows et Linux, à l’exception d’Ubuntu. Lorsque vous sélectionnez une machine virtuelle **Ubuntu**, ce paramètre est désactivé. Les étudiants sont ainsi invités à définir un mot de passe lorsqu’ils se connectent à la machine virtuelle pour la première fois.  
 
         ![Fenêtre Nouveau labo](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
-        > [!IMPORTANT]
-        > Notez le nom d'utilisateur et le mot de passe que vous créez. Ils ne s’afficheront plus.    
     4. Ensuite, sélectionnez **Suivant** dans la page **Informations d’identification de la machine virtuelle**. 
-5. Dans la page **Stratégies du labo**, entrez le nombre d’heures allouées à chaque utilisateur (**quota pour chaque utilisateur**) en dehors des heures planifiées pour le labo, puis sélectionnez **Terminer**. 
+5. Dans la page **Stratégies du lab**, procédez comme suit :
+    1. Entrez le nombre d’heures allouées à chaque utilisateur (**quota pour chaque utilisateur**) en dehors des heures planifiées pour le labo. 
+    2. Pour l’option **Arrêt automatique des machines virtuelles**, indiquez si vous souhaitez que la machine virtuelle soit automatiquement arrêtée lorsque l’utilisateur se déconnecte. Vous pouvez également spécifier la durée pendant laquelle la machine virtuelle doit attendre que l’utilisateur se reconnecte avant de s’arrêter automatiquement. Pour plus d’informations, consultez [Activer l’arrêt automatique des machines virtuelles lors de la déconnexion](how-to-enable-shutdown-disconnect.md).
+    3. Ensuite, sélectionnez **Terminer**. 
 
-    ![Quota pour chaque utilisateur](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+        ![Quota pour chaque utilisateur](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+    
 5. Vous devez voir l’écran suivant qui indique l’état de la création du modèle de machine virtuelle. La création du modèle dans le laboratoire prend jusqu'à 20 minutes. 
 
     ![État de la création du modèle de machine virtuelle](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)

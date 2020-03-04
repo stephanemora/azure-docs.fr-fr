@@ -3,8 +3,8 @@ title: Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver | M
 description: Guide de haute disponibilité pour SAP NetWeaver sur machines virtuelles Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0fbff3679004b8278b7634c2dc21253973cf34d0
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 65037ec0cc8b10b176622a7047beb7d912c7f701
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647660"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617546"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver
 
@@ -443,7 +443,7 @@ _**Figure 11 :** Définir les paramètres Azure Resource Manager de haute disp
 >
 
 ### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Déployer des machines virtuelles avec connectivité réseau d’entreprise (intersite) pour une utilisation en production
-Pour les systèmes SAP de production, déployez les machines virtuelles Azure avec une [connectivité de réseau d’entreprise (intersite)][planning-guide-2.2] à l’aide d’un VPN de site à site Azure ou d’Azure ExpressRoute.
+Pour les systèmes SAP de production, déployez les machines virtuelles Azure avec une connectivité de réseau d’entreprise à l’aide d’un VPN de site à site Azure ou d’Azure ExpressRoute.
 
 > [!NOTE]
 > Vous pouvez utiliser votre instance de réseau virtuel Azure. Le réseau virtuel et le sous-réseau ont déjà été créés et préparés.
@@ -589,7 +589,7 @@ Pour définir les adresses IP DNS requises, procédez comme suit.
 
 1. Dans le panneau **Serveurs DNS** du portail Azure, assurez-vous que l’option **Serveurs DNS** de votre réseau virtuel est définie sur **DNS personnalisé**.
 2. Sélectionnez les paramètres en fonction de votre type de réseau. Pour plus d’informations, consultez les ressources suivantes :
-   * [Connectivité réseau d’entreprise (intersite)][planning-guide-2.2] : Ajoutez les adresses IP des serveurs DNS locaux.  
+   * Ajoutez les adresses IP des serveurs DNS locaux.  
    Vous pouvez étendre les serveurs DNS locaux aux machines virtuelles exécutées dans Azure. Dans ce scénario, vous pouvez ajouter l’adresse IP des machines virtuelles Azure sur lesquelles vous exécutez le service DNS.
    * Pour les déploiements isolés de machines virtuelles dans Azure : Déployez une machine virtuelle supplémentaire dans l’instance de réseau virtuel jouant le rôle de serveur DNS. Ajoutez l’adresse IP des machines virtuelles Azure que vous avez configurées pour exécuter le service DNS.
 
@@ -740,7 +740,7 @@ Si vous souhaitez utiliser d’autres numéros pour les instances SAP ASCS ou SC
 1. Dans le portail Azure, sélectionnez **<*SID*-lb-ascs load balancer** > **Règles d’équilibrage de charge**.
 2. Pour toutes les règles d’équilibrage de charge qui appartiennent à l’instance SAP ASCS ou SCS, modifiez les valeurs suivantes :
 
-   * Name
+   * Nom
    * Port
    * Port principal
 

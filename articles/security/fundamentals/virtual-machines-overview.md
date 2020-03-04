@@ -1,5 +1,6 @@
 ---
-title: Fonctionnalités de sécurité utilisées avec les machines virtuelles Azure - Sécurité Azure | Microsoft Docs
+title: Fonctionnalités de sécurité utilisées avec les machines virtuelles Azure
+titleSuffix: Azure security
 description: Cet article fournit une vue d’ensemble des principales fonctionnalités de sécurité Azure pouvant être utilisées avec Azure Virtual Machines.
 services: security
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 6c01df071f263f7080f6c89b539d9a40aeff282f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3cbe7788ca7486022513fabdca682cbb78615281
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792620"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500379"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Vue d’ensemble de la sécurité des machines virtuelles Azure
 Cet article fournit une vue d’ensemble des principales fonctionnalités de sécurité Azure pouvant être utilisées avec les machines virtuelles.
@@ -90,7 +91,7 @@ La solution est intégrée à Azure Key Vault, ce qui vous permet de contrôler 
 En savoir plus :
 
 * [Azure Disk Encryption pour machines virtuelles Iaas](/azure/security/azure-security-disk-encryption-overview)
-* [Démarrage rapide : Chiffrer une machine virtuelle IaaS Windows avec Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
+* [Démarrage rapide : Chiffrer une machine virtuelle IaaS Windows avec Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## <a name="virtual-machine-backup"></a>Sauvegarde de machine virtuelle
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4db758ce0710f5b8b122feaadaa8b97a90dcb7cb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e3cdf44c2fc4c16bba283b6f884078dd947b1f34
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850436"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564771"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modèle de facturation pour Azure Active Directory B2C
 
@@ -82,7 +82,7 @@ Le lien de l’abonnement est obtenu en créant une *ressource* Azure AD B2C dan
 
 Un abonnement lié à un locataire Azure AD B2C peut être utilisé pour la facturation de l’utilisation d’Azure AD B2C ou d’autres ressources Azure, y compris des ressources Azure AD B2C supplémentaires. Il ne peut pas être utilisé pour ajouter d’autres services Azure basés sur une licence ou des licences Office 365 au sein du locataire Azure AD B2C.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 * [Abonnement Azure](https://azure.microsoft.com/free/)
 * [Locataire Azure AD B2C](tutorial-create-tenant.md) que vous souhaitez lier à un abonnement
@@ -140,4 +140,4 @@ Avant de lancer le déplacement, veillez à lire la totalité de l’article pou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Outre l’examen des détails d’utilisation et de facturation au sein d’un abonnement Azure sélectionné, vous pouvez consulter les rapports d’utilisation quotidiens détaillés à l’aide de [l’API de création de rapports d’utilisation](view-usage-reports.md).
+Pour obtenir les informations les plus récentes sur la tarification, consultez les [Tarification Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).

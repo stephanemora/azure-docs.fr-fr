@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: b60b117b10ac9ade6f685acf788e942ff7a2c93c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 236ae017832d5d613d0bf9fc948d16a7218d2269
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188766"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621945"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Approvisionner le débit sur les conteneurs et les bases de données
 
@@ -60,11 +60,10 @@ Tous les conteneurs créés à l’intérieur d’une base de données avec un d
 
 Si la charge de travail d'une partition logique consomme plus que le débit alloué à une partition logique spécifique, vos opérations sont limitées en termes de débit. En cas de limitation, vous pouvez augmenter le débit pour l’intégralité de la base de données ou retenter les opérations. Pour plus d’informations sur le partitionnement, consultez [Partitions logiques](partition-data.md).
 
-Les conteneurs dans une base de données à débit partagé partagent le débit (RU/s) alloué à cette base de données. Dans une base de données à débit partagé :
+Les conteneurs dans une base de données à débit partagé partagent le débit (RU/s) alloué à cette base de données. Vous pouvez avoir jusqu’à quatre conteneurs avec un minimum de 400 RU/s sur la base de données. Chaque nouveau conteneur après les quatre premiers nécessite un minimum de 100 RU/s supplémentaires. Par exemple, si vous avec une base de données à débit partagé avec huit conteneurs, le nombre minimal de RU/s sur la base de données sera de 800 RU/s.
 
-* Vous pouvez avoir jusqu’à quatre conteneurs avec un minimum de 400 RU/s sur la base de données. Chaque nouveau conteneur après les quatre premiers nécessite un minimum de 100 RU/s supplémentaires. Par exemple, si vous avec une base de données à débit partagé avec huit conteneurs, le nombre minimal de RU/s sur la base de données sera de 800 RU/s.
-
-* Vous pouvez avoir un maximum de 25 conteneurs dans la base de données. Si vous avez déjà plus de 25 conteneurs dans une base de données à débit partagé, vous ne pourrez pas créer de conteneurs supplémentaires tant que le nombre de conteneurs ne sera pas inférieur à 25.
+> [!NOTE]
+> Dans une base de données à débit partagé, vous pouvez avoir un maximum de 25 conteneurs dans la base de données. Si vous avez déjà plus de 25 conteneurs dans une base de données à débit partagé, vous ne pourrez pas créer de conteneurs supplémentaires tant que le nombre de conteneurs ne sera pas inférieur à 25.
 
 Si vos charges de travail impliquent la suppression et la recréation de toutes les collections d’une base de données, il est recommandé de supprimer la base de données vide et de recréer une nouvelle base de données avant la création de la collection. L’illustration suivante montre comment une partition physique peut héberger une ou plusieurs partitions logiques, appartenant à différents conteneurs, au sein d’une base de données :
 
@@ -109,7 +108,7 @@ Vous pouvez à tout moment faire évoluer le débit provisionné d’un conteneu
 |Unités de requête allouées ou disponibles sur un conteneur spécifique|Aucune garantie. Les unités de requête allouées à un conteneur donné dépendent des propriétés. Les propriétés peuvent être le choix de clés de partition des conteneurs qui partagent le débit, la distribution de la charge de travail et le nombre de conteneurs. |Toutes les unités de requête configurées sur le conteneur sont exclusivement réservées à ce conteneur.|
 |Stockage maximal pour un conteneur|Illimité.|Illimité.|
 |Débit maximal par partition logique d’un conteneur|10 000 RU/s|10 000 RU/s|
-|Débit maximal (données + index) par partition logique d’un conteneur|10 Go|10 Go|
+|Débit maximal (données + index) par partition logique d’un conteneur|20 Go|20 Go|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

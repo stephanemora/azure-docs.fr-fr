@@ -7,19 +7,16 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 0321d253eb1db414dff2acbb704d3d36726010d9
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 207a3a6c59012154d547bbd224782b90e1046c6a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544954"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597964"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
 Cet article liste les problèmes courants liés à Microsoft Azure Files en cas de connexion à partir de clients Windows. Il fournit également les causes possibles et les solutions de ces problèmes. En plus des étapes de résolution présentées dans cet article, vous pouvez utiliser [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5)  pour vérifier que l’environnement du client Windows est configuré correctement. AzFileDiagnostics détecte automatiquement la plupart des problèmes mentionnés dans cet article et vous aide à configurer votre environnement pour que les performances soient optimales. Vous pouvez également trouver ces informations dans [l’utilitaire de résolution des problèmes de partages Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares), qui vous guide dans les étapes de résolution des problèmes liés à la connexion, au mappage ou au montage de partages Azure Files.
-
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Error 5 quand vous montez un partage de fichiers Azure
@@ -141,7 +138,7 @@ Pour fermer les descripteurs ouverts pour un partage de fichiers, un répertoire
 
 <a id="noaaccessfailureportal"></a>
 ## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Erreur « Aucun accès » lorsque vous tentez d’accéder à un partage de fichiers Azure ou d’en supprimer un  
-Quand vous tentez d’accéder à un partage de fichiers Azure ou d’en supprimer un dans le portail, il se peut que vous receviez l’erreur suivante :
+Quand vous tentez d’accéder à un partage de fichiers Azure ou d’en supprimer un dans le portail, vous recevrez peut-être l’erreur suivante :
 
 Aucun accès  
 Code d’erreur : 403 
@@ -250,7 +247,7 @@ Utilisez l’une des solutions suivantes :
 
 -   Montez le lecteur depuis le compte utilisateur qui dispose de l’application. Vous pouvez utiliser un outil tel que PsExec.
 - Transmettez le nom et la clé du compte de stockage dans les paramètres de nom d’utilisateur et de mot de passe de la commande Net use.
-- Utilisez la commande cmdkey pour ajouter les informations d’identification dans le Gestionnaire d’informations d’identification. Effectuez cette procédure à partir d’une ligne de commande dans le contexte du compte de service, via une connexion interactive ou avec RunAs.
+- Utilisez la commande cmdkey pour ajouter les informations d’identification dans le Gestionnaire d’informations d’identification. Effectuez cette procédure à partir d’une ligne de commande dans le contexte du compte de service, via une connexion interactive ou en utilisant `runas`.
   
   `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
 - Mappez le partage directement sans l’aide d’une lettre de lecteur mappée. Certaines applications ne se reconnectent pas correctement à la lettre de lecteur. Il est donc conseillé d’utiliser le chemin d’accès UNC complet qui est plus fiable. 
@@ -300,7 +297,7 @@ Par exemple, spécifiez la valeur 0x100000 pour voir si les performances sont me
 
 ### <a name="cause"></a>Cause :
 
-L’erreur AadDsTenantNotFound se produit lorsque vous tentez d’[activer l’authentification du Service de domaine Azure Active Directory (AAD DS) pour Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) sur un compte de stockage où un [Service de domaine AAD (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) n’est pas créé sur l’abonné AAD de l’abonnement associé.  
+L’erreur AadDsTenantNotFound se produit lorsque vous tentez d’[activer l’authentification Azure Active Directory Domain Services (Azure AD DS) pour Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md) sur un compte de stockage où [AAD Domain Services (AAD DS)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) n’est pas créé sur le locataire AAD de l’abonnement associé.  
 
 ### <a name="solution"></a>Solution
 

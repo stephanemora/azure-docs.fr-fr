@@ -1,5 +1,5 @@
 ---
-title: 'Visualiser des données Azure Data Explorer avec une requête importée dans Power BI '
+title: Visualiser des données Azure Data Explorer avec une requête importée Power BI
 description: 'Dans cet article, vous allez découvrir comment utiliser une des trois options de visualisation des données dans Power BI : l’importation d’une requête depuis Azure Data Explorer.'
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 6c2c8457cee004bf1288656ec9746b703d41aee1
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: ff156ab3fe74115bce8f7d6bdd3ba47b514f5ff5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806405"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562477"
 ---
 # <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Visualiser des données avec une requête importée dans Power BI
 
@@ -56,7 +56,7 @@ Vous créez d’abord une requête dans l’application de poste de travail Azur
 
 1. Dans Power BI Desktop, sous l’onglet **Accueil**, sélectionnez **Obtenir les données**, puis **Requête vide**.
 
-    ![Obtention des données](media/power-bi-imported-query/get-data.png)
+    ![Obtenir des données](media/power-bi-imported-query/get-data.png)
 
 1. Dans l’éditeur Power Query, sous l’onglet **Accueil**, sélectionnez **Éditeur avancé**.
 
@@ -76,10 +76,10 @@ Vous créez d’abord une requête dans l’application de poste de travail Azur
 
 [!INCLUDE [data-explorer-power-bi-visualize-basic](../../includes/data-explorer-power-bi-visualize-basic.md)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez plus besoin du rapport que vous avez créé pour cet article, supprimez le fichier Power BI Desktop (.pbix).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Visualiser des données à l'aide du connecteur Azure Data Explorer pour Power BI](power-bi-connector.md)
+[Visualiser des données à l'aide du connecteur Azure Data Explorer pour Power BI](power-bi-connector.md)

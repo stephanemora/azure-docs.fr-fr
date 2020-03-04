@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 1d82261d4b5c1a66498c33610670d7a38acbb197
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 91480b3ba0a2bbd3e8c31adb931f5baabe1b07ce
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152327"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605600"
 ---
 # <a name="execute-python-script-module"></a>Module Exécuter un script Python
 
@@ -91,7 +91,7 @@ Le module **Exécuter un script Python** contient un exemple de code Python que 
 
     ![Mappage des entrées de l’exécution d’un script Python](media/module/python-module.png)
 
-4. Pour inclure du code ou de nouveaux packages Python, ajoutez le fichier zip contenant ces ressources personnalisées dans **Script groupé**. L’entrée dans **Script groupé** doit correspondre à un fichier zip déjà chargé dans votre espace de travail. 
+4. Pour inclure du code ou de nouveaux packages Python, ajoutez le fichier zip contenant ces ressources personnalisées dans **Script groupé**. L’entrée dans **Script groupé** doit correspondre à un fichier zip chargé dans votre espace de travail comme jeu de données de type fichier. 
 
     Tous les fichiers qui figurent dans l’archive zip chargée sont utilisables lors de l’exécution du pipeline. Si l’archive inclut une structure de répertoires, cette structure est préservée, mais vous devez ajouter au chemin d’accès un répertoire appelé **src**.
 

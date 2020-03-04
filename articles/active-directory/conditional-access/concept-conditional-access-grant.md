@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/21/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89063cc8131c28f20153c6fe9b4c71b58794e609
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: e5df7eedcd92d338d3f741f7092ff6ef73f3442d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192042"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585881"
 ---
 # <a name="conditional-access-grant"></a>Accès conditionnel : Accorder
 
@@ -55,13 +55,17 @@ Quand cette case est cochée, les utilisateurs doivent effectuer une authentific
 
 Les organisations qui ont déployé Microsoft Intune peuvent utiliser les informations retournées par leurs appareils pour identifier les appareils qui remplissent les conditions de conformité spécifiques. Ces informations de conformité de la stratégie sont transmises d’Intune à Azure AD, où l’accès conditionnel peut prendre des décisions pour accorder ou bloquer l’accès aux ressources. Pour plus d’informations sur les stratégies de conformité, consultez l’article [Définir des règles sur les appareils pour autoriser l’accès aux ressources de votre organisation à l’aide d’Intune](https://docs.microsoft.com/intune/protect/device-compliance-get-started).
 
+Un appareil peut être marqué comme conforme par Intune (pour n’importe quel système d’exploitation d’appareil), ou par un système GPM tiers pour les appareils Windows 10. Les systèmes MDM tiers pour les systèmes d’exploitation autres que Windows 10 ne sont pas pris en charge.
+
+Les appareils doivent être inscrits dans Azure AD pour pouvoir être marqués comme conformes. Pour plus d’informations sur l’inscription des appareils, consultez l’article [Qu’est-ce qu’une identité d’appareil ?](../devices/overview.md)
+
 ### <a name="require-hybrid-azure-ad-joined-device"></a>Exiger un appareil joint à Azure AD hybride
 
 Les organisations peuvent choisir d’utiliser l’identité de l’appareil dans le cadre de leur stratégie d’accès conditionnel. Elles peuvent utiliser cette case à cocher pour exiger que les appareils soient joints à Azure AD hybride. Pour plus d’informations sur les identités d’appareils, consultez l’article [Qu’est-ce qu’une identité d’appareil ?](../devices/overview.md)
 
 ### <a name="require-approved-client-app"></a>Demander une application cliente approuvée
 
-Les organisations peuvent exiger que toute tentative d’accès aux applications cloud sélectionnées provienne d’une application cliente approuvée.
+Les organisations peuvent exiger que toute tentative d’accès aux applications cloud sélectionnées provienne d’une application cliente approuvée. Ces applications clientes approuvées prennent en charge les [stratégies de protection des applications Intune](/intune/app-protection-policy), quelle que soit votre solution de gestion des périphériques mobiles (GPM).
 
 Ce paramètre s’applique aux applications clientes suivantes :
 
@@ -102,9 +106,7 @@ Ce paramètre s’applique aux applications clientes suivantes :
 
 ### <a name="require-app-protection-policy"></a>Exiger une stratégie de protection des applications
 
-Dans votre stratégie d’accès conditionnel, vous pouvez exiger qu’une stratégie de protection des applications soit présente sur l’application cliente pour qu’il soit possible d’accéder aux applications cloud sélectionnées. 
-
-![Contrôler les accès avec une stratégie de protection des applications](./media/technical-reference/22.png)
+Dans votre stratégie d’accès conditionnel, vous pouvez exiger qu’une [stratégie de protection des applications Intune](/intune/app-protection-policy) soit présente sur l’application cliente pour qu’il soit possible d’accéder aux applications cloud sélectionnées. 
 
 Ce paramètre s’applique aux applications clientes suivantes :
 
@@ -118,6 +120,10 @@ Ce paramètre s’applique aux applications clientes suivantes :
 - Les applications associées à la stratégie de protection des applications prennent en charge la fonctionnalité de gestion d’applications mobiles Intune avec la protection des stratégies.
 - Exigences relatives à la stratégie **Exiger une stratégie de protection des applications** :
     - elle prend uniquement en charge iOS et Android pour la condition de plateforme d’appareil.
+
+### <a name="terms-of-use"></a>Conditions d’utilisation
+
+Si votre organisation a créé des conditions d’utilisation, des options supplémentaires peuvent être visibles sous les contrôles d’octroi. Ces options permettent aux administrateurs de demander l’acceptation des conditions d’utilisation comme condition d’accès aux ressources protégées par la stratégie. Pour plus d’informations sur les conditions d’utilisation, consultez l’article [Conditions d’utilisation d’Azure Active Directory](terms-of-use.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

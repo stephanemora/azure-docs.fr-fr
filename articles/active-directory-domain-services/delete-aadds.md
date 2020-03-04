@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: ee4c41ca3179eead0e4fd470a02a5cdfa4a6d43a
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: e1836f91b8afc1bb4f5b7e141949f3724c57c857
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705236"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614039"
 ---
 # <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Désactiver ou supprimer un domaine managé Azure Active Directory Domain Services à partir du portail Azure
 
@@ -35,7 +35,7 @@ Si vous n’avez plus besoin d’un domaine managé, vous pouvez supprimer une i
 Pour supprimer un domaine managé Azure AD DS, effectuez les étapes suivantes :
 
 1. Sur le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**.
-1. Sélectionnez le nom de votre domaine managé Azure AD DS, par exemple *aadds.contoso.com*.
+1. Sélectionnez le nom de votre domaine managé Azure AD DS, par exemple *aaddscontoso.com*.
 1. Dans la page **Vue d’ensemble**, sélectionnez **Supprimer**. Pour confirmer la suppression, tapez à nouveau le nom du domaine managé, puis sélectionnez **Supprimer**.
 
 La suppression du domaine managé Azure AD DS peut prendre entre 15 et 20 minutes, voire plus.

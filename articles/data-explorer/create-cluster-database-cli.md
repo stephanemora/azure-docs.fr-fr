@@ -7,17 +7,17 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: bd53a8e29254af617b6cfa68935a191a50fc526c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 6b8c2924e50da095c3bc5c7db2d2bf48ef5a27c2
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326768"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561933"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Créer un cluster et une base de données Azure Data Explorer avec Azure CLI
 
 > [!div class="op_single_selector"]
-> * [Portal](create-cluster-database-portal.md)
+> * [Portail](create-cluster-database-portal.md)
 > * [INTERFACE DE LIGNE DE COMMANDE](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
@@ -60,7 +60,7 @@ Les étapes suivantes ne sont pas obligatoires si vous exécutez des commandes d
 
    |**Paramètre** | **Valeur suggérée** | **Description du champ**|
    |---|---|---|
-   | Nom | *azureclitest* | Nom souhaité de votre cluster.|
+   | name | *azureclitest* | Nom souhaité de votre cluster.|
    | sku | *D13_v2* | Référence SKU utilisée pour votre cluster. |
    | resource-group | *testrg* | Nom du groupe de ressources dans lequel sera créé le cluster. |
 
@@ -85,7 +85,7 @@ Si le résultat contient `provisioningState` avec la valeur `Succeeded`, alors l
    |**Paramètre** | **Valeur suggérée** | **Description du champ**|
    |---|---|---|
    | cluster-name | *azureclitest* | Nom du cluster dans lequel la base de données est créée.|
-   | Nom | *clidatabase* | Nom de votre base de données.|
+   | name | *clidatabase* | Nom de votre base de données.|
    | resource-group | *testrg* | Nom du groupe de ressources dans lequel sera créé le cluster. |
    | soft-delete-period | *P365D* | Représente la durée pendant laquelle les données restent disponibles pour les requêtes. Pour plus d’informations, consultez [Stratégie de conservation](/azure/kusto/concepts/retentionpolicy). |
    | hot-cache-period | *P31D* | Représente la durée pendant laquelle les données sont conservées dans le cache. Pour plus d’informations, consultez [Stratégie de cache](/azure/kusto/concepts/cachepolicy). |
@@ -98,7 +98,7 @@ Si le résultat contient `provisioningState` avec la valeur `Succeeded`, alors l
 
 Vous disposez maintenant d’un cluster et d’une base de données.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 * Si vous envisagez de suivre nos autres articles, conservez les ressources que vous avez créées.
 * Pour nettoyer les ressources, supprimez le cluster. Lorsque vous supprimez un cluster, cela supprime également toutes les bases de données qu’il contient. Utilisez la commande suivante pour supprimer votre cluster :

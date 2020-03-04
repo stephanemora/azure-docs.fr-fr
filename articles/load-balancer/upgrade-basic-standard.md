@@ -7,29 +7,29 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 179d0ff8143b526e100b89cffbbac0bbc29ca3e1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 83cac961eb3cd700451f16c684c64185b35e9bd3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776182"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616747"
 ---
-# <a name="upgrade-azure-public-load-balancer-from-basic-sku-to-standard-sku"></a>Mettre à niveau Azure Public Load Balancer en passant de la référence SKU De base à la référence SKU Standard
+# <a name="upgrade-azure-public-load-balancer"></a>Mettre à niveau l’équilibreur de charge public Azure
 [Azure Standard Load Balancer](load-balancer-overview.md) offre un ensemble complet de fonctionnalités et une haute disponibilité avec la redondance de zone. Pour en savoir plus sur la référence SKU de Load Balancer, consultez le [tableau comparatif](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
 
 Une mise à niveau se compose de deux phases :
 
-1. Migration de la configuration
+1. Migrer la configuration
 2. Ajout de machines virtuelles aux pools de back-ends de Standard Load Balancer
 
 Cet article couvre la migration de la configuration. L’ajout de machines virtuelles aux pools de back-ends peut varier en fonction de votre environnement spécifique. Toutefois, certaines suggestions générales de haut niveau [sont fournies](#add-vms-to-backend-pools-of-standard-load-balancer).
 
 ## <a name="upgrade-overview"></a>Présentation de la mise à niveau
 
-Un script Azure PowerShell est disponible et effectue les opérations suivantes :
+Un script Azure PowerShell est disponible qui effectue les opérations suivantes :
 
-* Il crée une instance Standard Load Balancer publique dans le groupe de ressources et à l’emplacement que vous spécifiez.
-* Il copie de façon fluide les configurations de l’instance Basic Load Balancer publique sur l’instance Standard Load Balancer publique nouvellement créée.
+* Il crée un équilibreur de charge Standard dans le groupe de ressources et à l’emplacement que vous spécifiez.
+* Il copie de façon fluide les configurations de l’équilibreur de charge De base sur l’équilibreur de charge Standard nouvellement créé.
 
 ### <a name="caveatslimitations"></a>Mises en garde/Limitations
 
@@ -70,18 +70,9 @@ Pour exécuter le script :
 
 1. Utilisez `Import-Module Az` pour importer les modules Az.
 
-1. Exécutez `Get-Help AzureLBUpgrade.ps1` pour examiner les paramètres requis :
+1. Examinez les paramètres requis :
 
-   ```
-   AzurePublicLBUpgrade.ps1
-    -oldRgName <name of the Resource Group where Basic Load Balancer exists>
-    -oldLBName <name of existing Basic Load Balancer>
-    -newrgName <Name of the Resource Group where the new Standard Load Balancer will be created>
-    -newlocation <Name of the location where the new Standard Load Balancer will be created>
-    -newLBName <Name of the Standard Load Balancer to be created>
-   ```
-   Paramètres liés au script :
-   * **oldRgName : [Chaîne] : Obligatoire** – Il s’agit du groupe de ressources pour votre instance Basic Load Balancer existante que vous souhaitez mettre à niveau. Pour trouver cette valeur de chaîne, accédez au portail Azure, sélectionnez votre source d’équilibreur de charge de base, puis cliquez sur la **Vue d’ensemble** de l’équilibreur de charge. Le groupe de ressources figure dans cette page.
+   * **oldRgName : [Chaîne] : Obligatoire** – Il s’agit du groupe de ressources pour votre instance Basic Load Balancer existante que vous souhaitez mettre à niveau. Pour trouver cette valeur de chaîne, accédez au Portail Azure, sélectionnez votre source d’équilibreur de charge De base, puis cliquez sur la **Vue d’ensemble** de l’équilibreur de charge. Le groupe de ressources figure dans cette page.
    * **oldLBName : [Chaîne] : Obligatoire** – Il s’agit du nom de l’instance Basic Load Balancer existante que vous souhaitez mettre à niveau. 
    * **newrgName : [Chaîne] : Obligatoire** – Il s’agit du groupe de ressources dans lequel l’instance Standard Load Balancer est créée. Ce peut être un nouveau groupe de ressources ou un groupe existant. Si vous choisissez un groupe de ressources existant, notez que le nom de l’équilibreur de charge doit être unique au sein du groupe de ressources. 
    * **newlocation : [Chaîne] : Obligatoire** – Il s’agit de l’emplacement où l’instance Standard Load Balancer est créée. Pour une meilleure association avec d’autres ressources existantes, il est préférable que l’instance Standard Load Balancer hérite du même emplacement que l’instance Basic Load Balancer.
@@ -107,7 +98,7 @@ Voici quelques scénarios illustrant la façon d’ajouter des machines virtuell
  
     1. Sélectionnez **Toutes les ressources** dans le menu de gauche, puis sélectionnez l’instance **Standard Load Balancer nouvellement créée** dans la liste de ressources.
    
-    1. Sous **Paramètres**, sélectionnez **Pools principaux**.
+    1. Sous **Paramètres**, sélectionnez **Backend Pools (Pools principaux)** .
    
     1. Sélectionnez le pool de back-ends correspondant au pool de back-ends de Basic Load Balancer, puis sélectionnez la valeur suivante : 
       - **Machine virtuelle** : Faites défiler et sélectionnez les machines virtuelles dans le pool de back-ends correspondant de Basic Load Balancer.
@@ -134,4 +125,4 @@ Vous pouvez envoyer un e-mail à slbupgradesupport@microsoft.com, ouvrir un doss
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Découvrir Standard Load Balancer](load-balancer-overview.md)
+[Présentation de la référence Standard d’Azure Load Balancer (préversion)](load-balancer-overview.md)

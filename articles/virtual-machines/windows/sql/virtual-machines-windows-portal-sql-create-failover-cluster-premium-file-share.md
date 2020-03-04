@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 57dc7bb98bf4c2f733be0f2c94e17481a429be6d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b2d49eeadf068cbaacaa5e147f38025c55f33ff4
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906801"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651359"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server avec un partage de fichiers Premium sur des machines virtuelles Azure
 
@@ -71,7 +71,7 @@ Pour plus d’informations sur les licences SQL Server, consultez [Tarification]
 
 Filestream n’est pas pris en charge pour un cluster de basculement avec un partage de fichiers Premium. Pour utiliser Filestream, déployez votre cluster en utilisant des [espaces de stockage direct](virtual-machines-windows-portal-sql-create-failover-cluster.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant d’effectuer les étapes décrites dans cet article, vous devez déjà disposer des éléments suivants :
 
@@ -149,7 +149,7 @@ Une fois ces conditions préalables en place, vous pouvez commencer la création
 
    1. Sélectionnez **Suivant**, puis **Supprimer**.
 
-1. <a name="ports"></a>Ouvrez les ports du pare-feu.
+1. Ouvrez les <span id="ports">ports</span> du pare-feu.  
 
    Sur chaque machine virtuelle, ouvrez les ports suivants du pare-feu Windows :
 
@@ -369,7 +369,7 @@ Pour créer l’équilibrage de charge :
 
 1. Sélectionnez **Ajouter**.
 
-1. Dans le panneau **Ajouter une sonde d’intégrité**, <a name="probe"></a>définissez les paramètres de sonde d’intégrité suivants.
+1. Dans le panneau **Ajouter une sonde d’intégrité**, définissez les paramètres de <span id="probe">sonde d’intégrité</span> suivants.
 
    - **Name** : Nom de la sonde d’intégrité.
    - **Protocole** : TCP.

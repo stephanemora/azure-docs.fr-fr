@@ -10,17 +10,57 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 02/07/2020
+ms.date: 02/20/2020
 ms.author: raiye
-ms.openlocfilehash: cca79946c0537b75335eb2e64ae1fa429f2c8d18
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 5411e47494668341a952a97268affe4157e85a9a
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087233"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506027"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## <a name="february-2020-guest-os"></a>Système d’exploitation invité, février 2020
+
+>[!NOTE]
+>Le système d'exploitation invité de février est actuellement déployé sur les machines virtuelles du service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d'exploitation invité de février. Cette liste est susceptible d’être modifiée.
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 20-02 |  [4537767]  |  Internet Explorer | 2.85, 3.82, 4.75 | 11 février 2020 |
+|  Version 20-02 |  [4537813]  |  Sécurité Windows | 2.85 | 11 février 2020 |
+|  Version 20-02 |  [4537794]  |  Sécurité Windows | 3.82 | 11 février 2020 |
+|  Version 20-02 |  [4537803]  |  Sécurité Windows | 4.75 | 11 février 2020 |
+|  Version 20-02 |  [4537764]  |  Dernière mise à jour cumulative (LCU) | 5.4 | 11 février 2020 |
+|  Version 20-02 |  [4532691]  |  Dernière mise à jour cumulative (LCU) | 6.16 | 11 février 2020 |
+|  Version 20-02 |  [4534310]  |  Correctif cumulatif mensuel | 2.85 | 14 janvier 2020 |
+|  Version 20-02 |  [4536952]  |  Mise à jour de la pile de maintenance (SSU) | 2.85 | 14 janvier 2020 |
+|  Version 20-02 |  [4537829]  |  Mise à jour de la pile de maintenance (SSU) | 2.85 | 11 février 2020 |
+|  Version 20-02 |  [4538483]  |  Mises à jour de la sécurité étendue (ESU) | 2.85 | 11 février 2020 |
+|  Version 20-02 |  [4537820]  |  Correctif cumulatif mensuel | 2.85 | 11 février 2020 |
+|  Version 20-02 |  [4537759]  |  Mise à jour de sécurité (Flash) | 3.82, 4.75 | 11 février 2020 |
+|  Version 20-02 |  [4534283]  |  Correctif cumulatif mensuel | 3.82 | 14 janvier 2020 |
+|  Version 20-02 |  [4532920]  |  Mise à jour de la pile de maintenance (SSU) | 3.82 | 10 décembre 2020 |
+|  Version 20-02 |  [4534297]  |  Non relatif à la sécurité | 4.75 | 14 janvier 2020 |
+
+[4537767]: https://support.microsoft.com/kb/4537767
+[4537813]: https://support.microsoft.com/kb/4537813
+[4537794]: https://support.microsoft.com/kb/4537794
+[4537803]: https://support.microsoft.com/kb/4537803
+[4537764]: https://support.microsoft.com/kb/4537764
+[4532691]: https://support.microsoft.com/kb/4532691
+[4534310]: https://support.microsoft.com/kb/4534310
+[4536952]: https://support.microsoft.com/kb/4536952
+[4537829]: https://support.microsoft.com/kb/4537829
+[4538483]: https://support.microsoft.com/kb/4538483
+[4537820]: https://support.microsoft.com/kb/4537820
+[4537759]: https://support.microsoft.com/kb/4537759
+[4534283]: https://support.microsoft.com/kb/4534283
+[4532920]: https://support.microsoft.com/kb/4532920
+[4534297]: https://support.microsoft.com/kb/4534297
+
 
 ## <a name="january-2020-guest-os"></a>Système d’exploitation invité, janvier 2020
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 2c6f594b16aac40abf885e0d058c7aba48d32f9c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3cb57fae2b1c67ece321a294e56612f49358405a
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512621"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612721"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Erreurs courantes et étapes de dépannage pour Azure Active Directory Domain Services
 
@@ -30,7 +30,7 @@ Si vous avez des difficultés à activer Azure AD DS, examinez ci-dessous les er
 
 | **Exemple de message d’erreur** | **Résolution :** |
 | --- |:--- |
-| *Le nom contoso.com est déjà utilisé sur ce réseau. Spécifiez un nom qui n’est pas utilisé.* |[Conflit de nom de domaine dans le réseau virtuel](troubleshoot.md#domain-name-conflict) |
+| *Le nom addscontoso.com est déjà utilisé sur ce réseau. Spécifiez un nom qui n’est pas utilisé.* |[Conflit de nom de domaine dans le réseau virtuel](troubleshoot.md#domain-name-conflict) |
 | *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. Le service ne dispose pas des autorisations adéquates pour l’application appelée « Synchronisation des services de domaine Azure AD ». Supprimez l’application appelée « Synchronisation des services de domaine Azure AD » et réessayez d’activer les services de domaine pour votre client Azure AD.* |[L’application Domain Services ne dispose pas des autorisations adéquates pour l’application de synchronisation d’Azure AD Domain Services](troubleshoot.md#inadequate-permissions) |
 | *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application de services de domaine dans votre client Azure AD n’a pas les autorisations requises pour activer les services de domaine. Supprimez l’application avec l’identificateur d’application d87dcbc6-a371-462e-88e3-28ad15ec4e64 et essayez ensuite d’activer les services de domaine pour votre client Azure AD.* |[L’application Domain Services n’est pas configurée correctement dans votre locataire Azure AD](troubleshoot.md#invalid-configuration) |
 | *Les services de domaine n’ont pas pu être activés pour ce client Azure AD. L’application Microsoft Azure AD est désactivée dans votre client Azure AD. Activez l’application avec l’identificateur d’application 00000002-0000-0000-c000-000000000000 et essayez ensuite d’activer les services de domaine pour votre client Azure AD.* |[L’application Microsoft Graph est désactivée dans votre client Azure AD.](troubleshoot.md#microsoft-graph-disabled) |
@@ -39,11 +39,11 @@ Si vous avez des difficultés à activer Azure AD DS, examinez ci-dessous les er
 
 **Message d’erreur**
 
-*Le nom contoso.com est déjà utilisé sur ce réseau. Spécifiez un nom qui n’est pas utilisé.*
+*Le nom aaddscontoso.com est déjà utilisé sur ce réseau. Spécifiez un nom qui n’est pas utilisé.*
 
 **Résolution :**
 
-Vérifiez que vous n’avez pas d’environnement AD DS existant avec le même nom de domaine sur le même réseau virtuel ou sur un réseau virtuel appairé. Par exemple, si vous disposez d’un domaine AD DS nommé *contoso.com* qui s’exécute sur des machines virtuelles Azure, quand vous essayez d’activer un domaine managé Azure AD DS avec le même nom de domaine (*contoso.com*) sur le réseau virtuel, l’opération demandée échoue.
+Vérifiez que vous n’avez pas d’environnement AD DS existant avec le même nom de domaine sur le même réseau virtuel ou sur un réseau virtuel appairé. Par exemple, si vous disposez d’un domaine AD DS nommé *aaddscontoso.com* qui s’exécute sur des machines virtuelles Azure. Quand vous essayez d’activer un domaine managé Azure AD DS avec le même nom de domaine (*aaddscontoso.com*) sur le réseau virtuel, l’opération demandée échoue.
 
 Cet échec est dû à des conflits de noms pour le nom de domaine sur le réseau virtuel. Une recherche DNS vérifie si un environnement AD DS existant répond au nom de domaine demandé. Pour résoudre cet échec, utilisez un nom différent pour configurer votre domaine managé Azure AD DS ou déprovisionnez le domaine AD DS existant, puis réessayez d’activer Azure AD DS.
 
@@ -128,9 +128,9 @@ Pour vérifier l’état de cette application existante et l’activer si néces
 
 Si des utilisateurs de votre locataire Azure AD ne peuvent pas se connecter au domaine managé Azure AD DS, effectuez les étapes de dépannage suivantes :
 
-* **Format d’informations d’identification** – Essayez d’utiliser le format UPN pour spécifier les informations d’identification, par exemple `dee@contoso.onmicrosoft.com`. Le format UPN est la méthode recommandée pour spécifier les informations d’identification dans Azure AD DS. Vérifiez que cet UPN est correctement configuré dans Azure AD.
+* **Format d’informations d’identification** – Essayez d’utiliser le format UPN pour spécifier les informations d’identification, par exemple `dee@aaddscontoso.onmicrosoft.com`. Le format UPN est la méthode recommandée pour spécifier les informations d’identification dans Azure AD DS. Vérifiez que cet UPN est correctement configuré dans Azure AD.
 
-    La valeur *SAMAccountName* de votre compte, par exemple *CONTOSO\driley*, peut être générée automatiquement s’il existe plusieurs utilisateurs avec le même préfixe UPN dans votre locataire ou si votre préfixe UPN est trop long. Par conséquent, le format *SAMAccountName* de votre compte peut être différent de ce que vous attendiez ou de celui que vous utilisez dans votre domaine local.
+    La valeur *SAMAccountName* de votre compte, par exemple *AADDSCONTOSO\driley*, peut être générée automatiquement s’il existe plusieurs utilisateurs avec le même préfixe UPN dans votre locataire ou si votre préfixe UPN est trop long. Par conséquent, le format *SAMAccountName* de votre compte peut être différent de ce que vous attendiez ou de celui que vous utilisez dans votre domaine local.
 
 * **Synchronisation de mot de passe** – Veillez à activer la synchronisation de mot de passe pour les [utilisateurs cloud uniquement][cloud-only-passwords] ou pour les environnements hybrides [ utilisant Azure AD Connect][hybrid-phs].
     * **Comptes synchronisés hybrides :** si les comptes d’utilisateurs affectés sont synchronisés à partir d’un annuaire local, vérifiez les éléments suivants :

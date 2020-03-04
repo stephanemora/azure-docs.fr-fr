@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: aschhab
-ms.openlocfilehash: 21a3bfd09e83571e489e15e9351e12220a99e563
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f852ad70b2eb97e2b8b3e40d086e98b3836c3592
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301994"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598287"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Opérations de limitation dans Azure Service Bus
 
@@ -56,6 +56,11 @@ Toutes les opérations ne sont pas égales. Voici le coût en crédits de chacun
 | Opérations sur les données (Send, SendAsync, Receive, ReceiveAsync, Peek) |1 crédit par message |
 | Opérations de gestion (Créer, Lire, Mettre à jour, Supprimer sur files d’attente, Rubriques, Abonnements, Filtres) | 10 crédits |
 
+> [!NOTE]
+> Notez que, lors de l’envoi à une rubrique, chaque message est évalué par rapport à un ou plusieurs filtres avant d’être mis à disposition sur l’abonnement.
+> Chaque évaluation de filtre est également décomptée de la limite de crédit (c’est-à-dire 1 crédit par évaluation de filtre).
+>
+
 ### <a name="how-will-i-know-that-im-being-throttled"></a>Comment savoir si je suis limité ?
 
 Quand les demandes sont limitées pour une application cliente, celle-ci reçoit la réponse ci-dessous du serveur et la journalise.
@@ -64,7 +69,7 @@ Quand les demandes sont limitées pour une application cliente, celle-ci reçoit
 The request was terminated because the entity is being throttled. Error code: 50009. Please wait 2 seconds and try again.
 ```
 
-### <a name="how-can-i-avoid-being-throttled"></a>Comment éviter la limitation ?
+### <a name="how-can-i-avoid-being-throttled"></a>Comment éviter d’être limité ?
 
 Dans le cas des ressources partagées, il est important d’instaurer une utilisation équitable entre les différents espaces de noms Service Bus qui partagent ces ressources. La limitation est l’assurance qu’en cas de pic dans une charge de travail, les autres charges de travail utilisant les mêmes ressources ne seront pas limitées.
 

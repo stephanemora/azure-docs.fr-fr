@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: b08c3854ef330081b4c55331cb410c5925f00dec
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c4402c1ce2f051c8d1911e7c0332d4cac787ce1d
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512757"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613196"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Stratégies de mot de passe et de verrouillage de compte sur les domaines managés
 
@@ -87,7 +87,7 @@ Pour créer une stratégie de mot de passe personnalisée, utilisez les outils d
 
 1. Dans l’écran d’accueil, sélectionnez **Outils d’administration**. La liste des outils de gestion disponibles qui ont été installés dans le tutoriel [Créer une machine virtuelle de gestion][tutorial-create-management-vm] s’affiche à l’écran.
 1. Pour créer et gérer des unités d’organisation, sélectionnez **Centre d’administration Active Directory** dans la liste des outils d’administration.
-1. Dans le volet gauche, choisissez votre domaine managé Azure AD DS, par exemple *aadds.contoso.com*.
+1. Dans le volet gauche, choisissez votre domaine managé Azure AD DS, par exemple *aaddscontoso.com*.
 1. Ouvrez le conteneur **Système**, puis la classe d’objets PSC (**Password Settings Container**).
 
     Une stratégie de mot de passe intégrée pour le domaine managé Azure AD DS s’affiche. Vous ne pouvez pas modifier cette stratégie intégrée. Vous devez créer une stratégie de mot de passe personnalisée pour remplacer la stratégie par défaut.
@@ -112,7 +112,7 @@ Pour créer une stratégie de mot de passe personnalisée, utilisez les outils d
 
     ![Sélectionner les utilisateurs et les groupes auxquels appliquer la stratégie de mot de passe](./media/how-to/fgpp-applies-to.png)
 
-1. Les stratégies de mot de passe peuvent uniquement être appliquées à des groupes. Dans la boîte de dialogue **Emplacements**, développez le nom de domaine, par exemple *aadds.contoso.com*, puis sélectionnez une unité d’organisation, par exemple **Utilisateurs AADDC**. Si vous avez à disposition une unité d’organisation personnalisée qui contient un groupe d’utilisateurs auquel vous souhaitez appliquer une stratégie, sélectionnez cette unité d’organisation.
+1. Les stratégies de mot de passe peuvent uniquement être appliquées à des groupes. Dans la boîte de dialogue **Emplacements**, développez le nom de domaine, par exemple *aaddscontoso.com*, puis sélectionnez une unité d’organisation, par exemple **Utilisateurs AADDC**. Si vous avez à disposition une unité d’organisation personnalisée qui contient un groupe d’utilisateurs auquel vous souhaitez appliquer une stratégie, sélectionnez cette unité d’organisation.
 
     ![Sélectionner l’unité d’organisation à laquelle le groupe appartient](./media/how-to/fgpp-container.png)
 

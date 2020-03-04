@@ -8,16 +8,16 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: bc2067dbde1e99619fb6e384be4e70f606c8518d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2a00405a2100c3e565ca4f8ea4149540a5199b43
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792769"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651404"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Se connecter aux systèmes de fichiers locaux avec Azure Logic Apps
 
-Avec le connecteur de système de fichiers et Azure Logic Apps, vous pouvez créer des tâches et des flux de travail automatisés qui créent et gèrent des fichiers sur un partage de fichiers local, par exemple :  
+Avec Azure Logic Apps et le connecteur de système de fichiers, vous pouvez créer des tâches et des workflows automatisés qui créent et gèrent des fichiers sur un partage de fichiers local, par exemple :
 
 - Créer, obtenir, ajouter, mettre à jour et supprimer des fichiers.
 - Répertorier des fichiers dans des dossiers ou des dossiers racine.
@@ -31,7 +31,7 @@ Cet article vous explique comment vous connecter à un système de fichiers loca
 
 * Pour pouvoir connecter les applications logiques à des systèmes locaux tels que votre serveur de système de fichiers, vous devez [installer et configurer une passerelle de données locale](../logic-apps/logic-apps-gateway-install.md). De cette façon, vous pouvez spécifier que votre installation de passerelle soit utilisée lorsque vous créez la connexion du système de fichiers depuis votre application logique.
 
-* Un [compte Dropbox](https://www.dropbox.com/), que vous pouvez obtenir gratuitement. Vos informations d’identification de compte sont nécessaires pour établir une connexion entre votre application logique et votre compte Dropbox.
+* Un [compte Dropbox](https://www.dropbox.com/), que vous pouvez obtenir gratuitement. Les informations d'identification de votre compte sont nécessaires pour établir une connexion entre votre application logique et votre compte Dropbox.
 
 * Un accès à l’ordinateur qui héberge le système de fichiers que vous souhaitez utiliser. Par exemple, si vous installez la passerelle de données sur le même ordinateur que votre système de fichiers, vous avez besoin des informations d'identification du compte pour cet ordinateur.
 
@@ -65,14 +65,14 @@ Cet article vous explique comment vous connecter à un système de fichiers loca
 
    ![Créer une connexion](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    | -------- | -------- | ----- | ----------- |
-   | **Nom de connexion** | OUI | <*connection-name*> | Le nom souhaité pour votre connexion |
-   | **Dossier racine** | OUI | <*root-folder-name*> | Dossier racine de votre système de fichiers, par exemple, si vous avez installé votre passerelle de données locale, comme un dossier local sur l'ordinateur où la passerelle de données locale est installée, ou le dossier d'un partage réseau auquel l'ordinateur peut accéder. <p>Par exemple : `\\PublicShare\\DropboxFiles` <p>Le dossier racine est le dossier parent principal qui est utilisé pour les chemins relatifs de toutes les actions liées aux fichiers. |
+   | **Nom de connexion** | Oui | <*connection-name*> | Le nom souhaité pour votre connexion |
+   | **Dossier racine** | Oui | <*root-folder-name*> | Dossier racine de votre système de fichiers, par exemple, si vous avez installé votre passerelle de données locale, comme un dossier local sur l'ordinateur où la passerelle de données locale est installée, ou le dossier d'un partage réseau auquel l'ordinateur peut accéder. <p>Par exemple : `\\PublicShare\\DropboxFiles` <p>Le dossier racine est le dossier parent principal qui est utilisé pour les chemins relatifs de toutes les actions liées aux fichiers. |
    | **Type d'authentification** | Non | <*auth-type*> | Type d’authentification utilisé par votre système de fichiers, par exemple, **Windows** |
-   | **Nom d’utilisateur** | OUI | <*domaine*>\\<*nom d’utilisateur*> | Nom d'utilisateur de l'ordinateur qui héberge votre système de fichiers |
-   | **Mot de passe** | OUI | <*your-password*> | Mot de passe de l'ordinateur qui héberge votre système de fichiers |
-   | **gateway** | OUI | <*installed-gateway-name*> | Le nom de la passerelle que vous avez installée précédemment |
+   | **Nom d’utilisateur** | Oui | <*domaine*>\\<*nom d’utilisateur*> | Nom d'utilisateur de l'ordinateur qui héberge votre système de fichiers |
+   | **Mot de passe** | Oui | <*your-password*> | Mot de passe de l'ordinateur qui héberge votre système de fichiers |
+   | **gateway** | Oui | <*installed-gateway-name*> | Le nom de la passerelle que vous avez installée précédemment |
    |||||
 
 1. Lorsque vous êtes prêt, choisissez **Créer**.
@@ -93,7 +93,10 @@ Cet article vous explique comment vous connecter à un système de fichiers loca
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour obtenir des détails techniques sur les déclencheurs, les actions et les limites, qui sont décrits par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence](/connectors/fileconnector/) du connecteur.
+Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/fileconnector/).
+
+> [!NOTE]
+> Pour les applications logiques utilisées dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la version de ce connecteur avec l’étiquette ISE applique les [limites de messages de l’ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) à la place.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

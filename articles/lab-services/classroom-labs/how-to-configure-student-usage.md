@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 80e8bc47f6e6293d70bbc9fae888abdf5527fe93
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 9fda1295bcdcd44b8a92c101c2aa445197ce6d4a
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169222"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539165"
 ---
 # <a name="add-and-manage-lab-users"></a>Ajouter et gérer des utilisateurs lab
 Cet article explique comment ajouter des utilisateurs au labo, comment les inscrire au labo, comment contrôler le nombre d’heures qu’ils peuvent utiliser la machine virtuelle, et bien plus encore. 
@@ -35,7 +35,7 @@ Cet article explique comment ajouter des utilisateurs au labo, comment les inscr
     ![Ajouter les adresses e-mail des utilisateurs](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Sélectionnez **Enregistrer**. Dans la liste, vous voyez les adresses e-mail des utilisateurs et leur état (inscrits ou non). 
 
-    ![Liste des utilisateurs](../media/how-to-configure-student-usage/users-list-new.png)
+    ![Liste des utilisateurs](../media/how-to-configure-student-usage/list-of-added-users.png)
 
     > [!NOTE]
     > Les noms des utilisateurs s’affichent dans la liste après leur inscription au laboratoire. Le nom affiché dans la liste est construit en utilisant le prénom et le nom de l’utilisateur dans Azure Active Directory. 
@@ -101,11 +101,14 @@ Vous pouvez également accéder au lien d’inscription à partir du portail et 
 2. Dans la boîte de dialogue **Enregistrement de l’utilisateur**, sélectionnez **Terminé**. 
 4. Envoyez le **lien d’inscription** à un étudiant afin que ce dernier puisse s’inscrire à la classe. 
 
-## <a name="view-users-registered-with-the-lab"></a>Afficher les utilisateurs inscrits au laboratoire
+## <a name="view-registered-users"></a>Afficher les utilisateurs inscrits
 
-Dans le menu de gauche, sélectionnez **Utilisateurs** pour afficher la liste des utilisateurs inscrits au labo. 
+1. Accédez au [site web Azure Lab Services](https://labs.azure.com). 
+2. Sélectionnez **Se connecter** et entrez vos informations d’identification. Azure Lab Services prend en charge les comptes professionnels et les comptes Microsoft.
+3. Sur la page **Mes laboratoires**, sélectionnez le laboratoire pour lequel vous souhaitez suivre l’utilisation. 
+4. Sélectionnez **Utilisateurs** dans le menu de gauche ou la vignette **Utilisateurs**. Vous visualisez les étudiants inscrits à votre laboratoire.  
 
-![Liste des utilisateurs inscrits au labo](../media/how-to-configure-student-usage/students-registered.png)
+    ![Utilisateurs inscrits](../media/tutorial-track-usage/registered-users.png)
 
 ## <a name="set-quotas-for-users"></a>Définir des quotas pour les utilisateurs
 Vous pouvez définir des quotas par utilisateur en effectuant les étapes suivantes : 
@@ -115,7 +118,7 @@ Vous pouvez définir des quotas par utilisateur en effectuant les étapes suivan
 3. Sur la page **Quota par utilisateur**, spécifiez le nombre d’heures que vous souhaitez donner à chaque utilisateur (étudiant) en dehors des heures de cours prévues, puis sélectionnez **Enregistrer**.
 
     ![Quota par utilisateur](../media/how-to-configure-student-usage/quota-per-user.png)    
-5. Les valeurs modifiées figurent maintenant dans la barre d’outils : **Quota par utilisateur : \<nombre d’heures>** . 
+5. Les valeurs modifiées figurent maintenant dans la barre d’outils : **Quota par utilisateur : \<nombre d’heures>** et également dans la liste des utilisateurs.
 
     ![Quota par utilisateur – après](../media/how-to-configure-student-usage/quot-per-user-after.png)
 

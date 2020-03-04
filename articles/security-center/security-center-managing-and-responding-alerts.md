@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: 46ed2af51f34a25c1cdc1abb6152169feedd989e
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 5c199d074a6655ad14a0c66925e4302f70424970
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666293"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615988"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gérer et résoudre les alertes de sécurité dans Azure Security Center
 
@@ -65,19 +65,27 @@ Le Centre de sécurité collecte, analyse et intègre automatiquement les donné
     > [!NOTE]
     >Dans certains cas, l’adresse IP source n’est pas disponible, certains journaux d’activité d’événements Windows de la sécurité n’incluent pas l’adresse IP.
 
-1. Les étapes de correction suggérées par Security Center dépendent de l’alerte de sécurité. Suivez-les pour chaque alerte. Dans certains cas, afin d’atténuer une alerte de détection de menaces, vous devrez peut-être utiliser d’autres contrôles ou services Azure pour implémenter la correction recommandée. 
+1. Les étapes de correction suggérées par Security Center dépendent de l’alerte de sécurité. Suivez-les pour chaque alerte. 
+
+    Dans certains cas, afin d’atténuer une alerte de détection de menaces, vous devrez peut-être utiliser d’autres contrôles ou services Azure pour implémenter la correction recommandée. 
 
     Les rubriques suivantes vous guident tout au long des différentes alertes en fonction des types de ressources :
     
-    * [Alertes liées aux serveurs et machines virtuelles IaaS](security-center-alerts-iaas.md)
-    * [Alertes liées au calcul natif](security-center-alerts-compute.md)
-    * [Alertes liées aux services de données](security-center-alerts-data-services.md)
-    
+    * [Alertes pour les machines IaaS Windows](threat-protection.md#windows-machines)
+    * [Alertes pour les machines IaaS Linux](threat-protection.md#linux-machines)
+    * [Alertes pour Azure App Service](threat-protection.md#app-services)
+    * [Alertes pour les conteneurs Azure](threat-protection.md#azure-containers)
+    * [Alertes pour SQL Database et SQL Data Warehouse](threat-protection.md#data-sql)
+    * [Alertes pour Stockage Azure](threat-protection.md#azure-storage)
+    * [Alertes pour Cosmos DB](threat-protection.md#cosmos-db)
+
     Les rubriques suivantes expliquent comment Security Center utilise les différentes données de télémétrie qu’il collecte à partir de l’intégration à l’infrastructure Azure afin d’appliquer des couches de protection supplémentaires pour les ressources déployées sur Azure :
     
-    * [Alertes liées à la couche de services](security-center-alerts-service-layer.md)
-    * [Détection des menaces pour Azure WAF et Azure DDoS Protection](security-center-alerts-integration.md)
-    
+    * [Alertes pour la couche de gestion Azure (Azure Resource Manager) [préversion]](threat-protection.md#management-layer)
+    * [Alertes pour Azure Key Vault (préversion)](threat-protection.md#azure-keyvault)
+    * [Alertes pour la couche réseau Azure](threat-protection.md#network-layer)
+    * [Alertes provenant d’autres services](threat-protection.md#alerts-other)    
+
 ## <a name="see-also"></a>Voir aussi
 
 Dans ce document, vous avez appris à configurer des stratégies de sécurité dans le Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
@@ -85,5 +93,3 @@ Dans ce document, vous avez appris à configurer des stratégies de sécurité d
 * [Alertes de sécurité dans Azure Security Center](security-center-alerts-overview.md).
 * [Gestion des incidents de sécurité](security-center-incident.md)
 * [Guide des opérations et de planification du Centre de sécurité Azure](security-center-planning-and-operations-guide.md)
-* [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
-* [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.

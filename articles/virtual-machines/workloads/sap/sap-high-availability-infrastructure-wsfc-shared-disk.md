@@ -1,10 +1,10 @@
 ---
-title: Préparer l’infrastructure Azure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows et d’un disque partagé pour SAP ASCS/SCS | Microsoft Docs
+title: Infrastructure Azure pour SAP ASCS/SCS avec WSFC et un disque partagé | Microsoft Docs
 description: Découvrez comment préparer l’infrastructure Azure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows et d’un disque partagé pour une instance SAP ASCS/SCS.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e4de954d55725f36d48d09ac46ef3700787d937b
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 8a49bc979923bf52d099e30615910c5bdb0601b6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647643"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591929"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Préparer l’infrastructure Azure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows et d’un disque partagé pour SAP ASCS/SCS
 
@@ -164,7 +164,7 @@ ms.locfileid: "75647643"
 
 Cet article décrit les étapes à suivre pour préparer l’infrastructure Azure à l’installation et à la configuration d’un système SAP à haute disponibilité sur un cluster de basculement Windows en utilisant un *disque partagé de cluster* en tant qu’option de clustering d’une instance ASCS SAP.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer l’installation, consultez cet article :
 
@@ -223,7 +223,7 @@ _**Figure 1 :** Définir les paramètres Azure Resource Manager de haute dispon
 >
 
 ## <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Déployer des machines virtuelles avec connectivité réseau d’entreprise (intersite) pour une utilisation en production
-Pour les systèmes SAP de production, déployez les machines virtuelles Azure avec une [connectivité de réseau d’entreprise (intersite)][planning-guide-2.2] à l’aide d’une passerelle VPN Azure ou d’Azure ExpressRoute.
+Pour les systèmes SAP de production, déployez les machines virtuelles Azure avec une connectivité de réseau d’entreprise à l’aide d’une passerelle VPN Azure ou d’Azure ExpressRoute.
 
 > [!NOTE]
 > Vous pouvez utiliser votre instance de réseau virtuel Azure. Le réseau virtuel et le sous-réseau ont déjà été créés et préparés.
@@ -373,7 +373,7 @@ Pour définir les adresses IP DNS requises, effectuez les étapes suivantes :
 
 1. Dans le volet **Serveurs DNS** du portail Azure, assurez-vous que l’option **Serveurs DNS** de votre réseau virtuel est définie sur **DNS personnalisé**.
 2. Sélectionnez les paramètres en fonction de votre type de réseau. Pour plus d’informations, consultez les ressources suivantes :
-   * [Connectivité réseau d’entreprise (intersite)][planning-guide-2.2] : Ajoutez les adresses IP des serveurs DNS locaux.  
+   * Ajoutez les adresses IP des serveurs DNS locaux.  
    Vous pouvez étendre les serveurs DNS locaux aux machines virtuelles exécutées dans Azure. Dans ce scénario, vous pouvez ajouter l’adresse IP des machines virtuelles Azure sur lesquelles vous exécutez le service DNS.
    * Pour les déploiements isolés de machines virtuelles dans Azure : Déployez une machine virtuelle supplémentaire dans l’instance de réseau virtuel jouant le rôle de serveur DNS. Ajoutez l’adresse IP des machines virtuelles Azure que vous avez configurées pour exécuter le service DNS.
 
@@ -524,7 +524,7 @@ Si vous souhaitez utiliser d’autres numéros pour les instances SAP ASCS ou SC
 1. Dans le portail Azure, sélectionnez **\<SID\>-lb-ascs load balancer** > **Règles d’équilibrage de charge**.
 2. Pour toutes les règles d’équilibrage de charge qui appartiennent à l’instance SAP ASCS ou SCS, modifiez les valeurs suivantes :
 
-   * Name
+   * Nom
    * Port
    * Port principal
 

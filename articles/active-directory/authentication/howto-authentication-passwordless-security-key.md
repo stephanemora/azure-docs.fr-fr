@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/12/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 826b8e923575db3d6c6aee7ead230f87f1efb50e
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8d5ff722d4a035113af8528ed8adb396b01c81eb
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848440"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77504949"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Activer la connexion par clé de sécurité sans mot de passe (préversion)
 
@@ -29,7 +29,7 @@ Ce document met l’accent sur l’activation de l’authentification sans mot d
 | Les clés de sécurité FIDO2 sont une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 - [Inscription d’informations de sécurité combinée – Préversion](concept-registration-mfa-sspr-combined.md)
@@ -40,7 +40,9 @@ Pour utiliser des clés de sécurité pour la connexion aux services et applicat
 
 ## <a name="prepare-devices-for-preview"></a>Préparer les appareils pour la préversion
 
-Les appareils que vous utiliserez doivent exécuter Windows 10 version 1809 ou ultérieure. Vous bénéficierez de la meilleure expérience sur Windows 10 version 1903 ou ultérieure.
+Les appareils joints à Azure AD que vous utilisez pour exécuter des pilotes doivent exécuter Windows 10 version 1809 ou ultérieure. Vous bénéficierez de la meilleure expérience sur Windows 10 version 1903 ou ultérieure.
+
+Les appareils joints à Azure AD Hybride doivent exécuter Windows 10 Insider Build 18945 ou une version ultérieure.
 
 ## <a name="enable-passwordless-authentication-method"></a>Activer les méthodes d’authentification sans mot de passe
 
@@ -50,7 +52,7 @@ Les fonctionnalités d’inscription pour les méthodes d’authentification san
 
 ### <a name="enable-fido2-security-key-method"></a>Activer la méthode de clé de sécurité FIDO2
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Accédez à **Azure Active Directory** > **Sécurité** > **Méthodes d’authentification** > **Stratégie de méthode d’authentification (préversion)** .
 1. Sous la méthode **Clé de sécurité FIDO2**, choisissez les options suivantes :
    1. **Activer** - Oui ou Non
@@ -79,13 +81,13 @@ Dans l’exemple ci-dessous, un utilisateur a déjà approvisionné sa clé de s
 
 ## <a name="troubleshooting-and-feedback"></a>Résolution des problèmes de commentaires
 
-Si vous avez des commentaires ou si vous rencontrez des problèmes lors de l’affichage de la préversion de cette fonctionnalité, partagez vos remarques via l’application de concentrateur de commentaires Windows.
+Si vous souhaitez partager des commentaires ou si vous rencontrez des problèmes lors de l’évaluation de cette fonctionnalité, partagez vos remarques via l’application Hub de commentaires Windows en procédant comme suit :
 
 1. Lancez le **concentrateur de commentaires** et assurez-vous que vous êtes connecté.
 1. Classez vos commentaires dans les catégories suivantes avant de les envoyer :
-   1. Catégorie : Sécurité et confidentialité
-   1. Sous-catégorie : FIDO
-1. Pour capturer des journaux, utilisez l’option : **Recréer mon problème**
+   - Catégorie : Sécurité et confidentialité
+   - Sous-catégorie : FIDO
+1. Pour capturer des journaux, utilisez l’option **Recréer mon problème**
 
 ## <a name="known-issues"></a>Problèmes connus
 
@@ -95,7 +97,7 @@ L’approvisionnement et le retrait de clés de sécurité par l’administrateu
 
 ### <a name="upn-changes"></a>Modifications de l’UPN
 
-Si l’UPN de l’utilisateur change, vous ne pouvez plus modifier les clés de sécurité FIDO2 pour en prendre en compte. La solution consiste à réinitialiser l’appareil et l’utilisateur doit réinscrire ses clés de sécurité FIDO2.
+Nous travaillons sur la prise en charge d’une fonctionnalité qui permet la modification de l’UPN sur les appareils joints à Azure AD et à Azure AD Hybride. Si l’UPN de l’utilisateur change, vous ne pouvez plus modifier les clés de sécurité FIDO2 pour en prendre en compte. La solution consiste à réinitialiser l’appareil, et l’utilisateur doit s’inscrire de nouveau.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

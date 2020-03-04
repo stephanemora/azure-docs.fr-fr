@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: c781c5e12f3f678ef640c6017a768e7ac14448f9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 551703b5dcca082904197010366ee059998dde4b
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871990"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621883"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Partitionnement dans Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Pour en savoir plus sur la façon dont Azure Cosmos DB gère les partitions, con
 
 Lors du choix d’une clé de partition, tenez compte des détails suivants :
 
-* La limite supérieure de stockage d’une même partition logique est de 10 Go.  
+* La limite supérieure de stockage d’une même partition logique est de 20 Go.  
 
 * Les conteneurs Azure Cosmos ont un débit minimal de 400 unités de requête par seconde (RU/s). Lorsque le débit est approvisionné sur une base de données, le nombre minimum de RU par conteneur est de 100 unités de requête par seconde (RU/s). Les requêtes pour la même clé de partition ne peuvent pas dépasser le débit alloué à une partition. Si elles dépassent le débit alloué, le débit des requêtes est limité. Il est donc important de choisir une clé de partition qui ne crée pas de « zones réactives » au sein de votre application.
 

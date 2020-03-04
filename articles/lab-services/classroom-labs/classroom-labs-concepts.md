@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: spelluru
-ms.openlocfilehash: 348340516f9332f5492c7ce60c3d164da44a008c
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 15fd3c18d059466c2b2bd5e2431013f393092b4b
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120883"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526227"
 ---
 # <a name="classroom-labs-concepts"></a>Concepts des laboratoires de salle de classe
 
@@ -28,11 +28,17 @@ La liste suivante présente les définitions et concepts principaux de Lab Servi
 
 Le quota est la limite d’utilisation (en heures) d’une machine virtuelle de laboratoire qu’un enseignant peut accorder à un étudiant. Il peut être défini sur 0 ou un nombre d’heures spécifique. Si le quota est défini sur 0, un étudiant ne peut utiliser la machine virtuelle que lorsqu’une planification est en cours d’exécution ou lorsqu’un enseignant active manuellement la machine virtuelle de l’étudiant.  
 
-Les heures de quota sont comptabilisées quand l’étudiant démarre lui-même la machine virtuelle lab.  Si un enseignant démarre manuellement la machine virtuelle lab d’un étudiant, les heures de quota ne sont pas utilisées pour cet étudiant.
+Les heures de quota sont comptabilisées quand l’étudiant démarre lui-même la machine virtuelle lab.  Si un enseignant démarre manuellement la machine virtuelle de laboratoire d’un étudiant, les heures de quota ne sont pas utilisées pour cet étudiant.
 
 ## <a name="schedules"></a>Planifications
 
-Les planifications sont les créneaux (uniques ou récurrents) qu’un enseignant peut créer pour le cours. Toutes les machines virtuelles du laboratoire démarrent automatiquement au début de la planification, et s’arrêtent automatiquement à la fin de celle-ci. Les quotas horaires ne sont pas utilisés lorsqu’une planification est cours d’exécution.
+Les planifications sont les créneaux horaires qu’un enseignant peut créer pour la classe afin que les machines virtuelles des étudiants soient disponibles pour le temps de classe.  Les planifications peuvent être ponctuelles ou récurrentes.  Les heures de quota ne sont pas utilisées lorsqu’une planification est cours d’exécution.
+
+Il existe trois types de planifications : Standard, Démarrage uniquement et Arrêt uniquement.
+
+- **Standard**.  Cette planification démarre toutes les machines virtuelles des étudiants à l’heure de début spécifiée et arrête toutes les machines virtuelles des étudiants à l’heure d’arrêt spécifiée.
+- **Démarrage uniquement**.   Cette planification démarre toutes les machines virtuelles des étudiants à l’heure spécifiée.  Les machines virtuelles des étudiants ne s’arrêteront pas tant qu’un étudiant n’aura pas arrêté sa machine virtuelle via le portail Azure Lab Services ou qu’une planification d’arrêt uniquement ne se produira pas.
+- **Arrêt uniquement**.  Cette planification arrête toutes les machines virtuelles des étudiants à l’heure spécifiée.  
 
 ## <a name="template-virtual-machine"></a>Modèle de machine virtuelle
 

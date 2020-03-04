@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 02/24/2020
 ms.author: jgao
-ms.openlocfilehash: a67f360aa08f306d6462342d96f59e06a4d3b501
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: e881cde36bc56c175004e8d6adb9b7b85e9b5454
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251853"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616313"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utiliser des scripts de déploiement dans des modèles (Préversion)
 
@@ -29,7 +29,7 @@ Découvrez comment utiliser des scripts de déploiement dans des modèles de res
 Les avantages du script de déploiement :
 
 - Facile à coder, utiliser et déboguer. Vous pouvez développer des scripts de déploiement dans vos environnements de développement préférés. Les scripts peuvent être incorporés aux modèles ou dans des fichiers de script externe.
-- Vous pouvez spécifier le langage de script et la plateforme. À l’heure actuelle, seuls les scripts de déploiement Azure PowerShell dans l’environnement Linux sont pris en charge.
+- Vous pouvez spécifier le langage de script et la plateforme. À l’heure actuelle, les scripts de déploiement Azure PowerShell et Azure CLI dans l’environnement Linux sont pris en charge.
 - Permet la spécification des identités utilisées pour exécuter les scripts. Actuellement, seule l’[identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) est prise en charge.
 - Permet la transmission des arguments de ligne de commande au script.
 - Peut spécifier des sorties de script et les renvoyer au déploiement.
@@ -42,24 +42,42 @@ Les avantages du script de déploiement :
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **Une identité managée affectée par l’utilisateur avec le rôle de contributeur au niveau de l’abonnement**. Cette identité est utilisée pour exécuter les scripts de déploiement. Pour en créer un, consultez [Créer une identité managée affectée par l’utilisateur à l’aide du Portail Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) ou [à l’aide d’Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md), ou [à l’aide d’Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Vous avez besoin de l’ID d’identité lorsque vous déployez le modèle. Le format de l’identité est le suivant :
+- **Une identité managée affectée par l’utilisateur avec le rôle de contributeur au groupe de ressources cible**. Cette identité est utilisée pour exécuter les scripts de déploiement. Pour effectuer des opérations en dehors du groupe de ressources, vous devez accorder des autorisations supplémentaires. Par exemple, attribuez l’identité au niveau de l’abonnement si vous souhaitez créer un groupe de ressources.
+
+  > [!NOTE]
+  > Le moteur de script de déploiement doit créer un compte de stockage et une instance de conteneur en arrière-plan.  Une identité managée affectée par l’utilisateur dotée du rôle de contributeur au niveau de l’abonnement est requise si l’abonnement n’a pas inscrit le compte de stockage Azure (Microsoft.Storage) ni les fournisseurs de ressources d’instance de conteneur Azure (Microsoft.ContainerInstance).
+
+  Pour créer une identité, consultez [Créer une identité managée affectée par l’utilisateur à l’aide du Portail Azure](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [d’Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) ou [d’Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Vous avez besoin de l’ID d’identité lorsque vous déployez le modèle. Le format de l’identité est le suivant :
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
   ```
 
-  Utilisez le script PowerShell suivant pour obtenir l’ID en fournissant le nom du groupe de ressources et le nom de l’identité.
+  Utilisez le script PowerShell ou CLI suivant pour obtenir l’ID en fournissant le nom du groupe de ressources et le nom de l’identité.
+
+  # <a name="cli"></a>[INTERFACE DE LIGNE DE COMMANDE](#tab/CLI)
+
+  ```azurecli-interactive
+  echo "Enter the Resource Group name:" &&
+  read resourceGroupName &&
+  echo "Enter the managed identity name:" &&
+  read idName &&
+  az identity show -g jgaoidentity1008rg -n jgaouami --query id
+  ```
+
+  # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
   ```azurepowershell-interactive
   $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
   $idName = Read-Host -Prompt "Enter the name of the managed identity"
 
-  $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
+  (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name $idName).Id
   ```
+  ---
 
-- **Azure PowerShell version 2.7.0, 2.8.0 ou 3.0.0**. Vous n’avez pas besoin de ces versions pour déployer des modèles. Par contre, ces versions sont nécessaires pour tester les scripts de déploiement localement. Consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Vous pouvez utiliser une image Docker préconfigurée.  Consultez [Configurer l’environnement de développement](#configure-development-environment).
+- **Azure PowerShell version 3.0.0, 2.8.0 ou 2.7.0** ou **Azure CLI version 2.0.80, 2.0.79, 2.0.78 ou 2.0.77**. Vous n’avez pas besoin de ces versions pour déployer des modèles. Par contre, ces versions sont nécessaires pour tester les scripts de déploiement localement. Consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Vous pouvez utiliser une image Docker préconfigurée.  Consultez [Configurer l’environnement de développement](#configure-development-environment).
 
-## <a name="sample-template"></a>Exemple de modèle
+## <a name="sample-templates"></a>Exemples de modèles
 
 L’extrait json ci-dessous est un exemple.  Le schéma de modèle le plus récent est disponible [ici](/azure/templates/microsoft.resources/deploymentscripts).
 
@@ -67,9 +85,9 @@ L’extrait json ci-dessous est un exemple.  Le schéma de modèle le plus réce
 {
   "type": "Microsoft.Resources/deploymentScripts",
   "apiVersion": "2019-10-01-preview",
-  "name": "myDeploymentScript",
+  "name": "runPowerShellInline",
   "location": "[resourceGroup().location]",
-  "kind": "AzurePowerShell",
+  "kind": "AzurePowerShell", // or "AzureCLI"
   "identity": {
     "type": "userAssigned",
     "userAssignedIdentities": {
@@ -78,7 +96,7 @@ L’extrait json ci-dessous est un exemple.  Le schéma de modèle le plus réce
   },
   "properties": {
     "forceUpdateTag": 1,
-    "azPowerShellVersion": "3.0",
+    "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
     "scriptContent": "
       param([string] $name)
@@ -86,8 +104,7 @@ L’extrait json ci-dessous est un exemple.  Le schéma de modèle le plus réce
       Write-Output $output
       $DeploymentScriptOutputs = @{}
       $DeploymentScriptOutputs['text'] = $output
-    ",
-    "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
+    ", // or "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
     "supportingScriptUris":[],
     "timeout": "PT30M",
     "cleanupPreference": "OnSuccess",
@@ -102,16 +119,25 @@ L’extrait json ci-dessous est un exemple.  Le schéma de modèle le plus réce
 Détails des valeurs de propriété :
 
 - **Identité** : le service de script de déploiement utilise une identité managée affectée par l’utilisateur pour exécuter les scripts. Actuellement, seule l’identité managée affectée par l’utilisateur est prise en charge.
-- **kind** : spécifie le type de script. Pour l’instant, seul le script Azure PowerShell est pris en charge. La valeur est **AzurePowerShell**.
+- **kind** : spécifie le type de script. Actuellement, les scripts Azure PowerShell et Azure CLI sont pris en charge. Les valeurs sont **AzurePowerShell** et **AzureCLI**.
 - **forceUpdateTag** : la modification de cette valeur entre les déploiements de modèle force le script de déploiement à s’exécuter de nouveau. Utilisez la fonction newGuid() ou utcNow() qui doit être définie comme defaultValue d’un paramètre. Pour plus d’informations, consultez [Exécuter le script plusieurs fois](#run-script-more-than-once).
-- **azPowerShellVersion** : spécifie la version du module Azure PowerShell à utiliser. Le script de déploiement prend actuellement en charge les versions 2.7.0, 2.8.0 et 3.0.0.
+- **azPowerShellVersion**/**azCliVersion** : spécifie la version du module à utiliser. Le script de déploiement prend actuellement en charge Azure PowerShell version 2.7.0, 2.8.0 et 3.0.0 Azure CLI version 2.0.80, 2.0.79, 2.0.78 et 2.0.77.
 - **arguments** : Spécifiez les valeurs de paramètre. Les valeurs sont séparées par des espaces.
 - **scriptContent** : précise le contenu du script. Pour exécuter un script externe, utilisez plutôt `primaryScriptUri`. Pour obtenir des exemples, consultez [Utiliser un script inclus](#use-inline-scripts) et [Utiliser un script externe](#use-external-scripts).
-- **primaryScriptUri** : spécifie une URL accessible publiquement pour le script PowerShell principal avec l’extension de fichier PowerShell prise en charge.
-- **supportingScriptUris** : spécifie un tableau d’URL accessibles publiquement pour les fichiers PowerShell de prise en charge qui seront appelés dans `ScriptContent` ou `PrimaryScriptUri`.
+- **primaryScriptUri** : spécifie une URL accessible publiquement pour le script de déploiement principal avec les extensions de fichier prises en charge.
+- **supportingScriptUris** : spécifie un tableau d’URL accessibles publiquement pour les fichiers de prise en charge qui seront appelés dans `ScriptContent` ou `PrimaryScriptUri`.
 - **timeout** : précise la durée d’exécution maximale autorisée du script, définie au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). La valeur par défaut est **P1D**.
 - **cleanupPreference** : indique la préférence de nettoyage des ressources de déploiement lorsque l’exécution du script arrive à un état terminal. Le paramètre par défaut est **Always**, ce qui signifie que les ressources sont supprimées malgré l’état terminal (Succeeded, Failed, Canceled). Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](#clean-up-deployment-script-resources).
 - **retentionInterval** : spécifie l’intervalle pendant lequel le service conserve les ressources du script de déploiement une fois que l’exécution du script a atteint un état terminal. Les ressources de script de déploiement sont supprimées à la fin de cette durée. La durée est basée sur le [modèle ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). La valeur par défaut est **P1D**, ce qui signifie sept jours. Cette propriété est utilisée lorsque cleanupPreference a la valeur *OnExpiration*. La propriété *OnExpiration* n’est pas activée actuellement. Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](#clean-up-deployment-script-resources).
+
+### <a name="additional-samples"></a>Exemples supplémentaires
+
+- [créer et attribuer un certificat à un coffre de clés](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json)
+
+- [créer et attribuer une identité managée affectée par l’utilisateur à un groupe de ressources, puis exécuter un script de déploiement](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json)
+
+> [!NOTE]
+> Il est recommandé de créer une identité affectée par l’utilisateur et d’accorder des autorisations à l’avance. Vous risquez d’obtenir des erreurs de connexion et d’autorisation si vous créez l’identité et accordez les autorisations dans le même modèle que celui où vous exécutez les scripts de déploiement. Il faut un certain temps avant que les autorisations prennent effet.
 
 ## <a name="use-inline-scripts"></a>Utiliser des scripts inclus
 
@@ -122,9 +148,9 @@ Le modèle suivant dispose d’une ressource définie avec le type `Microsoft.Re
 > [!NOTE]
 > Étant donné que les scripts de déploiement inclus sont placés entre guillemets doubles, les chaînes contenues dans les scripts de déploiement doivent être mises entre guillemets simples. Le caractère d’échappement pour PowerShell est **&#92;** . Vous pouvez également envisager d’utiliser la substitution de chaîne, comme montré dans l’exemple JSON précédent. Regardez la valeur par défaut du paramètre name.
 
-Le script accepte un paramètre, et génère la valeur du paramètre. **DeploymentScriptOutputs** s’utilise pour stocker les sorties.  À la section outputs, la ligne **value** montre comment accéder aux valeurs stockées. `Write-Output` s’utilise pour le débogage. Pour savoir comment accéder au fichier de sortie, consultez [Déboguer les scripts de déploiement](#debug-deployment-scripts).  Pour obtenir les descriptions des propriétés, consultez [Exemple de modèle](#sample-template).
+Le script accepte un paramètre, et génère la valeur du paramètre. **DeploymentScriptOutputs** s’utilise pour stocker les sorties.  À la section outputs, la ligne **value** montre comment accéder aux valeurs stockées. `Write-Output` s’utilise pour le débogage. Pour savoir comment accéder au fichier de sortie, consultez [Déboguer les scripts de déploiement](#debug-deployment-scripts).  Pour obtenir les descriptions des propriétés, consultez [Exemples de modèles](#sample-templates).
 
-Afin d’exécuter le script, sélectionnez **Try it** (Essayer) pour ouvrir Cloud Shell, puis collez le code suivant dans le volet de l’interpréteur de commandes.
+Afin d’exécuter le script, sélectionnez **Try it** (Essayer) pour ouvrir Azure Cloud Shell, puis collez le code suivant dans le volet de l’interpréteur de commandes.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to be created"
@@ -144,7 +170,7 @@ Le résultat se présente ainsi :
 
 ## <a name="use-external-scripts"></a>Utiliser des scripts externes
 
-En plus des scripts inclus, vous pouvez utiliser des fichiers de script externe. Actuellement, seuls les scripts PowerShell avec l’extension de fichier **ps1** sont pris en charge. Pour utiliser les fichiers de script externe, remplacez `scriptContent` par `primaryScriptUri`. Par exemple :
+En plus des scripts inclus, vous pouvez utiliser des fichiers de script externe. Seuls les scripts PowerShell principaux dotés de l’extension de fichier **ps1** sont pris en charge. Pour les scripts CLI, les scripts principaux peuvent avoir n’importe quelle extension (ou n’avoir aucune extension), à condition que les scripts soient des scripts Bash valides. Pour utiliser les fichiers de script externe, remplacez `scriptContent` par `primaryScriptUri`. Par exemple :
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -170,11 +196,11 @@ Vous pouvez séparer les logiques complexes en un ou plusieurs fichiers de scrip
 ],
 ```
 
-Les fichiers de script de prise en charge peuvent être appelés à partir de scripts inclus et de fichiers de script principal.
+Les fichiers de script de prise en charge peuvent être appelés à partir de scripts inclus et de fichiers de script principal. Les fichiers de script de prise en charge n’ont aucune restriction quant à l’extension de fichier.
 
 Les fichiers de prise en charge sont copiés dans azscripts/azscriptinput au moment de l’exécution. Utilisez un chemin relatif pour référencer les fichiers de prise en charge à partir de scripts inclus et de fichiers de script principal.
 
-## <a name="work-with-outputs-from-deployment-scripts"></a>Utiliser les sorties des scripts de déploiement
+## <a name="work-with-outputs-from-powershell-script"></a>Travailler avec les sorties du script PowerShell
 
 Le modèle suivant montre comment passer des valeurs entre deux ressources deploymentScripts :
 
@@ -185,6 +211,21 @@ Dans la première ressource, vous définissez une variable appelée **$Deploymen
 ```json
 reference('<ResourceName>').output.text
 ```
+
+## <a name="work-with-outputs-from-cli-script"></a>Travailler avec les sorties du script CLI
+
+À la différence du script de déploiement PowerShell, la prise en charge de CLI/Bash n’expose pas de variable courante permettant de stocker les sorties de script. Au lieu de cela, il existe une variable d’environnement appelée **AZ_SCRIPTS_OUTPUT_PATH** qui stocke l’emplacement où se trouve le fichier des sorties du script. Si un script de déploiement est exécuté à partir d’un modèle Resource Manager, cette variable d’environnement est automatiquement définie pour vous par l’interpréteur de commandes Bash.
+
+Les sorties de script de déploiement doivent être enregistrées à l’emplacement AZ_SCRIPTS_OUTPUT_PATH et être un objet de chaîne JSON valide. Le contenu du fichier doit être enregistré sous la forme d’une paire clé-valeur. Par exemple, un tableau de chaînes est stocké sous la forme { “MyResult”: [ “foo”, “bar”] }.  Le stockage des résultats du tableau uniquement, par exemple [ “foo”, “bar” ], n’est pas valide.
+
+[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json?range=1-44)]
+
+[jq](https://stedolan.github.io/jq/) est utilisé dans l’exemple précédent. Il est fourni avec les images conteneurs. Consultez [Configurer l’environnement de développement](#configure-development-environment).
+
+## <a name="handle-non-terminating-errors"></a>Gérer les erreurs sans fin d’exécution
+
+Vous pouvez contrôler la façon dont PowerShell répond aux erreurs sans fin d’exécution à l’aide de la variable [ **$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
+) dans votre script de déploiement. Le moteur de script de déploiement ne définit ni ne modifie la valeur.  En dépit de la valeur que vous définissez pour $ErrorActionPreference, le script de déploiement définit l’état d’approvisionnement des ressources sur *Failed* (Échec) lorsque le script rencontre une erreur.
 
 ## <a name="debug-deployment-scripts"></a>Déboguer les scripts de déploiement
 
@@ -264,7 +305,7 @@ L’exécution d’un script de déploiement est une opération idempotente. Si 
 
 ## <a name="configure-development-environment"></a>Configurer l’environnement de développement
 
-Actuellement, le script de déploiement prend en charge Azure PowerShell version 2.7.0, 2.8.0 ou 3.0.0.  Si vous disposez d’un ordinateur Windows, vous pouvez installer l’une des versions Azure PowerShell prises en charge et commencer à développer et tester des scripts de déploiement.  Si vous n’avez pas d’ordinateur Windows ou qu’aucune de ces versions Azure PowerShell n’est installée, vous pouvez utiliser une image conteneur Docker préconfigurée. La procédure suivante montre comment configurer l’image Docker sur Windows. Pour Linux et Mac, vous pouvez trouver les informations sur Internet.
+Vous pouvez utiliser une image conteneur d’ancrage préconfigurée comme environnement de développement de script de déploiement. La procédure suivante montre comment configurer l’image Docker sur Windows. Pour Linux et Mac, vous pouvez trouver les informations sur Internet.
 
 1. Installez [Docker Desktop](https://www.docker.com/products/docker-desktop) sur votre ordinateur de développement.
 1. Ouvrez Docker Desktop.
@@ -281,7 +322,15 @@ Actuellement, le script de déploiement prend en charge Azure PowerShell version
     docker pull mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
     ```
 
-    L’exemple utilise la version 2.7.0.
+    L’exemple utilise la version 2.7.0 de PowerShell.
+
+    Pour tirer (pull) une image CLI d’un registre Microsoft Container Registry (MCR) :
+
+    ```command
+    docker pull mcr.microsoft.com/azure-cli:2.0.80
+    ```
+
+    Cet exemple utilise la version 2.0.80 de CLI. Le script de déploiement utilise les images conteneurs CLI par défaut trouvées [ici](https://hub.docker.com/_/microsoft-azure-cli).
 
 1. Exécutez l’image Docker localement.
 
@@ -297,12 +346,18 @@ Actuellement, le script de déploiement prend en charge Azure PowerShell version
 
     **-it** indique de conserver l’image conteneur active.
 
+    Exemple CLI :
+
+    ```command
+    docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
+    ```
+
 1. Sélectionnez **Share it** (Le partager) quand vous recevez une invite.
-1. Exécutez un script PowerShell, comme indiqué dans la capture d’écran suivante (étant donné que vous avez un fichier helloworld.ps1 dans le dossier d:\docker).
+1. La capture d’écran suivante illustre comment exécuter un script PowerShell, étant donné que vous avez un fichier helloworld.ps1 dans le dossier d:\docker.
 
     ![Commande Docker pour un script de déploiement de modèle Resource Manager](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
-Dès lors que le script PowerShell a été testé avec succès, vous pouvez l’utiliser en tant que script de déploiement.
+Dès lors que le script a été testé avec succès, vous pouvez l’utiliser en tant que script de déploiement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

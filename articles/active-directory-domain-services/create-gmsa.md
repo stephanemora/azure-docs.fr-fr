@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 9dc7e6341f77fc17ae26f34ea029b3eb5414dcbc
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 58749e4518f6fa73c8641ce38483c101576047aa
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705319"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614076"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-ad-domain-services"></a>Créer un compte de service administré de groupe (gMSA) dans Azure AD Domain Services
 
@@ -36,7 +36,7 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
     * Si nécessaire, suivez le tutoriel pour [créer et configurer une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
-* Une machine virtuelle de gestion Windows Server jointe au domaine managé Azure AD DS.
+* Une machine virtuelle de gestion Windows Server jointe au domaine managé Azure AD DS.
     * Si nécessaire, suivez le tutoriel [Créer une machine virtuelle de gestion][tutorial-create-management-vm].
 
 ## <a name="managed-service-accounts-overview"></a>Vue d’ensemble des comptes de service administrés
@@ -65,32 +65,32 @@ Tout d’abord, créez une unité d’organisation personnalisée à l’aide de
 > [!TIP]
 > Pour effectuer ces étapes afin de créer un gMSA, [utilisez votre machine virtuelle de gestion][tutorial-create-management-vm]. Cette machine virtuelle de gestion doit déjà disposer des applets de commande AD PowerShell nécessaires et de la connexion au domaine géré.
 
-L’exemple suivant crée une unité d’organisation personnalisée nommée *myNewOU* dans le domaine managé Azure AD DS nommé *aadds.contoso.com*. Utilisez votre unité d’organisation et votre nom de domaine managé :
+L’exemple suivant crée une unité d’organisation personnalisée nommée *myNewOU* dans le domaine managé Azure AD DS nommé *aaddscontoso.com*. Utilisez votre unité d’organisation et votre nom de domaine managé :
 
 ```powershell
-New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=contoso,DC=COM"
+New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=aaddscontoso,DC=COM"
 ```
 
 Créez maintenant un compte de service administré de groupe (gMSA) à l’aide de la cmdlet [New-ADServiceAccount][New-ADServiceAccount]. Les exemples de paramètres suivants sont définis :
 
 * **-Name** est défini sur *WebFarmSvc*
 * Le paramètre **-Path** spécifie l’unité d’organisation personnalisée pour le compte de service administré de groupe (gMSA) créé à l’étape précédente.
-* Les entrées DNS et les noms de principal de service sont définis pour *WebFarmSvc.aadds.contoso.com*
-* Les principaux dans *CONTOSO-SERVER$* sont autorisés à récupérer le mot de passe pour utiliser l’identité.
+* Les entrées DNS et les noms de principal de service sont définis pour *WebFarmSvc.aaddscontoso.com*
+* Les principaux dans *AADDSCONTOSO-SERVER$* sont autorisés à récupérer le mot de passe pour utiliser l’identité.
 
 Spécifiez vos propres noms et noms de domaine.
 
 ```powershell
 New-ADServiceAccount -Name WebFarmSvc `
-    -DNSHostName WebFarmSvc.aadds.contoso.com `
-    -Path "OU=MYNEWOU,DC=contoso,DC=com" `
+    -DNSHostName WebFarmSvc.aaddscontoso.com `
+    -Path "OU=MYNEWOU,DC=aaddscontoso,DC=com" `
     -KerberosEncryptionType AES128, AES256 `
     -ManagedPasswordIntervalInDays 30 `
-    -ServicePrincipalNames http/WebFarmSvc.aadds.contoso.com/aadds.contoso.com, `
-        http/WebFarmSvc.aadds.contoso.com/contoso, `
-        http/WebFarmSvc/aadds.contoso.com, `
-        http/WebFarmSvc/contoso `
-    -PrincipalsAllowedToRetrieveManagedPassword CONTOSO-SERVER$
+    -ServicePrincipalNames http/WebFarmSvc.aaddscontoso.com/aaddscontoso.com, `
+        http/WebFarmSvc.aaddscontoso.com/aaddscontoso, `
+        http/WebFarmSvc/aaddscontoso.com, `
+        http/WebFarmSvc/aaddscontoso `
+    -PrincipalsAllowedToRetrieveManagedPassword AADDSCONTOSO-SERVER$
 ```
 
 Les applications et les services peuvent maintenant être configurés pour utiliser le compte de service administré de groupe (gMSA) en fonction des besoins.

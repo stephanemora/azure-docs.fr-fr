@@ -1,18 +1,18 @@
 ---
 title: Gestionnaires d’événements Azure Event Grid
-description: Décrit les gestionnaires d’événements pris en charge pour Azure Event Grid. Le gestionnaire effectue des actions supplémentaires pour traiter l’événement.
+description: Décrit les gestionnaires d’événements pris en charge pour Azure Event Grid. Azure Automation, Functions, Event Hubs, Connexions hybrides, Logic Apps, Service Bus, Stockage File d’attente, Webhooks.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 3cef32cd204e8bd4b21353cf66575a721315b387
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 7ea00d663264e902c1818f7a4684e90eccd97b28
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76511312"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525802"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Gestionnaires d’événements dans Azure Event Grid
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: memildin
-ms.openlocfilehash: b2ab769fc2595af9fd1ea41f1ef492944cb5e7fa
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 1a6dbaeac5355d50edb93a7f215d7f8e88231e98
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75665766"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615965"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gérer les incidents de sécurité dans Azure Security Center
 
@@ -48,14 +48,20 @@ Pour plus d’informations sur les alertes, consultez [Gestion et résolution de
 
 Les rubriques suivantes vous guident tout au long des différentes alertes en fonction des types de ressources :
 
-* [Alertes liées aux serveurs et machines virtuelles IaaS](security-center-alerts-iaas.md)
-* [Alertes liées au calcul natif](security-center-alerts-compute.md)
-* [Alertes liées aux services de données](security-center-alerts-data-services.md)
+* [Alertes pour les machines IaaS Windows](threat-protection.md#windows-machines)
+* [Alertes pour les machines IaaS Linux](threat-protection.md#linux-machines)
+* [Alertes pour Azure App Service](threat-protection.md#app-services)
+* [Alertes pour les conteneurs Azure](threat-protection.md#azure-containers)
+* [Alertes pour SQL Database et SQL Data Warehouse](threat-protection.md#data-sql)
+* [Alertes pour Stockage Azure](threat-protection.md#azure-storage)
+* [Alertes pour Cosmos DB](threat-protection.md#cosmos-db)
 
 Les rubriques suivantes expliquent comment Security Center utilise les différentes données de télémétrie qu’il collecte à partir de l’intégration à l’infrastructure Azure afin d’appliquer des couches de protection supplémentaires pour les ressources déployées sur Azure :
 
-* [Alertes liées à la couche de services](security-center-alerts-service-layer.md)
-* [Détection des menaces pour Azure WAF et Azure DDoS Protection](security-center-alerts-integration.md)
+* [Alertes pour la couche de gestion Azure (Azure Resource Manager) (préversion)](threat-protection.md#management-layer)
+* [Alertes pour Azure Key Vault (préversion)](threat-protection.md#azure-keyvault)
+* [Alertes pour la couche réseau Azure](threat-protection.md#network-layer)
+* [Alertes provenant d’autres services](threat-protection.md#alerts-other)
 
 ## <a name="see-also"></a>Voir aussi
 Dans ce document, vous avez vu comment utiliser la fonctionnalité de gestion des incidents de sécurité du Centre de sécurité. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
@@ -63,5 +69,3 @@ Dans ce document, vous avez vu comment utiliser la fonctionnalité de gestion de
 * [Alertes de sécurité dans Azure Security Center](security-center-alerts-overview.md).
 * [Gérer les alertes de sécurité](security-center-managing-and-responding-alerts.md)
 * [Guide des opérations et de planification du Centre de sécurité Azure](security-center-planning-and-operations-guide.md)
-* [FAQ de Azure Security Center](security-center-faq.md): forum aux questions concernant l’utilisation de ce service.
-* [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/): trouvez des billets de blog sur la sécurité et la conformité Azure.

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 5c820b7e11c06f2d785da036f5174298caf56da6
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d5e2813c71e9d6941eea7d11fb6565fb84fd0789
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960234"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651336"
 ---
 #    <a name="custom-entity-lookup-cognitive-skill-preview"></a>Compétence cognitive Recherche d'entité personnalisée (préversion)
 
@@ -63,7 +63,7 @@ Les paramètres respectent la casse.
 
 La liste des entités personnalisées peut être fournie à la compétence Recherche d'entité personnalisée de trois façons différentes. Vous pouvez fournir la liste dans un fichier .CSV, un fichier .JSON ou une définition inline dans le cadre de la définition de la compétence.  
 
-Si le fichier de définition est un fichier .CSV ou .JSON, le chemin d'accès à celui-ci doit être fourni dans le paramètre *entitiesDefitionUri*. Dans ce cas, le fichier est téléchargé une fois au début de chaque exécution de l'indexeur. Le fichier doit être accessible aussi longtemps que l'indexeur est censé s'exécuter.
+Si le fichier de définition est un fichier .CSV ou .JSON, le chemin d'accès à celui-ci doit être fourni dans le paramètre *entitiesDefitionUri*. Dans ce cas, le fichier est téléchargé une fois au début de chaque exécution de l'indexeur. Le fichier doit être accessible aussi longtemps que l'indexeur est censé s'exécuter. En outre, le fichier doit être encodé en UTF-8.
 
 Si la définition est fournie au format inline, elle doit être fournie au format inline comme contenu du paramètre de compétence *inlineEntitiesDefinition*. 
 

@@ -3,12 +3,12 @@ title: À propos du basculement et de la restauration automatique dans Azure Sit
 description: En savoir plus sur le basculement et les défaillances dans Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/24/2019
-ms.openlocfilehash: 3c461d2de4f9ef8e8159c7b9c86f23a846421c5e
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75498385"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539516"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>À propos du basculement/restauration de la récupération d’urgence au niveau local
 
@@ -37,8 +37,8 @@ Le basculement est une activité en deux phases :
 - **Valider** : Après le basculement, vous vérifiez la machine virtuelle dans Azure :
     - Vous pouvez ensuite valider le basculement vers le point de récupération sélectionné ou sélectionner un autre point pour la validation.
     - Une fois le basculement validé, le point de récupération ne peut pas être modifié.
-    
-    
+
+
 ## <a name="connect-to-azure-after-failover"></a>Se connecter à Azure après le basculement
 
 Pour vous connecter aux machines virtuelles Azure créées après le basculement à l’aide de RDP/SSH, il existe un certain nombre d’exigences.
@@ -59,7 +59,7 @@ Site Recovery propose différentes options de basculement.
 **Test de basculement** | Utilisé pour exécuter une analyse qui valide votre stratégie BCDR, sans perte de données ni temps d’arrêt.| Crée une copie de la machine virtuelle dans Azure, sans impact sur la réplication en cours ou sur votre environnement de production. | 1. Exécutez un test de basculement sur une seule machine virtuelle ou sur plusieurs machines virtuelles dans un plan de récupération.<br/><br/> 2. Sélectionnez un point de récupération à utiliser pour le test de basculement.<br/><br/> 3. Sélectionnez un réseau Azure dans lequel la machine virtuelle Azure sera localisée lors de sa création après le basculement. Le réseau est utilisé uniquement pour le test de basculement.<br/><br/> 4. Vérifiez que le test a fonctionné comme prévu. Site Recovery nettoie automatiquement les machines virtuelles créées dans Azure pendant le test.
 **Basculement planifié Hyper V**  | Généralement utilisé pour les temps d’arrêt planifiés.<br/><br/> Les machines virtuelles sources sont arrêtées. Les données les plus récentes sont synchronisées avant de lancer le basculement. | Aucune perte de données pour le flux de travail planifié. | 1. Planifiez une fenêtre de maintenance de temps d’arrêt et avertissez les utilisateurs.<br/><br/> 2. Mettez les applications orientées utilisateur hors connexion.<br/><br/> 3. Initiez un basculement planifié avec le dernier point de récupération. Le basculement ne s’exécute pas si la machine n’est pas arrêtée ou si des erreurs sont rencontrées.<br/><br/> 4. Après le basculement, vérifiez que la machine virtuelle Azure de réplica est active dans Azure.<br/><br/> 5. Validez le basculement pour terminer. L’action de validation annule tous les point de récupération.
 **Basculement Hyper V** | S’exécute généralement en cas de panne non planifiée ou si le site principal n’est pas disponible.<br/><br/> Si vous le souhaitez, arrêtez la machine virtuelle et synchronisez les dernières modifications avant de lancer le basculement.  | Perte de données minimale pour les applications. | 1. Lancez votre plan BCDR. <br/><br/> 2. Lancez un basculement. Spécifiez si Site Recovery doit arrêter la machine virtuelle et synchroniser/répliquer les dernières modifications avant de déclencher le basculement.<br/><br/> 3. Vous pouvez basculer vers un certain nombre d'options de points de récupération, résumées dans le tableau ci-dessous.<br/><br/> Si vous n’activez pas l’option permettant d’arrêter la machine virtuelle, ou si Site Recovery ne pouvez pas l’arrêter, le point de récupération le plus récent est utilisé.<br/>Le basculement s’exécute même si la machine ne peut pas être arrêtée.<br/><br/> 4. Après le basculement, vous vérifiez que la machine virtuelle Azure de réplica est active dans Azure.<br/> Si nécessaire, vous pouvez sélectionner un autre point de récupération dans la fenêtre de rétention de 24 heures.<br/><br/> 5. Validez le basculement pour terminer. L’action de validation supprime tous les points de récupération disponibles.
-**Basculement-VMware** | S’exécute généralement en cas de panne non planifiée ou si le site principal n’est pas disponible.<br/><br/> Spécifiez éventuellement que Site Recovery doit tenter de déclencher un arrêt de la machine virtuelle, et synchroniser et répliquer les modifications finales avant de lancer le basculement.  | Perte de données minimale pour les applications. | 1. Lancez votre plan BCDR. <br/><br/> 2. Initiez un basculement à partir de Site Recovery. Spécifiez si Site Recovery doit essayer de déclencher l’arrêt de la machine virtuelle et synchroniser avant d’exécuter le basculement.<br/> Le basculement s’exécute même si la machine ne peut pas être arrêtée.<br/><br/> 3. Après le basculement, vérifiez que la machine virtuelle Azure de réplica est active dans Azure. <br/>Si nécessaire, vous pouvez sélectionner un autre point de récupération dans la fenêtre de rétention de 72 heures.<br/><br/> 5. Validez le basculement pour terminer. L’action de validation annule tous les point de récupération.<br/> Pour les machines virtuelles Windows, Site Recovery désactive les outils VMware pendant le basculement. 
+**Basculement-VMware** | S’exécute généralement en cas de panne non planifiée ou si le site principal n’est pas disponible.<br/><br/> Spécifiez éventuellement que Site Recovery doit tenter de déclencher un arrêt de la machine virtuelle, et synchroniser et répliquer les modifications finales avant de lancer le basculement.  | Perte de données minimale pour les applications. | 1. Lancez votre plan BCDR. <br/><br/> 2. Initiez un basculement à partir de Site Recovery. Spécifiez si Site Recovery doit essayer de déclencher l’arrêt de la machine virtuelle et synchroniser avant d’exécuter le basculement.<br/> Le basculement s’exécute même si la machine ne peut pas être arrêtée.<br/><br/> 3. Après le basculement, vérifiez que la machine virtuelle Azure de réplica est active dans Azure. <br/>Si nécessaire, vous pouvez sélectionner un autre point de récupération dans la fenêtre de rétention de 72 heures.<br/><br/> 5. Validez le basculement pour terminer. L’action de validation annule tous les point de récupération.<br/> Pour les machines virtuelles Windows, Site Recovery désactive les outils VMware pendant le basculement.
 
 ## <a name="failover-processing"></a>Traitement du basculement
 
@@ -85,6 +85,8 @@ Pendant le basculement, vous pouvez sélectionner un certain nombre d’options 
 **Dernière cohérence des applications multimachines virtuelles** : |  cette option est disponible pour les plans de récupération qui comportent une ou plusieurs machines virtuelles dont la cohérence multimachine virtuelle est activée. Les machines virtuelles qui font partie d’un groupe de réplication basculent vers le dernier point de récupération de cohérence des applications multimachine virtuelle commun. Les autres machines virtuelles basculent vers leur dernier point de récupération de cohérence des applications.
 **Personnalisée** | Utilisez cette option pour basculer une machine virtuelle spécifique à un point de récupération particulier dans le temps. Cette option n’est pas disponible pour les plans de récupération.
 
+> [!NOTE]
+> Les points de récupération ne peuvent pas être migrés vers un autre coffre Recovery Services.
 
 ## <a name="reprotectionfailback"></a>Reprotection/restauration automatique
 
@@ -136,17 +138,17 @@ Pour reprotéger et restaurer automatiquement des machines virtuelles Hyper-V à
 - Vous exécutez une restauration automatique planifiée d’Azure vers le site local.
 - Aucun composant spécifique ne doit être configuré pour la restauration automatique des machines virtuelles Hyper-V.
 - Pendant le basculement planifié, vous pouvez sélectionner des options pour synchroniser les données avant la restauration automatique :
-    - **Synchroniser les données avant le basculement** : Cette option réduit le temps d’arrêt pour les machines virtuelles lors de la synchronisation des ordinateurs sans les arrêter. 
+    - **Synchroniser les données avant le basculement** : Cette option réduit le temps d’arrêt pour les machines virtuelles lors de la synchronisation des ordinateurs sans les arrêter.
         - Phase 1 : Elle prend une capture instantanée de la machine virtuelle Azure et la copie sur l’hôte Hyper-V local. La machine continue de s’exécuter dans Microsoft Azure.
         - Phase 2 : Elle arrête la machine virtuelle Azure : aucune nouvelle modification ne s’y produit donc. L’ensemble final des modifications d’ordre différentiel est transféré au serveur local et la machine virtuelle locale est démarrée.
-    - **Synchroniser les données pendant le basculement uniquement** : Cette option est plus rapide, car nous pensons que la majeure partie du disque a changé et n’effectue donc pas de calculs de somme de contrôle. Elle effectue un téléchargement du disque. Nous vous recommandons d’utiliser cette option si la machine virtuelle a été exécutée dans Azure pendant un certain temps (un mois ou plus) ou si la machine virtuelle locale a été supprimée.  
+    - **Synchroniser les données pendant le basculement uniquement** : Cette option est plus rapide, car nous pensons que la majeure partie du disque a changé et n’effectue donc pas de calculs de somme de contrôle. Elle effectue un téléchargement du disque. Nous vous recommandons d’utiliser cette option si la machine virtuelle a été exécutée dans Azure pendant un certain temps (un mois ou plus) ou si la machine virtuelle locale a été supprimée.
 
 [En savoir plus](hyper-v-azure-failback.md) sur la reprotection Hyper-V et la restauration automatique.
 
 Lorsque vous reprotégez des machines virtuelles Azure en local, vous pouvez spécifier que vous souhaitez effectuer une restauration automatique vers l’emplacement d’origine ou vers un autre emplacement.
 
 - **Récupération à l’emplacement d’origine** : Cette opération bascule à partir d’Azure vers la même machine locale source, si elle existe. Dans ce scénario, vous sélectionnez l’une des options de synchronisation décrites dans la procédure précédente.
-- **Récupération à un autre emplacement** : Si la machine locale n’existe pas, vous pouvez effectuer une restauration automatique à partir d’Azure vers un autre emplacement. Lorsque vous reprotégez la machine virtuelle Azure en local, la machine locale est créée. Avec cette option, nous vous recommandons de sélectionner l’option de synchronisation des données avant le basculement 
+- **Récupération à un autre emplacement** : Si la machine locale n’existe pas, vous pouvez effectuer une restauration automatique à partir d’Azure vers un autre emplacement. Lorsque vous reprotégez la machine virtuelle Azure en local, la machine locale est créée. Avec cette option, nous vous recommandons de sélectionner l’option de synchronisation des données avant le basculement
 - [Passez en revue](hyper-v-azure-failback.md) les exigences et limitations relatives à la restauration de l’emplacement.
 
 
@@ -156,7 +158,7 @@ Après une restauration automatique sur le site local, vous activez **Réplicati
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Basculer des [machines virtuelles VMware spécifiques](vmware-azure-tutorial-failover-failback.md) 
+- Basculer des [machines virtuelles VMware spécifiques](vmware-azure-tutorial-failover-failback.md)
 - Basculer des [machines virtuelles Hyper-V spécifiques](hyper-v-azure-failover-failback-tutorial.md).
 - [Créer](site-recovery-create-recovery-plans.md) un plan de récupération.
 - Basculer des [machines virtuelles dans un plan de récupération](site-recovery-failover.md).

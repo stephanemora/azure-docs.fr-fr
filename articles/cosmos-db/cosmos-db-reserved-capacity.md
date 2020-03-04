@@ -4,15 +4,15 @@ description: Découvrez comment acheter une capacité réservée Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 8e29683b994d66e769a24bb2d386a2120cf8eab9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 16e8f770445218e10ab7e7645a81325d11be55da
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367717"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505973"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimiser les coûts avec une capacité réservée dans Azure Cosmos DB
 
@@ -30,7 +30,9 @@ Vous pouvez acheter de la capacité réservée Azure Cosmos DB sur le [portail A
 
 ## <a name="determine-the-required-throughput-before-purchase"></a>Déterminer le débit requis avant l’achat
 
-La taille de la réservation doit être basée sur la quantité totale de débit qui sera utilisée par les ressources Azure Cosmos DB existantes ou sur le point d’être déployées. Vous pouvez afficher les tailles de réservation recommandées dans le Portail Azure en procédant comme suit :
+La taille de l’achat de la capacité de réserve doit être basée sur la quantité totale de débit qui sera utilisée sur une base horaire par les ressources Azure Cosmos DB existantes ou sur le point d’être déployées. Par exemple : Achetez une capacité réservée de 30 000 RU/s s’il s’agit de votre modèle d’utilisation horaire habituel. Dans cet exemple, tout débit approvisionné au-delà de 30 000 RU/s sera facturé au tarif Paiement à l’utilisation. Si le débit approvisionné est inférieur à 30 000 RU/s en une heure, la capacité de réserve supplémentaire pour cette heure est gaspillée.
+
+Nous calculons les recommandations d’achat en fonction de votre modèle d’utilisation horaire. L’utilisation au cours des 7, 30 et 60 derniers jours est analysée et l’achat de capacité de réserve qui optimise vos économies est recommandé. Vous pouvez afficher les tailles de réservation recommandées dans le Portail Azure en procédant comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).  
 
@@ -46,7 +48,7 @@ Vous pouvez filtrer les recommandations selon les attributs suivants :
 - **Périodicité de facturation** (mensuelle ou comptant)
 - **Type de débit** (RU vs RU multimaître)
 
-En outre, vous pouvez choisir l’étendue des recommandations pour qu’elles se trouvent dans un seul groupe de ressources, dans un seul abonnement ou dans l’intégralité de votre inscription Azure. Vous pouvez afficher des recommandations en fonction de l’utilisation au cours des 7 derniers jours, 30 derniers jours ou 60 derniers jours.
+En outre, vous pouvez choisir l’étendue des recommandations pour qu’elles se trouvent dans un seul groupe de ressources, dans un seul abonnement ou dans l’intégralité de votre inscription Azure. 
 
 Voici un exemple de recommandation :
 

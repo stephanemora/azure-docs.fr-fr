@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 2/17/2020
+ms.date: 2/24/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: f402effe40042740e74220d177c54963f6c45916
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 2f2940496682372b0d00d2b419aa941dcedd533c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444007"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586527"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Créer une alerte de mesure avec un modèle Resource Manager
 
@@ -1251,7 +1251,7 @@ Vous pouvez utiliser le modèle suivant pour créer une règle d’alerte de mé
 
 Pour en savoir plus sur les métriques personnalisées dans Azure Monitor, consultez [Métriques personnalisées dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
 
-Lorsque vous créez une règle d’alerte sur une métrique personnalisée, vous devez spécifier à la fois le nom et l’espace de noms de la métrique.
+Lorsque vous créez une règle d’alerte sur une métrique personnalisée, vous devez spécifier à la fois le nom et l’espace de noms de la métrique. Vous devez également vous assurer que la métrique personnalisée est déjà signalée, car vous ne pouvez pas créer de règle d’alerte sur une métrique personnalisée qui n’existe pas encore.
 
 Enregistrez le code JSON ci-après sous le nom customstaticmetricalert.json pour les besoins de cette procédure pas à pas.
 

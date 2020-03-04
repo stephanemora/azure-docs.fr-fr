@@ -6,7 +6,7 @@ documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41a4eb565f49b75b64cc072d3017c41000154e2a
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 12ba93a7e3de3c290d5952227b67843c0a9846d3
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77065824"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544264"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
 L’objectif de cet article est d’expliquer comment utiliser des filtres d’étendue pour définir des règles basées sur des attributs qui déterminent quels utilisateurs sont approvisionnés pour une application.
@@ -98,10 +98,12 @@ Les filtres d’étendue sont configurés comme parties des mappages d’attribu
    i. **Greater_Than.** La clause renvoie « true » si l’attribut évalué est supérieur à la valeur. La valeur indiquée dans le filtre d’étendue doit être un nombre entier et l’attribut de l’utilisateur doit être un nombre entier [0, 1, 2,...]. 
    
    j. **Greater_Than_OR_EQUALS.** La clause renvoie « true » si l’attribut évalué est supérieur ou égal à la valeur. La valeur indiquée dans le filtre d’étendue doit être un nombre entier et l’attribut de l’utilisateur doit être un nombre entier [0, 1, 2,...]. 
+   
+   k. **Includes.** La clause renvoie « true » si l’attribut évalué contient la valeur de chaîne (respecte la casse) comme décrit [ici](https://docs.microsoft.com/dotnet/api/system.string.contains?view=netframework-4.8). 
 
 
 >[!IMPORTANT] 
-> Les filtres Includes et IsMemberOf ne sont pas pris en charge. Ils seront bientôt supprimés de l’interface utilisateur.
+> Le filtre IsMemberOf n’est pas pris en charge actuellement.
 
 9. Si vous le souhaitez, répétez les étapes 7 et 8 pour ajouter d’autres clauses d’étendues.
 

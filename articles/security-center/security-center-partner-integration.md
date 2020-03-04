@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 7174003485d51cf582c798c4b18404b1b72de0fb
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 23a00c766dbb38853c57c91e7f59ec364390c44b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530950"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603809"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Intégrer des solutions de sécurité dans Azure Security Center
 Ce document vous aide à gérer les solutions de sécurité déjà connectées à Azure Security Center et à en ajouter de nouvelles.
@@ -129,13 +129,13 @@ Avant de commencer, [créez un espace de noms Event Hubs](../event-hubs/event-hu
 
 #### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Diffuser en continu le journal des activités Azure sur les Event Hubs
 
-Consultez l’article [Acheminer le journal des activités Azure vers Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md).
+Consultez l’article [Diffuser en continu le journal d’activité vers Event Hubs](../azure-monitor/platform/activity-logs-stream-event-hubs.md).
 
 #### <a name="install-a-partner-siem-connector"></a>Installer un connecteur SIEM partenaire 
 
 Le routage de vos données de monitoring vers un hub d’événement avec Azure Monitor vous permet d’intégrer facilement des systèmes SIEM et des outils de monitoring partenaires.
 
-Pour connaître la liste des systèmes SIEM pris en charge, consultez [cet article](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-platform-logs-sent-to-an-event-hub).
+Pour connaître la liste des [systèmes SIEM pris en charge](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration), consultez cet article.
 
 ### <a name="example-for-querying-data"></a>Exemple d’interrogation de données 
 
@@ -150,8 +150,6 @@ Voici quelques requêtes Splunk que vous pouvez utiliser pour extraire des donn�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à intégrer des solutions de partenaires dans Security Center. Pour plus d’informations sur Security Center, consultez les articles suivants :
+Dans cet article, vous avez appris à intégrer des solutions de partenaires dans Security Center. Pour en savoir plus sur Azure Security Center, voir l’article suivant :
 
 * [Surveillance de l’intégrité de la sécurité dans Security Center](security-center-monitoring.md). découvrez comment surveiller l’intégrité de vos ressources Azure.
-* [Questions fréquentes : Azure Security Center](security-center-faq.md). Obtenez des réponses aux questions fréquentes concernant l’utilisation de Security Center.
-* [Blog Azure Security](https://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.

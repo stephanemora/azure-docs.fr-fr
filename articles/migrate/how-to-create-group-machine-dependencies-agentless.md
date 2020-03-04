@@ -1,81 +1,57 @@
 ---
-title: Grouper des machines dans Azure Migrate avec la visualisation des dépendances sans agent
-description: Décrit comment créer des groupes à l’aide de dépendances de machines sans agent.
-author: rayne-wiselman
-ms.service: azure-migrate
+title: Configurer la visualisation des dépendances sans agent dans Azure Migrate
+description: 'Configurez des groupes à l’aide de la visualisation des dépendances sans agent dans Azure Migrate : Server Assessment.'
 ms.topic: article
-ms.date: 11/18/2019
-ms.author: hamusa
-ms.openlocfilehash: c8ddd343cd00b24506382521361ebad33ad112a7
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.date: 2/24/2020
+ms.openlocfilehash: c9425ad1fa78f14a194d3fe13c259dadf4eb5eb6
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049746"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589128"
 ---
-# <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurer la visualisation des dépendances sans agent pour l’évaluation
+# <a name="set-up-agentless-dependency-visualization"></a>Configurer la visualisation des dépendances sans agent 
 
-Cet article explique comment configurer le mappage de dépendances sans agent dans Azure Migrate : Server Assessment. 
+Cet article explique comment configurer la visualisation des dépendances dans l’évaluation de serveur Azure Migrate. La [visualisation des dépendances](concepts-dependency-visualization.md#what-is-dependency-visualization) vous permet d’identifier et de comprendre les dépendances entre les machines que vous voulez évaluer et migrer vers Azure.
+
+La visualisation des dépendances sans agent vous aide à identifier les dépendances de machine sans installer d’agents sur les ordinateurs. Une capture des données de connexion TCP des machines pour lesquelles elle est activée suffit.
 
 > [!IMPORTANT]
-> La visualisation des dépendances sans agent est actuellement en préversion pour les machines virtuelles VMware Azure détectées à l’aide d’une appliance Azure Migrate.
-> Certaines fonctionnalités peuvent être limitées ou non prises en charge. Cette préversion est couverte par le support client et peut être utilisée pour les charges de travail de production.
+> La visualisation des dépendances sans agent est actuellement en préversion pour les machines virtuelles VMware Azure uniquement, découvertes à l’aide de l’outil Azure Migrate : Server Assessment.
+> Les fonctionnalités peuvent être limitées ou incomplètes.
+> Cette préversion est couverte par le support client et peut être utilisée pour les charges de travail de production.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## <a name="about-dependency-mapping"></a>À propos du mappage des dépendances
-
-Le mappage des dépendances vous aide à visualiser les dépendances entre les machines que vous voulez évaluer et migrer. En général, vous utilisez le mappage des dépendances lorsque vous souhaitez évaluer les machines avec des niveaux de confiance élevés.
-
-- Dans Azure Migrate : Server Assessment, vous rassemblez les machines en groupes à des fins d’évaluation. Les groupes se composent généralement de machines que vous souhaitez migrer simultanément et, dans un tel contexte, le mappage des dépendances vous permet de vérifier les dépendances de ces machines afin de les regrouper de manière précise.
-- Grâce au mappage, vous pouvez découvrir les systèmes interdépendants devant migrer en même temps. Vous pouvez également déterminer si un système en cours d’exécution continue de servir les utilisateurs ou si une mise hors service peut être envisagée au lieu de la migration.
-- La visualisation des dépendances permet de s’assurer que rien n’est laissé de côté et d’éviter les pannes inopinées lors de la migration.
-
-## <a name="about-agentless-visualization"></a>À propos de la visualisation sans agent
-
-La visualisation des dépendances sans agent ne nécessite pas d’installation d’agents des machines. Une capture des données de connexion TCP des machines pour lesquelles elle est activée suffit.
-
-- Une fois la découverte des dépendances lancée, l’appliance recueille les données des machines à un intervalle d’interrogation de cinq minutes.
-- Les données suivantes sont collectées :
-    - Connexions TCP
-    - Noms des processus ayant des connexions actives
-    - Noms des applications installées exécutant les processus ci-dessus
-    - Non. de connexions détectées à chaque intervalle d’interrogation
 
 ## <a name="current-limitations"></a>Limites actuelles
 
-- La visualisation des dépendances sans agent n’est actuellement disponible que pour des machines virtuelles.
 - Pour le moment, vous ne pouvez pas ajouter ou supprimer un serveur d’un groupe dans la vue d’analyse des dépendances.
-- La carte des dépendances pour un groupe de serveurs n’est pas disponible actuellement.
+- Une carte des dépendances pour un groupe de serveurs n’est pas disponible actuellement.
 - Actuellement, les données de dépendance ne peuvent pas être téléchargées sous forme de tableau.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
+- [Consultez](concepts-dependency-visualization.md#agentless-visualization) les exigences et les coûts associés à la visualisation des dépendances sans agent.
+- Consultez les [conditions de prise en charge](migrate-support-matrix-vmware.md#agentless-dependency-visualization) pour configurer la visualisation des dépendances sans agent.
 - Assurez-vous que vous avez [créé](how-to-add-tool-first-time.md) un projet Azure Migrate.
-- L’analyse des dépendances sans agent est actuellement disponible uniquement pour les machines VMware.
-- Si vous avez déjà créé un projet, assurez-vous que vous avez [ajouté](how-to-assess.md) Azure Migrate : Server Assessment.
-- Assurez-vous d’avoir découvert vos machines VMware dans Azure Migrate. Pour ce faire, configurez une appliance Azure Migrate pour [VMware](how-to-set-up-appliance-vmware.md). L’appliance découvre les machines locales et envoie les métadonnées et les données de performances à Azure Migrate : Server Assessment. [Plus d’informations](migrate-appliance.md)
-- [Consultez les conditions requises](migrate-support-matrix-vmware.md#agentless-dependency-visualization) pour configurer la visualisation des dépendances sans agent.
-
+- Si vous avez déjà créé un projet, assurez-vous que vous avez [ajouté](how-to-assess.md) l’outil Azure Migrate : Server Assessment.
+- Assurez-vous d’avoir configuré une [appliance Azure Migrate](migrate-appliance.md) pour découvrir vos machines locales. Découvrez comment configurer une appliance pour des machines virtuelles [VMware](how-to-set-up-appliance-vmware.md). L’appliance découvre les machines locales et envoie les métadonnées et les données de performances à Azure Migrate : Server Assessment.
 
 
 ## <a name="create-a-user-account-for-discovery"></a>Créer un compte d’utilisateur pour la découverte
 
-Configurez un compte d’utilisateur disposant des autorisations requises pour que Server Assessment puisse accéder à la machine virtuelle aux fins de la découverte. Vous pouvez spécifier un compte d’utilisateur.
+Configurez un compte d’utilisateur pour que Server Assessment puisse accéder à la machine virtuelle à une fin de découverte. Vous pouvez spécifier un compte d’utilisateur.
 
-- **Autorisation requise sur les machines virtuelles Windows** : Le compte d’utilisateur doit être un administrateur local ou un administrateur de domaine.
-- **Autorisation requise sur les machines virtuelles Linux** : Le privilège de racine est requis sur le compte. Le compte d’utilisateur a également besoin des deux capacités ci-dessous sur les fichiers/bin/netstat et/bin/ls : CAP_DAC_READ_SEARCH et CAP_SYS_PTRACE.
+- **Machines virtuelles Windows** : Le compte d’utilisateur doit être un administrateur local ou un administrateur de domaine.
+- **Machines virtuelles Linux** : Le privilège de racine est requis sur le compte. Le compte d’utilisateur a également besoin des deux capacités ci-dessous sur les fichiers/bin/netstat et/bin/ls : CAP_DAC_READ_SEARCH et CAP_SYS_PTRACE.
 
 ## <a name="add-the-user-account-to-the-appliance"></a>Ajouter le compte d’utilisateur à l’appliance
 
-Vous devez ajouter le compte d’utilisateur à l’appliance.
+Ajoutez le compte d’utilisateur à l’appliance.
 
-Ajoutez le compte comme suit :
-
-1. Ouvrez l’application de gestion de l’appliance. Accédez au panneau **Fournir les détails de vCenter**.
-2. Dans la section **Découvrir les applications et les dépendances sur les machines virtuelles**, cliquez **Ajouter les informations d’identification**
-3. Choisissez le **Système d’exploitation**.
-4. Fournissez un nom convivial pour le compte.
-5. Entrez le **Nom d’utilisateur** et le **Mot de passe**
+1. Ouvrez l’application de gestion de l’appliance. 
+2. Accédez au panneau **Fournir les détails de vCenter**.
+3. Dans **Découvrir l’application et les dépendances sur les machines virtuelles**, cliquez sur **Ajouter les informations d’identification**.
+3. Choisissez le **système d’exploitation**, fournissez un nom convivial pour le compte, puis le **nom d’utilisateur**/**mot de passe**.
 6. Cliquez sur **Enregistrer**.
 7. Cliquez sur **Enregistrer et démarrer la découverte**.
 
@@ -94,17 +70,17 @@ Choisissez les machines sur lesquelles vous souhaitez activer la découverte de 
 
     ![Démarrer la découverte de dépendance](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
-Vous serez en mesure de visualiser les dépendances 6 heures après le démarrage de la découverte des dépendances.
+Vous pouvez visualiser les dépendances environ six heures après le démarrage de la découverte des dépendances.
 
 ## <a name="visualize-dependencies"></a>Visualiser les dépendances
 
 1. Dans **Azure Migrate : Server Assessment**, cliquez sur **Serveurs découverts**.
-2. Recherchez la machine pour laquelle vous souhaitez afficher le mappage des dépendances.
-3. Cliquez sur **Afficher les dépendances** dans la colonne **Dépendances**.
+2. Recherchez la machine que vous souhaitez afficher.
+3. Dans la colonne **Dépendances**, cliquez sur **Afficher les dépendances**.
 4. Modifiez la période pendant laquelle vous souhaitez afficher la carte à l’aide de la liste déroulante **Durée**.
 5. Développez le groupe **Client** pour afficher la liste des machines qui ont une dépendance sur la machine sélectionnée.
 6. Développez le groupe **Port** pour répertorier les machines qui ont une dépendance de la machine sélectionnée.
-7. Pour accéder à la carte d’une machine dépendante, cliquez sur le nom de celle-ci, puis sur **Charger la carte des serveurs**
+7. Pour accéder à la carte d’une machine dépendante, cliquez sur le nom de la machine > **Charger la carte des serveurs**.
 
     ![Développer un groupe de ports du serveur et charger une carte des serveurs](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)
 
@@ -131,4 +107,4 @@ Choisissez les machines sur lesquelles vous souhaitez arrêter la découverte de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Regrouper les machines](how-to-create-a-group.md)
+[Grouper les machines](how-to-create-a-group.md) à des fins d’évaluation.

@@ -14,12 +14,12 @@ ms.date: 11/13/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a28a4ccbaa256133b785d2238657093ba40ea11f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 530eebea19d9e53f85a0079d6fba91c615ee6dd1
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024192"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498915"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configurer les alertes de sécurité pour les rôles Azure AD dans Privileged Identity Management
 
@@ -32,11 +32,11 @@ Depuis novembre 2019, la partie Rôles Azure AD de Privileged Identity Manageme
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un utilisateur avec le rôle [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 1. Ouvrez **Azure AD Privileged Identity Management**. Si une bannière figure en haut de la page de présentation, suivez les instructions sous l’onglet **Nouvelle version** de cet article. Sinon, suivez les instructions sous l’onglet **Version précédente**.
 
-    ![Nouvelle version des rôles Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+  [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 Suivez les étapes décrites dans cet article afin d’examiner des alertes de sécurité pour des rôles Azure AD.
 
-# <a name="new-versiontabnew"></a>[Nouvelle version](#tab/new)
+# <a name="new-version"></a>[Nouvelle version](#tab/new)
 
 ![Rôles Azure AD : volet Alertes répertoriant les alertes et le niveau de gravité](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
@@ -135,7 +135,7 @@ Personnalisez les paramètres des différentes alertes pour travailler avec votr
 
 ![Page de configuration d’une alerte permettant d’activer et de configurer des paramètres](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
 
-# <a name="previous-versiontabprevious"></a>[Version précédente](#tab/previous)
+# <a name="previous-version"></a>[Version précédente](#tab/previous)
 
 ![Rôles Azure AD : volet Alertes répertoriant les alertes et le niveau de gravité](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 

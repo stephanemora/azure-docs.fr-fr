@@ -1,18 +1,18 @@
 ---
 title: Sources d’événements Azure Event Grid
-description: Cet article décrit les sources d’événements prises en charge pour Azure Event Grid. La source d’un événement désigne l’endroit où l’événement se produit.
+description: Abonnements Azure, Container Registry, rubriques personnalisées, Event Hubs, IoT Hub, Key Vault, Media Services, groupes de ressources, Service Bus, Stockage, Maps, App Configuration, SignalR, Machine Learning.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 3a52d906d958fdfd1d7e09c6229b12af3204bc52
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d4a426ea1432d0266b7ae9344afefe8ddac1d030
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846384"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561763"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Sources d’événements dans Azure Event Grid
 
@@ -134,7 +134,7 @@ S’abonner aux événements Service Bus pour répondre aux messages sans un éc
 S’abonner aux événements Stockage Blob pour répondre aux événements de création et de suppression d’objets blob.
 
 >[!NOTE]
-> Seuls les comptes de stockage de type **StorageV2 (usage général v2)** et **BlobStorage** prennent en charge l’intégration d’événements. Le type **Storage (usage général v1)** ne prend *pas* en charge l’intégration à Event Grid.
+> Seuls les comptes de stockage de type **StorageV2 (v2 universel)** et **BlobStorage** prennent en charge l’intégration d’événements. Le type **Stockage (v1 universel)** ne prend *pas* en charge l’intégration à Event Grid.
 
 |Intitulé  |Description  |
 |---------|---------|

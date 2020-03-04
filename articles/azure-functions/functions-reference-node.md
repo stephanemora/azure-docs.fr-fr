@@ -4,12 +4,12 @@ description: Découvrez comment développer des fonctions à l’aide de JavaScr
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
-ms.openlocfilehash: ee6b886c6ed18aad54092005d800b4087280190b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: b0cd9541deac106525cfe80244d1867f513825f0
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714785"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584487"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -232,7 +232,7 @@ Vous pouvez choisir de définir les données de liaison de sortie à l’aide de
 context.bindingData
 ```
 
-Retourne un objet nommé qui contient les métadonnées de déclencheur et les données d’appel de fonction (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). Pour obtenir un exemple de métadonnées de déclencheur, consultez cet [exemple de hubs d’événement](functions-bindings-event-hubs.md#trigger).
+Retourne un objet nommé qui contient les métadonnées de déclencheur et les données d’appel de fonction (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). Pour obtenir un exemple de métadonnées de déclencheur, consultez cet [exemple de hubs d’événement](functions-bindings-event-hubs-trigger.md).
 
 ### <a name="contextdone-method"></a>Méthode context.done
 
@@ -418,14 +418,17 @@ FUNCTIONS_WORKER_PROCESS_COUNT s’applique à chaque hôte créé par Functions
 
 ## <a name="node-version"></a>Version de nœud
 
-Le tableau suivant montre la version de Node.js qui est utilisée par chaque version majeure du runtime Functions :
+Le tableau suivant présente les versions Node.js actuellement prises en charge pour chaque version majeure du runtime Functions, par système d’exploitation :
 
-| Version de Functions | Version de Node.js | 
-|---|---|
-| 1.x | 6.11.2 (verrouillée par le runtime) |
-| 2.x  | Versions de Node.js _Active LTS_ et _Maintenance LTS_ (versions 10xxxx recommandées). Ciblez la version dans Azure en définissant le [paramètre d’application](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION sur `~10`.|
+| Version de Functions | Version de nœud (Windows) | Version de nœud (Linux) |
+|---|---| --- |
+| 1.x | 6.11.2 (verrouillée par le runtime) | n/a |
+| 2.x  | ~8<br/>~10 (recommandé)<br/>~12<sup>*</sup> | ~8 (recommandé)<br/>~10  |
+| 3.x | ~10<br/>~12 (recommandé)  | ~10<br/>~12 (recommandé) |
 
-Vous pouvez voir la version que le runtime utilise en vérifiant le paramètre d’application ci-dessus ou en affichant `process.version` à partir de n’importe quelle fonction.
+<sup>*</sup> Le nœud ~12 est actuellement autorisé sur la version 2.x du runtime Fonctions. Toutefois, pour de meilleures performances, nous vous recommandons d’utiliser la version 3.x du runtime Functions avec le nœud ~12. 
+
+Vous pouvez voir la version que le runtime utilise en vérifiant le paramètre d’application ci-dessus ou en affichant `process.version` à partir de n’importe quelle fonction. Ciblez la version dans Azure en définissant le [paramètre d’application](functions-how-to-use-azure-function-app-settings.md#settings) WEBSITE_NODE_DEFAULT_VERSION sur une version LTS prise en charge, `~10` par exemple.
 
 ## <a name="dependency-management"></a>Gestion des dépendances
 Pour utiliser les bibliothèques de communauté dans votre code JavaScript, comme indiqué dans l’exemple ci-dessous, vous devez vérifier que toutes les dépendances sont installées sur votre application de fonction dans Azure.

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: c5c8a41aef92876ceaa66fb23c01c6ece1609f91
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: e313048986beca1991e38ce2e65ea12f954170d2
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484806"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598270"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utiliser des blocs-notes Apache Zeppelin avec un cluster Apache Spark sur HDInsight
 
@@ -150,6 +150,25 @@ Les blocs-notes Zeppelin sont enregistrés dans les nœuds principaux du cluster
 ![Télécharger le notebook](./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png "Télécharger le notebook")
 
 Cela permet d’enregistrer le bloc-notes en tant que fichier JSON dans l’emplacement de téléchargement.
+
+## <a name="use-shiro-to-configure-access-to-zeppelin-interpreters-in-enterprise-security-package-esp-clusters"></a>Utiliser Shiro pour configurer l’accès aux interpréteurs Zeppelin dans les clusters Pack Sécurité Entreprise (ESP)
+Comme indiqué ci-dessus, l’interpréteur `%sh` n’est plus pris en charge à partir de HDInsight 4.0. En outre, puisque l’interpréteur `%sh` introduit des problèmes de sécurité potentiels, tels que l’accès à des keytabs à l’aide de commandes shell, il a également été supprimé des clusters ESP de HDInsight 3.6. Cela signifie que l’interpréteur `%sh` n’est pas disponible lorsque vous cliquez sur **Créer une note** ni dans l’interface utilisateur par défaut de l’interpréteur. 
+
+Les utilisateurs privilégiés de domaine peuvent utiliser le fichier `Shiro.ini` pour contrôler l’accès à l’interface utilisateur de l’interpréteur. Par conséquent, seuls ces utilisateurs peuvent créer des interpréteurs `%sh` et définir des autorisations sur chaque nouvel interpréteur `%sh`. Pour contrôler l’accès à l’aide du fichier `shiro.ini`, procédez comme suit :
+
+1. Définissez un nouveau rôle à l’aide d’un nom de groupe de domaine existant. Dans l’exemple suivant, `adminGroupName` est un groupe d’utilisateurs privilégiés dans AAD. N’utilisez pas de caractères spéciaux ni d’espaces blancs dans le nom de groupe. Les caractères situés après `=` accordent les autorisations pour ce rôle. `*` signifie que le groupe dispose de toutes les autorisations.
+
+    ```
+    [roles]
+    adminGroupName = *
+    ```
+
+2. Ajoutez le nouveau rôle pour l’accès aux interpréteurs Zeppelin. Dans l’exemple suivant, tous les utilisateurs de `adminGroupName` ont accès aux interpréteurs Zeppelin et peuvent créer des interpréteurs. Vous pouvez placer plusieurs rôles entre les crochets du paramètre `roles[]`, séparés par des virgules. Ensuite, les utilisateurs disposant des autorisations nécessaires peuvent accéder aux interpréteurs Zeppelin.
+
+    ```
+    [urls]
+    /api/interpreter/** = authc, roles[adminGroupName]
+    ```
 
 ## <a name="livy-session-management"></a>Gestion des sessions Livy
 

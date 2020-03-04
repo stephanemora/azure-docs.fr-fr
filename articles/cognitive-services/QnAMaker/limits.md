@@ -3,12 +3,12 @@ title: Limites et frontières - QnA Maker
 description: QnA Maker présente des limites de métadonnées pour certaines parties de la base de connaissances et du service. Il est important de maintenir votre base de connaissances à l’intérieur de ces limites pour les tests et la publication.
 ms.topic: article
 ms.date: 02/14/2020
-ms.openlocfilehash: 7fdf45a4a22f6d9ffe123f5998592739402be55f
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: ba53513f21cfc2a4f16fe17decdf0df41570201c
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252006"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650365"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites de la base de connaissances QnA Maker
 
@@ -55,7 +55,7 @@ Le nombre maximal de liens ciblés pouvant être analysés pour l’extraction d
 
 ## <a name="metadata-limits"></a>Limites de métadonnées
 
-Les métadonnées sont stockées et comparées en minuscules.
+Les métadonnées sont présentées sous la forme d’une paire clé-valeur textuelle, telle que `product:windows 10`. Elles sont stockées et comparées en minuscules.
 
 ### <a name="by-azure-cognitive-search-pricing-tier"></a>Par niveau tarifaire de Recherche cognitive Azure
 
@@ -71,8 +71,8 @@ La longueur et les caractères acceptables pour le nom et la valeur des métadon
 
 |Élément|Caractères autorisés|Modèle d’expression régulière|Caractères max.|
 |--|--|--|--|
-|Nom|Sont autorisés<br>les caractères alphanumériques (lettres et chiffres) et<br>`_` (trait de soulignement)|`^[a-zA-Z0-9_]+$`|100|
-|Valeur|Tous sauf<br>`:` (deux points)<br>`|` (barre verticale)|`^[^:|]+$`|500|
+|Nom (clé)|Sont autorisés<br>les caractères alphanumériques (lettres et chiffres) et<br>`_` (trait de soulignement)<br> Ne doit pas contenir d’espaces.|`^[a-zA-Z0-9_]+$`|100|
+|Valeur|Tous sauf<br>`:` (deux points)<br>`|` (barre verticale)<br>Une seule valeur autorisée.|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>Limites de contenu de la base de connaissances
@@ -103,4 +103,4 @@ Elles représentent les limites pour chaque action de mise à jour, autrement di
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez quand et comment changer de [niveau tarifaire](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker).
+Découvrez quand et comment changer de [niveau tarifaire](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku).

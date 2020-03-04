@@ -1,5 +1,5 @@
 ---
-title: Visualiser des données Azure Data Explorer avec une requête SQL dans Power BI
+title: Visualiser des données Azure Data Explorer avec une requête SQL Power BI
 description: 'Dans cet article, vous allez découvrir comment utiliser une des trois options de visualisation des données dans Power BI : une requête SQL sur un cluster Azure Data Explorer.'
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: e4e7858a54f3002a511269a2519135d5ac24ed68
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d402d4c1ee77d0f97d2a5c3bdf43d0cc62aac096
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024078"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560471"
 ---
 # <a name="visualize-data-from-azure-data-explorer-using-a-sql-query-in-power-bi"></a>Visualiser des données Azure Data Explorer avec une requête SQL dans Power BI
 
@@ -38,7 +38,7 @@ Vous utilisez généralement le langage de requête natif avec Azure Data Explor
 
 1. Dans Power BI Desktop, sous l’onglet **Accueil**, sélectionnez **Obtenir les données**, puis **Plus**.
 
-    ![Obtention des données](media/power-bi-sql-query/get-data-more.png)
+    ![Obtenir des données](media/power-bi-sql-query/get-data-more.png)
 
 1. Recherchez *Azure SQL Database*, sélectionnez **Azure SQL Database**, puis **Se connecter**.
 
@@ -52,7 +52,7 @@ Vous utilisez généralement le langage de requête natif avec Azure Data Explor
     |---|---|---|
     | Serveur | *help.kusto.windows.net* | URL pour le cluster help (sans *https://* ). Pour les autres clusters, l’URL est de la forme *\<NomCluster\>.\<Région\>.kusto.windows.net*. |
     | Base de données | *Exemples* | Exemple de base de données hébergée sur le cluster auquel vous vous connectez. |
-    | Mode de connectivité des données | *Importationation* | Détermine si Power BI importe les données ou s’il se connecte directement à la source de données. Vous pouvez utiliser l’une ou l’autre des options avec ce connecteur. |
+    | Mode de connectivité des données | *Importer* | Détermine si Power BI importe les données ou s’il se connecte directement à la source de données. Vous pouvez utiliser l’une ou l’autre des options avec ce connecteur. |
     | Délai d’expiration de la commande | Laisser vide | Durée pendant laquelle la requête s’exécute avant de lever une erreur d’expiration. |
     | Instruction SQL | Copiez la requête sous ce tableau | Instruction SQL qu’Azure Data Explorer traduit pour vous en requête native. |
     | Autres options | Laissez les valeurs par défaut | Les options ne s’appliquent pas aux clusters Azure Data Explorer. |
@@ -70,7 +70,7 @@ Vous utilisez généralement le langage de requête natif avec Azure Data Explor
 
 1. Dans l’écran **help.kusto.windows.net : Exemples**, sélectionnez **Charger**.
 
-    ![Charger des données](media/power-bi-sql-query/load-data.png)
+    ![Charger les données](media/power-bi-sql-query/load-data.png)
 
     La table s’ouvre dans la fenêtre principale de Power BI, dans la vue Rapport, où vous pouvez créer des rapports basés sur les exemples de données.
 
@@ -78,7 +78,7 @@ Vous utilisez généralement le langage de requête natif avec Azure Data Explor
 
 [!INCLUDE [data-explorer-power-bi-visualize-basic](../../includes/data-explorer-power-bi-visualize-basic.md)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez plus besoin du rapport que vous avez créé pour cet article, supprimez le fichier Power BI Desktop (.pbix).
 

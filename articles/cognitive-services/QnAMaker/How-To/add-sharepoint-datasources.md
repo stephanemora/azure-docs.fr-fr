@@ -1,29 +1,27 @@
 ---
 title: Fichiers SharePoint – QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Ajoutez des sources de données SharePoint sécurisées à votre base de connaissances afin d’enrichir celle-ci de questions et de réponses pouvant être sécurisées avec Active Directory.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.author: diberry
-ms.openlocfilehash: e28f144c33cbdf253603cb38ca56a4d304afd474
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/20/2020
+ms.openlocfilehash: 402d8239ee9fbac01e64e3624a7e4d8a13f2e7d8
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843290"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650433"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Ajouter une source de données SharePoint sécurisée à votre base de connaissances
 
-Ajoutez des sources de données SharePoint sécurisées à votre base de connaissances afin d’enrichir celle-ci de questions et de réponses pouvant être sécurisées avec Active Directory.
+Ajoutez des sources de données SharePoint informatiques sécurisées à votre base de connaissances afin d’enrichir celle-ci de questions et de réponses pouvant être sécurisées avec Active Directory.
 
 Lorsque vous ajoutez un document SharePoint sécurisé à votre base de connaissances, en tant que gestionnaire QnA Maker, vous devez demander une autorisation Active Directory pour QnA Maker. Une fois que le gestionnaire Active Directory a accordé à QnA Maker cette autorisation d’accès à SharePoint, il n’est plus nécessaire de la redonner. Chaque ajout de document suivant à la base de connaissances ne nécessite pas d’autorisation si ce document figure dans la même ressource SharePoint.
 
 Si le Gestionnaire de la Base de connaissances QnA Maker n’est pas le Gestionnaire Active Directory, vous devez communiquer avec le Gestionnaire Active Directory pour terminer ce processus.
+
+## <a name="prerequisites"></a>Prérequis
+
+* SharePoint informatique : QnA Maker utilise Microsoft Graph pour les autorisations. Si votre SharePoint est local, vous ne pourrez pas procéder à l’extraction à partir de SharePoint, car Microsoft Graph ne sera pas en mesure de déterminer les autorisations.
+* Format d’URL : QnA Maker prend en charge uniquement les URL SharePoint qui sont générées pour le partage et qui sont au format https://*.sharepoint.com.
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>Ajouter des types de fichiers pris en charge à la Base de connaissances
 

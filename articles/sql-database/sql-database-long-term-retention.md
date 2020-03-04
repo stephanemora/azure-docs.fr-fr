@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: 9c5534f2df4a375daf355d74f788b7f610f92919
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 15a2d58d2fc14c370c41d5454d62c74a5b66ad42
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162155"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499974"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Stocker les sauvegardes Azure SQL Database jusqu’à une durée de 10 ans
 
@@ -28,7 +28,13 @@ De nombreuses applications sont dédiées à la réglementation, à la conformit
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Mode de fonctionnement de la rétention à long terme SQL Database
 
-La rétention des sauvegardes à long terme (LTR) s’appuie sur les sauvegardes intégrales des bases de données qui sont [créées automatiquement](sql-database-automated-backups.md) pour permettre la récupération jusqu’à une date et heure. Si une stratégie LTR est spécifiée, ces sauvegardes sont copiées vers différents objets blob pour stockage à long terme. L’opération de copie est une tâche en arrière-plan qui n’a aucun impact de performances sur la charge de travail de la base de données. Les sauvegardes LTR sont conservées pendant une période de temps définie par la stratégie LTR. La stratégie LTR de chaque base de données SQL peut également spécifier la fréquence à laquelle les sauvegardes LTR sont créées. Pour parvenir à une telle flexibilité, vous pouvez définir cette stratégie à l’aide d’une combinaison de quatre paramètres : rétention des sauvegardes hebdomadaire (W), rétention des sauvegardes mensuelle (M), rétention des sauvegardes annuelle (Y) et semaine de l’année (WeekOfYear). Si vous indiquez W, une sauvegarde est copiée sur le dispositif de stockage à long terme toutes les semaines. Si vous indiquez M, une sauvegarde est copiée sur le dispositif de stockage à long terme la première semaine du mois. Si vous indiquez Y, une sauvegarde est copiée sur le dispositif de stockage à long terme pendant la semaine définie par WeekOfYear. Toutes les sauvegardes sont conservées sur le dispositif de stockage à long terme pendant la durée définie par ces paramètres. Toute modification apportée à la stratégie LTR s’applique aux sauvegardes futures. Par exemple, si la valeur WeekOfYear spécifiée est dans le passé lorsque la stratégie est configurée, la première sauvegarde LTR sera créée l’année suivante. 
+La rétention des sauvegardes à long terme (LTR) s’appuie sur les sauvegardes intégrales des bases de données qui sont [créées automatiquement](sql-database-automated-backups.md) pour permettre la récupération jusqu’à une date et heure. Si une stratégie LTR est spécifiée, ces sauvegardes sont copiées vers différents objets blob pour stockage à long terme. La copie est un travail en arrière-plan qui n’a aucun impact en matière de performance sur la charge de travail de la base de données. La stratégie LTR de chaque base de données SQL peut également spécifier la fréquence à laquelle les sauvegardes LTR sont créées.
+
+Pour activer LTR, vous pouvez définir une stratégie utilisant une combinaison de quatre paramètres : rétention hebdomadaire des sauvegardes (W), rétention mensuelle des sauvegardes (M), rétention annuelle des sauvegardes (Y) et semaine de l’année (WeekOfYear). Si vous indiquez W, une sauvegarde est copiée sur le dispositif de stockage à long terme toutes les semaines. Si vous indiquez M, la première sauvegarde de chaque mois est copiée sur le stockage à long terme. Si vous indiquez Y, une sauvegarde est copiée sur le dispositif de stockage à long terme pendant la semaine définie par WeekOfYear. Si la valeur WeekOfYear spécifiée est dans le passé lorsque la stratégie est configurée, la première sauvegarde LTR sera créée l’année suivante. Chaque sauvegarde est conservée dans le stockage à long terme en fonction des paramètres de stratégie qui sont configurés lors de la création de la sauvegarde LTR.
+
+> [!NOTE]
+> Toute modification apportée à la stratégie LTR s’applique uniquement aux sauvegardes ultérieures. Par exemple, si la rétention hebdomadaire des sauvegardes (W), la rétention mensuelle des sauvegardes (M) ou la rétention annuelle des sauvegardes (Y) est modifiée, le nouveau paramètre de rétention s’applique uniquement aux nouvelles sauvegardes. La rétention des sauvegardes existantes ne sera pas modifiée. Si vous souhaitez supprimer les anciennes sauvegardes LTR avant l’expiration de leur période de rétention, vous devez [supprimer manuellement les sauvegardes](https://docs.microsoft.com/azure/sql-database/sql-database-long-term-backup-retention-configure#delete-ltr-backups).
+> 
 
 Exemples de stratégie LTR :
 
@@ -75,7 +81,7 @@ Pour apprendre à configurer la conservation à long terme via le Portail Azure 
 
 ## <a name="restore-database-from-ltr-backup"></a>Restaurer la base de données à partir de la sauvegarde LTR
 
-Pour restaurer une base de données à partir du stockage LTR, vous pouvez sélectionner une sauvegarde spécifique en fonction de son horodatage. Vous pouvez restaurer la base de données sur n’importe quel serveur existant, en utilisant le même abonnement que celui de la base de données d’origine. Pour apprendre à restaurer votre base de données à partir d’une sauvegarde LTR à l’aide du Portail Azure ou de PowerShell, consultez [Gérer la conservation à long terme des sauvegardes Azure SQL Database](sql-database-long-term-backup-retention-configure.md).
+Pour restaurer une base de données à partir du stockage LTR, vous pouvez sélectionner une sauvegarde spécifique en fonction de son horodatage. Vous pouvez restaurer la base de données sur n’importe quel serveur existant, en utilisant le même abonnement que celui de la base de données d’origine. Pour apprendre à restaurer votre base de données à partir d’une sauvegarde LTR à l’aide du Portail Azure ou de PowerShell, consultez [Gérer la rétention à long terme des sauvegardes Azure SQL Database](sql-database-long-term-backup-retention-configure.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,12 +3,12 @@ title: À propos de la sauvegarde de machine virtuelle Azure
 description: Dans cet article, découvrez la manière dont le service Sauvegarde Azure sauvegarde les machines virtuelles Azure, et comment suivre les meilleures pratiques.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: b38c61adaf334eacb7d85292d4174189d6fddc46
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8ffbf0d0164cbf6f085518d57566b0befde6e124
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75391896"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597250"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Vue d’ensemble de la sauvegarde de machines virtuelles Azure
 
@@ -58,12 +58,7 @@ Les clés de chiffrement de lecteur BitLocker sont également sauvegardées. Ain
 
 Sauvegarde Azure prend des captures instantanées en fonction de la planification de sauvegarde.
 
-- **Machines virtuelles Windows :** pour les machines virtuelles Windows, le service Sauvegarde se coordonne avec le service VSS afin de prendre un instantané de cohérence d’application des disques de machine virtuelle.
-
-  - Par défaut, Sauvegarde Azure effectue des sauvegardes VSS complètes. [Plus d’informations](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx)
-  - Pour changer le paramètre afin que Sauvegarde Azure effectue des sauvegardes de copie du service VSS, définissez la clé de Registre suivante à partir d’une invite de commandes :
-
-    **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f**
+- **Machines virtuelles Windows :** pour les machines virtuelles Windows, le service Sauvegarde se coordonne avec le service VSS afin de prendre un instantané de cohérence d’application des disques de machine virtuelle.  Par défaut, Sauvegarde Azure effectue une sauvegarde VSS complète (il tronque les journaux de l’application, par exemple SQL Server, au moment de la sauvegarde pour obtenir une sauvegarde cohérente au niveau de l’application).  Si vous utilisez une base de données SQL Server sur la sauvegarde de machine virtuelle Azure, vous pouvez modifier le paramètre pour effectuer une copie de sauvegarde VSS (pour conserver les journaux). Pour plus d’informations, consultez [cet article](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#troubleshoot-vm-snapshot-issues).
 
 - **Machines virtuelles Linux :** pour prendre des instantanés de cohérence d’application de machines virtuelles Linux, utilisez le framework pré-script et post-script de Linux pour écrire vos propres scripts afin de garantir la cohérence.
 

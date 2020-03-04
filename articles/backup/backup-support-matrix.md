@@ -3,12 +3,12 @@ title: Tableau de prise en charge de Sauvegarde Azure
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 37347e6febdfc3500c218238606fc96463da631c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 15c2fdfbe63dd73e665a4bac01dd2cd1b1144949
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76936248"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505865"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -78,8 +78,9 @@ Voici ce qui est pris en charge si vous voulez sauvegarder des machines Linux :
 --- | ---
 **Sauvegarde directe de la machine locale exécutant Linux** | Non pris en charge. L’agent MARS ne peut être installé que sur des machines Windows.
 **Utilisation de l'extension de l'agent pour sauvegarder la machine virtuelle Azure exécutant Linux** | Sauvegarde cohérente au niveau application à l’aide de [scripts personnalisés](backup-azure-linux-app-consistent.md).<br/><br/> Récupération au niveau fichier.<br/><br/> Restaurer en créant une machine virtuelle à partir d’un point de récupération ou d’un disque.
-**Utilisation de DPM pour sauvegarder la machine virtuelle locale ou Azure exécutant Linux** | Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware.<br/><br/> Restauration de machines virtuelles invitées Linux Hyper-V et VMware.<br/><br/> Sauvegarde cohérente au niveau fichier non disponible pour la machine virtuelle Azure.
-**Utilisation de MABS pour sauvegarder la machine virtuelle locale ou Azure exécutant Linux** | Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware.<br/><br/> Restauration de machines virtuelles invitées Linux Hyper-V et VMware.<br/><br/> Sauvegarde cohérente au niveau fichier non disponible pour les machines virtuelles Azure.
+**Utilisation de DPM pour sauvegarder des machines locales exécutant Linux** | Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware.<br/><br/> Restauration de machines virtuelles invitées Linux Hyper-V et VMware.
+**Utilisation de MABS pour sauvegarder des machines locales exécutant Linux** | Sauvegarde cohérente au niveau fichier de machines virtuelles invitées Linux sur Hyper-V et VMware.<br/><br/> Restauration de machines virtuelles invitées Linux Hyper-V et VMware.
+**Utilisation de MABS ou de DPM pour sauvegarder des machines virtuelles Linux Azure** | Non pris en charge.
 
 ## <a name="daylight-saving-time-support"></a>Prise en charge de l’heure d’été
 

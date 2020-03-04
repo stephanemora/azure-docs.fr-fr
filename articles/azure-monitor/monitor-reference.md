@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: d605b852d37af3b1e2ef0868084f3c0b99c24784
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 055ba8b5050aef639bbe6527292a18c8b405065a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765718"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620252"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Quels sont les éléments supervisés par Azure Monitor ?
 Cet article décrit les différentes applications et services supervisés par Azure Monitor. 
@@ -188,7 +188,7 @@ Les services et solutions figurant dans le tableau suivant stockent leurs donné
 | [System Center Operations Manager](https://docs.microsoft.com/system-center/scom) | Collectez les données des agents Operations Manager en connectant leur groupe d’administration à Azure Monitor. Consultez [Connecter Operations Manager à Azure Monitor](platform/om-agents.md).<br> Évaluez les risques et l’intégrité de votre groupe d’administration System Center Operations Manager avec la solution d’[évaluation d’Operations Manager](insights/scom-assessment.md). |
 | [Salles Microsoft Teams](https://docs.microsoft.com/microsoftteams/room-systems/azure-monitor-deploy) | Gestion intégrée de bout en bout des appareils Salles Microsoft Teams. |
 | [Visual Studio App Center](https://docs.microsoft.com/appcenter/) | Générez, testez et distribuez des applications, puis supervisez leur état et leur utilisation. Consultez See [Commencer à analyser votre application mobile avec App Center et Application Insights](learn/mobile-center-quickstart.md). |
-| Windows | [Windows Update Compliance](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) : évaluez les mises à niveau de votre bureau Windows.<br>[Analyses du bureau](https://docs.microsoft.com/configmgr/desktop-analytics/overview) : s’intègre à Configuration Manager pour fournir des insights et une intelligence pour prendre des décisions plus éclairées concernant l’état de préparation aux mises à jour de vos clients Windows. |
+| Windows | [Windows Update Compliance](https://docs.microsoft.com/windows/deployment/update/update-compliance-get-started) : évaluez les mises à niveau de votre bureau Windows.<br>[Desktop Analytics](https://docs.microsoft.com/configmgr/desktop-analytics/overview) : s’intègre à Configuration Manager pour fournir des insights et une intelligence pour prendre des décisions plus éclairées concernant l’état de préparation aux mises à jour de vos clients Windows. |
 
 
 
@@ -197,14 +197,14 @@ D’autres solutions sont disponibles pour la supervision des différents servic
 
 | Solution | Description |
 |:---|:---|
-| [Évaluation d’Active Directory](insights/ad-assessment.md) | Évaluez les risques et l’intégrité de vos environnements Active Directory. |
+| [Contrôle d’intégrité d’Active Directory](insights/ad-assessment.md) | Évaluez les risques et l’intégrité de vos environnements Active Directory. |
 | [Active Directory Replication Status](insights/ad-replication-status.md) | Supervise régulièrement votre environnement Active Directory pour déterminer si des échecs de réplication se produisent. |
 | [Analyse Log Analytics des activités](platform/activity-log-view.md#activity-logs-analytics-monitoring-solution) | Analysez les entrées du journal d’activité à l’aide de requêtes et de vues de journal prédéfinies. |
 | [DNS Analytics (préversion)](insights/dns-analytics.md) | Collecte, analyse et met en corrélation les journaux d’audit et d’analyse DNS Windows et d’autres données connexes de vos serveurs DNS. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Collectez, consultez et analysez l’intégrité et les métriques de performance de Cloud Foundry, et ce, sur plusieurs déploiements. |
 | [Containers](insights/containers.md) | Affichez et gérez les hôtes de conteneur Docker et Windows. |
 | [Évaluations à la demande](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Évaluez et optimisez la disponibilité, la sécurité et les performances de vos environnements de technologie Microsoft locaux, hybrides et cloud. |
-| [Évaluation SQL](insights/sql-assessment.md) | Évaluez les risques et l’intégrité de vos environnements SQL Server.  |
+| [Contrôle d’intégrité de SQL](insights/sql-assessment.md) | Évaluez les risques et l’intégrité de vos environnements SQL Server.  |
 | [Données de communication](insights/wire-data.md) | Données de performances et réseau regroupées, collectées à partir d’ordinateurs connectés à Windows et à Linux avec l’agent Log Analytics. |
 
 

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: f0719542eb693e52f9a7996e28699b7425b0e0fe
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: fa1cba2d791cd40a46f8ad182c123a726143faec
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509136"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614246"
 ---
-# <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Vérifier l’intégrité d’un domaine managé par les services de domaine Azure Active Directory
+# <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Vérifier l’intégrité d’un domaine géré par les services de domaine Azure Active Directory
 
-Azure Active Directory Domain Services (Azure AD DS) exécute des tâches en arrière-plan pour assurer que le domaine managé est sain et à jour. Ces tâches incluent la réalisation de sauvegardes, l’application de mises à jour de sécurité et la synchronisation des données à partir d’Azure AD. En cas de problème avec le domaine managé Azure AD DS, ces tâches peuvent ne pas s’effectuer correctement. Pour examiner et résoudre les problèmes éventuels, vous pouvez vérifier l’état d’intégrité d’un domaine managé Azure AD DS à l’aide du portail Azure.
+Azure Active Directory Domain Services (Azure AD DS) exécute des tâches en arrière-plan pour assurer que le domaine géré est intègre et à jour. Ces tâches incluent la réalisation de sauvegardes, l’application de mises à jour de sécurité et la synchronisation des données à partir d’Azure AD. En cas de problème avec le domaine managé Azure AD DS, ces tâches peuvent ne pas s’effectuer correctement. Pour examiner et résoudre les problèmes éventuels, vous pouvez vérifier l’état d’intégrité d’un domaine managé Azure AD DS à l’aide du portail Azure.
 
 Cet article vous montre comment consulter l’état d’intégrité d’Azure AD DS et comprendre les informations ou les alertes montrées.
 
@@ -29,7 +29,7 @@ Cet article vous montre comment consulter l’état d’intégrité d’Azure AD
 L’état d’intégrité d’un domaine managé Azure AD DS peut être vérifié à l’aide du portail Azure. Vous pouvez consulter les informations relatives à l’heure de la dernière sauvegarde et synchronisation avec Azure AD, ainsi que toutes les alertes qui indiquent un problème avec l’intégrité du domaine managé. Pour afficher l’état d’intégrité d’un domaine managé Azure AD DS, procédez comme suit :
 
 1. Sur le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**.
-1. Sélectionnez votre domaine managé Azure AD DS, par exemple *aadds.contoso.com*.
+1. Sélectionnez votre domaine managé Azure AD DS, par exemple *aaddscontoso.com*.
 1. Sur le côté gauche de la fenêtre de ressources Azure AD DS, sélectionnez **Intégrité**. L’exemple de capture d’écran suivant montre un domaine managé Azure AD DS intègre et l’état de la dernière sauvegarde et synchronisation d’Azure AD :
 
     ![Vue d’ensemble de la page d’intégrité dans le portail Azure présentant l’état d’Azure Active Directory Domain Services](./media/check-health/health-page.png)
@@ -47,7 +47,7 @@ L’état affiché dans le coin supérieur droit indique l’intégrité globale
 
 ## <a name="understand-monitors-and-alerts"></a>Comprendre les analyses et les alertes
 
-L’état d’intégrité d’un domaine managé Azure AD DS présente deux types d’informations : les *analyses* et les *alertes*. Les analyses indiquent l’heure à laquelle les tâches principales en arrière-plan se sont terminées. Les alertes fournissent des informations ou des suggestions pour améliorer la stabilité du domaine managé.
+L’état d’intégrité d’un domaine managé Azure AD DS présente deux types d’informations : les *analyses* et les *alertes*. Les analyses indiquent l’heure à laquelle les tâches principales en arrière-plan se sont terminées. Les alertes fournissent des informations ou des suggestions pour améliorer la stabilité du domaine géré.
 
 ### <a name="monitors"></a>Analyses
 

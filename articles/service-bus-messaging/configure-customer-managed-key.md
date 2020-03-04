@@ -6,14 +6,14 @@ ms.service: service-bus
 documentationcenter: ''
 author: axisc
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 02/25/2020
 ms.author: aschhab
-ms.openlocfilehash: 6d20d4031f0ed4d1be4dddf9e33946251d6dd523
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: aeb9a9730ddc61793e49c9e042906457e0068d9a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903321"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624087"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurer des clés gérées par le client pour chiffrer les données Azure Service Bus au repos à l’aide du portail Azure
 Azure Service Bus Premium fournit une fonctionnalité de chiffrement des données au repos à l’aide d’Azure Storage Service Encryption (Azure SSE). Service Bus Premium utilise le service Stockage Azure pour stocker les données. Par défaut, toutes les données stockées avec ce service sont chiffrées à l’aide de clés gérées par Microsoft. 
@@ -78,22 +78,22 @@ Après avoir activé une clé gérée par le client, vous devez l’associer à 
     1. Renseignez les détails de la clé, puis cliquez sur **Sélectionner**. Cela permettra de chiffrer les données au repos à l'aide d'une clé gérée par le client sur l'espace de noms. 
 
 
-> [!IMPORTANT]
-> Si vous envisagez d’utiliser une clé gérée par le client avec la géorécupération d’urgence, veuillez consulter ce qui suit : 
->
-> Pour activer le chiffrement au repos avec la clé gérée par le client, une [stratégie d’accès](../key-vault/key-vault-secure-your-key-vault.md) est configurée pour l’identité managée de Service Bus sur le coffre Azure Key Vault spécifié. Cela garantit un accès contrôlé à Azure Key Vault à partir de l’espace de noms Azure Service Bus.
->
-> Pour cette raison :
-> 
->   * Si [la géorécupération d’urgence](service-bus-geo-dr.md) est déjà activée pour l’espace de noms Service Bus et que vous cherchez à activer la clé gérée par le client, alors : 
->     * Brisez l’appairage.
->     * [Configurez la stratégie d’accès](../key-vault/managed-identity.md) de l’identité managée pour les espaces de noms principal et secondaire sur le coffre de clés.
->     * Configurez le chiffrement sur l’espace de noms principal.
->     * Appairez à nouveau les espaces de noms principal et secondaire.
-> 
->   * Si vous envisagez d’activer la géorécupération d’urgence sur un espace de noms Service Bus où la clé gérée par le client est déjà configurée, alors :
->     * [Configurez la stratégie d’accès](../key-vault/managed-identity.md) de l’identité managée pour l’espace de noms secondaire sur le coffre de clés.
->     * Appairez les espaces de noms principal et secondaire.
+    > [!IMPORTANT]
+    > Si vous envisagez d’utiliser une clé gérée par le client avec la géorécupération d’urgence, veuillez consulter ce qui suit : 
+    >
+    > Pour activer le chiffrement au repos avec la clé gérée par le client, une [stratégie d’accès](../key-vault/key-vault-secure-your-key-vault.md) est configurée pour l’identité managée de Service Bus sur le coffre Azure Key Vault spécifié. Cela garantit un accès contrôlé à Azure Key Vault à partir de l’espace de noms Azure Service Bus.
+    >
+    > Pour cette raison :
+    > 
+    >   * Si [la géorécupération d’urgence](service-bus-geo-dr.md) est déjà activée pour l’espace de noms Service Bus et que vous cherchez à activer la clé gérée par le client, alors : 
+    >     * Brisez l’appairage.
+    >     * [Configurez la stratégie d’accès](../key-vault/managed-identity.md) de l’identité managée pour les espaces de noms principal et secondaire sur le coffre de clés.
+    >     * Configurez le chiffrement sur l’espace de noms principal.
+    >     * Appairez à nouveau les espaces de noms principal et secondaire.
+    > 
+    >   * Si vous envisagez d’activer la géorécupération d’urgence sur un espace de noms Service Bus où la clé gérée par le client est déjà configurée, alors :
+    >     * [Configurez la stratégie d’accès](../key-vault/managed-identity.md) de l’identité managée pour l’espace de noms secondaire sur le coffre de clés.
+    >     * Appairez les espaces de noms principal et secondaire.
 
 
 ## <a name="rotate-your-encryption-keys"></a>Faire pivoter vos clés de chiffrement
@@ -105,6 +105,224 @@ Vous pouvez faire pivoter votre clé dans le coffre de clés à l'aide du mécan
 La révocation de l’accès aux clés de chiffrement ne videra pas les données de Service Bus. Cependant, il sera impossible d’accéder aux données à partir de l’espace de noms Service Bus. Vous pouvez révoquer la clé de chiffrement en appliquant une stratégie d'accès ou en supprimant la clé. Pour en savoir plus sur les stratégies d'accès et sur la sécurisation de votre coffre de clés, consultez [Sécuriser l'accès à un coffre de clés](../key-vault/key-vault-secure-your-key-vault.md).
 
 Une fois la clé de chiffrement révoquée, le service Service Bus devient inutilisable sur l’espace de noms chiffré. Si l’accès à la clé est activé ou si la clé supprimée est restaurée, le service Service Bus choisira la clé afin de vous permettre d’accéder aux données à partir de l’espace de noms Service Bus chiffré.
+
+## <a name="use-resource-manager-template-to-enable-encryption"></a>Utiliser un modèle Resource Manager pour activer le chiffrement
+Cette section montre comment effectuer les tâches suivantes à l’aide de **modèles Azure Resource Manager**. 
+
+1. Créez un espace de noms Service Bus **Premium** avec une **identité managée du service**.
+2. Créez un **coffre de clés** et accorder l’accès au coffre de clés à l’identité du service. 
+3. Mettez à jour l’espace de noms Service Bus avec les informations du coffre de clés (clé/valeur). 
+
+
+### <a name="create-a-premium-service-bus-namespace-with-managed-service-identity"></a>Créer un espace de noms Service Bus Premium avec une identité managée du service
+Cette section vous montre comment créer un espace de noms Azure Service Bus avec une identité managée du service à l’aide d’un modèle Azure Resource Manager et de PowerShell. 
+
+1. Créez un modèle Azure Resource Manager pour créer un espace de noms Service Bus de niveau de service Premium avec une identité managée du service. Nommez le fichier : **CreateServiceBusPremiumNamespace.json** : 
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "namespaceName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Namespace."
+             }
+          },
+          "location":{
+             "type":"string",
+             "defaultValue":"[resourceGroup().location]",
+             "metadata":{
+                "description":"Specifies the Azure location for all resources."
+             }
+          }
+       },
+       "resources":[
+          {
+             "type":"Microsoft.ServiceBus/namespaces",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('namespaceName')]",
+             "location":"[parameters('location')]",
+             "identity":{
+                "type":"SystemAssigned"
+             },
+             "sku":{
+                "name":"Premium",
+                "tier":"Premium",
+                "capacity":1
+             },
+             "properties":{
+    
+             }
+          }
+       ],
+       "outputs":{
+          "ServiceBusNamespaceId":{
+             "type":"string",
+             "value":"[resourceId('Microsoft.ServiceBus/namespaces',parameters('namespaceName'))]"
+          }
+       }
+    }
+    ```
+2. Créez un fichier de paramètres de modèle nommé : **CreateServiceBusPremiumNamespaceParams.json**. 
+
+    > [!NOTE]
+    > Remplacez les valeurs suivantes : 
+    > - `<ServiceBusNamespaceName>` : Nom de votre espace de noms Service Bus
+    > - `<Location>` : Emplacement de votre espace de noms Service Bus
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "namespaceName":{
+             "value":"<ServiceBusNamespaceName>"
+          },
+          "location":{
+             "value":"<Location>"
+          }
+       }
+    }
+    ```
+3. Exécutez la commande PowerShell suivante pour déployer le modèle afin de créer un espace de noms Service Bus Premium. Ensuite, récupérez l’ID de l’espace de noms Service Bus pour l’utiliser ultérieurement. Remplacez `{MyRG}` par le nom du groupe de ressources avant d’exécuter la commande.  
+
+    ```powershell
+    $outputs = New-AzResourceGroupDeployment -Name CreateServiceBusPremiumNamespace -ResourceGroupName {MyRG} -TemplateFile ./CreateServiceBusPremiumNamespace.json -TemplateParameterFile ./CreateServiceBusPremiumNamespaceParams.json
+    
+    $ServiceBusNamespaceId = $outputs.Outputs["serviceBusNamespaceId"].value
+    ```
+ 
+### <a name="grant-service-bus-namespace-identity-access-to-key-vault"></a>Autorisez l’identité d’espace de noms Service Bus à accéder au coffre de clés.
+
+1. Exécutez la commande suivante pour créer un coffre de clés avec la **protection contre le vidage** et la **suppression réversible** activées. 
+
+    ```powershell
+    New-AzureRmKeyVault -Name "{keyVaultName}" -ResourceGroupName {RGName}  -Location "{location}" -EnableSoftDelete -EnablePurgeProtection    
+    ```
+    
+    (OU)
+    
+    Exécutez la commande suivante pour mettre à jour un **coffre de clés existant**. Spécifiez des valeurs pour les noms de groupe de ressources et de coffre de clés avant d’exécuter la commande. 
+    
+    ```powershell
+    ($updatedKeyVault = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -ResourceGroupName {RGName} -VaultName {keyVaultName}).ResourceId).Properties| Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"-Force | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true" -Force
+    ``` 
+2. Définissez la stratégie d’accès au coffre de clés afin que l’identité managée de l’espace de noms Service Bus puisse accéder à la valeur de clé dans le coffre de clés. Utilisez l’ID de l’espace de noms Service Bus de la section précédente. 
+
+    ```powershell
+    $identity = (Get-AzureRmResource -ResourceId $ServiceBusNamespaceId -ExpandProperties).Identity
+    
+    Set-AzureRmKeyVaultAccessPolicy -VaultName {keyVaultName} -ResourceGroupName {RGName} -ObjectId $identity.PrincipalId -PermissionsToKeys get,wrapKey,unwrapKey,list
+    ```
+
+### <a name="encrypt-data-in-service-bus-namespace-with-customer-managed-key-from-key-vault"></a>Chiffrer les données dans l’espace de noms Service Bus avec une clé gérée par le client à partir du coffre de clés
+Jusqu’à présent, vous avez effectué les étapes suivantes : 
+
+1. Création d’un espace de noms Premium avec une identité managée.
+2. Création d’un coffre de clés et octroi de l’accès au coffre de clés à l’identité managée. 
+
+Dans cette étape, vous allez mettre à jour l’espace de noms Service Bus avec des informations du coffre de clés. 
+
+1. Créez un fichier JSON nommé **UpdateServiceBusNamespaceWithEncryption.json** avec le contenu suivant : 
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "namespaceName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Namespace to be created in cluster."
+             }
+          },
+          "location":{
+             "type":"string",
+             "defaultValue":"[resourceGroup().location]",
+             "metadata":{
+                "description":"Specifies the Azure location for all resources."
+             }
+          },
+          "keyVaultUri":{
+             "type":"string",
+             "metadata":{
+                "description":"URI of the KeyVault."
+             }
+          },
+          "keyName":{
+             "type":"string",
+             "metadata":{
+                "description":"KeyName."
+             }
+          }
+       },
+       "resources":[
+          {
+             "type":"Microsoft.ServiceBus/namespaces",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('namespaceName')]",
+             "location":"[parameters('location')]",
+             "identity":{
+                "type":"SystemAssigned"
+             },
+             "sku":{
+                "name":"Premium",
+                "tier":"Premium",
+                "capacity":1
+             },
+             "properties":{
+                "encryption":{
+                   "keySource":"Microsoft.KeyVault",
+                   "keyVaultProperties":[
+                      {
+                         "keyName":"[parameters('keyName')]",
+                         "keyVaultUri":"[parameters('keyVaultUri')]"
+                      }
+                   ]
+                }
+             }
+          }
+       ]
+    }
+    ``` 
+
+2. Créez un fichier de paramètres de modèle : **UpdateServiceBusNamespaceWithEncryptionParams.json**.
+
+    > [!NOTE]
+    > Remplacez les valeurs suivantes : 
+    > - `<ServiceBusNamespaceName>` : Nom de votre espace de noms Service Bus
+    > - `<Location>` : Emplacement de votre espace de noms Service Bus
+    > - `<KeyVaultName>` : Nom de votre coffre de clés
+    > - `<KeyName>` : Nom de la clé dans le coffre de clés  
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "namespaceName":{
+             "value":"<ServiceBusNamespaceName>"
+          },
+          "location":{
+             "value":"<Location>"
+          },
+          "keyName":{
+             "value":"<KeyName>"
+          },
+          "keyVaultUri":{
+             "value":"https://<KeyVaultName>.vault.azure.net"
+          }
+       }
+    }
+    ```             
+3. Exécutez la commande PowerShell suivante pour déployer le modèle Resource Manager. Remplacez `{MyRG}` par le nom de votre groupe de ressources avant d’exécuter la commande. 
+
+    ```powershell
+    New-AzResourceGroupDeployment -Name UpdateServiceBusNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateServiceBusNamespaceWithEncryption.json -TemplateParameterFile ./UpdateServiceBusNamespaceWithEncryptionParams.json
+    ```
+    
 
 ## <a name="next-steps"></a>Étapes suivantes
 Voir les articles suivants :

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: victorh
-ms.openlocfilehash: 4093f91e55272a32ce7df4a78e2ee8b3ebed5fde
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: e51f6de370a5340082f64a0ca15c61583f75962b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444834"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597272"
 ---
 # <a name="azure-firewall-forced-tunneling-preview"></a>Tunneling forcé du pare-feu Azure (préversion)
 
@@ -27,11 +27,15 @@ Par défaut, le tunneling forcé n’est pas autorisé sur le pare-feu Azure afi
 
 ## <a name="forced-tunneling-configuration"></a>Configuration de tunneling forcé
 
-Pour prendre en charge le tunneling forcé, le trafic de gestion des services est séparé du trafic client. Un sous-réseau dédié supplémentaire nommé *AzureFirewallManagementSubnet* ayant sa propre adresse IP publique associée est nécessaire. La seule route autorisée sur ce sous-réseau est une route par défaut vers Internet, et la propagation de route BGP doit être désactivée.
+Pour prendre en charge le tunneling forcé, le trafic de gestion des services est séparé du trafic client. Un sous-réseau dédié supplémentaire nommé *AzureFirewallManagementSubnet* (taille minimale du sous-réseau /26) ayant sa propre IP publique associée est nécessaire. La seule route autorisée sur ce sous-réseau est une route par défaut vers Internet, et la propagation de route BGP doit être désactivée.
 
-Si vous avez une route par défaut publiée via BGP pour forcer le trafic vers un emplacement local, vous devez créer *AzureFirewallSubnet* et *AzureFirewallManagementSubnet* avant de déployer votre pare-feu et avoir une route UDR ayant une route par défaut vers Internet. De plus, la propagation de la route de la passerelle de réseau virtuel doit être désactivée.
+Si vous avez une route par défaut publiée via BGP pour forcer le trafic vers un emplacement local, vous devez créer *AzureFirewallSubnet* et *AzureFirewallManagementSubnet* avant de déployer votre pare-feu et avoir un UDR ayant une route par défaut vers Internet. De plus, l’option **Propagation de la route de la passerelle de réseau virtuel** doit être désactivée.
 
-Dans cette configuration, *AzureFirewallSubnet* peut désormais inclure des routes vers n’importe quel pare-feu local ou n’importe quelle appliance virtuelle réseau pour traiter le trafic avant qu’il ne soit dirigé vers Internet. Vous pouvez également publier ces routes via le protocole BGP vers *AzureFirewallSubnet* si la propagation de la route de la passerelle de réseau virtuel est activée sur ce sous-réseau.
+Dans cette configuration, *AzureFirewallSubnet* peut désormais inclure des routes vers n’importe quel pare-feu local ou n’importe quelle appliance virtuelle réseau pour traiter le trafic avant qu’il ne soit dirigé vers Internet. Vous pouvez également publier ces routes via le protocole BGP vers *AzureFirewallSubnet* si la **propagation de la route de la passerelle de réseau virtuel** est activée sur ce sous-réseau.
+
+Par exemple, vous pouvez créer une route par défaut sur *AzureFirewallSubnet* avec votre passerelle VPN comme tronçon suivant pour accéder à votre appareil local. Ou vous pouvez activer la **propagation de la route de la passerelle de réseau virtuel** pour récupérer les routes appropriées sur le réseau local.
+
+![Propagation de la route de la passerelle de réseau virtuel](media/forced-tunneling/route-propagation.png)
 
 Une fois que vous avez configuré le pare-feu Azure pour prendre en charge le tunneling forcé, vous ne pouvez pas annuler la configuration. Si vous supprimez toutes les autres configurations IP de votre pare-feu, la configuration IP de gestion est également supprimée et le pare-feu est libéré. L’adresse IP publique attribuée à la configuration IP de gestion ne peut pas être supprimée, mais vous pouvez attribuer une autre adresse IP publique.
 

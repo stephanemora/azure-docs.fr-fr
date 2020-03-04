@@ -8,18 +8,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4c8761d82c8a735ac9c4bff2e5ac0107b2a57fe0
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 44d3b7c2b9e23b90f696162747d9728b18fb7d3f
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537547"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623375"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Utilisation d’un graphique partitionné dans Azure Cosmos DB
 
 Une des fonctionnalités clés de l’API Gremlin dans Azure Cosmos DB est la capacité de gérer des graphes à grande échelle avec la mise à l’échelle horizontale. Les conteneurs peuvent évoluer indépendamment en termes de débit et de stockage. Vous pouvez créer des conteneurs dans Azure Cosmos DB qui peuvent être automatiquement mis à l’échelle pour stocker des données graphiques. Les données sont automatiquement réparties en fonction de la **clé de partition** spécifiée.
 
-**Le partitionnement est requis** si le conteneur doit stocker plus de 10 Go ou si vous souhaitez allouer plus de 10 000 unités de requête par seconde (RU). Les mêmes principaux généraux du [mécanisme de partitionnement Azure Cosmos DB](partition-data.md) s’appliquent avec quelques optimisations spécifiques des graphiques, décrites ci-dessous.
+**Vous devez procéder à un partitionnement** si le conteneur doit stocker plus de 20 Go ou si vous souhaitez allouer plus de 10 000 unités de requête par seconde (RU). Les mêmes principaux généraux du [mécanisme de partitionnement Azure Cosmos DB](partition-data.md) s’appliquent avec quelques optimisations spécifiques des graphiques, décrites ci-dessous.
 
 ![Partitionnement dans Graph.](./media/graph-partitioning/graph-partitioning.png)
 

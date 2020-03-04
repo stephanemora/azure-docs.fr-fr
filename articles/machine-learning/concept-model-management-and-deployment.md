@@ -9,27 +9,36 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 11/22/2019
+ms.date: 02/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: e53db645875646b1e021cc0d3d760677e1128c0c
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 11a6a668b1028ba1640ef076606d4aeb4c3aae6e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486374"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589366"
 ---
-# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps : Gestion des modèles, déploiement et surveillance avec Azure Machine Learning
+# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps : Gestion, déploiement et surveillance des modèles avec Azure Machine Learning
 
 Dans cet article, découvrez comment utiliser Azure Machine Learning pour gérer le cycle de vie de vos modèles. Azure Machine Learning utilise une approche d’Opérations de Machine Learning (MLOps). MLOps améliore la qualité et la cohérence de vos solutions de Machine Learning. 
 
+## <a name="what-is-mlops"></a>Qu’est-ce que MLOps ?
+
+Les opérations de Machine Learning (MLOps) sont basées sur les principes et pratiques de [DevOps](https://azure.microsoft.com/overview/what-is-devops/), qui augmentent l’efficacité des workflows. Par exemple, l’intégration, la livraison et le déploiement continus. MLOps applique ces principes au processus Machine Learning avec l’objectif suivant :
+
+* Expérimentation et développement plus rapides de modèles
+* Déploiement plus rapide de modèles en production
+* Assurance qualité
+
 Azure Machine Learning propose les fonctionnalités MLOps suivantes :
 
-- **Créer des pipelines ML reproductibles**. Les pipelines vous permettent de définir des étapes reproductibles et réutilisables pour vos processus de préparation, d’entraînement et de scoring de données.
-- **Inscrire, empaqueter et déployer des modèles à partir de n’importe où**, et suivre les métadonnées associées requises pour utiliser le modèle.
-- **Capturer les données de gouvernance requises pour la capture de bout en bout du cycle de vie ML**, notamment qui publie des modèles, pourquoi des modifications sont apportées et quand les modèles ont été déployés ou utilisés en production.
-- **Notifier et alerter sur les événements du cycle de vie ML** tels que l’accomplissement d’expérimentation, l’inscription de modèle, le déploiement de modèle et la détection de dérive des données.
+- **Créer des pipelines ML reproductibles**. Les pipelines Machine Learning vous permettent de définir des étapes reproductibles et réutilisables pour vos processus de préparation des données, de formation et de scoring.
+- **Créer des environnements logiciels réutilisables** pour la formation et le déploiement de modèles.
+- **Inscrire, empaqueter et déployer des modèles à partir de n’importe quel emplacement**. Vous pouvez également suivre les métadonnées associées requises pour utiliser le modèle.
+- **Capturer les données de gouvernance nécessaires pour le cycle de vie ML de bout en bout**. Les informations journalisées peuvent inclure qui publie des modèles, pourquoi des modifications ont été apportées et quand les modèles ont été déployés ou utilisés en production.
+- **Notifier et alerter sur des événements du cycle de vie ML**. Par exemple, la fin d’une expérience, l’inscription de modèles, le déploiement de modèles et la détection d’une dérive de données.
 - **Superviser les applications ML pour détecter des problèmes de fonctionnement et liés à ML**. Comparez les entrées de modèle entre l’entraînement et l’inférence, explorez les métriques spécifiques du modèle et fournissez des alertes et une supervision pour votre infrastructure ML.
-- **Automatiser le cycle de vie ML de bout en bout avec Azure Machine Learning et Azure DevOps** pour mettre fréquemment à jour les modèles, tester de nouveaux modèles et déployer en permanence de nouveaux modèles ML en même temps que vos autres applications et services.
+- **Automatiser le cycle de vie ML de bout en bout avec Azure Machine Learning et Azure Pipelines**. L’utilisation de pipelines vous permet de mettre fréquemment à jour les modèles, tester de nouveaux modèles et déployer en permanence de nouveaux modèles ML en même temps que vos autres applications et services.
 
 ## <a name="create-reproducible-ml-pipelines"></a>Créer des pipelines ML reproductibles
 
@@ -38,6 +47,12 @@ Utilisez des pipelines ML d’Azure Machine Learning pour réunir toutes les ét
 Un pipeline ML peut contenir des étapes allant de la préparation des données à l’extraction de fonctionnalité, pour le réglage d’hyperparamètre sur l’évaluation du modèle. Pour plus d’informations, consultez [Pipelines ML](concept-ml-pipelines.md).
 
 Si vous utilisez le [Concepteur](concept-designer.md) pour créer vos pipelines ML, vous pouvez à tout moment cliquer sur **« ... »** en haut à droite de la page du Concepteur, puis sélectionner **Cloner**. Le clonage de votre pipeline vous permet d’itérer votre conception de pipeline sans perdre vos anciennes versions.  
+
+## <a name="create-reusable-software-environments"></a>Créer des environnements logiciels réutilisables
+
+Les environnements Azure Machine Learning vous permettent de suivre et de reproduire les dépendances logicielles de vos projets au fil de leur évolution. Ils vous permettent de vous assurer que les builds sont reproductibles sans configuration manuelle des logiciels.
+
+Les environnements décrivent les dépendances pip et Conda de vos projets et peuvent être utilisés à la fois pour la formation et le déploiement de modèles. Pour plus d’informations, consultez [Présentation des environnements Azure Machine Learning](concept-environments.md).
 
 ## <a name="register-package-and-deploy-models-from-anywhere"></a>Inscrire, empaqueter et déployer des modèles à partir de n’importe quel emplacement
 
@@ -82,7 +97,7 @@ Lorsque vous utilisez un modèle comme un service web ou un appareil IoT Edge, v
 
 * Modèles utilisés pour noter les données envoyées vers le service/l’appareil.
 * Script d’entrée. Ce script accepte les demandes, utilise les modèles pour noter les données et renvoie une réponse.
-* Fichier d’environnement conda qui décrit les dépendances requises par les modèles et le script d’entrée.
+* Environnement Azure Machine Learning qui décrit les dépendances pip et Conda requises par les modèles et le script d’entrée.
 * Autres ressources, telles que le texte ou les données, entre autres, qui sont requises par les modèles et le script d’entrée.
 
 Vous fournissez également la configuration de la plateforme de déploiement cible, par exemple le type de famille de machines virtuelles, la mémoire disponible et nombre de cœurs lors du déploiement sur Azure Kubernetes Service.
@@ -124,7 +139,7 @@ Azure ML vous donne la possibilité d’effectuer le suivi de la piste d’audit
 
 - Azure ML [s’intègre à Git](how-to-set-up-training-targets.md#gitintegration) pour le suivi des informations sur le dépôt / la branche / la validation d’où provient votre code.
 - Les [jeux de données Azure ML](how-to-create-register-datasets.md) vous aident à suivre, à profiler et à gérer la version des données. 
-- L’historique des exécutions Azure ML stocke une capture instantanée du code, des données et du calcul utilisés pour entraîner un modèle.
+- L’historique des exécutions Azure ML stocke une capture instantanée du code, des données et des calculs utilisés pour effectuer l’apprentissage d’un modèle.
 - Le registre de modèles Azure ML capture toutes les métadonnées associées à votre modèle (l’expérience qui l’a entraîné, où il est déployé, si ses déploiements sont sains).
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notifier, automatiser et alerter sur des événements du cycle de vie ML
@@ -162,6 +177,8 @@ L’[extension Azure Machine Learning](https://marketplace.visualstudio.com/item
 * Permet le déclenchement des pipelines de mise en production par les modèles entraînés créés dans un pipeline d’entraînement.
 
 Pour plus d’informations sur l’utilisation d’Azure Pipelines avec Azure Machine Learning, consultez l’article [Intégration et déploiement continus de modèles ML avec Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning) et le dépôt [MLOps Azure Machine Learning](https://aka.ms/mlops).
+
+Vous pouvez également utiliser Azure Data Factory pour créer un pipeline d’ingestion des données qui prépare les données à utiliser dans le cadre de la formation. Pour plus d’informations, consultez [Pipeline d’ingestion des données](how-to-cicd-data-ingestion.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

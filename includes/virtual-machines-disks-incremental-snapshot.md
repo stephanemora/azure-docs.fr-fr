@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3361f4723c5a9776cb156417e57d609175d11621
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 083051fd621194d39d0092046e187e0809fd62d9
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77445406"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77520688"
 ---
 Les instantanés incrémentiels (préversion) sont des sauvegardes des disques managés exécutées à un moment donné et contenant uniquement les modifications apportées depuis la dernière capture instantanée. Lorsque vous essayez de télécharger ou d'utiliser un instantané incrémentiel, tout le disque dur virtuel est utilisé. Cette nouvelle fonctionnalité de capture instantanée des disques managés peut améliorer leur rentabilité car il n'est plus nécessaire de stocker l'intégralité du disque avec chaque instantané, sauf si vous y tenez. Comme pour les instantanés classiques, les instantanés incrémentiels peuvent être utilisés pour créer un disque managé complet ou pour créer un instantané classique.
 
@@ -21,10 +21,15 @@ Il existe un certain nombre de différences entre un instantané incrémentiel e
 
 Les instantanés incrémentiels offrent également une capacité différentielle, qui est uniquement disponible pour les disques managés. Ils vous permettent d'obtenir les modifications apportées entre deux instantanés incrémentiels des mêmes disques managés, jusqu'au niveau bloc. Vous pouvez utiliser cette fonctionnalité pour réduire l'empreinte de vos données lors de la copie d'instantanés d'une région à une autre.
 
-## <a name="restrictions"></a>Restrictions
+### <a name="supported-regions"></a>Régions prises en charge
 
-- Les instantanés incrémentiels ne sont à l’heure actuelle disponibles que dans les régions USA Est, USA Est 2, USA Centre, USA Centre-Ouest, Canada Est, Canada Centre, Europe Nord et Asie Sud-Est.
-- Il est actuellement impossible de créer des instantanés incrémentiels après avoir modifié la taille d'un disque.
+Actuellement, seules les régions suivantes sont prises en charge :
+
+- Disponible en tant qu’offre en disponibilité générale dans les régions USA Centre-Ouest, Canada Est et Canada Centre.
+- Disponible en préversion publique dans les régions USA Est, USA Est 2, USA Centre, Europe Nord et Asie Sud-Est.
+
+## <a name="restrictions"></a>Restrictions
+- Il est actuellement impossible de créer des instantanés incrémentiels après avoir modifié la taille d’un disque (uniquement pendant la préversion).
 - Les instantanés incrémentiels ne peuvent actuellement pas être transférés d'un abonnement à un autre.
 - À un moment donné, vous ne pouvez actuellement générer que des URI SAS comprenant jusqu'à cinq instantanés d'une famille d'instantanés particulière.
 - Vous ne pouvez pas créer d'instantané incrémentiel pour un disque particulier en dehors de l'abonnement associé à ce disque.

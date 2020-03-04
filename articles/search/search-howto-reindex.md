@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 8cebe02ebc638ba62fceec80dff2c6724ccf92c8
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 58b60a0eee8ab407709f33911d3c6b13ffbf301a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212295"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498377"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Guide pratique pour regénérer un index dans la Recherche cognitive Azure
 
@@ -33,7 +33,7 @@ Supprimez un index et recréez-en un si l’une des conditions suivantes est vra
 | Affecter un analyseur à un champ | Les [analyseurs](search-analyzers.md) sont définis dans un index, puis affectés à des champs. Vous pouvez à tout moment ajouter une nouvelle définition d’analyseur à un index, mais il n’est possible *d’affecter* l’analyseur qu’à la création du champ. Cette condition s’applique à la fois à la propriété **analyzer** et à la propriété **indexAnalyzer**. La propriété **searchAnalyzer** fait figure d’exception (elle peut être affectée à un champ existant). |
 | Mettre à jour ou supprimer une définition d’analyseur dans un index | Il n’est pas possible de supprimer ou de modifier une configuration d’analyseur existante (analyseur, générateur de jetons, filtre de jetons ou filtre de caractères) dans l’index, à moins de regénérer la totalité de l’index. |
 | Ajouter un champ à un suggesteur | Pour pouvoir ajouter un champ existant à une construction [Suggesteurs](index-add-suggesters.md), il faut regénérer l’index. |
-| Supprimer un champ | Pour supprimer physiquement toutes les traces d’un champ, vous devez regénerer l’index. Quand une régénération immédiate n’est pas réalisable, il est possible de modifier le code de l’application en désactivant l’accès au champ « supprimé ». Physiquement, le contenu et la définition du champ restent dans l’index jusqu’à la régénération suivante, lors de laquelle est appliqué un schéma omettant le champ en question. |
+| Supprimer un champ | Pour supprimer physiquement toutes les traces d’un champ, vous devez regénerer l’index. Lorsqu’une régénération immédiate n’est pas pratique, vous pouvez modifier le code de l’application pour désactiver l’accès au champ « supprimé » ou utiliser le [paramètre de requête $select](search-query-odata-select.md) pour choisir les champs représentés dans le jeu de résultats. Physiquement, le contenu et la définition du champ restent dans l’index jusqu’à la régénération suivante, lors de laquelle est appliqué un schéma omettant le champ en question. |
 | Changer de niveau | Si vous avez besoin de davantage de capacité, il n’y a pas de mise à niveau sur place dans le portail Azure. Vous devez créer un service et regénérer entièrement les index sur le nouveau service. Pour faciliter l’automatisation de ce processus, vous pouvez utiliser l’exemple de code **index-backup-restore** dans cet [exemple de dépôt .NET Recherche cognitive Azure](https://github.com/Azure-Samples/azure-search-dotnet-samples). Cette application va sauvegarder votre index dans une série de fichiers JSON, puis recréer l’index dans un service de recherche que vous spécifiez.|
 
 ## <a name="update-conditions"></a>Conditions de mise à jour
@@ -52,9 +52,11 @@ Quand vous ajoutez un nouveau champ, les documents indexés existants reçoivent
 
 ## <a name="how-to-rebuild-an-index"></a>Comment regénérer un index
 
-Durant le développement, le schéma d’index change fréquemment. Anticipez cela en créant des index qui peuvent être rapidement supprimés, recréés et rechargés avec un petit jeu de données représentatif. 
+Durant le développement, le schéma d’index change fréquemment. Anticipez cela en créant des index qui peuvent être rapidement supprimés, recréés et rechargés avec un petit jeu de données représentatif.
 
 Pour les applications déjà en production, nous recommandons de créer un nouvel index qui s’exécute côte à côte avec un index existant pour éviter des temps d’arrêt dans les requêtes. Votre code d’application fournit la redirection vers le nouvel index.
+
+L’indexation n’est pas exécutée en arrière-plan et le service équilibre l’indexation supplémentaire par rapport aux requêtes en cours. Pendant l’indexation, vous pouvez [surveiller les demandes de requête](search-monitor-queries.md) dans le portail pour vous assurer que les demandes sont traitées en temps voulu.
 
 1. Déterminez si une regénération est nécessaire. Si vous ajoutez juste des champs, ou modifiez une partie de l’index qui n’est pas liée à des champs, vous pouvez simplement [mettre à jour la définition](https://docs.microsoft.com/rest/api/searchservice/update-index) sans supprimer, recréer et recharger entièrement l’index.
 
@@ -78,6 +80,10 @@ Quand vous chargez l’index, l’index inversé de chaque champ est rempli avec
 ## <a name="check-for-updates"></a>Rechercher les mises à jour
 
 Vous pouvez commencer à interroger un index dès que le premier document est chargé. Si vous connaissez l’ID d’un document, l’[API REST de recherche de document](https://docs.microsoft.com/rest/api/searchservice/lookup-document) retourne le document spécifique. Pour un test plus large, attendez que l’index soit entièrement chargé, puis utilisez des requêtes pour vérifier le contexte que vous vous attendez à voir.
+
+Vous pouvez utiliser l’[Explorateur de recherche](search-explorer.md) ou un outil de test web comme [Postman](search-get-started-postman.md) pour rechercher du contenu mis à jour.
+
+Si vous avez ajouté ou renommé un champ, utilisez [$select](search-query-odata-select.md) pour retourner ce champ : `search=*&$select=document-id,my-new-field,some-old-field&$count=true`.
 
 ## <a name="see-also"></a>Voir aussi
 

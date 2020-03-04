@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/05/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d2ef446e10620895fff77e8160adc4a566929650
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: e220009ec04ce732d99a53432077d681707e28d1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484364"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585728"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 
@@ -34,7 +34,8 @@ Compare deux revendications et lève une exception si elles ne sont pas égales 
 | InputClaim | inputClaim2 | string | Type de la deuxième revendication qui doit être comparée. |
 | InputParameter | stringComparison | string | comparaison de chaînes, une des valeurs suivantes : Ordinal, OrdinalIgnoreCase. |
 
-La transformation de revendication **AssertStringClaimsAreEqual** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md). Les métadonnées de profil technique autodéclaré **UserMessageIfClaimsTransformationStringsAreNotEqual** contrôlent le message d’erreur présenté à l’utilisateur.
+La transformation de revendication **AssertStringClaimsAreEqual** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md) ou un [DisplayConrtol](display-controls.md). Les métadonnées `UserMessageIfClaimsTransformationStringsAreNotEqual` d’un profil technique autodéclaré contrôlent le message d’erreur présenté à l’utilisateur.
+
 
 ![Exécution de AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)
 
@@ -126,7 +127,7 @@ Crée une revendication de chaîne à partir du paramètre d’entrée fourni da
 
 | Élément | TransformationClaimType | Type de données | Notes |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | value | string | Chaîne à définir |
+| InputParameter | value | string | Chaîne à définir. Ce paramètre d’entrée prend en charge les [expressions de transformation de revendications de chaînes](string-transformations.md#string-claim-transformations-expressions). |
 | OutputClaim | createdClaim | string | ClaimType généré après que cette transformation de revendication a été appelée, avec la valeur spécifiée dans le paramètre d’entrée. |
 
 Utilisez cette transformation de revendication pour définir une chaîne de valeur ClaimType.
@@ -296,7 +297,7 @@ Met en forme une revendication en fonction de la chaîne de format fournie. Cett
 | Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string |ClaimType qui agit en tant que paramètre {0} de format de chaîne. |
-| InputParameter | stringFormat | string | Format de chaîne, y compris le paramètre {0}. |
+| InputParameter | stringFormat | string | Format de chaîne, y compris le paramètre {0}. Ce paramètre d’entrée prend en charge les [expressions de transformation de revendications de chaînes](string-transformations.md#string-claim-transformations-expressions).  |
 | OutputClaim | outputClaim | string | ClaimType généré après que cette transformation de revendication a été appelée. |
 
 Utilisez cette transformation de revendication pour mettre en forme une chaîne avec un paramètre {0}. L’exemple suivant crée un **userPrincipalName**. Tous les profils techniques de fournisseurs d’identité sociale, tels que `Facebook-OAUTH` appellent **CreateUserPrincipalName** pour générer un **userPrincipalName**.
@@ -332,7 +333,7 @@ Met en forme deux revendications en fonction de la chaîne de format fournie. Ce
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string | ClaimType qui agit en tant que paramètre {0} de format de chaîne. |
 | InputClaim | inputClaim | string | ClaimType qui agit en tant que paramètre {1} de format de chaîne. |
-| InputParameter | stringFormat | string | Format de chaîne, y compris les paramètres {0} et {1}. |
+| InputParameter | stringFormat | string | Format de chaîne, y compris les paramètres {0} et {1}. Ce paramètre d’entrée prend en charge les [expressions de transformation de revendications de chaînes](string-transformations.md#string-claim-transformations-expressions).   |
 | OutputClaim | outputClaim | string | ClaimType généré après que cette transformation de revendication a été appelée. |
 
 Utilisez cette transformation de revendication pour mettre en forme une chaîne avec deux paramètres, {0} et {1}. L’exemple suivant crée un **displayName** au format spécifié :
@@ -516,6 +517,42 @@ L’exemple suivant recherche le nom de domaine dans l’une des collections inp
     - **errorOnFailedLookup** : false
 - Revendications de sortie :
     - **outputClaim** : c7026f88-4299-4cdb-965d-3f166464b8a9
+
+Lorsque le paramètre d’entrée `errorOnFailedLookup` est défini sur `true`, la transformation de revendications **LookupValue** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md) ou un [DisplayConrtol](display-controls.md). Les métadonnées `LookupNotFound` d’un profil technique autodéclaré contrôlent le message d’erreur présenté à l’utilisateur.
+
+![Exécution de AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)
+
+L’exemple suivant recherche le nom de domaine dans l’une des collections inputParameters. La transformation de revendication recherche le nom de domaine dans l’identificateur et retourne sa valeur (un ID d’application) ou génère un message d’erreur.
+
+```XML
+ <ClaimsTransformation Id="DomainToClientId" TransformationMethod="LookupValue">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="domainName" TransformationClaimType="inputParameterId" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="contoso.com" DataType="string" Value="13c15f79-8fb1-4e29-a6c9-be0d36ff19f1" />
+    <InputParameter Id="microsoft.com" DataType="string" Value="0213308f-17cb-4398-b97e-01da7bd4804e" />
+    <InputParameter Id="test.com" DataType="string" Value="c7026f88-4299-4cdb-965d-3f166464b8a9" />
+    <InputParameter Id="errorOnFailedLookup" DataType="boolean" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="domainAppId" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemple
+
+- Revendications d’entrée :
+    - **inputParameterId** : live.com
+- Paramètres d’entrée :
+    - **contoso.com** : 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+    - **microsoft.com** : 0213308f-17cb-4398-b97e-01da7bd4804e
+    - **test.com** : c7026f88-4299-4cdb-965d-3f166464b8a9
+    - **errorOnFailedLookup** : true
+- Erreur :
+    - Aucune correspondance trouvée pour la valeur de revendication d’entrée dans la liste d’ID de paramètre d’entrée et errorOnFailedLookup a la valeur true.
+
 
 ## <a name="nullclaim"></a>NullClaim
 
@@ -888,3 +925,12 @@ L’exemple suivant prend une chaîne de rôles d’utilisateur délimitée par 
   - **delimiter** : ","
 - Revendications de sortie :
   - **outputClaim** : [ "Admin", "Author", "Reader" ]
+  
+## <a name="string-claim-transformations-expressions"></a>Expressions de transformations de revendications de chaînes
+Les expressions de transformations de revendications dans les stratégies personnalisées Azure AD B2C fournissent des informations contextuelles sur l’ID du locataire et l’ID du profil technique.
+
+  | Expression | Description | Exemple |
+ | ----- | ----------- | --------|
+ | `{TechnicalProfileId}` | Nom de l’ID du profil technique. | Facebook-OAUTH |
+ | `{RelyingPartyTenantId}` | ID de locataire de la stratégie de partie de confiance. | votre-locataire.onmicrosoft.com |
+ | `{TrustFrameworkTenantId}` | ID de locataire de l’infrastructure de confiance. | votre-locataire.onmicrosoft.com |

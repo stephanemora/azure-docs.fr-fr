@@ -1,5 +1,5 @@
 ---
-title: Échec de création ou de suppression d’une base de données ou d’une table dans l’Explorateur de données Azure
+title: Échec de création ou de suppression d’une base de données ou d’une table dans Azure Data Explorer
 description: Cet article décrit la procédure de résolution des problèmes pour la création et la suppression des bases de données et tables dans l’Explorateur de données Azure.
 author: orspod
 ms.author: orspodek
@@ -7,14 +7,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0d221138914230d5455dc0addbe08cdaaed36a0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67e4c33498b05884fe667a7977ddb40e647ab4c8
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60826252"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562392"
 ---
-# <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Résolution de problèmes : Échec de création ou de suppression d’une base de données ou d’une table dans l’Explorateur de données Azure
+# <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Résoudre les problèmes : Échec de création ou de suppression d’une base de données ou d’une table dans l’Explorateur de données Azure
 
 Dans l’Explorateur de données Azure, vous utilisez régulièrement des bases de données et des tables. Cet article indique la procédure de résolution des problèmes qui peuvent se poser.
 
@@ -28,11 +28,11 @@ Dans l’Explorateur de données Azure, vous utilisez régulièrement des bases 
 
 ## <a name="deleting-or-renaming-a-database"></a>Suppression ou renommage d’une base de données
 
-Vérifiez que vous disposez des autorisations appropriées. Pour supprimer ou renommer une base de données, vous devez être un membre du rôle *Collaborateur* ou *Propriétaire* pour l’abonnement Azure. Si nécessaire, demandez à l’administrateur de votre abonnement de vous ajouter au rôle approprié.
+Veillez à disposer des autorisations appropriées. Pour supprimer ou renommer une base de données, vous devez être un membre du rôle *Collaborateur* ou *Propriétaire* pour l’abonnement Azure. Si nécessaire, demandez à l’administrateur de votre abonnement de vous ajouter au rôle approprié.
 
 ## <a name="creating-a-table"></a>Création d’une table
 
-1. Vérifiez que vous disposez des autorisations appropriées. Pour créer une table, vous devez être membre du rôle *Administrateur de base de données* ou *Utilisateur de base de données* dans la base de données ou du rôle *Collaborateur* ou *Propriétaire* dans l’abonnement Azure. Si nécessaire, demandez à l’administrateur de votre abonnement ou cluster de vous ajouter au rôle approprié.
+1. Veillez à disposer des autorisations appropriées. Pour créer une table, vous devez être membre du rôle *Administrateur de base de données* ou *Utilisateur de base de données* dans la base de données ou du rôle *Collaborateur* ou *Propriétaire* dans l’abonnement Azure. Si nécessaire, demandez à l’administrateur de votre abonnement ou cluster de vous ajouter au rôle approprié.
 
     Pour plus d’informations sur les autorisations, consultez [Gérer des autorisations de base de données](manage-database-permissions.md).
 

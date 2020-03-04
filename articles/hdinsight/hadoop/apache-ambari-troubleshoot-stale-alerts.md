@@ -1,18 +1,18 @@
 ---
 title: Alertes obsolètes Apache Ambari dans Azure HDInsight
-description: Discussion et analyse des causes et solutions possibles pour les alertes Apache Ambari obsolètes dans HDInsight.
+description: Discussion et analyse des causes et solutions possibles pour les alertes obsolètes Apache Ambari dans HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: f19d499b5e50fbb5030a0f396296eed46fc6eee3
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f9dfcb930e3fe4f862f9f51ff00270d0eb0c66ca
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722665"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539108"
 ---
 # <a name="scenario-apache-ambari-stale-alerts-in-azure-hdinsight"></a>Scénario : Alertes obsolètes Apache Ambari dans Azure HDInsight
 
@@ -20,64 +20,70 @@ Cet article décrit les éventuelles solutions à appliquer pour résoudre les p
 
 ## <a name="issue"></a>Problème
 
-À partir de l’interface utilisateur Apache Ambari, vous pouvez voir une alerte semblable à l’image suivante :
+Dans l’interface utilisateur Apache Ambari, vous pouvez voir une alerte semblable à celle-ci :
 
 ![Exemple d’alerte obsolète Apache Ambari](./media/apache-ambari-troubleshoot-stale-alerts/ambari-stale-alerts-example.png)
 
 ## <a name="cause"></a>Cause :
 
-Les agents Ambari exécutent continuellement des vérifications d’intégrité pour surveiller l’intégrité de nombreuses ressources. Chaque alerte est configurée pour s’exécuter à des intervalles de temps prédéfinis. Après l’exécution de chaque alerte, les agents Ambari rapportent l’état au serveur Ambari. À ce stade, si le serveur Ambari détecte que l’une des alertes n’a pas été exécutée en temps voulu, il déclenche une alerte « Alertes du serveur Ambari ». Il existe plusieurs raisons pour lesquelles une vérification d’intégrité peut ne pas s’exécuter à l’intervalle défini :
+Les agents Ambari surveillent en permanence l’intégrité d’un grand nombre de ressources. Les *alertes* peuvent être configurées pour vous signaler si des propriétés spécifiques du cluster respectent ou non des seuils prédéterminés. Après chaque vérification de ressource, si la condition d’alerte est remplie, les agents Ambari signalent l’état au serveur Ambari et déclenchent une alerte. Si une alerte n’est pas vérifiée dans l’intervalle défini dans son profil d’alerte, le serveur déclenche une alerte *Alertes obsolètes du serveur Ambari*.
 
-* Lorsque les hôtes sont fortement utilisés (UC élevé), il est possible que l’agent Ambari ne soit pas en mesure d’obtenir suffisamment de ressources système pour exécuter les alertes en temps opportun.
+Il existe plusieurs raisons pour lesquelles une vérification d’intégrité peut ne pas s’exécuter à l’intervalle défini :
 
-* Le cluster est occupé à exécuter de nombreux travaux/services pendant une charge importante.
+* Les hôtes sont très sollicités (utilisation élevée de l’UC), de sorte que l’agent Ambari ne dispose pas de suffisamment de ressources système pour exécuter les alertes à temps.
 
-* Peu d’hôtes dans le cluster peuvent héberger de nombreux composants et doivent donc exécuter de nombreuses alertes. Si le nombre de composants est important, il est possible que les tâches d’alerte manquent à leurs intervalles planifiés
+* Le cluster est occupé à exécuter de nombreux travaux ou services pendant une période de charge importante.
+
+* Un petit nombre d’hôtes dans le cluster hébergent un grand nombre de composants et sont donc requis pour exécuter un grand nombre d’alertes. Si le nombre de composants est important, les tâches d’alerte risquent de ne pas respecter les intervalles planifiés.
 
 ## <a name="resolution"></a>Résolution
 
-### <a name="increase-alert-interval-time"></a>Augmenter la durée de l’intervalle d’alerte
+Essayez les méthodes suivantes pour résoudre les problèmes liés aux alertes obsolètes Ambari.
 
-Vous pouvez choisir d’augmenter la valeur d’un intervalle d’alerte individuel en fonction du temps de réponse de votre cluster et de sa charge.
+### <a name="increase-the-alert-interval-time"></a>Augmenter la durée d’intervalle d’une alerte
+
+Vous pouvez augmenter la valeur d’intervalle d’une alerte individuelle en fonction du temps de réponse de votre cluster et de sa charge :
 
 1. Dans l’interface utilisateur Apache Ambari, sélectionnez l’onglet **Alertes**.
-1. Sélectionnez le nom de définition d’alerte de votre choix.
+1. Sélectionnez le nom de la définition d’alerte de votre choix.
 1. Dans la définition, sélectionnez **Modifier**.
-1. Modifiez la valeur **Intervalle de vérification** selon votre choix, puis sélectionnez **Enregistrer**.
+1. Augmentez la valeur **Intervalle de vérification**, puis sélectionnez **Enregistrer**.
 
-### <a name="increase-alert-interval-time-for-ambari-server-alerts"></a>Augmenter la durée de l’intervalle d’alerte pour les alertes du serveur Ambari
+### <a name="increase-the-alert-interval-time-for-ambari-server-alerts"></a>Augmenter la durée d’intervalle d’une alerte pour les alertes du serveur Ambari
 
 1. Dans l’interface utilisateur Apache Ambari, sélectionnez l’onglet **Alertes**.
 1. Dans la liste déroulante **Groupes**, sélectionnez **AMBARI par défaut**.
 1. Sélectionnez l’alerte **Alertes du serveur Ambari**.
 1. Dans la définition, sélectionnez **Modifier**.
-1. Modifiez la valeur **Intervalle de vérification** selon votre choix.
-1. Modifiez la valeur **Multiplicateur d’intervalle** selon votre choix, puis sélectionnez **Enregistrer**.
+1. Augmentez la valeur **Intervalle de vérification**.
+1. Augmentez la valeur **Multiplicateur d’intervalle**, puis sélectionnez **Enregistrer**.
 
-### <a name="disable-and-enable-the-alert"></a>Désactiver et activer l’alerte
+### <a name="disable-and-reenable-the-alert"></a>Désactiver et réactiver l’alerte
 
-Vous pouvez désactiver, puis réactiver l’alerte pour abandonner les alertes obsolètes.
+Pour ignorer une alerte obsolète, désactivez-la, puis réactivez-la :
 
 1. Dans l’interface utilisateur Apache Ambari, sélectionnez l’onglet **Alertes**.
-1. Sélectionnez le nom de définition d’alerte de votre choix.
-1. Dans la définition, sélectionnez l’option **Activée** située à l’extrême droite.
+1. Sélectionnez le nom de la définition d’alerte de votre choix.
+1. Dans la définition, sélectionnez l’option **Activée** dans la partie la plus à droite de l’interface utilisateur.
 1. Dans la fenêtre contextuelle **Confirmation**, sélectionnez **Confirmer la désactivation**.
 1. Patientez quelques secondes pour que toutes les « instances » d’alerte affichées sur la page soient effacées.
-1. Dans la définition, sélectionnez l’option **Désactivée** située à l’extrême droite.
+1. Dans la définition, sélectionnez l’option **Désactivée** dans la partie la plus à droite de l’interface utilisateur.
 1. Dans la fenêtre contextuelle **Confirmation**, sélectionnez **Confirmer l’activation**.
 
-### <a name="increase-alert-grace-time"></a>Augmenter la période de grâce des alertes
+### <a name="increase-the-alert-grace-period"></a>Augmenter la période de grâce des alertes
 
-Avant que l’agent Ambari ne signale qu’une alerte configurée a manqué sa planification, une période de grâce est appliquée. Même si l’alerte a manqué son heure planifiée, mais qu’elle a été déclenchée pendant la période de grâce des alertes, l’alerte obsolète n’est pas déclenchée.
+Avant que l’agent Ambari ne signale qu’une alerte configurée a manqué sa planification, une période de grâce est appliquée. Si l’alerte n’a pas eu lieu à l’heure prévue, mais qu’elle a été exécutée pendant la période de grâce, l’alerte obsolète n’est pas générée.
 
-La valeur `alert_grace_period` par défaut est 5 secondes. Ce paramètre `alert_grace_period` est configurable dans `/etc/ambari-agent/conf/ambari-agent.ini`. Pour les hôtes à partir desquels les alertes obsolètes sont déclenchées à intervalles réguliers, essayez de les augmenter à une valeur de 10. Ensuite, redémarrer l’agent Ambari
+La valeur `alert_grace_period` par défaut est 5 secondes. Vous pouvez configurer ce paramètre dans /etc/ambari-agent/conf/ambari-agent.ini. Pour les hôtes sur lesquels des alertes obsolètes se produisent à intervalles réguliers, augmentez la valeur à 10 pour essayer. Ensuite, redémarrer l’agent Ambari.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez un des canaux suivants pour obtenir de l’aide :
+Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, rendez-vous sur l’un des canaux suivants pour obtenir de l’aide :
 
 * Obtenez des réponses de la part d’experts Azure en faisant appel au [Support de la communauté Azure](https://azure.microsoft.com/support/community/).
 
-* Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
+* Rendez-vous sur la page [@AzureSupport](https://twitter.com/azuresupport) sur Twitter. Il s’agit du compte Microsoft Azure officiel pour améliorer l’expérience client. Il fournit à la communauté Azure les ressources appropriées : réponses, support technique et experts.
 
-* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+* Si vous avez besoin d’une aide supplémentaire, envoyez une demande de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Pour y accéder, sélectionnez l’aide ( **?** ) dans le menu du portail ou ouvrez le volet **Aide + support**. Pour plus d’informations, consultez la page [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). 
+
+  Le support pour la gestion et la facturation des abonnements est inclus dans votre abonnement Microsoft Azure. Le support technique est disponible via les [plans de support Azure](https://azure.microsoft.com/support/plans/).

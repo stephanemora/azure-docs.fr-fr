@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 11f5bd7f01e142273509ae59ddc19a2557464bde
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 40d8e298237b6110fee04aefbb7b79c5f3bac6f0
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152310"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598610"
 ---
 # <a name="export-data-module"></a>Module Exporter les données
 
 Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
-Utilisez ce module pour enregistrer les résultats, les données intermédiaires et les données de travail de vos pipelines dans les destinations de stockage cloud en dehors d’Azure Machine Learning. 
+Utilisez ce module pour enregistrer les résultats, les données intermédiaires et les données de travail de vos pipelines dans les destinations de stockage cloud. 
 
 Ce module prend en charge l’exportation de vos données dans les services de données cloud suivants :
 
@@ -41,7 +41,13 @@ Avant d’exporter vos données, vous devez d’abord inscrire un magasin de don
 
 1. Pour **Magasin de données**, sélectionnez un magasin de données existant dans la liste déroulante. Vous pouvez également créer un magasin de données. Découvrez comment en consultant [Accéder aux données dans les services de stockage Azure](../how-to-access-data.md).
 
-1. Définissez le chemin d’accès du magasin de données vers lequel écrire les données. 
+1. La case à cocher **Régénérer le sortie** détermine s’il faut exécuter le module pour régénérer la sortie au moment de l’exécution. 
+
+    Elle est désélectionnée par défaut, ce qui signifie que si le module a été exécuté avec les mêmes paramètres par le passé, le système réutilisera la sortie de la dernière exécution pour réduire le temps d’exécution. 
+
+    Si elle est sélectionnée, le système exécutera à nouveau le module pour régénérer la sortie.
+
+1. Définissez le chemin d’accès du magasin de données où se trouvent les données. Le chemin d’accès est un chemin d’accès relatif. Les chemins d’accès vides ou les chemins d’accès d’URL ne sont pas autorisés.
 
 
 1. Pour **Format de fichier**, sélectionnez le format dans lequel les données doivent être stockées.
