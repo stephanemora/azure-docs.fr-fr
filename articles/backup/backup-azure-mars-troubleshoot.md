@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment résoudre les problèmes liés
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 06c741547e0206059195f481ed29dc8e69aa4dd3
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: fdaad7e12a5f473a368b9249928591daddd68519
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665312"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583807"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Résoudre les problèmes liés à l’agent Microsoft Azure Recovery Services (MARS)
 
@@ -20,11 +20,11 @@ Cet article explique comment résoudre les erreurs qui peuvent survenir lors de 
 Nous vous recommandons de passer en revue les points suivants avant de commencer à résoudre les problèmes liés à l’agent MARS :
 
 - [Vérifiez que l’agent MARS est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409).
-- [Vérifiez la connectivité réseau entre l’agent MARS et Azure](https://aka.ms/AB-A4dp50).
+- [Vérifiez la connectivité réseau entre l’agent MARS et Azure](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup).
 - Vérifiez que MARS est en cours d’exécution (dans la console Service). Si nécessaire, redémarrez le système et recommencez l’opération.
-- [Vérifiez qu’il existe entre 5 et 10 % d’espace de volume disponible à l’emplacement du dossier de travail](https://aka.ms/AB-AA4dwtt).
-- [Vérifiez si un autre processus ou logiciel antivirus interfère avec le service Sauvegarde Azure](https://aka.ms/AB-AA4dwtk).
-- Si la sauvegarde planifiée échoue, mais que la sauvegarde manuelle fonctionne, consultez [Les sauvegardes ne s’exécutent pas comme prévu](https://aka.ms/ScheduledBackupFailManualWorks).
+- [Vérifiez qu’il existe entre 5 et 10 % d’espace de volume disponible à l’emplacement du dossier de travail](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#whats-the-minimum-size-requirement-for-the-cache-folder).
+- [Vérifiez si un autre processus ou logiciel antivirus interfère avec le service Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup).
+- Si la sauvegarde planifiée échoue, mais que la sauvegarde manuelle fonctionne, consultez [Les sauvegardes ne s’exécutent pas comme prévu](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#backups-dont-run-according-to-schedule).
 - Assurez-vous que votre système d’exploitation dispose des dernières mises à jour.
 - [Vérifiez que les lecteurs non pris en charge et les fichiers avec des attributs non pris en charge sont exclus de la sauvegarde](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup).
 - Vérifiez que l’horloge sur le système protégé est configurée sur le bon fuseau horaire.
@@ -33,7 +33,7 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
   - Vérifiez si l’agent est désinstallé sur le serveur et s’il est supprimé du portail.
   - Utilisez la même phrase secrète que celle initialement utilisée pour l’inscription du serveur.
 - Pour les sauvegardes hors connexion, vérifiez qu’Azure PowerShell 3.7.0 est installé sur l’ordinateur source et l’ordinateur de copie avant de commencer la sauvegarde.
-- Si l’agent de sauvegarde est en cours d’exécution sur une machine virtuelle Azure, consultez [cet article](https://aka.ms/AB-AA4dwtr).
+- Si l’agent de sauvegarde est en cours d’exécution sur une machine virtuelle Azure, consultez [cet article](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-backup-agent-running-on-an-azure-virtual-machine).
 
 ## <a name="invalid-vault-credentials-provided"></a>Informations d’identification du coffre fournies non valides
 
@@ -42,7 +42,7 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
 | Cause : | Actions recommandées |
 | ---     | ---    |
 | **Les informations d’identification du coffre ne sont pas valides** <br/> <br/> Les fichiers d’informations d’identification du coffre peuvent avoir été endommagés ou être arrivés à expiration. (Par exemple, ils peuvent avoir été téléchargés plus de 48 heures avant l’heure de l’inscription.)| Téléchargez les nouvelles informations d’identification du coffre Recovery Services sur le portail Microsoft Azure. (Voir l’étape 6 de la section [Download the MARS agent](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) (Télécharger l’agent MARS).) Suivez ensuite ces étapes : <ul><li> Si vous avez déjà installé et inscrit MARS, ouvrez la console MMC de l’agent Sauvegarde Microsoft Azure, puis sélectionnez **Inscrire le serveur** dans le volet **Actions** pour terminer l’inscription avec les nouvelles informations d’identification. <br/> <li> Si la nouvelle installation échoue, réessayez avec les nouvelles informations d’identification.</ul> **Remarque** : Si plusieurs fichiers d’informations d’identification de coffre ont été téléchargés, seul le plus récent est valide pendant 48 heures. Nous vous recommandons de télécharger un nouveau fichier d’informations d’identification de coffre.
-| **Le serveur proxy/pare-feu bloque l’inscription** <br/>or <br/>**Aucune connectivité Internet** <br/><br/> Si votre machine ou serveur proxy a une connectivité à Internet limitée et que vous ne garantissez pas l’accès pour les URL nécessaires, l’inscription échoue.| Suivez ces étapes :<br/> <ul><li> Travaillez avec votre équipe informatique pour vous assurer que le système dispose d’une connectivité Internet.<li> Si vous n’avez pas de serveur proxy, vérifiez que l’option de proxy n’est pas sélectionnée lorsque vous inscrivez l’agent. [Vérifiez vos paramètres de proxy](#verifying-proxy-settings-for-windows).<li> Si vous avez un pare-feu/serveur proxy, travaillez avec votre équipe de mise en réseau pour vous assurer que ces URL et adresses IP sont accessibles :<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Adresses IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Essayez de procéder une nouvelle fois à l’inscription après avoir effectué les étapes précédentes de résolution des problèmes.
+| **Le serveur proxy/pare-feu bloque l’inscription** <br/>or <br/>**Aucune connectivité Internet** <br/><br/> Si votre machine ou serveur proxy a une connectivité à Internet limitée et que vous ne garantissez pas l’accès pour les URL nécessaires, l’inscription échoue.| Suivez ces étapes :<br/> <ul><li> Travaillez avec votre équipe informatique pour vous assurer que le système dispose d’une connectivité Internet.<li> Si vous n’avez pas de serveur proxy, vérifiez que l’option de proxy n’est pas sélectionnée lorsque vous inscrivez l’agent. [Vérifiez vos paramètres de proxy](#verifying-proxy-settings-for-windows).<li> Si vous avez un pare-feu/serveur proxy, travaillez avec votre équipe de mise en réseau pour vous assurer que ces URL et adresses IP sont accessibles :<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Adresses IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Essayez de procéder une nouvelle fois à l’inscription après avoir effectué les étapes précédentes de résolution des problèmes.<br></br> Si vous êtes connecté via Azure ExpressRoute, assurez-vous que les paramètres sont configurés comme décrit dans [Prise en charge Azure ExpressRoute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **Un logiciel antivirus bloque l’inscription** | Si vous avez un logiciel antivirus installé sur le serveur, ajoutez les règles d’exclusion nécessaires à l’analyse antivirus pour ces fichiers et dossiers : <br/><ul> <li> CBengine.exe <li> CSC.exe<li> Le dossier de travail. Son emplacement par défaut est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> Le dossier Bin à l’emplacement C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Recommandations supplémentaires
@@ -165,7 +165,7 @@ Si celle-ci échoue encore, redémarrez votre serveur ou client. Si vous ne souh
 
 L’opération de sauvegarde risque d’échouer si le dossier du cache (également nommé « dossier de travail ») n’est pas configuré correctement, ne respecte pas les prérequis ou présente un accès restreint.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Pour que les opérations de l’agent MARS fonctionnent correctement, le dossier du cache doit respecter la configuration suivante :
 

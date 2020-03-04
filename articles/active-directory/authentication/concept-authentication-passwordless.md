@@ -1,24 +1,24 @@
 ---
-title: Authentification sans mot de passe pour Azure Active Directory (préversion)
+title: Connexion sans mot de passe à Azure Active Directory (préversion)
 description: Découvrir les options de connexion sans mot de passe à Azure Active Directory à l’aide de clés de sécurité FIDO2 ou de l’application Microsoft Authenticator
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 01/30/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0d426fb743e6b1ce5d279544f12bcb490d529f9
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: ba579d6da8c759a4653b729f1a471efdedc2baa7
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756791"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505753"
 ---
-# <a name="passwordless-authentication-options"></a>Options d’authentification sans mot de passe
+# <a name="passwordless-authentication-options-for-azure-active-directory"></a>Options d’authentification sans mot de passe pour Azure Active Directory
 
 L’authentification multifacteur (MFA) est un excellent moyen de sécuriser votre organisation, mais les utilisateurs sont souvent déçus de la couche de sécurité supplémentaire en plus de devoir se rappeler leurs mots de passe. Les méthodes d’authentification sans mot de passe sont plus pratiques, car le mot de passe est supprimé et remplacé par quelque chose que vous avez, en plus de quelque chose que vous êtes ou que vous savez.
 
@@ -26,7 +26,7 @@ L’authentification multifacteur (MFA) est un excellent moyen de sécuriser vot
 | --- | --- | --- |
 | Sans mot de passe | Appareil Windows 10, téléphone ou clé de sécurité | Biométrie ou code confidentiel |
 
-Chaque organisation a des besoins différents en matière d’authentification. Microsoft propose trois options d’authentification sans mot de passe :
+Chaque organisation a des besoins différents en matière d’authentification. Microsoft propose les trois options d’authentification sans mot de passe suivantes :
 
 - Windows Hello Entreprise
 - Application Microsoft Authenticator
@@ -36,7 +36,7 @@ Chaque organisation a des besoins différents en matière d’authentification. 
 
 ## <a name="windows-hello-for-business"></a>Windows Hello Entreprise
 
-Windows Hello Entreprise est idéal pour les professionnels de l’information qui disposent de leur propre PC Windows. Les données biométriques et le code confidentiel sont directement liés au PC de l’utilisateur ; personne à part son propriétaire ne peut donc y accéder. Avec l’intégration de l’infrastructure à clé publique (PKI)et la prise en charge intégrée de l’authentification unique (SSO), Windows Hello Entreprise propose une méthode d’accès pratique aux ressources d’entreprise localement et dans le cloud.
+Windows Hello Entreprise est idéal pour les professionnels de l’information qui disposent de leur propre PC Windows. Les données biométriques et le code PIN sont directement liés au PC de l’utilisateur. Personne à part son propriétaire ne peut donc y accéder. Avec l’intégration de l’infrastructure à clé publique (PKI)et la prise en charge intégrée de l’authentification unique (SSO), Windows Hello Entreprise propose une méthode d’accès pratique aux ressources d’entreprise localement et dans le cloud.
 
 Le [guide de planification](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) Windows Hello Entreprise peut vous aider à déterminer le type de déploiement de Windows Hello Entreprise dont vous avez besoin, ainsi que les options à prendre en compte.
 
@@ -52,7 +52,7 @@ L’application Authenticator transforme n’importe quel téléphone iOS ou And
 
 Les clés de sécurité FIDO2 sont une méthode d’authentification sans mot de passe basée sur une norme. Elles ne peuvent pas être usurpées et peuvent s’afficher dans n’importe quel facteur de forme. Fast Identity Online (FIDO) est une norme ouverte d’authentification sans mot de passe. Elle permet aux utilisateurs et aux organisations de tirer parti de la norme pour se connecter à leurs ressources sans nom d’utilisateur ou mot de passe, en utilisant une clé de sécurité externe ou une clé de plateforme intégrée à un appareil.
 
-Avec la préversion publique, les employés peuvent utiliser des clés de sécurité pour se connecter à leurs appareils Windows 10 joints à Azure AD et bénéficier de l’authentification unique sur leurs ressources cloud et locales. Les utilisateurs peuvent également se connecter aux navigateurs pris en charge. Les clés de sécurité FIDO2 constituent une excellente solution pour les entreprises qui sont très sensibles à la sécurité ou ayant des scénarios ou des employés qui ne sont pas prêts à ou capables d’utiliser leur téléphone comme deuxième facteur.
+Avec la préversion publique, les employés peuvent utiliser des clés de sécurité pour se connecter à leurs appareils Windows 10 joints à Azure AD ou à Azure  AD hybride, et bénéficier de l’authentification unique sur leurs ressources cloud et locales. Les utilisateurs peuvent également se connecter aux navigateurs pris en charge. Les clés de sécurité FIDO2 constituent une excellente solution pour les entreprises qui sont très sensibles à la sécurité ou ayant des scénarios ou des employés qui ne sont pas prêts à ou capables d’utiliser leur téléphone comme deuxième facteur.
 
 ![Connectez-vous à Microsoft Edge avec une clé de sécurité](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 

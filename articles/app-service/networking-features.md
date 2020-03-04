@@ -4,15 +4,15 @@ description: Découvrez les fonctionnalités réseau d’Azure App Service ainsi
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 02/27/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 208bf37bfcdf0f86fad11611279d1b4e642fb18a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0fd904b15a830e2b261057a11d1a8f3a4d584fe1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971755"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649224"
 ---
 # <a name="app-service-networking-features"></a>Fonctionnalités de mise en réseau App Service
 
@@ -27,8 +27,8 @@ Azure App Service est un système distribué. Les rôles qui gèrent les requêt
 | Fonctionnalités en entrée | Fonctionnalités en sortie |
 |---------------------|-------------------|
 | Adresse attribuée par l’application | les connexions hybrides |
-| Restrictions d’accès | Passerelle exigeant l’intégration au réseau virtuel |
-| Points de terminaison de service | Intégration au réseau virtuel (préversion) |
+| Restrictions d’accès | Intégration au réseau virtuel avec passerelle obligatoire |
+| Points de terminaison de service | Intégration au réseau virtuel |
 
 Sauf indication contraire, toutes les fonctionnalités peuvent être utilisées ensemble. Vous pouvez combiner les fonctionnalités pour résoudre différents problèmes.
 
@@ -53,10 +53,12 @@ Les cas d’usage en sortie suivants suggèrent comment utiliser les fonctionnal
 | Cas d’usage en sortie | Fonctionnalité |
 |---------------------|-------------------|
 | Accéder à des ressources dans un réseau virtuel Azure situé dans la même région | Intégration au réseau virtuel </br> ASE |
-| Accéder à des ressources dans un réseau virtuel Azure situé dans une région différente | Passerelle exigeant l’intégration au réseau virtuel </br> ASE et peering de réseau virtuel |
+| Accéder à des ressources dans un réseau virtuel Azure situé dans une région différente | Intégration au réseau virtuel avec passerelle obligatoire </br> ASE et peering de réseau virtuel |
 | Accéder à des ressources sécurisées avec des points de terminaison de service | Intégration au réseau virtuel </br> ASE |
 | Accéder à des ressources dans un réseau privé non connecté à Azure | les connexions hybrides |
-| Accéder à des ressources via des circuits ExpressRoute | Intégration au réseau virtuel (restreinte pour les adresses RFC 1918 pour l’instant) </br> ASE | 
+| Accéder à des ressources via des circuits ExpressRoute | Intégration au réseau virtuel </br> ASE | 
+| Sécuriser le trafic sortant à partir de votre application web | Intégration au réseau virtuel et groupes de sécurité réseau </br> ASE | 
+| Router le trafic sortant à partir de votre application web | Intégration au réseau virtuel et tables de route </br> ASE | 
 
 
 ### <a name="default-networking-behavior"></a>Comportement de mise en réseau par défaut
@@ -130,11 +132,11 @@ Cette fonctionnalité est couramment utilisée pour :
 
 Bien que la fonctionnalité Connexions hybrides soit populaire pour le développement, elle est également utilisée dans de nombreuses applications de production. Elle est très utile pour accéder à un service web ou à une base de données, mais elle n’est pas appropriée pour les situations impliquant la création de nombreuses connexions. 
 
-### <a name="gateway-required-vnet-integration"></a>Passerelle exigeant l’intégration au réseau virtuel 
+### <a name="gateway-required-vnet-integration"></a>Intégration au réseau virtuel avec passerelle obligatoire 
 
 La fonctionnalité Passerelle exigeant l’intégration au réseau virtuel App Service permet à votre application d’envoyer des requêtes **sortantes** dans un réseau virtuel Azure. La fonctionnalité fonctionne en connectant l’hôte sur lequel votre application s’exécute à une passerelle de réseau virtuel sur votre réseau virtuel avec une connexion VPN de point à site. Lorsque vous configurez la fonctionnalité, votre application obtient une des adresses de point à site attribuées à chaque instance. Cette fonctionnalité vous permet d’accéder aux ressources dans les réseaux virtuels classiques ou Resource Manager dans une région. 
 
-![Passerelle exigeant l’intégration au réseau virtuel](media/networking-features/gw-vnet-integration.png)
+![Intégration au réseau virtuel avec passerelle obligatoire](media/networking-features/gw-vnet-integration.png)
 
 Cette fonctionnalité résout le problème de l’accès aux ressources dans d’autres réseaux virtuels et peut même être utilisée pour se connecter via un réseau virtuel à d’autres réseaux virtuels, voire à des réseaux locaux. Elle ne fonctionne pas avec des réseaux virtuels connectés à ExpressRoute, mais fonctionne avec des réseaux connectés VPN de site à site. Il est normalement inapproprié d’utiliser cette fonctionnalité à partir d’une application dans un ASE, car l’ASE est déjà dans votre réseau virtuel. Les cas d’usage que cette fonctionnalité traite sont les suivants :
 
@@ -151,10 +153,12 @@ La fonctionnalité Passerelle exigeant l’intégration au réseau virtuel est t
 * D’accéder aux ressources dans les réseaux virtuels Resource Manager de la même région
 * D’accéder à des ressources sécurisées avec des points de terminaison de service 
 * D’accéder à des ressources qui sont accessibles via des connexions ExpressRoute ou VPN
+* De sécuriser tout le trafic sortant 
+* De forcer le mode tunneling sur tout le trafic sortant. 
 
 ![Intégration au réseau virtuel](media/networking-features/vnet-integration.png)
 
-Cette fonctionnalité est en préversion et ne doit pas être utilisée pour les charges de travail en production. Pour en savoir plus sur cette fonctionnalité, lisez la documentation sur [l’intégration au réseau virtuel App Service][vnetintegration].
+Pour en savoir plus sur cette fonctionnalité, lisez la documentation sur [l’intégration au réseau virtuel App Service][vnetintegration].
 
 ## <a name="app-service-environment"></a>Environnement App Service 
 

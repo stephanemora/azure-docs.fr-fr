@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: 7b6bd33346df9496c4c30353b68c11bdd7fad7a2
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b37b386273947f8c39fe182e4f29b7b080addf7b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486391"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605624"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sécurité de l’entreprise pour Azure Machine Learning
 
@@ -37,7 +37,6 @@ L’authentification multifacteur est prise en charge si Azure Active Directory 
 [![Authentification dans Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication-expanded.png#lightbox)
 
 Pour plus d’informations, consultez [Configurer l’authentification pour des ressources et workflows Azure Machine Learning](how-to-setup-authentication.md). Cet article fournit des informations et des exemples sur l’authentification, y compris l’utilisation des principaux de service et des flux de travail automatisés.
-
 
 ### <a name="authentication-for-web-service-deployment"></a>Authentification pour le déploiement de service web
 
@@ -77,6 +76,9 @@ Le tableau suivant liste certaines des principales opérations Azure Machine Lea
 | Appeler un service web | ✓ | ✓ | ✓ |
 
 Si les rôles prédéfinis ne répondent pas à vos besoins, vous pouvez créer des rôles personnalisés. Les rôles personnalisés sont pris en charge uniquement pour les opérations effectuées sur l’espace de travail et la capacité de calcul Machine Learning. Les rôles personnalisés peuvent disposer d’autorisations en lecture, écriture ou suppression sur l’espace de travail et sur la ressource de calcul dans cet espace de travail. Vous pouvez rendre le rôle disponible au niveau d’un espace de travail spécifique, d’un groupe de ressources spécifique ou d’un abonnement spécifique. Pour plus d’informations, consultez [Gérer des utilisateurs et des rôles dans un espace de travail Azure Machine Learning](how-to-assign-roles.md).
+
+> [!WARNING]
+> Azure Machine Learning n’est pas pris en charge dans le cadre de la collaboration interentreprises d’Azure Active Directory.
 
 ### <a name="securing-compute-targets-and-data"></a>Sécurisation des cibles et données de calcul
 

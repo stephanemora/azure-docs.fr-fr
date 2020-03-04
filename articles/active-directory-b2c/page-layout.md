@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 02/26/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2a0a786d3e2135467c7279c76bae273bff0ba2d0
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: b24e8cc5f6bb6213bf021362c5654afd4d5266fb
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149505"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620610"
 ---
 # <a name="page-layout-versions"></a>Versions des mises en page
 
@@ -33,7 +33,7 @@ Les packages de mise en page sont régulièrement mis à jour afin d’ajouter d
 
 - Toutes les pages
   - Correctifs de l’accessibilité
-  - Vous pouvez maintenant ajouter l’attribut `data-preload="true"` dans les balises HTML pour contrôler l’ordre de chargement des fichiers CSS et JavaScript.
+  - Vous pouvez maintenant ajouter l’attribut `data-preload="true"` [dans vos balises HTML](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) pour contrôler l’ordre de chargement des fichiers CSS et JavaScript.
     - Chargez les fichiers CSS liés en même temps que votre modèle HTML, de sorte qu’il n’y ait pas de « scintillement » entre le chargement des fichiers.
     - Contrôlez l’ordre dans lequel vos balises `script` sont récupérées et exécutées avant le chargement de la page.
   - Le champ d’e-mail est désormais `type=email`, et les claviers mobiles fournissent les suggestions appropriées

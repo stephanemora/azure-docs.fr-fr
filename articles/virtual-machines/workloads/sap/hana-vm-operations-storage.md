@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/27/2019
+ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26994c3488feb5f2c1522960ba4d2664bdbc80f4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4cc4db9ffcb700d4b65a7f5c21d258e9af52d164
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707469"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598525"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurations du stockage des machines virtuelles SAP HANA Azure
 
@@ -42,7 +42,7 @@ Les conditions certifiée SAP HANA minimales pour les différents types de stock
 - Disque Ultra Azure au moins pour le volume /hana/log. Le volume /hana/data peut être placé sur SSD Premium sans Accélérateur d’écriture Azure ou sur disque Ultra pour accélérer les temps de redémarrage
 - Volumes **NFS v4.1** par-dessus Azure NetApp Files pour /hana/log **et** /hana/data. Le volume de/hana/shared peut utiliser le protocole NFS v3 ou NFS v4.1. Le protocole NFS v4.1 est obligatoire pour les volumes /hana/data et /hana/log.
 
-Certains types de stockage peuvent être combinés. Par exemple, il est possible de placer /hana/data sur un Stockage Premium, et /hana/log sur un stockage disque Ultra afin d’obtenir la faible latence requise. Toutefois, si vous utilisez un volume NFS v4.1 basé sur ANF pour /hana/data, vous devez utiliser un autre volume NFS v4.1 basé sur ANF pour /hana/log. L’utilisation de NFS en plus d’ANF pour l’un des volumes (comme /hana/data) et du stockage Premium Azure ou d’un disque Ultra pour l’autre volume (comme /hana/log) n’est **pas prise en charge**.
+Certains types de stockage peuvent être combinés. Par exemple, il est possible de placer /hana/data sur un stockage Premium et /hana/log sur un disque de stockage Ultra afin d’obtenir la faible latence requise. Toutefois, si vous utilisez un volume NFS v4.1 basé sur ANF pour /hana/data, vous devez utiliser un autre volume NFS v4.1 basé sur ANF pour /hana/log. L’utilisation de NFS en plus d’ANF pour l’un des volumes (comme /hana/data) et du stockage Premium Azure ou d’un disque Ultra pour l’autre volume (comme /hana/log) n’est **pas prise en charge**.
 
 Localement, vous aviez rarement besoin de vous occuper des sous-systèmes d’E/S et de leurs fonctionnalités. En effet, le fournisseur d’appliance devait s’assurer que les exigences de stockage minimales étaient remplies pour SAP HANA. Comme vous générez l’infrastructure Azure vous-même, vous devez connaître certaines de ces conditions requises par SAP. Certaines des caractéristiques de débit minimal requises par SAP le sont pour :
 
@@ -54,8 +54,11 @@ Localement, vous aviez rarement besoin de vous occuper des sous-systèmes d’E/
 
 **Recommandation : utilisez les tailles de bande recommandées suivantes pour le disque RAID 0 :**
 
-- 64 Ko ou 128 Ko pour  **/hana/data**
+- 256 Ko pour **/hana/data**
 - 32 Ko pour **/hana/log**
+
+> [!IMPORTANT]
+> La taille de bande pour /hana/data a été modifiée par rapport aux recommandations antérieures demandant 64 Ko ou 128 Ko à 256 Ko, en fonction des expériences client avec les versions plus récentes de Linux. La taille de 256 Ko offre des performances légèrement meilleures
 
 > [!NOTE]
 > Vous n’avez pas besoin de configurer un niveau de redondance avec des volumes RAID, car les stockages Azure Premium et Standard conservent trois images d’un disque dur virtuel. L’utilisation d’un volume RAID a pour but principal de configurer des volumes qui fournissent un débit d’E/S suffisant.
@@ -65,7 +68,7 @@ L’augmentation du nombre de disques durs virtuels Azure sous un volume RAID a 
 Gardez également à l’esprit le débit d’E/S de machine virtuelle global lors du dimensionnement ou du choix d’une machine virtuelle. Le débit de stockage de machine virtuelle global est décrit dans l’article [Tailles de machine virtuelle à mémoire optimisée](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory).
 
 ## <a name="linux-io-scheduler-mode"></a>Mode Planificateur d’E-S Linux
-Linux dispose de plusieurs modes de planification d’E-S. Les fournisseurs Linux et SAP recommandent unanimement de faire passer le mode planificateur d’E/S de **cfq** à **noop** pour les volumes de disque. Pour plus de détails à ce sujet, consultez la [Note SAP 1984787](https://launchpad.support.sap.com/#/notes/1984787). 
+Linux dispose de plusieurs modes de planification d’E-S. Les fournisseurs Linux et SAP recommandent couramment de remplacer le mode planificateur d’E/S **cfq** par **noop** (absence de plusieurs files d’attente) ou **none** (plusieurs files d’attente) pour les volumes de disque. Pour plus de détails à ce sujet, consultez la [Note SAP 1984787](https://launchpad.support.sap.com/#/notes/1984787). 
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Solutions avec Stockage Premium et Accélérateur d’écriture Azure pour les machines virtuelles Azure de la série M
@@ -79,7 +82,7 @@ Les suggestions de mise en cache indiquées plus bas supposent que SAP HANA pré
 - Il n’y a pratiquement aucune charge de travail de lecture sur les fichiers de données HANA. Les exceptions sont les E/S volumineuses après le redémarrage de l’instance HANA ou quand les données sont chargées dans HANA. Les sauvegardes de base de données HANA peuvent constituer un autre cas d’E/S en lecture plus volumineuses sur des fichiers de données. Ainsi, la mise en cache en lecture n’est pas pertinente car, dans la plupart des cas, tous les volumes de fichiers de données doivent être lus complètement.
 - Les points de sauvegarde HANA et la récupération sur incident HANA donnent lieu à des écritures en rafales dans les fichiers de données. L’écriture de point de sauvegarde est asynchrone et n’accapare pas de transactions utilisateur. L’écriture de données au cours d’une récupération sur incident est critique pour les performances et la réactivité du système. Toutefois, une récupération sur incident doit intervenir dans des situations plutôt exceptionnelles.
 - Il n’y a pratiquement pas de lectures à partir des fichiers de restauration par progression HANA. Les exceptions sont les grandes E/S pendant les sauvegardes de fichier journal, une récupération sur incident ou le redémarrage d’une instance HANA.  
-- La charge principale par rapport au fichier journal de restauration par progression SAP HANA est constituée d’écritures. Selon la nature de la charge de travail, la tailles des E/S peut aller de 4 Ko à 1 Mo, voire plus. La latence des écritures par rapport au journal de restauration par progression SAP HANA est critique pour les performances.
+- La charge principale par rapport au fichier journal de restauration par progression SAP HANA est constituée d’écritures. Selon la nature de la charge de travail, la taille des E/S peut aller de 4 Ko à 1 Mo, voire plus. La latence des écritures par rapport au journal de restauration par progression SAP HANA est critique pour les performances.
 - Toutes les écritures doivent être rendues persistantes sur le disque de manière fiable.
 
 **Recommandation : pour observer ces modèles d’E/S définis par SAP HANA, vous devez paramétrer la mise en cache pour les différents volumes à l’aide du Stockage Premium Azure comme suit :**
@@ -114,7 +117,7 @@ Les recommandations vont souvent au-delà des conditions minimales requise par S
 | M416s_v2 | 5 700 Gio | 2 000 Mo/s | 4 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P50 |
 | M416ms_v2 | 11 400 Gio | 2 000 Mo/s | 8 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 4 x P50 |
 
-Vérifiez que le débit de stockage des différents volumes suggérés est suffisant pour la charge de travail à exécuter. Si la charge de travail nécessite de plus grands volumes pour **/hana/data** et **/hana/log**, augmentez le nombre de disques durs virtuels de stockage Azure Premium. Le dimensionnement d’un volume en ajoutant plus de disques durs virtuels que le nombre suggéré permet d’augmenter le débit d’IOPS et d’E/S dans les limites définies pour le type de machine virtuelle Azure.
+Vérifiez que le débit de stockage des différents volumes suggérés est suffisant pour la charge de travail à exécuter. Si la charge de travail nécessite de plus grands volumes pour **/hana/data** et **/hana/log**, augmentez le nombre de disques durs virtuels de stockage Azure Premium. Le dimensionnement d’un volume avec davantage de disques durs virtuels que le nombre suggéré permet d’augmenter le débit d’IOPS et d’E/S dans les limites définies pour le type de machine virtuelle Azure.
 
 L’Accélérateur des écritures Azure fonctionne uniquement en association avec des [disques managés Azure](https://azure.microsoft.com/services/managed-disks/). Cela signifie que les disques de stockage Azure Premium constituant le volume **/hana/log** doivent être déployés en tant que disques managés.
 
@@ -163,7 +166,7 @@ Les recommandations vont souvent au-delà des conditions minimales requise par S
 
 
 Les disques recommandés pour les types de machines virtuelles les plus petits avec 3 x P20 dépassent la taille des volumes en ce qui concerne les recommandations d’espace selon le [livre blanc de stockage TDI SAP](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Toutefois, le choix affiché dans le tableau a été effectué pour fournir un débit de disque suffisant pour SAP HANA. La taille indiquée pour le volume **/hana/backup** a été fixée pour permettre la conservation de sauvegardes représentant deux fois le volume de mémoire, mais vous pouvez ajuster ce paramètre selon vos besoins.   
-Vérifiez que le débit de stockage des différents volumes suggérés est suffisant pour la charge de travail à exécuter. Si la charge de travail nécessite de plus grands volumes pour **/hana/data** et **/hana/log**, augmentez le nombre de disques durs virtuels de stockage Azure Premium. Le dimensionnement d’un volume en ajoutant plus de disques durs virtuels que le nombre suggéré permet d’augmenter le débit d’IOPS et d’E/S dans les limites définies pour le type de machine virtuelle Azure. 
+Vérifiez que le débit de stockage des différents volumes suggérés est suffisant pour la charge de travail à exécuter. Si la charge de travail nécessite de plus grands volumes pour **/hana/data** et **/hana/log**, augmentez le nombre de disques durs virtuels de stockage Azure Premium. Le dimensionnement d’un volume avec davantage de disques durs virtuels que le nombre suggéré permet d’augmenter le débit d’IOPS et d’E/S dans les limites définies pour le type de machine virtuelle Azure. 
 
 > [!NOTE]
 > Les configurations ci-dessus ne bénéficient PAS du [contrat SLA de machine virtuelle Azure à instance unique](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_6/), car elles utilisent à la fois le stockage Azure Premium et le stockage Azure Standard. Toutefois, ce choix a été fait dans le but d’optimiser les coûts. Vous devez choisir Stockage Premium pour tous les disques ci-dessus qui sont répertoriés comme Azure Standard Storage (Sxx) pour que la configuration de la machine virtuelle soit compatible avec le contrat de niveau de service de machine virtuelle unique Azure.

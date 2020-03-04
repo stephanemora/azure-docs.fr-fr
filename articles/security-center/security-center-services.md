@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 7ffab200b50a7c4d1af60a230f237b18e8afc621
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 8d905da733ea0573b91b289da43684ed8083c804
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754228"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616382"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Fonctionnalités prises en charge disponibles dans Azure Security Center
 
@@ -33,15 +33,15 @@ Les sections suivantes présentent les fonctionnalités de Security Center dispo
 
 ## Fonctionnalités prises en charge par les machines virtuelles / serveurs <a name="vm-server-features"></a>
 
-### <a name="windowstabfeatures-windows"></a>[Windows](#tab/features-windows)
+### <a name="windows"></a>[Windows](#tab/features-windows)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 ||**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines non-Azure**|**Tarification**
 |[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|standard|
-|[Alertes de détection des menaces – Analytique comportementale des machines virtuelles](security-center-alerts-iaas.md)|✔|✔|✔|Recommandations (Gratuit) Détection des menaces (Standard)|
+|[Alertes de détection des menaces – Analytique comportementale des machines virtuelles](threat-protection.md)|✔|✔|✔|Recommandations (Gratuit) Détection des menaces (Standard)|
 |[Alertes de détection des menaces sans fichier](alerts-reference.md#alerts-windows)|✔|✔|✔|standard|
-|[Alertes de détection des menaces réseau](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|standard|
+|[Alertes de détection des menaces réseau](threat-protection.md#network-layer)|✔|✔|-|standard|
 |[Accès juste-à-temps aux machines virtuelles](security-center-just-in-time.md)|✔|-|-|standard|
 |[Évaluation native des vulnérabilités](built-in-vulnerability-assessment.md)|✔|-|-|standard|
 |[Supervision de l’intégrité des fichiers](security-center-file-integrity-monitoring.md)|✔|✔|✔|standard|
@@ -59,7 +59,7 @@ Les sections suivantes présentent les fonctionnalités de Security Center dispo
 |[Évaluation de la sécurité réseau](security-center-network-recommendations.md)|✔|✔|-|Gratuit|
 
 
-### <a name="linuxtabfeatures-linux"></a>[Linux](#tab/features-linux)
+### <a name="linux"></a>[Linux](#tab/features-linux)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
@@ -67,7 +67,7 @@ Les sections suivantes présentent les fonctionnalités de Security Center dispo
 |[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|standard|
 |[Alertes de détection des menaces – Analytique comportementale des machines virtuelles](security-center-alerts-iaas.md)|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|Recommandations (Gratuit) Détection des menaces (Standard)|
 |[Alertes de détection des menaces sans fichier](alerts-reference.md#alerts-windows)|-|-|-|standard|
-|[Alertes de détection des menaces réseau](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|standard|
+|[Alertes de détection des menaces réseau](threat-protection.md#network-layer)|✔|✔|-|standard|
 |[Accès juste-à-temps aux machines virtuelles](security-center-just-in-time.md)|✔|-|-|standard|
 |[Évaluation native des vulnérabilités](built-in-vulnerability-assessment.md)|✔|-|-|standard|
 |[Supervision de l’intégrité des fichiers](security-center-file-integrity-monitoring.md)|✔|✔|✔|standard|
@@ -133,7 +133,7 @@ Azure Security Center prend en charge les ressources PaaS suivantes :
 |Subnet|✔|-|-|
 |Carte d’interface réseau|✔|-|-|
 |Network Security Group|✔|-|-|
-|Subscription|✔ **|✔|-|
+|Abonnement|✔ **|✔|-|
 |Compte Batch|✔|-|-|
 |Compte Service Fabric|✔|-|-|
 |Compte Automation|✔|-|-|
@@ -159,5 +159,5 @@ Azure Security Center prend en charge les ressources PaaS suivantes :
 - [Découvrez comment planifier l’adoption d’Azure Security Center et prenez connaissance des considérations relatives à la conception](security-center-planning-and-operations-guide.md).
 - Passez en revue les [plateformes qui prennent en charge Security Center](security-center-os-coverage.md).
 - Apprenez-en davantage sur la [détection des menaces pour les machines virtuelles et les serveurs dans Azure Security Center](security-center-alerts-iaas.md).
-- Découvrez [les réponses aux questions le plus souvent posées sur l’utilisation d’Azure Security Center](security-center-faq.md).
+- Accédez aux [Questions fréquentes (FAQ) sur Azure Security Center](faq-general.md).
 - Accédez à des [billets de blog sur la sécurité et la conformité Azure](https://blogs.msdn.com/b/azuresecurity/).

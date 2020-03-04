@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/21/2020
+ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56b78f4296709206cefb762c87d4d1471bff2df7
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 2c3c52fc85e6c915587db27a3f5ce247fd05ea51
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291513"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598321"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure
 
@@ -48,10 +48,13 @@ Au cours de cette phase, vous planifiez la migration de votre charge de travail 
     - L’architecture de continuité d’activité et de reprise d’activité.
     - Informations détaillées sur les versions des packs de support SE, DB, noyau et SAP. Toutes les versions de SE prises en charge par SAP NetWeaver ou S/4HANA ne sont pas nécessairement prises en charge sur les machines virtuelles Azure. Il en va de même pour les versions de SGBD. Vérifiez les sources suivantes pour aligner et, si nécessaire, mettre à niveau les versions de SAP, les versions de SGBD et les versions de SE afin de garantir le support SAP et Azure. Vous devez disposer de combinaisons de mises en production prises en charge par SAP et Azure pour bénéficier du support complet de SAP et Microsoft. Si nécessaire, planifiez la mise à niveau de certains composants logiciels. Vous trouverez plus de détails sur les logiciels SAP, SE et SGBD pris en charge ici :
         - [Note de support SAP n° 1928533](https://launchpad.support.sap.com/#/notes/1928533). Cette note définit les versions minimum des SE prises en charge sur les machines virtuelles Azure. Elle définit également les versions minimum requises pour la plupart des bases de données non HANA. Enfin, elle indique le dimensionnement SAP pour les types de machines virtuelles Azure pris en charge par SAP.
+        - [Note de support SAP n° 2015553](https://launchpad.support.sap.com/#/notes/2015553). Cette note définit des stratégies de support concernant le stockage Azure et la relation de support nécessaire avec Microsoft.
         - [Note de support SAP n° 2039619](https://launchpad.support.sap.com/#/notes/2039619). Cette note définit la matrice de prise en charge Oracle pour Azure. Windows et Oracle Linux sont les seuls systèmes d’exploitation pris en charge par Oracle en tant que systèmes d’exploitation invités dans les charges de travail Azure pour SAP. Cette instruction s’applique également à la couche Application SAP qui exécute les instances SAP. Toutefois, Oracle ne prend pas en charge la haute disponibilité pour les services SAP Central Services dans Oracle Linux par le biais de Pacemaker. Si vous avez besoin de la haute disponibilité pour ASCS sur Oracle Linux, vous devez utiliser SIOS Protection Suite pour Linux. Pour obtenir des données de certification SAP détaillées, consultez la note de support SAP [n° 1662610 - Détails de prise en charge pour SIOS Protection Suite pour Linux](https://launchpad.support.sap.com/#/notes/1662610). Pour Windows, la solution Clustering de basculement Windows Server prise en charge par SAP pour SAP Central Services est prise en charge conjointement avec Oracle comme couche SGBD.
         - [Note de support SAP n° 2235581](https://launchpad.support.sap.com/#/notes/2235581). Cette note fournit la matrice de prise en charge de SAP HANA sur les différentes versions de SE.
         - Les machines virtuelles Azure prises en charge par SAP HANA et les [Grandes instances HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) sont répertoriées sur le [site web de SAP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure).
         - [Tableau de disponibilité des produits SAP](https://support.sap.com/en/).
+        - [Note de support SAP n° 2555629 - SAP HANA 2.0 Dynamic Tiering – Prise en charge de l’hyperviseur et du cloud](https://launchpad.support.sap.com/#/notes/2555629)
+        - [Note de support SAP n° 1662610 - Détails de prise en charge pour SIOS Protection Suite pour Linux](https://launchpad.support.sap.com/#/notes/1662610)
         - Notes SAP pour d’autres produits SAP spécifiques.     
     - Nous recommandons des conceptions strictes à trois niveaux pour les systèmes de production SAP. Nous vous déconseillons de combiner ASCS, DBMS et/ou les serveurs d’applications sur une même machine virtuelle. Azure prend en charge l’utilisation de configurations de cluster multi-SID pour SAP Central Services sur les systèmes d’exploitation Windows invités sur Azure. Toutefois, cette configuration n’est pas prise en charge pour SAP Central Services sur les systèmes d’exploitation Linux sur Azure. Vous trouverez la documentation du scénario du système d’exploitation invité Windows dans les articles suivants :
         - [Haute disponibilité multi-SID pour une instance SAP ASCS/SCS avec le clustering de basculement Windows Server et un disque partagé sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
@@ -148,6 +151,21 @@ Nous vous recommandons de configurer et de valider une solution complète HADR e
             - SameSubNetDelay = 2000
             - SameSubNetThreshold = 15
             - RoutingHistorylength = 30
+    6. Paramètres ou correctifs du système d’exploitation
+        - Pour exécuter HANA sur SAP, lisez les notes et les documents suivants :
+            -   [Note de support SAP n° 2814271 - La sauvegarde SAP HANA échoue sur Azure avec une erreur de somme de contrôle](https://launchpad.support.sap.com/#/notes/2814271)
+            -   [Note de support SAP n° 2753418 - Dégradation potentielle des performances en raison du repli du minuteur](https://launchpad.support.sap.com/#/notes/2753418)
+            -   [Note de support SAP n° 2791572 - Dégradation des performances en raison de la prise en charge VDSO manquante pour Hyper-V dans Azure](https://launchpad.support.sap.com/#/notes/2791572)
+            -   [Note de support SAP n° 2382421 - Optimisation de la configuration réseau au niveau HANA et du système d’exploitation](https://launchpad.support.sap.com/#/notes/2382421)
+            -   [Note de support SAP n° 2694118 - Module complémentaire de haute disponibilité Red Hat Enterprise Linux sur Azure](https://launchpad.support.sap.com/#/notes/2694118)
+            -   [Note de support SAP n° 1984787 - SUSE Linux Enterprise Server 12 : notes d’installation](https://launchpad.support.sap.com/#/notes/1984787)
+            -   [Note de support SAP #2002167 - Red Hat Enterprise Linux 7.x : installation et mise à niveau](https://launchpad.support.sap.com/#/notes/0002002167)
+            -   [Note de support SAP #2292690 - SAP HANA DB : Paramètres de système d’exploitation recommandés pour RHEL 7](https://launchpad.support.sap.com/#/notes/0002292690)
+            -   [Note de support SAP n° 2772999 - Red Hat Enterprise Linux 8.x : installation et configuration](https://launchpad.support.sap.com/#/notes/2772999)
+            -   [Note de support SAP n° 2777782 - SAP HANA DB : paramètres de système d’exploitation recommandés pour RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
+            -   [Note de support SAP n° 2578899 - SUSE Linux Enterprise Server 15 : note d’installation](https://launchpad.support.sap.com/#/notes/2578899)
+            -   [note de support SAP n° https://launchpad.support.sap.com/#/notes/0002455582)(https://launchpad.support.sap.com/#/notes/0002455582)
+            -    [Note de support SAP n° 2729475 - Échec de HWCCT avec une erreur de type « L’hyperviseur n’est pas pris en charge » sur les machines virtuelles Azure certifiées pour SAP HANA](https://launchpad.support.sap.com/#/notes/2729475)
 1. Testez vos procédures de haute disponibilité et de récupération d’urgence.
    1. Simulez les situations de basculement en arrêtant les machines virtuelles (systèmes d’exploitation invités Windows) ou en plaçant les systèmes d’exploitation en mode urgence (systèmes d’exploitation invités Linux). Cette étape vous permet de déterminer si vos configurations de basculement fonctionnent comme prévu.
    1. Mesurez le temps nécessaire à l’exécution d’un basculement. Si les délais sont trop longs, tenez compte des éléments suivants :
@@ -188,7 +206,7 @@ Au cours de cette phase, vous déployez généralement des systèmes de dévelop
 10. À l’issue du déploiement de l’infrastructure, testez et évaluez la latence du réseau entre les machine virtuelles de la couche Application SAP et celles de la couche SGBD, conformément aux notes de support SAP [n° 500235](https://launchpad.support.sap.com/#/notes/500235) et [n° 1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Évaluez les résultats par rapport aux indications de latence du réseau de la [note de support SAP n° 1100926](https://launchpad.support.sap.com/#/notes/1100926/E). La latence du réseau doit être modérée ou bonne. Des exceptions s’appliquent au trafic entre les machines virtuelles et les grandes instances HANA, comme indiqué dans la documentation disponible dans [cet article](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance). Assurez-vous qu’aucune des restrictions mentionnées dans [Facteurs à prendre en compte dans le cadre du déploiement SGBD des machines virtuelles Azure pour les charges de travail SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#azure-network-considerations) et dans [Configurations et opérations de l’infrastructure SAP HANA sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations) ne s’applique à votre déploiement.
 11. Assurez-vous que vos machines virtuelles sont déployées avec le [groupe de placements de proximité Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) adéquat, comme décrit dans [Groupes de placements de proximité Azure pour une latence réseau optimale avec les applications SAP](sap-proximity-placement-scenarios.md).
 11. Effectuez toutes les autres vérifications de la preuve de concept avant d’appliquer la charge de travail.
-12. Au fur et à mesure que la charge de travail s’applique, enregistrez la consommation de ressources des systèmes dans Azure. Comparez cette consommation avec les enregistrements de votre ancienne plateforme. Ajustez le dimensionnement des machines virtuelles des futurs déploiements si vous constatez des différences importantes. Gardez à l’esprit que lorsque vous effectuez un redimensionnement, le stockage et la bande passante réseau des machines virtuelles seront également réduits.
+12. Au fur et à mesure que la charge de travail s’applique, enregistrez la consommation de ressources des systèmes dans Azure. Comparez cette consommation avec les enregistrements de votre ancienne plateforme. Ajustez le dimensionnement des machines virtuelles des futurs déploiements si vous constatez des différences importantes. Gardez à l’esprit que, quand vous réduisez la taille, le stockage et la bande passante réseau des machines virtuelles sont également réduits.
     - [Tailles des machines virtuelles Windows dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)
     - [Tailles des machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 13. Expérimentez la fonctionnalité et les processus de copie du système. L’objectif est de faciliter la copie d’un système de développement ou d’un système de test afin que les équipes de projet bénéficient rapidement de nouveaux systèmes. Envisagez d’utiliser [SAP LaMa](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) pour ces tâches.
@@ -209,7 +227,7 @@ Au cours de cette phase, recueillez ce que vous avez appris dans vos déploiemen
     - Utilisez le processus [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) si vous avez besoin de combiner votre migration avec une mise à niveau de version SAP. N’oubliez pas que certaines combinaisons entre les SGBD source et cible ne sont pas prises en charge. Pour plus d’informations, reportez-vous aux notes de support SAP spécifiques aux différentes versions de DMO. Par exemple, [Outil Database Migration Option (DMO) de SUM 2.0 SP04](https://launchpad.support.sap.com/#/notes/2644872).
     - Vérifiez si le débit de transfert de données est meilleur via Internet ou via ExpressRoute, au cas où vous auriez besoin de déplacer des sauvegardes ou des fichiers d’exportation SAP. Si vous déplacez des données via Internet, vous devrez peut-être modifier certaines des règles de votre groupe de sécurité réseau/groupe de sécurité d’application à mettre en place pour les futurs systèmes de production.
 1.  Avant de migrer des systèmes de votre ancienne plateforme vers Azure, collectez les données de consommation des ressources. Les données utiles incluent l’utilisation du processeur, le débit de stockage et les données IOPS. En particulier, collectez ces données non seulement à partir des unités de la couche SGBD, mais aussi à partir des unités de la couche Application. Mesurez également la latence du réseau et du stockage.
-1.  Vérifiez à nouveau les notes de support SAP, le répertoire matériel SAP HANA et SAP PAM. Assurez-vous qu’aucune modification n’est apportée aux machines virtuelles prises en charge pour Azure, aux versions de système d’exploitation prises en charge dans ces machines virtuelles et aux versions SAP et de SGBD.
+1.  Vérifiez à nouveau les notes de support SAP et les paramètres de système d’exploitation requis, le répertoire matériel SAP HANA et SAP PAM. Assurez-vous qu’aucune modification n’est apportée aux machines virtuelles prises en charge pour Azure, aux versions de système d’exploitation prises en charge dans ces machines virtuelles et aux versions SAP et de SGBD.
 1.  Mettez à jour les scripts de déploiement pour prendre en compte les dernières décisions que vous avez prises sur les types de machines virtuelles et les fonctionnalités Azure.
 1.  Après le déploiement de l’infrastructure et des applications, vérifiez que :
     - Les types de machines virtuelles appropriés ont été déployés avec les attributs et les tailles de stockage qui conviennent.
@@ -219,7 +237,7 @@ Au cours de cette phase, recueillez ce que vous avez appris dans vos déploiemen
     - Les machines virtuelles ont été déployées comme prévu dans les groupes à haute disponibilité Azure.
     - Le Stockage Premium Azure est utilisé pour les disques sensibles à la latence ou lorsque le [Contrat de niveau de service garantissant une disponibilité de 99,9 % des machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) est requis.
     - L’Accélérateur d’écriture Azure est déployé correctement.
-        - Assurez-vous que, dans les machines virtuelles, les espaces de stockage ou les jeux d’agrégats par bandes ont été correctement générés sur les disques nécessitant l’Accélérateur d’écriture.
+        - Assurez-vous que, dans les machines virtuelles, les espaces de stockage ou les jeux d’agrégats par bandes ont été correctement générés sur les disques nécessitant l’accélérateur d’écriture.
         - Vérifiez la [configuration du logiciel RAID sur Linux](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid).
         - Vérifiez la [configuration de LVM sur les machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm).
     - Seuls des [disques managés Azure](https://azure.microsoft.com/services/managed-disks/) sont utilisés.

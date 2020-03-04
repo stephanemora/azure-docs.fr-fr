@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a65145fe9752a90e3328c308ce603c8626d8708
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7f7f6f31c4d2f67660fef507ce101b2d15897d51
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380861"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620851"
 ---
-# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Activation Bloquer l’authentification héritée à Microsoft Azure AD avec l’accès conditionnel   
+# <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procédure : Bloquer l’authentification héritée à Microsoft Azure AD avec l’accès conditionnel   
 
 Pour permettre à vos utilisateurs d’accéder facilement à vos applications cloud, Azure Active Directory (Azure AD) prend en charge un large éventail de protocoles d’authentification, notamment l’authentification héritée. Toutefois, les protocoles hérités ne prennent pas en charge l’authentification multifacteur (MFA). L’authentification multifacteur est couramment requise dans de nombreux environnements pour lutter contre l’usurpation d’identité. 
 
@@ -42,23 +42,40 @@ l’authentification à un seul facteur (par exemple le nom d’utilisateur et l
 
 Comment pouvez-vous empêcher les applications utilisant l’authentification héritée d’accéder aux ressources de votre locataire ? Il est recommandé de les bloquer à l’aide d’une stratégie d’accès conditionnel, tout simplement. Si nécessaire, vous pouvez autoriser uniquement certains utilisateurs et des emplacements réseau spécifiques à utiliser les applications s’appuyant sur l’authentification héritée.
 
-Des stratégies d’accès conditionnel sont appliquées au terme de la première authentification à un facteur. L’accès conditionnel ne constitue donc pas une première ligne de défense dans des scénarios comme les attaques par déni de service, mais il peut utiliser des signaux émanant de ces événements (par exemple, le niveau de risque de connexion, l’emplacement de la requête, etc.) pour déterminer l’accès.
+Des stratégies d’accès conditionnel sont appliquées au terme de l’authentification premier facteur. L’accès conditionnel ne constitue donc pas une première ligne de défense dans des scénarios comme les attaques par déni de service, mais il peut utiliser des signaux émanant de ces événements (par exemple, le niveau de risque de connexion, l’emplacement de la requête, etc.) pour déterminer l’accès.
 
 ## <a name="implementation"></a>Implémentation
 
 Cette section explique comment configurer une stratégie d’accès conditionnel afin de bloquer l’authentification héritée. 
 
-### <a name="identify-legacy-authentication-use"></a>Une authentification héritée est utilisée
+### <a name="legacy-authentication-protocols"></a>Protocoles d’authentification hérités
+
+Les options suivantes sont considérées comme des protocoles d’authentification hérités.
+
+- SMTP authentifié : utilisé par les clients POP et IMAP pour envoyer des e-mails.
+- Découverte automatique : utilisé par les clients Outlook et EAS pour rechercher des boîtes aux lettres dans Exchange Online et s’y connecter.
+- Exchange Online PowerShell : utilisé pour se connecter à Exchange Online à l’aide de PowerShell à distance. Si vous bloquez l’authentification de base pour Exchange Online PowerShell, vous devez utiliser le module Exchange Online PowerShell pour vous connecter. Pour obtenir des instructions, consultez [Se connecter à Exchange Online PowerShell à l’aide de l’authentification multifacteur](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+- Exchange Web Services (EWS) : interface de programmation utilisée par Outlook, Outlook pour Mac et des applications tierces.
+- IMAP4 : utilisé par les clients de messagerie IMAP.
+- MAPI sur HTTP (MAPI/HTTP) : utilisé par Outlook 2010 et versions ultérieures.
+- Carnet d’adresses hors connexion (OAB) : copie des collections de listes d’adresses qui sont téléchargées et utilisées par Outlook.
+- Outlook Anywhere (RPC sur HTTP) : utilisé par Outlook 2016 et antérieur.
+- Service Outlook : utilisé par l’application Courrier et calendrier pour Windows 10.
+- POP3 : utilisé par les clients de messagerie POP.
+- Reporting Web Services : utilisé pour récupérer des données de rapports dans Exchange Online.
+- Autres clients : autres protocoles identifiés comme utilisant l’authentification héritée.
+
+### <a name="identify-legacy-authentication-use"></a>Identifier l’utilisation de l’authentification héritée
 
 Avant de pouvoir bloquer l’authentification héritée dans votre annuaire, vous devez savoir si vos utilisateurs disposent d’applications qui utilisent l’authentification héritée, puis déterminer quel impact cela a sur l’ensemble de votre annuaire. Les journaux de connexion Azure AD peuvent servir à déterminer si vous utilisez une authentification héritée.
 
 1. Accédez au **portail Azure** > **Azure Active Directory** > **Connexions**.
 1. Si elle n’est pas affichée, ajoutez la colonne Application cliente en cliquant sur **Colonnes** > **Application cliente**.
-1. **Ajouter des filtres** > **Application cliente** > sélectionnez toutes les options pour **Autres clients**, puis cliquez sur **Appliquer**.
+1. **Ajouter des filtres** > **Application cliente** > sélectionnez tous les protocoles d’authentification hérités, puis cliquez sur **Appliquer**.
 
 Grâce au filtrage, vous afficherez uniquement les tentatives de connexion effectuées via des protocoles d’authentification héritée. Cliquez sur chaque tentative de connexion pour afficher des détails supplémentaires. Le champ **Application cliente** affiché sous l’onglet **Informations de base** indique quel protocole d’authentification héritée a été utilisé.
 
-Ces journaux identifie les utilisateurs qui continuent de tirer parti de la fonction d’authentification héritée, ainsi que les applications qui utilisent les protocoles hérités pour effectuer des requêtes d’authentification. Implémentez une stratégie d’accès conditionnel réservée aux utilisateurs non affichés dans ces journaux et dont vous êtes certain qu’ils n’utilisent pas l’authentification héritée.
+Ces journaux identifient les utilisateurs qui continuent de tirer parti de la fonction d’authentification héritée, ainsi que les applications qui utilisent les protocoles hérités pour effectuer des requêtes d’authentification. Implémentez une stratégie d’accès conditionnel réservée aux utilisateurs non affichés dans ces journaux et dont vous êtes certain qu’ils n’utilisent pas l’authentification héritée.
 
 ### <a name="block-legacy-authentication"></a>Bloquer l’authentification héritée 
 
@@ -74,11 +91,11 @@ Pour bloquer l’accès à ces applications, vous devez sélectionner **Bloquer 
 
 Pour bloquer l’authentification héritée pour votre organisation, vous seriez peut-être tenté de sélectionner les éléments suivants :
 
-- Tous les utilisateurs
+- tous les utilisateurs
 - Toutes les applications cloud
 - Bloquer l’accès
 
-![Affectations](./media/block-legacy-authentication/03.png)
+![Attributions](./media/block-legacy-authentication/03.png)
 
 Azure inclut une fonction de sécurité qui vous empêche de créer une telle stratégie, car cette configuration ne respecte pas les [meilleures pratiques](best-practices.md) en matière de stratégies d’accès conditionnel.
  

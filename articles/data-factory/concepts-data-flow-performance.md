@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 01/25/2020
-ms.openlocfilehash: ff128d148abb87959894aee94d257ae71a3ca65e
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 02/24/2020
+ms.openlocfilehash: 9236fab332758308ceb8bde1f83a9f3ac8ee6789
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773843"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587581"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -36,7 +36,7 @@ Lors de la conception de flux de données de mappage, vous pouvez effectuer un t
 
 Un runtime d’intégration avec davantage de cœurs augmente le nombre de nœuds dans les environnements de calcul Spark et fournit davantage de puissance de traitement pour lire, écrire et transformer vos données.
 * Essayez un cluster **optimisé pour le calcul** si vous voulez que votre vitesse de traitement soit supérieure à votre vitesse d’entrée.
-* Essayez un cluster **à mémoire optimisée** si vous voulez mettre en cache plus de données en mémoire.
+* Essayez un cluster **à mémoire optimisée** si vous voulez mettre en cache plus de données en mémoire. L’option À mémoire optimisée a un coût plus élevé par cœur que l’option Optimisé pour le calcul, mais elle permettra probablement d’obtenir des vitesses de transformation plus rapides.
 
 ![Nouveau runtime d'intégration](media/data-flow/ir-new.png "Nouveau runtime d'intégration")
 
@@ -87,17 +87,24 @@ Dans votre pipeline, ajoutez une [Activité de procédure stockée](transform-da
 
 Planifiez un redimensionnement de vos bases de données Azure SQL DB et Azure SQL DW de source et de récepteur avant l’exécution de votre pipeline pour augmenter le débit et réduire la limitation de requêtes Azure une fois que vous atteignez les limites DTU. Une fois l’exécution de votre pipeline terminée, redimensionnez vos bases de données à leur fréquence d’exécution normale.
 
-### <a name="azure-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Azure SQL DW uniquement] Utiliser la préproduction pour charger des données en bloc par le biais de PolyBase
+* La transformation d’une table source SQL DB comportant 887 000 lignes et 74 colonnes en une table SQL DB comportant une seule colonne dérivée prend environ 3 minutes de bout en bout à l’aide de runtimes d’intégration Azure de débogage à 80 cœurs et à mémoire optimisée.
+
+### <a name="azure-synapse-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Azure Synapse SQL DW uniquement] Utiliser la préproduction pour charger des données en bloc par le biais de PolyBase
 
 Pour éviter les insertions ligne par ligne dans votre entrepôt de données, cochez **Activer le mode de préproduction** dans vos paramètres de récepteur afin qu’ADF puisse utiliser [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide). PolyBase permet à ADF de charger les données en bloc.
 * Quand vous exécutez votre activité de flux de données à partir d’un pipeline, vous devez sélectionner un emplacement de stockage d’objets blob ou ADLS Gen2 pour mettre vos données en préproduction pendant le chargement en bloc.
 
+* La transformation de la source d’un fichier de 421 Mo comportant 74 colonnes en une table Synapse et une seule colonne dérivée prend environ 4 minutes de bout en bout à l’aide de runtimes d’intégration Azure de débogage à 80 cœurs et à mémoire optimisée.
+
 ## <a name="optimizing-for-files"></a>Optimisation des fichiers
 
-À chaque transformation, vous pouvez définir sous l’onglet Optimiser le schéma de partitionnement que vous souhaitez que Data Factory utilise.
+À chaque transformation, vous pouvez définir sous l’onglet Optimiser le schéma de partitionnement que vous souhaitez que Data Factory utilise. Il est recommandé de commencer par tester les récepteurs basés sur des fichiers en conservant le partitionnement et les optimisations par défaut.
+
 * Pour les fichiers plus petits, vous pouvez trouver que sélectionner *Partition unique* fonctionne parfois mieux et plus rapidement que si vous demandez à Spark de partitionner vos fichiers de petite taille.
 * Si vous n’avez pas suffisamment d’informations sur vos données sources, choisissez le partitionnement *Tourniquet (round robin)* , puis définissez le nombre de partitions.
 * Si vos données comportent des colonnes qui peuvent faire de bonnes clés de hachage, choisissez *Partitionnement de hachage*.
+
+* La transformation d’une source de fichier ayant un récepteur de fichier d’un fichier de 421 Mo comportant 74 colonnes et une seule colonne dérivée prend environ 2 minutes de bout en bout à l’aide de runtimes d’intégration Azure de débogage à 80 cœurs et à mémoire optimisée.
 
 Quand vous effectuez un débogage dans l’aperçu des données et lors du débogage du pipeline, la taille limite et la taille d’échantillonnage des jeux de données sources basés sur des fichiers s’appliquent uniquement au nombre de lignes retournées, et non au nombre de lignes lues. Cela peut avoir une incidence sur les performances de vos exécutions de débogage, voire provoquer l’échec du flux.
 * Les clusters de débogage sont de petits clusters à nœud unique par défaut. Nous vous recommandons d’utiliser de petits fichiers exemples pour le débogage. Sous Paramètres de débogage, pointez vers un petit sous-ensemble de données en utilisant un fichier temporaire.

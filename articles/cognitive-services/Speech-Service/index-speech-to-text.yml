@@ -1,0 +1,83 @@
+### YamlMime:Landing
+title: Documentation sur la reconnaissance vocale
+summary: La reconnaissance vocale du service Speech permet la transcription en temps réel des flux audio en texte.
+metadata:
+  title: Documentation sur la conversion de parole en texte - Tutoriels, informations de référence sur l’API - Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: 2dd9fa8c9af53c69a1790dd890b48a7092f5a5da
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77562808"
+landingContent:
+- title: Bien démarrer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que la reconnaissance vocale ?
+      url: speech-to-text.md
+  - linkListType: quickstart
+    links:
+    - text: Reconnaître la voix avec entrée au microphone
+      url: quickstarts/speech-to-text-from-microphone.md
+    - text: Reconnaître la voix à partir d’un fichier audio
+      url: quickstarts/speech-to-text-from-file.md
+    - text: Reconnaître la voix stockée dans Stockage Blob
+      url: quickstarts/from-blob.md
+- title: Guides pas à pas
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Changer la langue source de la reconnaissance vocale
+      url: how-to-specify-source-language.md
+    - text: Choisir un mode de reconnaissance vocale
+      url: how-to-choose-recognition-mode.md
+    - text: Améliorer la précision avec des listes d’expressions
+      url: how-to-phrase-lists.md
+    - text: Améliorer la précision avec des modèles de locataire
+      url: tutorial-tenant-model.md
+    - text: Améliorer la précision avec Custom Speech
+      url: how-to-custom-speech.md
+    - text: Sélectionner un périphérique d’entrée de microphone spécifique
+      url: how-to-select-audio-input-devices.md
+    - text: Utiliser la détection automatique de la langue source
+      url: how-to-automatic-language-detection.md
+    - text: Utiliser des formats d’entrée audio compressés
+      url: how-to-use-codec-compressed-audio-input-streams.md
+    - text: Utiliser des formats d’entrée audio compressés (iOS)
+      url: how-to-use-codec-compressed-audio-input-streams-ios.md
+    - text: Utiliser des formats d’entrée audio compressés (Android)
+      url: how-to-use-codec-compressed-audio-input-streams-android.md
+  - linkListType: concept
+    links:
+    - text: Préparer des données Custom Speech
+      url: how-to-custom-speech-test-data.md
+    - text: Inspecter des données Custom Speech
+      url: how-to-custom-speech-inspect-data.md
+    - text: Évaluer la précision de Custom Speech
+      url: how-to-custom-speech-evaluate-data.md
+    - text: Entraîner un modèle personnalisé
+      url: how-to-custom-speech-train-model.md
+    - text: Déployer un modèle personnalisé
+      url: how-to-custom-speech-deploy-model.md
+    - text: Créer des transcriptions étiquetées par l’homme
+      url: how-to-custom-speech-human-labeled-transcriptions.md
+- title: Informations de référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Support multilingue
+      url: language-support.md#speech-to-text
+    - text: Tarifs
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+    - text: Questions fréquentes (FAQ) sur la reconnaissance vocale
+      url: faq-stt.md

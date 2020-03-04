@@ -2,13 +2,13 @@
 title: Vue d’ensemble d’ACR Tasks
 description: Introduction à ACR Tasks, une suite de fonctionnalités d’Azure Container Registry qui permet la création ; la gestion et la mise à jour corrective d’images de conteneur sécurisées et automatisées dans le cloud.
 ms.topic: article
-ms.date: 09/05/2019
-ms.openlocfilehash: f8ab3c3bd259f83a61d0b030a49e158ccd6e2a69
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.date: 01/22/2020
+ms.openlocfilehash: cb5f0a71c31c26d679efd8a17b360dab2ad0862b
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938875"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615954"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatiser la création et la maintenance des images de conteneur avec ACR Tasks
 
@@ -70,26 +70,12 @@ Découvrez comment déclencher la génération de builds lors de la validation d
 
 ## <a name="automate-os-and-framework-patching"></a>Automatiser les mises à jour correctives du système d’exploitation et du framework
 
-L’aptitude d’ACR Tasks à améliorer réellement votre pipeline de génération de conteneur provient de sa capacité à détecter la mise à jour d’une image de base. Quand l’image de base mise à jour est envoyée à votre registre, ou qu’une image de base est mise à dans un référentiel public comme dans Docker Hub, ACR Tasks peut générer automatiquement des images d’application basées sur elle.
+L’aptitude d’ACR Tasks à améliorer réellement votre pipeline de génération de conteneur provient de sa capacité à détecter la mise à jour d’une *image de base*. Fonctionnalité de la plupart des images de conteneur, une image de base est une image parente sur laquelle une ou plusieurs images d’application sont basées. Les images de base contiennent généralement le système d’exploitation et parfois des infrastructures d’application. 
 
-Les images de conteneur appartiennent en gros à deux catégories : les images de *base* et les images d’*application*. En règle générale, vos images de base incluent les frameworks d’application et de système d’exploitation sur lesquels votre application est générée, ainsi que d’autres personnalisations. Ces images de base sont elles-mêmes généralement basées sur des images publiques en amont, par exemple : [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet] ou [Node.js][base-node]. Plusieurs de vos images d’application peuvent partager une image de base commune.
+Vous pouvez configurer une tâche ACR pour effectuer le suivi d’une dépendance sur une image de base au moment de la génération d’une image d’application. Quand l’image de base mise à jour est envoyée à votre registre, ou qu’une image de base est mise à dans un référentiel public comme dans Docker Hub, ACR Tasks peut générer automatiquement des images d’application basées sur elle.
+Grâce à ces détection et regénération automatiques, ACR Tasks vous permet d’économiser le temps et les efforts normalement nécessaires au suivi et à la mise à jour manuels de chaque image d’application faisant référence à votre image de base mise à jour.
 
-Quand une image de framework d’application ou de système d’exploitation est mise à jour par le chargé de maintenance en amont, par exemple avec un correctif de sécurité critique du système d’exploitation, vous devez également mettre à jour vos images de base pour qu’elles contiennent ce correctif critique. Chaque image d’application doit ensuite être également recréée pour inclure ces correctifs en amont maintenant inclus dans votre image de base.
-
-Comme ACR Tasks détecte de manière dynamique les dépendances de l’image de base quand il génère une image de conteneur, il peut savoir quand l’image de base d’une image d’application est mise à jour. Avec une [tâche de build](container-registry-tutorial-base-image-update.md#create-a-task) préconfigurée, ACR Tasks **regénère automatiquement chaque image d’application** pour vous. Grâce à ces détection et regénération automatiques, ACR Tasks vous permet d’économiser le temps et les efforts normalement nécessaires au suivi et à la mise à jour manuels de chaque image d’application faisant référence à votre image de base mise à jour.
-
-Pour les créations d’images à partir d’un Dockerfile, une tâche ACR effectue le suivi d’une mise à jour d’image de base lorsque l’image de base se trouve dans l’un des emplacements suivants :
-
-* Le registre de conteneurs Azure dans lequel s’exécute la tâche
-* Un autre registre de conteneurs Azure dans la même région 
-* Un référentiel public dans Docker Hub
-* Un référentiel public dans Microsoft Container Registry
-
-> [!NOTE]
-> * Le déclencheur de mise à jour d’image de base est activé par défaut dans une tâche ACR. 
-> * Actuellement, ACR Tasks effectue uniquement le suivi des mises à jour des images de base pour les images d’application (*runtime*). ACR Tasks n’effectue pas le suivi des mises à jour des images de base pour les images intermédiaires (*au moment de la génération*) utilisées dans des Dockerfiles multiétapes. 
-
-Pour en savoir plus sur la mise à jour corrective du système d’exploitation et du framework, consultez le troisième didacticiel d’ACR Tasks, [Automatiser la génération des images en fonction de la mise à jour d’une image de base avec Azure Container Registry Tasks](container-registry-tutorial-base-image-update.md).
+Découvrez-en plus sur les [déclencheurs de mise à jour des images de base](container-registry-tasks-base-images.md) pour les tâches ACR. Découvrez aussi comment déclencher la génération d’images quand une image de base est envoyée à un registre de conteneurs dans le tutoriel [Automatiser la génération des images conteneur quand une image de base est mise à jour dans un registre de conteneurs Azure](container-registry-tutorial-base-image-update.md).
 
 ## <a name="schedule-a-task"></a>Planifier une tâche
 

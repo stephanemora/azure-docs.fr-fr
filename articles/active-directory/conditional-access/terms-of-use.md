@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31d84d5bf43bac55769a6479917794a51c1ccd0c
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: d92c3e51aae70c66dcf9b7ca6dfd631650ace574
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999120"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561746"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Conditions d’utilisation d’Azure Active Directory
 
@@ -85,14 +85,14 @@ Après avoir finalisé le document relatif à vos conditions d’utilisation, ef
 1. Pour **Document Conditions d’utilisation**, accédez au fichier PDF finalisé de vos conditions d’utilisation et sélectionnez-le.
 1. Sélectionnez la langue de votre document Conditions d’utilisation. L’option de langue vous permet de charger plusieurs conditions d’utilisation, chacune dans une langue différente. La version des conditions d’utilisation affichée pour l’utilisateur final dépend des préférences de son navigateur.
 1. Pour demander aux utilisateurs finaux d’afficher les conditions d’utilisation avant de les accepter, définissez **Demander aux utilisateurs d’étendre les conditions d’utilisation** sur **Activé**.
-1. Pour demander aux utilisateurs finaux d’accepter vos conditions d’utilisation sur chaque appareil à partir duquel l’accès leur est octroyé, définissez **Demander le consentement des utilisateurs sur chaque appareil** sur **Activé**. Pour plus d’informations, consultez [Conditions d’utilisation par appareil](#per-device-terms-of-use).
+1. Pour demander aux utilisateurs finaux d’accepter vos conditions d’utilisation sur chaque appareil à partir duquel l’accès leur est octroyé, définissez **Demander le consentement des utilisateurs sur chaque appareil** sur **Activé**. Les utilisateurs peuvent être amenés à installer des applications supplémentaires si cette option est activée. Pour plus d’informations, consultez [Conditions d’utilisation par appareil](#per-device-terms-of-use).
 1. Si vous voulez faire expirer les consentements pour les conditions d’utilisation selon une planification, définissez **Faire expirer les consentements** sur **Activé**. Si la valeur Activé est définie, deux paramètres de planification supplémentaires sont affichés.
 
    ![Paramètres Faire expirer les consentements pour définir la date de début, la fréquence et la durée](./media/terms-of-use/expire-consents.png)
 
 1. Utilisez les paramètres **Expiration commençant le** et **Fréquence** pour spécifier la planification régissant l’expiration des conditions d’utilisation. Le tableau suivant présente deux exemples de paramètres et leur résultat :
 
-   | Expiration commençant le | Fréquence | Résultat |
+   | Expiration commençant le | Fréquence | Résultats |
    | --- | --- | --- |
    | Date du jour  | Mensuelle | À compter d’aujourd’hui, les utilisateurs doivent accepter les conditions d’utilisation et les réaccepter chaque mois. |
    | Date future  | Mensuelle | À compter d’aujourd’hui, les utilisateurs doivent accepter les conditions d’utilisation. Quand la date future survient, les consentements expirent. Les utilisateurs doivent alors réaccepter les conditions d’utilisation chaque mois.  |
@@ -253,12 +253,12 @@ Le paramètre **Demander le consentement des utilisateurs sur chaque appareil** 
 Voici une liste des plateformes et des logiciels pris en charge.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Autres |
+> |  | iOS | Android | Windows 10 | Autres |
 > | --- | --- | --- | --- | --- |
-> | **Application native** | OUI | OUI | OUI |  |
-> | **Microsoft Edge** | OUI | OUI | OUI |  |
-> | **Internet Explorer** | OUI | OUI | OUI |  |
-> | **Chrome (avec extension)** | OUI | OUI | OUI |  |
+> | **Application native** | Oui | Oui | Oui |  |
+> | **Microsoft Edge** | Oui | Oui | Oui |  |
+> | **Internet Explorer** | Oui | Oui | Oui |  |
+> | **Chrome (avec extension)** | Oui | Oui | Oui |  |
 
 Les conditions d’utilisation par appareil sont associées aux contraintes suivantes :
 
@@ -276,6 +276,10 @@ Si un utilisateur utilise Windows 10 et Microsoft Edge, il reçoit un message s
 ![Windows 10 et Microsoft Edge - Message indiquant que votre appareil doit être inscrit.](./media/terms-of-use/per-device-win10-edge.png)
 
 S’il utilise Chrome, il est invité à installer l’[extension Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+### <a name="join-an-android-device"></a>Joindre un appareil Android
+
+Si un utilisateur utilise un appareil Android, il est invité à installer l’[application Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator).
 
 ### <a name="browsers"></a>Navigateurs
 
@@ -337,49 +341,49 @@ Vous pouvez configurer une stratégie d’accès conditionnel pour l’applicati
 > [!NOTE]
 > L’application d’inscription à Intune n’est pas prise en charge pour [Conditions d’utilisation par appareil](#per-device-terms-of-use).
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 **Q : Comment déterminer si un utilisateur a accepté les conditions d’utilisation et quand ?**<br />
-R : Dans le panneau Conditions d’utilisation, cliquez sur le numéro sous **Accepté**. Vous pouvez également afficher ou rechercher l’activité d’acceptation dans les journaux d’audit Azure AD. Pour plus d’informations, consultez Afficher le rapport des utilisateurs ayant accepté et refusé les conditions d’utilisation et [Afficher les journaux d’audit Azure AD](#view-azure-ad-audit-logs).
+A : Dans le panneau Conditions d’utilisation, cliquez sur le numéro sous **Accepté**. Vous pouvez également afficher ou rechercher l’activité d’acceptation dans les journaux d’audit Azure AD. Pour plus d’informations, consultez Afficher le rapport des utilisateurs ayant accepté et refusé les conditions d’utilisation et [Afficher les journaux d’audit Azure AD](#view-azure-ad-audit-logs).
 
 **Q : Combien de temps sont stockées les informations ?**<br />
-R : Le nombre d’utilisateurs ayant accepté et le nombre d’utilisateurs ayant refusé les conditions d’utilisation sont stockés pour la durée de vie des conditions d’utilisation. Les journaux d’audit Azure AD sont stockés pendant 30 jours.
+A : Le nombre d’utilisateurs ayant accepté et le nombre d’utilisateurs ayant refusé les conditions d’utilisation sont stockés pour la durée de vie des conditions d’utilisation. Les journaux d’audit Azure AD sont stockés pendant 30 jours.
 
 **Q : Pourquoi le nombre de consentements est-il différent dans le rapport des conditions d’utilisation et dans les journaux d’audit Azure AD ?**<br />
-R : Le rapport des conditions d’utilisation est stocké pendant toute la durée de vie de celles-ci, alors que les journaux d’audit Azure AD sont stockés pendant 30 jours. En outre, le rapport des conditions d’utilisation affiche uniquement l’état actuel du consentement utilisateur. Par exemple, si un utilisateur refuse, puis accepte les conditions d’utilisation, le rapport affichera uniquement son acceptation. Si vous avez besoin de consulter l’historique, vous pouvez utiliser les journaux d’audit Azure AD.
+A : Le rapport des conditions d’utilisation est stocké pendant toute la durée de vie de celles-ci, alors que les journaux d’audit Azure AD sont stockés pendant 30 jours. En outre, le rapport des conditions d’utilisation affiche uniquement l’état actuel du consentement utilisateur. Par exemple, si un utilisateur refuse, puis accepte les conditions d’utilisation, le rapport affichera uniquement son acceptation. Si vous avez besoin de consulter l’historique, vous pouvez utiliser les journaux d’audit Azure AD.
 
 **Q : Si je modifie les détails des conditions d’utilisation, les utilisateurs doivent-ils les réaccepter ?**<br />
-R : Non. Si un administrateur modifie les détails des conditions d’utilisation (nom, nom d’affichage, demander aux utilisateurs de développer les conditions ou ajouter une langue), les utilisateurs ne sont pas tenus de réaccepter les nouvelles conditions.
+A : Non. Si un administrateur modifie les détails des conditions d’utilisation (nom, nom d’affichage, demander aux utilisateurs de développer les conditions ou ajouter une langue), les utilisateurs ne sont pas tenus de réaccepter les nouvelles conditions.
 
 **Q : Puis-je mettre à jour un document de conditions d’utilisation existant ?**<br />
-R : Il n’est pas possible à l’heure actuelle de mettre à jour un document de conditions d’utilisation existant. Il vous faudra pour cela créer une nouvelle instance de conditions d’utilisation.
+A : Il n’est pas possible à l’heure actuelle de mettre à jour un document de conditions d’utilisation existant. Il vous faudra pour cela créer une nouvelle instance de conditions d’utilisation.
 
 **Q : Si des liens hypertexte se trouvent dans les conditions d’utilisation d’un document PDF, les utilisateurs finaux peuvent-ils cliquer dessus ?**<br />
-R : Oui, les utilisateurs finaux sont en mesure de sélectionner des liens hypertexte vers des pages supplémentaires, mais les liens vers les sections du document ne sont pas pris en charge.
+A : Oui, les utilisateurs finaux sont en mesure de sélectionner des liens hypertexte vers des pages supplémentaires, mais les liens vers les sections du document ne sont pas pris en charge.
 
 **Q : Les conditions d’utilisation prennent-elles en charge plusieurs langues ?**<br />
-R : Oui. Actuellement, un administrateur peut configurer 108 langues différentes pour des conditions d’utilisation. Un administrateur peut charger plusieurs documents PDF et les étiqueter avec une langue correspondante (jusqu’à 108). Quand les utilisateurs finaux se connectent, nous examinons les préférences linguistiques de leur navigateur et affichons le document correspondant. En l’absence de correspondance, nous affichons le document par défaut (c’est-à-dire le premier qui a été chargé).
+A : Oui. Actuellement, un administrateur peut configurer 108 langues différentes pour des conditions d’utilisation. Un administrateur peut charger plusieurs documents PDF et les étiqueter avec une langue correspondante (jusqu’à 108). Quand les utilisateurs finaux se connectent, nous examinons les préférences linguistiques de leur navigateur et affichons le document correspondant. En l’absence de correspondance, nous affichons le document par défaut (c’est-à-dire le premier qui a été chargé).
 
 **Q : À quel moment les conditions d’utilisation sont-elles déclenchées ?**<br />
-R : Les conditions d’utilisation sont déclenchées durant la procédure de connexion.
+A : Les conditions d’utilisation sont déclenchées durant la procédure de connexion.
 
 **Q : Quelles sont les applications pouvant être ciblées par des conditions d’utilisation ?**<br />
-R : Vous pouvez créer une stratégie d’accès conditionnel pour les applications d’entreprise à l’aide de l’authentification moderne. Pour plus d’informations, consultez [Applications d’entreprise](./../manage-apps/view-applications-portal.md).
+A : Vous pouvez créer une stratégie d’accès conditionnel pour les applications d’entreprise à l’aide de l’authentification moderne. Pour plus d’informations, consultez [Applications d’entreprise](./../manage-apps/view-applications-portal.md).
 
 **Q : Puis-je ajouter plusieurs conditions d’utilisation à une application ou à un utilisateur ?**<br />
-R : Oui. Pour cela, créez plusieurs stratégies d’accès conditionnel ciblant ces groupes ou applications. Si un utilisateur est concerné par plusieurs conditions d’utilisation, il doit les accepter les unes après les autres.
+A : Oui. Pour cela, créez plusieurs stratégies d’accès conditionnel ciblant ces groupes ou applications. Si un utilisateur est concerné par plusieurs conditions d’utilisation, il doit les accepter les unes après les autres.
 
 **Q : Que se passe-t-il si un utilisateur refuse les conditions d’utilisation ?**<br />
-R : L’utilisateur n’a pas accès à l’application. Il doit se reconnecter et accepter les conditions pour se voir octroyer des droits d’accès.
+A : L’utilisateur n’a pas accès à l’application. Il doit se reconnecter et accepter les conditions pour se voir octroyer des droits d’accès.
 
 **Q : Est-il possible de refuser les conditions d’utilisation après les avoir acceptées ?**<br />
-R : Vous pouvez [consulter les conditions d’utilisation précédemment acceptées](#how-users-can-review-their-terms-of-use), mais vous ne pouvez pas les refuser après les avoir acceptées.
+A : Vous pouvez [consulter les conditions d’utilisation précédemment acceptées](#how-users-can-review-their-terms-of-use), mais vous ne pouvez pas les refuser après les avoir acceptées.
 
 **Q : Que se passe-t-il si j’utilise également les conditions générales d’Intune ?**<br />
-R : Si vous avez configuré les conditions d’utilisation d’Azure AD et les [conditions d’utilisation d’Intune](/intune/terms-and-conditions-create), l’utilisateur doit accepter les deux. Pour plus d’informations, voir le [billet de blog sur le choix des conditions appropriées pour votre organisation](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
+A : Si vous avez configuré les conditions d’utilisation d’Azure AD et les [conditions d’utilisation d’Intune](/intune/terms-and-conditions-create), l’utilisateur doit accepter les deux. Pour plus d’informations, voir le [billet de blog sur le choix des conditions appropriées pour votre organisation](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 **Q : Quels sont les points de terminaison utilisés par le service Conditions d’utilisation pour l’authentification ?**<br />
-R : Le service Conditions d’utilisation utilise les points de terminaison suivants pour l’authentification : https://tokenprovider.termsofuse.identitygovernance.azure.com et https://account.activedirectory.windowsazure.com. Si votre organisation dispose d’une liste verte d’URL pour l’inscription, vous devez ajouter ces points de terminaison à votre liste verte, ainsi que les points de terminaison Azure AD pour vous connecter.
+A : Le service Conditions d’utilisation utilise les points de terminaison suivants pour l’authentification : https://tokenprovider.termsofuse.identitygovernance.azure.com et https://account.activedirectory.windowsazure.com. Si votre organisation dispose d’une liste verte d’URL pour l’inscription, vous devez ajouter ces points de terminaison à votre liste verte, ainsi que les points de terminaison Azure AD pour vous connecter.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

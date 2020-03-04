@@ -3,12 +3,12 @@ title: Configurer une appliance Azure Migrate pour VMware
 description: Découvrez comment configurer une appliance Azure Migrate pour évaluer et migrer des machines virtuelles VMware.
 ms.topic: article
 ms.date: 11/18/2019
-ms.openlocfilehash: 139b694bafb9d67192e6f182ff879e86e2b73ce4
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: e331d45d3e87f8007642675a0349839e7494958c
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291938"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598151"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurer une appliance pour les machines virtuelles VMware
 
@@ -35,7 +35,7 @@ Pour configurer l’appliance, vous devez :
 2. Dans **Découvrir des machines** > **Vos machines sont-elles virtualisées ?** , cliquez sur **Oui, avec l’hyperviseur vSphere VMware**.
 3. Cliquez sur **Télécharger** pour télécharger le fichier de modèle .OVA.
 
-
+  ![Sélections pour le téléchargement d’un fichier OVA](./media/tutorial-assess-vmware/download-ova.png)
 
 ### <a name="verify-security"></a>Vérifier la sécurité
 
@@ -45,12 +45,8 @@ Vérifiez que le fichier .OVA est sécurisé avant de le déployer.
 2. Exécutez la commande suivante pour générer le code de hachage du fichier OVA :
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Pour la dernière version de l’appliance, le code de hachage généré doit correspondre à ces paramètres.
+3. Pour la dernière version de l’appliance, le code de hachage généré doit correspondre à ces [paramètres](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security).
 
-  **Algorithme** | **Valeur de hachage**
-  --- | ---
-  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
-  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ## <a name="create-the-appliance-vm"></a>Créer la machine virtuelle de l’appliance
@@ -58,6 +54,8 @@ Vérifiez que le fichier .OVA est sécurisé avant de le déployer.
 Importez le fichier téléchargé, puis créez une machine virtuelle.
 
 1. Dans la console du client vSphere, cliquez sur **File** (Fichier) > **Deploy OVF Template** (Déployer le modèle OVF).
+![Commande de menu pour le déploiement d’un modèle OVF](./media/tutorial-assess-vmware/deploy-ovf.png)
+
 2. Dans l’Assistant de déploiement du modèle OVF > **Source**, spécifiez l’emplacement du fichier .OVA.
 3. Dans **Name** (Nom) et **Location** (Emplacement), spécifiez un nom convivial pour la machine virtuelle. Sélectionnez l’objet d’inventaire dans lequel la machine virtuelle doit être hébergée.
 5. Dans **Host/Cluster** (Hôte/Cluster), spécifiez l’hôte ou le cluster sur lequel s’exécute la machine virtuelle.

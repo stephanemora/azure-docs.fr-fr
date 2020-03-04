@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 02/20/2020
 ms.author: diberry
-ms.openlocfilehash: c2aec0db2d1f9865188f2749a0eeb765a14d04ed
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: ce85c2d264b2b4849a4a36ed757150292fdf39f0
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73952996"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622774"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analysez votre boucle d’apprentissage avec une évaluation hors connexion
 
@@ -25,45 +25,40 @@ Les évaluations hors connexion vous permettent de mesurer l’efficacité de Pe
 
 Pour plus d’informations, consultez [Évaluations hors connexion](concepts-offline-evaluation.md).
 
-
 ## <a name="prerequisites"></a>Prérequis
 
 * Boucle Personalizer configurée
 * La boucle Personalizer doit avoir une quantité de données représentative : pour fournir un ordre de grandeur, nous recommandons au moins 50 000 événements dans ses journaux pour obtenir des résultats d’évaluation significatifs. Si vous le souhaitez, vous pouvez aussi avoir des fichiers de _stratégie d’apprentissage_ préalablement exportés que vous pouvez comparer et tester dans la même évaluation.
 
-## <a name="steps-to-start-a-new-offline-evaluation"></a>Étapes pour démarrer une nouvelle évaluation hors connexion
+## <a name="run-an-offline-evaluation"></a>Exécuter une évaluation hors connexion
 
-1. Sur le [portail Azure](https://azure.microsoft.com/free/), recherchez votre ressource Personnalisation.
+1. Dans le [portail Azure](https://azure.microsoft.com/free/), recherchez votre ressource Personalizer.
 1. Sur le portail Azure, accédez à la section **Évaluations**, puis sélectionnez l’option **Créer une évaluation**.
     ![Sur le portail Azure, accédez à la section **Évaluations**, puis sélectionnez l’option **Créer une évaluation**.](./media/offline-evaluation/create-new-offline-evaluation.png)
 1. Configurez les valeurs suivantes :
 
-    * Un nom d’évaluation
-    * Dates de début et de fin : il s’agit de dates dans le passé, qui spécifient la plage de données à utiliser pour l’évaluation. Ces données doivent être présentes dans les journaux, tel que spécifié dans la valeur de [Conservation des données](how-to-settings.md).
-    * Découverte d’optimisation définie sur **Oui**
+    * Nom d’évaluation.
+    * Dates de début et de fin : il s’agit de dates qui spécifient la plage de données à utiliser pour l’évaluation. Ces données doivent être présentes dans les journaux, tel que spécifié dans la valeur de [Conservation des données](how-to-settings.md).
+    * Découverte d’optimisation définie sur **Oui**.
 
-    ![Choisissez les paramètres d’évaluation hors connexion](./media/offline-evaluation/create-an-evaluation-form.png)
+    > [!div class="mx-imgBorder"]
+    > ![Choisir les paramètres d’évaluation hors connexion](./media/offline-evaluation/create-an-evaluation-form.png)
 
-1. Démarrez l’Évaluation en sélectionnant **OK**. 
+1. Démarrez l’Évaluation en sélectionnant **OK**.
 
-## <a name="results"></a>Résultats
+## <a name="review-the-evaluation-results"></a>Examiner les résultats de l’évaluation
 
 L’exécution des évaluations peut durer longtemps, selon la quantité de données à traiter, le nombre de stratégies d’apprentissage à comparer, et si une optimisation a été demandée.
 
-Une fois l’opération terminée, vous pouvez sélectionner l’évaluation dans la liste des évaluations. 
+Une fois l’opération terminée, vous pouvez sélectionner l’évaluation dans la liste des évaluations, puis **Comparer le score de votre application à d’autres paramètres d’apprentissage potentiels**. Sélectionnez cette fonctionnalité quand vous souhaitez comparer les performances de votre stratégie d’apprentissage actuelle à celles d’une nouvelle stratégie.
 
-Les comparaisons des stratégies d’apprentissage sont les suivantes :
+1. Passez en revue les performances des [stratégies d’apprentissage](concepts-offline-evaluation.md#discovering-the-optimized-learning-policy).
 
-* **Stratégie en ligne** : La stratégie d’apprentissage actuelle utilisée dans Personalizer
-* **Base de référence** : Valeur par défaut de l’application (telle que déterminée par la première action envoyée dans les appels du classement),
-* **Stratégie aléatoire** : Un comportement de classement imaginaire qui retourne toujours un choix aléatoire d’actions parmi celles fournies.
-* **Stratégies personnalisées** : Stratégies d’apprentissage supplémentaires chargées lors du démarrage de l’évaluation.
-* **Stratégie optimisée** : Si l’évaluation a été démarrée avec l’option pour découvrir une stratégie optimisée, elle sera également comparée, et vous pourrez la télécharger ou en faire la stratégie d’apprentissage en ligne, remplaçant la stratégie actuelle.
+    > [!div class="mx-imgBorder"]
+    > [![Examiner les résultats de l’évaluation](./media/offline-evaluation/evaluation-results.png)](./media/offline-evaluation/evaluation-results.png#lightbox)
 
-![Graphique des résultats des paramètres d’évaluation hors connexion](./media/offline-evaluation/evaluation-results.png)
-
-Efficacité des [caractéristiques](concepts-features.md) pour les actions et le contexte.
+1. Sélectionnez **Appliquer** pour appliquer la stratégie qui améliore le mieux le modèle pour vos données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez [comment les évaluations hors connexion fonctionnent](concepts-offline-evaluation.md).
+* Découvrez plus en détail le [fonctionnement des évaluations hors connexion](concepts-offline-evaluation.md).

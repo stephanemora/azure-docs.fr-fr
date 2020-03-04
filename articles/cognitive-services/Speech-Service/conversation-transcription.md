@@ -1,23 +1,23 @@
 ---
-title: Qu’est-ce que la transcription de conversation (préversion) ? - Service Speech
+title: À propos de la transcription de conversation (préversion) - Service de reconnaissance vocale
 titleSuffix: Azure Cognitive Services
 description: La transcription de conversation est une solution de reconnaissance vocale qui associe la reconnaissance vocale, l’identification de l’orateur et l’attribution de phrases à chaque orateur (également appelé « diarization ») pour fournir une transcription en temps réel et/ou asynchrone de toute conversation.
 services: cognitive-services
-author: markamos
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 07e3e498a3bd2693b72079a8a731c3d139414c90
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: 8e36a5c4d9ce2bc38565d6c9c256ed2cc7efe357
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806284"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561066"
 ---
-# <a name="what-is-conversation-transcription-preview"></a>Qu’est-ce que la transcription de conversation (préversion) ?
+# <a name="about-conversation-transcription-preview"></a>À propos de la transcription de conversation (préversion)
 
 La transcription de conversation est une solution de [reconnaissance vocale](speech-to-text.md) qui associe la reconnaissance vocale, l’identification de l’orateur et l’attribution de phrases à chaque orateur (également appelé _diarization_) pour fournir une transcription en temps réel et/ou asynchrone de toute conversation. La transcription de conversation distingue les orateurs d’une conversation pour déterminer qui a dit quoi et quand, et permet aux développeurs d’ajouter facilement la reconnaissance vocale à leurs applications qui effectuent une « diarization » à plusieurs orateurs.
 

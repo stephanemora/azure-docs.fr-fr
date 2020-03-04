@@ -112,8 +112,6 @@
       href: sap-hana-backup-guide.md
     - name: Sauvegarde SAP HANA au niveau des fichiers
       href: sap-hana-backup-file-level.md
-    - name: Sauvegardes de captures instantanées de stockage SAP HANA
-      href: sap-hana-backup-storage-snapshots.md
 - name: SAP NetWeaver et Business One sur les machines virtuelles Azure
   items:
     - name: Liste de contrôle relative à la planification et au déploiement de la charge de travail SAP

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: e95a0b4b9f071a0fd3949d50eeee17b811dfb8ea
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: b76ef431e4c0ad63929378c1f48c6ab06776cb25
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064816"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616044"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Syntaxe des requêtes pour le routage des messages IoT Hub
 
@@ -88,7 +88,7 @@ $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 
 La liste complète des fonctions et des opérateurs pris en charge est affichée dans [Expression et conditions](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
-## <a name="message-routing-query-based-on-message-body"></a>Requête de routage de messages en fonction du corps de message 
+## <a name="message-routing-query-based-on-message-body"></a>Requête de routage de messages en fonction du corps de message
 
 Pour permettre l’interrogation du corps de message, le message doit se trouver dans un fichier JSON encodé en UTF-8, UTF-16 ou UTF-32. `contentType` doit être définie sur `application/JSON`, et `contentEncoding` sur un des encodages UTF pris en charge dans la propriété système. Si ces propriétés ne sont pas spécifiées, IoT Hub ne tient pas compte de l’expression de requête sur le corps de message. 
 
@@ -140,6 +140,10 @@ deviceClient.sendEvent(message, (err, res) => {
     if (res) console.log('status: ' + res.constructor.name);
 });
 ```
+
+> [!NOTE] 
+> Cet exemple montre comment gérer l’encodage du corps en JavaScript. Si vous voulez voir un exemple en C#, téléchargez les [exemples C# Azure IOT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Décompressez le fichier master.zip. Le fichier Program.cs de la solution Visual Studio *SimulatedDevice* montre comment encoder et envoyer des messages à un hub IoT. Il s’agit du même exemple que celui utilisé pour tester le routage des messages, comme expliqué dans le [tutoriel Routage des messages](tutorial-routing.md). En bas de Program.cs, il a également une méthode pour lire l’un des fichiers encodés, le décoder et le réécrire au format ASCII afin que vous puissiez le lire. 
+
 
 ### <a name="query-expressions"></a>Expressions de requête
 
@@ -209,6 +213,8 @@ $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.send
 ```sql
 $twin.tags.deploymentLocation.floor = 1 
 ```
+
+Une requête de routage sur le corps ou le jumeau d’appareil avec un point dans le nom de la charge utile ou de la propriété n’est pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

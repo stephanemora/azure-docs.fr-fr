@@ -2,23 +2,20 @@
 title: Utilisation du programme de mise à l’échelle automatique de cluster d’Azure Kubernetes Service (AKS)
 description: Découvrez comment utiliser le programme de mise à l’échelle automatique de cluster pour mettre automatiquement à l’échelle votre cluster afin de répondre aux demandes applicatives d’un cluster Azure Kubernetes Service (AKS).
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.author: mlearned
-ms.openlocfilehash: 033cf88e29ba4a9f7ce9397fe216f7380e70be07
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 0b94865d81afc56c24d470012c668662f003a1b8
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713401"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596247"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Mise à l’échelle automatique d’un cluster pour répondre aux demandes applicatives d’Azure Kubernetes Service (AKS)
 
 Pour suivre le rythme des demandes applicatives d’Azure Kubernetes Service (ACS), vous devrez peut-être ajuster le nombre de nœuds qui exécutent vos charges de travail. Le composant programme de mise à l’échelle automatique de cluster peut surveiller les pods de votre cluster qui ne peuvent pas être planifiés en raison de contraintes de ressources. Lorsque des problèmes sont détectés, le nombre de nœuds du pool de nœuds est augmenté pour répondre à la demande applicative. Les pods exécutés sont également régulièrement vérifiés sur les nœuds dont le nombre est réduit au besoin. Cette possibilité d’augmenter ou de réduire automatiquement le nombre de nœuds dans votre cluster AKS vous permet d’exécuter un cluster efficace et économique.
 
-Cet article vous montre comment activer et gérer le programme de mise à l’échelle automatique de cluster dans un cluster AKS. 
+Cet article vous montre comment activer et gérer le programme de mise à l’échelle automatique de cluster dans un cluster AKS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -106,6 +103,90 @@ L’exemple ci-dessus met à jour le programme de mise à l’échelle automatiq
 
 Surveillez les performances de vos applications et services, puis ajustez les nombres de nœuds du programme de mise à l’échelle automatique de cluster pour les faire correspondre aux performances requises.
 
+## <a name="using-the-autoscaler-profile"></a>Utilisation du profil de mise à l’échelle automatique
+
+Vous pouvez également configurer une plus grande précision dans les détails de la mise à l’échelle automatique de cluster en changeant les valeurs par défaut du profil de mise à l’échelle automatique sur l’ensemble du cluster. Par exemple, un événement de scale-down se produit lorsque des nœuds sont sous-utilisés après 10 minutes. Si vous aviez des charges de travail qui se sont exécutées toutes les 15 minutes, vous souhaitez peut-être modifier le profil de mise à l’échelle automatique pour effectuer un scale-down des nœuds sous-utilisés après 15 ou 20 minutes. Lorsque vous activez l’option de mise à l’échelle automatique de cluster, un profil par défaut est utilisé, à moins de spécifier différents paramètres. Le profil de mise à l’échelle automatique de cluster contient les paramètres suivants, qu’il est possible de mettre à jour :
+
+| Paramètre                          | Description                                                                              | Valeur par défaut |
+|----------------------------------|------------------------------------------------------------------------------------------|---------------|
+| scan-interval                    | Fréquence à laquelle le cluster est réévalué pour effectuer un scale-up ou un scale-down                                    | 10 secondes    |
+| scale-down-delay-after-add       | Durée, après le scale-up, à l’issue de laquelle s’effectue la reprise de l’évaluation de scale-down                               | 10 minutes    |
+| scale-down-delay-after-delete    | Durée, après la suppression du nœud, à l’issue de laquelle s’effectue la reprise de l’évaluation de scale-down                          | scan-interval |
+| scale-down-delay-after-failure   | Durée, après un échec de scale-down, à l’issue de laquelle s’effectue la reprise de l’évaluation de scale-down                     | 3 minutes     |
+| scale-down-unneeded-time         | Durée pendant laquelle un nœud doit être inutile avant d’être éligible pour un scale-down                  | 10 minutes    |
+| scale-down-unready-time          | Durée pendant laquelle un nœud non prêt doit être inutile avant d’être éligible pour un scale-down         | 20 minutes    |
+| scale-down-utilization-threshold | Niveau d’utilisation du nœud (défini en tant que somme des ressources demandées, divisée par la capacité) en dessous duquel un nœud peut être pris en compte pour un scale-down | 0.5 |
+| max-graceful-termination-sec     | Nombre maximal de secondes pendant lesquelles la mise à l’échelle automatique de cluster attend l’arrêt d’un pod lors d’une tentative de scale-down d’un nœud. | 600 secondes   |
+
+> [!IMPORTANT]
+> Le profil de mise à l’échelle automatique de cluster modifie tous les pools de nœuds qui utilisent la mise à l’échelle automatique de cluster. Vous ne pouvez pas définir de profil de mise à l’échelle automatique par pool de nœuds.
+
+### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
+
+Pour définir le profil de paramètres de la mise à l’échelle automatique de cluster, l’extension CLI *aks-preview* version 0.4.30 ou ultérieure est nécessaire. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>Définir le profil de mise à l’échelle automatique de cluster sur un cluster AKS existant
+
+Utilisez la commande [az aks update][az-aks-update] avec le paramètre *cluster-autoscaler-profile* pour définir le profil de mise à l’échelle automatique de cluster sur votre cluster. L’exemple suivant configure le paramètre d’intervalle d’analyse sur 30 s dans le profil.
+
+```azurecli-interactive
+az aks update \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --cluster-autoscaler-profile scan-interval=30s
+```
+
+Quand vous activez la mise à l’échelle automatique de cluster sur des pools de nœuds dans le cluster, ces derniers utiliseront également le profil de mise à l’échelle automatique de cluster. Par exemple :
+
+```azurecli-interactive
+az aks nodepool update \
+  --resource-group myResourceGroup \
+  --cluster-name myAKSCluster \
+  --name mynodepool \
+  --enable-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 3
+```
+
+> [!IMPORTANT]
+> Lorsque vous définissez le profil de mise à l’échelle automatique de cluster, tous les pools de nœuds existants dont l’option de mise à l’échelle automatique de cluster est activée commenceront immédiatement à utiliser le profil.
+
+### <a name="set-the-cluster-autoscaler-profile-when-creating-an-aks-cluster"></a>Définir le profil de mise à l’échelle automatique de cluster lors de la création d’un cluster AKS
+
+Vous pouvez également utiliser le paramètre *cluster-autoscaler-profile* lors de la création de votre cluster. Par exemple :
+
+```azurecli-interactive
+az aks create \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --node-count 1 \
+  --enable-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 3 \
+  --cluster-autoscaler-profile scan-interval=30s
+```
+
+La commande ci-dessus crée un cluster AKS et définit l’intervalle d’analyse sur 30 secondes pour le profil de mise à l’échelle automatique sur l’ensemble du cluster. La commande active également la mise à l’échelle automatique de cluster sur le pool de nœuds initial, elle définit le nombre de nœuds minimal sur 1, et le nombre de nœuds maximal sur 3.
+
+### <a name="reset-cluster-autoscaler-profile-to-default-values"></a>Rétablir les valeurs par défaut du profil de mise à l’échelle automatique de cluster
+
+Utilisez la commande [az aks update][az-aks-update] pour réinitialiser le profil de mise à l’échelle automatique de cluster sur votre cluster.
+
+```azurecli-interactive
+az aks update \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --cluster-autoscaler-profile ""
+```
+
 ## <a name="disable-the-cluster-autoscaler"></a>Désactivation du programme de mise à l’échelle automatique de cluster
 
 Si vous ne souhaitez plus utiliser le programme de mise à l’échelle automatique du cluster, vous pouvez le désactiver à l’aide de la commande [az aks update][az-aks-update], en spécifiant le paramètre *--disable-cluster-autoscaler*. Les nœuds ne sont pas supprimés lorsque le programme de mise à l’échelle automatique de cluster est désactivé.
@@ -129,9 +210,9 @@ Pour diagnostiquer et déboguer des événements de mise à l’échelle automat
 
 AKS gère la mise à l’échelle automatique des clusters en votre nom et l’exécute dans le plan de contrôle managé. Les journaux des nœuds principaux doivent être configurés pour être affichés en conséquence.
 
-Pour configurer les journaux à envoyer (push) de la mise à l’échelle automatique de clusters à Log Analytics, procédez comme suit :
+Pour configurer les journaux à envoyer (push), de la mise à l’échelle automatique de cluster à Log Analytics, suivez ces étapes.
 
-1. Configurez une règle pour les journaux de diagnostic afin d’envoyer (push) les journaux d’activité de la mise à l’échelle automatique de clusters vers Log Analytics. [Les instructions sont détaillées ici](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs) ; veillez à cocher la case `cluster-autoscaler` lors de la sélection des options pour « Journaux d’activité ».
+1. Configurez une règle pour les journaux de diagnostic, afin d’envoyer (push) les journaux de la mise à l’échelle automatique de cluster vers Log Analytics. [Les instructions sont détaillées ici](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs) ; veillez à cocher la case `cluster-autoscaler` lors de la sélection des options pour « Journaux d’activité ».
 1. Cliquez sur la section « Journaux d’activité » de votre cluster via le Portail Azure.
 1. Dans Log Analytics, entrez l’exemple de requête suivant :
 
@@ -140,11 +221,11 @@ AzureDiagnostics
 | where Category == "cluster-autoscaler"
 ```
 
-Vous devez voir des journaux d’activité similaires à ce qui suit, à condition qu’il y ait des journaux à récupérer.
+Vous devez voir des journaux similaires à l’exemple suivant, à condition qu’il y ait des journaux à récupérer.
 
 ![Journaux d’activité Log Analytics](media/autoscaler/autoscaler-logs.png)
 
-La mise à l’échelle automatique de clusters écrit également l’état d’intégrité sur un élément ConfigMap nommé `cluster-autoscaler-status`. Pour récupérer ces journaux d’activité, exécutez la commande `kubectl` suivante. Un état d’intégrité sera signalé pour chaque pool de nœuds configuré avec la mise à l’échelle automatique de clusters.
+La mise à l’échelle automatique de clusters écrit également l’état d’intégrité sur un élément ConfigMap nommé `cluster-autoscaler-status`. Pour récupérer ces journaux, exécutez la commande `kubectl` suivante. Un état d’intégrité sera signalé pour chaque pool de nœuds configuré avec la mise à l’échelle automatique de clusters.
 
 ```
 kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
@@ -185,20 +266,20 @@ Si vous ne souhaitez pas réactiver le programme de mise à l’échelle automat
 Cet article vous a montré comment mettre automatiquement à l’échelle le nombre de nœuds AKS. Vous pouvez également utiliser le programme de mise à l’échelle automatique de pods élastique pour ajuster automatiquement le nombre de pods qui exécutent votre application. Pour obtenir des instructions sur l’utilisation du programme de mise à l’échelle automatique de pods élastique, consultez l’article [Mettre à l’échelle des applications dans Azure Kubernetes Service (AKS)][aks-scale-apps].
 
 <!-- LINKS - internal -->
+[aks-faq]: faq.md
+[aks-scale-apps]: tutorial-kubernetes-scale.md
+[aks-support-policies]: support-policies.md
 [aks-upgrade]: upgrade-cluster.md
+[autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-extension-add]: /cli/azure/extension#az-extension-add
-[aks-scale-apps]: tutorial-kubernetes-scale.md
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
-[aks-support-policies]: support-policies.md
-[aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

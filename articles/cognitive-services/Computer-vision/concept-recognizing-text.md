@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e37b4c02692575f76582e8f62c3aff00b57424ed
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a4c90ed12c8023e0b9ebc509b20d8d9224b49f1b
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68946300"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566248"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Reconnaître le texte imprimé et manuscrit
 
@@ -26,10 +26,10 @@ L’API Vision par ordinateur fournit un certain nombre de services pour détect
 
 L’API Lire détecte le contenu textuel d'une image à l’aide de nos derniers modèles de reconnaissance et convertit le texte identifié en flux de caractères lisibles par ordinateur. Elle est optimisée pour les images comportant beaucoup de texte (tels que les documents numérisés) et pour les images comportant beaucoup de bruit visuel. Elle détermine le modèle de reconnaissance à utiliser pour chaque ligne de texte et prend en charge les images contenant à la fois du texte imprimé et manuscrit. L’API Lire s’exécute de façon asynchrone, car les documents volumineux peuvent prendre plusieurs minutes pour retourner un résultat.
 
-L’opération de lecture conserve les groupements de lignes d’origine des mots reconnus dans sa sortie. Chaque ligne est accompagnée des coordonnées de son cadre englobant, et chaque mot dans la ligne a également ses propres coordonnées. Si un mot a été reconnu avec une faible confiance, cette information est également transmise. Consultez les [documents de référence de l’API Lire](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) pour en savoir plus.
+L’opération de lecture conserve les groupements de lignes d’origine des mots reconnus dans sa sortie. Chaque ligne est accompagnée des coordonnées de son cadre englobant, et chaque mot dans la ligne a également ses propres coordonnées. Si un mot a été reconnu avec une faible confiance, cette information est également transmise. Pour en savoir plus, consultez les [documents de référence de l’API Lire](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) et les [documents de référence de l’API Lire en préversion](https://go.microsoft.com/fwlink/?linkid=2118322).
 
 > [!NOTE]
-> Cette fonctionnalité est disponible uniquement pour du texte anglais.
+> Cette fonctionnalité est disponible uniquement pour du texte anglais et espagnol (préversion).
 
 ### <a name="image-requirements"></a>Exigences des images
 
@@ -94,4 +94,4 @@ La précision des opérations de reconnaissance du texte dépend de la qualité 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Suivez le guide de démarrage rapide [Extraire le texte imprimé (OCR)](./quickstarts/csharp-print-text.md) pour implémenter la reconnaissance de texte dans une application C# simple.
+Suivez le guide de démarrage rapide [Extraire du texte (Lire)](./QuickStarts/CSharp-hand-text.md) pour implémenter la reconnaissance de texte dans une application C# simple.

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/26/2016
-ms.openlocfilehash: b6a6ee21774ba931d9982d82b99008f312d19736
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 3ada12a0cde122fb78815a1d3241d8acb9da2580
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793009"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651455"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Échanger des messages EDIFACT dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -36,7 +36,7 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
 ## <a name="create-an-edifact-agreement"></a>Créer un contrat EDIFACT 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com "Portail Azure"). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com "Portail Azure"). 
 
 2. Dans le menu principal Azure, sélectionnez **Tous les services**. Dans la zone de recherche, entrez « intégration », puis sélectionnez **Comptes d’intégration**.
 
@@ -80,7 +80,7 @@ Maintenant que vous avez défini les propriétés du contrat, vous pouvez config
 1. Sous **Ajouter**, sélectionnez **Paramètres de réception**.
 Configurez ces propriétés selon le contrat conclu avec le partenaire qui échange des messages avec vous. Pour obtenir les descriptions des propriétés, consultez les tableaux de cette section.
 
-   Les **paramètres de réception** sont organisés en plusieurs sections : identificateurs, accusé de réception, schémas, numéros de contrôle, validations et paramètres internes.
+   Les **paramètres de réception** sont organisés en plusieurs sections : identificateurs, accusé de réception, schémas, numéros de contrôle, validations et paramètres internes.
 
    ![Configurer les « Paramètres de réception »](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
@@ -112,9 +112,10 @@ Votre contrat est maintenant prêt à traiter les messages entrants qui sont con
 | UNH2.5 (CODE AFFECTÉ ASSOCIÉ) |Entrez le code affecté. (6 caractères maximum. Doit contenir des valeurs alphanumériques). |
 | UNG2.1 (ID DE L’EXPÉDITEUR D’APPLICATION) |Entrez une valeur numérique comprenant entre un et 35 caractères. |
 | UNG2.2 (QUALIFICATEUR DE L’EXPÉDITEUR D’APPLICATION) |Entrez une valeur alphanumérique comprenant quatre caractères maximum. |
-| Schéma |Sélectionnez le schéma que vous avez déjà téléchargé et que vous souhaitez utiliser à partir de votre compte d’intégration associé. |
+| SCHEMA |Sélectionnez le schéma que vous avez déjà téléchargé et que vous souhaitez utiliser à partir de votre compte d’intégration associé. |
 
 ### <a name="control-numbers"></a>Numéros de contrôle
+
 | Propriété | Description |
 | --- | --- |
 | Interdire les doublons de numéro de contrôle d’échange |Pour bloquer les échanges en double, sélectionnez cette propriété. Si cette option est sélectionnée, l’action de décodage EDIFACT vérifie que le numéro de contrôle d’échange (UNB5) pour l’échange reçu ne correspond pas à un numéro de contrôle déjà traité. Si une correspondance est détectée, l’échange n’est pas traité. |
@@ -123,7 +124,7 @@ Votre contrat est maintenant prêt à traiter les messages entrants qui sont con
 | Interdire les numéros de contrôle de document informatisé en double |Pour bloquer les échanges avec des numéros de contrôle de document informatisé en double (UNH1), sélectionnez cette propriété. |
 | Numéro de contrôle d’accusé de réception EDIFACT |Pour désigner les numéros de référence de document informatisé à utiliser dans un accusé de réception, entrez une valeur de préfixe, une plage de numéros de référence et un suffixe. |
 
-### <a name="validations"></a>Validations
+### <a name="validation"></a>Validation
 
 Une nouvelle ligne de validation est automatiquement ajoutée dès que la ligne précédente est terminée. Si vous ne spécifiez aucune règle, la validation utilise la ligne « Par défaut ».
 
@@ -153,7 +154,7 @@ Vous pouvez configurer la manière dont votre contrat identifie et traite les me
 1.  Sous **Ajouter**, sélectionnez **Paramètres d’envoi**.
 Configurez ces propriétés selon le contrat conclu avec le partenaire qui échange des messages avec vous. Pour obtenir les descriptions des propriétés, consultez les tableaux de cette section.
 
-    Les **paramètres d’envoi** sont organisés en plusieurs sections : identificateurs, accusé de réception, schémas, enveloppes, jeux de caractères et séparateurs, numéros de contrôle et validations.
+    Les **paramètres d’envoi** sont organisés en plusieurs sections : identificateurs, accusé de réception, schémas, enveloppes, jeux de caractères et séparateurs, numéros de contrôle et validations.
 
     ![Configurer « Paramètres d’envoi »](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
 
@@ -173,6 +174,7 @@ Votre contrat est maintenant prêt à traiter les messages sortants qui sont con
 | UNB7 (identifiant de référence de l’application) |Entrez une valeur numérique comprenant entre un et 14 caractères |
 
 ### <a name="acknowledgment"></a>Accusé de réception
+
 | Propriété | Description |
 | --- | --- |
 | Réception des messages (CONTRL) |Activez cette case à cocher si le partenaire hébergé s’attend à recevoir un accusé de réception (CONTRL) technique. Ce paramètre spécifie que le partenaire hébergé qui envoie le message demande un accusé de réception de la part du partenaire invité. |
@@ -180,14 +182,16 @@ Votre contrat est maintenant prêt à traiter les messages sortants qui sont con
 | Générer une boucle SG1/SG4 pour les documents informatisés acceptés |Si vous choisissez de demander un accusé de réception fonctionnel, activez cette case à cocher pour forcer la génération de boucles SG1/SG4 dans les accusés de réception CONTRL fonctionnels pour les documents informatisés acceptés. |
 
 ### <a name="schemas"></a>Schémas
+
 | Propriété | Description |
 | --- | --- |
 | UNH2.1 (TYPE) |Sélectionnez un type de document informatisé. |
 | UNH2.2 (VERSION) |Entrez le numéro de version du message. |
 | UNH2.3 (VERSION FINALE) |Entrez le numéro de version finale du message. |
-| SCHÉMA |Sélectionnez le schéma à utiliser. Les schémas se trouvent dans votre compte d’intégration. Pour accéder à vos schémas, vous devez tout d’abord lier votre compte d’intégration à votre application logique. |
+| SCHEMA |Sélectionnez le schéma à utiliser. Les schémas se trouvent dans votre compte d’intégration. Pour accéder à vos schémas, vous devez tout d’abord lier votre compte d’intégration à votre application logique. |
 
 ### <a name="envelopes"></a>Enveloppes
+
 | Propriété | Description |
 | --- | --- |
 | UNB8 (code de priorité de traitement) |Entrez une valeur alphabétique ne contenant pas plus d’un caractère. |
@@ -203,7 +207,7 @@ outre le jeu de caractères, vous pouvez entrer un autre ensemble de délimiteur
 | Propriété | Description |
 | --- | --- |
 | UNB1.1 (identificateur système) |Sélectionnez le jeu de caractères EDIFACT à appliquer à l’échange sortant. |
-| SCHÉMA |Dans la liste déroulante, sélectionnez un schéma. Une nouvelle ligne est automatiquement ajoutée lorsque la ligne précédente est terminée. Pour le schéma sélectionné, sélectionnez le jeu de séparateurs à utiliser en fonction de leur description ci-dessous. |
+| schéma |Dans la liste déroulante, sélectionnez un schéma. Une nouvelle ligne est automatiquement ajoutée lorsque la ligne précédente est terminée. Pour le schéma sélectionné, sélectionnez le jeu de séparateurs à utiliser en fonction de leur description ci-dessous. |
 | Type d’entrée |Dans la liste déroulante, sélectionnez un type d’entrée. |
 | Séparateur de composants |Entrez un caractère unique pour séparer les éléments de données composites. |
 | Séparateur d'éléments de données |Entrez un caractère unique pour séparer les éléments de données simples au sein des éléments de données composites. |
@@ -211,13 +215,14 @@ outre le jeu de caractères, vous pouvez entrer un autre ensemble de délimiteur
 | Suffixe |Sélectionnez le caractère utilisé avec l’identificateur de segment. Si vous désignez un suffixe, l’élément de données de terminateur de segment peut être vide. Si le terminateur de segment est laissé vide, vous devez désigner un suffixe. |
 
 ### <a name="control-numbers"></a>Numéros de contrôle
+
 | Propriété | Description |
 | --- | --- |
 | UNB5 (Numéro de contrôle de l’échange) |Entrez un préfixe, une plage de valeurs pour le numéro de contrôle de l’échange, ainsi qu’un suffixe. Ces valeurs sont utilisées pour générer un échange sortant. Le préfixe et le suffixe sont facultatifs, tandis que le numéro de contrôle est obligatoire. Le numéro de contrôle est incrémenté pour chaque nouveau message ; le préfixe et le suffixe restent les mêmes. |
 | UNG5 (Numéro de contrôle de groupe) |Entrez un préfixe, une plage de valeurs pour le numéro de contrôle de l’échange, ainsi qu’un suffixe. Ces valeurs sont utilisées pour générer le numéro de contrôle du groupe. Le préfixe et le suffixe sont facultatifs, tandis que le numéro de contrôle est obligatoire. Le numéro de contrôle est incrémenté pour chaque nouveau message jusqu’à ce que la valeur maximale soit atteinte ; le préfixe et le suffixe restent les mêmes. |
 | UNH1 (Numéro de référence de l’en-tête de message) |Entrez un préfixe, une plage de valeurs pour le numéro de contrôle de l’échange, ainsi qu’un suffixe. Ces valeurs sont utilisées pour générer le numéro de référence de l’en-tête de message. Le préfixe et le suffixe sont facultatifs, tandis que le numéro de référence est obligatoire. Le numéro de référence est incrémenté pour chaque nouveau message ; le préfixe et le suffixe restent les mêmes. |
 
-### <a name="validations"></a>Validations
+### <a name="validation"></a>Validation
 
 Une nouvelle ligne de validation est automatiquement ajoutée dès que la ligne précédente est terminée. Si vous ne spécifiez aucune règle, la validation utilise la ligne « Par défaut ».
 
@@ -240,9 +245,13 @@ Une nouvelle ligne de validation est automatiquement ajoutée dès que la ligne 
 
     ![Choisissez la mosaïque « Contrats »](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
-## <a name="view-swagger-file"></a>Afficher le fichier Swagger
-Pour afficher les détails Swagger du connecteur EDIFACT, voir [EDIFACT](/connectors/edifact/).
+## <a name="connector-reference"></a>Référence de connecteur
 
-## <a name="learn-more"></a>En savoir plus
-* [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")  
+Pour plus d’informations techniques sur ce connecteur, notamment au sujet des actions et des limites décrites dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/edifact/).
 
+> [!NOTE]
+> Pour les applications logiques utilisées dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la version étiquetée ISE de ce connecteur applique les [limites de messages de l’ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) à la place.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)

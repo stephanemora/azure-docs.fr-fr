@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/02/2019
-ms.openlocfilehash: fdfd026be1a10410cd7c875dbdf0de9660c8412c
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.custom: hdinsightactive
+ms.date: 02/24/2020
+ms.openlocfilehash: 888f24e13ce67c878592068927383dd8cbfefa60
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937630"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623104"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Utiliser Apache Spark pour lire et écrire des données Apache HBase
 
@@ -21,11 +21,11 @@ Apache HBase est généralement interrogé soit avec son API de bas niveau (anal
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Deux clusters HDInsight distincts déployés dans le même réseau virtuel. Un cluster HBase et un cluster Spark avec Spark 2.1 (HDInsight 3.6) minimum installé. Pour plus d’informations, consultez [Créer des clusters Linux dans HDInsight à l’aide du portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
+* Deux clusters HDInsight distincts déployés dans le même [réseau virtuel](./hdinsight-plan-virtual-network-deployment.md). Un cluster HBase et un cluster Spark avec Spark 2.1 (HDInsight 3.6) minimum installé. Pour plus d’informations, consultez [Créer des clusters Linux dans HDInsight à l’aide du portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 * Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* Le [schéma d’URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) de votre principal espace de stockage de clusters. Il s’agirait de wasb:// pour Stockage Blob Azure, de abfs:// pour Azure Data Lake Storage Gen2 ou de adl:// pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour le stockage Blob, l’URI sera `wasbs://`.  Voir aussi [transfert sécurisé](../storage/common/storage-require-secure-transfer.md).
+* Le [schéma d’URI](hdinsight-hadoop-linux-information.md#URI-and-scheme) de votre principal espace de stockage de clusters. Ce schéma serait wasb:// pour le Stockage Blob Azure, abfs:// pour Azure Data Lake Storage Gen2 ou adl:// pour Azure Data Lake Storage Gen1. Si le transfert sécurisé est activé pour le stockage Blob, l’URI sera `wasbs://`.  Voir aussi [transfert sécurisé](../storage/common/storage-require-secure-transfer.md).
 
 ## <a name="overall-process"></a>Procédure générale
 
@@ -54,13 +54,13 @@ Dans cette étape, vous créez et vous remplissez un tableau dans Apache HBase, 
     hbase shell
     ```
 
-3. Utilisez la commande `create` pour créer une table HBase avec deux familles de colonnes. Entrez la commande suivante :
+3. Utilisez la commande `create` pour créer une table HBase avec deux familles de colonnes. Entrez la commande suivante :
 
     ```hbase
     create 'Contacts', 'Personal', 'Office'
     ```
 
-4. Utilisez la commande `put` pour insérer des valeurs dans une colonne et sur une ligne spécifiées d’une table particulière. Entrez la commande suivante :
+4. Utilisez la commande `put` pour insérer des valeurs dans une colonne et sur une ligne spécifiées d’une table particulière. Entrez la commande suivante :
 
     ```hbase
     put 'Contacts', '1000', 'Personal:Name', 'John Dole'
@@ -73,7 +73,7 @@ Dans cette étape, vous créez et vous remplissez un tableau dans Apache HBase, 
     put 'Contacts', '8396', 'Office:Address', '5415 San Gabriel Dr.'
     ```
 
-5. Utilisez la commande `exit` pour arrêter l’interpréteur de commandes interactif HBase. Entrez la commande suivante :
+5. Utilisez la commande `exit` pour arrêter l’interpréteur de commandes interactif HBase. Entrez la commande suivante :
 
     ```hbase
     exit
@@ -95,9 +95,17 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
 
 Mettez ensuite fin à votre connexion SSH à votre cluster HBase.
 
+```bash
+exit
+```
+
 ## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Placer hbase-site.xml sur votre cluster Spark
 
-1. Connectez-vous au nœud principal de votre cluster Spark à l’aide de SSH.
+1. Connectez-vous au nœud principal de votre cluster Spark à l’aide de SSH. Modifiez la commande ci-dessous en remplaçant `SPARKCLUSTER` par le nom de votre cluster Spark, puis entrez la commande :
+
+    ```cmd
+    ssh sshuser@SPARKCLUSTER-ssh.azurehdinsight.net
+    ```
 
 2. Entrez la commande ci-dessous pour copier `hbase-site.xml` du stockage par défaut de votre cluster Spark vers le dossier de configuration Spark 2 sur le stockage local du cluster :
 
@@ -128,7 +136,7 @@ Dans cette étape, vous définissez un objet de catalogue qui mappe le schéma d
     import spark.sqlContext.implicits._
     ```  
 
-2. Entrez la commande ci-dessous pour définir un catalogue pour la table Contacts que vous avez créée dans HBase :
+1. Entrez la commande ci-dessous pour définir un catalogue pour la table Contacts que vous avez créée dans HBase :
 
     ```scala
     def catalog = s"""{
@@ -150,7 +158,7 @@ Dans cette étape, vous définissez un objet de catalogue qui mappe le schéma d
      b. Identifiez `key` comme RowKey et mappez les noms de colonnes utilisés dans Spark à la famille de colonne, au nom de colonne et au type de colonne utilisés dans HBase.  
      c. RowKey doit également être défini en détail en tant que colonne nommée (`rowkey`), qui a une famille de colonne spécifique `cf` de `rowkey`.  
 
-3. Entrez la commande ci-dessous pour définir une méthode qui fournit un DataFrame autour de votre table `Contacts` dans HBase :
+1. Entrez la commande ci-dessous pour définir une méthode qui fournit un DataFrame autour de votre table `Contacts` dans HBase :
 
     ```scala
     def withCatalog(cat: String): DataFrame = {
@@ -162,40 +170,42 @@ Dans cette étape, vous définissez un objet de catalogue qui mappe le schéma d
      }
     ```
 
-4. Créez une instance du DataFrame :
+1. Créez une instance du DataFrame :
 
     ```scala
     val df = withCatalog(catalog)
     ```  
 
-5. Interrogez le DataFrame :
+1. Interrogez le DataFrame :
 
     ```scala
     df.show()
     ```
 
-6. Vous devez voir deux lignes de données :
+    Vous devez voir deux lignes de données :
 
-        +------+--------------------+--------------+-------------+--------------+
-        |rowkey|       officeAddress|   officePhone| personalName| personalPhone|
-        +------+--------------------+--------------+-------------+--------------+
-        |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John Dole|1-425-000-0001|
-        |  8396|5415 San Gabriel Dr.|  230-555-0191|  Calvin Raji|  230-555-0191|
-        +------+--------------------+--------------+-------------+--------------+
+    ```output
+    +------+--------------------+--------------+-------------+--------------+
+    |rowkey|       officeAddress|   officePhone| personalName| personalPhone|
+    +------+--------------------+--------------+-------------+--------------+
+    |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John Dole|1-425-000-0001|
+    |  8396|5415 San Gabriel Dr.|  230-555-0191|  Calvin Raji|  230-555-0191|
+    +------+--------------------+--------------+-------------+--------------+
+    ```
 
-7. Inscrivez une table temporaire afin de pouvoir interroger la table HBase à l’aide de Spark SQL :
+1. Inscrivez une table temporaire afin de pouvoir interroger la table HBase à l’aide de Spark SQL :
 
     ```scala
     df.createTempView("contacts")
     ```
 
-8. Émettez une requête SQL par rapport à la table `contacts` :
+1. Émettez une requête SQL par rapport à la table `contacts` :
 
     ```scala
     spark.sqlContext.sql("select personalName, officeAddress from contacts").show
     ```
 
-9. Les résultats doivent ressembler à ceci :
+    Les résultats doivent ressembler à ceci :
 
     ```output
     +-------------+--------------------+
@@ -220,7 +230,7 @@ Dans cette étape, vous définissez un objet de catalogue qui mappe le schéma d
         )
     ```
 
-2. Créez une instance de `ContactRecord` et placez-la dans un tableau :
+1. Créez une instance de `ContactRecord` et placez-la dans un tableau :
 
     ```scala
     val newContact = ContactRecord("16891", "40 Ellis St.", "674-555-0110", "John Jackson","230-555-0194")
@@ -229,19 +239,19 @@ Dans cette étape, vous définissez un objet de catalogue qui mappe le schéma d
     newData(0) = newContact
     ```
 
-3. Enregistrez le tableau de nouvelles données dans HBase :
+1. Enregistrez le tableau de nouvelles données dans HBase :
 
     ```scala
     sc.parallelize(newData).toDF.write.options(Map(HBaseTableCatalog.tableCatalog -> catalog, HBaseTableCatalog.newTable -> "5")).format("org.apache.spark.sql.execution.datasources.hbase").save()
     ```
 
-4. Examinez les résultats :
+1. Examinez les résultats :
 
     ```scala  
     df.show()
     ```
 
-5. Un résultat similaire à ceci s’affiche normalement :
+    Un résultat similaire à ceci s’affiche normalement :
 
     ```output
     +------+--------------------+--------------+------------+--------------+
@@ -253,7 +263,7 @@ Dans cette étape, vous définissez un objet de catalogue qui mappe le schéma d
     +------+--------------------+--------------+------------+--------------+
     ```
 
-6. Fermez l’interpréteur de commandes Spark en entrant la commande suivante :
+1. Fermez l’interpréteur de commandes Spark en entrant la commande suivante :
 
     ```scala
     :q

@@ -1,10 +1,10 @@
 - name: Documentation Data Catalog
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Présentation de Data Catalog
       href: overview.md
-- name: Démarrage rapide
+- name: Démarrages rapides
   items:
     - name: Créer un catalogue de données Azure
       href: data-catalog-get-started.md
@@ -22,7 +22,7 @@
       href: data-catalog-adopting-data-catalog.md
     - name: Prérequis
       href: data-catalog-prerequisites.md
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: data-catalog-frequently-asked-questions.md
 - name: Procédure
   items:
@@ -50,7 +50,7 @@
       href: data-catalog-how-to-secure-catalog.md
     - name: Afficher les ressources de données associées
       href: data-catalog-how-to-view-related-data-assets.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       href: troubleshoot-policy-configuration.md
 - name: Informations de référence
   items:
@@ -60,7 +60,7 @@
       href: /rest/api/datacatalog/
     - name: Informations de référence sur la syntaxe de recherche
       href: /rest/api/datacatalog/data-catalog-search-syntax-reference
-    - name: Concepts liés au développement
+    - name: Concepts de développeur
       href: data-catalog-developer-concepts.md
 - name: Ressources
   items:

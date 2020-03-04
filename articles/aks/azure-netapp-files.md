@@ -3,16 +3,15 @@ title: Intégrer Azure NetApp Files à Azure Kubernetes Service
 description: Découvrez comment intégrer Azure NetApp Files à Azure Kubernetes Service
 services: container-service
 author: zr-msft
-ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2019
 ms.author: zarhoads
-ms.openlocfilehash: 84192a831e3b1f24e20eb07a6c8695516c28970f
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 42985e57d63c01553532928b2ba04ed5ee3dd8fb
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71328699"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596638"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Intégrer Azure NetApp Files à Azure Kubernetes Service
 
@@ -33,7 +32,8 @@ Les limitations suivantes s’appliquent lorsque vous utilisez Azure NetApp File
 * Azure NetApp Files est uniquement disponible [dans les régions Azure sélectionnées][anf-regions].
 * Avant de pouvoir utiliser Azure NetApp Files, vous devez avoir accès au service Azure NetApp Files. Pour demander l’accès, vous pouvez utiliser le [formulaire de soumission de liste d’attente Azure NetApp Files][anf-waitlist]. Vous ne pouvez pas accéder au service Azure NetApp Files tant que vous n’avez pas reçu l’e-mail de confirmation officiel de l’équipe Azure NetApp Files.
 * Votre service Azure NetApp Files doit être créé dans le même réseau virtuel que votre cluster AKS.
-* Seul le provisionnement statique d’Azure NetApp Files est pris en charge sur AKS.
+* Après le déploiement initial d’un cluster AKS, seul le provisionnement statique pour Azure NetApp Files est pris en charge.
+* Pour utiliser le provisionnement dynamique avec Azure NetApp Files, installez et configurez [NetApp Trident](https://netapp-trident.readthedocs.io/) version 19.07 ou ultérieure.
 
 ## <a name="configure-azure-netapp-files"></a>Configurer Azure NetApp Files
 

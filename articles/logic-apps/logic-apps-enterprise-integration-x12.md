@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/31/2017
-ms.openlocfilehash: 77ec5434b83c4246dc448578dcf2902e19f42e95
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: cbf0a1f033ddafc68debab8de26dff29d73cc98e
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792321"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651472"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Échanger des messages X12 dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -34,7 +34,7 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
 ## <a name="create-an-x12-agreement"></a>Créer un contrat X12
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com "Portail Azure"). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com "Portail Azure"). 
 
 2. Dans le menu principal Azure, sélectionnez **Tous les services**. 
    Dans la zone de recherche, entrez « intégration », puis sélectionnez **Comptes d’intégration**.  
@@ -123,7 +123,7 @@ Sélectionnez un schéma pour chaque type de transaction (ST1) et application de
 | Version |Sélectionnez la version X12 |
 | Type de transaction (ST01) |Sélectionnez le type de transaction |
 | Application de l’expéditeur (GS02) |Sélectionnez l’application de l’expéditeur |
-| Schéma |Sélectionnez le fichier de schéma que vous souhaitez utiliser. Les schémas sont ajoutés à votre compte d’intégration. |
+| schéma |Sélectionnez le fichier de schéma que vous souhaitez utiliser. Les schémas sont ajoutés à votre compte d’intégration. |
 
 > [!NOTE]
 > Configurez le [schéma](../logic-apps/logic-apps-enterprise-integration-schemas.md) requis qui est chargé dans votre [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-accounts.md).
@@ -146,7 +146,7 @@ Sélectionnez un schéma pour chaque type de transaction (ST1) et application de
 | Interdire les numéros de contrôle de groupe en double |Bloquer les échanges avec des numéros de contrôle de groupe en double. |
 | Interdire les numéros de contrôle de document informatisé en double |Bloquer les échanges avec des numéros de contrôle de document informatisé en double. |
 
-### <a name="validations"></a>Validations
+### <a name="validation"></a>Validation
 
 ![Définir les propriétés de validation pour les messages reçus](./media/logic-apps-enterprise-integration-x12/x12-36.png) 
 
@@ -216,7 +216,7 @@ Votre contrat est maintenant prêt à traiter les messages sortants qui sont con
 | --- | --- |
 | Version |Sélectionnez la version X12 |
 | Type de transaction (ST01) |Sélectionnez le type de transaction |
-| Schéma |Sélectionnez le schéma à utiliser. Les schémas se trouvent dans votre compte d’intégration. Si vous sélectionnez schéma d’abord, il configure automatiquement la version et le type de transaction.  |
+| SCHEMA |Sélectionnez le schéma à utiliser. Les schémas se trouvent dans votre compte d’intégration. Si vous sélectionnez schéma d’abord, il configure automatiquement la version et le type de transaction.  |
 
 > [!NOTE]
 > Configurez le [schéma](../logic-apps/logic-apps-enterprise-integration-schemas.md) requis qui est chargé dans votre [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-accounts.md).
@@ -231,13 +231,13 @@ Votre contrat est maintenant prêt à traiter les messages sortants qui sont con
 
 ### <a name="control-numbers"></a>Numéros de contrôle
 
-![Spécifier les propriétés de numéro de contrôle](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
+![Spécifier les propriétés des numéros de contrôle](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
 
 | Propriété | Description |
 | --- | --- |
 | Numéro de contrôle de version (ISA12) |Sélectionnez la version de la X12 standard. |
 | Indicateur d’utilisation (ISA15) |Sélectionnez le contexte d’un échange.  Les valeurs sont des informations, des données de production ou des données de test. |
-| Schéma |Génère les segments GS et ST pour un échange X12 encodé qu’il envoie au pipeline d’envoi. |
+| schéma |Génère les segments GS et ST pour un échange X12 encodé qu’il envoie au pipeline d’envoi. |
 | GS1 |Facultatif, sélectionnez une valeur pour le code fonctionnel dans la liste déroulante. |
 | GS2 |Facultatif, expéditeur de l’application. |
 | GS3 |Facultatif, destinataire de l’application. |
@@ -260,7 +260,7 @@ Outre le jeu de caractères, vous pouvez entrer un autre ensemble de délimiteur
 | Propriété | Description |
 | --- | --- |
 | Jeu de caractères à utiliser |Sélectionnez le jeu de caractères X12 pour valider les propriétés. Options : De base, Étendu et UTF-8. |
-| Schéma |Dans la liste déroulante, sélectionnez un schéma. Une nouvelle ligne est automatiquement ajoutée lorsque la ligne précédente est terminée. Pour le schéma sélectionné, sélectionnez le jeu de séparateurs à utiliser en fonction de leur description ci-dessous. |
+| schéma |Dans la liste déroulante, sélectionnez un schéma. Une nouvelle ligne est automatiquement ajoutée lorsque la ligne précédente est terminée. Pour le schéma sélectionné, sélectionnez le jeu de séparateurs à utiliser en fonction de leur description ci-dessous. |
 | Type d’entrée |Dans la liste déroulante, sélectionnez un type d’entrée. |
 | Séparateur de composants |Entrez un caractère unique pour séparer les éléments de données composites. |
 | Séparateur d'éléments de données |Entrez un caractère unique pour séparer les éléments de données simples au sein des éléments de données composites. |
@@ -296,9 +296,13 @@ Une nouvelle ligne de validation est automatiquement ajoutée dès que la ligne 
 
     ![Choisissez la mosaïque « Contrats »](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
-## <a name="view-the-swagger"></a>Afficher le swagger
-Consultez les [détails sur Swagger](/connectors/x12/). 
+## <a name="connector-reference"></a>Référence de connecteur
 
-## <a name="learn-more"></a>En savoir plus
-* [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")  
+Pour plus d’informations techniques sur ce connecteur, notamment au sujet des actions et des limites décrites dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/x12/). 
 
+> [!NOTE]
+> Pour les applications logiques utilisées dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la version étiquetée ISE de ce connecteur applique les [limites de messages de l’ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) à la place.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)

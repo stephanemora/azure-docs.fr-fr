@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines
 author: msmbaldwin
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 398da52ba424c08bd1bbdc6f02641109e136f45c
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 0aa62a76727f6f913c277100d8c5b36ed1b00110
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72511471"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77618476"
 ---
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -23,7 +23,7 @@ Un groupe de ressources est un conteneur logique dans lequel les ressources Azur
 
 Créez un groupe de ressources à l’aide de la commande Azure CLI [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create), de la commande Azure PowerShell [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) ou du [portail Azure](https://portal.azure.com).
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" --location eastus
@@ -44,7 +44,7 @@ Créez un coffre de clés à l’aide de la commande Azure CLI [az keyvault crea
 
 Chaque coffre de clés doit avoir un nom unique. Remplacez <your-unique-keyvault-name> par le nom de votre coffre de clés dans les exemples suivants.
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Quand vous créez un coffre de clés à l’aide d’Azure CLI, ajoutez l’indicateur « --enabled-for-disk-encryption ».
 
@@ -73,7 +73,7 @@ La plateforme Azure doit avoir accès aux clés et aux clés secrètes de chiffr
 
 Si vous n’avez pas activé votre coffre de clés pour le chiffrement de disque, le déploiement ou le déploiement de modèle au moment de la création (comme indiqué à l’étape précédente), vous devez mettre à jour ses stratégies d’accès avancé.  
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Utilisez la commande [az keyvault update](/cli/azure/keyvault#az-keyvault-update) afin d’activer le chiffrement de disque pour le coffre de clés. 
 
@@ -143,7 +143,7 @@ Azure Disk Encryption ne prend pas en charge l’intégration de numéros de por
   * URL de coffre de clés acceptable : *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
   * URL de coffre de clés inacceptable : *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Utilisez la commande Azure CLI [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) pour générer une nouvelle clé KEK et la stocker dans votre coffre de clés.
 

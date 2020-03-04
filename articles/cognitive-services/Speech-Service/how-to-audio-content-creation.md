@@ -3,21 +3,21 @@ title: Création de contenu audio - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Création de contenu audio est un outil en ligne qui vous permet de personnaliser et d’affiner le résultat de la conversion de texte par synthèse vocale de Microsoft pour vos applications et vos produits.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: erhopf
-ms.openlocfilehash: b65a39489f0823a411a9dddf79ec3abd1e5ee20d
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: aed9c0a72af063c84c0744757772e11c689ac14c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806203"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561032"
 ---
-# <a name="audio-content-creation"></a>Création de contenu audio
+# <a name="improve-synthesis-with-audio-content-creation"></a>Améliorer la synthèse avec la création de contenu audio
 
 [Création de contenu audio](https://aka.ms/audiocontentcreation) est un outil en ligne qui vous permet de personnaliser et d’affiner le résultat de la conversion de texte par synthèse vocale de Microsoft pour vos applications et vos produits. Vous pouvez utiliser cet outil pour affiner les voix publiques et personnalisées afin d’obtenir des expressions naturelles plus précises et gérer votre sortie dans le Cloud.
 
@@ -101,8 +101,8 @@ Une fois que vous avez vérifié la sortie audio et que vous êtes satisfait de 
 
 | Format | Taux d’échantillonnage 16 kHz | Taux d’échantillonnage 24 kHz |
 |--------|--------------------|--------------------|
-| wav | riff-16khz-16bit-mono-pcm | riff-24khz-16bit-mono-pcm |
-| mp3 | audio-16khz-128kbitrate-mono-mp3 | audio-24khz-160kbitrate-mono-mp3 |
+| wav | riff-16 khz-16 bits-mono-pcm | riff-24 khz-16 bits-mono-pcm |
+| mp3 | audio-16 khz-128 kbitrate-mono-mp3 | audio-24 khz-160 kbitrate-mono-mp3 |
 
 ## <a name="see-also"></a>Voir aussi
 

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fc01bd5c868cddd448e3a262960af64f50b78d74
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 2861b882d9b4c00a1c4db87b2dd49d49dfeb53a6
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372975"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581104"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -175,6 +175,8 @@ L’élément **Restriction** contient les éléments suivants :
 
 #### <a name="enumeration"></a>Énumération
 
+L’élément **Enumeration** définit les options que l’utilisateur peut sélectionner pour une revendication dans l’interface utilisateur, telle qu’une valeur dans un `CheckboxMultiSelect`, un `DropdownSingleSelect`, ou un `RadioSingleSelect`. Vous pouvez également définir et localiser les options disponibles avec l’élément [LocalizedCollections](localization.md#localizedcollections). Pour rechercher un élément à partir d’une collection de revendications **Enumeration**, utilisez la transformation de revendications [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection).
+
 L’élément **Enumeration** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
@@ -209,7 +211,7 @@ L’élément **Pattern** peut contenir les attributs suivants :
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | RegularExpression | Oui | Expression régulière auxquelles les revendications de ce type doivent correspondre pour être valides. |
-| HelpText | Non | Modèle ou expression régulière pour cette revendication. |
+| HelpText | Non | Message d’erreur présenté aux utilisateurs si la vérification de l’expression régulière échoue. |
 
 L’exemple suivant configure une revendication **email** avec validation de l’entrée d’expression régulière et texte d’aide :
 
@@ -407,5 +409,3 @@ Le type d’entrée d’utilisateur **Paragraph** sert à fournir un champ qui a
   </Restriction>
 </ClaimType>
 ```
-
-Pour afficher l’une des valeurs **Enumeration** dans une revendication **responseMsg**, utilisez la transformation de revendication `GetMappedValueFromLocalizedCollection` ou `CreateStringClaim`. Pour plus d’informations, consultez [Transformations de revendications de chaînes](string-transformations.md).

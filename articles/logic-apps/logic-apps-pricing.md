@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 1c21a84bd9aaa259d0459b4e16c7a62aabaa615d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 6c7112b6b5944042036fd3e7af6ec6f6dfbde0c0
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896379"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526142"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modèle de tarif pour Azure Logic Apps
 
@@ -40,13 +40,15 @@ En savoir sur le fonctionnement de la facturation pour les [déclencheurs](#trig
 
 ## <a name="fixed-pricing-model"></a>Modèle de tarif fixe
 
-Un [*environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) vous offre une méthode privée, isolée et dédiée de créer et d’exécuter des applications logiques pouvant accéder aux ressources dans un réseau virtuel Azure. Pour les nouvelles applications logiques qui s’exécutent dans un environnement ISE, vous payez un [tarif mensuel fixe](https://azure.microsoft.com/pricing/details/logic-apps) pour ces fonctionnalités :
+Un [*environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) fournit un moyen isolé de créer et d’exécuter des applications logiques pouvant accéder aux ressources dans un réseau virtuel Azure. Pour les nouvelles applications logiques qui s’exécutent dans un environnement ISE, vous payez un [tarif mensuel fixe](https://azure.microsoft.com/pricing/details/logic-apps) pour ces fonctionnalités :
 
-* [Déclencheurs et actions intégrés](../connectors/apis-list.md#built-in)
+* Déclencheurs et actions [intégrés](../connectors/apis-list.md#built-in)
 
-* [Connecteurs standard](../connectors/apis-list.md#managed-connectors)
+  Au sein d’un ISE, les déclencheurs et actions intégrés présentent l’étiquette **Core** et s’exécutent dans le même ISE que vos applications logiques.
 
-* [Connecteurs d’entreprise](../connectors/apis-list.md#enterprise-connectors) avec autant de connexions que vous le souhaitez
+* Connecteurs [Standard](../connectors/apis-list.md#managed-connectors) et connecteurs [Entreprise](../connectors/apis-list.md#enterprise-connectors) (autant de connexions Enterprise que vous le souhaitez)
+
+   Les connecteurs standard et entreprise qui présentent l’étiquette **ISE** s’exécutent dans le même ISE que vos applications logiques. Les connecteurs qui ne portent pas l’étiquette ISE s’exécutent dans le service Logic Apps global. La tarification mensuelle fixe s’applique également aux connecteurs s’exécutant dans le service global quand vous les utilisez avec des applications logiques qui s’exécutent dans un environnement ISE.
 
 * Utilisation du [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) sans coût supplémentaire, en fonction de votre [référence SKU ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) :
 
@@ -60,12 +62,9 @@ Un [*environnement de service d’intégration* (ISE)](../logic-apps/connect-vir
 
   * **Référence SKU de développeur** : jusqu’à 4 comptes standard supplémentaires ou jusqu’à 5 comptes standard au total. Aucun compte de base.
 
-Pour plus d’informations sur les limites des comptes d’intégration, consultez [Limites et configuration de Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Vous trouverez plus d’informations sur les [niveaux de comptes d’intégration et leur modèle de tarification](#integration-accounts) plus loin dans cette rubrique.
+  Pour plus d’informations sur les limites des comptes d’intégration, consultez [Limites et configuration de Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Vous trouverez plus d’informations sur les [niveaux de comptes d’intégration et leur modèle de tarification](#integration-accounts) plus loin dans cette rubrique.
 
-Pour la référence SKU Premium ISE, l’unité de base dispose d’une capacité fixe ; si vous avez besoin de davantage de débit, vous pouvez [ajouter des unités d’échelle](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), pendant la création ou après. La référence SKU de Developer ISE ne peut pas jouter d’unités d’échelle supplémentaires. Les applications logiques qui s’exécutent dans un ISE n’entraînent aucun coût en termes de conservation des données.
-
-> [!NOTE]
-> Au sein d’un ISE, les déclencheurs et actions intégrés présentent l’étiquette **Core** et s’exécutent dans le même ISE que vos applications logiques. Les connecteurs standard et entreprise qui présentent l’étiquette **ISE** s’exécutent dans le même ISE que vos applications logiques. Les connecteurs qui ne portent pas l’étiquette ISE s’exécutent dans le service Logic Apps global.
+Si vous choisissez la référence SKU de l’environnement de service d’intégration (ISE) Premium, l’unité de base a une capacité fixe. Si vous avez besoin d’un débit plus élevé, vous pouvez [ajouter des unités d’échelle supplémentaires](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity) pendant la création ou par la suite. La référence SKU de Developer ISE ne peut pas jouter d’unités d’échelle supplémentaires. Les applications logiques qui s’exécutent dans un ISE n’entraînent aucun coût en termes de conservation des données.
 
 Pour connaître la tarification, consultez [Tarification Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 

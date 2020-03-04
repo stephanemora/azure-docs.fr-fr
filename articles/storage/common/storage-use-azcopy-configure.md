@@ -8,12 +8,12 @@ ms.date: 01/28/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 00ce40e24a01b765419186a609ecf19ce53c772b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: d2cb40d7510e46539db46bdb61ec2d64c0fd1ec7
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905261"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526493"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurer, optimiser et dépanner AzCopy
 
@@ -121,6 +121,8 @@ AzCopy crée des fichiers journaux et de plan pour chaque travail. Vous pouvez u
 Les journaux d’activité contiennent l’état de la défaillance (`UPLOADFAILED`, `COPYFAILED`et `DOWNLOADFAILED`), le chemin complet et la raison de la défaillance.
 
 Par défaut, les fichiers journaux et de plan sont situés dans le répertoire `%USERPROFILE%\.azcopy` sur Windows ou dans le répertoire `$HOME$\.azcopy` sur Mac et Linux, mais vous pouvez changer cet emplacement si vous le souhaitez.
+
+L’erreur correspondante n’est pas nécessairement la première erreur qui apparaît dans le fichier. Pour les erreurs telles que les erreurs réseau, les délais d’expiration et les erreurs de serveur occupé, AzCopy effectue jusqu’à 20 nouvelles tentatives. En général, le processus aboutit.  La première erreur que vous voyez peut être un problème anodin qui a fait l’objet d’une nouvelle tentative réussie.  Ainsi, au lieu de vous concentrer sur la première erreur du fichier, recherchez les erreurs à proximité de `UPLOADFAILED`, `COPYFAILED` ou `DOWNLOADFAILED`. 
 
 > [!IMPORTANT]
 > Lorsque vous soumettez requête au support Microsoft (ou que vous résolvez le problème impliquant un tiers), partagez la version rédigée de la commande que vous souhaitez exécuter. Cela garantit que la SAP n’est pas accidentellement partagée avec tout le monde. Vous trouverez la version expurgée au début du fichier journal.

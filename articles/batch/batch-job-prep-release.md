@@ -11,15 +11,15 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 02/27/2017
+ms.date: 02/17/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 5163c0cd5584848058620f76f77d9efbb6cef9c1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d9f6f015c210592d5d8053b1b34d5357bb357629
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025144"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586782"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Exécuter des tâches de préparation et de validation du travail sur les nœuds de calcul Batch
 
@@ -54,20 +54,23 @@ Vous voulez peut-être conserver une copie des fichiers journaux générés par 
 
 > [!TIP]
 > Une autre façon de conserver les journaux d’activité et les autres données de sortie des travaux et des tâches consiste à utiliser la bibliothèque de [conventions de fichier Azure Batch](batch-task-output.md) .
-> 
-> 
+>
+>
 
 ## <a name="job-preparation-task"></a>tâche de préparation du travail
-Avant l’exécution des tâches d’un travail, Batch exécute la tâche de préparation du travail sur chaque nœud de calcul sur lequel l’exécution d’une tâche est planifiée. Par défaut, le service Batch attend la fin de la tâche de préparation du travail avant d’exécuter les tâches destinées à s’exécuter sur le nœud. Toutefois, vous pouvez configurer le service pour qu'il n'attende pas. Si le nœud redémarre, la tâche de préparation du travail s’exécute de nouveau. Toutefois, vous pouvez également désactiver ce comportement.
+
+
+Avant l’exécution des tâches d’un travail, Batch exécute la tâche de préparation du travail sur chaque nœud de calcul sur lequel l’exécution d’une tâche est planifiée. Par défaut, Batch attend la fin de la tâche de préparation du travail avant d’exécuter les tâches planifiées pour s’exécuter sur le nœud. Toutefois, vous pouvez configurer le service pour qu'il n'attende pas. Si le nœud redémarre, la tâche de préparation du travail est réexécutée. Vous pouvez aussi désactiver ce comportement. Si vous avez configuré un travail avec une tâche de préparation du travail et une tâche du gestionnaire de travaux, la tâche de préparation du travail est exécutée avant la tâche du gestionnaire de travaux, tout comme avec toutes les autres tâches. La tâche de préparation du travail est toujours exécutée en premier.
 
 La tâche de préparation du travail est uniquement exécutée sur les nœuds sur lesquels l’exécution d’une tâche est planifiée. Ceci empêche l'exécution d'une tâche de préparation inutile dans le cas où une tâche n'est pas attribuée à un nœud. Cette situation peut survenir lorsque le nombre de tâches pour un travail est inférieur au nombre de nœuds dans un pool. Elle s’applique également si [l’exécution de tâches simultanées](batch-parallel-node-tasks.md) est activée. Dans ce cas, certains nœuds restent inactifs si le nombre de tâches est inférieur au nombre total de tâches simultanées possibles. Lorsque vous n’exécutez pas la tâche de préparation du travail sur des nœuds inactifs, vous pouvez réduire vos frais de transfert de données.
 
 > [!NOTE]
 > [JobPreparationTask][net_job_prep_cloudjob] diffère de [CloudPool.StartTask][pool_starttask] dans la mesure où JobPreparationTask s’exécute au début de chaque travail, tandis que StartTask s’exécute uniquement lorsqu’un nœud de calcul rejoint un pool ou redémarre.
-> 
-> 
+>
 
-## <a name="job-release-task"></a>tâche de validation du travail
+
+>## <a name="job-release-task"></a>tâche de validation du travail
+
 Lorsqu'un travail est marqué comme terminé, la tâche de validation du travail s'exécute sur chaque nœud dans le pool ayant exécuté au moins une tâche. Vous marquez un travail comme terminé en émettant une requête de fin. Le service Batch définit ensuite l’état du travail sur *arrêt*, met fin à toutes les tâches actives ou en cours d’exécution associées au travail, puis exécute la tâche de validation du travail. Le travail passe ensuite à l'état *terminé* .
 
 > [!NOTE]

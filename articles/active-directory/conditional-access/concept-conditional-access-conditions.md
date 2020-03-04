@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fe24e4a2b25b1ef3f0da2b1a5e1c0f29251df1
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: dff80d849268c770e4227ff8c99b8f4d133c4d78
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192078"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620732"
 ---
 # <a name="conditional-access-conditions"></a>Accès conditionnel : Conditions
 
@@ -52,21 +52,35 @@ Lors de la configuration de l’emplacement comme condition, les organisations p
 
 Si vous incluez **n’importe quel emplacement**, cette option inclut toutes les adresses IP sur Internet, et pas seulement les emplacements nommés qui ont été configurés. Quand l’option **N’importe quel emplacement** est sélectionnée, les administrateurs peuvent choisir d’exclure **tous les emplacements approuvés** ou les **emplacements sélectionnés**.
 
-Par exemple, certaines organisations ne souhaitent pas exiger l’authentification multifacteur quand leurs utilisateurs sont connectés au réseau à un emplacement approuvé, comme leur siège social. Dans ce cas, les administrateurs créent une stratégie qui inclut n’importe quel emplacement, mais qui exclut les emplacements sélectionnés pour leurs réseaux internes.
+Par exemple, certaines organisations ne souhaitent pas exiger l’authentification multifacteur quand leurs utilisateurs sont connectés au réseau à un emplacement approuvé, comme leur siège social. Dans ce cas, les administrateurs créent une stratégie qui inclut n’importe quel emplacement, mais qui exclut les emplacements sélectionnés pour leurs réseaux de siège social.
+
+Pour plus d’informations sur les emplacements, consultez l’article [Qu’est-ce que la condition d’emplacement de l’accès conditionnel Azure Active Directory ?](location-condition.md).
 
 ## <a name="client-apps-preview"></a>Applications clientes (préversion)
 
 Par défaut, les stratégies d’accès conditionnel s’appliquent aux applications basées sur un navigateur ainsi qu’aux applications qui utilisent des protocoles d’authentification moderne. En plus de ces applications, les administrateurs peuvent choisir d’inclure les clients Exchange ActiveSync et d’autres clients qui utilisent des protocoles hérités.
 
-- Navigateur
+- Browser
    - Cette option inclut les applications web qui utilisent des protocoles comme SAML, WS-Federation, OpenID Connect, ou les services inscrits en tant que clients confidentiels OAuth.
 - Applications mobiles et clients de bureau
    - Clients d’authentification moderne
       - Cette option inclut les applications comme les applications de bureau et de téléphone Office.
    - Clients Exchange ActiveSync
+      - Par défaut, cela inclut toute utilisation du protocole EAS (Exchange ActiveSync). La sélection de **Appliquer la stratégie uniquement aux plateformes prises en charge** permet de limiter aux plateformes prises en charge comme iOS, Android et Windows.
       - Si une stratégie bloque l’utilisation d’Exchange ActiveSync, l’utilisateur concerné reçoit un e-mail de mise en quarantaine. Cet e-mail contient des informations sur la raison du blocage et fournit éventuellement des instructions de correction.
    - Autres clients
-      - Cette option inclut les clients qui utilisent des protocoles d’authentification de base/existants (notamment IMAP, MAPI, POP et SMTP) et les applications Office héritées qui ne prennent pas en charge l’authentification moderne.
+      - Cette option inclut les clients qui utilisent des protocoles d’authentification de base/hérités qui ne prennent pas en charge l’authentification moderne.
+         - SMTP authentifié : utilisé par les clients POP et IMAP pour envoyer des e-mails.
+         - Découverte automatique : utilisé par les clients Outlook et EAS pour rechercher des boîtes aux lettres dans Exchange Online et s’y connecter.
+         - Exchange Online PowerShell : utilisé pour se connecter à Exchange Online à l’aide de PowerShell à distance. Si vous bloquez l’authentification de base pour Exchange Online PowerShell, vous devez utiliser le module Exchange Online PowerShell pour vous connecter. Pour obtenir des instructions, consultez [Se connecter à Exchange Online PowerShell à l’aide de l’authentification multifacteur](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).
+         - Exchange Web Services (EWS) : interface de programmation utilisée par Outlook, Outlook pour Mac et des applications tierces.
+         - IMAP4 : utilisé par les clients de messagerie IMAP.
+         - MAPI sur HTTP (MAPI/HTTP) : utilisé par Outlook 2010 et versions ultérieures.
+         - Carnet d’adresses hors connexion (OAB) : copie des collections de listes d’adresses qui sont téléchargées et utilisées par Outlook.
+         - Outlook Anywhere (RPC sur HTTP) : utilisé par Outlook 2016 et versions antérieures.
+         - Service Outlook : utilisé par l’application Courrier et calendrier pour Windows 10.
+         - POP3 : utilisé par les clients de messagerie POP.
+         - Reporting Web Services : utilisé pour récupérer des données de rapports dans Exchange Online.
 
 Ces conditions sont généralement utilisées pour exiger l’utilisation d’un appareil managé, bloquer l’authentification héritée ou encore bloquer les applications web et autoriser les applications mobiles ou de bureau.
 
@@ -101,7 +115,7 @@ Pour déployer automatiquement cette extension sur les navigateurs Chrome, crée
 |    |    |
 | --- | --- |
 | Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Name | 1 |
+| Nom | 1 |
 | Type | REG_SZ (String) |
 | Données | ppnbnpeolgkicgegkbkbjmhlideopiji;https\://clients2.google.com/service/update2/crx |
 
@@ -110,7 +124,7 @@ Pour la prise en charge de Chrome dans **Windows 8.1 et 7**, créez la clé de R
 |    |    |
 | --- | --- |
 | Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Name | 1 |
+| Nom | 1 |
 | Type | REG_SZ (String) |
 | Données | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
@@ -139,7 +153,7 @@ Ce paramètre a un impact sur les tentatives d’accès provenant des applicatio
 | Outlook 2016, Outlook 2013 (avec authentification moderne), Skype Entreprise (avec authentification moderne) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
 | Application Outlook Mobile | Office 365 Exchange Online | Android, iOS |
 | Application Power BI | Service Power BI | Windows 10, Windows 8.1, Windows 7, Android et iOS |
-| Skype Entreprise | Office 365 Exchange Online| Android, IOS |
+| Skype Entreprise | Office 365 Exchange Online| Android, iOS |
 | Application Visual Studio Team Services | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS, Android |
 
 ### <a name="exchange-activesync-clients"></a>Clients Exchange ActiveSync

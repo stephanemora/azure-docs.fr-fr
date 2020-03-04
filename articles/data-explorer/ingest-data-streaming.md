@@ -7,23 +7,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 49129bede62e456cf2807cc879b7fc5e1793b65b
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 4a0593ccd6bdf37520e73ba8ed421ec4b10ea52c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424947"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623300"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingestion de streaming (préversion)
 
 L’ingestion de streaming cible les scénarios qui nécessitent une faible latence avec une durée d’ingestion de moins de 10 secondes pour des volumes de données variés. Elle est utilisée pour optimiser le traitement opérationnel de nombreuses tables, dans une ou plusieurs bases de données où le flux de données dans chaque table est relativement faible (peu d’enregistrements par seconde), mais le volume global d’ingestion de données est élevé (des milliers d’enregistrements par seconde).
 
 Utilisez l’ingestion classique (en bloc) à la place de l’ingestion de streaming lorsque la quantité de données dépasse 1 Mo par seconde par table. Consultez [Vue d’ensemble de l’ingestion de données](/azure/data-explorer/ingest-data-overview) pour en apprendre plus sur les différentes méthodes d’ingestion.
-
-> [!NOTE]
-> L’ingestion de streaming ne prend pas en charge les fonctionnalités suivantes :
-> * [Curseurs de base de données](/azure/kusto/management/databasecursor).
-> * [Mappage des données](/azure/kusto/management/mappings). Seul un mappage de données [précréé](/azure/kusto/management/tables#create-ingestion-mapping) est pris en charge. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -32,6 +27,9 @@ Utilisez l’ingestion classique (en bloc) à la place de l’ingestion de strea
 * Créer [un cluster et une base de données Azure Data Explorer](create-cluster-database-portal.md)
 
 ## <a name="enable-streaming-ingestion-on-your-cluster"></a>Activer l’ingestion de streaming sur votre cluster
+
+> [!WARNING]
+> Examinez les [limitations](#limitations) avant d’activer l’ingestion de streaming.
 
 1. Dans le portail Azure, accédez à votre cluster Azure Data Explorer. Dans **Paramètres**, sélectionnez **Configurations**. 
 1. Dans le volet **Configurations**, sélectionnez **Activé** pour activer **Ingestion de streaming**.
@@ -49,8 +47,9 @@ Utilisez l’ingestion classique (en bloc) à la place de l’ingestion de strea
 
 Il existe deux types d’ingestion de streaming pris en charge :
 
-* [Hub d’événements](/azure/data-explorer/ingest-data-event-hub) utilisé comme source de données
-* Une ingestion personnalisée exige que vous écriviez une application qui utilise l’une des bibliothèques clientes Azure Data Explorer. Consultez un [exemple d’ingestion de streaming](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) pour voir un exemple d’application.
+
+* [**Hub d’événements**](/azure/data-explorer/ingest-data-event-hub) utilisé comme source de données
+* Une **ingestion personnalisée** vous demande d’écrire une application qui utilise l’une des bibliothèques clientes Azure Data Explorer. Consultez un [exemple d’ingestion de streaming](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) pour voir un exemple d’application.
 
 ### <a name="choose-the-appropriate-streaming-ingestion-type"></a>Choisir le type d’ingestion de streaming approprié
 
@@ -78,6 +77,10 @@ Il existe deux types d’ingestion de streaming pris en charge :
 * Les mises à jour de schéma, telles que la création et la modification de tables et de mappages d’ingestion, peuvent prendre jusqu’à 5 minutes pour le service d’ingestion de streaming.
 * L’activation de l’ingestion de streaming sur un cluster, même lorsque les données ne sont pas ingérées via streaming, utilise une partie du disque SSD local des machines du cluster pour les données d’ingestion de streaming et réduit le stockage disponible pour le cache à chaud.
 * Les [étiquettes d’étendue](/azure/kusto/management/extents-overview.md#extent-tagging) ne peuvent pas être définies dans les données d’ingestion de streaming.
+
+L’ingestion de streaming ne prend pas en charge les fonctionnalités suivantes :
+* [Curseurs de base de données](/azure/kusto/management/databasecursor).
+* [Mappage des données](/azure/kusto/management/mappings). Seul un mappage de données [précréé](/azure/kusto/management/tables#create-ingestion-mapping) est pris en charge. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

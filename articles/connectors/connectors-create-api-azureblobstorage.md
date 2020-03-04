@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 86e8415cf2076819e23226e5e7878a2c96343f69
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789922"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650859"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Créer et gérer des objets Blob dans Stockage Blob Azure avec Azure Logic Apps
 
@@ -23,7 +23,7 @@ Supposons que vous disposez d’un outil qui est mis à jour sur un site web Azu
 Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour obtenir des informations techniques spécifiques aux connecteurs, consultez la [référence du connecteur Stockage Blob Azure](https://docs.microsoft.com/connectors/azureblobconnector/).
 
 > [!IMPORTANT]
-> Pour activer l’accès à partir d’Azure Logic Apps aux comptes de stockage derrière des pare-feu, consultez la section [Accéder aux comptes de stockage derrière des pare-feu](#storage-firewalls) plus loin dans cette rubrique.
+> Les applications logiques n’ont pas directement accès aux comptes de stockage qui sont derrière des pare-feu dans la même région qu’elles. Pour contourner ce problème, placez vos applications logiques et votre compte de stockage dans des régions différentes. Pour plus d’informations sur l’activation de l’accès à partir d’Azure Logic Apps aux comptes de stockage derrière des pare-feu, consultez la section [Accéder aux comptes de stockage derrière des pare-feu](#storage-firewalls) plus loin dans cette rubrique.
 
 <a name="blob-storage-limits"></a>
 
@@ -121,15 +121,15 @@ Cet exemple obtient uniquement le contenu d’un objet Blob. Pour afficher le co
 
 1. Lorsque vous êtes invité à créer la connexion, fournissez les informations suivantes :
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | **Nom de connexion** | OUI | <*connection-name*> | Nom à créer pour votre connexion |
-   | **Compte de stockage** | OUI | <*storage-account*> | Sélectionnez votre compte de stockage dans la liste. |
+   | **Nom de connexion** | Oui | <*connection-name*> | Nom à créer pour votre connexion |
+   | **Compte de stockage** | Oui | <*storage-account*> | Sélectionnez votre compte de stockage dans la liste. |
    ||||
 
    Par exemple :
 
-   ![Créer une connexion de compte de stockage d’objets blob Azure](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png)  
+   ![Créer une connexion de compte de stockage d’objets blob Azure](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png) 
 
 1. Quand vous êtes prêt, sélectionnez **Créer**
 
@@ -137,7 +137,10 @@ Cet exemple obtient uniquement le contenu d’un objet Blob. Pour afficher le co
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, telles que les déclencheurs, actions et limites, comme décrit dans le fichier Open API (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/azureblobconnector/).
+Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/azureblobconnector/).
+
+> [!NOTE]
+> Pour les applications logiques utilisées dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la version de ce connecteur avec l’étiquette ISE applique les [limites de messages de l’ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) à la place.
 
 <a name="storage-firewalls"></a>
 
@@ -159,9 +162,12 @@ Voici différentes options pour accéder aux comptes de stockage derrière des p
 
 <a name="access-other-regions"></a>
 
-### <a name="access-to-storage-accounts-in-other-regions"></a>Accéder aux comptes de stockage dans d’autres régions
+### <a name="problems-accessing-storage-accounts-in-the-same-region"></a>Problèmes d’accès aux comptes de stockage situés dans la même région
 
-Les applications logiques n’ont pas directement accès aux comptes de stockage dotés de règles de pare-feu et situés dans la même région. Toutefois, si vous autorisez l’accès pour les [adresses IP sortantes pour les connecteurs managés dans votre région](../logic-apps/logic-apps-limits-and-config.md#outbound), vos applications logiques peuvent accéder aux comptes de stockage dans une autre région, sauf lorsque vous utilisez le connecteur de Stockage Table Azure ou le connecteur de Stockage File d’attente Azure. Pour accéder à votre service Stockage Table ou Stockage File d’attente, vous pouvez toujours utiliser le déclencheur et les actions HTTP intégrés.
+Les applications logiques n’ont pas directement accès aux comptes de stockage qui sont derrière des pare-feu dans la même région qu’elles. Pour contourner ce problème, placez vos applications logiques dans une région différente de celle de votre compte de stockage et accordez l’accès aux [adresses IP sortantes pour les connecteurs managés dans votre région](../logic-apps/logic-apps-limits-and-config.md#outbound).
+
+> [!NOTE]
+> Cette solution ne s’applique pas aux connecteurs Stockage Table Azure et Stockage File d’attente Azure. À la place, pour accéder à votre connecteur Stockage Table ou Stockage File d’attente, utilisez le déclencheur et les actions HTTP intégrés.
 
 <a name="access-trusted-virtual-network"></a>
 
@@ -196,7 +202,7 @@ Pour configurer l’exception et la prise en charge des identités gérées, sui
 
 ### <a name="access-storage-accounts-through-azure-api-management"></a>Accéder aux comptes de stockage par le biais de la gestion des API Azure
 
-Si vous utilisez un niveau dédié pour la [Gestion des API](../api-management/api-management-key-concepts.md), vous pouvez avoir recours à l’API de stockage en utilisant le service Gestion des API et en autorisant les adresses IP de ce dernier via le pare-feu. En gros, ajoutez le réseau virtuel Azure utilisé par le service Gestion des API au paramètre de pare-feu du compte de stockage. Vous pouvez ensuite utiliser l'action Gestion des API ou l'action HTTP pour appeler les API Stockage Azure. Cela dit, si vous choisissez cette option, vous devez gérer vous-même le processus d’authentification. Pour plus d’informations, consultez [Architecture d’intégration d’entreprise simple](https://aka.ms/aisarch).
+Si vous utilisez un niveau dédié pour la [Gestion des API](../api-management/api-management-key-concepts.md), vous pouvez avoir recours à l’API de stockage en utilisant le service Gestion des API et en autorisant les adresses IP de ce dernier via le pare-feu. En gros, ajoutez le réseau virtuel Azure utilisé par le service Gestion des API au paramètre de pare-feu du compte de stockage. Vous pouvez ensuite utiliser l’action Gestion des API ou l’action HTTP pour appeler les API Stockage Azure. Cela dit, si vous choisissez cette option, vous devez gérer vous-même le processus d’authentification. Pour plus d’informations, consultez [Architecture d’intégration d’entreprise simple](https://aka.ms/aisarch).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

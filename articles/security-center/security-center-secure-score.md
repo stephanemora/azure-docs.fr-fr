@@ -1,5 +1,5 @@
 ---
-title: Degré de sécurisation dans Azure Security Center | Microsoft Docs
+title: Niveau de sécurité dans Azure Security Center | Microsoft Docs
 description: " Classez vos recommandations de sécurité par ordre de priorité à l’aide du degré de sécurisation dans Azure Security Center. "
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/15/2019
 ms.author: memildin
-ms.openlocfilehash: 79154a13722654ef5cbbe7ac99bb67d4b761fe60
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 15a94a9724fac29d36f6bb88ee4810b3bc7ca607
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76903442"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603483"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Améliorer votre degré de sécurisation dans Azure Security Center
 
@@ -29,64 +29,60 @@ ms.locfileid: "76903442"
 >
 > Pour participer à la préversion, ouvrez le portail Azure, lancez Azure Security Center, puis sélectionnez Degré de sécurisation. Vous verrez alors une bannière située en haut de la page qui propose la nouvelle version de Degré de sécurisation. Vous pouvez également [cliquer ici](https://aka.ms/ascnewscore).
 
-Avec autant de services offrant des avantages en matière de sécurité, il est souvent difficile de connaître les étapes à suivre en premier lieu pour sécuriser et renforcer votre charge de travail. Le degré de sécurisation Azure examine vos recommandations de sécurité et les classe par priorité, afin que vous sachiez quelles recommandations appliquer en priorité. Cela vous permet de rechercher les vulnérabilités de sécurité les plus graves afin de définir les priorités d’investigation. Le degré de sécurisation est un outil qui vous aide à évaluer la sécurité de la charge de travail.
+Avec autant de services offrant des avantages en matière de sécurité, il est souvent difficile de connaître les étapes à suivre en premier lieu pour sécuriser et renforcer votre charge de travail. L’outil Niveau de sécurité vérifie vos recommandations de sécurité et les classe par priorité pour que vous sachiez quelles recommandations appliquer en premier lieu. Cela vous permet de rechercher les vulnérabilités de sécurité les plus graves afin de définir les priorités d’investigation. L’outil Niveau de sécurité vous aide à évaluer l’état de sécurité de votre charge de travail.
 
-## <a name="secure-score-calculation"></a>Calcul du degré de sécurisation
+## <a name="secure-score-calculation"></a>Calcul du niveau de sécurité
 
 Azure Security Center imite le travail des analystes en sécurité, en examinant vos recommandations en matière de sécurité et en appliquant des algorithmes avancés pour déterminer le degré d’importance de chaque recommandation.
-Azure Security Center vérifie constamment vos recommandations actives et calcule votre degré de sécurisation en fonction de celles-ci. Le score d’une recommandation est basé sur sa gravité et sur les meilleures pratiques en matière de sécurité qui affectent le plus la sécurité de votre charge de travail.
+Azure Security Center vérifie constamment vos recommandations actives et calcule votre niveau de sécurité en fonction de celles-ci. Le niveau d’une recommandation est basé sur sa gravité et sur les bonnes pratiques de sécurité qui affectent le plus la sécurité de votre charge de travail.
 
-Security Center vous fournit également un **degré de sécurisation global**. 
+Security Center vous fournit également un **niveau de sécurité général**. 
 
-Le **degré de sécurisation global** est l’accumulation de toutes vos recommandations. Vous pouvez afficher votre degré de sécurisation global dans vos abonnements ou groupes d’administration en fonction de votre sélection. Celui-ci varie en fonction de l’abonnement sélectionné et des recommandations actives correspondantes.
+Le **niveau de sécurité général** est un cumul de tous vos niveaux de recommandation. Vous pouvez voir votre niveau de sécurité général dans vos abonnements ou vos groupes d’administration en fonction de votre sélection. Celui-ci varie en fonction de l’abonnement sélectionné et des recommandations actives correspondantes.
 
-Pour vérifier les recommandations qui affectent le plus votre degré de sécurisation, vous pouvez afficher les trois principales recommandations ayant l’impact le plus fort dans le tableau de bord de Security Center. Vous pouvez également trier les recommandations contenues dans le panneau de la liste des recommandations à l’aide de la colonne **Impact du degré de sécurisation**.
+Pour identifier les recommandations qui ont le plus d’incidence sur votre niveau de sécurité, vous pouvez voir les trois recommandations ayant le plus d’impact dans le tableau de bord de Security Center. Vous pouvez également trier les recommandations dans le panneau de la liste de recommandations à l’aide de la colonne **Impact du niveau de sécurité**.
 
-Pour afficher votre degré de sécurisation global :
+Pour voir votre niveau de sécurité général :
 
-1. Dans le tableau de bord Azure, cliquez sur **Security Center**, puis sur **Degré de sécurisation**.
+1. Dans le tableau de bord Azure, cliquez sur **Security Center**, puis sur **Niveau de sécurité**.
 
-2. En haut, vous pouvez voir la synthèse du degré de sécurisation :
-   - Le **degré de sécurisation global** représente le degré par stratégie et par abonnement sélectionné.
-   - Le **degré de sécurisation par catégorie** vous montre les ressources qui ont le plus besoin d’attention.
-   - **Recommandations principales par impact sur le score de sécurité** vous propose une liste de recommandations qui vont améliorer le plus votre degré de sécurisation si vous les implémentez.
+2. En haut, vous pouvez voir les points clés du niveau de sécurité :
+   - Le **Niveau de sécurité général** représente le niveau par stratégie et par abonnement sélectionné
+   - Le **Niveau de sécurité par catégorie** vous indique quelles sont les ressources qui nécessitent le plus d’attention
+   - Le paramètre **Recommandations principales par impact sur le niveau de sécurité** vous propose une liste de recommandations qui améliorent au maximum votre niveau de sécurité, si vous les implémentez.
  
-   ![degré de sécurisation](./media/security-center-secure-score/secure-score-dashboard.png)
+   ![Degré de sécurisation](./media/security-center-secure-score/secure-score-dashboard.png)
 
-3. Dans le tableau ci-dessous, vous pouvez voir chacun de vos abonnements et leur degré de sécurisation global.
+3. Dans le tableau ci-dessous, vous pouvez voir chacun de vos abonnements ainsi que le niveau de sécurité général correspondant.
 
    > [!NOTE]
-   > La somme des degrés de sécurisation de chaque abonnement n’est pas égale au degré de sécurisation global. Le degré de sécurisation est un calcul qui se base sur le rapport entre vos ressources saines et vos ressources totales par recommandation, et non la somme des degrés de sécurisation de tous vos abonnements. 
+   > La somme du niveau de sécurité de chaque abonnement n’est pas égale au niveau de sécurité général. Le niveau de sécurité est un calcul basé sur le rapport entre vos ressources saines et vos ressources totales par recommandation, et non une somme des niveaux de sécurité de tous vos abonnements. 
    >
-4. Cliquez sur **Afficher les recommandations** pour voir les recommandations de l’abonnement correspondant. Vous pouvez les appliquer pour améliorer votre degré de sécurisation.
-4. Dans la liste des recommandations, vous pouvez voir que pour chacune d’elles, il existe une colonne **Impact du degré de sécurisation**. Ce nombre indique l’amélioration de votre degré de sécurisation global si vous suivez les recommandations. Par exemple, dans l’écran ci-dessous, si vous **Corrigez les vulnérabilités dans les configurations de sécurité du conteneur**, votre degré de sécurisation sera augmenté de 35 points.
+4. Cliquez sur **Afficher les recommandations** pour voir les recommandations de l’abonnement correspondant. Vous pouvez les corriger pour améliorer votre niveau de sécurité.
+4. Dans la liste des recommandations, vous pouvez voir que pour chacune d’elles, il existe une colonne qui représente l’**impact sur le niveau de sécurité**. Ce nombre indique l’amélioration de votre niveau de sécurité général, si vous suivez les recommandations. Par exemple, dans l’écran ci-dessous, si vous **corrigez les vulnérabilités dans les configurations de sécurité du conteneur**, votre niveau de sécurité augmente de 35 points.
 
-   ![degré de sécurisation](./media/security-center-secure-score/security-center-secure-score1.png)
+   ![Degré de sécurisation](./media/security-center-secure-score/security-center-secure-score1.png)
 
 
 
-## <a name="individual-secure-score"></a>Degré de sécurisation individuel
+## <a name="individual-secure-score"></a>Niveau de sécurité individuel
 
-Par ailleurs, les degrés de sécurisation individuels que vous pouvez afficher se trouvent dans le panneau des recommandations individuelles.  
+De plus, les niveaux de sécurité individuels que vous pouvez voir se trouvent dans le panneau des recommandations individuelles.  
 
-Le **Score de la recommandation** est un calcul basé sur le rapport entre vos ressources saines et vos ressources totales. Si le nombre de ressources saines est égal au nombre total de ressources, vous obtenez le degré de sécurisation maximal de la recommandation, qui est de 50. Pour tenter d’obtenir le degré de sécurisation le plus proche du maximum, corrigez les ressources défectueuses en suivant les recommandations.
+Le **Score de la recommandation** est un calcul basé sur le rapport entre vos ressources saines et vos ressources totales. Si le nombre de ressources saines est égal au nombre total de ressources, vous obtenez le niveau de sécurité maximal de la recommandation, à savoir 50. Pour tenter d’obtenir le niveau de sécurité le plus proche du score maximal, corrigez les ressources non saines en suivant les recommandations.
 
-**L’Impact de la recommandation** vous permet de connaître l’amélioration de votre degré de sécurisation si vous appliquez les étapes de la recommandation. Par exemple, si votre degré de sécurisation est égal à 42 et si **l’impact de la recommandation** est de +3, votre degré de sécurisation passera à 45 si vous effectuez les étapes présentées dans la recommandation.
+L’**Impact de la recommandation** vous permet de connaître l’amélioration de votre niveau de sécurité, si vous appliquez les étapes de la recommandation. Par exemple, si votre niveau de sécurité est égal à 42 et si l’**Impact de la recommandation** est de +3, l’exécution des étapes décrites dans la recommandation vous permet de faire passer votre score à 45.
 
 La recommandation présente les menaces auxquelles votre charge de travail est exposée si les mesures correctives ne sont pas prises.
 
-![score de la recommandation individuelle](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
-
-
-
+![Niveau de sécurité de la recommandation individuelle](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
 
 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Cet article vous a montré comment renforcer votre sécurité à l’aide du **degré de sécurisation** d’Azure Security Center. Pour plus d’informations sur Security Center, consultez :
+Cet article vous a montré comment améliorer l’état de sécurité à l’aide du **niveau de sécurité** dans Azure Security Center. Pour plus d’informations sur Security Center, consultez :
 
-* [FAQ de Azure Security Center](security-center-faq.md): forum aux questions concernant l’utilisation de ce service.
+* [FAQ sur Azure Security Center](faq-general.md) : consultez les Questions fréquentes sur le service et le niveau de sécurité.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md): découvrez comment surveiller l’intégrité de vos ressources Azure.
-
-
+* [Version améliorée du niveau de sécurité](secure-score-security-controls.md) - Découvrez les avantages de la version améliorée du niveau de sécurité (en préversion).

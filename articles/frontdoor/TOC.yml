@@ -1,10 +1,11 @@
 - name: Documentation de Front Door Service
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Qu’est-ce que le service Azure Front Door Service ?
       href: front-door-overview.md
 - name: Démarrages rapides
+  expanded: true
   items:
     - name: Créer une Front Door
       href: quickstart-create-front-door.md
@@ -58,19 +59,19 @@
       items:
         - name: Intégrer un domaine racine ou apex
           href: front-door-how-to-onboard-apex-domain.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Résoudre les problèmes de routage
           href: front-door-troubleshoot-routing.md
         - name: Autorités de certification autorisées
           href: front-door-troubleshoot-allowed-ca.md
-- name: Forum Aux Questions
+- name: Questions fréquentes (FAQ)
   items:
     - name: Questions fréquentes (FAQ) sur Front Door
       href: front-door-faq.md
 - name: Informations de référence
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/ext/front-door/
     - name: Azure PowerShell
       href: /powershell/module/az.frontdoor

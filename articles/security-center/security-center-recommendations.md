@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 4f41f4996f230a373245633b9449e93c403a1dfc
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 408b0f020be72b8e6b10dd6c97298afda1b91360
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77430293"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603588"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Recommandations de sécurité dans le Centre de sécurité Azure 
 Cette rubrique explique comment visualiser et comprendre les recommandations d’Azure Security Center pour vous aider à protéger vos ressources Azure.
@@ -38,7 +38,7 @@ Chaque recommandation vous fournit les informations suivantes :
 - Brève description de ce qui est recommandé.
 - Étapes de correction à effectuer pour implémenter la recommandations. <!-- In some cases, Quick Fix remediation is available. -->
 - Ressources nécessitant une action recommandée de votre part.
-- **Impact du degré de sécurisation**, à savoir la proportion dans laquelle l’implémentation de cette recommandations augmentera votre degré de sécurisation.
+- L’**impact du niveau de sécurité**, à savoir la proportion selon laquelle l’implémentation de cette recommandation va augmenter votre niveau de sécurité.
 
 ## Surveiller les recommandations <a name="monitor-recommendations"></a>
 
@@ -53,7 +53,7 @@ Azure Security Center analyse l’état de sécurité de vos ressources pour id
     Vous pouvez filtrer les recommandations. Pour filtrer les recommandations, sélectionnez **Filtrer** sur le panneau **Recommandations**. Le panneau **Filtrer** s’ouvre et vous permet d’afficher uniquement certains états ou niveaux de gravité.
 
    * **RECOMMANDATIONS** : La recommandation.
-   * **IMPACT DU DEGRÉ DE SÉCURISATION** : Score généré par Security Center en utilisant vos recommandations en matière de sécurité et en appliquant des algorithmes avancés pour déterminer le degré d’importance de chaque recommandation. Pour plus d’informations, consultez [Calcul des scores de sécurité](security-center-secure-score.md#secure-score-calculation).
+   * **IMPACT DU DEGRÉ DE SÉCURISATION** : Score généré par Security Center en utilisant vos recommandations en matière de sécurité et en appliquant des algorithmes avancés pour déterminer le degré d’importance de chaque recommandation. Pour plus d’informations, consultez [Calcul du niveau de sécurité](security-center-secure-score.md#secure-score-calculation).
    * **RESSOURCE** : Ressources auxquelles s’appliquent les recommandations.
    * **BARRES D’ÉTAT** :  Donne le niveau de gravité de chaque recommandation :
        * **Élevé (rouge)**  : Existence d’une vulnérabilité sur une ressource importante (application, machine virtuelle ou groupe de sécurité réseau). Le problème doit être analysé.

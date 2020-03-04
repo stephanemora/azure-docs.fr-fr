@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: fffa064b912a96b05feb901d1d2d44533c4681b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02dc1b55d85b7137a5c1f57999cc3b7e9b1efe29
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60885514"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591334"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Recommandations sur les communications appareil-à-cloud
 
@@ -33,9 +33,9 @@ Voici une comparaison détaillée des différentes options de communication appa
 | ---- | ------- | ---------- | ---- |
 | Scénario | Télémétrie et alertes de série chronologique. Par exemple, les lots de données de capteur de 256 Ko envoyés toutes les 5 minutes. | Capacités et conditions disponibles. Par exemple, le mode de connectivité d’appareil actuel, tel que réseau mobile ou Wi-Fi. Synchronisation des workflows de longue durée, comme les mises à jour logicielles et de la configuration. | Fichiers multimédias. Lots de télémétrie volumineux (généralement compressés). |
 | Stockage et récupération | Stockage temporaire par IoT Hub, jusqu’à 7 jours. Lecture uniquement séquentielle. | Stockage par IoT Hub dans le jumeau d’appareil. Récupérables à l’aide du [langage de requête IoT Hub](iot-hub-devguide-query-language.md). | Stockées dans le compte de stockage Azure fourni par l’utilisateur. |
-| Taille | Messages d’une taille maximale de 256 Ko. | La taille maximale des propriétés signalées est de 8 Ko. | Taille maximale de fichier prise en charge par le stockage Blob Azure. |
+| Size | Messages d’une taille maximale de 256 Ko. | La taille maximale des propriétés signalées est de 32 Ko. | Taille maximale de fichier prise en charge par le stockage Blob Azure. |
 | Fréquence | Élevée. Pour plus d’informations, consultez les [limites d’IoT Hub](iot-hub-devguide-quotas-throttling.md). | Moyenne. Pour plus d’informations, consultez les [limites d’IoT Hub](iot-hub-devguide-quotas-throttling.md). | Faible. Pour plus d’informations, consultez les [limites d’IoT Hub](iot-hub-devguide-quotas-throttling.md). |
-| Protocole | Disponible sur tous les protocoles. | Disponible à l’aide du protocole MQTT ou AMQP. | Disponible avec tous les protocoles, mais nécessite HTTPS sur l’appareil. |
+| Protocol | Disponible sur tous les protocoles. | Disponible à l’aide du protocole MQTT ou AMQP. | Disponible avec tous les protocoles, mais nécessite HTTPS sur l’appareil. |
 
 Une application peut avoir besoin d’envoyer des informations en tant que série chronologique de télémétrie ou d’alerte, et de les mettre à disposition sur le jumeau d’appareil. Dans ce scénario, vous pouvez choisir l’une des options suivantes :
 

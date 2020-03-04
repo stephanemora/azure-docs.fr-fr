@@ -1,30 +1,26 @@
 ---
-title: 'Tutoriel : Utiliser Azure App Configuration pour envoyer des événements à un point de terminaison web'
-titleSuffix: Azure App Configuration
-description: Dans ce tutoriel, vous apprenez à configurer des abonnements à des événements Azure App Configuration afin d’envoyer des événements de modification de paires clé-valeur à un point de terminaison web.
+title: Envoyer des événements à un point de terminaison web à l’aide d’Azure App Configuration
+description: Découvrez comment configurer des abonnements à des événements Azure App Configuration afin d’envoyer des événements de modification de paires clé-valeur à un point de terminaison web.
 services: azure-app-configuration
-documentationcenter: ''
-author: jimmyca
-editor: ''
+author: lisaguthrie
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.topic: tutorial
-ms.date: 05/30/2019
+ms.topic: how-to
+ms.date: 02/25/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 2a80f931f2060d421483b9e26940985091c9bb5c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 93700af5e7fb3a4a1253424996ed04532c01f88c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899685"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619603"
 ---
-# <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Démarrage rapide : Router des événements Azure App Configuration vers un point de terminaison web avec Azure CLI
+# <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Router des événements Azure App Configuration vers un point de terminaison web avec Azure CLI
 
-Dans ce guide démarrage rapide, vous découvrez comment configurer des abonnements à des événements Azure App Configuration afin d’envoyer des événements de modification de paires clé-valeur à un point de terminaison web. Les utilisateurs Azure App Configuration peuvent s’abonner à des événements émis dès que des paires clé-valeur sont modifiées. Ces événements peuvent déclencher des webhooks, des fonctions Azure, des files d’attente de stockage Azure ou tout autre gestionnaire d’événements pris en charge par Azure Event Grid. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
+Dans cet article, vous allez voir comment configurer des abonnements à des événements Azure App Configuration afin d’envoyer des événements de modification de paires clé-valeur à un point de terminaison web. Les utilisateurs Azure App Configuration peuvent s’abonner à des événements émis dès que des paires clé-valeur sont modifiées. Ces événements peuvent déclencher des webhooks, des fonctions Azure, des files d’attente de stockage Azure ou tout autre gestionnaire d’événements pris en charge par Azure Event Grid. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/). Vous pouvez également utiliser Azure Cloud Shell.
 
@@ -46,15 +42,16 @@ L’exemple suivant crée un groupe de ressources nommé `<resource_group_name>`
 az group create --name <resource_group_name> --location westus
 ```
 
-## <a name="create-an-app-configuration"></a>Créer un service App Configuration
+## <a name="create-an-app-configuration-store"></a>Créer un magasin App Configuration
 
-Remplacez `<appconfig_name>` par un nom unique pour votre service App Configuration, et `<resource_group_name>` par le groupe de ressources que vous avez créé précédemment. Le nom doit être unique, car il est utilisé comme nom DNS.
+Remplacez `<appconfig_name>` par le nom unique de votre magasin de configuration, et `<resource_group_name>` par le groupe de ressources que vous avez créé précédemment. Le nom doit être unique, car il est utilisé comme nom DNS.
 
 ```azurecli-interactive
 az appconfig create \
   --name <appconfig_name> \
   --location westus \
-  --resource-group <resource_group_name>
+  --resource-group <resource_group_name> \
+  --sku free
 ```
 
 ## <a name="create-a-message-endpoint"></a>Créer un point de terminaison de message
@@ -78,7 +75,7 @@ Vous devez voir le site sans messages affichés.
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
-## <a name="subscribe-to-your-app-configuration"></a>Vous abonner à votre service App Configuration
+## <a name="subscribe-to-your-app-configuration-store"></a>S’abonner à votre magasin App Configuration
 
 Vous vous abonnez à une rubrique pour communiquer à Event Grid les événements qui vous intéressent, et où les envoyer. L’exemple suivant s’abonne au service App Configuration que vous avez créé et transmet l’URL à partir de votre application web en tant que point de terminaison de la notification d’événement. Remplacez `<event_subscription_name>` par un nom pour votre abonnement aux événements. Pour `<resource_group_name>` et `<appconfig_name>`, utilisez les valeurs que vous avez créées précédemment.
 
@@ -122,7 +119,6 @@ Vous avez déclenché l’événement, et Event Grid a envoyé le message au poi
   "dataVersion": "1",
   "metadataVersion": "1"
 }]
-
 ```
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

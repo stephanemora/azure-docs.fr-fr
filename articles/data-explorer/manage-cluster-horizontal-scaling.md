@@ -1,5 +1,5 @@
 ---
-title: Gérer la mise à l'échelle horizontale d'un cluster (montée en puissance) dans Azure Data Explorer pour prendre en compte les fluctuations de la demande
+title: Gérer la mise à l’échelle horizontale (scale-out) d’un cluster pour répondre à la demande dans Azure Data Explorer
 description: Cet article décrit les étapes à suivre pour augmenter et diminuer la taille d’un cluster Azure Data Explorer en fonction des fluctuations de la demande.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 8ab192957ead806b4bb3ae8e7395589f3b1ecbbe
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d0c9fe9ebd040ee59ae8717e95fd1911eaef61be
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76833292"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560454"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gérer la mise à l'échelle horizontale d'un cluster (montée en puissance) dans Azure Data Explorer pour prendre en compte les fluctuations de la demande
 

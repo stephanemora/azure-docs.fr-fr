@@ -3,12 +3,12 @@ title: Didacticiel – Planifier une tâche ACR
 description: Dans ce didacticiel, découvrez comment exécuter une tâche Azure Container Registry Task selon une planification définie en définissant un ou plusieurs déclencheurs de minuteur.
 ms.topic: article
 ms.date: 06/27/2019
-ms.openlocfilehash: 37247289ef11873ac37dc78ad56548994220f894
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 4c0962a38cca73e4a03a7417baaa595cf0d97009
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454677"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617455"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Exécuter une tâche ACR selon une planification définie
 
@@ -175,7 +175,7 @@ Le fuseau horaire utilisé avec les expressions cron est le temps universel coor
 
 Chaque champ peut être associé aux types de valeurs suivants :
 
-|Type  |Exemples  |En cas de déclenchement  |
+|Type  |Exemple  |En cas de déclenchement  |
 |---------|---------|---------|
 |Une valeur spécifique |<nobr>`"5 * * * *"`</nobr>|toutes les heures, 5 minutes après l’heure|
 |Toutes les valeurs (`*`)|<nobr>`"* 5 * * *"`</nobr>|toutes les minutes, à partir de 5:00 UTC (60 fois par jour)|
@@ -187,7 +187,7 @@ Chaque champ peut être associé aux types de valeurs suivants :
 
 ### <a name="cron-examples"></a>Exemples cron
 
-|Exemples|En cas de déclenchement  |
+|Exemple|En cas de déclenchement  |
 |---------|---------|
 |`"*/5 * * * *"`|une fois toutes les cinq minutes|
 |`"0 * * * *"`|une fois toutes les heures|
@@ -197,6 +197,14 @@ Chaque champ peut être associé aux types de valeurs suivants :
 |`"30 9 * * 1-5"`|à 9:30 UTC tous les jours de la semaine|
 |`"30 9 * Jan Mon"`|à 9:30 UTC tous les lundis en janvier|
 
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Pour supprimer toutes les ressources créées dans cette série de tutoriels, y compris le ou les registres de conteneurs, l’instance de conteneur, le coffre de clés et le principal du service, exécutez les commandes suivantes :
+
+```azurecli-interactive
+az group delete --resource-group $RES_GROUP
+az ad sp delete --id http://$ACR_NAME-pull
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

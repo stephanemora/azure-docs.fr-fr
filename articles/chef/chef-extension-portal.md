@@ -2,14 +2,14 @@
 title: Installer le client Chef à partir du portail Azure
 description: Découvrez comment déployer et configurer le client Chef à partir du portail Azure
 keywords: azure, chef, devops, client, installation, portail
-ms.date: 05/15/2018
+ms.date: 02/22/2020
 ms.topic: article
-ms.openlocfilehash: f8707c2fe39fb794381af298c24d27704b1ec255
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6e46133c598c44b314077f2d020852416d3d2745
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158264"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586357"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installer le client Chef à partir du portail Azure
 Vous pouvez ajouter l’extension du client Chef directement sur une machine Linux ou Windows à partir du portail Azure. Cet article vous guide tout au long du processus, qui utilise une machine virtuelle Linux.
@@ -79,24 +79,24 @@ Dans cette section, vous allez utiliser le portail Azure pour créer une machine
 1. Sous l’onglet **Installer l’extension**, spécifiez les valeurs suivantes, puis sélectionnez **OK**.
 
     - **URL du serveur Chef** : entrez l’URL du serveur Chef qui comprend le nom de l’organisation, par exemple, *https://api.chef.io/organization/mycompany* .
-    - **Chef Node Name** (Nom du nœud Chef) : entrez le nom du nœud Chef. Vous pouvez utiliser n’importe quelle valeur.
-    - **Run List** (Liste d’exécution) : entrez la liste d’exécution Chef qui est ajoutée à la machine. Cela champ peut être vide.
-    - **Validation Client Name** (Nom du client de validation) : entrez le nom du client de validation Chef. Par exemple, *tarcher-validator*.
+    - **Chef Node name** (Nom du nœud Chef) : entrez le nom du nœud Chef.
+    - **Run list** (Liste d’exécution) : entrez la liste d’exécution Chef qui est ajoutée à la machine. Cette valeur peut être laissée vide.
+    - **Validation client name** (Nom du client de validation) : entrez le nom du client de validation Chef. par exemple, `tarcher-validator`.
     - **Validation Key** (Clé de validation) : sélectionnez un fichier contenant la clé de validation utilisée lors de l’amorçage de vos machines.
-    - **Client Configuration File** (Fichier de configuration du client) : sélectionnez un fichier de configuration pour le client Chef. Cela champ peut être vide.
-    - **Chef Client version** (Version du client Chef) : entrez la version du client Chef à installer. Cela champ peut être vide. Une valeur vide installe la dernière version.
+    - **Client configuration file** (Fichier de configuration du client) : sélectionnez un fichier de configuration pour le client Chef. Cette valeur peut être laissée vide.
+    - **Chef Client version** (Version du client Chef) : entrez la version du client Chef à installer. Cette valeur peut être laissée vide, auquel cas la version la plus récente est installée.
     - **SSL Verification Mode** (Mode de vérification SSL) : sélectionnez **None** (Aucun) ou **Peer** (Pair). *None* a été sélectionné pour la démonstration.
-    - **Chef Environment** (Environnement Chef) : entrez l’environnement Chef dont ce nœud doit faire partie. Cela champ peut être vide.
-    - **Encrypted Databag Secret** (Secret du conteneur de données chiffrées) : sélectionnez un fichier contenant le secret du conteneur de données chiffrées auquel cet ordinateur doit avoir accès. Cela champ peut être vide.
-    - **Chef Server SSL Certificate** (Certificat SSL du serveur Chef) : sélectionnez le certificat SSL attribué à votre serveur Chef. Cela champ peut être vide.
+    - **Chef Environment** (Environnement Chef) : entrez l’environnement Chef dont ce nœud doit faire partie. Cette valeur peut être laissée vide.
+    - **Encrypted data bag secret** (Secret du conteneur de données chiffrées) : sélectionnez un fichier contenant le secret du conteneur de données chiffrées auquel cette machine doit accéder. Cette valeur peut être laissée vide.
+    - **Chef Server SSL certificate** (Certificat SSL du serveur Chef) : sélectionnez le certificat SSL attribué à votre serveur Chef. Cette valeur peut être laissée vide.
 
       ![Installation du serveur Chef sur une machine virtuelle Linux](./media/chef-extension-portal/install-extension.png)
 
-1. De retour sous l’onglet **Extensions**, sélectionnez **OK**.
+1. Quand l’onglet **Extensions** s’affiche, sélectionnez **OK**.
 
-1. De retour sous l’onglet **Settings** (Paramètres), sélectionnez **OK**.
+1. Quand l’onglet **Paramètres** s’affiche, sélectionnez **OK**.
 
-1. De retour sous l’onglet **Créer** (qui récapitule les options que vous avez sélectionnées et entrées), vérifiez les informations, ainsi que les **conditions d’utilisation**, puis sélectionnez **Créer**.
+1. Quand l’onglet **Créer** s’affiche, vous voyez un récapitulatif des options que vous avez sélectionnées et entrées. Vérifiez les informations et les **Conditions d’utilisation**, puis sélectionnez **Créer**.
 
 Une fois que le processus de création et de déploiement de la machine virtuelle avec l’extension Chef est terminé, une notification indique la réussite ou l’échec de l’opération. De plus, la page de ressources de la nouvelle machine virtuelle s’ouvre automatiquement dans le portail Azure une fois que celle-ci a été créée.
 
@@ -104,4 +104,5 @@ Une fois que le processus de création et de déploiement de la machine virtuell
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer une machine virtuelle Windows dans Azure avec Chef](/azure/virtual-machines/windows/chef-automation)
+> [!div class="nextstepaction"] 
+> [Créer une machine virtuelle Windows dans Azure avec Chef](chef-automation.md)

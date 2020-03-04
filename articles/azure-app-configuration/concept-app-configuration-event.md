@@ -1,22 +1,22 @@
 ---
-title: Réaction aux événements de paires clé-valeur dans Azure App Configuration | Microsoft Docs
+title: Réaction aux événements de paires clé-valeur dans Azure App Configuration
 description: Utilisez Azure Event Grid pour vous abonner à des événements App Configuration.
 services: azure-app-configuration,event-grid
 author: jimmyca
 ms.author: jimmyca
-ms.date: 05/30/2019
+ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: 5da64155f2823712eee7a60427b1c1e80abec068
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a4f61d147ba1abf73ada6360b8d0d965d8e063a5
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185301"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523796"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Réaction aux événements Azure App Configuration
 
-Les événements Azure App Configuration permettent aux applications de réagir aux modifications au niveau des paires clé-valeur. La méthode utilisée n’exige pas de faire appel à du code complexe ou à des services d’interrogation coûteux et inefficaces. Au lieu de cela, les événements sont envoyés via [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) aux abonnés, comme [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ou même à votre propre écouteur http personnalisé, et vous payez seulement pour ce que vous utilisez.
+Les événements Azure App Configuration permettent aux applications de réagir aux modifications au niveau des paires clé-valeur. La méthode utilisée n’exige pas de faire appel à du code complexe ou à des services d’interrogation coûteux et inefficaces. Au lieu de cela, les événements sont envoyés (push) via [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) aux abonnés, comme [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ou même à votre propre écouteur HTTP personnalisé. Vous paierez uniquement pour ce que vous utiliserez.
 
 Les événements Azure App Configuration sont envoyés à Azure Event Grid qui fournit des services de livraison fiables à vos applications via des stratégies enrichies de nouvelle tentative et de livraison de lettres mortes. Pour plus d’informations, consultez [Distribution et nouvelle tentative de distribution de messages avec Azure Grid](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
 
@@ -73,11 +73,12 @@ Voici un exemple d’événement KeyValueModified :
 Pour plus d’informations, consultez [Schéma d’événements Azure App Configuration](../event-grid/event-schema-app-configuration.md).
 
 ## <a name="practices-for-consuming-events"></a>Pratiques pour la consommation d’événements
-Les applications qui gèrent les événements App Configuration doivent suivre certaines pratiques recommandées :
+Les applications qui gèrent les événements App Configuration doivent suivre les pratiques recommandées :
 > [!div class="checklist"]
-> * Comme plusieurs abonnements peuvent être configurés pour acheminer les événements vers le même gestionnaire d’événements, il est important de ne pas considérer que les événements proviennent d’une source particulière, mais de vérifier le sujet du message pour vous assurer qu’il provient d’une configuration d’application que vous attendez.
-> * De même, vérifiez que vous êtes prêt à traiter son eventType, et ne supposez pas que tous les événements reçus seront aux types que vous attendez.
-> * Les messages pouvant arriver en désordre et après un certain temps, utilisez les champs etag pour comprendre si vos informations sur les objets sont toujours à jour.  En outre, utilisez les champs de séquence pour comprendre l’ordre des événements sur un objet particulier.
+> * Plusieurs abonnements peuvent être configurés pour router les événements vers le même gestionnaire d’événements. Il ne faut donc pas supposer que les événements proviennent d’une source particulière. Vérifiez l’objet du message pour connaître l’instance App Configuration qui envoie l’événement.
+> * Vérifiez l’eventType, et ne supposez pas que tous les événements reçus seront du type que vous attendez.
+> * Utilisez les champs etag pour vérifier si vos informations sur les objets sont encore à jour.  
+> * Utilisez les champs de séquence pour comprendre l’ordre des événements concernant un objet en particulier.
 > * Le champ Objet vous permet d’accéder à la paire clé-valeur qui a été modifiée.
 
 

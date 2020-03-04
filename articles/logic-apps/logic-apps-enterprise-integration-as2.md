@@ -7,15 +7,18 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 08/22/2019
-ms.openlocfilehash: 9f72edecc07c34a0f176e52f6b70644f9ceb16e0
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.date: 02/27/2020
+ms.openlocfilehash: 0ce813e91750db3cdfa1e651a68fbb82d593eb32
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666701"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650558"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Échanger des messages AS2 dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
+
+> [!IMPORTANT]
+> Le connecteur AS2 d’origine est déprécié. Veillez à utiliser le connecteur **AS2 (v2)** à la place. Cette version offre les mêmes fonctionnalités que la version d’origine, est native au runtime Logic Apps et apporte d’importantes améliorations des performances en ce qui concerne le débit et de taille des messages. De plus, le connecteur v2 natif ne nécessite pas la création d’une connexion à votre compte d’intégration. Comme indiqué dans les prérequis; assurez-vous plutôt de lier votre compte d’intégration à l’application logique dans laquelle vous envisagez d’utiliser le connecteur.
 
 Pour utiliser des messages AS2 dans Azure Logic Apps, vous pouvez vous servir du connecteur AS2, qui fournit des déclencheurs et des actions pour la gestion de la communication AS2. Par exemple, pour garantir la sécurité et la fiabilité lors de la transmission des messages, vous pouvez utiliser ces actions :
 
@@ -46,10 +49,7 @@ Pour utiliser des messages AS2 dans Azure Logic Apps, vous pouvez vous servir du
 
 Cet article explique comment ajouter des actions de codage et de décodage AS2 à une application logique existante.
 
-> [!IMPORTANT]
-> Il est déconseillé d’utiliser le connecteur AS2 d’origine.Asurez-vous donc d’utiliser le connecteur **AS2 (v2)** . Cette version offre les mêmes fonctionnalités que la version d’origine, est native au runtime Logic Apps et apporte d’importantes améliorations des performances en ce qui concerne le débit et de taille des messages. De plus, le connecteur v2 natif ne nécessite pas la création d’une connexion à votre compte d’intégration. Comme indiqué dans les prérequis; assurez-vous plutôt de lier votre compte d’intégration à l’application logique dans laquelle vous envisagez d’utiliser le connecteur.
-
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -63,9 +63,9 @@ Cet article explique comment ajouter des actions de codage et de décodage AS2 �
 
 * Si vous utilisez **Azure Key Vault** pour la gestion des certificats, vérifiez que les clés de coffre autorisent les opérations [Chiffrer](../key-vault/key-vault-overview.md) et **Déchiffrer**. Sinon, le codage et le décodage échouent.
 
-  Dans le portail Azure, accédez à votre coffre de clés, affichez les **opérations autorisées** sur les clés du coffre et vérifiez que les actions **Chiffrer** et **Déchiffrer** sont sélectionnées.
+  Dans le portail Azure, accédez à la clé de votre coffre de clés, examinez les **Opérations autorisées** et vérifiez que les actions **Chiffrer** et **Déchiffrer** sont sélectionnées. Par exemple :
 
-  ![Vérifier les opérations sur les clés de coffre](media/logic-apps-enterprise-integration-as2/vault-key-permitted-operations.png)
+  ![Vérifier les opérations sur les clés de coffre](media/logic-apps-enterprise-integration-as2/key-vault-permitted-operations.png)
 
 <a name="encode"></a>
 
@@ -92,6 +92,9 @@ Cet article explique comment ajouter des actions de codage et de décodage AS2 �
 
    ![Propriétés de codage de message](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 
+> [!TIP]
+> Si vous rencontrez des problèmes lors de l’envoi de messages signés ou chiffrés, pensez à essayer différents formats de l’algorithme SHA256. Comme la spécification AS2 ne fournit pas d’informations sur les formats SHA256, chaque fournisseur utilise sa propre implémentation ou son propre format.
+
 <a name="decode"></a>
 
 ## <a name="decode-as2-messages"></a>Décoder des messages AS2
@@ -116,8 +119,11 @@ Pour déployer une application logique totalement opérationnelle dans le cadre 
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, voir la [page de référence du connecteur](/connectors/as2/).
+Pour plus d’informations techniques sur ce connecteur, notamment au sujet des actions et des limites décrites dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/as2/). 
+
+> [!NOTE]
+> Pour les applications logiques utilisées dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la version étiquetée ISE d’origine de ce connecteur applique les [limites de messages de l’ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) à la place.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
+* En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)

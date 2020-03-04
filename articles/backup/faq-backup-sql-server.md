@@ -4,12 +4,12 @@ description: Trouvez des réponses aux questions courantes sur la sauvegarde de 
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 73224164286e35f8c9447dd24cd81d7242fbb7b6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a973761bf16e2d271d718e4a8b29e08624276987
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172016"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597080"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Forum aux questions sur les bases de données SQL Server qui s'exécutent sur une sauvegarde de machines virtuelles Azure
 
@@ -37,13 +37,15 @@ Par défaut, la correction automatique est activée pour tous les utilisateurs, 
 - Enregistrer vos modifications et fermez le fichier.
 - Sur l’instance SQL Server, ouvrez **Gérer la tâche** , puis redémarrez le service **AzureWLBackupCoordinatorSvc**.
 
-## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>Puis-je contrôler le nombre de sauvegardes pouvant être exécutées simultanément sur le serveur SQL ?
+## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>Puis-je contrôler le nombre de sauvegardes pouvant être exécutées simultanément sur le serveur SQL ?
 
 Oui. Vous pouvez limiter la fréquence à laquelle la stratégie de sauvegarde s’exécute pour minimiser l’impact sur une instance SQL Server. Pour modifier ce paramètre :
 
 1. Sur l’instance SQL Server, dans le dossier *C:\Program Files\Azure Workload Backup\bin*, créez le fichier *ExtensionSettingsOverrides.json*.
 2. Dans le fichier *ExtensionSettingsOverrides.json*, remplacez la valeur du paramètre **DefaultBackupTasksThreshold** par une valeur inférieure (par exemple, 5). <br>
   `{"DefaultBackupTasksThreshold": 5}`
+<br>
+La valeur par défaut de DefaultBackupTasksThreshold est **20**.
 
 3. Enregistrer vos modifications et fermez le fichier.
 4. Sur l’instance SQL Server, ouvrez le **Gestionnaire des tâches**. Redémarrez le service **AzureWLBackupCoordinatorSvc**.<br/> <br/>

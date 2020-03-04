@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 98757677eae6d21b02d6b0b2a3abade453b5dfed
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: c1e740fbfa4bf1e8a77a2d9d6060ab39dba7ae7b
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552778"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587394"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>Que sont les pools d’instances SQL Database (préversion) ?
 
@@ -126,7 +126,7 @@ Si vous rencontrez des problèmes liés au déploiement d’un pool d’instance
 
 Si vous rencontrez des problèmes liés à des instances uniques ou à des bases de données au sein d’un pool, vous devez créer un ticket de support standard pour les instances gérées Azure SQL Database.
 
-Pour créer des déploiements d’instances gérées plus grands (avec ou sans pools d’instances), vous devrez peut-être obtenir un quota régional plus grand. Utilisez la [procédure standard d’instance gérée pour demander un quota plus important](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance), mais notez que si vous utilisez des pools d’instances, la logique de déploiement compare la consommation totale de vCores *au niveau du pool* à votre quota pour déterminer si vous êtes autorisé à créer des ressources sans augmenter davantage votre quota.
+Pour créer des déploiements d’instances gérées plus grands (avec ou sans pools d’instances), vous devrez peut-être obtenir un quota régional plus grand. Pour plus d’informations, consultez [Demander des augmentations de quota pour Azure SQL Database](quota-increase-request.md). Notez que si vous utilisez des pools d’instances, la logique de déploiement compare la consommation totale de vCores *au niveau du pool* à votre quota pour déterminer si vous êtes autorisé à créer des ressources sans augmenter davantage votre quota.
 
 ## <a name="instance-pool-billing"></a>Facturation des pools d’instances
 

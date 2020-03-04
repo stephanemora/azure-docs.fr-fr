@@ -1,33 +1,59 @@
 ---
-title: Capture instantanée à un point dans le temps dans Azure App Configuration
-description: Vue d’ensemble du fonctionnement d’une capture instantanée à un point dans le temps dans Azure App Configuration
+title: Récupérer des paires clé-valeur à un point dans le temps
+titleSuffix: Azure App Configuration
+description: Récupérer les anciennes paires clé-valeur à l’aide de captures instantanées à un point dans le temps dans Azure App Configuration
 services: azure-app-configuration
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/24/2019
-ms.openlocfilehash: 4a352ba913b6ad4e3c8607677078e21070f294fd
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/20/2020
+ms.openlocfilehash: 1e2a4f7a7bc5db1b6a49f085821f7fa2bde54229
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899593"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523654"
 ---
 # <a name="point-in-time-snapshot"></a>Capture instantanée à un point dans le temps
 
-Azure App Configuration conserve les enregistrements des dates de création et de modification précises des paires clé-valeur. Ces enregistrements forment une chronologie complète des modifications de paires clé-valeur. Un magasin App Configuration peut reconstruire l’historique d’une valeur de clé et relire son ancienne valeur à tout moment, jusqu’au moment présent. Avec cette fonctionnalité, vous pouvez « voyager dans le passé » pour récupérer une ancienne valeur de clé. Par exemple, vous pouvez obtenir les paramètres de configuration de la veille, juste avant le dernier déploiement en date, afin de récupérer une précédente configuration pour restaurer l’application.
+Azure App Configuration conserve un enregistrement des modifications apportées aux paires clé-valeur. Cet enregistrement fournit une chronologie des modifications apportées aux paires clé-valeur. Vous pouvez retracer l’historique de n’importe quelle paire clé-valeur et fournir la valeur qu’avait la clé dans les sept jours qui ont précédé sa modification. Avec cette fonctionnalité, vous pouvez « voyager dans le passé » pour récupérer une ancienne valeur de clé. Par exemple, vous pouvez récupérer les paramètres de configuration qui étaient utilisés avant le dernier déploiement en date, afin de restaurer la précédente configuration de l’application.
 
 ## <a name="key-value-retrieval"></a>Récupération de paires clé-valeur
 
-Pour récupérer d’anciennes valeurs de clé, spécifiez une heure à laquelle un instantané de ces valeurs de clé a été capturé dans l’en-tête HTTP d’un appel d’API REST. Par exemple :
+Vous pouvez utiliser Azure PowerShell pour récupérer les valeurs de clé précédentes.  Utilisez `az appconfig revision list` en ajoutant les paramètres permettant de récupérer les valeurs nécessaires.  Spécifiez l’instance Azure App Configuration en fournissant le nom du magasin (`--name {app-config-store-name}`) ou en utilisant une chaîne de connexion (`--connection-string {your-connection-string}`). Limitez la sortie en spécifiant un point dans le temps (`--datetime`) et en spécifiant le nombre maximal d’éléments à retourner (`--top`).
 
-```rest
-GET /kv HTTP/1.1
-Accept-Datetime: Sat, 1 Jan 2019 02:10:00 GMT
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Récupérez toutes les modifications enregistrées qui ont été apportées à vos paires clé-valeur.
+
+```azurepowershell
+az appconfig revision list --name {your-app-config-store-name}.
 ```
 
-Actuellement, App Configuration conserve sept jours d’historique de modifications.
+Récupérez toutes les modifications enregistrées qui ont été apportées à la clé `environment` et aux étiquettes `test` et `prod`.
+
+```azurepowershell
+az appconfig revision list --name {your-app-config-store-name} --key environment --label test,prod
+```
+
+Récupérez toutes les modifications enregistrées qui ont été apportées à l’espace de clé hiérarchique `environment:prod`.
+
+```azurepowershell
+az appconfig revision list --name {your-app-config-store-name} --key environment:prod:* 
+```
+
+Récupérez toutes les modifications enregistrées qui ont été apportées à la clé `color` à un point dans le temps.
+
+```azurepowershell
+az appconfig revision list --connection-string {your-app-config-connection-string} --key color --datetime "2019-05-01T11:24:12Z" 
+```
+
+Récupérez les 10 dernières modifications enregistrées qui ont été apportées à vos paires clé-valeur, et retournez uniquement les valeurs avec `key`, `label` et l’horodatage `last-modified`.
+
+```azurepowershell
+az appconfig revision list --name {your-app-config-store-name} --top 10 --fields key,label,last-modified
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

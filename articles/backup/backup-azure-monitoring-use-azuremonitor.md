@@ -4,12 +4,12 @@ description: Supervisez les charges de travail de Sauvegarde Azure et créez des
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 4ff51080d675c53e53397a070c1f6f1766aa9e85
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 0673291ac6bd1692c6ebe07540e05077e3025d55
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989584"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583864"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Superviser à grande échelle avec Azure Monitor
 
@@ -29,11 +29,11 @@ Dans Azure Monitor, vous pouvez créer vos propres alertes dans un espace de tra
 > [!IMPORTANT]
 > Pour plus d’informations sur le coût de création de cette requête, consultez [Tarification d’Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-Sélectionnez un des graphiques pour ouvrir la section **Journaux** de l’espace de travail Log Analytics. Dans la section **Journaux**, modifiez les requêtes et créez des alertes sur celles-ci.
+Ouvrez la section **Journaux** de l’espace de travail Log Analytics et écrivez une requête par rapport à vos propres journaux. Quand vous sélectionnez **Nouvelle règle d’alerte**, la page de création d’alerte Azure Monitor s’ouvre, comme illustré dans l’image suivante.
 
-![Créer une alerte dans un espace de travail Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-customalerts.png)
+![Créer une alerte dans un espace de travail Log Analytics](media/backup-azure-monitoring-laworkspace/custom-alert.png)
 
-Quand vous sélectionnez **Nouvelle règle d’alerte**, la page de création d’alerte Azure Monitor s’ouvre, comme illustré dans l’image suivante. Ici, la ressource est déjà marquée, car l’espace de travail Log Analytics et l’intégration des groupes d’actions sont fournis.
+Ici, la ressource est déjà marquée, car l’espace de travail Log Analytics et l’intégration des groupes d’actions sont fournis.
 
 ![Page de création d’alerte Log Analytics](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
 
@@ -63,65 +63,85 @@ Les graphiques par défaut vous fournissent des requêtes Kusto pour les scénar
 
     ````Kusto
     AddonAzureBackupJobs
-| where JobOperation=="Backup"
-| where JobStatus=="Completed"
+    | where JobOperation=="Backup"
+    | where JobStatus=="Completed"
     ````
 
 - Tous les travaux de sauvegarde ayant échoué
 
     ````Kusto
     AddonAzureBackupJobs
-| where JobOperation=="Backup"
-| where JobStatus=="Failed"
+    | where JobOperation=="Backup"
+    | where JobStatus=="Failed"
     ````
 
 - Tous les travaux de sauvegarde de machines virtuelles Azure réussis
 
     ````Kusto
     AddonAzureBackupJobs
-| where JobOperation=="Backup"
-| where JobStatus=="Completed"
-| join kind=inner
-(
-    CoreAzureBackup
-    | where OperationName == "BackupItem"
-    | where BackupItemType=="VM" and BackupManagementType=="IaaSVM"
-    | distinct BackupItemUniqueId, BackupItemFriendlyName
-)
-on BackupItemUniqueId
+    | where JobOperation=="Backup"
+    | where JobStatus=="Completed"
+    | join kind=inner
+    (
+        CoreAzureBackup
+        | where OperationName == "BackupItem"
+        | where BackupItemType=="VM" and BackupManagementType=="IaaSVM"
+        | distinct BackupItemUniqueId, BackupItemFriendlyName
+    )
+    on BackupItemUniqueId
     ````
 
 - Tous les travaux de sauvegarde de journal SQL réussis
 
     ````Kusto
     AddonAzureBackupJobs
-| where JobOperation=="Backup" and JobOperationSubType=="Log"
-| where JobStatus=="Completed"
-| join kind=inner
-(
-    CoreAzureBackup
-    | where OperationName == "BackupItem"
-    | where BackupItemType=="SQLDataBase" and BackupManagementType=="AzureWorkload"
-    | distinct BackupItemUniqueId, BackupItemFriendlyName
-)
-on BackupItemUniqueId
+    | where JobOperation=="Backup" and JobOperationSubType=="Log"
+    | where JobStatus=="Completed"
+    | join kind=inner
+    (
+        CoreAzureBackup
+        | where OperationName == "BackupItem"
+        | where BackupItemType=="SQLDataBase" and BackupManagementType=="AzureWorkload"
+        | distinct BackupItemUniqueId, BackupItemFriendlyName
+    )
+    on BackupItemUniqueId
     ````
 
 - Tous les travaux de l’agent Sauvegarde Azure réussis
 
     ````Kusto
     AddonAzureBackupJobs
-| where JobOperation=="Backup"
-| where JobStatus=="Completed"
-| join kind=inner
-(
-    CoreAzureBackup
-    | where OperationName == "BackupItem"
-    | where BackupItemType=="FileFolder" and BackupManagementType=="MAB"
-    | distinct BackupItemUniqueId, BackupItemFriendlyName
-)
-on BackupItemUniqueId
+    | where JobOperation=="Backup"
+    | where JobStatus=="Completed"
+    | join kind=inner
+    (
+        CoreAzureBackup
+        | where OperationName == "BackupItem"
+        | where BackupItemType=="FileFolder" and BackupManagementType=="MAB"
+        | distinct BackupItemUniqueId, BackupItemFriendlyName
+    )
+    on BackupItemUniqueId
     ````
+
+- Stockage de sauvegarde consommé par élément de sauvegarde
+
+    ````Kusto
+    CoreAzureBackup
+    //Get all Backup Items
+    | where OperationName == "BackupItem"
+    //Get distinct Backup Items
+    | distinct BackupItemUniqueId, BackupItemFriendlyName
+    | join kind=leftouter
+    (AddonAzureBackupStorage
+    | where OperationName == "StorageAssociation"
+    //Get latest record for each Backup Item
+    | summarize arg_max(TimeGenerated, *) by BackupItemUniqueId 
+    | project BackupItemUniqueId , StorageConsumedInMBs)
+    on BackupItemUniqueId
+    | project BackupItemUniqueId , BackupItemFriendlyName , StorageConsumedInMBs 
+    | sort by StorageConsumedInMBs desc
+    ````
+
 
 ### <a name="diagnostic-data-update-frequency"></a>Fréquence de mise à jour des données de diagnostic
 
@@ -173,4 +193,4 @@ Utilisez un espace de travail Log Analytics pour la supervision et la générati
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour créer des requêtes personnalisées, consultez [Modèle de données Log Analytics](backup-azure-log-analytics-data-model.md).
+Pour créer des requêtes personnalisées, consultez [Modèle de données Log Analytics](backup-azure-reports-data-model.md).

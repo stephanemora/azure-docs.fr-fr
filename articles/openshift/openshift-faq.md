@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5901be713f686f0c7213449a775c86b9e346fe12
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: f468cb294d79c44f92ef95437c0d88639a78b9a1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275403"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619499"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>FAQ sur Azure Red Hat OpenShift
 
@@ -60,6 +60,18 @@ Oui. Un administrateur Azure Red Hat OpenShift peut gérer des utilisateurs et d
 ## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>Puis-je limiter un cluster à certains utilisateurs Azure AD seulement ?
 
 Oui. Vous pouvez désigner les utilisateurs Azure AD pouvant se connecter à un cluster en configurant l’application Azure AD. Pour plus d’informations, consultez [Procédure : Limiter votre application à un ensemble d’utilisateurs](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
+
+## <a name="can-i-restrict-users-from-creating-projects"></a>Puis-je empêcher les utilisateurs de créer des projets ?
+
+Oui. Connectez-vous à votre cluster en tant qu’administrateur Azure Red Hat OpenShift, puis exécutez la commande suivante :
+
+```
+oc adm policy \
+    remove-cluster-role-from-group self-provisioner \
+    system:authenticated:oauth
+```
+
+Pour plus d’informations, consultez la documentation OpenShift sur la [désactivation du provisionnement automatique](https://docs.openshift.com/container-platform/3.11/admin_guide/managing_projects.html#disabling-self-provisioning).
 
 ## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>Un cluster peut-il disposer de nœuds de calcul dans plusieurs régions Azure ?
 

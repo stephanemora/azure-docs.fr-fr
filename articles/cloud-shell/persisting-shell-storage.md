@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2019
+ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 0b3b0b2cc97c86fefe37055e0744b747d4f31687
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 15a5770eb2964f0f2039fe93de904af65d4c81ed
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385554"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598746"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Conserver des fichiers dans Azure Cloud Shell
 Cloud Shell utilise le stockage de fichiers Azure pour conserver les fichiers entre les sessions. Lors du premier démarrage, Cloud Shell vous invite à associer un partage de fichiers nouveau ou existant afin de conserver les fichiers entre les sessions.
@@ -62,7 +62,7 @@ Cloud Shell utilise un partage de fichiers Azure dans un compte de stockage, au 
 Les utilisateurs doivent verrouiller l’accès à leurs fichiers en définissant des autorisations au niveau du compte de stockage ou de l’abonnement.
 
 ## <a name="supported-storage-regions"></a>Régions de stockage prises en charge
-Les comptes de stockage Azure associées doivent résider dans la même région que la machine Cloud Shell sur laquelle le montage est effectué. Pour déterminer votre région actuelle, vous pouvez exécuter `env` dans Bash et localiser la variable `ACC_LOCATION`. Les partages de fichiers reçoivent une image de 5 Go créée pour conserver votre répertoire `$Home`.
+Pour déterminer votre région actuelle, vous pouvez exécuter `env` dans Bash et localiser la variable `ACC_LOCATION`, ou exécuter `$env:ACC_LOCATION` à partir de PowerShell. Les partages de fichiers reçoivent une image de 5 Go créée pour conserver votre répertoire `$Home`.
 
 Les machines Cloud Shell existent dans les régions suivantes :
 
@@ -71,6 +71,16 @@ Les machines Cloud Shell existent dans les régions suivantes :
 |Amérique|USA Est, USA Centre Sud, USA Ouest|
 |Europe|Europe Nord, Europe Ouest|
 |Asie-Pacifique|Inde Centre, Asie Sud-Est|
+
+Les clients doivent choisir une région primaire, sauf s’ils demandent que leurs données au repos soient stockées dans une région particulière. Dans ce cas, ils doivent utiliser une région de stockage secondaire.
+
+### <a name="secondary-storage-regions"></a>Régions de stockage secondaires
+Si une région de stockage secondaire est utilisée, le compte de stockage Azure associé réside dans une autre région que la machine Cloud Shell sur laquelle vous les montez. Par exemple, Jane peut choisir d’installer son compte de stockage dans la région secondaire Canada Est, alors que la machine sur laquelle elle est montée est restée dans une région primaire. Ses données au repos sont stockées au Canada, mais elles sont traitées aux États-Unis.
+
+> [!NOTE]
+> Si une région secondaire est utilisée, l’accès aux fichiers et le démarrage de Cloud Shell peuvent être ralentis.
+
+Un utilisateur peut exécuter `(Get-CloudDrive | Get-AzStorageAccount).Location` dans PowerShell pour voir l’emplacement des partages de fichiers.
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Restreindre la création de ressources avec une stratégie de ressource Azure
 Les comptes de stockage que vous créez dans Cloud Shell sont identifiés à l’aide de la balise `ms-resource-usage:azure-cloud-shell`. Si vous souhaitez interdire aux utilisateurs de créer des comptes de stockage par le biais de Cloud Shell, créez une [stratégie de ressource Azure pour les balises](../azure-policy/json-samples.md) déclenchée par cette balise spécifique.

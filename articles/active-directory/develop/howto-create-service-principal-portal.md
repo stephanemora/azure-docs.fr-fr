@@ -12,12 +12,12 @@ ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 0d3e1e10120dce404f0fdfe781661c4c169ae00a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2283f4f3cf1d31f0d67e01e1a63ee20557ef5633
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697215"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591572"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procédure : Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
 
@@ -40,9 +40,9 @@ Passons directement à la création de l’identité. Si vous rencontrez un prob
 
 Vous avez créé votre application Azure AD et le principal de service.
 
-## <a name="assign-the-application-to-a-role"></a>Affecter l’application à un rôle
+## <a name="assign-a-role-to-the-application"></a>Attribuer un rôle à l’application
 
-Pour accéder aux ressources de votre abonnement, vous devez affecter un rôle à l’application. Déterminez quel rôle fournit les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](../../role-based-access-control/built-in-roles.md).
+Pour accéder aux ressources de votre abonnement, vous devez attribuer un rôle à l’application. Déterminez quel rôle fournit les autorisations appropriées pour l’application. Pour en savoir plus sur les rôles disponibles, consultez [RBAC : rôles intégrés](../../role-based-access-control/built-in-roles.md).
 
 Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue (par exemple, l’ajout d’une application au rôle Lecteur pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes les ressources qu’il contient).
 
@@ -62,7 +62,7 @@ Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ress
 
    ![Sélectionnez le rôle à assigner à l’application](./media/howto-create-service-principal-portal/select-role.png)
 
-1. Sélectionnez **Enregistrer** pour finaliser l’attribution du rôle. Votre application apparaît dans la liste des utilisateurs affectés à un rôle pour cette étendue.
+1. Sélectionnez **Enregistrer** pour finaliser l’attribution du rôle. Votre application apparaît dans la liste des utilisateurs avec un rôle pour cette étendue.
 
 Votre principal de service est créé. Vous pouvez commencer à l’utiliser pour exécuter vos scripts ou applications. La section suivante montre comment obtenir les valeurs nécessaires pour vous connecter par programmation.
 
@@ -112,7 +112,7 @@ Si vous choisissez de ne pas utiliser un certificat, vous pouvez créer un nouve
 1. Sélectionnez **Clés secrètes client -> Nouvelle clé secrète client**.
 1. Fournissez une description et la durée du secret. Quand vous avez terminé, sélectionnez **Ajouter**.
 
-   Une fois la clé secrète client enregistrée, la valeur de la clé secrète client s’affiche. Copiez cette valeur car vous ne pourrez pas récupérer la clé ultérieurement. Vous fournissez la valeur de la clé avec l’ID d’application pour vous connecter en tant qu’application. Stockez la valeur de la clé à un emplacement où votre application peut la récupérer.
+   Une fois la clé secrète client enregistrée, la valeur de la clé secrète client s’affiche. Copiez cette valeur car vous ne pourrez pas récupérer la clé ultérieurement. Vous fournirez la valeur de la clé avec l’ID d’application pour vous connecter en tant qu’application. Stockez la valeur de la clé à un emplacement où votre application peut la récupérer.
 
    ![Copiez la valeur du secret, car vous ne pourrez pas la récupérer plus tard.](./media/howto-create-service-principal-portal/copy-secret.png)
 
@@ -126,7 +126,7 @@ Gardez à l’esprit que vous devrez peut-être configurer des autorisations sup
 
 ## <a name="required-permissions"></a>Autorisations requises
 
-Vous devez avoir les autorisations nécessaires pour inscrire une application auprès de votre locataire Azure AD et assigner un rôle à l’application dans votre abonnement Azure.
+Vous devez disposer d’autorisations suffisantes pour inscrire une application auprès de votre locataire Azure AD et attribuer un rôle à l’application dans votre abonnement Azure.
 
 ### <a name="check-azure-ad-permissions"></a>Vérifier les autorisations dans Azure AD
 
@@ -138,11 +138,11 @@ Vous devez avoir les autorisations nécessaires pour inscrire une application au
 1. Dans le volet gauche, sélectionnez **Paramètres utilisateur**.
 1. Vérifiez le paramètre **Inscriptions d’applications**. Cette valeur peut uniquement être définie par un administrateur. Si la valeur est **Oui**, tous les utilisateurs dans le locataire Azure AD peuvent inscrire une application.
 
-Si le paramètre d’inscriptions d’applications est défini sur **Non**, seuls les utilisateurs ayant un rôle d’administrateur peuvent inscrire ces types d’applications. Reportez-vous aux [rôles disponibles](../users-groups-roles/directory-assign-admin-roles.md#available-roles) et aux [autorisations de rôle](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) pour en savoir plus sur les rôles administrateur disponibles et les autorisations spécifiques dans Azure AD qui sont attribuées à chaque rôle. Si le rôle Utilisateur est assigné à votre compte mais que le paramètre d’inscription d’applications est limité aux utilisateurs administrateurs, demandez à votre administrateur de vous assigner l’un des rôles Administrateur pouvant créer et gérer tous les aspects des inscriptions d’application ou autoriser les utilisateurs à inscrire des applications.
+Si le paramètre d’inscriptions d’applications est défini sur **Non**, seuls les utilisateurs ayant un rôle d’administrateur peuvent inscrire ces types d’applications. Reportez-vous aux [rôles disponibles](../users-groups-roles/directory-assign-admin-roles.md#available-roles) et aux [autorisations de rôle](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) pour en savoir plus sur les rôles administrateur disponibles et les autorisations spécifiques dans Azure AD qui sont attribuées à chaque rôle. Si le rôle Utilisateur est attribué à votre compte mais que le paramètre d’inscription d’application est limité aux utilisateurs administrateurs, demandez à votre administrateur de vous attribuer l’un des rôles Administrateur pouvant créer et gérer tous les aspects des inscriptions d’application ou autoriser les utilisateurs à inscrire des applications.
 
 ### <a name="check-azure-subscription-permissions"></a>Vérifier les autorisations d’abonnement Azure
 
-Dans votre abonnement Azure, votre compte doit disposer d’un accès `Microsoft.Authorization/*/Write` pour affecter un rôle à une application AD. Cette action est accordée par le biais du rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator). Si le rôle **Collaborateur** est affecté à votre compte, vous ne disposez pas de l’autorisation appropriée. Vous recevez un message d’erreur lorsque vous tentez d’attribuer le principal de service à un rôle.
+Dans votre abonnement Azure, votre compte doit disposer d’un accès `Microsoft.Authorization/*/Write` pour attribuer un rôle à une application AD. Cette action est accordée par le biais du rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator). Si le rôle **Contributeur** est attribué à votre compte, vous ne disposez pas de l’autorisation appropriée. Vous recevez un message d’erreur quand vous tentez d’attribuer un rôle au principal de service.
 
 Pour vérifier vos autorisations d’abonnement :
 
@@ -154,9 +154,9 @@ Pour vérifier vos autorisations d’abonnement :
 
    ![Sélectionnez l’abonnement où vous souhaitez créer le principal de service.](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Sélectionnez **Attributions de rôles** pour afficher les rôles qui vous sont affectés et déterminez si vous disposez des autorisations appropriées pour affecter un rôle à une application AD. Si ce n’est pas le cas, demandez à votre administrateur d’abonnement de vous ajouter un rôle Administrateur de l’accès utilisateur. Dans l’image suivante, le rôle Propriétaire est assigné à l’utilisateur, ce qui signifie que l’utilisateur dispose des autorisations appropriées.
+1. Sélectionnez **Attributions de rôles** pour afficher les rôles qui vous sont attribués et déterminez si vous disposez des autorisations appropriées pour attribuer un rôle à une application AD. Si ce n’est pas le cas, demandez à votre administrateur d’abonnement de vous ajouter un rôle Administrateur de l’accès utilisateur. Dans l’image suivante, le rôle Propriétaire est attribué à l’utilisateur, ce qui signifie que l’utilisateur dispose des autorisations appropriées.
 
-   ![Cet exemple montre que l’utilisateur est affecté au rôle Propriétaire](./media/howto-create-service-principal-portal/view-user-role.png)
+   ![Cet exemple montre que le rôle Propriétaire est attribué à l’utilisateur](./media/howto-create-service-principal-portal/view-user-role.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 1cf1a97ed6350174511d61d924f893bb209736c2
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 09654132b6e10f9905f79d1eb50f9bce220a7ab7
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712577"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613772"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Joindre une machine virtuelle Ubuntu Linux à un domaine managé Azure AD Domain Services
 
@@ -24,7 +24,7 @@ Pour permettre aux utilisateurs de se connecter à des machines virtuelles dans 
 
 Cet article vous montre comment joindre une machine virtuelle Ubuntu Linux à un domaine managé Azure AD DS.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 
@@ -63,13 +63,13 @@ sudo vi /etc/hosts
 
 Dans le fichier *hosts*, mettez à jour l’adresse *localhost*. Dans l’exemple suivant :
 
-* *aadds.contoso.com* est le nom de domaine DNS de votre domaine managé Azure AD DS.
+* *aaddscontoso.com* est le nom de domaine DNS de votre domaine managé Azure AD DS.
 * *ubuntu* est le nom d’hôte de votre machine virtuelle Ubuntu que vous joignez au domaine managé.
 
 Mettez à jour ces noms avec vos propres valeurs :
 
 ```console
-127.0.0.1 ubuntu.aadds.contoso.com ubuntu
+127.0.0.1 ubuntu.aaddscontoso.com ubuntu
 ```
 
 Quand vous avez terminé, enregistrez et quittez le fichier *hosts* à l’aide de la commande `:wq` de l’éditeur.
@@ -78,7 +78,7 @@ Quand vous avez terminé, enregistrez et quittez le fichier *hosts* à l’aide 
 
 La machine virtuelle a besoin de packages supplémentaires pour être jointe au domaine managé Azure AD DS. Pour installer et configurer ces packages, mettez à jour et installez les outils de jonction de domaine à l’aide de `apt-get`
 
-Pendant l’installation de Kerberos, le package *Krb5-user* demande le nom de domaine TOUT EN MAJUSCULES. Par exemple, si le nom de votre domaine managé Azure AD DS est *aadds.contoso.com*, entrez *AADDS.CONTOSO.COM* en guise de domaine. L’installation écrit les sections `[realm]` et `[domain_realm]` dans le fichier de configuration */etc/krb5.conf*. Veillez à spécifier le domaine TOUT EN MAJUSCULES :
+Pendant l’installation de Kerberos, le package *Krb5-user* demande le nom de domaine TOUT EN MAJUSCULES. Par exemple, si le nom de votre domaine managé Azure AD DS est *aaddscontoso.com*, entrez *AADDSCONTOSO.COM* en guise de domaine. L’installation écrit les sections `[realm]` et `[domain_realm]` dans le fichier de configuration */etc/krb5.conf*. Veillez à spécifier le domaine TOUT EN MAJUSCULES :
 
 ```console
 sudo apt-get update
@@ -95,10 +95,10 @@ Pour que la communication fonctionne correctement dans le domaine, la date et l�
     sudo vi /etc/ntp.conf
     ```
 
-1. Dans le fichier *ntp.conf*, créez une ligne pour ajouter le nom DNS de votre domaine managé Azure AD DS. Dans l’exemple suivant, une entrée est ajoutée pour *aadds.contoso.com*. Utilisez votre propre nom DNS :
+1. Dans le fichier *ntp.conf*, créez une ligne pour ajouter le nom DNS de votre domaine managé Azure AD DS. Dans l’exemple suivant, une entrée est ajoutée pour *aaddscontoso.com*. Utilisez votre propre nom DNS :
 
     ```console
-    server aadds.contoso.com
+    server aaddscontoso.com
     ```
 
     Quand vous avez terminé, enregistrez et quittez le fichier *ntp.conf* à l’aide de la commande `:wq` de l’éditeur.
@@ -113,7 +113,7 @@ Pour que la communication fonctionne correctement dans le domaine, la date et l�
 
     ```console
     sudo systemctl stop ntp
-    sudo ntpdate aadds.contoso.com
+    sudo ntpdate aaddscontoso.com
     sudo systemctl start ntp
     ```
 
@@ -121,30 +121,30 @@ Pour que la communication fonctionne correctement dans le domaine, la date et l�
 
 Maintenant que les packages nécessaires sont installés sur la machine virtuelle et que NTP est configuré, joignez la machine virtuelle au domaine managé Azure AD DS.
 
-1. Utilisez la commande `realm discover` pour découvrir le domaine managé Azure AD DS. L’exemple suivant découvre le domaine *AADDS.CONTOSO.COM*. Spécifiez votre propre nom de domaine managé Azure AD DS TOUT EN MAJUSCULES :
+1. Utilisez la commande `realm discover` pour découvrir le domaine managé Azure AD DS. L’exemple suivant découvre le domaine *AADDSCONTOSO.COM*. Spécifiez votre propre nom de domaine managé Azure AD DS TOUT EN MAJUSCULES :
 
     ```console
-    sudo realm discover AADDS.CONTOSO.COM
+    sudo realm discover AADDSCONTOSO.COM
     ```
 
    Si la commande `realm discover` ne trouve pas votre domaine managé Azure AD DS, examinez les étapes de dépannage suivantes :
 
-    * Vérifiez que le domaine est accessible à partir de la machine virtuelle. Essayez `ping aadds.contoso.com` pour voir si une réponse positive est retournée.
+    * Vérifiez que le domaine est accessible à partir de la machine virtuelle. Essayez `ping aaddscontoso.com` pour voir si une réponse positive est retournée.
     * Vérifiez que la machine virtuelle est déployée dans le réseau virtuel où le domaine managé Azure AD DS est disponible ou dans un réseau virtuel appairé.
     * Vérifiez que les paramètres de serveur DNS du réseau virtuel ont été mis à jour pour pointer vers les contrôleurs de domaine du domaine managé Azure AD DS.
 
 1. À présent, initialisez Kerberos à l’aide de la commande `kinit`. Spécifiez un utilisateur qui appartient au groupe *Administrateurs AAD DC*. Si nécessaire, [ajoutez un compte d’utilisateur à un groupe dans Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Là encore, le nom de domaine managé Azure AD DS doit être entré TOUT EN MAJUSCULES. Dans l’exemple suivant, le compte nommé `contosoadmin@aadds.contoso.com` est utilisé pour initialiser Kerberos. Entrez votre propre compte d’utilisateur qui est membre du groupe *Administrateurs AAD DC* :
+    Là encore, le nom de domaine managé Azure AD DS doit être entré TOUT EN MAJUSCULES. Dans l’exemple suivant, le compte nommé `contosoadmin@aaddscontoso.com` est utilisé pour initialiser Kerberos. Entrez votre propre compte d’utilisateur qui est membre du groupe *Administrateurs AAD DC* :
 
     ```console
-    kinit contosoadmin@AADDS.CONTOSO.COM
+    kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Enfin, joignez la machine au domaine managé Azure AD DS à l’aide de la commande `realm join`. Utilisez le même compte d’utilisateur membre du groupe *Administrateurs AAD DC* que vous avez spécifié dans la commande précédente `kinit`, à savoir `contosoadmin@AADDS.CONTOSO.COM` :
+1. Enfin, joignez la machine au domaine managé Azure AD DS à l’aide de la commande `realm join`. Utilisez le même compte d’utilisateur membre du groupe *Administrateurs AAD DC* que vous avez spécifié dans la commande précédente `kinit`, à savoir `contosoadmin@AADDSCONTOSO.COM` :
 
     ```console
-    sudo realm join --verbose AADDS.CONTOSO.COM -U 'contosoadmin@AADDS.CONTOSO.COM' --install=/
+    sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM' --install=/
     ```
 
 La jonction de la machine virtuelle au domaine managé Azure AD DS prend quelques instants. L’exemple de sortie suivant montre que la machine virtuelle a bien été jointe au domaine managé Azure AD DS :
@@ -248,10 +248,10 @@ Pour accorder des privilèges d’administration aux membres du groupe *Administ
 
 Pour vérifier que la machine virtuelle a bien été jointe au domaine managé Azure AD DS, démarrez une nouvelle connexion SSH en utilisant un compte d’utilisateur du domaine. Vérifiez qu’un répertoire de base a été créé et que l’appartenance au groupe du domaine est appliquée.
 
-1. Créez une connexion SSH à partir de votre console. Utilisez un compte de domaine qui appartient au domaine managé à l’aide de la commande `ssh -l`, comme `contosoadmin@aadds.contoso.com`, puis entrez l’adresse de votre machine virtuelle, telle que *ubuntu.aadds.contoso.com*. Si vous utilisez Azure Cloud Shell, utilisez l’adresse IP publique de la machine virtuelle plutôt que le nom DNS interne.
+1. Créez une connexion SSH à partir de votre console. Utilisez un compte de domaine qui appartient au domaine managé à l’aide de la commande `ssh -l`, par exemple `contosoadmin@aaddscontoso.com`, puis entrez l’adresse de votre machine virtuelle, par exemple *ubuntu.aaddscontoso.com*. Si vous utilisez Azure Cloud Shell, utilisez l’adresse IP publique de la machine virtuelle plutôt que le nom DNS interne.
 
     ```console
-    ssh -l contosoadmin@AADDS.CONTOSO.com ubuntu.aadds.contoso.com
+    ssh -l contosoadmin@AADDSCONTOSO.com ubuntu.aaddscontoso.com
     ```
 
 1. Une fois connecté à la machine virtuelle, vérifiez que le répertoire de base a bien été initialisé :

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 32020341c7ac3bf33082ba365f053a613dcdffc2
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 74d9aa8228e841b17313fb3c15efe459ccd7339a
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705093"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613589"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrez les objets de stratégie de groupe sur un domaine managé Azure AD Domain Services
 
@@ -53,7 +53,7 @@ Pour créer et configurer les objets de stratégie de groupe (GPO), vous devez i
 1. Dans le volet *Tableau de bord* de la fenêtre **Gestionnaire de serveur**, sélectionnez **Ajouter des rôles et des fonctionnalités**.
 1. Dans la page **Avant de commencer** de l’*Assistant Ajout de rôles et de fonctionnalités*, sélectionnez **Suivant**.
 1. Pour le *Type d’installation*, laissez l’option **Installation basée sur un rôle ou une fonctionnalité** cochée et sélectionnez **Suivant**.
-1. Dans la page **Sélection du serveur**, choisissez la machine virtuelle active dans le pool de serveurs, par exemple *myvm.aadds.contoso.com*, puis sélectionnez **Suivant**.
+1. Dans la page **Sélection du serveur**, choisissez la machine virtuelle actuelle dans le pool de serveurs, par exemple *myvm.aaddscontoso.com*, puis sélectionnez **Suivant**.
 1. Sur la page **Rôles de serveurs**, cliquez sur **Suivant**.
 1. Sur la page **Fonctionnalités**, sélectionnez la fonctionnalité **Gestion des stratégies de groupe**.
 
@@ -76,7 +76,7 @@ Des objets de stratégie de groupe (GPO) par défaut existent pour les utilisate
 
 Il existe deux objets de stratégie de groupe (GPO) intégrés dans un domaine managé Azure AD DS : un pour le conteneur *Ordinateurs AADDC* et un autre pour le conteneur *AADDC utilisateurs*. Vous pouvez personnaliser ces objets de stratégie de groupe pour configurer la stratégie de groupe sur le domaine managé Azure AD DS.
 
-1. Dans la console **Gestion des stratégies de groupe**, développez le nœud **Forest: aadds.contoso.com**. Ensuite, développez les nœuds **Domaines**.
+1. Dans la console **Gestion des stratégies de groupe**, développez le nœud **Forest: aaddscontoso.com**. Ensuite, développez les nœuds **Domaines**.
 
     Il existe deux conteneurs pour *Ordinateurs AADDC* et *Utilisateurs AADDC*. Un objet de stratégie de groupe par défaut est appliqué à chacun de ces conteneurs.
 

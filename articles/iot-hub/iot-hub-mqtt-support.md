@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 694697be85b61ad2d59a0a4be1ced3581873cb77
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 2b200692610302bb135982e5419dcda36d5cfe60
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111756"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648493"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -161,28 +161,27 @@ Ce référentiel contient les éléments suivants :
 
 **Pour Windows :**
 
-•   TelemetryMQTTWin32 : contient le code pour envoyer un message de télémétrie à un hub Azure IoT, construit et exécuté sur une machine Windows.
+* TelemetryMQTTWin32 : contient le code pour envoyer un message de télémétrie à un hub Azure IoT, généré et exécuté sur une machine Windows.
 
-•   SubscribeMQTTWin32 : contient le code pour s'abonner aux événements d'un hub IoT donné sur une machine Windows.
+* SubscribeMQTTWin32 : contient le code pour s’abonner aux événements d’un hub IoT donné sur une machine Windows.
 
-•   DeviceTwinMQTTWin32 : contient le code pour interroger et s'abonner aux événements du jumeau d'un appareil dans le hub Azure IoT sur une machine Windows.
+* DeviceTwinMQTTWin32 : contient le code pour interroger les événements du jumeau d’un appareil dans le hub Azure IoT sur une machine Windows et s’y abonner.
 
-•   PnPMQTTWin32 : contient le code pour envoyer un message de télémétrie avec des capacités en préversion IoT Plug & Play à un hub Azure IoT, construit et exécuté sur une machine Windows. Vous trouverez plus d’informations sur IoT Plug & Play [ici](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
+* PnPMQTTWin32 : contient le code pour envoyer un message de télémétrie avec des fonctionnalités d’appareil en préversion IoT Plug-and-Play à un hub Azure IoT, généré et exécuté sur une machine Windows. Vous trouverez plus d’informations sur IoT Plug & Play [ici](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play)
 
 **Pour Linux :**
 
-•   MQTTLinux : contient le code et le script de build à exécuter sur Linux (les distributions WSL, Ubuntu et Raspbian ont été testées à ce jour).
+* MQTTLinux : contient le code et le script de build à exécuter sur Linux (WSL, Ubuntu et Raspbian ont été testés à ce jour).
 
-•   LinuxConsoleVS2019 : contient le même code mais dans un projet VS2019 ciblant une distribution WSL (sous-système Windows Linux). Ce projet vous permet de déboguer le code exécuté sur Linux étape par étape à partir de Visual Studio.
+* LinuxConsoleVS2019 : contient le même code mais dans un projet VS2019 ciblant WSL (sous-système Windows Linux). Ce projet vous permet de déboguer le code exécuté sur Linux étape par étape à partir de Visual Studio.
 
 **Pour mosquitto_pub :**
 
-•   Ce dossier contient deux exemples de commandes utilisées avec l'utilitaire mosquitto_pub fourni par Mosquitto.org.
+Ce dossier contient deux exemples de commandes utilisées avec l’utilitaire mosquitto_pub fourni par Mosquitto.org.
 
-Mosquitto_sendmessage : pour envoyer un simple message texte à un hub Azure IoT agissant comme un appareil.
+* Mosquitto_sendmessage : pour envoyer un simple message texte à un hub Azure IoT agissant comme un appareil.
 
-Mosquitto_subscribe : pour voir les événements qui se produisent dans un hub Azure IoT.
-
+* Mosquitto_subscribe : pour voir les événements qui se produisent dans un hub Azure IoT.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Utilisation directe du protocole MQTT (en tant que module)
 
@@ -342,7 +341,7 @@ Les codes d’état possibles sont :
 
 |Statut | Description |
 | ----- | ----------- |
-| 204 | Réussite (aucun contenu n’est retourné) |
+| 200 | Succès |
 | 429 | Trop de demandes (limité), selon la [Limitation d’IoT Hub](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Erreurs de serveur |
 
@@ -373,7 +372,7 @@ Les codes d’état possibles sont :
 
 |Statut | Description |
 | ----- | ----------- |
-| 200 | Succès |
+| 204 | Réussite (aucun contenu n’est retourné) |
 | 400 | Demande incorrecte. JSON incorrect |
 | 429 | Trop de demandes (limité), selon la [Limitation d’IoT Hub](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Erreurs de serveur |

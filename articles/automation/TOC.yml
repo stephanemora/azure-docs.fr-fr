@@ -84,7 +84,7 @@
             - name: Démarrer un runbook depuis un Webhook
               href: automation-webhooks.md
             - name: Configurer les paramètres d’entrée de runbook
-              href: automation-runbook-input-parameters.md
+              href: runbook-input-parameters.md
             - name: Runbooks enfants
               href: automation-child-runbooks.md
             - name: "Passer un objet JSON dans un runbook\_Azure\_Automation"

@@ -10,12 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 11/04/2019
-ms.openlocfilehash: 0da5fe56bd56d360cd8052976bdde0cdc910c9a5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 49ee00d43820d5aeb50e44cff1b6c5a448b4ce81
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904285"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623917"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>Créer des flux de travail Machine Learning basés sur les événements (préversion)
 
@@ -25,15 +25,15 @@ Pour plus d’informations, consultez [Intégration d’Azure Machine Learning a
 
 Utilisez Event Grid pour activer des scénarios courants tels que :
 
-* Déclenchement de pipelines pour la reformation
+* Envoyer des e-mails à la fin de l’exécution
+* Utiliser une fonction Azure après l’inscription d’un modèle
 * Événements de diffusion en continu d’Azure Machine Learning sur divers points de terminaison
+* Déclencher un pipeline ML quand une dérive est détectée
 
-## <a name="prerequisites"></a>Conditions préalables requises
-
+## <a name="prerequisites"></a>Prérequis
 * Accès du contributeur ou du propriétaire à l’espace de travail Azure Machine Learning pour lequel vous allez créer des événements.
-* Sélectionnez un point de terminaison de gestionnaire d’événements, tel qu’un webhook ou un hub d’événements. Pour plus d’informations, consultez la section relative aux [gestionnaires d’événements](https://docs.microsoft.com/azure/event-grid/event-handlers). 
 
-## <a name="configure-machine-learning-events-using-the-azure-portal"></a>Configurer des événements Machine Learning à l’aide du Portail Azure
+### <a name="configure-eventgrid-using-the-azure-portal"></a>Configurer EventGrid à l’aide du portail Azure
 
 1. Ouvrez le [Portail Azure](https://portal.azure.com) et accédez à votre espace de travail Azure Machine Learning.
 
@@ -51,7 +51,7 @@ Utilisez Event Grid pour activer des scénarios courants tels que :
 
 Une fois que vous avez confirmé votre sélection, cliquez sur __Créer__. Après la configuration, ces événements seront envoyés à votre point de terminaison.
 
-## <a name="set-up-azure-event-grid-using-cli"></a>Configurer Azure Event Grid à l’aide de l’interface CLI
+### <a name="configure-eventgrid-using-the-cli"></a>Configurer EventGrid à l’aide de l’interface CLI
 
 Vous pouvez installer la dernière version d’[Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou utiliser Azure Cloud Shell fourni dans le cadre de votre abonnement Azure.
 
@@ -61,7 +61,7 @@ Pour installer l’extension Event Grid, utilisez la commande suivante à partir
 az add extension --name eventgrid
 ```
 
-L’exemple suivant montre comment sélectionner un abonnement Azure, puis créer un nouvel abonnement aux événements pour Azure Machine Learning :
+L’exemple suivant montre comment sélectionner un abonnement Azure et créer un abonnement aux événements pour Azure Machine Learning :
 
 ```azurecli-interactive
 # Select the Azure subscription that contains the workspace
@@ -77,6 +77,12 @@ az eventgrid event-subscription create \
 ```
 
 ## <a name="sample-scenarios"></a>Exemples de scénarios
+
+### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Utiliser Azure Functions pour déployer un modèle basé sur des balises
+
+Un objet de modèle Azure Machine Learning contient des paramètres sur lesquels vous pouvez baser les déploiements, tels que le nom du modèle, la version, la balise et la propriété. L’événement d’inscription du modèle peut déclencher un point de terminaison et vous pouvez utiliser une fonction Azure pour déployer un modèle en fonction de la valeur de ces paramètres.
+
+Pour obtenir un exemple, consultez le référentiel [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) et suivez les étapes dans le fichier **readme**.
 
 ### <a name="use-a-logic-app-to-send-email-alerts"></a>Utiliser une application logique pour envoyer des alertes par e-mail
 
@@ -158,12 +164,6 @@ Désormais, le pipeline Data Factory est déclenché lorsque la dérive se produ
 
 ![view-in-workspace](./media/how-to-use-event-grid/view-in-workspace.png)
 
-
-### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Utiliser Azure Functions pour déployer un modèle basé sur des balises
-
-Un objet de modèle Azure Machine Learning contient des paramètres sur lesquels vous pouvez baser les déploiements, tels que le nom du modèle, la version, la balise et la propriété. L’événement d’inscription du modèle peut déclencher un point de terminaison et vous pouvez utiliser une fonction Azure pour déployer un modèle en fonction de la valeur de ces paramètres.
-
-Pour obtenir un exemple, consultez le référentiel [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) et suivez les étapes dans le fichier **readme**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,12 +3,12 @@ title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: d30097badd3ab9ee5a328f17d0e3e91254a89185
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 1e90009a0c34bf166a18659a19988ea5a0c9ab07
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462000"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587122"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -328,7 +328,7 @@ Les conditions peuvent également être formées à l’aide de **valeur**. **va
 **valeur** est associée à n’importe quelle [condition](#conditions) prise en charge.
 
 > [!WARNING]
-> Si le résultat d’une _fonction de modèle_ est une erreur, la stratégie d’évaluation échoue. Une évaluation ayant échoué correspond à un **refus** implicite. Pour plus d’informations, consultez [Éviter les défaillances des modèles](#avoiding-template-failures).
+> Si le résultat d’une _fonction de modèle_ est une erreur, la stratégie d’évaluation échoue. Une évaluation ayant échoué correspond à un **refus** implicite. Pour plus d’informations, consultez [Éviter les défaillances des modèles](#avoiding-template-failures). Définissez la propriété [enforcementMode](./assignment-structure.md#enforcement-mode) sur **DoNotEnforce** pour empêcher l’impact d’une évaluation qui a échoué sur des ressources nouvelles ou mises à jour lors du test et de la validation d’une nouvelle définition de stratégie.
 
 #### <a name="value-examples"></a>Exemples de valeur
 
@@ -580,13 +580,22 @@ Toutes les [fonctions de modèle Resource Manager](../../../azure-resource-manag
 
 Les fonctions suivantes sont disponibles pour utilisation dans une règle de stratégie, mais diffèrent de l’utilisation dans un modèle Azure Resource Manager :
 
-- addDays(dateTime, numberOfDaysToAdd)
+- `addDays(dateTime, numberOfDaysToAdd)`
   - **dateTime** : [obligatoire] chaîne - chaîne au format date/heure universel ISO 8601 « yyyy-MM-ddTHH:mm:ss.fffffffZ »
   - **numberOfDaysToAdd** : [obligatoire] nombre entier - nombre de jours à ajouter
-- utcNow() : contrairement à un modèle Resource Manager, cela peut être utilisé en dehors de defaultValue.
+- `utcNow()` : contrairement à un modèle Resource Manager, cette fonction peut être utilisée en dehors de defaultValue.
   - Retourne une chaîne qui est définie sur la date et l’heure actuelles au format de date/heure universel ISO 8601 « yyyy-MM-ddTHH:mm:ss.fffffffZ »
 
-De plus, la fonction `field` est disponible pour les règles de stratégie. `field` est principalement utilisé avec **AuditIfNotExists** et **DeployIfNotExists** pour faire référence aux champs actuellement évalués de la ressource. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
+Les fonctions suivantes sont disponibles uniquement dans les règles de stratégie :
+
+- `field(fieldName)`
+  - **fieldName** : [Obligatoire] chaîne - Nom du [champ](#fields) à récupérer
+  - Retourne la valeur de ce champ à partir de la ressource en cours d’évaluation par la condition If
+  - `field` est principalement utilisé avec **AuditIfNotExists** et **DeployIfNotExists** pour faire référence aux champs actuellement évalués de la ressource. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
+- `requestContext().apiVersion`
+  - Retourne la version d’API de la requête qui a déclenché l’évaluation de la stratégie (par exemple : `2019-09-01`). Il s’agit de la version d’API qui a été utilisée dans la requête PUT/PATCH pour les évaluations relatives à la création/mise à jour de ressources. La dernière version de l’API est toujours utilisée lors de l’évaluation de la conformité sur des ressources existantes.
+  
+
 
 #### <a name="policy-function-example"></a>Exemple de fonction de stratégie
 

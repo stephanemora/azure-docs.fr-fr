@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: e2faf3ad7ed41c14745337414703d9fb0db54152
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 14e2cdd5d4a1662e86a055165fdd15a38d29225b
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033571"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651047"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Calcul des scores de test d’évaluation pour les machines virtuelles Windows
 Les scores de test d’évaluation SPECInt suivants montrent les performances de calcul de certaines machines virtuelles Azure exécutant Windows Server. Les scores de test d’évaluation de calcul sont également disponibles pour [les machines virtuelles Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -39,7 +39,7 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 | Standard_A2m_v2 | 2 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 11 | 26,3 | 0,8 | 
 | Standard_A2m_v2 | 2 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 21 | 28,4 | 1.0 | 
 | Standard_A4_v2 | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2660 0 à 2,20 GHz | 27 | 56,6 | 1.0 | 
-| Standard_A4_v2 | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 13 | 52,8 | 2.0 | 
+| Standard_A4_v2 | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 13 | 52,8 | 2 | 
 | Standard_A4_v2 | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 15 | 52,1 | 4.5 | 
 | Standard_A4m_v2 | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2660 0 à 2,20 GHz | 17 | 56,4 | 1.8 | 
 | Standard_A4m_v2 | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 6 | 53,4 | 1.9 | 
@@ -51,11 +51,13 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 | Standard_A8m_v2 | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 10 | 104,5 | 5,1 | 
 | Standard_A8m_v2 | 8 | 2 | Processeur Intel(R) Xeon(R) E5-2660 0 à 2,20 GHz | 13 | 111,6 | 2.3 | 
 
+Remarque : Les machines virtuelles de la série Av2 peuvent être déployées sur différents types de matériel et différents processeurs (comme indiqué ci-dessus). Les machines virtuelles de la série Av2 affichent des performances d’unité centrale et des configurations de mémoire idéales pour les charges de travail de niveau d’entrée, propres au développement et au test. La taille est limitée afin d’offrir des performances de processeur relativement cohérentes pour l’instance en cours d’exécution, quel que soit le matériel sur lequel elle est déployée. Toutefois, les logiciels qui tirent parti d’optimisations de processeur plus récentes spécifiques peuvent voir des variations plus significatives entre les types de processeurs.
+
 ## <a name="b---burstable"></a>B - Extensibilité
 | Size | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Taux de base moy. | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_B1ms | 1 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 9 | 6.3 | 0.2 | 
-| Standard_B1ms | 1 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 47 | 6.4. | 0.2 | 
+| Standard_B1ms | 1 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 47 | 6.4 | 0.2 | 
 | Standard_B2ms | 2 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 36 | 19,8 | 0,8 | 
 | Standard_B2s | 2 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 2 | 13.0 | 0.0 | 
 | Standard_B2s | 2 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 29 | 13.0 | 0.5 | 
@@ -63,6 +65,10 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 | Standard_B4ms | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 43 | 28,3 | 0,7 | 
 | Standard_B8ms | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 3 | 42,0 | 0.0 | 
 | Standard_B8ms | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 25 | 41,4 | 0.9 | 
+
+Remarque : Les machines virtuelles de la série B concernent les charges de travail avec des besoins de performance pouvant être en rafale. Les instances de machine virtuelle cumulent des crédits quand elles utilisent moins que leur base de référence. Dès que la machine virtuelle a cumulé des crédits, elle peut s’exécuter en rafale (burst) au-delà de la base de référence en utilisant jusqu’à la totalité pour répondre aux besoins de rafale du processeur. La durée de rafale dépend des crédits disponibles, ce qui est fonction de la taille et du temps de la machine virtuelle.  
+
+SPEC Int est un test d’exécution assez long qui épuise généralement les crédits de rafale disponibles.  Par conséquent, les chiffres ci-dessus sont plus proches des performances de la base de référence de la machine virtuelle (même s’ils peuvent refléter une durée de rafale cumulée entre les exécutions).  Pour les charges de travail en rafale courtes (par défaut sur la série B), les performances seront généralement plus proches de celles de la série DS v3.
 
 ## <a name="dsv3---general-compute--premium-storage"></a>DSv3 - Calcul général + stockage Premium
 | Size | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Taux de base moy. | StdDev | 
@@ -75,7 +81,7 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 | Standard_D8s_v3 | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 28 | 155,4 | 5.6 | 
 | Standard_D16s_v3 | 16 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 3 | 275,7 | 5,1 | 
 | Standard_D16s_v3 | 16 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 38 | 298,2 | 4.4 | 
-| Standard_D32s_v3 | 32 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 24 | 545,8 | 10,5 | 
+| Standard_D32s_v3 | 32 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 24 | 545,8 | 10.5 | 
 | Standard_D32s_v3 | 32 | 2 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 9 | 535,6 | 12,6 | 
 | Standard_D64s_v3 | 64 | 2 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 35 | 1 070,6 | 2.4 | 
 
@@ -129,7 +135,7 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 | Standard_DS14-4_v2 | 4 | 2 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 16 | 125,1 | 4.8 | 
 | Standard_DS14-8_v2 | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 27 | 251,3 | 2.4 | 
 | Standard_DS14-8_v2 | 8 | 2 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 14 | 247,4 | 10.2 | 
-| Standard_DS15_v2 | 20 | 2 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 45 | 546,1 | 10,5 | 
+| Standard_DS15_v2 | 20 | 2 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 45 | 546,1 | 10.5 | 
 
 ## <a name="dv2---general-compute"></a>Dv2 - Calcul général
 | Size | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Taux de base moy. | StdDev | 
@@ -144,11 +150,11 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 | Standard_D4_v2 | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 36 | 248,9 | 4.8 | 
 | Standard_D5_v2 | 16 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 9 | 413,9 | 14,1 | 
 | Standard_D5_v2 | 16 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 27 | 470,2 | 8.1 | 
-| Standard_D5_v2 | 16 | 2 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 5\. | 466,0 | 0.0 | 
+| Standard_D5_v2 | 16 | 2 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 5 | 466,0 | 0.0 | 
 | Standard_D11_v2 | 2 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 22 | 66,4 | 2,9 | 
 | Standard_D11_v2 | 2 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 27 | 69,0 | 6.7 | 
 | Standard_D12_v2 | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 24 | 127,7 | 4.6 | 
-| Standard_D12_v2 | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 20 | 135,9 | 9,3 | 
+| Standard_D12_v2 | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 20 | 135,9 | 9.3 | 
 | Standard_D13_v2 | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 16 | 237,4 | 6.6 | 
 | Standard_D13_v2 | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 28 | 250,2 | 3.8 | 
 | Standard_D14_v2 | 16 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 23 | 473,0 | 9,4 | 
@@ -183,7 +189,7 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 ## <a name="ev3---memory-optimized"></a>Ev3 - Optimisé pour la mémoire
 | Size | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Taux de base moy. | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
-| Standard_E2_v3 | 2 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 41 | 41,2 | 2.4 | 
+| Standard_E2_v3 | 2 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 41 | 41.2 | 2.4 | 
 | Standard_E4_v3 | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 43 | 81,4 | 5.3 | 
 | Standard_E8_v3 | 8 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 39 | 157,4 | 8.1 | 
 | Standard_E16_v3 | 16 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 49 | 301,6 | 8,9 | 
@@ -211,7 +217,7 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 | Size | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Taux de base moy. | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F1s | 1 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 31 | 33,2 | 1.0 | 
-| Standard_F1s | 1 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 41 | 35,1 | 2.0 | 
+| Standard_F1s | 1 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 41 | 35,1 | 2 | 
 | Standard_F2s | 2 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 18 | 63,7 | 1.8 | 
 | Standard_F2s | 2 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 21 | 66,6 | 3.8 | 
 | Standard_F4s | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 14 | 128,4 | 2,9 | 
@@ -225,7 +231,7 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 | Size | Processeurs virtuels | Nœuds NUMA | UC | Exécutions | Taux de base moy. | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_F1 | 1 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 15 | 32,8 | 1.8 | 
-| Standard_F1 | 1 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 13 | 33,3 | 2.0 | 
+| Standard_F1 | 1 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 13 | 33,3 | 2 | 
 | Standard_F2 | 2 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 27 | 64,9 | 6.0 | 
 | Standard_F2 | 2 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 21 | 67,8 | 4,9 | 
 | Standard_F4 | 4 | 1 | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 18 | 128,4 | 3.3 | 
@@ -294,8 +300,8 @@ Les scores de test d’évaluation SPECInt suivants montrent les performances de
 | Standard_M128 | 128 | 4 | Processeur Intel(R) Xeon(R) E7-8890 v3 à 2,50 GHz | 11 | 1 777,3 | 15,6 | 
 | Standard_M128-32ms | 32 | 4 | Processeur Intel(R) Xeon(R) E7-8890 v3 à 2,50 GHz | 13 | 620,5 | 2.5 | 
 | Standard_M128-64ms | 64 | 4 | Processeur Intel(R) Xeon(R) E7-8890 v3 à 2,50 GHz | 12 | 1 140,8 | 2,9 | 
-| Standard_M128m | 128 | 4 | Processeur Intel(R) Xeon(R) E7-8890 v3 à 2,50 GHz | 12 | 1 778,3 | 10,3 | 
-| Standard_M128ms | 128 | 4 | Processeur Intel(R) Xeon(R) E7-8890 v3 à 2,50 GHz | 15 | 1 780,7 | 18,3 | 
+| Standard_M128m | 128 | 4 | Processeur Intel(R) Xeon(R) E7-8890 v3 à 2,50 GHz | 12 | 1 778,3 | 10.3 | 
+| Standard_M128ms | 128 | 4 | Processeur Intel(R) Xeon(R) E7-8890 v3 à 2,50 GHz | 15 | 1 780,7 | 18.3 | 
 | Standard_M128s | 128 | 4 | Processeur Intel(R) Xeon(R) E7-8890 v3 à 2,50 GHz | 12 | 1 775,8 | 11,6 | 
 | Standard_M16ms | 16 | 1 | Processeur Intel(R) Xeon(R) E7-8890 v3 à 2,50 GHz | 20 | 293,1 | 11,8 | 
 | Standard_M32ls | 32 | 1 | Processeur Intel(R) Xeon(R) E7-8890 v3 à 2,50 GHz | 13 | 535,2 | 4.8 | 

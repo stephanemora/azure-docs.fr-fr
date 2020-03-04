@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 02/25/2020
 ms.author: b-juche
-ms.openlocfilehash: 6fcea0aaecb860e07c2066877494c05b51f43ca4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7637d18017f5bdc76c8a271198a88f21a59a6aac
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976245"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604984"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites des ressources pour Azure NetApp Files
 
@@ -31,17 +31,17 @@ Le tableau suivant décrit les limites des ressources pour Azure NetApp Files :
 
 |  Ressource  |  Limite par défaut  |  Ajustable via une demande de support  |
 |----------------|---------------------|--------------------------------------|
-|  Nombre de comptes NetApp par région Azure   |  10    |  OUI   |
-|  Nombre de pools de capacités par compte NetApp   |    25     |   OUI   |
-|  Nombre de volumes par pool de capacités     |    500   |    OUI     |
+|  Nombre de comptes NetApp par région Azure   |  10    |  Oui   |
+|  Nombre de pools de capacités par compte NetApp   |    25     |   Oui   |
+|  Nombre de volumes par pool de capacités     |    500   |    Oui     |
 |  Nombre d’instantanés par volume       |    255     |    Non        |
 |  Nombre de sous-réseaux délégués à Azure NetApp Files (Microsoft.NetApp/volumes) par réseau virtuel Azure    |   1   |    Non    |
-|  Nombre d’adresses IP dans un réseau virtuel (notamment des réseaux virtuels appairés) pouvant accéder à Azure NetApp Files   |    1 000   |    OUI   |
+|  Nombre d’adresses IP utilisées dans un réseau virtuel (notamment les réseaux virtuels immédiatement appairés) avec Azure NetApp Files   |    1 000   |    Oui   |
 |  Taille minimale d’un pool de capacités   |  4 Tio     |    Non  |
 |  Taille maximale d’un pool de capacités    |  500 Tio   |   Non   |
 |  Taille minimale d’un volume    |    100 Gio    |    Non    |
 |  Taille maximale d’un volume     |    100 Tio    |    Non    |
-|  Nombre maximal de fichiers ([maxfiles](#maxfiles)) par volume     |    100 millions    |    OUI    |    
+|  Nombre maximal de fichiers ([maxfiles](#maxfiles)) par volume     |    100 millions    |    Oui    |    
 |  Taille maximale d’un fichier unique     |    16 Tio    |    Non    |    
 
 ## Limites maxfiles <a name="maxfiles"></a> 

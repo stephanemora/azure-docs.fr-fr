@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3a79db11ff05bcc9d18619c7f508a9864c17c3b8
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 5b2ee8b5bf19f16d7f7f04e9515fe591db7132f1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012791"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647502"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB comme magasin de valeurs de clés – Synthèse des coûts
 
@@ -26,7 +26,7 @@ Les performances d’Azure Cosmos DB sont basées sur le volume de débit provis
 
 En tant que système de base de données distribué dans le monde entier, Cosmos DB est le seul service Azure à fournir des contrats SLA complets sur la latence, le débit, la cohérence et la haute disponibilité. Le débit que vous provisionnez est appliqué à chacune des régions associées à votre compte Cosmos. Pour les opérations de lecture, Azure Cosmos DB propose plusieurs [niveaux de cohérence](consistency-levels.md) bien définis. 
 
-Le tableau suivant indique le nombre d’unités de requête nécessaires pour effectuer des opérations de lecture et d’écriture en fonction d’un élément de données avec une taille de 1 Ko et 100 Ko.
+Le tableau suivant indique le nombre d’unités de requête (RU) nécessaires pour effectuer des opérations de lecture et d’écriture en fonction d’un élément de données d’une taille de 1 Ko et de 100 Ko avec l’indexation automatique par défaut désactivée. 
 
 |Taille de l’élément|1 lecture|1 écriture|
 |-------------|------|-------|

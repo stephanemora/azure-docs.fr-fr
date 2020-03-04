@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: bb8cfae73d84135858733899e6441f564106e9d1
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 456f379e2b3c2ff411b196d45aef4663fddb0fe6
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997222"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604330"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Mise hors service de fonctionnalités de Security Center (juillet 2019)
 
@@ -89,7 +89,7 @@ Nous avons mis hors service les trois écrans présentés précédemment. Vos do
 
 ### <a name="classic-identity--access-preview---the-new-experience"></a>Nouvelle expérience utilisateur pour l’ancienne version d’Identité et accès (préversion)
 
-Le tableau de bord Log Analytics affiche des informations sur un seul espace de travail. Toutefois, les fonctionnalités natives de Security Center permettent de consulter tous les abonnements et tous les espaces de travail qui y sont associés. Vous pouvez accéder à un affichage facile à utiliser qui vous permet de vous concentrer sur les éléments importants, grâce à classement des recommandations en fonction de leur degré de sécurisation.
+Le tableau de bord Log Analytics affiche des informations sur un seul espace de travail. Toutefois, les fonctionnalités natives de Security Center permettent de consulter tous les abonnements et tous les espaces de travail qui y sont associés. Vous pouvez accéder à une vue facile à utiliser qui vous permet de vous concentrer sur les éléments importants, auxquels s’ajoutent des recommandations classées en fonction de leur niveau de sécurité.
 
 Vous pouvez accéder à toutes les fonctionnalités du tableau de bord **Identité et accès** de Log Analytics en sélectionnant **Identité et accès (préversion)** dans Security Center.
 

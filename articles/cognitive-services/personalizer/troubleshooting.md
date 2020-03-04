@@ -2,14 +2,14 @@
 title: Résolution des problèmes - Personalizer
 description: Cet article contient des réponses aux questions fréquemment posées sur la résolution des problèmes de Personalizer.
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/26/2020
 ms.author: diberry
-ms.openlocfilehash: fec403da7f54098dbf197d14f3b16afd30bf5efc
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 432b33243bdb38cf359d4fea1a336500eb244464
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77469542"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650518"
 ---
 # <a name="personalizer-troubleshooting"></a>Résolution des problèmes de Personalizer
 
@@ -32,6 +32,19 @@ Cet article contient des réponses aux questions fréquemment posées sur la ré
 </details>
 
 ## <a name="learning-loop"></a>Boucle d’apprentissage
+
+<details>
+<summary>
+<b>La boucle d’apprentissage n’atteint pas une correspondance de 100 % avec le système sans Personalizer. Comment résoudre ce problème ?</b></summary>
+
+**Réponse** : Les raisons pour lesquelles vous n’atteignez pas votre objectif avec la boucle d’apprentissage sont les suivantes :
+* Nombre insuffisant de fonctionnalités envoyées avec l’appel d’API de classement
+* Bogues dans les fonctionnalités envoyées, par exemple l’envoi de données de fonctionnalités non agrégées telles que les horodatages à l’API de classement
+* Bogues au niveau du traitement de boucle, comme le fait de ne pas envoyer de données de récompense à l’API de récompense pour les événements
+
+Pour résoudre le problème, vous devez modifier le traitement en changeant les fonctionnalités envoyées à la boucle, ou vérifier que la récompense est une évaluation correcte de la qualité de la réponse du classement.
+
+</details>
 
 <details>
 <summary>
@@ -91,7 +104,7 @@ Lorsque la nouvelle période de mise à jour commence, le modèle mis à jour es
 <details>
 <summary><b>Comment importer une stratégie d’apprentissage ?</b></summary>
 
-**Réponse** : Découvrez les [concepts de la stratégie d’apprentissage](concept-active-learning.md#understand-learning-policy-settings) et [comment appliquer](how-to-learning-policy.md) une nouvelle stratégie d’apprentissage. Si vous ne voulez pas sélectionner une stratégie d’apprentissage, vous pouvez utiliser l’[évaluation hors connexion](how-to-offline-evaluation.md) pour suggérer une stratégie d’apprentissage en fonction de vos événements actuels.
+**Réponse** : Découvrez les [concepts de la stratégie d’apprentissage](concept-active-learning.md#understand-learning-policy-settings) et [comment appliquer](how-to-manage-model.md) une nouvelle stratégie d’apprentissage. Si vous ne voulez pas sélectionner une stratégie d’apprentissage, vous pouvez utiliser l’[évaluation hors connexion](how-to-offline-evaluation.md) pour suggérer une stratégie d’apprentissage en fonction de vos événements actuels.
 
 </details>
 

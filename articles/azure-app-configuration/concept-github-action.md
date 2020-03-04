@@ -3,39 +3,39 @@ title: Utiliser GitHub Actions avec une synchronisation Azure App Configuration
 description: Utilisez GitHub Actions pour déclencher une mise à jour de votre instance App Configuration lorsque des actions définies sont effectuées sur un dépôt GitHub
 author: lisaguthrie
 ms.author: lcozzens
-ms.date: 01/14/2020
+ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: ce8d42ec7c37b19378b6f4ae0c81548f2eff5c9c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 9d60f1885a85fd7d45090f1cb4905a3d95d9d1d6
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190378"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523711"
 ---
 # <a name="sync-your-app-configuration-instance-using-github-actions"></a>Synchroniser votre instance App Configuration à l’aide de GitHub Actions
-Azure App configuration utilise GitHub Actions pour mettre à jour une instance App Configuration déclenchée par une action effectuée sur un dépôt GitHub. Vous pouvez tirer parti des flux de travail GitHub pour mettre à jour une configuration d’application, ce qui permet l’intégration de mises à jour de configuration d’application dans le même flux de travail que celui utilisé pour mettre à jour le code de l’application.
+Azure App Configuration utilise GitHub Actions pour déclencher les mises à jour vers une instance App Configuration en fonction des actions effectuées dans un dépôt GitHub. Les workflows GitHub déclenchent des mises à jour de configuration, ce qui permet d’intégrer ces mises à jour au workflow qui est utilisé pour mettre à jour le code de l’application.
 
-Dans GitHub Actions, un [flux de travail](https://help.github.com/articles/about-github-actions#workflow) est un processus automatisé défini dans votre dépôt GitHub. Ce processus indique à GitHub comment générer et déployer votre projet GitHub. Azure App configuration fournit l’action de *synchronisation Azure App Configuration* pour activer les mises à jour d’une instance App Configuration lorsque des modifications sont apportées au dépôt source. 
+Un [workflow](https://help.github.com/articles/about-github-actions#workflow) GitHub Actions définit un processus automatisé dans un dépôt GitHub. Ce processus indique à GitHub comment générer et déployer votre projet GitHub. Azure App configuration fournit l’action de *synchronisation Azure App Configuration* pour activer les mises à jour d’une instance App Configuration lorsque des modifications sont apportées au dépôt source. 
 
-Un flux de travail est défini par un fichier YAML (.yml) situé dans le chemin d’accès `/.github/workflows/` de votre dépôt. Cette définition contient les étapes et les paramètres définissant le flux de travail.
+Votre workflow est défini par un fichier YAML (.yml) situé dans le chemin `/.github/workflows/` de votre dépôt. Cette définition contient les étapes et les paramètres du workflow.
 
-Des événements GitHub, tels qu’un push dans un dépôt, peuvent déclencher un flux de travail d’action GitHub.  Azure fournit l’action de *synchronisation Azure App Configuration* pour vous permettre de déclencher une mise à jour d’une instance App Configuration quand une action GitHub spécifiée se produit. Cela permet aux équipes de tirer parti des fonctionnalités principales de GitHub lors d’un push, d’un examen ou de la création de branche de fichiers de configuration d’application, comme elles le font avec un code d’application.
+Des événements GitHub, tels qu’un push dans un dépôt, peuvent déclencher un flux de travail d’action GitHub.  L’action *Azure App Configuration Sync* vous permet de déclencher la mise à jour d’une instance App Configuration quand une action GitHub spécifiée se produit. Vous pouvez déclencher des mises à jour de configuration lorsque vous envoyez (push), révisez ou branchez des fichiers de configuration d’application, comme vous le feriez avec du code d’application.
 
 La [documentation](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) GitHub fournit une vue détaillée des flux de travail et actions GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Activer GitHub Actions dans votre dépôt
-Pour commencer à utiliser cette action GitHub, accédez à votre dépôt et sélectionnez l’onglet **Actions**. Cliquez sur « Nouveau workflow », puis sur « Configurer un workflow vous-même ». À partir de là, recherchez « Azure App Configuration Sync » sur la Place de marché.
+Pour commencer à utiliser cette action GitHub, accédez à votre dépôt et sélectionnez l’onglet **Actions**. Cliquez sur **Nouveau workflow**, puis sur **Configurer un workflow vous-même**. Enfin, recherchez « Azure App Configuration Sync » sur la Place de marché.
 > [!div class="mx-imgBorder"]
 > ![Sélectionner l’onglet Action](media/find-github-action.png)
 
 > [!div class="mx-imgBorder"]
-> ![Sélectionner l’action de synchronisation de configuration d’application](media/app-configuration-sync-action.png)
+> ![Sélectionner l’action Azure App Configuration Sync](media/app-configuration-sync-action.png)
 
 ## <a name="sync-configuration-files-after-a-push"></a>Synchroniser les fichiers de configuration après un push
-Cette action synchronise les fichiers Azure App Configuration lors du push d’une modification vers `appsettings.json`. Quand un développeur apporte et effectue un push de modification vers `appsettings.json`, l’action de synchronisation d’App Configuration met à jour l’instance App Configuration avec les nouvelles valeurs.
+Cette action synchronise les fichiers Azure App Configuration lors du push d’une modification vers `appsettings.json`. Quand un développeur envoie (push) une modification vers `appsettings.json`, l’action App Configuration Sync met à jour l’instance App Configuration avec les nouvelles valeurs.
 
-La première section de ce flux de travail spécifie que l’action se déclenche *sur* un *push* contenant `appsettings.json` vers la branche *maître*. La deuxième section répertorie les travaux exécutés une fois que l’action déclenchée. L’action extrait les fichiers appropriés et met à jour l’instance App Configuration à l’aide de la chaîne de connexion stockée en tant que secret dans le dépôt.  Pour plus d’informations sur l’utilisation des secrets dans GitHub, voir [cet article](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) sur la création et l’utilisation de secrets chiffrés.
+La première section de ce flux de travail spécifie que l’action se déclenche *sur* un *push* contenant `appsettings.json` vers la branche *maître*. La deuxième section répertorie les travaux exécutés une fois que l’action déclenchée. L’action extrait les fichiers appropriés et met à jour l’instance App Configuration à l’aide de la chaîne de connexion stockée en tant que secret dans le dépôt.  Pour plus d’informations sur l’utilisation des secrets dans GitHub, consultez [cet article GitHub](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) sur la création et l’utilisation des secrets chiffrés.
 
 ```json
 on: 
@@ -62,9 +62,9 @@ jobs:
 ```
 
 ## <a name="use-a-dynamic-label-on-sync"></a>Utiliser une étiquette dynamique lors d’une synchronisation
-L’action précédente a simplement mis à jour l’instance App Configuration à chaque mise à jour de `appsettings.json`. Cette action insère une étiquette dynamique à chaque synchronisation, garantissant ainsi que chaque synchronisation peut être identifiée de manière unique.  Cela permet un mappage rapide des changements de code aux changements de configuration.
+L’action précédente met à jour l’instance App Configuration à chaque mise à jour de `appsettings.json`. Cette action insère une étiquette dynamique à chaque synchronisation. De cette façon, chaque synchronisation peut être identifiée et les modifications du code peuvent être mappées aux modifications de configuration.
 
-La première section de ce flux de travail spécifie que l’action se déclenche *sur* un *push* contenant `appsettings.json` vers la branche *maître*. La deuxième section exécute un travail qui crée une étiquette unique pour la mise à jour de configuration en fonction du hachage de validation. Le travail met ensuite à jour l’instance App Configuration avec les nouvelles valeurs et l’étiquette unique pour cette mise à jour.
+La première section de ce flux de travail spécifie que l’action se déclenche *sur* un *push* contenant `appsettings.json` vers la branche *maître*. La deuxième section exécute un travail qui crée une étiquette pour la mise à jour de configuration en fonction du hachage de validation. Le travail met ensuite à jour l’instance App Configuration avec les nouvelles valeurs et l’étiquette unique pour cette mise à jour.
 
 ```json
 on: 
@@ -96,7 +96,7 @@ jobs:
 ```
 
 ## <a name="use-strict-sync"></a>Utiliser une synchronisation stricte
-Lorsque le mode strict est activé, la synchronisation garantit que l’instance App Configuration correspond exactement au fichier de configuration pour le préfixe et l’étiquette donnés. Les paires clé-valeur ayant les mêmes préfixe et nom qui ne figurent pas dans le fichier de configuration sont supprimées. 
+Lorsque le mode strict est activé, la synchronisation garantit que l’instance App Configuration correspond exactement au fichier de configuration pour le préfixe et l’étiquette donnés. Si les paires clé-valeur qui ont le même préfixe et le même nom ne figurent pas dans le fichier de configuration, elles sont supprimées. 
  
 Si le mode strict n’est pas activé, la synchronisation ne définit que les paires clé-valeur du fichier de configuration. Aucune paire clé-valeur n’est supprimée. 
 
@@ -143,6 +143,7 @@ Le comportement par défaut pour les attributs JSON imbriqués consiste à aplat
     }
 }
 ```
+
 Si l’objet imbriqué est destiné à être la valeur envoyée par push à l’instance Configuration, vous pouvez utiliser la valeur de profondeur (*depth*) pour arrêter l’aplatissement à la profondeur appropriée. 
 
 ```json
@@ -170,7 +171,7 @@ jobs:
           depth: 2 
 ```
 
-Pour une profondeur de 2, l’exemple ci-dessus retourne maintenant la paire clé-valeur suivante :
+Pour une profondeur de 2, l’exemple ci-dessus retourne maintenant la paire clé-valeur suivante :
 
 | Clé | Valeur |
 | --- | --- |
@@ -185,7 +186,7 @@ Les paramètres d’entrée spécifient les données que l’action utilise pend
 
 | Nom d’entrée | Requis ? | Valeur |
 |----|----|----|
-| configurationFile | Oui | Chemin d’accès du fichier de configuration dans le dépôt, par rapport à la racine de celui-ci.  Les modèles Glob sont pris en charge et peuvent inclure plusieurs fichiers. |
+| configurationFile | Oui | Chemin relatif du fichier de configuration dans le dépôt.  Les modèles Glob sont pris en charge et peuvent inclure plusieurs fichiers. |
 | format | Oui | Format du fichier de configuration.  Les formats valides sont les suivants : JSON, YAML, propriétés. |
 | connectionString | Oui | Chaîne de connexion pour l’instance App Configuration. La chaîne de connexion doit être stockée en tant que secret dans le dépôt GitHub, et seul le nom du secret doit être utilisé dans le flux de travail. |
 | separator | Oui | Séparateur utilisé lors de l’aplatissement du fichier de configuration en paires clé-valeur.  Les valeurs valides sont les suivantes : . , ; : - _ __ / |

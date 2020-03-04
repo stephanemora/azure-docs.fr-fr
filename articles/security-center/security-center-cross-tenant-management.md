@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 3dc7ebe224f1edb1b0fabc40441bd399fda6c133
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 482154a37334b056719a18355f87b467d4fe95c7
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355586"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604253"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestion multilocataire dans Security Center
 
@@ -46,7 +46,7 @@ Dans la barre de menus supérieure, cliquez sur l’icône de filtre, puis séle
 Les vues et les actions sont plus ou moins identiques. Voici quelques exemples :
 
 - **Gérer les stratégies de sécurité** : Dans une vue, vous pouvez gérer la posture de sécurité de nombreuses ressources à l’aide de [stratégies](tutorial-security-policy.md), appliquer les recommandations de sécurité, ainsi que collecter et gérer les données liées à la sécurité.
-- **Améliorer le degré de sécurisation et la posture de conformité** : La visibilité multilocataire vous permet de voir la posture de sécurité globale de tous vos locataires, et ainsi, de déterminer où et comment améliorer le [degré de sécurisation](security-center-secure-score.md) et la [posture de conformité](security-center-compliance-dashboard.md) pour chacun d’entre eux.
+- **Améliorer le niveau de sécurité et l’état de conformité** : La visibilité entre les locataires vous permet de voir l’état de sécurité global de tous vos locataires. Ainsi, vous savez où et comment améliorer le [niveau de sécurité](security-center-secure-score.md) et l’[état de conformité](security-center-compliance-dashboard.md) de chacun d’entre eux.
 - **Appliquer les recommandations** : Vous pouvez surveiller et appliquer une [recommandation](security-center-recommendations.md) à toutes les ressources des différents locataires en même temps. Ensuite, vous pouvez immédiatement vous attaquer aux vulnérabilités qui présentent le risque le plus élevé parmi tous les locataires.
 - **Gérer les alertes** : Détectez les [alertes](security-center-alerts-overview.md) sur les différents locataires. Appliquez les recommandations concernant les ressources non conformes à l’aide des [étapes de correction](security-center-managing-and-responding-alerts.md).
 
@@ -56,5 +56,5 @@ Les vues et les actions sont plus ou moins identiques. Voici quelques exemples 
 Cet article explique le fonctionnement de la gestion multilocataire dans Security Center. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 * [Renforcer votre posture de sécurité avec Azure Security Center](security-center-monitoring.md) – Découvrez comment superviser l’intégrité de vos ressources Azure.
-* [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
+* [FAQ Azure Security Center](faq-general.md) : forum aux questions concernant l’utilisation de ce service.
 * [Découvrez Azure Lighthouse dans les scénarios de grandes entreprises](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) – Découvrez en quoi Azure Lighthouse peut simplifier la gestion inter-locataire au sein d’une grande entreprise qui utilise plusieurs locataires Azure AD.

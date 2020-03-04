@@ -6,19 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 99ccd00dbcea7f8eaed2e8e51a64b89c1e0b42a2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: b60a30e5e30ee81cbaca7d5e4691ccedac2462b6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028839"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598168"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurer une appliance pour les serveurs physiques
 
 Cet article explique comment configurer l’appliance Azure Migrate si vous évaluez des serveurs physiques avec l’outil Azure Migrate : Server Assessment.
-
-> [!NOTE]
-> Si vous ne voyez pas encore dans le portail Azure Migrate des fonctionnalités mentionnées ici, patientez un peu. Elles apparaîtront au cours de la semaine suivante ou un peu plus tard.
 
 L’appliance Azure Migrate est une appliance légère utilisée par Azure Migrate Server Assessment pour effectuer les opérations suivantes :
 
@@ -44,7 +41,7 @@ Téléchargez le fichier compressé pour l’appliance.
 2. Dans **Découvrir des machines** > **Vos machines sont-elles virtualisées ?** , cliquez sur **Non virtualisé/autre**.
 3. Cliquez sur **Télécharger** pour télécharger le fichier compressé.
 
-    ![Télécharger la machine virtuelle](./media/how-to-set-up-appliance-hyper-v/download-appliance-hyperv.png)
+    ![Télécharger la machine virtuelle](./media/tutorial-assess-physical/download-appliance.png)
 
 
 ### <a name="verify-security"></a>Vérifier la sécurité
@@ -55,12 +52,7 @@ Vérifiez que le fichier compressé est sécurisé avant de le déployer.
 2. Exécutez la commande suivante pour générer le code de hachage du disque dur virtuel
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  Pour la dernière version de l’appliance, le code de hachage généré doit correspondre à ces paramètres.
-
-  **Algorithme** | **Valeur de hachage**
-  --- | ---
-  MD5 | 96fd99581072c400aa605ab036a0a7c0
-  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
+3.  Pour la dernière version de l’appliance, le code de hachage généré doit correspondre à ces [paramètres](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security).
 
 
 
@@ -80,13 +72,16 @@ Exécutez le script comme suit :
 1. Extrayez le fichier compressé dans un dossier sur le serveur qui hébergera l’appliance.
 2. Lancez PowerShell sur le serveur ci-dessus avec un privilège administratif (élevé).
 3. Remplacez le répertoire PowerShell par le dossier dans lequel le contenu a été extrait du fichier compressé téléchargé.
-4. Exécutez le script à l’aide de la commande suivante :
+4. Exécutez le script nommé **AzureMigrateInstaller.ps1** via la commande suivante :
     ```
-    AzureMigrateInstaller.ps1
+    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
 Une fois son exécution terminé, le script lance l’application web de l’appliance.
 
+Le cas échéant, vous pouvez accéder aux journaux de script dans C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>horodatage</em>.log pour la résolution des problèmes.
 
+> [!NOTE]
+> N’exécutez pas le script du programme d’installation Azure Migrate sur une appliance Azure Migrate existante.
 
 ### <a name="verify-appliance-access-to-azure"></a>Vérifier l’accès de l’appliance à Azure
 

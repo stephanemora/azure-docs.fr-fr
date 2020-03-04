@@ -4,15 +4,15 @@ description: Cet article fournit des informations sur la configuration des limit
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/17/2019
+ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: cfde1355ef5e5a2f9033456ac4089ce3ca3f9d72
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7244788bbc7431c7f26363b2852babb72d5697e9
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839966"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526788"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limites de la taille des demandes adressées au pare-feu d’application web et listes d’exclusions
 
@@ -26,7 +26,7 @@ Les listes d’exclusion du WAF vous permettent d’omettre certains attributs d
 
 Les attributs qui suivent peuvent être ajoutés aux listes d’exclusion par nom. Les valeurs du champ choisi ne sont pas évaluées par rapport aux règles WAF, mais leurs noms le sont toujours (voir l’Exemple 1 ci-dessous, où la valeur de l’en-tête User-Agent est exclue de l’évaluation WAF). Les listes d’exclusion suppriment l’inspection de la valeur du champ.
 
-* En-têtes de demande
+* En-têtes de requête
 * Cookies de requête
 * Vous pouvez ajouter le nom d’un attribut de requête (argument) comme un élément d’exclusion, par exemple :
 
@@ -91,7 +91,13 @@ Par conséquent, si l'URL `http://www.contoso.com/?user%281%29=fdafdasfda` est t
 Le pare-feu d’applications web vous permet de configurer des limites maximale et minimale de la taille des demandes. Les configurations de limites à deux tailles suivantes sont disponibles :
 
 - Le champ de la taille maximale du corps de la requête est spécifié en kilo-octets et contrôle la limite globale de la taille de la requête à l’exclusion de tout chargement de fichier. La valeur de ce champ peut varier de 1 Ko à 128 Ko. La valeur par défaut pour la taille du corps de la demande est de 128 Ko.
-- Le champ de la limite de chargement de fichier est spécifié en Mo et régit la taille maximale autorisée pour la limite de chargement de fichier. La valeur de ce champ peut être comprise entre 1 Mo et 500 Mo pour les grandes instances SKU et 100 Mo pour les instances SKU intermédiaires. La valeur par défaut pour la limite de chargement de fichier est de 100 Mo.
+- Le champ de la limite de chargement de fichier est spécifié en Mo et régit la taille maximale autorisée pour la limite de chargement de fichier. Ce champ peut avoir une valeur minimale de 1 Mo et les valeurs maximales suivantes :
+
+   - 100 Mo pour les passerelles v1 WAF moyennes
+   - 500 Mo pour les grandes passerelles v1 WAF
+   - 750 Mo pour les passerelles v2 WAF 
+
+ La valeur par défaut pour la limite de chargement de fichier est de 100 Mo.
 
 Le WAF offre également un bouton configurable qui permet d’activer ou de désactiver l’inspection du corps de la demande. Par défaut, l’inspection du corps de la demande est activée. Si l’inspection du corps de la requête est désactivée, le WAF n’évalue pas le contenu du corps du message HTTP. Dans ce cas, le WAF continue d’appliquer ses règles sur les en-têtes, les cookies et les URI. Si l’inspection du corps de la demande est désactivée, le champ de la taille maximale du corps de la demande n’est pas applicable et ne peut pas être défini. La désactivation de l’inspection du corps de la demande permet l’envoi au WAF de messages dont la taille est supérieure à 128 Ko, mais le corps du message n’est pas inspecté.
 

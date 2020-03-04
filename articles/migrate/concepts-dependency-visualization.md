@@ -2,94 +2,65 @@
 title: Visualisation des dépendances dans Azure Migrate
 description: Fournit une vue d’ensemble des calculs d’évaluation dans le service d’évaluation de serveur de Azure Migrate
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 65a99e230262ae05d34dc8c04e87252c15133fda
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.date: 02/24/2020
+ms.openlocfilehash: f24656d02e19f422ff26e6b06d1631a9128dff43
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425678"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587105"
 ---
 # <a name="dependency-visualization"></a>Visualisation de dépendance
 
-Cet article décrit la fonctionnalité de visualisation des dépendances dans Azure Migrate : Server Assessment.
+Cet article décrit la visualisation des dépendances dans Azure Migrate : évaluation de serveur.
 
-La visualisation des dépendances vous permet de comprendre les dépendances entre les machines que vous voulez utiliser et migrer. En général, vous utilisez le mappage des dépendances lorsque vous souhaitez évaluer les machines avec des niveaux de confiance élevés.
+## <a name="what-is-dependency-visualization"></a>Qu’est-ce que la visualisation des dépendances ?
 
-- Dans Azure Migrate : Server Assessment, vous rassemblez les machines en groupes à des fins d’évaluation. Les groupes se composent généralement de machines que vous souhaitez migrer simultanément et, dans un tel contexte, la visualisation des dépendances vous permet de vérifier les dépendances de ces machines afin de les regrouper de manière précise.
-- Grâce à la visualisation, vous pouvez découvrir les systèmes interdépendants devant migrer en même temps. Vous pouvez déterminer si les systèmes en cours d’exécution sont toujours utilisés ou s'ils peuvent être mis hors service plutôt qu'être migrés.
+La visualisation des dépendances vous permet d’identifier les dépendances entre les machines locales que vous souhaitez évaluer et faire migrer vers Azure. 
+
+- Dans Azure Migrate : évaluation de serveur, vous rassemblez des machines dans un groupe, puis vous évaluez le groupe. La visualisation des dépendances vous aide à regrouper les machines de manière plus précise, avec une grande fiabilité d’évaluation.
+- La visualisation des dépendances vous permet d’identifier les machines qui doivent être migrées ensemble. Vous pouvez déterminer si les machines sont en cours d’utilisation, ou si elles peuvent être désactivées au lieu d’être migrées.
 - La visualisation des dépendances permet de s’assurer que rien n’est laissé de côté et d’éviter les pannes inopinées lors de la migration.
-- Cette fonctionnalité est particulièrement utile si vous ne connaissez pas de manière précise les machines faisant partie d'applications et devant, dès lors, être migrées ensemble vers Azure.
+- La visualisation est particulièrement utile quand vous ne savez pas avec certitude si les machines font partie d’un déploiement d’application que vous souhaitez faire migrer vers Azure.
 
 
 > [!NOTE]
-> La fonctionnalité de visualisation de dépendance n’est pas disponible dans Azure Government.
+> La visualisation des dépendances n’est pas disponible dans Azure Government.
 
-## <a name="agent-based-and-agentless"></a>Visualisation des dépendances basée sur les agents ou sans agent
+## <a name="agent-basedagentless-visualization"></a>Visualisation basée sur un agent ou sans agent
 
 Deux options permettent de déployer la visualisation des dépendances :
 
-- **Visualisation des dépendances sans agent** : Cette option actuellement en préversion n’est disponible que pour des machines virtuelles VMware. Il n’est pas nécessaire d’installer des agents sur les machines. 
-    - Une capture des données de connexion TCP des machines pour lesquelles elle est activée suffit. [Plus d’informations](how-to-create-group-machine-dependencies-agentless.md)
-Une fois la découverte des dépendances lancée, l’appliance recueille les données des machines à un intervalle d’interrogation de cinq minutes.
-    - Les données suivantes sont collectées :
-        - Connexions TCP
-        - Noms des processus ayant des connexions actives
-        - Noms des applications installées exécutant les processus ci-dessus
-        - Non. de connexions détectées à chaque intervalle d’interrogation
-- **Visualisation des dépendances basée sur les agents** : Pour utiliser la visualisation des dépendances basée sur les agents, vous devez télécharger et installer les agents suivants sur chaque machine locale que vous souhaitez analyser.  
-    - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) doit être installé sur chaque machine. [En savoir plus](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-mma) sur l’installation de l’agent MMA.
-    - Le programme [Dependency Agent](../azure-monitor/platform/agents-overview.md#dependency-agent) doit être installé sur chaque machine. [En savoir plus](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#install-the-dependency-agent) sur l’installation de l’agent de dépendances.
-    - En outre, si certaines de vos machines sont dépourvues de connexion Internet, vous devez télécharger et installer la passerelle Log Analytics sur ces machines.
-
-## <a name="agent-based-requirements"></a>Exigences de la visualisation des dépendances basée sur les agents
-
-### <a name="what-do-i-need-to-deploy-dependency-visualization"></a>De quoi ai-je besoin pour déployer la visualisation des dépendances ?
-
-Avant de déployer la visualisation des dépendances, vous devez disposer d’un projet Azure Migrate, avec l'outil Azure Migrate : Server Assessment ajouté au projet. Vous déployez la visualisation des dépendances après avoir configuré une appliance Azure Migrate pour découvrir vos machines locales.
-
-[Apprenez-en davantage](how-to-assess.md) sur l’ajout de l’outil et le déploiement d’une appliance pour [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md) ou serveurs physiques.
+- **Basée sur un agent** : La visualisation des dépendances basée sur un agent nécessite l’installation d’agents sur chaque machine locale à analyser.
+- **Sans agent** : Avec cette option, vous n’avez pas besoin d’installer d’agents sur les machines qui doivent faire l’objet d’une vérification croisée. Cette option est en préversion et est disponible uniquement pour les machines virtuelles VMware.
 
 
-### <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
+## <a name="agent-based-visualization"></a>Visualisation basée sur un agent
 
-Azure Migrate utilise la solution [Service Map](../operations-management-suite/operations-management-suite-service-map.md) dans [Journaux d’activité Azure Monitor](../log-analytics/log-analytics-overview.md) pour la visualisation des dépendances.
+**Prérequis** | **Détails** | **En savoir plus**
+--- | --- | ---
+**Avant le déploiement** | Vous devez disposer d’un projet Azure Migrate en place et de l’outil Azure Migrate : Server Assessment ajouté au projet.<br/><br/>  Vous déployez la visualisation des dépendances après avoir configuré une appliance Azure Migrate pour découvrir vos machines locales. | [Découvrez comment](create-manage-projects.md) créer un projet pour la première fois.<br/><br/> [Découvrez comment](how-to-assess.md) ajouter un outil d’évaluation à un projet existant.<br/><br/> Découvrez comment configurer l’appliance Azure Migrate pour l’évaluation de serveurs [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md) ou physiques.
+**Agents nécessaires** | Sur chaque machine à analyser, installez les agents suivants :<br/><br/> [MMA (Microsoft Monitoring Agent)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)<br/><br/> [Dependency Agent](../azure-monitor/platform/agents-overview.md#dependency-agent)<br/><br/> Si les machines locales ne sont pas connectées à Internet, vous devez télécharger et installer la passerelle de l’espace de travail Log Analytics sur celles-ci. | En savoir plus sur l’installation de [Dependency Agent](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) et de [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
+**Log Analytics** | Azure Migrate utilise la solution [Service Map](../operations-management-suite/operations-management-suite-service-map.md) dans [Journaux d’activité Azure Monitor](../log-analytics/log-analytics-overview.md) pour la visualisation des dépendances.<br/><br/> Vous associez un espace de travail Log Analytics nouveau ou déjà existant à un projet Azure Migrate. L’espace de travail d’un projet Azure Migrate ne peut pas être modifié une fois qu’il a été ajouté. <br/><br/> L’espace de travail doit se trouver dans le même abonnement que le projet Azure Migrate.<br/><br/> L’espace de travail doit résider dans les régions USA Est, Asie Sud-Est ou Europe Ouest. Les espaces de travail des autres régions ne peuvent pas être associés à un projet.<br/><br/> L’espace de travail doit se trouver au sein d’une région dans laquelle [Service Map est pris en charge](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).<br/><br/> Dans Log Analytics, l’espace de travail associé à Azure Migrate est marqué avec la clé de projet de migration et le nom du projet.
+**Coûts** | La solution Service Map n’entraîne aucun frais pendant les 180 premiers jours (à compter du jour où vous associez l’espace de travail Log Analytics au projet Azure Migrate).<br/><br/> Au bout de 180 jours, des frais Log Analytics standard s’appliquent.<br/><br/> L’utilisation d’une autre solution que Service Map dans l’espace de travail Log Analytics associé entraîne des [frais standard](https://azure.microsoft.com/pricing/details/log-analytics/) pour l’espace de travail Log Analytics.<br/><br/> Lorsque le projet Azure Migrate est supprimé, l’espace de travail ne l’est pas. Une fois le projet supprimé, l’utilisation de Service Map n’est plus gratuite, et chaque nœud est facturé en fonction du niveau payant de l’espace de travail Log Analytics<br/><br/>Si vous avez créé des projets avant la disponibilité générale d’Azure Migrate (28 février 2018), vous avez peut-être fait l’objet de frais supplémentaires pour Service Map. Pour veiller à payer uniquement après 180 jours, nous vous recommandons de créer un autre projet, car les espaces de travail présents avant la disponibilité générale restent facturables.
+**Gestion** | Lorsque vous inscrivez des agents dans l’espace de travail, vous utilisez l’ID et la clé fournis par le projet Azure Migrate.<br/><br/> Vous pouvez utiliser l’espace de travail Log Analytics en dehors d’Azure Migrate.<br/><br/> Si vous supprimez le projet Azure Migrate associé, l’espace de travail n’est pas automatiquement supprimé. [Supprimez-le manuellement](../azure-monitor/platform/manage-access.md).<br/><br/> Ne supprimez pas l’espace de travail créé par Azure Migrate, sauf si vous supprimez le projet Azure Migrate. La suppression de l’espace de travail entraînerait un dysfonctionnement de la fonctionnalité de visualisation des dépendances.
 
-- Pour tirer parti de la visualisation des dépendances, vous pouvez associer un espace de travail Log Analytics, nouveau ou existant, à un projet Azure Migrate.
-- L’espace de travail doit se trouver dans le même abonnement que celui dans lequel vous créez le projet Azure Migrate.
-- Azure Migrate prend en charge les espaces de travail résidant dans les régions USA Est, Asie Sud-Est et Europe Ouest. Les espaces de travail des autres régions ne peuvent pas être associés à un projet. Notez également que l’espace de travail doit se trouver au sein d'une région dans laquelle [Service Map est pris en charge](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites).
-- L’espace de travail d’un projet Azure Migrate ne peut pas être modifié une fois qu’il a été ajouté.
-- Dans Log Analytics, l’espace de travail associé à Azure Migrate est marqué avec la clé de projet de migration et le nom du projet.
-
-    ![Accéder à l’espace de travail Log Analytics](./media/concepts-dependency-visualization/oms-workspace.png)
-
-
-
-### <a name="do-i-need-to-pay-for-it"></a>Est-ce une fonctionnalité payante ?
-
-La visualisation des dépendances requiert Service Map et un espace de travail Log Analytics associé. 
-
-- La solution Service Map n’entraîne aucun frais durant les 180 premiers jours. À savoir, à compter du jour où vous associez l'espace de travail Log Analytics au projet Azure Migrate.
-- Au bout de 180 jours, des frais Log Analytics standard s’appliquent.
-- L’utilisation de solutions autres que Service Map dans l’espace de travail Log Analytics associé entraîne des frais [Log Analytics standard](https://azure.microsoft.com/pricing/details/log-analytics/).
-- Lorsque le projet Azure Migrate est supprimé, l’espace de travail ne l’est pas. Une fois le projet supprimé, l’utilisation de Service Map n’est pas gratuite et chaque nœud est facturé en fonction du niveau payant de l’espace de travail Log Analytics.
-
-En savoir plus sur la tarification Azure Migrate [ici](https://azure.microsoft.com/pricing/details/azure-migrate/).
-
-> [!NOTE]
-> Si vous disposez de projets créés avant la disponibilité générale d'Azure Migrate, intervenue le 28 février 2018, vous avez peut-être fait l'objet de frais Service Map supplémentaires. Pour veiller à ne payer qu'au terme de 180 jours, nous vous recommandons de créer un nouveau projet, car les espaces de travail existants avant la disponibilité générale restent facturables.
+## <a name="agentless-visualization"></a>Visualisation sans agent
 
 
+**Prérequis** | **Détails** | **En savoir plus**
+--- | --- | ---
+**Avant le déploiement** | Vous devez disposer d’un projet Azure Migrate en place et de l’outil Azure Migrate : Server Assessment ajouté au projet.<br/><br/>  Vous déployez la visualisation des dépendances après avoir configuré une appliance Azure Migrate pour découvrir vos machines VMware locales. | [Découvrez comment](create-manage-projects.md) créer un projet pour la première fois.<br/><br/> [Découvrez comment](how-to-assess.md) ajouter un outil d’évaluation à un projet existant.<br/><br/> Découvrez comment configurer l’appliance Azure Migrate pour l’évaluation des machines virtuelles [VMware](how-to-set-up-appliance-vmware.md).
+**Agents nécessaires** | Aucun agent n’est nécessaire sur les machines à analyser.
+**Systèmes d’exploitation pris en charge** | Passez en revue les [systèmes d’exploitation](migrate-support-matrix-vmware.md#agentless-dependency-visualization) pris en charge pour la visualisation sans agent.
+**Machines virtuelles** | **VMware Tools** : VMware Tools doit être installé et en cours d’exécution sur les machines virtuelles à analyser.<br/><br/> **Compte**  : Sur l’appliance Azure Migrate, vous devez ajouter un compte d’utilisateur ayant accès aux machines virtuelles à des fins d’analyse.<br/><br/> **Machines virtuelles Windows** : Le compte d’utilisateur doit être celui d’un administrateur local ou d’un administrateur de domaine sur la machine.<br/><br/> **Machines virtuelles Linux** : Le privilège de racine est requis sur le compte. Le compte d’utilisateur a également besoin des deux capacités ci-dessous sur les fichiers/bin/netstat et/bin/ls : CAP_DAC_READ_SEARCH et CAP_SYS_PTRACE. | [En savoir plus sur](migrate-appliance.md) l’appliance Azure Migrate.
+**VMware** | **vCenter** : L’appliance a besoin d’un compte vCenter Server disposant d’un accès en lecture seule, et de privilèges activés pour Machines virtuelles> Opérations d’invité.<br/><br/> **Hôtes ESXi** : Sur les hôtes ESXi exécutant des machines virtuelles que vous souhaitez analyser, l’appliance Azure Migrate doit être en mesure de se connecter au port TCP 443.
+**Données collectées** |  La visualisation des dépendances sans agent fonctionne via la capture de données de connexion TCP des machines pour lesquelles elle est activée. Après le démarrage de la détection des dépendances, l’appliance rassemble les données des machines en les interrogeant toutes les cinq minutes :<br/> - Connexions TCP.<br/> - Noms des processus ayant des connexions actives.<br/> - Noms des applications installées qui exécutent le processus avec des connexions actives.<br/> - Nombre de connexions détectées à chaque intervalle d’interrogation.
 
-### <a name="how-do-i-manage-the-workspace"></a>Comment gérer l’espace de travail ?
-
-- Lorsque vous inscrivez des agents dans l’espace de travail, vous utilisez l’ID et la clé fournis par le projet Azure Migrate.
-- Vous pouvez utiliser l’espace de travail Log Analytics en dehors d’Azure Migrate.
-- Si vous supprimez le projet Azure Migrate associé, l’espace de travail n’est pas automatiquement supprimé. Vous devez [le supprimer manuellement](../azure-monitor/platform/manage-access.md).
-- Ne supprimez pas l’espace de travail créé par Azure Migrate, sauf si vous supprimez le projet Azure Migrate. La suppression de l’espace de travail entraînerait un dysfonctionnement de la fonctionnalité de visualisation des dépendances.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Regrouper des machines à l’aide de dépendances de machines](how-to-create-group-machine-dependencies.md)
-- [Découvrez plus en détail](common-questions-discovery-assessment.md#what-is-dependency-visualization) les questions fréquemment posées au sujet de la visualisation des dépendances.
+- [Configurer la visualisation des dépendances](how-to-create-group-machine-dependencies.md)
+- [Essayer la visualisation des dépendances sans agent](how-to-create-group-machine-dependencies-agentless.md) pour les machines virtuelles VMware
+- Passer en revue les [questions courantes](common-questions-discovery-assessment.md#what-is-dependency-visualization) sur la visualisation des dépendances
 
 

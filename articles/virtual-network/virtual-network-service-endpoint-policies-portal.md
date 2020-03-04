@@ -4,26 +4,26 @@ titlesuffix: Azure Virtual Network
 description: Dans cet article, découvrez comment configurer et associer des stratégies de point de terminaison de service à l’aide du portail Azure.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: RDhillon
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 09/18/2018
-ms.author: kumud
-ms.openlocfilehash: b1d2d04e74828323166810d93c52a60671bf71e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/21/2020
+ms.author: rdhillon
+ms.openlocfilehash: d26fd2fec5f9d5ab8e9d82ff2c6bd83b11c72e99
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710918"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651169"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Créer, changer ou supprimer une stratégie de point de terminaison de service à l’aide du portail Azure
 
 Les stratégies de point de terminaison de service vous permettent de filtrer le trafic de réseau virtuel sur des ressources Azure spécifiques sur des points de terminaison de service. Si vous n’êtes pas familiarisé avec les stratégies de point de terminaison de service, consultez la [vue d’ensemble des stratégies de point de terminaison de service](virtual-network-service-endpoint-policies-overview.md) pour en savoir plus.
 
- Ce tutoriel vous montre comment effectuer les opérations suivantes :
+ Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une stratégie de point de terminaison de service
@@ -40,27 +40,32 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 ## <a name="create-a-service-endpoint-policy"></a>Créer une stratégie de point de terminaison de service
 
 1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
-2. Dans le volet de recherche, tapez « Stratégie de point de terminaison de service », sélectionnez **Stratégie de point de terminaison de service (préversion)** , puis sélectionnez **Créer**.
+2. Dans le volet de recherche, tapez « stratégie de point de terminaison de service », sélectionnez **Stratégie de point de terminaison de service**, puis **Créer**.
+
+![Créer une stratégie de point de terminaison de service](./media/virtual-network-service-endpoint-policies-portal/create-sep-resource.png)
+
 3. Entrez ou sélectionnez les informations suivantes dans **Informations de base** : 
 
-   - Abonnement : sélectionnez votre abonnement pour la stratégie.    
-   - Groupe de ressources : Sélectionnez **Créer** et entrez *myResourceGroup*.     
+   - Abonnement : sélectionnez votre abonnement pour la stratégie
+   - Groupe de ressources : Sélectionnez **Créer** et entrez *myResourceGroup*.
    - Nom : myEndpointPolicy
-   - Emplacement : Centre-USA Ouest     
+   - Emplacement : USA Centre
  
-   ![Informations de base sur la création d’une stratégie de point de terminaison de service](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-startpane.PNG)
-   
-4. Entrez ou sélectionnez les informations suivantes dans **Définitions de stratégie** :
+   ![Informations de base sur la création d’une stratégie de point de terminaison de service](./media/virtual-network-service-endpoint-policies-portal/create-sep-basics.png)
 
-   - Sous **+ Ajouter une ressource**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **Ajouter**.  
-   - Étendue : sélectionnez **Compte unique** ou **Tous les comptes de l’abonnement** ou **Tous les comptes du groupe de ressources**.    
-   - Abonnement : sélectionnez votre abonnement pour le compte de stockage. La stratégie et les comptes de stockage peuvent se trouver dans des abonnements différents.   
+4. Sélectionnez **+ Ajouter** sous **Ressources**, puis entrez ou sélectionnez les informations suivantes dans le volet **Ajouter une ressource**
+
+   - Service : seul **Microsoft.Storage** est disponible avec les stratégies de points de terminaison de service
+   - Étendue : vous avez le choix entre **Compte unique**, **Tous les comptes de l’abonnement** ou **Tous les comptes du groupe de ressources**
+   - Abonnement : sélectionnez votre abonnement pour le compte de stockage. La stratégie et les comptes de stockage peuvent se trouver dans des abonnements différents.
    - Groupe de ressources : Sélectionnez votre groupe de ressources. Obligatoire si l’étendue est définie avec la valeur « Tous les comptes du groupe de ressources » ou « Compte unique ».  
-   - Ressource : mystorageaccountportal    
-   - Cliquez sur **+ Ajouter une ressource** pour continuer à ajouter des ressources supplémentaires.
-   
-   ![Créer des définitions de stratégie de point de terminaison de service](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
-   
+   - Ressource : sélectionnez votre ressource de stockage Azure sous l’abonnement ou le groupe de ressources sélectionné
+   - Cliquez sur le bouton **Ajouter** en bas pour terminer l’ajout de la ressource
+
+   ![Définition de stratégie de point de terminaison de service - ressource](./media/virtual-network-service-endpoint-policies-portal/create-sep-add-resource.png)
+
+   - Ajoutez des ressources supplémentaires en répétant les étapes ci-dessus en fonction des besoins
+
 5. Facultatif : Entrez ou sélectionnez les informations suivantes dans **Étiquettes** :
    
    - Clé : sélectionnez votre clé pour la stratégie. Exemple : Département     
@@ -68,56 +73,44 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 6. Sélectionnez **Vérifier + créer**. Validez les informations, puis cliquez sur **Créer**. Pour apporter d’autres modifications, cliquez sur **Précédent**. 
 
-   ![Créer des validations finales de stratégie de point de terminaison de service](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-finalcreatereview.PNG)
+   ![Créer des validations finales de stratégie de point de terminaison de service](./media/virtual-network-service-endpoint-policies-portal/create-sep-review-create.png)
   
- 
 ## <a name="view-endpoint-policies"></a>Afficher des stratégies de points de terminaison 
 
-1. Dans la zone *Tous les services* du portail, commencez à taper *stratégies de point de terminaison de service*. Sélectionnez **Stratégies de point de terminaison de service (préversion)** .
+1. Dans la zone *Tous les services* du portail, commencez à taper *stratégies de point de terminaison de service*. Sélectionnez **Stratégies de points de terminaison de service**.
 2. Sous **Abonnements**, sélectionnez votre abonnement et votre groupe de ressources, comme illustré dans l’image suivante.
 
-   ![Afficher une stratégie](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-viewpolicies.PNG)
+   ![Afficher une stratégie](./media/virtual-network-service-endpoint-policies-portal/sep-view.png)
        
 3. Sélectionnez la stratégie, puis cliquez sur **Définitions de stratégie** pour afficher ou ajouter des définitions de stratégie supplémentaires.
 
-   ![Afficher des définitions de stratégie](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-viewpolicy-adddefinitions.PNG)
+   ![Afficher des définitions de stratégie](./media/virtual-network-service-endpoint-policies-portal/sep-policy-definition.png)
 
-4. Sélectionnez **Sous-réseaux associés** pour afficher les sous-réseaux auxquels la stratégie est associée. Pour associer une stratégie à un sous-réseau, cliquez sur « Accéder à un réseau virtuel de la même région ».
+4. Sélectionnez **Sous-réseaux associés** pour afficher les sous-réseaux auxquels la stratégie est associée. Si aucun sous-réseau n’est encore associé, suivez les instructions de l’étape suivante.
 
-   ![Afficher des sous-réseaux associés](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-view-associatedsubnets.PNG)
+   ![Sous-réseaux associés](./media/virtual-network-service-endpoint-policies-portal/sep-associated-subnets.png)
  
-## <a name="associate-a-policy-to-a-subnet"></a>Associer une stratégie à un sous-réseau
+5. Associer une stratégie à un sous-réseau
 
 >[!WARNING] 
-> Vérifiez que toutes les ressources ayant fait l’objet d’un accès à partir du sous-réseau, pour le service sélectionné, sont ajoutées à la stratégie avant d’associer cette dernière. Une fois la stratégie associée, seul l’accès aux ressources répertoriées dans la stratégie est autorisé pour les régions de point de terminaison pour le service. 
+> Vérifiez que toutes les ressources ayant fait l’objet d’un accès à partir du sous-réseau sont ajoutées à la définition de stratégie avant d’associer la stratégie au sous-réseau indiqué. Une fois que la stratégie est associée, seul l’accès aux ressources de la *liste verte* sera autorisé sur les points de terminaison de service. 
+>
+> Vérifiez également qu’il n’existe aucun service Azure managé dans le sous-réseau associé à la stratégie de point de terminaison de service
 
-Avant de pouvoir associer une stratégie à un sous-réseau, vous devez créer un réseau virtuel et un sous-réseau :
+- Avant de pouvoir associer une stratégie à un sous-réseau, vous devez créer un réseau virtuel et un sous-réseau. Pour obtenir de l’aide, reportez-vous à l’article [Créer un réseau virtuel](./quick-create-portal.md).
 
-1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
-2. Sélectionnez **Mise en réseau**, puis **Réseau virtuel**.
-3. Sous **Créer un réseau virtuel**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis sélectionnez **Créer** :
-   - Nom : myVirtualNetwork      
-   - Espace d’adressage : 10.0.0.0/16      
-   - Abonnement : Sélectionnez votre abonnement. La stratégie doit se trouver dans le même abonnement que le réseau virtuel     
-   - Groupe de ressources : Sélectionnez **Utiliser l’existant**, puis *myResourceGroup*     
-   - Emplacement : Centre-USA Ouest     
-   - Nom du sous-réseau : private     
-   - Plage d’adresses : 10.0.0.0/24
-     
-4. Dans le champ **Rechercher des ressources, services et documents** en haut du portail, commencez à taper *myVirtualNetwork*. Quand la mention **myVirtualNetwork** apparaît dans les résultats de recherche, sélectionnez-la.
-5. Sous **PARAMÈTRES**, sélectionnez **Sous-réseaux**, puis **private**.
-6. Comme indiqué dans l’image suivante, sélectionnez **Points de terminaison de service**, sélectionnez **Microsoft.Storage**, **Stratégies de point de terminaison de service**,  **myEndpointPolicy**, puis **Enregistrer** :
+- Une fois que vous avez configuré le réseau virtuel et le sous-réseau, vous devez configurer des points de terminaison de service de réseau virtuel pour le stockage Azure. Dans le panneau Réseau virtuel, sélectionnez **Points de terminaison de service** puis, dans le volet suivant, sélectionnez **Microsoft.Storage** et le réseau virtuel ou le sous-réseau souhaité sous **Sous-réseaux**
 
-   ![Associer une stratégie](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-associatepolicies.PNG)
+- À présent, vous pouvez choisir de sélectionner la stratégie de point de terminaison de service dans la liste déroulante du volet ci-dessus si vous avez déjà créé des stratégies de points de terminaison de service avant de configurer le point de terminaison de service pour le sous-réseau, comme indiqué ci-dessous
+
+    ![Associer un sous-réseau pendant la création du point de terminaison de service](./media/virtual-network-service-endpoint-policies-portal/vnet-config-service-endpoint-add-sep.png)
+
+- OU, si vous associez des stratégies de points de terminaison de service après avoir déjà configuré des points de terminaison de service, vous pouvez choisir d’associer le sous-réseau à partir du panneau Stratégie de point de terminaison de service en accédant au volet **Sous-réseaux associés**, comme indiqué ci-dessous
+
+    ![Associer un sous-réseau via SEP](./media/virtual-network-service-endpoint-policies-portal/sep-edit-subnet-association.png)
 
 >[!WARNING] 
->L’accès à des ressources du service dans d’autres régions sera autorisé à partir de ce sous-réseau, en fonction des groupes de sécurité réseau (NSG). Pour retreindre l’accès aux seules les régions de point de terminaison, limitez les groupes de sécurité réseau au seul trafic de service dans les régions de point de terminaison. Pour plus d’informations sur la création de groupes de sécurité réseau avec des balises de service par région, consultez [Balises de service Azure pour les groupes de sécurité réseau](manage-network-security-group.md?toc=%2fcreate-a-security-rule%2f.json).
-
-Dans l’exemple ci-dessous, le groupe de sécurité réseau est soumis à des restrictions pour accéder uniquement aux ressources du Stockage Azure dans WestCentralUS et WestUS2, avec une règle « Refuser tout » comme règle de priorité inférieure.
-
-![Refuser tous les groupes de sécurité réseau](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-nsg-rules.PNG)
-
+>L’accès aux ressources de stockage Azure dans toutes les régions est limité en fonction de la stratégie de point de terminaison de service de ce sous-réseau.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce tutoriel, vous avez créé une stratégie de point de terminaison de service que vous avez associée à un sous-réseau. Pour en savoir plus sur les stratégies de point de terminaison de service, consultez la [vue d’ensemble des stratégies de point de terminaison de service](virtual-network-service-endpoint-policies-overview.md).
-

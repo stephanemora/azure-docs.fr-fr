@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8daa87eca74570f5b1fdf1537b83dae60d292128
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c4898ba62abdc42d95b77b9a77387bfe71fb4771
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849460"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592201"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Planification d'un Runbook dans Azure Automation
 
@@ -23,7 +23,7 @@ Pour planifier le démarrage d'un Runbook dans Azure Automation à une heure sp�
 > [!NOTE]
 > Les planifications ne prennent pas en charge les configurations Azure Automation DSC pour le moment.
 
-## <a name="powershell-cmdlets"></a>Applets de commande PowerShell
+## <a name="powershell-cmdlets"></a>Applets de commande Powershell
 
 Les applets de commande du tableau suivant permettent de créer et de gérer les planifications avec PowerShell dans Azure Automation. Elles sont fournies dans le cadre du [module Azure PowerShell](/powershell/azure/overview).
 
@@ -143,7 +143,7 @@ Register-AzureRmAutomationScheduledRunbook –AutomationAccountName $automationA
 
 L’intervalle le plus fréquent pour lequel une planification dans Azure Automation peut être configurée est d’une heure. Si vous avez besoin pour exécuter les planifications plus fréquemment, il existe deux options :
 
-* Créer un [webhook](../automation-webhooks.md) de runbook et utiliser [Azure Scheduler](../../scheduler/scheduler-get-started-portal.md) pour appeler le webhook. Azure Scheduler fournit une granularité plus fine lors de la définition d’une planification.
+* Créer un [webhook](../automation-webhooks.md) de runbook et utiliser [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) pour appeler le webhook. Azure Logic Apps permet une plus grande précision lors de la définition d’une planification.
 
 * Créer quatre planifications éloignées de 15 minutes et exécutées une fois par heure. Ce scénario permet au runbook de s’exécuter toutes les 15 minutes avec différentes planifications.
 

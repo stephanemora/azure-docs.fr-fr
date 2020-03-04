@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aa71e1e6b58906953dfa22d08405c05c10c83242
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 44de5878dcc39e09adf24f69b883a29370f00b48
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75966682"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505730"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Résoudre les problèmes liés à la solution Start/Stop VMs during off-hours
 
@@ -110,7 +110,7 @@ Examinez la liste suivante pour trouver des solutions possibles à votre problè
   * ScheduledStartStop_Parent
   * SequencedStartStop_Parent
 
-* Vérifiez que votre [Compte d’identification](../manage-runas-account.md) dispose des autorisations appropriées pour les machines virtuelles que vous tentez de démarrer ou d’arrêter. Pour savoir comment vérifier les autorisations sur une ressource, consultez [Démarrage rapide : Afficher les rôles attribués à un utilisateur à l’aide du portail Azure](../../role-based-access-control/check-access.md). Vous devez fournir l’ID d’application pour le service principal utilisé par le compte d’identification. Pour récupérer cette valeur, accédez à votre compte Automation dans le portail Azure, sélectionnez **Comptes d’identification** sous **Paramètres de compte**, puis cliquez sur le compte d’identification approprié.
+* Vérifiez que votre [Compte d’identification](../manage-runas-account.md) dispose des autorisations appropriées pour les machines virtuelles que vous tentez de démarrer ou d’arrêter. Pour savoir comment vérifier les autorisations sur une ressource, consultez [Démarrage rapide : Afficher les rôles attribués à un utilisateur à l’aide du portail Azure](../../role-based-access-control/check-access.md). Vous devez fournir l’ID d’application du principal de service utilisé par le compte d’identification. Pour récupérer cette valeur, accédez à votre compte Automation dans le portail Azure, sélectionnez **Comptes d’identification** sous **Paramètres de compte**, puis cliquez sur le compte d’identification approprié.
 
 * Les machines virtuelles peuvent ne pas être démarrées ou arrêtées si elles sont explicitement exclues. Les machines virtuelles exclues sont définies dans la variable **External_ExcludeVMNames** du compte Automation dans lequel la solution est déployée. L’exemple suivant montre comment vous pouvez interroger cette valeur avec PowerShell.
 
@@ -149,9 +149,9 @@ Examinez la liste suivante pour trouver des solutions possibles à votre problè
   Get-AzureRmAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
   ```
 
-* Pour démarrer et arrêter des machines virtuelles, le compte d’identification du compte Automation doit disposer des autorisations appropriées sur la machine virtuelle. Pour savoir comment vérifier les autorisations sur une ressource, consultez [Démarrage rapide : Afficher les rôles attribués à un utilisateur à l’aide du portail Azure](../../role-based-access-control/check-access.md). Vous devez fournir l’ID d’application pour le service principal utilisé par le compte d’identification. Pour récupérer cette valeur, accédez à votre compte Automation dans le portail Azure, sélectionnez **Comptes d’identification** sous **Paramètres de compte**, puis cliquez sur le compte d’identification approprié.
+* Pour démarrer et arrêter des machines virtuelles, le compte d’identification du compte Automation doit disposer des autorisations appropriées sur la machine virtuelle. Pour savoir comment vérifier les autorisations sur une ressource, consultez [Démarrage rapide : Afficher les rôles attribués à un utilisateur à l’aide du portail Azure](../../role-based-access-control/check-access.md). Vous devez fournir l’ID d’application du principal de service utilisé par le compte d’identification. Pour récupérer cette valeur, accédez à votre compte Automation dans le portail Azure, sélectionnez **Comptes d’identification** sous **Paramètres de compte**, puis cliquez sur le compte d’identification approprié.
 
-* Si la machine virtuelle rencontre un problème de démarrage ou de désallocation, ce comportement peut provenir d’un problème sur la machine virtuelle elle-même. L’application d’une mise à jour pendant une tentative d’arrêt ou le blocage d’un service sont, entre autres, des exemples de problèmes potentiels. Accédez à la ressource de votre machine virtuelle et vérifiez les **journaux d’activité** pour voir s’ils indiquent des erreurs. Vous pouvez également essayer de vous connecter à la machine virtuelle pour voir s’il existe des erreurs dans les journaux des événements. Pour en savoir plus sur le dépannage de votre machine virtuelle, voir [Résolution des problèmes liés aux machines virtuelles Azure](../../virtual-machines/troubleshooting/index.md).
+* Si la machine virtuelle rencontre un problème de démarrage ou de désallocation, ce comportement peut provenir d’un problème sur la machine virtuelle elle-même. L’application d’une mise à jour pendant une tentative d’arrêt ou le blocage d’un service sont, entre autres, des exemples de problèmes potentiels. Accédez à la ressource de votre machine virtuelle et vérifiez les **journaux d’activité** pour voir s’ils indiquent des erreurs. Vous pouvez également essayer de vous connecter à la machine virtuelle pour voir s’il existe des erreurs dans les journaux des événements. Pour en savoir plus sur le dépannage de votre machine virtuelle, voir [Résolution des problèmes liés aux machines virtuelles Azure](../../virtual-machines/troubleshooting/index.yml).
 
 * Vérifiez les [flux de tâches](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) afin de détecter d’éventuelles erreurs. Dans le portail, accédez à votre compte Automation, puis sélectionnez **Tâches** sous **Automatisation des processus**.
 
@@ -207,7 +207,7 @@ Si votre compte d’identification est [mal configuré](../manage-runas-account
 
 Si le certificat a expiré pour votre compte d’identification, suivez les étapes listées dans [Renouvellement de certificat auto-signé](../manage-runas-account.md#cert-renewal) pour renouveler le certificat.
 
-Le problème peut être causé par des autorisations manquantes. Pour savoir comment vérifier les autorisations sur une ressource, consultez [Démarrage rapide : Afficher les rôles attribués à un utilisateur à l’aide du portail Azure](../../role-based-access-control/check-access.md). Vous devez fournir l’ID d’application pour le service principal utilisé par le compte d’identification. Pour récupérer cette valeur, accédez à votre compte Automation dans le portail Azure, sélectionnez **Comptes d’identification** sous **Paramètres de compte**, puis cliquez sur le compte d’identification approprié.
+Le problème peut être causé par des autorisations manquantes. Pour savoir comment vérifier les autorisations sur une ressource, consultez [Démarrage rapide : Afficher les rôles attribués à un utilisateur à l’aide du portail Azure](../../role-based-access-control/check-access.md). Vous devez fournir l’ID d’application du principal de service utilisé par le compte d’identification. Pour récupérer cette valeur, accédez à votre compte Automation dans le portail Azure, sélectionnez **Comptes d’identification** sous **Paramètres de compte**, puis cliquez sur le compte d’identification approprié.
 
 ## <a name="other"></a>Scénario : Mon problème n’est pas listé ci-dessus
 

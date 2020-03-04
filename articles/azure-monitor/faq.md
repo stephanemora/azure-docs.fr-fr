@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/23/2020
-ms.openlocfilehash: 33af9c8f3fbe4de57d65be432f249d4aeb5d3e27
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 169cc3f6a195a7339ab33eb9f00d9937451a93e0
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485333"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620453"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Questions fréquemment posées sur Azure Monitor
 
@@ -56,7 +56,7 @@ Azure Monitor collecte des données à partir de diverses sources, notamment des
 Azure Monitor collecte des données à partir de diverses sources dans des [journaux](platform/data-platform-logs.md) ou [métriques](platform/data-platform-metrics.md). Chaque type de données présente des avantages qui lui sont propres et prend en charge un ensemble spécifique de fonctionnalités dans Azure Monitor. Il existe une même base de données de métriques pour chaque abonnement Azure, mais vous pouvez créer plusieurs espaces de travail de Log Analytics afin de collecter les journaux selon vos besoins. Consultez [Plateforme de données Azure Monitor](platform/data-platform.md).
 
 ### <a name="is-there-a-maximum-amount-of-data-that-i-can-collect-in-azure-monitor"></a>Existe-t-il une quantité maximale de données que je peux collecter dans Azure Monitor ?
-Il n’existe aucune limite en termes de données métriques collectées, mais ces données sont stockées pendant un maximum de 93 jours. Consultez [Rétention des métriques](platform/data-platform-metrics.md#retention-of-metrics). Il n’existe aucune limite quant à la quantité de données de journal collectées, en dehors du fait qu'elles peuvent affecter le niveau tarifaire que vous choisissez pour l'espace de travail Log Analytics. Consultez les [détails de la tarification](https://azure.microsoft.com/pricing/details/monitor/).
+Il n’existe aucune limite en termes de données métriques collectées, mais ces données sont stockées pendant un maximum de 93 jours. Consultez [Rétention des métriques](platform/data-platform-metrics.md#retention-of-metrics). Il n’existe aucune limite quant à la quantité de données de journal collectées, en dehors du fait qu’elles peuvent affecter le niveau tarifaire que vous choisissez pour l’espace de travail Log Analytics. Consultez les [détails de la tarification](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="how-do-i-access-data-collected-by-azure-monitor"></a>Comment accéder aux données collectées par Azure Monitor ?
 Les insights et les solutions permettent une expérience d'utilisation personnalisée des données stockées dans Azure Monitor. Vous pouvez utiliser directement les données de journal à l’aide d’une requête de journal écrite en langage de requête Kusto (KQL). Dans le portail Azure, vous pouvez écrire et exécuter des requêtes, et analyser les données de manière interactive à l’aide de Log Analytics. Dans le portail Azure, analysez des métriques avec Metrics Explorer. Consultez [Analyser les données de journal dans Azure Monitor](log-query/log-query-overview.md) et [Prise en main d’Azure Metrics Explorer](platform/metrics-getting-started.md).

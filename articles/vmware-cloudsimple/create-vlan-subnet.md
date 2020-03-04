@@ -1,6 +1,6 @@
 ---
-title: Créer des réseaux locaux virtuels/sous-réseaux
-description: Azure VMware Solutions (AVS) - Décrit comment créer et gérer des réseaux locaux virtuels/sous-réseaux pour vos clouds privés AVS, puis appliquer des règles de pare-feu.
+title: Créer des réseaux locaux virtuels/sous-réseaux - Azure VMware Solutions by CloudSimple
+description: Azure VMware Solutions by CloudSimple - Décrit comment créer et gérer des réseaux locaux virtuels/sous-réseaux pour vos clouds privés, puis appliquer des règles de pare-feu.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,26 +8,26 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 249c48500dbcd75f62f856b3345b3a2c02502d1a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c0160513eb9abca54adbc3819b982348dc202c90
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024770"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565993"
 ---
-# <a name="create-and-manage-vlanssubnets-for-your-avs-private-clouds"></a>Créer et gérer des réseaux locaux virtuels ou des sous-réseaux pour vos clouds privés AVS
+# <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>Créer et gérer des réseaux locaux virtuels/sous-réseaux pour vos clouds privés
 
-Ouvrez l’onglet Réseaux locaux virtuels/sous-réseaux dans la page Réseau pour créer et gérer des réseaux locaux virtuels/sous-réseaux pour vos clouds privés AVS. Après avoir créé un réseau local virtuel/sous-réseau, vous pouvez appliquer des règles de pare-feu.
+Ouvrez l’onglet VLANs/Subnets (Réseaux locaux virtuels/sous-réseaux) dans la page Network (Réseau) pour créer et gérer des réseaux locaux virtuels/sous-réseaux pour vos clouds privés. Après avoir créé un réseau local virtuel/sous-réseau, vous pouvez appliquer des règles de pare-feu.
 
 ## <a name="create-a-vlansubnet"></a>Créer un réseau local virtuel/sous-réseau
 
-1. [Accédez au portail AVS](access-cloudsimple-portal.md), puis sélectionnez **Réseau** dans le menu latéral.
+1. [Accédez au portail CloudSimple](access-cloudsimple-portal.md), puis sélectionnez **Network** dans le menu latéral.
 2. Sélectionnez **VLANs/subnets** (Réseaux locaux virtuels/sous-réseaux).
 3. Cliquez sur **Create VLAN/Subnet** (Créer un VLAN/sous-réseau).
 
     ![Page de VLAN/sous-réseau](media/vlan-subnet-page.png)
 
-4. Sélectionnez le cloud privé AVS pour le nouveau réseau local virtuel/sous-réseau.
+4. Sélectionnez le cloud privé pour le nouveau réseau local virtuel/sous-réseau.
 5. Entrez un ID de réseau local virtuel.
 6. Entrez le nom du sous-réseau.
 7. Pour activer le routage sur le réseau local virtuel (sous-réseau), spécifiez la plage CIDR du sous-réseau. Vérifiez que la plage CIDR ne chevauche aucun de vos sous-réseaux locaux, sous-réseaux Azure ou sous-réseaux de passerelle.
@@ -41,13 +41,13 @@ Ouvrez l’onglet Réseaux locaux virtuels/sous-réseaux dans la page Réseau po
 
 ## <a name="use-vlan-information-to-set-up-a-distributed-port-group-in-vsphere"></a>Utiliser les informations de réseau local virtuel pour configurer un groupe de ports distribués dans vSphere
 
-Pour créer un groupe de ports distribués dans vSphere, suivez les instructions de la rubrique VMware « Ajouter un groupe de ports distribués » dans le <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf" target="_blank">Guide de mise en réseau vSphere</a>. Quand vous configurez le groupe de ports distribués, spécifiez les informations de réseau local virtuel à partir de la configuration AVS.
+Pour créer un groupe de ports distribués dans vSphere, suivez les instructions de la rubrique VMware « Ajouter un groupe de ports distribués » dans le <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf" target="_blank">Guide de mise en réseau vSphere</a>. Quand vous configurez le groupe de ports distribués, fournissez les informations de réseau local virtuel à partir de la configuration CloudSimple.
 
 ![Groupe de ports distribués](media/distributed-port-group.png)
 
 ## <a name="select-a-firewall-table"></a>Sélectionner une table de pare-feu
 
-Les tables de pare-feu et les règles associées sont définies dans la page **Network > Firewall tables** (Réseau > Tables de pare-feu). Pour sélectionner la table de pare-feu à appliquer au réseau local virtuel/sous-réseau d’un cloud privé AVS, sélectionnez le réseau local virtuel/sous-réseau et cliquez sur **Attachement de table de pare-feu** dans la page **Réseaux locaux virtuels/sous-réseaux**. Pour obtenir des instructions sur la configuration des tables de pare-feu et la définition des règles, consultez [Tables de pare-feu](firewall.md).
+Les tables de pare-feu et les règles associées sont définies dans la page **Network > Firewall tables** (Réseau > Tables de pare-feu). Pour sélectionner la table de pare-feu à appliquer au réseau local virtuel/sous-réseau d’un cloud privé, sélectionnez le réseau local virtuel/sous-réseau et cliquez sur **Firewall table attachment** (Attachement de table de pare-feu) dans la page **VLANs/Subnets**. Pour obtenir des instructions sur la configuration des tables de pare-feu et la définition des règles, consultez [Tables de pare-feu](firewall.md).
 
 ![Lien Table de pare-feu](media/vlan-subnet-firewall-link.png)
 

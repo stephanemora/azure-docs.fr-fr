@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 021941339bbbf72112628c54f5b05d5fd305bd0f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: ce0a170a629f347e2687a2e9f63fb3438fe2bd2f
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198579"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592524"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurer une app App Service dans le portail Azure
 
@@ -168,6 +168,8 @@ Ici, vous pouvez configurer quelques paramètres communs pour l'application. Cer
     - **Nombre de bits** : 32 bits ou 64 bits.
     - **Protocole WebSocket** : Pour [ASP.NET SignalR] ou [socket.io](https://socket.io/), par exemple.
     - **Toujours actif** : Gardez l'application chargée même s’il n'y a aucun trafic. Vous devez l'activer pour les WebJobs continus ou pour les WebJobs déclenchés à l’aide d’une expression CRON.
+      > [!NOTE]
+      > Avec la fonctionnalité Always On, vous ne pouvez pas contrôler le point de terminaison. Il envoie toujours une requête à la racine de l’application.
     - **Version de pipeline gérée** : Le [mode pipeline] IIS. Définissez ce paramètre sur **Classique** si vous utilisez une application héritée nécessitant une version plus ancienne d'IIS.
     - **Version HTTP** : Utilisez la version **2.0** pour activer la prise en charge du protocole [HTTPS/2](https://wikipedia.org/wiki/HTTP/2).
     > [!NOTE]

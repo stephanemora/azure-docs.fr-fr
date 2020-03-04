@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: b7eed4089a65f62056027c70f08902f531567c17
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 742ef62895f3ef64e8fa22ab21d2947bee57776b
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445263"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623347"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrer des conteneurs non partitionnés vers des conteneurs partitionnés
 
-Azure Cosmos DB prend en charge la création de conteneurs sans clé de partition. Actuellement, vous pouvez créer des conteneurs non partitionnés à l’aide d’Azure CLI et de kits SDK Azure Cosmos DB (.Net, Java, NodeJs) de version inférieure ou égale à 2.x. Vous ne pouvez pas créer de conteneurs non partitionnés à l’aide du Portail Azure. Toutefois, ces conteneurs non partitionnés ne sont pas élastiques, et ils disposent d’une capacité de stockage fixe de 10 Go et d’un débit maximal de 10 000 RU/s.
+Azure Cosmos DB prend en charge la création de conteneurs sans clé de partition. Actuellement, vous pouvez créer des conteneurs non partitionnés à l’aide d’Azure CLI et de kits SDK Azure Cosmos DB (.Net, Java, NodeJs) de version inférieure ou égale à 2.x. Vous ne pouvez pas créer de conteneurs non partitionnés à l’aide du Portail Azure. Toutefois, ces conteneurs non partitionnés ne sont pas élastiques et disposent d’une capacité de stockage fixe de 20 Go et d’un débit maximal de 10 000 RU/s.
 
 Les conteneurs non partitionnés sont hérités, et vous devez migrer vos conteneurs non partitionnés existants vers des conteneurs partitionnés pour faire évoluer le stockage et le débit. Azure Cosmos DB fournit un mécanisme défini par le système pour migrer vos conteneurs non partitionnés vers des conteneurs partitionnés. Ce document explique la migration automatique de tous les conteneurs non partitionnés existants vers des conteneurs partitionnés. Vous pouvez tirer parti de la fonctionnalité de migration automatique uniquement si vous utilisez la version V3 des kits de développement logiciel dans tous les langages.
 

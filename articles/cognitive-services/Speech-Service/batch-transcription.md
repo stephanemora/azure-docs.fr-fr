@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: dc473c814cdd69204cddd976bc77f19b5db567b1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6d5ec5f798617d03072ec5931b0d1d3623df3d42
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200076"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500015"
 ---
 # <a name="how-to-use-batch-transcription"></a>Guide d’utilisation de la transcription par lots
 
@@ -87,14 +87,55 @@ Les paramètres de configuration sont fournis au format JSON :
 
 Utilisez les propriétés facultatives suivantes pour configurer la transcription :
 
-| Paramètre | Description |
-|-----------|-------------|
-| `ProfanityFilterMode` | Spécifie comment traiter la vulgarité dans les résultats de la reconnaissance. Les valeurs acceptées sont `None` qui désactive le d’obscénités, `Masked` qui remplace les obscénités par des astérisques, `Removed` qui supprime tous les obscénités du résultat ou `Tags` qui ajoute les balises « obscénité ». La valeur par défaut est `Masked`. |
-| `PunctuationMode` | Spécifie comment traiter la ponctuation dans les résultats de la reconnaissance. Les valeurs acceptées sont `None` qui désactive la ponctuation, `Dictated` qui implique une ponctuation explicite, `Automatic` qui permet au décodeur de gérer la ponctuation, ou `DictatedAndAutomatic` qui implique des marques de ponctuation dictées ou automatiques. |
-| `AddWordLevelTimestamps` | Spécifie si les timestamps au niveau des mots doivent être ajoutés à la sortie. Les valeurs acceptées sont `true`, qui permet des timestamps au niveau des mots, et `false` (la valeur par défaut) pour les désactiver. |
-| `AddSentiment` | Spécifie le sentiment devant être ajouté à l’énoncé. Les valeurs acceptées sont `true` pour activer un sentiment par énoncé et `false` (valeur par défaut) pour désactiver celui-ci. |
-| `AddDiarization` | Spécifie que l’analyse de diarisation doit être effectuée sur l’entrée qui est censée être un canal unique contenant deux voix. Les valeurs acceptées sont `true` qui active la diarisation et `false` (valeur par défaut) qui désactive cette dernière. De plus, cela nécessite également que `AddWordLevelTimestamps` soit défini sur True.|
-|`TranscriptionResultsContainerUrl`|URL facultative avec [SAP de service](../../storage/common/storage-sas-overview.md) vers un conteneur accessible en écriture dans Azure. Le résultat est stocké dans ce conteneur.
+:::row:::
+   :::column span="1":::
+      **Paramètre**
+   :::column-end:::
+   :::column span="2":::
+      **Description**
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `ProfanityFilterMode`
+   :::column-end:::
+   :::column span="2":::
+      Spécifie comment traiter la vulgarité dans les résultats de la reconnaissance. Les valeurs acceptées sont `None` pour désactiver le filtrage des termes vulgaires, `Masked` pour remplacer les termes vulgaires par des astérisques, `Removed` pour supprimer tous les termes vulgaires du résultat ou `Tags` pour ajouter des balises « termes vulgaires ». La valeur par défaut est `Masked`.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `PunctuationMode`
+   :::column-end:::
+   :::column span="2":::
+      Spécifie comment traiter la ponctuation dans les résultats de la reconnaissance. Les valeurs acceptées sont `None` pour désactiver la ponctuation, `Dictated` pour indiquer une ponctuation explicite (parlée), `Automatic` pour permettre au décodeur de traiter la ponctuation ou `DictatedAndAutomatic` pour utiliser la ponctuation dictée et automatique. La valeur par défaut est `DictatedAndAutomatic`.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddWordLevelTimestamps`
+   :::column-end:::
+   :::column span="2":::
+      Spécifie si les timestamps au niveau des mots doivent être ajoutés à la sortie. Les valeurs acceptées sont `true` pour activer des horodatages au niveau des mots et `false` (valeur par défaut) pour les désactiver.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddSentiment`
+   :::column-end:::
+   :::column span="2":::
+      Spécifie le sentiment devant être ajouté à l’énoncé. Les valeurs acceptées sont `true` pour activer un sentiment par énoncé et `false` (valeur par défaut) pour le désactiver.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddDiarization`
+   :::column-end:::
+   :::column span="2":::
+      Spécifie que l’analyse de diarisation doit être effectuée sur l’entrée qui est censée être un canal unique contenant deux voix. Les valeurs acceptées sont `true` pour activer la diarisation et `false` (valeur par défaut) pour la désactiver. De plus, cela nécessite également que `AddWordLevelTimestamps` soit défini sur True.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `TranscriptionResultsContainerUrl`
+   :::column-end:::
+   :::column span="2":::
+      URL facultative avec [SAP de service](../../storage/common/storage-sas-overview.md) vers un conteneur accessible en écriture dans Azure. Le résultat est stocké dans ce conteneur.
+:::row-end:::
 
 ### <a name="storage"></a>Stockage
 

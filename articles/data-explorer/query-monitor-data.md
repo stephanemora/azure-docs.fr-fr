@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: d39ffa05448600fe3bd09baf6080aa1565ae19ba
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c7e98c31c0db1db3051ad66df6526dcbddb265c5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843573"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560420"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Interroger des données dans Azure Monitor avec Azure Data Explorer (préversion)
 
@@ -23,7 +23,7 @@ Le flux de proxy Azure Data Explorer :
 
 ![Flux de proxy ADX](media/adx-proxy/adx-proxy-flow.png)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 > [!NOTE]
 > Le proxy ADX est en mode aperçu. [Connectez-vous au proxy](#connect-to-the-proxy) pour activer la fonctionnalité de proxy ADX pour vos clusters. Pour toute question, contactez l’équipe [ADXProxy](mailto:adxproxy@microsoft.com).

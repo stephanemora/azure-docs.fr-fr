@@ -9,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: 309cf59c4b27c2a5906acfc519edd5306dece2d5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a9d3d0287e7839d6396553d532ba6f293fb19b68
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789237"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647663"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Intégrer des applications avec écran 3270 sur des mainframes IBM avec Azure à l’aide d’Azure Logic Apps et du connecteur IBM 3270
 
@@ -207,7 +207,7 @@ Une fois que vous avez terminé votre plan de navigation, vous pouvez [définir 
 
 <a name="example-plan"></a>
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Dans cet exemple, supposons que vous exécutez une transaction CICS nommée « WBGB » qui inclut les étapes suivantes : 
 
@@ -244,7 +244,7 @@ Bien que de nombreux écrans ici aient des noms uniques, certains écrans sont i
 
   ![Plan combiné](./media/connectors-create-api-3270/combined-plan.png)
 
-#### <a name="example-identify-repeated-screens"></a>Exemple : Identifier les écrans répétés
+#### <a name="example-identify-repeated-screens"></a>Exemple : Identifier les écrans répétés
 
 Pour que le connecteur parcourt et différencie les écrans, vous trouvez généralement un texte unique sur un écran que vous pouvez utiliser en tant qu’identificateur parmi les écrans capturés. Pour les écrans répétés, vous aurez peut-être besoin de plusieurs méthodes d’identification. L’exemple de plan a une branche où vous pouvez avoir des écrans qui se ressemblent. Un des écrans retourne un solde de compte, tandis que l’autre écran retourne un message d’erreur.
 
@@ -358,12 +358,12 @@ Lorsque vous avez terminé toutes ces étapes, vous pouvez utiliser l’action q
 
 1. Si aucune connexion n’existe encore, fournissez les informations nécessaires pour votre connexion, puis choisissez **Create (Créer)** .
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | **Nom de connexion** | OUI | <*connection-name*> | Nom de votre connexion |
-   | **ID de compte d’intégration** | OUI | <*integration-account-name*> | Nom de votre compte d’intégration |
-   | **URL SAP du compte d’intégration** | OUI | <*integration-account-SAS-URL*> | URL de signature d’accès partagé (SAP) de votre compte d’intégration, que vous pouvez générer à partir des paramètres de votre compte d’intégration dans le portail Azure. <p>1. Dans le menu du compte d’intégration, sous **Paramètres**, sélectionnez **URL de rappel**. <br>2. Dans le volet de droite, copiez la valeur **URL de rappel générée**. |
-   | **Serveur** | OUI | <*TN3270-server-name*> | Nom du serveur pour votre service TN3270 |
+   | **Nom de connexion** | Oui | <*connection-name*> | Nom de votre connexion |
+   | **ID de compte d’intégration** | Oui | <*integration-account-name*> | Nom de votre compte d’intégration |
+   | **URL SAP du compte d’intégration** | Oui | <*integration-account-SAS-URL*> | URL de signature d’accès partagé (SAP) de votre compte d’intégration, que vous pouvez générer à partir des paramètres de votre compte d’intégration dans le portail Azure. <p>1. Dans le menu du compte d’intégration, sous **Paramètres**, sélectionnez **URL de rappel**. <br>2. Dans le volet de droite, copiez la valeur **URL de rappel générée**. |
+   | **Serveur** | Oui | <*TN3270-server-name*> | Nom du serveur pour votre service TN3270 |
    | **Port** | Non | <*TN3270-server-port*> | Port utilisé par votre serveur TN3270. Si ce champ est vide, le connecteur utilise `23` comme valeur par défaut. |
    | **Type d’appareil** | Non | <*IBM-terminal-model*> | Numéro ou nom de modèle du terminal IBM à émuler. Si ce champ est vide, le connecteur utilise les valeurs par défaut. |
    | **Page de codes** | Non | <*code-page-number*> | Numéro de page de codes pour l’hôte. Si ce champ est vide, le connecteur utilise `37` comme valeur par défaut. |
@@ -378,10 +378,10 @@ Lorsque vous avez terminé toutes ces étapes, vous pouvez utiliser l’action q
 
 1. Entrez les informations nécessaires pour l’action :
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | **Nom d’un fichier Hidx** | OUI | <*HIDX-file-name*> | Sélectionnez le fichier HIDX 3270 à utiliser. |
-   | **Nom de la méthode** | OUI | <*method-name*> | Sélectionnez la méthode dans le fichier HIDX à utiliser. Une fois que vous sélectionnez une méthode, la liste **Add new parameter (Ajouter un nouveau paramètre)** s’affiche et vous pouvez alors sélectionner les paramètres à utiliser avec cette méthode. |
+   | **Nom d’un fichier Hidx** | Oui | <*HIDX-file-name*> | Sélectionnez le fichier HIDX 3270 à utiliser. |
+   | **Nom de la méthode** | Oui | <*method-name*> | Sélectionnez la méthode dans le fichier HIDX à utiliser. Une fois que vous sélectionnez une méthode, la liste **Add new parameter (Ajouter un nouveau paramètre)** s’affiche et vous pouvez alors sélectionner les paramètres à utiliser avec cette méthode. |
    ||||
 
    Par exemple :
@@ -409,7 +409,10 @@ Lorsque vous avez terminé toutes ces étapes, vous pouvez utiliser l’action q
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour obtenir des détails techniques sur les déclencheurs, les actions et les limites, qui sont décrits par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence du connecteur](/connectors/si3270/).
+Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/si3270/).
+
+> [!NOTE]
+> Pour les applications logiques utilisées dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la version de ce connecteur avec l’étiquette ISE applique les [limites de messages de l’ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) à la place.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

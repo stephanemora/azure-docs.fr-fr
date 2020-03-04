@@ -136,7 +136,7 @@
           href: provision-throughput-autopilot.md
         - name: Questions fréquentes (FAQ) sur Autopilot
           href: autopilot-faq.md
-    - name: Informations de référence sur les requêtes SQL
+    - name: requête SQL
       items:
         - name: Prise en main
           displayName: 'sql query, query basics'
@@ -437,6 +437,9 @@
             - name: Indexer des données géospatiales
               displayName: 'geospatial, spatial, index'
               href: sql-query-geospatial-index.md
+        - name: DateTime
+          displayName: 'datetime, date, time'
+          href: working-with-dates.md
         - name: Requête paramétrable
           displayName: 'parameterized query, parameterized, parameter, parameters'
           href: sql-query-parameterized-queries.md
@@ -464,10 +467,6 @@
             - name: Stratégies d’indexation
               displayName: 'consistent, none'
               href: index-policy.md
-        - name: Types de données
-          items:
-            - name: DateTime
-              href: working-with-dates.md
         - name: Durée de vie
           displayName: 'delete, delete data, ttl'
           href: time-to-live.md

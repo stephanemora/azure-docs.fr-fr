@@ -1,5 +1,5 @@
 ---
-title: Visualiser des données à l’aide du connecteur Azure Data Explorer pour Power BI
+title: Visualiser des données avec le connecteur Azure Data Explorer pour Power BI
 description: 'Dans cet article, vous allez découvrir comment utiliser une des trois options de visualisation des données dans Power BI : le connecteur Power BI pour Azure Data Explorer.'
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 361ea6ed76207e8e9721f64df61738b6cd9631dc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a95d45481bed17e46429e3a22dff4b8cc62354a9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024213"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560488"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Visualiser des données à l’aide du connecteur Azure Data Explorer pour Power BI
 
@@ -32,7 +32,7 @@ Connectez-vous d’abord au cluster help d’Azure Data Explorer : vous récup�
 
 1. Dans Power BI Desktop, sous l’onglet **Accueil**, sélectionnez **Obtenir les données**, puis **Plus**.
 
-    ![Obtention des données](media/power-bi-connector/get-data-more.png)
+    ![Obtenir des données](media/power-bi-connector/get-data-more.png)
 
 1. Recherchez *Azure Data Explorer*, sélectionnez **Azure Data Explorer**, puis **Se connecter**.
 
@@ -89,7 +89,7 @@ Connectez-vous d’abord au cluster help d’Azure Data Explorer : vous récup�
 
 [!INCLUDE [data-explorer-power-bi-visualize-basic](../../includes/data-explorer-power-bi-visualize-basic.md)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez plus besoin du rapport que vous avez créé pour cet article, supprimez le fichier Power BI Desktop (.pbix).
 

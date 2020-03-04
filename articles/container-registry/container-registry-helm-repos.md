@@ -1,139 +1,233 @@
 ---
 title: Stocker des charts Helm
-description: Découvrez comment utiliser un référentiel Helm avec Azure Container Registry pour stocker des graphiques pour vos applications
+description: Découvrez comment stocker des graphiques Helm pour vos applications Kubernetes en utilisant des référentiels dans Azure Container Registry
 ms.topic: article
-ms.date: 09/24/2018
-ms.openlocfilehash: 0c5e66d5f2fc3dd3c2d8c0a975c3e9d1c813732d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/28/2020
+ms.openlocfilehash: 26588bb4dc3cf50656103b50d5d0559908a1ccb7
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456342"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524629"
 ---
-# <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>Utiliser Azure Container Registry comme référentiel Helm pour les graphiques de votre application
+# <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Envoyer (push) et tirer (pull) des graphiques Helm vers un registre de conteneurs Azure
 
-Pour gérer et déployer rapidement des applications pour Kubernetes, vous pouvez utiliser le [Gestionnaire de package Helm open source][helm]. Avec Helm, les applications sont définies en tant que *graphiques* qui sont stockés dans un référentiel de graphiques Helm. Ces graphiques définissent des configurations et des dépendances, et leurs versions peuvent être gérées tout au long du cycle de vie de l’application. Azure Container Registry peut être utilisé comme hôte pour les référentiels de graphiques Helm.
+Pour gérer et déployer rapidement des applications pour Kubernetes, vous pouvez utiliser le [Gestionnaire de package Helm open source][helm]. Avec Helm, les packages d’applications sont définis en tant que [graphiques](https://helm.sh/docs/topics/charts/), lesquels sont collectés et stockés dans un [référentiel de graphiques Helm](https://helm.sh/docs/topics/chart_repository/).
 
-Avec Azure Container Registry, vous disposez d’un référentiel de graphiques Helm privé et sécurisé, qui peut s’intégrer aux pipelines de build ou d’autres services Azure. Les référentiels de graphiques Helm dans Azure Container Registry incluent des fonctionnalités de géoréplication pour maintenir vos graphiques proches des déploiements et pour assurer la redondance. Vous payez uniquement pour le stockage utilisé par les graphiques, et celui-ci est disponible à tous les niveaux de prix Azure Container Registry.
-
-Cet article vous montre comment utiliser un référentiel de graphiques Helm stocké dans Azure Container Registry.
+Cet article explique comment stocker des graphiques Helm dans des référentiels dans un registre de conteneurs Azure en utilisant Helm 3 ou Helm 2. Pour cet exemple, vous stockez un graphique Helm existant dans le référentiel *stable* Helm public. Dans beaucoup de scénarios, vous devez générer et charger vos propres graphiques pour les applications que vous développez. Pour plus d’informations sur la génération de vos propres graphiques Helm, consultez le [Guide pour les développeurs de graphiques Helm][develop-helm-charts].
 
 > [!IMPORTANT]
-> Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
+> La prise en charge des graphiques Helm dans Azure Container Registry est actuellement disponible en préversion. Les préversions sont mises à votre disposition après votre accord explicite des [conditions d’utilisation][terms-of-use] supplémentaires. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="helm-3-or-helm-2"></a>Helm 3 ou Helm 2 ?
 
-Pour effectuer les étapes indiquées dans cet article, les prérequis suivants doivent être respectés :
+Pour stocker, gérer et installer des graphiques Helm, vous utilisez un client Helm et la CLI Helm. Les versions majeures du client Helm incluent Helm 3 et Helm 2. Helm 3 prend en charge un nouveau format de graphique et n’installe plus le composant côté serveur Tiller. Pour plus d’informations sur les différences entre les versions, consultez la [FAQ sur les versions](https://helm.sh/docs/faq/). Si vous avez déjà déployé des graphiques Helm 2, consultez cette page sur la [migration de Helm 2 vers Helm 3](https://helm.sh/docs/topics/v2_v3_migration/).
 
-- **Azure Container Registry** : créez un registre de conteneurs dans votre abonnement Azure. Par exemple, utilisez le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md).
-- **Client Helm version 2.11.0 (pas une version RC) ou ultérieure** : exécutez `helm version` pour trouver votre version actuelle. Vous avez également besoin d’un serveur Helm (Tiller) initialisé dans un cluster Kubernetes. Si nécessaire, vous pouvez [créer un cluster Azure Kubernetes Service][aks-quickstart]. Pour plus d’informations sur l’installation et la mise à niveau de Helm, consultez [Installation de Helm][helm-install].
-- **Azure CLI version 2.0.46 ou ultérieure** : exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
+Vous pouvez utiliser Helm 3 ou Helm 2 pour stocker des graphiques Helm dans Azure Container Registry, en suivant le workflow propre à chaque version :
 
-## <a name="add-a-repository-to-helm-client"></a>Ajouter un référentiel au client Helm
+* [Client Helm 3](#use-the-helm-3-client) : utilisez les commandes `helm chart` pour gérer les graphiques dans votre registre en tant qu’[artefacts OCI](container-registry-image-formats.md#oci-artifacts)
+* [Client Helm 2](#use-the-helm-2-client) : utilisez les commandes [az acr helm][az-acr-helm] dans Azure CLI pour ajouter et gérer votre registre de conteneurs comme un référentiel de graphiques Helm
 
-Un référentiel Helm est un serveur HTTP pouvant stocker des graphiques Helm. Azure Container Registry peut fournir ce stockage pour les graphiques Helm, et gérer la définition d’index quand vous ajoutez et supprimez des graphiques dans le référentiel.
+### <a name="additional-information"></a>Informations supplémentaires
 
-Pour ajouter Azure Container Registry comme référentiel de graphiques Helm, vous utilisez l’interface de ligne de commande Azure. Avec cette approche, votre client Helm est mis à jour avec l’URI et les informations d’identification du référentiel pris en charge par Azure Container Registry. Comme vous n’avez pas besoin de spécifier manuellement les détails de ce référentiel, les informations d’identification ne sont pas exposées dans l’historique des commandes, par exemple.
+* Nous vous recommandons d’utiliser le workflow Helm 3 avec les commandes `helm chart` natives pour gérer les graphiques en tant qu’artefacts OCI.
+* Vous pouvez utiliser les commandes [az acr helm][az-acr-helm] héritées d’Azure CLI avec le workflow du client et des graphiques Helm 3. Sachez toutefois que certaines commandes comme `az acr helm list` ne sont pas compatibles avec les graphiques Helm 3.
+* Dans Helm 3, les commandes [az acr helm][az-acr-helm] sont prises en charge dans le but principal d’assurer la compatibilité avec le client Helm 2 et son format de graphiques. Le développement ultérieur de ces commandes n’est pas prévu pour le moment.
 
-Si nécessaire, connectez-vous à l’interface de ligne de commande Azure et suivez les invites :
+## <a name="use-the-helm-3-client"></a>Utiliser le client Helm 3
 
-```azurecli
-az login
+### <a name="prerequisites"></a>Prérequis
+
+- **Un registre de conteneurs Azure** dans votre abonnement Azure. Si nécessaire, créez un registre en utilisant le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md).
+- **Client Helm version 3.0.0 ou ultérieure** : exécutez `helm version` pour connaître votre version actuelle. Pour plus d’informations sur l’installation et la mise à niveau de Helm, consultez [Installation de Helm][helm-install].
+- **Un cluster Kubernetes** où vous allez installer un graphique Helm. Si nécessaire, créez un [cluster Azure Kubernetes Service][aks-quickstart]. 
+- **Azure CLI version 2.0.71 ou ultérieure** : exécutez `az --version` pour connaître la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
+
+### <a name="high-level-workflow"></a>Workflow général
+
+Avec **Helm 3**, vous pouvez :
+
+* Créer un ou plusieurs référentiels Helm dans un registre de conteneurs Azure.
+* Stocker les graphiques Helm 3 dans un registre en tant qu’[artefacts OCI](container-registry-image-formats.md#oci-artifacts). Actuellement, la prise en charge de Helm 3 pour OCI est considérée comme *expérimentale*.
+* Utiliser les commandes `helm chart` directement à partir de la CLI Helm pour envoyer (push), tirer (pull) et gérer des graphiques Helm dans un registre.
+* Vous authentifier auprès de votre registre par le biais d’Azure CLI, qui met ensuite à jour automatiquement votre client Helm avec l’URI et les informations d’identification du registre. Comme vous n’avez pas besoin de spécifier manuellement les détails de ce registre, les informations d’identification ne sont pas exposées dans l’historique des commandes.
+* Utiliser `helm install` pour installer des graphiques sur un cluster Kubernetes à partir d’un cache de référentiel local.
+
+Pour obtenir des exemples, consultez les sections suivantes.
+
+### <a name="enable-oci-support"></a>Activer la prise en charge d’OCI
+
+Définissez la variable d’environnement suivante pour activer la prise en charge d’OCI dans le client Helm 3. Actuellement, cette prise en charge est expérimentale. 
+
+```console
+export HELM_EXPERIMENTAL_OCI=1
 ```
 
-Configurez les valeurs par défaut de l’interface de ligne de commande Azure avec le nom de votre registre Azure Container Registry à l’aide de la commande [az configure][az-configure]. Dans l’exemple suivant, remplacez `<acrName>` par le nom de votre registre :
+### <a name="pull-an-existing-helm-package"></a>Tirer (pull) un package Helm existant
 
-```azurecli
-az configure --defaults acr=<acrName>
+Si vous n’avez pas encore ajouté le référentiel de graphiques Helm `stable`, exécutez la commande `helm repo add` :
+
+```console
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
 ```
 
-Ajoutez maintenant votre référentiel de graphiques Helm Azure Container Registry à votre client Helm à l’aide de la commande [az acr helm repo add][az-acr-helm-repo-add]. Cette commande obtient un jeton d’authentification pour votre registre Azure Container Registry qui est utilisé par le client Helm. Le jeton d’authentification est valide pendant 1 heure. Comme pour `docker login`, vous pouvez exécuter cette commande dans les futures sessions CLI pour authentifier votre client Helm auprès de votre référentiel de graphiques Helm Azure Container Registry :
-
-```azurecli
-az acr helm repo add
-```
-
-## <a name="add-a-chart-to-the-repository"></a>Ajouter un graphique au référentiel
-
-Pour cet article, procurons-nous un graphique Helm existant dans le référentiel *stable* Helm public. Le référentiel *stable* est un référentiel organisé et public qui inclut des graphiques d’application courants. Les chargés de maintenance des packages peuvent envoyer leurs graphiques au référentiel *stable*, de la même façon que Docker Hub fournit un registre public pour les images de conteneur courantes. Le graphique téléchargé à partir du référentiel *stable* public peut ensuite être envoyé à votre référentiel Azure Container Registry privé. Dans la plupart des scénarios, vous devez générer et charger vos propres graphiques pour les applications que vous développez. Pour plus d’informations sur la génération de vos propres graphiques Helm, consultez [Développement de graphiques Helm][develop-helm-charts].
-
-Tout d’abord, créez un répertoire sur *~/acr-helm*, puis téléchargez le graphique *stable/wordpress* existant :
+Tirez un package de graphiques en local à partir du référentiel `stable`. Par exemple, créez un répertoire local *~/acr-helm*, puis téléchargez le package de graphiques *stable/wordpress* existant. (Cet exemple de commande et les autres commandes de cet article sont mises en forme pour l’interpréteur de commandes Bash.)
 
 ```console
 mkdir ~/acr-helm && cd ~/acr-helm
-helm fetch stable/wordpress
+helm pull stable/wordpress --untar
 ```
 
-Répertoriez le graphique téléchargé et notez la version de Wordpress incluse dans le nom de fichier. Comme la commande `helm fetch stable/wordpress` n’a pas spécifié de version particulière, la *dernière* version a été extraite. Tous les graphiques Helm incluent un numéro de version dans le nom de fichier qui suit la norme [SemVer 2][semver2]. Dans l’exemple de sortie suivant, la version du graphique Wordpress est *2.1.10* :
+Comme la commande `helm pull stable/wordpress` n’a pas spécifié de version particulière, la *dernière* version a été tirée et décompressée dans le sous-répertoire `wordpress`.
 
+### <a name="save-chart-to-local-registry-cache"></a>Enregistrer le graphique dans le cache de registre local
+
+Changez de répertoire pour accéder au sous-répertoire `wordpress` qui contient les fichiers des graphiques Helm. Ensuite, exécutez `helm chart save` pour enregistrer une copie du graphique localement et pour créer un alias composé du nom complet du registre, du référentiel cible et de l’étiquette cible. 
+
+Dans l’exemple suivant, le nom du registre est *mycontainerregistry*, le référentiel cible est *wordpress* et l’étiquette du graphique cible est *latest*. Remplacez ces valeurs par les valeurs appropriées à votre environnement :
+
+```console
+cd wordpress
+helm chart save . wordpress:latest
+helm chart save . mycontainerregistry.azurecr.io/helm/wordpress:latest
 ```
-$ ls
 
-wordpress-2.1.10.tgz
+Exécutez `helm chart list` pour vérifier que les graphiques ont bien été enregistrés dans le cache de registre local. Le résultat se présente ainsi :
+
+```console
+REF                                                      NAME            VERSION DIGEST  SIZE            CREATED
+wordpress:latest                                         wordpress       8.1.0   5899db0 29.1 KiB        1 day 
+mycontainerregistry.azurecr.io/helm/wordpress:latest     wordpress       8.1.0   5899db0 29.1 KiB        1 day 
 ```
 
-Envoyez maintenant le graphique à votre référentiel de graphiques Helm dans Azure Container Registry à l’aide de la commande [az acr helm push][az-acr-helm-push] de l’interface de ligne de commande Azure. Spécifiez le nom de votre graphique Helm téléchargé à l’étape précédente, par exemple *wordpress-2.1.10.tgz* :
+### <a name="push-chart-to-azure-container-registry"></a>Envoyer (push) le graphique vers Azure Container Registry
+
+Exécutez la commande `helm chart push` dans la CLI Helm 3 pour envoyer le graphique Helm vers un référentiel dans votre registre de conteneurs Azure. S’il n’existe pas déjà, le référentiel est créé.
+
+Commencez par utiliser la commande [az acr login][az-acr-login] d’Azure CLI pour vous authentifier auprès de votre registre :
 
 ```azurecli
-az acr helm push wordpress-2.1.10.tgz
+az acr login --name mycontainerregistry
 ```
 
-Après quelques instants, l’interface de ligne de commande Azure signale que votre graphique a été enregistré, comme indiqué dans l’exemple de sortie suivant :
+Envoyez le graphique vers le référentiel cible (spécifié avec son nom complet) :
 
+```console
+helm chart push mycontainerregistry.azurecr.io/helm/wordpress:latest
 ```
-$ az acr helm push wordpress-2.1.10.tgz
 
+Après une opération push réussie, la sortie ressemble à ceci :
+
+```console
+The push refers to repository [mycontainerregistry.azurecr.io/helm/wordpress]
+ref:     mycontainerregistry.azurecr.io/helm/wordpress:latest
+digest:  5899db028dcf96aeaabdadfa5899db025899db025899db025899db025899db02
+size:    29.1 KiB
+name:    wordpress
+version: 8.1.0
+```
+
+### <a name="list-charts-in-the-repository"></a>Répertorier les graphiques dans le référentiel
+
+Comme avec les images stockées dans un registre de conteneurs Azure, vous pouvez utiliser les commandes [az acr repository][az-acr-repository] pour lister les référentiels hébergeant vos graphiques ainsi que les étiquettes et les manifestes des graphiques. 
+
+Par exemple, exécutez [az acr repository show][az-acr-repository-show] pour voir les propriétés du référentiel que vous avez créé à l’étape précédente :
+
+```azurecli
+az acr repository show \
+  --name mycontainerregistry \
+  --repository helm/wordpress
+```
+
+Le résultat se présente ainsi :
+
+```console
 {
-  "saved": true
+  "changeableAttributes": {
+    "deleteEnabled": true,
+    "listEnabled": true,
+    "readEnabled": true,
+    "writeEnabled": true
+  },
+  "createdTime": "2020-01-29T16:54:30.1514833Z",
+  "imageName": "helm/wordpress",
+  "lastUpdateTime": "2020-01-29T16:54:30.4992247Z",
+  "manifestCount": 1,
+  "registry": "mycontainerregistry.azurecr.io",
+  "tagCount": 1
 }
 ```
 
-## <a name="list-charts-in-the-repository"></a>Répertorier les graphiques dans le référentiel
-
-Le client Helm conserve une copie locale mise en cache du contenu des référentiels distants. Les modifications apportées à un référentiel distant ne mettent pas automatiquement à jour la liste des graphiques disponibles connus localement par le client Helm. Quand vous recherchez des graphiques dans des référentiels, Helm utilise son index local mis en cache. Pour utiliser le graphique chargé à l’étape précédente, vous devez mettre à jour l’index de référentiel Helm local. Vous pouvez réindexer les référentiels dans le client Helm, ou utiliser l’interface de ligne de commande Azure pour mettre à jour l’index de référentiel. Chaque fois que vous ajoutez un graphique à votre référentiel, cette étape doit être effectuée :
+Exécutez la commande [az acr repository show-manifests][az-acr-repository-show-manifests] pour voir les détails du graphique stocké dans le référentiel. Par exemple :
 
 ```azurecli
-az acr helm repo add
+az acr repository show-manifests \
+  --name mycontainerregistry \
+  --repository helm/wordpress --detail
 ```
 
-Avec un graphique stocké dans votre référentiel et l’index mis à jour disponible localement, vous pouvez utiliser les commandes du client Helm standard pour la recherche ou l’installation. Pour afficher tous les graphiques dans votre référentiel, utilisez `helm search <acrName>`. Fournissez votre propre nom Azure Container Registry :
+La sortie, abrégée dans cet exemple, montre le paramètre `configMediaType` défini à `application/vnd.cncf.helm.config.v1+json` :
 
 ```console
-helm search <acrName>
+[
+  {
+    [...]
+    "configMediaType": "application/vnd.cncf.helm.config.v1+json",
+    "createdTime": "2020-01-29T16:54:30.2382436Z",
+    "digest": "sha256:xxxxxxxx51bc0807bfa97cb647e493ac381b96c1f18749b7388c24bbxxxxxxxxx",
+    "imageSize": 29995,
+    "lastUpdateTime": "2020-01-29T16:54:30.3492436Z",
+    "mediaType": "application/vnd.oci.image.manifest.v1+json",
+    "tags": [
+      "latest"
+    ]
+  }
+]
 ```
 
-Le graphique Wordpress envoyé à l’étape précédente est répertorié, comme illustré dans l’exemple de sortie suivant :
+### <a name="pull-chart-to-local-cache"></a>Tirer (pull) le graphique vers le cache local
 
-```
-$ helm search myacrhelm
-
-NAME                CHART VERSION   APP VERSION DESCRIPTION
-helmdocs/wordpress  2.1.10          4.9.8       Web publishing platform for building blogs and websites.
-```
-
-Vous pouvez également répertorier les graphiques avec l’interface de ligne de commande Azure, en utilisant [az acr helm list][az-acr-helm-list] :
-
-```azurecli
-az acr helm list
-```
-
-## <a name="show-information-for-a-helm-chart"></a>Afficher des informations pour un graphique Helm
-
-Pour afficher des informations pour un graphique spécifique dans le référentiel, vous pouvez à nouveau utiliser le client Helm standard. Pour afficher des informations pour le graphique nommé *wordpress*, utilisez `helm inspect`.
+Pour installer un graphique Helm sur Kubernetes, le graphique doit se trouver dans le cache local. Dans cet exemple, commencez par exécuter `helm chart remove` pour supprimer le graphique local existant nommé `mycontainerregistry.azurecr.io/helm/wordpress:latest` :
 
 ```console
-helm inspect <acrName>/wordpress
+helm chart remove mycontainerregistry.azurecr.io/helm/wordpress:latest
 ```
 
-Quand aucun numéro de version n’est fourni, la *dernière* version est utilisée. Helm retourne des informations détaillées sur votre graphique, comme indiqué dans l’exemple de sortie condensé suivant :
+Exécutez `helm chart pull` pour télécharger le graphique du registre de conteneurs Azure dans votre cache local :
+
+```console
+helm chart pull mycontainerregistry.azurecr.io/helm/wordpress:latest
+```
+
+### <a name="export-helm-chart"></a>Exporter le graphique Helm
+
+Pour pouvoir travailler plus en détail sur le graphique, exportez-le dans un répertoire local à l’aide de la commande `helm chart export`. Par exemple, exportez le graphique que vous avez tiré dans le répertoire `install` :
+
+```console
+helm chart export mycontainerregistry.azurecr.io/helm/wordpress:latest --destination ./install
+```
+
+Pour afficher les informations relatives au graphique exporté dans le référentiel, exécutez la commande `helm inspect chart` dans le répertoire de l’exportation.
+
+```console
+cd install
+helm inspect chart wordpress
+```
+
+Quand aucun numéro de version n’est fourni, la *dernière* version est utilisée. Helm retourne des informations détaillées au sujet de votre graphique, comme celles figurant dans cet exemple de sortie condensée :
 
 ```
-$ helm inspect myacrhelm/wordpress
-
-appVersion: 4.9.8
+apiVersion: v1
+appVersion: 5.3.2
+dependencies:
+- condition: mariadb.enabled
+  name: mariadb
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  tags:
+  - wordpress-database
+  version: 7.x.x
 description: Web publishing platform for building blogs and websites.
-engine: gotpl
-home: https://www.wordpress.com/
+home: http://www.wordpress.com/
 icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
 keywords:
 - wordpress
@@ -145,26 +239,170 @@ keywords:
 - php
 maintainers:
 - email: containers@bitnami.com
-  name: bitnami-bot
+  name: Bitnami
 name: wordpress
 sources:
 - https://github.com/bitnami/bitnami-docker-wordpress
-version: 2.1.10
+version: 8.1.0
+```
+
+### <a name="install-helm-chart"></a>Installer le graphique Helm
+
+Exécutez `helm install` pour installer le graphique Helm que vous avez tiré dans le cache local, puis exporté. Spécifiez un nom de version ou passez le paramètre `--generate-name`. Par exemple :
+
+```console
+helm install wordpress --generate-name
+```
+
+À mesure que l’installation se poursuit, suivez les instructions fournies dans la sortie de commande pour afficher les URL et les informations d’identification WordPress. Vous pouvez également exécuter la commande `kubectl get pods` pour voir les ressources Kubernetes déployées par le biais du graphique Helm :
+
+```console
+NAME                                    READY   STATUS    RESTARTS   AGE
+wordpress-1598530621-67c77b6d86-7ldv4   1/1     Running   0          2m48s
+wordpress-1598530621-mariadb-0          1/1     Running   0          2m48s
 [...]
 ```
 
-Vous pouvez également afficher les informations pour un graphique à l’aide de la commande [az acr helm show][az-acr-helm-show] de l’interface de ligne de commande Azure. Là encore, la *dernière* version d’un graphique est retournée par défaut. Vous pouvez ajouter `--version` pour répertorier une version spécifique d’un graphique, telle que *2.1.10* :
+### <a name="delete-a-helm-chart-from-the-repository"></a>Supprimer un graphique Helm du référentiel
+
+Pour supprimer un graphique du référentiel, utilisez la commande [az acr repository delete][az-acr-repository-delete]. Exécutez la commande suivante, puis confirmez l’opération lorsque vous y êtes invité :
 
 ```azurecli
-az acr helm show wordpress
+az acr repository delete --name mycontainerregistry --image helm/wordpress:latest
 ```
 
-## <a name="install-a-helm-chart-from-the-repository"></a>Installer un graphique Helm à partir du référentiel
+## <a name="use-the-helm-2-client"></a>Utiliser le client Helm 2
 
-Le graphique Helm dans votre référentiel est installé en spécifiant le nom du référentiel, puis le nom du graphique. Utilisez le client Helm pour installer le graphique Wordpress :
+### <a name="prerequisites"></a>Prérequis
+
+- **Un registre de conteneurs Azure** dans votre abonnement Azure. Si nécessaire, créez un registre en utilisant le [portail Azure](container-registry-get-started-portal.md) ou [Azure CLI](container-registry-get-started-azure-cli.md).
+- **Client Helm version 2.11.0 (pas une version RC) ou ultérieure** : exécutez `helm version` pour trouver votre version actuelle. Vous avez également besoin d’un serveur Helm (Tiller) initialisé dans un cluster Kubernetes. Si nécessaire, créez un [cluster Azure Kubernetes Service][aks-quickstart]. Pour plus d’informations sur l’installation et la mise à niveau de Helm, consultez [Installation de Helm][helm-install-v2].
+- **Azure CLI version 2.0.46 ou ultérieure** : exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
+
+### <a name="high-level-workflow"></a>Workflow général
+
+Avec **Helm 2**, vous pouvez :
+
+* Configurer votre registre de conteneurs Azure comme référentiel de graphiques Helm *unique*. Azure Container Registry gère la définition d’index quand vous ajoutez et supprimez des graphiques dans le référentiel.
+* Utiliser les commandes [az acr helm][az-acr-helm] dans Azure CLI pour ajouter votre registre de conteneurs Azure comme référentiel de graphiques Helm, et pour envoyer (push) et gérer les graphiques. Ces commandes d’Azure CLI wrappent les commandes du client Helm 2.
+* Ajouter le référentiel des graphiques de votre registre de conteneurs Azure à votre index de référentiel Helm local, avec prise en charge de la recherche dans les graphiques
+* Vous authentifier auprès de votre registre de conteneurs Azure par le biais d’Azure CLI, qui met ensuite à jour automatiquement votre client Helm avec l’URI et les informations d’identification du registre. Comme vous n’avez pas besoin de spécifier manuellement les détails de ce registre, les informations d’identification ne sont pas exposées dans l’historique des commandes.
+* Utiliser `helm install` pour installer des graphiques sur un cluster Kubernetes à partir d’un cache de référentiel local.
+
+Pour obtenir des exemples, consultez les sections suivantes.
+
+### <a name="add-repository-to-helm-client"></a>Ajouter le référentiel au client Helm
+
+Ajoutez le référentiel de graphiques Helm de votre registre Azure Container Registry à votre client Helm à l’aide de la commande [az acr helm repo add][az-acr-helm-repo-add]. Cette commande obtient un jeton d’authentification pour votre registre Azure Container Registry qui est utilisé par le client Helm. Le jeton d’authentification reste valide pendant 3 heures. Comme pour `docker login`, vous pouvez exécuter cette commande dans les futures sessions CLI pour authentifier votre client Helm auprès de votre référentiel de graphiques Helm Azure Container Registry :
+
+```azurecli
+az acr helm repo add --name mycontainerregistry
+```
+
+### <a name="add-a-chart-to-the-repository"></a>Ajouter un graphique au référentiel
+
+Créez d’abord un répertoire local sur *~/acr-helm*, puis téléchargez le graphique *stable/wordpress* existant :
 
 ```console
-helm install <acrName>/wordpress
+mkdir ~/acr-helm && cd ~/acr-helm
+helm repo update
+helm fetch stable/wordpress
+```
+
+Tapez `ls` pour lister le graphique téléchargé et notez la version de Wordpress indiquée dans le nom de fichier. Comme la commande `helm fetch stable/wordpress` n’a pas spécifié de version particulière, la *dernière* version a été extraite. Dans l’exemple de sortie ci-dessous, la version du graphique Wordpress est *8.1.0* :
+
+```
+wordpress-8.1.0.tgz
+```
+
+Envoyez le graphique vers votre référentiel de graphiques Helm dans Azure Container Registry en exécutant la commande [az acr helm push][az-acr-helm-push] dans Azure CLI. Spécifiez le nom de votre graphique Helm téléchargé à l’étape précédente, par exemple *wordpress-8.1.0.tgz* :
+
+```azurecli
+az acr helm push --name mycontainerregistry wordpress-8.1.0.tgz
+```
+
+Après quelques instants, Azure CLI signale que votre graphique est enregistré, comme dans l’exemple de sortie suivant :
+
+```
+{
+  "saved": true
+}
+```
+
+### <a name="list-charts-in-the-repository"></a>Répertorier les graphiques dans le référentiel
+
+Pour utiliser le graphique chargé à l’étape précédente, vous devez mettre à jour l’index de référentiel Helm local. Vous pouvez réindexer les référentiels dans le client Helm, ou utiliser l’interface de ligne de commande Azure pour mettre à jour l’index de référentiel. Chaque fois que vous ajoutez un graphique à votre référentiel, cette étape doit être effectuée :
+
+```azurecli
+az acr helm repo add --name mycontainerregistry
+```
+
+Avec un graphique stocké dans votre référentiel et l’index mis à jour disponible localement, vous pouvez utiliser les commandes du client Helm standard pour la recherche ou l’installation. Pour lister tous les graphiques stockés dans votre référentiel, utilisez la commande `helm search`, en spécifiant le nom de votre propre registre de conteneurs Azure :
+
+```console
+helm search mycontainerregistry
+```
+
+Le graphique Wordpress envoyé à l’étape précédente est répertorié, comme illustré dans l’exemple de sortie suivant :
+
+```
+NAME                CHART VERSION   APP VERSION DESCRIPTION
+helmdocs/wordpress  8.1.0           5.3.2       Web publishing platform for building blogs and websites.
+```
+
+Vous pouvez également répertorier les graphiques avec l’interface de ligne de commande Azure, en utilisant [az acr helm list][az-acr-helm-list] :
+
+```azurecli
+az acr helm list --name mycontainerregistry
+```
+
+### <a name="show-information-for-a-helm-chart"></a>Afficher des informations pour un graphique Helm
+
+Pour afficher les informations relatives à un graphique spécifique dans le référentiel, utilisez la commande `helm inspect`.
+
+```console
+helm inspect mycontainerregistry/wordpress
+```
+
+Quand aucun numéro de version n’est fourni, la *dernière* version est utilisée. Helm retourne des informations détaillées sur votre graphique, comme indiqué dans l’exemple de sortie condensé suivant :
+
+```
+apiVersion: v1
+appVersion: 5.3.2
+description: Web publishing platform for building blogs and websites.
+engine: gotpl
+home: http://www.wordpress.com/
+icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
+keywords:
+- wordpress
+- cms
+- blog
+- http
+- web
+- application
+- php
+maintainers:
+- email: containers@bitnami.com
+  name: Bitnami
+name: wordpress
+sources:
+- https://github.com/bitnami/bitnami-docker-wordpress
+version: 8.1.0
+[...]
+```
+
+Vous pouvez également afficher les informations pour un graphique à l’aide de la commande [az acr helm show][az-acr-helm-show] de l’interface de ligne de commande Azure. Là encore, la *dernière* version d’un graphique est retournée par défaut. Vous pouvez ajouter `--version` pour lister une version spécifique d’un graphique, par exemple *8.1.0* :
+
+```azurecli
+az acr helm show --name mycontainerregistry wordpress
+```
+
+### <a name="install-a-helm-chart-from-the-repository"></a>Installer un graphique Helm à partir du référentiel
+
+Vous installez le graphique Helm dans votre référentiel en spécifiant le nom du référentiel et le nom du graphique. Utilisez le client Helm pour installer le graphique Wordpress :
+
+```console
+helm install mycontainerregistry/wordpress
 ```
 
 > [!TIP]
@@ -176,38 +414,29 @@ Les étapes suivantes sont effectuées pendant le processus d’installation :
 - Le graphique correspondant est téléchargé à partir du référentiel Azure Container Registry.
 - Le graphique est déployé à l’aide de Tiller dans votre cluster Kubernetes.
 
-L’exemple de sortie condensé suivant montre les ressources Kubernetes déployées via le graphique Helm :
+À mesure que l’installation se poursuit, suivez les instructions fournies dans la sortie de commande pour afficher les URL et les informations d’identification WordPress. Vous pouvez également exécuter la commande `kubectl get pods` pour voir les ressources Kubernetes déployées par le biais du graphique Helm :
 
 ```
-$ helm install myacrhelm/wordpress
-
-NAME:   irreverent-jaguar
-LAST DEPLOYED: Thu Sep 13 21:44:20 2018
-NAMESPACE: default
-STATUS: DEPLOYED
-
-RESOURCES:
-==> v1/Pod(related)
-NAME                                          READY  STATUS   RESTARTS  AGE
-irreverent-jaguar-wordpress-7ff46d9b8c-b7v6m  0/1    Pending  0         1s
-irreverent-jaguar-mariadb-0                   0/1    Pending  0         1s
+NAME                                    READY   STATUS    RESTARTS   AGE
+wordpress-1598530621-67c77b6d86-7ldv4   1/1     Running   0          2m48s
+wordpress-1598530621-mariadb-0          1/1     Running   0          2m48s
 [...]
 ```
 
-## <a name="delete-a-helm-chart-from-the-repository"></a>Supprimer un graphique Helm du référentiel
+### <a name="delete-a-helm-chart-from-the-repository"></a>Supprimer un graphique Helm du référentiel
 
-Pour supprimer un graphique du référentiel, utilisez la commande [az acr helm delete][az-acr-helm-delete]. Spécifiez le nom du graphique, tel que *wordpress* et la version à supprimer, telle que *2.1.10*.
+Pour supprimer un graphique du référentiel, utilisez la commande [az acr helm delete][az-acr-helm-delete]. Spécifiez le nom du graphique (*wordpress* ici) et la version à supprimer (*8.1.0*).
 
 ```azurecli
-az acr helm delete wordpress --version 2.1.10
+az acr helm delete --name mycontainerregistry wordpress --version 8.1.0
 ```
 
 Si vous souhaitez supprimer toutes les versions du graphique nommé, omettez le paramètre `--version`.
 
-Le graphique continue à être retourné dans `helm search <acrName>`. Là encore, le client Helm ne met pas automatiquement à jour la liste des graphiques disponibles dans un référentiel. Pour mettre à jour l’index de référentiel du client Helm, utilisez à nouveau la commande [az acr helm repo add][az-acr-helm-repo-add] :
+Le graphique continue d’être retourné quand vous exécutez `helm search`. Là encore, le client Helm ne met pas automatiquement à jour la liste des graphiques disponibles dans un référentiel. Pour mettre à jour l’index de référentiel du client Helm, utilisez à nouveau la commande [az acr helm repo add][az-acr-helm-repo-add] :
 
 ```azurecli
-az acr helm repo add
+az acr helm repo add --name mycontainerregistry
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -216,12 +445,11 @@ Cet article a utilisé un graphique Helm existant du référentiel *stable* publ
 
 Les graphiques Helm peuvent être utilisés dans le cadre du processus de génération de conteneur. Pour plus d’informations, consultez [Utiliser des tâches Azure Container Registry][acr-tasks].
 
-Pour plus d’informations sur l’utilisation et la gestion d’Azure Container Registry, consultez les [bonnes pratiques][acr-bestpractices].
-
 <!-- LINKS - external -->
 [helm]: https://helm.sh/
-[helm-install]: https://docs.helm.sh/using_helm/#installing-helm
-[develop-helm-charts]: https://helm.sh/docs/topics/charts/
+[helm-install]: https://helm.sh/docs/intro/install/
+[helm-install-v2]: https://v2.helm.sh/docs/using_helm/#installing-helm
+[develop-helm-charts]: https://helm.sh/docs/chart_template_guide/
 [semver2]: https://semver.org/
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
@@ -231,6 +459,12 @@ Pour plus d’informations sur l’utilisation et la gestion d’Azure Container
 [acr-bestpractices]: container-registry-best-practices.md
 [az-configure]: /cli/azure/reference-index#az-configure
 [az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-helm]: /cli/azure/acr/helm
+[az-acr-repository]: /cli/azure/acr/repository
+[az-acr-repository-show]: /cli/azure/acr/repository#az-acr-repository-show
+[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#az-acr-repository-show-tags
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
 [az-acr-helm-repo-add]: /cli/azure/acr/helm/repo#az-acr-helm-repo-add
 [az-acr-helm-push]: /cli/azure/acr/helm#az-acr-helm-push
 [az-acr-helm-list]: /cli/azure/acr/helm#az-acr-helm-list

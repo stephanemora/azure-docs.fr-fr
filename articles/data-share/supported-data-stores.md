@@ -6,12 +6,12 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 5d4b1282b0a08657aea6f8a13aae7ed1fe49079b
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 11c759dc8865da9de63e3acbfa1d4e26836d010a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964207"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622441"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Magasins de données pris en charge dans Azure Data Share
 
@@ -47,7 +47,7 @@ Le tableau ci-dessous détaille les différentes combinaisons et choix à la dis
 | Azure Synapse Analytics (anciennement Azure SQL DW) | ✓ | | ✓| ✓| ✓|
 
 ## <a name="share-from-a-storage-account"></a>Partager à partir d’un compte de stockage
-Azure Data Share prend en charge le partage de fichiers, dossiers et de systèmes de fichiers à partir d’Azure Data Lake Gen1 et Azure Data Lake Gen2. Le service prend également en charge le partage de blobs, de dossiers et de conteneurs à partir de Stockage Blob Azure. Lorsque les dossiers sont partagés dans un partage basé sur une capture instantanée, le consommateur de données peut choisir d’effectuer une copie complète des données de partage ou de tirer parti de la fonctionnalité de capture instantanée incrémentielle pour copier uniquement les fichiers nouveaux ou mis à jour. Les fichiers existants portant le même nom seront remplacés.
+Azure Data Share prend en charge le partage de fichiers, dossiers et de systèmes de fichiers à partir d’Azure Data Lake Gen1 et Azure Data Lake Gen2. Le service prend également en charge le partage de blobs, de dossiers et de conteneurs à partir de Stockage Blob Azure. Seul l’objet blob de blocs est actuellement pris en charge. Lorsque les dossiers sont partagés dans un partage basé sur une capture instantanée, le consommateur de données peut choisir d’effectuer une copie complète des données de partage ou de tirer parti de la fonctionnalité de capture instantanée incrémentielle pour copier uniquement les fichiers nouveaux ou mis à jour. Les fichiers existants portant le même nom seront remplacés.
 
 ## <a name="share-from-a-sql-based-source"></a>Partager à partir d’une source SQL
 Azure Data Share prend en charge le partage de tables ou d’affichages à partir d’Azure SQL Database et d’Azure Synapse Analytics (anciennement Azure SQL DW). Le consommateur de données peut choisir d’accepter les données dans Azure Data Lake Storage Gen2 ou Stockage Blob Azure en tant que fichier CSV ou Parquet. La capture instantanée complète remplace le contenu du fichier cible. Le consommateur de données peut également accepter les données dans une table SQL. Si la table SQL cible n’est pas disponible côté consommateur de données, Azure Data Share crée la table SQL avec le schéma source. La capture instantanée complète ajoute le contenu de la table source à la table SQL cible. La capture instantanée incrémentielle n’est pas prise en charge actuellement.

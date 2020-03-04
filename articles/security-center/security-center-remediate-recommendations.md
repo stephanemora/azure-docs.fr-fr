@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 325c68e5e4531e5519596bea00c370c26460a8ed
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6863f4bbfc6aabc4e7bf4314ad26dd4590d31362
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981908"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603497"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Appliquer les recommandations d’Azure Security Center
 
@@ -26,7 +26,7 @@ Les recommandations fournissent des suggestions visant à mieux sécuriser vos r
 
 ## Étapes de correction <a name="remediation-steps"></a>
 
-Après avoir lu toutes les recommandations, vous devez décider laquelle appliquer en premier. Pour déterminer quelles recommandations appliquer en premier, il est recommandé de se baser sur l’[impact du degré de sécurisation](security-center-recommendations.md#monitor-recommendations).
+Après avoir lu toutes les recommandations, vous devez décider laquelle appliquer en premier. Nous vous recommandons de vous baser sur l’[impact du niveau de sécurité](security-center-recommendations.md#monitor-recommendations) pour hiérarchiser les actions à effectuer en priorité.
 
 1. Dans la liste, cliquez sur la recommandation.
 
@@ -38,7 +38,7 @@ Après avoir lu toutes les recommandations, vous devez décider laquelle appliqu
 
 ## Application d’un correctif rapide<a name="one-click"></a>
 
-Le correctif rapide vous permet d’appliquer rapidement une recommandation à plusieurs ressources. Ceci est disponible uniquement pour des recommandations spécifiques. Le correctif rapide simplifie l’implémentation des corrections et vous permet d’accroître rapidement votre degré de sécurisation, améliorant la sécurité de votre environnement.
+Le correctif rapide vous permet d’appliquer rapidement une recommandation à plusieurs ressources. Ceci est disponible uniquement pour des recommandations spécifiques. Le correctif rapide simplifie le processus de correction et vous permet d’accroître rapidement votre niveau de sécurité, ce qui entraîne ainsi une amélioration de la sécurité de votre environnement.
 
 Pour mettre en œuvre une application rapide des correctifs :
 

@@ -2,13 +2,13 @@
 title: Sorties dans des modèles
 description: Explique comment définir des valeurs de sortie dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 7244e1ac0eff973d550a2bae8a70fa5055ca2248
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/25/2020
+ms.openlocfilehash: ec96b45cdc5ccf488d46c2d8da03caf16d002dfa
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476195"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622839"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Sorties dans un modèle Azure Resource Manager
 
@@ -43,6 +43,24 @@ Dans la section outputs, vous pouvez retourner une valeur de manière conditionn
 
 Pour obtenir un exemple simple de sortie conditionnelle, consultez [Modèle de sortie conditionnelle](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json).
 
+## <a name="dynamic-number-of-outputs"></a>Nombre dynamique de sorties
+
+Dans certains scénarios, vous ne connaissez pas le nombre d’instances d’une valeur que vous devez retourner lors de la création du modèle. Vous pouvez retourner un nombre variable de valeurs à l’aide de l’élément **copy**.
+
+```json
+"outputs": {
+  "storageEndpoints": {
+    "type": "array",
+    "copy": {
+      "count": "[parameters('storageCount')]",
+      "input": "[reference(concat(copyIndex(), variables('baseName'))).primaryEndpoints.blob]"
+    }
+  }
+}
+```
+
+Pour plus d’informations, consultez [Itération de sorties dans des modèles Azure Resource Manager](copy-outputs.md).
+
 ## <a name="linked-templates"></a>Modèles liés
 
 Pour récupérer la valeur de sortie à partir d’un modèle lié, utilisez la fonction [reference](template-functions-resource.md#reference) dans le modèle parent. La syntaxe dans le modèle parent est la suivante :
@@ -69,7 +87,7 @@ Une fois le déploiement terminé, les valeurs de sortie sont automatiquement re
 
 Pour obtenir des valeurs de sortie à partir de l’historique des déploiements, vous pouvez utiliser un script.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment `
@@ -77,7 +95,7 @@ Pour obtenir des valeurs de sortie à partir de l’historique des déploiements
   -Name <deployment-name>).Outputs.resourceID.value
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az group deployment show \

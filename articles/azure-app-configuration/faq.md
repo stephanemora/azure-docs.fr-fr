@@ -1,31 +1,26 @@
 ---
-title: Azure App Configuration – Questions fréquentes (FAQ) | Microsoft Docs
+title: Azure App Configuration – Questions fréquentes (FAQ)
 description: Questions fréquentes (FAQ) sur App Configuration
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 4bcd8f042563fa381832fd629061a822f71e844a
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 60ba0a7723861d6e642a23418dda6a1daa57f14e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467587"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523490"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure App Configuration – Questions fréquentes (FAQ)
 
-Cet article traite les questions fréquentes sur Azure App Configuration.
+Cet article répond aux questions fréquentes sur Azure App Configuration.
 
 ## <a name="how-is-app-configuration-different-from-azure-key-vault"></a>En quoi App Configuration est-il différent d’Azure Key Vault ?
 
-App Configuration a été conçu pour des cas d’usage bien distincts : il aide les développeurs à gérer les paramètres d’application et à contrôler la disponibilité des fonctionnalités. Il vise à simplifier de nombreuses tâches impliquant l’utilisation de données de configuration complexes.
+App Configuration permet aux développeurs de gérer les paramètres d’application et de contrôler la disponibilité des fonctionnalités. Il vise à simplifier de nombreuses tâches impliquant l’utilisation de données de configuration complexes.
 
 App Configuration prend en charge :
 
@@ -40,7 +35,7 @@ App Configuration et Key Fault sont complémentaires. D’ailleurs, il est conse
 
 ## <a name="should-i-store-secrets-in-app-configuration"></a>Dois-je stocker les secrets dans App Configuration ?
 
-Même si App Configuration offre une sécurité renforcée, Key Vault reste le meilleur emplacement de stockage pour les secrets d’application. Key Vault propose un chiffrement au niveau du matériel, des stratégies d’accès granulaires ainsi que des opérations de gestion, comme la rotation des certificats.
+Même si App Configuration offre une sécurité renforcée, Key Vault reste le meilleur emplacement de stockage pour les secrets d’application. Key Vault propose un chiffrement au niveau du matériel, des stratégies d’accès précises, ainsi que des opérations de gestion, comme la rotation des certificats.
 
 Vous pouvez créer des valeurs App Configuration qui font référence à des secrets stockés dans Key Vault. Pour plus d’informations, consultez [Utiliser des références Key Vault dans une application ASP.NET Core](./use-key-vault-references-dotnet-core.md).
 
@@ -62,7 +57,7 @@ Il existe une limite de 10 Ko pour un seul élément de clé-valeur.
 
 ## <a name="how-should-i-store-configurations-for-multiple-environments-test-staging-production-and-so-on"></a>Comment dois-je stocker les configurations pour plusieurs environnements (test, intermédiaire, production, etc) ?
 
-Actuellement, vous contrôlez qui peut accéder à App Configuration par magasin. Utilisez un magasin distinct pour chaque environnement qui nécessite des autorisations différentes. Il s’agit de l’approche qui offre la meilleure isolation sur le plan de la sécurité.
+Vous contrôlez qui peut accéder à App Configuration au niveau de chaque magasin. Utilisez un magasin distinct pour chaque environnement qui nécessite des autorisations différentes. Il s’agit de l’approche qui offre la meilleure isolation sur le plan de la sécurité.
 
 ## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>Quels sont les modes d’utilisation recommandés d’App Configuration ?
 
@@ -70,9 +65,14 @@ Prenez connaissance des [bonnes pratiques](./howto-best-practices.md).
 
 ## <a name="how-much-does-app-configuration-cost"></a>Quel est le coût d’App Configuration ?
 
-Il existe deux niveaux tarifaires : 1) un niveau Gratuit, et 2) un niveau Standard.
+Il existe deux niveaux tarifaires : 
 
-Si vous avez créé un magasin avant l’introduction du niveau Standard, il passe automatiquement au niveau Gratuit lors de la mise à la disposition générale. Vous pouvez choisir de passer au niveau Standard ou de rester au niveau Gratuit si ce dernier répond à vos besoins.
+- Niveau Gratuit
+- Niveau standard.
+
+Si vous avez créé un magasin avant l’introduction du niveau Standard, il passe automatiquement au niveau Gratuit lors de la mise à la disposition générale. Vous pouvez choisir de passer au niveau Standard ou de rester au niveau Gratuit.
+
+En revanche, vous ne pouvez pas passer un magasin du niveau Standard au niveau Gratuit. Au niveau Gratuit, vous pouvez créer un magasin, puis importer des données de configuration dans ce magasin.
 
 ## <a name="which-app-configuration-tier-should-i-use"></a>Quel niveau App Configuration dois-je utiliser ?
 

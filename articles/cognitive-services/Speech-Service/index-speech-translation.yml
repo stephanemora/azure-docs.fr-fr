@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Documentation sur la traduction vocale
+summary: La traduction vocale du service de reconnaissance vocale permet de traduire en temps réel les flux audio multilingues de la parole en parole et de la parole en texte
+metadata:
+  title: Documentation sur la traduction vocale - Tutoriels, informations de référence sur l’API - Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: c45c16b4421bf48e5728f95e7043ef7ffc109c3a
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77562804"
+landingContent:
+- title: Bien démarrer
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que la traduction vocale ?
+      url: speech-translation.md
+  - linkListType: quickstart
+    links:
+    - text: Traduire la voix en texte
+      url: quickstarts/translate-speech-to-text.md
+    - text: Traduire la parole en plusieurs langues cibles
+      url: quickstarts/translate-speech-to-text-multiple-languages.md
+    - text: Traduire la voix en voix
+      url: quickstarts/translate-speech-to-speech.md
+- title: Guides pas à pas
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Traduction vocale en temps réel
+      url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
+  - linkListType: tutorial
+    links:
+    - text: Traduire et synthétiser du texte avec des API REST
+      url: ../translator/tutorial-build-flask-app-translation-synthesis.md
+- title: Informations de référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Support multilingue
+      url: language-support.md#speech-translation
+    - text: Tarifs
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+    - text: Questions fréquentes (FAQ) sur la traduction vocale
+      url: https://www.microsoft.com/translator/business/faq/

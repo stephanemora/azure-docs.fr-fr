@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: fb501a158c839e6d4d71fc2af5ae50e48c248466
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 60acd128495176cd0a90418c61edf53bdcd88e5a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789152"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647574"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Envoyer un e-mail à partir de votre compte SMTP avec Azure Logic Apps
 
@@ -30,8 +30,8 @@ Avec Azure Logic Apps et le connecteur SMTP (Simple Mail Transfer Protocol), vou
 
 * L’application logique à partir de laquelle vous souhaitez accéder à votre compte SMTP. Pour utiliser une action SMTP, démarrez votre application logique avec un déclencheur, tel qu’un déclencheur Salesforce, si vous avez un compte Salesforce.
 
-  Par exemple, vous pouvez démarrer votre application logique avec le déclencheur Salesforce **Lorsqu'un enregistrement est créé**. 
-  Ce déclencheur entre en jeu chaque fois qu’un enregistrement, tel qu’un prospect, est créé dans Salesforce. 
+  Par exemple, vous pouvez démarrer votre application logique avec le déclencheur Salesforce **Lorsqu’un enregistrement est créé**. 
+  Ce déclencheur se déclenche chaque fois qu’un enregistrement, tel qu’un prospect, est créé dans Salesforce. 
   Vous pouvez ensuite suivre ce déclencheur avec l’action SMTP **Envoyer un e-mail**. Ainsi, quand le nouvel enregistrement est créé, votre application logique envoie un e-mail à partir de votre compte SMTP concernant le nouvel enregistrement.
 
 ## <a name="connect-to-smtp"></a>Se connecter à SMTP
@@ -45,16 +45,16 @@ Avec Azure Logic Apps et le connecteur SMTP (Simple Mail Transfer Protocol), vou
    Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
    Cliquez sur le signe plus ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
-1. Dans la zone de recherche, entrez « smtp » comme filtre. Sous la liste des actions, sélectionnez l’action souhaitée.
+1. Dans la zone de recherche, entrez « smtp » comme filtre. Dans la liste des actions, sélectionnez l’action souhaitée.
 
 1. Lorsque vous y êtes invité, fournissez ces informations de connexion :
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom de connexion** | OUI | Un nom pour la connexion à votre serveur SMTP | 
-   | **Adresse du serveur SMTP** | OUI | L’adresse de votre serveur SMTP | 
-   | **Nom d’utilisateur** | OUI | Votre nom d'utilisateur pour votre compte SMTP | 
-   | **Mot de passe** | OUI | Votre mot de passe pour votre compte SMTP | 
+   | **Nom de connexion** | Oui | Un nom pour la connexion à votre serveur SMTP | 
+   | **Adresse du serveur SMTP** | Oui | L’adresse de votre serveur SMTP | 
+   | **Nom d’utilisateur** | Oui | Votre nom d'utilisateur pour votre compte SMTP | 
+   | **Mot de passe** | Oui | Votre mot de passe pour votre compte SMTP | 
    | **Port du serveur SMTP** | Non | Un port spécifique que vous souhaitez utiliser sur votre serveur SMTP | 
    | **Activer le protocole SSL ?** | Non | Activer ou désactiver le chiffrement SSL. | 
    |||| 
@@ -65,12 +65,10 @@ Avec Azure Logic Apps et le connecteur SMTP (Simple Mail Transfer Protocol), vou
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour obtenir des détails techniques sur les déclencheurs, les actions et les limites, qui sont décrits par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence](/connectors/smtpconnector/) du connecteur.
+Pour plus d’informations techniques sur ce connecteur, notamment au sujet des déclencheurs, des actions et des limites décrits dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/smtpconnector/).
 
-## <a name="get-support"></a>Obtenir de l’aide
-
-* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
+> [!NOTE]
+> Pour les applications logiques utilisées dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la version de ce connecteur avec l’étiquette ISE applique les [limites de messages de l’ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) à la place.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

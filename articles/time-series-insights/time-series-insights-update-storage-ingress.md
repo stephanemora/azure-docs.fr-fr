@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0c7f2de0a454dceeff1946a93801c20ad81ab0ab
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 44c942e43cd4be1d04f56e828e3e17c58713a706
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122522"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559842"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Entrée et stockage des données dans Azure Time Series Insights - Préversion
 
@@ -171,7 +171,7 @@ Time Series Insights (préversion) enregistre les données de votre magasin froi
 
 ### <a name="data-availability"></a>Disponibilité des données
 
-La préversion d’Azure Time Series Insights partitionne et indexe les données pour optimiser les performances des requêtes. Les données deviennent disponibles pour la requête une fois qu’elles sont indexées. La quantité de données en cours d’ingestion peut avoir une incidence sur cette disponibilité.
+La préversion d’Azure Time Series Insights partitionne et indexe les données pour optimiser les performances des requêtes. Il est possible d’interroger les données après les avoir indexées à la fois depuis un magasin chaud (s’il est activé) et un magasin froid. La quantité de données en cours d’ingestion peut avoir une incidence sur cette disponibilité.
 
 > [!IMPORTANT]
 > Pendant la préversion, il peut s’écouler jusqu’à 60 secondes avant que les données ne soient disponibles. Si vous constatez une latence significative supérieure à 60 secondes, veuillez envoyer un ticket de support par le biais du Portail Azure.

@@ -5,13 +5,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 889699ab184b82a7c194043d15358ecdaab5d03d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/20/2020
+ms.openlocfilehash: 96ef09ac081aa328014217592a7fcd3ed6314c0e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899642"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523762"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Résilience et reprise d’activité après sinistre
 
@@ -27,9 +27,9 @@ Votre application charge en parallèle sa configuration à partir des magasins p
 
 ## <a name="failover-between-configuration-stores"></a>Basculement entre les magasins de configuration
 
-Techniquement, votre application n’effectue pas de basculement. Elle tente d’extraire simultanément le même jeu de données de configuration à partir de deux magasins App Configuration. Organisez votre code afin qu’il charge d’abord les données à partir du magasin secondaire, puis du magasin principal. Cette approche garantit que les données de configuration du magasin principal sont prioritaires quand elles sont disponibles. L’extrait de code suivant montre comment vous pouvez implémenter cette organisation dans l’interface CLI .NET Core :
+Techniquement, votre application n’effectue pas de basculement. Elle tente d’extraire simultanément le même jeu de données de configuration à partir de deux magasins App Configuration. Organisez votre code afin qu’il charge d’abord les données à partir du magasin secondaire, puis du magasin principal. Cette approche garantit que les données de configuration du magasin principal sont prioritaires quand elles sont disponibles. L’extrait de code suivant montre comment implémenter cette organisation dans .NET Core :
 
-#### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+#### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -44,7 +44,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     
 ```
 
-#### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+#### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -70,17 +70,18 @@ Dans le portail Azure, vous pouvez envoyer (push) une modification vers un autre
 
 1. Accédez à l’onglet **Importer/Exporter** et sélectionnez **Exporter** > **Configuration de l’application** > **Cible** > **Sélectionner une ressource**.
 
-2. Dans le nouveau panneau qui s’ouvre, spécifiez l’abonnement, le groupe de ressources et le nom de la ressource de votre magasin secondaire, puis cliquez sur **Appliquer**.
+1. Dans le nouveau panneau qui s’ouvre, spécifiez l’abonnement, le groupe de ressources et le nom de la ressource de votre magasin secondaire, puis cliquez sur **Appliquer**.
 
-3. L’interface utilisateur est mise à jour pour vous permettre de choisir les données de configuration à exporter vers votre magasin secondaire. Vous pouvez conserver la valeur de temps par défaut et définir les deux options **Étiquette d’expédition** et **Étiquette de destination** sur la même valeur. Sélectionnez **Appliquer**.
+1. L’interface utilisateur est mise à jour pour vous permettre de choisir les données de configuration à exporter vers votre magasin secondaire. Vous pouvez conserver la valeur de temps par défaut et définir les deux options **Étiquette d’expédition** et **Étiquette de destination** sur la même valeur. Sélectionnez **Appliquer**.
 
-4. Répétez les étapes précédentes pour toutes les modifications de configuration.
+1. Répétez les étapes précédentes pour toutes les modifications de configuration.
 
 Pour automatiser ce processus d’exportation, utilisez Azure CLI. La commande suivante montre comment exporter une modification de configuration du magasin principal vers le magasin secondaire :
 
+```azurecli
     az appconfig kv export --destination appconfig --name {PrimaryStore} --label {Label} --dest-name {SecondaryStore} --dest-label {Label}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez appris à optimiser votre application pour obtenir une résilience géographique pendant l’exécution pour App Configuration. Vous pouvez aussi incorporer des données de configuration à partir d’App Configuration au moment de la génération ou du déploiement. Pour plus d’informations, consultez [Intégration à un pipeline CI/CD](./integrate-ci-cd-pipeline.md).
-

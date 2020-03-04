@@ -45,6 +45,12 @@
               href: nat-overview.md
             - name: Ressource
               href: nat-gateway-resource.md
+            - name: Métriques et alertes
+              href: nat-metrics.md
+            - name: Dépanner
+              href: troubleshoot-nat.md
+        - name: Routage
+          href: virtual-networks-udr-overview.md
         - name: Interopérabilité de connectivité du serveur principal
           items:
             - name: Préface et initialisation (tearDown) de test
@@ -75,20 +81,20 @@
           href: ipv6-public-ip-address-prefix.md
     - name: Sécurité
       items:
-        - name: Protection DDoS
-          href: ddos-protection-overview.md
-        - name: Stratégies de réseau Kubernetes
-          href: kubernetes-network-policies.md
-        - name: Routage
-          href: virtual-networks-udr-overview.md
-        - name: Groupes de sécurité
+        - name: Groupes de sécurité réseau
           href: security-overview.md
+        - name: Groupes de sécurité d’application
+          href: application-security-groups.md
         - name: Balises de service
           href: service-tags-overview.md
         - name: Points de terminaison de service
           href: virtual-network-service-endpoints-overview.md
         - name: Stratégies de points de terminaison de service
           href: virtual-network-service-endpoint-policies-overview.md
+        - name: Stratégies de réseau Kubernetes
+          href: kubernetes-network-policies.md
+        - name: Protection DDoS
+          href: ddos-protection-overview.md
         - name: TAP de réseau virtuel
           href: virtual-network-tap-overview.md
     - name: Sous-réseaux
@@ -131,6 +137,18 @@
               href: tutorial-create-validate-nat-gateway-powershell.md
             - name: Créer et valider une passerelle NAT - CLI
               href: tutorial-create-validate-nat-gateway-cli.md
+        - name: Router le trafic
+          items:
+            - name: Portail Azure
+              href: tutorial-create-route-table-portal.md
+            - name: Azure PowerShell
+              href: tutorial-create-route-table-powershell.md
+            - name: Azure CLI
+              href: tutorial-create-route-table-cli.md
+            - name: Ansible
+              href: /azure/ansible/ansible-create-configure-route-table
+            - name: Gérer les tables de routage
+              href: manage-route-table.md
         - name: Gérer des cartes réseau
           href: virtual-network-network-interface.md
         - name: Gérer un réseau virtuel
@@ -257,18 +275,6 @@
                   href: virtual-network-service-endpoint-policies-powershell.md
                 - name: Azure CLI
                   href: virtual-network-service-endpoint-policies-cli.md
-        - name: Router le trafic
-          items:
-            - name: Portail Azure
-              href: tutorial-create-route-table-portal.md
-            - name: Azure PowerShell
-              href: tutorial-create-route-table-powershell.md
-            - name: Azure CLI
-              href: tutorial-create-route-table-cli.md
-            - name: Ansible
-              href: /azure/ansible/ansible-create-configure-route-table
-            - name: Gérer les tables de routage
-              href: manage-route-table.md
         - name: Gérer la protection DDoS
           href: manage-ddos-protection.md
         - name: Intégrer des partenaires à DDoS Protection Standard

@@ -4,101 +4,99 @@ description: Découvrez les éléments à prendre en compte lors de la planifica
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9b71c4a5c0f245d9da97dc8f096d15c5386bf919
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 88c35b7b1420b5d89f9215f7da3ccf24870024e9
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368615"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597801"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
+Le service [Azure Files](storage-files-introduction.md) peut être déployé principalement de deux façons : en montant directement les partages de fichiers Azure serverless, ou en mettant en cache les partages de fichiers Azure en local avec Azure File Sync. L’option de déploiement que vous choisissez modifie les éléments que vous devez prendre en compte lors de la planification de votre déploiement. 
 
-[Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles via le protocole SMB standard. Comme Azure Files est entièrement managé, son déploiement dans des scénarios de production est beaucoup plus simple que le déploiement et la gestion d’un serveur de fichiers ou d’un appareil NAS. Cet article aborde les rubriques à prendre en compte lors du déploiement d’un partage de fichiers Azure pour une utilisation en production dans votre organisation.
+- **Montage direct d’un partage de fichiers Azure**. Étant donné qu’Azure Files fournit un accès SMB, vous pouvez monter des partages de fichiers Azure, localement ou dans le cloud, à l’aide du client SMB standard qui est disponible dans Windows, macOS et Linux. À partir du moment où les partages de fichiers Azure sont serverless, le déploiement de scénarios de production ne nécessite pas la gestion d’un serveur de fichiers ni celle d’un appareil NAS. Cela signifie que vous n’avez pas besoin d’appliquer des correctifs logiciels ni de remplacer des disques physiques. 
+
+- **Mise en cache du partage de fichiers Azure en local avec Azure File Sync**. Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme une instance Windows Server locale (ou cloud) en cache rapide de votre partage de fichiers Azure. 
+
+Cet article traite principalement de considérations relatives au déploiement, afin de déployer un partage de fichiers Azure en vue de son montage directement par un client local ou un client cloud. Pour planifier un déploiement d’Azure File Sync, consultez [Planification d’un déploiement Azure File Sync](storage-sync-files-planning.md).
 
 ## <a name="management-concepts"></a>Concepts de gestion
+[!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
- Le diagramme suivant illustre la structure de gestion d’Azure Files :
+Lorsque vous déployez des partages de fichiers Azure dans des comptes de stockage, tenez compte des recommandations suivantes :
 
-![Structure de fichiers](./media/storage-files-introduction/files-concepts.png)
+- Déployez uniquement des partages de fichiers Azure dans des comptes de stockage ayant d’autres partages de fichiers Azure. Bien que les comptes de stockage GPv2 vous permettent de disposer de comptes de stockage mixte, à partir du moment où les ressources de stockage (telles que les partages de fichiers Azure et les conteneurs d’objets BLOB) partagent les limites du compte de stockage, la combinaison des ressources peut compliquer la résolution des problèmes de performances par la suite. 
 
-* **Compte de stockage** : Tous les accès à Azure Storage passent par un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez [Cibles de scalabilité et de performances pour les comptes de stockage standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+- Faites attention aux limites d’IOPS d’un compte de stockage lors du déploiement des partages de fichiers Azure. Dans l’idéal, vous devriez mapper les partages de fichiers 1 à 1 avec les comptes de stockage, mais cela n’est pas toujours possible en raison de limites et de restrictions différentes, provenant à la fois de votre organisation et d’Azure. S’il n’est pas possible d’avoir un seul partage de fichiers déployé dans un compte de stockage, tenez compte des partages qui seront très actifs et des partages qui le seront moins, afin de garantir que les partages de fichiers les plus sollicités ne soient pas mis ensemble dans le même compte de stockage.
 
-* **Partage** : un partage Stockage Fichier est un partage de fichiers SMB dans Azure. Tous les répertoires et fichiers doivent être créés dans un partage parent. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans la limite de la capacité totale du partage de fichiers. La capacité totale pour les partages de fichiers Premium et Standard est de 100 Tio.
+- Déployez uniquement des comptes GPv2 et FileStorage, et mettez à niveau les comptes de stockage GPv1 et Classic lorsque vous les trouvez dans votre environnement. 
 
-* **Répertoire** : hiérarchie facultative de répertoires.
+## <a name="identity"></a>Identité
+Pour accéder à un partage de fichiers Azure, l’utilisateur du partage de fichiers doit être authentifié et disposer de l’autorisation d’accéder au partage. Cette opération s’effectue en fonction de l’identité de l’utilisateur accédant au partage de fichiers. Azure Files intègre trois fournisseurs d’identité principaux :
+- **Azure Directory détenu par le client** (préversion). Les comptes de stockage Azure peuvent être joints à un domaine sur une instance Windows Server Active Directory appartenant à un client, exactement comme un serveur de fichiers Windows Server ou un appareil NAS. Votre contrôleur de domaine Active Directory peut être déployé localement, dans une machine virtuelle Azure, ou même en tant que machine virtuelle dans un autre fournisseur de cloud. Azure Files ne dépend pas de l’emplacement où votre contrôleur de domaine est hébergé. Dès lors qu’un compte de stockage est joint à un domaine, l’utilisateur final peut monter un partage de fichiers avec le compte d’utilisateur dont il s’est servi pour se connecter à son PC. L’authentification basée sur Active Directory utilise le protocole d’authentification Kerberos.
+- **Azure Active Directory Domain Services (Azure AD DS)** . Azure AD DS fournit un contrôleur de domaine Active Directory géré par Microsoft et pouvant être utilisé pour les ressources Azure. Joindre le domaine de votre compte de stockage à Azure AD DS offre des avantages similaires à le joindre à une instance Active Directory détenue par le client. Cette option de déploiement est particulièrement utile pour les scénarios lift-and-shift d’application qui nécessitent des autorisations basées sur AD. Étant donné qu’Azure AD DS fournit une authentification basée sur Active Directory, cette option utilise également le protocole d’authentification Kerberos.
+- **Clé du compte de Stockage Azure** : Les partages de fichiers Azure peuvent également être montés à l’aide d’une clé de compte de stockage Azure. Pour monter un partage de fichiers de cette façon, le nom du compte de stockage est utilisé comme nom d’utilisateur, et la clé du compte de stockage comme mot de passe. L’utilisation de la clé de compte de stockage pour monter le partage de fichiers Azure est en fait une opération d’administrateur, car le partage de fichiers monté disposera d’autorisations complètes sur tous les fichiers et dossiers du partage, même s’ils ont des listes de contrôle d’accès. Lors de l’utilisation de la clé de compte de stockage pour le montage sur SMB, le protocole d’authentification NTLMv2 est utilisé.
 
-* **Fichier** : fichier du partage. Un fichier peut avoir une taille de 1 Tio maximum.
+Pour les clients qui migrent à partir de serveurs de fichiers locaux, ou qui créent dans Azure Files de nouveaux partages de fichiers destinés à se comporter comme des serveurs de fichiers Windows ou des appliances NAS, le fait de joindre le domaine de votre compte de stockage à l’instance **Active Directory appartenant au client** représente l’option recommandée. Pour en savoir plus sur la jonction du domaine de votre compte de stockage à une instance Active Directory détenue par le client, consultez [Vue d’ensemble Azure Files Active Directory](storage-files-active-directory-overview.md).
 
-* **Format d’URL** : pour les demandes adressées à un partage de fichiers Azure avec le protocole File REST, les fichiers sont accessibles via le format d’URL suivant :
+Si vous envisagez d’utiliser la clé de compte de stockage pour accéder à vos partages de fichiers Azure, nous vous recommandons d’utiliser des points de terminaison de service, comme décrit à la section [Mise en réseau](#networking).
 
-    ```
-    https://<storage account>.file.core.windows.net/<share>/<directory>/<file>
-    ```
+## <a name="networking"></a>Mise en réseau
+Les partages de fichiers Azure sont accessibles de n’importe quel endroit via le point de terminaison public du compte de stockage. Ainsi, les demandes authentifiées, comme celles qui sont autorisées par l’identité d’ouverture de session d’un utilisateur, peuvent provenir de manière sécurisée, de l’intérieur comme de l’extérieur d’Azure. Dans de nombreux environnements de clients, un montage initial du partage de fichiers Azure sur votre station de travail locale échouera, alors même que les montages à partir de machines virtuelles Azure réussissent. L’explication tient au fait que de nombreuses organisations et autres fournisseurs de services Internet bloquent le port dont se sert SMB pour communiquer, à savoir le port 445. 
 
-## <a name="data-access-method"></a>Méthode d’accès aux données
+Pour débloquer l’accès à votre partage de fichiers Azure, vous avez principalement deux options à votre disposition :
 
-Azure Files offre deux méthodes intégrées et pratiques d’accès aux données, que vous pouvez utiliser séparément ou conjointement pour accéder à vos données :
+- Débloquer le port 445 pour le réseau local de votre organisation. Les partages de fichiers Azure sont uniquement accessibles en externe, via le point de terminaison public, par le biais de protocoles sûrs, tels que SMB 3.0 et l’API FileREST. Il s’agit du moyen le plus simple pour accéder à votre partage de fichiers Azure localement, car il ne nécessite pas de configuration réseau avancée au-delà de la modification des règles du port de sortie de votre organisation. Toutefois, nous vous recommandons de supprimer les versions héritées et dépréciées du protocole SMB, à savoir SMB 1.0. Pour savoir comment faire, consultez [Sécurisation de Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server) et [Sécurisation de Linux](storage-how-to-use-files-linux.md#securing-linux).
 
-1. **Accès direct au cloud** : tout partage de fichiers Azure peut être monté sur [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) et/ou [Linux](storage-how-to-use-files-linux.md) avec le protocole SMB (Server Message Block) standard ou via l’API File REST. Avec SMB, les lectures et les écritures dans les fichiers du partage sont effectuées directement sur le partage de fichiers dans Azure. Pour un montage sur une machine virtuelle dans Azure, le client SMB dans le système d’exploitation doit prendre en charge au moins le protocole SMB 2.1. Pour un montage local, par exemple, sur une station de travail d’utilisateur, le client SMB pris en charge par la station de travail doit prendre en charge au moins le protocole SMB 3.0 (avec chiffrement). En plus du protocole SMB, les nouvelles applications ou les nouveaux services peuvent accéder directement au partage de fichiers via l’API REST de fichier, qui fournit une interface de programmation d’applications simple et scalable pour le développement de logiciels.
-2. **Azure File Sync** : avec Azure File Sync, les partages peuvent être répliqués sur des serveurs Windows Server locaux ou dans Azure. Vos utilisateurs accèdent au partage de fichiers via Windows Server, tout comme avec un partage SMB ou NFS. Cela est utile dans les scénarios où les données sont consultées et modifiées loin d’un centre de données Azure, par exemple, dans une succursale. Les données peuvent être répliquées entre différents points de terminaison Windows Server, par exemple entre filiales. Enfin, les données peuvent être hiérarchisées dans Azure Files, de sorte que toutes les données sont toujours accessibles via le serveur, mais le serveur ne dispose pas d’une copie complète des données. Les données sont alors rappelées sans discontinuité quand elles sont ouvertes par l’utilisateur.
+- Accéder aux partages de fichiers Azure via une connexion ExpressRoute ou VPN. Lorsque vous accédez à votre partage de fichiers Azure via un tunnel réseau, vous pouvez monter votre partage de fichiers Azure comme un partage de fichiers en local, car le trafic SMB ne traverse pas les limites de votre organisation.   
 
-Le tableau suivant illustre la façon dont vos utilisateurs et les applications peuvent accéder à votre partage de fichiers Azure :
+Bien que d’un point de vue technique il soit beaucoup plus facile de monter vos partages de fichiers Azure via le point de terminaison public, nous pensons que la plupart des clients choisiront de monter leurs partages de fichiers Azure sur une connexion ExpressRoute ou VPN. Pour ce faire, vous devez configurer les éléments suivants pour votre environnement :  
 
-| | Accès direct au cloud | Azure File Sync |
-|------------------------|------------|-----------------|
-| Quels protocoles devez-vous utiliser ? | Azure Files prend en charge les protocoles SMB 2.1, SMB 3.0 et l’API REST de fichier. | Accédez à votre partage de fichiers Azure via un protocole pris en charge sur Windows Server (SMB, NFS, FTPS, etc.) |  
-| Où exécutez-vous votre charge de travail ? | **Dans Azure** : Azure Files offre un accès direct à vos données. | **Localement avec un réseau lent** : les clients Windows, Linux et macOS peuvent monter un partage de fichiers Windows local comme cache rapide de votre partage de fichiers Azure. |
-| Quel est le niveau d’ACL dont vous avez besoin ? | Au niveau du partage et des fichiers. | Au niveau du partage, des fichiers et de l’utilisateur. |
+- **Tunneling réseau à l’aide d’un VPN ExpressRoute, de site à site ou de point à site**. Le tunneling dans un réseau virtuel permet d’accéder aux partages de fichiers Azure depuis l’environnement local, même si le port 445 est bloqué.
+- **Points de terminaison privés**. Les points de terminaison privés attribuent à votre compte de stockage une adresse IP dédiée depuis l’espace d’adressage du réseau virtuel. Le tunneling réseau est ainsi possible sans avoir à ouvrir de réseaux locaux sur la totalité des plages d’adresses IP détenues par les clusters de stockage Azure. 
+- **Transfert DNS**. Configurez votre DNS local afin de résoudre le nom de votre compte de stockage (c’est-à-dire `storageaccount.file.core.windows.net` pour les régions du cloud public) sur l’adresse IP de vos points de terminaison privés.
 
-## <a name="data-security"></a>Sécurité des données
+Pour planifier la mise en réseau associée au déploiement d’un partage de fichiers Azure, consultez [Considérations relatives à la mise en réseau Azure Files](storage-files-networking-overview.md).
 
-Azure Files propose plusieurs options intégrées pour garantir la sécurité des données :
+## <a name="encryption"></a>Chiffrement
+Azure Files prend en charge deux types de chiffrement : le chiffrement en transit, qui se rapporte au chiffrement utilisé lors du montage/de l’accès au partage de fichiers Azure, et le chiffrement au repos, qui a trait à la façon dont les données sont chiffrées lorsqu’elles sont stockées sur le disque. 
 
-* Prise en charge du chiffrement dans les deux protocoles réseau : chiffrement SMB 3.0 et File REST via le protocole HTTPS. Par défaut : 
-    * Les clients qui prennent en charge le chiffrement SMB 3.0 envoient et reçoivent des données sur un canal chiffré.
-    * Les clients qui ne prennent pas en charge SMB 3.0 avec chiffrement peuvent communiquer au sein du centre de données sur SMB 2.1 ou SMB 3.0 sans chiffrement. Les clients SMB ne sont pas autorisés à communiquer entre centres de données sur SMB 2.1 ou SMB 3.0 sans chiffrement.
-    * Les clients peuvent communiquer sur l’API REST de fichier avec HTTP ou HTTPS.
-* Chiffrement au repos ([Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)) : Storage Service Encryption (SSE) est activé pour tous les comptes de stockage. Les données au repos sont chiffrées avec des clés entièrement gérées. Le chiffrement au repos n’augmente pas les coûts de stockage, ni ne réduit le niveau de performance. 
-* Spécification facultative des données chiffrées en transit : quand Azure Files est sélectionné, il refuse l’accès aux données sur des canaux non chiffrés. Plus précisément, seules les connexions HTTPS et SMB 3.0 avec chiffrement sont autorisées.
+### <a name="encryption-in-transit"></a>Chiffrement en transit
+Par défaut, le chiffrement en transit est activé pour tous les comptes de stockage Azure. Cela signifie que, lorsque vous montez un partage de fichiers sur SMB ou y accédez en utilisant le protocole FileREST (par exemple, via le portail Azure, PowerShell/CLI ou des kits de développement logiciel (SDK) Azure), Azure Files n’autorise la connexion que si elle est établie à l’aide des protocoles SMB 3.0+ avec chiffrement ou HTTPS. Les clients qui ne prennent pas en charge le protocole SMB 3.0, ou qui prennent en charge le protocole SMB 3.0 mais pas le chiffrement SMB, ne peuvent pas monter le partage de fichiers Azure si le chiffrement en transit est activé. Pour plus d’informations sur les systèmes d’exploitation prenant en charge SMB 3.0 avec chiffrement, consultez notre documentation détaillée pour [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md) et [Linux](storage-how-to-use-files-linux.md). Toutes les versions actuelles de PowerShell, de CLI et des SDK prennent en charge le protocole HTTPS.  
 
-    > [!Important]  
-    > Si vous demandez un transfert sécurisé des données, les anciens clients SMB qui ne sont pas capables de communiquer avec SMB 3.0 échouent. Pour plus d’informations, voir [Montage sur Windows](storage-how-to-use-files-windows.md), [Montage sur Linux](storage-how-to-use-files-linux.md) et [Montage sur macOS](storage-how-to-use-files-mac.md).
+Vous pouvez désactiver le chiffrement en transit pour un compte de stockage Azure. Lorsque le chiffrement est désactivé, Azure Files autorise également les protocoles SMB 2.1 et SMB 3.0 sans chiffrement, ainsi que les appels d’API FileREST non chiffrés via le protocole HTTP. La principale raison justifiant de désactiver le chiffrement en transit est la nécessité de prendre en charge une application héritée devant être exécutée sur un système d’exploitation plus ancien, tel que Windows Server 2008 R2 ou une distribution Linux non récente. Azure Files n’autorise que les connexions SMB 2.1 au sein de la même région Azure que le partage de fichiers Azure. Ainsi, un client SMB 2.1 situé en dehors de la région Azure dans laquelle se trouve le partage de fichiers Azure, par exemple, localement ou dans une autre région Azure, ne peut pas accéder au partage de fichiers.
 
-Pour une sécurité maximale, nous vous recommandons vivement de toujours activer le chiffrement au repos et le chiffrement des données en transit chaque fois que vous utilisez des clients modernes pour accéder à vos données. Par exemple, si vous devez monter un partage sur une machine virtuelle Windows Server 2008 R2 qui prend uniquement en charge SMB 2.1, vous devez autoriser le trafic non chiffré sur votre compte de stockage, car SMB 2.1 ne prend pas en charge le chiffrement.
+Nous recommandons fortement de vérifier que le chiffrement des données en transit est activé.
 
-Si vous utilisez Azure File Sync pour accéder à votre partage de fichiers Azure, nous utilisons toujours HTTPS et SMB 3.0 avec chiffrement pour synchroniser vos données sur vos serveurs Windows Server, que vous exigiez ou non le chiffrement des données au repos.
+Pour plus d’informations sur le chiffrement en transit, voir [ Exiger un transfert sécurisé dans Stockage Azure](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-## <a name="file-share-performance-tiers"></a>Niveaux de performances de partage de fichiers
+### <a name="encryption-at-rest"></a>Chiffrement au repos
+[!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
 
-Azure Files offre deux niveaux de performances : Standard et Premium.
+## <a name="storage-tiers"></a>Niveaux de stockage
+[!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
 
-### <a name="standard-file-shares"></a>Partages de fichiers Standard
+En général, les fonctionnalités d’Azure Files et l’interopérabilité avec d’autres services sont les mêmes entre les partages de fichiers Premium et les partages de fichiers Standard. Il existe, cependant, quelques différences importantes :
+- **Modèle de facturation**
+    - Les partages de fichiers Premium sont facturés selon un modèle de facturation avec provisionnement, ce qui signifie que vous payez le volume de stockage que vous provisionnez plutôt que la quantité de stockage réellement demandée. 
+    - Les partages de fichiers Standard sont facturés selon un modèle de paiement à l’utilisation : il comprend un coût de base du stockage pour la quantité de stockage que vous consommez, et un coût de transaction supplémentaire en fonction de la façon dont vous utilisez le partage. Avec les partages de fichiers Standard, votre facture augmente si vous utilisez davantage (en lecture/écriture/montage) le partage de fichiers Azure.
+- **Options de redondance**
+    - Les partages de fichiers Premium sont uniquement disponibles pour le stockage localement redondant (LRS) et le stockage redondant interzone (ZRS). 
+    - Les partages de fichiers Standard sont disponibles pour le stockage localement redondant, redondant interzone, géoredondant (GRS) et géoredondant interzone (GZRS).
+- **Taille maximale d’un partage de fichiers**
+    - Les partages de fichiers Premium peuvent être provisionnés jusqu’à 100 Tio sans aucun travail supplémentaire.
+    - Par défaut, les partages de fichiers Standard ne peuvent atteindre que 5 Tio, mais la limite de partage peut être augmentée jusqu’à 100 Tio en optant pour l’indicateur de fonctionnalité de compte de stockage *Partage de fichiers volumineux*. Les partages de fichiers Standard peuvent couvrir jusqu’à 100 Tio uniquement pour les comptes de stockage redondants en local ou interzones. Pour plus d’informations sur l’augmentation de la  
+- **Disponibilité régionale**
+    - Les partages de fichiers Premium ne sont pas disponibles dans toutes les régions, et la prise en charge de la redondance interzone est disponible dans un sous-ensemble plus petit de régions. Pour savoir si les partages de fichiers Premium sont actuellement disponibles dans votre région, consultez la page des [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=storage) pour Azure. Pour connaître les régions prenant en charge ZRS, consultez [Prise en charge des zones de disponibilité Azure par région](../../availability-zones/az-overview.md#services-support-by-region). Pour nous aider à hiérarchiser les nouvelles régions et les fonctionnalités du niveau Premium, répondez à ce [sondage](https://aka.ms/pfsfeedback).
+    - Le partage de fichiers Standard est disponible dans toutes les régions Azure.
+- Azure Kubernetes Service (AKS) prend en charge le partage de fichiers Premium dans la version 1.13 et ultérieure.
 
-Les partages de fichiers Standard s’appuient sur des disques durs (HDD). Les partages de fichiers Standard offrent des performances fiables pour les charges de travail d’E/S moins sensibles à la variabilité des performances, telles que les partages de fichiers à usage général et les environnements de Dev/Test. Les partages de fichiers standard sont disponibles uniquement dans le cadre d’un modèle de facturation avec paiement à l’utilisation.
+Une fois qu’un partage de fichiers est créé, qu’il soit Premium ou Standard, vous ne pouvez pas le convertir automatiquement à l’autre niveau. Si vous souhaitez basculer vers l’autre niveau, vous devez créer un nouveau partage de fichiers dans le niveau voulu, puis copier manuellement les données depuis votre partage d’origine sur le partage que vous avez créé. Nous vous recommandons d’utiliser `robocopy` pour Windows, `rsync` pour macOS et Linux afin d’effectuer cette copie.
 
-> [!IMPORTANT]
-> Si vous souhaitez utiliser des partages de fichiers supérieurs à 5 Tio, consultez la section [Intégrer à des partages de fichiers plus grands (niveau Standard)](#onboard-to-larger-file-shares-standard-tier) pour connaître les étapes d’intégration, ainsi que les restrictions et la disponibilité régionale.
-
-### <a name="premium-file-shares"></a>Partages de fichiers Premium
-
-Les partages de fichiers Premium s’appuient sur des disques SSD. Les partages de fichiers Premium offrent de façon constante des performances élevées et une faible latence (à un chiffre en millisecondes pour la plupart des opérations d’E/S) pour les charges de travail gourmandes en E/S. Ils sont ainsi adaptés à un vaste éventail de charges de travail, telles que les bases de données, l’hébergement de site web et les environnements de développement. Les partages de fichiers Premium sont disponibles uniquement dans le cadre d’un modèle de facturation avec approvisionnement. Les partages de fichiers Premium utilisent un modèle de déploiement distinct des partages de fichiers Standard.
-
-La sauvegarde Azure est disponible pour les partages de fichiers Premium, sachant qu’Azure Kubernetes Service prend en charge les partages de fichiers Premium dans la version 1.13 et versions ultérieures.
-
-Si vous souhaitez savoir comment créer un partage de fichiers Premium, consultez notre article sur le sujet : [Guide pratique pour créer un compte de stockage de fichiers Premium Azure](storage-how-to-create-premium-fileshare.md).
-
-Actuellement, vous ne pouvez pas convertir directement un partage de fichiers Standard en partage de fichiers Premium, et vice-versa. Si vous souhaitez basculer vers l’un ou l’autre de ces niveaux, vous devez créer un nouveau partage de fichiers dans le niveau voulu, puis copier manuellement les données depuis votre partage d’origine sur le partage que vous avez créé. Vous pouvez effectuer cette opération en utilisant un des outils de copie pris en charge par Azure Files, tel que Robocopy ou AzCopy.
-
-> [!IMPORTANT]
-> Les partages de fichiers Premium sont disponibles avec le stockage LRS dans la plupart des régions qui offrent des comptes de stockage et avec le stockage ZRS dans moins de régions. Pour savoir si les partages de fichiers Premium sont actuellement disponibles dans votre région, consultez la page des [produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=storage) pour Azure. Pour plus d’informations sur les régions qui prennent en charge ZRS, consultez [Redondance de Stockage Azure](../common/storage-redundancy.md).
->
-> Pour nous aider à hiérarchiser les nouvelles régions et les fonctionnalités du niveau Premium, répondez à ce [sondage](https://aka.ms/pfsfeedback).
-
-#### <a name="provisioned-shares"></a>Partages approvisionnés
-
+### <a name="understanding-provisioning-for-premium-file-shares"></a>Comprendre le provisionnement des partages de fichiers Premium
 Les partages de fichiers Premium sont approvisionnés selon un ratio Gio/IOPS/débit fixe. Pour chaque Gio approvisionné, le partage reçoit un débit d’une IOPS et de 0,1 Mio/s, dans les limites maximales autorisées par partage. L’approvisionnement minimal autorisé est de 100 Gio avec un minimum d’E/S par seconde/débit.
 
 Dans la mesure du possible, tous les partages peuvent atteindre en rafale jusqu’à trois IOPS par Gio de stockage approvisionné pendant 60 minutes ou plus, selon la taille du partage. Les nouveaux partages démarrent avec le crédit de rafale complète basé sur la capacité approvisionnée.
@@ -135,7 +133,6 @@ Le tableau suivant illustre quelques exemples de ces formules pour les tailles d
 > Les performances des partages de fichiers sont soumises aux limites du réseau des machines, à la bande passante réseau disponible, aux tailles d’e/s, au parallélisme, entre autres nombreux facteurs. Par exemple, sur la base d’un test interne avec des tailles d’e/s en lecture/écriture de 8 Kio, une seule machine virtuelle Windows, *F16s_v2 standard*, connectée au partage de fichiers Premium sur SMB pourrait atteindre 20 000 e/s par seconde en écriture et 15 000 e/s par seconde. Avec les tailles d’e/s en lecture/écriture de 512 Mio, la même machine virtuelle peut atteindre 1,1 Gio/s en sortie et 370 Mio/s de débit d’entrée. Pour obtenir une mise à l’échelle des performances maximales, répartissez la charge entre plusieurs machines virtuelles. Reportez-vous au [guide de résolution des problèmes](storage-troubleshooting-files-performance.md) pour certains problèmes de performances courants et leurs solutions de contournement.
 
 #### <a name="bursting"></a>Mode en rafales
-
 Les partages de fichiers Premium peuvent rapidement accroître leur IOPS jusqu’à multiplier leur nombre par trois. Ce mode en rafales est automatisé et fonctionne selon un système de crédits. Il fonctionne dans la mesure des possibilités et la limite de rafale n’est pas une garantie : les partages de fichiers peuvent croître par rafales *jusqu’à* cette limite.
 
 Des crédits s’accumulent dans un compartiment à rafales chaque fois que le trafic de votre partage de fichiers se trouve en dessous des IOPS de base. Par exemple, un partage de 100 Gio dispose de 100 IOPS de base. Si le trafic réel sur le partage est de 40 IOPS pour un intervalle spécifique de 1 seconde, les 60 IOPS inutilisées sont créditées dans un compartiment à rafales. Ces crédits sont ensuite utilisés lorsque des opérations dépassent les IOPS de base.
@@ -153,51 +150,25 @@ Les crédits de partage présentent trois états :
 
 Au départ, les nouveaux partages de fichiers se voient attribuer un nombre total de crédits dans leur compartiment à rafales. Les crédits de rafale ne seront pas augmentés si les IOPS du partage chutent en dessous des IOPS de base, en raison de la limitation par le serveur.
 
-## <a name="file-share-redundancy"></a>Redondance de partage de fichiers
+### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Activer les partages de fichiers Standard pour couvrir jusqu’à 100 Tio
+[!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
 
-[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
+#### <a name="regional-availability"></a>Disponibilité régionale
+[!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
 
-Si vous optez pour le stockage géoredondant avec accès en lecture (RA-GRS), vous devez savoir qu’Azure Files ne prend en charge ce type de stockage dans aucune région pour l’instant. Les partages de fichiers dans le compte de stockage RA-GRS fonctionnent comme ils le feraient dans des comptes GRS, et ils sont facturés au tarif GRS.
+## <a name="redundancy"></a>Redondance
+[!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
-> [!Warning]  
-> Si vous utilisez votre partage de fichiers Azure comme point de terminaison cloud sur un compte de stockage GRS, vous ne devez pas initier de basculement de compte de stockage. Cela provoquera en effet un arrêt de la synchronisation et pourra entraîner une perte inattendue de données dans le cas de fichiers nouvellement hiérarchisés. En cas de perte d’une région Azure, Microsoft déclenchera le basculement du compte de stockage en employant une méthode compatible avec Azure File Sync.
+## <a name="migration"></a>Migration
+Dans de nombreux cas, vous n’établirez pas de nouveau partage de fichiers net pour votre organisation, mais migrerez plutôt un partage de fichiers existant, depuis un serveur de fichiers local ou un appareil NAS, vers Azure Files. Pour effectuer une migration vers un partage de fichiers, il existe bon nombre d’outils proposés par Microsoft et les fournisseurs tiers, ceux-ci peuvent néanmoins être classés en deux catégories :
 
-Les partages Premium Azure Files prennent en charge les stockages LRS et ZRS, ZRS étant actuellement disponible dans moins de régions.
+- **Outils conservant les attributs du système de fichiers, tels que les listes de contrôle d’accès et les horodateurs** :
+    - **[Azure File Sync](storage-sync-files-planning.md)**  : Azure File Sync peut être utilisé comme méthode d’ingestion de données dans un partage de fichiers Azure, même lorsque le déploiement final voulu ne doit pas conserver de présence locale. Azure File Sync peut être installé sur place, dans les déploiements Windows Server 2012 R2, Windows Server 2016 et Windows Server 2019 existants. L’un des avantages à utiliser Azure File Sync comme mécanisme d’ingestion vient de ce que les utilisateurs finals peuvent continuer à utiliser le partage de fichiers en place, car le basculement vers le partage de fichiers Azure ne peut avoir lieu qu’une fois toutes les données chargées en arrière-plan.
+    - **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy est un outil de copie bien connu, fourni avec Windows et Windows Server. Robocopy peut servir à transférer des données dans Azure Files en montant le partage de fichiers localement, puis en utilisant l’emplacement monté comme destination de la commande Robocopy.
 
-## <a name="onboard-to-larger-file-shares-standard-tier"></a>Intégrer à des partages de fichiers plus grands (niveau Standard)
-
-Cette section s’applique uniquement aux partages de fichiers Standard. Tous les partages de fichiers Premium sont disponibles avec une capacité de 100 Tio.
-
-### <a name="restrictions"></a>Restrictions
-
-- La conversion de compte LRS/ZRS en GRS/GZRS n’est pas possible pour les comptes de stockage avec des partages de fichiers volumineux activés.
-
-### <a name="regional-availability"></a>Disponibilité régionale
-
-Les partages de fichiers standard avec une limite de capacité de 100 Tio sont disponibles globalement dans toutes les régions Azure.
-
-- LRS : Toutes les régions, à l’exception d’Afrique du Sud Nord et d’Afrique du Sud Ouest.
-- ZRS : Toutes les régions, à l’exception Japon Est, Europe Nord et Afrique du Sud Nord.
-- GRS/GZRS : Non pris en charge.
-
-### <a name="enable-and-create-larger-file-shares"></a>Activer et créer des partages de fichiers plus volumineux
-
-Pour commencer à utiliser des partages de fichiers plus volumineux, consultez notre article [Guide pratique pour activer et créer des partages de fichiers volumineux](storage-files-how-to-create-large-file-share.md).
-
-## <a name="data-growth-pattern"></a>Modèle de croissance des données
-
-Aujourd’hui, la taille maximale d’un partage de fichiers Azure est de 100 Tio. En raison de cette limitation actuelle, vous devez prendre en compte la croissance attendue des données quand vous déployez un partage de fichiers Azure.
-
-Vous pouvez synchroniser plusieurs partages de fichiers Azure sur un même serveur de fichiers Windows avec Azure File Sync. Cela vous permet d’inclure dans Azure File Sync des partages de fichiers plus anciens et très volumineux que vous pouvez avoir localement. Pour plus d’informations, voir [Planification d’un déploiement Azure File Sync](storage-files-planning.md).
-
-## <a name="data-transfer-method"></a>Méthode de transfert des données
-
-Il existe de nombreuses options pour facilement transférer en bloc les données d’un partage de fichiers existant, par exemple, un partage de fichiers local, dans Azure Files. En voici quelques-unes connues (liste non exhaustive) :
-
-* **[Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)**  : lors de la première synchronisation entre un partage de fichiers Azure (un « point de terminaison cloud ») et un espace de noms de répertoire Windows (un « point de terminaison de serveur »), Azure File Sync réplique toutes les données du partage de fichiers existant sur Azure Files.
-* **[Azure Import Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : Le service Azure Import/Export permet de transférer en toute sécurité des volumes importants de données dans un partage de fichiers Azure en expédiant des disques durs vers un centre de données Azure. 
-* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy est un outil de copie bien connu fourni avec Windows et Windows Server. Robocopy peut servir à transférer des données dans Azure Files en montant le partage de fichiers localement, puis en utilisant l’emplacement monté comme destination de la commande Robocopy.
-* **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy est un utilitaire de ligne de commande conçu pour copier des données à destination et à partir d’Azure Files, ou d’un stockage blob Azure, en utilisant des commandes simples avec des performances optimales.
+- **Outils ne conservant pas les attributs du système de fichiers** :
+    - **Data Box** : Data Box fournit un mécanisme de transfert de données hors connexion pour l’envoi physique de données dans Azure. Cette méthode est conçue pour augmenter le débit et économiser la bande passante, mais actuellement elle ne prend pas en charge les attributs du système de fichiers, tels que les horodateurs et les ACL.
+    - **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy est un utilitaire de ligne de commande conçu pour copier des données à destination et à partir d’Azure Files, ou d’un stockage blob Azure, en utilisant des commandes simples avec des performances optimales.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Planification d’un déploiement Azure File Sync](storage-sync-files-planning.md)

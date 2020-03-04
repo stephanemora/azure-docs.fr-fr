@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes d’échec de création de cluster Azure Data Explorer
+title: Résoudre les problèmes d’échec de création d’un cluster Azure Data Explorer
 description: Cet article décrit la procédure de résolution des problèmes pour la création d’un cluster dans l’Explorateur de données Azure.
 author: orspod
 ms.author: orspodek
@@ -7,18 +7,18 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9e6b3f53f07ac86d6b648a8562be4ef45879c37e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 863d9ecedf095e0ab284a0d7fd86363b69ae5658
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829274"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562409"
 ---
-# <a name="troubleshoot-failed-cluster-creation-of-azure-data-explorer"></a>Résolution de problèmes : Échec de création du cluster Azure Data Explorer
+# <a name="troubleshoot-failed-cluster-creation-of-azure-data-explorer"></a>Résoudre les problèmes : Échec de création du cluster Azure Data Explorer
 
 Dans le cas peu probable où la création de cluster échouerait dans l’Explorateur de données Azure, effectuez les étapes suivantes.
 
-1. Vérifiez que vous disposez des autorisations appropriées. Pour créer un cluster, vous devez être un membre du rôle *Collaborateur* ou *Propriétaire* pour l’abonnement Azure. Si nécessaire, demandez à l’administrateur de votre abonnement de vous ajouter au rôle approprié.
+1. Veillez à disposer des autorisations appropriées. Pour créer un cluster, vous devez être un membre du rôle *Collaborateur* ou *Propriétaire* pour l’abonnement Azure. Si nécessaire, demandez à l’administrateur de votre abonnement de vous ajouter au rôle approprié.
 
 1. Vérifiez l’absence d’erreurs de validation liées au nom de cluster que vous avez entré sous **Créer un cluster** dans le portail Azure.
 

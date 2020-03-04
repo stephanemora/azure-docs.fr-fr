@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: dc4762cbda5ad2877d2d69953d2514dea17c8b46
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: d989553dc2248e7e0c830bb8cf169a80354dbab2
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368908"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562545"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infrastructure de mise à jour Red Hat pour machines virtuelles Red Hat Enterprise Linux à la demande dans Azure
  [Infrastructure de mise à jour Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permet aux fournisseurs de cloud, par exemple Azure, de mettre en miroir le contenu du référentiel hébergé par Red Hat, de créer des référentiels personnalisés avec du contenu spécifique à Azure et de rendre ces référentiels accessibles aux machines virtuelles des utilisateurs finaux.
@@ -28,7 +28,7 @@ Des informations supplémentaires sur les images RHEL dans Azure, y compris les 
 Vous trouverez des informations sur les stratégies de prise en charge de Red Hat pour toutes les versions de RHEL sur la page [Cycle de vie de Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata).
 
 > [!IMPORTANT]
-> RHUI est destiné uniquement aux images de paiement à l’utilisation (PAYGO). Pour les images personnalisées et golden, également appelées BYOS (Bring-Your-Own-Subscription), le système doit être attaché à RHSM ou Satellite pour recevoir les mises à jour. Consultez l’[article Red Hat](https://access.redhat.com/solutions/253273) pour plus de détails.
+> RHUI est destiné uniquement aux images de paiement à l’utilisation (PAYG). Pour les images personnalisées et golden, également appelées BYOS (Bring-Your-Own-Subscription), le système doit être attaché à RHSM ou Satellite pour recevoir les mises à jour. Consultez l’[article Red Hat](https://access.redhat.com/solutions/253273) pour plus de détails.
 
 
 ## <a name="important-information-about-azure-rhui"></a>Informations importantes concernant Azure RHUI
@@ -105,7 +105,7 @@ Utilisez les instructions suivantes pour verrouiller une machine virtuelle RHEL 
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config' install 'rhui-azure-rhel7-eus'
     ```
 
-1. Verrouillez la variable releasever (en exécutant les opérations en tant que racine) :
+1. Verrouillez la variable `releasever` (en exécutant les opérations en tant que racine) :
     ```bash
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
     ```
@@ -120,7 +120,7 @@ Utilisez les instructions suivantes pour verrouiller une machine virtuelle RHEL 
 
 ### <a name="switch-a-rhel-vm-back-to-non-eus-remove-a-version-lock"></a>Faites basculer une machine virtuelle RHEL vers une infrastructure non EUS (en supprimant le verrouillage de version)
 Exécutez l’opération suivante, en tant que racine :
-1. Supprimez le fichier releasever :
+1. Supprimez le fichier `releasever` :
     ```bash
     rm /etc/yum/vars/releasever
      ```

@@ -3,22 +3,22 @@ title: Architecture de stockage de SAP HANA sur Azure (grandes instances) | Micr
 description: Architecture de stockage de SAP HANA sur Azure (grandes instances).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/04/2019
+ms.date: 02/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 256aaf94175394fd737e53c6281f2d8b45e8af41
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a12c454906d6c6ff702b7f635a91361bbe3994c1
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099639"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616884"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>Architecture de stockage de SAP HANA (grandes instances)
 
@@ -36,6 +36,8 @@ Consultez le tableau suivant pour connaître l’allocation de stockage. La tabl
 | S192 | 4 608 Go | 1 024 Go | 1 536 Go | 1 024 Go |
 | S192m | 11 520 Go | 1 536 Go | 1 792 Go | 1 536 Go |
 | S192xm |  11 520 Go |  1 536 Go |  1 792 Go |  1 536 Go |
+| S224 |  4 224 Go |  512 Go |  1 024 Go |  512 Go |
+| S224m |  8 448 Go |  512 Go |  1 024 Go |  512 Go |
 | S384 | 11 520 Go | 1 536 Go | 1 792 Go | 1 536 Go |
 | S384m | 12 000 Go | 2 050 Go | 2 050 Go | 2 040 Go |
 | S384xm | 16 000 Go | 2 050 Go | 2 050 Go | 2 040 Go |
