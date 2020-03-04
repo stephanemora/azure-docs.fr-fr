@@ -3,12 +3,12 @@ title: Appliance Azure Migrate
 description: Présente une vue d’ensemble de l’utilisation de l’appliance Azure Migrate pour l’évaluation et la migration de serveurs.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: d02227747be4bc7d994e2ea84cd74e7f2fd2531f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 1b1e35c3b7a9d98e57ec4261f6f913c370bbb365
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425457"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597539"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -34,7 +34,7 @@ Machine physique |  Azure Migrate : Server Assessment |  Détection des serveur
 **License** | Le modèle d’appliance téléchargé est fourni avec une licence d’évaluation Windows Server 2016 qui est valide pendant 180 jours. Si la période d’évaluation est proche de l’expiration, nous vous recommandons de télécharger et de déployer une nouvelle appliance, ou d’activer la licence du système d’exploitation de la machine virtuelle de l’appliance.
 **Déploiement** | Vous déployez l’appliance en tant que machine virtuelle VMware. Vous devez disposer de suffisamment de ressources sur vCenter Server pour allouer une machine virtuelle avec 32 Go de RAM, 8 processeurs virtuels, environ 80 Go de stockage sur disque et un commutateur virtuel externe.<br/> L’appliance nécessite un accès à Internet, directement ou via un proxy.<br/> L’appliance ne peut se connecter qu'à un seul vCenter Server.
 **Matériel** | Les ressources sur vCenter pour allouer une machine virtuelle avec 8 processeurs virtuels comportant 32 Go de RAM, environ 80 Go de stockage sur disque et un commutateur virtuel externe. 
-**Valeur de hachage** | MD5 : c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256 : 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
+**Valeur de hachage** | À vérifier [ici](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security)
 **Serveur/hôte vCenter** | La machine virtuelle de l’appliance doit être déployée sur un hôte ESXi exécutant la version 5.5 ou ultérieure.<br/><br/> vCenter Server exécutant les versions 5,5, 6,0, 6,5 ou 6,7.
 **Projet Azure Migrate** | Une appliance peut être associée à un seul projet. <br/> Un nombre quelconque d’appliances peut être associé à un même projet.<br/> 
 **Découverte** | Une appliance peut découvrir jusqu’à 10 000 machines virtuelles VMware sur un serveur vCenter.<br/> Une appliance ne peut se connecter qu'à un seul vCenter Server.
@@ -52,7 +52,7 @@ Machine physique |  Azure Migrate : Server Assessment |  Détection des serveur
 **License** | Le modèle d’appliance téléchargé est fourni avec une licence d’évaluation Windows Server 2016 qui est valide pendant 180 jours. Si la période d’évaluation est proche de l’expiration, nous vous recommandons de télécharger et de déployer une nouvelle appliance, ou d’activer la licence du système d’exploitation de la machine virtuelle de l’appliance.
 **Étapes de déploiement d’appliance**   |  Vous déployez l’appliance en tant que machine virtuelle Hyper-V.<br/> La machine virtuelle de l’appliance fournie par Azure Migrate est la version 5.0 de la machine virtuelle Hyper-V.<br/> L’hôte Hyper-V doit exécuter Windows Server 2012 R2 ou une version ultérieure.<br/> L’hôte a besoin de suffisamment d’espace pour allouer 16 Go de RAM, 8 processeurs virtuels, environ 80 Go d’espace de stockage et un commutateur externe à la machine virtuelle de l’appliance.<br/> L'appliance nécessite une adresse IP statique ou dynamique et un accès Internet.
 **Matériel** | Ressources sur l’hôte Hyper-V pour allouer 16 Go de RAM, 8 processeurs virtuels, environ 80 Go d’espace de stockage et un commutateur externe à la machine virtuelle de l’appliance.
-**Valeur de hachage** | MD5 : 29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256 : 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
+**Valeur de hachage** | À vérifier [ici](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security)
 **Hôte Hyper-V** | Exécution de Windows Server 2012 R2 ou version ultérieure.
 **Projet Azure Migrate** | Une appliance peut être associée à un seul projet. <br/> Un nombre quelconque d’appliances peut être associé à un même projet.<br/> 
 **Découverte** | Une appliance peut détecter jusqu’à 5 000 machines virtuelles Hyper-V.<br/> Une appliance peut connecter à jusqu’à 300 hôtes Hyper-V.
@@ -67,7 +67,7 @@ Machine physique |  Azure Migrate : Server Assessment |  Détection des serveur
 **Lien de téléchargement** | [Lien de téléchargement](https://go.microsoft.com/fwlink/?linkid=2105112)
 **Taille du téléchargement** | 59,7 Mo
 **Matériel** | Machine physique dédiée ou machine virtuelle. L’ordinateur exécutant l’appliance nécessite 16 Go de RAM, 8 processeurs virtuels, environ 80 Go d’espace de stockage et un commutateur externe.<br/> L'appliance nécessite une adresse IP statique ou dynamique et un accès Internet.
-**Valeur de hachage** | MD5 : 1e92ede3e87c03bd148e56a708cdd33f<br/><br/> SHA256 : a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+**Valeur de hachage** | À vérifier [ici](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security)
 **Système d’exploitation** | La machine de l’appliance doit exécuter Windows Server 2016. 
 **Étapes de déploiement d’appliance**   |  Le script du programme d'installation de l'appliance est téléchargé depuis le portail (dans un dossier compressé). <br/> Vous décompressez le dossier et exécutez le script PowerShell (AzureMigrateInstaller.ps1).
 **Découverte** | Une appliance peut découvrir jusqu’à 250 serveurs physiques.

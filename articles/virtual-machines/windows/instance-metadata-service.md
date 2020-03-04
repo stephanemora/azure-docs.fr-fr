@@ -11,15 +11,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/31/2020
+ms.date: 02/24/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 25b61b7e21e70c1cd4d27f88a0f5ce965c01c5a5
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 0fbe27fb5ed61cc187c679f9cb7420f0b444aa60
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964649"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615931"
 ---
 # <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure
 
@@ -38,10 +38,12 @@ Le service est disponible dans toutes les régions Azure mises à la disposition
 
 Régions                                        | Disponibilité ?                                 | Versions prises en charge
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Toutes les régions Azure globales généralement disponibles](https://azure.microsoft.com/regions/)     | Mise à la disposition générale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Mise à la disposition générale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
-[Azure China 21Vianet](https://www.azure.cn/)                                            | Mise à la disposition générale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
-[Azure Allemagne](https://azure.microsoft.com/overview/clouds/germany/)                    | Mise à la disposition générale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
+[Toutes les régions Azure globales généralement disponibles](https://azure.microsoft.com/regions/)     | Mise à la disposition générale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Mise à la disposition générale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+[Azure China 21Vianet](https://www.azure.cn/)                                            | Mise à la disposition générale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+[Azure Allemagne](https://azure.microsoft.com/overview/clouds/germany/)                    | Mise à la disposition générale | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
+
+La version 2019-11-01 est actuellement déployée et n’est peut-être pas disponible dans toutes les régions.
 
 Ce tableau est mis à jour lors des mises à jour du service et/ou quand de nouvelles versions prises en charge sont disponibles.
 
@@ -132,6 +134,7 @@ Code d’état HTTP | Motif
 400 Demande incorrecte | En-tête `Metadata: true` manquant ou format manquant lors de l’interrogation d’un nœud terminal
 404 Introuvable | L’élément demandé n’existe pas
 405 Méthode non autorisée | Seules les requêtes `GET` sont prises en charge
+410 Supprimé | Recommencez l’opération dans un délai maximum de 70 secondes
 429 Trop de demandes | L’API prend actuellement en charge un maximum de 5 requêtes par seconde
 500 Erreur de service     | Recommencez l’opération plus tard
 
@@ -455,7 +458,7 @@ identité | Identités managées pour les ressources Azure. Consulter [Obtenir u
 instance | Consulter [API Instance](#instance-api) | 2017-04-02
 scheduledevents | Consultez [Événements planifiés](scheduled-events.md). | 2017-08-01
 
-#### <a name="instance-api"></a>API Instance
+### <a name="instance-api"></a>API Instance
 
 Les catégories de calcul suivantes sont disponibles via l’API Instance :
 
@@ -568,7 +571,6 @@ Nonce est une chaîne facultative de 10 chiffres. S’il n’est pas fourni, IM
 
 L’objet blob de signature est une version signée [pkcs7](https://aka.ms/pkcs7) du document. Il contient le certificat utilisé pour la signature ainsi que les détails de machine virtuelle, comme vmId, sku, nonce, subscriptionId, timeStamp pour la création et l’expiration du document, et les informations du plan sur l’image. Les informations du plan ne sont fournies que pour les images Azure Marketplace. Le certificat peut être extrait de la réponse et utilisé pour valider que la réponse est correcte et provient d’Azure.
 
-
 ## <a name="example-scenarios-for-usage"></a>Exemples de scénarios d’utilisation  
 
 ### <a name="tracking-vm-running-on-azure"></a>Suivi de la machine virtuelle s’exécutant sur Azure
@@ -587,7 +589,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api
 5c08b38e-4d57-4c23-ac45-aca61037f084
 ```
 
-### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Positionnement du domaine d’erreur/de mise à jour basé sur des conteneurs et des partitions de données 
+### <a name="placement-of-containers-data-partitions-based-faultupdate-domain"></a>Positionnement du domaine d’erreur/de mise à jour basé sur des conteneurs et des partitions de données
 
 Pour certains scénarios, le positionnement des différents réplicas de données est de première importance. Par exemple, pour le [positionnement du réplica HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html#Replica_Placement:_The_First_Baby_Steps) ou pour le positionnement des conteneurs via un [orchestrateur](https://kubernetes.io/docs/user-guide/node-selection/), vous devez connaître les domaines `platformFaultDomain` et `platformUpdateDomain` sur lesquels la machine virtuelle s’exécute.
 Vous pouvez également utiliser les [Zones de disponibilité](../../availability-zones/az-overview.md) pour les instances pour prendre ces décisions.
@@ -607,7 +609,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platform
 
 ### <a name="getting-more-information-about-the-vm-during-support-case"></a>Obtenir plus d’informations sur la machine virtuelle pour le dossier de support
 
-En tant que fournisseur de services, vous recevrez peut-être un appel du support pour lequel vous devrez connaître les informations de la machine virtuelle. Demandez au client de partager les métadonnées de calcul afin que l’équipe du support dispose des informations de base concernant le type de machine virtuelle sur Azure. 
+En tant que fournisseur de services, vous recevrez peut-être un appel du support pour lequel vous devrez connaître les informations de la machine virtuelle. Demandez au client de partager les métadonnées de calcul afin que l’équipe du support dispose des informations de base concernant le type de machine virtuelle sur Azure.
 
 **Requête**
 
@@ -837,10 +839,12 @@ Après avoir obtenu la signature ci-dessus, vous pouvez vérifier qu’elle éma
 
  Cloud | Certificat
 ---------|-----------------
-[Toutes les régions Azure globales généralement disponibles](https://azure.microsoft.com/regions/)     | metadata.azure.com
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | metadata.azure.cn
-[Azure Allemagne](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
+[Toutes les régions Azure globales généralement disponibles](https://azure.microsoft.com/regions/)     | *.metadata.azure.com
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | *.metadata.azure.us
+[Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | *.metadata.azure.cn
+[Azure Allemagne](https://azure.microsoft.com/overview/clouds/germany/)                    | *.metadata.microsoftazure.de
+
+Il existe un problème connu au niveau du certificat utilisé pour la signature. Les certificats peuvent ne pas avoir la correspondance exacte `metadata.azure.com` pour le cloud public. Par conséquent, la validation de la certification doit autoriser un nom commun de tout sous-domaine `.metadata.azure.com`.
 
 ```bash
 

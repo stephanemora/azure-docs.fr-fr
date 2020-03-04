@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0096bccf76e81f2bca1a449cea2474cb5266fabc
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: ffe9ea5f46571f6a22717c376c97055f6f1759e4
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443582"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604724"
 ---
 # <a name="the-enhanced-secure-score-preview"></a>Version améliorée du degré de sécurisation (préversion) 
 
@@ -65,16 +65,16 @@ Par exemple, le contrôle de sécurité « Appliquer les mises à jour système
 
 Dans la capture d’écran ci-dessus, l’augmentation potentielle de la valeur du contrôle de sécurité « Appliquer les mises à jour système » montre « 2 % (1 point) ». Cela signifie que si vous appliquez toutes les recommandations de ce contrôle, votre score augmentera de 2 % (dans ce cas, 1 point). Par souci de simplicité, les valeurs qui se trouvent dans la colonne « Augmentation potentielle » de la liste des recommandations sont arrondies à des nombres entiers. Les info-bulles affichent des valeurs précises :
 
+* **Score maximal** - Nombre maximal de points que vous pouvez gagner en appliquant toutes les recommandations d’un contrôle. Le score maximal d’un contrôle indique l’importance relative de ce contrôle. Utilisez les valeurs de score maximal pour effectuer un triage des problèmes à traiter en priorité. 
 * **Augmentation potentielle** : points restants à gagner dans le contrôle. Pour faire en sorte que ces points soient ajoutés à votre score de sécurité, appliquez toutes les recommandations du contrôle. Dans l’exemple ci-dessus, le point indiqué pour le contrôle correspond en réalité à 0,96 point.
 * **Score actuel** : degré de sécurisation actuel du contrôle. Chaque contrôle contribue au score total. Dans cet exemple, le contrôle apporte une contribution de 5,04 points au score total. 
-* **Score maximal** : somme des deux valeurs précédentes.
 
 ### <a name="calculations---understanding-your-score"></a>Calculs : comprendre votre score
 
 |Métrique|Formule et exemple|
 |-|-|
-|**Degré de sécurisation actuel du contrôle de sécurité**|<br>![Équation pour le calcul du degré de sécurisation actuel d’un contrôle de sécurité](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Chaque contrôle de sécurité contribue au degré de sécurisation global. Chaque ressource concernée par une recommandation dans le contrôle contribue au degré de sécurisation actuel du contrôle. Le degré de sécurisation actuel de chaque contrôle correspond à la mesure de l’état des ressources *comprises* dans ce contrôle.<br>![Info-bulles présentant les valeurs utilisées lors du calcul du degré de sécurisation actuel du contrôle de sécurité](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>Dans cet exemple, le score (ou degré) maximal de 6 est divisé par 78, car il s’agit de la somme des ressources saines et non saines.<br>6 / 78 = 0,0769<br>En multipliant ce score par le nombre de ressources saines (74), vous obtenez le degré de sécurisation actuel :<br>0,0769 * 74 = **5,69**<br><br>|
-|**Degré de sécurisation**<br>Abonnement unique|<br>![Équation pour le calcul du degré de sécurisation actuel](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Degré de sécurisation d’un abonnement avec tous les contrôles activés](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>Dans cet exemple, vous pouvez voir un abonnement pour lequel tous les contrôles de sécurité sont disponibles (avec un score maximal potentiel de 60 points). Le score indique 28 points sur un score possible de 60, et les 32 points restants correspondent aux chiffres qui figurent dans la colonne « Augmentation potentielle du score ».<br>![Liste des contrôles et augmentation potentielle du score](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
+|**Degré de sécurisation actuel du contrôle de sécurité**|<br>![Équation pour le calcul du degré de sécurisation actuel d’un contrôle de sécurité](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>Chaque contrôle de sécurité contribue au degré de sécurisation global. Chaque ressource concernée par une recommandation dans le contrôle contribue au degré de sécurisation actuel du contrôle. Le degré de sécurisation actuel de chaque contrôle correspond à la mesure de l’état des ressources *comprises* dans ce contrôle.<br>![Info-bulles présentant les valeurs utilisées lors du calcul du degré de sécurisation actuel du contrôle de sécurité](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>Dans cet exemple, le score (ou degré) maximal de 6 est divisé par 78, car il s’agit de la somme des ressources saines et non saines.<br>6 / 78 = 0,0769<br>En multipliant ce score par le nombre de ressources saines (4), vous obtenez le score actuel :<br>0,0769 * 4 = **0,31**<br><br>|
+|**Degré de sécurisation**<br>Abonnement unique|<br>![Équation pour le calcul du degré de sécurisation actuel](media/secure-score-security-controls/secure-score-equation.png)<br><br>![Niveau de sécurité d’un abonnement unique avec tous les contrôles activés](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>Dans cet exemple, vous pouvez voir un abonnement pour lequel tous les contrôles de sécurité sont disponibles (avec un score maximal potentiel de 60 points). Le score indique 28 points sur un score possible de 60, et les 32 points restants correspondent aux chiffres qui figurent dans la colonne « Augmentation potentielle du score ».<br>![Liste des contrôles et augmentation potentielle du score](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
 |**Degré de sécurisation**<br>Abonnements multiples|<br>Le degré de sécurisation actuel des ressources de tous les abonnements est ajouté, et le calcul est le même que pour un seul abonnement<br><br>Lorsque vous affichez plusieurs abonnements, le degré de sécurisation évalue toutes les ressources de toutes les stratégies activées, et regroupe leur impact combiné sur le score maximal de chaque contrôle de sécurité.<br>![Degré de sécurisation pour plusieurs abonnements avec tous les contrôles activés](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>Le score combiné **n’est pas** une moyenne. Il s’agit plutôt d’une évaluation de l’état de toutes les ressources de tous les abonnements.<br>Ici aussi, si vous accédez à la page des recommandations et si vous ajoutez les points que vous pouvez potentiellement gagner, vous constaterez qu’il s’agit de la différence entre le score actuel (24) et le score maximal possible (60).|
 ||||
 

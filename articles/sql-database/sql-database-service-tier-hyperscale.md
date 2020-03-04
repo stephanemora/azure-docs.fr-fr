@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 226ed1fcc72eada399c0a9a9eb4225d79cd83dd7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: efb6cd1a45ac14dcbd5b2b6d8e70f5ee096ddbd8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845892"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587275"
 ---
 # <a name="hyperscale-service-tier"></a>Niveau de service Hyperscale
 
@@ -112,7 +112,7 @@ Avec la possibilité d’ajouter ou de supprimer rapidement des nœuds de calcul
 
 ## <a name="create-a-hyperscale-database"></a>Créer une base de données Hyperscale
 
-Une base de données Hyperscale peut être créée à l'aide du [portail Azure](https://portal.azure.com), de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) ou de [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Les bases de données Hyperscale sont uniquement disponibles avec le [modèle d'achat vCore](sql-database-service-tiers-vcore.md).
+Vous pouvez créer une base de données Hyperscale à l’aide du [portail Azure](https://portal.azure.com), de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) ou de [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Les bases de données Hyperscale sont uniquement disponibles avec le [modèle d'achat vCore](sql-database-service-tiers-vcore.md).
 
 La commande T-SQL suivante crée une base de données Hyperscale. Vous devez spécifier l’édition et l’objectif du service dans l’instruction `CREATE DATABASE`. Pour obtenir la liste des objectifs de service valides, consultez les [limites de ressources](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4).
 
@@ -192,48 +192,14 @@ Le niveau Hyperscale d’Azure SQL Database est actuellement disponible dans les
 - USA Ouest
 - USA Ouest 2
 
-Si vous souhaitez créer une base de données Hyperscale dans une région non répertoriée comme prise en charge, vous pouvez envoyer une demande d’intégration via le portail Azure. Étant donné que nous travaillons actuellement à l’élargissement de la liste des régions prises en charge, nous vous invitons à vérifier la liste la plus récente.
+Si vous souhaitez créer une base de données Hyperscale dans une région non répertoriée comme prise en charge, vous pouvez envoyer une demande d’intégration via le portail Azure. Pour obtenir des instructions, consultez [Demander des augmentations de quota pour Azure SQL Database](quota-increase-request.md). Quand vous soumettez votre demande, suivez les instructions ci-après :
 
-Pour demander à pouvoir créer des bases de données Hyperscale dans des régions non répertoriées :
-
-1. Accédez au [panneau Aide et support d’Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
-
-2. Cliquez sur [**Nouvelle demande de support**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-    ![Panneau Aide et support d’Azure](media/sql-database-service-tier-hyperscale/request-screen-1.png)
-
-3. Pour **Type de problème**, sélectionnez **Limites du service et des abonnements (quotas)** .
-
-4. Choisissez l’abonnement à utiliser pour créer les bases de données.
-
-5. Pour **Type de Quota**, sélectionnez **Base de données SQL**.
-
-6. Cliquez sur **Suivant : Solutions**
-
-1. Cliquez sur **Fournir les détails**.
-
-    ![Détails du problème](media/sql-database-service-tier-hyperscale/request-screen-2.png)
-
-8. Choisissez **Type de quota de base de données SQL** : **Autre demande de quota**.
-
-9. Remplissez le modèle suivant :
-
-    ![Détails du quota](media/sql-database-service-tier-hyperscale/request-screen-3.png)
-
-    Dans le modèle, fournissez les informations suivantes :
-
-    > Demande de création de base de données SQL Azure Hyperscale dans une nouvelle région<br/> Région : [entrez la région demandée]  <br/>
-    > Référence (SKU) de calcul/nombre total de cœurs, y compris les réplicas lisibles <br/>
-    > Nombre de To estimé 
-    >
-
-10. Choisissez **Gravité C**
-
-11. Choisissez la méthode de contact appropriée et renseignez les détails.
-
-12. Cliquez sur **Enregistrer** puis **Continuer**.
+- Utilisez le type de quota de base de données SQL [Autre demande de quota](quota-increase-request.md#other).
+- Dans les détails sous forme de texte, ajoutez la référence SKU de calcul/le nombre total de cœurs, notamment les réplicas lisibles.
+- Spécifiez également la taille estimée en To.
 
 ## <a name="known-limitations"></a>Limitations connues
+
 Voici les limitations actuelles du niveau de service Hyperscale depuis la disponibilité générale.  Nous travaillons activement à la suppression d’un maximum de ces limitations.
 
 | Problème | Description |
