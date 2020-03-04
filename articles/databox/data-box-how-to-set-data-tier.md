@@ -1,5 +1,5 @@
 ---
-title: Utiliser Azure Data Box ou Azure Data Box Heavy pour envoyer des données à un niveau de stockage d’objets blob de bloc approprié chaud, froid ou archive | Microsoft Docs
+title: Envoyer des données à un niveau de stockage d'objets blob chaud, froid ou archive via Azure Data Box/Azure Data Box Heavy
 description: Décrit comment utiliser Azure Data Box ou Azure Data Box Heavy pour envoyer des données à un niveau de stockage d’objets blob de bloc approprié comme chaud, froid ou archive.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: ea208c395e2ef69ce8f28052351643e963cceb05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 31178284313ad7dafb094b109a75d4550cabd39c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427879"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560369"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Utiliser Azure Data Box ou Azure Data Box Heavy pour envoyer des données au niveau d’objets blob de Stockage Azure approprié
 

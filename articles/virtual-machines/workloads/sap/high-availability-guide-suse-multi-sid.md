@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/16/2020
+ms.date: 02/20/2020
 ms.author: radeltch
-ms.openlocfilehash: 7471fc6d7f10c849ba79fedf88961d6c3c99913f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: e48cb1baa515e6a1549bf913a3c3e4cf50e1fff6
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314196"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525479"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Guide de haute disponibilité multi-SID pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP
 
@@ -83,7 +83,7 @@ Avant de commencer, reportez-vous aux notes et documents SAP suivants :
 * [Déploiement SGBD de machines virtuelles Azure pour SAP sur Linux][dbms-guide]
 * [Guides sur les meilleures pratiques pour SUSE SAP HA][suse-ha-guide] Les guides contiennent toutes les informations nécessaires pour configurer la réplication locale des systèmes Netweaver HP et SAP HANA. Utilisez ces guides comme planning de référence. Ils fournissent des informations beaucoup plus détaillées.
 * [Notes de publication de SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
-* [Prise en charge de SUSE pour un cluster multi-SID](https://www.suse.com/c/sap-workloads-going-green/)
+* [Guide du cluster multi-SID SUSE pour SLES 12 et SLES 15](https://documentation.suse.com/sbp/all/html/SBP-SAP-MULTI-SID/index.html)
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -175,7 +175,7 @@ Dans cet exemple, nous partons du principe que le système **NW1** a déjà ét�
 
 Les éléments suivants sont précédés de **[A]** (applicable à tous les nœuds), de **[1]** (applicable uniquement au nœud 1) ou de **[2]** (applicable uniquement au nœud 2).
 
-### <a name="prerequisites"></a>Conditions préalables requises 
+### <a name="prerequisites"></a>Prérequis 
 
 > [!IMPORTANT]
 > Avant de suivre les instructions pour déployer des systèmes SAP supplémentaires dans le cluster, suivez les instructions visant à déployer le premier système SAP dans le cluster, car certaines étapes sont uniquement requises lors du premier déploiement du système.  

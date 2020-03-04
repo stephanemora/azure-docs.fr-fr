@@ -3,22 +3,22 @@ title: Terminologie de SAP HANA sur Azure (grandes instances) | Microsoft Docs
 description: Terminologie de SAP HANA sur Azure (grandes instances).
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/03/2019
+ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ea6a8963d0905036f759fbab792492cc63d551c
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 6785ae821f701121185f0064c6317c69d50191ab
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806743"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617061"
 ---
 # <a name="know-the-terms"></a>Maîtriser la terminologie
 
@@ -38,7 +38,7 @@ Plusieurs définitions communes sont largement utilisées dans ce guide sur l’
    Les utilisateurs du domaine local peuvent accéder aux serveurs et exécuter des services sur ces machines virtuelles (tels que les services SGBD). La communication et la résolution de noms entre les machines virtuelles déployées en local et les machines virtuelles déployées dans Azure sont possibles. Il s’agit du scénario classique dans lequel la plupart des ressources SAP sont déployées. Pour plus d’informations, consultez [Passerelle VPN Azure](../../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) et [Créer un réseau virtuel avec une connexion de site à site à partir du portail Azure](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - **Tenant** : un client déployé dans le tampon de grande instance HANA est isolé dans un *locataire.* Un locataire est isolé des autres locataires dans la couche de mise en réseau, de stockage et de calcul. Les unités de stockage et compute assignées aux différents abonnés ne peuvent pas se voir ni communiquer entre elles sur le niveau de tampon de grande instance HANA. Un client peut opter pour des déploiements dans plusieurs locataires. Même dans ce cas, aucune communication n’est établie entre les locataires sur le niveau de tampon de grande instance HANA.
 - **Catégorie de référence SKU** : pour la grande instance HANA, les deux catégories suivantes de références SKU sont proposées :
-    - **Classe de type I** : S72, S72m, S96, S144, S144m, S192, S192m, S192xm et S224
+    - **Classe de type I** : S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224 et S224m
     - **Classe Type II** : S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm et S960m
 - **Tampon** : définit la taille de déploiement interne de Microsoft pour les Grandes instances HANA. Avant que des unités Grande instance HANA puissent être déployées, un tampon Grande instance HANA constitué de racks de calcul, de réseau et de stockage doit être déployé dans un emplacement de centre de données. Un tel déploiement est appelé « tampon Grande instance HANA » ou, depuis la Révision 4 (voir ci-dessous), nous utilisons un autre terme : **Ligne de grande instance**.
 - **Révision** : il existe deux révisions de tampons pour les tampons Grande instance HANA. Celles-ci diffèrent des hôtes de machines virtuelles Azure en termes d’architecture et de proximité

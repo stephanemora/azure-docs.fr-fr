@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: f87dbedb1428b5884e20a9f7daabea792387fe88
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 2e48b47967e29a421a96bb09dd17b2cdcdbaff3c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543305"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580501"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Entraîner avec des jeux de données dans Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,9 +27,9 @@ Dans cet article, vous allez découvrir les deux façons de consommer des [jeux 
 
 - Option n°2 : Si vous disposez de données non structurées, créez un FileDataset et montez ou téléchargez des fichiers sur un ordinateur distant pour l’entraînement.
 
-Les jeux de données Azure Machine Learning fournissent une intégration transparente avec les produits d’entraînement Azure Machine Learning tels que [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) et [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py).
+Les jeux de données Azure Machine Learning fournissent une intégration transparente avec les produits de formation Azure Machine Learning tels que [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py), [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py) et les [pipelines Azure Machine Learning](how-to-create-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour créer des jeux de données et effectuer un entraînement avec eux, vous avez besoin des éléments suivants :
 
@@ -99,6 +99,7 @@ est = Estimator(source_directory=script_folder,
 experiment_run = experiment.submit(est)
 experiment_run.wait_for_completion(show_output=True)
 ```
+
 
 ## <a name="option-2--mount-files-to-a-remote-compute-target"></a>Option n°2 :  Monter des fichiers sur une cible de calcul distante
 
@@ -199,4 +200,4 @@ Les [notebooks de jeux de données](https://aka.ms/dataset-tutorial) illustrent 
 
 * [Entraîner des modèles de classification d’image](https://aka.ms/filedataset-samplenotebook) avec des FileDatasets
 
-* [Créer et gérer des environnements pour l’entraînement et le déploiement](how-to-use-environments.md)
+* [Effectuer l'apprentissage des jeux de données à l'aide de pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb)

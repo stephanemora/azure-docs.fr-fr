@@ -1,154 +1,156 @@
 ---
-title: Sauvegarde SQL Server avec le serveur de sauvegarde Azure
-description: Dans cet article, vous allez découvrir les étapes de configuration de la sauvegarde des bases de données SQL Server à l’aide du serveur de sauvegarde Microsoft Azure.
+title: Sauvegarder des bases de données SQL Server à l'aide du serveur de sauvegarde Azure
+description: Cet article présente les étapes de configuration de la sauvegarde des bases de données SQL Server à l'aide du serveur de sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 461faa2c88b8db9c1e3b2f9af19783b7d6b7fa07
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 4a4d4b7e70e2df0e014ea4b4d23027aa7c48f2fe
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024005"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505947"
 ---
-# <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Sauvegarder des données SQL Server vers Azure à l’aide du serveur de sauvegarde Azure
+# <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Sauvegarder des bases de données SQL Server sur Azure à l'aide du serveur de sauvegarde Azure
 
-Cet article vous guide tout au long des étapes de configuration de la sauvegarde des bases de données SQL Server à l’aide du serveur de sauvegarde Microsoft Azure.
+Cet article explique comment configurer des sauvegardes de bases de données SQL Server à l'aide du serveur de sauvegarde Microsoft Azure.
 
-La gestion de sauvegarde et de récupération de base de données SQL Server dans Azure implique trois étapes :
+Pour sauvegarder une base de données SQL Server et la récupérer à partir d'Azure :
 
 1. Créez une stratégie de sauvegarde pour protéger les bases de données SQL Server dans Azure.
-2. Créez des copies de sauvegarde à la demande vers Azure.
-3. Récupérer la base de données à partir d’Azure.
+1. Créez des copies de sauvegarde à la demande dans Azure.
+1. Récupérez la base de données dans Azure.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-Avant de commencer, assurez-vous d’avoir [installé et préparé le serveur de sauvegarde Azure](backup-azure-microsoft-azure-backup.md).
+Avant de commencer, assurez-vous d'avoir [installé et préparé le serveur de sauvegarde Azure](backup-azure-microsoft-azure-backup.md).
 
-## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Créer une stratégie de sauvegarde pour protéger les bases de données SQL Server dans Azure
+## <a name="create-a-backup-policy"></a>Créer une stratégie de sauvegarde 
 
-1. Dans l’interface utilisateur du serveur de sauvegarde Azure, cliquez sur l’espace de travail **Protection**.
-2. Dans le ruban des outils, cliquez sur **Nouveau** pour créer un nouveau groupe de protection.
+Pour protéger des bases de données SQL Server dans Azure, commencez par créer une stratégie de sauvegarde :
 
-    ![Créer un groupe de protection](./media/backup-azure-backup-sql/protection-group.png)
-3. Le serveur de sauvegarde Microsoft Azure affiche l’écran de démarrage avec les conseils destinés à la création d’un **groupe de protection**. Cliquez sur **Suivant**.
-4. Sélectionnez **Serveurs**.
+1. Sur le serveur de sauvegarde Azure, sélectionnez l'espace de travail **Protection**.
+1. Sélectionnez **Nouveau** pour créer un groupe de protection.
 
-    ![Sélectionner le type de groupe de protection - « Servers »](./media/backup-azure-backup-sql/pg-servers.png)
-5. Développez l'ordinateur SQL Server sur lequel se trouvent les bases de données à sauvegarder. Le serveur de sauvegarde Microsoft Azure affiche diverses sources de données pouvant être sauvegardées à partir de ce serveur. Développez **Tous les partages SQL** et sélectionnez les bases de données (dans ce cas, nous avons sélectionné ReportServer$ MSDPM2012 et ReportServer$ MSDPM2012TempDB) à sauvegarder. Cliquez sur **Suivant**.
+    ![Créer un groupe de protection sur le serveur de sauvegarde Azure](./media/backup-azure-backup-sql/protection-group.png)
+1. Sur la page de démarrage, passez en revue les instructions relatives à la création d'un groupe de protection. Sélectionnez ensuite **Suivant**.
+1. Pour le type de groupe de protection, sélectionnez **Serveurs**.
 
-    ![Sélectionner la base de données SQL](./media/backup-azure-backup-sql/pg-databases.png)
-6. Donnez un nom au groupe de protection, puis cochez la case **Je souhaite une protection en ligne** .
+    ![Sélectionner le type de groupe de protection Serveurs](./media/backup-azure-backup-sql/pg-servers.png)
+1. Développez l'ordinateur SQL Server sur lequel se trouvent les bases de données que vous souhaitez sauvegarder. Vous accédez aux sources de données qui peuvent être sauvegardées à partir de ce serveur. Développez **Tous les partages SQL**, puis sélectionnez les bases de données que vous souhaitez sauvegarder. Dans cet exemple, nous sélectionnons ReportServer$MSDPM2012 et ReportServer$MSDPM2012TempDB. Sélectionnez **Suivant**.
 
-    ![Méthode de Protection des données - disque à court terme et Azure en ligne](./media/backup-azure-backup-sql/pg-name.png)
-7. Dans l'écran **Spécifier les objectifs à court terme** , incluez les entrées nécessaires à la création de points de sauvegarde sur disque.
+    ![Sélectionner une base de données SQL Server](./media/backup-azure-backup-sql/pg-databases.png)
+1. Nommez le groupe de protection, puis sélectionnez **Je souhaite une protection en ligne**.
 
-    Nous voyons ici que la **Durée de rétention** est définie sur *5 jours* et la **Fréquence de synchronisation** sur une fois toutes les *15 minutes*, qui est la fréquence à laquelle la sauvegarde est effectuée. **sauvegarde expresse rapide** est définie sur *20h00*.
+    ![Choisir une méthode de protection des données : protection sur disque à court terme ou protection Azure en ligne](./media/backup-azure-backup-sql/pg-name.png)
+1. Sur la page **Spécifier les objectifs à court terme**, incluez les entrées nécessaires à la création de points de sauvegarde sur le disque.
 
-    ![Objectifs à court terme](./media/backup-azure-backup-sql/pg-shortterm.png)
+    Dans cet exemple, la **Période de rétention** est définie sur *5 jours*. La **Fréquence de synchronisation** de la sauvegarde est définie sur *15 minutes*. La **Sauvegarde complète rapide** est définie sur *20h00*.
+
+    ![Définir des objectifs à court terme pour la protection de la sauvegarde](./media/backup-azure-backup-sql/pg-shortterm.png)
 
    > [!NOTE]
-   > À 20 h 00 (selon la saisie de l’écran), un point de sauvegarde est créé chaque jour par le transfert de données modifiées depuis le point de sauvegarde de 20 h 00 du jour précédent. Ce processus est appelé **Sauvegarde expresse rapide**. Lorsque les journaux d’activité de transaction sont synchronisés toutes les 15 minutes, s’il faut récupérer la base de données à 21h00, le point est créé suite à la relecture des journaux d’activité à partir du point de sauvegarde complète rapide (20h00 dans le cas présent).
+   > Dans cet exemple, un point de sauvegarde est créé à 20h00 quotidiennement. Les données qui ont été modifiées depuis le point de sauvegarde de la veille à 20h00 sont transférées. Ce processus est appelé **Sauvegarde expresse rapide**. Bien que les journaux des transactions soient synchronisés toutes les 15 minutes, si nous devons récupérer la base de données à 21h00, le point est créé en relisant les journaux à partir du dernier point de sauvegarde complète rapide, à savoir 20h00 dans cet exemple.
    >
    >
 
-8. Cliquez sur **Suivant**.
+1. Sélectionnez **Suivant**. Le serveur de sauvegarde Microsoft Azure affiche l'espace de stockage global disponible. Il présente également l'utilisation potentielle de l'espace disque.
 
-    Le serveur de sauvegarde Microsoft Azure affiche l’espace de stockage global disponible et l’utilisation potentielle de l’espace disque.
+    ![Configurer l'allocation de disque dans le serveur de sauvegarde Microsoft Azure](./media/backup-azure-backup-sql/pg-storage.png)
 
-    ![Allocation de disque](./media/backup-azure-backup-sql/pg-storage.png)
+    Par défaut, le serveur de sauvegarde Microsoft Azure crée un volume par source de données (base de données SQL Server). Le volume est utilisé pour la copie de sauvegarde initiale. Dans cette configuration, le Gestionnaire de disque logique limite la protection du serveur de sauvegarde Microsoft Azure à 300 sources de données (bases de données SQL Server). Pour contourner cette limitation, sélectionnez **Colocaliser les données dans le pool de stockage DPM**. Si vous utilisez cette option, le serveur de sauvegarde Microsoft Azure utilise un seul volume pour plusieurs sources de données. Cette configuration permet au serveur de sauvegarde Microsoft Azure de protéger jusqu'à 2 000 bases de données SQL Server.
 
-    Par défaut, le serveur de sauvegarde Microsoft Azure crée un volume par source de données (base de données SQL Server) utilisée pour la copie de sauvegarde initiale. Suivant cette approche, le Gestionnaire de disque logique (LDM) limite la protection du serveur de sauvegarde Microsoft Azure à 300 sources de données (bases de données SQL Server). Pour contourner cette limitation, sélectionnez l’option **Colocaliser les données dans le pool de stockage DPM**. Si vous choisissez cette option, le serveur de sauvegarde Microsoft Azure utilise un même volume pour plusieurs sources de données, ce qui lui permet de protéger jusqu’à 2 000 bases de données SQL.
+    Si vous sélectionnez l'option **Augmenter automatiquement les volumes**, le serveur de sauvegarde Microsoft Azure peut gérer l'augmentation du volume de sauvegarde à mesure que les données de production augmentent. Si vous ne sélectionnez pas l'option **Augmenter automatiquement les volumes**, le serveur de sauvegarde Microsoft Azure limite le stockage de sauvegarde aux sources de données figurant dans le groupe de protection.
+1. Si vous êtes un administrateur, vous pouvez décider de transférer cette sauvegarde initiale **Automatiquement sur le réseau** et choisir l'heure de transfert. Vous pouvez également choisir de transférer **Manuellement** la sauvegarde. Sélectionnez ensuite **Suivant**.
 
-    Si l’option **Augmenter automatiquement les volumes** est sélectionnée, le serveur de sauvegarde Microsoft Azure peut gérer l’augmentation du volume de sauvegarde à mesure que les données de production augmentent. Si l’option **Augmenter automatiquement les volumes** n’est pas sélectionnée, le serveur de sauvegarde Microsoft Azure limite le stockage de sauvegarde utilisé pour les sources de données dans le groupe de protection.
-9. Les administrateurs peuvent opter pour le transfert manuel de cette sauvegarde initiale manuellement (hors réseau) pour éviter l’encombrement de la bande passante ou sur le réseau. Ils peuvent également configurer l’heure à laquelle le transfert initial peut se produire. Cliquez sur **Suivant**.
+    ![Choisir une méthode de création de réplica dans le serveur de sauvegarde Microsoft Azure](./media/backup-azure-backup-sql/pg-manual.png)
 
-    ![Méthode de réplication initiale](./media/backup-azure-backup-sql/pg-manual.png)
+    La copie de sauvegarde initiale nécessite le transfert de la totalité de la source de données (base de données SQL Server). Les données de sauvegarde sont déplacées du serveur de production (ordinateur SQL Server) vers le serveur de sauvegarde Microsoft Azure. Si cette sauvegarde est volumineuse, le transfert des données sur le réseau peut entraîner une saturation de la bande passante. Pour cette raison, les administrateurs peuvent choisir d'utiliser des supports amovibles pour transférer la sauvegarde initiale **Manuellement**. Ils peuvent également transférer les données **Automatiquement sur le réseau** à une heure spécifiée.
 
-    La copie de sauvegarde initiale nécessite le transfert de la source de données complète (base de données SQL Server) à partir du serveur de production (ordinateur SQL Server) vers le serveur de sauvegarde Microsoft Azure. Ces données peuvent être volumineuses et leur transfert sur le réseau peut dépasser la bande passante. C'est la raison pour laquelle les administrateurs peuvent choisir de transférer la sauvegarde initiale : **Manuellement** (à l'aide d'un support amovible) afin d'éviter toute congestion de la bande passante, ou **Automatiquement sur le réseau** (à un moment précis).
+    Une fois la sauvegarde initiale terminée, les sauvegardes se poursuivent de façon incrémentielle sur la copie de sauvegarde initiale. Les sauvegardes incrémentielles sont en général très limitées et sont faciles à transférer sur le réseau.
+1. Choisissez quand exécuter une vérification de cohérence. Sélectionnez ensuite **Suivant**.
 
-    Une fois la sauvegarde initiale terminée, le reste des sauvegardes se compose de sauvegardes incrémentielles sur la copie de sauvegarde initiale. Les sauvegardes incrémentielles sont en général très limitées et sont faciles à transférer sur le réseau.
-10. Choisissez si vous souhaitez ou non exécuter la vérification de cohérence, puis cliquez sur **Suivant**.
+    ![Choisir quand exécuter une vérification de cohérence](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    ![Vérifier la cohérence](./media/backup-azure-backup-sql/pg-consistent.png)
+    Le serveur de sauvegarde Microsoft Azure peut exécuter une vérification de cohérence sur l'intégrité du point de sauvegarde. Il calcule la somme de contrôle du fichier de sauvegarde sur le serveur de production (ordinateur SQL Server dans cet exemple) et les données sauvegardées pour ce fichier sur le serveur de sauvegarde Microsoft Azure. Si la vérification détecte un conflit, le fichier sauvegardé sur le serveur de sauvegarde Microsoft Azure est supposé endommagé. Le serveur de sauvegarde Microsoft Azure corrige les données sauvegardées en envoyant les blocs correspondant à l'incohérence de somme contrôle. La vérification de cohérence étant une opération exigeante en matière de performances, les administrateurs peuvent la planifier ou l'exécuter automatiquement.
+1. Sélectionnez les sources de données à protéger dans Azure. Sélectionnez ensuite **Suivant**.
 
-    Le serveur de sauvegarde Microsoft Azure peut effectuer un contrôle de cohérence pour vérifier l’intégrité du point de sauvegarde. Il calcule la somme de contrôle du fichier de sauvegarde sur le serveur de production (ordinateur SQL Server dans ce scénario) et des données sauvegardée pour ce fichier sur le serveur de sauvegarde Microsoft Azure. En cas de conflit, on considère que le fichier sauvegardé sur le serveur de sauvegarde Microsoft Azure est endommagé. Le serveur de sauvegarde Microsoft Azure corrige les données sauvegardées en envoyant les blocs correspondant à l’incohérence du contrôle de cohérence. Le contrôle de cohérence étant une opération exigeante en matière de performances, les administrateurs ont la possibilité de le planifier ou de l’exécuter automatiquement.
-11. Pour spécifier la protection des sources de données en ligne, sélectionnez les bases de données à protéger sur Azure et cliquez sur **Suivant**.
+    ![Sélectionner les sources de données à protéger dans Azure](./media/backup-azure-backup-sql/pg-sqldatabases.png)
+1. Si vous êtes un administrateur, vous pouvez choisir des planifications de sauvegarde et des stratégies de rétention correspondant aux stratégies de votre organisation.
 
-    ![Sélectionner les sources de données](./media/backup-azure-backup-sql/pg-sqldatabases.png)
-12. Les administrateurs peuvent choisir les planifications de sauvegarde et les stratégies de rétention adaptées à leurs stratégies d’entreprise.
+    ![Choisir des planifications et des stratégies de rétention](./media/backup-azure-backup-sql/pg-schedule.png)
 
-    ![Planification de sauvegarde et rétention](./media/backup-azure-backup-sql/pg-schedule.png)
+    Dans cet exemple, les sauvegardes sont effectuées quotidiennement à 12h00 et 20h00.
 
-    Dans cet exemple, les sauvegardes sont effectuées une fois par jour à 12 h 00 et 20 h 00 (partie inférieure de l’écran)
-
-    > [!NOTE]
-    > Il est conseillé de disposer de plusieurs points de récupération à court terme sur disque pour une récupération rapide. Ces points de récupération sont utilisés pour la « restauration opérationnelle ». Azure constitue un bon emplacement hors site, avec des contrats de niveau de service supérieurs et une disponibilité garantie.
+    > [!TIP]
+    > Pour une récupération rapide, conservez quelques points de récupération à court terme sur votre disque. Ces points de récupération sont utilisés pour la restauration opérationnelle. Azure constitue un bon emplacement hors site, adossé à des contrats de niveau de service plus avantageux et dont la disponibilité est garantie.
     >
+    > Utilisez Data Protection Manager (DPM) pour planifier les sauvegardes Azure après la fin des sauvegardes sur disque local. Lorsque vous suivez cette pratique, la dernière sauvegarde sur disque est copiée sur Azure.
     >
 
-    **Meilleure pratique** : assurez-vous que les sauvegardes Azure Backup sont prévues après l'exécution de sauvegardes sur disque local à l'aide de DPM. Cela permet la copie de la dernière sauvegarde de disque sur Azure.
 
-13. Cliquez sur la planification de stratégie de rétention. Les détails du fonctionnement de la stratégie de rétention sont fournis dans la section [Utilisation d'Azure Backup pour remplacer votre infrastructure sur bande](backup-azure-backup-cloud-as-tape.md).
+1. Cliquez sur la planification de stratégie de rétention. Pour plus d'informations sur le fonctionnement de la stratégie de rétention, consultez [Utilisation de Sauvegarde Azure pour remplacer votre infrastructure sur bande](backup-azure-backup-cloud-as-tape.md).
 
-    ![Stratégie de rétention](./media/backup-azure-backup-sql/pg-retentionschedule.png)
+    ![Choisir une stratégie de rétention sur le serveur de sauvegarde Microsoft Azure](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     Dans cet exemple :
 
-    * Les sauvegardes sont effectuées une fois par jour à 12 h 00 et 20 h 00 (partie inférieure de l’écran) et sont conservées pendant 180 jours.
-    * La sauvegarde le samedi à 12 h 00 est conservée pendant 104 semaines
-    * La sauvegarde le dernier samedi à 12 h 00 est conservée pendant 60 mois
-    * La sauvegarde le dernier samedi de mars à 12 h 00 est conservée pendant 10 ans
-14. Cliquez sur **Suivant** et sélectionnez l'option appropriée pour le transfert de la copie de sauvegarde initiale vers Azure. Vous pouvez choisir **Automatiquement sur le réseau** ou **Sauvegarde hors connexion**.
+    * les sauvegardes sont effectuées quotidiennement à 12h00 et 20h00. Elles sont conservées pendant 180 jours.
+    * La sauvegarde du samedi à 12h00 est conservée pendant 104 semaines.
+    * La sauvegarde du dernier samedi du mois à 12h00 est conservée pendant 60 mois.
+    * La sauvegarde du dernier samedi de mars à 12h00 est conservée pendant 10 ans.
 
-    * **Automatiquement sur le réseau** transfère les données de sauvegarde vers Azure en respectant la planification de sauvegarde sélectionnée.
-    * Le fonctionnement de la **sauvegarde hors connexion** est expliqué dans [Vue d’ensemble de la sauvegarde hors connexion](offline-backup-overview.md).
+    Après avoir choisi une stratégie de rétention, sélectionnez **Suivant**.
+1. Choisissez comment transférer la copie de sauvegarde initiale vers Azure.
 
-    Choisissez le mécanisme de transfert adapté à l'envoi de la copie de sauvegarde initiale vers Azure, puis cliquez sur **Suivant**.
-15. Après avoir passé en revue les détails de la stratégie dans l’écran **Résumé**, cliquez sur le bouton **Créer un groupe** pour terminer le flux de travail. Vous pouvez cliquer sur le bouton **Fermer** et surveiller la progression du travail d'analyse de l'espace de travail.
+    * L'option **Automatiquement sur le réseau** suit votre planification de sauvegarde pour transférer les données vers Azure.
+    * Pour plus d'informations sur la **sauvegarde en mode hors connexion**, consultez [Vue d'ensemble de la sauvegarde hors connexion](offline-backup-overview.md).
 
-    ![Créer un groupe de Protection en cours en progression](./media/backup-azure-backup-sql/pg-summary.png)
+    Après avoir choisi un mécanisme de transfert, sélectionnez **Suivant**.
+1. Sur la page **Résumé**, examinez les détails de la stratégie. Sélectionnez ensuite **Créer un groupe**. Vous pouvez sélectionner **Fermer** et surveiller la progression du travail dans l'espace de travail **Surveillance**.
 
-## <a name="on-demand-backup-of-a-sql-server-database"></a>Sauvegarde à la demande d’une base de données SQL Server
+    ![Progression de la création du groupe de protection](./media/backup-azure-backup-sql/pg-summary.png)
 
-Alors que les étapes précédentes ont créé une stratégie de sauvegarde, un « point de récupération » est créé uniquement à l’occasion de la première sauvegarde. Au lieu d’attendre que le planificateur arrive, les étapes ci-dessous déclenchent la création manuelle d’un point de récupération.
+## <a name="create-on-demand-backup-copies-of-a-sql-server-database"></a>Créer des copies de sauvegarde à la demande d'une base de données SQL Server
 
-1. Attendez que l'état du groupe de protection indique **OK** pour la base de données avant de créer le point de récupération.
+Un point de récupération est créé lors de la première sauvegarde. Au lieu d'attendre l'exécution de la planification, vous pouvez déclencher manuellement la création d'un point de récupération :
 
-    ![Membres du groupe de protection](./media/backup-azure-backup-sql/sqlbackup-recoverypoint.png)
-2. Cliquez avec le bouton droit sur la base de données, puis sélectionnez **Créer un point de récupération**.
+1. Dans le groupe de protection, assurez-vous que l'état de la base de données est **OK**.
 
-    ![Créer un point de récupération en ligne](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
-3. Choisissez **Protection en ligne** dans le menu déroulant, puis cliquez sur **OK**. Ceci démarre la création d’un point de récupération dans Azure.
+    ![Groupe de protection présentant l'état de la base de données](./media/backup-azure-backup-sql/sqlbackup-recoverypoint.png)
+1. Cliquez avec le bouton droit sur la base de données, puis sélectionnez **Créer un point de récupération**.
 
-    ![Créer un point de récupération](./media/backup-azure-backup-sql/sqlbackup-azure.png)
-4. Vous pouvez afficher la progression du travail dans l’espace de travail **Surveillance** , où vous trouverez un travail en cours similaire à celui qui est représenté dans la figure suivante.
+    ![Choisir de créer un point de récupération en ligne](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
+1. Dans le menu déroulant, sélectionnez **Protection en ligne**. Sélectionnez ensuite **OK** pour démarrer la création d'un point de récupération dans Azure.
 
-    ![Console de surveillance](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
+    ![Démarrer la création d'un point de récupération dans Azure](./media/backup-azure-backup-sql/sqlbackup-azure.png)
+1. Vous pouvez voir la progression du travail dans l'espace de travail **Surveillance**. 
+
+    ![Afficher la progression du travail sur la console Surveillance](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## <a name="recover-a-sql-server-database-from-azure"></a>Récupération d'une base de données SQL Server à partir d'Azure
 
-Les étapes suivantes sont nécessaires pour récupérer une entité protégée (base de données SQL Server) à partir d'Azure.
+Pour récupérer une entité protégée, telle qu'une base de données SQL Server, à partir d'Azure :
 
-1. Ouvrir la Console de gestion du serveur DPM. Accédez à l’espace de travail **Récupération** où vous pourrez voir les serveurs sauvegardés par DPM. Accédez à la base de données requise (dans ce cas, ReportServer $MSDPM2012). Sélectionnez un heure **Restauration depuis** qui se termine par **En ligne**.
+1. Ouvrez la Console de gestion du serveur DPM. Accédez à l'espace de travail **Récupération** pour afficher les serveurs que DPM sauvegarde. Sélectionnez la base de données (dans cet exemple, ReportServer$MSDPM2012). Sélectionnez une **Heure de récupération** qui se termine par **En ligne**.
 
     ![Sélectionner un point de récupération](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
-2. Cliquez avec le bouton droit sur le nom de base de données et cliquez sur **Récupérer**.
+1. Cliquez avec le bouton droit sur le nom de la base de données, puis sélectionnez **Récupérer**.
 
-    ![Récupérer depuis Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. DPM affiche les détails du point de récupération. Cliquez sur **Suivant**. Pour remplacer la base de données, sélectionnez le type de récupération **Récupérer l’instance d’origine de SQL Server**. Cliquez sur **Suivant**.
+    ![Récupérer une base de données à partir d'Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
+1. DPM affiche les détails du point de récupération. Sélectionnez **Suivant**. Pour remplacer la base de données, sélectionnez le type de récupération **Récupérer l’instance d’origine de SQL Server**. Sélectionnez ensuite **Suivant**.
 
-    ![Récupérer à l’emplacement d’origine](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
+    ![Récupérer une base de données à son emplacement d'origine](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    Dans cet exemple, DPM permet la récupération de la base de données vers une autre instance SQL Server ou dans un dossier de réseau autonome.
-4. Dans l'écran **Spécifier des options de récupération** , vous pouvez sélectionner les options de récupération telles que la limitation de bande passante réseau pour limiter la bande passante utilisée par la récupération. Cliquez sur **Suivant**.
-5. Dans l’écran **Résumé** , vous voyez toutes les configurations de récupération fournies jusqu’à présent. Cliquez sur **Restaurer**.
+    Dans cet exemple, DPM permet la récupération de la base de données sur une autre instance de SQL Server ou dans un dossier réseau autonome.
+1. Sur la page **Spécifier les options de récupération**, vous pouvez sélectionner les options de récupération. Par exemple, vous pouvez choisir **Limitation de l'utilisation de la bande passante réseau** pour limiter la bande passante que la récupération utilise. Sélectionnez ensuite **Suivant**.
+1. Sur la page **Résumé**, vous voyez la configuration actuelle de la récupération. Sélectionnez **Récupérer**.
 
-    L’état de récupération indique la base de données en cours de récupération. Vous pouvez cliquer sur **Fermer** pour fermer l’Assistant et afficher la progression dans l’espace de travail **Surveillance**.
+    L'état de récupération indique la base de données en cours de récupération. Vous pouvez sélectionner **Fermer** pour fermer l'Assistant et afficher la progression dans l'espace de travail **Surveillance**.
 
-    ![Initier le processus de récupération](./media/backup-azure-backup-sql/sqlbackup-recoverying.png)
+    ![Démarrer le processus de récupération](./media/backup-azure-backup-sql/sqlbackup-recoverying.png)
 
-    Une fois la restauration terminée, la base de données restaurée est cohérente avec l’application.
+    Une fois la récupération terminée, la base de données restaurée est cohérente avec l'application.
 
 ### <a name="next-steps"></a>Étapes suivantes
 
-* [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)
+Pour plus d'informations, consultez [Forum aux questions sur Sauvegarde Azure](backup-azure-backup-faq.md).

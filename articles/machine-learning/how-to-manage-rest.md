@@ -9,18 +9,18 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.openlocfilehash: 6d6e7d564722d1c2ad4713dd1d39e7cba5ed0605
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 419dbd998abc5cbd2da64a990e13d46f3fb2efbe
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76965262"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580626"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Créer, exécuter et supprimer des ressources Azure ML à l’aide de REST
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Il existe plusieurs façons de gérer vos ressources Azure ML. Vous pouvez utiliser le [portail](https://portal.azure.com/), l’[interface de ligne de commande](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) ou le [Kit de développement logiciel (SDK) Python](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py). Ou vous pouvez choisir l’API REST. L’API REST utilise des verbes HTTP de manière standard pour créer, récupérer, mettre à jour et supprimer des ressources. L’API REST fonctionne avec tout langage de programmation ou outil pouvant effectuer des requêtes HTTP. La structure simple de REST en fait souvent un bon choix dans les environnements de script et pour l’automatisation MLOps. 
+Il existe plusieurs façons de gérer vos ressources Azure ML. Vous pouvez utiliser le [portail](https://portal.azure.com/), l’[interface de ligne de commande](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) ou le [Kit de développement logiciel (SDK) Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Ou vous pouvez choisir l’API REST. L’API REST utilise des verbes HTTP de manière standard pour créer, récupérer, mettre à jour et supprimer des ressources. L’API REST fonctionne avec tout langage de programmation ou outil pouvant effectuer des requêtes HTTP. La structure simple de REST en fait souvent un bon choix dans les environnements de script et pour l’automatisation MLOps. 
 
 Dans cet article, vous apprendrez comment :
 
@@ -32,7 +32,7 @@ Dans cet article, vous apprendrez comment :
 > * Utiliser des requêtes DELETE pour nettoyer les ressources 
 > * Utiliser l’autorisation basée sur une clé pour attribuer un score aux modèles déployés
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Un **abonnement Azure** pour lequel vous disposez de droits d’administration. Si vous n’avez pas d’abonnement de ce type, essayez l’[abonnement personnel gratuit ou payant](https://aka.ms/AMLFree)
 - Un [espace de travail Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
@@ -401,6 +401,23 @@ providers/Microsoft.Storage/storageAccounts/{your-storage-account-name}"
 ```
 
 Vous devez recevoir une réponse `202 Accepted` et, dans les en-têtes retournés, un URI `Location`. Vous pouvez faire une requête GET auprès de cet URI pour plus d’informations sur le déploiement, y compris des informations utiles pour le débogage en cas de problème avec l’une de vos ressources dépendantes (par exemple, si vous avez oublié d’activer l’accès administrateur sur votre registre de conteneurs). 
+
+## <a name="troubleshooting"></a>Dépannage
+
+### <a name="resource-provider-errors"></a>Erreurs du fournisseur de ressources
+
+[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
+### <a name="moving-the-workspace"></a>Déplacement de l’espace de travail
+
+> [!WARNING]
+> Le déplacement de votre espace de travail Azure Machine Learning vers un autre abonnement, ou le déplacement de l’abonnement propriétaire vers un nouveau locataire, n’est pas pris en charge. En effet, cela peut provoquer des erreurs.
+
+### <a name="deleting-the-azure-container-registry"></a>Suppression d'Azure Container Registry
+
+L'espace de travail Azure Machine Learning utilise Azure Container Registry (ACR) pour certaines opérations. Il crée automatiquement une instance ACR dès qu'il en a besoin.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

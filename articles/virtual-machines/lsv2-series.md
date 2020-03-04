@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 226611bde6024f98ce6d3660fe18e66dba9a420c
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b10433190ccc7703938bed2a75a5d816f073295e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492594"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587258"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -23,7 +23,7 @@ La série Lsv2 offre un stockage NVMe local directement mappé, à haut débit e
 >
 > Le débit élevé et les IOPS du disque local rendent les machines virtuelles des séries Lsv2 idéales pour les magasins NoSQL tels qu’Apache Cassandra et MongoDB, qui répliquent les données sur plusieurs machines virtuelles pour assurer une persistance en cas de défaillance d’une seule machine virtuelle.
 >
-> Pour en savoir plus, consultez [Optimiser les performances sur les machines virtuelles de la série Lsv2](/linux/storage-performance.md).  
+> Pour en savoir plus, consultez Optimiser les performances sur les machines virtuelles de la série Lsv2 pour [Windows](../virtual-machines/windows/storage-performance.md) ou [Linux](../virtual-machines/linux/storage-performance.md).  
 
 ACU : 150-175
 

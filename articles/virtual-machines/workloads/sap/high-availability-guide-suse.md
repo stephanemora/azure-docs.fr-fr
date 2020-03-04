@@ -1,5 +1,5 @@
 ---
-title: Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur SUSE Linux Enterprise Server pour les applications SAP | Microsoft Docs
+title: Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur SLES | Microsoft Docs
 description: Guide de haute disponibilité pour SAP NetWeaver sur SUSE Linux Enterprise Server pour les applications SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: radeltch
-ms.openlocfilehash: 77a26d229ddc4ce5f35fde3db010e3b7c146a563
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 4dbce04df4a2542884f1f24b3207fe45fd4b26ae
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985515"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598236"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP
 
@@ -277,7 +277,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    </code></pre>
 
    > [!NOTE]
-   > Le problème connu lié à l’utilisation d’un tiret dans les noms d’hôtes est résolu avec la version **3.1.1** du package **sap-suse-cluster-connector**. Vérifiez que vous utilisez au moins la version 3.1.1 du package sap-suse-cluster-connector si vous utilisez des nœuds de cluster avec un tiret dans le nom d’hôte. Dans le cas contraire, le cluster ne fonctionnera pas. 
+   > Le problème connu lié à l’utilisation d’un tiret dans les noms d’hôtes est résolu avec la version **3.1.1** du package **sap-suse-cluster-connector**. Veillez à utiliser au moins la version 3.1.1 du package sap-suse-cluster-connector si vous utilisez des nœuds de cluster avec un tiret dans le nom d’hôte. Dans le cas contraire, le cluster ne fonctionnera pas. 
 
    Vérifiez que vous avez installé la nouvelle version du connecteur de cluster SUSE SAP. L’ancienne version s’appelle sap_suse_cluster_connector et la nouvelle **sap-suse-cluster-connector**.
 

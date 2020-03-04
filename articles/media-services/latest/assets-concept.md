@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ab4eebf56abd2d328ccf86929a043d4354ca157c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3860823787b860f2504d6fb13b9479d1feec9d28
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186309"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505818"
 ---
 # <a name="assets-in-azure-media-services"></a>Éléments multimédias dans Azure Media Services
 
@@ -28,7 +28,13 @@ Un actif multimédia est mappé à un conteneur d’objets blob dans le [compte 
 
 Le niveau de stockage **Archive** est recommandé uniquement pour les fichiers sources très volumineux qui ont déjà été encodés et dont la sortie de travail d’encodage a été placée dans un conteneur d’objets blob de sortie. Les objets blob présents dans le conteneur de sortie que vous voulez associer à un élément multimédia et utiliser pour diffuser en continu ou analyser votre contenu doivent exister dans un niveau de stockage **Chaud** ou **Froid**.
 
-### <a name="naming-blobs"></a>Nommer des objets blob
+### <a name="naming"></a>Dénomination 
+
+#### <a name="assets"></a>Éléments multimédias
+
+Les noms des éléments multimédias doivent être uniques. Les noms de ressources Media Services v3 (par exemple Assets, Jobs, Transforms) sont sujets à des restrictions d'affectation de noms d'Azure Resource Manager. Pour plus d'informations, consultez [Conventions d'affectation de noms](media-services-apis-overview.md#naming-conventions).
+
+#### <a name="blobs"></a>Objets blob
 
 Les noms des fichiers/objets blob au sein d’une ressource doivent respecter les [exigences en matière de nom d’objet blob](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) et de [nom NTFS](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). Ces exigences se justifient par le fait que les fichiers peuvent être copiés du stockage d’objets blob vers un disque NTFS local à des fins de traitement.
 
@@ -118,7 +124,7 @@ Pour protéger vos éléments au repos, les ressources doivent être chiffrées 
 |Option de chiffrement|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Chiffrement du stockage de Media Services|Chiffrement AES-256, clé gérée par Media Services.|Pris en charge<sup>(1)</sup>|Non pris en charge<sup>(2)</sup>|
-|[Storage Service Encryption pour les données au repos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Chiffrement côté serveur proposé par le stockage Azure, clé gérée par Azure ou par un client.|Pris en charge|Pris en charge|
+|[Storage Service Encryption pour les données au repos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Chiffrement côté serveur proposé par le stockage Azure, clé gérée par Azure ou par un client.|Prise en charge|Prise en charge|
 |[Chiffrement de stockage côté client](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Chiffrement côté client proposé par le stockage Azure, clé gérée par un client dans un coffre de clés.|Non pris en charge|Non pris en charge|
 
 <sup>1</sup> Bien que Media Services prenne en charge la gestion de contenu en clair/sans aucune forme de chiffrement, ce n’est pas conseillé.

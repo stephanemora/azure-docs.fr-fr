@@ -5,18 +5,18 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 08/21/2019
+ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 831d0876c67aa36248a54f3935e5ce7884c736ef
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: b034159c3d12927f6425b3dc3c5b5609af9b0b76
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186620"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649362"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurer une règle de limitation du débit du pare-feu d’applications web à l’aide d’Azure PowerShell
-La règle de limitation du débit du pare-feu d’applications web (WAF) Azure pour Azure Front Door contrôle le nombre de requêtes autorisées à partir d’une adresse IP cliente pendant une durée d’une minute.
-Cet article explique comment utiliser Azure PowerShell pour configurer une règle de limitation du débit du WAF afin de contrôler le nombre de requêtes qu’un client est autorisé à envoyer à une application web dont l’URL contient */promo*.
+La règle de limitation du débit du pare-feu d'applications web (WAF) Azure pour Azure Front Door contrôle le nombre de requêtes autorisées de la part des clients sur une durée d'une minute.
+Cet article explique comment utiliser Azure PowerShell pour configurer une règle de limitation du débit du WAF afin de contrôler le nombre de requêtes que les clients sont autorisés à envoyer à une application web dont l'URL contient */promo*.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -32,7 +32,7 @@ Vous pouvez installer [Azure PowerShell](https://docs.microsoft.com/powershell/a
 Connect-AzAccount
 
 ```
-Avant d’installer le module Front Door, assurez-vous que vous avez installé la version actuelle de PowerShellGet. Exécutez la commande ci-dessous, puis rouvrez PowerShell.
+Avant d'installer le module Front Door, assurez-vous que la version actuelle de PowerShellGet est installée. Exécutez la commande suivante et rouvrez PowerShell.
 
 ```
 Install-Module PowerShellGet -Force -AllowClobber

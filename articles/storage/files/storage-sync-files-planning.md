@@ -7,66 +7,99 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 483603b8ff2f4b51f85d21d6ff4f02ad6f8a8272
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 0684f626553946619a0db2cd895df39576bd17b9
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162087"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598253"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
-Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
+Le service [Azure Files](storage-files-introduction.md) peut être déployé de deux façons : en procédant à un montage direct des partages de fichiers Azure serverless ou en mettant en cache des partages de fichiers Azure localement à l'aide d'Azure File Sync. L'option de déploiement que vous choisissez détermine les éléments à prendre en compte lors de la planification de votre déploiement. 
 
-Cet article décrit les points importants à prendre en compte pour le déploiement d’Azure File Sync. Nous vous recommandons de lire aussi l’article [Planification d’un déploiement Azure Files](storage-files-planning.md). 
+- **Montage direct d'un partage de fichiers Azure** : étant donné qu'Azure Files fournit un accès SMB, vous pouvez monter des partages de fichiers Azure localement ou dans le cloud à l'aide du client SMB standard disponible sous Windows, macOS et Linux. Dans la mesure où les partages de fichiers Azure sont serverless, vous n'avez aucun serveur de fichiers ou appareil NAS à gérer lors des déploiements liés à des scénarios de production. Concrètement, cela signifie que vous n'avez aucun correctif logiciel à appliquer ni aucun disque physique à remplacer. 
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+- **Mise en cache d'un partage de fichiers Azure localement à l'aide d'Azure File Sync** : Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d'un serveur de fichiers local. Azure File Sync transforme une instance locale (ou cloud) de Windows Server en un cache rapide de votre partage de fichiers Azure. 
 
-## <a name="azure-file-sync-terminology"></a>Terminologie Azure File Sync
-Avant de voir en détail la planification d’un déploiement Azure File Sync, il est important de bien comprendre la terminologie employée.
+Cet article traite principalement des considérations relatives au déploiement d'Azure File Sync. Pour planifier un déploiement de partages de fichiers Azure à monter directement par un client local ou cloud, consultez [Planification d'un déploiement Azure Files](storage-files-planning.md).
 
-### <a name="storage-sync-service"></a>Service de synchronisation de stockage
-Le service de synchronisation de stockage est la ressource Azure de niveau supérieur pour Azure File Sync. La ressource de service de synchronisation de stockage est un pair de la ressource de compte de stockage. Elle peut être déployée de la même façon dans des groupes de ressources Azure. Une ressource de niveau supérieur distincte de la ressource de compte de stockage est nécessaire, car le service de synchronisation de stockage peut créer des relations de synchronisation avec plusieurs comptes de stockage dans plusieurs groupes de synchronisation. Un abonnement peut avoir plusieurs ressources de service de synchronisation de stockage déployées.
+## <a name="management-concepts"></a>Concepts de gestion
+Un déploiement Azure File Sync repose sur les trois objets de gestion suivants :
 
-### <a name="sync-group"></a>Groupe de synchronisation
-Un groupe de synchronisation définit la topologie de synchronisation d’un ensemble de fichiers. Les points de terminaison dans un groupe de synchronisation sont synchronisés entre eux. Par exemple, si vous voulez gérer deux ensembles distincts de fichiers avec Azure File Sync, vous créez deux groupes de synchronisation et ajoutez des points de terminaison différents dans chacun de ces groupes. Un service de synchronisation de stockage peut héberger autant de groupes de synchronisation que nécessaire.  
+- **Partage de fichiers Azure** : un partage de fichiers Azure est un partage de fichiers cloud serverless qui fournit le *point de terminaison cloud* d'une relation de synchronisation Azure File Sync. Les fichiers d'un partage de fichiers Azure sont directement accessibles via le protocole SMB ou FileREST, mais lorsque le partage de fichiers Azure est utilisé avec Azure File Sync, il est préférable de privilégier un accès aux fichiers via le cache de Windows Server car le mécanisme de détection des modifications d'Azure Files est moins efficace que celui de Windows Server. Par conséquent, les modifications directement apportées au partage de fichiers Azure mettent du temps à se propager jusqu'aux points de terminaison de serveur.
+- **Point de terminaison de serveur** : emplacement de l'instance de Windows Server qui est synchronisé avec un partage de fichiers Azure. Il peut s'agir d'un dossier spécifique ou de la racine d'un volume. Plusieurs points de terminaison de serveur peuvent coexister sur un même volume si leurs espaces de noms ne se chevauchent pas.
+- **Groupe de synchronisation** : objet qui définit la relation de synchronisation entre un **point de terminaison cloud**, ou un partage de fichiers Azure, et un point de terminaison de serveur. Les points de terminaison dans un groupe de synchronisation sont synchronisés entre eux. Par exemple, si vous voulez gérer deux ensembles distincts de fichiers avec Azure File Sync, vous créez deux groupes de synchronisation et ajoutez des points de terminaison différents dans chacun de ces groupes.
 
-### <a name="registered-server"></a>Serveur inscrit
-L’objet serveur inscrit représente une relation d’approbation entre votre serveur (ou cluster) et le service de synchronisation de stockage. Vous pouvez inscrire autant de serveurs que vous souhaitez auprès d’une instance du service de synchronisation de stockage. Toutefois, un serveur (ou cluster) peut être inscrit uniquement auprès d’un seul service de synchronisation de stockage à la fois.
+### <a name="azure-file-share-management-concepts"></a>Concepts de gestion des partages de fichiers Azure
+[!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 
-### <a name="azure-file-sync-agent"></a>Agent Azure File Sync
-L’agent Azure File Sync est un package téléchargeable qui permet à Windows Server de rester synchronisé avec un partage de fichiers Azure. L’agent Azure File Sync a trois composants principaux : 
-- **FileSyncSvc.exe** : Service en arrière-plan qui gère la supervision des changements sur les points de terminaison de serveur, ainsi que le démarrage des sessions de synchronisation dans Azure.
-- **StorageSync.sys** : Filtre du système de fichiers Azure File Sync qui gère la hiérarchisation des fichiers dans Azure Files (quand la hiérarchisation cloud est activée).
-- **Applets de commande de gestion PowerShell** : Applets de commande PowerShell qui vous permettent d’interagir avec le fournisseur de ressources Azure Microsoft.StorageSync. Ces composants se trouvent aux emplacements (par défaut) suivants :
-    - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
-    - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
+### <a name="azure-file-sync-management-concepts"></a>Concepts de gestion d'Azure File Sync
+Les groupes de synchronisation sont déployés dans des **services de synchronisation de stockage** ; il s'agit d'objets de niveau supérieur qui inscrivent les serveurs à utiliser avec Azure File Sync et contiennent les relations des groupes de synchronisation. La ressource de service de synchronisation de stockage est un pair de la ressource de compte de stockage. Elle peut être déployée de la même façon dans des groupes de ressources Azure. Un service de synchronisation de stockage peut créer des groupes de synchronisation contenant des partages de fichiers Azure répartis sur différents comptes de stockage et différentes instances inscrites de Windows Server.
 
-### <a name="server-endpoint"></a>Point de terminaison de serveur
-Un point de terminaison de serveur représente un emplacement spécifique sur un serveur inscrit, comme un dossier sur un volume de serveur. Plusieurs points de terminaison de serveur peuvent se trouver sur le même volume si leurs espaces de noms ne se chevauchent pas (par exemple, `F:\sync1` et `F:\sync2`). Vous pouvez configurer des stratégies de hiérarchisation cloud individuellement pour chaque point de terminaison de serveur. 
+Pour créer un groupe de synchronisation dans un service de synchronisation de stockage, vous devez préalablement inscrire une instance de Windows Server auprès du service de synchronisation de stockage. L'objet **serveur inscrit** qui est alors créé représente une relation d'approbation entre votre serveur, ou cluster, et le service de synchronisation de stockage. Pour inscrire un service de synchronisation de stockage, vous devez d'abord installer l'agent Azure File Sync sur le serveur. Un serveur ou un cluster ne peut être inscrit qu'auprès d'un seul service de synchronisation de stockage à la fois.
 
-Vous pouvez créer un point de terminaison de serveur via un point de montage. Notez que les points de montage dans le point de terminaison sont ignorés.  
+Un groupe de synchronisation contient un point de terminaison cloud, ou un partage de fichiers Azure, et au moins un point de terminaison de serveur. L'objet point de terminaison de serveur contient les paramètres de configuration de la fonctionnalité de **hiérarchisation cloud**, qui fournit la fonctionnalité de mise en cache d'Azure File Sync. Pour la synchronisation avec un partage de fichiers Azure, le compte de stockage contenant le partage de fichiers Azure doit se trouver dans la même région Azure que le service de synchronisation de stockage.
 
-Vous pouvez créer un point de terminaison de serveur sur le volume système, mais il existe deux limites si vous procédez ainsi :
-* La hiérarchisation cloud ne peut pas être activée.
-* La restauration d’espace de noms rapide (où le système désactive rapidement l’espace de noms complet, puis commence à rappeler le contenu) n’est pas effectuée.
+### <a name="management-guidance"></a>Conseils de gestion
+Lors du déploiement d'Azure File Sync, suivez les recommandations ci-dessous :
 
+- Déployez les partages de fichiers Azure en respectant une correspondance 1:1 avec les partages de fichiers Windows. L'objet point de terminaison de serveur vous offre une grande flexibilité pour configurer la topologie de synchronisation du côté serveur de la relation de synchronisation. Pour simplifier la gestion, faites correspondre le chemin du point de terminaison de serveur avec le chemin du partage de fichiers Windows. 
 
-> [!Note]  
-> Seuls les volumes non amovibles sont pris en charge.  Les lecteurs mappés à partir d’un partage distant ne sont pas pris en charge pour un chemin d’accès au point de terminaison du serveur.  En outre, un point de terminaison de serveur peut se trouver sur le volume système Windows, bien que la hiérarchisation cloud ne soit pas prise en charge sur le volume système.
+- Utilisez le moins de services de synchronisation de stockage possible. Cela simplifiera la gestion lorsque vous aurez des groupes de synchronisation contenant plusieurs points de terminaison de serveur, car une instance de Windows Server ne peut être inscrite qu'auprès d'un seul service de synchronisation de stockage à la fois. 
 
-Si vous ajoutez un emplacement de serveur contenant un ensemble de fichiers comme point de terminaison de serveur à un groupe de synchronisation, ces fichiers sont fusionnés avec les autres fichiers déjà présents sur les autres points de terminaison dans le groupe de synchronisation.
+- Lors du déploiement de partages de fichiers Azure, soyez attentif aux limitations d'IOPS d'un compte de stockage. Dans l'idéal, une correspondance 1:1 doit être respectée entre les partages de fichiers et les comptes de stockage, mais cela n'est pas toujours possible en raison des différentes limites et restrictions imposées par votre organisation et Azure. Lorsqu'il est impossible de déployer un seul partage de fichiers sur un seul compte de stockage, il convient d'identifier les partages qui seront plus ou moins actifs afin de veiller à ce que les plus actifs ne soient pas regroupés sur le même compte de stockage.
 
-### <a name="cloud-endpoint"></a>Point de terminaison cloud
-Un point de terminaison cloud est un partage de fichiers Azure qui fait partie d’un groupe de synchronisation. L’intégralité du partage de fichiers Azure se synchronise. Un partage de fichiers Azure peut être membre d’un seul point de terminaison cloud. Un partage de fichiers Azure peut donc être membre d’un seul groupe de synchronisation. Si vous ajoutez un partage de fichiers Azure contenant un ensemble de fichiers existants comme point de terminaison cloud à un groupe de synchronisation, ces fichiers sont fusionnés avec les autres fichiers déjà présents sur les autres points de terminaison dans le groupe de synchronisation.
+## <a name="windows-file-server-considerations"></a>Considérations relatives aux serveurs de fichiers Windows
+Pour activer la fonctionnalité de synchronisation sur Windows Server, vous devez installer l'agent téléchargeable Azure File Sync. L'agent Azure File Sync fournit deux composants principaux : `FileSyncSvc.exe`, le service Windows d'arrière-plan chargé de la supervision des modifications sur les points de terminaison de serveur et du lancement des sessions de synchronisation, et `StorageSync.sys`, un filtre de système de fichiers qui permet la hiérarchisation cloud et la récupération d'urgence rapide.  
+
+### <a name="operating-system-requirements"></a>Système d'exploitation requis
+Azure File Sync est pris en charge avec les versions suivantes de Windows Server :
+
+| Version | Références prises en charge | Options de déploiement prises en charge |
+|---------|----------------|------------------------------|
+| Windows Server 2019 | Datacenter, Standard et IoT | Complète et Minimale |
+| Windows Server 2016 | Datacenter, Standard et Storage Server | Complète et Minimale |
+| Windows Server 2012 R2 | Datacenter, Standard et Storage Server | Complète et Minimale |
+
+Nous prévoyons d’ajouter la prise en charge de versions ultérieures de Windows Server quand elles seront disponibles.
 
 > [!Important]  
-> Azure File Sync prend en charge les modifications directes dans le partage de fichiers Azure. Toutefois, les modifications apportées au partage de fichiers Azure doivent d’abord être détectées par un travail de détection des modifications Azure File Sync. Un travail de détection des modifications est lancé pour un point de terminaison cloud toutes les 24 heures uniquement. Par ailleurs, les modifications apportées à un partage de fichiers Azure via le protocole REST ne mettent pas à jour l’heure de dernière modification de SMB et ne sont pas visibles comme des modifications par la synchronisation. Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur Azure Files](storage-files-faq.md#afs-change-detection).
+> Nous vous recommandons de mettre régulièrement à jour tous les serveurs que vous utilisez avec Azure File Sync en installant les dernières mises à jour disponibles sur Windows Update. 
 
-### <a name="cloud-tiering"></a>Hiérarchisation cloud 
-La hiérarchisation cloud est une fonctionnalité facultative d’Azure File Sync, qui met en cache sur le serveur local les fichiers faisant l’objet d’accès fréquents, tous les autres fichiers étant hiérarchisés sur Azure Files en fonction de paramètres de stratégie. Pour plus d’informations, voir [Compréhension de la hiérarchisation Cloud](storage-sync-cloud-tiering.md).
+### <a name="minimum-system-resources"></a>Ressources système minimum
+Azure File Sync requiert un serveur, physique ou virtuel, avec au moins un processeur et un minimum de 2 Gio de mémoire.
 
-## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Configuration requise et interopérabilité d’Azure File Sync 
-Cette section traite de la configuration requise et de l’interopérabilité de l’agent Azure File Sync avec les fonctionnalités et rôles Windows Server, ainsi qu’avec des solutions tierces.
+> [!Important]  
+> Si le serveur est exécuté sur une machine virtuelle sur laquelle la mémoire dynamique est activée, la machine virtuelle doit être configurée avec un minimum de 2048 Mio de mémoire.
+
+Pour la plupart des charges de travail de production, nous déconseillons de configurer un serveur de synchronisation Azure File Sync en se contentant de la configuration minimale requise. Pour plus d'informations, consultez [Ressources système recommandées](#recommended-system-resources).
+
+### <a name="recommended-system-resources"></a>Ressources système recommandées
+Comme pour toute fonctionnalité ou application serveur, les ressources système requises pour Azure File Sync dépendent de l'échelle de déploiement. Un déploiement sur serveur important nécessite des ressources système importantes. Pour Azure File Sync, l'échelle est déterminée par le nombre d'objets répartis sur les points de terminaison de serveur et par l'évolution sur le jeu de données. Un même serveur peut avoir des points de terminaison de serveur dans plusieurs groupes de synchronisation, et le nombre d'objets répertoriés dans le tableau suivant représente l'espace de noms complet auquel un serveur est attaché. 
+
+Par exemple, le point de terminaison de serveur A avec 10 millions d'objets + le point de terminaison de serveur B avec 10 millions d'objets = 20 millions d'objets. Pour cet exemple de déploiement, nous recommandons 8 UC, 16 Gio de mémoire pour l'état stable et (si possible) 48 Gio de mémoire pour la migration initiale.
+ 
+Les données d’espace de noms sont stockées en mémoire pour des raisons de performance. Pour cette raison, les espaces de noms plus grands nécessitent davantage de mémoire pour maintenir de bonnes performances, et une évolution plus importante requiert davantage d’UC pour le traitement. 
+ 
+Dans le tableau suivant, nous avons fourni la taille de l'espace de noms, ainsi qu'une conversion en capacité pour les partages de fichiers à usage général standard, sachant que la taille de fichier moyenne est 512 Kio. Si les tailles de vos fichiers sont plus petites, envisagez d’ajouter de la mémoire supplémentaire pour obtenir la même capacité. Basez la configuration de votre mémoire sur la taille de l’espace de noms.
+
+| Taille de l’espace de noms - fichiers et répertoires (millions)  | Capacité type (Tio)  | Cœurs de processeur  | Mémoire recommandée (Gio) |
+|---------|---------|---------|---------|
+| 3        | 1.4     | 2        | 8 (synchronisation initiale)/2 (évolution classique)      |
+| 5        | 2.3     | 2        | 16 (synchronisation initiale)/4 (évolution classique)    |
+| 10       | 4,7     | 4        | 32 (synchronisation initiale)/8 (évolution classique)   |
+| 30       | 14,0    | 8        | 48 (synchronisation initiale)/16 (évolution classique)   |
+| 50       | 23,3    | 16       | 64 (synchronisation initiale)/32 (évolution classique)  |
+| 100*     | 46,6    | 32       | 128 (synchronisation initiale)/32 (évolution classique)  |
+
+\*Toute synchronisation de plus de 100 millions de fichiers et répertoires est actuellement déconseillée. Il s'agit d'une limite conditionnelle basée sur les seuils que nous avons testés. Pour plus d’informations, voir [Objectifs de performance et d’extensibilité d’Azure Files](storage-files-scale-targets.md#azure-file-sync-scale-targets).
+
+> [!TIP]
+> La synchronisation initiale d’un espace de noms est une opération intensive et nous vous recommandons d’allouer davantage de mémoire jusqu’à ce que la synchronisation initiale soit terminée. Cela n’est pas obligatoire, mais peut accélérer la synchronisation initiale. 
+> 
+> L’évolution standard est que 0,5 % de l’espace de noms change chaque jour. Pour des niveaux d’évolution plus élevés, envisagez d’ajouter davantage d’UC. 
+
+- Un volume attaché localement formaté avec le système de fichiers NTFS.
 
 ### <a name="evaluation-cmdlet"></a>Applet de commande d’évaluation
 Avant de déployer Azure File Sync, vous devez évaluer s’il est compatible avec votre système à l’aide de l’applet de commande d’évaluation d’Azure File Sync. Cette cmdlet recherche les problèmes potentiels liés au système de fichiers et au jeu de données, comme des caractères ou une version de système d’exploitation non pris en charge. Ses vérifications couvrent la plupart des fonctionnalités mentionnées ci-dessous, mais pas toutes. Nous vous conseillons de lire attentivement le reste de cette section pour garantir le bon déroulement de votre déploiement. 
@@ -77,54 +110,35 @@ Vous pouvez installer l’applet de commande d’évaluation en installant le mo
 Vous pouvez appeler l’outil d’évaluation de différentes manières : vous pouvez effectuer les vérifications du système, les vérifications du jeu de données, ou les deux. Pour effectuer à la fois les vérifications du système et les vérifications du jeu de données : 
 
 ```powershell
-    Invoke-AzStorageSyncCompatibilityCheck -Path <path>
+Invoke-AzStorageSyncCompatibilityCheck -Path <path>
 ```
 
 Pour tester uniquement votre jeu de données :
 ```powershell
-    Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
+Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
 ```
  
 Pour tester uniquement la configuration requise :
 ```powershell
-    Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
+Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
 ```
  
 Pour afficher les résultats au format CSV :
 ```powershell
-    $errors = Invoke-AzStorageSyncCompatibilityCheck […]
-    $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+$errors = Invoke-AzStorageSyncCompatibilityCheck […]
+$errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```
 
-### <a name="system-requirements"></a>Configuration requise
-- Un serveur fonctionnant avec l’une des versions de système d’exploitation suivantes :
+### <a name="file-system-compatibility"></a>Compatibilité du système de fichiers
+Azure File Sync n'est pris en charge que sur les volumes NTFS en attachement direct. Sur Windows Server, le stockage en attachement direct, ou DAS, signifie que le système d'exploitation Windows Server est propriétaire du système de fichiers. Le DAS peut être fourni en attachant physiquement des disques au serveur de fichiers, en attachant des disques virtuels à une machine virtuelle de serveur de fichiers (comme une machine virtuelle hébergée par Hyper-V), ou même via ISCSI.
 
-    | Version | Références prises en charge | Options de déploiement prises en charge |
-    |---------|----------------|------------------------------|
-    | Windows Server 2019 | Datacenter et Standard | Complète et Minimale |
-    | Windows Server 2016 | Datacenter et Standard | Complète et Minimale |
-    | Windows Server 2012 R2 | Datacenter et Standard | Complète et Minimale |
-    | Windows Server IoT 2019 pour le stockage| Datacenter et Standard | Complète et Minimale |
-    | Windows Storage Server 2016| Datacenter et Standard | Complète et Minimale |
-    | Windows Storage Server 2012 R2| Datacenter et Standard | Complète et Minimale |
+Seuls les volumes NTFS sont pris en charge ; ReFS, FAT, FAT32 et autres systèmes de fichiers ne sont pas pris en charge.
 
-    Nous prévoyons d’ajouter la prise en charge de versions ultérieures de Windows Server quand elles seront disponibles.
-
-    > [!Important]  
-    > Nous vous recommandons de mettre régulièrement à jour tous les serveurs que vous utilisez avec Azure File Sync en installant les dernières mises à jour disponibles sur Windows Update. 
-
-- Un serveur avec un minimum de 2 Gio de mémoire.
-
-    > [!Important]  
-    > Si le serveur s’exécute sur une machine virtuelle où la mémoire dynamique est activée, la machine virtuelle doit être configurée avec un minimum de 2 048 Mio de mémoire.
-    
-- Un volume attaché localement formaté avec le système de fichiers NTFS.
-
-### <a name="file-system-features"></a>Fonctionnalités du système de fichiers
+Le tableau suivant présente l'état d'interopérabilité des fonctionnalités du système de fichiers NTFS : 
 
 | Fonctionnalité | État de la prise en charge | Notes |
 |---------|----------------|-------|
-| Listes ACL | entièrement prise en charge | Les listes ACL Windows sont conservées par Azure File Sync et appliquées par Windows Server sur les points de terminaison de serveur. Les listes ACL Windows ne sont pas (encore) prises en charge par Azure Files si les fichiers sont accessibles directement dans le cloud. |
+| Listes ACL | entièrement prise en charge | Les listes de contrôle d'accès discrétionnaire de type Windows sont conservées par Azure File Sync et appliquées par Windows Server sur les points de terminaison de serveur. Les listes de contrôle d'accès peuvent également être appliquées lors du montage direct du partage de fichiers Azure, mais cela nécessite une configuration supplémentaire. Pour plus d'informations, consultez la [section Identité](#identity). |
 | Liens physiques | Ignoré | |
 | Liens symboliques | Ignoré | |
 | Points de montage | Partiellement pris en charge | Les points de montage peuvent être la racine d’un point de terminaison de serveur, mais ils sont ignorés s’ils se trouvent dans un espace de noms du point de terminaison de serveur. |
@@ -134,10 +148,7 @@ Pour afficher les résultats au format CSV :
 | Fichiers partiellement alloués | entièrement prise en charge | Les fichiers partiellement alloués sont synchronisés (ils ne sont pas bloqués), mais ils sont synchronisés dans le cloud sous forme de fichiers complets. Si le contenu d’un fichier change dans le cloud (ou sur un autre serveur), le fichier n’est plus partiellement alloué quand le changement est téléchargé. |
 | Autres flux de données | Conservés, mais pas synchronisés | Par exemple, les balises de classification créées par l’infrastructure de classification des fichiers ne sont pas synchronisées. Les balises de classification qui existent sur des fichiers à chacun des points de terminaison du serveur ne sont pas affectées. |
 
-> [!Note]  
-> Seuls les volumes NTFS sont pris en charge. ReFS, FAT, FAT32 et les autres systèmes de fichiers ne sont pas pris en charge.
-
-### <a name="files-skipped"></a>Fichiers ignorés
+<a id="files-skipped"></a>Azure File Sync ignore également certains fichiers temporaires et dossiers système :
 
 | Fichier/Dossier | Remarque |
 |-|-|
@@ -212,7 +223,130 @@ L’utilisation de sysprep sur un serveur sur lequel l’agent Azure File Sync e
 ### <a name="windows-search"></a>Recherche Windows
 Si la hiérarchisation cloud est activée sur un point de terminaison de serveur, les fichiers qui sont hiérarchisés sont ignorés et ne sont pas indexés par Windows Search. Les fichiers non hiérarchisés sont indexés correctement.
 
-### <a name="antivirus-solutions"></a>Solutions antivirus
+### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Autres solutions de gestion hiérarchique du stockage (HSM)
+Aucune autre solution HSM ne doit être utilisée avec Azure File Sync.
+
+## <a name="identity"></a>Identité
+Azure File Sync fonctionne avec votre identité AD standard sans aucune configuration particulière en plus de la configuration de la synchronisation. En utilisant Azure File Sync, vous vous attendez probablement à ce que la plupart des accès passent par les serveurs de mise en cache Azure File Sync plutôt que par le partage de fichiers Azure. Comme les points de terminaison de serveur se trouvent sur Windows Server, et que Windows Server prend en charge AD et les listes de contrôle d'accès de type Windows depuis très longtemps, la seule chose à faire est de s'assurer que les serveurs de fichiers Windows inscrits auprès du service de synchronisation de stockage sont joints au domaine. Azure File Sync stocke les listes de contrôle d'accès sur les fichiers du partage de fichiers Azure et les réplique sur tous les points de terminaison de serveur.
+
+Même si les modifications apportées directement au partage de fichiers Azure mettent plus longtemps à se synchroniser avec les points de terminaison de serveur au sein du groupe de synchronisation, vous pouvez également vous assurer qu'il vous est possible d'appliquer vos autorisations AD sur votre partage de fichiers directement dans le cloud. Pour ce faire, vous devez effectuer une jonction de domaine de votre compte de stockage à votre instance locale d'AD, tout comme vos serveurs de fichiers Windows sont joints à un domaine. Pour en savoir plus sur la jonction de domaine de votre compte de stockage à une instance d'Active Directory détenue par le client, consultez [Présentation d'Azure Files Active Directory](storage-files-active-directory-overview.md).
+
+> [!Important]  
+> La jonction de domaine de votre compte de stockage à Active Directory n'est pas obligatoire pour déployer Azure File Sync. Il s'agit d'une étape totalement facultative qui permet au partage de fichiers Azure d'appliquer des listes de contrôle d'accès locales lorsque les utilisateurs procèdent à un montage direct du partage de fichiers Azure.
+
+## <a name="networking"></a>Mise en réseau
+L'agent Azure File Sync communique avec votre service de synchronisation de stockage et votre partage de fichiers Azure à l'aide du protocole Azure File Sync REST et du protocole FileREST, qui utilisent tous les deux HTTPS sur le port 443. SMB n'est jamais utilisé pour charger ou télécharger des données entre votre instance de Windows Server et le partage de fichiers Azure. Dans la mesure où la plupart des organisations autorisent le trafic HTTPS sur le port 443 pour visiter la plupart des sites web, aucune configuration réseau spéciale n'est généralement requise dans le cadre du déploiement d'Azure File Sync.
+
+En fonction de la stratégie de votre organisation ou d'exigences réglementaires particulières, vous pouvez avoir besoin d'une communication plus restrictive avec Azure. C'est pourquoi Azure File Sync propose différents mécanismes pour vous permettre de configurer la mise en réseau. En fonction de vos besoins, vous pouvez :
+
+- Canaliser la synchronisation et le trafic de chargement/téléchargement des fichiers sur votre VPN ExpressRoute ou Azure 
+- Utiliser les fonctionnalités Azure Files et Azure Networking telles que les points de terminaison de service et les points de terminaison privés
+- Configurer Azure File Sync de manière à prendre en charge votre proxy dans votre environnement
+- Limiter l'activité du réseau à partir d'Azure File Sync
+
+Pour en savoir plus sur la configuration de la fonctionnalité de mise en réseau d'Azure File Sync, consultez :
+- [Paramètres de proxy et de pare-feu d’Azure File Sync](storage-sync-files-firewall-and-proxy.md)
+- [S'assurer qu'Azure File Sync est un bon voisin dans votre centre de données](storage-sync-files-server-registration.md)
+
+## <a name="encryption"></a>Chiffrement
+Lorsque vous utilisez Azure File Sync, vous devez prendre en compte trois couches de chiffrement différentes : le chiffrement sur le stockage au repos de Windows Server, le chiffrement en transit entre l'agent Azure File Sync et Azure, et le chiffrement au repos de vos données sur le partage de fichiers Azure. 
+
+### <a name="windows-server-encryption-at-rest"></a>Chiffrement au repos de Windows Server 
+Sur Windows Server, deux stratégies de chiffrement des données fonctionnent généralement avec Azure File Sync : le chiffrement sous le système de fichiers, de manière à chiffrer le système de fichiers et toutes les données qui y sont écrites, et le chiffrement au sein du format de fichier lui-même. Ces méthodes ne s'excluent pas mutuellement ; si besoin, elles peuvent être utilisées ensemble dans la mesure où l'objet du chiffrement est différent.
+
+Pour assurer le chiffrement sous le système de fichiers, Windows Server fournit la boîte de réception BitLocker. BitLocker est entièrement transparent pour Azure File Sync. L'utilisation d'un mécanisme de chiffrement comme BitLocker permet d'empêcher l'exfiltration physique des données de votre centre de données local en cas de vol des disques et d'empêcher le chargement indépendant d'un système d'exploitation non autorisé pour effectuer des lectures/écritures non autorisées sur vos données. Pour en savoir plus sur BitLocker, consultez [Présentation de BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview).
+
+Les produits tiers qui fonctionnent de la même façon que BitLocker, en ce sens qu'ils se trouvent sous le volume NTFS, doivent également fonctionner de manière totalement transparente avec Azure File Sync. 
+
+L'autre méthode principale de chiffrement des données consiste à chiffrer le flux de données du fichier lorsque l'application enregistre ce dernier. Certaines applications peuvent effectuer cette opération en mode natif, mais ce n'est généralement pas le cas. Azure Information Protection (AIP)/Azure Rights Management Services (Azure RMS)/Active Directory RMS sont des exemples de méthodes de chiffrement du flux de données du fichier. L'utilisation d'un mécanisme de chiffrement comme AIP/RMS permet d'empêcher l'exfiltration des données de votre partage de fichiers si quelqu'un venait à les copier à un autre emplacement, comme une clé USB, ou à les envoyer par e-mail à une personne non autorisée. Lorsque le flux de données d'un fichier est chiffré au sein du format de fichier, ce fichier reste chiffré sur le partage de fichiers Azure. 
+
+Azure File Sync n'interagit pas avec NTFS EFS (NTFS Encrypted File System) ou des solutions de chiffrement tierces situées au-dessus du système de fichiers mais en dessous du flux de données du fichier. 
+
+### <a name="encryption-in-transit"></a>Chiffrement en transit
+L'agent Azure File Sync communique avec votre service de synchronisation de stockage et votre partage de fichiers Azure à l'aide du protocole Azure File Sync REST et du protocole FileREST, qui utilisent tous deux HTTPS sur le port 443. Azure File Sync n'envoie pas de requêtes non chiffrées sur HTTP. 
+
+Les comptes de stockage Azure contiennent un commutateur permettant d'exiger le chiffrement en transit, qui est activé par défaut. Même si le commutateur est désactivé au niveau du compte de stockage, ce qui signifie que des connexions non chiffrées à vos partages de fichiers Azure sont possibles, Azure File Sync utilisera toujours des canaux chiffrés pour accéder à votre partage de fichiers.
+
+La principale raison justifiant de désactiver le chiffrement en transit pour le compte de stockage est la nécessité de prendre en charge une application héritée qui doit être exécutée sur un système d'exploitation plus ancien, tel que Windows Server 2008 R2 ou une ancienne distribution Linux, communiquant directement avec un partage de fichiers Azure. Si l'application héritée communique avec le cache Windows Server du partage de fichiers, le basculement de ce paramètre n'aura aucun effet. 
+
+Nous recommandons vivement de vérifier que le chiffrement des données en transit est activé.
+
+Pour plus d’informations sur le chiffrement en transit, voir [ Exiger un transfert sécurisé dans Stockage Azure](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+
+### <a name="azure-file-share-encryption-at-rest"></a>Chiffrement au repos du partage de fichiers Azure
+[!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
+
+## <a name="storage-tiers"></a>Niveaux de stockage
+[!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]
+
+### <a name="enable-standard-file-shares-to-span-up-to-100-tib"></a>Activer les partages de fichiers Standard pour couvrir jusqu'à 100 Tio
+[!INCLUDE [storage-files-tiers-enable-large-shares](../../../includes/storage-files-tiers-enable-large-shares.md)]
+
+#### <a name="regional-availability"></a>Disponibilité régionale
+[!INCLUDE [storage-files-tiers-large-file-share-availability](../../../includes/storage-files-tiers-large-file-share-availability.md)]
+
+## <a name="azure-file-sync-region-availability"></a>Disponibilité régionale d'Azure File Sync
+Azure File Sync est disponible dans les régions suivantes :
+
+| Cloud Azure | Zone géographique | Région Azure | Code de la région |
+|-------------|-------------------|--------------|-------------|
+| Public | Asia | Asie Est | `eastasia` |
+| Public | Asia | Asie Sud-Est | `southeastasia` |
+| Public | Australie | Australie Est | `australiaeast` |
+| Public | Australie | Sud-Australie Est | `australiasoutheast` |
+| Public | Brésil | Brésil Sud | `brazilsouth` |
+| Public | Canada | Centre du Canada | `canadacentral` |
+| Public | Canada | Est du Canada | `canadaeast` |
+| Public | Europe | Europe Nord | `northeurope` |
+| Public | Europe | Europe Ouest | `westeurope` |
+| Public | France | France Centre | `francecentral` |
+| Public | France | France Sud* | `francesouth` |
+| Public | Inde | Inde centrale | `centralindia` |
+| Public | Inde | Inde Sud | `southindia` |
+| Public | Japon | Japon Est | `japaneast` |
+| Public | Japon | OuJapon Est | `japanwest` |
+| Public | Corée du Sud | Centre de la Corée | `koreacentral` |
+| Public | Corée du Sud | Corée du Sud | `koreasouth` |
+| Public | Afrique du Sud | Afrique du Sud Nord | `southafricanorth` |
+| Public | Afrique du Sud | Afrique du Sud Ouest* | `southafricawest` |
+| Public | UAE | Émirats arabes unis Centre* | `uaecentral` |
+| Public | UAE | Émirats arabes unis Nord | `uaenorth` |
+| Public | Royaume-Uni | Sud du Royaume-Uni | `uksouth` |
+| Public | Royaume-Uni | Ouest du Royaume-Uni | `ukwest` |
+| Public | US | USA Centre | `centralus` |
+| Public | US | USA Est | `eastus` |
+| Public | US | USA Est 2 | `eastus2` |
+| Public | US | Centre-Nord des États-Unis | `northcentralus` |
+| Public | US | États-Unis - partie centrale méridionale | `southcentralus` |
+| Public | US | Centre-USA Ouest | `westcentralus` |
+| Public | US | USA Ouest | `westus` |
+| Public | US | USA Ouest 2 | `westus2` |
+| Gouvernement des États-Unis | US | Gouvernement des États-Unis – Arizona | `usgovarizona` |
+| Gouvernement des États-Unis | US | Gouvernement des États-Unis – Texas | `usgovtexas` |
+| Gouvernement des États-Unis | US | Gouvernement américain - Virginie | `usgovvirginia` |
+
+Azure File Sync prend en charge la synchronisation uniquement avec un partage de fichiers Azure qui est situé dans la même région que le service de synchronisation de stockage.
+
+Pour les régions marquées d’un astérisque, vous devez contacter le support Azure pour demander l’accès au stockage Azure dans ces régions. Le processus est décrit dans [ce document](https://azure.microsoft.com/global-infrastructure/geographies/).
+
+## <a name="redundancy"></a>Redondance
+[!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
+
+> [!Important]  
+> Les options de stockage géoredondant et de stockage géoredondant interzone permettent de basculer manuellement le stockage vers la région secondaire. Cette opération est réservée aux situations d'urgence liées à l'utilisation d'Azure File Sync en raison de la probabilité accrue de perte de données. En cas de sinistre, si vous souhaitez procéder à un basculement manuel du stockage, vous devez déposer une demande de support auprès de Microsoft pour qu'Azure File Sync reprenne la synchronisation avec le point de terminaison secondaire.
+
+## <a name="migration"></a>Migration
+Si vous disposez déjà d'un serveur de fichiers Windows, Azure File Sync peut y être installé sans qu'il soit nécessaire de déplacer les données vers un nouveau serveur. Si vous envisagez de migrer vers un nouveau serveur de fichiers Windows dans le cadre de l'adoption d'Azure File Sync, plusieurs approches sont possibles pour déplacer les données :
+
+- Créez des points de terminaison de serveur pour l'ancien et le nouveau partages de fichiers, puis laissez Azure File Sync synchroniser les données entre les points de terminaison de serveur. L'avantage de cette approche est qu'elle facilite l'augmentation de la capacité de stockage sur votre nouveau serveur de fichiers, car Azure File Sync est compatible avec la hiérarchisation cloud. Lorsque vous êtes prêt, vous pouvez migrer les utilisateurs finaux vers le partage de fichiers du nouveau serveur et supprimer le point de terminaison de serveur de l'ancien partage de fichiers.
+
+- Créez un point de terminaison de serveur sur le nouveau serveur de fichiers uniquement, et copiez-y les données de l'ancien partage de fichiers à l'aide de `robocopy`. En fonction de la topologie des partages de fichiers sur votre nouveau serveur (nombre de partages sur chaque volume, disponibilités de chaque volume, etc.), vous devrez peut-être prévoir temporairement du stockage supplémentaire car il est probable que l'opération `robocopy` de votre ancien serveur vers votre nouveau serveur au sein de votre centre de données local se termine avant qu'Azure File Sync n'ait transféré les données vers Azure.
+
+Il est également possible d'utiliser Data Box pour migrer des données vers un déploiement Azure File Sync. Généralement, les clients qui souhaitent utiliser Data Box pour ingérer des données pensent que cela accélérera leur déploiement ou résoudra les problèmes de bande passante limitée. L'utilisation d'une instance de Data Box pour ingérer des données dans votre déploiement Azure File Sync peut effectivement réduire l'utilisation de la bande passante. En revanche, dans la plupart des scénarios, un chargement de données en ligne via l'une des méthodes décrites ci-dessus sera probablement plus rapide. Pour en savoir plus sur l'utilisation de Data Box pour ingérer des données dans votre déploiement Azure File Sync, consultez [Migrer des données vers Azure File Sync avec Azure Data Box](storage-sync-offline-data-transfer.md).
+
+Lors de la migration des données vers leur nouveau déploiement Azure File Sync, les clients commettent souvent l'erreur de copier les données directement sur le partage de fichiers Azure plutôt que sur leurs serveurs de fichiers Windows. Bien qu'Azure File Sync identifie tous les nouveaux fichiers sur le partage de fichiers Azure, et les synchronise avec vos partages de fichiers Windows, cette opération est généralement beaucoup plus lente que le chargement de données via le serveur de fichiers Windows. De nombreux outils de copie Azure, tels qu'AzCopy, présentent l'inconvénient supplémentaire de ne pas copier toutes les métadonnées importantes d'un fichier, comme les timestamps et les listes de contrôle d'accès.
+
+## <a name="antivirus"></a>Antivirus
 Du fait que les antivirus analysent les fichiers pour détecter la présence éventuelle de code malveillant connu, ils peuvent provoquer le rappel de fichiers hiérarchisés. Dans les versions 4.0 et ultérieures de l'agent Azure File Sync, les fichiers hiérarchisés sont dotés de l'attribut Windows sécurisé FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. Nous vous recommandons de contacter l'éditeur de votre logiciel pour savoir comment configurer la solution de manière à ignorer la lecture des fichiers dotés cet attribut (la plupart le font automatiquement). 
 
 Les solutions antivirus internes de Microsoft, Windows Defender et System Center Endpoint Protection (SCEP), ignorent automatiquement la lecture des fichiers dotés de cet attribut. Nous les avons testés et y avons détecté un problème mineur : lorsque vous ajoutez un serveur à un groupe de synchronisation existant, les fichiers de moins de 800 octets sont rappelés (téléchargés) sur le nouveau serveur. Ces fichiers resteront sur le nouveau serveur et ne seront pas hiérarchisés, car ils ne respectent pas les exigences de taille de niveau (> à 64 Ko).
@@ -220,7 +354,7 @@ Les solutions antivirus internes de Microsoft, Windows Defender et System Center
 > [!Note]  
 > Les fournisseurs de logiciels antivirus peuvent vérifier la compatibilité entre leur produit et Azure File Sync en utilisant la [suite de tests de compatibilité des antivirus avec Azure File Sync](https://www.microsoft.com/download/details.aspx?id=58322), qui est disponible en téléchargement dans le Centre de téléchargement Microsoft.
 
-### <a name="backup-solutions"></a>Solutions de sauvegarde
+## <a name="backup"></a>Backup 
 Tout comme les solutions antivirus, les solutions de sauvegarde peuvent provoquer le rappel de fichiers hiérarchisés. Pour sauvegarder le partage de fichiers Azure, nous vous recommandons d’utiliser une solution de sauvegarde cloud au lieu d’un produit de sauvegarde locale.
 
 Si vous utilisez une solution de sauvegarde sur site, les sauvegardes doivent être effectuées sur un serveur dans le groupe de synchronisation qui a la hiérarchisation cloud désactivée. Lorsque vous effectuez une restauration, utilisez les options de restauration au niveau du volume ou au niveau du fichier. Les fichiers restaurés en utilisant l’option de restauration au niveau du fichier seront synchronisés avec tous les points de terminaison dans le groupe de synchronisation et les fichiers existants seront remplacés par la version restaurée à partir de la sauvegarde.  Les restaurations au niveau du volume ne remplaceront pas les versions plus récentes des fichiers dans le partage de fichiers Azure ou d’autres points de terminaison serveur.
@@ -231,134 +365,8 @@ Si vous utilisez une solution de sauvegarde sur site, les sauvegardes doivent ê
 > [!Note]  
 > Grâce à la version 9 de l’agent Azure File Sync, les captures instantanées VSS (notamment l’onglet Versions précédentes) sont à présent prises en charge sur les volumes avec hiérarchisation cloud activée. Toutefois, vous devez activer la compatibilité des versions précédentes via PowerShell. [Découvrez comment](storage-files-deployment-guide.md).
 
-### <a name="encryption-solutions"></a>Solutions de chiffrement
-La prise en charge des solutions de chiffrement dépend de la façon dont elles sont implémentées. Azure File Sync est connu pour fonctionner avec les solutions suivantes :
-
-- Chiffrement BitLocker
-- Azure Information Protection, Azure Rights Management Services (Azure RMS) et Active Directory RMS
-
-Azure File Sync est connu pour ne pas fonctionner avec les solutions suivantes :
-
-- Système de fichiers chiffrés NTFS (EFS)
-
-En règle générale, Azure File Sync prend en charge l’interopérabilité avec les solutions de chiffrement qui se trouvent sous le système de fichiers, comme BitLocker, et avec les solutions qui sont implémentées dans le format de fichier, comme Azure Information Protection. Aucune interopérabilité spécifique n’a été prévue pour les solutions qui se trouvent au-dessus du système de fichiers (par exemple, le système de fichiers NTFS).
-
-### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Autres solutions de gestion hiérarchique du stockage (HSM)
-Aucune autre solution HSM ne doit être utilisée avec Azure File Sync.
-
-## <a name="region-availability"></a>Disponibilité des régions
-Azure File Sync est disponible uniquement dans les régions suivantes :
-
-| Région | Emplacement du centre de données |
-|--------|---------------------|
-| Australie Est | Nouvelle-Galles du Sud |
-| Sud-Australie Est | Victoria |
-| Brésil Sud | État de Sao Paulo |
-| Centre du Canada | Toronto |
-| Est du Canada | Québec |
-| Inde centrale | Pune |
-| USA Centre | Iowa |
-| Asie Est | Hong Kong (R.A.S.) |
-| USA Est | Virginie |
-| USA Est 2 | Virginie |
-| France Centre | Paris |
-| France Sud* | Marseille |
-| Centre de la Corée | Séoul |
-| Corée du Sud | Busan |
-| Japon Est | Tokyo, Saitama |
-| OuJapon Est | Osaka |
-| Centre-Nord des États-Unis | Illinois |
-| Europe Nord | Irlande |
-| Afrique du Sud Nord | Johannesbourg |
-| Afrique du Sud Ouest* | Le Cap |
-| États-Unis - partie centrale méridionale | Texas |
-| Inde Sud | Chennai |
-| Asie Sud-Est | Singapour |
-| Sud du Royaume-Uni | London |
-| Ouest du Royaume-Uni | Cardiff |
-| Gouvernement des États-Unis – Arizona | Arizona |
-| Gouvernement des États-Unis – Texas | Texas |
-| Gouvernement américain - Virginie | Virginie |
-| Émirats arabes unis Nord | Dubaï |
-| Émirats arabes unis Centre* | Abu Dhabi |
-| Europe Ouest | Pays-bas |
-| Centre-USA Ouest | Wyoming |
-| USA Ouest | Californie |
-| USA Ouest 2 | Washington |
-
-Azure File Sync prend en charge la synchronisation uniquement avec un partage de fichiers Azure qui est situé dans la même région que le service de synchronisation de stockage.
-
-Pour les régions marquées d’un astérisque, vous devez contacter le support Azure pour demander l’accès au stockage Azure dans ces régions. Le processus est décrit dans [ce document](https://azure.microsoft.com/global-infrastructure/geographies/).
-
-### <a name="azure-disaster-recovery"></a>Reprise d’activité après sinistre Azure
-Pour une protection contre la perte d’une région Azure, Azure File Sync s’intègre au [stockage géoredondant](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). Le stockage GRS fonctionne en utilisant la réplication de blocs asynchrone entre le stockage dans la région primaire, avec laquelle vous interagissez normalement, et le stockage dans la région secondaire associée. En cas de sinistre entraînant la mise hors connexion temporaire ou définitive d'une région Azure, Microsoft bascule le stockage vers la région associée. 
-
-> [!Warning]  
-> Si vous utilisez votre partage de fichiers Azure comme point de terminaison cloud sur un compte de stockage GRS, vous ne devez pas initier de basculement de compte de stockage. Cela provoquera en effet un arrêt de la synchronisation et pourra entraîner une perte inattendue de données dans le cas de fichiers nouvellement hiérarchisés. En cas de perte d’une région Azure, Microsoft déclenchera le basculement du compte de stockage en employant une méthode compatible avec Azure File Sync.
-
-Pour prendre en charge l’intégration du basculement entre le stockage géoredondant et Azure File Sync, toutes les régions Azure File Sync sont associées à une région secondaire qui correspond à la région secondaire utilisée par le stockage. Ces associations sont les suivantes :
-
-| Région primaire      | Région jumelée      |
-|---------------------|--------------------|
-| Australie Est      | Sud-Australie Est|
-| Sud-Australie Est | Australie Est     |
-| Brésil Sud        | États-Unis - partie centrale méridionale   |
-| Centre du Canada      | Est du Canada        |
-| Est du Canada         | Centre du Canada     |
-| Inde centrale       | Inde Sud        |
-| USA Centre          | USA Est 2          |
-| Asie Est           | Asie Sud-Est     |
-| USA Est             | USA Ouest            |
-| USA Est 2           | USA Centre         |
-| France Centre      | France Sud       |
-| France Sud        | France Centre     |
-| Japon Est          | OuJapon Est         |
-| OuJapon Est          | Japon Est         |
-| Centre de la Corée       | Corée du Sud        |
-| Corée du Sud         | Centre de la Corée      |
-| Europe Nord        | Europe Ouest        |
-| Centre-Nord des États-Unis    | États-Unis - partie centrale méridionale   |
-| Afrique du Sud Nord  | Afrique du Sud Ouest  |
-| Afrique du Sud Ouest   | Afrique du Sud Nord |
-| États-Unis - partie centrale méridionale    | Centre-Nord des États-Unis   |
-| Inde Sud         | Inde centrale      |
-| Asie Sud-Est      | Asie Est          |
-| Sud du Royaume-Uni            | Ouest du Royaume-Uni            |
-| Ouest du Royaume-Uni             | Sud du Royaume-Uni           |
-| Gouvernement des États-Unis – Arizona      | Gouvernement des États-Unis – Texas       |
-| US Gov Iowa         | Gouvernement américain - Virginie    |
-| Gouvernement américain - Virginie      | Gouvernement des États-Unis – Texas       |
-| Europe Ouest         | Europe Nord       |
-| Centre-USA Ouest     | USA Ouest 2          |
-| USA Ouest             | USA Est            |
-| USA Ouest 2           | Centre-USA Ouest    |
-
 ## <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
-
-## <a name="recommended-azure-file-sync-machine-configuration"></a>Configuration d’ordinateur Azure File Sync recommandée
-
-La configuration d’ordinateur Azure File Sync requise est déterminée par le nombre d’objets dans l’espace de noms et l’évolution du jeu de données. Un serveur unique peut être attaché à plusieurs groupes de synchronisation et le nombre d’objets figurant dans le tableau suivant constitue l’espace de noms complet auquel un serveur est attaché. Par exemple, le point de terminaison de serveur A avec 10 millions d’objets + le point de terminaison de serveur B avec 10 millions d’objets = 20 millions d’objets. Pour cet exemple de déploiement, nous recommandons 8 UC, 16 Gio de mémoire pour l’état stable et (si possible) 48 Gio de mémoire pour la migration initiale.
- 
-Les données d’espace de noms sont stockées en mémoire pour des raisons de performance. Pour cette raison, les espaces de noms plus grands nécessitent davantage de mémoire pour maintenir de bonnes performances, et une évolution plus importante requiert davantage d’UC pour le traitement. 
- 
-Dans le tableau suivant, nous avons fourni la taille de l’espace de noms, ainsi qu’une conversion en capacité pour les partages de fichiers à usage général standard, où la taille de fichier moyenne est 512 Kio. Si les tailles de vos fichiers sont plus petites, envisagez d’ajouter de la mémoire supplémentaire pour obtenir la même capacité. Basez la configuration de votre mémoire sur la taille de l’espace de noms.
-
-| Taille de l’espace de noms - fichiers et répertoires (millions)  | Capacité type (Tio)  | Cœurs de processeur  | Mémoire recommandée (Gio) |
-|---------|---------|---------|---------|
-| 3        | 1.4     | 2        | 8 (synchronisation initiale)/2 (évolution classique)      |
-| 5        | 2.4     | 2        | 16 (synchronisation initiale)/4 (évolution classique)    |
-| 10       | 4.8     | 4        | 32 (synchronisation initiale)/8 (évolution classique)   |
-| 30       | 14.3    | 8        | 48 (synchronisation initiale)/16 (évolution classique)   |
-| 50       | 23.8    | 16       | 64 (synchronisation initiale)/32 (évolution classique)  |
-| 100*     | 47.7   | 32       | 128 (synchronisation initiale)/32 (évolution classique)  |
-
-\*Plus de 100 millions de fichiers et de répertoires n’ont pas été testés. Il s’agit d’une limite non stricte.
-
-> [!TIP]
-> La synchronisation initiale d’un espace de noms est une opération intensive et nous vous recommandons d’allouer davantage de mémoire jusqu’à ce que la synchronisation initiale soit terminée. Cela n’est pas obligatoire, mais peut accélérer la synchronisation initiale. 
-> 
-> L’évolution standard est que 0,5 % de l’espace de noms change chaque jour. Pour des niveaux d’évolution plus élevés, envisagez d’ajouter davantage d’UC. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Prenez en compte les paramètres de pare-feu et de proxy](storage-sync-files-firewall-and-proxy.md)

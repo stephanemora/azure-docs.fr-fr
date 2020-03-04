@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6d68599af644e5bb03fc850a880b07c6a4d262a9
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: b31d0237f04ef535fa6528d5b3a04e5ee7256e22
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77370469"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623676"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Accéder aux données dans les services de stockage Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,10 +57,10 @@ Les magasins de données prennent actuellement en charge le stockage des informa
 [Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Principal du service| ✓ | ✓ | ✓ |✓
 Azure&nbsp;SQL&nbsp;Database| Authentification SQL <br>Principal du service| ✓ | ✓ | ✓ |✓
 Azure&nbsp;PostgreSQL | Authentification SQL| ✓ | ✓ | ✓ |✓
-Azure&nbsp;Database&nbsp;pour&nbsp;MySQL | Authentification SQL|  | ✓ | ✓ |✓
-Système&nbsp;de fichiers&nbsp;Databricks| Aucune authentification | | ✓* | ✓ * |✓* 
+Azure&nbsp;Database&nbsp;pour&nbsp;MySQL | Authentification SQL|  | ✓* | ✓* |✓*
+Système&nbsp;de fichiers&nbsp;Databricks| Aucune authentification | | ✓** | ✓ ** |✓** 
 
-*pris en charge uniquement dans les scénarios de cible de calcul locale
+*MySQL est uniquement pris en charge pour le pipeline [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py). <br> \** Databricks est uniquement pris en charge pour le pipeline [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py)
 
 ### <a name="storage-guidance"></a>Conseils liés au stockage
 
@@ -77,20 +77,22 @@ Quand vous inscrivez une solution de stockage Azure en tant que magasin de donn�
 
 >[!IMPORTANT]
 > Dans le cadre du processus de création et d’inscription du magasin de données actuel, Azure Machine Learning valide que le principal fourni par l’utilisateur (nom d’utilisateur, principal du service ou jeton SAS) a accès au service de stockage sous-jacent. 
-<br>
+<br><br>
 Toutefois, pour les magasins de données Azure Data Lake Storage Gen 1 et 2, cette validation se produit plus tard quand des méthodes d’accès aux données comme [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py) ou [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) sont appelées. 
 
 ### <a name="python-sdk"></a>Kit de développement logiciel (SDK) Python
 
 Toutes les méthodes d’inscription se trouvent dans la classe [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) et ont le format `register_azure_*`.
 
-Vous pouvez trouver les informations dont vous avez besoin pour renseigner la méthode `register()` sur le [portail Azure](https://portal.azure.com) :
+Vous trouverez les informations dont vous avez besoin pour renseigner la méthode `register()` sur le [portail Azure](https://portal.azure.com).
+Sélectionnez **Comptes de stockage** dans le volet gauche, puis choisissez le compte de stockage que vous voulez inscrire. La page **Vue d’ensemble** fournit des informations telles que le nom du compte, le conteneur et le nom du partage de fichiers. 
 
-1. Sélectionnez **Comptes de stockage** dans le volet gauche, puis choisissez le compte de stockage que vous voulez inscrire. 
-2. Pour obtenir des informations telles que le nom du compte, le conteneur et le nom du partage de fichiers, accédez à la page **Vue d’ensemble**. Pour obtenir des informations d’authentification comme la clé de compte ou le jeton SAS, accédez à **Clés d’accès** dans le volet **Paramètres**. 
+* Pour obtenir des informations d’authentification comme la clé de compte ou le jeton SAS, accédez à **Clés de compte** dans le volet **Paramètres**. 
+
+* Pour les éléments du principal de service, comme l'ID du locataire et l'ID du client, accédez à **Inscriptions d'applications** et sélectionnez l'application que vous souhaitez utiliser. La **page de présentation** correspondante contiendra ces éléments.
 
 > [!IMPORTANT]
-> Si votre compte de stockage appartient à un réseau virtuel, seule la création d’un magasin de données d’objets blob Azure est prise en charge. Pour accorder à votre espace de travail l’accès à votre compte de stockage, définissez le paramètre `grant_workspace_access` sur `True`.
+> Si votre compte de stockage se trouve sur un réseau virtuel, seule la création de magasins de données Blob, Partage de fichiers, ADLS Gen 1 et ADLS Gen 2 **via le kit SDK** est prise en charge. Pour accorder à votre espace de travail l’accès à votre compte de stockage, définissez le paramètre `grant_workspace_access` sur `True`.
 
 Les exemples suivants montrent comment inscrire un conteneur d’objets blob Azure, un partage de fichiers Azure et Azure Data Lake Storage Gen 2 comme magasin de données. Pour les autres services de stockage, consultez la [documentation de référence des méthodes `register_azure_*`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
 
@@ -134,7 +136,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage Gen 2
 
-Pour un magasin de données Azure Data Lake Storage Gen 2 (ADLS Gen 2), utilisez [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) pour inscrire un magasin de données d’informations d’identification connecté à un stockage Azure DataLake Gen 2 avec des [autorisations de principal du service](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Découvrez-en plus sur la [configuration du contrôle d’accès pour ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+Pour un magasin de données Azure Data Lake Storage Gen 2 (ADLS Gen 2), utilisez [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) pour inscrire un magasin de données d’informations d’identification connecté à un stockage Azure DataLake Gen 2 avec des [autorisations de principal du service](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). Pour utiliser votre principal de service, vous devez [inscrire votre application](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) et définir des attributions de rôle sur Lecteur et Accès aux données. Découvrez-en plus sur la [configuration du contrôle d’accès pour ADLS Gen 2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
 Le code suivant crée le magasin de données `adlsgen2_datastore_name` et l’inscrit auprès de l’espace de travail `ws`. Ce magasin de données accède au système de fichiers `test` sur le compte de stockage `account_name`, à l’aide des informations d’identification du principal du service fournies.
 
@@ -162,12 +164,19 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 
 Créez un magasin de données en quelques étapes dans Azure Machine Learning Studio :
 
+> [!IMPORTANT]
+> Si votre compte de stockage se trouve sur un réseau virtuel, seule la création de magasins de données [via le kit SDK](#python-sdk) est prise en charge. 
+
 1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Sélectionnez **Magasins de données** dans le volet gauche sous **Gérer**.
 1. Sélectionnez **+ Nouveau magasin de données**.
 1. Remplissez le formulaire de création d’un magasin de données. Le formulaire est mis à jour intelligemment en fonction du type de stockage Azure et du type d’authentification que vous sélectionnez.
   
-Vous pouvez trouver les informations dont vous avez besoin pour renseigner le formulaire sur le [portail Azure](https://portal.azure.com). Sélectionnez **Comptes de stockage** dans le volet gauche, puis choisissez le compte de stockage que vous voulez inscrire. La page **Vue d’ensemble** fournit des informations telles que le nom du compte, le conteneur et le nom du partage de fichiers. Pour obtenir des informations d’authentification comme la clé de compte ou le jeton SAS, accédez à **Clés de compte** dans le volet **Paramètres**.
+Vous pouvez trouver les informations dont vous avez besoin pour renseigner le formulaire sur le [portail Azure](https://portal.azure.com). Sélectionnez **Comptes de stockage** dans le volet gauche, puis choisissez le compte de stockage que vous voulez inscrire. La page **Vue d’ensemble** fournit des informations telles que le nom du compte, le conteneur et le nom du partage de fichiers. 
+
+* Pour obtenir des informations d’authentification comme la clé de compte ou le jeton SAS, accédez à **Clés de compte** dans le volet **Paramètres**. 
+
+* Pour les éléments du principal de service, comme l'ID du locataire et l'ID du client, accédez à **Inscriptions d'applications** et sélectionnez l'application que vous souhaitez utiliser. La **page de présentation** correspondante contiendra ces éléments. 
 
 L’exemple suivant montre à quoi ressemble le formulaire quand vous créez un magasin de données d’objets blob Azure : 
     
