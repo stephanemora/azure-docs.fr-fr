@@ -43,7 +43,7 @@ Le déclencheur Azure Cosmos DB utilise le [flux de modification Azure Cosmos DB
 
 ## <a name="trigger---example"></a>Déclencheur - exemple
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui est invoquée lorsqu’il y a des insertions ou mises à jour dans la base de données et la collection spécifiées.
 
@@ -76,7 +76,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 L’exemple suivant montre une liaison de déclencheur Cosmos DB dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison. La fonction écrit des messages de journal quand des enregistrements Cosmos DB sont modifiés.
 
@@ -112,7 +112,7 @@ Voici le code Script C# :
     }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L’exemple suivant montre une liaison de déclencheur Cosmos DB dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction écrit des messages de journal quand des enregistrements Cosmos DB sont modifiés.
 
@@ -145,7 +145,7 @@ Voici le code JavaScript :
 
 ## <a name="trigger---attributes"></a>Déclencheur - attributs
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs).
 
@@ -164,11 +164,11 @@ Le constructeur de l’attribut accepte le nom de la base de données et le nom 
 
 Pour obtenir un exemple complet, consultez [Déclencheur - exemple C#](#trigger).
 
-# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 Les attributs ne sont pas pris en charge par le script C#.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Les attributs ne sont pas pris en charge par JavaScript.
 
@@ -215,7 +215,7 @@ Le déclencheur n’indique pas si un document a été mis à jour ou inséré, 
 
 La liaison d’entrée Azure Cosmos DB utilise l’API SQL pour récupérer un ou plusieurs documents Azure Cosmos DB et les transmet au paramètre d’entrée de la fonction. L’ID du document ou les paramètres de requête peuvent être déterminés en fonction du déclencheur qui appelle la fonction.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Cette section contient les exemples suivants :
 
@@ -523,7 +523,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 Cette section contient les exemples suivants :
 
@@ -881,7 +881,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Cette section contient les exemples suivants :
 
@@ -1093,17 +1093,17 @@ Voici le code JavaScript :
 
 ## <a name="input---attributes"></a>Entrée - attributs
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs).
 
 Le constructeur de l’attribut accepte le nom de la base de données et le nom de la collection. Pour plus d’informations sur ces paramètres et d’autres propriétés que vous pouvez configurer, consultez [la section de configuration suivante](#input---configuration).
 
-# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 Les attributs ne sont pas pris en charge par le script C#.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Les attributs ne sont pas pris en charge par JavaScript.
 
@@ -1129,15 +1129,15 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 ## <a name="input---usage"></a>Entrée - utilisation
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Lorsque la fonction se termine correctement, toutes les modifications apportées au document d’entrée par le biais des paramètres d’entrée nommés sont automatiquement conservées.
 
-# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 Lorsque la fonction se termine correctement, toutes les modifications apportées au document d’entrée par le biais des paramètres d’entrée nommés sont automatiquement conservées.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Les mises à jour ne sont pas effectuées automatiquement une fois la fonction terminée. Utilisez plutôt `context.bindings.<documentName>In` et `context.bindings.<documentName>Out` pour effectuer les mises à jour. Voir l’[exemple d’entrée](#input).
 
@@ -1147,7 +1147,7 @@ Les mises à jour ne sont pas effectuées automatiquement une fois la fonction t
 
 La liaison de sortie Azure Cosmos DB vous permet d’écrire un nouveau document dans une base de données Azure Cosmos DB en utilisant l’API SQL.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Cette section contient les exemples suivants :
 
@@ -1233,7 +1233,7 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 Cette section contient les exemples suivants :
 
@@ -1361,7 +1361,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L’exemple suivant montre une liaison de sortie Azure Cosmos DB dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction utilise une liaison d’entrée de file d’attente pour une file d’attente qui reçoit le code JSON au format suivant :
 
@@ -1420,7 +1420,7 @@ Voici le code JavaScript :
 
 ## <a name="output---attributes"></a>Sortie - attributs
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs).
 
@@ -1438,11 +1438,11 @@ Le constructeur de l’attribut accepte le nom de la base de données et le nom 
 
 Pour obtenir un exemple complet, consultez [Sortie](#output).
 
-# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 Les attributs ne sont pas pris en charge par le script C#.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Les attributs ne sont pas pris en charge par JavaScript.
 
