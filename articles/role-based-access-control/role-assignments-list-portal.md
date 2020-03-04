@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 099cf74dd27f39a4289397d5178511125d9ebf6f
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 63aef8d2036e442659145e031d384e9677c779a1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720706"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598066"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lister les attributions de rôles à l’aide du RBAC Azure et du portail Azure
 
@@ -116,7 +116,7 @@ Pour lister l’accès pour un utilisateur, un groupe, un principal de service o
 
 ## <a name="list-role-assignments-for-a-user-assigned-managed-identity"></a>Répertorier les attributions de rôles pour une identité gérée affectée par l’utilisateur
 
-1. Dans le Portail Azure, ouvrez une identité gérée affectée par le système.
+1. Dans le Portail Azure, ouvrez une identité gérée affectée par l’utilisateur.
 
 1. Cliquez sur **Ressources Azure**.
 

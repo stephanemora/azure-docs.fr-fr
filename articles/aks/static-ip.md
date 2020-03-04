@@ -1,20 +1,17 @@
 ---
-title: Utiliser une adresse IP statique avec l’équilibrage de charge d’Azure Kubernetes Service (AKS)
+title: Utiliser une adresse IP statique et une étiquette DNS avec l’équilibrage de charge d’Azure Kubernetes Service (AKS)
 description: Découvrez comment créer et utiliser une adresse IP statique avec l’équilibreur de charge d’Azure Kubernetes Service (AKS).
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 11/06/2019
-ms.author: mlearned
-ms.openlocfilehash: 8457f1c0c5b6107c4b44f6f00236a33f7c67452a
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: d5177494ecdd112342b2cd719e9305bfab97902c
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325439"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593595"
 ---
-# <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utiliser une adresse IP statique avec l’équilibreur de charge d’Azure Kubernetes Service (AKS)
+# <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utiliser une adresse IP publique statique et une étiquette DNS avec l’équilibrage de charge d’Azure Kubernetes Service (AKS)
 
 Par défaut, l’adresse IP publique affectée à une ressource d’équilibreur de charge créée par un cluster AKS est valide seulement pour la durée de vie de cette ressource. Si vous supprimez le service Kubernetes, l’adresse IP et l’équilibreur de charge associés sont également supprimés. Si vous voulez affecter une adresse IP spécifique ou conserver une adresse IP pour des services Kubernetes redéployés, vous pouvez créer et utiliser une adresse IP publique statique.
 
@@ -98,7 +95,31 @@ Créez le service et le déploiement avec la commande `kubectl apply`.
 kubectl apply -f load-balancer-service.yaml
 ```
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="apply-a-dns-label-to-the-service"></a>Appliquer une étiquette DNS au service
+
+Si votre service utilise une adresse IP publique dynamique ou statique, vous pouvez utiliser l'annotation de service `service.beta.kubernetes.io/azure-dns-label-name` pour définir une étiquette DNS destinée au public. Il publie un nom de domaine entièrement qualifié pour votre service en utilisant les serveurs DNS publics et le domaine de niveau supérieur Azure. La valeur de l'annotation doit être unique dans l’emplacement Azure, et il est donc recommandé d'utiliser une étiquette suffisamment qualifiée.   
+
+Azure ajoutera alors automatiquement un sous-réseau par défaut, par exemple `<location>.cloudapp.azure.com` (où emplacement est l’emplacement que vous avez sélectionné) au nom que vous indiquez pour créer le nom DNS complet. Par exemple :
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-dns-label-name: myserviceuniquelabel
+  name: azure-load-balancer
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-load-balancer
+```
+
+> [!NOTE] 
+> Pour publier le service sur votre propre domaine, voir [Azure DNS][azure-dns-zone] et le projet [external-dns][external-dns].
+
+## <a name="troubleshoot"></a>Dépanner
 
 Si l’adresse IP statique définie dans la propriété *loadBalancerIP* du manifeste du service Kubernetes n’existe pas ou n’a pas été créée dans le groupe de ressources du nœud et qu’aucune autre délégation n’est configurée, la création du service d’équilibreur de charge échoue. Pour résoudre les problèmes, examinez les événements de création du service avec la commande [kubectl describe][kubectl-describe]. Spécifiez le nom du service tel qu’il est spécifié dans le manifeste YAML, comme indiqué dans l’exemple suivant :
 
@@ -136,6 +157,8 @@ Pour plus de contrôle du trafic réseau vers vos applications, vous pouvez plut
 
 <!-- LINKS - External -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[azure-dns-zone]: https://azure.microsoft.com/services/dns/
+[external-dns]: https://github.com/kubernetes-sigs/external-dns
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

@@ -1,18 +1,18 @@
 ---
-title: À propos des connexions VPN point à site Azure | Microsoft Docs
+title: À propos des connexions VPN point à site Azure | Passerelle VPN
 description: Cet article vous aide à comprendre les connexions point à site et à choisir le type d’authentification à une passerelle VPN P2S que vous devez utiliser.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 02/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3db5cf0ddfec231a313df58e551061cbd5f9bef5
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 78ed07560fdb15efb2de13c194549f5b433b775a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110447"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500598"
 ---
 # <a name="about-point-to-site-vpn"></a>À propos du VPN de point à site
 
@@ -53,14 +53,14 @@ De façon générale, vous devez effectuer les étapes suivantes pour configurer
 
 1. [Configurer un locataire Azure AD](openvpn-azure-ad-tenant.md)
 
-2. [Activer l’authentification Azure AD sur la passerelle](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
+2. [Activer l’authentification Azure AD sur la passerelle](openvpn-azure-ad-tenant.md#enable-authentication)
 
 3. [Télécharger et configurer Azure VPN Client](https://go.microsoft.com/fwlink/?linkid=2117554)
 
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>S’authentifier à l’aide du serveur de domaine Active Directory (AD)
 
-L’authentification de domaine AD permet aux utilisateurs de se connecter à Azure à l’aide des informations d’identification du domaine de l’organisation. Un serveur RADIUS qui s’intègre avec le serveur AD est requis. Les organisations peuvent aussi exploiter un déploiement RADIUS existant.   
+L’authentification de domaine AD permet aux utilisateurs de se connecter à Azure à l’aide des informations d’identification du domaine de l’organisation. Un serveur RADIUS qui s’intègre avec le serveur AD est requis. Les organisations peuvent aussi exploiter un déploiement RADIUS existant.
   
 Le serveur RADIUS peut être déployé localement ou sur votre réseau virtuel Azure. Lors de l’authentification, la passerelle VPN Azure permet le transfert direct et transfère les messages d’authentification entre le serveur RADIUS et l’appareil de connexion. Par conséquent, l’accessibilité de la passerelle au serveur RADIUS est importante. Si le serveur RADIUS est situé en local, une connexion VPN S2S au site local à partir d’Azure est requise pour établir l’accessibilité.  
   
@@ -156,9 +156,6 @@ Le fichier zip fournit également les valeurs de certains paramètres importants
 |TLS_RSA_WITH_AES_128_CBC_SHA256 |
 |TLS_RSA_WITH_AES_256_CBC_SHA256 |
 
-
-
-
 ## <a name="configure"></a>Comment configurer une connexion P2S ?
 
 Une configuration P2S requiert quelques étapes spécifiques. Les articles suivants détaillent les étapes de la configuration P2S et incluent des liens pour configurer les appareils clients VPN :
@@ -169,11 +166,9 @@ Une configuration P2S requiert quelques étapes spécifiques. Les articles suiva
 
 * [Configurer OpenVPN](vpn-gateway-howto-openvpn.md)
 
-## <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a>Comment supprimer la configuration d’une connexion P2S ?
+### <a name="to-remove-the-configuration-of-a-p2s-connection"></a>Supprimer la configuration d’une connexion P2S
 
-Vous pouvez supprimer une configuration P2S avec Azure CLI et la commande suivante : 
-
-`az network vnet-gateway update --name <gateway-name> --resource-group <resource-group name> --remove "vpnClientConfiguration"`
+Pour connaître les étapes à suivre, consultez le [Forum Aux Questions (FAQ)](#removeconfig) ci-dessous.
  
 ## <a name="faqcert"></a>Forum Aux Questions (FAQ) sur l’authentification par certificat Azure native
 

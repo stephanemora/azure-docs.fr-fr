@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 3637a11724c1f0bab049077c5abbd817e168bd44
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 5620d1cdc7dc71bdac17057b9a13a74150b12d5c
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931233"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612516"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutoriel : Créer une approbation de forêt sortante vers un domaine local dans Azure Active Directory Domain Services (préversion)
 
@@ -33,7 +33,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 
@@ -89,7 +89,7 @@ Pour configurer l’approbation entrante sur le domaine AD DS local, procédez c
    > [!NOTE]
    > Si vous ne voyez pas l’option de menu **Approbations**, vérifiez le **Type de forêt** sous *Propriétés*. Seules les forêts de *ressources* peuvent créer des approbations. Si le type de forêt est *Utilisateur*, vous ne pouvez pas créer de relations d’approbation. Il n’existe actuellement aucun moyen de modifier le type de forêt d’un domaine géré par Azure AD DS. Vous devez supprimer et recréer le domaine géré comme une forêt de ressources.
 
-1. Entrez un nom dans le nom de domaine Azure AD DS, comme *aadds.contoso.com*, puis sélectionnez **Suivant**.
+1. Entrez un nom dans le nom de domaine Azure AD DS, comme *aaddscontoso.com*, puis sélectionnez **Suivant**.
 1. Sélectionnez l’option permettant de créer une **approbation de forêt**, puis une approbation **unidirectionnelle : entrante**.
 1. Choisissez de créer l’approbation pour **ce domaine uniquement**. À l’étape suivante, vous créez l’approbation dans le portail Azure pour le domaine managé Azure AD DS.
 1. Choisissez d’utiliser l'**authentification à l'échelle de la forêt**, puis entrez et confirmez un mot de passe d’approbation. Ce même mot de passe est également entré dans le portail Azure à la section suivante.
@@ -102,7 +102,7 @@ Une fois le domaine AD DS local configuré pour résoudre le domaine managé Azu
 
 Pour créer l’approbation sortante destinée au domaine managé Azure AD DS dans le portail Azure, procédez comme suit :
 
-1. Dans le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**, puis sélectionnez votre domaine managé, par exemple *aadds.contoso.com*
+1. Dans le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**, puis sélectionnez votre domaine managé, par exemple *aaddscontoso.com*
 1. Dans le menu de gauche du domaine managé Azure AD DS, sélectionnez **Approbations**, puis **+ Ajouter** une approbation.
 1. Entrez un nom d’affichage qui identifie votre approbation, puis le nom DNS de la forêt locale approuvée, par exemple *onprem.contoso.com*
 1. Indiquez le même mot de passe d’approbation que celui utilisé à la section précédente lors de la configuration de l’approbation de forêt entrante pour le domaine AD DS local.
@@ -194,7 +194,7 @@ Vous devez disposer d’une machine virtuelle Windows Server jointe au domaine d
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Valider l’authentification inter-forêts sur une ressource
 
 1. Connectez-vous à un ordinateur Windows joint à votre instance Active Directory locale à l’aide d’un compte d’utilisateur de votre instance Active Directory locale.
-1. À l’aide de l'**Explorateur Windows**, connectez-vous au partage que vous avez créé à l’aide du nom d’hôte complet et le partage, par exemple `\\fs1.aadds.contoso.com\CrossforestShare`.
+1. À l’aide de l'**Explorateur Windows**, connectez-vous au partage que vous avez créé à l’aide du nom d’hôte complet et le partage, par exemple `\\fs1.aaddscontoso.com\CrossforestShare`.
 1. Pour valider l’autorisation d’écriture, cliquez avec le bouton droit dans le dossier, sélectionnez **Nouveau**, puis **Document texte**. Utilisez le nom par défaut **Nouveau document texte**.
 
     Si les autorisations d’écriture sont correctement définies, un nouveau document texte est créé. Les étapes suivantes permettent d'ouvrir, de modifier et de supprimer le fichier, selon vos besoins.

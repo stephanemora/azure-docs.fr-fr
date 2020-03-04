@@ -10,32 +10,30 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 11/16/2019
-ms.openlocfilehash: 6a84dee783240f7f662dab2f04275ead3a3dfe09
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/24/2020
+ms.openlocfilehash: dead8b95446009880c36f97a095aee4aaae0579d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750771"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587343"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
 
-Dans cette rubrique, vous allez apprendre à configurer la journalisation des données de télémétrie de diagnostic pour une base de données SQL Azure via le portail Azure, PowerShell, Azure CLI, l’API REST Azure Monitor et un modèle Azure Resource Manager. Ces outils de diagnostic peuvent être utilisés pour évaluer l’utilisation des ressources et les statistiques d’exécution de requête.
+Dans cet article, vous allez apprendre à activer et à configurer la journalisation des données de télémétrie de diagnostic pour une base de données SQL Azure via le portail Azure, PowerShell, Azure CLI, l’API REST et un modèle Azure Resource Manager. Les bases de données uniques, bases de données mises en pool, pools élastiques, instances gérées et bases de données d’instance peuvent diffuser en continu des métriques et des journaux de diagnostic vers l'une des ressources Azure suivantes :
 
-Les bases de données uniques, les bases de données mises en pool dans les pools élastiques et les bases de données d’instance dans une instance managée peuvent diffuser en continu des métriques et des journaux de diagnostic pour faciliter la supervision des performances. Vous pouvez configurer une base de données de sorte qu’elle transmette les informations relatives à l’utilisation des ressources, aux workers et sessions ainsi qu’à la connectivité à l’une de ces ressources Azure :
+- **Azure SQL Analytics** : pour bénéficier d’une supervision intelligente de vos bases de données avec des rapports de performances, des alertes et des recommandations d’atténuation
+- **Azure Event Hubs** : pour intégrer des données de télémétrie de base de données à votre solution de supervision personnalisée ou à vos pipelines chauds
+- **Stockage Azure** : pour archiver des quantités importantes de données de télémétrie pour une fraction du prix
 
-- **Azure SQL Analytics** : pour bénéficier d’une supervision intelligente de vos bases de données Azure SQL avec des rapports de performances, des alertes et des suggestions d’atténuation.
-- **Azure Event Hubs** : pour intégrer des données de télémétrie SQL Database à votre solution de supervision personnalisée ou à vos pipelines chauds.
-- **Stockage Azure** : pour archiver des quantités importantes de données de télémétrie pour une fraction du prix.
+Ces outils de diagnostic peuvent être utilisés pour évaluer l’utilisation des ressources et les statistiques d’exécution de requête afin de faciliter la supervision des performances.
 
-    ![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
+![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
 Pour plus d’informations sur les métriques et les catégories de journal prises en charge par les divers services Azure, consultez :
 
 - [Vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 - [Vue d’ensemble des journaux de diagnostics Azure](../azure-monitor/platform/platform-logs-overview.md)
-
-Cet article fournit des conseils qui vous aideront à activer la télémétrie de diagnostic pour les bases de données Azure SQL, les pools élastiques et les instances managées. Il peut aussi vous aider à comprendre comment configurer Azure SQL Analytics comme outil de supervision pour consulter les données de télémétrie de diagnostic de base de données.
 
 ## <a name="enable-logging-of-diagnostics-telemetry"></a>Activer la journalisation des données de télémétrie de diagnostic
 
@@ -49,19 +47,17 @@ Vous pouvez activer et gérer la journalisation des métriques et des données d
 
 Quand vous activez les métriques et la journalisation des diagnostics, vous devez spécifier la destination des ressources Azure pour la collecte des données de télémétrie de diagnostic. Les options disponibles sont les suivantes :
 
-- Azure SQL Analytics
-- Hubs d'événements Azure
-- Stockage Azure
+- [Azure SQL Analytics](#stream-diagnostic-telemetry-into-sql-analytics)
+- [Azure Event Hubs](#stream-diagnostic-telemetry-into-event-hubs)
+- [Stockage Azure](#stream-diagnostic-telemetry-into-azure-storage)
 
 Vous pouvez approvisionner une nouvelle ressource Azure ou sélectionner une ressource existante. Après avoir choisi une ressource à l’aide de l’option **Paramètres de diagnostic**, spécifiez les données à collecter.
 
-## <a name="supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases"></a>Prise en charge de la journalisation des diagnostics pour les bases de données SQL Azure et les bases de données d’instance
+## <a name="supported-diagnostic-logging-for-azure-sql-databases"></a>Prise en charge de la journalisation des diagnostics pour les bases de données SQL Azure
 
-Activez les métriques et la journalisation des diagnostics dans les bases de données SQL ; elles ne sont pas activées par défaut.
+Vous pouvez configurer des base de données Azure SQL pour collecter les données de télémétrie de diagnostic suivantes :
 
-Vous pouvez configurer les bases de données SQL Azure et les bases de données d’instance pour collecter les données de télémétrie de diagnostic suivantes :
-
-| Analyse des données de télémétrie pour les bases de données | Prise en charge d’une base de données unique et d’une base de données mise en pool | Prise en charge de la base de données d’instance |
+| Analyse des données de télémétrie pour les bases de données | Prise en charge d’une base de données unique et d’une base de données mise en pool | Prise en charge d'une base de données d'instance gérée |
 | :------------------- | ----- | ----- |
 | [Métriques de base](#basic-metrics) : Pourcentage DTU/CPU, Limite DTU/CPU, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP. | Oui | Non |
 | [Métriques avancées d’instance et d’application](#advanced-metrics) :  contient la taille du fichier journal et des données de la base de données système tempdb ainsi que le pourcentage d’utilisation du fichier journal de tempdb. | Oui | Non |
@@ -76,19 +72,22 @@ Vous pouvez configurer les bases de données SQL Azure et les bases de données 
 | [SQLInsights](#intelligent-insights-dataset) : contient des informations Intelligent Insights relatives aux performances pour une base de données. Pour plus d’informations, consultez [Intelligent Insights](sql-database-intelligent-insights.md). | Oui | Oui |
 
 > [!IMPORTANT]
-> Les pools élastiques et les instances gérées disposent de leurs propres données de télémétrie de diagnostic à partir des bases de données qu’ils contiennent. Il est important de noter que les données de télémétrie de diagnostic sont configurées séparément pour chaque ressource, comme indiqué ci-dessous.
+> Les pools élastiques et les instances gérées disposent de leurs propres données de télémétrie de diagnostic à partir des bases de données qu’ils contiennent. Il est important de noter que les données de télémétrie de diagnostic sont configurées séparément pour chaque ressource.
+>
+> Pour activer la diffusion en continu des journaux d’activité d’audit, consultez [Configurer l’audit pour votre base de données](sql-database-auditing.md#subheading-2) et les [journaux d’activité d’audit dans les journaux Azure Monitor et Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+>
+> Les paramètres de diagnostic ne peuvent pas être configurés pour les **bases de données système**, telles que les bases de données master, msdb, model, resource et tempdb.
 
-> [!NOTE]
-> - Pour activer la diffusion en continu des journaux d’activité d’audit, consultez [Configurer l’audit pour votre base de données](sql-database-auditing.md#subheading-2) et les [journaux d’activité d’audit dans les journaux Azure Monitor et Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
-> - Les paramètres de diagnostic ne peuvent pas être configurés pour les **bases de données système**, telles que les bases de données master, msdb, model, resoure et tempdb.
+## <a name="configure-streaming-of-diagnostic-telemetry"></a>Configurer la diffusion en continu des données de télémétrie de diagnostic
 
-## <a name="azure-portal"></a>Portail Azure
+Le menu **Paramètres de diagnostic** du portail Azure vous permet d'activer et de configurer la diffusion en continu des données de télémétrie de diagnostic. En outre, vous pouvez utiliser PowerShell, Azure CLI, l'[API REST](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) et les [modèles Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md) pour configurer la diffusion en continu des données de télémétrie de diagnostic. Vous pouvez définir les destinations suivantes pour diffuser les données de télémétrie de diagnostic : Stockage Azure, Azure Event Hubs et les journaux Azure Monitor.
 
-Le menu **Paramètres de diagnostic** pour chaque base de données unique, mise en pool ou d’instance sur le portail Azure vous permet de configurer la diffusion en continu des données de télémétrie de diagnostic. En outre, la télémétrie de diagnostic peut être configurée séparément pour les conteneurs de base de données : les pools élastiques et les instances gérées. Vous pouvez définir les destinations suivantes pour diffuser les données de télémétrie de diagnostic : Stockage Azure, Azure Event Hubs et les journaux Azure Monitor.
+> [!IMPORTANT]
+> La journalisation des données de télémétrie de diagnostic n'est pas activée par défaut.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>Configurer la diffusion en continu des données de télémétrie de diagnostic pour les pools élastiques
+# <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
-   ![Icône de pool élastique](./media/sql-database-metrics-diag-logging/icon-elastic-pool-text.png)
+### <a name="elastic-pools"></a>Pools élastiques
 
 Vous pouvez configurer une ressource de pool élastique de sorte qu’elle collecte les données de télémétrie de diagnostic suivantes :
 
@@ -96,124 +95,127 @@ Vous pouvez configurer une ressource de pool élastique de sorte qu’elle colle
 | :------------------- | ------------------- |
 | **Pool élastique** | [Métriques de base](sql-database-metrics-diag-logging.md#basic-metrics) : pourcentage eDTU/UC, limite eDTU/UC, pourcentage de lecture de données physiques, pourcentage d’écriture du journal, pourcentage de sessions, pourcentage de Workers, stockage, pourcentage de stockage, limite de stockage, pourcentage de stockage XTP. |
 
-Pour configurer la diffusion en continu des données de télémétrie de diagnostic pour les pools élastiques et les bases de données dans des pools élastiques, vous devez faire **les deux** réglages suivants :
+Pour configurer la diffusion en continu des données de télémétrie de diagnostic pour les pools élastiques et les bases de données mises en pool, vous devez procéder séparément :
 
-- Activer la diffusion en continu des données de télémétrie de diagnostic pour un pool élastique, **et**
+- Activer la diffusion en continu des données de télémétrie de diagnostic pour un pool élastique
 - Activer la diffusion en continu des données de télémétrie de diagnostic pour chaque base de données au sein d’un pool élastique
 
-La raison en est qu’un pool élastique est un conteneur de base de données contenant ses propres données de télémétrie distinctes des données de télémétrie d’une base de données individuelle.
+Le conteneur de pool élastique possède ses propres données de télémétrie, distinctes des données de télémétrie de chaque base de données mise en pool.
 
 Pour activer le streaming des données de télémétrie de diagnostic pour une ressource de pool élastique, effectuez ces étapes :
 
 1. Accédez à la ressource de **pool élastique** sur le portail Azure.
-1. Sélectionnez **Paramètres de diagnostic**.
-1. Sélectionnez **Activer les diagnostics** s’il n’existe aucun paramètre précédent, ou sélectionnez **Modifier le paramètre** pour modifier un paramètre précédent.
+2. Sélectionnez **Paramètres de diagnostic**.
+3. Sélectionnez **Activer les diagnostics** s’il n’existe aucun paramètre précédent, ou sélectionnez **Modifier le paramètre** pour modifier un paramètre précédent.
 
    ![Activer les diagnostics pour les pools élastiques](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-enable.png)
 
-1. Entrez un nom de paramètre pour référence personnelle.
-1. Sélectionnez la ressource de destination pour les données de diagnostic de streaming : **Archiver dans un compte de stockage**, **Diffuser vers un hub d’événements** ou **Envoyer à Log Analytics**.
-1. Pour Log Analytics, sélectionnez **Configurer** et créez un espace de travail en sélectionnant **+Créer un espace de travail**, ou sélectionnez un espace de travail existant.
-1. Cochez la case correspondant aux données de télémétrie de diagnostic de pool élastique Métriques **de base**.
+4. Entrez un nom de paramètre pour référence personnelle.
+5. Sélectionnez la ressource de destination pour les données de diagnostic de streaming : **Archiver dans un compte de stockage**, **Diffuser vers un hub d’événements** ou **Envoyer à Log Analytics**.
+6. Pour Log Analytics, sélectionnez **Configurer** et créez un espace de travail en sélectionnant **+Créer un espace de travail**, ou sélectionnez un espace de travail existant.
+7. Cochez la case correspondant aux données de télémétrie de diagnostic de pool élastique Métriques **de base**.
    ![Configurer les diagnostics pour les pools élastiques](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
-1. Sélectionnez **Enregistrer**.
-1. En outre, configurez la diffusion en continu des données de télémétrie de diagnostic pour chaque base de données au sein du pool élastique que vous souhaitez surveiller en suivant les étapes décrites dans la section suivante.
+8. Sélectionnez **Enregistrer**.
+9. En outre, configurez la diffusion en continu des données de télémétrie de diagnostic pour chaque base de données au sein du pool élastique que vous souhaitez surveiller en suivant les étapes décrites dans la section suivante.
 
 > [!IMPORTANT]
-> Outre la configuration des données de télémétrie de diagnostic pour un pool élastique, vous devez également configurer les données de télémétrie de diagnostic pour chaque base de données au sein d’un pool élastique, comme indiqué ci-dessous.
+> Outre la configuration des données de télémétrie de diagnostic pour un pool élastique, vous devez également configurer les données de télémétrie de diagnostic pour chaque base de données au sein du pool élastique.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>Configurer la diffusion en continu des données de télémétrie pour une base de données unique, ou une base de données au sein d’un pool élastique
+### <a name="single-or-pooled-database"></a>Base de données unique ou mise en pool
 
-   ![Icône de SQL Database](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
+Vous pouvez configurer une ressource de base de données unique ou mise en pool de sorte qu’elle collecte les données de télémétrie de diagnostic suivantes :
 
-Pour activer la diffusion en continu des données de télémétrie de diagnostic pour les bases de données uniques ou mises en pool, procédez comme suit :
+| Ressource | Supervision des données de télémétrie |
+| :------------------- | ------------------- |
+| **Base de données unique ou mise en pool** | Les [métriques de base](sql-database-metrics-diag-logging.md#basic-metrics) contiennent ce qui suit : Pourcentage DTU, Limite DTU, Pourcentage UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP et blocages. |
+
+Pour activer la diffusion en continu des données de télémétrie de diagnostic pour une base de données unique ou mise en pool, procédez comme suit :
 
 1. Accédez à la ressource **Base de données SQL** Azure.
-1. Sélectionnez **Paramètres de diagnostic**.
-1. Sélectionnez **Activer les diagnostics** s’il n’existe aucun paramètre précédent, ou sélectionnez **Modifier le paramètre** pour modifier un paramètre précédent.
-   - Vous pouvez créer jusqu’à trois connexions parallèles pour le streaming des données de télémétrie de diagnostic.
-   - Sélectionnez **Ajouter un paramètre de diagnostic** pour configurer le streaming parallèle des données de diagnostic vers plusieurs ressources.
+2. Sélectionnez **Paramètres de diagnostic**.
+3. Sélectionnez **Activer les diagnostics** s’il n’existe aucun paramètre précédent, ou sélectionnez **Modifier le paramètre** pour modifier un paramètre précédent. Vous pouvez créer jusqu’à trois connexions parallèles pour le streaming des données de télémétrie de diagnostic.
+4. Sélectionnez **Ajouter un paramètre de diagnostic** pour configurer le streaming parallèle des données de diagnostic vers plusieurs ressources.
 
-   ![Activer les diagnostics pour les bases de données uniques, mises en pool ou d’instances](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
+   ![Activer les diagnostics pour les bases de données uniques et mises en pool](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 
-1. Entrez un nom de paramètre pour référence personnelle.
-1. Sélectionnez la ressource de destination pour les données de diagnostic de streaming : **Archiver dans un compte de stockage**, **Diffuser vers un hub d’événements** ou **Envoyer à Log Analytics**.
-1. Pour une expérience de supervision standard basée sur les événements, cochez les cases suivantes pour les données de télémétrie de journal de diagnostic de base de données : **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks** et **Deadlocks**.
-1. Pour une expérience de supervision avancée à la minute, cochez la case pour les métriques **de base**.
+5. Entrez un nom de paramètre pour référence personnelle.
+6. Sélectionnez la ressource de destination pour les données de diagnostic de streaming : **Archiver dans un compte de stockage**, **Diffuser vers un hub d’événements** ou **Envoyer à Log Analytics**.
+7. Pour une expérience de supervision standard basée sur les événements, cochez les cases suivantes pour les données de télémétrie de journal de diagnostic de base de données : **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks** et **Deadlocks**.
+8. Pour une expérience de supervision avancée à la minute, cochez la case pour les métriques **de base**.
+
    ![Configurer les diagnostics pour les bases de données uniques, mises en pool ou d’instances](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
-1. Sélectionnez **Enregistrer**.
-1. Répétez ces étapes pour chaque base de données que vous voulez superviser.
-
-> [!NOTE]
-> Pour activer la diffusion en continu des journaux d’activité d’audit, consultez [Configurer l’audit pour votre base de données](sql-database-auditing.md#subheading-2) et les [journaux d’activité d’audit dans les journaux Azure Monitor et Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+9. Sélectionnez **Enregistrer**.
+10. Répétez ces étapes pour chaque base de données que vous voulez superviser.
 
 > [!TIP]
-> Répétez ces étapes pour chaque base de données Azure SQL Database que vous voulez superviser.
+> Répétez ces étapes pour chaque base de données unique ou mise en pool que vous souhaitez superviser.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-managed-instances"></a>Configurer la diffusion en continu des données de télémétrie de diagnostic pour des instances gérées
-
-   ![Icône d’instance gérée](./media/sql-database-metrics-diag-logging/icon-managed-instance-text.png)
+### <a name="managed-instance"></a>Instance gérée
 
 Vous pouvez configurer une ressource d’instance gérée de sorte qu’elle collecte les données de télémétrie de diagnostic suivantes :
 
 | Ressource | Supervision des données de télémétrie |
 | :------------------- | ------------------- |
-| **instance gérée** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) contient le nombre de vCores, le pourcentage de processeur moyen, le requêtes d’E/S, les octets lus/écrits, l’espace de stockage réservé et l’espace de stockage utilisé. |
+| **instance gérée** | [ResourceUsageStats](#resource-usage-stats-for-managed-instances) contient le nombre de vCores, le pourcentage de processeur moyen, le requêtes d’E/S, les octets lus/écrits, l’espace de stockage réservé et l’espace de stockage utilisé. |
 
-Pour configurer la diffusion en continu des données de télémétrie de diagnostic pour les instances gérées et les bases de données d’instance, vous devez faire **les deux** réglages suivants :
+Pour configurer la diffusion en continu des données de télémétrie de diagnostic pour les instances gérées et les bases de données d’instance, vous devez procéder séparément :
 
-- Activer la diffusion en continu des données de télémétrie de diagnostic pour une instance gérée, **et**
+- Activer la diffusion en continu des données de télémétrie de diagnostic pour une instance gérée
 - Activer la diffusion en continu des données de télémétrie de diagnostic pour chaque base de données d’instance
 
-La raison en est qu’une instance gérée est un conteneur de base de données contenant ses propres données de télémétrie distinctes des données de télémétrie d’une base de données d’instance individuelle.
+Le conteneur d'instance gérée possède ses propres données de télémétrie, distinctes des données de télémétrie de chaque base de données d'instance.
 
 Pour activer la diffusion en continu des données de télémétrie de diagnostic pour une ressource d’instance gérée, procédez comme suit :
 
 1. Accédez à la ressource **instance gérée** sur le Portail Microsoft Azure.
-1. Sélectionnez **Paramètres de diagnostic**.
-1. Sélectionnez **Activer les diagnostics** s’il n’existe aucun paramètre précédent, ou sélectionnez **Modifier le paramètre** pour modifier un paramètre précédent.
+2. Sélectionnez **Paramètres de diagnostic**.
+3. Sélectionnez **Activer les diagnostics** s’il n’existe aucun paramètre précédent, ou sélectionnez **Modifier le paramètre** pour modifier un paramètre précédent.
 
    ![Activer les diagnostics pour une instance gérée](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
-1. Entrez un nom de paramètre pour référence personnelle.
-1. Sélectionnez la ressource de destination pour les données de diagnostic de streaming : **Archiver dans un compte de stockage**, **Diffuser vers un hub d’événements** ou **Envoyer à Log Analytics**.
-1. Pour Log Analytics, sélectionnez **Configurer** et créez un espace de travail en sélectionnant **+Créer un espace de travail**, ou utilisez un espace de travail existant.
-1. Cochez la case correspondant aux données de télémétrie de diagnostic de pool élastique **ResourceUsageStats**.
+4. Entrez un nom de paramètre pour référence personnelle.
+5. Sélectionnez la ressource de destination pour les données de diagnostic de streaming : **Archiver dans un compte de stockage**, **Diffuser vers un hub d’événements** ou **Envoyer à Log Analytics**.
+6. Pour Log Analytics, sélectionnez **Configurer** et créez un espace de travail en sélectionnant **+Créer un espace de travail**, ou utilisez un espace de travail existant.
+7. Cochez la case correspondant aux données de télémétrie de diagnostic de pool élastique **ResourceUsageStats**.
 
    ![Configurer les diagnostics pour une instance gérée](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
-1. Sélectionnez **Enregistrer**.
-1. En outre, configurez la diffusion en continu des données de télémétrie de diagnostic pour chaque base de données d’instance au sein de l’instance gérée que vous souhaitez surveiller en suivant les étapes décrites dans la section suivante.
+8. Sélectionnez **Enregistrer**.
+9. En outre, configurez la diffusion en continu des données de télémétrie de diagnostic pour chaque base de données d’instance au sein de l’instance gérée que vous souhaitez surveiller en suivant les étapes décrites dans la section suivante.
 
 > [!IMPORTANT]
-> Outre la configuration des données de télémétrie de diagnostic pour une instance gérée, vous devez également configurer les données de télémétrie de diagnostic pour chaque base de données d’instance, comme indiqué ci-dessous.
+> Outre la configuration des données de télémétrie de diagnostic pour une instance gérée, vous devez également configurer les données de télémétrie de diagnostic pour chaque base de données d’instance.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Configurer la diffusion en continu des données de télémétrie de diagnostic pour les bases de données d’instance
+### <a name="instance-database"></a>Base de données d’instance
 
-   ![Icône de base de données d’instance dans l’instance managée](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
+Vous pouvez configurer une ressource de base de données d’instance gérée de sorte qu’elle collecte les données de télémétrie de diagnostic suivantes :
 
-Pour activer la diffusion en continu des données de télémétrie de diagnostic pour les bases de données d’instance, procédez comme suit :
+| Ressource | Supervision des données de télémétrie |
+| :------------------- | ------------------- |
+| **Base de données d'instance** | [ResourceUsageStats](#resource-usage-stats-for-managed-instances) contient le nombre de vCores, le pourcentage de processeur moyen, le requêtes d’E/S, les octets lus/écrits, l’espace de stockage réservé et l’espace de stockage utilisé. |
+
+Pour activer la diffusion en continu des données de télémétrie de diagnostic pour une base de données d’instance, procédez comme suit :
 
 1. Accédez à la ressource **base de données d’instance** au sein de l’instance gérée.
-1. Sélectionnez **Paramètres de diagnostic**.
-1. Sélectionnez **Activer les diagnostics** s’il n’existe aucun paramètre précédent, ou sélectionnez **Modifier le paramètre** pour modifier un paramètre précédent.
+2. Sélectionnez **Paramètres de diagnostic**.
+3. Sélectionnez **Activer les diagnostics** s’il n’existe aucun paramètre précédent, ou sélectionnez **Modifier le paramètre** pour modifier un paramètre précédent.
    - Vous pouvez créer jusqu’à trois (3) connexions parallèles pour le streaming des données de télémétrie de diagnostic.
    - Sélectionnez **+Ajouter un paramètre de diagnostic** pour configurer le streaming parallèle des données de diagnostic vers plusieurs ressources.
 
    ![Activer les diagnostics pour les bases de données d’instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
-1. Entrez un nom de paramètre pour référence personnelle.
-1. Sélectionnez la ressource de destination pour les données de diagnostic de streaming : **Archiver dans un compte de stockage**, **Diffuser vers un hub d’événements** ou **Envoyer à Log Analytics**.
-1. Cochez les cases pour les données de télémétrie de diagnostic de base de données : **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** et **Errors**.
+4. Entrez un nom de paramètre pour référence personnelle.
+5. Sélectionnez la ressource de destination pour les données de diagnostic de streaming : **Archiver dans un compte de stockage**, **Diffuser vers un hub d’événements** ou **Envoyer à Log Analytics**.
+6. Cochez les cases pour les données de télémétrie de diagnostic de base de données : **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** et **Errors**.
    ![Configurer les diagnostics pour les bases de données d’instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
-1. Sélectionnez **Enregistrer**.
-1. Répétez ces étapes pour chaque base de données d’instance que vous souhaitez superviser.
+7. Sélectionnez **Enregistrer**.
+8. Répétez ces étapes pour chaque base de données d’instance que vous souhaitez superviser.
 
 > [!TIP]
 > Répétez ces étapes pour chaque base de données d’instance que vous souhaitez superviser.
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -256,7 +258,7 @@ Vous pouvez activer les métriques et la journalisation des diagnostics à l’a
 
 Vous pouvez combiner ces paramètres pour activer plusieurs options de sortie.
 
-### <a name="to-configure-multiple-azure-resources"></a>Pour configurer plusieurs ressources Azure
+**Pour configurer plusieurs ressources Azure**
 
 Pour prendre en charge plusieurs abonnements, utilisez le script PowerShell de [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/20../../enable-azure-resource-metrics-logging-using-powershell/) (Activer la journalisation des mesures de ressources Azure à l’aide de PowerShell).
 
@@ -271,12 +273,12 @@ Indiquez l’ID de ressource d’espace de travail \<$WSID\> comme paramètre au
 
    Remplacez \<subID\> par l’ID d’abonnement, \<RG_NAME\> par le nom de groupe de ressources, puis \<WS_NAME\> par le nom d’espace de travail.
 
-### <a name="azure-cli"></a>Azure CLI
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Vous pouvez activer les métriques et la journalisation des diagnostics à l’aide d’Azure CLI.
 
-> [!NOTE]
-> Les scripts permettant l’activation de la journalisation des diagnostics sont pris en charge pour Azure CLI v1.0. Veuillez noter que CLI v2.0 n’est pas pris en charge pour l’instant.
+> [!IMPORTANT]
+> Les scripts permettant l’activation de la journalisation des diagnostics sont pris en charge pour Azure CLI v1.0. Azure CLI v2.0 n’est pas pris en charge pour l’instant.
 
 - Pour activer le stockage des journaux de diagnostic dans un compte de stockage, utilisez cette commande :
 
@@ -306,25 +308,19 @@ Vous pouvez activer les métriques et la journalisation des diagnostics à l’a
 
 Vous pouvez combiner ces paramètres pour activer plusieurs options de sortie.
 
-### <a name="rest-api"></a>API REST
+---
 
-Découvrez comment [modifier les paramètres de diagnostic à l’aide de l’API RESTS Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings).
+## <a name="stream-diagnostic-telemetry-into-sql-analytics"></a>Diffuser en continu des données de télémétrie dans SQL Analytics
 
-### <a name="resource-manager-template"></a>Modèle Resource Manager
-
-Découvrez comment [activer automatiquement les paramètres de diagnostic lors de la création de ressources à l’aide d’un modèle Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md).
-
-## <a name="stream-into-azure-sql-analytics"></a>Envoi vers Azure SQL Analytics
-
-Azure SQL Analytics est une solution cloud qui supervise à grande échelle les performances des bases de données Azure SQL, des pools élastiques et des instances managées et entre plusieurs abonnements. Elle peut vous aider à collecter et visualiser des métriques de performances Azure SQL Database et intègre des fonctions d’intelligence destinées à résoudre les problèmes.
+Azure SQL Analytics est une solution cloud qui supervise à grande échelle les performances des bases de données uniques, pools élastiques, bases de données mises en pool, instances gérées et bases de données d'instance entre plusieurs abonnements. Elle peut vous aider à collecter et visualiser des métriques de performances Azure SQL Database et intègre des fonctions d’intelligence destinées à résoudre les problèmes.
 
 ![Vue d’ensemble d’Azure SQL Analytics](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
-Les journaux de diagnostic et les métriques SQL Database peuvent être diffusés en continu vers Azure SQL Analytics en activant l’option intégrée **Envoyer à Log Analytics** sous l’onglet Paramètres de diagnostic du portail. Vous pouvez aussi activer Log Analytics à l’aide d’un paramètre de diagnostic via les applets de commande PowerShell, l’interface de ligne de commande Azure (CLI) ou l’API REST Azure Monitor.
+Les journaux de diagnostic et les métriques SQL Database peuvent être diffusés en continu vers Azure SQL Analytics en activant l’option intégrée **Envoyer à Log Analytics** sous l’onglet Paramètres de diagnostic du portail Azure. Vous pouvez aussi activer Log Analytics à l’aide de paramètres de diagnostic via les cmdlets PowerShell, l’interface de ligne de commande Azure (CLI) ou l’API REST Azure Monitor.
 
 ### <a name="installation-overview"></a>Vue d’ensemble de l’installation
 
-Vous pouvez superviser une flotte SQL Database avec Azure SQL Analytics. Effectuez les étapes suivantes :
+Vous pouvez surveiller une collection de bases de données SQL Azure avec Azure SQL Analytics en procédant comme suit :
 
 1. Créez une solution Azure SQL Analytics à partir de la Place de marché Azure.
 2. Créez un espace de travail de supervision dans la solution.
@@ -332,7 +328,7 @@ Vous pouvez superviser une flotte SQL Database avec Azure SQL Analytics. Effectu
 
 Si vous utilisez des pools élastiques ou des instances gérées, vous devez aussi configurer la diffusion en continu des données de télémétrie de diagnostic à partir de ces ressources.
 
-### <a name="create-azure-sql-analytics-resource"></a>Créer une ressource Azure SQL Analytics
+### <a name="create-an-azure-sql-analytics-resource"></a>Créer une ressource Azure SQL Analytics
 
 1. Recherchez et sélectionnez Azure SQL Analytics dans la Place de marché Azure.
 
@@ -348,20 +344,18 @@ Si vous utilisez des pools élastiques ou des instances gérées, vous devez aus
 
 ### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>Configurer des bases de données pour enregistrer des journaux d’activité de métriques et diagnostics
 
-Le moyen le plus simple de configurer l’emplacement d’enregistrement des métriques par les bases de données est d’utiliser le portail Azure. Comme indiqué précédemment, accédez à vos ressources SQL Database sur le portail Azure, puis sélectionnez **Paramètres de diagnostic**.
+Le moyen le plus simple de configurer l’emplacement d’enregistrement des métriques par les bases de données est d’utiliser le portail Azure. Dans le portail Azure, accédez aux ressources de votre base de données SQL et sélectionnez **Paramètres de diagnostic**.
 
-Si vous utilisez des pools élastiques ou des instances gérées, vous devez aussi configurer les paramètres de diagnostic dans ces ressources pour permettre la diffusion en continu des données de télémétrie de diagnostic vers l’espace de travail.
-
-### <a name="use-the-sql-analytics-solution-for-monitoring-and-alerting"></a>Utiliser la solution SQL Analytics à des fins de surveillance et d'alerte
+### <a name="use-azure-sql-analytics-for-monitoring-and-alerting"></a>Utiliser Azure SQL Analytics à des fins de surveillance et d'alerte
 
 Vous pouvez utiliser SQL Analytics comme un tableau de bord hiérarchique pour afficher vos ressources SQL Database.
 
-- Pour découvrir comment utiliser la solution SQL Analytics, consultez [Surveiller une base de données SQL à l’aide de la solution SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
-- Pour savoir comment configurer des alertes pour SQL Database et une instance managée basée sur SQL Analytics, consultez [Création d'alertes pour SQL Database et une instance managée](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts).
+- Pour découvrir comment utiliser Azure SQL Analytics, consultez [Surveiller SQL Database à l’aide de SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
+- Pour savoir comment configurer des alertes dans SQL Analytics, consultez [Créer des alertes pour les bases de données, pools élastiques et instances gérées](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts).
 
-## <a name="stream-into-event-hubs"></a>Transmission en continu vers Event Hubs
+## <a name="stream-diagnostic-telemetry-into-event-hubs"></a>Diffuser en continu des données de télémétrie de diagnostic dans Event Hubs
 
-Vous pouvez diffuser en continu les journaux de diagnostic et les métriques SQL Database dans Event Hubs à l’aide de l’option intégrée **Diffuser vers Event Hub** sur le portail. Vous pouvez également activer l’ID de règle Service Bus à l’aide d’un paramètre de diagnostic via les applets de commande PowerShell, l’interface CLI Azure ou l’API REST d’Azure Monitor.
+Vous pouvez diffuser en continu les journaux de diagnostic et les métriques SQL Database dans Event Hubs à l’aide de l’option intégrée **Diffuser vers Event Hub** sur le portail. Vous pouvez également activer l’ID de règle Service Bus à l’aide de paramètres de diagnostic via les cmdlets PowerShell, l’interface CLI Azure ou l’API REST Azure Monitor.
 
 ### <a name="what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs"></a>Que faire des journaux d’activité de métriques et diagnostics dans Event Hubs
 
@@ -384,9 +378,9 @@ Vous pouvez utiliser des métriques de streaming dans Event Hubs pour :
 
    Vous disposez déjà d’une plateforme de télémétrie personnalisée ou envisagez d’en créer une ? La nature hautement scalable d’Event Hubs et de son modèle publication-abonnement vous permet d’ingérer les journaux de diagnostic avec souplesse. Lisez le [guide de Dan Rosanova sur l’utilisation d’Event Hubs dans une plateforme de télémétrie à l’échelle mondiale](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
-## <a name="stream-into-storage"></a>Transmission en continu dans le stockage
+## <a name="stream-diagnostic-telemetry-into-azure-storage"></a>Diffuser en continu des données télémétrie de diagnostic dans Stockage Azure
 
-Vous pouvez stocker les métriques et les journaux de diagnostics SQL Database dans Stockage Azure en utilisant l’option intégrée **Archiver dans un compte de stockage** sur le portail. Vous pouvez aussi activer le stockage à l’aide d’un paramètre de diagnostic via les applets de commande PowerShell, l’interface de ligne de commande Azure (CLI) ou l’API REST Azure Monitor.
+Vous pouvez stocker les métriques et les journaux de diagnostics dans Stockage Azure en utilisant l’option intégrée **Archiver dans un compte de stockage** sur le portail Azure. Vous pouvez aussi activer le stockage à l’aide de paramètres de diagnostic via les cmdlets PowerShell, l’interface de ligne de commande Azure (CLI) ou l’API REST Azure Monitor.
 
 ### <a name="schema-of-metrics-and-diagnostics-logs-in-the-storage-account"></a>Schéma des journaux d’activité de métriques et diagnostics dans le compte de stockage
 
@@ -416,48 +410,51 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ## <a name="data-retention-policy-and-pricing"></a>Stratégie de rétention des données et tarification
 
-Si vous sélectionnez Event Hubs ou un compte de stockage, vous pouvez spécifier une stratégie de rétention. Cette stratégie supprime les données antérieures à un intervalle de temps sélectionné. Si vous spécifiez Log Analytics, la stratégie de rétention dépend du niveau tarifaire sélectionné. Dans ce cas, les unités gratuites fournies pour l’ingestion de données permettent de superviser gratuitement plusieurs bases de données chaque mois. Toute utilisation de données de télémétrie de diagnostic au-delà des unités gratuites peut occasionner des frais. Sachez que les bases de données actives associées à de lourdes charges de travail ingèrent davantage de données que les bases de données inactives. Pour plus d’informations, consultez [Tarification de Log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
+Si vous sélectionnez Event Hubs ou un compte de stockage, vous pouvez spécifier une stratégie de rétention. Cette stratégie supprime les données antérieures à un intervalle de temps sélectionné. Si vous spécifiez Log Analytics, la stratégie de rétention dépend du niveau tarifaire sélectionné. Dans ce cas, les unités gratuites fournies pour l’ingestion de données permettent de superviser gratuitement plusieurs bases de données chaque mois. Toute utilisation de données de télémétrie de diagnostic au-delà des unités gratuites peut occasionner des frais. 
 
-Si vous utilisez Azure SQL Analytics, vous pouvez superviser votre ingestion de données dans la solution en sélectionnant **Espace de travail OMS** dans le menu de navigation d’Azure SQL Analytics, puis **Utilisation** et **Coûts estimés**.
+> [!IMPORTANT]
+> Les bases de données actives associées à de lourdes charges de travail ingèrent davantage de données que les bases de données inactives. Pour plus d’informations, consultez [Tarification de Log Analytics](https://azure.microsoft.com/pricing/details/monitor/).
+
+Si vous utilisez Azure SQL Analytics, vous pouvez superviser votre ingestion de données en sélectionnant **Espace de travail OMS** dans le menu de navigation d’Azure SQL Analytics, puis **Utilisation** et **Coûts estimés**.
 
 ## <a name="metrics-and-logs-available"></a>Métriques et journaux d’activité disponibles
 
-La surveillance des données de télémétrie disponibles pour une base de données SQL Azure, les pools élastiques et l’instance gérée est documentée ci-dessous. Les données de télémétrie de supervision collectées au sein de SQL Analytics peuvent être utilisées pour votre propre analyse et développement d’application à l’aide du langage [des requêtes de journal Azure Monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+La supervision des données de télémétrie disponibles pour les bases de données uniques, bases de données mises en pool, pools élastiques, instances gérées et bases de données d’instance est décrite dans cette section de l’article. Les données de télémétrie de supervision collectées au sein de SQL Analytics peuvent être utilisées pour votre propre analyse et développement d’application à l’aide du langage [des requêtes de journal Azure Monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
 
-## <a name="basic-metrics"></a>Métriques de base
+### <a name="basic-metrics"></a>Métriques de base
 
 Pour plus d’informations sur les métriques de base par ressource, consultez les tableaux suivants.
 
 > [!NOTE]
 > L’option des métriques de base s’appelait auparavant Toutes les métriques. Seul le nom a été modifié, pas les métriques surveillées. Cette modification vise à permettre l’introduction de catégorie de métriques supplémentaires.
 
-### <a name="basic-metrics-for-elastic-pools"></a>Métriques de base pour les pools élastiques
+#### <a name="basic-metrics-for-elastic-pools"></a>Métriques de base pour les pools élastiques
 
 |**Ressource**|**Métriques**|
 |---|---|
 |Pool élastique|Pourcentage DTU, eDTU utilisé, Limite eDTU, Pourcentage UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Limite de stockage, Pourcentage de stockage XTP |
 
-### <a name="basic-metrics-for-azure-sql-databases"></a>Métriques de base pour les bases de données SQL Azure
+#### <a name="basic-metrics-for-single-and-pooled-databases"></a>Métriques de base pour les bases de données uniques et mises en pool
 
 |**Ressource**|**Métriques**|
 |---|---|
-|Base de données Azure SQL|Pourcentage DTU, Limite DTU, Pourcentage UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP et blocages |
+|Base de données unique et mise en pool|Pourcentage DTU, Limite DTU, Pourcentage UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP et blocages |
 
-## <a name="advanced-metrics"></a>Métriques avancées
+### <a name="advanced-metrics"></a>Métriques avancées
 
 Consultez le tableau suivant pour obtenir des détails sur les métriques avancées.
 
 |**Mesure**|**Nom d’affichage de la métrique**|**Description**|
 |---|---|---|
-|tempdb_data_size| Taille du fichier de données tempdb en kilo-octets |Taille du fichier de données tempdb en kilo-octets. Non applicable aux entrepôts de données. Cette métrique sera disponible pour les bases de données utilisant le modèle d’achat vCore ou 100 DTU et plus pour les modèles d’achat basés sur DTU. |
-|tempdb_log_size| Taille du fichier journal de tempdb en kilo-octets |Taille du fichier journal de tempdb en kilo-octets. Non applicable aux entrepôts de données. Cette métrique sera disponible pour les bases de données utilisant le modèle d’achat vCore ou 100 DTU et plus pour les modèles d’achat basés sur DTU. |
-|tempdb_log_used_percent| Pourcentage d’utilisation du journal tempdb |Pourcentage d’utilisation du journal tempdb. Non applicable aux entrepôts de données. Cette métrique sera disponible pour les bases de données utilisant le modèle d’achat vCore ou 100 DTU et plus pour les modèles d’achat basés sur DTU. |
+|tempdb_data_size| Taille du fichier de données tempdb en kilo-octets |Taille du fichier de données tempdb en kilo-octets. Non applicable aux entrepôts de données. Cette métrique sera disponible pour les bases de données utilisant le modèle d’achat vCore avec 2 vCores et plus ou 200 DTU et plus pour les modèles d’achat basés sur DTU. Actuellement, cette métrique n’est pas disponible pour les bases de données Hyperscale.|
+|tempdb_log_size| Taille du fichier journal de tempdb en kilo-octets |Taille du fichier journal de tempdb en kilo-octets. Non applicable aux entrepôts de données. Cette métrique sera disponible pour les bases de données utilisant le modèle d’achat vCore avec 2 vCores et plus ou 200 DTU et plus pour les modèles d’achat basés sur DTU. Actuellement, cette métrique n’est pas disponible pour les bases de données Hyperscale.|
+|tempdb_log_used_percent| Pourcentage d’utilisation du journal tempdb |Pourcentage d’utilisation du journal tempdb. Non applicable aux entrepôts de données. Cette métrique sera disponible pour les bases de données utilisant le modèle d’achat vCore avec 2 vCores et plus ou 200 DTU et plus pour les modèles d’achat basés sur DTU. Actuellement, cette métrique n’est pas disponible pour les bases de données Hyperscale.|
 
-## <a name="basic-logs"></a>Journaux de base
+### <a name="basic-logs"></a>Journaux de base
 
-Les détails des données de télémétrie disponibles pour tous les journaux sont documentés dans les tableaux ci-dessous. Consultez la [journalisation des diagnostics prise en charge](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) pour connaître les journaux pris en charge pour une version particulière de la base de données, SQL Azure unique, mise en pool ou une base de données d’instance.
+Les détails des données de télémétrie disponibles pour tous les journaux sont documentés dans les tableaux suivants. Consultez la [journalisation des diagnostics prise en charge](#supported-diagnostic-logging-for-azure-sql-databases) pour connaître les journaux pris en charge pour une version particulière de la base de données, SQL Azure unique, mise en pool ou une base de données d’instance.
 
-### <a name="resource-usage-stats-for-managed-instance"></a>Statistiques d’utilisation des ressources pour une instance gérée
+#### <a name="resource-usage-stats-for-managed-instances"></a>Statistiques d’utilisation des ressources pour des instances gérées
 
 |Propriété|Description|
 |---|---|
@@ -482,7 +479,7 @@ Les détails des données de télémétrie disponibles pour tous les journaux so
 |io_bytes_read_s|Octets d’IOPS lus |
 |io_bytes_written_s|Octets d’IOPS écrits |
 
-### <a name="query-store-runtime-statistics"></a>Statistiques d’exécution du magasin des requêtes
+#### <a name="query-store-runtime-statistics"></a>Statistiques d’exécution du magasin des requêtes
 
 |Propriété|Description|
 |---|---|
@@ -533,7 +530,7 @@ Les détails des données de télémétrie disponibles pour tous les journaux so
 
 En savoir plus sur les [données de statistiques d’exécution du magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
-### <a name="query-store-wait-statistics"></a>Statistiques d’attente du magasin des requêtes
+#### <a name="query-store-wait-statistics"></a>Statistiques d’attente du magasin des requêtes
 
 |Propriété|Description|
 |---|---|
@@ -571,7 +568,7 @@ En savoir plus sur les [données de statistiques d’exécution du magasin des r
 
 Découvrez-en davantage sur les [données des statistiques d’attente du magasin des requêtes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
-### <a name="errors-dataset"></a>Jeu de données d’erreurs
+#### <a name="errors-dataset"></a>Jeu de données d’erreurs
 
 |Propriété|Description|
 |---|---|
@@ -600,7 +597,7 @@ Découvrez-en davantage sur les [données des statistiques d’attente du magasi
 
 En savoir plus sur les [messages d’erreur SQL Server](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-ver15).
 
-### <a name="database-wait-statistics-dataset"></a>Jeu de données de statistiques d’attente de base de données
+#### <a name="database-wait-statistics-dataset"></a>Jeu de données de statistiques d’attente de base de données
 
 |Propriété|Description|
 |---|---|
@@ -629,7 +626,7 @@ En savoir plus sur les [messages d’erreur SQL Server](https://docs.microsoft.c
 
 Apprenez-en davantage sur les [statistiques d’attente de base de données](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
-### <a name="time-outs-dataset"></a>Jeu de données d’expirations
+#### <a name="time-outs-dataset"></a>Jeu de données d’expirations
 
 |Propriété|Description|
 |---|---|
@@ -652,7 +649,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |query_hash_s|Hachage de requête, si disponible |
 |query_plan_hash_s|Hachage du plan de requête, si disponible |
 
-### <a name="blockings-dataset"></a>Jeu de données de blocages
+#### <a name="blockings-dataset"></a>Jeu de données de blocages
 
 |Propriété|Description|
 |---|---|
@@ -676,7 +673,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |blocked_process_filtered_s|XML de rapport de processus bloqué |
 |duration_d|Durée du verrou en microsecondes |
 
-### <a name="deadlocks-dataset"></a>Jeu de données Deadlocks
+#### <a name="deadlocks-dataset"></a>Jeu de données Deadlocks
 
 |Propriété|Description|
 |---|---|
@@ -697,7 +694,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |ResourceId|URI de ressource |
 |deadlock_xml_s|XML de rapport de blocage |
 
-### <a name="automatic-tuning-dataset"></a>Jeu de données AutomaticTuning
+#### <a name="automatic-tuning-dataset"></a>Jeu de données AutomaticTuning
 
 |Propriété|Description|
 |---|---|
@@ -727,7 +724,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |Event_s|Type d’événement de paramétrage automatique |
 |Timestamp_t|Horodatage de la dernière mise à jour |
 
-### <a name="intelligent-insights-dataset"></a>Jeu de données Intelligent Insights
+#### <a name="intelligent-insights-dataset"></a>Jeu de données Intelligent Insights
 
 Apprenez-en davantage sur le [format de journal Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
 

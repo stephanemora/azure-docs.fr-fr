@@ -2,17 +2,14 @@
 title: Limitations pour les pools de nœuds Windows Server dans Azure Kubernetes Service (AKS)
 description: En savoir plus sur les limitations connues lors de l’exécution de charges de travail d’application et de pools de nœuds Windows Server dans Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: mlearned
-ms.openlocfilehash: 3dd7399b68388d92d38b0f64c6e816cb94b3f295
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 157f890c65efd0de9fa7d8d7aa5cb43b4a902dfa
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768569"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615640"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitations actuelles pour les pools de nœuds Windows Server et les charges de travail d’application dans Azure Kubernetes Service (AKS)
 
@@ -54,9 +51,9 @@ Les nœuds principaux (plan de contrôle) dans un cluster AKS étant hébergés 
 
 Les clusters AKS comportant des pools de nœuds doivent utiliser le modèle de mise en réseau (avancé) d’Azure CNI. La mise en réseau Kubenet (de base) n’est pas prise en charge. Pour plus d’informations sur les différences dans les modèles de réseau, consultez [Concepts réseau pour les applications dans AKS][azure-network-models]. - Le modèle de réseau Azure CNI nécessite une planification supplémentaire et considérations relatives à la gestion des adresses IP. Pour plus d’informations sur la façon de planifier et implémenter Azure CNI, consultez [Configurer le réseau Azure CNI dans AKS][configure-azure-cni].
 
-## <a name="can-i-change-the-min--of-pods-per-node"></a>Puis-je modifier le nombre minimal de pods par nœud ?
+## <a name="can-i-change-the-max--of-pods-per-node"></a>Puis-je modifier le nombre maximal de pods par nœud ?
 
-Il est actuellement nécessaire de définir au minimum 30 pods pour garantir la fiabilité de vos clusters.
+Il est actuellement nécessaire de définir au maximum 30 pods pour garantir la fiabilité de vos clusters.
 
 ## <a name="how-do-patch-my-windows-nodes"></a>Comment corriger mes nœuds Windows ?
 

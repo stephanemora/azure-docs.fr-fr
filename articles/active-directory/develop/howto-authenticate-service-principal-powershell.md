@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: c6c07c48bf94b50d46a50a47f57857fdd15a0e8e
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 8e428732fb49d27e3991071b87abee53b6e375b2
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697249"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648391"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Procédure : Utiliser Azure PowerShell pour créer un principal du service avec un certificat
 
@@ -50,7 +50,7 @@ Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ress
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Créer un principal du service avec un certificat auto-signé
 
-L'exemple suivant aborde un scénario simple. Il utilise [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) pour créer un principal du service avec un certificat auto-signé, et utilise [New-AzureRmRoleAssignment](/powershell/module/az.resources/new-azroleassignment) pour assigner le rôle de [Lecteur](/azure/role-based-access-control/built-in-roles#reader) au principal du service. L’attribution de rôle est étendue à votre abonnement Azure actuellement sélectionné. Pour sélectionner un autre abonnement, utilisez [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
+L'exemple suivant aborde un scénario simple. Il utilise [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) pour créer un principal du service avec un certificat auto-signé, et utilise [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) pour assigner le rôle de [Lecteur](/azure/role-based-access-control/built-in-roles#reader) au principal du service. L’attribution de rôle est étendue à votre abonnement Azure actuellement sélectionné. Pour sélectionner un autre abonnement, utilisez [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
 
 > [!NOTE]
 > Actuellement, l’applet de commande New-SelfSignedCertificate et le module PKI ne sont pas pris en charge dans PowerShell Core. 

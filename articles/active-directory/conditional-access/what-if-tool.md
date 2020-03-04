@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 02/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeb2e98ad9bbd35f3ec507e36e958c5ce6ad2198
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: dc87b434664ba12cefeb233972e749f631d8a2b4
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185881"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620682"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Détecter un problème à l’aide de l’outil What If dans l’accès conditionnel
 
@@ -98,7 +98,7 @@ Vous démarrez une évaluation en cliquant sur **Scénarios**. Le résultat d’
 
 Si des [stratégies classiques](policy-migration.md#classic-policies) existent pour les applications cloud sélectionnées, un indicateur est présenté. En cliquant sur l’indicateur, vous êtes redirigé vers la page des stratégies classiques. Dans la page des stratégies classiques, vous pouvez migrer une stratégie classique ou simplement la désactiver. Vous pouvez retourner aux résultats de l’évaluation en fermant cette page.
 
-Dans la liste des stratégies qui s’appliquent à votre utilisateur sélectionné, vous trouverez également une liste de [contrôles d’octroi](controls.md#grant-controls) et de [session](controls.md#session-controls) que l’utilisateur doit satisfaire.
+Dans la liste des stratégies qui s’appliquent à votre utilisateur sélectionné, vous trouverez également une liste de [contrôles d’octroi](concept-conditional-access-grant.md) et de [session](concept-conditional-access-session.md) que l’utilisateur doit satisfaire.
 
 Sur la liste des stratégies qui s’appliquent à votre utilisateur, vous pouvez aussi déterminer les raisons pour lesquelles ces stratégies ne s’appliquent pas. Pour chaque stratégie répertoriée, la raison représente la première condition qui n’est pas remplie. Une raison possible de stratégie qui n’est pas appliquée est le cas d’une stratégie désactivée, car ces stratégies ne sont pas évaluées.   
 

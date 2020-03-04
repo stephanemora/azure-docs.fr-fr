@@ -3,12 +3,12 @@ title: Vue d’ensemble des versions du runtime Azure Functions
 description: Azure Functions prend en charge plusieurs versions du runtime. Découvrez les différences entre elles et comment choisir celle qui vous convient.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 0138af15c89a4792b9ccb73a8b761577fad36c5e
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 21722d66129224038df20a0a1ef2bff989221224
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290374"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539499"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Vue d’ensemble des versions du runtime Azure Functions
 
@@ -38,7 +38,7 @@ Pour en savoir plus, consultez [Langages pris en charge](supported-languages.md)
 
 ## <a name="creating-1x-apps"></a>Exécuter sur une version spécifique
 
-Par défaut, les applications de fonction créées dans le portail Azure et par l’interface Azure CLI sont configurées pour la version 2.x. Vous pouvez modifier cette version en fonction de vos besoins. Vous pouvez changer la version du runtime en 1.x seulement après avoir créé votre application de fonction, mais avant d’ajouter des fonctions.  Le passage entre 2.x et 3.x est autorisé même avec les applications qui ont des fonctions, mais il est néanmoins recommandé de tester d’abord dans une nouvelle application.
+Par défaut, les applications de fonction créées dans le portail Azure et par l’interface Azure CLI sont configurées pour la version 3.x. Vous pouvez modifier cette version en fonction de vos besoins. Vous pouvez changer la version du runtime en 1.x seulement après avoir créé votre application de fonction, mais avant d’ajouter des fonctions.  Le passage entre 2.x et 3.x est autorisé même avec les applications qui ont des fonctions, mais il est néanmoins recommandé de tester d’abord dans une nouvelle application.
 
 ## <a name="migrating-from-1x-to-later-versions"></a>Migration de la version 1.x vers les versions ultérieures
 

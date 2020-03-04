@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: aae11facd2fea5413b2996b3088cb2edc23f0dc1
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 0dd3cb12c52e23a0a8acd57bf401ba68acfb9925
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424930"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623690"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Résoudre des problèmes de requête lors de l’utilisation d’Azure Cosmos DB
 
@@ -22,6 +22,20 @@ Cet article décrit une approche générale recommandée pour le dépannage des 
 Vous pouvez grosso modo classer les optimisations de requêtes dans Azure Cosmos DB en deux catégories : celles qui réduisent les frais en unités de requête (RU) de la requête et celles qui réduisent simplement la latence. En réduisant les frais en RU d’une requête, vous diminuez presque certainement aussi la latence.
 
 Ce document utilise des exemples qui peuvent être recréés à l’aide du jeu de données [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
+
+## <a name="important"></a>Important
+
+- Pour des performances optimales, suivez les [conseils relatifs aux performances](performance-tips.md).
+    > [!NOTE] 
+    > Le processus hôte Windows 64 bits est recommandé pour améliorer les performances. Le kit de développement logiciel (SDK) SQL intègre un fichier ServiceInterop.dll natif pour analyser et optimiser les requêtes localement. Il est uniquement pris en charge sur la plateforme Windows x64. Pour Linux et les autres plateformes non prises en charge où ServiceInterop.dll n’est pas disponible, il procède à un appel réseau supplémentaire à destination de la passerelle afin d'obtenir la requête optimisée. 
+- La requête Cosmos DB ne prend pas en charge un nombre d’éléments minimal.
+    - Le code doit gérer toute taille de page comprise entre 0 et le nombre d’éléments maximal
+    - Le nombre d’éléments d’une page peut être modifié sans préavis.
+- Des pages vides sont attendues pour les requêtes et peuvent apparaître à tout moment. 
+    - Les pages vides sont exposées dans les kits de développement logiciel (SDK) en raison du fait qu'elles offrent plus de possibilités d’annuler la requête. Il apparaît également clair que le kit de développement logiciel (SDK) effectue plusieurs appels réseau.
+    - Des pages vides peuvent s'afficher dans les charges de travail existantes, car une partition physique est fractionnée dans Cosmos DB. La première partition présente désormais 0 résultat, ce qui provoque la page vide.
+    - Les pages vides résultent de la préemption de la requête par le serveur principal en raison du fait que cette requête prend plus de temps sur le serveur principal pour récupérer les documents. Si Cosmos DB préempte une requête, il renvoie un jeton de continuation permettant à la requête de se poursuivre. 
+- Veillez à vider complètement la requête. Examinez les exemples du kit de développement logiciel (SDK) et utilisez une boucle while sur `FeedIterator.HasMoreResults` pour vider l’intégralité de la requête.
 
 ### <a name="obtaining-query-metrics"></a>Obtention de métriques de requête
 
@@ -144,7 +158,7 @@ Stratégie d’indexation :
 }
 ```
 
-**Frais en RU :** 409,51 RU/s
+**Frais en RU :** 409.51 RU
 
 ### <a name="optimized"></a>Optimisée
 
@@ -163,7 +177,7 @@ Stratégie d’indexation mise à jour :
 }
 ```
 
-**Frais en RU :** 2,98 RU/s
+**Frais en RU :** 2.98 RU
 
 Vous pouvez ajouter des propriétés supplémentaires à la stratégie d’indexation à tout moment, sans impact sur les performances ou la disponibilité en écriture. Si vous ajoutez une nouvelle propriété à l’index, les requêtes qui utilisent cette propriété utiliseront immédiatement le nouvel index disponible. La requête utilisera le nouvel index pendant sa construction. Par conséquent, les résultats de la requête peuvent être incohérents pendant que la reconstruction de l’index est en cours. Si une nouvelle propriété est indexée, les requêtes qui utilisent uniquement des index existants ne seront pas affectées lors de la reconstruction de l’index. Vous pouvez [suivre la progression de la transformation d’index](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
 
@@ -217,7 +231,7 @@ Stratégie d’indexation :
 }
 ```
 
-**Frais en RU :** 44,28 RU/s
+**Frais en RU :** 44.28 RU
 
 ### <a name="optimized"></a>Optimisée
 
@@ -257,7 +271,7 @@ Stratégie d’indexation mise à jour :
 
 ```
 
-**Frais en RU :** 8,86 RU/s
+**Frais en RU :** 8.86 RU
 
 ## <a name="optimize-join-expressions-by-using-a-subquery"></a>Optimiser les expressions JOIN à l’aide d’une sous-requête
 Les sous-requêtes multivaleurs peuvent optimiser des expressions `JOIN` en envoyant les prédicats après chaque expression de sélection multiple, plutôt qu’après toutes les jointures croisées dans la clause `WHERE`.
@@ -274,7 +288,7 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-**Frais en RU :** 167,62 RU/s
+**Frais en RU :** 167.62 RU
 
 Pour cette requête, l’index établit une correspondance avec n’importe quel document qui a une étiquette portant le nom « infant formula », nutritionValue supérieur à 0 et une dose supérieure à 1. Dans ce cas, l’expression `JOIN` effectue le produit croisé de tous les éléments des tableaux tags, nutrients et servings pour chaque document correspondant avant l’application de tout filtre. Ensuite, la clause `WHERE` applique le prédicat de filtre sur chaque tuple `<c, t, n, s>`.
 
@@ -290,7 +304,7 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-**Frais en RU :** 22,17 RU/s
+**Frais en RU :** 22.17 RU
 
 Supposons qu’un seul élément du tableau tags correspond au filtre, et qu’il existe cinq éléments pour les tableaux nutrients et servings. Les expressions `JOIN` aboutissent à 1 x 1 x 5 x 5 = 25 éléments, au lieu de 1000 éléments dans la première requête.
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 38711c9f1cee07b04dad0ccfeff5694e61dd5b53
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 14f9d698f36fd26563677ef5b3cb82fc8ecf3a4c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484959"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588958"
 ---
 # <a name="about-azure-networking-msp-partners"></a>À propos des partenaires de mise en réseau de fournisseur de services gérés Azure
 
@@ -43,14 +43,14 @@ Utilisez les liens dans cette section pour plus d’informations sur les service
 |[Liquid Telecom](https://liquidcloud.africa/azure-networking)|[Préparation au cloud - Évaluation de 2 heures](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/liquidtelecommunicationsoperationslimited.liquid_cloud_readiness_assessment)|||||
 |[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|[Services de consulting cloud Macquarie : atelier de 2 heures](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/macquariecloudservices.clear_for_takeoff_consulting_service)||[Installation SD-WAN Virtual Edge par Macquarie Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.nanaged_network_services?tab=Overview)|||
 |[Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)||[UniversalEdge pour Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oncore_cloud_services-4944214.universaledge_for_expressroute?tab=Overview)||||
-|[Orixcom]( https://www.orixcom.com/cloud-solutions/)|||[Orixcom SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_sd_wan?tab=Overview)|||
+|[Orixcom]( https://www.orixcom.com/cloud-solutions/)||[ExpressRoute managé Orixcom](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_managed_expressroute?tab=Overview)|[Orixcom SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_sd_wan?tab=Overview)|||
 |[SoftBank]( https://www.softbank.jp/biz/nw/nwp/cloud_access/direct_access_for_az/)|[Service de conseil réseau Azure : évaluation d’une semaine](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_nw_msp_service_azure) ; [Service d’évaluation Azure : 1 semaine](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_msp_service_azure_01?tab=Overview&pub_source=email&pub_status=success)|||||
 |[TCTS](https://www.tatacommunications-ts.com/index.php)|[Migration Azure : évaluation de 3 semaines](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/tcs.azure_migration_assessment)|||||
 |[Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)||[Azure ExpressRoute managé](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tata_communications.managed_expressroute?tab=Overview)|[WAN virtuel managé](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tata_communications.managed_azure_vwan_for_sdwan?tab=Overview)|||
 |[Vigilant IT](https://vigilant.it/manage-cloud-service/)|[Contrôle d’intégrité Azure : évaluation de 5 jours](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[ExpressRoute : implémentation de 5 jours](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
 |[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[ExpressRoute managé Vandis](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Vandis Managed VWAN propulsé par Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview) ; [Vandis Managed VWAN propulsé par Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
 
-Les offres de la Place de marché Azure incluent les nouveaux services de sécurité managés et les services MEC managés des partenaires MSP de mise en réseau Azure suivants : [Amdocs](https://www.amdocs.com/) ; [CenturyLink](https://www.centurylink.com/business/networking/cloud-connectivity.html) ;    [IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/) ;  [InterCloud](https://intercloud.com/partners/microsoft-azure/) ;  [KINX](https://www.kinx.net/service/cloud/?lang=en) ; [Megaport](https://www.megaport.com/services/microsoft-expressroute/) ;  [OmniClouds](https://omniclouds.com/services/) ;  [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms) ;  [Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)
+Les offres de la Place de marché Azure incluent les nouveaux services de sécurité managés et les services MEC managés des partenaires MSP de mise en réseau Azure suivants : [Amdocs](https://www.amdocs.com/); [CenturyLink](https://www.centurylink.com/business/networking/cloud-connectivity.html);    [IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/);  [InterCloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [Megaport](https://www.megaport.com/services/microsoft-expressroute/);  [OmniClouds](https://omniclouds.com/services/);  [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms);  [Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx); [Federated Wireless](https://www.federatedwireless.com/caas/)
 
 ## <a name="expressroute"></a>Partenaires d’ExpressRoute
 

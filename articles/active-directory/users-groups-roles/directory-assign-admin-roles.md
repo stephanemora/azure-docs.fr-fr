@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7595ef1b8742c2ba18a262d5afc5eea1b4d7a15c
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: b813c1caa02ce3ffd3ab0579849dff47252e7d63
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251615"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559162"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -59,7 +59,7 @@ Les administrateurs d’applications peuvent gérer les informations d’identif
 
 Si une application est assignée à un autre rôle qui n’est pas mentionné ci-dessus, l’administrateur de l’application ne peut pas gérer les informations d’identification de cette application. 
  
-Ce rôle permet également de _donner son consentement_ pour des autorisations déléguées et des autorisations d’application, à l’exception des autorisations pour Microsoft Graph et Azure AD Graph.
+Ce rôle permet également de _donner son consentement_ pour des autorisations déléguées et des autorisations d’application, à l’exception des autorisations sur l'API Microsoft Graph.
 
 > [!IMPORTANT]
 > Cette exception signifie que vous pouvez toujours accepter les autorisations pour _d’autres applications_ (par exemple, les applications tierces ou les applications que vous avez inscrites), mais pas les autorisations sur Azure AD proprement dit. Vous pouvez toujours _demander_ ces autorisations dans le cadre de l’inscription de l’application, mais l’_octroi_ de ces autorisations (c’est-à-dire le consentement) requiert un administrateur Azure AD. Cela signifie qu’un utilisateur malveillant ne peut pas élever facilement ses autorisations, par exemple en créant une application capable d’écrire dans le répertoire entier et en lui donnant son consentement, puis, par le biais de des autorisations de cette application, en s’élevant lui-même pour devenir administrateur global.
@@ -125,7 +125,7 @@ Effectue les achats, gère les abonnements, gère les tickets de support et supe
 
 ### <a name="cloud-application-administrator"></a>[Administrateur d’application cloud](#cloud-application-administrator-permissions)
 
-Les utilisateurs dans ce rôle ont les mêmes autorisations que celles du rôle Administrateur d’application, sans la possibilité de gérer le proxy d’application. Ce rôle permet de créer et de gérer tous les aspects des applications d’entreprise et des inscriptions d’applications. Ce rôle permet également de donner son consentement pour des autorisations déléguées et des autorisations d’application, sauf pour Microsoft Graph et Azure AD Graph. Les utilisateurs affectés à ce rôle ne sont pas ajoutés en tant que propriétaires lorsque des inscriptions d’applications ou des applications d’entreprise sont créées.
+Les utilisateurs dans ce rôle ont les mêmes autorisations que celles du rôle Administrateur d’application, sans la possibilité de gérer le proxy d’application. Ce rôle permet de créer et de gérer tous les aspects des applications d’entreprise et des inscriptions d’applications. Ce rôle permet également de donner son consentement pour des autorisations déléguées et des autorisations d’application, sauf pour l'API Microsoft Graph. Les utilisateurs affectés à ce rôle ne sont pas ajoutés en tant que propriétaires lorsque des inscriptions d’applications ou des applications d’entreprise sont créées.
 
 Les administrateurs d’applications cloud peuvent gérer les informations d’identification de l’application, ce qui leur permet d’emprunter l’identité de l’application. Ainsi, les utilisateurs affectés à ce rôle peuvent gérer les informations d’identification uniquement des applications qui ne sont affectées à aucun rôle Azure AD ou de celles affectées uniquement aux rôles d’administration suivants :
 * Développeur d’applications
@@ -201,14 +201,14 @@ Il s’agit d’un rôle hérité qui doit être attribué aux applications ne p
 Les utilisateurs auxquels ce rôle est assigné disposent d’autorisations générales dans Microsoft Dynamics 365 Online, lorsque le service est présent. Ils ont aussi la possibilité de gérer les tickets de support et de surveiller l’intégrité du service. Pour plus d’informations, consultez la page [Utiliser le rôle d’administrateur de service pour gérer votre locataire](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 > [!NOTE]
-> Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service Dynamics 365 ». Il est appelé « Administrateur Dynamics 365 » dans le [portail Azure](https://portal.azure.com).
+> Dans l’API Microsoft Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service Dynamics 365 ». Il est appelé « Administrateur Dynamics 365 » dans le [portail Azure](https://portal.azure.com).
 
 ### <a name="exchange-administrator"></a>[Administrateur Exchange](#exchange-service-administrator-permissions)
 
 Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft Exchange Online, quand le service est présent. Ils ont aussi la possibilité de créer et de gérer tous les groupes Office 365, de gérer les tickets de support et de surveiller l’état d’intégrité des services. Plus d’informations sur les [Rôles d’administrateur dans Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
-> Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de services Exchange ». Il est appelé « Administrateur Exchange » dans le [portail Azure](https://portal.azure.com). Il est « Administrateur Exchange en ligne » dans le [centre d’administration Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144).
+> Dans l’API Microsoft Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service Exchange ». Il est appelé « Administrateur Exchange » dans le [portail Azure](https://portal.azure.com). Il est « Administrateur Exchange en ligne » dans le [centre d’administration Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144).
 
 ### <a name="external-identity-provider-administrator"></a>[Administrateur de fournisseurs d’identité externes](#external-identity-provider-administrator-permissions)
 
@@ -222,7 +222,7 @@ Cet administrateur gère la fédération entre les locataires Azure Active Direc
 Les utilisateurs avec ce rôle ont accès à toutes les fonctionnalités d’administration dans Azure Active Directory, ainsi qu’aux services qui utilisent des identités Azure Active Directory comme le centre de sécurité Microsoft 365, le centre de conformité Microsoft 365, Exchange Online, SharePoint Online et Skype Entreprise Online. La personne qui s’inscrit pour le locataire Azure Active Directory devient administrateur général. Une entreprise peut comprendre plusieurs administrateurs généraux. Les administrateurs généraux peuvent réinitialiser le mot de passe des utilisateurs et de tous les autres administrateurs.
 
 > [!NOTE]
-> Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de l’entreprise ». Il est « Administrateur général » dans le [portail Azure](https://portal.azure.com).
+> Dans l’API Microsoft Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur d’entreprise ». Il est « Administrateur général » dans le [portail Azure](https://portal.azure.com).
 >
 >
 
@@ -275,7 +275,7 @@ Les utilisateurs avec ce rôle peuvent changer des mots de passe, rendre non val
 
 La délégation d’autorisations administratives à des sous-ensembles d’utilisateurs et l’application de stratégies à un sous-ensemble d’utilisateurs sont possibles avec des [unités administratives (maintenant en préversion publique)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
 
-Ce rôle était auparavant appelé « administrateur de mot de passe » dans le [portail Azure](https://portal.azure.com/). Le nom « Administrateur du support » dans Azure AD correspond maintenant à celui utilisé dans Azure AD PowerShell, l’API Azure AD Graph et l’API Microsoft Graph.
+Ce rôle était auparavant appelé « administrateur de mot de passe » dans le [portail Azure](https://portal.azure.com/). Le nom « Administrateur du support » dans Azure AD correspond maintenant à celui utilisé dans Azure AD PowerShell et l’API Microsoft Graph.
 
 ### <a name="intune-administrator"></a>[Administrateur Intune](#intune-service-administrator-permissions)
 
@@ -284,7 +284,7 @@ Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft 
 Ce rôle peut créer et gérer tous les groupes de sécurité. Cependant, l’administrateur Intune ne dispose pas de droits d’administrateur pour les groupes Office. Cela signifie que l’administrateur ne peut pas mettre à jour les propriétaires ou les membres de tous les groupes Office du locataire. Cependant, il peut gérer le groupe Office qu’il crée, ce qui fait partie de ses privilèges d’utilisateur final. Ainsi, tout groupe Office (et non un groupe de sécurité) qu’il crée doit être comptabilisé au titre de son quota de 250.
 
 > [!NOTE]
-> Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service Intune ». Il est « Administrateur Intune » dans le [portail Azure](https://portal.azure.com).
+> Dans l’API Microsoft Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service Intune ». Il est « Administrateur Intune » dans le [portail Azure](https://portal.azure.com).
 
 ### <a name="kaizala-administrator"></a>[Administrateur Kaizala](#kaizala-administrator-permissions)
 
@@ -327,7 +327,7 @@ Les utilisateurs disposant de ce rôle ont une capacité limitée à gérer les 
 Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft Power BI, quand le service est présent, et peuvent gérer les tickets de support et superviser l’intégrité du service. Pour plus d’informations, consultez la page [Présentation du rôle d’administrateur Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
 
 > [!NOTE]
-> Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service Power BI ». Il est appelé « Administrateur Power BI » dans le [portail Azure](https://portal.azure.com).
+> Dans l’API Microsoft Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service Power BI ». Il est appelé « Administrateur Power BI » dans le [portail Azure](https://portal.azure.com).
 
 ### <a name="power-platform-administrator"></a>[Administrateur de plateforme Power](#power-platform-administrator-permissions)
 
@@ -409,21 +409,21 @@ Windows Defender ATP et EDR | Afficher et examiner les alertes. Lorsque vous act
 Les utilisateurs dotés de ce rôle peuvent ouvrir des demandes de support auprès de Microsoft pour les services Azure et Office 365, ainsi que voir le tableau de bord des services et le Centre de messages dans le [portail Azure](https://portal.azure.com) et le [centre d’administration Microsoft 365](https://admin.microsoft.com). Plus d’informations sur les [Rôles d’administrateur](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
-> Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de support de service ». Il est « Administrateur de service » dans le [portail Azure](https://portal.azure.com), le [centre d’administration Microsoft 365](https://admin.microsoft.com) et le portail Intune.
+> Dans l’API Microsoft Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service Power BI ». Il est « Administrateur de service » dans le [portail Azure](https://portal.azure.com), le [centre d’administration Microsoft 365](https://admin.microsoft.com) et le portail Intune.
 
 ### <a name="sharepoint-administrator"></a>[Administrateur SharePoint](#sharepoint-service-administrator-permissions)
 
 Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft SharePoint Online, quand le service est présent. Ils peuvent également créer et gérer tous les groupes Office 365, gérer les tickets de support et superviser l’intégrité des services. Plus d’informations sur les [Rôles d’administrateur](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
-> Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de services SharePoint ». Il est « Administrateur SharePoint » dans le [portail Azure](https://portal.azure.com).
+> Dans l’API Microsoft Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service SharePoint ». Il est « Administrateur SharePoint » dans le [portail Azure](https://portal.azure.com).
 
 ### <a name="skype-for-business--lync-administrator"></a>[Administrateur Skype Entreprise ou Administrateur Lync](#lync-service-administrator-permissions)
 
 Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft Skype Entreprise, quand le service est présent. Ils peuvent également gérer les attributs utilisateur propres à Skype dans Azure Active Directory. En outre, ce rôle permet de gérer les tickets de support et de surveiller l’intégrité des services, ainsi que d’accéder au Centre d’administration Teams et Skype Entreprise. Le compte doit également disposer d’une licence Teams ; dans le cas contraire, il ne pourra pas exécuter les applets de commande PowerShell Teams. Pour plus d’informations, consultez la page [About the Skype for Business admin role](https://support.office.com/article/about-the-skype-for-business-admin-role-aeb35bda-93fc-49b1-ac2c-c74fbeb737b5) (À propos du rôle d’administrateur Skype Entreprise) ; pour plus d’informations sur les licences Teams, consultez l’article [Licences de compléments pour Skype Entreprise et Microsoft Teams](https://docs.microsoft.com/skypeforbusiness/skype-for-business-and-microsoft-teams-add-on-licensing/skype-for-business-and-microsoft-teams-add-on-licensing).
 
 > [!NOTE]
-> Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur des services Lync ». Il est appelé « Administrateur Skype Entreprise » dans le [portail Azure](https://portal.azure.com/).
+> Dans l’API Microsoft Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service SharePoint ». Il est appelé « Administrateur Skype Entreprise » dans le [portail Azure](https://portal.azure.com/).
 
 ### <a name="teams-communications-administrator"></a>[Administrateur des communications Teams](#teams-communications-administrator-permissions)
 
@@ -1685,7 +1685,7 @@ Peut gérer tous les aspects des utilisateurs et groupes, notamment la réinitia
 
 ## <a name="role-template-ids"></a>ID des modèles de rôle
 
-Les ID des modèles de rôle sont principalement utilisés par les utilisateurs de l’API Graph ou de PowerShell.
+Les ID des modèles de rôle sont principalement utilisés par les utilisateurs de l’API Microsoft Graph ou de PowerShell.
 
 DisplayName Graph | Nom d’affichage du portail Azure | directoryRoleTemplateId
 ----------------- | ------------------------- | -------------------------

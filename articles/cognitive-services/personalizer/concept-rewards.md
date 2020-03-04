@@ -1,27 +1,22 @@
 ---
 title: Score de récompense - Personalizer
-titleSuffix: Azure Cognitive Services
 description: Le score de récompense indique à quel point le choix de personnalisation, RewardActionID, était adapté à l’utilisateur. La valeur du score de récompense est déterminée par votre logique métier, en fonction des observations sur le comportement utilisateur. Personalizer effectue l’apprentissage de ses modèles Machine Learning en évaluant les récompenses.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.date: 02/20/2020
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.author: diberry
-ms.openlocfilehash: a47d6014e51dce81c9caf82f8624896c439f050d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 734e4d0fdcec25884f8535ec61ccd10569fa8890
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490881"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623778"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Les scores de récompense indiquent la réussite de la personnalisation
 
 Le score de récompense indique à quel point le choix de personnalisation, [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/rank/rank#response), était adapté à l’utilisateur. La valeur du score de récompense est déterminée par votre logique métier, en fonction des observations sur le comportement utilisateur.
 
-Personalizer effectue l’apprentissage de ses modèles Machine Learning en évaluant les récompenses. 
+Personalizer effectue l’apprentissage de ses modèles Machine Learning en évaluant les récompenses.
+
+Découvrez [comment](how-to-settings.md#configure-rewards-for-the-feedback-loop) configurer le score de récompense par défaut dans le portail Azure pour votre ressource Personalizer.
 
 ## <a name="use-reward-api-to-send-reward-score-to-personalizer"></a>Utiliser l’API Reward (Récompense) pour envoyer un score de récompense à Personalizer
 
@@ -47,16 +42,16 @@ Prenez en compte ces signaux et comportements pour le contexte du score de réco
 
 Un score de récompense doit être calculé dans votre logique métier. Le score peut être représenté comme suit :
 
-* Un seul nombre envoyé une fois 
+* Un seul nombre envoyé une fois
 * Un score envoyé immédiatement (par exemple, 0,8) et un score supplémentaire envoyé ultérieurement (généralement 0,2).
 
 ## <a name="default-rewards"></a>Récompenses par défaut
 
 Si aucune récompense n’est reçue dans le [Temps d’attente des récompenses](#reward-wait-time), soit la durée qui s’est écoulée depuis l’appel Rank, Personalizer applique implicitement la **récompense par défaut** à cet événement Rank.
 
-## <a name="building-up-rewards-with-multiple-factors"></a>Construction de récompenses avec plusieurs facteurs  
+## <a name="building-up-rewards-with-multiple-factors"></a>Construction de récompenses avec plusieurs facteurs
 
-Pour une personnalisation efficace, vous pouvez générer le score de récompense selon plusieurs facteurs. 
+Pour une personnalisation efficace, vous pouvez générer le score de récompense selon plusieurs facteurs.
 
 Par exemple, vous pouvez appliquer les règles suivantes pour personnaliser une liste de contenu vidéo :
 
@@ -93,8 +88,8 @@ En additionnant les scores de récompense, votre récompense finale peut se trou
 * **Envisager les conséquences inattendues** : créez des fonctions de récompense qui aboutissent à des résultats responsables avec une [déontologie et une utilisation responsable](ethics-responsible-use.md).
 
 * **Utiliser les récompenses incrémentielles** : l’ajout de récompenses partielles pour les comportements utilisateur moins significatifs permet à Personalizer d’obtenir de meilleure récompenses. Cette récompense incrémentielle permet à l’algorithme de savoir qu’il est sur le point d’inciter l’utilisateur à avoir le comportement souhaité.
-    * Si vous affichez une liste de films, si l’utilisateur pointe sur le premier film pendant un certain temps pour voir plus d’informations, vous pouvez déterminer que l’utilisateur a manifesté un certain engagement. Le comportement peut compter avec un score de récompense de 0,1. 
-    * Si l’utilisateur a ouvert la page puis l’a fermée, le score de récompense peut être 0,2. 
+    * Si vous affichez une liste de films, si l’utilisateur pointe sur le premier film pendant un certain temps pour voir plus d’informations, vous pouvez déterminer que l’utilisateur a manifesté un certain engagement. Le comportement peut compter avec un score de récompense de 0,1.
+    * Si l’utilisateur a ouvert la page puis l’a fermée, le score de récompense peut être 0,2.
 
 ## <a name="reward-wait-time"></a>Temps d’attente des récompenses
 
@@ -106,12 +101,12 @@ Si le **Temps d’attente des récompenses** arrive à expiration et qu’aucune
 
 Suivez ces recommandations pour améliorer les résultats.
 
-* Définissez un temps d’attente des récompenses aussi court que possible, tout en laissant suffisamment de temps pour obtenir des retours des utilisateurs. 
+* Définissez un temps d’attente des récompenses aussi court que possible, tout en laissant suffisamment de temps pour obtenir des retours des utilisateurs.
 
 * Ne choisissez pas une durée qui est plus courte que le temps nécessaire pour obtenir des commentaires. Par exemple, si certaines de vos récompenses ont lieu une fois qu’un utilisateur a visionné 1 minute d’une vidéo, la longueur de l’expérience doit être au moins le double.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Apprentissage par renforcement](concepts-reinforcement-learning.md) 
+* [Apprentissage par renforcement](concepts-reinforcement-learning.md)
 * [Essayer l’API Rank](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank/console)
 * [Essayer l’API Reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward)

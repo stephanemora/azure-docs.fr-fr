@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0ca9ed8781a13f9ab5e949e0e5f019a851dc75f4
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 1404854e054c8fc4967ba863486969b8a87db526
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057479"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621512"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>Tutoriel : Configurer Insight4GRC pour l’approvisionnement automatique d’utilisateurs
 
@@ -35,7 +35,7 @@ Ce tutoriel décrit les étapes que vous devez effectuer dans Insight4GRC et Azu
 > * Approvisionner des groupes et des appartenances aux groupes dans Insight4GRC
 > * [Authentification unique](https://docs.microsoft.com/azure/active-directory/saas-apps/insight4grc-tutorial) à Insight4GRC (recommandé)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
@@ -90,7 +90,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Onglet Approvisionnement](common/provisioning-automatic.png)
 
-5. Dans la section **Informations d’identification d’administrateur**, entrez vos informations d’identification d’administrateur Insight4GRC et votre nom d’utilisateur. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Insight4GRC. Si la connexion échoue, vérifiez que votre compte Insight4GRC dispose des autorisations d’administrateur et réessayez.
+5. Sous la section **Informations d’identification de l’administrateur**, entrez l’URL du point de terminaison SCIM dans **URL de locataire**. L'URL du point de terminaison doit être au format `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 `, où **Nom de domaine Insight4GRC** est la valeur récupérée dans les étapes précédentes. Saisissez le jeton du porteur récupéré précédemment dans **Jeton secret**. Cliquez sur **Tester la connexion** pour vérifier qu’Azure AD peut se connecter à Insight4GRC. Si la connexion échoue, vérifiez que votre compte Insight4GRC dispose des autorisations d’administrateur et réessayez.
 
     ![approvisionnement](./media/insight4grc-provisioning-tutorial/provisioning.png)
 

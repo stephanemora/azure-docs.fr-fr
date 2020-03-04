@@ -3,12 +3,12 @@ title: Présentation de l'architecture
 description: Fournit une vue d’ensemble de l’architecture, des composants et des processus utilisés par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: f311f6d49a776a49080675f3c1ccc28a7a27cb92
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: b093c6702bb26fe537622727fe1b623141bf4160
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963935"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584385"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architecture et composants d’Azure Backup
 
@@ -135,7 +135,7 @@ Sauvegarder les disques dédupliqués | | | ![Partiellement][yellow]<br/><br/> U
     - Les données d’instantanés peuvent ne pas être immédiatement copiées dans le coffre. Aux heures de pointe, la sauvegarde peut prendre quelques heures. La durée de sauvegarde totale d’une machine virtuelle est inférieure à 24 heures pour les stratégies de sauvegarde quotidienne.
 1. Une fois les données envoyées au coffre, un point de récupération est créé. Par défaut, les instantanés sont conservés pendant 2 jours avant d’être supprimés. Cette fonctionnalité autorise les opérations de restauration à partir de ces instantanés en réduisant les durées de restauration. Elle réduit le temps requis pour transformer et copier des données depuis un coffre. Consultez [Fonctionnalité de restauration instantanée de Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
 
-Notez que les machines virtuelles Azure ont besoin d’un accès Internet pour les commandes de contrôle. Si vous sauvegardez des charges de travail à l’intérieur de la machine virtuelle (par exemple, si vous effectuez une sauvegarde de base de données SQL Server), les données principales ont également besoin d’un accès Internet.
+Vous n'avez pas besoin d'autoriser explicitement la connexion Internet pour sauvegarder vos machines virtuelles Azure.
 
 ![Sauvegarde des machines virtuelles Azure](./media/backup-architecture/architecture-azure-vm.png)
 

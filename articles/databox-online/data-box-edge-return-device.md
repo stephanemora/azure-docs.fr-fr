@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 02/26/2020
 ms.author: alkohli
-ms.openlocfilehash: a5fee604a529e9ca6153f6c189f199577ae65426
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 521277b2eed7edfba016f6a80e8f877decfb0ac5
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356151"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651098"
 ---
 # <a name="return-or-replace-your-azure-data-box-edge-device"></a>Retourner ou remplacer votre appareil Azure Data Box Edge
 
@@ -72,7 +72,7 @@ Pour commencer le processus de retour, effectuez les étapes suivantes.
 3. Débranchez les câbles d’alimentation et retirez tous les câbles réseau de l’appareil.
 4. Préparez l’emballage d’expédition en utilisant votre propre boîte ou la boîte vide que vous avez reçue d’Azure. Placez l’appareil et les câbles d’alimentation fournis avec l’appareil dans la boîte.
 5. Apposez l’étiquette d’expédition que vous avez reçue d’Azure sur l’emballage.
-6. Planifiez un enlèvement avec votre transporteur régional. Si vous retournez l’appareil aux États-Unis, votre transporteur est UPS. Pour planifier l’enlèvement :
+6. Planifiez un enlèvement avec votre transporteur régional. Si vous retournez l’appareil aux États-Unis, votre transporteur est UPS ou FedEx. Pour planifier un enlèvement avec UPS :
 
     1. Appelez l’UPS local (numéro d’appel gratuit propre à chaque pays).
     2. Lors de votre appel, indiquez le numéro de suivi de retour mentionné sur votre étiquette imprimée.

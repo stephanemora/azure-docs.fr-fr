@@ -1,6 +1,6 @@
 - name: Documentation Recherche personnalisée Bing
   href: ../Bing-Web-Search/index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que l’API Recherche personnalisée Bing\_?"
@@ -27,12 +27,8 @@
               href: call-endpoint-python.md
         - name: Kit SDK
           items:
-            - name: 'Utilisation de C#'
-              href: sdk-csharp-quick-start.md
-            - name: Utilisation de Python
-              href: sdk-python-quickstart.md
-            - name: Utilisation de Java
-              href: sdk-java-quickstart.md
+            - name: Bibliothèques de client Recherche personnalisée Bing
+              href: ./quickstarts/client-libraries.md
 - name: Tutoriels
   items:
     - name: Créer une page web Recherche personnalisée

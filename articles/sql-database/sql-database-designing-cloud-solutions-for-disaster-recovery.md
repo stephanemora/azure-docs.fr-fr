@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: 8eb115497427338599db08e8c7bbdd55c5a158fc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 348bd2b92801217a5aea2ef4d1426c020085e4c1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807946"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624149"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Conception de services disponibles à l’échelle mondiale à l’aide d’Azure SQL Database
 
@@ -119,7 +119,7 @@ Les ressources de l’application doivent être déployées dans chaque zone gé
 
 ![Scénario 3 Configuration de la base de données primaire pour la région USA Est.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
 
-À la fin de la journée (par exemple à 23 h 00, heure locale), les bases de données actives doivent être basculées vers la région suivante (Europe Nord). Cette tâche peut être entièrement automatisée à l’aide du [service de planification Azure](../scheduler/scheduler-intro.md).  Cette tâche implique les étapes suivantes :
+À la fin de la journée (par exemple à 23 h, heure locale), les bases de données actives doivent être basculées vers la région suivante (Europe Nord). Cette tâche peut être entièrement automatisée à l’aide d’[Azure Logic Apps](../logic-apps/logic-apps-overview.md). Cette tâche implique les étapes suivantes :
 
 * Basculer le serveur principal du groupe de basculement vers la région Europe Nord à l’aide d’un basculement convivial (1)
 * Supprimer le groupe de basculement situé entre la région USA Est et la région Europe Nord
@@ -130,7 +130,7 @@ Le diagramme suivant illustre la nouvelle configuration après le basculement pl
 
 ![Scénario 3 Transition de la base de données primaire vers la région Europe Nord.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
 
-Si une panne se produit en Europe Nord, par exemple, le basculement automatique de la base de données est démarré par le groupe de basculement, ce qui entraîne le déplacement de l’application vers la région suivante en avance (1).  Dans ce cas, la région USA Est est la seule région secondaire restante jusqu’à ce que la région Europe Nord soit de nouveau en ligne. Les deux zones restantes servent les clients des trois régions géographiques en échangeant leur rôle. Azure Scheduler doit être réglé en conséquence. Étant donné que les zones restantes reçoivent du trafic utilisateur supplémentaire provenant de la région Europe, les performances de l’application sont impactées non seulement par une latence supplémentaire, mais également par un plus grand nombre de connexions utilisateur. Une fois la panne résolue dans la région Europe Nord, la base de données secondaire est immédiatement synchronisée avec l’actuelle base de données primaire. Le diagramme suivant illustre une panne dans la région Europe Nord :
+Si une panne se produit en Europe Nord, par exemple, le basculement automatique de la base de données est démarré par le groupe de basculement, ce qui entraîne le déplacement de l’application vers la région suivante en avance (1).  Dans ce cas, la région USA Est est la seule région secondaire restante jusqu’à ce que la région Europe Nord soit de nouveau en ligne. Les deux zones restantes servent les clients des trois régions géographiques en échangeant leur rôle. Azure Logic Apps doit être réglé en conséquence. Étant donné que les zones restantes reçoivent du trafic utilisateur supplémentaire provenant de la région Europe, les performances de l’application sont impactées non seulement par une latence supplémentaire, mais également par un plus grand nombre de connexions utilisateur. Une fois la panne résolue dans la région Europe Nord, la base de données secondaire est immédiatement synchronisée avec l’actuelle base de données primaire. Le diagramme suivant illustre une panne dans la région Europe Nord :
 
 ![Scénario 3 Panne dans la région Europe Nord.](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
 
@@ -164,5 +164,5 @@ Votre stratégie de récupération d’urgence cloud spécifique peut combiner o
 
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 * Pour plus d’informations sur la géoréplication active, voir la section [Géoréplication active](sql-database-active-geo-replication.md).
-* Pour en savoir plus sur les groupes de basculement automatique, voir la section [Groupes de basculement automatique](sql-database-auto-failover-group.md).
+* Pour plus d’informations sur les groupes de basculement automatique, voir [Groupes de basculement automatique](sql-database-auto-failover-group.md).
 * Pour plus d’informations sur la géoréplication active avec des pools élastiques, consultez [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

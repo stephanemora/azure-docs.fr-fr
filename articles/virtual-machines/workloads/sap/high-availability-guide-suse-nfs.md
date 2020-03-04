@@ -1,10 +1,10 @@
 ---
-title: Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server | Microsoft Docs
+title: Haute disponibilité pour NFS sur des machines virtuelles Azure sur SLES | Microsoft Docs
 description: Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
-ms.author: sedusch
-ms.openlocfilehash: c20fc2142718d3cc49d4b80c6a5e22e26a350335
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: radeltch
+ms.openlocfilehash: efba617f9aeefa2e9374f5a7551338e003e70f56
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824861"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598729"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server
 
@@ -70,15 +70,15 @@ Commencez par lire les notes et publications SAP suivantes
 * La note SAP [1984787] contient des informations sur SUSE Linux Enterprise Server 12.
 * La note SAP [1999351] contient des informations de dépannage supplémentaires pour l’extension d’analyse Azure améliorée pour SAP.
 * Le [WIKI de la communauté SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contient toutes les notes SAP requises pour Linux.
-* [Planification et implémentation de Machines virtuelles Azure pour SAP sur Linux][planning-guide]
+* [Planification et implémentation de machines virtuelles Azure pour SAP sur Linux][planning-guide]
 * [Déploiement de machines virtuelles Azure pour SAP sur Linux (cet article)][deployment-guide]
-* [Déploiement SGBD de Machines virtuelles Azure pour SAP sur Linux][dbms-guide]
+* [Déploiement SGBD de machines virtuelles Azure pour SAP sur Linux][dbms-guide]
 * [Extension haute disponibilité SUSE Linux Enterprise 12 SP3 : guide des meilleures pratiques][sles-hae-guides]
   * Stockage NFS hautement disponible avec DRBD et Pacemaker
 * [Guides des meilleures pratiques de SUSE Linux Enterprise Server pour applications SAP 12 SP3][sles-for-sap-bp]
 * [Notes de publication de SUSE High Availability Extension 12 SP3][suse-ha-12sp3-relnotes]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Pour obtenir une haute disponibilité, SAP NetWeaver nécessite un serveur NFS. Le serveur NFS est configuré dans un cluster distinct et peut être utilisé par plusieurs systèmes SAP.
 

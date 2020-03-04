@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 02/02/2020
-ms.openlocfilehash: 13c064701a5ecae2090a99980249f5daaa8d5395
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/26/2020
+ms.openlocfilehash: 9c801f5c039996ac36c4f4479318d64cccdd204d
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198954"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649991"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quels sont les composants et versions Apache Hadoop disponibles avec HDInsight ?
 
@@ -62,6 +62,12 @@ Les versions de composant d’écosystème Hadoop associées aux versions de clu
 Pour d’autres notes de publication sur les dernières versions de HDInsight, consultez la page [Notes de publication de HDInsight](hdinsight-release-notes.md) .
 
 ## <a name="supported-hdinsight-versions"></a>Versions de HDInsight prises en charge
+
+### <a name="support-expiration-and-retirement-for-hdinsight-versions"></a>Expiration du support et mise hors service des versions de HDInsight
+
+L'**expiration du support** signifie que Microsoft ne prend plus en charge la version de HDInsight spécifiée et qu’elle ne sera plus disponible par le biais du portail Azure pour la création de cluster. Pour autant, ces versions peuvent toujours être créées à l’aide d'Azure CLI ou des différents kits de développement logiciel (SDK). 
+
+La **mise hors service** d'une version de HDInsight signifie que les clusters existants continueront à s’exécuter tels quels. Il n'est toutefois pas possible de créer de nouveaux clusters de cette version par quelque moyen que ce soit (CLI et kits de développement logiciel (SDK) notamment). D'autres fonctionnalités du plan de contrôle (mise à l’échelle manuelle ou automatique, par exemple) peuvent également ne plus fonctionner après une mise hors service de version. Aucun support n'est disponible pour les versions mises hors service.
 
 Les tableaux suivants listent les versions HDInsight. Les dates d’expiration et de mise hors service sont également fournies, lorsqu’elles sont connues.
 

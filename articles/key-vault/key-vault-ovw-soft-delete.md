@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 26bd6c8b31bd16c058c5cb35cab086117b9f8cc5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8559dc357d34d505d45cd0a6491183345ae5cf61
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845799"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526584"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Vue d’ensemble de la suppression réversible d’Azure Key Vault
 
@@ -34,15 +34,13 @@ Les coffres Azure Key Vault désignent des ressources suivies, gérées par Az
 
 ### <a name="soft-delete-behavior"></a>Comportement de la suppression réversible
 
-Avec cette fonctionnalité, l’opération SUPPRIMER effectuée sur un coffre de clés ou un objet de coffre de clés constitue une suppression réversible, qui conserve efficacement les ressources pendant une période de conservation donnée (90 jours), tout en donnant l’impression que l’objet est supprimé. Le service fournit en outre un mécanisme de récupération de l’objet supprimé, qui a essentiellement pour effet d’annuler la suppression. 
+Lorsque la suppression réversible est activée, les ressources marquées comme supprimées sont conservées pendant une période déterminée (90 jours par défaut). Le service fournit en outre un mécanisme de récupération de l’objet supprimé, qui a essentiellement pour effet d’annuler la suppression.
 
-La suppression réversible est désormais activée par défaut pour les coffres de clés nouvellement créés. Vous pouvez la désactiver via [Azure CLI](key-vault-soft-delete-cli.md) ou [Azure PowerShell](key-vault-soft-delete-powershell.md).
+Lors de la création d'un nouveau coffre de clés, la suppression réversible est activée par défaut. Vous pouvez créer un coffre de clés sans suppression réversible grâce à l’[interface de ligne de commande Azure](key-vault-soft-delete-cli.md) ou à [Azure PowerShell](key-vault-soft-delete-powershell.md). Une fois la suppression réversible activée sur un coffre de clés, elle ne peut pas être désactivée
 
-La durée de rétention par défaut est de 90 jours, mais il est possible de définir l’intervalle de la stratégie de rétention sur une valeur comprise entre 7 et 90 jours via le portail Azure. La stratégie de rétention pour la protection contre le vidage utilise le même intervalle. 
+La durée de rétention par défaut est de 90 jours, mais, lors de la création d’un coffre de clés, il est possible de définir l’intervalle de la stratégie de rétention sur une valeur comprise entre 7 et 90 jours via le portail Azure. La stratégie de rétention pour la protection contre le vidage utilise le même intervalle. Une fois défini, l'intervalle de la stratégie de rétention ne peut plus être modifié.
 
-Une fois la suppression réversible définie sur un coffre de clés, il n’est plus possible de la désactiver ou de modifier l’intervalle de la stratégie de rétention. 
-
-Vous ne pouvez pas réutiliser le nom d’un coffre de clés ayant fait l’objet d’une suppression réversible tant que la période de rétention n’est pas écoulée. 
+Vous ne pouvez pas réutiliser le nom d’un coffre de clés ayant fait l’objet d’une suppression réversible tant que la période de rétention n’est pas écoulée.
 
 ### <a name="purge-protection"></a>Protection contre le vidage 
 

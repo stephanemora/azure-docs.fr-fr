@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4b3e51b5e8d0ee9b62a7e7bc39955396f327c7e7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 237846ec3adda208126aeb22e7900cbf5118ee95
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209549"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598661"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>Créer un partage de fichiers premium via le portail Azure
 Les partages de fichiers premium sont proposés sur les supports de stockage SSD et sont utiles pour les charges de travail gourmandes en E/S, notamment l’hébergement de bases de données et le calcul haute performance (HPC). Les partages de fichiers premium sont hébergés dans un type de compte de stockage spécial, appelé compte FileStorage. Les partages de fichiers premium sont conçus pour les applications d’entreprise évolutives et à hautes performances, en fournissant des partages à latence faible et homogène, nombre élevé d’IOPS et débit élevé.
@@ -27,7 +27,7 @@ Pour accéder aux ressources Azure, dont les partages de fichiers Azure premium,
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ### <a name="create-a-filestorage-storage-account"></a>Créer un compte de stockage FileStorage
 
@@ -67,7 +67,7 @@ Une fois que votre ressource de compte de stockage a été créée, accédez-y.
 
    ![Créer un partage de fichiers premium](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 
-### <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez nettoyer les ressources créées dans cet article, vous pouvez simplement supprimer le groupe de ressources. La suppression du groupe de ressources efface également le compte de stockage associé et d’autres ressources liées au groupe de ressources.
 
@@ -113,7 +113,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ### <a name="create-a-filestorage-storage-account"></a>Créer un compte de stockage FileStorage
 
-Pour créer un compte de stockage FileStorage à partir de PowerShell, utilisez la commande [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) :
+Pour créer un compte de stockage FileStorage à partir de PowerShell, utilisez la commande [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) :
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -132,7 +132,7 @@ New-AzStorageShare `
    -Context $storageAcct.Context
 ```
 
-### <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer le groupe de ressources et les ressources associées, y compris le nouveau compte de stockage, utilisez la commande [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) : 
 
@@ -198,7 +198,7 @@ az storage share create \
     --name "myshare" 
 ```
 
-### <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer le groupe de ressources et les ressources associées, y compris le nouveau compte de stockage, utilisez la commande [az group delete](/cli/azure/group).
 
@@ -211,4 +211,4 @@ az group delete --name myResourceGroup
 Dans cet article, vous avez créé un partage de fichiers premium. Pour en savoir plus sur les performances que ce compte offre, allez à la section sur le niveau de performances du guide de planification.
 
 > [!div class="nextstepaction"]
-> [Niveaux de performances de partage de fichiers](storage-files-planning.md#file-share-performance-tiers)
+> [Niveaux de partage de fichiers](storage-files-planning.md#storage-tiers)

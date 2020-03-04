@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 11fdaa0d547e588daa9d264c2393606705554a17
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 2983be507fdc40d033623afa37c72eb2507d99ca
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157264"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597166"
 ---
 # <a name="storage-account-overview"></a>Vue d’ensemble du compte de stockage
 
@@ -72,7 +72,7 @@ Les comptes BlockBlobStorage ne prennent actuellement pas en charge la hiérarch
 
 Un compte FileStorage est un compte de stockage spécialisée utilisé pour stocker et créer des partages de fichiers Premium. Ce genre de compte de stockage prend en charge les fichiers mais pas les objets blob de blocs, d’ajout, de pages, de tables ou de files d’attente.
 
-Les comptes FileStorage offrent des caractéristiques de performances uniques, telles que l’IOPS en mode rafale. Pour plus d’informations sur ces caractéristiques, consultez la section [Niveaux de performances de partage de fichiers](../files/storage-files-planning.md#file-share-performance-tiers) du guide de planification des fichiers.
+Les comptes FileStorage offrent des caractéristiques de performances dédiées uniques, telles que l’IOPS en mode rafale. Pour plus d’informations sur ces caractéristiques, consultez la section [Niveaux de stockage de partage de fichiers](../files/storage-files-planning.md#storage-tiers) du guide de planification des fichiers.
 
 ## <a name="naming-storage-accounts"></a>Nommage des comptes de stockage
 

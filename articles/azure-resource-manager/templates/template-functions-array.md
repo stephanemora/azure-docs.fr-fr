@@ -3,12 +3,12 @@ title: Fonctions des modèles - tableaux et objets
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour travailler avec des tableaux et des objets.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: a38ab0fb2ddb15c3e853ae1b249df9a8364c6910
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 1359951c00ba04e641ae84636459a8836924c729
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207364"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591181"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Fonctions de tableau et d’objet pour les modèles Azure Resource Manager
 
@@ -1067,7 +1067,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ## <a name="range"></a>range
 
-`range(startingInteger, numberOfElements)`
+`range(startIndex, count)`
 
 Crée un tableau d’entiers à partir d’un entier de départ et contenant un nombre d’éléments.
 
@@ -1075,8 +1075,8 @@ Crée un tableau d’entiers à partir d’un entier de départ et contenant un 
 
 | Paramètre | Obligatoire | Type | Description |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Oui |int |Premier entier du tableau. |
-| numberofElements |Oui |int |Nombre d’entiers dans le tableau. |
+| index_début |Oui |int |Premier entier du tableau. La somme de startIndex et count ne doit pas être supérieure à 2147483647. |
+| count |Oui |int |Nombre d’entiers dans le tableau. Il doit s'agir d'un entier non négatif jusqu'à 10000. |
 
 ### <a name="return-value"></a>Valeur retournée
 

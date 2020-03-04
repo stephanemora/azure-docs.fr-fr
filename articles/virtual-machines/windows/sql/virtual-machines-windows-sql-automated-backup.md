@@ -1,5 +1,5 @@
 ---
-title: Sauvegarde automatisée pour les machines virtuelles Azure SQL Server 2014 | Microsoft Docs
+title: Sauvegarde automatisée pour SQL Server 2014 dans les machines virtuelles Azure
 description: Décrit la fonctionnalité de sauvegarde automatisée pour les machines virtuelles exécutant SQL Server 2014 dans Azure. Cet article est spécifique aux machines virtuelles utilisant Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fdb7d9ed5164171407443596de256df02cb7e8de
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c7dea85d8de17a0f65e6e73b5b5fbe619d464d3d
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790606"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650326"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Sauvegarde automatisée pour les machines virtuelles SQL Server 2014 (Resource Manager)
 
@@ -68,15 +68,12 @@ Le tableau suivant décrit les options qui peuvent être configurées pour une s
 | **Chiffrement** | Activer/Désactiver (désactivé) | Active ou désactive le chiffrement. Quand le chiffrement est activé, les certificats utilisés pour restaurer la sauvegarde se trouvent dans le compte de stockage spécifié dans le même conteneur `automaticbackup` avec la même convention de dénomination. Si le mot de passe change, un nouveau certificat est généré avec ce mot de passe, mais l’ancien certificat est conservé pour restaurer les sauvegardes antérieures. |
 | **Mot de passe** | Texte du mot de passe | Mot de passe pour les clés de chiffrement. Il est uniquement requis si le chiffrement est activé. Pour restaurer une sauvegarde chiffrée, vous devez disposer du mot de passe correct et du certificat associé qui a été utilisé lorsque la sauvegarde a été effectuée. |
 
-## <a name="configure-in-the-portal"></a>Configurer dans le portail
-
-Vous pouvez utiliser le portail Azure pour configurer la sauvegarde automatisée lors de l’approvisionnement ou pour des machines virtuelles SQL Server 2014 existantes.
 
 ## <a name="configure-new-vms"></a>Configurer de nouvelles machines virtuelles
 
 Utilisez le portail Azure pour configurer la sauvegarde automatisée quand vous créez une machine virtuelle SQL Server 2014 dans le modèle de déploiement Resource Manager.
 
-Sous l’onglet **Paramètres SQL Server**, faites défiler vers le bas jusqu’à **Sauvegarde automatisée** et sélectionnez **Activer**. Vous pouvez également spécifier la période de conservation et le compte de stockage, et activer le chiffrement, sauvegarder les bases de données système et configurer une planification de la sauvegarde.  La capture d’écran suivante du portail Azure montre les paramètres de **Sauvegarde automatisée SQL**.
+Sous l’onglet **Paramètres SQL Server**, faites défiler vers le bas jusqu’à **Sauvegarde automatisée**, puis sélectionnez **Activer**. La capture d’écran suivante du portail Azure montre les paramètres de **Sauvegarde automatisée SQL**.
 
 ![Configuration d’une sauvegarde automatisée SQL dans le portail Azure](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
@@ -84,7 +81,9 @@ Sous l’onglet **Paramètres SQL Server**, faites défiler vers le bas jusqu’
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Pour les machines virtuelles SQL Server existantes, accédez à la [ressource Machines virtuelles SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource), puis sélectionnez **Sauvegardes**. 
+Pour les machines virtuelles SQL Server existantes, vous pouvez activer et désactiver les sauvegardes automatisées, modifier la durée de rétention, spécifier le compte de stockage et activer le chiffrement à partir du portail Azure. 
+
+Accédez à la [ressource Machines virtuelles SQL](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) correspondant à votre machine virtuelle SQL Server 2014, puis sélectionnez **Sauvegardes**. 
 
 ![Sauvegarde automatisée SQL pour les machines virtuelles existantes](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
 
@@ -100,7 +99,7 @@ Si vous activez la sauvegarde automatisée pour la première fois, Azure configu
 Vous pouvez utiliser PowerShell pour configurer une sauvegarde automatisée. Avant de commencer, vous devez :
 
 - [Télécharger et installer la version la plus récente d’Azure PowerShell](https://aka.ms/webpi-azps).
-- Ouvrez Windows PowerShell et associez-le à votre compte avec la commande **Connect-AzAccount**.
+- Ouvrez Windows PowerShell et associez-le à votre compte avec la commande **Connect-AzAccount**. 
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -260,14 +259,14 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 ## <a name="monitoring"></a>Surveillance
 
-Pour monitorer la sauvegarde automatisée sur SQL Server 2014, deux options s’offrent à vous. Étant donné que la sauvegarde automatisée utilise la fonctionnalité de gestion de sauvegarde de SQL Server, les mêmes techniques de monitoring s’appliquent.
+Pour monitorer la sauvegarde automatisée sur SQL Server 2014, deux options s’offrent à vous. Étant donné que la sauvegarde automatisée utilise la fonctionnalité de sauvegarde gérée de SQL Server, les mêmes techniques de surveillance s’appliquent.
 
 Vous pouvez d’abord interroger l’état en appelant [msdb.smart_admin.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Vous pouvez aussi interroger la fonction table [msdb.smart_admin.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql).
 
 > [!NOTE]
 > Dans SQL Server 2014, le schéma de gestion de sauvegarde est **msdb.smart_admin**. Dans SQL Server 2016, il est remplacé par **msdb.managed_backup**, et les rubriques de référence utilisent ce schéma plus récent. Mais pour SQL Server 2014, vous devez continuer à utiliser le schéma **smart_admin** pour tous les objets de gestion de sauvegarde.
 
-Une autre option consiste à tirer parti de la fonctionnalité intégrée de messagerie de base de données pour les notifications.
+Une autre possibilité consiste à tirer parti de la fonctionnalité intégrée de messagerie de base de données pour les notifications.
 
 1. Appelez la procédure stockée [msdb.smart_admin.sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) pour affecter une adresse e-mail au paramètre **SSMBackup2WANotificationEmailIds**. 
 1. Activez [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) pour envoyer les e-mails à partir de la machine virtuelle Azure.

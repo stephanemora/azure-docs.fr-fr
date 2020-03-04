@@ -4,15 +4,15 @@ description: Découvrez comment s’intégrer au pare-feu Azure pour sécuriser 
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6b9633e8a37e665577f1e69e8008a64b7e139c1c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f24a984a4b3e13039f1f9dcf0be459425c048c41
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513340"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565721"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Verrouiller un environnement App Service
 
@@ -41,9 +41,11 @@ Le trafic à destination et en provenance de l’environnement ASE doit être co
 
 ## <a name="locking-down-inbound-management-traffic"></a>Verrouillage du trafic de gestion entrant
 
-Si votre sous-réseau ASE n’est pas déjà attribué à un groupe de sécurité réseau, créez-en un. Au sein du groupe de sécurité réseau, définissez la première règle pour autoriser le trafic à partir de la balise de service nommée AppServiceManagement sur les ports 454, 455. Ce sont là les conditions requises en termes d'adresses IP publiques pour gérer votre environnement ASE. Les adresses situées derrière cette balise de service sont uniquement utilisées pour gérer Azure App Service. Le trafic de gestion qui transite via ces connexions est chiffré et sécurisé moyennant des certificats d’authentification. Sur ce canal, le trafic type inclut des éléments tels que des commandes et sondes d'intégrité initiées par le client. 
+Si votre sous-réseau ASE n’est pas déjà attribué à un groupe de sécurité réseau, créez-en un. Au sein du groupe de sécurité réseau, définissez la première règle pour autoriser le trafic à partir de la balise de service nommée AppServiceManagement sur les ports 454, 455. La règle autorisant l’accès à partir de la balise AppServiceManagement est le seul élément requis par les adresses IP publiques pour gérer votre ASE. Les adresses situées derrière cette balise de service sont uniquement utilisées pour gérer Azure App Service. Le trafic de gestion qui transite via ces connexions est chiffré et sécurisé moyennant des certificats d’authentification. Sur ce canal, le trafic type inclut des éléments tels que des commandes et sondes d'intégrité initiées par le client. 
 
 Les environnements ASE créés via le portail avec un nouveau sous-réseau s'accompagnent d'un groupe de sécurité réseau contenant la règle d’autorisation de la balise AppServiceManagement.  
+
+Votre ASE doit également autoriser les requêtes entrantes à partir de la balise Load Balancer sur le port 16001. Les requêtes provenant de Load Balancer sur le port 16001 sont conservées entre les serveurs frontaux Load Balancer et ASE. Si le port 16001 est bloqué, votre ASE deviendra non sain.
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Configuration du pare-feu Azure avec votre environnement ASE 
 
@@ -273,6 +275,21 @@ Linux n’est pas disponible dans les régions US Gov, et n'est dès lors pas r�
 | Azure SQL |
 | Stockage Azure |
 | Azure Event Hub |
+
+#### <a name="ip-address-dependencies"></a>Dépendances des adresses IP
+
+| Point de terminaison | Détails |
+|----------| ----- |
+| \*:123 | Vérification de l’horloge NTP. Le trafic est vérifié à plusieurs points de terminaison sur le port 123 |
+| \*:12000 | Ce port est utilisé pour la supervision système. S’il est bloqué, certains problèmes seront plus difficiles à identifier, mais votre environnement ASE continuera de fonctionner |
+| 40.77.24.27:80 | Nécessaire pour superviser et alerter sur les problèmes de l’environnement ASE |
+| 40.77.24.27:443 | Nécessaire pour superviser et alerter sur les problèmes de l’environnement ASE |
+| 13.90.249.229:80 | Nécessaire pour superviser et alerter sur les problèmes de l’environnement ASE |
+| 13.90.249.229:443 | Nécessaire pour superviser et alerter sur les problèmes de l’environnement ASE |
+| 104.45.230.69:80 | Nécessaire pour superviser et alerter sur les problèmes de l’environnement ASE |
+| 104.45.230.69:443 | Nécessaire pour superviser et alerter sur les problèmes de l’environnement ASE |
+| 13.82.184.151:80 | Nécessaire pour superviser et alerter sur les problèmes de l’environnement ASE |
+| 13.82.184.151:443 | Nécessaire pour superviser et alerter sur les problèmes de l’environnement ASE |
 
 #### <a name="dependencies"></a>Les dépendances ####
 

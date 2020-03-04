@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 7c65e1f871fdab2c925f7a5e6747ad23fe8952d9
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 4a5aba6f8a357f33fd921ee12aac7e45f9b581ff
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512774"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613334"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considérations relatives à la conception du réseau virtuel et options de configuration pour Azure AD Domain Services
 
@@ -64,7 +64,7 @@ Vous pouvez connecter des charges de travail d’application hébergées sur d�
 
 ### <a name="virtual-network-peering"></a>Peering de réseau virtuel
 
-VNET Peering est un mécanisme permettant de connecter deux réseaux virtuels situés dans la même région via le réseau principal Azure. Vous pouvez connecter des réseaux virtuels dans différentes régions à l’aide du peering de réseaux virtuels mondiaux. Une fois homologués, les deux réseaux virtuels permettent aux ressources, telles que les machines virtuelles, de communiquer directement entre elles à l’aide d’adresses IP privées. Le peering de réseaux virtuels vous permet de déployer un domaine managé Azure AD DS avec les charges de travail d’applications déployées dans d’autres réseaux virtuels.
+VNET Peering est un mécanisme permettant de connecter deux réseaux virtuels situés dans la même région via le réseau principal Azure. Vous pouvez connecter des réseaux virtuels dans différentes régions à l’aide du peering de réseaux virtuels mondiaux. Une fois homologués, les deux réseaux virtuels permettent aux ressources, telles que les machines virtuelles, de communiquer directement entre elles à l’aide d’adresses IP privées. Le peering de réseaux virtuels vous permet de déployer un domaine managé Azure AD DS géré avec les charges de travail d’applications déployées dans d’autres réseaux virtuels.
 
 ![Connexion entre des réseaux virtuels à l’aide d’un peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
@@ -146,7 +146,7 @@ Les règles de groupe de sécurité réseau suivantes sont requises pour permett
 
 ## <a name="user-defined-routes"></a>Itinéraires définis par l’utilisateur
 
-Les itinéraires définis par l’utilisateur ne sont pas créés par défaut et ne sont pas nécessaires au bon fonctionnement d’Azure AD DS. Si vous devez utiliser des tables d’itinéraire, évitez de modifier l’itinéraire *0.0.0.0*. Les modifications apportées à cet itinéraire peuvent perturber Azure AD Domain Services.
+Les itinéraires définis par l’utilisateur ne sont pas créés par défaut et ne sont pas nécessaires au bon fonctionnement d’Azure AD DS. Si vous devez utiliser des tables d’itinéraire, évitez de modifier l’itinéraire *0.0.0.0*. Les modifications apportées à cet itinéraire perturbent Azure AD Domain Services et place le domaine managé dans un état non pris en charge.
 
 Vous devez également acheminer le trafic entrant à partir des adresses IP incluses dans les balises de service Azure respectives vers le sous-réseau Azure AD Domain Services. Pour plus d’informations sur les balises de service et leur adresse IP associée , consultez la page [Plages et balises de service Azure IP – Cloud public](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 

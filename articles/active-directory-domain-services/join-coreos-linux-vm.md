@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: iainfou
-ms.openlocfilehash: ddf6c9238cabedfbdeeb8056864072edc543c342
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9a0691bd2a556219b3e3d989a3bbc465fa56b4bf
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712613"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613811"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Joindre une machine virtuelle CoreOS à un domaine managé Azure AD Domain Services
 
@@ -24,7 +24,7 @@ Pour permettre aux utilisateurs de se connecter à des machines virtuelles dans 
 
 Cet article vous montre comment joindre une machine virtuelle CoreOS à un domaine managé Azure AD DS.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 
@@ -63,13 +63,13 @@ sudo vi /etc/hosts
 
 Dans le fichier *hosts*, mettez à jour l’adresse *localhost*. Dans l’exemple suivant :
 
-* *aadds.contoso.com* est le nom de domaine DNS de votre domaine managé Azure AD DS.
+* *aaddscontoso.com* est le nom de domaine DNS de votre domaine managé Azure AD DS.
 * *coreos* est le nom d’hôte de votre machine virtuelle CoreOS que vous joignez au domaine managé.
 
 Mettez à jour ces noms avec vos propres valeurs :
 
 ```console
-127.0.0.1 coreos coreos.aadds.contoso.com
+127.0.0.1 coreos coreos.aaddscontoso.com
 ```
 
 Quand vous avez terminé, enregistrez et quittez le fichier *hosts* à l’aide de la commande `:wq` de l’éditeur.
@@ -95,15 +95,15 @@ Spécifiez votre propre nom de domaine managé Azure AD DS pour les paramètres 
 [sssd]
 config_file_version = 2
 services = nss, pam
-domains = AADDS.CONTOSO.COM
+domains = AADDSCONTOSO.COM
 
-[domain/AADDS.CONTOSO.COM]
+[domain/AADDSCONTOSO.COM]
 id_provider = ad
 auth_provider = ad
 chpass_provider = ad
 
-ldap_uri = ldap://aadds.contoso.com
-ldap_search_base = dc=aadds.contoso,dc=com
+ldap_uri = ldap://aaddscontoso.com
+ldap_search_base = dc=aaddscontoso,dc=com
 ldap_schema = rfc2307bis
 ldap_sasl_mech = GSSAPI
 ldap_user_object_class = user
@@ -114,32 +114,32 @@ ldap_account_expire_policy = ad
 ldap_force_upper_case_realm = true
 fallback_homedir = /home/%d/%u
 
-krb5_server = aadds.contoso.com
-krb5_realm = AADDS.CONTOSO.COM
+krb5_server = aaddscontoso.com
+krb5_realm = AADDSCONTOSO.COM
 ```
 
 ## <a name="join-the-vm-to-the-managed-domain"></a>Joindre la machine virtuelle au domaine managé
 
 Une fois le fichier de configuration SSSD mis à jour, joignez la machine virtuelle au domaine managé.
 
-1. Dans un premier temps, utilisez la commande `adcli info` pour vérifier que vous pouvez afficher les informations sur le domaine managé Azure AD DS. L’exemple suivant recueille des informations pour le domaine *AADDS.CONTOSO.COM*. Spécifiez votre propre nom de domaine managé Azure AD DS TOUT EN MAJUSCULES :
+1. Dans un premier temps, utilisez la commande `adcli info` pour vérifier que vous pouvez afficher les informations sur le domaine managé Azure AD DS. L’exemple suivant recueille des informations pour le domaine *AADDSCONTOSO.COM*. Spécifiez votre propre nom de domaine managé Azure AD DS TOUT EN MAJUSCULES :
 
     ```console
-    sudo adcli info AADDS.CONTOSO.COM
+    sudo adcli info AADDSCONTOSO.COM
     ```
 
    Si la commande `adcli info` ne trouve pas votre domaine managé Azure AD DS, examinez les étapes de dépannage suivantes :
 
-    * Vérifiez que le domaine est accessible à partir de la machine virtuelle. Essayez `ping aadds.contoso.com` pour voir si une réponse positive est retournée.
+    * Vérifiez que le domaine est accessible à partir de la machine virtuelle. Essayez `ping aaddscontoso.com` pour voir si une réponse positive est retournée.
     * Vérifiez que la machine virtuelle est déployée dans le réseau virtuel où le domaine managé Azure AD DS est disponible ou dans un réseau virtuel appairé.
     * Vérifiez que les paramètres de serveur DNS du réseau virtuel ont été mis à jour pour pointer vers les contrôleurs de domaine du domaine managé Azure AD DS.
 
 1. Joignez à présent la machine virtuelle au domaine managé Azure AD DS à l’aide de la commande `adcli join`. Spécifiez un utilisateur qui appartient au groupe *Administrateurs AAD DC*. Si nécessaire, [ajoutez un compte d’utilisateur à un groupe dans Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Là encore, le nom de domaine managé Azure AD DS doit être entré TOUT EN MAJUSCULES. Dans l’exemple suivant, le compte nommé `contosoadmin@aadds.contoso.com` est utilisé pour initialiser Kerberos. Entrez votre propre compte d’utilisateur qui est membre du groupe *AAD DC Administrators*.
+    Là encore, le nom de domaine managé Azure AD DS doit être entré TOUT EN MAJUSCULES. Dans l’exemple suivant, le compte nommé `contosoadmin@aaddscontoso.com` est utilisé pour initialiser Kerberos. Entrez votre propre compte d’utilisateur qui est membre du groupe *AAD DC Administrators*.
 
     ```console
-    sudo adcli join -D AADDS.CONTOSO.COM -U contosoadmin@AADDS.CONTOSO.COM -K /etc/krb5.keytab -H coreos.aadds.contoso.com -N coreos
+    sudo adcli join -D AADDSCONTOSO.COM -U contosoadmin@AADDSCONTOSO.COM -K /etc/krb5.keytab -H coreos.aaddscontoso.com -N coreos
     ```
 
     La commande `adcli join` ne retourne pas d’informations dans le cas où la jonction de la machine virtuelle au domaine managé Azure AD DS a abouti.
@@ -154,10 +154,10 @@ Une fois le fichier de configuration SSSD mis à jour, joignez la machine virtue
 
 Pour vérifier que la machine virtuelle a bien été jointe au domaine managé Azure AD DS, démarrez une nouvelle connexion SSH en utilisant un compte d’utilisateur du domaine. Vérifiez qu’un répertoire de base a été créé et que l’appartenance au groupe du domaine est appliquée.
 
-1. Créez une connexion SSH à partir de votre console. Utilisez un compte de domaine qui appartient au domaine managé en utilisant la commande `ssh -l`, comme `contosoadmin@aadds.contoso.com`, puis entrez l’adresse de votre machine virtuelle, par exemple *coreos.aadds.contoso.com*. Si vous utilisez Azure Cloud Shell, utilisez l’adresse IP publique de la machine virtuelle plutôt que le nom DNS interne.
+1. Créez une connexion SSH à partir de votre console. Utilisez un compte de domaine qui appartient au domaine managé en utilisant la commande `ssh -l`, comme `contosoadmin@aaddscontoso.com`, puis entrez l’adresse de votre machine virtuelle, par exemple *coreos.aaddscontoso.com*. Si vous utilisez Azure Cloud Shell, utilisez l’adresse IP publique de la machine virtuelle plutôt que le nom DNS interne.
 
     ```console
-    ssh -l contosoadmin@AADDS.CONTOSO.com coreos.aadds.contoso.com
+    ssh -l contosoadmin@AADDSCONTOSO.com coreos.aaddscontoso.com
     ```
 
 1. Vérifiez maintenant que les appartenances aux groupes sont correctement résolues :

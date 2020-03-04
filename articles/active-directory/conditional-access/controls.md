@@ -1,108 +1,24 @@
 ---
-title: Accéder aux contrôles dans l’accès conditionnel Azure Active Directory
-description: Découvrez comment fonctionnent les contrôles d’accès dans l’accès conditionnel Azure Active Directory.
+title: Contrôles personnalisés avec accès conditionnel Azure AD
+description: Découvrez comment fonctionnent les contrôles personnalisés dans l’accès conditionnel Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 02/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ad8894078a15bf37a5383cdff3721f4bf7be910
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 6f1df037b66c72177a96f77231cee70782d04992
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186226"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620707"
 ---
-# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Que sont les contrôles d’accès dans l’accès conditionnel Azure Active Directory ?
-
-Avec l’[accès conditionnel Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), vous pouvez contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Dans une stratégie d’accès conditionnel, vous définissez la réponse (« faire ») sur la raison du déclenchement de votre stratégie (« quand cela se produit »).
-
-![Control](./media/controls/10.png)
-
-Dans le contexte de l’accès conditionnel :
-
-- « **Quand cela se produit** » est une **condition**
-- « **Faire** » est un **contrôle d’accès**
-
-Une stratégie d’accès conditionnel combine une instruction de condition à des contrôles.
-
-![Control](./media/controls/61.png)
-
-Chaque contrôle est soit une exigence qui doit être remplie par la personne ou le système qui se connecte, soit une restriction sur ce que l’utilisateur peut faire après la connexion.
-
-Il existe deux types de contrôles :
-
-- **Contrôle d’octroi** - pour réguler l’accès
-- **Contrôles de session** - pour restreindre l’accès au sein d’une session
-
-Cette rubrique explique les divers contrôles qui sont disponibles dans l’accès conditionnel Azure AD. 
-
-## <a name="grant-controls"></a>Contrôles d’octroi
-
-Avec les contrôles d’octroi, vous pouvez bloquer l’accès complètement ou autoriser l’accès avec des exigences supplémentaires en sélectionnant les contrôles de votre choix. Pour de nombreux contrôles, vous pouvez exiger ce qui suit :
-
-- Tous les contrôles sélectionnés doivent être satisfaits (*AND*).
-- Un seul contrôle sélectionné doit être satisfait (*OR*).
-
-![Control](./media/controls/18.png)
-
-### <a name="multi-factor-authentication"></a>Authentification multifacteur
-
-Vous pouvez utiliser ce contrôle pour exiger une authentification multifacteur pour accéder à l’application cloud spécifiée. Ce contrôle prend en charge les fournisseurs multifacteur suivants :
-
-- Azure Multi-Factor Authentication
-- Un fournisseur d’authentification multifacteur local combiné avec les services de fédération Active Directory (AD FS).
-
-L’authentification multifacteur contribue à empêcher tout accès à vos ressources par un utilisateur non autorisé qui peut avoir obtenu l’accès aux informations d’identification principales d’un utilisateur valide.
-
-### <a name="compliant-device"></a>Conformité de l’appareil
-
-Vous pouvez configurer des stratégies d’accès conditionnel au niveau de l’appareil. L’objectif d’une stratégie d’accès conditionnel appareil par appareil est de n’accorder l’accès aux applications cloud sélectionnées qu’aux [appareils managés](require-managed-devices.md). Exiger qu’un appareil soit marqué comme conforme est une option dont vous disposez pour limiter l’accès aux appareils managés. Un appareil peut être marqué comme conforme par Intune (pour n’importe quel système d’exploitation d’appareil), ou par votre système MDM tiers pour les appareils Windows 10. Les systèmes MDM tiers pour les systèmes d’exploitation autres que Windows 10 ne sont pas pris en charge. 
-
-Votre appareil doit être inscrit auprès d’Azure AD avant de pouvoir être marqué comme conforme. Pour inscrire un appareil, vous disposez de trois options : 
-
-- Appareils inscrits sur Azure AD
-- Appareils joints Azure AD  
-- Appareils joints Azure AD hybrides
-
-Ces trois options sont décrites dans l’article [Qu’est-ce qu’une identité d’appareil ?](../devices/overview.md)
-
-Pour plus d’informations, consultez le [guide pratique pour exiger des appareils managés et accéder aux applications cloud avec l’accès conditionnel](require-managed-devices.md).
-
-### <a name="hybrid-azure-ad-joined-device"></a>Appareil joint Azure AD hybride
-
-Pour configurer des stratégies d’accès conditionnel au niveau de l’appareil, vous pouvez également exiger un appareil joint Azure AD hybride. Cette exigence fait référence aux tablettes professionnelles, ordinateurs portables et postes de travail Windows joints à une instance sur site d’Active Directory. Si cette option est sélectionnée, votre stratégie d’accès conditionnel accorde l’accès aux tentatives avec des appareils joints à votre Active Directory local et votre Azure Active Directory. Les appareils Mac ne prennent pas en charge la jointure d’Azure AD hybride.
-
-Pour plus d’informations, consultez [Configurer des stratégies d’accès conditionnel au niveau de l’appareil Azure Active Directory](require-managed-devices.md).
-
-### <a name="approved-client-app"></a>Application cliente approuvée
-
-Étant donné que vos employés utilisent des appareils mobiles pour les tâches personnelles et professionnelles, vous pouvez souhaiter avoir la possibilité de protéger les données d’entreprise accessibles à l’aide d’appareils même si ce n’est pas vous qui les gérez.
-Vous pouvez utiliser des [stratégies de protection des applications Intune](https://docs.microsoft.com/intune/app-protection-policy) pour mieux protéger les données de votre entreprise, quelle que soit votre solution de gestion des appareils mobiles (MDM).
-
-Avec les applications clientes approuvées, vous pouvez exiger qu’une application cliente qui tente d’accéder à vos applications cloud prenne en charge des [stratégies de protection des applications Intune](https://docs.microsoft.com/intune/app-protection-policy). Par exemple, vous pouvez restreindre l’accès à Exchange Online à l’application Outlook. Une stratégie d’accès conditionnel qui requiert des applications clientes approuvées est aussi appelée [stratégie d’accès conditionnel basé sur les applications](app-based-conditional-access.md). Pour obtenir la liste des applications clientes approuvées prises en charge, consultez [Spécification d’application cliente approuvée](concept-conditional-access-grant.md#require-approved-client-app).
-
-### <a name="app-protection-policy-preview"></a>Stratégie de protection des applications (préversion)
-
-Étant donné que vos employés utilisent des appareils mobiles pour les tâches personnelles et professionnelles, vous pouvez souhaiter avoir la possibilité de protéger les données d’entreprise accessibles à l’aide d’appareils même si ce n’est pas vous qui les gérez.
-Vous pouvez utiliser des [stratégies de protection des applications Intune](https://docs.microsoft.com/intune/app-protection-policy) pour mieux protéger les données de votre entreprise, quelle que soit votre solution de gestion des appareils mobiles (MDM).
-
-Avec la stratégie de protection d’application, vous pouvez limiter l’accès aux applications clientes qui ont signalé à Azure AD avoir reçu des [stratégies Intune App Protection](https://docs.microsoft.com/intune/app-protection-policy). Par exemple, vous pouvez restreindre l’accès à Exchange Online à l’application Outlook ayant une stratégie Intune App Protection. Une stratégie d’accès conditionnel qui requiert une stratégie de protection d’application est aussi appelée [stratégie d’accès conditionnel basé sur la protection des applications](concept-conditional-access-session.md#application-enforced-restrictions). 
-
-Votre appareil doit être inscrit à Azure AD avant de pouvoir marquer une application comme étant protégée par une stratégie.
-
-Pour obtenir la liste des applications clientes protégées par une stratégie prises en charge, consultez [Exigence relative à la stratégie de protection des applications](concept-conditional-access-session.md#application-enforced-restrictions).
-
-### <a name="terms-of-use"></a>Conditions d’utilisation
-
-Vous pouvez demander à un utilisateur dans votre locataire de donner son consentement pour les conditions d’utilisation avant de lui accorder l’accès à une ressource. En tant qu’administrateur, vous pouvez configurer et personnaliser les conditions d’utilisation en chargeant un document PDF. Si un utilisateur est soumis à ce contrôle, il est autorisé à accéder à une application uniquement s’il a accepté les conditions d’utilisation.
-
-## <a name="custom-controls-preview"></a>Contrôles personnalisés (préversion)
+# <a name="custom-controls-preview"></a>Contrôles personnalisés (préversion)
 
 Les contrôles personnalisés sont une fonctionnalité de l’édition Premium P1 d’Azure Active Directory. Quand vous utilisez les contrôles personnalisés, les utilisateurs sont redirigés vers un service compatible pour satisfaire à d’autres exigences en dehors d’Azure Active Directory. Pour satisfaire à ce contrôle, le navigateur de l’utilisateur est redirigé vers le service externe, effectue les opérations d’authentification et de vérification requises, puis est redirigé vers Azure Active Directory. Azure Active Directory vérifie la réponse. Si l’utilisateur a été correctement authentifié ou vérifié, il continue dans le flux d’accès conditionnel.
 
@@ -123,7 +39,7 @@ Les fournisseurs suivants offrent un service compatible :
 
 Pour plus d’informations sur ces services, contactez directement les fournisseurs.
 
-### <a name="creating-custom-controls"></a>Création de contrôles personnalisés
+## <a name="creating-custom-controls"></a>Création de contrôles personnalisés
 
 Pour créer un contrôle personnalisé, commencez par contacter le fournisseur que vous souhaitez utiliser. Les fournisseurs autres que Microsoft ont chacun leurs propres processus et exigences que vous devez suivre pour vous inscrire, vous abonner ou devenir membre du service, et pour demander à intégrer l’accès conditionnel. Le fournisseur vous fournit alors un bloc de données au format JSON. Ces données permettent au fournisseur et à l’accès conditionnel de fonctionner ensemble pour votre locataire, créent le contrôle et définissent de quelle façon l’accès conditionnel indique si vos utilisateurs ont réussi la vérification auprès du fournisseur.
 
@@ -139,7 +55,7 @@ Cliquez sur **Nouveau contrôle personnalisé** pour ouvrir un panneau contenant
 
 ![Control](./media/controls/81.png)
 
-### <a name="deleting-custom-controls"></a>Suppression de contrôles personnalisés
+## <a name="deleting-custom-controls"></a>Suppression de contrôles personnalisés
 
 Pour supprimer un contrôle personnalisé, vous devez d’abord vous assurer qu’il n’est pas utilisé dans une stratégie d’accès conditionnel. Quand vous avez terminé :
 
@@ -147,7 +63,7 @@ Pour supprimer un contrôle personnalisé, vous devez d’abord vous assurer qu�
 1. Cliquez sur...  
 1. Sélectionnez **Supprimer**.
 
-### <a name="editing-custom-controls"></a>Modification des contrôles personnalisés
+## <a name="editing-custom-controls"></a>Modification des contrôles personnalisés
 
 Pour modifier un contrôle personnalisé, vous devez supprimer le contrôle existant et créer un autre contrôle avec les nouvelles informations.
 

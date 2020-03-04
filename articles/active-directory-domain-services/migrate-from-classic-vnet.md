@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: bd20bb008c52b7d99416aed7a0599a6e78d2acf2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 114a460b3db67af278f813de2e7a18d571cf3c28
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161645"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613440"
 ---
 # <a name="migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrer Azure Active Directory Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager
 
@@ -206,12 +206,12 @@ Pour préparer le domaine managé Azure AD DS à la migration, effectuez les ét
     $creds = Get-Credential
     ```
 
-1. Exécutez maintenant l’applet de commande `Migrate-Aadds` à l’aide du paramètre *-Prepare*. Fournissez le *-ManagedDomainFqdn* pour votre propre domaine managé Azure AD DS, par exemple *contoso.com* :
+1. Exécutez maintenant l’applet de commande `Migrate-Aadds` à l’aide du paramètre *-Prepare*. Fournissez le *-ManagedDomainFqdn* pour votre propre domaine managé Azure AD DS, par exemple *aaddscontoso.com* :
 
     ```powershell
     Migrate-Aadds `
         -Prepare `
-        -ManagedDomainFqdn contoso.com `
+        -ManagedDomainFqdn aaddscontoso.com `
         -Credentials $creds
     ```
 
@@ -219,7 +219,7 @@ Pour préparer le domaine managé Azure AD DS à la migration, effectuez les ét
 
 Une fois le domaine managé Azure AD DS préparé et sauvegardé, il peut être migré. Cette étape recrée les machines virtuelles du contrôleur de domaine Azure AD Domain Services au moyen du modèle de déploiement Resource Manager. Cette étape peut prendre 1 à 3 heures.
 
-Exécutez l’applet de commande `Migrate-Aadds` à l’aide du paramètre *-Commit*. Indiquez le *-ManagedDomainFqdn* de votre propre domaine managé Azure AD DS préparé à la section précédente, par exemple *contoso.com* :
+Exécutez l’applet de commande `Migrate-Aadds` à l’aide du paramètre *-Commit*. Indiquez le *-ManagedDomainFqdn* de votre propre domaine managé Azure AD DS préparé à la section précédente, par exemple *aaddscontoso.com* :
 
 Spécifiez le groupe de ressources cible qui contient le réseau virtuel vers lequel vous souhaitez faire migrer Azure AD DS, par exemple *myResourceGroup*. Indiquez le réseau virtuel cible, par exemple *myVnet*, et le sous-réseau, par exemple *DomainServices*.
 
@@ -228,7 +228,7 @@ Spécifiez le groupe de ressources cible qui contient le réseau virtuel vers le
 ```powershell
 Migrate-Aadds `
     -Commit `
-    -ManagedDomainFqdn contoso.com `
+    -ManagedDomainFqdn aaddscontoso.com `
     -VirtualNetworkResourceGroupName myResourceGroup `
     -VirtualNetworkName myVnet `
     -VirtualSubnetName DomainServices `
@@ -265,7 +265,7 @@ Lorsqu’au moins un contrôleur de domaine est disponible, procédez aux étape
 
 1. Vérifiez si vous pouvez exécuter une commande ping sur l’adresse IP de l’un des contrôleurs de domaine, par exemple `ping 10.1.0.4`.
     * Les adresses IP des contrôleurs de domaine sont affichées sur la page **Propriétés** du domaine managé Azure AD DS, dans le portail Azure.
-1. Vérifiez la résolution de noms du domaine managé, par exemple `nslookup contoso.com`.
+1. Vérifiez la résolution de noms du domaine managé, par exemple `nslookup aaddscontoso.com`.
     * Spécifiez le nom DNS de votre propre domaine managé Azure AD DS pour vérifier que les paramètres DNS sont corrects et résolus.
 
 Le deuxième contrôleur de domaine doit normalement être disponible 1 à 2 heures après l’exécution de l’applet de commande de migration. Pour vérifier si le second contrôleur de domaine est disponible, consultez la page **Propriétés** du domaine managé Azure AD DS dans le portail Azure. Si deux adresses IP sont affichées, le deuxième contrôleur de domaine est prêt.
@@ -309,12 +309,12 @@ Jusqu’à un certain point du processus de migration, vous pouvez choisir de re
 
 En cas d’erreur survenant lors de l’exécution de l’applet de commande PowerShell pour préparer la migration à l’étape 2, ou pour la migration elle-même à l’étape 3, le domaine managé Azure AD DS peut revenir à la configuration d’origine. Cette opération d’annulation nécessite l’existence du réseau virtuel classique d’origine. Notez que les adresses IP peuvent toujours changer après la restauration.
 
-Exécutez l’applet de commande `Migrate-Aadds` à l’aide du paramètre *-Abort*. Indiquez le *-ManagedDomainFqdn* de votre propre domaine managé Azure AD DS préparé dans une des sections précédentes, par exemple *contoso.com*, et le nom du réseau virtuel Classique, par exemple *myClassicVnet* :
+Exécutez l’applet de commande `Migrate-Aadds` à l’aide du paramètre *-Abort*. Indiquez le *-ManagedDomainFqdn* de votre propre domaine managé Azure AD DS préparé dans une des sections précédentes, par exemple *aaddscontoso.com*, et le nom du réseau virtuel Classique, par exemple *myClassicVnet* :
 
 ```powershell
 Migrate-Aadds `
     -Abort `
-    -ManagedDomainFqdn contoso.com `
+    -ManagedDomainFqdn aaddscontoso.com `
     -ClassicVirtualNetworkName myClassicVnet `
     -Credentials $creds
 ```

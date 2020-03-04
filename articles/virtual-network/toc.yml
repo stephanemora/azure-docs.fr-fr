@@ -249,8 +249,14 @@
                   href: tutorial-restrict-network-access-to-resources-powershell.md
                 - name: Azure CLI
                   href: tutorial-restrict-network-access-to-resources-cli.md
-            - name: Créer des stratégies de point de terminaison
-              href: virtual-network-service-endpoint-policies-portal.md
+            - name: Utilisation de stratégies de point de terminaison de service
+              items:
+                - name: Portail Azure
+                  href: virtual-network-service-endpoint-policies-portal.md
+                - name: Azure PowerShell
+                  href: virtual-network-service-endpoint-policies-powershell.md
+                - name: Azure CLI
+                  href: virtual-network-service-endpoint-policies-cli.md
         - name: Router le trafic
           items:
             - name: Portail Azure

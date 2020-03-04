@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09c704237e3c1fde8a7591d610d1b801dd016c46
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5ec83857ebabc92bf86f9f84a43746a0e561218a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836658"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647597"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Inscrire une application SAML dans Azure AD B2C
 
@@ -43,7 +43,7 @@ Résumé des deux scénarios de base non exclusifs avec SAML :
 | Mon application attend une assertion SAML pour effectuer une authentification. | **Azure AD B2C agit en tant que fournisseur d’identité (IdP)**<br />Azure AD B2C agit comme un IdP SAML pour les applications. | Cet article. |
 | Mes utilisateurs ont besoin d’une authentification unique avec un fournisseur d’identité conforme à SAML comme ADFS, Salesforce ou Shibboleth.  | **Azure AD B2C agit en tant que fournisseur de services (SP)**<br />Azure AD B2C agit en tant que fournisseur de services lors de la connexion au fournisseur d’identité SAML. Il s’agit d’un proxy de fédération entre votre application et le fournisseur d’identité SAML.  | <ul><li>[Configurer la connexion avec ADFS comme fournisseur d’identité SAML à l’aide de stratégies personnalisées](identity-provider-adfs2016-custom.md)</li><li>[Configurer la connexion avec un fournisseur SAML Salesforce en utilisant des stratégies personnalisées](identity-provider-salesforce-custom.md)</li></ul> |
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](custom-policy-get-started.md). Vous avez besoin de la stratégie personnalisée *SocialAndLocalAccounts* à partir du Pack de démarrage de stratégie personnalisée abordé dans l’article.
 * Notions de base sur le protocole SAML (Security Assertion Markup Language).
@@ -259,7 +259,7 @@ Votre fichier de stratégie de partie de confiance final doit ressembler à ce q
 
 Enregistrez vos modifications et chargez le nouveau fichier de stratégie. Une fois que vous avez chargé les deux stratégies (l’extension et les fichiers de la partie de confiance), ouvrez un navigateur Web et accédez aux métadonnées de la stratégie.
 
-Les métadonnées de la stratégie Azure AD B2C sont disponibles à l’adresse URL suivante. Remplacez `tenant-name` par le nom de votre locataire Azure AD B2C et `policy-name` par le nom (ID) de la stratégie :
+Les métadonnées IDP de la stratégie Azure AD B2C sont des informations utilisées dans le protocole SAML pour exposer la configuration d’un fournisseur d’identité SAML. Elles définissent l’emplacement des services, tels que la connexion et la déconnexion, les certificats, la méthode de connexion, et bien plus encore. Les métadonnées de la stratégie Azure AD B2C sont disponibles à l’adresse URL suivante. Remplacez `tenant-name` par le nom de votre locataire Azure AD B2C et `policy-name` par le nom (ID) de la stratégie :
 
 `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
@@ -276,7 +276,6 @@ Votre stratégie personnalisée et votre locataire Azure AD B2C sont maintenant 
 1. Entrez un **Nom** pour l’application. Par exemple, *SAMLApp1*.
 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans cet annuaire d’organisation uniquement**.
 1. Sous **URI de redirection**, sélectionnez **Web**, puis entrez `https://localhost`. Vous modifiez cette valeur plus tard dans le manifeste de l’inscription de l’application.
-1. Sélectionnez **Accorder le consentement administrateur aux autorisations openid et offline_access**.
 1. Sélectionnez **Inscription**.
 
 ### <a name="42-update-the-app-manifest"></a>4.2 Mettre à jour le manifeste d’application
@@ -338,7 +337,7 @@ La dernière étape consiste à activer Azure AD B2C en tant qu’IdP SAML dans 
 Quelques-uns ou l’ensemble des éléments suivants sont généralement requis :
 
 * **Métadonnées** : `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **Émetteur** : `https://tenant-name.onmicrosoft.com/policy-name`
+* **Émetteur** :   `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name`
 * **URL de connexion/point de terminaison SAML/URL SAML** : Vérifiez la valeur dans le fichier de métadonnées
 * **Certificat** : C’est *B2C_1A_SamlIdpCert*, mais sans la clé privée. Pour obtenir la clé publique du certificat :
 

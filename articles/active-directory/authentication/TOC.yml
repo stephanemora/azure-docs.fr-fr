@@ -13,6 +13,8 @@
       href: tutorial-enable-azure-mfa.md
     - name: Activer l’écriture différée du mot de passe au niveau local
       href: tutorial-enable-sspr-writeback.md
+    - name: Configurer des listes de mots de passe interdits personnalisées
+      href: tutorial-configure-custom-password-protection.md
     - name: Intégrer Azure Identity Protection
       href: tutorial-risk-based-sspr-mfa.md
 - name: Concepts
@@ -108,8 +110,6 @@
           href: howto-registration-mfa-sspr-combined-troubleshoot.md
     - name: Protection de mot de passe Azure AD
       items:
-        - name: Configurer la liste des mots de passe interdits
-          href: howto-password-ban-bad-configure.md
         - name: Intégration locale
           items:
             - name: Déployer la protection par mot de passe d’Azure AD

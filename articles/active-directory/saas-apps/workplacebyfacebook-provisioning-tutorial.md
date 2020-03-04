@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7d8a7881c00427023e5f174461b3d8b24d83444
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 22576be8dec021f0f18a6e2dda16891ce70d4f13
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121451"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603209"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutoriel : Configuration de Workplace by Facebook pour l’approvisionnement automatique d’utilisateurs
 
@@ -51,7 +51,7 @@ Nous avons verrouillé la section des informations d’identification de l’adm
 
  
 #### <a name="when-will-these-changes-happen"></a>Quand ces changements seront appliqués ?
-Toutes les nouvelles instances de Workplace utiliseront automatiquement la nouvelle méthode d’intégration/d’autorisation. Les intégrations existantes seront migrées progressivement durant le mois de février. L’ensemble des locataires seront migrés avant la fin du mois. 
+Toutes les nouvelles instances de Workplace utiliseront automatiquement la nouvelle méthode d’intégration/d’autorisation. Les intégrations existantes seront migrées progressivement d’ici au mois de mai. L'équipe Workplace a accordé une prolongation de la date limite, qui passe du 28 février au 1er mai. 
 
 ## <a name="capabilities-supported"></a>Fonctionnalités prises en charge
 > [!div class="checklist"]
@@ -60,7 +60,7 @@ Toutes les nouvelles instances de Workplace utiliseront automatiquement la nouve
 > * Conserver les attributs utilisateur synchronisés entre Azure AD et Workplace par Facebook
 > * [Authentification unique](https://docs.microsoft.com/azure/active-directory/saas-apps/workplacebyfacebook-tutorial) sur Workplace by Facebook (recommandé)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 

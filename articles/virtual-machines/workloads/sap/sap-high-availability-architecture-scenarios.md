@@ -1,10 +1,10 @@
 ---
-title: Scénarios et architecture de haute disponibilité de machines virtuelles Azure pour SAP NetWeaver | Microsoft Docs
+title: Scénarios et architecture de haute disponibilité des machines virtuelles Azure pour SAP NetWeaver
 description: Scénarios et architecture de haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/21/2019
-ms.author: rclaus
+ms.date: 02/25/2020
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c04726bf3b4166255ada7c9f1252be0471dcc761
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: b974869d1462f449e8a241a5925ef345170b493a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291479"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623872"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Scénarios et architecture de haute disponibilité pour SAP NetWeaver
 
@@ -391,6 +391,8 @@ Vous pouvez utiliser une solution WSFC pour protéger l’instance SAP ASCS/SCS.
 
 * **Clustering de l’instance SAP ASCS/SCS à l’aide d’un partage de fichiers** : Pour plus d’informations sur cette architecture, consultez [Clustering d’une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un partage de fichiers][sap-high-availability-guide-wsfc-file-share].
 
+* **Clustering de l’instance SAP ASCS/SCS à l’aide d’un partage ANF SMB** : Pour plus d’informations sur cette architecture, consultez [Clustering d’une instance SAP ASCS/SCS sur un cluster de basculement Windows à l’aide d’un partage de fichiers ANF SMB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb).
+
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Architecture de haute disponibilité pour une instance SAP ASCS/SCS sur Linux
 
 > ![Linux][Logo_Linux] Linux
@@ -404,13 +406,20 @@ Pour plus d’informations sur le clustering de l’instance SAP ASCS/SCS à l�
 
 > ![Windows][Logo_Windows] Windows
 > 
-> Actuellement, le multi-SID est pris en charge avec WSFC uniquement. Le multi-SID est pris en charge avec les partages de fichiers et les disques partagés.
+> Le multi-SID est pris en charge avec WSFC, à l'aide de partages de fichiers et disques partagés.
 > 
-> Pour plus d’informations sur l’architecture de haute disponibilité multi-SID, consultez :
+> Pour plus d’informations sur l’architecture de haute disponibilité multi-SID sur Windows, consultez :
 
 * [Haute disponibilité multi-SID de l’instance SAP ASCS/SCS pour le clustering de basculement Windows Server et le partage de fichiers][sap-ascs-ha-multi-sid-wsfc-file-share]
 
 * [Haute disponibilité multi-SID de l’instance SAP ASCS/SCS pour le clustering de basculement Windows Server et un disque partagé][sap-ascs-ha-multi-sid-wsfc-shared-disk]
+
+> ![Linux][Logo_Linux] Linux
+> 
+> Le clustering multi-SID est pris en charge sur les clusters Linux Pacemaker pour SAP ASCS/ERS, limité à **cinq** SID SAP sur le même cluster.
+> Pour plus d’informations sur l’architecture de haute disponibilité multi-SID sur Linux, consultez :
+
+* [Guide de haute disponibilité pour SAP NW sur les machines virtuelles Azure sur SLES pour les applications SAP multi-SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
 
 ### <a name="high-availability-dbms-instance"></a>Instance de SGBD à haute disponibilité
 

@@ -6,7 +6,7 @@ documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a01f7f48dd93983edf4be4b797f62afede273c66
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: cc41a18063202bfefb9ddf7238de17fc691984af
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77065776"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612144"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Dans ce cas, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS.
@@ -33,12 +33,12 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 * Vous pouvez passer trois différents types d’arguments dans des fonctions :
   
   1. Des attributs, qui doivent être placés entre crochets. Par exemple : [nom_attribut]
-  2. Des constantes de chaîne, qui doivent être placées entre des guillemets doubles. Par exemple :  « États-Unis »
-  3. D’autres fonctions. Par exemple :  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Par exemple :  « Nom de l’entreprise : \\"Contoso"\\ »
+  2. Des constantes de chaîne, qui doivent être placées entre des guillemets doubles. Par exemple : « États-Unis »
+  3. D’autres fonctions. Par exemple : FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
+* Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Par exemple : « Nom de l’entreprise : \\"Contoso"\\ »
 
 ## <a name="list-of-functions"></a>Liste des fonctions
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate) &nbsp;&nbsp;&nbsp;&nbsp;[RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [IIF](#iif) &nbsp;&nbsp;&nbsp;&nbsp;[InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
 ### <a name="append"></a>Ajouter
@@ -48,7 +48,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
 | **suffix** |Obligatoire |String |Chaîne que vous souhaitez ajouter à la fin de la valeur source. |
@@ -66,7 +66,7 @@ En d’autres termes, elle renvoie 0 dans tous les cas, sauf si les bits corresp
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **value1** |Obligatoire |num |Valeur numérique qui doit être liée par AND avec value2|
 | **value2** |Obligatoire |num |Valeur numérique qui doit être liée par AND avec value1|
@@ -83,7 +83,7 @@ BitAnd(&HF, &HF7)
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **expression** |Obligatoire | expression | Toute expression valide |
 
@@ -99,7 +99,7 @@ Retourne True si les attributs ont la même valeur.
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source1  … sourceN** | Obligatoire | String |Requis, nombre de fois variable. Généralement le nom de l’attribut de l’objet source. |
 | **defaultValue** | Facultatif | String | Valeur par défaut à utiliser lorsque toutes les valeurs sources sont NULL. Peut être une chaîne vide ("").
@@ -112,7 +112,7 @@ Retourne True si les attributs ont la même valeur.
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |Chaîne à convertir en base 64|
 
@@ -128,7 +128,7 @@ Renvoie « SABlAGwAbABvACAAdwBvAHIAbABkACEA ».
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |Chaîne à convertir en hexadécimale UTF8|
 
@@ -144,7 +144,7 @@ Renvoie 48656C6C6F20776F726C6421.
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **attribute** |Obligatoire |attribut |Attribut à valeurs multiples dont les éléments seront comptés|
 
@@ -156,7 +156,7 @@ Renvoie 48656C6C6F20776F726C6421.
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **value** |Obligatoire | numérique, référence ou booléenne | Peut être une valeur numérique, un attribut de référence ou une valeur booléenne. |
 
@@ -172,7 +172,7 @@ Renvoie « cn=Joe,dc=contoso,dc=com »
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **value** |Obligatoire | Date | Date AD à convertir en type DateTime |
 
@@ -189,7 +189,7 @@ Renvoie une valeur DateTime représentant 2012-01-01 23:00:00.
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
 | **inputFormat** |Obligatoire |String |Format attendu de la valeur source. Pour connaitre les formats pris en charge, consultez [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
@@ -202,6 +202,23 @@ Renvoie une valeur DateTime représentant 2012-01-01 23:00:00.
 **Description :**<br> La fonction Guid génère un nouveau GUID aléatoire.
 
 ---
+### <a name="iif"></a>IIF
+**Fonction :**<br> IIF(condition,valueIfTrue,valueIfFalse)
+
+**Description :**<br> La fonction IIF renvoie une valeur parmi un ensemble de valeurs possibles en fonction d’une condition spécifiée.
+
+**Paramètres :**<br> 
+
+| Nom | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **condition** |Obligatoire |Variable ou expression |Toute valeur ou expression pouvant prendre une valeur true ou false. |
+| **valueIfTrue** |Obligatoire |Variable ou chaîne | La valeur renvoyée si la condition prend la valeur true. |
+| **valueIfFalse** |Obligatoire |Variable ou chaîne |La valeur renvoyée si la condition prend la valeur false.|
+
+**Exemple :**<br>
+IIF([country]="USA",[country],[department])
+
+---
 ### <a name="instr"></a>InStr
 **Fonction :**<br> InStr(value1,value2,start,compareType)
 
@@ -209,7 +226,7 @@ Renvoie une valeur DateTime représentant 2012-01-01 23:00:00.
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **value1** |Obligatoire |String |Chaîne dans laquelle rechercher |
 | **value2** |Obligatoire |String |Chaîne à trouver |
@@ -231,7 +248,7 @@ Prend la valeur 7.
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **expression** |Obligatoire |expression |Expression à évaluer |
 
@@ -248,7 +265,7 @@ L’inverse de cette fonction est nommé IsPresent.
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **expression** |Obligatoire |expression |Expression à évaluer |
 
@@ -264,7 +281,7 @@ Renvoie True si l’attribut est absent ou s’il s’agit d’une chaîne vide
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **expression** |Obligatoire |expression |Expression à évaluer |
 
@@ -279,7 +296,7 @@ Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager])
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **expression** |Obligatoire |expression |Expression à évaluer |
 
@@ -291,7 +308,7 @@ Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager])
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **attribute** |Obligatoire |Attribut |Attribut à valeurs multiples à rechercher |
 | **index** |Obligatoire |Integer | Index d’un élément dans la chaîne à valeurs multiples|
@@ -309,7 +326,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **separator** |Obligatoire |String |Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
 | **source1  … sourceN** |Requis, nombre de fois variable |String |Valeurs de chaîne à joindre ensemble. |
@@ -325,7 +342,7 @@ Si la chaîne contient moins de caractères que le nombre spécifié dans numCha
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **Chaîne** |Obligatoire |Attribut | Chaîne à partir de laquelle renvoyer des caractères |
 | **NumChars** |Obligatoire |Integer | Un nombre identifiant le nombre de caractères à retourner à partir du début (gauche) de la chaîne|
@@ -342,7 +359,7 @@ Renvoie « Joh »
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |Généralement le nom de l’attribut. |
 | **start** |Obligatoire |entier |Index dans la chaîne **source** où la sous-chaîne doit commencer. Le premier caractère dans la chaîne aura l’index 1, le deuxième caractère aura l’index 2, et ainsi de suite. |
@@ -356,7 +373,7 @@ Renvoie « Joh »
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String | Généralement un attribut de nom ou de prénom. |
 
@@ -368,7 +385,7 @@ Renvoie « Joh »
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne de type Boolean |Les valeurs **sources** attendues sont « True » ou « False ». |
 
@@ -380,7 +397,7 @@ Renvoie « Joh »
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **value** |Obligatoire | String | Chaîne de date et d’heure dans le format pris en charge. Pour connaitre les formats pris en charge, consultez https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx. |
 
@@ -402,7 +419,7 @@ Renvoie « Joh »
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **attribute** |Obligatoire |Attribut à valeurs multiples |Attribut à valeurs multiples dont les doublons seront supprimés|
 
@@ -436,7 +453,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |Généralement, nom de l’attribut de l’objet **source**. |
 | **oldValue** |Facultatif |String |Valeur à remplacer dans **source** ou **template**. |
@@ -461,7 +478,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |Au moins 2 requis, aucune limite supérieure |String | Liste des règles de génération de valeur unique à évaluer. |
 
@@ -474,7 +491,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Obligatoire |String |Objet **[appRoleAssignments]** . |
 
@@ -486,7 +503,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |**source** à mettre à jour. |
 | **délimiteur** |Obligatoire |String |Spécifie le caractère qui sera utilisé pour fractionner la chaîne (exemple : « , ») |
@@ -499,7 +516,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |**source** à mettre à jour. |
 
@@ -511,7 +528,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |**Source** à mettre à jour. |
 | **defaultValue** |Facultatif |String |Valeur par défaut à utiliser quand la source ne correspond à aucune clé. Peut être une chaîne vide (""). |
@@ -526,7 +543,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source |
 | **culture** |Facultatif |String |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
@@ -539,7 +556,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
 | **culture** |Facultatif |String |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
@@ -556,7 +573,7 @@ Si la chaîne contient moins de mots ou ne contient pas les mots identifiés par
 
 **Paramètres :**<br> 
 
-| Name | Requis / Répétition | Type | Notes |
+| Nom | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **Chaîne** |Obligatoire |Attribut à valeurs multiples |Chaîne à partir de laquelle renvoyer un mot.|
 | **WordNumber** |Obligatoire | Integer | Nombre identifiant le nombre de mots à renvoyer|

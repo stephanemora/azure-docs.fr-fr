@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
-ms.openlocfilehash: 06fa98ae4acc2252d8866858ed0e2194ed84ff79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40735f91e2ca58cc42f723c7993686d92f0e5ff0
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60928298"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623342"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Mise hors service des niveaux de performances S1, S2 et S3
 
@@ -26,7 +26,7 @@ Cet article fournit une vue d’ensemble des niveaux de performances S1, S2 et S
 - [Comment assurer un accès ininterrompu à mes données ?](#uninterrupted-access)
 - [Qu’est-ce qui va changer au niveau de ma collection suite à la migration ?](#collection-change)
 - [Qu’est-ce qui va changer au niveau de ma facturation suite à la migration vers des collections à partition unique ?](#billing-change)
-- [Que se passe-t-il si j’ai besoin de plus de 10 Go de stockage ?](#more-storage-needed)
+- [Que se passe-t-il si j’ai besoin de plus de 20 Go de stockage ?](#more-storage-needed)
 - [Puis-je modifier les niveaux de performances entre S1, S2 et S3 avant la migration planifiée ?](#change-before)
 - [Comment procéder à la migration des niveaux de performances S1, S2 et S3 vers des collections à partition unique par moi-même ?](#migrate-diy)
 - [Quelles sont les conséquences pour moi en tant que client Contrat Entreprise ?](#ea-customer)
@@ -47,7 +47,7 @@ Le tableau suivant compare les options de débit et de stockage disponibles dans
 |---|---|---|---|---|---|
 |Débit maximal|Illimité|10 000 RU/s|250 RU/s|1 000 RU/s|2 500 RU/s|
 |Débit minimal|2 500 RU/s|400 RU/s|250 RU/s|1 000 RU/s|2 500 RU/s|
-|Stockage maximal|Illimité|10 Go|10 Go|10 Go|10 Go|
+|Stockage maximal|Illimité|20 Go|20 Go|20 Go|20 Go|
 |Prix (mensuel)|Débit : 6 USD / 100 RU/s<br><br>Stockage : 0,25 USD/Go|Débit : 6 USD / 100 RU/s<br><br>Stockage : 0,25 USD/Go|25 USD|50 USD|100 USD|
 
 Vous êtes un client Contrat Entreprise ? Si oui, voir [Quelles sont les conséquences pour moi en tant que client Contrat Entreprise ?](#ea-customer)
@@ -80,9 +80,9 @@ Supposons que vous avez 10 collections S1, d’une capacité de stockage de 1 
 
 <a name="more-storage-needed"></a>
 
-## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Que se passe-t-il si j’ai besoin de plus de 10 Go de stockage ?
+## <a name="what-if-i-need-more-than-20-gb-of-storage"></a>Que se passe-t-il si j’ai besoin de plus de 20 Go de stockage ?
 
-Que vous disposiez d’une collection avec un niveau de performances S1, S2 ou S3 ou d’une collection à partition unique disposant de 10 Go de stockage disponible, vous pouvez utiliser l’outil de migration de données Azure Cosmos DB pour migrer vos données vers une collection partitionnée bénéficiant d’un stockage quasi illimité. Pour plus d’informations sur les avantages d’une collection partitionnée, voir [Partitionnement et mise à l’échelle dans Azure Cosmos DB](sql-api-partition-data.md). 
+Que vous disposiez d’une collection avec un niveau de performances S1, S2 ou S3 ou d’une collection à partition unique disposant de 20 Go de stockage disponible, vous pouvez utiliser l’outil de migration de données Azure Cosmos DB pour migrer vos données vers une collection partitionnée bénéficiant d’un stockage quasi illimité. Pour plus d’informations sur les avantages d’une collection partitionnée, voir [Partitionnement et mise à l’échelle dans Azure Cosmos DB](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 

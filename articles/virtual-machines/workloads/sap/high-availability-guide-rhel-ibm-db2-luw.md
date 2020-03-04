@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/10/2019
+ms.date: 02/13/2020
 ms.author: juergent
-ms.openlocfilehash: 5487b90172788c08a4383a32462ea5a85c1763ee
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c6a230f6abeab45c56aab2db40b8b1defcc06d90
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099676"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598695"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -101,7 +101,7 @@ Avant de commencer une installation, consultez les notes SAP suivantes et la doc
 
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Pour obtenir une haute disponibilité, IBM Db2 LUW avec HADR est installé sur au moins deux machines virtuelles Azure, qui sont déployées sur un [groupe à haute disponibilité Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) ou des [zones de disponibilité Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). 
 
 Les graphiques suivants illustrent une configuration de deux machines virtuelles Azure de serveur de base de données. Les deux machines virtuelles Azure de serveur de base de données sont associées à leur propre système de stockage et sont opérationnelles. Dans HADR, une instance de base de données dans l’une des machines virtuelles Azure a le rôle de l’instance primaire. Tous les clients sont connectés à une instance primaire. Toutes les modifications dans les transactions de base de données sont conservées localement dans le journal des transactions Db2. Comme les enregistrements du journal des transactions sont conservés localement, les enregistrements sont transférés via TCP/IP à l’instance de base de données sur le second serveur de base de données, le serveur de secours ou une instance de secours. L’instance de secours met à jour la base de données locale en restaurant par progression les enregistrements du journal des transactions transférés. De cette façon, le serveur de secours est synchronisé avec le serveur principal.
@@ -141,7 +141,7 @@ Pour déployer une configuration IBM Db2, vous devez procéder comme suit :
 
 Terminez le processus de planification avant d’exécuter le déploiement. La planification génère la base pour le déploiement d’une configuration de Db2 avec HADR dans Azure. Les éléments clés qui doivent faire partie de la planification d’IMB Db2 LUW (partie base de données de l’environnement SAP) sont listés dans le tableau suivant :
 
-| Rubrique | Brève description |
+| Rubrique | Description courte |
 | --- | --- |
 | Définir des groupes de ressources Azure | Groupes de ressources où vous déployez la machine virtuelle, le réseau virtuel, Azure Load Balancer et d’autres ressources. Ils peuvent être nouveaux ou existants. |
 | Définition de sous-réseau/réseau virtuel | Endroit où des machines virtuelles pour IBM Db2 et Azure Load Balancer sont déployées. Elles peuvent être existantes ou récemment créées. |
@@ -177,7 +177,7 @@ Vérifiez que le système d’exploitation sélectionné est pris en charge par 
     + Sélectionnez le groupe à haute disponibilité Azure créé à l’étape 3, ou une zone de disponibilité (différente de celle de l’étape 3).
 1. Ajoutez des disques de données aux machines virtuelles et vérifiez ensuite la suggestion sur la configuration d’un système de fichiers dans l’article [Déploiement SGBD de machines virtuelles Azure IBM Db2 pour charge de travail SAP][dbms-db2].
 
-## <a name="create-the-pacemaker-cluster"></a>Créer le cluster Pacemaker
+## <a name="create-the-pacemaker-cluster"></a>Créez le cluster Pacemaker
     
 Pour créer un cluster Pacemaker de base pour ce serveur IBM Db2, voir  [Configurer Pacemaker sur Red Hat Enterprise Linux dans Azure][rhel-pcs-azr]. 
 
@@ -434,6 +434,11 @@ Liste complète des ressources :
 
 ### <a name="configure-azure-load-balancer"></a>Configurer Azure Load Balancer
 Pour configurer Azure Load Balancer, nous vous recommandons d’utiliser la [référence SKU standard Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview), puis de procéder comme suit :
+
+> [!NOTE]
+> La référence SKU Standard Load Balancer a des restrictions quant à l’accès aux adresses IP publiques à partir des nœuds situés sous le Load Balancer. L’article [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) décrit comment activer ces nœuds pour accéder aux adresses IP publiques.
+
+
 
 1. Créez un pool d’adresses IP front-end :
 

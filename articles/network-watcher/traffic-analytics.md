@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: e53bd3deae5ccd7339c7a6d491dc4ff0da44a277
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 47d9508c891d2b4fe74b42114783b02c58e8c91f
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426222"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620005"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -201,7 +201,7 @@ Vous pouvez également configurer les analyses de trafic à l’aide de la cmdle
 
 ## <a name="view-traffic-analytics"></a>Afficher Traffic Analytics
 
-Dans la partie gauche du portail, sélectionnez **All services** (Tous les services), puis entrez *Surveiller* dans la zone **Filtrer**. Quand **Surveiller** apparaît dans les résultats de la recherche, sélectionnez cette option. Pour commencer à découvrir les analyses de trafic et leurs fonctionnalités, sélectionnez **Observateur réseau**, puis **Traffic Analytics**.
+Pour afficher Traffic Analytics, recherchez **Network Watcher** dans la barre de recherche du portail. Dans Network Watcher, pour explorer Traffic Analytics et ses capacités, sélectionnez **Traffic Analytics** dans le menu de gauche. 
 
 ![Accès au tableau de bord de Traffic Analytics](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 

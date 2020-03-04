@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 025a31c08ac97783ddf1a608c2899eadd9b89725
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: be331f36a6305b05ce83a2b2d5fdfb73a154ce3d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561767"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623118"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Utiliser Apache Hive comme un outil d’extraction, de transformation et de chargement (ETL)
 
@@ -81,7 +81,7 @@ Le modèle ETL est généralement utilisé lorsque vous souhaitez :
 
 * Charger les données de flux ou de grands volumes de données non structurées ou semi-structurées provenant de sources externes dans une base de données ou un système d’information existant.
 * Nettoyer, transformer et valider les données avant de les charger, par exemple en utilisant plusieurs transformations via le cluster.
-* Générer des rapports et des visualisations régulièrement mis à jour.  Par exemple, si le rapport est trop long à générer pendant la journée, vous pouvez planifier son exécution pendant la nuit.  Vous pouvez utiliser Azure Scheduler et PowerShell pour exécuter automatiquement une requête Hive.
+* Générer des rapports et des visualisations régulièrement mis à jour. Par exemple, si le rapport est trop long à générer pendant la journée, vous pouvez planifier son exécution pendant la nuit. Pour exécuter automatiquement une requête Hive, vous pouvez utiliser [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) et PowerShell.
 
 Si la cible des données n’est pas une base de données, vous pouvez générer un fichier au format approprié au sein de la requête, par exemple un fichier CSV. Ce fichier peut ensuite être importé dans Excel ou Power BI.
 

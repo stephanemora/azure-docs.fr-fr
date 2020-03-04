@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 140edb3162d4f76c741a5692faa19325581a3ba7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 5507579338ad0d87bc6223b56283fe7ed46af7d8
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704493"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613306"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Configurer des notifications par e-mail pour les problèmes rencontrés dans Azure Active Directory Domain Services
 
@@ -58,7 +58,7 @@ Vous pouvez aussi décider que tous les *administrateurs généraux* de l’annu
 Pour examiner les destinataires existants des notifications par e-mail ou pour ajouter des destinataires supplémentaires, effectuez les étapes suivantes :
 
 1. Sur le portail Azure, recherchez et sélectionnez **Azure AD Domain Services**.
-1. Sélectionnez votre domaine managé Azure AD DS, par exemple *aadds.contoso.com*.
+1. Sélectionnez votre domaine managé Azure AD DS, par exemple *aaddscontoso.com*.
 1. Dans la partie gauche de la fenêtre de ressources Azure AD DS, sélectionnez **Paramètres de notification**. Les destinataires existants des notifications par e-mail s’affichent.
 1. Pour ajouter un destinataire, entrez son adresse e-mail dans le tableau des destinataires supplémentaires.
 1. Quand vous avez terminé, sélectionnez **Enregistrer** dans le volet de navigation du haut.
@@ -66,7 +66,7 @@ Pour examiner les destinataires existants des notifications par e-mail ou pour a
 > [!WARNING]
 > Quand vous modifiez les paramètres de notification, vous mettez à jour les paramètres de notification du domaine managé Azure AD DS tout entier, pas seulement les vôtres.
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 ### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>J’ai reçu une notification par e-mail pour une alerte, mais lorsque j’ai ouvert une session, le portail Azure ne contenait pas d’alerte. Que s’est-il passé ?
 

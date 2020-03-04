@@ -4,14 +4,14 @@ description: Prérequis à l’utilisation d’Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/20/2020
 ms.author: rohogue
-ms.openlocfilehash: 135c231f84d95ea2418fab4647d715473378e41c
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 40d282ad30a800a5e5a36a8d2211ec8da7ce63ec
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251955"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651064"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prérequis pour Azure HPC Cache
 
@@ -95,7 +95,9 @@ Si vous utilisez un système de stockage NFS (par exemple, un système NAS maté
 > [!NOTE]
 > La création de la cible de stockage échoue si le cache ne dispose pas d’un accès suffisant au système de stockage NFS.
 
-* **Connectivité réseau :** Azure HPC Cache a besoin d’un accès réseau à bande passante élevée entre le sous-réseau du cache et le centre de données du système NFS. Il est recommandé de disposer d’un accès [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) ou similaire. Si vous utilisez un VPN, vous devrez peut-être le configurer pour fixer la MSS TCP à 1350 afin de vous assurer que les paquets volumineux ne sont pas bloqués.
+Pour plus d’informations, consultez [Résoudre les problèmes de configuration NAS et de cible de stockage NFS](troubleshoot-nas.md).
+
+* **Connectivité réseau :** Azure HPC Cache a besoin d’un accès réseau à bande passante élevée entre le sous-réseau du cache et le centre de données du système NFS. Il est recommandé de disposer d’un accès [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) ou similaire. Si vous utilisez un VPN, vous devrez peut-être le configurer pour fixer la MSS TCP à 1350 afin de vous assurer que les paquets volumineux ne sont pas bloqués. Lisez les [restrictions de taille des paquets VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) pour obtenir de l'aide supplémentaire sur le dépannage des paramètres VPN.
 
 * **Accès au port :** Le cache a besoin d’accéder à des ports TCP/UDP spécifiques sur votre système de stockage. Les différents types de stockage ont des exigences de port différentes.
 
@@ -109,6 +111,8 @@ Si vous utilisez un système de stockage NFS (par exemple, un système NAS maté
     rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+tcp|100024\s+1\s+tcp|100021\s+4\s+tcp"| awk '{print $4 "/" $3 " " $5}'|column -t
     ```
 
+  Assurez-vous que tous les ports renvoyés par la requête ``rpcinfo`` permettent un trafic illimité à partir du sous-réseau d’Azure HPC Cache.
+
   * En plus des ports renvoyés par la commande `rpcinfo`, assurez-vous que ces ports couramment utilisés autorisent le trafic entrant et sortant :
 
     | Protocol | Port  | Service  |
@@ -121,16 +125,20 @@ Si vous utilisez un système de stockage NFS (par exemple, un système NAS maté
 
   * Vérifiez les paramètres du pare-feu pour vous assurer qu’ils autorisent le trafic sur tous ces ports requis. Veillez à vérifier les pare-feux utilisés dans Azure ainsi que ceux de votre centre de données.
 
-* **Accès au répertoire :** Activez la commande `showmount` sur le système de stockage. Azure HPC Cache utilise cette commande pour vérifier que la configuration de votre cible de stockage pointe vers une exportation valide ainsi que pour s’assurer que plusieurs montages n’accèdent pas aux mêmes sous-répertoires (ce qui risque de provoquer des collisions de fichiers).
+* **Accès au répertoire :** Activez la commande `showmount` sur le système de stockage. Azure HPC Cache utilise cette commande pour vérifier que la configuration de votre cible de stockage pointe vers une exportation valide ainsi que pour s’assurer que plusieurs montages n’accèdent pas aux mêmes sous-répertoires (risque de collision de fichiers).
 
   > [!NOTE]
   > Si votre système de stockage NFS utilise le système d’exploitation ONTAP 9.2 de NetApp, **n’activez pas `showmount`** . [Contactez les services du Support Technique Microsoft](hpc-cache-support-ticket.md) pour obtenir de l’aide.
+
+  Pour en savoir plus sur l'accès aux listes de répertoires, consultez l'[article sur le dépannage de la cible de stockage NFS](troubleshoot-nas.md#enable-export-listing).
 
 * **Accès racine :** Le cache se connecte au système principal en tant qu’identifiant utilisateur 0. Vérifiez ces paramètres sur votre système de stockage :
   
   * Activez `no_root_squash`. Cette option permet de s’assurer que l’utilisateur racine distant peut accéder aux fichiers appartenant à la racine.
 
   * Vérifiez les stratégies d’exportation pour vous assurer qu’elles n’incluent pas de restrictions sur l’accès à la racine depuis le sous-réseau du cache.
+
+  * Si votre stockage comporte des exportations représentant des sous-répertoires d'une autre exportation, assurez-vous que le cache dispose d’un accès à la racine du segment le plus bas du chemin. Pour plus de détails, consultez l'article sur le dépannage de la cible de stockage NFS [Accès racine aux chemins d’accès aux répertoires](troubleshoot-nas.md#allow-root-access-on-directory-paths).
 
 * Le stockage back-end NFS doit être une plateforme matérielle ou logicielle compatible. Pour plus d’informations, contactez l’équipe Azure HPC Cache.
 

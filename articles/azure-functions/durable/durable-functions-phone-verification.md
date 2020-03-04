@@ -4,20 +4,18 @@ description: Découvrez comment gérer des interactions humaines et les délais 
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6a442ac0d515f9cca9201767087a9b59588edeed
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 0c16ef092c30a94cd04b55c91d3643ac29b82be0
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769572"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562103"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interaction humaine dans l’extension Fonctions durables : exemple de vérification par téléphone
 
 Cette exemple indique comment créer une orchestration [Fonctions durables](durable-functions-overview.md) impliquant des interactions humaines. Lorsqu’une personne participe à un processus automatisé, ce dernier doit pouvoir envoyer des notifications à cette personne, et recevoir des réponses de manière asynchrone. Il doit également tenir compte du fait que la personne peut être indisponible. (C’est pour cela que les délais d’attente jouent un rôle d’autant plus important.)
 
 Cet exemple implémente un système de vérification de téléphone SMS. Ces types de flux sont souvent utilisés lors de la vérification du numéro de téléphone d’un client, ou pour l’authentification multifacteur (MFA). Il s’agit d’un exemple efficace, car l’implémentation s’effectue à l’aide de quelques fonctions de petite taille. Aucune banque de données externe (base de données, par exemple) n’est requise.
-
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -37,26 +35,32 @@ La complexité de ce scénario est considérablement réduite lorsque vous utili
 
 Cet article détaille les fonctions suivantes de l’exemple d’application :
 
-* **E4_SmsPhoneVerification**
-* **E4_SendSmsChallenge**
+* `E4_SmsPhoneVerification`: Une [fonction d’orchestrateur](durable-functions-bindings.md#orchestration-trigger) qui effectue le processus de vérification par téléphone, y compris la gestion des délais d’attente et des nouvelles tentatives.
+* `E4_SendSmsChallenge`: Une [fonction d’orchestrateur](durable-functions-bindings.md#activity-trigger) qui envoie un code par SMS.
 
-Les sections suivantes décrivent la configuration et le code utilisés pour les scripts C# et JavaScript. Le code de développement de Visual Studio est affiché à la fin de l’article.
+### <a name="e4_smsphoneverification-orchestrator-function"></a>Fonction d'orchestrateur E4_SmsPhoneVerification
 
-## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>L'orchestration de vérification SMS (Visual Studio Code et exemple de code du portail Azure)
+# <a name="c"></a>[C#](#tab/csharp)
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
+
+> [!NOTE]
+> Cela peut ne pas sembler évident, mais cette fonction d’orchestrateur est entièrement déterministe. En effet, la propriété `CurrentUtcDateTime` est utilisée pour calculer le délai d’expiration du minuteur et renvoie la même valeur à chaque réexécution à ce niveau du code d’orchestrateur. Ce comportement est important pour vérifier que le même paramètre `winner` provient de chaque appel répété à `Task.WhenAny`.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 La fonction **E4_SmsPhoneVerification** utilise le fichier *function.json* standard pour les fonctions d’orchestrateur.
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/function.json)]
 
 Voici le code qui implémente la fonction :
 
-### <a name="c-script"></a>Script C#
-
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
-
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
-
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
+
+> [!NOTE]
+> Cela peut ne pas sembler évident, mais cette fonction d’orchestrateur est entièrement déterministe. En effet, la propriété `currentUtcDateTime` est utilisée pour calculer le délai d’expiration du minuteur et renvoie la même valeur à chaque réexécution à ce niveau du code d’orchestrateur. Ce comportement est important pour vérifier que le même paramètre `winner` provient de chaque appel répété à `context.df.Task.any`.
+
+---
 
 Une fois démarrée, cette fonction d’orchestrateur effectue les opérations suivantes :
 
@@ -65,31 +69,33 @@ Une fois démarrée, cette fonction d’orchestrateur effectue les opérations s
 3. Elle crée un minuteur durable se déclenchant 90 secondes à partir de l’heure actuelle.
 4. En parallèle avec le minuteur, elle attend un événement **SmsChallengeResponse** de la part de l’utilisateur.
 
-L’utilisateur reçoit un SMS incluant le code à quatre chiffres. Il doit renvoyer ce code à l’instance de la fonction d’orchestrateur dans les 90 secondes, afin de terminer le processus de vérification. Si le code est incorrect, il peut effectuer trois nouvelles tentatives de saisie (dans les 90 secondes imparties).
-
-> [!NOTE]
-> Cela peut ne pas sembler évident, mais cette fonction d’orchestrateur est entièrement déterministe. Cela est déterministe, car les propriétés `CurrentUtcDateTime` (.NET) et `currentUtcDateTime` (JavaScript) sont utilisées pour calculer le délai d’expiration du minuteur, et ces propriétés retournent la même valeur à chaque réexécution à ce niveau du code d’orchestrateur. Ce comportement est important afin de vérifier que le même paramètre `winner` provient de chaque appel répété à `Task.WhenAny` (.NET) ou `context.df.Task.any` (JavaScript).
+L’utilisateur reçoit un SMS incluant le code à quatre chiffres. Il doit renvoyer ce code à quatre chiffres à l’instance de la fonction d’orchestrateur dans les 90 secondes, afin de terminer le processus de vérification. Si le code est incorrect, il peut effectuer trois nouvelles tentatives de saisie (dans les 90 secondes imparties).
 
 > [!WARNING]
 > Il est important [d’annuler les minuteurs](durable-functions-timers.md) si vous n’avez plus besoin qu’ils arrivent à expiration, comme dans l’exemple ci-dessus, quand une réponse à une stimulation est acceptée.
 
-## <a name="send-the-sms-message"></a>Envoyer le message SMS
+## <a name="e4_sendsmschallenge-activity-function"></a>Fonction d’activité E4_SendSmsChallenge
 
-La fonction **E4_SendSmsChallenge** utilise la liaison Twilio pour envoyer le SMS incluant le code à 4 chiffres à l’utilisateur. Le fichier *function.json* est défini comme suit :
+La fonction **E4_SendSmsChallenge** utilise la liaison Twilio pour envoyer le SMS incluant le code à quatre chiffres à l’utilisateur.
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/function.json)]
+# <a name="c"></a>[C#](#tab/csharp)
 
-Voici le code qui génère le code de demande d’accès à 4 chiffres, et envoie le SMS :
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=72-89)]
 
-### <a name="c-script"></a>Script C#
+> [!NOTE]
+> Vous devez installer le package Nuget `Microsoft.Azure.WebJobs.Extensions.Twilio` pour exécuter l’exemple de code.
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
+Le fichier *function.json* est défini comme suit :
+
+[!code-json[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/function.json)]
+
+Voici le code qui génère le code de demande d’accès à quatre chiffres, et envoie le SMS :
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
-Cette fonction **E4_SendSmsChallenge** n’est appelée qu’une fois, même si le processus échoue ou est réexécuté. C’est une bonne chose, car cela évite que l’utilisateur reçoive plusieurs SMS. La valeur `challengeCode` renvoyée est automatiquement conservée, de sorte que la fonction d’orchestrateur sache toujours quel est le code correct.
+---
 
 ## <a name="run-the-sample"></a>Exécution de l'exemple
 
@@ -147,15 +153,6 @@ Content-Length: 145
 
 {"runtimeStatus":"Completed","input":"+1425XXXXXXX","output":false,"createdTime":"2017-06-29T19:20:49Z","lastUpdatedTime":"2017-06-29T19:22:23Z"}
 ```
-
-## <a name="visual-studio-sample-code"></a>Exemple de code Visual Studio
-
-Voici l’orchestration, présentée sous la forme d’un seul fichier C# dans un projet Visual Studio :
-
-> [!NOTE]
-> Il est nécessaire d’installer le package NuGet `Microsoft.Azure.WebJobs.Extensions.Twilio` pour exécuter l’exemple de code ci-dessous.
-
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 02/20/2020
 ms.author: diberry
-ms.openlocfilehash: dec6faab0dfc7f073639186429767bbf653ceda1
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f8ceef5e80bf15f0ba52a9c289e617018febfb5c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513607"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623584"
 ---
 # <a name="offline-evaluation"></a>Évaluation hors connexion
 
@@ -49,6 +49,16 @@ Voici des considérations importantes pour une évaluation hors connexion repré
 Personalizer peut utiliser le processus d’évaluation hors connexion pour découvrir automatiquement une stratégie d’apprentissage plus optimale.
 
 Après avoir effectué l’évaluation hors connexion, vous pouvez voir l’efficacité comparée de Personalizer avec cette nouvelle stratégie par rapport à la stratégie en ligne en cours. Vous pouvez ensuite appliquer la stratégie d’apprentissage pour la rendre effective immédiatement dans Personalizer, en la téléchargeant et en la chargeant dans le panneau Modèles et stratégie. Vous pouvez également la télécharger en vue d’une analyse ou d’une utilisation ultérieure.
+
+Stratégies actuelles incluses dans l’évaluation :
+
+| Paramètres d’apprentissage | Objectif|
+|--|--|
+|**Stratégie en ligne**| La stratégie d’apprentissage actuelle utilisée dans Personalizer |
+|**Performances de base**|Valeur par défaut de l’application (telle que déterminée par la première action envoyée dans les appels du classement)|
+|**Stratégie aléatoire**|Un comportement de classement imaginaire qui retourne toujours un choix aléatoire d’actions parmi celles fournies.|
+|**Stratégies personnalisées**|Stratégies d’apprentissage supplémentaires chargées lors du démarrage de l’évaluation.|
+|**Stratégie optimisée**|Si l’évaluation a été démarrée avec l’option pour découvrir une stratégie optimisée, elle sera également comparée, et vous pourrez la télécharger ou en faire la stratégie d’apprentissage en ligne, remplaçant la stratégie actuelle.|
 
 ## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>Comprendre la pertinence des résultats de l’évaluation hors connexion
 
@@ -92,7 +102,7 @@ Nous vous recommandons d’examiner les évaluations des caractéristiques et de
 
 * Quelles autres caractéristiques supplémentaires pourrait fournir votre application ou votre système en plus de celles qui sont plus efficaces ?
 * Quelles caractéristiques peuvent être supprimées en raison de leur faible efficacité ? Les caractéristiques à faible efficacité ajoutent du _bruit_ dans le machine learning.
-* Des caractéristiques sont incluses accidentellement? En voici des exemples : informations d’identification personnelle (PII), ID en double, etc.
+* Des caractéristiques sont incluses accidentellement? En voici des exemples : informations d’identification de l’utilisateur, ID en double, etc.
 * Existe-t-il des caractéristiques indésirables qui ne doivent pas être utilisées pour la personnalisation en raison de réglementations ou de considérations sur une utilisation responsable ? Existe-t-il des caractéristiques qui pourraient suppléer (c’est-à-dire refléter de façon proche ou être en corrélation avec) des caractéristiques indésirables ?
 
 

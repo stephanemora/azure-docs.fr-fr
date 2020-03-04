@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f521fd11a2053cf8cf1ea0f9f91667fe475f0eee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c1df14ba5a9f233f42750d4e6dea68a7d6ddc0e
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61464196"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564854"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporation d’une vidéo de diffusion en continu adaptative MPEG-DASH dans une application HTML5 avec DASH.js  
 
-## <a name="overview"></a>Vue d'ensemble
-MPEG-DASH est une norme ISO pour la diffusion en continu adaptative de contenu vidéo, qui offre des avantages significatifs pour les développeurs qui souhaitent proposer un résultat de diffusion vidéo en continu adaptative de haute qualité. Avec MPEG-DASH, le flux vidéo s’ajuste automatiquement à une définition inférieure quand le réseau est encombré. Cela réduit le risque pour un utilisateur de voir une vidéo « interrompue » pendant que le lecteur télécharge les quelques secondes suivantes à lire (également appelée mise en mémoire tampon). À mesure que l’encombrement du réseau diminue, le lecteur vidéo renvoie à son tour un flux de qualité supérieure. Cette capacité d'adaptation de la bande passante requise entraîne également un temps de départ plus rapide pour la vidéo. Cela signifie que les premières secondes peuvent être lues dans un segment de moindre qualité rapide à télécharger, puis que la qualité s'améliore une fois le contenu suffisant mis en mémoire tampon.
+## <a name="overview"></a>Vue d’ensemble
+MPEG-DASH est une norme ISO pour la diffusion en continu adaptative de contenu vidéo, qui offre des avantages significatifs pour les développeurs qui souhaitent proposer un résultat de diffusion vidéo en continu adaptative de haute qualité. Avec MPEG-DASH, le flux vidéo s’ajuste automatiquement à une définition inférieure quand le réseau est encombré. Cela réduit le risque pour un utilisateur de voir une vidéo « interrompue » pendant que le lecteur télécharge les quelques secondes suivantes à lire (c’est-à-dire qu’il réduit la probabilité d’une mise en mémoire tampon). À mesure que l’encombrement du réseau diminue, le lecteur vidéo renvoie à son tour un flux de qualité supérieure. Cette capacité d'adaptation de la bande passante requise entraîne également un temps de départ plus rapide pour la vidéo. Cela signifie que les premières secondes peuvent être lues dans un segment de moindre qualité rapide à télécharger, puis que la qualité s'améliore une fois le contenu suffisant mis en mémoire tampon.
 
 Dash.js est un lecteur de vidéo MPEG-DASH open source écrit en JavaScript. Son objectif est de fournir un lecteur robuste, inter-plateformes qui peut être réutilisé librement dans les applications qui requièrent une lecture vidéo. Il assure la lecture MPEG-DASH dans n’importe quel navigateur prenant en charge W3C Media Source Extensions (MSE) aujourd’hui, à savoir Chrome, Microsoft Edge et IE11 (d’autres navigateurs ont indiqué leur intention de prendre en charge MSE). Pour plus d'informations sur DASH.js, consultez le référentiel dash.js GitHub.
 
@@ -113,7 +113,6 @@ Pour lire une vidéo, pointez votre navigateur sur le fichier basicPlayback.html
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Voir aussi
-[Développement d'applications de lecteur vidéo](media-services-develop-video-players.md)
 
 [Référentiel dash.js GitHub](https://github.com/Dash-Industry-Forum/dash.js) 
 

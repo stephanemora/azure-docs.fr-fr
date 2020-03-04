@@ -1,18 +1,18 @@
 ---
 title: Voir et gérer les fournisseurs de services
 description: Les clients peuvent utiliser la page Fournisseurs de services du portail Azure pour afficher des informations sur les fournisseurs de services, les offres de fournisseurs de services et les ressources déléguées.
-ms.date: 01/15/2020
+ms.date: 02/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: ff3c37c02c580a833008a65315009d1e42e49043
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 94103c293ffa7ccfb9d7da0a237dc1b1c6540b72
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046130"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649736"
 ---
 # <a name="view-and-manage-service-providers"></a>Voir et gérer les fournisseurs de services
 
-Les clients peuvent utiliser la page **Fournisseurs de services** du [portail Azure](https://portal.azure.com) pour afficher des informations sur les fournisseurs de services et les offres de fournisseurs de services, déléguer des ressources spécifiques via la [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md) et acheter des offres de fournisseurs de services supplémentaires. Si nous faisons référence ici aux fournisseurs de services et aux clients, des entreprises gérant plusieurs locataires peuvent suivre le même processus pour consolider leur expérience de gestion.
+Les clients peuvent utiliser la page **Fournisseurs de services** du [portail Azure](https://portal.azure.com) pour afficher des informations sur les fournisseurs de services et les offres de fournisseurs de services, déléguer des ressources spécifiques via la [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md) et acheter de nouvelles offres de fournisseurs de services. Si nous faisons référence ici aux fournisseurs de services et aux clients, des entreprises gérant plusieurs locataires peuvent suivre le même processus pour consolider leur expérience de gestion.
 
 Pour accéder à la page **Fournisseurs de services** sur le portail Azure, le client peut sélectionner **Tous les services**, puis rechercher et sélectionner **Fournisseurs de services**. Il peut également la trouver en tapant « Fournisseurs de services » dans la zone de recherche dans la partie supérieure du portail Azure.
 
@@ -23,7 +23,7 @@ N’oubliez pas que la page **Fournisseurs de services** affiche des information
 
 ## <a name="view-service-provider-details"></a>Afficher les détails du fournisseur de services
 
-Pour afficher des informations sur les fournisseurs de services avec lesquels un client travaille, le client peut sélectionner **Offres de fournisseur** sur le côté gauche de la page **Fournisseurs de services**.
+Pour afficher des informations sur les fournisseurs de services, le client peut sélectionner **Offres de fournisseur** sur le côté gauche de la page **Fournisseurs de services**.
 
 Pour chaque offre de fournisseur de services, le client voit le nom du fournisseur de services et l’offre qui y est associée, ainsi que le nom que le client a entré pendant le processus d’intégration.
 
@@ -59,12 +59,20 @@ Après examen des les modifications, le client peut décider de mettre à jour v
 
 Les délégations représentent les attributions de rôles qui accordent des autorisations au fournisseur de services pour les ressources qu’un client a déléguées. Pour afficher ces informations, sélectionnez **Délégations** sur le côté gauche de la page **Fournisseurs de services**.
 
-Les filtres en haut de la page vous permettent de trier et regrouper vos informations de délégation, ou de filtrer sur des clients, offres ou mots clés spécifiques.
+Les filtres du haut de la page vous permettent de trier et regrouper vos informations de délégation. Vous pouvez également filtrer sur des clients, offres ou mots clés spécifiques.
 
 > [!NOTE]
 > Les clients ne verront pas ces attributions de rôles, ni les utilisateurs du locataire du fournisseur de services auxquels ces rôles ont été attribués, lors de l’[affichage des informations d’attribution de rôle pour l’étendue déléguée dans le portail Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) ou par le biais des API.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="audit-delegations-in-your-environment"></a>Auditer des délégations dans votre environnement
 
+Les clients peuvent souhaiter gagner en visibilité sur les abonnements et/ou groupes de ressources délégués aux fournisseurs de services à des fins de [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md). Cela s’avère particulièrement utile pour les clients disposant d’un grand nombre d’abonnements ou en présence de nombreux utilisateurs effectuant des tâches de gestion.
+
+Nous fournissons une [définition de stratégie intégrée Azure Policy](../../governance/policy/samples/built-in-policies.md#lighthouse) pour auditer la délégation d’étendues sur un locataire gestionnaire. Vous pouvez attribuer cette stratégie à un groupe d’administration comprenant tous les abonnements que vous souhaitez auditer. Lorsque vous utilisez cette stratégie pour vérifier la conformité, tous les abonnements et/ou groupes de ressources délégués (dans le groupe d’administration auquel la stratégie est attribuée) apparaissent dans un état non conforme. Vous pouvez ensuite passer en revue les résultats afin de vous assurer de l'absence de délégations inattendues.
+
+Pour plus d’informations sur l’attribution d’une stratégie et l’affichage des résultats de l’état de conformité, consultez [Démarrage rapide : Créer une attribution de stratégie](../../governance/policy/assign-policy-portal.md).
+
+## <a name="next-steps"></a>Étapes suivantes
+ 
 - Apprenez-en davantage sur [Azure Lighthouse](../overview.md).
 - Découvrez comment les fournisseurs de services peuvent [voir et gérer les clients](view-manage-customers.md) en accédant à **Mes clients** sur le portail Azure.

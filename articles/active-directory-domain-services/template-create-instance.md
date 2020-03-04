@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: iainfou
-ms.openlocfilehash: e63f330d463be21905467869474527fdf9d6abff
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 2daadb539bc08df37f15c187866b735e45309288
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030916"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612794"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Créer un domaine managé Azure Active Directory Domain Services à l’aide d’un modèle Resource Manager
 
@@ -23,7 +23,7 @@ Azure Active Directory Domain Services (Azure AD DS) fournit des services de dom
 
 Cet article explique comment activer Azure AD DS à l’aide d’un modèle de Azure Resource Manager. Les ressources de prise en charge sont créées à l’aide d’Azure PowerShell.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des ressources suivantes :
 
@@ -45,17 +45,17 @@ Quand vous créez une instance Azure AD DS, vous spécifiez un nom DNS. Voici qu
 * **Suffixes de domaine non routables :** D’une façon générale, nous vous recommandons d’éviter un suffixe de nom de domaine non routable, comme *contoso.local*. Le suffixe *.local* n’est pas routable et peut entraîner des problèmes de résolution DNS.
 
 > [!TIP]
-> Si vous créez un nom de domaine personnalisé, faites attention aux espaces de noms DNS existants. Il est recommandé d’inclure un préfixe unique pour le nom du domaine. Par exemple, si le nom DNS racine est *contoso.com*, créez un domaine managé Azure AD DS avec le nom de domaine personnalisé *corp.contoso.com* ou *ds.contoso.com*. Dans un environnement hybride avec un environnement AD DS local, ces préfixes sont peut-être déjà en cours d’utilisation. Utilisez un préfixe unique pour Azure AD DS.
+> Si vous créez un nom de domaine personnalisé, faites attention aux espaces de noms DNS existants. Il est recommandé d’utiliser un nom de domaine distinct de tout espace de noms DNS local ou Azure existant.
 >
-> Vous pouvez utiliser le nom DNS racine pour votre domaine managé Azure AD DS, mais vous devrez peut-être créer des enregistrements DNS supplémentaires pour d’autres services de votre environnement. Par exemple, si vous exécutez un serveur web qui héberge un site à l’aide du nom DNS racine, il peut y avoir des conflits de nommage qui nécessitent des entrées DNS supplémentaires.
+> Par exemple, si vous disposez de l’espace de noms DNS existant *contoso.com*, créez un domaine managé Azure AD DS avec le nom de domaine personnalisé *aaddscontoso.com*. S'il vous faut utiliser le protocole LDAP sécurisé, vous devez inscrire et posséder ce nom de domaine personnalisé pour générer les certificats requis.
 >
-> Dans ces tutoriels et articles de guide pratique, le domaine personnalisé *aadds.contoso.com* est utilisé dans un petit exemple. Dans toutes les commandes, spécifiez votre propre nom de domaine, lequel peut inclure un préfixe unique.
+> Vous devrez peut-être créer des enregistrements DNS supplémentaires pour d’autres services dans votre environnement, ou des redirecteurs DNS conditionnels entre les espaces de noms DNS existants dans votre environnement. Par exemple, si vous exécutez un serveur web qui héberge un site à l’aide du nom DNS racine, il peut y avoir des conflits de nommage qui nécessitent des entrées DNS supplémentaires.
 >
-> Pour plus d’informations, consultez [Sélectionner un préfixe de nommage pour le domaine][naming-prefix].
+> Dans ces tutoriels et articles de guide pratique, le domaine personnalisé *aaddscontoso.com* est utilisé comme exemple simple. Dans toutes les commandes, spécifiez votre propre nom de domaine.
 
 Les restrictions de nom DNS suivantes s’appliquent également :
 
-* **Restrictions de préfixe de domaine :** Vous ne pouvez pas créer de domaine managé avec un préfixe de plus de 15 caractères. Le préfixe du nom de domaine spécifié (par exemple, *contoso* dans le nom de domaine *contoso.com*) doit contenir au maximum 15 caractères.
+* **Restrictions de préfixe de domaine :** Vous ne pouvez pas créer de domaine managé avec un préfixe de plus de 15 caractères. Le préfixe du nom de domaine spécifié (par exemple, *aaddscontoso* dans le nom de domaine *aaddscontoso.com*) doit contenir au maximum 15 caractères.
 * **Conflits de noms de réseau :** Le nom de domaine DNS de votre domaine managé ne doit pas déjà exister dans le réseau virtuel. En particulier, recherchez les scénarios suivants, qui aboutiraient à un conflit de noms :
     * Si vous avec un domaine Active Directory avec le même nom de domaine DNS sur le réseau virtuel Azure.
     * Si le réseau virtuel dans lequel vous envisagez d’activer le domaine managé a une connexion VPN avec votre réseau local. Dans ce scénario, veillez à ne pas avoir de domaine portant le même nom de domaine DNS sur votre réseau local.
@@ -88,7 +88,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 Une fois le groupe *AAD DC Administrators* créé, ajoutez un utilisateur au groupe à l’aide de l’applet de commande [Add-AzureADGroupMember][Add-AzureADGroupMember]. Vous obtenez d’abord l’ID d’objet du groupe *AAD DC Administrators* via l’applet de commande [Get-AzureADGroup][Get-AzureADGroup] et ensuite l’ID d’objet de l’utilisateur souhaité via l’applet de commande [Get-AzureADUser][Get-AzureADUser].
 
-Dans l’exemple suivant, l’ID d’objet utilisateur du compte a le nom d’utilisateur principal (UPN) `admin@contoso.onmicrosoft.com`. Remplacez ce compte d’utilisateur par l’UPN de l’utilisateur que vous souhaitez ajouter au groupe *AAD DC Administrators* :
+Dans l’exemple suivant, l’ID d’objet utilisateur du compte a le nom d’utilisateur principal (UPN) `admin@aaddscontoso.onmicrosoft.com`. Remplacez ce compte d’utilisateur par l’UPN de l’utilisateur que vous souhaitez ajouter au groupe *AAD DC Administrators* :
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -98,7 +98,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@aaddscontoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -128,12 +128,12 @@ Dans le cadre de la définition de ressources Resource Manager, les paramètres 
 | notificationSettings    | Si des alertes sont générées dans le domaine managé Azure AD DS, des notifications par e-mail peuvent être envoyées. <br />Les *administrateurs généraux* du locataire Azure et des membres du groupe *AAD DC Administrators* peuvent être *activés* pour ces notifications.<br /> Si vous le souhaitez, vous pouvez ajouter des destinataires supplémentaires auxquels doivent être envoyées les notifications des alertes qui nécessitent une attention particulière.|
 | domainConfigurationType | Par défaut, un domaine managé Azure AD DS est créé en tant que forêt d’*utilisateurs*. Ce type de forêt synchronise tous les objets d’Azure AD, notamment les comptes d’utilisateur créés dans un environnement AD DS local. Vous n’avez pas besoin de spécifier une valeur *domainConfiguration* pour créer une forêt d’utilisateurs.<br /> Une forêt de *ressources* synchronise uniquement les utilisateurs et les groupes créés directement dans Azure AD. Les forêts de ressources sont actuellement en préversion. Définissez la valeur sur *ResourceTrusting* pour créer une forêt de ressources.<br />Pour plus d’informations sur les forêts de *ressources*, notamment sur la raison pour laquelle vous pouvez en utiliser une et comment créer des approbations de forêts avec des domaines AD DS locaux, consultez [Vue d’ensemble des forêts de ressources Azure AD DS][resource-forests].|
 
-La définition des paramètres condensés suivants montre comment ces valeurs sont déclarées. Une forêt d’utilisateurs nommée *aadds.contoso.com* est créée avec tous les utilisateurs d’Azure AD DS synchronisés avec le domaine managé Azure AD :
+La définition des paramètres condensés suivants montre comment ces valeurs sont déclarées. Une forêt d’utilisateurs nommée *aaddscontoso.com* est créée avec tous les utilisateurs d’Azure AD DS synchronisés avec le domaine managé Azure AD :
 
 ```json
 "parameters": {
     "domainName": {
-        "value": "aadds.contoso.com"
+        "value": "aaddscontoso.com"
     },
     "filteredSync": {
         "value": "Disabled"
@@ -176,7 +176,7 @@ Ces paramètres et le type de ressource peuvent être utilisés dans le cadre d�
 
 ## <a name="create-a-managed-domain-using-sample-template"></a>Créer un domaine managé à l’aide d’un exemple de modèle
 
-L’exemple de modèle complet de Resource Manager suivant crée un domaine managé Azure AD DS et les règles de réseau virtuel, de sous-réseau et de groupe de sécurité réseau associés. Les règles de groupe de sécurité réseau sont requises pour sécuriser le domaine géré et s’assurer que le trafic puisse circuler correctement. Une forêt d’utilisateurs avec le nom DNS *aadds.contoso.com* est créée, avec tous les utilisateurs synchronisés à partir d’Azure AD :
+L’exemple de modèle complet de Resource Manager suivant crée un domaine managé Azure AD DS et les règles de réseau virtuel, de sous-réseau et de groupe de sécurité réseau associés. Les règles de groupe de sécurité réseau sont requises pour sécuriser le domaine géré et s’assurer que le trafic puisse circuler correctement. Une forêt d’utilisateurs avec le nom DNS *aaddscontoso.com* est créée, avec tous les utilisateurs synchronisés à partir d’Azure AD :
 
 ```json
 {
@@ -190,7 +190,7 @@ L’exemple de modèle complet de Resource Manager suivant crée un domaine mana
             "value": "FullySynced"
         },
         "domainName": {
-            "value": "aadds.contoso.com"
+            "value": "aaddscontoso.com"
         },
         "filteredSync": {
             "value": "Disabled"

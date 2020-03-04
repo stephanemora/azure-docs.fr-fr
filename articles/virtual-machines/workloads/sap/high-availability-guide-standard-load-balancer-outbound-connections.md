@@ -1,5 +1,5 @@
 ---
-title: Connectivité de point de terminaison public pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP
+title: Connectivité de point de terminaison public pour les machines virtuelles Azure avec Standard ILB dans les scénarios de haute disponibilité SAP
 description: Connectivité de point de terminaison public pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP
 services: virtual-machines-windows,virtual-network,storage,
 documentationcenter: saponazure
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/07/2020
 ms.author: radeltch
-ms.openlocfilehash: 52179f15829981d59ff060784a49eccef89bb186
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: e0bb959429786bf83be23b1374ef43ce553bf2c7
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083720"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598678"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Connectivité de point de terminaison public pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP
 

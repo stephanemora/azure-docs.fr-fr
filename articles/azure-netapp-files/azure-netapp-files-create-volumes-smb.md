@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: b-juche
-ms.openlocfilehash: c65da771dd483b3a79785d4bec2b89cbeefca5c4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 7affd408ce2471f34a8362ba32101b639aafc514
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049885"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586601"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
@@ -70,7 +70,7 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
 
 * Le sous-réseau délégué Azure NetApp Files doit pouvoir accéder à tous les contrôleurs de domaine Active Directory Domain Services (AD DS) dans le domaine, y compris tous les contrôleurs de domaine locaux et distants. Si ce n'est pas le cas, une interruption de service peut se produire.  
 
-    Si le sous-réseau délégué Azure NetApp Files n'est pas en mesure d'accéder à certains contrôleurs de domaine, vous pouvez envoyer une demande de support Azure afin de remplacer l’étendue **global** (par défaut) par **site**.  Azure NetApp Files doit uniquement communiquer avec les contrôleurs de domaine du site où réside l’espace d’adressage du sous-réseau délégué Azure NetApp Files.
+    En présence de contrôleurs de domaine non accessibles via le sous-réseau délégué Azure NetApp Files, vous pouvez spécifier un site Active Directory lors de la création de la connexion Active Directory.  Azure NetApp Files doit uniquement communiquer avec les contrôleurs de domaine du site où réside l’espace d’adressage du sous-réseau délégué Azure NetApp Files.
 
     Consultez [Conception de la topologie du site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) sur les sites et services Active Directory. 
     
@@ -88,8 +88,10 @@ Pour plus d’informations sur AD, consultez les [Questions fréquentes sur SMB]
         Il s’agit du serveur DNS requis pour la jonction de domaine Active Directory et les opérations d’authentification SMB. 
     * **DNS secondaire**   
         Serveur DNS secondaire garantissant la redondance des services de noms. 
-    * **Domaine**  
+    * **Nom de domaine DNS AD**  
         Nom de domaine des Active Directory Domain Services que vous souhaitez rejoindre.
+    * **Nom de site Active Directory**  
+        Il s’agit du nom du site auquel se limitera la détection du contrôleur de domaine.
     * **Préfixe de serveur SMB (compte d’ordinateur)**  
         Préfixe de nom pour le compte d’ordinateur dans Active Directory que Azure NetApp Files utilise pour la création de nouveaux comptes.
 

@@ -8,45 +8,61 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: e814d9be4a0db2852bd9e21f3d3c1d54a45bd268
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 99a2f32c3f76d7fec475c9b299f7208b4db29cfe
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368646"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650921"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Mettre en forme avec Azure Time Series Insights (préversion)
 
-Cet article vous permet de mettre en forme votre fichier JSON en vue de l’ingérer et d’optimiser l’efficacité de vos requêtes Azure Time Series Insights (préversion).
+Cet article définit les meilleures pratiques pour mettre en forme vos charges utiles JSON afin de les ingérer dans Azure Time Series Insights et d’optimiser l'efficacité de vos requêtes en préversion.
 
 ## <a name="best-practices"></a>Meilleures pratiques
 
-Réfléchissez à la façon dont vous envoyez les événements à Time Series Insights (préversion). Vous devez toujours :
+Il est préférable d'examiner attentivement la façon dont vous envoyez des événements à votre environnement Time Series Insights Preview. 
+
+Les bonnes pratiques générales incluent :
 
 * Envoyer les données aussi efficacement que possible sur le réseau.
 * Stocker vos données de manière à en faciliter l’agrégation dans le cadre de votre scénario.
 
-Pour optimiser le niveau de performance des requêtes, procédez comme suit :
+Pour optimiser les performances des requêtes, respectez les règles empiriques suivantes :
 
-* N’envoyez pas de propriétés inutiles. Time Series Insights (préversion) vous est facturé en fonction de votre utilisation. Il est préférable de stocker et traiter les données sur lesquelles vous allez effectuer une requête.
+* N’envoyez pas de propriétés inutiles. Time Series Insights Preview est facturé en fonction de l’utilisation. Il est préférable de stocker et traiter uniquement les données sur lesquelles vous allez effectuer une requête.
 * Utilisez des champs d’instance pour les données statiques. Cette pratique vous évite d’envoyer des données statiques sur le réseau. Les champs d’instance, qui font partie du modèle de série chronologique, fonctionnent comme des données de référence dans le service Time Series Insights qui est généralement disponible. Pour plus d’informations sur les champs d’instance, consultez [Modèle Time Series](./time-series-insights-update-tsm.md).
 * Partagez des propriétés de dimension entre deux ou plusieurs événements. Cette pratique vous permet d’envoyer plus efficacement des données sur le réseau.
 * N’utilisez pas d’imbrication de tableau approfondie. Time Series Insights (préversion) prend en charge jusqu’à deux niveaux de tableaux imbriqués contenant des objets. Time Series Insights (préversion) aplatit les tableaux dans les messages, en plusieurs événements avec des paires de valeurs de propriétés.
 * Si seules quelques mesures existent pour tous ou la plupart des événements, il est préférable d’envoyer ces mesures en tant que propriétés distinctes dans le même objet. Le fait de les envoyer séparément réduit le nombre d’événements et peut accroître les performances des requêtes car moins d’événements doivent être traités.
 
-Pendant l’ingestion des données, les charges utiles qui contiennent l’imbrication sont aplaties, de telle sorte que le nom de la colonne est une valeur unique avec un délimiteur. Time Series Insights (préversion) utilise des traits de soulignement pour la délimitation. Notez qu’il s’agit d’une modification par rapport à la version du produit mise à la disposition générale qui utilisait des points. Pendant la préversion, il existe une mise en garde concernant la mise à plat, illustrée dans le deuxième exemple ci-dessous.
+## <a name="column-flattening"></a>Aplatissement de colonnes
 
-## <a name="examples"></a>Exemples
+Pendant l’ingestion des données, les charges utiles qui contiennent des objets imbriqués seront aplaties, de telle sorte que le nom de la colonne est une valeur unique avec un délimiteur.
 
-L’exemple suivant est basé sur un scénario où au moins deux appareils envoient des mesures ou des signaux. Les mesures ou les signaux peuvent concerner le *débit* (Flow Rate), la *pression de l’huile moteur* (Engine Oil Pressure), la *température* et *l’humidité*.
+* Par exemple, l’objet JSON imbriqué suivant :
 
-Dans l’exemple, il y a un seul message IoT Hub dans lequel le tableau externe contient une section partagée de valeurs de dimension courantes. Le tableau externe utilise des données d’instance Time Series pour accroître les performances du message. 
+   ```JSON
+   "data": {
+        "flow": 1.0172575712203979,
+   },
+   ```
 
-L’instance de série chronologique contient les métadonnées de l’appareil. Ces métadonnées ne changent pas avec chaque événement, mais fournissent des propriétés utiles pour l’analyse des données. Pour économiser sur les octets envoyés sur le réseau et rendre le message plus efficace, pensez à utiliser un traitement par lot pour les valeurs de dimension courantes et à utiliser les métadonnées de l’instance de série chronologique.
+   Devient : `data_flow` si aplati.
 
-### <a name="example-1"></a>Exemple 1 :
+> [!IMPORTANT]
+> * Azure Time Series Insights Preview utilise des traits de soulignement (`_`) pour la délimitation des colonnes.
+> * Notez la différence avec la disponibilité générale, qui utilise plutôt des points (`.`).
+
+Des scénarios plus complexes sont présentés ci-dessous.
+
+#### <a name="example-1"></a>Exemple 1 :
+
+Le scénario suivant comporte deux (ou plus) appareils qui envoient les mesures (signaux) : *débit*, *pression de l’huile moteur*, *température* et *humidité*.
+
+Un seul message IoT Hub est envoyé, dans lequel le tableau externe contient une section partagée de valeurs de dimension courantes (notez les deux entrées d'appareil contenues dans le message).
 
 ```JSON
 [
@@ -77,10 +93,23 @@ L’instance de série chronologique contient les métadonnées de l’appareil.
 ]
 ```
 
-### <a name="time-series-instance"></a>Instance Time Series 
+**Éléments importants à retenir :**
+
+* L’exemple d’objet JSON contient un tableau externe qui utilise des données d’[instance Time Series](./time-series-insights-update-tsm.md#time-series-model-instances) pour accroître les performances du message. Même si les métadonnées d’appareil des instances Time Series ne sont pas susceptibles de changer, elles offrent souvent des propriétés utiles pour l'analyse des données.
+
+* L’objet JSON combine deux ou plusieurs messages (un provenant de chaque appareil) en une même charge utile, ce qui permet d'économiser de la bande passante dans le temps.
+
+* Les points de données individuels de la série pour chaque appareil sont combinés en un même attribut de **série**, ce qui réduit la nécessité de diffuser en continu les mises à jour pour chaque appareil.
+
+> [!TIP]
+> Pour réduire le nombre de messages nécessaires à l'envoi de données et optimiser la télémétrie, vous pouvez regrouper les valeurs de dimensions courantes et les métadonnées de l'instance Time Series dans une même charge utile JSON.
+
+#### <a name="time-series-instance"></a>Instance Time Series 
+
+Examinons de plus près l’utilisation de l'[instance Time Series](./time-series-insights-update-tsm.md#time-series-model-instances) pour optimiser la mise en forme de votre objet JSON. 
 
 > [!NOTE]
-> L’ID Time Series est *deviceId*.
+> Les [ID Time Series](./time-series-insights-update-how-to-id.md) ci-dessous représentent des *ID d’appareil (deviceId)* .
 
 ```JSON
 [
@@ -115,7 +144,7 @@ L’instance de série chronologique contient les métadonnées de l’appareil.
 ]
 ```
 
-Time Series Insights (préversion) joint une table (après mise à plat) au moment de la requête. La table inclut des colonnes supplémentaires, telles que **Type**. L’exemple suivant montre comment [mettre en forme](./time-series-insights-send-events.md#supported-json-shapes) vos données de télémétrie.
+Time Series Insights (préversion) joint une table (après mise à plat) au moment de la requête. La table inclut des colonnes supplémentaires, telles que **Type**.
 
 | deviceId  | Type | L1 | L2 | timestamp | series_Flow Rate ft3/s | series_Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -123,18 +152,20 @@ Time Series Insights (préversion) joint une table (après mise à plat) au mome
 | `FXXX` | Default_Type | SIMULATOR |   Battery System |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |
 | `FYYY` | LINE_DATA    COMMON | SIMULATOR |    Battery System |    2018-01-17T01:18:00Z | 0.58015072345733643 |    22.2 |
 
-Dans l’exemple précédent, notez les points suivants :
+> [!NOTE]
+>  Le tableau précédent représente la vue de la requête dans l'[Explorateur de préversion Time Series](./time-series-insights-update-explorer.md).
 
-* Les propriétés statiques sont stockées dans Time Series Insights (préversion) pour optimiser les données envoyées sur le réseau.
+**Éléments importants à retenir :**
+
+* Dans l’exemple précédent, les propriétés statiques sont stockées dans Time Series Insights (préversion) pour optimiser les données envoyées sur le réseau.
 * Les données Time Series Insights (préversion) sont jointes au moment de la requête par le biais de l’ID Time Series défini dans l’instance.
 * Deux couches d’imbrication sont utilisées. Ce nombre est le plus pris en charge par Time Series Insights (préversion). Il est essentiel d’éviter les tableaux profondément imbriqués.
 * Étant donné qu’elles sont peu nombreuses, les mesures sont envoyées en tant que propriétés distinctes dans le même objet. Dans l’exemple, **series_Flow Rate psi**, **series_Engine Oil Pressure psi** et **series_Flow Rate ft3/s** sont des colonnes uniques.
 
 >[!IMPORTANT]
 > Les champs d’instance ne sont pas stockés avec les données de télémétrie. Ils sont stockés avec les métadonnées dans le modèle de série chronologique.
-> Le tableau précédent représente la vue de la requête.
 
-### <a name="example-2"></a>Exemple 2 :
+#### <a name="example-2"></a>Exemple 2 :
 
 Examinons le code JSON suivant :
 
@@ -148,12 +179,20 @@ Examinons le code JSON suivant :
   "data_flow" : 1.76435072345733643
 }
 ```
-Dans l’exemple ci-dessus, la propriété `data_flow` aplatie présenterait une collision de noms avec la propriété `data_flow`. Dans ce cas, la valeur de propriété *la plus récente* remplacerait la plus ancienne. Si ce comportement présente un défi pour vos scénarios métier, veuillez contacter l’équipe TSI.
+
+Dans l’exemple ci-dessus, la propriété `data["flow"]` aplatie présenterait une collision de noms avec la propriété `data_flow`.
+
+Dans ce cas, la valeur de propriété *la plus récente* remplacerait la plus ancienne. 
+
+> [!TIP]
+> Contactez l'équipe Time Series Insights pour obtenir de l’aide supplémentaire.
 
 > [!WARNING] 
-> Dans les cas où des propriétés dupliquées sont présentes dans la même charge utile d’événement en raison d’une mise à plat ou d’un autre mécanisme, la valeur de propriété la plus récente est stockée, remplaçant toutes les valeurs antérieures.
-
+> * Dans les cas où des propriétés dupliquées sont présentes dans la même (singulière) charge utile d’événement en raison d’une mise à plat ou d’un autre mécanisme, la valeur de propriété la plus récente est stockée, remplaçant toutes les valeurs antérieures.
+> * Les séries d’événements combinés ne se substituent pas les unes aux autres.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour mettre ces instructions en pratique, consultez [Syntaxe des requêtes Azure Time Series Insights Preview](./time-series-insights-query-data-csharp.md). Vous en apprendrez davantage sur la syntaxe de requête pour l’API REST Time Series Insights (préversion) pour l’accès aux données.
+* Pour mettre ces instructions en pratique, consultez [Syntaxe des requêtes Azure Time Series Insights Preview](./time-series-insights-query-data-csharp.md). Vous en apprendrez davantage sur la syntaxe de requête pour l’[API REST Time Series Insights (préversion)](https://docs.microsoft.com/rest/api/time-series-insights/preview) pour l’accès aux données.
+
+* Combinez les meilleures pratiques JSON avec le [modèle Time Series](./time-series-insights-update-how-to-tsm.md).

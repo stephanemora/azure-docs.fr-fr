@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: c6ea57ac30a1b4d228a19c3be6a794b3d2175171
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8b95bb45436f45dc0e62fb12d6ab1b24c37372e1
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973027"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562562"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -77,7 +77,7 @@ Vous pouvez créer des itinéraires soit en créant des itinéraires [définis p
 
 ### <a name="user-defined"></a>Défini par l’utilisateur
 
-Vous pouvez créer des itinéraires personnalisés ou définis par l’utilisateur dans Azure pour remplacer les itinéraires système par défaut d’Azure, ou pour ajouter des itinéraires supplémentaires à la table de routage d’un sous-réseau. Dans Azure, vous créez une table de routage, puis associez cette dernière à zéro ou plusieurs sous-réseaux du réseau virtuel. Chaque sous-réseau peut avoir zéro ou une table de routage associée. Pour en savoir plus sur le nombre maximal d’itinéraires que vous pouvez ajouter à une table de routage et le nombre maximal de tables de routage que vous pouvez créer par abonnement Azure, consultez [limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Si vous créez une table de routage et l’associez à un sous-réseau, les itinéraires qu’elle contient sont combinés avec les itinéraires ajoutés par défaut par Azure à un sous-réseau par défaut, ou remplacent ces derniers.
+Vous pouvez créer des itinéraires personnalisés ou définis par l’utilisateur (statiques) dans Azure pour remplacer les itinéraires système par défaut d’Azure, ou pour ajouter des itinéraires supplémentaires à la table de routage d’un sous-réseau. Dans Azure, vous créez une table de routage, puis associez cette dernière à zéro ou plusieurs sous-réseaux du réseau virtuel. Chaque sous-réseau peut avoir zéro ou une table de routage associée. Pour en savoir plus sur le nombre maximal d’itinéraires que vous pouvez ajouter à une table de routage et le nombre maximal de tables de routage que vous pouvez créer par abonnement Azure, consultez [limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Si vous créez une table de routage et l’associez à un sous-réseau, les itinéraires qu’elle contient sont combinés avec les itinéraires ajoutés par défaut par Azure à un sous-réseau par défaut, ou remplacent ces derniers.
 
 Vous pouvez spécifier les types suivants de tronçon suivants lors de la création d’un itinéraire défini par l’utilisateur :
 

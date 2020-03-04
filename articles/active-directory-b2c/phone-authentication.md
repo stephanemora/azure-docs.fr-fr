@@ -1,24 +1,24 @@
 ---
-title: Inscription et connexion par téléphone avec des stratégies personnalisées
+title: Inscription et connexion par téléphone avec des stratégies personnalisées (préversion)
 titleSuffix: Azure AD B2C
-description: Découvrez comment envoyer des mots de passe à usage unique dans des messages texte vers les téléphones des utilisateurs de votre application à l’aide de stratégies personnalisées dans Azure Active Directory B2C.
+description: Envoyez des mots de passe à usage unique (OTP) dans des messages texte vers les téléphones des utilisateurs de votre application à l’aide de stratégies personnalisées dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 02/25/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8cb0340d9e04db2bfbf088bce9505351d7588cd9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 50e7d66fef67e2728c95790947393de8d58398c2
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840330"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647527"
 ---
-# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurer l’inscription et la connexion par téléphone avec des stratégies personnalisées dans Azure AD B2C
+# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c-preview"></a>Configurer l’inscription et la connexion par téléphone avec des stratégies personnalisées dans Azure AD B2C (préversion)
 
 L’inscription et la connexion par téléphone dans Azure Active Directory B2C (Azure AD B2C) permet à vos utilisateurs de s’inscrire et de se connecter à vos applications en utilisant un mot de passe à usage unique (OTP) envoyé par SMS sur leur téléphone. Les mots de passe à usage unique permettent de réduire le risque que vos utilisateurs oublient leur mot de passe ou que ce mot de passe soit piraté.
 
@@ -26,7 +26,13 @@ Suivez les étapes de cet article pour utiliser des stratégies personnalisées 
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="pricing"></a>Tarifs
+
+Les mots de passe uniques sont envoyés à vos utilisateurs par SMS, et vous pouvez être facturé pour chaque message envoyé. Pour obtenir des informations sur la tarification, voir la section **Frais distincts** dans [Tarification Azure Active Directory B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+
+## <a name="prerequisites"></a>Prérequis
+
+Vous devez disposer des ressources suivantes avant de configurer un mot de passe unique.
 
 * [Locataire Azure AD B2C](tutorial-create-tenant.md)
 * [Application web inscrite](tutorial-register-applications.md) dans votre locataire
@@ -69,6 +75,22 @@ Les étapes suivantes supposent que vous avez défini les [préférences](#prere
 1. Pour **Sélectionner l’URL de réponse**, choisissez `https://jwt.ms`.
 1. Sélectionnez **Exécuter maintenant** et inscrivez-vous en utilisant une adresse e-mail ou un numéro de téléphone.
 1. Sélectionnez de nouveau **Exécuter maintenant** et connectez-vous avec le même compte pour vérifier que votre configuration est correcte.
+
+## <a name="get-user-account-by-phone-number"></a>Obtenir un compte d’utilisateur par numéro de téléphone
+
+Un utilisateur qui s'inscrit avec un numéro de téléphone, mais qui ne fournit pas d'adresse électronique de récupération est enregistré dans votre annuaire B2C Azure AD avec son numéro de téléphone comme nom de connexion. Si l'utilisateur souhaite ensuite modifier son numéro de téléphone, votre service d'assistance ou votre équipe de support doit d'abord identifier son compte, puis mettre à jour son numéro de téléphone.
+
+Vous pouvez identifier un utilisateur par son numéro de téléphone (nom de connexion) en utilisant [Microsoft Graph](manage-user-accounts-graph-api.md) :
+
+```http
+GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
+```
+
+Par exemple :
+
+```http
+GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+450334567890' and c/issuer eq 'contosob2c.onmicrosoft.com')
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
