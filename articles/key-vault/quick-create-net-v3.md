@@ -5,13 +5,14 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 11/05/2019
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 9b92796e477ea0dd6795015edd3f400dd2cc9aa7
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 4b27893502dcded1e88b8a664531267a99c98af3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773741"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197536"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>Démarrage rapide : Bibliothèque de client Azure Key Vault pour .NET (SDK v3)
 
@@ -34,7 +35,7 @@ Azure Key Vault permet de protéger les clés de chiffrement et les secrets util
 > Chaque coffre de clés doit avoir un nom unique. Remplacez <your-unique-keyvault-name> par le nom de votre coffre de clés dans les exemples suivants.
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Kit de développement logiciel (SDK) [.NET Core 2.1 ou version ultérieure](https://dotnet.microsoft.com/download/dotnet-core/2.1).

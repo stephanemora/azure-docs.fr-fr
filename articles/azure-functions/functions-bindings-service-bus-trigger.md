@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 3aba570bd7f80eab205fe52a731a1be933067012
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492442"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273567"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Déclencheur Azure Service Bus pour Azure Functions
 
@@ -369,9 +369,6 @@ Le déclencheur Service Bus fournit plusieurs [propriétés de métadonnées](./
 |`To`|`string`|L’adresse de destination.|
 |`Label`|`string`|L’étiquette spécifique de l’application.|
 |`CorrelationId`|`string`|L’ID de corrélation.|
-
-> [!NOTE]
-> Le déclencheur Service Bus qui fonctionne avec les abonnements et les files d’attente activées dans la session est actuellement en préversion. Veuillez suivre [cet élément](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) pour toute mise à jour supplémentaire concernant cette fonctionnalité. 
 
 Consultez les [exemples de code](#example) qui utilisent ces propriétés précédemment dans cet article.
 

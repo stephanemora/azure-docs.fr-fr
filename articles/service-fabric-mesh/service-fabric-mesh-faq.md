@@ -4,12 +4,12 @@ description: Découvrez les questions et réponses fréquentes concernant Azure 
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 3fe6289ad7616dec97706c2f1779a74c508a0f76
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a5c2ea63d162eb6fb78ab702e0519f8ac25dcc7
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462000"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252490"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Questions fréquemment posées sur Service Fabric mesh
 
@@ -46,8 +46,11 @@ Si ce phénomène se produit, vous pouvez vérifier que le système est à l’o
 
 Par exemple : 
 
-```cli
-~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```azurecli
+az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```
+
+```output
 {
   "debugParams": null,
   "description": "Service Fabric Mesh HelloWorld Application!",

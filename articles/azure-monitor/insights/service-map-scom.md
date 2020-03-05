@@ -1,18 +1,17 @@
 ---
 title: Intégrer un mappage Azure Monitor pour machines virtuelles avec Operations Manager | Microsoft Docs
 description: Azure Monitor pour machines virtuelles découvre automatiquement les composants d’application sur les systèmes Windows et Linux, et cartographie la communication entre les différents services. Cet article décrit l’utilisation de la fonctionnalité Map pour créer automatiquement des diagrammes d’application distribuée dans Operations Manager.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: a8d0e0980b0d3634626bc1332e8219bdca7fbe01
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 112413720f969474369555a74bc89846666e2ef9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402638"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663451"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Intégrer System Center Operations Manager avec la fonctionnalité de mappage Azure Monitor pour machines virtuelles
 
@@ -21,7 +20,7 @@ Dans Azure Monitor pour machines virtuelles, vous pouvez voir les composants d�
 >[!NOTE]
 >Si vous avez déjà déployé Service Map, vous pouvez visualiser vos cartes dans Azure Monitor pour machines virtuelles, qui inclut des fonctionnalités supplémentaires pour la supervision de l’intégrité et des performances des machines virtuelles. La fonctionnalité Map d’Azure Monitor pour machines virtuelles est destinée à remplacer la solution autonome Service Map. Pour en savoir plus, consultez [Présentation d’Azure Monitor pour machines virtuelles](vminsights-overview.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un groupe d’administration System Center Operations Manager (2012 R2 ou version ultérieure).
 * Un espace de travail Log Analytics configuré pour prendre en charge Azure Monitor pour machines virtuelles.

@@ -3,17 +3,16 @@ title: Créer un paramètre de diagnostic dans Azure à l’aide du modèle Reso
 description: Créez des paramètres de diagnostic à l’aide d’un modèle Resource Manager pour transférer les journaux de la plateforme Azure vers les journaux Azure Monitor, le Stockage Azure ou Azure Event Hubs.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 2a171ae89e8314684eddf29f78b9b09bc52f9c9b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a2569ca3f998030680bd7dbd872d71ccd372a25d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977553"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672427"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Créer un paramètre de diagnostic dans Azure à l’aide d’un modèle Resource Manager
 Dans Azure Monitor, les [paramètres de diagnostic](diagnostic-settings.md) indiquent où envoyer les [journaux de plateforme](platform-logs-overview.md) collectés par les ressources et la plateforme Azure dont ils dépendent. Cet article fournit des détails et des exemples sur l’utilisation d’un [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) dans le cadre de la création et de la configuration de paramètres de diagnostic pour collecter les journaux de plateforme vers différentes destinations.

@@ -3,16 +3,15 @@ title: Concepteur de vues Azure Monitor - Tâches courantes liées à la convers
 description: ''
 author: austonli
 ms.author: aul
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 444535f0fcc96685a9562a8f9536c0a2c2998946
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 5559dac916262998d621b40757398088ec613609
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77170702"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658742"
 ---
 # <a name="view-designer-to-workbooks-conversion-common-tasks"></a>Concepteur de vues - Tâches courantes liées à la conversion de vues en classeurs
 Le [concepteur de vues](view-designer.md) est une fonctionnalité d'Azure Monitor qui vous permet de créer des vues personnalisées pour vous aider à visualiser les données de votre espace de travail Log Analytics, avec des graphiques, des listes et des chronologies. Celles-ci sont progressivement supprimées et remplacées par des classeurs qui offrent des fonctionnalités supplémentaires. Cet article détaille les tâches courantes liées à la conversion de vues en classeurs.

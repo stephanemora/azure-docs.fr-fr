@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: c3a7fb14dbd22730d95a5aaed146b59ad790ce6b
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: d848b92da5d4181832adff8499b3531d020c30c9
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70775847"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78155470"
 ---
 Les disques de système d’exploitation éphémères sont créés sur le stockage local de la machine virtuelle (VM) et ne sont pas enregistrés dans le Stockage Azure à distance. Les disques de système d’exploitation éphémères conviennent particulièrement bien aux charges de travail sans état, car les applications tolèrent les défaillances individuelles des machines virtuelles, mais sont plus sensibles au temps de déploiement de machine virtuelle et de réinitialisation des instances de machines virtuelles individuelles. Comparé à un disque de système d’exploitation standard, un disque éphémère offre une latence plus faible pour les opérations de lecture/écriture et permet une réinitialisation plus rapide des machines virtuelles. 
  
@@ -38,13 +38,13 @@ Différences clés entre les disques de système d’exploitation persistants et
 | Prise en charge de la région              | Toutes les régions                                                                                  | Toutes les régions                              |
 | Persistance des données            | Les données écrites sur le disque de système d’exploitation sont stockées dans le Stockage Azure                                  | Les données écrites sur le disque du système d’exploitation sont stockées sur le stockage local de la machine virtuelle et ne sont pas persistantes dans le Stockage Azure. |
 | État arrêté/libéré      | Les machines virtuelles et instances de groupe identique peuvent être arrêtées-libérées et redémarrées à partir de l’état arrêté-libéré | Les machines virtuelles et instances de groupe identique ne peuvent pas être arrêtées-libérées                                  |
-| Prise en charge des disques de système d’exploitation spécialisés | OUI                                                                                          | Non                                                                                 |
+| Prise en charge des disques de système d’exploitation spécialisés | Oui                                                                                          | Non                                                                                 |
 | Redimensionnement du disque de système d’exploitation              | Pris en charge durant la création de la machine virtuelle et une fois que la machine virtuelle est arrêtée-libérée                                | Prise en charge lors de la création d’une machine virtuelle uniquement                                                  |
 | Redimensionnement à une nouvelle taille de machine virtuelle   | Les données du disque de système d’exploitation sont conservées                                                                    | Les données sur le disque du système d’exploitation sont supprimées, le système d’exploitation est redéployé                                      |
 
 ## <a name="size-requirements"></a>Exigences de taille
 
-Vous pouvez déployer des machines virtuelles et images d’instance jusqu’à la taille du cache des machines virtuelles. Par exemple, les images Windows Server Standard de la place de marché sont d’environ 127 Go, ce qui signifie que vous avez besoin d’une taille de machine virtuelle qui a un cache supérieur à 127 Go. Dans ce cas, la référence [Standard_DS2_v2](/azure/virtual-machines/windows/sizes-general#dsv2-series) a une taille de cache de 86 Gio, ce qui n’est pas suffisant. La référence Standard_DS3_v2 a une taille de cache de 172 Gio, ce qui est suffisant. Dans ce cas, la référence Standard_DS3_v2 est la taille minimale de la série DSv2 que vous pouvez utiliser avec cette image. Les images Linux de base dans les images de la place de marché et Windows Server qui sont signalées par `[smallsize]` ont tendance à être d’environ 30 Gio et peuvent utiliser la plupart des tailles de machine virtuelle disponibles.
+Vous pouvez déployer des machines virtuelles et images d’instance jusqu’à la taille du cache des machines virtuelles. Par exemple, les images Windows Server Standard de la place de marché sont d’environ 127 Go, ce qui signifie que vous avez besoin d’une taille de machine virtuelle qui a un cache supérieur à 127 Go. Dans ce cas, la référence [Standard_DS2_v2](~/articles/virtual-machines/dv2-dsv2-series.md) a une taille de cache de 86 Gio, ce qui n’est pas suffisant. La référence Standard_DS3_v2 a une taille de cache de 172 Gio, ce qui est suffisant. Dans ce cas, la référence Standard_DS3_v2 est la taille minimale de la série DSv2 que vous pouvez utiliser avec cette image. Les images Linux de base dans les images de la place de marché et Windows Server qui sont signalées par `[smallsize]` ont tendance à être d’environ 30 Gio et peuvent utiliser la plupart des tailles de machine virtuelle disponibles.
 
 Les disques éphémères nécessitent également que la taille de machine virtuelle prenne en charge le stockage Premium. Les tailles ont généralement (mais pas toujours) un `s` dans le nom, comme DSv2 et EsV3. Pour plus d’informations, consultez [Tailles de machine virtuelle Azure](../articles/virtual-machines/linux/sizes.md) pour plus d’informations sur les tailles prenant en charge le stockage Premium.
 
@@ -182,39 +182,39 @@ POST https://management.azure.com/subscriptions/{sub-
 id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}/reimage?a pi-version=2018-06-01" 
 ```
  
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 **Q : Quelle est la taille des disques de système d’exploitation locaux ?**
 
-R : Nous prenons en charge des plateformes et/ou images personnalisées atteignant la taille du cache de la machine virtuelle, dans lequel toutes les écritures/lecture sur le disque de système d’exploitation seront effectuées à un niveau local sur le même nœud que la machine virtuelle. 
+A : Nous prenons en charge des plateformes et/ou images personnalisées atteignant la taille du cache de la machine virtuelle, dans lequel toutes les écritures/lecture sur le disque de système d’exploitation seront effectuées à un niveau local sur le même nœud que la machine virtuelle. 
 
 **Q : Le disque de système d’exploitation éphémère peut-il être redimensionné ?**
 
-R : Non, une fois le disque de système d’exploitation éphémère configuré, il ne peut plus être redimensionné. 
+A : Non, une fois le disque de système d’exploitation éphémère configuré, il ne peut plus être redimensionné. 
 
 **Q : Puis-je attacher un disque managé à une machine virtuelle éphémère ?**
 
-R : Oui, vous pouvez attacher un disque de données managé à une machine virtuelle qui utilise un disque de système d’exploitation éphémère. 
+A : Oui, vous pouvez attacher un disque de données managé à une machine virtuelle qui utilise un disque de système d’exploitation éphémère. 
 
 **Q : Toutes les tailles de machine virtuelle sont-elles prises en charge par les disques de système d’exploitation éphémères ?**
 
-R : Non, toutes les tailles de machines virtuelles Stockage Premium sont prises en charge (DS, ES, FS, GS et M), à l’exception des tailles de séries B, N et H.  
+A : Non, toutes les tailles de machines virtuelles Stockage Premium sont prises en charge (DS, ES, FS, GS et M), à l’exception des tailles de séries B, N et H.  
  
 **Q : Le disque de système d’exploitation éphémère peut-il être appliqué aux machines virtuelles et groupes identiques existants ?**
 
-R : Non, le disque de système d’exploitation éphémère peut uniquement être utilisé au cours de la création de machines virtuelles et de groupes identiques. 
+A : Non, le disque de système d’exploitation éphémère peut uniquement être utilisé au cours de la création de machines virtuelles et de groupes identiques. 
 
 **Q : Peut-on combiner des disques de système d’exploitation normaux et éphémères dans un groupe identique ?**
 
-R : Non, vous ne pouvez pas combiner des instances de disques de système d’exploitation éphémères et persistants dans le même groupe identique. 
+A : Non, vous ne pouvez pas combiner des instances de disques de système d’exploitation éphémères et persistants dans le même groupe identique. 
 
 **Q : Le disque de système d’exploitation éphémère peut-il être créé à l’aide de Powershell ou de l’interface CLI ?**
 
-R : Oui, vous pouvez créer des machines virtuelles avec un disque de système d’exploitation éphémère à l’aide de REST, des modèles, de PowerShell et de l’interface CLI.
+A : Oui, vous pouvez créer des machines virtuelles avec un disque de système d’exploitation éphémère à l’aide de REST, des modèles, de PowerShell et de l’interface CLI.
 
 **Q : Quelles fonctionnalités ne sont pas prises en charge avec le disque de système d’exploitation éphémère ?**
 
-R : Les disques éphémères ne prennent pas en charge :
+A : Les disques éphémères ne prennent pas en charge :
 - Capture des images de machine virtuelle
 - Captures instantanées de disque 
 - Azure Disk Encryption 

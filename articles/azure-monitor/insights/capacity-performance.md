@@ -1,18 +1,17 @@
 ---
 title: Solution Capacity and Performance dans Azure Monitor | Microsoft Docs
 description: Utilisez la solution Capacity and Performance dans Azure Monitor pour vous aider à comprendre la capacité de vos serveurs Hyper-V.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: c444991166d9c7d3f1d8ed39e19e333d3c27f982
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 75c65cf9f76e711a3aeed764de8b92ed619bad2f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405740"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666941"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planifier la capacité des machines virtuelles Hyper-V avec la solution Capacity and Performance (déprécié)
 
@@ -47,7 +46,7 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 | [Groupe d’administration SCOM](../../azure-monitor/platform/om-agents.md) | Oui |La solution collecte les données de capacité et de performances des agents dans un groupe d’administration SCOM connecté. Une connexion directe entre l’agent SCOM et Log Analytics n’est pas obligatoire.|
 | [Compte Azure Storage](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Non | Le stockage Azure n’inclut pas de données de performances ni de capacité.|
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Des agents Windows ou Operations Manager doivent être installés sur Windows Server 2012 ou des hôtes Hyper-V supérieurs, mais pas sur des machines virtuelles.
 

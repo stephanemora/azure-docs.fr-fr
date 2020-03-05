@@ -3,17 +3,16 @@ title: Archiver des journaux de ressource Azure dans un compte de stockage | Mic
 description: Découvrez comment archiver vos journaux de ressource Azure pour une conservation à long terme dans un compte de stockage.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: f4109359adaaeae0a1ba027ac04439ff60b5a939
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 843c179826b2064a1be24d3cee84b398987b4aed
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467179"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658969"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Archiver des journaux de ressource Azure dans un compte de stockage
 [Les journaux de plateforme](platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent.  Cet article décrit la collecte de journaux de plateforme dans un compte de stockage Azure en vue de conserver les données pour archivage.

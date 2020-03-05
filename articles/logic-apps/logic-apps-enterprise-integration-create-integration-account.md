@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 3cdabbd5f527934492ce7ff37ae7d0f756d91fc1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 083ed0001adb5524c124295eb3bc31f4afad99cf
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979430"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250992"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Créer et gérer des comptes d’intégration pour l’intégration d’entreprise B2B dans Azure Logic Apps
 
@@ -33,7 +33,7 @@ Cette rubrique explique comment effectuer ces tâches :
 * Déplacez votre compte d’intégration vers un autre groupe de ressources ou abonnement Azure.
 * Supprimez votre compte d’intégration.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -140,13 +140,13 @@ Pour effectuer cette modification, vous pouvez utiliser le Portail Azure en suiv
 
 1. À l’invite de commandes, entrez la commande [**az resource**](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update), puis définissez `skuName` sur le niveau le plus élevé souhaité.
 
-   ```Azure CLI
+   ```azurecli
    az resource update --resource-group {ResourceGroupName} --resource-type Microsoft.Logic/integrationAccounts --name {IntegrationAccountName} --subscription {AzureSubscriptionID} --set sku.name={SkuName}
    ```
   
    Par exemple, si vous avez le niveau De base, vous pouvez définir `skuName` sur `Standard` :
 
-   ```Azure CLI
+   ```azurecli
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Standard
    ```
 
@@ -164,13 +164,13 @@ Pour effectuer cette modification, utilisez l’[interface de ligne de commande 
 
 1. À l’invite de commandes, entrez la commande [**az resource**](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update), puis définissez `skuName` sur le niveau le plus bas souhaité.
 
-   ```Azure CLI
+   ```azurecli
    az resource update --resource-group <resourceGroupName> --resource-type Microsoft.Logic/integrationAccounts --name <integrationAccountName> --subscription <AzureSubscriptionID> --set sku.name=<skuName>
    ```
   
    Par exemple, si vous avez le niveau Standard, vous pouvez définir `skuName` sur `Basic` :
 
-   ```Azure CLI
+   ```azurecli
    az resource update --resource-group FabrikamIntegration-RG --resource-type Microsoft.Logic/integrationAccounts --name Fabrikam-Integration --subscription XXXXXXXXXXXXXXXXX --set sku.name=Basic
    ```
 

@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1b9db20da58f50c91da88c2f9f890623b741f10a
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 455ebcb28ea6cc8b43431f96a4bc3929a759c2d0
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443871"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255894"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurer une application Java Linux pour Azure App Service
 
@@ -641,6 +641,8 @@ Les correctifs des principales vulnérabilités de sécurité seront publiés d�
 ### <a name="deprecation-and-retirement"></a>Dépréciation et retrait
 
 Si un runtime Java pris en charge est retiré, les développeurs Azure utilisant le runtime affecté reçoivent un avis de dépréciation au moins six mois avant son retrait.
+
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

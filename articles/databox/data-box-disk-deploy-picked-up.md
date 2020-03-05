@@ -1,20 +1,20 @@
 ---
 title: Tutoriel sur le renvoi d’Azure Data Box Disk | Microsoft Docs
-description: Utilisez ce tutoriel pour savoir comment renvoyer vos disques Azure Data Box à Microsoft
+description: Utilisez ce didacticiel pour savoir comment renvoyer vos disques Azure Data Box à Microsoft
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/19/2019
+ms.date: 03/03/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: eb9231a84295240c20e34bfad56f406317c107da
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1003b862d7fbe19545cf705570866479132c1f03
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845488"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273172"
 ---
 ::: zone target="chromeless"
 
@@ -28,13 +28,13 @@ ms.locfileid: "76845488"
 
 Ce tutoriel explique comment planifier un enlèvement pour renvoyer un disque Azure Data Box. Les instructions d’enlèvement varient selon la destination de renvoi de l’appareil. 
 
-Dans ce tutoriel, vous allez apprendre à :
+Dans ce didacticiel, vous apprendrez à :
 
 > [!div class="checklist"]
 > * Expédier le disque Data Box à Microsoft
 > * Procéder à l’enlèvement du disque Data Box dans différentes régions
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, vérifiez que vous avez suivi le [tutoriel : Copier des données sur Azure Data Box Disk et procéder à une vérification](data-box-disk-deploy-copy-data.md).
 
@@ -51,7 +51,7 @@ Avant de commencer, vérifiez que vous avez suivi le [tutoriel : Copier des don
 
 Les étapes suivantes sont déterminées par l’endroit où vous retournez l’appareil. Les instructions sont différentes pour les États-Unis/le Canada, l’Union européenne (UE), l’Australie et les pays d’Asie.
 
-### <a name="in-us-or-canadatabin-us-or-canada"></a>[Aux États-Unis ou au Canada](#tab/in-us-or-canada)
+### <a name="in-us-or-canada"></a>[Aux États-Unis ou au Canada](#tab/in-us-or-canada)
 
 Effectuez les étapes suivantes si le retour de l’appareil s’effectue aux États-Unis ou au Canada.
 
@@ -67,7 +67,7 @@ Effectuez les étapes suivantes si le retour de l’appareil s’effectue aux É
     - Si le numéro de suivi n’est pas indiqué, UPS vous facturera des frais supplémentaires à l’enlèvement.
     - Au lieu de planifier l’enlèvement, vous pouvez également déposer le disque Data Box Disk à l’emplacement de dépôt le plus proche.
 
-### <a name="in-europetabin-europe"></a>[En Europe](#tab/in-europe)
+### <a name="in-europe"></a>[En Europe](#tab/in-europe)
 
 Effectuez les étapes suivantes si le retour de l’appareil s’effectue en Europe.
 
@@ -80,7 +80,7 @@ Effectuez les étapes suivantes si le retour de l’appareil s’effectue en Eur
 4. Accédez au site web DHL Express du pays ou de la région et choisissez **Book a Courier Collection (Réserver un enlèvement) > eReturn Shipment (Expédition eReturn)** .    
 3. Spécifiez le numéro de la fiche de transport et cliquez sur **Planifier l’enlèvement** pour choisir une date.
 
-### <a name="in-australiatabin-australia"></a>[En Australie](#tab/in-australia)
+### <a name="in-australia"></a>[En Australie](#tab/in-australia)
 
 Les centres de données Azure de l’Australie ont une notification de sécurité supplémentaire. Toutes les expéditions entrantes doivent avoir une notification préalable. Effectuez les étapes suivantes pour l’enlèvement en Australie.
 
@@ -88,7 +88,7 @@ Les centres de données Azure de l’Australie ont une notification de sécurit�
 3. Collez l’étiquette sur le colis. 
 4. Réservez un enlèvement en ligne sur https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-### <a name="in-japantabin-japan"></a>[Au Japon](#tab/in-japan)
+### <a name="in-japan"></a>[Au Japon](#tab/in-japan)
 
 1. Écrivez le nom et l’adresse de votre entreprise dans la partie du bordereau de réexpédition réservée à l’expéditeur.
 2. Envoyez un courrier à Quantium Solutions en utilisant le modèle d’e-mail suivant.
@@ -115,7 +115,7 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
 - E-mail ：Customerservice.JP@quantiumsolutions.com 
 - Téléphone：+81 3 57 55 01 50 
 
-### <a name="in-koreatabin-korea"></a>[En Corée](#tab/in-korea)
+### <a name="in-korea"></a>[En Corée](#tab/in-korea)
 
 1. Veillez à inclure le bordereau de réexpédition.
 2. Pour demander un enlèvement lorsque le bordereau de réexpédition est présent :
@@ -130,7 +130,7 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
     4. Si la demande est effectuée par téléphone, vous recevez une confirmation verbale.
 
 
-### <a name="in-singaporetabin-singapore"></a>[À Singapour](#tab/in-singapore)
+### <a name="in-singapore"></a>[À Singapour](#tab/in-singapore)
 
 1. Imprimez l’étiquette d’expédition et apposez-la sur la boîte. Si l’étiquette est endommagée ou perdue :
     - Accédez à **Vue d’ensemble > Télécharger une étiquette d’expédition** et récupérez une étiquette d’expédition de retour.
@@ -157,7 +157,7 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
 
 3. Remettez le colis au transporteur.
 
-### <a name="in-self-managedtabin-selfmanaged"></a>[Si auto-gestion](#tab/in-selfmanaged)
+### <a name="in-self-managed"></a>[Si auto-gestion](#tab/in-selfmanaged)
 
 Si vous utilisez Data Box Disk au Japon, à Singapour, en Corée et dans la région Europe Ouest et que vous avez sélectionné l’option d’expédition auto-gérée pendant la création de la commande, suivez ces instructions. 
 
@@ -176,11 +176,9 @@ Si vous utilisez Data Box Disk au Japon, à Singapour, en Corée et dans la rég
 
 ::: zone target="docs"
 
----
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce tutoriel vous a apporté des connaissances sur les disques Azure Data Box, notamment concernant les points suivants :
+Ce didacticiel vous a apporté des connaissances sur les disques Azure Data Box, notamment concernant les points suivants :
 
 > [!div class="checklist"]
 > * Expédier le disque Data Box à Microsoft

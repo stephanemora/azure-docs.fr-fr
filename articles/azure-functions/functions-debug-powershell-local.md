@@ -6,18 +6,16 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 36d15858e1fb535189891303a89b00021027f1e8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 133e89bd9187ae5e48fa208b407678760d31adfd
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227036"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163758"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Déboguer localement des fonctions PowerShell Azure
 
 Azure Functions vous permet de développer vos fonctions en tant que scripts PowerShell.
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
 Vous pouvez déboguer localement vos fonctions PowerShell comme vous le feriez pour tout script PowerShell, à l’aide des outils de développement standard suivants :
 
@@ -108,7 +106,7 @@ PowerShell Core s’installe côte à côte avec Windows PowerShell. Définissez
 
 1. Appuyez sur F1 pour afficher la palette de commandes, puis recherchez `Session`.
 
-1. Choisissez **PowerShell : Afficher le menu de la session**.
+1. Choisissez **PowerShell : Afficher le menu de session**.
 
 1. Si votre **session active** n’est pas **PowerShell Core 6**, choisissez **Basculer vers : PowerShell Core 6**.
 

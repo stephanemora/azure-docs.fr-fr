@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 80b13cb9a926837604e2a10fed75b976ba3393b6
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: bf4c7e9fc623ad7dc74b6da943232d5c558d43a4
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934917"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920261"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extension de script personnalisé pour Windows
 
@@ -23,7 +23,7 @@ L’extension de script personnalisé télécharge et exécute des scripts sur d
 
 Ce document explique en détail l’utilisation de l’extension de script personnalisé à l’aide du module Azure PowerShell, des modèles Azure Resource Manager, et détaille également les étapes de résolution de problèmes sur les systèmes Windows.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 > [!NOTE]  
 > N’utilisez pas l’extension de script personnalisé pour exécuter Update-AzVM avec la même machine virtuelle en tant que paramètre, car elle s’attendra elle-même.  
@@ -110,7 +110,7 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| Name | Valeur/Exemple | Type de données |
+| Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | Date |
 | publisher | Microsoft.Compute | string |
@@ -273,6 +273,8 @@ The response content cannot be parsed because the Internet Explorer engine is no
 Pour déployer l’extension de script personnalisé sur un groupe identique, consultez [Add-AzVmssExtension](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0).
 
 ## <a name="classic-vms"></a>les machines virtuelles Classic,
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 Pour déployer l’extension de script personnalisé sur des machines virtuelles classiques, vous pouvez utiliser le Portail Azure ou les applets de commande Azure PowerShell classiques.
 

@@ -3,12 +3,12 @@ title: Gérer des images signées
 description: Découvrez comment activer l’approbation de contenu pour votre registre de conteneurs Azure et comment envoyer (push) ou extraire (pull) des images signées.
 ms.topic: article
 ms.date: 09/06/2019
-ms.openlocfilehash: 0418b13c352dc3b81d34501e7e76be6c54615a83
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ce1e9e5cce0de58703e69df8db14cfbf3ecf04f3
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456460"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249921"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Approbation de contenu dans Azure Container Registry
 
@@ -84,7 +84,7 @@ Dans cet exemple, le rôle `AcrImageSigner` a été assigné à deux entités : 
 
 ![Activation de l’approbation de contenu pour un registre dans le Portail Azure][content-trust-02-portal]
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Pour accorder des autorisations de signature à un utilisateur à l’aide d’Azure CLI, assignez à cet utilisateur le rôle `AcrImageSigner`, limité à votre registre. Le format de la commande est le suivant :
 
@@ -99,7 +99,9 @@ Par exemple, pour vous octroyer ce rôle, vous pouvez exécuter les commandes ci
 REGISTRY=myregistry
 USER=$(az account show --query user.name --output tsv)
 REGISTRY_ID=$(az acr show --name $REGISTRY --query id --output tsv)
+```
 
+```azurecli
 az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee $USER
 ```
 

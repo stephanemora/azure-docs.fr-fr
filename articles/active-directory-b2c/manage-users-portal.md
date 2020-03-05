@@ -2,20 +2,20 @@
 title: Créer et supprimer des comptes d’utilisateurs consommateurs Azure AD B2C dans le portail Azure
 description: Découvrez comment utiliser le portail Azure pour créer et supprimer des utilisateurs consommateurs dans votre répertoire Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/09/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d96db5cf062da1b2e8badd80a9a00620b724fd4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c8fad8b5bd2dccba36c0c6888712fa806f3cbfc8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840415"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187217"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Utiliser le portail Azure pour créer et supprimer des utilisateurs consommateurs dans Azure AD B2C
 

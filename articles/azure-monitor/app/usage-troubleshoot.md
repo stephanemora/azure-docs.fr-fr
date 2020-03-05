@@ -1,19 +1,17 @@
 ---
 title: Résoudre les problèmes des outils d’analytique utilisateur - Azure Application Insights
 description: 'Guide de résolution des problèmes : analyse de l’utilisation des sites et des applications avec Application Insights.'
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa540cdaef1af3016d87ab93768ceb30802cef0e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8d2e573f34895207a455838b5fc64f95560943d2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432277"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670914"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Résoudre les problèmes des outils d’analytique du comportement des utilisateurs dans Application Insights
 Vous avez des questions concernant les [outils d’analytique du comportement des utilisateurs dans Application Insights](usage-overview.md) : [Utilisateurs, sessions, événements](usage-segmentation.md), [Entonnoirs](usage-funnels.md), [Flux d’utilisateurs](usage-flows.md), [Conservation](usage-retention.md) ou Cohortes ? Voici quelques réponses.

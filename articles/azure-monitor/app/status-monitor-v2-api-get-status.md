@@ -1,18 +1,16 @@
 ---
 title: Informations de référence sur l’API de l’agent Azure Application Insights
 description: Référence API d’Application Insights Agent. Get-ApplicationInsightsMonitoringStatus. Surveillez les performances de site web sans avoir à redéployer le site web. Fonctionne avec les applications web ASP.NET hébergées localement, dans des machines virtuelles ou sur Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 9b1010404cb876ed818dd54cf527987c6cf0ffe0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 159dab4a228c822ef62c45c9ccceff638a9bea45
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899689"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671254"
 ---
 # <a name="application-insights-agent-api-get-applicationinsightsmonitoringstatus"></a>API d’Application Insights Agent : Get-ApplicationInsightsMonitoringStatus
 
@@ -29,7 +27,7 @@ Cette applet de commande signale les informations de version et les informations
 
 ## <a name="examples"></a>Exemples
 
-### <a name="example-application-status"></a>Exemple : État de l’application
+### <a name="example-application-status"></a>Exemple : État de l’application
 
 Exécutez la commande `Get-ApplicationInsightsMonitoringStatus` pour afficher l’état d’analyse des sites Web.
 
@@ -75,7 +73,7 @@ Dans cet exemple,
 - **DemoWebApp333** a été instrumenté manuellement à l’aide du kit de développement logiciel (SDK) Application Insights. Status Monitor a détecté le kit de développement logiciel (SDK) et n’analyse pas ce site.
 
 
-### <a name="example-powershell-module-information"></a>Exemple : Informations sur le module PowerShell
+### <a name="example-powershell-module-information"></a>Exemple : Informations sur le module PowerShell
 
 Exécutez la commande `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` pour afficher des informations sur le module actuel :
 
@@ -129,7 +127,7 @@ ApplicationInsightsSdkPath (Exists: True)
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.dll
 ```
 
-### <a name="example-runtime-status"></a>Exemple : État d’exécution
+### <a name="example-runtime-status"></a>Exemple : État d’exécution
 
 Vous pouvez inspecter le processus sur l’ordinateur instrumenté pour vérifier si toutes les DLL sont chargées. Si la surveillance fonctionne, au moins 12 DLL doivent être chargées.
 
@@ -167,7 +165,7 @@ listdlls64.exe -accepteula w3wp
 0x000000000ad60000  0x108000  C:\Windows\TEMP\2.4.0.0.Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
 ```
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Paramètres
 
 ### <a name="no-parameters"></a>(Aucun paramètre)
 
@@ -177,12 +175,12 @@ Vous pouvez également examiner la clé d’instrumentation qui a été mise en 
 
 
 ### <a name="-powershellmodule"></a>-PowerShellModule
-**Facultative**. Utilisez ce commutateur pour signaler les numéros de version et les chemins des DLL nécessaires à l’analyse.
+**Facultatif**. Utilisez ce commutateur pour signaler les numéros de version et les chemins des DLL nécessaires à l’analyse.
 Utilisez cette option si vous avez besoin identifier la version de n’importe quelle DLL, y compris le SDK Application Insights.
 
 ### <a name="-inspectprocess"></a>-InspectProcess
 
-**Facultative**. Utilisez ce commutateur pour signaler si IIS est en cours d’exécution.
+**Facultatif**. Utilisez ce commutateur pour signaler si IIS est en cours d’exécution.
 Il télécharge également des outils externes pour déterminer si les DLL sont chargées dans le runtime d’IIS.
 
 
@@ -194,7 +192,7 @@ Si ce processus échoue pour une raison quelconque, vous pouvez exécuter ces co
 
 ### <a name="-force"></a>-Force
 
-**Facultative**. Utilisé uniquement avec InspectProcess. Utilisez ce commutateur pour ignorer l’invite utilisateur qui apparaît avant le téléchargement d’outils supplémentaires.
+**Facultatif**. Utilisé uniquement avec InspectProcess. Utilisez ce commutateur pour ignorer l’invite utilisateur qui apparaît avant le téléchargement d’outils supplémentaires.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

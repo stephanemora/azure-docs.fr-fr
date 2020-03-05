@@ -1,18 +1,17 @@
 ---
 title: FAQ - Solution Network Performance Monitor dans Azure | Microsoft Docs
 description: Cet article présente les questions fréquemment posées sur Network Performance Monitor dans Azure Network Performance Monitor (NPM) vous aide à surveiller les performances de vos réseaux, presque en temps réel, afin de détecter et localiser les goulots d’étranglement affectant les performances réseau.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 7ee593a8db020134e13ea853f17f097d716f7814
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 0ef50dfd4d9c6eb0066e54b76167b9934fbb9cf0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538186"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654431"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ relative à la solution Network Performance Monitor
 
@@ -173,7 +172,7 @@ NPM peut surveiller la connectivité des services dans n’importe quelle partie
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Quelles régions sont-elles prises en charge pour la fonctionnalité Moniteur ExpressRoute de NPM ?
 NPM peut surveiller vos circuits ExpressRoute situés dans n’importe quelle région Azure. Pour intégrer NPM, vous devez disposer d’un espace de travail Log Analytics hébergé dans l’une des [régions prises en charge](/azure/expressroute/how-to-npm)
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Pourquoi certains tronçons sont-ils marqués comme non identifiés dans l'affichage de topologie de réseau ?
 NPM utilise une version modifiée de détermination d’itinéraire pour détecter la topologie à partir de l’agent source vers la destination. Un tronçon non identifié indique que le tronçon réseau n'a pas répondu à la requête de détermination d’itinéraire de l’agent source. Si trois tronçons réseau consécutifs ne répondent pas à la détermination d’itinéraire de l’agent, la solution marque ces tronçons comme non identifiés et ne tente pas de détecter d’autres tronçons.
@@ -204,7 +203,7 @@ E2EMedianLatency est la latence mise à jour toutes les trois minutes après l�
 
 ### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>Pourquoi les valeurs de latence tronçon par tronçon sont-elles différentes de HopLatencyValues ? 
 Les valeurs HopLatencyValues s’entendent de la source jusqu’au point de terminaison.
-Par exemple : Tronçons - A,B,C. AvgHopLatency - 10,15,20. Cela signifie que la latence de la source à A est 10, que la latence de la source à B est 15 et que la latence de la source à C est 20. L’interface utilisateur calculera la latence 5 pour le tronçon A-B dans la topologie.
+Par exemple : Tronçons - A,B,C. AvgHopLatency - 10,15,20. Cela signifie que la latence de la source à A est 10, que la latence de la source à B est 15 et que la latence de la source à C est 20. L’interface utilisateur calculera la latence 5 pour le tronçon A-B dans la topologie.
 
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>La solution affiche 100 % de pertes, mais il existe une connectivité entre la source et la destination.
 Cela peut se produire si le pare-feu d’hôte ou le pare-feu intermédiaire (pare-feu réseau ou groupe de sécurité réseau Azure) bloque la communication entre l’agent source et la destination sur le port utilisé à des fins de surveillance par NPM (par défaut et sauf modification du client, ce port correspond à 8084).

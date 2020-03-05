@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c90dc7877bced8a4ceececc04b8e3d1ebdcbfe44
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 79c24eb078cc3de764ecc1c814e5b8772777eab6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968627"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199493"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine
 
 > [!NOTE]
-> Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).   > Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
+> Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d’informations, consultez [Essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/).   > Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 >   
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
  Media Services vous permet de fournir des flux MPEG-DASH, Smooth Streaming et HLS (HTTP Live Streaming) protégés par [la gestion des droits numériques (DRM) PlayReady](https://www.microsoft.com/playready/overview/). Vous pouvez également l’utiliser pour diffuser des flux DASH chiffrés avec des licences Widevine DRM. PlayReady et Widevine sont chiffrés conformément à la spécification de chiffrement commun (ISO/IEC 23001-7 CENC). Vous pouvez utiliser le [SDK .NET Media Services](https://www.nuget.org/packages/windowsazure.mediaservices/) (à compter de la version 3.5.1) ou une API REST pour configurer votre AssetDeliveryConfiguration afin d’utiliser Widevine.
 
@@ -35,7 +35,7 @@ Media Services fournit un service de remise de licences DRM PlayReady et Widevin
 
 Vous pouvez utiliser les partenaires Media Services suivants pour vous aider à fournir des licences Widevine : 
 
-* [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/) 
+* [Axinom](https://www.axinom.com) 
 * [EZDRM](https://ezdrm.com/) 
 * [castLabs](https://castlabs.com/company/partners/azure/) 
 
@@ -83,7 +83,7 @@ L'illustration suivante montre le flux de travail décrit précédemment. Ici, l
 
 Le reste de cet article fournit des explications détaillées, des exemples de code et des liens vers des rubriques qui vous expliquent comment réaliser les tâches décrites précédemment.
 
-## <a name="current-limitations"></a>Limitations actuelles
+## <a name="current-limitations"></a>Limites actuelles
 Si vous ajoutez ou mettez à jour une stratégie de livraison d’élément multimédia, vous devez supprimer tout localisateur associé (le cas échéant) et en créer un nouveau.
 
 Actuellement, plusieurs clés de contenu ne sont pas prises en charge lorsque vous chiffrez à l’aide de Widevine avec Media Services. 
@@ -156,7 +156,7 @@ Vous pouvez utiliser le [lecteur Azure Media Services](https://aka.ms/azuremedia
     <add key="Audience" value="urn:test"/>
     ```
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 
 L’exemple suivant illustre la fonctionnalité qui a été introduite dans le Kit de développement logiciel Media Services pour .NET version 3.5.2. (Plus précisément, elle inclut la possibilité de définir un modèle de licence Widevine et de demander une licence Widevine depuis Media Services.)
 

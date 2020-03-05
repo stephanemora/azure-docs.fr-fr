@@ -1,18 +1,17 @@
 ---
 title: Comment créer des graphiques de performances avec Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
 description: Performances est une fonctionnalité d’Azure Monitor pour les machines virtuelles qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cet article fournit des informations sur son utilisation dans divers scénarios.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 0d679675758b736455c66066f3df4cb9ea43fdea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 245d5c0fb0a54a6d129a193deaa9445bc8fefbfb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399293"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670693"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Comment créer des graphiques de performances avec Azure Monitor pour machines virtuelles (préversion)
 

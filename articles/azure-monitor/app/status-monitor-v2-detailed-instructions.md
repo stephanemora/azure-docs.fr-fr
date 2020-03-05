@@ -1,18 +1,16 @@
 ---
 title: Instructions détaillées pour Azure Application Insights Agent | Microsoft Docs
 description: Instructions détaillées pour bien démarrer avec Application Insights Agent. Surveillez les performances de site web sans avoir à redéployer le site web. Fonctionne avec les applications web ASP.NET hébergées en local, dans des machines virtuelles ou sur Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 3b053b7876494a3b2e6f392850c0323b56b1c3ec
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cd5ca5039b537859d5b31c901ed1f93877ecb629
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230265"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671203"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights Agent (anciennement appelé Status Monitor v2) : Instructions détaillées
 
@@ -156,11 +154,11 @@ Si pour une raison quelconque vous ne pouvez pas vous connecter au module PowerS
 
 ### <a name="manually-download-the-latest-nupkg-file"></a>Téléchargement manuel du dernier fichier nupkg
 
-1. Accédez à https://www.powershellgallery.com/packages/Az.ApplicationMonitor
+1. Atteindre https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
 2. Sélectionnez la dernière version du fichier dans la table **Historique des versions**.
 3. Sous **Options d’installation**, sélectionnez **Téléchargement manuel**.
 
-### <a name="option-1-install-into-a-powershell-modules-directory"></a>Option 1 : Installer dans un répertoire de modules PowerShell
+### <a name="option-1-install-into-a-powershell-modules-directory"></a>Option 1 : Installer dans un répertoire de modules PowerShell
 Installez le module PowerShell téléchargé manuellement dans un répertoire PowerShell afin qu’il soit détectable par les sessions PowerShell.
 Pour plus d’informations, consultez l’article [Installation d’un module PowerShell](/powershell/scripting/developer/module/installing-a-powershell-module).
 
@@ -191,7 +189,7 @@ Pour plus d’informations, consultez l’article [Installation d’un module Po
     Expand-Archive -LiteralPath $pathToNupkg -DestinationPath $pathInstalledModule
     ```
 
-### <a name="option-2-unzip-and-import-nupkg-manually"></a>Option 2 : Décompresser et importer le fichier nupkg manuellement
+### <a name="option-2-unzip-and-import-nupkg-manually"></a>Option n°2 : Décompresser et importer le fichier nupkg manuellement
 Installez le module PowerShell téléchargé manuellement dans un répertoire PowerShell afin qu’il soit détectable par les sessions PowerShell.
 Pour plus d’informations, consultez l’article [Installation d’un module PowerShell](/powershell/scripting/developer/module/installing-a-powershell-module).
 

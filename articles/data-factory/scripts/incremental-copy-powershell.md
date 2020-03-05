@@ -10,15 +10,16 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: 9f1a18155a0be4bc19e723ca04cf6770166a25af
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9a488fb2c4f7f3390fc0ac0e11cdf57bbf030bf6
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913372"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255962"
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>Script PowerShell - Charger de façon incrémentielle des données à l’aide d’Azure Data Factory
-Cet exemple de script PowerShell charge uniquement les enregistrements nouveaux ou mis à jour à partir d’un magasin de données source dans un magasin de données récepteur, après la copie initiale complète des données de la source vers le récepteur.  
+
+Cet exemple de script PowerShell charge uniquement les enregistrements nouveaux ou mis à jour à partir d’un magasin de données source vers un magasin de données récepteur, après la copie initiale complète des données de la source vers le récepteur.  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -31,7 +32,7 @@ Consultez le [Didacticiel : Copie incrémentielle](../tutorial-incremental-copy
 > [!IMPORTANT]
 > Ce script crée des fichiers JSON qui définissent des entités Data Factory (service lié, jeu de données et pipeline) sur votre disque dur dans le dossier c:\.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/incremental-copy-from-azure-sql-to-blob/incremental-copy-from-azure-sql-to-blob.ps1 "Incremental copy from Azure SQL Database to Azure Blob Storage")]
+:::code language="powershell" source="~/powershell_scripts/data-factory/incremental-copy-from-azure-sql-to-blob/incremental-copy-from-azure-sql-to-blob.ps1":::
 
 ## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 

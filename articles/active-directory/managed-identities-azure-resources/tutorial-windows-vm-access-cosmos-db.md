@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f99859fb695281324148683fac24c9e7b8463ef5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9648c714ddbac93bcc76d84e7f6d8f2fcfaed992
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977896"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248232"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Ce didacticiel vous indique comment utiliser une identité managée attribuée p
 > * Obtenir un jeton d’accès à l’aide de l’identité managée attribuée par le système de machine virtuelle Windows pour appeler Azure Resource Manager
 > * Obtenir les clés d’accès à partir d’Azure Resource Manager pour effectuer des appels Cosmos DB
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -128,13 +128,13 @@ La réponse vous donne la liste des clés.  Par exemple, si vous obtenez des cl�
 ```
 Maintenant que vous disposez de la clé d’accès pour le compte Cosmos DB, vous pouvez la passer à un SDK Cosmos DB et effectuer des appels pour accéder au compte.  Pour un exemple rapide, vous pouvez passer la clé d’accès à Azure CLI.  Vous pouvez obtenir l’`<COSMOS DB CONNECTION URL>` sous l’onglet **Vue d’ensemble**, dans le panneau du compte Cosmos DB, dans le portail Azure.  Remplacez `<ACCESS KEY>` par la valeur que vous avez obtenue ci-dessus :
 
-```bash
+```azurecli
 az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>
 ```
 
 Cette commande CLI retourne des informations détaillées sur la collection :
 
-```bash
+```output
 {
   "collection": {
     "_conflicts": "conflicts/",

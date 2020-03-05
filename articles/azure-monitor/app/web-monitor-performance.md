@@ -1,19 +1,15 @@
 ---
 title: Surveillez l'intégrité et l'utilisation de votre application avec Application Insights
 description: Prise en main d'Application Insights. Analyze usage, availability and performance of your on-premises or Microsoft Azure applications.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: ebf6fa6d3dac6c63dfaa349a77a08bc81d402ef8
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e398f23559729580ae4ad8b6507c2f09328052b5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899297"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670897"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Analyse des performances dans les applications web
 
@@ -109,7 +105,7 @@ Voici quelques conseils pour identifier et diagnostiquer les problèmes de perfo
 * Surveillez votre application web en cours de fonctionnement avec le [Flux de métriques temps réel][livestream].
 * Capturez l’état de votre application .NET avec le [Débogueur de capture instantanée][snapshot].
 
-## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Rechercher et corriger les goulots d’étranglement avec une expérience analyse de performances
+## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Rechercher et corriger les goulots d’étranglement avec une expérience d'analyse des performances
 
 Vous pouvez utiliser l’expérience d’analyse des performances d’Application Insights pour examiner les opérations qui s’exécutent lentement dans votre application web. Vous pouvez sélectionner rapidement une opération lente spécifique et utiliser le [profileur](../../azure-monitor/app/profiler.md) pour analyser les causes profondes du ralentissement jusqu’au niveau du code. À l’aide de la nouvelle distribution de durée indiquée pour l’opération sélectionnée, vous pouvez en un clin d’œil évaluer la gravité du problème pour vos clients. Vous pouvez voir le nombre des interactions utilisateur qui sont concernées pour chaque opération lente. Dans l’exemple suivant, nous avons décidé d’observer de plus près l’environnement pour l’opération GET Customers/Details. Dans la distribution de la durée, nous constatons que trois pics sont visibles. Celui de gauche indique environ 400 ms et correspond à un environnement présentant une bonne réactivité. Le pic du milieu indique environ 1,2 s et représente un environnement médiocre. Enfin, à 3,6 s, une autre petite pointe représente l’environnement au 99e centile, susceptible de causer l’insatisfaction de nos clients. Cet environnement est dix fois plus lent que l’environnement avancé pour la même opération. 
 

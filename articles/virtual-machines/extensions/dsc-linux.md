@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 102433b88ffb140cae46433be1c0edef90857e6d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2f04b5ecb2019a77bbb38e97c3869cc0a9447955
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969931"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921519"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extension DSC pour Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -38,7 +38,7 @@ L’extension DSCForLinux est publiée et prise en charge par Microsoft. L’ext
 
  
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="operating-system"></a>Système d’exploitation
 
@@ -290,6 +290,9 @@ Pour en savoir plus sur les modèles Azure Resource Manager, consultez [Créatio
 Avant de déployer l’extension DSCForLinux, configurez `public.json` et `protected.json` conformément aux scénarios décrits à la section 3.
 
 #### <a name="classic"></a>Classique
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 Le mode de déploiement classique est également appelé mode Azure Service Management. Vous pouvez basculer vers ce mode en exécutant la commande suivante :
 ```
 $ azure config mode asm

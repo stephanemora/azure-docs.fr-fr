@@ -3,16 +3,17 @@ title: Compte de stockage managé Azure Key Vault - version PowerShell
 description: La fonctionnalité de compte de stockage managé assure une intégration fluide entre Azure Key Vault et un compte de stockage Azure.
 ms.topic: conceptual
 ms.service: key-vault
+ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 584a37ffb9727a48e2adb5e339697314cffe93f7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 833f78d89a1a9033e62c10c3b16c5adfc65e1da4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980848"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195088"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gérer les clés de compte de stockage avec Key Vault et Azure PowerShell
 
@@ -48,7 +49,7 @@ Key Vault est une application Microsoft préinscrite dans tous les locataires Az
 | Azure AD | Azure public | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | Autres  | Quelconque | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce guide, vous devez d’abord effectuer ce qui suit :
 

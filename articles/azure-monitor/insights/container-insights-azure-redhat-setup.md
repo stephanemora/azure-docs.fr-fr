@@ -3,12 +3,12 @@ title: Configurer des clusters Azure Red Hat OpenShift avec Azure Monitor pour l
 description: Cet article explique comment configurer la supervision d’un cluster Kubernetes avec Azure Monitor hébergé sur Azure Red Hat OpenShift.
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.openlocfilehash: 215835c04a1877ccdb6454c4c3902332b9dc1ab2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: c2fd3568be2c51296bb1377e91031ebfb7ca6ee3
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190074"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250694"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>Configurer des clusters Azure Red Hat OpenShift avec Azure Monitor pour les conteneurs
 
@@ -30,7 +30,7 @@ Azure Monitor pour conteneurs prend en charge la surveillance d’Azure Red Hat 
 - Données actives (préversion)
 - [Collecter les métriques](container-insights-update-metrics.md) à partir des nœuds de cluster et des Pod, et les stocker dans la base de données de métriques Azure Monitor
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Pour activer et accéder aux fonctionnalités d’Azure Monitor pour les conteneurs, vous devez au minimum être membre du rôle Azure *Contributeur* dans l’abonnement Azure et membre du rôle [*Contributeur Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) de l’espace de travail Log Analytics configuré avec Azure Monitor pour les conteneurs.
 
@@ -113,7 +113,7 @@ L’espace de travail Log Analytics doit être créé avant d’activer la surv
 
     La sortie se présente comme suit :
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 
@@ -197,7 +197,7 @@ L’espace de travail Log Analytics doit être créé avant d’activer la surv
 
     La sortie se présente comme suit :
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 

@@ -1,18 +1,17 @@
 ---
 title: Utilisation de chaînes dans des requêtes de journal dans Azure Monitor | Microsoft Docs
 description: Cet article présente un tutoriel décrivant l’utilisation d’Azure Monitor Log Analytics dans le portail Azure pour interroger et analyser des données de journal dans Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 940c82e9ef7016639a3ab334040c408f83996e2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8be4f318149590ff08b73fda719e99a17220ec2e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365306"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670149"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Utilisation de JSON et de structures de données dans des requêtes de journal dans Azure Monitor
 

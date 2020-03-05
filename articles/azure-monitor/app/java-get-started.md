@@ -1,18 +1,16 @@
 ---
 title: 'Démarrage rapide : Analytique d’une application web Java avec Azure Application Insights'
 description: 'Analyse des performances des applications pour les applications web Java à l’aide d’Application Insights. '
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: abc16f8e1fdc6b81634b926eeb287e5d03efdc40
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 484d4e8df8a8fdceed62a65858126a16d028121e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963680"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670081"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Démarrage rapide : Prise en main d'Application Insights dans un projet web Java
 
@@ -20,7 +18,7 @@ Dans ce démarrage rapide, vous utilisez Application Insights pour instrumenter 
 
 Application Insights est un service d’analyse extensible pour développeurs web qui vous permet de comprendre les performances et l’utilisation de votre application en direct. Application Insights prend en charge les applications Java exécutées sur Linux, Unix ou Windows.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Application Java fonctionnelle.
@@ -38,7 +36,7 @@ Application Insights est un service d’analyse extensible pour développeurs w
 
 *Choisissez votre type de projet.*
 
-# <a name="maventabmaven"></a>[Maven](#tab/maven)
+# <a name="maven"></a>[Maven](#tab/maven)
 
 Si votre projet est déjà configuré pour être généré avec Maven, fusionnez le code suivant dans votre fichier *pom.xml*.
 
@@ -56,7 +54,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
     </dependencies>
 ```
 
-# <a name="gradletabgradle"></a>[Gradle](#tab/gradle)
+# <a name="gradle"></a>[Gradle](#tab/gradle)
 
 Si votre projet est déjà configuré pour être généré avec Gradle, fusionnez le code suivant dans votre fichier *build.gradle*.
 
@@ -70,7 +68,7 @@ Actualisez ensuite les dépendances du projet pour télécharger les fichiers bi
     }
 ```
 
-# <a name="other-typestabother"></a>[Autres types](#tab/other)
+# <a name="other-types"></a>[Autres types](#tab/other)
 
 Téléchargez la [version la plus récente](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) et copiez les fichiers nécessaires dans votre projet, en remplaçant toutes les versions antérieures.
 

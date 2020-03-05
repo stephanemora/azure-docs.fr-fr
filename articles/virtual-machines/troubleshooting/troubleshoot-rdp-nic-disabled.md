@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 3849106fbc488f456a4d267d0ccef76647c1939f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 315974e4995630eb3af055ac0e1c44f7d8dd0737
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981311"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918238"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Impossible de connecter un bureau à distance à une machine virtuelle car l'interface réseau est désactivée
 
 Cet article explique comment résoudre un problème où une connexion Bureau à distance à des machines virtuelles Azure Windows est impossible si l’interface réseau est désactivée.
 
-> [!NOTE]
-> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/management/deployment-models.md). Cet article traite du modèle de déploiement Resource Manager, que nous recommandons pour les nouveaux déploiements plutôt que le modèle de déploiement Classic.
 
 ## <a name="symptoms"></a>Symptômes
 

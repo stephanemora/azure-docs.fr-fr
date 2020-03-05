@@ -1,18 +1,17 @@
 ---
 title: Solution Wire Data dans Azure Monitor | Microsoft Docs
 description: Les données de communication sont des données de performances et réseau consolidées provenant des ordinateurs avec des agents Log Analytics. Les données réseau sont associées à vos données de journaux pour vous aider à mettre les données en corrélation.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/03/2018
-ms.openlocfilehash: 031a09203ab2ab2bcfcdf4352e975c1374446c25
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ee7a2f49641eb0cfe1f8a4bffb44c7f8642408fa
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365799"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670642"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solution Wire Data 2.0 (préversion) dans Azure Monitor
 
@@ -74,7 +73,7 @@ Si vous êtes un utilisateur de System Center Operations Manager avec un groupe 
 
 Si vos ordinateurs Windows ou Linux ne peuvent pas se connecter directement au service, vous devez configurer l’agent Log Analytics pour qu’il se connecte à Azure Monitor à l’aide de la passerelle Log Analytics. Vous pouvez télécharger la passerelle Log Analytics à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=52666).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Requiert l’offre de solution [Insight & Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing).
 - Si vous utilisez la version précédente de la solution Wire Data, vous devez commencer par la supprimer. Cependant, toutes les données capturées par la solution Wire Data d’origine restent disponibles dans Wire Data 2.0 et la Recherche dans les journaux.

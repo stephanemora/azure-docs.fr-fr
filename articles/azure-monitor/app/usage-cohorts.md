@@ -1,19 +1,17 @@
 ---
 title: Cohortes d’utilisation Azure Application Insights | Microsoft Docs
 description: Analyser différents jeux d’utilisateurs, sessions, événements ou opérations qui partagent un point commun
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 27b57477712c61fc97ae31ac353647896cca18af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0c552e8f3e732c49da02b2f5704fb9cf312fb3e8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406318"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671084"
 ---
 # <a name="application-insights-cohorts"></a>Cohortes Application Insights
 

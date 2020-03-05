@@ -1,18 +1,14 @@
 ---
 title: Augmentation anormale du volume des exceptions – Azure Application Insights
 description: Surveillez les exceptions d’application à l’aide de la détection intelligente dans Azure Application Insights afin de déterminer si le volume des exceptions présente des anomalies.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/08/2017
-ms.openlocfilehash: b524000f78741b2ff8cf442d2daaef0c7945799a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a08fae4774a8afb9959f55ea3196cd1a45c33439
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432434"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671764"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>Élévation anormale du volume des exceptions (préversion)
 

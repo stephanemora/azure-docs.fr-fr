@@ -7,14 +7,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/04/2019
+ms.date: 02/26/2020
 ms.author: tamram
-ms.openlocfilehash: c5d32b91043d310e51143357ad51631463f7e991
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 4cc58838827d1ee9337216d9ccb56696735ead7e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892496"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664250"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Démarrage rapide : Charger, télécharger et lister des blobs avec PowerShell
 
@@ -97,19 +97,16 @@ Get-AzStorageBlobContent -Blob "Image002.png" `
 
 ## <a name="data-transfer-with-azcopy"></a>Transfert de données avec AzCopy
 
-L’utilitaire [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) est une autre option hautes performances pour transférer des données par script avec le stockage Azure. Utilisez AzCopy pour transférer des données à destination et à partir du stockage Blob, Table et Fichier.
+L’utilitaire en ligne de commande AzCopy assure un transfert de données hautement performant et scriptable pour Stockage Azure. Vous pouvez utiliser AzCopy pour transférer des données depuis et vers le stockage Blob et Azure Files. Pour plus d’informations sur AzCopy v10, la dernière version d’AzCopy, consultez [Bien démarrer avec AzCopy](../common/storage-use-azcopy-v10.md). Pour plus d’informations sur l’utilisation d’AzCopy v10 avec le stockage Blob, consultez [Transférer des données avec AzCopy et le stockage Blob](../common/storage-use-azcopy-blobs.md).
 
-Exemple rapide : voici la commande AzCopy qui permet de charger un fichier appelé *myfile.txt* dans le conteneur *mystoragecontainer* à partir de la fenêtre de PowerShell.
+L’exemple suivant utilise AzCopy pour charger un fichier local dans un objet blob. Pensez à remplacer les valeurs de l’exemple par vos propres valeurs :
 
 ```powershell
-./AzCopy `
-    /Source:C:\myfolder `
-    /Dest:https://mystorageaccount.blob.core.windows.net/mystoragecontainer `
-    /DestKey:<storage-account-access-key> `
-    /Pattern:"myfile.txt"
+azcopy login
+azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Supprimez toutes les ressources que vous avez créées. Pour ce faire, le plus simple consiste à supprimer le groupe de ressources. La suppression du groupe de ressources supprime aussi toutes les ressources qu’il contient. Dans l’exemple suivant, la suppression du groupe de ressources supprime aussi le compte de stockage et le groupe de ressources.
 

@@ -3,20 +3,20 @@ title: Exemples de transformation de revendications de chaînes pour les straté
 titleSuffix: Azure AD B2C
 description: Exemples de transformations de revendications de chaînes pour le schéma Identity Experience Framework (IEF) d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/24/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e220009ec04ce732d99a53432077d681707e28d1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 678385d9ed16a9821fc61be476e7eb9eaf6fd4f1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585728"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183701"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 
@@ -363,7 +363,7 @@ Utilisez cette transformation de revendication pour mettre en forme une chaîne 
 - Revendications de sortie :
     - **outputClaim** : Joe Fernando
 
-## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation 
+## <a name="getlocalizedstringstransformation"></a>GetLocalizedStringsTransformation
 
 Copie les chaînes localisées dans des revendications.
 
@@ -428,9 +428,9 @@ La transformation de revendications définit la valeur du type de revendication 
 
 - Revendications de sortie :
   - **subject** : Code de vérification de l’e-mail du compte Contoso
-  - **message** : Merci, votre compte a été vérifié. 
-  - **codeIntro** : Votre code est 
-  - **signature** : Cordialement,  
+  - **message** : Merci, votre compte a été vérifié.
+  - **codeIntro** : Votre code est
+  - **signature** : Cordialement,
 
 
 ## <a name="getmappedvaluefromlocalizedcollection"></a>GetMappedValueFromLocalizedCollection
@@ -618,7 +618,7 @@ Vérifie qu’une revendication de chaîne `claimToMatch` et un paramètre d’e
 | OutputClaim | outputClaim | string | Si l’expression régulière correspond, cette revendication de sortie contient la valeur du paramètre d’entrée `outputClaimIfMatched`. Si aucune correspondance n’est trouvée, la valeur sera Null. |
 | OutputClaim | regexCompareResultClaim | boolean | Type de revendication de la sortie de résultat de correspondance d’expression régulière, qui doit être défini sur `true` ou `false` en fonction du résultat de la correspondance. |
 
-Par exemple, vérifie si le numéro de téléphone fourni est valide, selon le modèle d’expression régulière de numéro de téléphone.  
+Par exemple, vérifie si le numéro de téléphone fourni est valide, selon le modèle d’expression régulière de numéro de téléphone.
 
 ```XML
 <ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
@@ -755,7 +755,7 @@ Détermine si une sous-chaîne spécifiée apparaît dans la revendication d’e
 Utilisez cette transformation de revendication pour vérifier si un type de revendication de chaîne contient une sous-chaîne. L’exemple suivant vérifie si le type de revendication de chaîne `roles` contient la valeur **admin**.
 
 ```XML
-<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains"> 
+<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
   </InputClaims>
@@ -765,7 +765,7 @@ Utilisez cette transformation de revendication pour vérifier si un type de reve
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
-  </OutputClaims>         
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -777,7 +777,7 @@ Utilisez cette transformation de revendication pour vérifier si un type de reve
     - **contains** : "admin,"
     - **ignoreCase** : true
 - Revendications de sortie :
-    - **outputClaim** : true 
+    - **outputClaim** : true
 
 ## <a name="stringsubstring"></a>StringSubstring
 
@@ -790,7 +790,7 @@ Extrait des parties d’un type de revendication de chaîne, en commençant au c
 | InputParameter | length | int | Nombre de caractères dans la sous-chaîne. |
 | OutputClaim | outputClaim | boolean | Chaîne équivalente à la sous-chaîne length qui commence au niveau de startIndex dans cette instance, ou Empty si startIndex est égal à la longueur de cette instance et que la longueur est égale à zéro. |
 
-Par exemple, obtenir le préfixe du pays du numéro de téléphone.  
+Par exemple, obtenir le préfixe du pays du numéro de téléphone.
 
 
 ```XML
@@ -828,7 +828,7 @@ Recherche une valeur spécifiée dans une chaîne de type de revendication et re
 | InputParameter | newValue | string | Chaîne permettant de remplacer toutes les occurrences de `oldValue`. |
 | OutputClaim | outputClaim | boolean | Chaîne équivalente à la chaîne actuelle, sauf que toutes les instances de oldValue sont remplacées par newValue. Si oldValue est introuvable dans l’instance actuelle, la méthode retourne l’instance actuelle sans modification. |
 
-Par exemple, normalisez un numéro de téléphone en supprimant les caractères `-`  
+Par exemple, normalisez un numéro de téléphone en supprimant les caractères `-`
 
 
 ```XML
@@ -864,7 +864,7 @@ Concatène les éléments d’un type de revendication de collection de chaînes
 | InputClaim | inputClaim | stringCollection | Collection qui contient les chaînes à concaténer. |
 | InputParameter | delimiter | string | Chaîne à utiliser comme séparateur, telle que la virgule `,`. |
 | OutputClaim | outputClaim | string | Chaîne composée des membres de la collection de chaînes `inputClaim`, délimitée par le paramètre d’entrée `delimiter`. |
-  
+
 L’exemple suivant prend une collection de chaînes de rôles d’utilisateur et la convertit en chaîne délimitée par des virgules. Vous pouvez utiliser cette méthode pour stocker une collection de chaînes dans un compte d’utilisateur Azure AD. Plus tard, lorsque vous lirez le compte à partir du répertoire, utilisez le paramètre `StringSplit` pour reconvertir la chaîne délimitée par des virgules en collection de chaînes.
 
 ```XML
@@ -900,7 +900,7 @@ Retourne un tableau de chaînes qui contient les sous-chaînes de cette instance
 | InputClaim | inputClaim | string | Type de revendication de chaîne qui contient les sous-chaînes à fractionner. |
 | InputParameter | delimiter | string | Chaîne à utiliser comme séparateur, telle que la virgule `,`. |
 | OutputClaim | outputClaim | stringCollection | Collection de chaînes dont les éléments contiennent les sous-chaînes de cette chaîne, qui sont délimitées par le paramètre d’entrée `delimiter`. |
-  
+
 L’exemple suivant prend une chaîne de rôles d’utilisateur délimitée par des virgules et la convertit en collection de chaînes.
 
 ```XML
@@ -925,7 +925,7 @@ L’exemple suivant prend une chaîne de rôles d’utilisateur délimitée par 
   - **delimiter** : ","
 - Revendications de sortie :
   - **outputClaim** : [ "Admin", "Author", "Reader" ]
-  
+
 ## <a name="string-claim-transformations-expressions"></a>Expressions de transformations de revendications de chaînes
 Les expressions de transformations de revendications dans les stratégies personnalisées Azure AD B2C fournissent des informations contextuelles sur l’ID du locataire et l’ID du profil technique.
 

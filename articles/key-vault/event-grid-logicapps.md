@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c2a15393c5c8e685e9a565f1099eeee935c0d5da
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8d43a254ad79a13320fa2c5a19cf4bc8d6e2c968
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845845"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199748"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Utilisez Logic Apps pour recevoir un e-mail sur les changements d’état des secrets du coffre de clés
 
@@ -22,7 +23,7 @@ Dans ce guide, vous allez apprendre à répondre aux événements Azure Key Vaul
 
 Pour obtenir une vue d’ensemble de l’intégration d’Azure Key Vault/Azure Event Grid, consultez [Supervision de Key Vault avec Azure Event Grid (préversion)](event-grid-overview.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Un compte e-mail d’un fournisseur d’e-mail pris en charge par Azure Logic Apps (par exemple Office 365 Outlook). Ce compte e-mail permet d’envoyer les notifications d’événements. Pour obtenir la liste complète des connecteurs d’application logique pris en charge, consultez la [Vue d’ensemble des connecteurs](/connectors).
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.

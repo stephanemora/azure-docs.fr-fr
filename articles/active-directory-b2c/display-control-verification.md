@@ -3,20 +3,20 @@ title: Vérifier les revendications avec des contrôles d'affichage
 titleSuffix: Azure AD B2C
 description: Découvrez comment utiliser les contrôles d'affichage Azure AD B2C pour vérifier les revendications dans les parcours utilisateur prévus par vos stratégies personnalisées.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/10/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4d7deb02e28734eb2b4c42bad566fdfd0d380682
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ff2a8ad05e26ea31fc8100d4000171313881f4e1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474707"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188781"
 ---
 # <a name="verification-display-control"></a>Contrôle d’affichage de vérification
 

@@ -3,20 +3,20 @@ title: Activer la vérification du mot de passe à usage unique (OTP)
 titleSuffix: Azure AD B2C
 description: Découvrez comment configurer un scénario de mot de passe à usage unique (OTP) en utilisant des stratégies personnalisées Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/10/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9becb91cfffd4553b2b8aa1a2d616963eae92ab0
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: 701fb64dd85526bc79cab48bf36d4583da71ca76
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114056"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184024"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Définir un profil technique de mot de passe à usage unique dans une stratégie personnalisée Azure AD B2C
 

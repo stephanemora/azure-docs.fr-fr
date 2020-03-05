@@ -3,12 +3,12 @@ title: Utilisation du plug-in Azure Dev Spaces pour Jenkins avec Azure Kubernet
 description: Découvrez comment utiliser le plug-in Azure Dev Spaces dans un pipeline d’intégration continue.
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: 10dfbdb7d89d6f3870ec3b9dbd87d4d315360815
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 7b23893eb331f55ff41992a2ca660e79f44a609a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77619983"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250900"
 ---
 # <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>Tutoriel : Utilisation du plug-in Azure Dev Spaces pour Jenkins avec Azure Kubernetes Service 
 
@@ -53,26 +53,26 @@ Dans cette section, vous allez créer des ressources Azure :
 
 1. Créez un groupe de ressources.
 
-    ```bash
+    ```azurecli
     az group create --name MyResourceGroup --location westus2
     ```
 
 2. Créez un cluster AKS. Créez le cluster AKS dans une [région qui prend en charge Dev Spaces](../dev-spaces/about.md#supported-regions-and-configurations).
 
-    ```bash
+    ```azurecli
     az aks create --resource-group MyResourceGroup --name MyAKS --location westus2 --kubernetes-version 1.11.9 --enable-addons http_application_routing --generate-ssh-keys --node-count 1 --node-vm-size Standard_D1_v2
     ```
 
 3. Configurez ACS en vue d’utiliser Dev Spaces.
 
-    ```bash
+    ```azurecli
     az aks use-dev-spaces --resource-group MyResourceGroup --name MyAKS
     ```
     Cette étape installe l’extension CLI `azds`.
 
 4. Créez un registre de conteneurs.
 
-    ```bash
+    ```azurecli
     az acr create -n MyACR -g MyResourceGroup --sku Basic --admin-enabled true
     ```
 
@@ -225,7 +225,7 @@ L’exemple de pipeline utilise Helm et kubectl pour le déploiement sur l’esp
 
 3. Pour afficher vos informations d’identification ACR, exécutez cette commande :
 
-    ```bash
+    ```azurecli
     az acr credential show -n <yourRegistryName>
     ```
 
@@ -251,7 +251,7 @@ L’exemple de pipeline utilise Helm et kubectl pour le déploiement sur l’esp
 
 5. Configurez des informations d’identification AKS. Ajoutez un type d’informations d’identification *Kubernetes configuration (kubeconfig)* dans Jenkins. Utilisez pour cela l’option « Enter directly » (Entrer directement). Pour obtenir les informations d’identification d’accès pour votre cluster AKS, exécutez la commande suivante :
 
-    ```cmd
+    ```azurecli
     az aks get-credentials -g MyResourceGroup -n <yourAKSName> -f -
     ```
 
@@ -403,7 +403,7 @@ stage('smoketest') {
 
 Quand vous avez terminé d’utiliser l’exemple d’application, nettoyez les ressources Azure en supprimant le groupe de ressources :
 
-```bash
+```azurecli
 az group delete -y --no-wait -n MyResourceGroup
 ```
 

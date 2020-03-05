@@ -7,12 +7,12 @@ ms.date: 08/23/2019
 ms.custom: seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: c02caf7c70dfe88bd3312742fce08137bc360a2e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 585eb1f11a285722e34c6dd084f4c6cb26a06249
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671419"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247613"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Créer une application web Node.js dans Azure
 
@@ -34,7 +34,7 @@ Vous pouvez suivre ces étapes en utilisant un ordinateur Mac, Windows ou Linux.
 
 Dans Cloud Shell, créez un répertoire de démarrage rapide, puis utilisez-le.
 
-```azurecli-interactive
+```console
 mkdir quickstart
 
 cd $HOME/quickstart
@@ -42,13 +42,13 @@ cd $HOME/quickstart
 
 Exécutez ensuite la commande suivante pour cloner le référentiel de l’exemple d’application sur votre répertoire de démarrage rapide.
 
-```azurecli-interactive
+```console
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
 
 Pendant son exécution, des informations semblables à ce qui suit s’affichent :
 
-```bash
+```output
 Cloning into 'nodejs-docs-hello-world'...
 remote: Counting objects: 40, done.
 remote: Total 40 (delta 0), reused 0 (delta 0), pack-reused 40
@@ -102,7 +102,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 Accédez à votre nouvelle application web. Remplacez `<app_name>` par un nom d’application unique.
 
-```
+```http
 http://<app_name>.azurewebsites.net
 ```
 
@@ -112,7 +112,7 @@ Voici à quoi doit ressembler votre nouvelle application web : ![Page d’applic
 
 Dans Cloud Shell, accédez au répertoire racine de votre application, créez un fichier ZIP pour votre exemple de projet.
 
-```azurecli-interactive
+```console
 cd nodejs-docs-hello-world  
 
 zip -r myUpdatedAppFiles.zip *.*
@@ -130,7 +130,7 @@ Cette commande déploie les fichiers et répertoires du fichier ZIP vers votre d
 
 Accédez à l’application déployée à l’aide de votre navigateur web.
 
-```
+```http
 http://<app_name>.azurewebsites.net
 ```
 

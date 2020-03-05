@@ -3,17 +3,16 @@ title: Collecter les journaux d’activité de ressources Azure dans l’espace 
 description: Découvrez comment diffuser en continu les journaux de diagnostic Azure vers un espace de travail Log Analytics dans Azure Monitor.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: b0b8757590876669e00e81378411c010514e3036
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 36bd464624118b7671a3879bcc1d34114bba9ce3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750368"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658997"
 ---
 # <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Collecter les journaux de plateforme Azure dans l’espace de travail Log Analytics dans Azure Monitor
 [Les journaux de plateforme](platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Cet article décrit la collecte de journaux de ressources dans un espace de travail Log Analytics, ce qui vous permet d’analyser ceux-ci avec d’autres données de surveillance collectées dans les journaux Azure Monitor à l’aide de puissantes requêtes de journal, ainsi que d’exploiter d’autres fonctionnalités d’Azure Monitor, telles que les alertes et les visualisations. 
@@ -26,7 +25,7 @@ La collecte de journaux de plateforme dans un espace de travail Log Analytics vo
 * **Génération d'alertes** - Recevez une notification proactive des conditions et modèles critiques identifiés dans vos journaux de ressources à l’aide des [alertes de journal dans Azure Monitor](alerts-log.md).
 * **Visualisations** - Épinglez les résultats d’une requête de journal dans un tableau de bord Azure ou incluez-les dans un classeur en tant que rapport interactif.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Si vous n’en avez pas déjà, vous devez [créer un espace de travail](../learn/quick-create-workspace.md). Cet espace de travail ne doit pas nécessairement se trouver dans le même abonnement que la ressource qui envoie des journaux d’activité, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
 
 ## <a name="create-a-diagnostic-setting"></a>Créer un paramètre de diagnostic

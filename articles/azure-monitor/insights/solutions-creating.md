@@ -1,19 +1,18 @@
 ---
 title: Générer une solution de gestion dans Azure | Microsoft Docs
 description: Les solutions de gestion incluent des scénarios de gestion prêts à l’emploi dans Azure que les clients peuvent ajouter à leur espace de travail Log Analytics.  Cet article fournit des informations sur la manière dont vous pouvez créer des solutions de gestion à utiliser dans votre propre environnement ou à mettre à la disposition de vos clients.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5465c177cf174ebf8d6b7d4f43c5387bce3adb70
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f1605597c7716ba6a896c7ecdae968f07d66027b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969695"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663213"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Concevoir et générer une solution de gestion dans Azure (préversion)
 > [!NOTE]

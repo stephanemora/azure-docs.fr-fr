@@ -3,20 +3,20 @@ title: Profils techniques Azure MFA dans les stratégies personnalisées
 titleSuffix: Azure AD B2C
 description: Informations de référence sur les stratégies personnalisées pour les profils techniques Azure Multi-Factor Authentication (MFA) dans Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a8aaea6b2afb4d89e6e667edba0eeba2f4ddcca8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 05851dba9de06b5dfba2da4f455fbaf5e9376d08
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475055"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184279"
 ---
 # <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Définir un profil technique Azure MFA dans une stratégie personnalisée Azure AD B2C
 

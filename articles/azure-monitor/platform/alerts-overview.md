@@ -1,25 +1,19 @@
 ---
 title: Vue d’ensemble des alertes et de la surveillance des notifications dans Azure
 description: Vue d’ensemble des alertes dans Azure. Alertes, alertes classiques et interface des alertes.
-ms.service: azure-monitor
 ms.subservice: alerts
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: 7f6c7f22cef1cf49a9ff7b2cb87716abd61821c4
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 7ca77531ed3e1fae8ec297e430597452c7512aea
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830324"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665662"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Vue d’ensemble des alertes dans Microsoft Azure 
 
 Cet article décrit les alertes Microsoft Azure ainsi que leurs avantages, et comment commencer à les utiliser.  
-
-
-
 
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Que sont les alertes dans Microsoft Azure ?
 Les alertes vous avertissent de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes avant que les utilisateurs de votre système ne les remarquent. 
@@ -41,26 +35,29 @@ Les principaux attributs d’une règle d’alerte sont les suivants :
 **Signal** : émis par la ressource cible. Les signaux peuvent être des types suivants : Métrique, Journal d’activité, Application Insights et journal.
 
 **Critères** : combinaison du signal et de la logique appliqués à une ressource cible. Exemples : 
-   - Pourcentage d’UC > 70 %
-   - Temps de réponse du serveur > 4 ms 
-   - Nombre de résultats d’une requête de journal > 100
+
+- Pourcentage d’UC > 70 %
+- Temps de réponse du serveur > 4 ms 
+- Nombre de résultats d’une requête de journal > 100
 
 **Nom de l’alerte** : nom spécifique pour la règle d’alerte configurée par l’utilisateur.
 
 **Description de l’alerte** : description de la règle d’alerte configurée par l’utilisateur.
 
 **Gravité** : gravité de l’alerte une fois que les critères spécifiés dans la règle d’alerte réunis. La gravité peut être comprise entre 0 et 4.
-   - Sev 0 = Critique
-   - Sev 1 = Erreur
-   - Sev 2 = Avertissement
-   - Sev 3 = Informative
-   - Sev 4 = Détaillée 
+
+- Sev 0 = Critique
+- Sev 1 = Erreur
+- Sev 2 = Avertissement
+- Sev 3 = Informative
+- Sev 4 = Détaillée 
 
 **Action** : action spécifique effectuée lors du déclenchement de l’alerte. Pour plus d’informations, consultez [Groupes d’actions](../../azure-monitor/platform/action-groups.md).
 
 ## <a name="what-you-can-alert-on"></a>Sur quoi portent les alertes ?
 
 Vous pouvez déclencher des alertes sur des métriques et des journaux, comme décrit dans [Sources de données de supervision](../../azure-monitor/platform/data-sources.md). Ces vérifications portent notamment sur les revendications suivantes :
+
 - Valeurs de métrique
 - Requêtes de recherche de journal
 - Événements du journal d’activité
@@ -69,7 +66,7 @@ Vous pouvez déclencher des alertes sur des métriques et des journaux, comme d�
 
 Par le passé, les métriques Azure Monitor, Application Insights, Log Analytics et Service Health disposaient de fonctionnalités d’alerte distinctes. Au fil du temps, Azure a amélioré et combiné l’interface utilisateur et les différentes méthodes de génération d’alertes. Cette consolidation est toujours en cours. Par conséquent, certaines fonctionnalités ne sont pas encore disponibles dans le nouveau système d’alertes.  
 
-| **Source de la surveillance** | **Type de signal**  | **Description** | 
+| **Source de la surveillance** | **Type de signal**  | **Description** |
 |-------------|----------------|-------------|
 | État d’intégrité du service | Journal d’activité  | Non pris en charge. Consultez [Créer des alertes de journal d’activité sur les notifications de service](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
 | Application Insights | Tests de disponibilité web | Non pris en charge. Consultez [Alertes de test web](../../azure-monitor/app/monitor-web-app-availability.md). Disponibles pour tout site web instrumenté pour envoyer des données à Application Insights. Réception d’une notification lorsque la réactivité ou la disponibilité d’un site web est inférieure aux attentes. |
@@ -108,7 +105,7 @@ Vous pouvez filtrer cette vue en sélectionnant des valeurs dans les menus déro
 
 | Colonne | Description |
 |:---|:---|
-| Subscription | Sélectionnez les abonnements Azure pour lesquels vous souhaitez afficher les alertes. Vous pouvez sélectionner tous vos abonnements, si vous le souhaitez. Seules les alertes auxquelles vous pouvez accéder dans les abonnements sélectionnés sont incluses dans la vue. |
+| Abonnement | Sélectionnez les abonnements Azure pour lesquels vous souhaitez afficher les alertes. Vous pouvez sélectionner tous vos abonnements, si vous le souhaitez. Seules les alertes auxquelles vous pouvez accéder dans les abonnements sélectionnés sont incluses dans la vue. |
 | Resource group | Sélectionnez un seul groupe de ressources. Seules les alertes avec des cibles dans le groupe de ressources sélectionné sont incluses dans la vue. |
 | Plage temporelle | Seules les alertes déclenchées dans l’intervalle de temps sélectionné sont incluses dans l’affichage. Les valeurs prises en charge sont : dernière heure, dernières 24 heures, 7 derniers jours et 30 derniers jours. |
 
@@ -151,7 +148,7 @@ Vous pouvez filtrer l’affichage en sélectionnant les valeurs suivantes dans l
 
 | Colonne | Description |
 |:---|:---|
-| Subscription | Sélectionnez les abonnements Azure pour lesquels vous souhaitez afficher les alertes. Vous pouvez sélectionner tous vos abonnements, si vous le souhaitez. Seules les alertes auxquelles vous pouvez accéder dans les abonnements sélectionnés sont incluses dans la vue. |
+| Abonnement | Sélectionnez les abonnements Azure pour lesquels vous souhaitez afficher les alertes. Vous pouvez sélectionner tous vos abonnements, si vous le souhaitez. Seules les alertes auxquelles vous pouvez accéder dans les abonnements sélectionnés sont incluses dans la vue. |
 | Resource group | Sélectionnez un seul groupe de ressources. Seules les alertes avec des cibles dans le groupe de ressources sélectionné sont incluses dans la vue. |
 | Type de ressource | Sélectionnez un ou plusieurs types de ressources. Seules les alertes avec des cibles du type sélectionné sont incluses dans la vue. Cette colonne n’est disponible qu’après qu’un groupe de ressources a été spécifié. |
 | Ressource | Sélectionnez une ressource. Seules les alertes ayant ces ressources pour cible sont incluses dans l’affichage. Cette colonne n’est disponible qu’après qu’un type de ressource a été spécifié. |

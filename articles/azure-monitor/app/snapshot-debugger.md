@@ -1,19 +1,15 @@
 ---
 title: Débogueur de capture instantanée Azure Application Insights pour les applications .NET
 description: Des captures instantanées de débogage sont collectées automatiquement lorsque des exceptions sont levées dans des applications .NET de production
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/23/2019
 ms.reviewer: cweining
-ms.openlocfilehash: 44b4a7bb5910f7f2d89a9f76e21ccfcacda667fb
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 18f43ba90157d71ec9488b6858fa9f41b2ee42a5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932569"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671322"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 Quand une exception se produit, vous pouvez collecter automatiquement une capture instantanée de débogage à partir de votre application web dynamique. La capture instantanée indique l’état du code source et des variables au moment où l’exception a été levée. Le Débogueur de capture instantanée d’[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) analyse la télémétrie des exceptions à partir de votre application web. Il collecte des captures instantanées sur les principales exceptions levées afin que vous disposiez des informations dont vous avez besoin pour diagnostiquer des problèmes de production. Incluez le [package NuGet de collecte des captures instantanées](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application, et configurez éventuellement les paramètres de collecte dans [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Les captures instantanées apparaissent sur les [exceptions](../../azure-monitor/app/asp-net-exceptions.md) dans le portail Application Insights.

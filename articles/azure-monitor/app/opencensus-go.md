@@ -1,24 +1,20 @@
 ---
 title: Suivi OpenCensus Go avec Azure Application Insights | Microsoft Docs
 description: Fournit des instructions pour intégrer le suivi OpenCensus Go au redirecteur local et à Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/15/2018
-ms.openlocfilehash: ef67801fee574ae43d83af650d6b715e12426c7e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ddb8dfbf14f2c75e4d16693076e56a711d8861ad
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432558"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669979"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Collecter les traces distribuées à partir de Go (préversion)
 
 Application Insights prend désormais en charge le suivi distribué des applications Go grâce à une intégration à [OpenCensus](https://opencensus.io) et à notre nouveau [redirecteur local](./opencensus-local-forwarder.md). Cet article vous guide étape par étape dans le processus de configuration d’OpenCensus for Go et d’obtention de vos données de trace dans Application Insights.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Vous avez besoin d’un abonnement Azure.
 - Go doit être installé, cet article utilise la version 1.11, [Téléchargement de Go](https://golang.org/dl/).

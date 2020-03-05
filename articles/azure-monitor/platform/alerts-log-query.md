@@ -2,18 +2,16 @@
 title: Requêtes d’alertes de journal dans Azure Monitor | Microsoft Docs
 description: Fournit des recommandations concernant l’écriture de requêtes performantes pour les alertes de journal dans les mises à jour d’Azure Monitor et un processus de conversion des requêtes existantes.
 author: yossi-y
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: yossiy
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: bwren
 ms.subservice: alerts
-ms.openlocfilehash: 429770b7651a93473c03f5e386d8f7b72692c161
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fdf492b8f103e725046b9b1cbbd079c4d249664a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60995937"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667786"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Requêtes d’alertes de journal dans Azure Monitor
 [Les règles d’alerte basées sur des journaux d’activité Azure Monitor](alerts-unified-log.md) s’exécutent à intervalles réguliers ; vous devez donc vous assurer que leur écriture minime la surcharge et la latence. Cet article fournit des recommandations concernant l’écriture de requêtes performantes pour les alertes de journal et un processus de conversion des requêtes existantes. 

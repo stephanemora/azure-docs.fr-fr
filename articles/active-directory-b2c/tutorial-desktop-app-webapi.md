@@ -2,20 +2,20 @@
 title: 'Tutoriel : Accorder l’accès à une API web Node.js à partir d’une application de bureau'
 description: Tutoriel sur l’utilisation d’Active Directory B2C pour protéger une API web Node.js et l’appeler à partir d’une application de bureau .NET.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/12/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: a72c45f80d03cda7b176c421cc5498dd16c242ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 59670cda68f54e4c0b20b361f0688e6766acba61
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849869"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183372"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutoriel : Accorder l’accès à une API web Node.js depuis une application de bureau à l’aide d’Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Accorder des autorisations à l’API web
 > * Mettre à jour l’exemple pour utiliser l’application
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Effectuez les étapes et les prérequis du [Tutoriel : Authentifiez les utilisateurs dans un client de bureau natif](tutorial-desktop-app.md).
 
@@ -51,7 +51,7 @@ Pour appeler une API web protégée à partir d’une application client native,
 
 Dans le didacticiel des conditions requises, vous avez inscrit une application cliente native appelée *nativeapp1*. Les étapes suivantes configurent l’inscription de cette application native avec les étendues d’API que vous avez exposées pour *webapi1* dans la section précédente. Cela permet à l’application de bureau d’obtenir un jeton d’accès de la part d’Azure AD B2C que l’API web peut utiliser pour vérifier et fournir un accès délimité à ses ressources. Vous configurez et exécutez les exemples de code de l’application de bureau et de l’API web plus loin dans le didacticiel.
 
-#### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
+#### <a name="applications"></a>[Applications](#tab/applications/)
 
 1. Sélectionnez **Applications**, puis *nativeapp1*.
 1. Sélectionnez **Accès aux API**, puis **Ajouter**.
@@ -59,7 +59,7 @@ Dans le didacticiel des conditions requises, vous avez inscrit une application c
 1. Dans la liste déroulante **Sélectionner des étendues**, sélectionnez les étendues que vous avez définies précédemment. Par exemple, *demo.read* et *demo.write*.
 1. Sélectionnez **OK**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
 
 1. Sélectionnez **Inscriptions d’applications (préversion)** , puis sélectionnez l’application cliente native qui doit avoir accès à l’API. Par exemple, *nativeapp1*.
 1. Sous **Gérer**, sélectionnez **Autorisations de l’API**.

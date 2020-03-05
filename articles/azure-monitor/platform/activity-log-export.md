@@ -3,17 +3,16 @@ title: Exporter le journal d’activité Azure
 description: Exportez le journal d'activité Azure à des fins d’archivage ou Azure Event Hubs à des fins d'exportation en dehors d’Azure.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 1c2047fc4b92ecd5776cb835a2f2138c25f5cb65
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: edaa585ffb3448a80b021aa924a9d654ac829931
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845470"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668959"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exporter le journal d’activité vers le stockage ou Azure Event Hubs
 
@@ -31,7 +30,7 @@ Archiver le journal d'activité vers un compte de stockage est utile si vous sou
 * **Diffuser en continu sur des systèmes de journalisation et de télémétrie tiers** : Au fil du temps, la diffusion en continu sur Azure Event Hubs deviendra le mécanisme de diffusion de votre journal d’activité vers les solutions tierces SIEM et Log Analytics.
 * **Créer une plateforme de journalisation et de télémétrie personnalisée** : Si vous disposez déjà d’une plate-forme de télémétrie personnalisée, ou si vous envisagez d’en créer une, la nature hautement évolutive de publication et d’abonnement d’Event Hubs vous permet d’intégrer avec souplesse le journal d’activité.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="storage-account"></a>Compte de stockage
 Si vous archivez votre journal d’activité, vous devez [créer un compte de stockage](../../storage/common/storage-account-create.md), si vous n'en avez pas déjà. Nous vous déconseillons d'utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. Cependant, si vous archivez également des journaux et des métriques sur un compte de stockage, vous pouvez choisir d’utiliser ce même compte pour regrouper toutes vos données d’analyse au même emplacement.
@@ -120,10 +119,10 @@ Si un profil de journal existe déjà, vous devez tout d’abord le supprimer, p
 
     | Propriété | Obligatoire | Description |
     | --- | --- | --- |
-    | Name |Oui |Nom de votre profil de journal. |
+    | Nom |Oui |Nom de votre profil de journal. |
     | StorageAccountId |Non |ID de ressource du compte de stockage dans lequel le journal d’activité doit être enregistré. |
     | serviceBusRuleId |Non |ID de règle Service Bus pour l’espace de noms Service Bus dans lequel vous souhaitez que des concentrateurs d’événements soient créés. Il s'agit d'une chaîne au format `{service bus resource ID}/authorizationrules/{key name}`. |
-    | Location |Oui |Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. |
+    | Emplacement |Oui |Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. |
     | RetentionInDays |Oui |Nombre de jours pendant lesquels les événements doivent être conservés dans le compte de stockage, compris entre 1 et 365. Une valeur de zéro signifie que les journaux d’activité seront stockés pour une durée indéfinie. |
     | Category |Non |Liste séparée par des virgules des catégories d’événements qui doivent être collectées. Les valeurs possibles sont _Write_, _Delete_ et _Action_. |
 

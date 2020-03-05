@@ -2,19 +2,19 @@
 title: Solutions et formations pour Azure Active Directory B2C | Microsoft Docs
 description: Cet article vous fournit des liens vers les informations sur les solutions et les formations qui peuvent vous aider à comprendre et utiliser Azure Active Directory B2C pour les solutions métiers de bout en bout.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 82f78ba50a6717c1d14e4921bb3c46a3525ad2cf
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 9e00c872bb2794cdd8eb2560392ce058ae41b257
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063498"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186724"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Solutions et formations pour Azure Active Directory B2C
 

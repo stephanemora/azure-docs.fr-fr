@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/28/2019
-ms.openlocfilehash: dd7579c97e2166e2822ee5674bbcd5a8ad64d2c7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/27/2020
+ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201490"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921145"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Comprendre et ajuster les unités de streaming
 
@@ -32,7 +32,7 @@ La métrique de pourcentage d’utilisation des unités de streaming, comprise e
     ![Configuration d’un travail Stream Analytics sur le portail Azure][img.stream.analytics.preview.portal.settings.scale]
     
 4. Définissez les unités SU pour le travail à l’aide du curseur. Notez que vous êtes limité à des paramètres d’unité SU spécifiques. 
-5. Vous pouvez modifier le nombre d’unités SU affectées à votre travail, même s’il est en cours d’exécution. Cela n’est pas possible si votre travail utilise une [sortie non partitionnée](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) ou dispose d’une[ requête à plusieurs étapes avec différentes valeurs PARTITION BY](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). Vote travail doit également disposer d’au moins 6 unités SU pour modifier ce paramètre lorsque le travail est en cours d’exécution. Vous pouvez éventuellement choisir parmi un ensemble de valeurs SU lorsque le travail est en cours d’exécution. 
+5. Vous pouvez modifier le nombre d’unités SU affectées à votre travail, même s’il est en cours d’exécution. Cela n’est pas possible si votre travail utilise une [sortie non partitionnée](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) ou dispose d’une[ requête à plusieurs étapes avec différentes valeurs PARTITION BY](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). Vous pouvez éventuellement choisir parmi un ensemble de valeurs SU lorsque le travail est en cours d’exécution. 
 
 ## <a name="monitor-job-performance"></a>Surveillance des performances du travail
 À l’aide du portail Azure, vous pouvez suivre le débit d’un travail :

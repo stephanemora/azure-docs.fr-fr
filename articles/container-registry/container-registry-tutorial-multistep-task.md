@@ -4,14 +4,14 @@ description: Dans ce tutoriel, vous allez découvrir comment configurer une tâc
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: f5342e51af870b1e5f8651ea2d28894233ed8e62
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 7d84770f1b945ff47cb4e9118d9c342e67118722
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456077"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249917"
 ---
-# <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Didacticiel : exécuter un workflow de conteneur à plusieurs étapes dans le cloud lorsque vous validez le code source
+# <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutoriel : exécuter un workflow de conteneur à plusieurs étapes dans le cloud lorsque vous validez le code source
 
 En plus d'une [tâche rapide](container-registry-tutorial-quick-task.md), ACR Tasks prend en charge les workflows à plusieurs étapes avec plusieurs conteneurs qui peuvent se déclencher automatiquement lorsque vous validez le code source dans un référentiel Git. 
 
@@ -69,7 +69,9 @@ Cette tâche à plusieurs étapes effectue ce qui suit :
 
 Tout d’abord, renseignez ces variables d’environnement shell avec des valeurs appropriées pour votre environnement. Cette étape n’est pas strictement obligatoire, mais facilite un peu l’exécution des commandes multilignes de l’interface de ligne de commande Azure de ce didacticiel. Si vous ne renseignez pas ces variables d’environnement, vous devrez remplacer manuellement chaque valeur à chaque fois qu’elle apparaît dans les exemples de commandes.
 
-```azurecli-interactive
+[![Lancement de l’incorporation](https://shell.azure.com/images/launchcloudshell.png "Lancement d’Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
 GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
@@ -217,13 +219,13 @@ Maintenant que vous avez testé la tâche en l’exécutant manuellement, décle
 
 Vérifiez d’abord que vous êtes dans répertoire contenant votre clone local du [dépôt][sample-repo] :
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
 Exécutez alors les commandes suivantes pour créer, valider et envoyer un nouveau fichier vers votre duplication du référentiel sur GitHub :
 
-```azurecli-interactive
+```console
 echo "Hello World!" > hello.txt
 git add hello.txt
 git commit -m "Testing ACR Tasks"

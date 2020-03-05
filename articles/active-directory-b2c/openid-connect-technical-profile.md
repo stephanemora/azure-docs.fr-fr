@@ -3,20 +3,20 @@ title: Définir un profil technique OpenID Connect dans une stratégie personnal
 titleSuffix: Azure AD B2C
 description: Définissez un profil technique OpenID Connect dans une stratégie personnalisée d'Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/13/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fde27c468b6b5285e9e98f10a5fd04ee53c3c775
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 11d631f6977f760c8253fbaa0dc66af05def42a2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198001"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184007"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OpenID Connect dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -88,7 +88,7 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 | UsePolicyInRedirectUri | Non | Indique s’il faut utiliser une stratégie lors de la construction de l’URI de redirection. Lorsque vous configurez votre application dans le fournisseur d’identité, vous devez spécifier l’URI de redirection. L’URI de redirection pointe vers Azure AD B2C, `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`.  Si vous spécifiez `false`, vous devez ajouter un URI de redirection pour chaque stratégie que vous utilisez. Par exemple : `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/{policy-name}/oauth2/authresp`. |
 | MarkAsFailureOnStatusCode5xx | Non | Indique si une demande adressée à un service externe doit être marquée comme un échec si le code d’état HTTP s’inscrit dans la plage 5xx. Par défaut, il s’agit de `false`. |
 | DiscoverMetadataByTokenIssuer | Non | Indique si les métadonnées OIDC doivent être découvertes à l’aide de l’émetteur dans le jeton JSON Web Token. |
-| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous voulez utiliser un résolveur de revendications dans le profil technique, définissez ceci sur `true`. |
+| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
 

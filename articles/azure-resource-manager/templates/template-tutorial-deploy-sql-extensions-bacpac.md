@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 500e07296040305f1e469fde78988f2551440e58
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 27ac4b67aa19aa59abe80ccf9409acf7b587a22b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471194"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250096"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Tutoriel : Importer des fichiers SQL BACPAC avec des modèles Azure Resource Manager
 
@@ -24,19 +24,19 @@ Ce tutoriel décrit les tâches suivantes :
 > * Préparer un fichier BACPAC
 > * Ouvrir un modèle de démarrage rapide
 > * Modifier le modèle
-> * Déployer le modèle
+> * Déployez le modèle.
 > * Vérifier le déploiement
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
 * Visual Studio Code avec l’extension Outils Resource Manager Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](./use-vs-code-to-create-template.md).
 * Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur Azure SQL Server. Voici un exemple que vous pouvez utiliser pour générer un mot de passe :
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
 
@@ -49,8 +49,8 @@ Un fichier BACPAC est partagé dans [GitHub](https://github.com/Azure/azure-docs
 Le fichier BACPAC doit être stocké dans un compte Stockage Azure avant de pouvoir être importé à l’aide d’un modèle Resource Manager. Le script PowerShell suivant prépare le fichier BACPAC en suivant les étapes ci-dessous :
 
 * Télécharger le fichier BACPAC.
-* Créer un compte Azure Storage.
-* Créer un conteneur d’objets blob dans un compte de stockage.
+* Création d’un compte Azure Storage.
+* Créer un conteneur d’objets blob dans un compte de stockage
 * Télécharger le fichier BACPAC dans le conteneur.
 * Afficher la clé du compte de stockage et l’URL de l’objet blob
 

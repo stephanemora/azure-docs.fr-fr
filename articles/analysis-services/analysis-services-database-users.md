@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 26d7c2d8919573c4c971edd7cb0e01b06fef3012
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 51c01869e6152d8e9357644457df11f4fcf5ec5f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901491"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273699"
 ---
 # <a name="manage-database-roles-and-users"></a>Gérer les rôles et les utilisateurs de base de données
 
@@ -25,7 +25,7 @@ Les autorisations des rôles incluent :
 *  **Processus** : les utilisateurs peuvent se connecter et effectuer des opérations de traitement sur la base de données et analyser les données des bases de données du modèle.
 *  **Lecture** : les utilisateurs peuvent utiliser une application cliente pour se connecter et analyser les données des bases de données du modèle.
 
-Lorsque vous créez un projet de modèle tabulaire, vous créez des rôles et ajoutez des utilisateurs ou des groupes à ces rôles à l’aide du Gestionnaire de rôles dans les projets Visual Studio avec Analysis Services. Lors du déploiement sur un serveur, vous utilisez SQL Server Management Studio (SSMS), [cmdlets PowerShell Analysis Services](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) ou [Tabular Model Scripting Language](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) pour ajouter ou supprimer des rôles et des membres utilisateur.
+Lorsque vous créez un projet de modèle tabulaire, vous créez des rôles et ajoutez des utilisateurs ou des groupes à ces rôles à l’aide du Gestionnaire de rôles dans les projets Visual Studio avec Analysis Services. Lors du déploiement sur un serveur, vous utilisez SQL Server Management Studio (SSMS), [cmdlets PowerShell Analysis Services](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) ou [Tabular Model Scripting Language](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) pour ajouter ou supprimer des rôles et des membres utilisateur.
 
 Les **groupes de sécurité** doivent être [à extension de messagerie](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) avec la propriété `MailEnabled` définie sur `True`. Lorsque vous spécifiez un groupe par adresse e-mail, utilisez `obj:groupid@tenantid`.
 
@@ -85,7 +85,7 @@ Pour ajouter des rôles et des utilisateurs à une base de données du modèle d
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Pour ajouter des rôles et des utilisateurs à l’aide d’un script TMSL
 
-Vous pouvez exécuter un script TMSL dans la fenêtre XMLA dans SSMS ou à l’aide de PowerShell. Utilisez la commande [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) et l’objet [Rôles](https://docs.microsoft.com/bi-reference/tmsl/roles-object-tmsl).
+Vous pouvez exécuter un script TMSL dans la fenêtre XMLA dans SSMS ou à l’aide de PowerShell. Utilisez la commande [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) et l’objet [Rôles](https://docs.microsoft.com/analysis-services/tmsl/roles-object-tmsl).
 
 **Exemple de script TMSL**
 
@@ -151,5 +151,5 @@ Les filtres de lignes s’appliquent aux lignes spécifiées et aux lignes conne
 
   [Gérer les administrateurs de serveur](analysis-services-server-admins.md)   
   [Gérer Azure Analysis Services avec PowerShell](analysis-services-powershell.md)  
-  [Langage TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference)
+  [Langage TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference)
 

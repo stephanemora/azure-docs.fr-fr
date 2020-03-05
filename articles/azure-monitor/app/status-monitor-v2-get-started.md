@@ -1,18 +1,16 @@
 ---
 title: Bien démarrer avec Azure Application Insights Agent | Microsoft Docs
 description: Guide de démarrage rapide pour Application Insights Agent. Surveillez les performances de site web sans avoir à redéployer le site web. Fonctionne avec les applications web ASP.NET hébergées en local, dans des machines virtuelles ou sur Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 1ef354bc61d849a4d536bd26355ef21b0f1c0035
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 7819de1f3dfab7f934421de86c0481d2e063f7a4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899618"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671186"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Bien démarrer avec Azure Monitor Application Insights Agent pour les serveurs locaux
 
@@ -26,7 +24,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="download-and-install-via-powershell-gallery"></a>Télécharger et installer via PowerShell Gallery
 
-### <a name="install-prerequisites"></a>Installation des composants requis
+### <a name="install-prerequisites"></a>Prérequis à installer
 Exécutez PowerShell en tant qu’administrateur.
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force

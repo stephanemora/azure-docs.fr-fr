@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 189b36c8d9a7c1d1e247bb2cb34795dc4e3595ce
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: a80a1567c84ff3c2eda8ad22391aa862bb7d9d82
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963340"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915824"
 ---
 # <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Formez et comparez plusieurs modèles de régression pour prédire un prix de voitures basé sur des fonctionnalités techniques avec un concepteur Azure Machine Learning.
 
@@ -31,7 +31,7 @@ Voici le graphique complet associé à ce pipeline :
 
 [![Graphique du pipeline](./media/how-to-designer-sample-regression-automobile-price-compare-algorithms/graph.png)](./media/how-to-designer-sample-regression-automobile-price-compare-algorithms/graph.png#lightbox)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
@@ -62,7 +62,7 @@ Utilisez le module **Sélectionner des colonnes dans le jeu de données** pour e
 
 Les problèmes d’apprentissage automatique varient. Les tâches d’apprentissage automatique courantes incluent la classification, le clustering, la régression et les systèmes de recommandation, chacun d’eux pouvant nécessiter un algorithme différent. Votre choix de l’algorithme dépend souvent de la configuration requise pour le cas d’usage. Après avoir sélectionné un algorithme, vous devez ajuster ses paramètres pour effectuer l’apprentissage d’un modèle plus précis. Vous devez ensuite évaluer tous les modèles en fonction des métriques telles que la précision, l’intelligibilité et l’efficacité.
 
-Étant donné que l’objectif de ce pipeline est de prédire le prix des voitures, et puisque la colonne d’étiquette (prix) contient des nombres réels, le fait d’opter pour un modèle de régression est judicieux. Si l’on considère que le nombre de fonctionnalités est relativement bas (inférieur à 100), et que celles-ci ne sont pas éparpillées, la limite de décision est susceptible d’être non linéaire.
+Étant donné que l’objectif de ce pipeline est de prédire le prix des voitures, et puisque la colonne d’étiquette (prix) contient des nombres réels, le fait d’opter pour un modèle de régression est judicieux.
 
 Pour comparer les performances de différents algorithmes, nous utilisons deux algorithmes non linéaires, **Régression d’arbre de décision optimisé** et **Régression de forêt d’arbres décisionnels**, pour générer des modèles. Les deux algorithmes ont des paramètres modifiables, mais cet échantillon utilise les valeurs par défaut dans ce pipeline.
 

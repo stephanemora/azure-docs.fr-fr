@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 4a0593ccd6bdf37520e73ba8ed421ec4b10ea52c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 279130fa310b107bd1a016c717c48af3d905251b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623300"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270156"
 ---
 # <a name="streaming-ingestion-preview"></a>Ingestion de streaming (préversion)
 
@@ -37,7 +37,7 @@ Utilisez l’ingestion classique (en bloc) à la place de l’ingestion de strea
  
     ![Ingestion de streaming activée](media/ingest-data-streaming/streaming-ingestion-on.png)
  
-1. Dans l’[interface utilisateur web](https://dataexplorer.azure.com/), définissez la [stratégie d’ingestion de streaming](/azure/kusto/concepts/streamingingestionpolicy) sur les tables et bases de données qui recevront les données de streaming. 
+1. Dans l’[interface utilisateur web](https://dataexplorer.azure.com/), définissez la [stratégie d’ingestion de streaming](/azure/kusto/management/streamingingestionpolicy) sur les tables et bases de données qui recevront les données de streaming. 
 
     > [!NOTE]
     > * Si la stratégie est définie au niveau de la base de données, toutes les tables de la base de données sont activées pour l’ingestion de streaming.
@@ -63,7 +63,7 @@ Il existe deux types d’ingestion de streaming pris en charge :
 > [!WARNING]
 > La désactivation de l’ingestion de streaming peut prendre plusieurs heures.
 
-1. Supprimez la [stratégie d’ingestion de streaming](/azure/kusto/concepts/streamingingestionpolicy) de toutes les tables et bases de données appropriées. La suppression de la stratégie d’ingestion de streaming déclenche le déplacement des données d’ingestion de streaming du stockage initial vers le stockage permanent dans le stockage de colonnes (étendues ou partitions). Le déplacement des données peut durer de quelques secondes à quelques heures, en fonction de la quantité de données qui se trouvent dans le stockage initial, et de la façon dont le processeur et la mémoire du cluster sont utilisés.
+1. Supprimez la [stratégie d’ingestion de streaming](/azure/kusto/management/streamingingestionpolicy) de toutes les tables et bases de données appropriées. La suppression de la stratégie d’ingestion de streaming déclenche le déplacement des données d’ingestion de streaming du stockage initial vers le stockage permanent dans le stockage de colonnes (étendues ou partitions). Le déplacement des données peut durer de quelques secondes à quelques heures, en fonction de la quantité de données qui se trouvent dans le stockage initial, et de la façon dont le processeur et la mémoire du cluster sont utilisés.
 1. Dans le portail Azure, accédez à votre cluster Azure Data Explorer. Dans **Paramètres**, sélectionnez **Configurations**. 
 1. Dans le volet **Configurations**, sélectionnez **Désactivé** pour désactiver **Ingestion de streaming**.
 1. Sélectionnez **Enregistrer**.
@@ -76,11 +76,11 @@ Il existe deux types d’ingestion de streaming pris en charge :
 * La taille limite des données par demande d’ingestion est de 4 Mo.
 * Les mises à jour de schéma, telles que la création et la modification de tables et de mappages d’ingestion, peuvent prendre jusqu’à 5 minutes pour le service d’ingestion de streaming.
 * L’activation de l’ingestion de streaming sur un cluster, même lorsque les données ne sont pas ingérées via streaming, utilise une partie du disque SSD local des machines du cluster pour les données d’ingestion de streaming et réduit le stockage disponible pour le cache à chaud.
-* Les [étiquettes d’étendue](/azure/kusto/management/extents-overview.md#extent-tagging) ne peuvent pas être définies dans les données d’ingestion de streaming.
+* Les [étiquettes d’étendue](/azure/kusto/management/extents-overview#extent-tagging) ne peuvent pas être définies dans les données d’ingestion de streaming.
 
 L’ingestion de streaming ne prend pas en charge les fonctionnalités suivantes :
 * [Curseurs de base de données](/azure/kusto/management/databasecursor).
-* [Mappage des données](/azure/kusto/management/mappings). Seul un mappage de données [précréé](/azure/kusto/management/tables#create-ingestion-mapping) est pris en charge. 
+* [Mappage des données](/azure/kusto/management/mappings). Seul un mappage de données [précréé](/azure/kusto/management/create-ingestion-mapping-command) est pris en charge. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

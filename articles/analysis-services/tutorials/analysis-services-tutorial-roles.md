@@ -7,14 +7,14 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 3abcfe61f365c3c96dfb6b8eb2ca6cc9e5d3797e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c7d53ae71ac68559877561bf9fd15fe0f341e03a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572372"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273677"
 ---
-# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Didacticiel : Configurer l’administrateur du serveur et les rôles d’utilisateur
+# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutoriel : Configurer l’administrateur du serveur et les rôles d’utilisateur
 
  Dans ce tutoriel, vous utiliserez SQL Server Management Studio (SSMS) pour vous connecter à votre serveur dans Azure afin de configurer l’administrateur du serveur et les rôles de base de données model. Vous serez également initié au [Langage TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL est un langage de script JSON pour les modèles tabulaires de niveau de compatibilité 1200 et supérieurs. Il peut être utilisé pour automatiser de nombreuses tâches de modélisation tabulaire. TMSL est souvent utilisé avec PowerShell, mais dans ce didacticiel, vous utilisez l’éditeur de requête XMLA dans SSMS. Durant ce tutoriel, vous effectuerez les tâches suivantes : 
   
@@ -52,7 +52,7 @@ Pour les tâches restantes, vous utilisez SSMS pour vous connecter à votre serv
 
 1. Dans SSMS > **Explorateur d’objets**, cliquez sur **Se connecter** > **Analysis Services**.
 
-    ![Connecter](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
+    ![Se connecter](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
 
 2. Dans la boîte de dialogue **Se connecter au serveur** sous **Nom du serveur**, collez le nom de serveur que vous avez copié à partir du portail. Dans **Authentification**, choisissez **Active Directory - Authentification universelle avec prise en charge de MFA**, puis entrez votre compte d’utilisateur et appuyez sur **Connexion**.
    
@@ -82,7 +82,7 @@ Dans cette tâche, vous ajoutez un compte d’utilisateur ou de groupe à partir
 
 ## <a name="add-a-user-to-the-model-database-administrator-role"></a>Ajouter un utilisateur au rôle d’administrateur de la base de données model
 
-Dans cette tâche, vous ajoutez un compte d’utilisateur ou de groupe au rôle d’administrateur des ventes sur Internet qui existe déjà dans le modèle. Ce rôle dispose des autorisations de contrôle total (administrateur) pour l’exemple de base de données model adventureworks. Cette tâche utilise la commande TMSL [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) dans un script créé pour vous.
+Dans cette tâche, vous ajoutez un compte d’utilisateur ou de groupe au rôle d’administrateur des ventes sur Internet qui existe déjà dans le modèle. Ce rôle dispose des autorisations de contrôle total (administrateur) pour l’exemple de base de données model adventureworks. Cette tâche utilise la commande TMSL [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) dans un script créé pour vous.
 
 1. Dans l’**Explorateur d’objets**, développez **Bases de données** > **adventureworks** > **Rôles**. 
 2. Cliquez avec le bouton droit de la souris sur **Administrateur des ventes sur Internet**, puis cliquez sur **Générer un script du rôle en tant que** > **CRÉER OU REMPLACER PAR** > **Nouvelle fenêtre d’éditeur de requête**.
@@ -98,7 +98,7 @@ Dans cette tâche, vous ajoutez un compte d’utilisateur ou de groupe au rôle 
 
 ## <a name="add-a-new-model-database-role-and-add-a-user-or-group"></a>Ajouter un nouveau rôle de base de données model et ajouter un utilisateur ou un groupe
 
-Dans cette tâche, vous utilisez la commande [Créer](https://docs.microsoft.com/bi-reference/tmsl/create-command-tmsl) dans un script TMSL pour créer un nouveau rôle Ventes sur Internet global, spécifier les autorisations de *lecture* pour le rôle et ajouter un compte d’utilisateur ou de groupe à partir d’Azure AD.
+Dans cette tâche, vous utilisez la commande [Créer](https://docs.microsoft.com/analysis-services/tmsl/create-command-tmsl) dans un script TMSL pour créer un nouveau rôle Ventes sur Internet global, spécifier les autorisations de *lecture* pour le rôle et ajouter un compte d’utilisateur ou de groupe à partir d’Azure AD.
 
 1. Dans l’**Explorateur d’objets**, cliquez avec le bouton droit sur **adventureworks**, puis cliquez sur **Nouvelle requête** > **XMLA**. 
 2. Copiez et collez le script TMSL suivant dans l’éditeur de requête :
@@ -134,7 +134,7 @@ Dans cette tâche, vous utilisez la commande [Créer](https://docs.microsoft.com
 
     ![Vérifier dans l’Explorateur d’objets](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les comptes d’utilisateur ou de groupe et les rôles. Pour ce faire, utilisez **Propriétés du rôle** > **Appartenance** pour supprimer des comptes d’utilisateur, ou cliquez sur un rôle avec le bouton droit de la souris, puis cliquez sur **Supprimer**.
 
@@ -143,5 +143,5 @@ Lorsque vous n’en avez plus besoin, supprimez les comptes d’utilisateur ou d
 Dans ce tutoriel, vous avez appris comment vous connecter à votre serveur Azure Analysis Services et comment explorer les exemples de bases de données model adventureworks et les propriétés dans SSMS. Vous avez également appris à utiliser des scripts SSMS et TMSL pour ajouter des utilisateurs ou des groupes à des rôles existants et nouveaux. Maintenant que vous disposez d’autorisations d’utilisateur configurées pour votre serveur et votre exemple de base de données model, vous ainsi que les autres utilisateurs pouvez vous y connecter à l’aide d’applications clientes telles que Power BI. Pour en savoir plus, passez au didacticiel suivant. 
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Se connecter avec Power BI Desktop](analysis-services-tutorial-pbid.md)
+> [Tutoriel : Se connecter avec Power BI Desktop](analysis-services-tutorial-pbid.md)
 

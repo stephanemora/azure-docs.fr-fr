@@ -6,15 +6,16 @@ author: amitbapat
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 57c5e3f2741f81bce2eff2d5ef2b0f2d029096e3
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 36dada57e587da6e023a83c8ebb6555abe44b9ba
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976386"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184844"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Accès à Azure Key Vault derrière un pare-feu
 
@@ -38,8 +39,8 @@ L’application cliente de coffre de clés doit accéder aux points de terminais
 
 | Type de principal | Point de terminaison:port |
 | --- | --- |
-| Utilisateur utilisant un compte Microsoft<br> (Par exemple, user@hotmail.com) |**Mondial :**<br> login.microsoftonline.com:443<br><br> **Azure en Chine :**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government :**<br> login.microsoftonline.us:443<br><br>**Azure Germany :**<br> login.microsoftonline.de:443<br><br> and <br>login.live.com:443 |
-| Utilisateur ou principal du service utilisant un compte professionnel ou scolaire avec Azure AD (par exemple, user@contoso.com) |**Mondial :**<br> login.microsoftonline.com:443<br><br> **Azure en Chine :**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government :**<br> login.microsoftonline.us:443<br><br>**Azure Germany :**<br> login.microsoftonline.de:443 |
+| Utilisateur utilisant un compte Microsoft<br> (Par exemple, user@hotmail.com) |**Mondial :**<br> login.microsoftonline.com:443<br><br> **Azure China :**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government :**<br> login.microsoftonline.us:443<br><br>**Azure Germany :**<br> login.microsoftonline.de:443<br><br> and <br>login.live.com:443 |
+| Utilisateur ou principal du service utilisant un compte professionnel ou scolaire avec Azure AD (par exemple, user@contoso.com) |**Mondial :**<br> login.microsoftonline.com:443<br><br> **Azure China :**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government :**<br> login.microsoftonline.us:443<br><br>**Azure Germany :**<br> login.microsoftonline.de:443 |
 | Utilisateur ou principal du service utilisant un compte professionnel ou scolaire, plus Active Directory Federation Services (AD FS) ou un autre point de terminaison fédéré (par exemple, user@contoso.com) |Tous les points de terminaison correspondant à un compte professionnel ou scolaire, plus AD FS ou d’autres points de terminaison fédérés |
 
 D’autres scénarios complexes sont possibles. Pour plus d’informations, reportez-vous à [Azure Active Directory Authentication Flow (Flux d’authentification d’Azure Active Directory)](../active-directory/develop/authentication-scenarios.md), [Intégration d’applications dans Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md) et [Protocoles d’authentification Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx).  
@@ -51,7 +52,7 @@ Pour la gestion d’un coffre de clés Key Vault (CRUD et définition de la stra
 | Type d’opération | Point de terminaison:port |
 | --- | --- |
 | Opérations du plan de contrôle Key Vault<br> via Azure Resource Manager |**Mondial :**<br> management.azure.com:443<br><br> **Azure China :**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government :**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany :**<br> management.microsoftazure.de:443 |
-| API Graph Azure Active Directory |**Mondial :**<br> graph.windows.net:443<br><br> **Azure en Chine :**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Government :**<br> graph.windows.net:443<br><br> **Azure Germany :**<br> graph.cloudapi.de:443 |
+| API Graph Azure Active Directory |**Mondial :**<br> graph.windows.net:443<br><br> **Azure China :**<br> graph.chinacloudapi.cn:443<br><br> **Azure US Government :**<br> graph.windows.net:443<br><br> **Azure Germany :**<br> graph.cloudapi.de:443 |
 
 ## <a name="key-vault-operations"></a>Opérations Key Vault
 

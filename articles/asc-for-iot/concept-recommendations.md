@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 6f1efa365b4f3a1ab65cc89c84af57c88325e9d2
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: a8de821abcedf6bb9a331852a2c0af9b6439667a
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597287"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303577"
 ---
 # <a name="security-recommendations"></a>Recommandations de sécurité
 
@@ -49,7 +49,7 @@ Les recommandations opérationnelles offrent des insights et des suggestions d�
 | Faible      | L’agent envoie des messages inutilisés          | Agent       | La taille d’au moins 10 % des messages de sécurité était inférieure à 4 Ko au cours des dernières 24 heures.  |
 | Faible      | Configuration du jumeau de sécurité non optimale | Agent       | La configuration du jumeau de sécurité n’est pas optimale.                                        |
 | Faible      | Conflit de configuration du jumeau de sécurité    | Agent       | Des conflits ont été identifiés dans la configuration du jumeau de sécurité. |                          |
-
+|
 
 ## <a name="recommendations-for-iot-hub"></a>Recommandations pour IoT Hub
 
@@ -65,6 +65,6 @@ Les alertes de recommandation offrent des insights et des suggestions d’action
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Vue d’ensemble](overview.md) du service Microsoft Azure Security Center pour IoT
-- Découvrir comment [accéder aux données de sécurité brutes](how-to-security-data-access.md)
+- [Vue d’ensemble](overview.md) du service Azure Security Center pour IoT
+- Découvrez comment [accéder à vos données de sécurité](how-to-security-data-access.md)
 - En savoir plus sur [l’examen d’un appareil](how-to-investigate-device.md)

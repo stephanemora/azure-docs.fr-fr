@@ -3,12 +3,12 @@ title: Activer le chiffrement de disque pour les clusters Linux
 description: Cet article décrit comment activer le chiffrement de disque pour les nœuds de cluster Azure Service Fabric dans Linux en utilisant Azure Resource Manager et Azure Key Vault.
 ms.topic: article
 ms.date: 03/22/2019
-ms.openlocfilehash: d990cfdee9a497135c67d99431807a85f8105b3b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: c600d822d20b0e5a0ca613935b1dfa4be838fcec
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609891"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252816"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Activer le chiffrement de disque pour les nœuds de cluster Azure Service Fabric dans Linux 
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Le guide aborde les thèmes suivants :
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
  **Inscription automatique**
 
@@ -86,7 +86,7 @@ Set-AzContext -SubscriptionId <guid>
 
 ```
 
-```CLI
+```azurecli
 
 azure login
 az account set --subscription $subscriptionId

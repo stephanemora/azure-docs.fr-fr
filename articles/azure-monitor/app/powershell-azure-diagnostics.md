@@ -1,18 +1,14 @@
 ---
 title: Utilisation de PowerShell pour configurer Application Insights pour une application web Azure | Microsoft Docs
 description: Automatisation de la configuration de Azure Diagnostics pour canaliser les données vers Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 08/06/2019
-ms.openlocfilehash: 0e1fd048b855473c1d7978e2a908c45360a1ed2a
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: da1796c8af5b9463d8223615f4b0629ba65eb3e8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819018"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669801"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>Configuration de Application Insights pour Azure Cloud Services à l’aide de PowerShell
 

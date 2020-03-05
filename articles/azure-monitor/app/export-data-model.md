@@ -1,18 +1,14 @@
 ---
 title: Modèle de données d’Azure Application Insights | Microsoft Docs
 description: Décrit les propriétés exportées à partir de l’exportation continue dans JSON et utilisées comme filtres.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/08/2019
-ms.openlocfilehash: 8f84e3179a6f949e4a322a2218736fc9ebe60442
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: e4dd2310169476e54c06083fee11b2e4cccecd8d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677907"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663873"
 ---
 # <a name="application-insights-export-data-model"></a>Modèle d’exportation de données Application Insights
 Cette table répertorie les propriétés de télémétrie envoyées à partir des Kits SDK [Application Insights](../../azure-monitor/app/app-insights-overview.md) au portail.
@@ -26,7 +22,7 @@ Points à noter :
 * Les dates et les heures sont indiquées au format UTC, et respectent la norme ISO `yyyy-MM-DDThh:mm:ss.sssZ`
 
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
     // A server report about an HTTP request
     {
     "request": [
@@ -115,7 +111,7 @@ Tous les types de données de télémétrie sont accompagnés d’une section de
 | context.custom.metrics [0] |objet [ ] |Paires clé-valeur définies par le paramètre des mesures personnalisées et par TrackMetrics. Longueur maximale de clé 100, les valeurs peuvent être numériques. |
 | context.data.eventTime |string |UTC |
 | context.data.isSynthetic |boolean |Requête transmise par un robot ou un test web. |
-| context.data.samplingRate |number |Pourcentage de télémétrie générée par le Kit SDK qui est envoyé vers le portail. Plage 0.0-100.0. |
+| context.data.samplingRate |nombre |Pourcentage de télémétrie générée par le Kit SDK qui est envoyé vers le portail. Plage 0.0-100.0. |
 | context.device |object |Appareil client |
 | context.device.browser |string |IE, Chrome, ... |
 | context.device.browserVersion |string |Chrome 48.0, ... |
@@ -158,7 +154,7 @@ Tous les types de données de télémétrie sont accompagnés d’une section de
 
 | Path | Type | Notes |
 | --- | --- | --- |
-| event [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
+| event [0] count |entier |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | event [0] name |string |Nom de l’événement.  Longueur maximale 250. |
 | event [0] url |string | |
 | event [0] urlData.base |string | |
@@ -170,7 +166,7 @@ Signale des [exceptions](../../azure-monitor/app/asp-net-exceptions.md) sur le s
 | Path | Type | Notes |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
-| basicException [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
+| basicException [0] count |entier |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | basicException [0] exceptionGroup |string | |
 | basicException [0] exceptionType |string | |
 | basicException [0] failedUserCodeMethod |string | |
@@ -187,8 +183,8 @@ Signale des [exceptions](../../azure-monitor/app/asp-net-exceptions.md) sur le s
 | basicException [0] outerId |string | |
 | basicException [0] parsedStack [0] assembly |string | |
 | basicException [0] parsedStack [0] fileName |string | |
-| basicException [0] parsedStack [0] level |integer | |
-| basicException [0] parsedStack [0] line |integer | |
+| basicException [0] parsedStack [0] level |entier | |
+| basicException [0] parsedStack [0] line |entier | |
 | basicException [0] parsedStack [0] method |string | |
 | basicException [0] stack |string |Longueur maximale 10 000 |
 | basicException [0] typeName |string | |
@@ -211,9 +207,9 @@ Envoyé par TrackDependency. Utilisé pour consigner les performances et l’uti
 | remoteDependency [0] async |boolean | |
 | remoteDependency [0] baseName |string | |
 | remoteDependency [0] commandName |string |Par exemple, « home/index » |
-| remoteDependency [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
+| remoteDependency [0] count |entier |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | remoteDependency [0] dependencyTypeName |string |HTTP, SQL, ... |
-| remoteDependency [0] durationMetric.value |number |Délai de l’appel à la fin de la réponse par la dépendance |
+| remoteDependency [0] durationMetric.value |nombre |Délai de l’appel à la fin de la réponse par la dépendance |
 | remoteDependency [0] id |string | |
 | remoteDependency [0] name |string |Url. Longueur maximale 250. |
 | remoteDependency [0] resultCode |string |à partir de la dépendance HTTP |
@@ -229,11 +225,11 @@ Envoyées par [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.m
 
 | Path | Type | Notes |
 | --- | --- | --- |
-| request [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple :  4 =&gt; 25 %. |
-| request [0] durationMetric.value |number |Délai entre l’arrivée de la requête et la réponse. 1e7 = 1s |
+| request [0] count |entier |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple : 4 =&gt; 25 %. |
+| request [0] durationMetric.value |nombre |Délai entre l’arrivée de la requête et la réponse. 1e7 = 1s |
 | request [0] id |string |ID d’opération |
 | request [0] name |string |GET/POST + base d’URL  Longueur maximale 250 |
-| request [0] responseCode |integer |Réponse HTTP envoyée au client |
+| request [0] responseCode |entier |Réponse HTTP envoyée au client |
 | request [0] success |boolean |Par défaut == (responseCode &lt; 400) |
 | request [0] url |string |Sans hôte |
 | request [0] urlData.base |string | |
@@ -247,12 +243,12 @@ Les valeurs de contexte représentent la version de système d’exploitation et
 
 | Path | Type | Notes |
 | --- | --- | --- |
-| clientPerformance [0] clientProcess.value |integer |Délai entre la fin de la réception du code HTML et l’affichage de la page. |
+| clientPerformance [0] clientProcess.value |entier |Délai entre la fin de la réception du code HTML et l’affichage de la page. |
 | clientPerformance [0] name |string | |
-| clientPerformance [0] networkConnection.value |integer |Temps nécessaire pour l’établissement d’une connexion réseau. |
-| clientPerformance [0] receiveRequest.value |integer |Délai entre la fin de l’envoi d’une requête et la réception du code HTML en réponse. |
-| clientPerformance [0] sendRequest.value |integer |Délai nécessaire à l’envoi de la requête HTTP. |
-| clientPerformance [0] total.value |integer |Délai entre le début d’envoi de la requête et l’affichage de la page. |
+| clientPerformance [0] networkConnection.value |entier |Temps nécessaire pour l’établissement d’une connexion réseau. |
+| clientPerformance [0] receiveRequest.value |entier |Délai entre la fin de l’envoi d’une requête et la réception du code HTML en réponse. |
+| clientPerformance [0] sendRequest.value |entier |Délai nécessaire à l’envoi de la requête HTTP. |
+| clientPerformance [0] total.value |entier |Délai entre le début d’envoi de la requête et l’affichage de la page. |
 | clientPerformance [0] url |string |URL de cette requête. |
 | clientPerformance [0] urlData.base |string | |
 | clientPerformance [0] urlData.hashTag |string | |
@@ -264,8 +260,8 @@ Envoyé par trackPageView() ou [stopTrackPage](../../azure-monitor/app/api-custo
 
 | Path | Type | Notes |
 | --- | --- | --- |
-| view [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
-| view [0] durationMetric.value |integer |Valeur éventuellement définie dans trackPageView() ou par startTrackPage() - stopTrackPage(). Pas identique aux valeurs clientPerformance. |
+| view [0] count |entier |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
+| view [0] durationMetric.value |entier |Valeur éventuellement définie dans trackPageView() ou par startTrackPage() - stopTrackPage(). Pas identique aux valeurs clientPerformance. |
 | view [0] name |string |Titre de la page.  Longueur maximale 250 |
 | view [0] url |string | |
 | view [0] urlData.base |string | |
@@ -277,13 +273,13 @@ Consigne les [tests web de disponibilité](../../azure-monitor/app/monitor-web-a
 
 | Path | Type | Notes |
 | --- | --- | --- |
-| availability [0] availabilityMetric.name |string |Availability |
-| availability [0] availabilityMetric.value |number |1.0 ou 0.0 |
-| availability [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
+| availability [0] availabilityMetric.name |string |availability |
+| availability [0] availabilityMetric.value |nombre |1.0 ou 0.0 |
+| availability [0] count |entier |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | availability [0] dataSizeMetric.name |string | |
-| availability [0] dataSizeMetric.value |integer | |
+| availability [0] dataSizeMetric.value |entier | |
 | availability [0] durationMetric.name |string | |
-| availability [0] durationMetric.value |number |Durée du test. 1e7 = 1s |
+| availability [0] durationMetric.value |nombre |Durée du test. 1e7 = 1s |
 | availability [0] message |string |Diagnostic de défaillance |
 | availability [0] result |string |Réussite/Échec |
 | availability [0] runLocation |string |Source géographique de la requête HTTP |

@@ -3,20 +3,20 @@ title: Définir un profil technique de transformation de revendications
 titleSuffix: Azure AD B2C
 description: Définir un profil technique de transformation de revendications dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/13/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fbc1d59ac401adedcf897d0c16edb6904c89acc3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 84c1cf798e88e4067da8a495c1591143d2ee1bd0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77193433"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189784"
 ---
 # <a name="define-a-claims-transformation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de transformation de revendications dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -104,7 +104,7 @@ Le profil technique de transformation de revendications permet d’exécuter une
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la[résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
+| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
 
 ## <a name="use-a-validation-technical-profile"></a>Utiliser un profil technique de validation
 

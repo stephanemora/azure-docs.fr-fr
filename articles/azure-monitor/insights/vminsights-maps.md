@@ -1,18 +1,17 @@
 ---
 title: Visualiser les dépendances d’applications avec Azure Monitor pour machines virtuelles (préversion)
 description: Cartographie est une fonctionnalité d’Azure Monitor pour machines virtuelles. Elle détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et cartographie la communication entre les différents services. Cet article explique comment utiliser la fonctionnalité Cartographie dans divers scénarios.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: d91c4f7c3abdb06bfe0116e0fadf67c5b7a7a394
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cbdcd5cc8fa9475febd338f94f8b6fe1cb2fe406
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450718"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670744"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Utiliser la fonctionnalité Cartographie d’Azure Monitor pour machines virtuelles (préversion) afin de mieux comprendre le fonctionnement des composants d’application
 Dans Azure Monitor pour machines virtuelles, vous pouvez voir les composants d’application qui ont été détectés sur les machines virtuelles Windows et Linux exécutées dans Azure ou votre environnement. Il existe deux manières d’observer les machines virtuelles : en affichant une carte directement à partir d’une machine virtuelle ou en affichant une carte à partir d’Azure Monitor pour voir les composants dans les groupes de machines virtuelles. Cet article vous aidera à bien comprendre ces deux méthodes de visualisation et à utiliser correctement la fonctionnalité Cartographie. 

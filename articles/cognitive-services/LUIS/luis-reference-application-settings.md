@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: bae4f09b539e26ca8c0d4ce97999776dc0911601
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: d1ead09f6248a6ad14646371aa70b42b57cf8e3f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961793"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270816"
 ---
 # <a name="application-settings"></a>Paramètres de l’application
 
@@ -27,14 +27,14 @@ Ces paramètres d’application sont stockés dans l’application [exportée](h
 |NormalizePunctuation|True|Supprime les signes de ponctuation.|
 |NormalizeDiacritics|True|Supprime les signes diacritiques.|
 
-## <a name="diacritics-normalization"></a>Normalisation des signes diacritiques 
+## <a name="diacritics-normalization"></a>Normalisation des signes diacritiques
 
 Activez la normalisation de l’énoncé pour les signes diacritiques dans votre fichier d’application LUIS JSON avec le paramètre `settings`.
 
 ```JSON
 "settings": [
     {"name": "NormalizeDiacritics", "value": "true"}
-] 
+]
 ```
 
 Les énoncés suivants montrent l’impact de la normalisation des signes diacritiques sur les énoncés :
@@ -61,7 +61,7 @@ Les énoncés suivants montrent l’impact de la normalisation des signes diacri
 |`ó`|`o`|
 |`ô`|`o`|
 |`õ`|`o`|
-|`ú`|`u`| 
+|`ú`|`u`|
 |||
 
 #### <a name="dutch-nl-nl-diacritics"></a>Signes diacritiques pour le Néerlandais `nl-nl`
@@ -77,7 +77,7 @@ Les énoncés suivants montrent l’impact de la normalisation des signes diacri
 |`í`|`i`|
 |`ó`|`o`|
 |`ö`|`o`|
-|`ú`|`u`| 
+|`ú`|`u`|
 |`ü`|`u`|
 |||
 
@@ -91,24 +91,24 @@ Cela inclut les sous-cultures Français et Canadien.
 |`à`|`a`|
 |`è`|`e`|
 |`ù`|`u`|
-|`â`|`a`| 
-|`ê`|`e`| 
-|`î`|`i`| 
-|`ô`|`o`| 
-|`û`|`u`| 
-|`ç`|`c`| 
-|`ë`|`e`| 
-|`ï`|`i`| 
-|`ü`|`u`| 
-|`ÿ`|`y`| 
+|`â`|`a`|
+|`ê`|`e`|
+|`î`|`i`|
+|`ô`|`o`|
+|`û`|`u`|
+|`ç`|`c`|
+|`ë`|`e`|
+|`ï`|`i`|
+|`ü`|`u`|
+|`ÿ`|`y`|
 
 #### <a name="german-de-de-diacritics"></a>Signes diacritiques pour l’Allemand `de-de`
 
 |Signes diacritiques définis sur false|Signes diacritiques définis sur true|
 |--|--|
 |`ä`|`a`|
-|`ö`|`o`| 
-|`ü`|`u`| 
+|`ö`|`o`|
+|`ü`|`u`|
 
 #### <a name="italian-it-it-diacritics"></a>Signes diacritiques pour l’Italien `it-it`
 
@@ -117,11 +117,11 @@ Cela inclut les sous-cultures Français et Canadien.
 |`à`|`a`|
 |`è`|`e`|
 |`é`|`e`|
-|`ì`|`i`| 
-|`í`|`i`| 
-|`î`|`i`| 
-|`ò`|`o`| 
-|`ó`|`o`| 
+|`ì`|`i`|
+|`í`|`i`|
+|`î`|`i`|
+|`ò`|`o`|
+|`ó`|`o`|
 |`ù`|`u`|
 |`ú`|`u`|
 
@@ -133,8 +133,8 @@ Cela inclut les sous-cultures Mexicain et Espagnol.
 |-|-|
 |`á`|`a`|
 |`é`|`e`|
-|`í`|`i`| 
-|`ó`|`o`| 
+|`í`|`i`|
+|`ó`|`o`|
 |`ú`|`u`|
 |`ü`|`u`|
 |`ñ`|`u`|
@@ -147,7 +147,7 @@ Activez la normalisation de l’énoncé pour la ponctuation dans votre fichier 
 ```JSON
 "settings": [
     {"name": "NormalizePunctuation", "value": "true"}
-] 
+]
 ```
 
 Les énoncés suivants montrent l’impact de la ponctuation sur les énoncés :
@@ -163,8 +163,8 @@ La ponctuation suivante est supprimée quand `NormalizePunctuation` a la valeur 
 
 |Ponctuation|
 |--|
-|`-`| 
-|`.`| 
+|`-`|
+|`.`|
 |`'`|
 |`"`|
 |`\`|

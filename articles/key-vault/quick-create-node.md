@@ -5,13 +5,14 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: a59ba62df546c60c4086829eec355d3e69b69363
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2091916b0ec2eab68904a485d93f5d2353261f68
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773733"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197740"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Démarrage rapide : Bibliothèque de client Azure Key Vault pour Node.js (v4)
 
@@ -27,7 +28,7 @@ Azure Key Vault permet de protéger les clés de chiffrement et les secrets util
 
 [Documentation de référence sur les API](/javascript/api/overview/azure/key-vault?view=azure-node-latest) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [Package (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Node.js](https://nodejs.org) actuel pour votre système d’exploitation.

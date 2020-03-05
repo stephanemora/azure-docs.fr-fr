@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d8096a14bf2abc0b06b7ab7c3d340a313b1cd24c
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2c4152ec5e67761ce9be9a81bfbf39e1591787da
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057298"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913512"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Redéployer une machine virtuelle vers un nouveau nœud Azure
 Si vous êtes confronté à des problèmes d’accès SSH ou d’accès des applications à une machine virtuelle Linux dans Azure, vous pouvez tenter de redéployer la machine virtuelle. Lorsque vous redéployez une machine virtuelle, celle-ci est déplacée vers un nouveau nœud au sein de l’infrastructure Azure, puis remise en service. Toutes les options de configuration et les ressources associées sont conservées. Cet article vous montre comment redéployer une machine virtuelle à l’aide de l’interface de ligne de commande Azure ou du portail Azure.
@@ -37,6 +37,10 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="use-the-azure-classic-cli"></a>Utiliser Azure Classic CLI
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
+
 Installez la [dernière version d’Azure Classic CLI](../../cli-install-nodejs.md) et connectez-vous à votre compte Azure. Vérifiez que vous êtes en mode Resource Manager (`azure config mode arm`).
 
 L’exemple suivant permet de redéployer la machine virtuelle *myVM* dans le groupe de ressources *myResourceGroup* :

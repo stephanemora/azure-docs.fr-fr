@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 899f4cba31afed812fa1643b925a38812308042e
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: dcf7df501665ea3885d00b9f7668a95cbbf02428
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552931"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208540"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Évaluation de la protection de point de terminaison et recommandations dans Azure Security Center
 
-Azure Security Center fournit des évaluations d’intégrité des versions [prises en charge](security-center-services.md#supported-endpoint-protection-solutions-) des solutions de protection de point de terminaison. Cet article explique les scénarios qui conduisent Security Center à générer les deux recommandations suivantes :
+Azure Security Center fournit des évaluations d’intégrité des versions [prises en charge](security-center-services.md#endpoint-supported) des solutions de protection de point de terminaison. Cet article explique les scénarios qui conduisent Security Center à générer les deux recommandations suivantes :
 
 * **Installer les solutions de protection de point de terminaison sur votre machine virtuelle**
 * **Résoudre les problèmes d'intégrité de la protection du point de terminaison sur vos machines**

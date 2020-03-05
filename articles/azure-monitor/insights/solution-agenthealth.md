@@ -1,23 +1,22 @@
 ---
 title: Solution Agent Health dans Azure Monitor | Microsoft Docs
 description: Cet article a pour but de vous apprendre à utiliser cette solution afin de surveiller l’intégrité de vos agents au service de Log Analytics ou de System Center Operations Manager.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
-ms.openlocfilehash: 9a7cb80b5510ff0ac4a2491d896aded866180c19
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 7093e20473b799a3f05ddf30803721636732241e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062130"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663254"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solution Agent Health dans Azure Monitor
 La solution Agent Health dans Azure vous permet de savoir quels agents, parmi tous ceux au service de l’espace de travail Log Analytics dans Azure Monitor ou d’un groupe d’administration System Center Operations Manager connecté à Azure Monitor, ne répondent pas et envoient des données opérationnelles.  Vous pouvez aussi suivre le nombre d’agents déployés et leur localisation géographique, et réaliser diverses requêtes pour être au fait de la distribution d’agents déployés au sein d’Azure, d’environnements de cloud ou localement.    
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Avant de déployer cette solution, veuillez confirmer que vous avez bien pris en charge des [agents Windows](../../log-analytics/log-analytics-windows-agent.md) au service de l’espace de travail Log Analytics ou d’un [groupe d’administration Operations Manager](../../azure-monitor/platform/om-agents.md) inclut dans votre espace de travail.
 
 ## <a name="solution-components"></a>Composants de la solution

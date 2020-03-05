@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 66bb054ab75c5a4e387995bc64dbc026c073413f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 03/04/2020
+ms.openlocfilehash: 36ff0d5f1fc96b2013555d37a869ebf629a22be7
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122621"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302132"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Se connecter à Apache Kafka sur HDInsight via un réseau virtuel Azure
 
@@ -38,7 +38,7 @@ HDInsight n’autorise pas la connexion directe à Kafka via l’internet public
   4. Configurez le transfert entre les serveurs DNS de chaque réseau.
   5. Créez un cluster Kafka dans HDInsight sur le réseau virtuel.
 
-     Pour plus d’informations, consultez la section [Se connecter à Apache Kafka à partir d’un réseau local](#on-premises). 
+     Pour plus d’informations, consultez la section [Se connecter à Apache Kafka à partir d’un réseau local](#on-premises).
 
 * Connectez des machines individuelles au réseau virtuel à l’aide d’une passerelle VPN et d’un client VPN. Pour activer cette configuration, effectuez les tâches suivantes :
 

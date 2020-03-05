@@ -3,7 +3,7 @@ title: Préparer un disque dur virtuel Linux Debian dans Azure
 description: Apprenez à créer des images de disque dur virtuel Debian pour un déploiement dans Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: mimckitt
-ms.openlocfilehash: 3cf6a4a98451a36826cadf84b9be8e3ea63efea7
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 579704ad663e20fdbb59b94d1d4c5ea831d3a68a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750145"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251700"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>Préparer un disque dur virtuel Debian pour Azure
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Cette section suppose que vous avez déjà installé un système d’exploitation Debian Linux à l’aide d’un fichier .iso téléchargé à partir du [site web Debian](https://www.debian.org/distrib/) sur un disque dur virtuel. Plusieurs outils permettent de créer des fichiers .vhd. Hyper-V n’est qu’un exemple parmi d’autres. Pour obtenir des instructions sur l’utilisation de Hyper-V, consultez [Installation du rôle Hyper-V et configuration d’une machine virtuelle](https://technet.microsoft.com/library/hh846766.aspx).
 
 ## <a name="installation-notes"></a>Notes d'installation

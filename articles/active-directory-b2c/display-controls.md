@@ -3,20 +3,20 @@ title: Informations de référence sur le contrôle d’affichage
 titleSuffix: Azure AD B2C
 description: Informations de référence pour les contrôles d’affichage Azure AD B2C. Utilisez des contrôles d’affichage pour personnaliser les parcours utilisateur définis dans vos stratégies personnalisées.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/10/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7cbd088ed7b4f6ae242cce2067e52def2dad61c9
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 4998fb19e42e123edd57bfcf10931d594ac4cb44
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77136340"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188730"
 ---
 # <a name="display-controls"></a>Contrôles d’affichage
 
@@ -30,7 +30,7 @@ L’image suivante illustre une page d’inscription auto-déclarée avec deux c
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
  Dans la section [Métadonnées](self-asserted-technical-profile.md#metadata) d’un [profil technique auto-déclaré](self-asserted-technical-profile.md), dans la propriété [ContentDefinition](contentdefinitions.md) référencée, `DataUri` doit être défini sur le contrat de pages version 2.0.0 ou ultérieure. Par exemple :
 

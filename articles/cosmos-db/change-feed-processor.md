@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f8ae85ffc16bd953f04f1c3d7790231939c1f2cf
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: e71b2807595aebeb1f0c8682fde119f4e267e55d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588905"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273301"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processeur de flux de modification dans Azure Cosmos DB 
 
@@ -41,13 +41,14 @@ Pour mieux comprendre comment ces quatre éléments du processeur de flux de mod
 
 Le point d’entrée est toujours le conteneur surveillé, à partir d’une instance `Container` que vous appelez `GetChangeFeedProcessorBuilder` :
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs" id="DefineProcessor":::
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
 Le premier paramètre est un nom distinct qui décrit l’objectif de ce processeur et le deuxième nom est l’implémentation de délégué qui gérera les modifications. 
 
 Voici un exemple de délégué :
 
-:::code language="csharp" source="~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs" id="Delegate":::
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
 Enfin, vous définissez un nom pour cette instance de processeur avec `WithInstanceName` et avec quel conteneur vous souhaitez maintenir l’état du bail `WithLeaseContainer`.
 

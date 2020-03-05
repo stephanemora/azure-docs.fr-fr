@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: b2d49eeadf068cbaacaa5e147f38025c55f33ff4
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 9595ee87801fa4ce187a50197fc58d6c448eac24
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651359"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303220"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server avec un partage de fichiers Premium sur des machines virtuelles Azure
 
@@ -53,7 +53,7 @@ Contrôlez l’activité d’IOPS de votre environnement et vérifiez que les pa
 
 De nombreuses charges de travail ont des E/S en rafales. Il est donc judicieux de vérifier et de noter à la fois le nombre maximal d’IOPS et le nombre moyen d’IOPS pendant les périodes d’utilisation intensive. Les partages de fichiers Premium fournissent des IOPS en fonction de la taille du partage. Les partages de fichiers Premium fournissent également une fonctionnalité de rafale qui vous permet de tripler la taille de la base de référence pendant une heure.
 
-Pour plus d’informations sur les performances des partages de fichiers Premium, consultez [Niveaux de performances de partage de fichiers](https://docs.microsoft.com/azure/storage/files/storage-files-planning#file-share-performance-tiers).
+Pour plus d’informations sur les performances des partages de fichiers Premium, consultez [Niveaux de performances de partage de fichiers](https://docs.microsoft.com/azure/storage/files/storage-files-planning#storage-tiers).
 
 ### <a name="licensing-and-pricing"></a>Licences et tarifs
 

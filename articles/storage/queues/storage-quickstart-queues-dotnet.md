@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 71a714124cecfc4f985d448371042c8aff092a11
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c69aa91596ff203445aa4fa3ccd59001ffe16649
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463836"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197485"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour .NET
 
@@ -31,9 +31,9 @@ Utilisez la bibliothèque cliente Stockage File d’attente Azure v12 pour .NET 
 * Supprimer des messages d’une file d’attente
 * Suppression d'une file d'attente
 
-[Documentation de référence sur l’API](/dotnet/api/azure.storage.queues) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [Exemples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
+[Documentation de référence sur l’API](/dotnet/api/azure.storage.queues) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [Exemples](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 * Compte de stockage Azure : [créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)

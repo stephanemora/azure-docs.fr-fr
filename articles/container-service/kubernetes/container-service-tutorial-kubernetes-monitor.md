@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 35f7c2fb968ea5285af5f2d597c67b3b22065906
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 84c2438a8c25b1b64f46e12923212812beac687d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278221"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273320"
 ---
 # <a name="deprecated-monitor-a-kubernetes-cluster-with-log-analytics"></a>(DÉPRÉCIÉ) Superviser un cluster Kubernetes avec Log Analytics
 
@@ -56,7 +56,7 @@ Le fichier manifeste Kubernetes suivant peut être utilisé pour configurer les 
 
 Enregistrez le texte suivant dans un fichier nommé `oms-daemonset.yaml`.
 
-```YAML
+```yaml
 apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
@@ -123,19 +123,19 @@ spec:
 
 Créer le DaemonSet à l’aide de la commande suivante :
 
-```azurecli-interactive
+```console
 kubectl create -f oms-daemonset.yaml
 ```
 
 Pour vérifier que le DaemonSet est créé, exécutez :
 
-```azurecli-interactive
+```console
 kubectl get daemonset
 ```
 
 Le résultat ressemble à ce qui suit :
 
-```azurecli-interactive
+```output
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR   AGE
 omsagent   3         3         3         0            3           <none>          5m
 ```

@@ -3,17 +3,16 @@ title: Envoyer des mesures de machine virtuelle Windows classiques à une base d
 description: Envoyer les métriques du système d’exploitation invité d’une machine virtuelle Windows (classique) au magasin de données Azure Monitor
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: d911a6b65ba0d63bca09437f6451019addcbc0b3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 65bb1a3915ece384974da12b4e7a1ad0c1e08133
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977618"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655810"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Envoyer les mesures du système d’exploitation invité à une base de données de mesures Azure Monitor d’une machine virtuelle Windows (classique)
 
@@ -27,7 +26,7 @@ En les stockant dans cet emplacement, vous avez accès aux mêmes actions que ce
 
 La procédure décrite dans cet article fonctionne uniquement avec les machines virtuelles classiques qui exécutent un système d’exploitation Windows.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Vous devez être [administrateur ou coadministrateur de services fédérés](../../cost-management-billing/manage/add-change-subscription-administrator.md) dans votre abonnement Azure. 
 

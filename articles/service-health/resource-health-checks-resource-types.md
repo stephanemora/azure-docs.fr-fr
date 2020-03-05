@@ -3,12 +3,12 @@ title: Types de ressource pris en charge par Azure Resource Health | Microsoft D
 description: Types de ressource pris en charge par Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 3a61c8b90f4dc5e52a875488afb5374e3d6b7ce4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f5d1c720d3cbafafc81276a968abf2003bbd46ce
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717073"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303951"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Types de ressources et les contrôles d’intégrité dans Azure Resource Health
 Voici une liste complète de toutes les vérifications exécutées via Resource Health par type de ressource.
@@ -28,7 +28,7 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |---|
 |<ul><li>Le compte Batch est-il opérationnel ?</li><li>Le quota de pools a-t-il été dépassé pour ce compte Batch ?</li></ul>|
 
-## <a name="microsoftcacheredisredis"></a>Microsoft.CacheRedis/Redis
+## <a name="microsoftcacheredis"></a>Microsoft.Cache/Redis
 |Vérifications exécutées|
 |---|
 |<ul><li>Tous les nœuds du cache sont-ils en cours d’exécution ?</li><li>Le cache peut-il être joint à partir du centre de données ?</li><li>Le cache a-t-il atteint le nombre maximal de connexions ?</li><li> Le cache a-t-il épuisé sa mémoire disponible ? </li><li>Le cache rencontre-t-il un grand nombre de défauts de page ?</li><li>Le cache subit-il une charge lourde ?</li></ul>|

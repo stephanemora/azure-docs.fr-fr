@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
 ms.custom: seo-javascript-october2019
-ms.openlocfilehash: b5382a6a1ea381d57a026e9d42190152e38f7696
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7812b62e2de3181ae1a901241a977e37f855704b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209520"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268036"
 ---
 # <a name="how-to-use-azure-queue-storage-v21-from-python"></a>Comment utiliser le stockage Files d’attente Azure v2.1 à partir de Python
 
@@ -24,7 +24,7 @@ Cet article présente des scénarios courants d’utilisation du service Stockag
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les exemples de cet article sont écrits en Python et utilisent le [Kit de développement logiciel (SDK) Microsoft Azure Storage pour Python]. Pour plus d’informations sur les files d’attente, consultez la section [Étapes suivantes](#next-steps).
 
@@ -41,7 +41,7 @@ Le [SDK Stockage Azure pour Python](https://github.com/azure/azure-storage-pytho
 Pour effectuer l’installation via PyPI (Python Package Index), tapez :
 
 ```bash
-pip install azure-storage-blob==2.1.0
+pip install azure-storage-queue==2.1.0
 ```
 
 > [!NOTE]

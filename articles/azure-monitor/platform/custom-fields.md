@@ -1,18 +1,17 @@
 ---
 title: Champs personnalisés dans Azure Monitor (préversion) | Microsoft Docs
 description: La fonction Champs personnalisés d’Azure Monitor vous permet de créer vos propres champs autorisant les recherches, à partir des enregistrements d’un espace de travail Log Analytics qui s’ajoutent aux propriétés d’un enregistrement collecté.  Cet article décrit la création d’un champ personnalisé et fournit une procédure détaillée avec un exemple d’événement.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: 880d3ffa9914a8fc6f27edce06c5d353d7903db4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bfb0a73631564c96a4af745fe9d7540a3a84f9c3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396880"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655359"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Créer des champs personnalisés dans un espace de travail Log Analytics dans Azure Monitor (préversion)
 

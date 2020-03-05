@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Ce guide de démarrage rapide vous montre comment utiliser Azure Dev Spaces et Visual Studio Code pour déboguer et itérer rapidement une application Java sur Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Java, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: c0062d7cda79cbe91dc7485baa33b60d318a8af0
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 5dcfff94d3a5296ed4462360ce85732c07b21cf5
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605321"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245094"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>Démarrage rapide : Déboguer et itérer dans Kubernetes avec Visual Studio Code et Java - Azure Dev Spaces
 
@@ -31,7 +31,7 @@ Dans ce guide de démarrage rapide, vous configurez Azure Dev Spaces avec un clu
 
 Vous devez créer un cluster AKS dans une [région prise en charge][supported-regions]. Les commandes suivantes créent un groupe de ressources nommé *MyResourceGroup* et un cluster AKS nommé *MyAKS*.
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
@@ -43,10 +43,11 @@ Utilisez la commande `use-dev-spaces` pour activer Dev Spaces sur votre cluster 
 > [!NOTE]
 > La commande `use-dev-spaces` installe également l’interface CLI Azure Dev Spaces si celle-ci n’est pas déjà installée. Vous ne pouvez pas installer l’interface CLI d’Azure Dev Spaces dans Azure Cloud Shell.
 
-```cmd
-$ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```
 
-
+```output
 'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
 
 Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
@@ -155,7 +156,7 @@ Au lieu de regénérer et de redéployer une nouvelle image conteneur chaque foi
 
 ## <a name="clean-up-your-azure-resources"></a>Nettoyer vos ressources Azure
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

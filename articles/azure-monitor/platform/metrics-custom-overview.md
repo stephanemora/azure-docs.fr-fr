@@ -3,17 +3,16 @@ title: Métriques personnalisées dans Azure Monitor
 description: Découvrez les métriques personnalisées dans Azure Monitor et comment elles sont modélisées.
 author: ancav
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 744958fc44a8d10bbc8ca5d44af8c473548ae5ca
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3e3f45c1802d501e2320930c35073ec89ff38124
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669162"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662346"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métriques personnalisées dans Azure Monitor
 
@@ -83,7 +82,7 @@ Azure Monitor stocke toutes les métriques à intervalles réguliers (avec une g
 * **Min** : valeur minimale observée parmi tous les échantillons et mesures au cours d’une minute donnée.
 * **Max** : valeur maximale observée parmi tous les échantillons et mesures au cours d’une minute donnée.
 * **Sum** : somme de toutes les valeurs observées parmi tous les échantillons et mesures au cours d’une minute donnée.
-* **Count** : nombre d’échantillons et de mesures relevés au cours d’une minute donnée.
+* **Nombre** : nombre d’échantillons et de mesures relevés au cours d’une minute donnée.
 
 Par exemple, si quatre transactions de connexion à votre application ont été effectuées pendant une minute donnée, les latences mesurées pour chacune d’elles sont les suivantes :
 
@@ -93,16 +92,16 @@ Par exemple, si quatre transactions de connexion à votre application ont été 
 |
 
 La publication des métriques dans Azure Monitor se présentera ainsi :
-* Min : 4
-* Max : 16
-* Somme : 40
-* Nombre : 4
+* Min : 4
+* Max : 16
+* Somme : 40
+* Nombre : 4
 
 Si votre application ne parvient pas à pré-agréger les valeurs localement et doit émettre chaque événement ou échantillon discret immédiatement après collecte, vous pouvez émettre les valeurs de mesure brutes. Par exemple, à chaque exécution d’une transaction de connexion à votre application, vous publiez une métrique dans Azure Monitor avec une seule mesure. Par conséquent, pour une transaction de connexion qui a duré 12 ms, la publication de métrique se présentera ainsi :
-* Min : 12
-* Max : 12
-* Somme : 12
-* Nombre : 1
+* Min : 12
+* Max : 12
+* Somme : 12
+* Nombre : 1
 
 Ce processus vous permet de générer plusieurs valeurs pour la même combinaison métrique + dimension au cours d’une minute donnée. Azure Monitor prend ensuite toutes les valeurs brutes émises pendant une minute donnée, et les agrège.
 
@@ -211,6 +210,6 @@ Vous pouvez utiliser les métriques personnalisées à partir de différents ser
  - [Groupe de machines virtuelles identiques](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Machines virtuelles Azure (Classic)](collect-custom-metrics-guestos-vm-classic.md)
  - [Machine virtuelle Linux utilisant l’agent Telegraf](collect-custom-metrics-linux-telegraf.md)
- - [API REST](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
+ - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
  - [Services cloud (classiques)](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  

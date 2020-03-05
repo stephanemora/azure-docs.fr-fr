@@ -1,18 +1,17 @@
 ---
 title: Guide de référence des vignettes du Concepteur de vues dans Azure Monitor | Microsoft Docs
 description: Grâce au Concepteur de vues d’Azure Monitor, vous pouvez créer des vues personnalisées affichées dans le portail Azure qui contiennent différentes visualisations sur les données dans l’espace de travail Log Analytics. Cet article est un guide de référence pour les paramètres des vignettes disponibles dans vos vues personnalisées.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
-ms.openlocfilehash: 4141a4728ef5a7dd8896e4e3f21ee6d1d4dce958
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0320be3a2cfbb96367799577a6e56bcf5da87dcb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931958"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658504"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guide de référence des vignettes du Concepteur de vues dans Azure Monitor
 Grâce au Concepteur de vues d’Azure Monitor, vous pouvez créer plusieurs vues personnalisées dans le portail Azure qui peuvent vous aider à visualiser les données dans votre espace de travail Log Analytics. Cet article est un guide de référence pour les paramètres des vignettes disponibles dans vos vues personnalisées.

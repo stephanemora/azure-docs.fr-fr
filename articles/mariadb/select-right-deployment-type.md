@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d53a3f270c1de3c8d533b5886e0051f6aa1ef10d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 961d10f3a0bc4be25a2981e5411cc6a8a75d2105
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776736"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255102"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Choisir l’option MariaDB Server appropriée dans Azure
 
@@ -51,7 +51,7 @@ Plusieurs facteurs peuvent influencer votre décision quant au choix de PaaS ou 
 
 ### <a name="cost"></a>Coût
 
-Le manque de capitaux est souvent le facteur principal qui détermine la meilleure solution d’hébergement de vos bases de données. Cela est vrai que vous soyez une start-up à court de liquidités ou une équipe dans une société établie qui subit de fortes contraintes budgétaires. Cette section décrit les principes de base de facturation et de licence dans Azure qui s’appliquent à Azure Database for MariaDB et à MariaDB sur des machines virtuelles Azure.
+Le manque de capitaux est souvent le facteur principal qui détermine la meilleure solution d’hébergement de vos bases de données. C’est vrai que vous soyez une start-up à court de liquidités ou une équipe dans une société établie qui subit de fortes contraintes budgétaires. Cette section décrit les principes de base de facturation et de licence dans Azure qui s’appliquent à Azure Database for MariaDB et à MariaDB sur des machines virtuelles Azure.
 
 #### <a name="billing"></a>Facturation
 
@@ -61,7 +61,7 @@ Avec Azure Database for MariaDB, Microsoft configure, corrige et met à niveau a
 
 Azure Database for MariaDB offre une haute disponibilité intégrée pour tout type d’interruption de niveau nœud tout en conservant le niveau SLA garanti de 99,99 % pour le service. Toutefois, pour la haute disponibilité de base de données sur les machines virtuelles, les clients doivent utiliser les options de haute disponibilité proposées sur une base de données MariaDB, telles que la [réplication MariaDB](https://mariadb.com/kb/en/library/setting-up-replication/). L’utilisation d’une option de haute disponibilité prise en charge ne fournit pas de SLA supplémentaire. Toutefois, pour des coûts supplémentaires et une plus grande charge administrative, elle vous permet d’atteindre une disponibilité de base de données supérieure à 99,99 %.
 
-Pour plus d’informations sur la tarification, consultez les articles suivants :
+Pour plus d’informations sur les tarifs, consultez les articles suivants :
 * [Tarification Azure Database for MariaDB](https://azure.microsoft.com/pricing/details/MariaDB/)
 * [Tarifs des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/)
@@ -102,4 +102,4 @@ La liste suivante décrit les considérations administratives pour chaque option
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Consultez [Tarification Azure Database for MariaDB](https://azure.microsoft.com/pricing/details/MariaDB/).
-* Commencer par [créer votre premier serveur](https://review.docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal).
+* Commencer par [créer votre premier serveur](https://docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal).

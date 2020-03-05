@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: ba3138076da89610bef878583e424153594c5dcc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 86938c582745cb0759eda9cd0693f407471a0529
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981386"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921485"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Windows affiche le message « Vérification du système de fichiers » lors du démarrage d’une machine virtuelle Azure
 
 Cet article décrit l’erreur « Vérification du système de fichiers » que vous pouvez rencontrer lorsque vous démarrez une machine virtuelle Windows dans Microsoft Azure.
 
-> [!NOTE] 
-> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/management/deployment-models.md). Cet article traite de l’utilisation du modèle de déploiement Resource Manager que nous recommandons pour les nouveaux déploiements à la place du modèle de déploiement classique.
 
 ## <a name="symptom"></a>Symptôme 
 

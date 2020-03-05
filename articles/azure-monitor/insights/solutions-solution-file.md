@@ -1,19 +1,18 @@
 ---
 title: Création d’un fichier de solution de gestion dans Azure | Microsoft Docs
 description: Les solutions de gestion fournissent des scénarios de gestion empaquetée que les clients peuvent ajouter à leur environnement Azure.  Cet article fournit des informations sur la manière dont vous pouvez créer des solutions de gestion à utiliser dans votre propre environnement ou à mettre à la disposition de vos clients.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d583f47a9c83abb1119262a2a6b70292cfa4ab69
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 999177f821b98adfa015520252bd3323d0892533
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977691"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662535"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Création d’un fichier de solution de gestion dans Azure (préversion)
 > [!NOTE]

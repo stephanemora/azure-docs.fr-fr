@@ -3,20 +3,20 @@ title: Configurer le flux des informations d’identification par mot de passe d
 titleSuffix: Azure AD B2C
 description: Découvrez comment configurer le flux ROPC dans Azure AD B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: marsma
+ms.date: 02/27/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 03ff564848298d31c8bf92169d9e5f66d024d711
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 70cd4f2ca3a4ac37bdf1d1e465d1f1a7d06ef9e1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949182"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189699"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurer le flux des informations d’identification par mot de passe du propriétaire de ressource dans Azure AD B2C
 
@@ -24,16 +24,7 @@ Le flux des informations d’identification par mot de passe du propriétaire de
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Les options suivantes sont prises en charge dans Azure Active Directory B2C (Azure AD B2C) :
-
-- **Client natif** : une interaction de l’utilisateur lors de l’authentification se produit quand le code s’exécute sur un appareil côté utilisateur. L’appareil peut être une application mobile qui s’exécute dans un système d’exploitation natif, comme Android et iOS.
-- **Flux client public** : seules les informations d’identification de l’utilisateur, collectées par une application, sont envoyées dans l’appel d’API. Les informations d’identification de l’application ne sont pas envoyées.
-- **Ajouter de nouvelles revendications** : il est possible de changer le contenu du jeton de l’ID pour ajouter de nouvelles revendications.
-
-Les flux suivants ne sont pas pris en charge :
-
-- **Serveur à serveur** : le système de protection des identités a besoin d’une adresse IP fiable collectée auprès de l’appelant (le client natif) dans le cadre de l’interaction. Dans un appel d’API côté serveur, seule l’adresse IP du serveur est utilisée. Si un seuil dynamique d’échecs d’authentification est dépassé, le système de protection d’identité peut identifier une adresse IP répétée en tant qu’attaquant.
-- **Flux client confidentiel** : l’ID du client d’application est validé, mais le secret d’application ne l’est pas.
+[!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Créer un flux d’utilisateur de propriétaire de ressource
 
@@ -68,8 +59,8 @@ Utilisez votre application de développement d’API favorite pour générer un 
 | Clé | Valeur |
 | --- | ----- |
 | username | leadiocl@outlook.com |
-| password | Passxword1 |
-| grant_type | password |
+| mot de passe | Passxword1 |
+| grant_type | mot de passe |
 | scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | jeton id_token |

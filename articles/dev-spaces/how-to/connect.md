@@ -1,16 +1,16 @@
 ---
-title: Connecter l’ordinateur de développement à un cluster AKS
+title: Connecter l’ordinateur de développement à un cluster AKS (préversion)
 services: azure-dev-spaces
 ms.date: 11/04/2019
 ms.topic: conceptual
 description: Découvrez comment connecter votre ordinateur de développement à un cluster AKS avec Azure Dev Spaces
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: cba68702155475832930c791c3a7be014375ba04
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 13e6f16e66941be0ae463e8280827dc0b8183450
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770677"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196091"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>Connecter l’ordinateur de développement à un cluster AKS (préversion)
 
@@ -35,7 +35,7 @@ Ce guide utilise l’exemple d’application [Azure Dev Spaces Bike Sharing](htt
 
 * UDP n’est pas pris en charge pour le moment.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free).
 * [Azure CLI][azure-cli].

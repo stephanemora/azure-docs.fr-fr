@@ -3,20 +3,20 @@ title: Configurer la complexité du mot de passe à l’aide de stratégies pers
 titleSuffix: Azure AD B2C
 description: Guide pratique pour configurer les exigences de complexité du mot de passe à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d0caa029bd33da499db23f218b2392344c4585ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2de1130e28b5071913e4cf3632c3fe4407597a98
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76851116"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189138"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la complexité du mot de passe avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76851116"
 
 Dans Azure Active Directory B2C (Azure AD B2C), vous pouvez configurer les critères de complexité des mots de passe qui sont fournis par un utilisateur lors de la création d’un compte. Par défaut, Azure AD B2C utilise des mots de passe **forts**. Cet article vous montre comment configurer la complexité du mot de passe dans des [stratégies personnalisées](custom-policy-overview.md). Il est également possible de configurer la complexité du mot de passe dans les [flux d’utilisateurs](user-flow-password-complexity.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes dans [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md).
 

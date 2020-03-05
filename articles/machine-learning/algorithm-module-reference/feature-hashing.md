@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
-ms.openlocfilehash: 4340ee4ed1edda8590726151e07eec45c0751ed6
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 6ba53793e57be67e2954af870dfa4248fca465ec
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152259"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912203"
 ---
 # <a name="feature-hashing-module-reference"></a>Informations de référence sur le module de hachage des caractéristiques
 
@@ -111,7 +111,7 @@ Une fois le traitement terminé, le module génère un jeu de données transform
 
 Après avoir créé le jeu de données transformé, vous pouvez l’utiliser en tant qu’entrée dans le module Entraîner le modèle.
  
-### <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 Les bonnes pratiques suivantes peuvent vous aider à tirer le meilleur parti du module Feature Hashing :
 

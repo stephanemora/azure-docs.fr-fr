@@ -4,12 +4,12 @@ description: Découvrir comment effectuer un déploiement sur Azure Functions à
 keywords: jenkins, azure, devops, java, azure functions
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: edf8c763a46a6f519175842a6525b2c1b314fb66
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 731bac13a596bbeaf970b3f6ce976a582d1f11ae
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470664"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250923"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>Effectuer un déploiement sur Azure Functions à l’aide du plug-in Azure Functions Jenkins
 
@@ -31,19 +31,19 @@ Les étapes suivantes montrent comment créer une fonction Java à l’aide de l
 
 1. Créez un groupe de ressources, en remplaçant l’espace réservé **&lt;resource_group>** par le nom de votre groupe de ressources.
 
-    ```cli
+    ```azurecli
     az group create --name <resource_group> --location eastus
     ```
 
 1. Créez un compte de stockage Azure, en remplaçant les espaces réservés par les valeurs appropriées.
  
-    ```cli
+    ```azurecli
     az storage account create --name <storage_account> --location eastus --resource-group <resource_group> --sku Standard_LRS    
     ```
 
 1. Créez l’application de fonction de test, en remplaçant les espaces réservés par les valeurs appropriées.
 
-    ```cli
+    ```azurecli
     az functionapp create --resource-group <resource_group> --consumption-plan-location eastus --name <function_app> --storage-account <storage_account>
     ```
 
@@ -148,7 +148,7 @@ Dans cette section, vous allez créer le [pipeline Jenkins](https://jenkins.io/d
 
 Si vous ne pensez pas continuer à utiliser cette application, supprimez les ressources que vous avez créées en effectuant l’étape suivante :
 
-```cli
+```azurecli
 az group delete -y --no-wait -n <resource_group>
 ```
 

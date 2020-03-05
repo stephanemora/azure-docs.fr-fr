@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seodec18
 ms.date: 12/09/2019
-ms.openlocfilehash: ecc4d5053ef6d9194f09b8a5aa6ba1528f9d94fa
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 9ef54707f7fac3dd1328e29f6d05f62c1dee2561
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920716"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194901"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Exécuter Apache Oozie dans des clusters HDInsight Hadoop avec le Pack Sécurité Entreprise
 
@@ -348,4 +348,4 @@ L’interface utilisateur web Oozie fournit une vue web de l’état des travaux
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Utiliser Apache Oozie avec Apache Hadoop pour définir et exécuter un workflow sur Azure HDInsight Linux](../hdinsight-use-oozie-linux-mac.md).
-- [Se connecter à HDInsight (Apache Hadoop) avec SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+- [Se connecter à HDInsight (Apache Hadoop) avec SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight).

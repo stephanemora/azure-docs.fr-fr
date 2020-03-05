@@ -1,18 +1,14 @@
 ---
 title: Supervision des performances des applications web - Azure Application Insights
 description: Comment Application Insights s’intègre dans le cycle des opérations de développement
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/21/2018
-ms.openlocfilehash: 1396bc86971941fdf8c6559df71a4c47f58a899c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928824"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669690"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostic approfondi des applications et services web avec Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Pourquoi ai-je besoin d’Application Insights ?
@@ -73,7 +69,7 @@ Les principales catégories de données sont les suivantes :
 * Événements personnalisés que vous pouvez utiliser pour le suivi d’événements commerciaux
 * Traces de journal utilisées pour le débogage.
 
-## <a name="case-study-real-madrid-fc"></a>Étude de cas : Real Madrid
+## <a name="case-study-real-madrid-fc"></a>Étude de cas : Real Madrid
 Le service web du [club de football Real Madrid](https://www.realmadrid.com/) est visité par environ 450 millions de supporters dans le monde entier. Ils y accèdent à la fois par les navigateurs web et les applications mobiles du Club. Les supporters n’achètent pas seulement des billets, ils consultent des informations et visionnent des vidéos sur les résultats, les joueurs et les prochains matchs. Ils peuvent effectuer des recherches avec des filtres, comme le nombre de buts marqués. Le site contient également des liens vers les réseaux sociaux. L’expérience utilisateur est extrêmement personnalisée et conçue comme une communication bidirectionnelle pour privilégier l’interaction avec les supporters.
 
 La solution [est un système de services et d’applications sur Microsoft Azure](https://www.microsoft.com/inculture/sports/real-madrid/). L’évolutivité est essentielle : le trafic, variable, peut atteindre des sommets avant, pendant et après les matchs.

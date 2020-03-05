@@ -3,17 +3,16 @@ title: Mise à jour de la gestion des alertes et de la supervision classiques da
 description: Description de la mise hors service des services et des fonctionnalités de supervision classique, présentée précédemment dans le Portail Azure sous Alertes (classique).
 author: yanivlavi
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: f4639d46a796924b4fe1dcbb46735abea128388f
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: dec4d6824644cabf8b1872da207b8554fee0b3d3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307087"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659473"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>La gestion des alertes et la supervision unifiées dans Azure Monitor remplace la gestion des alertes et la supervision classiques
 

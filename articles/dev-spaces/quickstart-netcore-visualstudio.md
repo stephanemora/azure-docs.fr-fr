@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, 
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: de830d07010037793eaf7471fc1147a42081b09c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 5deebf7a51917a2b199ad525ab087fd5b0268c18
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770592"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245028"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Démarrage rapide : Déboguer et itérer dans Kubernetes : Visual Studio et .NET Core - Azure Dev Spaces
 
@@ -28,7 +28,7 @@ Azure Dev Spaces vous permet également de déboguer et d’itérer à l’aide 
 - [Node.js et Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core et Visual Studio Code](quickstart-netcore.md)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free).
 - Visual Studio 2019 sur Windows avec la charge de travail de développement Azure installée. Vous pouvez également utiliser Visual Studio 2017 sur Windows lorsque la charge de travail Développement web et [Visual Studio Tools pour Kubernetes](https://aka.ms/get-vsk8stools) sont installés. Si vous n’avez pas installé Visual Studio, vous pouvez le télécharger [ici](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -43,7 +43,7 @@ Vous devez créer un cluster AKS dans une [région prise en charge][supported-re
 
     ![Créer AKS dans le portail Azure](media/get-started-netcore-visualstudio/create-aks-portal.png)
 
-1. Cliquez sur *Revoir + créer*.
+1. Cliquez sur *Vérifier + créer*.
 1. Cliquez sur *Créer*.
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Activer Azure Dev Spaces sur votre cluster AKS
@@ -124,7 +124,7 @@ Supprimez le point d’arrêt en plaçant votre curseur sur la ligne 20 dans `Co
 
 Accédez à votre groupe de ressources sur le portail Azure, puis cliquez sur *Supprimer le groupe de ressources* . Vous pouvez aussi utiliser la commande [az aks delete](/cli/azure/aks#az-aks-delete) :
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

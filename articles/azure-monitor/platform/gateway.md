@@ -1,18 +1,17 @@
 ---
 title: Connecter des ordinateurs à l’aide de la passerelle Log Analytics | Microsoft Docs
 description: Connectez vos appareils et les ordinateurs contrôlés par Operations Manager en utilisant la passerelle Log Analytics pour envoyer des données aux services Azure Automation et Log Analytics lorsqu’ils n’ont pas accès à Internet.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 30854382b5a6dfd0faabfc2f59340dc21518d6f2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6c5325a21ffa74f5679a74b991f1c814eadc64ff
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773289"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672291"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connecter des ordinateurs sans accès Internet en utilisant la passerelle Log Analytics dans Azure Monitor
 

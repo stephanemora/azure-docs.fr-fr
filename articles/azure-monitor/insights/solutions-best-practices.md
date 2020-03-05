@@ -1,18 +1,17 @@
 ---
 title: Bonnes pratiques en matière de solution de gestion dans Azure | Microsoft Docs
 description: ''
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: 28ae01fe28b1b2d6af95567e529c7c9ae17920e4
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 837fb87d73698961ec1550b122840563d1707f8a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553935"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663196"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Bonnes pratiques pour la création de solutions de gestion dans Azure (préversion)
 > [!NOTE]

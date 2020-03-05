@@ -1,18 +1,17 @@
 ---
 title: Affichages dans des solutions de gestion | Microsoft Docs
 description: 'Les solutions de gestion comprennent généralement un ou plusieurs affichages pour visualiser des données.  Cet article décrit comment exporter une vue créée par le Concepteur de vues et l’inclure dans une solution de gestion. '
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
-ms.openlocfilehash: 473d10bbec6ca056554f7223800a32e9ca93578e
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: a9a1c1718fb95a6ace3700af043134072d582473
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553905"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663043"
 ---
 # <a name="views-in-management-solutions-preview"></a>Affichages dans des solutions de gestion (préversion)
 > [!NOTE]
@@ -29,7 +28,7 @@ Les [solutions de gestion](solutions.md) comprennent généralement un ou plusie
 ## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous êtes déjà familiarisé avec la [création d’une solution de gestion](solutions-creating.md) et la structure d’un fichier solution.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Pour inclure une vue dans une solution de gestion, vous créez une **ressource** lui correspondant dans le [fichier solution](solutions-creating.md).  Cependant, le fichier JSON qui décrit la configuration détaillée de la vue est généralement complexe. Un auteur de solution classique ne serait pas en mesure de le créer manuellement.  La méthode la plus courante consiste à créer la vue en utilisant le [Concepteur de vues](../../azure-monitor/platform/view-designer.md), à l’exporter, puis à ajouter ensuite sa configuration détaillée à la solution.
 
 Voici les étapes de base pour ajouter une vue à une solution.  Chaque étape est décrite en détail dans les sections ci-dessous.
@@ -89,15 +88,15 @@ Toutes les ressources Log Analytics définies dans un modèle Resource Manager o
 
 | Version de l’espace de travail | Version de l'API | Requête |
 |:---|:---|:---|
-| v1 (hérité)   | 2015-11-01-preview | Format hérité.<br> Exemple : Type=Event EventLevelName = Error  |
-| v2 (mis à niveau) | 2015-11-01-preview | Format hérité.  Converti au format mis à niveau durant l’installation.<br> Exemple : Type=Event EventLevelName = Error<br>Converti en : Event &#124; where EventLevelName == "Error"  |
-| v2 (mis à niveau) | 2017-03-03-preview | Format mis à niveau. <br>Exemple : Event &#124; where EventLevelName == "Error"  |
+| v1 (hérité)   | 2015-11-01-preview | Format hérité.<br> Exemple : Type=Event EventLevelName = Error  |
+| v2 (mis à niveau) | 2015-11-01-preview | Format hérité.  Converti au format mis à niveau durant l’installation.<br> Exemple : Type=Event EventLevelName = Error<br>Converti en : Event &#124; where EventLevelName == "Error"  |
+| v2 (mis à niveau) | 2017-03-03-preview | Format mis à niveau. <br>Exemple : Event &#124; where EventLevelName == "Error"  |
 
 
 ## <a name="add-the-view-details"></a>Ajout des détails de la vue
 La ressource de la vue dans le fichier exporté contient deux éléments dans l’élément **properties** nommés **Dashboard** et **OverviewTile** qui contiennent la configuration détaillée de la vue.  Copiez ces deux éléments et leur contenu dans l’élément **properties** de la ressource de vue dans votre fichier solution.
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 Par exemple, l’exemple suivant montre un fichier solution simple avec une vue.  Des points de suspension (...) sont affichés à la place du contenu des éléments **Dashboard** et **OverviewTile** pour des raisons d’espace.
 
     {

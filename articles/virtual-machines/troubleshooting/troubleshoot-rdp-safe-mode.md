@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 14cd43f7bd7965b755eca14e5914c64e2ec8e044
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981288"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918204"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>Impossible d’établir une connexion RDP à une machine virtuelle car celle-ci démarre en mode sans échec
 
 Cet article explique comment résoudre un problème qui vous empêche de vous connecter à des machines virtuelles Windows Azure car celles-ci sont configurées pour démarrer en mode sans échec.
 
-> [!NOTE]
-> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/management/deployment-models.md). Cet article traite du modèle de déploiement Resource Manager, que nous recommandons pour les nouveaux déploiements plutôt que le modèle de déploiement Classic.
 
 ## <a name="symptoms"></a>Symptômes
 

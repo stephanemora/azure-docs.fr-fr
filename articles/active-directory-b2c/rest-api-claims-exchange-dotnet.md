@@ -3,20 +3,20 @@ title: Intégrer les échanges de revendications de l’API REST dans un parcour
 titleSuffix: Azure AD B2C
 description: Intégrer les échanges de revendications d’API REST dans votre parcours utilisateur Azure AD B2C comme validation d’une entrée de l’utilisateur.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 780d575bd7f035673510d5b1e62cff4dfd6ede16
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5976b6ef747b27a5a04c755d47ae4383fc4b2447
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76851020"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187353"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur
 
@@ -57,7 +57,7 @@ Présentation :
 * Renvoyer un numéro de fidélité
 * Ajouter le numéro de fidélité à un JSON Web Token (JWT)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](custom-policy-get-started.md).
 

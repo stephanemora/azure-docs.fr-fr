@@ -1,22 +1,20 @@
 ---
 title: Alertes de journal d’activité dans Azure Monitor
 description: Recevez des notifications par SMS, webhook, e-mail, etc. lors de la survenue de certains événements dans le journal d’activité.
-ms.service: azure-monitor
 ms.subservice: alerts
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 09/17/2018
-ms.openlocfilehash: c42f72800a93de714f0cc126939a28a8a6b5fce4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 26ecfdb33b92c91010af63ec14089dd148d6bad0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747527"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669011"
 ---
-# <a name="alerts-on-activity-log"></a>Alertes sur le journal d’activité 
+# <a name="alerts-on-activity-log"></a>Alertes sur le journal d’activité
 
 ## <a name="overview"></a>Vue d’ensemble
+
 Les alertes du journal d’activité s’activent quand un nouvel [événement du journal d’activité](activity-log-schema.md) correspond aux conditions spécifiées dans l’alerte. La règle d’alerte se déclenche en fonction de l’ordre et du volume des événements enregistrés dans le [journal d’activité Azure](platform-logs-overview.md). Les règles d’alerte du journal d’activité étant des ressources Azure, elles peuvent être créées à l’aide d’un modèle Azure Resource Manager. Elles peuvent également être créées, mises à jour ou supprimées dans le portail Azure. Cet article présente les concepts qui sous-tendent les alertes de journal d’activité. Pour plus d’informations sur la création ou l’utilisation des règles d’alerte du journal d’activité, consultez [Créer et gérer des alertes du journal d’activité](alerts-activity-log.md).
 
 > [!NOTE]

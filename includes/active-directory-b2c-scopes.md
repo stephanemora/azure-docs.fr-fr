@@ -1,18 +1,18 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
-ms.author: marsma
-ms.openlocfilehash: 59cf0b81363c724d709d85105525bece13743f26
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: mimart
+ms.openlocfilehash: 9d394b07ff17ab24305b2580efc8bedfc5e7d384
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474865"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183373"
 ---
-#### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
+#### <a name="applications"></a>[Applications](#tab/applications/)
 
 1. Sélectionnez **Applications**.
 1. Sélectionnez l’application *webapi1* pour ouvrir sa page **Propriétés**.
@@ -21,7 +21,7 @@ ms.locfileid: "73474865"
 1. Pour **ÉTENDUE**, entrez `demo.write` puis, pour **DESCRIPTION**, entrez `Write access to the web API`.
 1. Sélectionnez **Enregistrer**.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
 
 1. Sélectionnez **Inscriptions d’applications (préversion)** .
 1. Sélectionnez l’application *webapi1* pour ouvrir sa page **Vue d’ensemble**.
@@ -32,8 +32,8 @@ ms.locfileid: "73474865"
 1. Entrez les valeurs suivantes pour créer une étendue qui définit l’accès en lecture à l’API, puis sélectionnez **Ajouter une étendue** :
     1. **Nom de l’étendue** : `demo.read`
     1. **Nom d’affichage du consentement administrateur** : `Read access to demo API`
-    1. **Description du consentement administrateur** : `Allows read access to the demo API`
+    1. **Description du consentement de l’administrateur** : `Allows read access to the demo API`
 1. Sélectionnez **Ajouter une étendue**, entrez les valeurs suivantes pour ajouter une étendue qui définit l’accès en écriture à l’API, puis sélectionnez **Ajouter une étendue** :
     1. **Nom de l’étendue** : `demo.write`
     1. **Nom d’affichage du consentement administrateur** : `Write access to demo API`
-    1. **Description du consentement administrateur** : `Allows write access to the demo API`
+    1. **Description du consentement de l’administrateur** : `Allows write access to the demo API`

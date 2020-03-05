@@ -1,19 +1,15 @@
 ---
 title: Modèle de données de dépendance Azure Monitor Application Insights
 description: Modèle de données Application Insights pour la télémétrie des dépendances
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 5021d3b34816159fc78590a5947ddd3a790303ee
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: ba0d848904d1ba885dc53e2941953d8dfb4864cf
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872636"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671917"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Télémétrie des dépendances : Modèle de données Application Insights
 
@@ -41,7 +37,7 @@ Site cible d’un appel de dépendance. Exemples : nom de serveur, adresse d’h
 
 ## <a name="duration"></a>Duration
 
-Durée de la demande au format : `DD.HH:MM:SS.MMMMMM`. Doit être inférieure à `1000` jours.
+Durée de la requête au format : `DD.HH:MM:SS.MMMMMM`. Doit être inférieure à `1000` jours.
 
 ## <a name="result-code"></a>Code de résultat
 

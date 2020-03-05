@@ -1,18 +1,17 @@
 ---
 title: Activer Azure Monitor pour machines virtuelles (Classic) avec PowerShell ou des modèles
 description: Cet article décrit l’activation d’Azure Monitor pour machines virtuelles sur une ou plusieurs machines virtuelles (ou sur un ou plusieurs groupes de machines virtuelles identiques) à l’aide des modèles Azure PowerShell ou Azure Resource Manager.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2019
-ms.openlocfilehash: 4fc5afe3bbb4b2ccf2329432347b23fe9a69c5ea
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e28a5dce4dda677ef4e5eb0ed08c42ec1f03c308
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977674"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251440"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Activer Azure Monitor pour machines virtuelles (préversion) à l’aide des modèles Azure PowerShell ou Resource Manager
 
@@ -100,7 +99,7 @@ Pour utiliser Azure CLI, vous devez d’abord installer et utiliser l’interfac
 
         Le changement de configuration peut prendre quelques minutes. Lorsqu’il est terminé, un message similaire à celui-ci et contenant les résultats s’affiche :
 
-        ```powershell
+        ```output
         provisioningState       : Succeeded
         ```
 
@@ -114,7 +113,7 @@ Pour utiliser Azure CLI, vous devez d’abord installer et utiliser l’interfac
 
         Le changement de configuration peut prendre quelques minutes. Lorsqu’il est terminé, un message similaire à celui-ci et contenant les résultats s’affiche :
 
-        ```azurecli
+        ```output
         provisioningState       : Succeeded
         ```
 
@@ -155,7 +154,7 @@ New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceG
 ```
 Le changement de configuration peut prendre quelques minutes. Lorsqu’il est terminé, un message similaire à celui-ci et contenant les résultats s’affiche :
 
-```powershell
+```output
 provisioningState       : Succeeded
 ```
 
@@ -171,7 +170,7 @@ az group deployment create --resource-group <ResourceGroupName> --template-file 
 
 La sortie se présente comme suit :
 
-```azurecli
+```output
 provisioningState       : Succeeded
 ```
 

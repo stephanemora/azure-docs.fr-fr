@@ -9,12 +9,12 @@ ms.workload: big-compute
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: lahugh
-ms.openlocfilehash: 14cbacf43e83dc768e9a85620df131533b746671
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 0134e7d92ddca9bd3b45abaf642f33de9d209b33
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77465630"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192300"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Accéder de façon sécurisée à Key Vault avec Batch
 
@@ -40,7 +40,7 @@ cd C:\Program Files (x86)\Windows Kits\10\bin\x64
 Ensuite, utilisez l’outil `makecert` pour créer des fichiers de certificat auto-signé, appelés `batchcertificate.cer` et `batchcertificate.pvk`. Le nom commun (CN) utilisé n’est pas important pour cette application, mais il est utile de s’en servir comme d’une indication de la finalité du certificat.
 
 ```console
-makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
+makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org" batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
 ```
 
 Batch nécessite un fichier `.pfx`. Utilisez l’outil [pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) pour convertir les fichiers `.cer` et `.pvk` créés par `makecert` en un seul fichier `.pfx`.

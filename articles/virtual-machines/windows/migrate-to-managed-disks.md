@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7b907cf5bf64aa1a8a458a8d2b42c30dffd0dfd1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: e8f2753ac9062803a2d6252eca1829cb0b168f02
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74029797"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921349"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrer des machines virtuelles Azure vers la fonctionnalité Disques managés dans Azure
 
@@ -29,6 +29,8 @@ Vous pouvez migrer vers la fonctionnalité Disques managés dans les cas de figu
 |Convertir une machine virtuelle unique du modèle Classic vers le modèle Resource Manager sur des disques managés     |[Créer une machine virtuelle à partir d’un disque dur virtuel classique](create-vm-specialized-portal.md)         |
 |Convertir toutes les machines virtuelles d’un réseau virtuel du modèle Classic vers le modèle Resource Manager sur des disques managés     |[Migration de ressources IaaS d’un environnement Classic vers Resource Manager](migration-classic-resource-manager-ps.md), puis [Convertir une machine virtuelle à partir de disques non managés vers des disques managés](convert-unmanaged-to-managed-disks.md)         |
 |Mettre à niveau des machines virtuelles dotées de disques non managés Standard vers des machines virtuelles dotées de disques managés Premium     | Tout d’abord, [convertissez les disques non managés d’une machine virtuelle Windows en disques managés](convert-unmanaged-to-managed-disks.md). Ensuite, [mettez à jour le type de stockage d’un disque managé](convert-disk-storage.md).         |
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

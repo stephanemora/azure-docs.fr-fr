@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 2a1a9b1973ded5db7182fb1898fc7222904c39c3
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 09002a8c0999dc137ca3386ca7392a566d323e8a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863959"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196057"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Démarrage rapide : Bibliothèque cliente Stockage Blob Azure v12 pour .NET
 
@@ -29,11 +29,11 @@ Utilisez la bibliothèque cliente Stockage Blob Azure v12 pour .NET afin de :
 * Télécharger l’objet blob sur votre ordinateur local
 * Supprimer un conteneur
 
-[Documentation de référence sur l’API](/dotnet/api/azure.storage.blobs) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Exemples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+[Documentation de référence sur l’API](/dotnet/api/azure.storage.blobs) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Exemples](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 * Compte de stockage Azure : [créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -85,7 +85,6 @@ dotnet add package Azure.Storage.Blobs
 Voici le code :
 
 ```csharp
-using Azure.Storage;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using System;
@@ -181,7 +180,7 @@ L’extrait de code suivant :
 
 1. Crée un fichier texte dans le répertoire *data* local.
 1. Obtient une référence à un objet [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) en appelant la méthode [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) sur le conteneur à partir de la section [Créer un conteneur](#create-a-container).
-1. Charge le fichier texte local dans l’objet Blob en appelant la méthode [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync). Cette méthode crée l’objet blob s’il n’existe pas déjà, et le remplace s’il existe.
+1. Charge le fichier texte local dans l’objet Blob en appelant la méthode [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync#Azure_Storage_Blobs_BlobClient_UploadAsync_System_IO_Stream_System_Boolean_System_Threading_CancellationToken_). Cette méthode crée l’objet blob s’il n’existe pas déjà, et le remplace s’il existe.
 
 Ajoutez ce code à la fin de la méthode `Main` :
 
@@ -201,7 +200,7 @@ Console.WriteLine("Uploading to Blob storage as blob:\n\t {0}\n", blobClient.Uri
 
 // Open the file and upload its data
 using FileStream uploadFileStream = File.OpenRead(localFilePath);
-await blobClient.UploadAsync(uploadFileStream);
+await blobClient.UploadAsync(uploadFileStream, true);
 uploadFileStream.Close();
 ```
 

@@ -1,18 +1,16 @@
 ---
 title: Créer et exécuter des tests de disponibilité personnalisés avec Azure Functions
 description: Cette documentation explique comment créer une fonction Azure avec TrackAvailability() pour qu’elle s’exécute régulièrement selon la configuration spécifiée dans la fonction TimerTrigger. Les résultats de ce test sont envoyés à votre ressource Application Insights, où vous pouvez rechercher et signaler des données sur les résultats de disponibilité. Les tests personnalisés vous permettent d’écrire des tests de disponibilité plus complexes qu’avec l’IU du portail, de superviser une application dans votre réseau virtuel Azure, de changer l’adresse du point de terminaison ou de créer un test de disponibilité, si ce dernier n’est pas disponible dans votre région.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: morgangrobin
 ms.author: mogrobin
 ms.date: 11/22/2019
-ms.openlocfilehash: c7a8ffb9873fd70353f38bb2b2bbfdb584992377
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 476d66c51c10a5fcfb3cb0319c47b3338d28812c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815668"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665797"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Créer et exécuter des tests de disponibilité personnalisés avec Azure Functions
 

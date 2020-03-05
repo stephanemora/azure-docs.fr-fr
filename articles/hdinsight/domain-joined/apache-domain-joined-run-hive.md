@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: ff612c43a058fce02bd801e15632c27979f22d17
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435870"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196924"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurer des stratégies Apache Hive dans HDInsight avec le Pack Sécurité Entreprise
 
 Découvrez comment configurer des stratégies Apache Ranger pour Apache Hive. Dans cet article, vous créez deux stratégies Ranger pour restreindre l’accès à hivesampletable. hivesampletable dispose de clusters HDInsight. Après avoir configuré les stratégies, vous utilisez Excel et le pilote ODBC pour vous connecter à des tables Hive dans HDInsight.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un cluster HDInsight avec le Pack Sécurité Entreprise. Voir [Configurer des clusters HDInsight avec ESP](apache-domain-joined-configure.md).
 * Une station de travail avec Office 2016, Office 2013 ProPlus, Office 365 Pro Plus, l’édition autonome d’Excel 2013 ou Office Professionnel Plus 2010.
@@ -152,7 +152,7 @@ Pour tester la deuxième stratégie (read-hivesampletable-devicemake) que vous a
 
 * Pour configurer un cluster HDInsight avec le Pack Sécurité Entreprise, consultez [Configurer des clusters HDInsight avec ESP](apache-domain-joined-configure.md).
 * Pour gérer un cluster HDInsight avec ESP, consultez [Gérer des clusters HDInsight avec ESP](apache-domain-joined-manage.md).
-* Pour exécuter des requêtes Hive en utilisant SSH sur des clusters HDInsight avec ESP, consultez [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Pour exécuter des requêtes Hive en utilisant SSH sur des clusters HDInsight avec ESP, consultez [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight).
 * Pour connecter Hive avec Hive JDBC, voir [Se connecter à Apache Hive sur Azure HDInsight avec le pilote Hive JDBC](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md).
 * Pour connecter Excel à Hadoop avec Hive ODBC, voir [Connecter Excel à Apache Hadoop avec le pilote Microsoft Hive ODBC](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
 * Pour connecter Excel à Hadoop avec Power Query, voir [Connecter Excel à Apache Hadoop avec Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md).

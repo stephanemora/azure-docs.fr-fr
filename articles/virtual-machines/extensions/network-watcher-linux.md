@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: c04b27ab4a8ea53e09ca3a133d6aef6457fe1526
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 69d2bfe4576a9350e905fc10f3d7617619e6284a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073048"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915484"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Agent Network Watcher pour Linux
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 [Azure Network Watcher](/azure/network-watcher/) est un service d’analyse, de diagnostic et d’analytique des performances réseau permettant de surveiller les réseaux Azure. L’extension de machine virtuelle de l’agent Network Watcher est obligatoire pour utiliser certaines fonctionnalités Network Watcher sur les machines virtuelles Azure, par exemple la capture du trafic réseau à la demande, et d’autres fonctionnalités avancées.
 
@@ -88,6 +88,8 @@ Vous pouvez déployer les extensions de machines virtuelles Azure avec un modèl
 
 ## <a name="azure-classic-cli-deployment"></a>Déploiement d’Azure Classic CLI
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 L’exemple suivant déploie l’extension de machine virtuelle de l’agent Network Watcher sur une machine virtuelle existante et déployée à l’aide du modèle de déploiement classique :
 
 ```azurecli
@@ -105,21 +107,9 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 ## <a name="troubleshooting-and-support"></a>Résolution des problèmes et support
 
-### <a name="troubleshooting"></a>Résolution de problèmes
+### <a name="troubleshooting"></a>Dépannage
 
 Vous pouvez récupérer les données sur l’état des déploiements d’extension à partir du portail Azure ou à l’aide d’Azure CLI.
-
-L’exemple suivant montre l’état de déploiement des extensions d’une machine virtuelle déployée au moyen du modèle de déploiement classique, par le biais d’Azure Classic CLI :
-
-```azurecli
-azure config mode asm
-azure vm extension get myVM1
-```
-La sortie de l’exécution de l’extension est enregistrée dans les fichiers qui que se trouvent dans le répertoire suivant :
-
-```
-/var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
-```
 
 L’exemple suivant montre l’état de déploiement de l’extension NetworkWatcherAgentLinux pour une machine virtuelle déployée avec Resource Manager, par le biais de l’interface Azure CLI :
 

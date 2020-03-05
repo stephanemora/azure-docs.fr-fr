@@ -10,18 +10,18 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b49b3187f9178012131d793a7762ae470b0ea540
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f5c6125b850062450516e7fc0b19c2e0d5d6f577
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965716"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916062"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Appeler des opérations de l’API REST avec l’autorisation de clé partagée
 
 Cet article explique comment appeler les API REST Stockage Azure, et comment former l'en-tête d'autorisation. Il est écrit du point de vue d’un développeur qui n’a aucune connaissance sur REST et sur la manière de passer un appel REST. Après avoir appris à appeler une opération REST, vous pouvez tirer parti de vos connaissances pour utiliser n'importe quelle autre opération REST Stockage Azure.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 L'exemple d'application dresse la liste des conteneurs d'objets blob d'un compte de stockage. Pour tester le code de cet article, vous avez besoin des éléments suivants :
 
@@ -410,7 +410,7 @@ internal static AuthenticationHeaderValue GetAuthorizationHeader(
 
     // This is the actual header that will be added to the list of request headers.
     AuthenticationHeaderValue authHV = new AuthenticationHeaderValue("SharedKey",
-        storageAccountName + ":" + Convert.ToBase64String(SHA256.ComputeHash(SignatureBytes)));
+        storageAccountName + ":" + signature);
     return authHV;
 }
 ```

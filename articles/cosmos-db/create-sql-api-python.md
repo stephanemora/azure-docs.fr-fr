@@ -12,12 +12,12 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: d73d85471269bafb6f6d2e080a68f0cab10e3962
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 113955b0404b951360b670ee75789d0a74ffa534
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585966"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274098"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Démarrage rapide : Générer une application Python à l’aide d’un compte d’API SQL Azure Cosmos DB
 
@@ -129,27 +129,27 @@ Tous les extraits de code suivants proviennent du fichier *cosmos_get_started.py
 
 * Le CosmosClient est initialisé. Veillez à mettre à jour les valeurs de « endpoint » et de « key », comme décrit dans la section [Mettre à jour votre chaîne de connexion](#update-your-connection-string). 
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_cosmos_client":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_cosmos_client)]
 
 * Une nouvelle base de données est créée.
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_database_if_not_exists":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_database_if_not_exists)]
 
 * Un nouveau conteneur est créé, avec 400 RU/s de [débit provisionné](request-units.md). Nous choisissons `lastName` comme [clé de partition](partitioning-overview.md#choose-partitionkey), ce qui nous permet de faire des requêtes efficaces qui filtrent sur cette propriété. 
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_container_if_not_exists":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_container_if_not_exists)]
 
 * Certains éléments sont ajoutés au conteneur. Les conteneurs sont une collection d’éléments (des documents JSON) qui peuvent avoir différents schémas. Les méthodes d’assistance ```get_[name]_family_item``` retournent des représentations d’une famille stockées dans Azure Cosmos DB en tant que documents JSON.
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_item":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_item)]
 
 * Les lectures des points (des recherches de valeurs de clés) sont effectuées avec la méthode `read_item`. Nous affichons les [frais en RU (unités de requête)](request-units.md) de chaque opération.
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="read_item":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=read_item)]
 
 * Une requête est effectuée avec la syntaxe des requêtes SQL. Étant donné que nous utilisons les valeurs de clé de partition de ```lastName``` dans la clause WHERE, Azure Cosmos DB route cette requête vers les partitions pertinentes, ce qui améliore les performances.
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="query_items":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=query_items)]
    
 ## <a name="run-the-app"></a>Exécuter l’application
 

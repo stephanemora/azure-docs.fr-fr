@@ -3,12 +3,12 @@ title: Déployer des ressources avec Azure CLI et un modèle
 description: Utilisez Azure Resource Manager et Azure CLI pour déployer des ressources sur Azure. Les ressources sont définies dans un modèle Resource Manager.
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 242b9f2a4bc39f8aa083d9c89d3dd7ed850b3489
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 64f60a6e15a0c51e5ee506340c064804f7588693
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154293"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250657"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Déployer des ressources à l’aide de modèles Resource Manager et d'Azure CLI
 
@@ -63,7 +63,7 @@ az group deployment create \
 
 Le déploiement peut prendre plusieurs minutes. Au terme, vous voyez un message qui inclut le résultat :
 
-```azurecli
+```output
 "provisioningState": "Succeeded",
 ```
 
@@ -183,7 +183,7 @@ az group deployment validate \
 
 Si aucune erreur n’est détectée, la commande retourne des informations sur le déploiement de test. En particulier, notez que **error** a la valeur Null.
 
-```azurecli
+```output
 {
   "error": null,
   "properties": {
@@ -192,7 +192,7 @@ Si aucune erreur n’est détectée, la commande retourne des informations sur l
 
 Si une erreur est détectée, la commande retourne un message d’erreur. Par exemple, la transmission d’une valeur incorrecte pour la référence (SKU) du compte de stockage retourne l’erreur suivante :
 
-```azurecli
+```output
 {
   "error": {
     "code": "InvalidTemplate",
@@ -208,7 +208,7 @@ Si une erreur est détectée, la commande retourne un message d’erreur. Par ex
 
 Si votre modèle comporte une erreur de syntaxe, la commande retourne une erreur indiquant que le modèle n’a pas pu être analysé. Le message indique le numéro de ligne et la position de l’erreur d’analyse.
 
-```azurecli
+```output
 {
   "error": {
     "code": "InvalidTemplate",

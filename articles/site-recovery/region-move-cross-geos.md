@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: a48edda31f19ef4ce1ba23664eef1f51ba9cf8d1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: acaf16e7469b3ea4e5e391db91e37dc76be3b261
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970498"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298528"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Déplacer des machines virtuelles Azure entre Azure Government et des régions publiques 
 
@@ -100,7 +100,7 @@ Le service Mobilité doit être installé sur chaque serveur que vous souhaitez 
     - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer)
     - [Adresse IP publique](../virtual-network/virtual-network-public-ip-address.md)
     
-    Pour tous les autres composants réseau, reportez-vous à cette [documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network) sur la mise en réseau. 
+    Pour tous les autres composants réseau, reportez-vous à la [documentation](https://docs.microsoft.com/azure/?pivot=products&panel=network) sur la mise en réseau.
 
 4. Vous devez [créer un réseau hors production](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) manuellement dans la région cible si vous souhaitez tester la configuration avant d’effectuer le déplacement final vers la région cible. Cette pratique est recommandée dans la mesure où elle limite les interférences avec l’environnement de production.
 

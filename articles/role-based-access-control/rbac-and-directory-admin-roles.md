@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/01/2019
+ms.date: 02/27/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 08c14135ba17df4de446de5625352c8cffdc60a1
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: e8d82011fe4fdd40bb07c77411ad0e948ddad049
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138074"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916521"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD
 
@@ -75,7 +75,7 @@ Le contrôle RBAC Azure est un système d’autorisations basé sur [Azure Resou
 | Rôle RBAC Azure | Autorisations | Notes |
 | --- | --- | --- |
 | [Propriétaire](built-in-roles.md#owner) | <ul><li>Accès total à toutes les ressources</li><li>Délégation de l’accès à d’autres personnes</li></ul> | L’administrateur de services et les coadministrateurs se voient attribuer le rôle Propriétaire dans l’étendue de l’abonnement<br>S’applique à tous les types de ressources. |
-| [Contributeur](built-in-roles.md#contributor) | <ul><li>Création et gestion de tous les types de ressources Azure</li><li>Ne peut pas accorder l’accès à d’autres personnes</li></ul> | S’applique à tous les types de ressources. |
+| [Contributeur](built-in-roles.md#contributor) | <ul><li>Création et gestion de tous les types de ressources Azure</li><li>Créer un locataire dans Azure Active Directory</li><li>Ne peut pas accorder l’accès à d’autres personnes</li></ul> | S’applique à tous les types de ressources. |
 | [Lecteur](built-in-roles.md#reader) | <ul><li>Consultation des ressources Azure</li></ul> | S’applique à tous les types de ressources. |
 | [Administrateur de l'accès utilisateur](built-in-roles.md#user-access-administrator) | <ul><li>Gestion de l’accès utilisateur aux ressources Azure</li></ul> |  |
 

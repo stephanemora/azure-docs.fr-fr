@@ -1,18 +1,17 @@
 ---
 title: Créer un espace de travail Log Analytics à l’aide d’Azure PowerShell | Microsoft Docs
 description: Découvrez comment créer un espace de travail Log Analytics pour permettre la collecte de données et les solutions de gestion à partir de vos environnements locaux et cloud avec Azure PowerShell.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: 87550e7ee3008418fde84596a811d44d02191cee
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a2765aaf36aa5f7e541e0ee7fb3178246d2cca5d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513522"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659898"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Créer un espace de travail Log Analytics avec Azure PowerShell
 

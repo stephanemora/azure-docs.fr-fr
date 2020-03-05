@@ -3,8 +3,8 @@ title: 'Tutoriel : Migrer les services Bureau à distance MySQL en ligne vers A
 titleSuffix: Azure Database Migration Service
 description: Découvrez comment effectuer une migration en ligne de RDS MySQL vers Azure Database pour MySQL à l’aide d’Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: c34de48d0184057f42d1b779abee56e1fa9ac169
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 27002d1fc861d49e083fc294bcfbc7f51f7c1a12
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751303"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255161"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutoriel : Migrer RDS MySQL vers Azure Database pour MySQL en ligne à l’aide de DMS
 
@@ -42,7 +42,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Cet article décrit comment effectuer une migration en ligne d’une instance RDS MySQL vers Azure Database pour MySQL.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 

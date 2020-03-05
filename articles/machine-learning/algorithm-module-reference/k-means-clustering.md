@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 6e2fa96584570e5837c4367c8be4701b7398fb0f
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/19/2020
+ms.openlocfilehash: 9606768288cc74afc24491149eb471944f45e2dc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152208"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921162"
 ---
 # <a name="module-k-means-clustering"></a>Module : Clustering k-moyennes
 
@@ -107,11 +107,11 @@ Lorsqu’il traite les données d’apprentissage, l’algorithme k-moyennes com
   
     -   Si vous définissez le **mode Create trainer** (Créer formateur) sur **Paramètre unique**, ajoutez un jeu de données balisé et formez le modèle à l’aide du module [Train Clustering Model](train-clustering-model.md).  
   
-### <a name="results"></a>Résultats
+## <a name="results"></a>Résultats
 
 Une fois la configuration et la formation du modèle terminées, vous disposez d’un modèle que vous pouvez utiliser pour générer des scores. Toutefois, il existe plusieurs façons de former le modèle, ainsi que plusieurs méthodes pour afficher et utiliser les résultats : 
 
-#### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>Capturer un instantané du modèle dans votre espace de travail
+### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>Capturer un instantané du modèle dans votre espace de travail
 
 Si vous avez utilisé le module [Train Clustering Model](train-clustering-model.md) :
 
@@ -121,7 +121,7 @@ Si vous avez utilisé le module [Train Clustering Model](train-clustering-model.
 
 Le modèle enregistré représente les données d’apprentissage au moment où vous avez enregistré le modèle. Si vous mettez à jour ultérieurement les données de formation utilisées dans le pipeline, le modèle enregistré n’est pas mis à jour. 
 
-#### <a name="see-the-clustering-result-dataset"></a>Consulter le jeu de données de résultat du clustering 
+### <a name="see-the-clustering-result-dataset"></a>Consulter le jeu de données de résultat du clustering 
 
 Si vous avez utilisé le module [Train Clustering Model](train-clustering-model.md) :
 
@@ -142,3 +142,7 @@ Vous pouvez éviter ce problème de deux façons :
 -   Créez plusieurs modèles, en variant la métrique ou en effectuant davantage d’itérations.  
   
 En général, avec les modèles de clustering, il est possible qu’une configuration donnée crée un ensemble localement optimisé de clusters. En d’autres termes, l’ensemble des clusters retourné par le modèle n’est adapté qu’aux points de données actuels et ne peut pas s’étendre à d’autres données. Si vous utilisez une autre configuration initiale, la méthode k-moyennes peut trouver une configuration différente, supérieure. 
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

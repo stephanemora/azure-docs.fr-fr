@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
+ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a7681ba815533296deae2b585e377a733074b6c9
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 01e3ed9f94b575aae4ce0ed12eb63e3cf40d99ce
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147909"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911812"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Utiliser le portail Azure pour administrer votre Data Box Disk
 
@@ -130,7 +130,7 @@ Pour modifier les détails de modification, procédez comme suit.
 |Data copied (Données copiées)     |La copie des données est en cours.<br> Attendez que la copie des données se termine.         |
 |Completed       |La commande a été terminée avec succès.<br> Vérifiez que vos données se trouvent bien dans Azure avant de supprimer les données locales des serveurs.         |
 |Completed with errors (Terminée avec des erreurs)| La copie de données est terminée, mais des erreurs se sont produites. <br> Consultez les journaux d’erreurs de téléchargement en utilisant le chemin d’accès spécifié sous **Vue d’ensemble**. Pour plus d’informations, voir [Télécharger les journaux d’erreurs de téléchargement](data-box-disk-troubleshoot-upload.md#download-logs).   |
-|Canceled            |La commande a été annulée. <br> Soit vous avez annulé la commande, soit une erreur s’est produite et le service a annulé la commande.     |
+|Opération annulée            |La commande a été annulée. <br> Soit vous avez annulé la commande, soit une erreur s’est produite et le service a annulé la commande.     |
 
 
 

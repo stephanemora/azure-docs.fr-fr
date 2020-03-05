@@ -1,18 +1,17 @@
 ---
 title: Vue d’ensemble de l’activation d’Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
 description: Découvrez comment déployer et configurer Azure Monitor pour des machines virtuelles. Découvrez la configuration système requise.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: ce95223e9501ad7bec2bd260a8fe6f1537db5593
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 44422f66f6fc995dcaf96947ea05b183c7131ea3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400615"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669571"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Activer Azure Monitor pour machines virtuelles (préversion)
 
@@ -25,7 +24,7 @@ Pour configurer Azure Monitor pour des machines virtuelles :
 * Activez plusieurs machines virtuelles Azure ou groupes de machines virtuelles identiques sur un abonnement ou un groupe de ressources spécifié à l’aide de PowerShell.
 * Activez Azure Monitor pour machines virtuelles afin de surveiller les machines virtuelles ou ordinateurs physiques hébergés dans votre réseau d’entreprise ou un autre environnement cloud.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, prenez connaissance de ce qui suit. 
 

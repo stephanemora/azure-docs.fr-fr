@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-ms.author: peterlu
-author: peterclu
+ms.author: larryfr
+author: blackmist
 ms.date: 11/12/2019
-ms.openlocfilehash: 6498717f5d542be228483b9c323dbd8f3ca2ff00
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 34aba3c00ac0026abebbdfc93143aa5e7f788e8b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251921"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268481"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Superviser et collecter des données à partir des points de terminaison de service web Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,39 +43,6 @@ Dans cet article, vous allez apprendre à collecter des données à partir de po
 
 Les métadonnées et la réponse au service (correspondant aux métadonnées de service web et aux prédictions du modèle) sont enregistrées dans les suivis Azure Application Insights sous le message `"model_data_collection"`. Vous pouvez interroger Azure Application Insights directement pour accéder à ces données, ou configurer une [exportation continue](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) vers un compte de stockage pour une conservation plus longue ou un traitement ultérieur. Les données de modèle peuvent ensuite être utilisées dans le service Azure Machine Learning pour configurer l’étiquetage, le réentraînement, l’explicabilité, l’analyse des données ou toute autre utilisation. 
 
-## <a name="use-the-azure-portal-to-configure"></a>Utiliser le portail Azure pour la configuration
-
-Vous pouvez activer et désactiver Azure Application Insights dans le portail Azure. 
-
-1. Dans le [Portail Azure](https://portal.azure.com), ouvrez votre espace de travail
-
-1. Sous l’onglet **Déploiements**, sélectionnez le service dans lequel vous souhaitez activer Azure Application Insights
-
-   [![Liste des services sous l’onglet Déploiements](./media/how-to-enable-app-insights/Deployments.PNG)](././media/how-to-enable-app-insights/Deployments.PNG#lightbox)
-
-3. Sélectionnez **Modifier**
-
-   [![Bouton Modifier](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-4. Dans **Paramètres avancés**, cochez la case **Activer les diagnostics AppInsights**
-
-   [![Case à cocher pour activer les diagnostics](./media/how-to-enable-app-insights/AdvancedSettings.png)](././media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
-
-1. Sélectionnez **Mettre à jour** au bas de l’écran pour appliquer les modifications
-
-### <a name="disable"></a>Disable
-
-1. Dans le [Portail Azure](https://portal.azure.com), ouvrez votre espace de travail
-1. Sélectionnez **Déploiements**, sélectionnez le service, puis sélectionnez **Modifier**
-
-   [![Utiliser le bouton Modifier](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-1. Dans **Paramètres avancés**, décochez la case **Activer les diagnostics AppInsights**
-
-   [![Case à décocher pour désactiver les diagnostics](./media/how-to-enable-app-insights/uncheck.png)](././media/how-to-enable-app-insights/uncheck.png#lightbox)
-
-1. Sélectionnez **Mettre à jour** au bas de l’écran pour appliquer les modifications
- 
 ## <a name="use-python-sdk-to-configure"></a>Utiliser le kit SDK Python pour la configuration 
 
 ### <a name="update-a-deployed-service"></a>Mettre à jour un service déployé

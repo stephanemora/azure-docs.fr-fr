@@ -3,17 +3,16 @@ title: Fonctionnalités avancées d’Azure Metrics Explorer
 description: En savoir plus sur les fonctionnalités avancées d’Azure Monitor Metrics Explorer
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c754f33ab5f4346413b6603ca2cd404acac5443f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60256787"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662398"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Fonctionnalités avancées d’Azure Metrics Explorer
 
@@ -136,7 +135,7 @@ Vous êtes redirigé vers le volet de la création de règle d’alerte avec les
 
 Lisez cet [article](alerts-metric.md) pour en savoir plus sur la configuration d’alertes de métrique.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 *Mon graphique ne contient aucune donnée.*
 

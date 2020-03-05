@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95c85309058911d6767eb44efd7b37ddac7a9119
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926143"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915035"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Résoudre les erreurs de suppression de ressources de stockage classiques
 Cet article fournit des conseils pour résoudre les erreurs suivantes quand vous essayez de supprimer un compte de stockage Azure classique, un conteneur ou un fichier *.vhd d’objet blob de pages. 
@@ -30,6 +30,10 @@ Une ressource « Disque » est utilisée pour monter un fichier *.vhd d’obje
 
 
 ## <a name="steps-while-deleting-a-classic-virtual-machine"></a>Étapes de suppression d’une machine virtuelle classique 
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
+
 1. Supprimez la machine virtuelle classique.
 2. Si la case « Disques » est cochée, le **bail du disque** (voir la figure ci-dessus) associé au fichier *.vhd d’objet blob de pages est résilié. Le fichier *.vhd réel d’objet blob de pages existe toujours dans le compte de stockage.
 ![Capture d’écran du portail, avec le volet d’erreur « Supprimer » de la machine virtuelle (classique) ouvert](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 

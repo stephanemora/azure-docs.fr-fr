@@ -1,18 +1,16 @@
 ---
 title: Utilisez Application Insights pour surveiller votre service Azure Kubernetes (AKS) ou d’autres application Kubernetes hébergées - Azure Monitor | Microsoft Docs
 description: Azure Monitor utilise la technologie de maillage de service (Istio) sur votre cluster Kubernetes pour fournir une surveillance des applications pour n’importe quelle application Kubernetes hébergée. Cela vous permet de collecter des données de télémétrie Application Insights se rapportant aux requêtes entrantes et sortantes vers et depuis les pods en cours d’exécution dans votre cluster.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: a7821db85d4218cbccb6c10f12ecbc624f2702fe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 15c75d4add9615df6c42aa6121557659e54354d0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432519"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666784"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>La surveillance d’applications sans instrumentation pour les applications hébergées Kubernetes
 
@@ -26,7 +24,7 @@ Azure Monitor tire maintenant parti de la technologie de maillage de service sur
 > [!NOTE]
 > Il s’agit d’une des nombreuses façons de surveiller les applications sur Kubernetes. Vous pouvez également instrumenter toutes les applications hébergées dans Kubernetes à l’aide du [kit SDK Application Insights](../../azure-monitor/azure-monitor-app-hub.yml) sans avoir besoin d’une maille de services. Vous pouvez utiliser la méthode suivante pour surveiller Kubernetes sans instrumentation de l’application avec un kit SDK.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Un [cluster Kubernetes](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads).
 - Accès au cluster par une console pour exécuter *kubectl*.

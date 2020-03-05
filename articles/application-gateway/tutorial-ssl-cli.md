@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3f98aabb9459e4895243eec7f3d759d5a2ee88c6
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: c297a7d34e8b85420329abaca0e15029ce207861
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74047318"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246611"
 ---
 # <a name="create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Créer une passerelle d’application avec un arrêt SSL à l’aide de l’interface CLI Azure
 
@@ -39,13 +39,13 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 Dans un environnement de production, vous devez importer un certificat valide signé par un fournisseur approuvé. Pour cet article, vous créez un certificat auto-signé et un fichier pfx à l’aide de la commande openssl.
 
-```azurecli-interactive
+```console
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
 ```
 
 Entrez les valeurs pertinentes pour votre certificat. Vous pouvez accepter les valeurs par défaut.
 
-```azurecli-interactive
+```console
 openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.crt
 ```
 
@@ -89,9 +89,9 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Créer la passerelle Application Gateway
 
-Vous pouvez utiliser la commande [az network application-gateway create](/cli/azure/network/application-gateway) pour créer la passerelle d’application. Lorsque vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, notamment la capacité, la référence SKU et les paramètres HTTP. 
+Vous pouvez utiliser la commande [az network application-gateway create](/cli/azure/network/application-gateway) pour créer la passerelle d’application. Quand vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, telles que la capacité, la référence SKU et les paramètres HTTP. 
 
-La passerelle d’application est assignée aux *myAGSubnet* et *myAGPublicIPAddress* que vous avez créés. Dans cet exemple, vous associez le certificat que vous avez créé et son mot de passe lorsque vous créez la passerelle d’application. 
+La passerelle d’application est affectée à *myAGSubnet* et à *myAGPublicIPAddress*, que vous avez créés. Dans cet exemple, vous associez le certificat que vous avez créé et son mot de passe lorsque vous créez la passerelle d’application. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -173,7 +173,7 @@ Pour accepter l’avertissement de sécurité si vous avez utilisé un certifica
 
 ![Tester l’URL de base dans la passerelle d’application](./media/tutorial-ssl-cli/application-gateway-nginx.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la passerelle d’application et toutes les ressources associées.
 

@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 02/25/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 3c84277603420567485b5199cdd2fa63ee3a2654
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1f3c16e6fe1855cf7882d83e620c70d15ce3cb92
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75378379"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657544"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnostiquer les problèmes de perte des notifications dans Azure Notification Hubs
 
@@ -41,7 +41,7 @@ L’échec de la remise des notifications peut se produire lors de la phase de t
 
 La section ci-après présente les scénarios, des plus courants aux plus rares, dans lesquels les notifications peuvent être perdues.
 
-## <a name="notification-hubs-misconfiguration"></a>Configuration incorrecte de Notification Hubs ##
+## <a name="notification-hubs-misconfiguration"></a>Configuration incorrecte de Notification Hubs
 
 Pour envoyer des notifications au service de notifications Push adapté, Notification Hubs doit s’authentifier dans le contexte de votre application. Vous devez créer un compte de développeur avec le service de notification de la plateforme cible (Microsoft, Apple, Google, etc.). Ensuite, vous devez inscrire votre application auprès du système d’exploitation, grâce auquel vous obtenez un jeton ou une clé qui vous permet de travailler avec le PNS (Platform Notification System) cible.
 
@@ -54,19 +54,20 @@ Voici certaines erreurs de configuration courantes :
 ### <a name="notification-hub-name-location"></a>Emplacement du nom du hub de notification
 
 Vérifiez que le nom de votre hub de notification (sans fautes de frappe) est le même dans chacun de ces emplacements :
-   * Là où vous vous êtes inscrit auprès du client
-   * Là où vous envoyez des notifications à partir du serveur principal
-   * Là où vous avez configuré les informations d’identification du service de notifications Push
+
+* Là où vous vous êtes inscrit auprès du client
+* Là où vous envoyez des notifications à partir du serveur principal
+* Là où vous avez configuré les informations d’identification du service de notifications Push
 
 Vérifiez que vous utilisez les chaînes de configuration de signature d’accès partagé correctes sur le client et sur le serveur d’applications principal. En règle générale, vous devez utiliser **DefaultListenSharedAccessSignature** sur le client et **DefaultFullSharedAccessSignature** sur le serveur d’applications principal. Cette opération autorise l’envoi de notifications à Notification Hubs.
 
-### <a name="apn-configuration"></a>Configuration du nom du point d’accès (APN) ###
+### <a name="apn-configuration"></a>Configuration du nom du point d’accès (APN)
 
 Vous devez disposer de deux hubs différents : l’un pour la production, et l’autre pour les tests. Vous devez charger le certificat que vous utilisez dans un environnement de bac à sable dans un hub différent du certificat/hub que vous utiliserez en production. N’essayez pas de charger plusieurs types de certificats dans un même hub. Cela entraînerait l’échec de la remise des notifications.
 
 Si vous chargez par inadvertance plusieurs types de certificats dans un même hub, supprimez ce dernier et créez-en un autre. Si vous ne pouvez pas supprimer le hub pour une raison quelconque, vous devez au moins supprimer toutes les inscriptions effectuées auprès de ce hub.
 
-### <a name="fcm-configuration"></a>Configuration de Firebase Cloud Messaging (FCM) ###
+### <a name="fcm-configuration"></a>Configuration de Firebase Cloud Messaging (FCM)
 
 1. Vérifiez que la *clé serveur* que vous avez obtenue auprès de Firebase correspond à celle que vous avez inscrite dans le Portail Azure.
 
@@ -76,9 +77,9 @@ Si vous chargez par inadvertance plusieurs types de certificats dans un même hu
 
    ![ID de projet Firebase][1]
 
-## <a name="application-issues"></a>Problèmes de l’application ##
+## <a name="application-issues"></a>Problèmes de l’application
 
-### <a name="tags-and-tag-expressions"></a>Balises et expressions de balise ###
+### <a name="tags-and-tag-expressions"></a>Balises et expressions de balise
 
 Si vous utilisez des balises ou des expressions de balise pour segmenter votre public, il est possible qu’aucune cible ne soit trouvée lorsque vous envoyez la notification. Cette erreur repose sur les balises ou expressions de balise que vous spécifiez dans votre appel d’envoi.
 
@@ -86,11 +87,11 @@ Lorsque vous envoyez une notification, examinez vos inscriptions pour vérifier 
 
 Par exemple, supposons que toutes vos inscriptions auprès de Notification Hubs utilisent la balise « Politique ». Si vous envoyez par la suite une notification avec la balise « Sports », la notification ne sera envoyée à aucun appareil. Un cas complexe peut impliquer des expressions de balise, lorsque vous vous êtes inscrit à l’aide de « Balise A » *ou* de « Balise B », alors que vous cibliez « Balise A && Balise B ». La section de conseils d’autodiagnostic plus loin dans cet article vous explique comment vérifier vos inscriptions et leurs balises.
 
-### <a name="template-issues"></a>Problèmes liés aux modèles ###
+### <a name="template-issues"></a>Problèmes liés aux modèles
 
 Si vous utilisez des modèles, suivez bien les instructions décrites dans la section [Modèles].
 
-### <a name="invalid-registrations"></a>Inscriptions non valides ###
+### <a name="invalid-registrations"></a>Inscriptions non valides
 
 Si le hub de notification a été configuré de manière adéquate, et que les balises ou expressions de balise ont été correctement utilisées, des cibles valides sont trouvées. Les notifications doivent être envoyées à ces cibles. Notification Hubs déclenche ensuite plusieurs traitements en parallèle. Chaque lot envoie des messages à un ensemble d’inscriptions.
 
@@ -121,13 +122,13 @@ Avec Notification Hubs, vous pouvez transmettre une clé de fusion par le biais 
 
 Vous trouverez ci-après différentes méthodes permettant de déterminer la cause racine des pertes de notifications dans Notification Hubs.
 
-### <a name="verify-credentials"></a>Vérification des informations d’identification ###
+### <a name="verify-credentials"></a>Vérification des informations d’identification
 
-#### <a name="push-notification-service-developer-portal"></a>Portail des développeurs du service de notifications Push ####
+#### <a name="push-notification-service-developer-portal"></a>Portail des développeurs du service de notifications Push
 
 Vérifiez les informations d’identification dans le portail des développeurs du service de notifications Push correspondant (Apple Push Notification Service, Firebase Cloud Messaging, service de notification Windows, etc.). Pour plus d’informations, consultez [Didacticiel : Envoyer des notifications vers des applications de plateforme Windows universelle avec Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
 
-#### <a name="azure-portal"></a>Portail Azure ####
+#### <a name="azure-portal"></a>Portail Azure
 
 Pour vérifier et comparer les informations d’identification avec celles que vous avez obtenues par le biais du portail des développeurs du service de notifications Push, dans le Portail Azure, accédez à l’onglet **Stratégies d’accès**.
 
@@ -135,46 +136,48 @@ Pour vérifier et comparer les informations d’identification avec celles que v
 
 ### <a name="verify-registrations"></a>Vérification des inscriptions
 
-#### <a name="visual-studio"></a>Visual Studio ####
+#### <a name="visual-studio"></a>Visual Studio
 
 Dans Visual Studio, vous pouvez vous connecter à Azure par l’intermédiaire de l’Explorateur de serveurs pour afficher et gérer un ensemble de services Azure, y compris Notifications Hubs. Ce raccourci est particulièrement utile pour votre environnement de développement et de test.
 
 ![Explorateur de serveurs Visual Studio.][9]
 
+![Explorateur de serveurs](media/notification-hubs-push-notification-fixer/vsserverexplorer2.png)
+
 Vous pouvez visualiser et gérer toutes les inscriptions de votre hub. Les inscriptions peuvent être classées par plateforme, par type (native ou basée sur un modèle), par balise, par identificateur de service de notifications Push, par ID d’inscription et par date d’expiration. Dans cette page, vous pouvez également modifier une inscription. Cette fonctionnalité est particulièrement utile pour la modification des balises.
 
 Dans **l’Explorateur de serveurs**, cliquez avec le bouton droit sur votre hub de notification, puis sélectionnez **Diagnostiquer**. 
 
-![Explorateur de serveurs Visual Studio : menu Diagnostiquer](./media/notification-hubs-diagnosing/diagnose-menu.png)
+![Explorateur de serveurs Visual Studio : menu Diagnostiquer](./media/notification-hubs-push-notification-fixer/diagnose-menu.png)
 
 La page ci-après apparaît :
 
-![Visual Studio : page Diagnostiquer](./media/notification-hubs-diagnosing/diagnose-page.png)
+![Visual Studio : page Diagnostiquer](./media/notification-hubs-push-notification-fixer/diagnose-page.png)
 
 Basculez vers la page **Inscriptions d’appareil** :
 
-![Visual Studio : page Inscriptions d’appareil](./media/notification-hubs-diagnosing/VSRegistrations.png)
+![Visual Studio : page Inscriptions d’appareil](./media/notification-hubs-push-notification-fixer/VSRegistrations.png)
 
 Vous pouvez utiliser la page **Test d’envoi** pour envoyer un message de notification de test :
 
-![Visual Studio : Testez les envois.](./media/notification-hubs-diagnosing/test-send-vs.png)
+![Visual Studio : Testez les envois.](./media/notification-hubs-push-notification-fixer/test-send-vs.png)
 
 > [!NOTE]
 > Utilisez Visual Studio pour modifier les inscriptions uniquement pendant les phases de développement ou de test, et avec un nombre limité d’inscriptions. Si vous avez besoin de modifier vos inscriptions en bloc, utilisez la fonctionnalité d’exportation et d’importation des inscriptions décrite dans l’article [Exportation et modification d’inscriptions en bloc](https://msdn.microsoft.com/library/dn790624.aspx).
 
-#### <a name="service-bus-explorer"></a>Explorateur Service Bus ####
+#### <a name="service-bus-explorer"></a>Explorateur Service Bus
 
 De nombreux clients utilisent [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) pour afficher et gérer leurs hubs de notification. Service Bus Explorer est un projet open source. 
 
 ### <a name="verify-message-notifications"></a>Vérification des notifications de messages
 
-#### <a name="azure-portal"></a>Portail Azure ####
+#### <a name="azure-portal"></a>Portail Azure
 
 Pour envoyer une notification de test à vos clients sans backend de service opérationnel, sous **Support + dépannage**, sélectionnez **Envoi de test**.
 
 ![Fonctionnalité Envoi de test dans Azure][7]
 
-#### <a name="visual-studio"></a>Visual Studio ####
+#### <a name="visual-studio"></a>Visual Studio
 
 Vous pouvez également envoyer des notifications de test à partir de Visual Studio.
 
@@ -188,7 +191,7 @@ Pour plus d’informations sur l’utilisation de Notification Hubs avec l’Exp
 
 ### <a name="debug-failed-notifications-and-review-notification-outcome"></a>Résoudre les échecs de remise de notification et analyser les résultats des notifications
 
-#### <a name="enabletestsend-property"></a>Propriété EnableTestSend ####
+#### <a name="enabletestsend-property"></a>Propriété EnableTestSend
 
 Lorsque vous envoyez une notification par le biais de Notification Hubs, la notification est d’abord mise en file d’attente. Notification Hubs détermine les cibles qui conviennent, puis envoie la notification au service de notifications Push. Si vous utilisez l’API REST ou l’un des Kits de développement logiciel (SDK) clients, le renvoi de votre appel d’envoi signifie uniquement que le message est placé dans la file d’attente de Notification Hubs. Ce renvoi ne fournit aucun insight sur ce qui s’est passé lorsque Notification Hubs a finalement envoyé la notification au service de notifications Push.
 
@@ -202,7 +205,7 @@ Pour utiliser la propriété `EnableTestSend` avec l’appel REST, ajoutez un pa
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
 ```
 
-#### <a name="net-sdk-example"></a>Exemple de Kit de développement logiciel (SDK) .NET ####
+#### <a name="net-sdk-example"></a>Exemple de Kit de développement logiciel (SDK) .NET
 
 Voici un exemple d’utilisation du SDK .NET pour envoyer une notification (toast) sous forme de fenêtre contextuelle native :
 
@@ -229,7 +232,7 @@ Ensuite, vous pouvez utiliser la propriété booléenne `EnableTestSend`. Utilis
     }
 ```
 
-#### <a name="sample-output"></a>Exemple de sortie ####
+#### <a name="sample-output"></a>Exemple de sortie
 
 ```text
 DetailedStateAvailable
@@ -243,9 +246,9 @@ Ce message indique que les informations d’identification configurées dans Not
 > [!NOTE]
 > L’utilisation de la propriété `EnableTestSend` entraîne une limitation importante. Utilisez cette option uniquement dans un environnement de développement et de test, et avec un ensemble limité d’inscriptions. Les notifications de débogage sont envoyées à un maximum de 10 appareils. En outre, le traitement des envois de débogage est limité à 10 envois par minute.
 
-### <a name="review-telemetry"></a>Révision de la télémétrie ###
+### <a name="review-telemetry"></a>Révision de la télémétrie
 
-#### <a name="azure-portal"></a>Portail Azure ####
+#### <a name="azure-portal"></a>Portail Azure
 
 Le portail vous permet d’obtenir un aperçu rapide de toutes les activités sur votre hub de notification.
 
@@ -261,7 +264,7 @@ Le portail vous permet d’obtenir un aperçu rapide de toutes les activités su
 
 4. Si les paramètres d’authentification du hub de notification sont incorrects, le message **Erreur d’authentification PNS** s’affiche. Ce message indique qu’il est nécessaire de vérifier les informations d’identification du service de notifications Push.
 
-#### <a name="programmatic-access"></a>Accès par programme ####
+#### <a name="programmatic-access"></a>Accès par programme
 
 Pour plus d’informations sur l’accès par programmation, consultez l’article [Accès par programme](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100)).
 
@@ -271,16 +274,16 @@ Pour plus d’informations sur l’accès par programmation, consultez l’artic
 > Pour utiliser les fonctionnalités de télémétrie, commencez par vérifier dans le Portail Azure que vous utilisez le niveau de service Standard.  
 
 <!-- IMAGES -->
-[0]: ./media/notification-hubs-diagnosing/Architecture.png
-[1]: ./media/notification-hubs-diagnosing/FCMConfigure.png
-[3]: ./media/notification-hubs-diagnosing/FCMServerKey.png
+[0]: ./media/notification-hubs-push-notification-fixer/Architecture.png
+[1]: ./media/notification-hubs-push-notification-fixer/FCMConfigure.png
+[3]: ./media/notification-hubs-push-notification-fixer/FCMServerKey.png
 [4]: ../../includes/media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png
-[5]: ./media/notification-hubs-diagnosing/PortalDashboard.png
-[6]: ./media/notification-hubs-diagnosing/PortalAnalytics.png
+[5]: ./media/notification-hubs-push-notification-fixer/PortalDashboard.png
+[6]: ./media/notification-hubs-push-notification-fixer/PortalAnalytics.png
 [7]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
-[8]: ./media/notification-hubs-diagnosing/VSRegistrations.png
-[9]: ./media/notification-hubs-diagnosing/VSServerExplorer.png
-[10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
+[8]: ./media/notification-hubs-push-notification-fixer/VSRegistrations.png
+[9]: ./media/notification-hubs-push-notification-fixer/vsserverexplorer.png
+[10]: ./media/notification-hubs-push-notification-fixer/VSTestNotification.png
 
 <!-- LINKS -->
 [Vue d’ensemble de Notification Hubs]: notification-hubs-push-notification-overview.md

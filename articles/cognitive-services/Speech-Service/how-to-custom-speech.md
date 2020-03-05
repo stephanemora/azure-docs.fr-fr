@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: dapine
-ms.openlocfilehash: 4a2887ef8b264628128872730422fd38d6b0ac0f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: e30587ed4d09ba792516ebc7b16529a6ee5ac57c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424998"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918952"
 ---
 # <a name="what-is-custom-speech"></a>Qu’est-ce que Custom Speech ?
 
@@ -43,7 +43,7 @@ Ce diagramme présente les différents éléments qui composent le [portail Cust
 
 ## <a name="set-up-your-azure-account"></a>Configurer votre compte Azure
 
-Vous avez besoin d’un abonnement au service Speech pour pouvoir créer un modèle personnalisé à partir du [portail Custom Speech](https://speech.microsoft.com/customspeech). Suivez ces instructions pour créer un abonnement Speech standard : [Créer un abonnement Speech](get-started.md#try-the-speech-service-using-a-new-azure-account).
+Vous avez besoin d’un abonnement au service Speech pour pouvoir créer un modèle personnalisé à partir du [portail Custom Speech](https://speech.microsoft.com/customspeech). Suivez ces instructions pour créer un abonnement Speech standard : [Créer un abonnement Speech](get-started.md#new-resource).
 
 > [!NOTE]
 > Veillez à créer des abonnements standard (S0) ; les abonnements d’essai gratuit (F0) ne sont pas pris en charge.

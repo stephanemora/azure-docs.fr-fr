@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 8c4c346dd004e435846aff5592a20cd747c45df7
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: b88557468c386bc07c2432e154a82fd1f4fcb438
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552625"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194295"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Tutoriel : Ajouter une base de données unique Azure SQL Database à un groupe de basculement
 
@@ -27,22 +27,22 @@ Configurez un groupe de basculement pour une base de données unique Azure SQL D
 > - Créer un [groupe de basculement](sql-database-auto-failover-group.md) pour une base de données unique entre deux serveurs SQL logiques.
 > - Tester le basculement.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 Pour suivre ce tutoriel, veillez à disposer des éléments suivants : 
 
 - Un abonnement Azure. [Créez un compte gratuit](https://azure.microsoft.com/free/) si vous n’en avez pas déjà un.
 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 
 - Un abonnement Azure. [Créez un compte gratuit](https://azure.microsoft.com/free/) si vous n’en avez pas déjà un.
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 
 - Un abonnement Azure. [Créez un compte gratuit](https://azure.microsoft.com/free/) si vous n’en avez pas déjà un.
@@ -57,7 +57,7 @@ Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 ## <a name="2---create-the-failover-group"></a>2 - Créer le groupe de basculement 
 Dans de cette étape, vous allez créer un [groupe de basculement](sql-database-auto-failover-group.md) entre un serveur SQL Azure existant et un nouveau serveur SQL Azure dans une autre région. Ajoutez ensuite l’exemple de base de données au groupe de basculement. 
 
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 Créez votre groupe de basculement et ajoutez-y votre base de données en utilisant le portail Azure. 
 
 1. Dans le menu de gauche du **Portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
@@ -88,7 +88,7 @@ Créez votre groupe de basculement et ajoutez-y votre base de données en utilis
     ![Ajouter la base de données SQL au groupe de basculement](media/sql-database-single-database-failover-group-tutorial/add-sqldb-to-failover-group.png)
         
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Créez votre groupe de basculement et ajoutez-y votre base de données unique en utilisant PowerShell. 
 
    > [!NOTE]
@@ -166,7 +166,7 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Obtient une ou plusieurs bases de données SQL. |
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Ajoute une ou plusieurs bases de données Azure SQL à un groupe de basculement. |
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 Créez votre groupe de basculement et ajoutez-y votre base de données unique en utilisant Azure CLI. 
 
    > [!NOTE]
@@ -174,45 +174,16 @@ Créez votre groupe de basculement et ajoutez-y votre base de données unique en
 
    ```azurecli-interactive
    #!/bin/bash
-   # Set variables
-   # subscriptionID=<SubscriptionID>
-   # resourceGroupName=myResourceGroup-$RANDOM
-   # location=SouthCentralUS
-   # adminLogin=azureuser
-   # password="PWD27!"+`openssl rand -base64 18`
-   # serverName=mysqlserver-$RANDOM
-   # databaseName=mySampleDatabase
-   drLocation=NorthEurope
-   drServerName=mysqlsecondary-$RANDOM
-   failoverGroupName=failovergrouptutorial-$RANDOM
+   # set variables
+   $failoverLocation = "West US"
+   $failoverServer = "failoverServer-$randomIdentifier"
+   $failoverGroup = "failoverGroup-$randomIdentifier"
 
-   # Create a secondary server in the failover region
    echo "Creating a secondary logical server in the DR region..."
-   az sql server create \
-      --name $drServerName \
-      --resource-group $resourceGroupName \
-      --location $drLocation  \
-      --admin-user $adminLogin\
-      --admin-password $password
-
-   # Configure a firewall rule for the server
-   echo "Configuring firewall..."
-   az sql server firewall-rule create \
-      --resource-group $resourceGroupName \
-      --server $drServerName \
-      -n AllowYourIp \
-      --start-ip-address $startip \
-      --end-ip-address $endip
+   az sql server create --name $failoverServer --resource-group $resourceGroup --location $failoverLocation --admin-user $login --admin-password $password
    
-   # Create a failover group between the servers and add the database
    echo "Creating a failover group between the two servers..."
-   az sql failover-group create \
-      --name $failoverGroupName  \
-      --partner-server $drServerName \
-      --resource-group $resourceGroupName \
-      --server $serverName \
-      --add-db $databaseName
-      --failover-policy Automatic
+   az sql failover-group create --name $failoverGroup --partner-server $failoverServer --resource-group $resourceGroup --server $server --add-db $database --failover-policy Automatic
    ```
 
 Cette partie du tutoriel utilise les cmdlets CLI Az suivantes :
@@ -228,7 +199,7 @@ Cette partie du tutoriel utilise les cmdlets CLI Az suivantes :
 ## <a name="3---test-failover"></a>3 - Tester le basculement 
 Dans cette étape, vous allez faire basculer votre groupe de basculement sur le serveur secondaire, puis effectuer une restauration automatique en utilisant le portail Azure. 
 
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 Testez le basculement en utilisant le portail Azure. 
 
 1. Dans le menu de gauche du **Portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
@@ -250,7 +221,7 @@ Testez le basculement en utilisant le portail Azure.
 1. Vérifiez quel est maintenant le serveur principal et quel est le serveur secondaire. Si le basculement a réussi, les deux serveurs doivent avoir échangé leur rôle. 
 1. Resélectionnez **Basculer** pour rétablir les serveurs dans leur rôle d’origine. 
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Testez le basculement en utilisant PowerShell. 
 
 
@@ -313,55 +284,31 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 
 
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 Testez le basculement en utilisant Azure CLI. 
 
 Vérifiez quel est le serveur secondaire :
 
    
    ```azurecli-interactive
-   # Set variables
-   # resourceGroupName=myResourceGroup-$RANDOM
-   # serverName=mysqlserver-$RANDOM
-   
-   # Verify which server is secondary
    echo "Verifying which server is in the secondary role..."
-   az sql failover-group list \
-      --server $serverName \
-      --resource-group $resourceGroupName
+   az sql failover-group list --server $server --resource-group $resourceGroup
    ```
 
 Basculez vers le serveur secondaire : 
 
    ```azurecli-interactive
-   # Set variables
-   # resourceGroupName=myResourceGroup-$RANDOM
-   # drServerName=mysqlsecondary-$RANDOM
-   # failoverGroupName=failovergrouptutorial-$RANDOM
-
-   
    echo "Failing over group to the secondary server..."
-   az sql failover-group set-primary \
-      --name $failoverGroupName \
-      --resource-group $resourceGroupName \
-      --server $drServerName
-   echo "Successfully failed failover group over to" $drServerName
+   az sql failover-group set-primary --name $failoverGroup --resource-group $resourceGroup --server $failoverServer
+   echo "Successfully failed failover group over to" $failoverServer
    ```
 
 Rétablir le groupe de basculement sur le serveur principal :
 
    ```azurecli-interactive
-   # Set variables
-   # resourceGroupName=myResourceGroup-$RANDOM
-   # serverName=mysqlserver-$RANDOM
-   # failoverGroupName=failovergrouptutorial-$RANDOM
-   
    echo "Failing over group back to the primary server..."
-   az sql failover-group set-primary \
-      --name $failoverGroupName \
-      --resource-group $resourceGroupName \
-      --server $serverName
-   echo "Successfully failed failover group back to" $serverName
+   az sql failover-group set-primary --name $failoverGroup --resource-group $resourceGroup --server $server
+   echo "Successfully failed failover group back to" $server
    ```
 
 Cette partie du tutoriel utilise les cmdlets CLI Az suivantes :
@@ -376,17 +323,16 @@ Cette partie du tutoriel utilise les cmdlets CLI Az suivantes :
 ## <a name="clean-up-resources"></a>Nettoyer les ressources 
 Nettoyez les ressources en supprimant le groupe de ressources. 
 
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 Supprimez le groupe de ressources en utilisant le portail Azure. 
 
 1. Accédez à votre groupe de ressources sur le [portail Azure](https://portal.azure.com).
 1. Sélectionnez **Supprimer le groupe de ressources** pour supprimer toutes les ressources du groupe ainsi que le groupe de ressources lui-même. 
 1. Tapez le nom du groupe de ressources, `myResourceGroup`, dans la zone de texte, puis sélectionnez **Supprimer** pour supprimer le groupe de ressources.  
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Supprimez le groupe de ressources en utilisant PowerShell. 
-
 
    ```powershell-interactive
    # Set variables
@@ -404,20 +350,15 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources. | 
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Supprimez le groupe de ressources en utilisant Azure CLI. 
 
 
    ```azurecli-interactive
-   # Set variables
-   # resourceGroupName=myResourceGroup-$RANDOM
-   
-   # Clean up resources by removing the resource group
    echo "Cleaning up resources by removing the resource group..."
-   az group delete \
-     --name $resourceGroupName
-   echo "Successfully removed resource group" $resourceGroupName
+   az group delete --name $resourceGroup
+   echo "Successfully removed resource group" $resourceGroup
    ```
 
 Cette partie du tutoriel utilise les cmdlets CLI Az suivantes :
@@ -435,7 +376,7 @@ Cette partie du tutoriel utilise les cmdlets CLI Az suivantes :
 
 ## <a name="full-scripts"></a>Scripts complets
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add single database to a failover group")]
 
@@ -454,7 +395,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Exécute le basculement d’un groupe de basculement Azure SQL Database. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources. | 
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 [!code-azurecli-interactive[main](../../cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh "Add single database to a failover group")]
 
@@ -472,7 +413,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Définit le principal du groupe de basculement en basculant toutes les bases de données à partir du serveur principal actuel. | 
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+# <a name="portal"></a>[Portail](#tab/azure-portal)
 Aucun script n’est disponible pour le portail Azure. 
  
 ---

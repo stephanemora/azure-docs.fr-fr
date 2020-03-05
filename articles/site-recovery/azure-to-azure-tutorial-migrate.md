@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 00fc836f098f3c03afc9adebe2450f00750eb5ff
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4882206692c334d6ab6af28feb5d2cba5277eea1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954100"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303934"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
 
@@ -53,7 +53,7 @@ Ce didacticiel présente les procédures suivantes :
 
 - Pour les machines virtuelles Windows, installez-y toutes les mises à jour de Windows les plus récentes afin que tous les certificats racines approuvés s’y trouvent. Dans un environnement déconnecté, suivez les processus Windows Update et de mise à jour de certificat standard en vigueur pour votre organisation.
     
-- Pour les machines virtuelles Linux, suivez les instructions fournies par votre distributeur Linux pour obtenir les certificats racines approuvés les plus récents et la dernière liste de révocation de certificats sur la machine virtuelle.
+- Pour des machines virtuelles Linux, suivez les instructions fournies par votre distributeur Linux pour obtenir les certificats racines approuvés les plus récents et la dernière liste de révocation de certificats sur la machine virtuelle.
 - N’utilisez pas de proxy d’authentification dans le but de contrôler la connectivité réseau pour les machines virtuelles que vous voulez déplacer.
 
 - Si la machine virtuelle que vous voulez déplacer n’a pas d’accès à Internet, ou si elle utilise un proxy de pare-feu pour contrôler l’accès sortant, [vérifiez la configuration requise](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
@@ -73,7 +73,7 @@ Ce didacticiel présente les procédures suivantes :
     - [Groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer)
     -  [Adresse IP publique](../virtual-network/virtual-network-public-ip-address.md)
-    - Pour tous les autres composants réseau, consultez la [documentation sur les réseaux](https://docs.microsoft.com/azure/#pivot=products&panel=network).
+    - Pour tous les autres composants réseau, consultez la [documentation sur les réseaux](https://docs.microsoft.com/azure/?pivot=products&panel=network).
 
 
 
@@ -111,7 +111,7 @@ Les étapes suivantes montrent comment effectuer le déplacement vers la région
 
 1. Accédez au coffre. Dans **Paramètres** > **Éléments répliqués**, sélectionnez la machine virtuelle, puis **Basculement**.
 2. Dans **Basculement**, sélectionnez **Dernier**.
-3. Sélectionnez **Arrêtez la machine avant de commencer le basculement**. Site Recovery tente d’arrêter la machine virtuelle source avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
+3. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Site Recovery tente d’arrêter la machine virtuelle source avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
 4. Une fois le travail terminé, vérifiez que la machine virtuelle apparaît bien dans la région Azure cible comme prévu.
 
 
@@ -120,7 +120,7 @@ Les étapes suivantes montrent comment effectuer le déplacement vers la région
 Si vous avez vérifié la machine virtuelle déplacée et que vous devez modifier le point de basculement ou que vous souhaitez revenir à un point antérieur, sous **Éléments répliqués**, cliquez sur la machine virtuelle avec le bouton droit, puis sélectionnez **Modifier le point de récupération**. Cette étape vous permet de spécifier un autre point de récupération et de définir le basculement vers celui-ci. 
 
 
-## <a name="commit"></a>Validation 
+## <a name="commit"></a>Commit 
 
 Une fois que vous avez vérifié la machine virtuelle déplacée et que vous êtes prêt à valider la modification, sous **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle, puis sélectionnez **Valider**. Cette étape termine le processus de déplacement vers la région cible. Attendez la fin de la tâche de validation.
 

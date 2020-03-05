@@ -3,17 +3,16 @@ title: Métriques prises en charge par Azure Monitor par type de ressource
 description: Liste des métriques disponibles pour chaque type de ressource avec Azure Monitor.
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: reference
 ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: e67cd8c85d9ba85e32ef7aece402f97ab24243e5
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 3e43d2baf4337e7a986d59c47f805183a920c7a1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963442"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659677"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -92,15 +91,15 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |OtherRequests|Autres demandes de la passerelle (déprécié)|Count|Total|Nombre d’autres demandes de la passerelle : utilisez une métrique de demande multi-dimension avec la dimension GatewayResponseCodeCategory à la place|Location,Hostname|
 |Duration|Durée globale des demandes de passerelle|Millisecondes|Average|Durée globale des demandes de passerelle en millisecondes|Location,Hostname|
 |BackendDuration|Durées des demandes back-end|Millisecondes|Average|Durée des demandes back-end, en millisecondes|Location,Hostname|
-|Capacité|Capacité|Pourcentage|Average|Métrique d’utilisation pour le service ApiManagement|Location|
-|EventHubTotalEvents|Nombre total d'événements EventHub|Count|Total|Nombre d’événements envoyés à EventHub|Location|
-|EventHubSuccessfulEvents|Événements EventHub réussis|Count|Total|Nombre d’événements EventHub réussis|Location|
-|EventHubTotalFailedEvents|Événements EventHub non réussis|Count|Total|Nombre d’événements EventHub non réussis|Location|
-|EventHubRejectedEvents|Événements EventHub rejetés|Count|Total|Nombre d’événements EventHub rejetés (configuration incorrecte ou non autorisée)|Location|
-|EventHubThrottledEvents|Événements EventHub limités|Count|Total|Nombre d’événements EventHub limités|Location|
-|EventHubTimedoutEvents|Événements EventHub expirés|Count|Total|Nombre d'événements EventHub expirés|Location|
-|EventHubDroppedEvents|Événements EventHub supprimés|Count|Total|Nombre d’événements ignorés car la limite de taille de la file d’attente a été atteinte|Location|
-|EventHubTotalBytesSent|Taille des événements EventHub|Octets|Total|Taille totale des événements EventHub en octets|Location|
+|Capacité|Capacité|Pourcentage|Average|Métrique d’utilisation pour le service ApiManagement|Emplacement|
+|EventHubTotalEvents|Nombre total d'événements EventHub|Count|Total|Nombre d’événements envoyés à EventHub|Emplacement|
+|EventHubSuccessfulEvents|Événements EventHub réussis|Count|Total|Nombre d’événements EventHub réussis|Emplacement|
+|EventHubTotalFailedEvents|Événements EventHub non réussis|Count|Total|Nombre d’événements EventHub non réussis|Emplacement|
+|EventHubRejectedEvents|Événements EventHub rejetés|Count|Total|Nombre d’événements EventHub rejetés (configuration incorrecte ou non autorisée)|Emplacement|
+|EventHubThrottledEvents|Événements EventHub limités|Count|Total|Nombre d’événements EventHub limités|Emplacement|
+|EventHubTimedoutEvents|Événements EventHub expirés|Count|Total|Nombre d'événements EventHub expirés|Emplacement|
+|EventHubDroppedEvents|Événements EventHub supprimés|Count|Total|Nombre d’événements ignorés car la limite de taille de la file d’attente a été atteinte|Emplacement|
+|EventHubTotalBytesSent|Taille des événements EventHub|Octets|Total|Taille totale des événements EventHub en octets|Emplacement|
 |Demandes|Demandes|Count|Total|Métriques de demande de la passerelle avec plusieurs dimensions|Location,Hostname,LastErrorReason,BackendResponseCode,GatewayResponseCode,BackendResponseCodeCategory,GatewayResponseCodeCategory|
 
 
@@ -1066,7 +1065,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |CaptureBacklog|Backlog des captures.|Count|Total|Backlog des captures de Microsoft.EventHub.|EntityName|
 |CapturedMessages|Messages capturés.|Count|Total|Messages capturés pour Microsoft.EventHub.|EntityName|
 |CapturedBytes|Octets capturés.|Octets|Total|Octets capturés pour Microsoft.EventHub.|EntityName|
-|Size|Size|Octets|Average|Taille d’un EventHub en octets.|EntityName|
+|Taille|Taille|Octets|Average|Taille d’un EventHub en octets.|EntityName|
 |INREQS|Requêtes entrantes (déconseillé)|Count|Total|Nombre total des requêtes d’envoi entrantes pour un espace de noms (déconseillé)|None|
 |SUCCREQ|Requêtes réussies (déconseillé)|Count|Total|Nombre total de requêtes réussies pour un espace de noms (déconseillé)|None|
 |FAILREQ|Requêtes non réussies (déconseillé)|Count|Total|Nombre total de requêtes non réussies pour un espace de noms (déconseillé)|None|
@@ -1782,7 +1781,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |ActiveConnections|ActiveConnections|Count|Total|Nombre total de connexions actives pour Microsoft.ServiceBus.|None|
 |ConnectionsOpened|Connexions ouvertes.|Count|Average|Connexions ouvertes pour Microsoft.ServiceBus.|EntityName|
 |ConnectionsClosed|Connexions fermées.|Count|Average|Connexions fermées pour Microsoft.ServiceBus.|EntityName|
-|Size|Size|Octets|Average|Taille d’une file d’attente/rubrique en octets.|EntityName|
+|Taille|Taille|Octets|Average|Taille d’une file d’attente/rubrique en octets.|EntityName|
 |Messages|Nombre de messages dans une file d’attente/rubrique.|Count|Average|Nombre de messages dans une file d’attente/rubrique.|EntityName|
 |ActiveMessages|Nombre de messages actifs dans une file d’attente/rubrique.|Count|Average|Nombre de messages actifs dans une file d’attente/rubrique.|EntityName|
 |DeadletteredMessages|Nombre de messages de lettres mortes dans une file d’attente/rubrique.|Count|Average|Nombre de messages de lettres mortes dans une file d’attente/rubrique.|EntityName|

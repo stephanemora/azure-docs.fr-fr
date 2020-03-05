@@ -6,16 +6,17 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2530fb0bd27cd98b702d804b0cb5a1dc60419f2f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a57370b7bf63ad73318ba13eff1b554aead7e186
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490409"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197757"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure
 
@@ -34,7 +35,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 3. Dans la liste des résultats, choisissez **Key Vault**.
 4. Dans la section Key Vault, choisissez **Créer**.
 5. Dans la section **Créer un coffre de clés**, renseignez les informations suivantes :
-    - **Nom** : un nom unique est obligatoire. Pour ce démarrage rapide, nous utilisons **Contoso-vault2**. 
+    - **Name** : un nom unique est obligatoire. Pour ce démarrage rapide, nous utilisons **Contoso-vault2**. 
     - **Abonnement**: Choisissez un abonnement.
     - Sous **Groupe de ressources**, choisissez **Créer** et entrez le nom du groupe de ressources.
     - Dans le menu déroulant **Emplacement**, choisissez un emplacement.
@@ -50,7 +51,7 @@ Notez les deux propriétés ci-dessous :
 
 ![Sortie après la création du coffre de clés](./media/quick-create-portal/vault-properties.png)
 
-## <a name="add-a-secret-to-key-vault"></a>Ajouter un secret dans Key Vault
+## <a name="add-a-secret-to-key-vault"></a>Ajouter un secret au coffre de clés
 
 Pour ajouter un secret au coffre, vous devez effectuer deux autres opérations. Dans ce cas, nous ajoutons un mot de passe qu’une application est susceptible d’utiliser. Le mot de passe est appelé **ExamplePassword** et nous y stockons la valeur **hVFkk965BuUv**.
 
@@ -58,7 +59,7 @@ Pour ajouter un secret au coffre, vous devez effectuer deux autres opérations. 
 2. Cliquez sur **Generate/Import (Générer/Importer)** .
 3. Dans l’écran **Create a secret (Créer un secret)** , choisissez les valeurs suivantes :
     - **Options de chargement** : Manuel.
-    - **Nom** : ExamplePassword.
+    - **Name** : ExamplePassword.
     - **Valeur** : hVFkk965BuUv
     - Conservez les valeurs par défaut des autres options. Cliquez sur **Créer**.
 
@@ -70,7 +71,7 @@ Vous pouvez afficher la valeur masquée en cliquant sur le bouton « Afficher l
 
 ![Valeur secrète affichée](./media/quick-create-portal/current-version-shown.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 D’autres démarrages rapides et didacticiels sur les coffres de clés reposent sur ce démarrage rapide. Si vous prévoyez d’utiliser d’autres démarrages rapides et didacticiels, il peut être utile de conserver ces ressources.
 Si vous n’en avez plus besoin, supprimez le groupe de ressources. Ce faisant, vous supprimez le coffre de clés et les ressources associées. Pour supprimer le groupe de ressources à l’aide du portail :

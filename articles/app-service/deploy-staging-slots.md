@@ -3,14 +3,14 @@ title: Configurer des environnements intermédiaires
 description: Découvrez comment déployer des applications à un emplacement hors production et comment les faire passer automatiquement en production. Améliorez la fiabilité et éliminez les temps d’arrêt des applications à partir des déploiements.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
-ms.date: 09/19/2019
+ms.date: 03/04/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 63070b2c1e6adbb0149446b218e6e58023b2d409
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 21e025088e59c7f65f848b332ecb393b05918261
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666451"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300858"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -23,7 +23,7 @@ Le déploiement de votre application sur un emplacement hors production présent
 * Déployer d’abord une application dans un emplacement et la basculer ensuite en production permet de vous assurer que toutes les instances de l’emplacement sont initialisées avant d’être basculées en production. Cela permet d’éliminer les temps d’arrêt lors du déploiement de l’application. La redirection du trafic est transparente et aucune requête n’est abandonnée du fait d’opérations de permutation. Vous pouvez automatiser l’intégralité de ce workflow en configurant l’[échange automatique](#Auto-Swap) lorsqu’aucune validation n’est nécessaire avant l’échange.
 * Après basculement, la précédente application de production se retrouve dans l’emplacement de l’application précédemment intermédiaire. Si les modifications permutées en production ne vous conviennent pas, vous pouvez effectuer la même permutation afin de récupérer immédiatement le contenu du précédent site qui vous plaisait.
 
-Chaque niveau de plan App Service prend en charge un nombre différent d’emplacements de déploiement. L’utilisation de ces emplacements de déploiement n’entraîne aucun coût supplémentaire. Pour connaître le nombre d’emplacements pris en charge par le plan de votre application, consultez [Limites App Service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits). 
+Chaque niveau de plan App Service prend en charge un nombre différent d’emplacements de déploiement. L’utilisation de ces emplacements de déploiement n’entraîne aucun coût supplémentaire. Pour connaître le nombre d’emplacements pris en charge par le plan de votre application, consultez [Limites App Service](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
 
 Pour mettre votre application à l’échelle vers un autre niveau, vérifiez que le niveau cible peut prendre en charge le nombre d’emplacements déjà utilisés par votre application. Par exemple, si votre application comprend plus de cinq emplacements, vous ne pouvez pas effectuer de scale-down vers le niveau **Standard**, car le niveau **Standard** ne prend en charge que cinq emplacements de déploiement. 
 
@@ -303,7 +303,7 @@ New-AzWebAppSlot -ResourceGroupName [resource group name] -Name [app name] -Slot
 ---
 ### <a name="initiate-a-swap-with-a-preview-multi-phase-swap-and-apply-destination-slot-configuration-to-the-source-slot"></a>Démarrer un échange avec aperçu (échange multiphase) et appliquer la configuration de l’emplacement de destination à l’emplacement source
 ```powershell
-$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+$ParametersObject = @{targetSlot  = "[slot name – e.g. "production"]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 
@@ -316,7 +316,7 @@ Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType M
 ---
 ### <a name="swap-deployment-slots"></a>Échanger des emplacements de déploiement
 ```powershell
-$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
+$ParametersObject = @{targetSlot  = "[slot name – e.g. "production"]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
 ```
 

@@ -3,12 +3,12 @@ title: Monter le volume secret pour le groupe de conteneurs
 description: Découvrez comment monter un volume secret pour stocker des informations sensibles et y accéder à partir de vos instances de conteneur
 ms.topic: article
 ms.date: 07/19/2018
-ms.openlocfilehash: 7f212a5090923a7d7bf00fc8ac78299f2edcc9c1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 913e3d147519bc73c3c57b8da383f9d373f3666d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533184"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249948"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Monter un volume secret dans Azure Container Instances
 
@@ -34,8 +34,11 @@ az container create \
 
 La sortie de la commande [az container exec][az-container-exec] suivante indique l’ouverture d’un interpréteur de commandes dans le conteneur en cours d’exécution, affichant les fichiers dans le volume secret, puis affiche leur contenu :
 
-```console
-$ az container exec --resource-group myResourceGroup --name secret-volume-demo --exec-command "/bin/sh"
+```azurecli
+az container exec --resource-group myResourceGroup --name secret-volume-demo --exec-command "/bin/sh"
+```
+
+```output
 /usr/src/app # ls -1 /mnt/secrets
 mysecret1
 mysecret2

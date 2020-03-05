@@ -3,12 +3,12 @@ title: Monter le volume gitRepo pour le groupe de conteneurs
 description: Découvrez comment monter un volume GitRepo pour cloner un référentiel Git dans vos instances de conteneurs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 708fca185227292e7cdf33952bde6f42b3d4951f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 405cacd7a1649f95640a8dabf476729e101d03f8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533213"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252081"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Monter un volume GitRepo dans Azure Container Instances
 
@@ -25,11 +25,11 @@ Lorsque vous montez un volume *GitRepo*, vous pouvez définir trois propriétés
 
 | Propriété | Obligatoire | Description |
 | -------- | -------- | ----------- |
-| `repository` | OUI | URL complète incluant `http://` ou `https://` du référentiel Git à cloner.|
+| `repository` | Oui | URL complète incluant `http://` ou `https://` du référentiel Git à cloner.|
 | `directory` | Non | Répertoire dans lequel le référentiel doit être cloné. Le chemin d’accès ne peut pas contenir ou commencer par « `..` ».  Si vous spécifiez « `.` », le référentiel est cloné dans le répertoire du volume. Autrement, le référentiel Git est cloné dans un sous-répertoire du nom spécifié à l’intérieur du répertoire de volume. |
 | `revision` | Non | Hachage de validation de la révision à cloner. À défaut de spécification, la révision `HEAD` est clonée. |
 
-## <a name="mount-gitrepo-volume-azure-cli"></a>Monter un volume gitRepo : D’Azure CLI
+## <a name="mount-gitrepo-volume-azure-cli"></a>Monter un volume gitRepo : Azure CLI
 
 Pour monter un volume gitRepo lorsque vous déployez des instances de conteneurs avec [Azure CLI](/cli/azure), fournissez les paramètres `--gitrepo-url` et `--gitrepo-mount-path` à la commande [az container create][az-container-create]. Vous pouvez éventuellement spécifier le répertoire dans le volume où effectuer le clonage (`--gitrepo-dir`) et le hachage de validation de la révision à cloner (`--gitrepo-revision`).
 
@@ -48,8 +48,11 @@ az container create \
 
 Pour vérifier que le volume gitRepo a été monté, lancez un interpréteur de commandes dans le conteneur avec [az container exec][az-container-exec] et dressez la liste du répertoire :
 
-```console
-$ az container exec --resource-group myResourceGroup --name hellogitrepo --exec-command /bin/sh
+```azurecli
+az container exec --resource-group myResourceGroup --name hellogitrepo --exec-command /bin/sh
+```
+
+```output
 /usr/src/app # ls -l /mnt/aci-helloworld/
 total 16
 -rw-r--r--    1 root     root           144 Apr 16 16:35 Dockerfile
@@ -82,19 +85,19 @@ Pour monter un volume gitRepo pour un dépôt Git privé, spécifiez les informa
 
 Par exemple, le paramètre `--gitrepo-url` de l’interface de ligne de commande Azure pour un dépôt GitHub privé doit ressembler à ce qui suit (où « gituser » est le nom d’utilisateur GitHub et « abcdef1234fdsa4321abcdef » est le jeton d’accès personnel de l’utilisateur) :
 
-```azurecli
+```console
 --gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
 ```
 
 Pour un dépôt Git Azure Repos, spécifiez n’importe quel nom d’utilisateur (vous pouvez utiliser « azurereposuser » comme dans l’exemple suivant) en association avec un jeton PAT valide :
 
-```azurecli
+```console
 --gitrepo-url https://azurereposuser:abcdef1234fdsa4321abcdef@dev.azure.com/your-org/_git/some-private-repository
 ```
 
 Pour plus d’informations sur les jetons d’accès personnel pour GitHub et Azure Repos, consultez les articles suivants :
 
-GitHub : [Création d'un jeton d'accès personnel pour la ligne de commande][pat-github]
+GitHub : [Création d'un jeton d'accès personnel pour la ligne de commande][pat-github]
 
 Azure Repos : [Créer des jetons d’accès personnel pour authentifier l’accès][pat-repos]
 

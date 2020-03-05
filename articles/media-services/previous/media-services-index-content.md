@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: b837da4d68ea83d502e66373b9b7f029ff7fe07e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 7ccc2d5956b44a8cd85f19e0905539c32f58bc5e
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515137"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163996"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer"></a>Indexation de fichiers multimédias avec Azure Media Indexer
 
 > [!NOTE]
-> Le processeur multimédia [Azure Media Indexer](media-services-index-content.md) sera mis hors service. Pour les dates de mise hors service, consultez cette rubrique consacrée aux [composants hérités](legacy-components.md). [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) remplace ce processeur multimédia hérité. Pour plus d’informations, consultez [Effectuer une migration depuis Azure Media Indexer et Azure Media Indexer 2 vers Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+> Le processeur multimédia **Azure Media Indexer** sera mis hors service. Pour les dates de mise hors service, consultez cette rubrique consacrée aux [composants hérités](legacy-components.md). [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) remplace ce processeur multimédia hérité. Pour plus d’informations, consultez [Effectuer une migration depuis Azure Media Indexer et Azure Media Indexer 2 vers Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
 Azure Media Indexer permet de rendre le contenu de vos fichiers multimédias consultable et de générer une transcription en texte intégral de sous-titrages et de mots-clés. Vous pouvez traiter un fichier multimédia ou plusieurs dans un lot.  
 
@@ -243,7 +243,7 @@ Les mêmes sorties que pour des tâches réussies sont générées. Vous pouvez 
 ### <a id="preset"></a> Présélection de tâches pour l’Indexeur multimédia Azure
 Le traitement de l’Indexeur multimédia Azure peut être personnalisé par une tâche facultative prédéfinie à côté de la tâche.  La section suivante décrit le format de ce fichier xml de configuration.
 
-| Name | Require | Description |
+| Nom | Require | Description |
 | --- | --- | --- |
 | **input** |false |Fichiers de ressources que vous souhaitez indexer.</p><p>Azure Media Indexer prend en charge les formats de fichiers multimédias suivants : MP4, WMV, MP3, M4A, WMA, AAC, WAV.</p><p>Vous pouvez spécifier les noms de fichier dans l’attribut **name** ou **list** attribut de l’élément **d’entrée** (comme indiqué ci-dessous). Si vous ne spécifiez pas de fichier de ressource à indexer, le fichier principal est sélectionné. Si aucun fichier principal n’est défini, le premier fichier de ressource d’entrée est indexé.</p><p>Pour spécifier explicitement le nom du fichier multimédia, effectuez ceci :<br/>`<input name="TestFile.wmv">`<br/><br/>Vous pouvez également indexer plusieurs fichiers de ressources à la fois (jusqu'à 10 fichiers). Pour ce faire :<br/><br/><ol class="ordered"><li><p>Créez un fichier texte (fichier manifeste) et affectez-lui une extension .lst. </p></li><li><p>Ajoutez une liste de tous les noms de fichier d’élément multimédia à ce fichier de manifeste. </p></li><li><p>Ajoutez (chargez) le fichier manifeste dans l’élément multimédia.  </p></li><li><p>Spécifiez le nom du fichier manifeste dans l’attribut list de l’entrée.<br/>`<input list="input.lst">`</li></ol><br/><br/>Remarque : Si vous ajoutez plus de 10 fichiers dans le fichier manifeste, la tâche d’indexation échoue avec le code d’erreur 2006. |
 | **métadonnées** |false |Métadonnées pour les fichiers de ressources actives utilisés pour l’Adaptation du vocabulaire.  Il est utile préparer l’indexeur à reconnaître les mots de vocabulaire non standard tels que des noms propres.<br/>`<metadata key="..." value="..."/>` <br/><br/>Vous pouvez fournir des **valeurs** pour les **clés** prédéfinies. Les clés actuellement prises en charge sont les suivantes :<br/><br/>« titre » et « description ». Elles servent à l’adaptation du vocabulaire pour sélectionner le modèle de langue pour votre travail et améliorer la précision de la reconnaissance vocale.  Les valeurs amorcent des recherches sur Internet pour rechercher des documents pertinents du point de vue contextuel en utilisant le contenu pour étoffer le dictionnaire interne pour la durée de la tâche d’indexation.<br/>`<metadata key="title" value="[Title of the media file]" />`<br/>`<metadata key="description" value="[Description of the media file] />"` |
@@ -252,7 +252,7 @@ Le traitement de l’Indexeur multimédia Azure peut être personnalisé par une
 ### <a id="error_codes"></a>Codes d’erreur
 En cas d’erreur, Azure Media indexeur doit signaler un des codes d’erreur suivants :
 
-| Code | Name | Causes possibles |
+| Code | Nom | Causes possibles |
 | --- | --- | --- |
 | 2000 |Configuration non valide |Configuration non valide |
 | 2001 |Ressources d’entrée non valides |Ressources d’entrée manquantes ou vides. |

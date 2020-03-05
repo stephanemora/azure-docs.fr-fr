@@ -3,8 +3,8 @@ title: 'Tutoriel : Migrer RDS SQL Server en ligne vers SQL Database'
 titleSuffix: Azure Database Migration Service
 description: Apprenez à effectuer une migration en ligne de RDS SQL Server vers une base de données unique Azure SQL Database ou vers Azure SQL Database Managed Instance à l’aide d’Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 52a6ee282e12f0ece5f16c1fa67c38f07f9d86e7
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: db561761acbd5ff991f88cfd18cec8d4625336f2
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751291"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255517"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutoriel : Migrer en ligne RDS SQL Server vers une instance d’Azure SQL Database ou Azure SQL Database Managed Instance à l’aide de DMS
 Vous pouvez utiliser Azure Database Migration Service pour effectuer la migration des bases de données d’une instance RDS SQL Server vers une instance [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) ou [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) avec un temps d’arrêt minimal. Dans ce tutoriel, vous allez effectuer la migration de la base de données **Adventureworks2012**, qui a été restaurée sur une instance RDS SQL Server de SQL Server 2012 (ou version ultérieure), vers une instance Azure SQL Database ou Azure SQL Database Managed Instance à l’aide d’Azure Database Migration Service.
@@ -42,7 +42,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 Cet article décrit le processus de migration en ligne d’une instance RDS SQL Server vers une instance Azure SQL Database ou Azure SQL Database Managed Instance.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 * Créez une [base de données RDS SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.SQLServer.html).

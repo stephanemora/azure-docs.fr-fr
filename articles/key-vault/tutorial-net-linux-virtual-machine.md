@@ -5,18 +5,19 @@ services: key-vault
 author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 65c59ba299490ee2bbef849b6f7354abc05ad885
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8c5b3fcc1cb2ac481be0b435c48ce213c716edde
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003348"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198165"
 ---
-# <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>Didacticiel : Utiliser une machine virtuelle Linux et une application .NET pour stocker des secrets dans Azure Key Vault
+# <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>Tutoriel : Utiliser une machine virtuelle Linux et une application .NET pour stocker des secrets dans Azure Key Vault
 
 Azure Key Vault vous permet de protéger des secrets tels que les clés API et les chaînes de connexion de base de données qui sont nécessaires pour accéder à vos applications, services et ressources informatiques.
 
@@ -278,7 +279,7 @@ Il s’agit d’un processus en deux étapes permettant de changer le fichier de
 
 Vous venez de voir comment effectuer des opérations avec Azure Key Vault dans une application .NET qui s’exécute sur une machine virtuelle Azure Linux.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Supprimez le groupe de ressources, la machine virtuelle et toutes les ressources associées quand vous n’en avez plus besoin. Pour ce faire, sélectionnez le groupe de ressources de la machine virtuelle et sélectionnez **Supprimer**.
 

@@ -5,18 +5,19 @@ services: key-vault
 author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 15650de776b481d1635b58f2b8ecf2bf2921d12f
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 3c80a206af74eb370470c38a7af9c7f1fe840406
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242423"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198148"
 ---
-# <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Didacticiel : Utiliser une machine virtuelle Linux et une application Python pour stocker des secrets dans Azure Key Vault
+# <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Tutoriel : Utiliser une machine virtuelle Linux et une application Python pour stocker des secrets dans Azure Key Vault
 
 Azure Key Vault vous permet de protéger des secrets tels que les clés API et les chaînes de connexion de base de données nécessaires pour accéder à vos applications, services et ressources informatiques.
 
@@ -197,7 +198,7 @@ Le code précédent exécute un processus en deux étapes :
    1. Il récupère un jeton du point de terminaison MSI local sur la machine virtuelle. Le point de terminaison récupère alors un jeton d’Azure Active Directory.
    1. Il passe le jeton au coffre de clés et récupère votre secret.
 
-Exécutez la commande ci-dessous. Vous devriez voir la valeur du secret.
+Exécutez la commande suivante : Vous devriez voir la valeur du secret.
 
 ```console
 python Sample.py
@@ -205,7 +206,7 @@ python Sample.py
 
 Dans ce tutoriel, vous avez appris à utiliser Azure Key Vault avec une application Python exécutée sur une machine virtuelle Linux.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Supprimez le groupe de ressources, la machine virtuelle et toutes les ressources associées quand vous n’en avez plus besoin. Pour ce faire, sélectionnez le groupe de ressources de la machine virtuelle et sélectionnez **Supprimer**.
 

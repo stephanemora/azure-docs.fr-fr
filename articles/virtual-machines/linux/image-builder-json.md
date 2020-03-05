@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 4ac2c1266933716697a658b1ba88efd8c2f05d34
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 08a1ca0c85d69d1a5262f1dcac5d46fb82b1c22b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905764"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191790"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -55,7 +55,7 @@ Voici le format de modèle de base :
     "apiVersion": "2019-05-01-preview",
 ```
 
-## <a name="location"></a>Location
+## <a name="location"></a>Emplacement
 
 L’emplacement est la région dans laquelle l’image personnalisée sera créée. Pour le générateur d’images en préversion, les régions suivantes sont prises en charge :
 
@@ -301,7 +301,7 @@ Le personnalisateur de redémarrage vous permet de redémarrer une machine virtu
 
             {
                 "type": "WindowsRestart",
-                "restartCommand": "shutdown /r /f /t 0 /c", 
+                "restartCommand": "shutdown /r /f /t 0", 
                 "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt",
                 "restartTimeout": "5m"
             }

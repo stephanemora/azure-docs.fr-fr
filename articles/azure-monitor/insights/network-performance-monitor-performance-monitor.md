@@ -1,20 +1,19 @@
 ---
 title: Fonctionnalité Analyseur de performances de la solution Network Performance Monitor dans Azure Log Analytics | Microsoft Docs
 description: La fonctionnalité Analyseur de performances de Network Performance Monitor vous permet de surveiller la connectivité réseau entre les différents points de votre réseau. Vous pouvez surveiller les déploiements cloud et les emplacements locaux, plusieurs centres de données ainsi que les filiales et les applications/microservices multiniveaux stratégiques.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 745ec6ee8e69ad911e42b6360b3408d79d660718
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: dfbc4ea8e168ced95a4239dd100cf7277e0adf7b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898845"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654526"
 ---
-# <a name="network-performance-monitor-solution-performance-monitoring"></a>Solution Network Performance Monitor : Analyse des performances
+# <a name="network-performance-monitor-solution-performance-monitoring"></a>Solution Network Performance Monitor : analyse des performances.
 
 La fonctionnalité Analyseur de performances de [Network Performance Monitor](network-performance-monitor.md) vous permet de surveiller la connectivité réseau entre les différents points de votre réseau. Vous pouvez surveiller les déploiements cloud et les emplacements locaux, plusieurs centres de données ainsi que les filiales et les applications/microservices multiniveaux stratégiques. Avec l’Analyseur de performances, vous pouvez détecter les problèmes réseau avant que vos utilisateurs ne se plaignent. Ses principaux avantages vous permettent de : 
 
@@ -95,7 +94,7 @@ Avant de choisir un protocole, tenez compte des informations suivantes :
 
 Si vous avez choisi ICMP durant le déploiement, vous pouvez basculer vers TCP à tout moment en modifiant la règle de surveillance par défaut.
 
-1. Accédez à **Performances réseau** > **Surveiller** > **Configurer**   >  **Surveiller**. Ensuite, sélectionnez  **Règle par défaut**. 
+1. Accédez à **Performances réseau** > **Surveiller** > **Configurer** > **Surveiller**. Ensuite, sélectionnez  **Règle par défaut**. 
 2. Faites défiler la page jusqu’à la section **Protocole** et sélectionnez le protocole à utiliser. 
 3. Sélectionnez **Enregistrer** pour appliquer le paramètre. 
 

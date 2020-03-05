@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 61b94e95c5292b4013409deed6565a90890b66d1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 55afeb52323ead7db8be7e8fd1dabc880328e888
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892632"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921536"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Utiliser PowerShell pour activer Diagnostics Azure sur une machine virtuelle exécutant Windows
 
@@ -62,6 +62,9 @@ L'applet de commande renvoie *PublicSettings*, qui contient la configuration des
 La cmdlet [Remove-AzVmDiagnosticsExtension](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdiagnosticsextension) peut être utilisée pour supprimer l’extension de diagnostics à partir de la machine virtuelle.  
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>Activer l'extension de diagnostics si vous utilisez le modèle de déploiement classique
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 Vous pouvez utiliser l'applet de commande [Set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) pour activer une extension de diagnostics sur une machine virtuelle créée à l'aide du modèle de déploiement classique. L'exemple suivant indique comment créer une machine virtuelle à l'aide du modèle de déploiement classique avec l'extension de diagnostics activée.
 
     $VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
@@ -88,7 +91,7 @@ La configuration doit être mise à jour pour inclure les éléments suivants :
       ```xml
       <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
       ```
-  * Pour plus d’informations sur la façon dont les mesures sont générées en fonction de la configuration des compteurs de performances et des mesures, consultez [Table des mesures Diagnostics Azure pour le stockage](diagnostics-template.md#wadmetrics-tables-in-storage).
+  * Pour plus d'informations sur la façon dont les mesures sont générées en fonction de la configuration de compteurs de performances et des mesures, consultez [Table des mesures Diagnostics Azure pour le stockage](diagnostics-template.md#wadmetrics-tables-in-storage).
 * L’élément **StorageAccount** doit être mis à jour avec le nom du compte de stockage de diagnostics.
   
     ```xml
@@ -196,6 +199,6 @@ La configuration doit être mise à jour pour inclure les éléments suivants :
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour obtenir une aide supplémentaire sur l’utilisation de la fonction Diagnostics Azure et d’autres techniques pour résoudre les problèmes, consultez la page [Activation de Diagnostics dans Azure Cloud Services et Azure Virtual Machines](../../cloud-services/cloud-services-dotnet-diagnostics.md).
+* Pour obtenir une aide supplémentaire sur l'utilisation de la fonction Diagnostics Azure et d'autres techniques pour résoudre les problèmes, consultez la page [Activation de Diagnostics dans Azure Cloud Services et Azure Virtual Machines](../../cloud-services/cloud-services-dotnet-diagnostics.md).
 * [schéma de configuration des diagnostics](https://msdn.microsoft.com/library/azure/mt634524.aspx) explique les différentes options de configuration XML pour l'extension de diagnostics.
 

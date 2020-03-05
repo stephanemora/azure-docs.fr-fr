@@ -3,20 +3,20 @@ title: 'Tutoriel : Personnaliser l’interface utilisateur'
 titleSuffix: Azure AD B2C
 description: Découvrez comment personnaliser l’interface utilisateur de vos applications dans Azure Active Directory B2C à l’aide du portail Azure.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1b0ad7049375cb20d2daa0e6f920b680d03530a5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b2b2bc8dd4e60348553228b8b418df252a8c426a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840126"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186248"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutoriel : Personnaliser l'interface des expériences utilisateur dans Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Dans cet article, vous apprendrez comment :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [Créez un flux d'utilisateurs](tutorial-create-user-flows.md) pour permettre aux utilisateurs de s'inscrire et de se connecter à votre application.
 

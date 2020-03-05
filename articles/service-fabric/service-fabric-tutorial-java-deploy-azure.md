@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 354f7db2a634ae2adee2f2fa0e2a6055c1c20613
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b7754a289c06dff37aedcf8da76d35dfac4b183d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465281"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252801"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutoriel : Déployer une application Java sur un cluster Service Fabric dans Azure
 
@@ -32,7 +32,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * [Configurer la surveillance et les diagnostics pour l’application](service-fabric-tutorial-java-elk.md)
 > * [Configurer CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel :
 
@@ -53,13 +53,13 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
 
 2. Connexion à votre compte Azure
 
-    ```bash
+    ```azurecli
     az login
     ```
 
 3. Configurer l’abonnement Azure que vous souhaitez utiliser pour créer les ressources
 
-    ```bash
+    ```azurecli
     az account set --subscription [SUBSCRIPTION-ID]
     ```
 
@@ -73,7 +73,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
 
     La commande précédente renvoie les informations suivantes qui doivent être notées pour une utilisation ultérieure.
 
-    ```
+    ```output
     Source Vault Resource Id: /subscriptions/<subscription_id>/resourceGroups/testkeyvaultrg/providers/Microsoft.KeyVault/vaults/<name>
     Certificate URL: https://<name>.vault.azure.net/secrets/<cluster-dns-name-for-certificate>/<guid>
     Certificate Thumbprint: <THUMBPRINT>
@@ -81,7 +81,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
 
 5. Créez un groupe de ressources pour le compte de stockage qui stocke vos journaux d’activité
 
-    ```bash
+    ```azurecli
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
     Example: az group create --location westus --name teststorageaccountrg
@@ -89,7 +89,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
 
 6. Créez un compte de stockage qui sera utilisé pour stocker les journaux d’activité produits
 
-    ```bash
+    ```azurecli
     az storage account create -g [RESOURCE-GROUP-NAME] -l [REGION] --name [STORAGE-ACCOUNT-NAME] --kind Storage
 
     Example: az storage account create -g teststorageaccountrg -l westus --name teststorageaccount --kind Storage
@@ -101,13 +101,13 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
 
 8. Copiez l’URL de SAP de compte et mettez-la de côté pour l’utiliser lors de la création de votre cluster Service Fabric. L’URL se présente comme suit :
 
-    ```
+    ```output
     ?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
     ```
 
 9. Créez un groupe de ressources qui contient les ressources Event Hub. Event Hubs est utilisé pour envoyer des messages de Service Fabric au serveur exécutant les ressources ELK.
 
-    ```bash
+    ```azurecli
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
     Example: az group create --location westus --name testeventhubsrg
@@ -115,7 +115,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
 
 10. Créez une ressource Event Hubs à l’aide de la commande suivante. Suivez les invites pour entrer les informations de namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule et receiveAuthorizationRule.
 
-    ```bash
+    ```azurecli
     az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
 
     Example:
@@ -158,7 +158,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
 
     Copiez la valeur du champ **sr** dans le JSON renvoyé. La valeur du champ **sr** est le jeton SAP pour EventHubs. L’URL suivante texte un exemple de champ **sr** :
 
-    ```bash
+    ```output
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
@@ -185,7 +185,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
 
 14. Exécutez la commande ci-dessous pour créer votre cluster Service Fabric
 
-    ```bash
+    ```azurecli
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
     ```
 

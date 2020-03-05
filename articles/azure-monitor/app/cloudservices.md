@@ -1,25 +1,21 @@
 ---
 title: Application Insights pour les services cloud Azure | Microsoft Docs
 description: Surveillance efficace de vos rôles Web et de travail avec Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/05/2018
-ms.openlocfilehash: f915764deaa70117b96a42c5e7310b691125d731
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ce794a7bd18635fddfa30056ab2d675dc138097d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979849"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655835"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour les services cloud Azure
 [Application Insights][start] peut superviser les [applications de service cloud Azure](https://azure.microsoft.com/services/cloud-services/) pour vérifier la disponibilité, les performances, les échecs et l’utilisation en combinant les données des SDK Application Insights avec les données d’[Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
 
 ![Vue d’ensemble du tableau de bord](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer, vous avez besoin des éléments suivants :
 
 * Un abonnement [Azure](https://azure.com). Une connexion avec un compte Microsoft pour Windows, Xbox Live ou d’autres services cloud de Microsoft. 

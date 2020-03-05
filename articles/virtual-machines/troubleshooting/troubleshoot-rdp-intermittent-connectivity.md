@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: 636973110e11770e33c635e312c86b25110705da
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c22a401a6b25f7bb2c27a10e52214fa42ac6089b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981351"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918221"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Le Bureau à distance se déconnecte fréquemment sur une machine virtuelle Azure
 
 Cet article explique comment résoudre les problèmes de déconnexions fréquentes sur une machine virtuelle Azure par le biais du protocole RDP (Remote Desktop Protocol).
 
-> [!NOTE] 
-> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/management/deployment-models.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager. Nous vous recommandons d’utiliser ce modèle pour les nouveaux déploiements au lieu du modèle de déploiement classique.
 
 ## <a name="symptom"></a>Symptôme
 

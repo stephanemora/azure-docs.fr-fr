@@ -15,18 +15,16 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f9914b84b63f271c7dd7d1b8f7dbc3b69511605
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: ae5d60f77319a6590807ae0b18a0c07c116e128b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561187"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914464"
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Gestion de la disponibilité des machines virtuelles Windows dans Azure 
 
 Découvrez comment configurer et gérer plusieurs machines virtuelles pour garantir une haute disponibilité pour votre application Windows dans Azure. Vous pouvez également [gérer la disponibilité des machines virtuelles Linux](../linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-Pour obtenir des instructions sur la création et l’utilisation de groupes à haute disponibilité lorsque vous utilisez le modèle de déploiement classique, consultez la rubrique [Configuration d’un groupe à haute disponibilité](classic/configure-availability-classic.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-manage-availability](../../../includes/virtual-machines-common-manage-availability.md)]
 

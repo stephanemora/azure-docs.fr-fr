@@ -1,18 +1,17 @@
 ---
 title: Solution Azure SQL Analytics dans Azure Monitor | Microsoft Docs
 description: Vous pouvez utiliser la solution d’analytique du réseau Azure dans Azure Monitor pour examiner les journaux d’activité de passerelle d’application et de groupes de sécurité réseau Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 5cce4ccd3acd9df896f6c28bd010a92ed4ec1a7a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1045f86db5e1a9ed1979a266937974045e401e27
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893312"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667090"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Solutions de supervision réseau Azure dans Azure Monitor
 
@@ -213,20 +212,20 @@ Pour utiliser les solutions mises à jour :
 3. Mettez à jour les requêtes, les tableaux de bord et les alertes enregistrés pour qu’ils utilisent le nouveau type de données.
    + Le type doit être AzureDiagnostics. Vous pouvez utiliser ResourceType pour filtrer les journaux d’activité réseaux Azure.
 
-     | Au lieu du paramètre... | Utilisez : |
+     | À la place de : | Utilisez : |
      | --- | --- |
      | NetworkApplicationgateways &#124; où OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; où ResourceType=="APPLICATIONGATEWAYS" et OperationName=="ApplicationGatewayAccess" |
      | NetworkApplicationgateways &#124; où OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; où ResourceType=="APPLICATIONGATEWAYS" et OperationName=="ApplicationGatewayPerformance" |
      | NetworkSecuritygroups | AzureDiagnostics &#124; où ResourceType=="NETWORKSECURITYGROUPS" |
 
    + Pour tous les champs dont le suffixe est \_s, \_d ou \_g, remplacez le premier caractère du nom par une lettre minuscule.
-   + Pour tous les champs dont le suffixe est \_o, les données sont réparties en plusieurs champs, selon les noms de champs imbriqués.
+   + Pour tous les champs dont le suffixe est \_o, les données sont réparties sur plusieurs champs, selon les noms de champs imbriqués.
 4. Supprimez la solution *Azure Networking Analytics (déconseillée)* .
-   + Si vous utilisez PowerShell, utilisez `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`.
+   + Avec PowerShell, utilisez `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`.
 
 Les données collectées avant la modification ne seront pas visibles dans la nouvelle solution. Vous pouvez continuer à interroger ces données à l’aide de l’ancien type et des anciens noms de champs.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes

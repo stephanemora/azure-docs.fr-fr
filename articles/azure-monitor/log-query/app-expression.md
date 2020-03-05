@@ -1,18 +1,17 @@
 ---
 title: Expression app() dans les requêtes de journal Azure Monitor | Microsoft Docs
 description: L’expression app est utilisée dans une requête de journal Azure Monitor afin de récupérer des données à partir d’une application Application Insights spécifique du même groupe de ressources, d’un autre groupe de ressources ou d’un autre abonnement.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2019
-ms.openlocfilehash: ffef73f88c8679d0b0be81222b1b61c4eaef5098
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5502df1cd119c0f63c65945d73431a17282ebc0c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933077"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670252"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Expression app() dans une requête Azure Monitor
 
@@ -29,7 +28,7 @@ L'expression `app` est utilisée dans une requête Azure Monitor afin de récup�
 
 - *Identificateur* : Permet d’identifier l’application à l’aide de l’un des formats du tableau ci-dessous.
 
-| Identificateur | Description | Exemples
+| Identificateur | Description | Exemple
 |:---|:---|:---|
 | Nom de la ressource | Nom lisible de l’application (également appelé « nom du composant ») | app("fabrikamapp") |
 | Nom qualifié | Nom complet de l’application au format : « nom_abonnement/groupe_ressources/nom_composant » | app('AI-Prototype/Fabrikam/fabrikamapp') |

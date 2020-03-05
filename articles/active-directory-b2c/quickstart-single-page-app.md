@@ -3,20 +3,20 @@ title: 'Démarrage rapide : Configurer la connexion pour une application monopa
 titleSuffix: Azure AD B2C
 description: Dans ce guide de démarrage rapide, vous allez exécuter un exemple d’application monopage qui utilise Azure Active Directory B2C pour la connexion aux comptes.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/12/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 98b4e7e6b64d68d98597c40c6aea3d6cfe104be0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a5d4319f47530a91bcceb9b2dba94c6aa8e4c388
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841317"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183888"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Démarrage rapide : Configurer la connexion pour une application monopage à l’aide d’Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) assure la gestion des identités de c
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**
 - [Node.JS](https://nodejs.org/en/download/)

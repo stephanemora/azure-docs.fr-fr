@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a5e4f9853a68b7b4d8b97cc76032cfa88708c097
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ef7161e653ec582708f242b67c643d960d75e27f
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842680"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255476"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilité de SAP HANA au sein d’une région Azure
 Cet article décrit plusieurs scénarios de disponibilité au sein d’une région Azure. Azure dispose de plusieurs régions, réparties à travers le monde. Pour obtenir la liste des régions Azure, voir [Régions Azure](https://azure.microsoft.com/regions/). Pour le déploiement de SAP HANA sur des machines virtuelles au sein d’une région Azure, Microsoft offre le déploiement d’une machine virtuelle unique avec une instance HANA. Pour une disponibilité accrue, vous pouvez déployer deux machines virtuelles avec deux instances HANA au sein d’un [groupe à haute disponibilité Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) qui utilise la réplication de système HANA pour des raisons de disponibilité. 
@@ -108,7 +108,7 @@ Dans ce scénario, les données répliquées vers l’instance HANA dans la deux
 
 ### <a name="sap-hana-system-replication-with-automatic-failover"></a>Réplication de système SAP HANA avec basculement automatique
 
-Dans la configuration de disponibilité standard et la plus courante au sein d’une région Azure, deux machines virtuelles Azure exécutant SLES Linux disposent d’un cluster de basculement défini. Le cluster SLES Linux est basé sur l’infrastructure [Pacemaker](http://www.linux-ha.org/wiki/Pacemaker), conjointement avec un appareil [STONITH](http://www.linux-ha.org/wiki/STONITH). 
+Dans la configuration de disponibilité standard et la plus courante au sein d’une région Azure, deux machines virtuelles Azure exécutant SLES Linux disposent d’un cluster de basculement défini. Le cluster SLES Linux est basé sur l’infrastructure [Pacemaker](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker), conjointement avec un appareil [STONITH](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device). 
 
 Côté SAP HANA, le mode de réplication utilisé est synchronisé et un basculement automatique est configuré. Dans la deuxième machine virtuelle, l’instance SAP HANA agit comme un nœud de serveur de secours. Le nœud de serveur de secours reçoit un flux de données synchrone d’enregistrements de modification depuis l’instance de SAP HANA principale. Tandis que les transactions sont acceptées par l’application au nœud HANA principal, ce dernier attend la confirmation de réception de l’enregistrement de la part du nœud SAP HANA secondaire avant de confirmer la réception à l’application. SAP HANA dispose de deux modes de réplication synchrone différents. Pour en savoir plus et pour connaître les différences entre les deux modes de réplication synchrone, consultez l’article SAP [Modes de réplication pour la réplication de système SAP HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html).
 

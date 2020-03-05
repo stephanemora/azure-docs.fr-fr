@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: a809cabd2ace1b18af6c93dc54348137e9ba5750
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: a8bd12d98b76d5848753987c4f7bcb76d4e2266d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749907"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921570"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Comment réinitialiser l’interface réseau pour une machine virtuelle Windows Azure 
 
@@ -71,6 +71,8 @@ Cet article explique comment réinitialiser l’interface réseau d’une machin
 3. Essayez d’utiliser le protocole RDP sur votre machine.  En cas de réussite, vous pouvez redéfinir l’adresse IP privée d’origine si vous le souhaitez. Sinon, vous pouvez conserver cette adresse.
 
 ### <a name="for-classic-vms"></a>Pour les machines virtuelles Classic
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 Pour réinitialiser l’interface réseau, procédez comme suit :
 

@@ -4,18 +4,18 @@ description: Découvrez comment déployer un cluster Service Fabric Linux dans u
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: mvc
-ms.openlocfilehash: 059f0f4b1eac9546f1adc05bf1f2799affc0dd8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f5788f07dd4a4f03a95efaea4b741cd64c930ac5
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465399"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251780"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Déployer un cluster Service Fabric Linux dans un réseau virtuel Azure
 
 Dans cet article, vous découvrirez comment déployer un cluster Service Fabric Linux dans un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) à l’aide de l’interface Azure CLI et d’un modèle. Lorsque vous avez terminé, vous disposez d’un cluster en cours d’exécution dans le cloud sur lequel vous pouvez déployer des applications. Pour créer un cluster Windows à l’aide de PowerShell, consultez la section relative à la [création d’un cluster Windows sécurisé sur Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer :
 
@@ -129,21 +129,25 @@ VaultName="linuxclusterkeyvault"
 VaultGroupName="linuxclusterkeyvaultgroup"
 CertPath="C:\MyCertificates"
 
-az sf cluster create --resource-group $ResourceGroupName --location $Location --cluster-name $ClusterName --template-file C:\temp\cluster\AzureDeploy.json --parameter-file C:\temp\cluster\AzureDeploy.Parameters.json --certificate-password $Password --certificate-output-folder $CertPath --certificate-subject-name $ClusterName.$Location.cloudapp.azure.com --vault-name $VaultName --vault-resource-group $ResourceGroupName
+az sf cluster create --resource-group $ResourceGroupName --location $Location \
+   --cluster-name $ClusterName --template-file C:\temp\cluster\AzureDeploy.json \
+   --parameter-file C:\temp\cluster\AzureDeploy.Parameters.json --certificate-password $Password \
+   --certificate-output-folder $CertPath --certificate-subject-name $ClusterName.$Location.cloudapp.azure.com \
+   --vault-name $VaultName --vault-resource-group $ResourceGroupName
 ```
 
 ## <a name="connect-to-the-secure-cluster"></a>Se connecter à un cluster sécurisé
 
 Connectez-vous au cluster avec votre clé par le biais de la commande `sfctl cluster select` de l’interface de ligne de commande de Service Fabric.  Notez que vous ne pouvez utiliser que l’option **--no-verify** pour un certificat auto-signé.
 
-```azurecli
+```console
 sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 \
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
 Vérifiez que vous êtes connecté et que le cluster est sain à l’aide de la commande `sfctl cluster health`.
 
-```azurecli
+```console
 sfctl cluster health
 ```
 

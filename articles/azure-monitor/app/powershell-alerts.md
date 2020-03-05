@@ -1,18 +1,14 @@
 ---
 title: Utilisation de PowerShell pour la configuration d’alertes dans Application Insights | Microsoft Docs
 description: Automatisez la configuration d’Application Insights pour recevoir des e-mails retraçant les modifications des métriques.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/31/2016
-ms.openlocfilehash: cf03fa0055710dde86a0f74cd58344575494faf1
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c19cb43d08b44b55c786e750e64a83e6f0c67381
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928561"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669843"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Utilisation de PowerShell pour la configuration d’alertes dans Application Insights
 
@@ -122,7 +118,7 @@ Les mesures sont envoyées par différents modules de télémétrie :
 
 | Groupe de mesures | Module du collecteur |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[JavaScript du navigateur](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>vue |[JavaScript du navigateur](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[Performances](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[Dépendance](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request,<br/>requestFailed |[Demande serveur](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
@@ -132,6 +128,6 @@ Vous pouvez [automatiser votre réponse à une alerte](../../azure-monitor/platf
 
 ## <a name="see-also"></a>Voir aussi
 * [Script de configuration d’Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
-* [Créer des ressources Application Insights et de test Web à partir de modèles (en anglais)](powershell.md)
+* [Créer des ressources Application Insights et de test Web  templates à partir de modèles (en anglais)](powershell.md)
 * [Automatiser l’association de Diagnostics Microsoft Azure avec Application Insights](powershell-azure-diagnostics.md)
 * [Automatiser votre réponse à une alerte](../../azure-monitor/platform/alerts-webhooks.md)

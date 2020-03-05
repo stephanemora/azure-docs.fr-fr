@@ -2,17 +2,17 @@
 title: Machines virtuelles des séries Dv2 et DSv2 à mémoire optimisée – Machines virtuelles Microsoft Azure
 description: Spécifications pour les machines virtuelles des séries Dv2 et DSv2.
 services: virtual-machines
-author: jonbeck7
+author: joelpelley
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 1ba13733fdf5cf8aa83cbf71a23d013bf4ae90d4
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 66e415070e60676df5602078aff50c7b68920f1e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492622"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914039"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>Séries Dv2 et Dsv2 à mémoire optimisée
 
@@ -28,7 +28,7 @@ Premium Storage : Non pris en charge
 
 Mise en cache du Stockage Premium : Non pris en charge
 
-| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire max. : IOPS/Mbits/s en lecture/Mbits/s en écriture | Nombre de disques de données/débit max. : E/S par seconde | Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire max. : IOPS/Mbits/s en lecture/Mbits/s en écriture | Nombre de disques de données/débit max. : E/S par seconde | Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. |
 |---|---|---|---|---|---|---|
 | Standard_D11_v2 | 2  | 14  | 100 | 6000/93/46    | 8/8x500   | 2/1 500  |
 | Standard_D12_v2 | 4  | 28  | 200 | 12000/187/93  | 16/16x500 | 4/3 000  |
@@ -49,7 +49,7 @@ Premium Storage :  Prise en charge
 
 Mise en cache du Stockage Premium :  Prise en charge
 
-| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11_v2 <sup>3</sup> | 2  | 14  | 28  | 8  | 8 000/64 (72)    | 6 400/96   | 2/1 500  |
 | Standard_DS12_v2 <sup>3</sup> | 4  | 28  | 56  | 16 | 16 000/128 (144) | 12 800/192 | 4/3 000  |

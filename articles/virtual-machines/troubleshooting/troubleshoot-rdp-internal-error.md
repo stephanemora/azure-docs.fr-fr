@@ -12,18 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: be0f61b1458fa8bd63d85669c7956a789892996a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8046e4f42db50db15c840a13b95ae1f3620a8c7f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981324"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918255"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Erreur interne en cas de connexion à une machine virtuelle Azure avec le Bureau à distance
 
 Cet article décrit une erreur qui peut se produire lors d’une tentative de connexion à une machine virtuelle dans Microsoft Azure.
-> [!NOTE]
-> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/management/deployment-models.md). Cet article traite du modèle de déploiement Resource Manager, que nous recommandons pour les nouveaux déploiements plutôt que le modèle de déploiement Classic.
+
 
 ## <a name="symptoms"></a>Symptômes
 

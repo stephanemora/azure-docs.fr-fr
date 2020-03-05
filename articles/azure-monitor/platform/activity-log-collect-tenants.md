@@ -1,18 +1,17 @@
 ---
 title: Collecter les journaux d’activité Azure dans un espace de travail Log Analytics auprès de locataire Azure | Microsoft Docs
 description: Utilisez Event Hubs et Logic Apps pour collecter des données de journal d’activité Azure et les envoyer à un espace de travail Log Analytics dans Azure Monitor d’un autre locataire.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: e3b368f8a59d201f70bfad05125ed59b4b8551c5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 52bf8b955ef4dc9cfae7fd74fbad0df744609196
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529998"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669265"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Collecter les journaux d’activité Azure dans Azure Monitor auprès de locataires Azure Active Directory (méthode héritée)
 
@@ -127,10 +126,10 @@ Pour obtenir le nom et la chaîne de connexion de l’Event Hub, procédez comme
 
    |Paramètre | Description  |
    |:---|:---|
-   | Name           | Nom unique de l’application logique. |
-   | Subscription   | Sélectionnez l’abonnement Azure qui contiendra l’application logique. |
+   | Nom           | Nom unique de l’application logique. |
+   | Abonnement   | Sélectionnez l’abonnement Azure qui contiendra l’application logique. |
    | Groupe de ressources | Sélectionnez un groupe de ressources Azure existant ou créez-en un pour l’application logique. |
-   | Location       | Sélectionnez la région du centre de données où déployer votre application logique. |
+   | Emplacement       | Sélectionnez la région du centre de données où déployer votre application logique. |
    | Log Analytics  | Choisissez d’enregistrer ou non l’état de chaque exécution de votre application logique dans un espace de travail Log Analytics.  |
 
     

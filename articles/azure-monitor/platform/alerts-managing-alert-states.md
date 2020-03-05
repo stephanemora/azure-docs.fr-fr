@@ -1,23 +1,23 @@
 ---
 title: Gérer les états des alertes et des groupes intelligents
 description: Gestion des états des instances d’alerte et de groupe intelligent
-ms.service: azure-monitor
 ms.subservice: alerts
 ms.topic: conceptual
 author: anantr
-ms.author: robb
 ms.date: 09/24/2018
-ms.openlocfilehash: fd2a2a4b7d5033ecd35d02baa240bc7586e7a25d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: a22d7b7b962b36f93ee804c64b3bc6b08ecceb0f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555672"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667514"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Gérer les états des alertes et des groupes intelligents
+
 Les alertes dans Azure Monitor disposent maintenant d’un [état d’alerte et d’une condition de surveillance](https://aka.ms/azure-alerts-overview), même chose pour les groupes intelligents qui ont un [état de groupe intelligent](https://aka.ms/smart-groups). Les changements d’état sont désormais inscrits dans l’historique associé à l’alerte ou au groupe intelligent correspondant. Cet article va vous expliquer comment changer l’état d’une alerte ou d’un groupe intelligent.
 
 ## <a name="change-the-state-of-an-alert"></a>Changer l’état d’une alerte
+
 1. Vous pouvez modifier l’état d’une alerte de plusieurs manières différentes : 
     * Dans la page Toutes les alertes, cochez la case en regard des alertes dont vous souhaitez modifier l’état, puis cliquez sur Modifier l'état.   
     ![Surveillance](./media/alerts-managing-alert-states/state-all-alerts.jpg)

@@ -1,18 +1,17 @@
 ---
 title: Comment interroger des journaux d’activité des requête à partir d’Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
 description: Azure Monitor pour machines virtuelles collecte des métriques et des données de journal. Cet article décrit les enregistrements correspondants et inclut des exemples de requêtes.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: 690c7ba04cf849d973295a6ec27eaa38f9b807c3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e679345669d0954008e46f48d986930038a84c10
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399318"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670710"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Comment interroger des journaux d’activité des requête à partir d’Azure Monitor pour machines virtuelles (préversion)
 

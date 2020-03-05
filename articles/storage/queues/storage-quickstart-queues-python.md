@@ -7,12 +7,12 @@ ms.date: 12/10/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: a34fdc2f6d6698f53dc2ff7fdc11d0a985b23415
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d6ccd3cc61f9d8244874823be76496a4f4e1073c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358758"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199765"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour Python
 
@@ -28,9 +28,9 @@ Utilisez la bibliothèque cliente Stockage File d’attente Azure v12 pour Pytho
 * Supprimer des messages d’une file d’attente
 * Suppression d'une file d'attente
 
-[Documentation de référence de l’API](https://docs.microsoft.com/python/api/azure-storage-queue/index) | [Code source bibliothèqueC](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue) | [Package (Index package Python)](https://pypi.org/project/azure-storage-queue/) | [Exemples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples)
+[Documentation de référence de l’API](https://docs.microsoft.com/python/api/azure-storage-queue/index) | [Code source bibliothèqueC](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue) | [Package (Index package Python)](https://pypi.org/project/azure-storage-queue/) | [Exemples](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 * Compte de stockage Azure : [créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)

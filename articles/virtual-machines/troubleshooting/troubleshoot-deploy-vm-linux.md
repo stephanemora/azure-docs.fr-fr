@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 230319471dbf62bf64ee980d84c360807687ce17
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 5a8a58a3935b7cd5efb8565f7e3278ccaae4f4de
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058227"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921434"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Résolution des problèmes de déploiement de la machine virtuelle Linux dans Azure
 
-Pour résoudre les problèmes de déploiement de la machine virtuelle (VM) dans Azure, passez en revue les [problèmes principaux](#top-issues) pour voir les erreurs courantes et les solutions.
+Pour résoudre les problèmes de déploiement de la machine virtuelle (VM) dans Azure, passez en revue les [principaux problèmes](#top-issues) pour voir les erreurs courantes et les solutions.
 
 Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur **Obtenir un support**.
 
@@ -58,7 +58,7 @@ Actuellement, la prise en charge de GPU Linux est uniquement disponible sur les 
 
 Les pilotes pour les machines virtuelles Linux se trouvent [ici](../linux/n-series-driver-setup.md). 
 
-## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Impossible de trouver une instance GPU dans ma machine virtuelle série N
+## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Impossible de trouver une instance GPU dans ma machine virtuelle Série N
 
 Pour tirer parti des fonctionnalités GPU des machines virtuelles série N Azure exécutant Windows Server 2016 ou Windows Server 2012 R2, vous devez installer des pilotes graphiques NVIDIA sur chaque machine virtuelle après le déploiement. Des informations de configuration du pilote sont disponibles pour [les machines virtuelles Windows](../windows/n-series-driver-setup.md) et [les machines virtuelles Linux](../linux/n-series-driver-setup.md).
 
@@ -86,6 +86,7 @@ Vous pouvez trouver la liste sur Linux sur [Distributions prises en charge par A
 
 Oui. Vous pouvez ajouter une machine virtuelle classique existante à un nouveau groupe ou à un groupe à haute disponibilité déjà existant. Pour plus d’informations, consultez [Ajouter une machine virtuelle existante à un groupe à haute disponibilité](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/).

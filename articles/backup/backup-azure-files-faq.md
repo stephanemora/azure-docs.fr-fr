@@ -3,12 +3,12 @@ title: FAQ sur la sauvegarde des fichiers Azure
 description: Cet article fournit des réponses à des questions courantes sur la protection de vos partages de fichiers Azure avec le service Sauvegarde Microsoft Azure.
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 053fe38b07fff5d289c72024ef185fbf5d647f70
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c69d4642aefbd599d3783dcdfa059a0cd9d129d9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293995"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302540"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
 
@@ -83,7 +83,7 @@ La sauvegarde pour les partages de fichiers Azure est actuellement en préversio
 - NWW (Norvège Ouest)
 - SZN (Suisse Nord)
 
-Écrivez à [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) si vous souhaitez l’utiliser dans une région qui n’est pas spécifiée ci-dessus.
+Écrivez à [AskAzureBackupTeam@microsoft.com](mailto:askazurebackupteam@microsoft.com) si vous souhaitez l’utiliser dans une région qui n’est pas spécifiée ci-dessus.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vault"></a>Combien de partages de fichiers Azure puis-je protéger dans un coffre ?
 

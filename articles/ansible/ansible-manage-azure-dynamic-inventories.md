@@ -4,12 +4,12 @@ description: Découvrez comment utiliser Ansible pour gérer vos inventaires dyn
 keywords: ansible, azure, devops, bash, cloudshell, inventaire dynamique
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: d2ebf202cfc9f94b28fc7a512e1fea452401aec6
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: cd225dcf8a0c307d49e985817b71c491559edb14
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77193597"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247857"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Tutoriel : Tutoriel : Configurer des inventaires dynamiques de ressources Azure avec Ansible
 
@@ -91,25 +91,25 @@ Ansible fournit un script Python nommé [azure_rm.py](https://github.com/ansible
 
 1. Utilisez la commande `wget` GNU pour récupérer le script `azure_rm.py` :
 
-    ```azurecli-interactive
+    ```python
     wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
     ```
 
 1. Utilisez la commande `chmod` pour modifier les autorisations d’accès au script `azure_rm.py`. La commande suivante utilise le paramètre `+x` pour permettre l’exécution du fichier spécifié (`azure_rm.py`) :
 
-    ```azurecli-interactive
+    ```python
     chmod +x azure_rm.py
     ```
 
 1. Utilisez la [commande ansible](https://docs.ansible.com/ansible/2.4/ansible.html) pour vous connecter à votre groupe de ressources : 
 
-    ```azurecli-interactive
+    ```python
     ansible -i azure_rm.py ansible-inventory-test-rg -m ping 
     ```
 
 1. Une fois connecté, vous constatez des résultats similaires à ceux de la sortie suivante :
 
-    ```Output
+    ```output
     ansible-inventory-test-vm1 | SUCCESS => {
         "changed": false,
         "failed": false,
@@ -147,7 +147,7 @@ Ansible fournit un script Python nommé [azure_rm.py](https://github.com/ansible
 
 1. La commande précédente devrait provoquer l’erreur suivante :
 
-    ```Output
+    ```output
     Failed to connect to the host via ssh: Host key verification failed.
     ```
     
@@ -159,7 +159,7 @@ Ansible fournit un script Python nommé [azure_rm.py](https://github.com/ansible
 
 1. Le playbook devrait alors donner une sortie de ce type :
   
-    ```Output
+    ```output
     ansible-inventory-test-vm1_0324 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
     ansible-inventory-test-vm2_8971 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
     ```
@@ -170,7 +170,7 @@ Ansible fournit un script Python nommé [azure_rm.py](https://github.com/ansible
 
 - Une fois définie, une balise doit être activée. Pour cela, vous pouvez l’exporter dans une variable d’environnement `AZURE_TAGS` avec la commande `export` :
 
-    ```azurecli-interactive
+    ```console
     export AZURE_TAGS=nginx
     ```
     
@@ -182,7 +182,7 @@ Ansible fournit un script Python nommé [azure_rm.py](https://github.com/ansible
     
     Une seule machine virtuelle apparaît (celle dont la balise correspond à la valeur exportée dans la variable d’environnement `AZURE_TAGS`) :
 
-    ```Output
+    ```output
        ansible-inventory-test-vm1 | SUCCESS => {
         "changed": false,
         "failed": false,
@@ -194,7 +194,7 @@ Ansible fournit un script Python nommé [azure_rm.py](https://github.com/ansible
 
 - Exécutez la commande `ansible-inventory -i myazure_rm.yml --graph` pour obtenir la sortie suivante :
 
-    ```Output
+    ```output
         @all:
           |--@tag_Ansible_nginx:
           |  |--ansible-inventory-test-vm1_9e2f
@@ -215,7 +215,7 @@ L’objectif des étiquettes est de travailler rapidement et facilement avec des
 
 1. Créer un fichier nommé `nginx.yml` :
 
-   ```azurecli-interactive
+   ```console
    code nginx.yml
    ```
 
@@ -255,7 +255,7 @@ L’objectif des étiquettes est de travailler rapidement et facilement avec des
 
 1. Après avoir exécuté le playbook, vous voyez une sortie similaire aux résultats suivants :
 
-    ```Output
+    ```output
     PLAY [Install and start Nginx on an Azure virtual machine] 
 
     TASK [Gathering Facts] 
@@ -285,13 +285,13 @@ Cette section présente une technique de test de l’installation de Nginx sur v
 
 1. Lorsque vous êtes connecté à la machine virtuelle `ansible-inventory-test-vm1`, exécutez la commande [nginx - v](https://nginx.org/en/docs/switches.html) pour déterminer si Nginx est installé.
 
-    ```azurecli-interactive
+    ```console
     nginx -v
     ```
 
 1. Une fois que vous exécutez la commande `nginx -v`, vous voyez la version de Nginx (deuxième ligne) qui indique que Nginx est installé.
 
-    ```Output
+    ```output
     tom@ansible-inventory-test-vm1:~$ nginx -v
 
     nginx version: nginx/1.10.3 (Ubuntu)
@@ -303,7 +303,7 @@ Cette section présente une technique de test de l’installation de Nginx sur v
 
 1. Si vous répétez les étapes précédentes pour la machine virtuelle `ansible-inventory-test-vm2`, vous obtenez un message d’information indiquant où télécharger Nginx (ce qui implique qu’il n’est pas encore installé) :
 
-    ```Output
+    ```output
     tom@ansible-inventory-test-vm2:~$ nginx -v
     The program 'nginx' can be found in the following packages:
     * nginx-core

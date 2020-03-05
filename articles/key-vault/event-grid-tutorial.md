@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5c959dc7fa36fb41307d286b1e7d0b475d5b56c6
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5eaf4cf702e56df932a61ab277dff6b34d97854d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988462"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185027"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Recevoir des notifications concernant un coffre de clés et y répondre avec Azure Event Grid (préversion)
 
@@ -22,7 +23,7 @@ L’intégration d’Azure Key Vault à Azure Event Grid (en préversion) permet
 
 Ce guide explique comment recevoir des notifications de Key Vault via Event Grid, et comment répondre aux changements d’état via Azure Automation.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 - Un coffre de clés dans votre abonnement Azure. Vous pouvez créer rapidement un coffre de clés en suivant les étapes décrites dans [Définir et récupérer un secret depuis Azure Key Vault à l’aide d’Azure CLI](quick-create-cli.md).

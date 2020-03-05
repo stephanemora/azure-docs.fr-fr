@@ -2,20 +2,20 @@
 title: Sécuriser une API Gestion des API Azure avec Azure Active Directory B2C
 description: Découvrez comment utiliser les jetons d’accès émis par Azure Active Directory B2C pour sécuriser un point de terminaison de l’API Gestion des API Azure.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/31/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 942c565c885d59a14d64e7ec06beee0354e7c4ca
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 00938d831e70289b24acb599b81016aa6e564d78
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641619"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186928"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Sécuriser une API Gestion des API Azure avec Azure AD B2C
 
@@ -37,17 +37,17 @@ Lorsque vous sécurisez une API dans Gestion des API Azure avec Azure AD B2C, vo
 
 Vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle expérience unifiée **Inscriptions d’applications (préversion)** pour obtenir l’ID d’application. [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
+#### <a name="applications"></a>[Applications](#tab/applications/)
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
 1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sous **Gérer**, sélectionnez **Applications**.
 1. Enregistrez la valeur dans la colonne **ID D’APPLICATION** pour *webapp1* ou une autre application que vous avez créée précédemment.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
 1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Inscriptions d’applications (préversion)** , puis sélectionnez l’onglet **Applications détenues**.

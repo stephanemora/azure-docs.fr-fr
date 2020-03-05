@@ -4,12 +4,12 @@ ms.author: baanders
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 10/24/2019
-ms.openlocfilehash: 7a0ea2330e682e1e60eca6540151b0f5f620571c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3f3e7c54ec59c42ed102da682fc9aa077709ef3f
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453707"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78262025"
 ---
 ## <a name="prepare-an-iot-hub"></a>Préparer un hub IoT
 
@@ -25,7 +25,7 @@ Si vous utilisez Azure CLI localement, la version de `az` doit être au minimum�
 Exécutez la commande suivante afin d’ajouter l’extension Microsoft Azure IoT pour Azure CLI à votre instance :
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
 Exécutez la commande suivante pour créer une identité d’appareil dans votre hub IoT. Remplacez les espaces réservés **YourIoTHubName** et **YourDeviceID** par le _nom de hub IoT_ et l’_ID d’appareil_ de votre choix.

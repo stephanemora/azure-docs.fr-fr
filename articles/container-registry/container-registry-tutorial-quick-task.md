@@ -4,12 +4,12 @@ description: Dans ce didacticiel, vous allez apprendre comment générer une ima
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b8a45cf3a72ed8f38f6f28a2f0225d0913f906da
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 51891d7b17fad7e438cc31652b6a0769d024e8e0
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456054"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252109"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutoriel : Générer et déployer des images conteneurs dans le cloud avec Azure Container Registry Tasks
 
@@ -52,13 +52,13 @@ Une fois le référentiel dupliqué, clonez votre fourche et saisissez le réper
 
 Clonez le référentiel avec `git`, remplacez **\<your-github-username\>** par votre nom d’utilisateur GitHub :
 
-```azurecli-interactive
+```console
 git clone https://github.com/<your-github-username>/acr-build-helloworld-node
 ```
 
 Saisissez le répertoire contenant le code source :
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
@@ -72,7 +72,9 @@ Maintenant que vous avez enregistré le code source sur votre machine, exécutez
 
 Pour simplifier l’exécution des exemples de commandes, les didacticiels de cette suite utilisent les variables d’environnement de l’interpréteur de commandes. Exécutez la commande suivante pour définir la variable `ACR_NAME`. Remplacez **\<registry-name\>** par un nom unique à associer à votre nouveau registre de conteneurs. Le nom de registre doit être unique dans Azure et contenir uniquement des lettres minuscules et entre 5 et 50 caractères alphanumériques. Les autres ressources créées dans ce didacticiel étant basées sur ce nom, vous devriez avoir besoin de modifier uniquement cette première variable.
 
-```azurecli-interactive
+[![Lancement de l’incorporation](https://shell.azure.com/images/launchcloudshell.png "Lancement d’Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>
 ```
 
@@ -288,7 +290,7 @@ Lorsque `Server running at http://localhost:80` s’affiche, accédez au nom de 
 
 Pour dissocier votre console du conteneur, appuyez sur `Control+C`.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Arrêtez l’instance de conteneur avec la commande [az container delete][az-container-delete] :
 

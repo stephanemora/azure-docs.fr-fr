@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 01/30/2020
-ms.openlocfilehash: 74f69f789ecb0d529e52054eeb1ac7ccb51bd6c2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/03/2020
+ms.openlocfilehash: 27dae07328af125c25512ab9f1eb81d0f4eda99b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588823"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271320"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Nouveauté dans Recherche cognitive Azure
 
@@ -39,7 +39,7 @@ Recherche Azure est maintenant renommé  **Recherche cognitive Azure** pour refl
 
 + Un accès privé à un service de recherche est disponible par le biais de deux mécanismes actuellement en préversion :
 
-  + Vous pouvez restreindre l’accès à des adresses IP spécifiques à l’aide de l’API REST de gestion `api-version=2019-10-01-Preview` pour créer le service. L’API en préversion comprend de nouvelles propriétés **IpRule** et **NetworkRuleSet** dans [API CreateOrUpdate](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate). Cette fonctionnalité d’évaluation est disponible dans les régions sélectionnées. Pour plus d’informations, consultez la section [Utilisation de l’API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+  + Vous pouvez restreindre l’accès à des adresses IP spécifiques à l’aide de l’API REST de gestion `api-version=2019-10-01-Preview` pour créer le service. L’API en préversion comprend de nouvelles propriétés **IpRule** et **NetworkRuleSet** dans [API CreateOrUpdate](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Cette fonctionnalité d’évaluation est disponible dans les régions sélectionnées. Pour plus d’informations, consultez la section [Utilisation de l’API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
   + Actuellement disponible par le biais d’une version préliminaire à accès limité, vous pouvez configurer un service Search Azure qui prend en charge le point de terminaison privé Azure pour les connexions des clients sur le même réseau virtuel. Pour plus d’informations, consultez la section [Créer un point de terminaison privé pour une connexion sécurisée](service-create-private-endpoint.md).
 

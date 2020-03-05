@@ -1,24 +1,21 @@
 ---
 title: Comment intégrer le schéma d’alerte courant à Logic Apps
 description: Découvrez comment créer une application logique qui s’appuie sur le schéma d’alerte courant pour gérer toutes vos alertes.
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: ananthradhakrishnan
-ms.author: robb
+ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: 50a6067d271ad824f17df1ece36c3dd919c7b55b
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9042ed8ddbb698192e638fa7538f74561574c262
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555654"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668228"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Comment intégrer le schéma d’alerte courant à Logic Apps
 
 Cet article explique comment créer une application logique qui s’appuie sur le schéma d’alerte courant pour gérer toutes vos alertes.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Le [schéma d'alerte courant](https://aka.ms/commonAlertSchemaDocs) fournit un schéma JSON standardisé et extensible pour tous vos différents types d'alerte. Le schéma d'alerte courant est plus utile lorsqu'il est exploité par programmation, via des webhooks, des runbooks et des applications logiques. Dans cet article, nous montrons comment une simple application logique peut être créée pour gérer toutes vos alertes. Les mêmes principes peuvent être appliqués à d'autres méthodes programmatiques. L'application logique décrite dans cet article crée des variables bien définies pour les champs [« essentiels »](alerts-common-schema-definitions.md#essentials), et comment gérer une logique spécifique de type [alerte](alerts-common-schema-definitions.md#alert-context).
 

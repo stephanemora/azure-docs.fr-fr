@@ -3,18 +3,17 @@ title: Ressources de mise à l’échelle automatique Azure basées sur les donn
 description: Créer un paramètre de mise à l’échelle automatique pour un plan App Service à l’aide de données de mesure et d’une planification
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: tutorial
 ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 44fecf47ccd1ce07c7e51f7bcf51ef7823f2cf97
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 85ae76d9dcb0b4a1f95992c2f5da48a81fb12677
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088347"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661650"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Créer un paramètre de mise à l’échelle automatique pour des ressources Azure basées sur les données de performances ou une planification
 
@@ -160,7 +159,7 @@ La condition de diminution de la taille du paramètre de mise à l’échelle au
 
     ![Afficher les actions de diminution de la taille](./media/tutorial-autoscale-performance-schedule/Scale-In-Chart.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez l’application web créée dans ce didacticiel.
 

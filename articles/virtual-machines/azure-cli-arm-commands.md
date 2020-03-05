@@ -8,18 +8,18 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 899f453ef67fd094578e946c1cdd9ca4d427bf79
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: ad213cc02f707609a837ea66b79e51c6f2a617f8
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122457"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919768"
 ---
 # <a name="azure-classic-cli-commands"></a>Commandes Azure CLI Classic 
 
-> [!IMPORTANT]
-> Cette rubrique décrit comment installer l’interface de ligne de commande Azure CLI Classic. L’interface de ligne de commande classique est déconseillée et doit uniquement être utilisée avec le modèle de déploiement classique.
-> Pour tous les autres déploiements, utilisez [Azure CLI](https://docs.microsoft.com/cli/azure/).
+[!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
+
+Cette rubrique décrit comment installer l’interface de ligne de commande Azure CLI Classic. L’interface de ligne de commande classique est déconseillée et doit uniquement être utilisée avec le modèle de déploiement classique. Pour tous les autres déploiements, utilisez [Azure CLI](https://docs.microsoft.com/cli/azure/).
 
 Cet article fournit la syntaxe et les options des commandes de l’interface de ligne de commande (CLI) Azure Classic régulièrement utilisées pour créer et gérer des ressources Azure. Il ne s’agit pas d’une référence complète, et votre version de l’interface de ligne de commande peut présenter des commandes ou paramètres légèrement différents. 
 

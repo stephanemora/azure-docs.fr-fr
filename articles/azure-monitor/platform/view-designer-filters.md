@@ -1,18 +1,17 @@
 ---
 title: Filtres dans les vues d’Azure Monitor | Microsoft Docs
 description: Un filtre dans une vue d’Azure Monitor permet aux utilisateurs de filtrer les données au moyen d’une valeur d’une propriété particulière, sans modifier la vue proprement dite.  Cet article décrit comment utiliser un filtre et en ajouter un à une vue personnalisée.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: 03950c7c87f659c5d1c032b5d3c1f74d136697c7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b4840ed30eb1f6dc8d6e6cef47da17807f9644d5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931986"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658572"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtres dans les vues d’Azure Monitor
 Un **filtre** dans une [vue d’Azure Monitor](view-designer.md) permet aux utilisateurs de filtrer les données au moyen d’une valeur d’une propriété particulière, sans modifier la vue proprement dite.  Par exemple, vous pouvez autoriser les utilisateurs de votre vue à filtrer l’affichage des données uniquement à partir d’un ordinateur ou d’un ensemble d’ordinateurs particulier.  Vous pouvez créer plusieurs filtres sur une seule et unique vue pour permettre aux utilisateurs d’effectuer un filtrage avec plusieurs propriétés.  Cet article décrit comment utiliser un filtre et en ajouter un à une vue personnalisée.
@@ -34,7 +33,7 @@ Si vous supprimez toutes les valeurs d’un filtre, celui-ci n’est plus appliq
 
 Créez un filtre à partir de l’onglet **Filtres** lors de la [modification d’une vue](view-designer.md).  Le filtre est global pour la vue et s’applique à toutes ses parties.  
 
-![Paramètres de filtre](media/view-designer-filters/filters-settings.png)
+![Paramètres du filtre](media/view-designer-filters/filters-settings.png)
 
 Le tableau suivant décrit les paramètres d’un filtre.
 

@@ -2,20 +2,20 @@
 title: Exemples de transformation de revendications de date pour les stratégies personnalisées
 description: Exemples de transformation de revendications de date pour le schéma IEF (Identity Experience Framework) d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/03/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b831a3175e1dc8b19395d1c923b076ac9428690c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f3e5a7b90892f0ed0243d448ea1ac63fb56f277f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982906"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188832"
 ---
 # <a name="date-claims-transformations"></a>Transformations de revendications Date
 
@@ -114,7 +114,7 @@ L’exemple suivant illustre la conversion de la revendication `dateOfBirth` (ty
 - Revendications de sortie :
     - **outputClaim** : 1559347200 (1er juin 2019 12:00:00)
 
-## <a name="convertdatetimetodateclaim"></a>ConvertDateTimeToDateClaim 
+## <a name="convertdatetimetodateclaim"></a>ConvertDateTimeToDateClaim
 
 Convertit un ClaimType **DateTime** en un ClaimType **Date**. La transformation de revendications supprime le format d’heure de la date.
 

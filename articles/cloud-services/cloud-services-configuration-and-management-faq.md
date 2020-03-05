@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 4ca8c18d448297cc2d2e2249a1dbbe04ecccd092
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 40abd048b047bbece79b7c05d36a1fb189a4f28d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019415"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656923"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
@@ -137,7 +137,7 @@ Vous avez épuisé le quota de stockage local réservé à l’écriture dans le
 * Augmentez la limite de quota pour les ressources locales.
 
 Pour plus d’informations, consultez les documents suivants :
-* [Stocker et afficher des données de diagnostic dans le stockage Azure](cloud-services-dotnet-diagnostics-storage.md)
+* [Stocker et afficher des données de diagnostic dans le stockage Azure](/azure/storage/common/storage-introduction)
 * [Le service Journaux d’activité IIS cesse d’écrire dans le service cloud](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Comment activer la journalisation des diagnostics Microsoft Azure pour les Services cloud ?

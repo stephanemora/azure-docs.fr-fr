@@ -3,20 +3,20 @@ title: Définir un profil technique autodéclaré dans une stratégie personnali
 titleSuffix: Azure AD B2C
 description: Définissez un profil technique autodéclaré dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/17/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8f2a86f72f16a23b0133601cfe41b9e636d8866d
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: e0a282be9b8a20c64cd3e74e7860a289baa5aec6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425593"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183803"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique autodéclaré dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -198,8 +198,8 @@ Vous pouvez également appeler un profil technique d’API REST avec votre logiq
 | setting.showCancelButton | Non | Affiche le bouton Annuler. Les valeurs possibles sont `true` (par défaut) ou `false` |
 | setting.showContinueButton | Non | Affiche le bouton Continuer. Les valeurs possibles sont `true` (par défaut) ou `false` |
 | setting.showSignupLink <sup>2</sup>| Non | Affiche le bouton d’inscription. Les valeurs possibles sont `true` (par défaut) ou `false` |
-| setting.forgotPasswordLinkLocation <sup>2</sup>| Non| Affiche le lien du mot de passe oublié. Valeurs possibles : `AfterInput` (par défaut) où le lien est affiché en bas de la page ou `None` supprime le lien du mot de passe oublié.| 
-| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d'entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
+| setting.forgotPasswordLinkLocation <sup>2</sup>| Non| Affiche le lien du mot de passe oublié. Valeurs possibles : `AfterInput` (par défaut) où le lien est affiché en bas de la page ou `None` supprime le lien du mot de passe oublié.|
+| IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
 
 Remarques :
 1. Disponible pour la définition de contenu [DataUri](contentdefinitions.md#datauri) de type `unifiedssp` ou `unifiedssd`.

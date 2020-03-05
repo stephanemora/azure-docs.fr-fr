@@ -4,12 +4,12 @@ description: Tutoriel Azure Container Instances (partie 2 sur 3) - Préparer un 
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 131ea39b382735423a1edff72774313c4096ea2b
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 1a5b9555572264b6a00b4ce73eaa0719d94fd99b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552414"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252155"
 ---
 # <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>Tutoriel : Créer un registre de conteneurs Azure et envoyer une image conteneur
 
@@ -19,8 +19,8 @@ Azure Container Registry est votre registre Docker privé dans Azure. Dans ce tu
 
 > [!div class="checklist"]
 > * Créer une instance Azure Container Registry avec Azure CLI.
-> * Baliser une image conteneur pour votre Azure Container Registry.
-> * Charger l’image dans votre registre.
+> * Baliser une image conteneur pour votre Azure Container Registry
+> * Charger l’image dans votre registre
 
 Dans ce dernier article de la série, vous allez déployer le conteneur de votre registre privé vers Azure Container Instances.
 
@@ -46,8 +46,7 @@ az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 
 Voici un exemple de sortie pour un nouveau registre de conteneurs Azure nommé *mycontainerregistry082* (tronquée ici) :
 
-```console
-$ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic
+```output
 ...
 {
   "creationDate": "2018-03-16T21:54:47.297875+00:00",
@@ -78,10 +77,15 @@ Vous devez vous connecter à votre instance Azure Container Registry avant de lu
 az acr login --name <acrName>
 ```
 
+Par exemple :
+
+```azurecli
+az acr login --name mycontainerregistry082
+```
+
 Une fois l’opération terminée, la commande renvoie `Login Succeeded` :
 
-```console
-$ az acr login --name mycontainerregistry082
+```output
 Login Succeeded
 ```
 
@@ -97,8 +101,11 @@ az acr show --name <acrName> --query loginServer --output table
 
 Par exemple, si votre registre est nommé *mycontainerregistry082* :
 
-```console
-$ az acr show --name mycontainerregistry082 --query loginServer --output table
+```azurecli
+az acr show --name mycontainerregistry082 --query loginServer --output table
+```
+
+```output
 Result
 ------------------------
 mycontainerregistry082.azurecr.io
@@ -165,8 +172,11 @@ az acr repository list --name <acrName> --output table
 
 Par exemple :
 
-```console
-$ az acr repository list --name mycontainerregistry082 --output table
+```azurecli
+az acr repository list --name mycontainerregistry082 --output table
+```
+
+```output
 Result
 ----------------
 aci-tutorial-app
@@ -181,7 +191,7 @@ az acr repository show-tags --name <acrName> --repository aci-tutorial-app --out
 Vous devez obtenir une sortie similaire à la suivante :
 
 ```console
-$ az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table
+az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table
 Result
 --------
 v1

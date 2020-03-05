@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 92388c54804d85d2825a25abd0c234081670e8d4
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: dc37cb6fa05a2be56de7bf5536d7274190257d85
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092178"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303917"
 ---
 # <a name="move-azure-vms-to-another-azure-region"></a>Déplacer des machines virtuelles Azure vers une autre région Azure
 
@@ -70,7 +70,7 @@ Vous souhaitez peut-être déplacer les machines virtuelles de l’infrastructur
    - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer)
    - [Adresse IP publique](../virtual-network/virtual-network-public-ip-address.md)
     
-   Pour tous les autres composants réseau, consultez la [documentation Azure sur la mise en réseau](https://docs.microsoft.com/azure/#pivot=products&panel=network). 
+   Pour tous les autres composants réseau, consultez la [documentation Azure sur la mise en réseau](https://docs.microsoft.com/azure/?pivot=products&panel=network). 
 
 4. Pour tester la configuration avant d’effectuer le déplacement final vers la région cible, vous devez [créer un réseau hors production](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) manuellement dans la région cible. Le test de la configuration est une pratique recommandée dans la mesure où elle limite les interférences avec l’environnement de production.
     
@@ -110,16 +110,16 @@ Site Recovery récupère une liste des machines virtuelles associées à l’abo
 1. Accédez au coffre. Dans **Paramètres** > **Éléments répliqués**, sélectionnez la machine virtuelle que vous souhaitez déplacer vers la région cible. Sélectionnez ensuite **Test de basculement**.
 2. Dans **Test de basculement**, sélectionnez un point de récupération à utiliser pour le basculement :
 
-   - **Dernier point traité** : bascule la machine virtuelle vers le dernier point de récupération qui a été traité par le service Site Recovery. L’horodatage est affiché. Aucun temps n’est passé à traiter les données, et cette option offre donc un objectif de délai de récupération faible (RTO).
+   - **Dernier point traité** : bascule la machine virtuelle vers le dernier point de récupération qui a été traité par le service Site Recovery. L’horodatage est affiché. Comme le traitement des données ne prend pas de temps, cette option offre donc un objectif de délai de récupération faible (RTO).
    - **Dernier point de cohérence des applications** : bascule toutes les machines virtuelles vers le dernier point de récupération de cohérence des applications. L’horodatage est affiché.
-   - **Personnalisé** : sélectionnez n’importe quel point de récupération.
+   - **Personnalisé** : sélectionnez n’importe quel point de récupération.
 
 3. Sélectionnez le réseau virtuel Azure cible vers lequel vous voulez déplacer les machines virtuelles Azure afin de tester la configuration.
 
    > [!IMPORTANT]
    > Nous vous recommandons d’utiliser un réseau machines virtuelles Azure distinct pour faire le test de basculement, et pas le réseau de production dans la région cible.
 
-4. Pour démarrer le test du déplacement, sélectionnez **OK**. Pour suivre la progression, sélectionnez la machine virtuelle pour afficher ses **propriétés**. Sinon, sélectionnez le travail **Test de basculement** dans le coffre. Ensuite, sélectionnez **Paramètres** > **Travaux** > **Travaux Site Recovery**.
+4. Pour commencer à tester le déplacement, sélectionnez **OK**. Pour suivre la progression, sélectionnez la machine virtuelle pour afficher ses **propriétés**. Sinon, sélectionnez le travail **Test de basculement** dans le coffre. Ensuite, sélectionnez **Paramètres** > **Travaux** > **Travaux Site Recovery**.
 5. Une fois le basculement terminé, la machine virtuelle Azure de réplication apparaît dans le portail Azure > **Machines virtuelles**. Vérifiez que la machine virtuelle est en cours d’exécution, qu’elle est correctement dimensionnée et qu’elle est connectée au réseau approprié.
 6. Pour supprimer la machine virtuelle que vous avez créé pour le test, sélectionnez **Nettoyer le test de basculement** sur l’élément répliqué. À partir de **Notes**, consignez et enregistrez les éventuelles observations associées au test.
 

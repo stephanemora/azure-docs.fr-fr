@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 16c325f2d6ea78ba980406f56839dd4d0b64bee1
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 71321fa631bafde5b1dbaac2d165cb68fd8116d4
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482256"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164591"
 ---
 # <a name="azure-queue-storage-trigger-and-bindings-for-azure-functions-overview"></a>Présentation du déclencheur et des liaisons de Stockage File d'attente Azure pour Azure Functions
 
@@ -20,7 +20,7 @@ Azure Functions peut s’exécuter lorsque des messages de Stockage File d’att
 | Action | Type |
 |---------|---------|
 | Exécuter une fonction pour modifier des données de stockage de file d’attente | [Déclencheur](./functions-bindings-storage-queue-trigger.md) |
-| Écrire des messages de stockage de file d’attente |[Liaison de sortie](./functions-bindings-storage-blob-output.md) |
+| Écrire des messages de stockage de file d’attente |[Liaison de sortie](./functions-bindings-storage-queue-output.md) |
 
 ## <a name="add-to-your-functions-app"></a>Ajouter à votre application de fonction
 
@@ -49,4 +49,4 @@ Les applications Functions 1.x ont automatiquement une référence au package N
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Exécuter une fonction pour modifier des données de stockage de file d’attente (déclencheur)](./functions-bindings-storage-queue-trigger.md)
-- [Écrire des messages de stockage de file d’attente (liaison de sortie)](./functions-bindings-storage-blob-output.md)
+- [Écrire des messages de stockage de file d’attente (liaison de sortie)](./functions-bindings-storage-queue-output.md)

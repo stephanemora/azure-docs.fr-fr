@@ -3,17 +3,16 @@ title: Envoyer des mesures à la base de données de mesures Azure Monitor à l�
 description: Envoyer les métriques personnalisées d’une ressource Azure à un magasin de métriques Azure Monitor à l’aide d’une API REST
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: a19b59c758f31ff1ef3416b59031202193d50522
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 84709c022631543101889f784231158ebb96b6f3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285945"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662262"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Envoyer les métriques personnalisées d’une ressource Azure à un magasin de métriques Azure Monitor à l’aide d’une API REST
 
@@ -88,7 +87,7 @@ Enregistrez le jeton d’accès de la réponse.
 1. Modifiez le timestamp et les valeurs dans le fichier JSON. 
 1. Répétez les deux étapes précédentes plusieurs fois afin d’obtenir des données pendant plusieurs minutes.
 
-## <a name="troubleshooting"></a>Résolution de problèmes 
+## <a name="troubleshooting"></a>Dépannage 
 Si vous recevez un message d’erreur lors du processus, tenez compte des informations de dépannage suivantes :
 
 1. Vous ne pouvez pas générer de métriques si un abonnement ou un groupe de ressources est considéré comme votre ressource Azure. 
@@ -104,7 +103,7 @@ Si vous recevez un message d’erreur lors du processus, tenez compte des inform
 
 1. Dans le menu de gauche, sélectionnez **Surveiller**. 
 
-1. Dans la page **Surveiller**, sélectionnez **Métriques**. 
+1. Sur la page **Surveiller**, sélectionnez **Métriques**. 
 
    ![Sélection de l’option Métriques](./media/metrics-store-custom-rest-api/metrics.png) 
 

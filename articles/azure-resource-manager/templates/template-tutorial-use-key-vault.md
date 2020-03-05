@@ -6,12 +6,12 @@ ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 527002bee1bec4097cf62155efebae06880bad97
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bae67b0177823ab4558085db67423edea062fa3c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470864"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250072"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-resource-manager-template-deployment"></a>Tutoriel : Intégrer Azure Key Vault à votre déploiement de modèle Resource Manager
 
@@ -35,14 +35,14 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
 * Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](use-vs-code-to-create-template.md).
 * Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Voici un exemple de génération de mot de passe :
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
     Vérifiez que le mot de passe généré répond aux exigences relatives aux mots de passe de machine virtuelle. Chaque service Azure présente des exigences de mot de passe spécifiques. Pour connaître les exigences relatives aux mots de passe de machine virtuelle, consultez [Quelles sont les exigences en matière de mot de passe lors de la création d’une machine virtuelle ?](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).

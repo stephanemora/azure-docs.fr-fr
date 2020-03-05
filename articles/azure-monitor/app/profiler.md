@@ -1,19 +1,17 @@
 ---
 title: Profiler des applications Azure App Service en production avec Application Insights | Microsoft Docs
 description: Profilez des applications en production sur Azure App Service avec Application Insights Profiler.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d463732fc8e8f488851a57fe520f138b101eb6cf
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ba9a2aca73dbdb8de298b68670fd6ab16f810a4d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899938"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671540"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profiler des applications Azure App Service en production avec Application Insights
 

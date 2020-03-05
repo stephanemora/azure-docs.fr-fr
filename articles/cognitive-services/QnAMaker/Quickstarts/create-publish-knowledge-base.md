@@ -3,18 +3,18 @@ title: 'Démarrage rapide : Créer, entraîner et publier une base de connaissa
 description: Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre contenu, tel que des Questions fréquentes (FAQ) ou des manuels. Cet article inclut un exemple de création d’une base de connaissances QnA Maker à partir d’une simple page web de questions fréquentes (FAQ), pour répondre à des questions sur QnA Maker.
 ms.topic: quickstart
 ms.date: 02/08/2020
-ms.openlocfilehash: a4c4d9b2e8f4b816510fb35a75b3c9b8b2afa5e2
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: fd4e6a4c4288caaf714f4bfc15282b6c4b1e1111
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108731"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299089"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Démarrage rapide : Créer, entraîner et publier votre base de connaissances QnA Maker
 
 Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre contenu, tel que des Questions fréquentes (FAQ) ou des manuels. Cet article inclut un exemple de création d’une base de connaissances QnA Maker à partir d’une simple page web de questions fréquentes (FAQ), pour répondre à des questions sur QnA Maker.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 > [!div class="checklist"]
 > * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -154,6 +154,5 @@ Pour plus d'informations :
 
 * [Format Markdown dans les réponses](../reference-markdown-format.md)
 * [Sources de données](../concepts/knowledge-base.md) QnA Maker
-* [Paramètres de configuration de ressources de bot](../tutorials/create-qna-bot.md)
 
 

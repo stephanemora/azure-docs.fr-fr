@@ -6,18 +6,18 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 03/03/2020
 ms.author: victorh
-ms.openlocfilehash: 4e0c7707066028996e360a342db9f8dc0fd87599
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 92fed35c828398c048d704e1ec9b537904939967
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075122"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272941"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Créer une passerelle d’application avec redirection interne à l’aide d’Azure PowerShell
 
-Vous pouvez utiliser Azure PowerShell pour configurer une [redirection du trafic web](multiple-site-overview.md) lors de la création d’une [passerelle d’application](overview.md). Dans ce didacticiel, vous définissez un pool backend à l’aide d’un groupe de machines virtuelles identiques. Vous configurez ensuite des écouteurs et des règles en fonction de domaines qui vous appartiennent pour vérifier que le trafic web arrive au pool approprié. Ce didacticiel, qui part du principe que vous possédez plusieurs domaines, utilise *www.contoso.com* et *www\.contoso.org* en guise d'exemples.
+Vous pouvez utiliser Azure PowerShell pour configurer une [redirection du trafic web](multiple-site-overview.md) lors de la création d’une [passerelle d’application](overview.md). Dans ce didacticiel, vous définissez un pool backend à l’aide d’un groupe de machines virtuelles identiques. Vous configurez ensuite des écouteurs et des règles en fonction de domaines qui vous appartiennent pour vérifier que le trafic web arrive au pool approprié. Ce didacticiel, qui part du principe que vous possédez plusieurs domaines, utilise *www\.contoso.com* and *www\.contoso.org* en guise d’exemples.
 
 Dans cet article, vous apprendrez comment :
 
@@ -34,7 +34,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 1.0.0 ou version ultérieure pour les besoins de ce didacticiel. Pour trouver la version, exécutez `Get-Module -ListAvailable Az`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 1.0.0 ou version ultérieure pour les besoins de ce tutoriel. Pour trouver la version, exécutez `Get-Module -ListAvailable Az`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzAccount` pour créer une connexion avec Azure.
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -107,7 +107,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-first-listener-and-rule"></a>Créer le premier écouteur et la première règle
 
-Un écouteur est requis pour permettre à la passerelle d’application d’acheminer le trafic de manière appropriée vers le pool principal. Ce didacticiel vous montre comment créer deux écouteurs pour vos deux domaines. Dans cet exemple, des écouteurs sont créés pour les domaines *www.contoso.com* et *www\.contoso.org*.
+Un écouteur est requis pour permettre à la passerelle d’application d’acheminer le trafic de manière appropriée vers le pool principal. Ce didacticiel vous montre comment créer deux écouteurs pour vos deux domaines. Dans cet exemple, des écouteurs sont créés pour les domaines *www\.contoso.com* et *www\.contoso.org*.
 
 Créez le premier écouteur nommé *contosoComListener* à l’aide de la cmdlet [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) avec la configuration front-end et le port front-end créés précédemment. Une règle est requise pour que l’écouteur sache quel pool principal utiliser pour le trafic entrant. Créez une règle de base nommée *contosoComRule* à l’aide de la cmdlet [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -247,7 +247,7 @@ Set-AzVmssStorageProfile $vmssConfig `
   -ImageReferencePublisher MicrosoftWindowsServer `
   -ImageReferenceOffer WindowsServer `
   -ImageReferenceSku 2016-Datacenter `
-  -ImageReferenceVersion latest
+  -ImageReferenceVersion latest `
   -OsDiskCreateOption FromImage
 Set-AzVmssOsProfile $vmssConfig `
   -AdminUsername azureuser `
@@ -296,7 +296,7 @@ Entrez votre nom de domaine dans la barre d’adresse de votre navigateur. Par e
 
 ![Tester le site contoso dans la passerelle d’application](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Remplacez l’adresse par celle de votre autre domaine, par exemple https://www.contoso.org. Le trafic devrait être redirigé vers l’écouteur pour `www.contoso.com`.
+Remplacez l’adresse par celle de votre autre domaine, par exemple https://www.contoso.org. Vous devriez alors remarquer que le trafic est redirigé vers l’écouteur pour www\. contoso.com.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

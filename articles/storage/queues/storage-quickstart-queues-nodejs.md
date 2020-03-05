@@ -7,12 +7,12 @@ ms.date: 12/13/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 9f666376020d36bd57b2cc9e78a0704a8ec47b4e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 59a5308d2c0a1fa2e1f38f2fe3da3a2cc29448be
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358748"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199782"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Démarrage rapide : Bibliothèque cliente Stockage File d’attente Azure v12 pour JavaScript
 
@@ -28,9 +28,9 @@ Utilisez la bibliothèque cliente du Stockage File d’attente Azure v12 pour Ja
 * Supprimer des messages d’une file d’attente
 * Suppression d'une file d'attente
 
-[Documentation de référence de l’API](https://docs.microsoft.com/javascript/api/@azure/storage-queue/) | [Code source bibliothèque](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue) | [Package (Gestionnaire de package de nœud)](https://www.npmjs.com/package/@azure/storage-queue) | [Exemples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples)
+[Documentation de référence de l’API](https://docs.microsoft.com/javascript/api/@azure/storage-queue/) | [Code source bibliothèque](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue) | [Package (Gestionnaire de package de nœud)](https://www.npmjs.com/package/@azure/storage-queue) | [Exemples](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 * Compte de stockage Azure : [créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)

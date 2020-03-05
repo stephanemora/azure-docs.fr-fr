@@ -1,18 +1,17 @@
 ---
 title: Consulter les données d’application d’Azure Application Insights | Microsoft Docs
 description: Vous pouvez utiliser la solution Application Insights Connector pour diagnostiquer les problèmes de performances et comprendre ce que les utilisateurs font avec votre application lorsqu’Application Insights les surveille.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: d0cfca44878130e870c633040afcfbdd55ba8b7b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c143d8aa24d3479f4619ea2c220d4a0c593f9cb1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396542"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665151"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solution de gestion Application Insights Connector (déconseillée)
 
@@ -50,7 +49,7 @@ Contrairement à la plupart des autres solutions Log Analytics, les données ne 
 | [Groupe d’administration SCOM](../../azure-monitor/platform/om-agents.md) | Non | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
 | [Compte Azure Storage](collect-azure-metrics-logs.md) | Non | La solution ne collecte aucune information à partir de stockage Azure. |
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Pour accéder aux informations d’Application Insights Connector, vous devez posséder un abonnement Azure.
 - Vous devez disposer d’au moins une ressource Application Insights configurée.

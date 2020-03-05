@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 554590a065214c17de0acdea3207876f113b3caf
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614024"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252746"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutoriel : Empaqueter et déployer des conteneurs sous forme d’application Service Fabric à l’aide de Yeoman
 
@@ -25,7 +25,7 @@ Ce tutoriel est le deuxième de la série. Dans ce didacticiel, un outil de gén
 > * Déployer et exécuter l’application
 > * Nettoyer l’application
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Les images conteneur, créées et transmises à Azure Container Registry dans la [Partie 1](service-fabric-tutorial-create-container-images.md) de cette série de didacticiels, sont utilisées.
 * L’environnement de développement Linux est [configuré](service-fabric-tutorial-create-container-images.md).
@@ -114,7 +114,7 @@ Afin que Service Fabric puisse extraire les images conteneur à partir d’Azure
 
 Connectez-vous à votre instance ACR. Utilisez la commande **az acr login** pour terminer l’opération. Fournissez le nom unique qui a été donné au registre de conteneurs au moment de sa création.
 
-```bash
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -122,7 +122,7 @@ Après son exécution, la commande retourne le message **Login Succeeded (Connex
 
 Exécutez ensuite la commande suivante pour obtenir le mot de passe de votre registre de conteneurs. Ce mot de passe est utilisé par Service Fabric pour l’authentification auprès d’ACR, afin d’extraire les images conteneur.
 
-```bash
+```azurecli
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
@@ -199,7 +199,7 @@ Pour que Service Fabric affecte ce nom DNS au service principal, le nom doit êt
 
 Le service frontal lit une variable d’environnement pour connaître le nom DNS de l’instance Redis. Cette variable d’environnement est déjà définie dans le fichier Dockerfile qui a été utilisé pour générer l’image Docker. Aucune action n’est nécessaire ici.
 
-```Dockerfile
+```dockerfile
 ENV REDIS redisbackend.testapp
 ```
 

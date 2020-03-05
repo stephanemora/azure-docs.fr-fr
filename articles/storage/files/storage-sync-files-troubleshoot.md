@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b5a6b62e423b982cd7a852de844cd561997ba1e7
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 9d8aeba65a566cc93d3344a532a4636d709c1084
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048416"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303662"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -325,7 +325,7 @@ Pour afficher ces erreurs, exécutez le script PowerShell **FileSyncErrorsReport
 | 0x80c80205 | -2134375931 | ECS_E_SYNC_ITEM_SKIP | Le fichier ou le répertoire a été ignoré, mais sera synchronisé au cours de la prochaine session de synchronisation. Si cette erreur est signalée lors du téléchargement de l’élément, il est plus que probable que le nom du fichier ou du répertoire n’est pas valide. | Aucune action n’est requise si cette erreur est signalée lors du chargement du fichier. Si l’erreur est signalée lors du téléchargement du fichier, renommez le fichier ou le répertoire en question. Pour plus d’informations, voir [Gestion des caractères non pris en charge](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters). |
 | 0x800700B7 | -2147024713 | ERROR_ALREADY_EXISTS | La création d’un fichier ou d’un répertoire ne peut pas être synchronisée, car l’élément existe déjà dans la destination et la synchronisation n’a pas connaissance de la modification. | Aucune action requise. La synchronisation arrête la journalisation de cette erreur une fois que la détection des modifications s’est exécutée sur la destination et que la synchronisation a connaissance de ce nouvel élément. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Le fichier ne peut pas être synchronisé parce que la limite de partage de fichiers Azure est atteinte. | Pour résoudre ce problème, voir la section [Vous avez atteint la limite de stockage du partage de fichiers Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) dans le guide de dépannage. |
-| 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | Le fichier est chiffré par une solution non prise en charge (comme NTFS EFS). | Déchiffrez le fichier et utilisez une solution de chiffrement prise en charge. Pour obtenir la liste des solutions prises en charge, voir la section [Solutions de chiffrement](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) du guide de planification. |
+| 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | Le fichier est chiffré par une solution non prise en charge (comme NTFS EFS). | Déchiffrez le fichier et utilisez une solution de chiffrement prise en charge. Pour obtenir la liste des solutions prises en charge, voir la section [Solutions de chiffrement](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption) du guide de planification. |
 | 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | Le fichier se trouve dans un dossier de réplication DFS-R en lecture seule. | Le fichier se trouve dans un dossier de réplication DFS-R en lecture seule. Azure Files Sync ne prend pas en charge les points de terminaison de serveur sur les dossiers de réplication en lecture seule DFS-R. Consultez le [guide de planification](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) pour plus d’informations. |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | Le fichier est en attente de suppression. | Aucune action requise. Le fichier est supprimé une fois que tous les descripteurs de fichiers ouverts sont fermés. |
 | 0x80c86044 | -2134351804 | ECS_E_AZURE_AUTHORIZATION_FAILED | Le fichier ne peut pas être synchronisé, car les paramètres du pare-feu et du réseau virtuel sur le compte de stockage sont activés et le serveur n’a pas accès au compte de stockage. | Ajoutez l’adresse IP ou le réseau virtuel du serveur en suivant les étapes décrites dans la section [Configurer les paramètres de pare-feu et de réseau virtuel](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) du Guide de déploiement. |

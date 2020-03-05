@@ -1,19 +1,15 @@
 ---
 title: Analyse de la disponibilité et de la réactivité d’un site Web | Microsoft Docs
 description: Configurez des tests web dans Application Insights. Recevez des alertes si un site web devient indisponible ou répond lentement.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 074b5c175305131cd67cc6660d13756a83386c11
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 61358051a8ddc32bc01ec5e231f4c28ebfa18ee0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819286"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670030"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Superviser la disponibilité d’un site web
 
@@ -74,7 +70,7 @@ Pour créer votre première demande de disponibilité, ouvrez le volet Disponibi
 |----|----|----|
 |**Quasi-temps réel (préversion)** | Nous vous conseillons d’utiliser les alertes en quasi-temps réel. La configuration de ce type d’alerte s’effectue après avoir créé votre test de disponibilité.  |
 |**Classique** | Nous déconseillons d’utiliser les alertes classiques pour les nouveaux tests de disponibilité.|
-|**Seuil d’emplacement de l’alerte**|nous recommandons un minimum de 3 à 5 emplacements. La combinaison optimale entre le seuil d’emplacement de l’alerte et le nombre d’emplacements de test est : **seuil d’emplacement de l’alerte** = **nombre d’emplacements de test - 2, avec un minimum de cinq emplacements de test**.|
+|**Seuil d’emplacement de l’alerte**|nous recommandons un minimum de 3 à 5 emplacements. La relation optimale entre le seuil d’emplacement de l’alerte et le nombre d’emplacements de test est **seuil d’emplacement de l’alerte** = **nombre d’emplacements de test - 2, avec un minimum de cinq emplacements de test.**|
 
 ## <a name="see-your-availability-test-results"></a>Consulter les résultats des tests de disponibilité
 
@@ -127,13 +123,13 @@ Outre les résultats bruts, vous pouvez examiner deux mesures essentielles de la
 * [Utilisez des scripts PowerShell pour configurer un test de disponibilité](../../azure-monitor/app/powershell.md#add-an-availability-test) automatiquement.
 * Configurez un [webhook](../../azure-monitor/platform/alerts-webhooks.md) qui est appelé lorsqu’une alerte est déclenchée.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Consultez l’[article dédié au dépannage](troubleshoot-availability.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Alertes de disponibilité](availability-alerts.md)
-* [Tests web multiétapes](availability-multistep.md)
+* [Availability alerts](availability-alerts.md) (Alertes de disponibilité)
+* [Tests web à plusieurs étapes](availability-multistep.md)
 
 

@@ -8,26 +8,26 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 51d1bd515651824545d486207ad4a74476aa7092
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 53be1b13f1e2744e143a4be0777e3a8e3135460e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491270"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270524"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie keyPhrase pour une application LUIS
-L’entité KeyPhrase extrait une variété d’expressions clés d’un énoncé. Il est inutile d’ajouter des exemples d’énoncés contenant keyPhrase à l’application. L’entité keyPhrase est prise en charge dans de [nombreuses cultures](luis-language-support.md#languages-supported) dans le cadre des fonctionnalités d’[analyse de texte](../text-analytics/overview.md). 
+L’entité KeyPhrase extrait une variété d’expressions clés d’un énoncé. Il est inutile d’ajouter des exemples d’énoncés contenant keyPhrase à l’application. L’entité keyPhrase est prise en charge dans de [nombreuses cultures](luis-language-support.md#languages-supported) dans le cadre des fonctionnalités d’[analyse de texte](../text-analytics/overview.md).
 
 ## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Résolution pour une entité prédéfinie keyPhrase
 
-Les objets entités suivants sont retournés pour la requête :
+Les objets entité suivants sont retournés pour la requête :
 
 `where is the educational requirements form for the development and engineering group`
 
-#### <a name="v3-responsetabv3"></a>[Réponse V3](#tab/V3)
+#### <a name="v3-response"></a>[Réponse V3](#tab/V3)
 
 Le code JSON suivant a le paramètre `verbose` défini sur `false` :
 
@@ -39,7 +39,7 @@ Le code JSON suivant a le paramètre `verbose` défini sur `false` :
     ]
 }
 ```
-#### <a name="v3-verbose-responsetabv3-verbose"></a>[Réponse détaillée V3](#tab/V3-verbose)
+#### <a name="v3-verbose-response"></a>[Réponse détaillée V3](#tab/V3-verbose)
 Le code JSON suivant a le paramètre `verbose` défini sur `true` :
 
 ```json
@@ -76,7 +76,7 @@ Le code JSON suivant a le paramètre `verbose` défini sur `true` :
     }
 }
 ```
-#### <a name="v2-responsetabv2"></a>[Réponse V2](#tab/V2)
+#### <a name="v2-response"></a>[Réponse V2](#tab/V2)
 
 L’exemple suivant montre la résolution de l’entité **builtin.keyPhrase**.
 
@@ -96,7 +96,7 @@ L’exemple suivant montre la résolution de l’entité **builtin.keyPhrase**.
     }
 ]
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Étapes suivantes
 

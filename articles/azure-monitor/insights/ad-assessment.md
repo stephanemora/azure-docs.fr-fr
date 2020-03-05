@@ -1,18 +1,17 @@
 ---
 title: Optimiser son environnement Active Directory avec Azure Monitor | Microsoft Docs
 description: La solution Active Directory Health Check permet d’évaluer les risques et l’intégrité de vos environnements à intervalles réguliers.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: 1e97ce1655ae35f4986a915a382d456bb8d2ce4b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 57c474c8391168702154b71e0c454253ab921dc1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167843"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667225"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimiser son environnement Active Directory avec la solution Active Directory Health Check dans Azure Monitor
 
@@ -34,7 +33,7 @@ Une fois la solution ajoutée et le contrôle terminé, le résumé des informat
 
 ![image du tableau de bord AD Health Check](./media/ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * La solution Active Directory Health Check nécessite l’installation d’une version prise en charge du .NET Framework (version 4.6.2 ou ultérieure) sur chaque ordinateur sur lequel est installé l’agent Log Analytics pour Windows (également appelé Microsoft Monitoring Agent (MMA)).  Cet agent est utilisé par System Center 2016 Operations Manager, Operations Manager 2012 R2 et Azure Monitor.
 * La solution prend en charge les contrôleurs de domaine exécutant Windows Server 2008 et 2008 R2, Windows Server 2012 et 2012 R2 et Windows Server 2016.

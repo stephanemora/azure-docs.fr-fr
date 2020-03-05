@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5044f8b85e59911633a4ffab509efc000948144a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb8b23513738a6696d65bf7f06a741be2ada7a93
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65832576"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250250"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Créer et tester un appareil simulé
 
@@ -64,7 +64,7 @@ Le tableau suivant présente l’état initial de l’appareil :
 
 | Nom                     | Valeurs |
 | ------------------------ | -------|
-| Initial color (Couleur initiale)            | Blanc  |
+| Initial color (Couleur initiale)            | White  |
 | Initial brightness (Luminosité initiale)       | 75     |
 | Initial remaining life (Durée de vie restante initiale)   | 10 000 |
 | Initial telemetry status (État initial de la télémétrie) | « on » (allumé)   |
@@ -446,7 +446,7 @@ Le script suivant suppose que le nom de votre hub IoT est **device-simulation-te
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Monitor telemetry sent to your hub
 az iot hub monitor-events --hub-name device-simulation-test
@@ -492,7 +492,7 @@ Pour configurer et démarrer la simulation :
 
 Pour arrêter la simulation, sélectionnez la demande **Stop simulation** (Arrêter la simulation) dans Postman, puis cliquez sur **Send** (Envoyer).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Vous pouvez arrêter les deux microservices exécutés localement dans leurs instances de Visual Studio Code (**Déboguer > Arrêter le débogage**).
 

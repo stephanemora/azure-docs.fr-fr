@@ -1,18 +1,17 @@
 ---
 title: Questions fréquentes sur Azure Monitor pour machines virtuelles (version en disponibilité générale) | Microsoft Docs
 description: Azure Monitor pour machines virtuelles est une solution d’Azure qui supervise à la fois l’intégrité et les performances du système d’exploitation de la machine virtuelle Azure. En outre, elle identifie automatiquement les composants des applications et leurs dépendances avec les autres ressources, et effectue le mappage de leurs communications respectives. Cet article répond aux questions courantes au sujet de la version en disponibilité générale.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 883f24e529f9479f0c6ee6597c1324a0089ece7b
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 0af5e4b92b52b4ecfc4e0e302b5d2a7701297908
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620375"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656192"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Questions fréquentes sur Azure Monitor pour machines virtuelles (version en disponibilité générale)
 

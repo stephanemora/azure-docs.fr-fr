@@ -3,17 +3,16 @@ title: Diffuser en continu les journaux de plateforme Azure vers un Event Hub
 description: Découvrez comment envoyer en streaming des journaux de ressources à des hubs d’événements pour envoyer des données à des systèmes externes tels que des solutions SIEM tierces et d’autres solutions d’analytique des journaux.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 00dcc1c1a1d823ab0f2497e47641916d391ee37b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 72341b6da0068ba4b7e3f53b08e6015cafb70f09
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750343"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658912"
 ---
 # <a name="stream-azure-platform-logs-to-azure-event-hubs"></a>Diffuser en continu les journaux de plateforme Azure vers Azure Event Hubs
 [Les journaux de plateforme](platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent.  Cet article décrit la diffusion en continu des journaux d’activité de plateformes à des hubs d’événements pour envoyer des données à des systèmes externes tels que des solutions SIEM tierces et d’autres solutions d’analytique des journaux d’activité.
@@ -40,7 +39,7 @@ Diffusez les journaux d’activité de plateformes dans Azure vers Event hubs po
     CROSS APPLY GetArrayElements(e.records) AS records
     ```
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Si vous n’en avez pas encore, vous devez [créer un hub d’événements](../../event-hubs/event-hubs-create.md). Si vous disposez déjà d’un paramètre de diagnostic à l’aide de cet espace de noms Event Hubs, ce hub d’événements sera réutilisé.
 
 La stratégie d’accès partagé pour l’espace de noms définit les autorisations dont dispose le mécanisme de diffusion en continu. La diffusion en continu vers Event Hubs requiert des autorisations de gestion, d’envoi et d’écoute. Vous pouvez créer ou modifier les stratégies d’accès partagé dans le Portail Microsoft Azure sous l’onglet Configurer pour votre espace de noms Event Hubs.

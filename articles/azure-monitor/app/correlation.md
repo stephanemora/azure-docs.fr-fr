@@ -1,19 +1,17 @@
 ---
 title: Corrélation de télémétrie dans Azure Application Insights | Microsoft Docs
 description: Corrélation de télémétrie dans Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: bc73dfb1c4dc77abe0bd135ecf572fa05ddf6322
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 06897fffda490cdfcbb2a9cf6f55c7945e8afda0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951324"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672053"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Corrélation de télémétrie dans Application Insights
 
@@ -33,7 +31,7 @@ Vous pouvez générer une vue de l’opération logique distribuée en utilisant
 
 Dans un environnement de microservices, les traces des composants peuvent se diriger vers différents éléments de stockage. Chaque composant peut avoir sa propre clé d’instrumentation dans Application Insights. Pour obtenir la télémétrie pour l’opération logique, Application Insights interroge les données de chaque élément de stockage. Quand le nombre d’éléments de stockage est important, vous avez besoin d’une indication quant à l’endroit à regarder ensuite. Le modèle de données Application Insights définit deux champs pour résoudre ce problème : `request.source` et `dependency.target`. Le premier champ identifie le composant qui a lancé la demande de dépendance. Le deuxième champ identifie le composant qui a retourné la réponse de l’appel de dépendance.
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 
 Intéressons-nous à un exemple. Une application appelée Stock Prices affiche le cours actuel sur le marché d’une action en utilisant une API externe nommée Stock. L’application Stock Prices a une page nommée Stock que le navigateur web client ouvre en utilisant `GET /Home/Stock`. L’application interroge l’API Stock en utilisant l’appel HTTP `GET /api/stock/value`.
 
@@ -47,7 +45,7 @@ Vous pouvez analyser la télémétrie obtenue en exécutant une requête :
 
 Dans les résultats, notez que tous les éléments de télémétrie partagent la racine `operation_Id`. Quand un appel Ajax est effectué à partir de la page, un nouvel ID unique (`qJSXU`) est affecté à la télémétrie des dépendances, et l’ID de la pageView est utilisé en tant que `operation_ParentId`. La requête de serveur utilise ensuite l’ID Ajax en tant que `operation_ParentId`.
 
-| itemType   | Nom                      | id           | operation_ParentId | operation_Id |
+| itemType   | name                      | id           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Stock page                |              | STYz               | STYz         |
 | dependency | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
@@ -251,13 +249,13 @@ curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7
 ```
 En examinant le [format de l’en-tête Trace-Context](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format), vous pouvez déduire les informations suivantes :
 
-`version` : `00`
+`version`: `00`
 
-`trace-id` : `4bf92f3577b34da6a3ce929d0e0e4736`
+`trace-id`: `4bf92f3577b34da6a3ce929d0e0e4736`
 
-`parent-id/span-id` : `00f067aa0ba902b7`
+`parent-id/span-id`: `00f067aa0ba902b7`
 
-`trace-flags` : `01`
+`trace-flags`: `01`
 
 Si vous examinez l’entrée de la requête envoyée à Azure Monitor, vous pouvez voir des champs renseignés avec les informations d’en-tête de trace. Vous trouverez ces données sous Journaux (Analytics) dans la ressource Azure Monitor Application Insights.
 

@@ -1,18 +1,14 @@
 ---
 title: Surveiller une application web ASP.NET active avec Azure Application Insights | Microsoft Docs
 description: Analysez les performances d'un site web sans le redéployer. Fonctionne avec les applications web ASP.NET hébergées localement ou dans des machines virtuelles.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 08/26/2019
-ms.openlocfilehash: ac238ae5715e09b2e64737801a862d89852ec9d9
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 63d632df61548d15a1e0a606cf2e198207faf341
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820757"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670047"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumenter des applications web au runtime avec jonction sans code Application Insights
 
@@ -43,14 +39,14 @@ Voici un résumé de ce que vous apporte chaque méthode :
 
 |  | En cours de création | En cours d’exécution |
 | --- | --- | --- |
-| Requêtes et exceptions |OUI |OUI |
-| [Exceptions plus détaillées](../../azure-monitor/app/asp-net-exceptions.md) | |OUI |
+| Requêtes et exceptions |Oui |Oui |
+| [Exceptions plus détaillées](../../azure-monitor/app/asp-net-exceptions.md) | |Oui |
 | [Diagnostics de dépendance](../../azure-monitor/app/asp-net-dependencies.md) |Sur .NET 4.6 +, mais moins détaillé |Oui, tous les détails : codes de résultat, texte de commande SQL, verbe HTTP|
-| [Compteurs de performances système](../../azure-monitor/app/performance-counters.md) |OUI |OUI |
-| [API pour la télémétrie personnalisée][api] |OUI |Non |
-| [Intégration des journaux de suivi](../../azure-monitor/app/asp-net-trace-logs.md) |OUI |Non |
-| [Mode Page et données utilisateur](../../azure-monitor/app/javascript.md) |OUI |Non |
-| Nécessité de régénérer le code |OUI | Non |
+| [Compteurs de performances système](../../azure-monitor/app/performance-counters.md) |Oui |Oui |
+| [API pour la télémétrie personnalisée][api] |Oui |Non |
+| [Intégration des journaux de suivi](../../azure-monitor/app/asp-net-trace-logs.md) |Oui |Non |
+| [Mode Page et données utilisateur](../../azure-monitor/app/javascript.md) |Oui |Non |
+| Nécessité de régénérer le code |Oui | Non |
 
 
 
@@ -294,7 +290,7 @@ Pour les applications que vous instrumentez uniquement au moment de l’exécuti
 * Des requêtes HTTP
 * Des appels de dépendances
 * Exceptions
-* Compteurs de performances
+* Compteurs de performance
 
 Pour les applications déjà instrumentées au moment de la compilation :
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 06ca2327b2859ffb0f5b314d7b92082d5a83dc48
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 1601ab6d81b888fd2247e95f22c58e1fc91df698
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594247"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273733"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Installer et utiliser Consul dans AKS (Azure Kubernetes Service)
 
@@ -51,7 +51,7 @@ Nous allons commencer par télécharger la version `v0.10.0` du chart Helm Consu
 
 ::: zone pivot="client-operating-system-macos"
 
-[!INCLUDE [MacOS - download](includes/servicemesh/consul/download-bash.md)]
+[!INCLUDE [macOS - download](includes/servicemesh/consul/download-bash.md)]
 
 ::: zone-end
 
@@ -109,7 +109,7 @@ kubectl get pod --namespace consul --output wide
 
 L’exemple de sortie suivant montre les services et les pods (planifiés sur des nœuds Linux) qui doivent maintenant être en cours d’exécution :
 
-```console
+```output
 NAME                                 TYPE           CLUSTER-IP    EXTERNAL-IP             PORT(S)                                                                   AGE     SELECTOR
 consul                               ExternalName   <none>        consul.service.consul   <none>                                                                    38s     <none>
 consul-consul-connect-injector-svc   ClusterIP      10.0.98.102   <none>                  443/TCP                                                                   3m26s   app=consul,component=connect-injector,release=consul
@@ -134,7 +134,7 @@ Tous les pods doivent indiquer l’état `Running`. Si vos pods n’ont pas cet 
 
 L’interface utilisateur Consul installée précédemment permet de configurer Consul. L’interface utilisateur pour Consul n’est pas exposée publiquement via une adresse IP externe. Pour accéder à l’interface utilisateur Consul, utilisez la commande [kubectl port-forward][kubectl-port-forward]. Cette commande crée une connexion sécurisée entre votre machine cliente et le pod approprié dans votre cluster AKS.
 
-```azurecli
+```console
 kubectl port-forward -n consul svc/consul-consul-ui 8080:80
 ```
 
@@ -151,7 +151,7 @@ Vous pouvez maintenant ouvrir un navigateur et le faire pointer vers `http://loc
 
 Pour supprimer Consul de votre cluster AKS, utilisez les commandes suivantes. Les commandes `helm delete` suppriment le chart `consul`, et la commande `kubectl delete namespace` supprime l’espace de noms `consul`.
 
-```azurecli
+```console
 helm delete --purge consul
 kubectl delete namespace consul
 ```

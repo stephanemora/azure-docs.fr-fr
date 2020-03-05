@@ -3,20 +3,20 @@ title: 'Tutoriel : Authentifier les utilisateurs dans une application cliente n
 titleSuffix: Azure AD B2C
 description: Tutoriel sur l’utilisation d’Azure Active Directory B2C pour fournir une connexion utilisateur à une application de bureau .NET.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/12/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 4c271a750719f475a859f9a492009bfaf74da869
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 06d27c3a3daa4702653a2063d0ac70fd094e2d74
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849819"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186197"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>Tutoriel : Authentifier les utilisateurs dans un client de bureau natif à l’aide d’Azure Active Directory B2C
 
@@ -31,7 +31,7 @@ Dans ce tutoriel, vous allez apprendre à :
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - [Créer des flux d’utilisateur](tutorial-create-user-flows.md) pour activer les expériences utilisateur dans votre application
 - Installez [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec les charges de travail **Développement .NET Desktop** et **Développement web et ASP.NET**.

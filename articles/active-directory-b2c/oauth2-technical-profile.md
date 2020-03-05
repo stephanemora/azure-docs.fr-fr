@@ -3,20 +3,20 @@ title: Définir un profil technique OAuth2 dans une stratégie personnalisée
 titleSuffix: Azure AD B2C
 description: Définir un profil technique OAuth2 dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/24/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f9db8fd0865b7dba869795526cf6b68f4ad3ffb9
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 86ec7a5745a58546faf6f0ff15d6dc5f452baa88
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585779"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184041"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OAuth2 dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -97,7 +97,7 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 | ExtraParamsInAccessTokenEndpointResponse | Non | Contient les paramètres supplémentaires qui peuvent être retournés dans la réponse d’**AccessTokenEndpoint** par certains fournisseurs d’identité. Par exemple, la réponse d’**AccessTokenEndpoint** contient un paramètre supplémentaire tel que `openid`, qui est obligatoire, en plus du jeton d’accès dans une chaîne de requête de demande **ClaimsEndpoint**. S’il y a plusieurs noms de paramètre, ils doivent être échappés et séparés par le délimiteur virgule « , ». |
 | ExtraParamsInClaimsEndpointRequest | Non | Contient les paramètres supplémentaires qui peuvent être retournés dans la demande **ClaimsEndpoint** par certains fournisseurs d’identité. S’il y a plusieurs noms de paramètre, ils doivent être échappés et séparés par le délimiteur virgule « , ». |
 | IncludeClaimResolvingInClaimsHandling  | Non | Pour les revendications d’entrée et de sortie, spécifie si la [résolution des revendications](claim-resolver-overview.md) est incluse dans le profil technique. Valeurs possibles : `true` ou `false` (par défaut). Si vous souhaitez utiliser un programme de résolution des revendications dans le profil technique, définissez cette valeur sur `true`. |
-| ResolveJsonPathsInJsonTokens  | Non | Indique si le profil technique résout les chemins d’accès JSON. Valeurs possibles : `true` ou `false` (par défaut). Utilisez ces métadonnées pour lire des données à partir d’un élément JSON imbriqué. Dans un élément [OutputClaim](technicalprofiles.md#outputclaims), définissez `PartnerClaimType` sur l’élément de chemin d’accès JSON que vous souhaitez générer. Par exemple : `firstName.localized` ou `data.0.to.0.email`.|
+| ResolveJsonPathsInJsonTokens  | Non | Indique si le profil technique résout les chemins d’accès JSON. Valeurs possibles : `true` ou `false` (par défaut). Utilisez ces métadonnées pour lire des données issues d’un élément JSON imbriqué. Dans un élément [OutputClaim](technicalprofiles.md#outputclaims), définissez `PartnerClaimType` sur l’élément de chemin d’accès JSON que vous souhaitez générer. Par exemple : `firstName.localized` ou `data.0.to.0.email`.|
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
 

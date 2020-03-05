@@ -1,18 +1,16 @@
 ---
 title: Utilisation de Micrometer avec le Kit de développement logiciel (SDK) Java Azure Application Insights
 description: Guide pas à pas sur l’utilisation de Micrometer avec vos applications Application Insights Spring Boot et autres que Spring Boot.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: c9f1c6f6742f36d376668422f9c37c6c5a2228a4
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: dd04087db32f0bbfa75dafa7e12c355e5ab7b515
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872993"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670064"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Utilisation de Micrometer avec le Kit de développement logiciel (SDK) Java Azure Application Insights
 La supervision d’application Micrometer mesure les métriques pour le code d’application basé sur la JVM et vous permet d’exporter les données vers vos systèmes de supervision préférés. Cet article vous montrera comment utiliser Micrometer avec Application Insights pour les applications Spring Boot et les autres.

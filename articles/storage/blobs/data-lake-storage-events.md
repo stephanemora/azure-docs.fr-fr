@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Implémenter le modèle de capture de lac de données pour mettre à jour une table Delta Azure Databricks | Microsoft Docs'
+title: 'Tutoriel : Implémenter le modèle de capture de lac de données pour mettre à jour une table Delta Azure Databricks | Microsoft Docs'
 description: Ce tutoriel vous montre comment utiliser un abonnement Event Grid, une fonction Azure et un travail Azure Databricks pour insérer des lignes de données dans une table stockée dans Azure DataLake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
-ms.openlocfilehash: 03a07e70c967f92fe5dcc7c951aeea299b050405
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 85fad873b6c176d2278ea48709d2892ab515a025
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71326988"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303305"
 ---
-# <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Didacticiel : Implémenter le modèle de capture de lac de données pour mettre à jour une table Delta Databricks
+# <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Tutoriel : Implémenter le modèle de capture de lac de données pour mettre à jour une table Delta Databricks
 
 Ce tutoriel vous montre comment gérer des événements dans un compte de stockage doté d’un espace de noms hiérarchique.
 
@@ -38,11 +38,11 @@ Pour créer cette solution, nous allons procéder dans l’ordre inverse et comm
 
   Voir [Créer un compte Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 
-* Créer un principal de service. Consultez [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Créer un principal de service. Consultez [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
   Vous devrez faire certaines choses spécifiques pendant que vous suivrez les étapes décrites dans cet article.
 
-  :heavy_check_mark: Au cours des étapes décrites dans la section [Attribuer un rôle à l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) de l’article, veillez à affecter le rôle **Contributeur aux données Blob du stockage** au principal de service.
+  :heavy_check_mark: Au cours des étapes décrites dans la section [Attribuer un rôle à l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) de l’article, veillez à affecter le rôle **Contributeur aux données Blob du stockage** au principal de service.
 
   > [!IMPORTANT]
   > Veillez à attribuer le rôle dans l’étendue du compte de stockage Data Lake Storage Gen2. Vous pouvez attribuer un rôle à l’abonnement ou au groupe de ressources parent, mais des erreurs d’autorisation sont générées tant que ces attributions de rôles ne sont pas propagées au compte de stockage.
@@ -243,7 +243,7 @@ Créez un travail qui exécute le notebook que vous avez créé précédemment. 
 
 3. Donnez un nom au travail, puis sélectionnez le classeur `upsert-order-data`.
 
-   ![Créer un travail](./media/data-lake-storage-events/create-spark-job.png "Création d’un travail")
+   ![Créer un travail](./media/data-lake-storage-events/create-spark-job.png "Créer un travail")
 
 ## <a name="create-an-azure-function"></a>Création d’une fonction Azure
 
@@ -277,7 +277,7 @@ Créez une fonction Azure qui exécute le travail.
 
    |Nom du paramètre | Valeur |
    |----|----|
-   |**DBX_INSTANCE**| La région de votre espace de travail Databricks. Par exemple : `westus2.azuredatabricks.net`|
+   |**DBX_INSTANCE**| La région de votre espace de travail Databricks. Par exemple : `westus2.azuredatabricks.net`|
    |**DBX_PAT**| Le jeton d’accès personnel que vous avez généré précédemment. |
    |**DBX_JOB_ID**|L’identificateur du travail en cours d’exécution. Dans le cas présent, cette valeur est `1`.|
 7. Dans la page Vue d’ensemble de l’application de fonction, cliquez sur le bouton **Nouvelle fonction**.
@@ -406,7 +406,7 @@ Dans cette section, vous allez créer un abonnement Event Grid qui appelle la fo
 
    ![L’enregistrement mis à jour apparaît dans la table](./media/data-lake-storage-events/final_query-2.png "L’enregistrement mis à jour apparaît dans la table")
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources du compte de stockage, puis sélectionnez **Supprimer**.
 

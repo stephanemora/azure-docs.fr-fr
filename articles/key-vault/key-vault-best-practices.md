@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-key-vault
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 654a9bb772c8a7426a335c98dfeca69515b9ce67
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: cb4bec8170466f0fc667b592d44b0858c41ccd84
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881623"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184825"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Meilleures pratiques pour utiliser Key Vault
 
@@ -32,7 +33,7 @@ Voici quelques suggestions concernant le contrôle de l’accès à votre coffre
 
 Nous recommandons d’utiliser un coffre par application et par environnement (développement, préproduction et production). Cela vous aide à éviter le partage de secrets entre environnements et réduit la menace en cas de violation.
 
-## <a name="backup"></a>Sauvegarde
+## <a name="backup"></a>Backup
 
 Veillez à effectuer des sauvegardes régulières de votre [coffre](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) lors de la mise à jour, de la suppression ou de la création d’objets au sein d’un coffre.
 

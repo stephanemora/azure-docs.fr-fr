@@ -3,16 +3,15 @@ title: Concepteur de vues Azure Monitor - Options de conversion en classeurs
 description: ''
 author: austonli
 ms.author: aul
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: f04ebc1a4a53825709479ca3f1dc7ce1245fc67f
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 7bfa831332451718c0c9c05023b90104d2b8b02b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77170706"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658708"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-conversion-options"></a>Concepteur de vues Azure Monitor - Options de conversion en classeurs
 Le [Concepteur de vues](view-designer.md) est une fonctionnalité d’Azure Monitor qui vous permet de créer des vues personnalisées pour vous aider à visualiser les données de votre espace de travail Log Analytics avec des graphiques, des listes et des chronologies. Celles-ci sont progressivement supprimées et remplacées par des classeurs qui offrent des fonctionnalités supplémentaires. Cet article compare les concepts fondamentaux entre les deux et les options pour convertir des vues en classeurs.

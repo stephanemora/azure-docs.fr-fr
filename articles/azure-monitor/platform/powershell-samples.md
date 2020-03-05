@@ -1,19 +1,18 @@
 ---
 title: Exemples PowerShell Azure Monitor | Microsoft Docs
 description: Exemples PowerShell Azure Monitor
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/14/2017
 ms.custom: mvc
-ms.openlocfilehash: d4d77e15e24f738e946d083881e93a34200eb2d7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: faa06874bca1bd05edafd22572c000e49e6c76b8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75394360"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659176"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Exemples PowerShell Azure Monitor
 

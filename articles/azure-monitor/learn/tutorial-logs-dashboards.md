@@ -1,19 +1,18 @@
 ---
 title: Créer et partager des tableaux de bord de données Log Analytics | Microsoft Docs
 description: Ce tutoriel vous aide à comprendre comment les tableaux de bord Log Analytics permettent de visualiser l’ensemble de vos requêtes de journal enregistrées en proposant une vue unique de votre environnement.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
 ms.custom: mvc
-ms.openlocfilehash: d06ead285321b780490c816dc3d902dac1b6916f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 76ba79561df4a75004369d24c4c6af82de9b1cfc
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365561"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661530"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Créer et partager des tableaux de bord de données Log Analytics
 

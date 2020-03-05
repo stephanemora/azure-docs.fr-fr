@@ -1,18 +1,17 @@
 ---
 title: Agrégations dans les requêtes de journal Azure Monitor | Microsoft Docs
 description: Décrit certaines des options d’agrégation les plus avancées disponibles pour les requêtes de journal Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 882582191b5794e3978d955dfa9bded294064037
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e5dc290a40342e0797001dde6cab90e12dd5cf39
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398308"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662176"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agrégations dans les requêtes de journal Azure Monitor | Microsoft Docs
 

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: c39df1e6af292d3774c6cba62663454bd2d8ad28
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: addb044d82429a4471e7ecd302351dd7b7eada84
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383416"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78262104"
 ---
 ### <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>Déployer le conteneur Détection de langue vers un cluster AKS
 
@@ -32,7 +32,7 @@ ms.locfileid: "74383416"
 
     Une fois cette commande exécutée, elle signale un message similaire au message suivant :
 
-    ```console
+    ```output
     Merged "your-cluster-name" as current context in /home/username/.kube/config
     ```
 
@@ -44,7 +44,7 @@ ms.locfileid: "74383416"
 
 1. Ouvrez l’éditeur de texte de votre choix. L’exemple suivant utilise Visual Studio Code.
 
-    ```azurecli
+    ```console
     code .
     ```
 
@@ -103,7 +103,7 @@ ms.locfileid: "74383416"
 
     Une fois la configuration de déploiement correctement appliquée par la commande, un message similaire à la sortie suivante s’affiche :
 
-    ```console
+    ```output
     deployment.apps "language" created
     service "language" created
     ```
@@ -115,7 +115,7 @@ ms.locfileid: "74383416"
 
     Vous obtiendrez ainsi l’état d’exécution du pod :
 
-    ```console
+    ```output
     NAME                         READY     STATUS    RESTARTS   AGE
     language-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
@@ -128,7 +128,7 @@ ms.locfileid: "74383416"
 
     La sortie de l’état d’exécution du service *language* dans le pod :
 
-    ```console
+    ```output
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
     kubernetes   ClusterIP      10.0.0.1      <none>           443/TCP          2m
     language     LoadBalancer   10.0.100.64   168.61.156.180   5000:31234/TCP   2m

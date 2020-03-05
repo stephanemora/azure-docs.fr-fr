@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/04/2020
+ms.date: 02/26/2020
 ms.subservice: app-provisioning
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 164d156be030aa4a177ea77ed61782780338abb0
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 559bca4f5020cebe06be7f24f7af5ec2e94bec0e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522371"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183242"
 ---
 # <a name="azure-ad-connect-provisioning-agent-version-release-history"></a>Agent de provisionnement Azure AD Connect : Historique de publication des versions
 Cet article liste les versions et les fonctionnalités de l’agent de provisionnement Azure Active Directory Connect qui ont été publiées. L’équipe Azure AD met régulièrement à jour l’agent d’approvisionnement avec de nouvelles fonctions et fonctionnalités. L’agent de provisionnement est mis à jour automatiquement quand une nouvelle version est publiée. 
 
-Nous vous recommandons d’activer la mise à jour automatique pour vos agents pour vous assurer que vous disposez des dernières fonctionnalités et des corrections de bogues. Microsoft offre une prise en charge directe de la version la plus récente de l’agent et de la version précédente.
+Microsoft offre une prise en charge directe de la version la plus récente de l’agent et de la version précédente.
 
 ## <a name="11960"></a>1.1.96.0
 

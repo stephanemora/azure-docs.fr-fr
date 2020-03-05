@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8b651d6e5ca9262d38f5bfb9e10c404e2614809e
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 0fe04941821de2ac6e4e873e8d073c3e9b9d9508
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77055666"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919377"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Attacher un disque de données managé à une machine virtuelle Windows à l’aide du portail Azure
 
@@ -48,4 +48,4 @@ Cet article montre comment attacher un nouveau disque de données managé à une
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Vous pouvez également [attacher un disque de données à l’aide de PowerShell](attach-disk-ps.md).
-- Si votre application doit utiliser le lecteur *D:* pour stocker des données, vous pouvez [changer la lettre de lecteur du disque temporaire Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+- Si votre application doit utiliser le lecteur *D:* pour stocker des données, vous pouvez [changer la lettre de lecteur du disque temporaire Windows](change-drive-letter.md).

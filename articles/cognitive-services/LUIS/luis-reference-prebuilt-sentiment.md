@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/22/2019
 ms.author: diberry
-ms.openlocfilehash: a91246e4a4b3dc98bf11d2b014478fd40252f14b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dee07859da97f76d9a2db3ccbb71ae74d8ff4846
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506872"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270419"
 ---
 # <a name="sentiment-analysis"></a>analyse de sentiments
 Si l’analyse des sentiments est configurée, la réponse JSON de LUIS l’intègre. Pour plus d’informations sur l’analyse des sentiments, consultez la documentation [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
@@ -26,7 +26,7 @@ Si l’analyse des sentiments est configurée, la réponse JSON de LUIS l’int�
 
 Les données de sentiment correspondent à un score compris entre 1 et 0 indiquant le sentiment, positif (plus proche de 1) ou négatif (plus proche de 0), des données.
 
-#### <a name="english-languagetabenglish"></a>[Langue anglaise](#tab/english)
+#### <a name="english-language"></a>[Langue anglaise](#tab/english)
 
 Lorsque la culture est `en-us`, la réponse est :
 
@@ -37,7 +37,7 @@ Lorsque la culture est `en-us`, la réponse est :
 }
 ```
 
-#### <a name="other-languagestabother-languages"></a>[Autres langues](#tab/other-languages)
+#### <a name="other-languages"></a>[Autres langues](#tab/other-languages)
 
 Pour toutes les autres cultures, la réponse est :
 
@@ -46,7 +46,7 @@ Pour toutes les autres cultures, la réponse est :
   "score": 0.9163064
 }
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Étapes suivantes
 

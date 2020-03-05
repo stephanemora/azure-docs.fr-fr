@@ -1,25 +1,23 @@
 ---
 title: Analyse de la rétention utilisateur des applications web avec Azure Application Insights | Microsoft Docs
 description: Combien d’utilisateurs reviennent vers votre application ?
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5f5f6235354adc565815ac2eab0a1c774267102d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 37ae97d5fbc62e507f726c452999a7f6e7c989c6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899414"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670965"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analyse de la rétention utilisateur des applications web avec Azure Application Insights
 
 La fonction de rétention [d’Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) vous aide à analyser le nombre d’utilisateurs qui reviennent vers votre application et la fréquence à laquelle ils exécutent des tâches particulières ou atteignent des objectifs. Par exemple, si vous exécutez un site de jeu, vous pouvez comparer le nombre d’utilisateurs qui reviennent sur le site après avoir perdu à un jeu avec le nombre d’utilisateurs qui reviennent après avoir gagné. Cette information peut vous aider à améliorer l’expérience de vos utilisateurs et votre stratégie commerciale.
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 Si aucune donnée n’apparaît dans l’outil de rétention du portail Application Insights, [découvrez comment prendre en main les outils d’utilisation](usage-overview.md).
 

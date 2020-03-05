@@ -1,18 +1,15 @@
 ---
 title: Règles d’action pour les alertes Azure Monitor
 description: Pour comprendre ce que sont les règles d’action dans Azure Monitor, et comment les configurer et les gérer.
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
-ms.author: robb
 ms.date: 04/25/2019
-ms.openlocfilehash: e9de7a1fe4cee16cd1d22ba764ab9eccdf3979fd
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.subservice: alerts
+ms.openlocfilehash: 42f8d9cd30caa48376cda049f6404aa897a6866c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767685"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668466"
 ---
 # <a name="action-rules-preview"></a>Règles d’action (préversion)
 
@@ -151,7 +148,7 @@ Vous pouvez afficher et gérer vos règles d’action à partir de l’affichage
 
 Ici, vous pouvez activer, désactiver ou supprimer des règles d’action adaptées en cochant la case adjacente. Lorsque vous sélectionnez une règle d’action, sa page de configuration s’ouvre. La page vous aide à mettre à jour la définition de la règle d’action et à l’activer ou la désactiver.
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 Les alertes de journal créées avec l’option [nombre de résultats](alerts-unified-log.md) génèrent une seule instance d’alerte via le résultat de la recherche (qui peut s’étendre sur plusieurs ordinateurs). Dans ce scénario, si une règle d’action utilise le filtre **Contexte de l’alerte (charge utile)** , il agit sur l’instance d’alerte tant qu’il existe une correspondance. Dans le scénario 2, décrit précédemment, si les résultats de la recherche pour l’alerte de journal générée contiennent **Computer-01** et **Computer-02**, la notification entière est supprimée. Aucune notification n’est générée pour **Computer-02**.
 
@@ -161,7 +158,7 @@ Pour utiliser au mieux les alertes de journal avec des règles d’action, crée
 
 ![Règles d’action et alertes de journal (nombre de résultats)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 ### <a name="while-im-configuring-an-action-rule-id-like-to-see-all-the-possible-overlapping-action-rules-so-that-i-avoid-duplicate-notifications-is-it-possible-to-do-that"></a>Lors de la configuration d’une règle d’action, j’aimerais voir toutes les règles d’action pouvant se chevaucher afin d’éviter des notifications en double. Est-ce possible ?
 

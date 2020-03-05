@@ -3,20 +3,20 @@ title: Sécuriser un service RESTful en utilisant des certificats clients
 titleSuffix: Azure AD B2C
 description: Sécuriser vos échanges de revendications d’API REST dans votre instance Azure AD B2C à l’aide de certificats clients
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b6f4c24bb5587ca67fd2de0d8aad2c6f5218a41b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 98606443707c183a15a4bacd26646c3eac6c8a69
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850944"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186911"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Sécuriser votre service RESTful à l’aide de certificats clients
 
@@ -34,7 +34,7 @@ Cet article explique comment :
 * Télécharger le certificat sur les clés de stratégie de Azure AD B2C
 * Configurer votre stratégie personnalisée pour utiliser le certificat client
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 * Suivre les étapes dans l’article [Intégrer les échanges de revendications de l’API REST](rest-api-claims-exchange-dotnet.md).
 * Obtenir un certificat valide (fichier .pfx avec une clé privée).
 

@@ -2,26 +2,26 @@
 title: Configurer les jetons – Azure Active Directory B2C | Microsoft Docs
 description: Découvrez comment configurer les paramètres de compatibilité des jetons et leur durée de vie dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d6b18596082df6f1cfbe2a47627712b8b69cb355
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 160898f8535d3dad4811af016ebca779b7ef43a8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836607"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189615"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configurer les jetons dans Azure Active Directory B2C
 
 Dans cet article, vous allez apprendre à configurer la [durée de vie et la compatibilité d’un jeton](tokens-overview.md) dans Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [Créez un flux d'utilisateurs](tutorial-create-user-flows.md) pour permettre aux utilisateurs de s'inscrire et de se connecter à votre application.
 

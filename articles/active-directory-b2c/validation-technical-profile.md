@@ -3,20 +3,20 @@ title: Définir un profil technique de validation dans une stratégie personnali
 titleSuffix: Azure AD B2C
 description: Validez les revendications en utilisant un profil technique de validation dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: facef1e1288f2a64872efbf37a9a31fa05244a7e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 65a2eab05e7c475431602d9c2d3fc44b59bbc8f7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950797"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185724"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de validation dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -55,7 +55,7 @@ L’élément **ValidationTechnicalProfile** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | OUI | L’identificateur d’un profil technique déjà défini dans la stratégie ou dans la stratégie parente. |
+| ReferenceId | Oui | L’identificateur d’un profil technique déjà défini dans la stratégie ou dans la stratégie parente. |
 |ContinueOnError|Non| Indique si la validation des profils techniques de validation suivants doit se poursuivre si ce profil technique de validation génère une erreur. Valeurs possibles : `true` ou `false` (par défaut, arrête le traitement des profils de validation suivants et renvoie une erreur). |
 |ContinueOnSuccess | Non | Indique si la validation des profils de validation suivants doit se poursuivre si ce profil technique de validation réussit. Valeurs possibles : `true` ou `false`. La valeur par défaut est `true`, ce qui signifie que le traitement des profils de validation suivants continue. |
 
@@ -69,8 +69,8 @@ L’élément **Precondition** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| `Type` | OUI | Le type de vérification ou de requête à exécuter pour la condition préalable. Soit vous spécifiez `ClaimsExist` pour vous assurer que les actions seront effectuées si les revendications spécifiées existent dans l’ensemble de revendications actuel de l’utilisateur, soit vous spécifiez `ClaimEquals` pour que les actions soient exécutées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
-| `ExecuteActionsIf` | OUI | Indique si les actions de la condition préalable doivent être effectuées si le test est true ou false. |
+| `Type` | Oui | Le type de vérification ou de requête à exécuter pour la condition préalable. Soit vous spécifiez `ClaimsExist` pour vous assurer que les actions seront effectuées si les revendications spécifiées existent dans l’ensemble de revendications actuel de l’utilisateur, soit vous spécifiez `ClaimEquals` pour que les actions soient exécutées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
+| `ExecuteActionsIf` | Oui | Indique si les actions de la condition préalable doivent être effectuées si le test est true ou false. |
 
 L’élément **Precondition** contient les éléments suivants :
 
@@ -79,7 +79,7 @@ L’élément **Precondition** contient les éléments suivants :
 | Valeur | 1:n | Les données qui sont utilisées par la vérification. Si le type de cette vérification est `ClaimsExist`, ce champ spécifie un ClaimTypeReferenceId à rechercher. Si le type de la vérification est `ClaimEquals`, ce champ spécifie un ClaimTypeReferenceId à rechercher. Un autre élément de valeur contient la valeur à vérifier.|
 | Action | 1:1 | L’action à entreprendre si la vérification de condition préalable dans une étape d’orchestration a la valeur true. La valeur de l’**Action** est définie sur `SkipThisValidationTechnicalProfile`. Indique que le profil technique de validation associé ne doit pas être exécuté. |
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Les exemples suivants utilisent ces profils techniques de validation :
 

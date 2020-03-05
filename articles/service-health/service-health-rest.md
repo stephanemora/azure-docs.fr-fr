@@ -1,15 +1,14 @@
 ---
 title: Obtenir des événements d’intégrité des ressources Azure à l’aide de l’API REST | Microsoft Docs
 description: Utilisez l’API REST Azure pour obtenir les événements d’intégrité de vos ressources Azure.
-ms.custom: REST
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/06/2017
-ms.openlocfilehash: 353bd65b0466902e450e38677a350a177a1d602c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6964a6c4e85c38d532b12e730a02c4df73be76e5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451390"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77653999"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Obtenir des événements d’intégrité des ressources Azure à l’aide de l’API REST 
 
@@ -36,7 +35,7 @@ Les en-têtes suivants sont requis :
 
 ### <a name="uri-parameters"></a>Paramètres URI
 
-| Name | Description |
+| Nom | Description |
 | :--- | :---------- |
 | subscriptionId | L’ID d’abonnement d’un abonnement Azure. Si vous avez plusieurs abonnements, consultez [Utilisation de plusieurs abonnements](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | api-version | Version de l’API à utiliser pour la requête.<br /><br /> Ce document aborde la version d’API `2015-04-01`, incluse dans l’URL ci-dessus.  |

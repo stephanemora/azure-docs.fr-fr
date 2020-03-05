@@ -1,18 +1,15 @@
 ---
 title: Exemples de démarrage rapide Azure Monitor PowerShell
 description: Utilisez PowerShell pour accéder aux fonctionnalités d’Azure Monitor telles que la mise à l’échelle, les alertes, les webhooks et la recherche dans les journaux d’activité.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 2/14/2018
-ms.openlocfilehash: d1aa4b4e2d72f10ca73616bc7e69b0d02f13a501
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9f039f71954998ef561d1efd1e559318740c86ab
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551837"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659295"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemples de démarrage rapide Azure Monitor PowerShell
 Cet article vous présente des exemples de commandes PowerShell qui vous aideront à accéder rapidement aux fonctions de surveillance Azure Insights.
@@ -152,7 +149,7 @@ Le tableau suivant décrit les paramètres et les valeurs utilisés pour créer 
 | paramètre | value |
 | --- | --- |
 | Nom |simpletestdiskwrite |
-| Emplacement de cette règle d'alerte |East US |
+| Emplacement de cette règle d'alerte |USA Est |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | MetricName de l'alerte créée |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names `Get-MetricDefinitions`. |

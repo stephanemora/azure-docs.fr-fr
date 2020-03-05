@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: daba49e6861eb67fd07c6fcf618b2b2d6cdd8c89
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 424ef37885d685829a11d1864a72b043a562231c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133823"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920550"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Charges de travail Red Hat sur Azure
 Les charges de travail Red Hat sont prises en charge par le biais de diverses offres sur Azure. Les images RHEL (Red Hat Enterprise Linux) sont au cœur des charges de travail RHEL, tout comme l’infrastructure RHUI (Red Hat Update Infrastructure).
@@ -39,7 +39,7 @@ Azure propose également des images Red Hat Gold. Ces images peuvent être utile
 > Remarque sur la double facturation : Une double facturation est encourue quand un utilisateur paye deux fois les abonnements RHEL. Cela se produit généralement lorsqu’un client utilise un gestionnaire d’abonnements pour joindre des droits d’utilisation à une machine virtuelle RHEL PAYG. Par exemple, un client qui utilise un gestionnaire d’abonnements pour joindre des droits d’utilisation pour des packages SAP à une image RHEL PAYG sera indirectement doublement facturé, car il payera deux fois pour RHEL : une fois via les frais Premium PAYG et une fois par le biais de son abonnement SAP. Cela ne se produit pas pour les utilisateurs d’images BYOS.
 
 ### <a name="generation-2-images"></a>Images de 2e génération
-Les machines virtuelles de 2e génération fournissent des fonctionnalités plus récentes par rapport aux machines virtuelles de 1ère génération. Les détails sont présentés dans la [documentation sur la 2e génération](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2). La principale différence par rapport à la perspective d’une image RHEL est que les machines virtuelles de 2e génération utilisent une interface UEFI au lieu d’une interface de microprogramme BIOS, et utilisent une table de partition GUID (GPT) au lieu d’un enregistrement de démarrage principal (MBR) au moment du démarrage. Cela permet, entre autres, des tailles de disque de système d’exploitation supérieures à 2 To. De plus, les [machines virtuelles de la série Mv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series) s’exécutent uniquement sur les images de 2e génération.
+Les machines virtuelles de 2e génération fournissent des fonctionnalités plus récentes par rapport aux machines virtuelles de 1ère génération. Les détails sont présentés dans la [documentation sur la 2e génération](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2). La principale différence par rapport à la perspective d’une image RHEL est que les machines virtuelles de 2e génération utilisent une interface UEFI au lieu d’une interface de microprogramme BIOS, et utilisent une table de partition GUID (GPT) au lieu d’un enregistrement de démarrage principal (MBR) au moment du démarrage. Cela permet, entre autres, des tailles de disque de système d’exploitation supérieures à 2 To. De plus, les [machines virtuelles de la série Mv2](../../mv2-series.md) s’exécutent uniquement sur les images de 2e génération.
 
 Les images RHEL de 2e génération sont disponibles dans la Place de marché. Recherchez « gen2 » dans la référence SKU d’image quand vous listez toutes les images à l’aide de l’interface de ligne de commande Azure, puis accédez à l’onglet « Avancé » dans le processus de déploiement de machine virtuelle pour déployer une machine virtuelle de 2e génération.
 

@@ -3,12 +3,12 @@ title: Sauvegarder et restaurer des machines virtuelles Azure chiffrées
 description: Décrit comment sauvegarder et restaurer des machines virtuelles Azure chiffrées avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 3719f26211677a1b726d3c3dc1d217fb58db1fb2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: a3976cc83f749b1abe00cef3f5bf867ffbc30ab6
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583172"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206688"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Sauvegarder et restaurer une machine virtuelle Azure chiffrée
 
@@ -30,7 +30,7 @@ Sauvegarde Azure peut sauvegarder et restaurer des machines virtuelles Azure à 
 **Non managé** | Oui | Oui
 **Managé**  | Oui | Oui
 
-- Découvrez-en plus sur [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md) et les clés [KEK](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek/).
+- Découvrez-en plus sur [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md) et les clés [KEK](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek).
 - Consultez les [Questions fréquentes (FAQ)](../security/azure-security-disk-encryption-faq.md) sur le chiffrement des disques de machines virtuelles Azure.
 
 ### <a name="limitations"></a>Limites

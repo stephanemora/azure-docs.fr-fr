@@ -1,18 +1,14 @@
 ---
 title: Surveiller les services Node.js avec Azure Application Insights | Microsoft Docs
 description: Analysez les performances et diagnostiquez les problèmes dans les services Node.js avec Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 81f63380c041ae743a2b38e6ba89558b83e7497a
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 320ec62e642155002e42c59d4656f51673249eb1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820729"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670013"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Surveiller vos services et applications Node.js avec Application Insights
 
@@ -24,7 +20,7 @@ Le kit de développement logiciel (SDK) Node.js peut automatiquement analyser le
 
 Vous pouvez utiliser l’API TelemetryClient pour instrumenter et surveiller manuellement des aspects supplémentaires de votre application et de votre système. L’API TelemetryClient est décrite plus en détail plus loin dans cet article.
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 Terminez les tâches suivantes pour configurer la surveillance d’une application ou d’un service.
 
@@ -39,7 +35,7 @@ Avant de commencer, vérifiez que vous disposez d’un abonnement Azure ou [obte
 ### <a name="resource"></a> Configurer une ressource Application Insights
 
 
-1. Connectez-vous au [Portail Azure][portal].
+1. Connectez-vous au [portail Azure][portal].
 2. Sélectionnez **Créer une ressource** > **Outils de développement** > **Application Insights**. La ressource inclut un point de terminaison permettant de recevoir les données de télémétrie, le stockage pour ces données, les rapports et tableaux de bord enregistrés, la configuration des règles et des alertes, etc.
 
 3. Sur la page de création de ressource, sélectionnez **Application Node.js** dans la zone **Application Type**. Le type d’application détermine les tableaux de bord et rapports créés par défaut. (Toutes les ressources Application Insights peuvent collecter des données à partir de n’importe quel langage et n’importe quelle plateforme.)

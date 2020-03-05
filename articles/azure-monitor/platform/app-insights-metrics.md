@@ -3,17 +3,16 @@ title: Métriques Azure Application Insights reposant sur un journal | Microsoft
 description: Cet article énumère les métriques Azure Application Insights contenant des agrégations et des dimensions prises en charge. Les détails sur les métriques reposant sur un journal incluent les instructions de requête Kusto sous-jacentes.
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 847c56faae61483813286c46190764327e287783
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887253"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664913"
 ---
 # <a name="application-insights-log-based-metrics"></a>Métriques reposant sur un journal d’Application Insights
 
@@ -50,7 +49,7 @@ La métrique *Disponibilité* indique le pourcentage des tests web qui n'ont dé
 
 |Unité de mesure|Agrégations prises en charge|Dimensions prises en charge|
 |---|---|---|---|---|---|
-|Pourcentage|Moyenne|Emplacement d'exécution, Nom du test|
+|Pourcentage|Average|Emplacement d'exécution, Nom du test|
 
 ```Kusto
 availabilityResults 
@@ -99,7 +98,7 @@ Les métriques du navigateur sont collectées par le Kit de développement logic
 
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|
 |---|---|---|
-|Millisecondes|Moyenne, Min, Max|Aucun|
+|Millisecondes|Moyenne, Min, Max|None|
 
 ```Kusto
 browserTimings
@@ -115,7 +114,7 @@ browserTimings
 
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|
 |---|---|---|
-|Millisecondes|Moyenne, Min, Max|Aucun|
+|Millisecondes|Moyenne, Min, Max|None|
 
 ```Kusto
 browserTimings
@@ -131,7 +130,7 @@ browserTimings
 
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|
 |---|---|---|
-|Millisecondes|Moyenne, Min, Max|Aucun|
+|Millisecondes|Moyenne, Min, Max|None|
 
 ```Kusto
 browserTimings
@@ -147,7 +146,7 @@ browserTimings
 
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|
 |---|---|---|
-|Millisecondes|Moyenne, Min, Max|Aucun|
+|Millisecondes|Moyenne, Min, Max|None|
 
 ```Kusto
 browserTimings
@@ -163,7 +162,7 @@ browserTimings
 
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|
 |---|---|---|
-|Millisecondes|Moyenne, Min, Max|Aucun|
+|Millisecondes|Moyenne, Min, Max|None|
 
 ```Kusto
 browserTimings
@@ -185,7 +184,7 @@ Cette métrique reflète le nombre d'exceptions levées à partir de votre code 
 
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|Notes|
 |---|---|---|---|
-|Count|Count|Aucun|La version reposant sur un journal utilise l’agrégation **Sum**|
+|Count|Count|None|La version reposant sur un journal utilise l’agrégation **Sum**|
 
 ```Kusto
 exceptions
@@ -200,7 +199,7 @@ Nombre d’appels de dépendance ayant échoué.
 
 |Unité de mesure|Agrégations prises en charge|Dimensions pré-agrégées|Notes|
 |---|---|---|---|
-|Count|Count|Aucun|La version reposant sur un journal utilise l’agrégation **Sum**|
+|Count|Count|None|La version reposant sur un journal utilise l’agrégation **Sum**|
 
 ```Kusto
 dependencies
@@ -253,7 +252,7 @@ exceptions
 | render barchart
 ```
 
-## <a name="performance-counters"></a>Compteurs de performances
+## <a name="performance-counters"></a>Compteurs de performance
 
 Utilisez les métriques de la catégorie **Compteurs de performance** pour accéder aux [compteurs de performance système collectés par Application Insights](../../azure-monitor/app/performance-counters.md).
 

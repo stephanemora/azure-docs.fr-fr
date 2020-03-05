@@ -2,20 +2,20 @@
 title: Demander un jeton d’accès Azure Active Directory B2C | Microsoft Docs
 description: Découvrez comment obtenir un jeton d’accès avec Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d808bca17012d46d1c32658ec0069ca2e2e6a3ac
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 8358d3378ea892ebeef653bcb51243c9f1aa0b8d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962031"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184415"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Demander un jeton d’accès dans Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Cet article présente comment demander un jeton d’accès pour une application 
 > [!NOTE]
 > **Les chaînes d’API web (pour le compte de) ne sont pas prises en charge par Azure AD B2C.** De nombreuses architectures incluent une API web qui doit appeler une autre API web en aval, toutes deux sécurisées par Azure AD B2C. Il s’agit d’un scénario courant pour les clients qui ont un back end d’API web, qui appelle à son tour un autre service. Ce scénario d’API web chaînée peut être pris en charge à l’aide de l’octroi des informations d’identification du porteur OAuth 2.0 JWT, également appelé flux On-Behalf-Of. Toutefois, le flux On-Behalf-Of n’est pas implémenté dans Azure AD B2C pour l’instant.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - [Créez un flux d'utilisateurs](tutorial-create-user-flows.md) pour permettre aux utilisateurs de s'inscrire et de se connecter à votre application.
 - Si ce n’est pas déjà fait, [ajoutez une application d’API web à votre locataire Azure Active Directory B2C](add-web-application.md).

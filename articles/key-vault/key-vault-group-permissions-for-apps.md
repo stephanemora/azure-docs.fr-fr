@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 10445aba9c52c5367a8ea03729462d14e2d51085
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: d5086377b0bb7f3ca2ece643f82a4e45156f1955
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707176"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184857"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fournir une authentification Key Vault avec une stratégie de contrôle d’accès
 
@@ -53,7 +54,7 @@ Chaque entrée de stratégie d’accès au coffre de clés accorde un ensemble d
 
 Pour permettre à une application, à un groupe Azure AD ou à un utilisateur d’accéder à votre coffre de clés, vous devez d’abord obtenir son objectId.
 
-#### <a name="applications"></a>APPLICATIONS
+#### <a name="applications"></a>Applications
 
 L’objectId d’une application correspond à son principal de service associé. Pour plus d’informations sur les principaux de service, consultez [Objets application et principal du service dans Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). 
 
@@ -224,7 +225,7 @@ L’application nécessite également l’affectation d’au moins un rôle IAM 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Sécurité d’Azure Key Vault : Gestion de l’identité et de l’accès](overview-security.md#identity-and-access-management)
+- [Sécurité d’Azure Key Vault : Gestion des identités et des accès](overview-security.md#identity-and-access-management)
 - [Fournir une authentification Key Vault avec une identité managée App Service](managed-identity.md)
 - [Présentation des clés, des secrets et des certificats](about-keys-secrets-and-certificates.md)
 - [Sécuriser votre coffre de clés](key-vault-secure-your-key-vault.md)

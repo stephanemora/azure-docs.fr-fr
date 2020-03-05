@@ -16,12 +16,12 @@ ms.date: 06/25/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be67a6f287e2d6e77070928cbe12542857696011
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5486a8d8bd4c295f49e0ab847daf45d0fcab47ad
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347536"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300534"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Fonctionnalités de service de synchronisation d’Azure AD Connect
 
@@ -63,7 +63,7 @@ Les paramètres suivants sont configurés par Azure AD Connect et ne peuvent pas
 | Synchronisation de hachage de mot de passe |[Implémenter la synchronisation du hachage de mot de passe avec Azure AD Connect Sync](how-to-connect-password-hash-synchronization.md) |
 |Authentification directe|[Connexion de l’utilisateur avec l’authentification directe Azure Active Directory](how-to-connect-pta.md)|
 | UnifiedGroupWriteback |[Préversion : Réécriture de groupe](how-to-connect-preview.md#group-writeback) |
-| UserWriteback |Non pris en charge pour le moment. |
+| UserWriteback |Non pris en charge actuellement. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Résilience d’attribut en double
 
@@ -96,7 +96,7 @@ Historiquement, les mises à jour de l’attribut UserPrincipalName à l’aide 
 
 Pour plus d’informations, voir [Les noms d’utilisateur dans Office 365, Azure ou Intune ne correspondent pas à l’UPN local ou à l’ID de connexion secondaire](https://support.microsoft.com/kb/2523192).
 
-L’activation de cette fonctionnalité permet au moteur de synchronisation de mettre à jour l’attribut userPrincipalName quand il est modifié en local et que vous utilisez la synchronisation de hachage de mot de passe pu l’authentification directe. Si vous utilisez la fédération, cette fonctionnalité n’est pas prise en charge.
+L’activation de cette fonctionnalité permet au moteur de synchronisation de mettre à jour l’attribut userPrincipalName quand il est modifié en local et que vous utilisez la synchronisation de hachage de mot de passe pu l’authentification directe.
 
 Cette fonctionnalité est activée par défaut pour les répertoires Azure AD nouvellement créés. Vous pouvez voir si cette fonctionnalité est activée en exécutant :  
 

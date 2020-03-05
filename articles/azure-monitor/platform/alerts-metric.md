@@ -2,19 +2,18 @@
 title: Créer, afficher et gérer des alertes de métrique avec Azure Monitor
 description: Découvrez comment utiliser le portail Azure ou l’interface CLI pour créer, afficher et gérer des règles d’alerte de métrique.
 author: harelbr
-ms.service: azure-monitor
+ms.author: harelbr
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: ef712c38303de27214ce75c9ca2b8022a5410efc
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 5452f67a9da9a71a72c9387bc3e62d6735929984
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372761"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664709"
 ---
-# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de métrique avec Azure Monitor
+# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor
 
 Dans Azure Monitor, les alertes de métrique vous avertissent quand l’une de vos métriques dépasse un certain seuil. Les alertes de métrique fonctionnent sur toute une gamme de métriques de plateforme multidimensionnelles, de métriques personnalisées, mais aussi de métriques standard et personnalisées d’Application Insights. Dans cet article, nous allons décrire comment créer, afficher et gérer des règles d’alerte de métrique par le biais du portail Azure et d’Azure CLI. Vous pouvez également créer des règles d’alerte de métrique à l’aide de modèles Azure Resource Manager, qui sont décrits dans [un autre article](alerts-metric-create-templates.md).
 

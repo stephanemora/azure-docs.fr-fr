@@ -1,18 +1,17 @@
 ---
 title: Exemples de requêtes de journal Azure Monitor | Microsoft Docs
 description: Exemples de requêtes de journal Azure Monitor utilisant le langage de requête Kusto.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: 8850aef8b5d45f236385551a1455e6fe7b540340
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 9bfadf55e4f68bb7188b27e4ef5bc03e3955f375
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614444"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662046"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemples de requêtes de journal dans Azure Monitor
 Cet article inclut divers exemples de [requêtes](log-query-overview.md) utilisant le [langage de requête Kusto](/azure/kusto/query/) pour récupérer différents types de données de journal à partir d'Azure Monitor. Plusieurs méthodes sont utilisées pour consolider et analyser les données. Vous pouvez utiliser ces exemples pour identifier les stratégies qui vous conviennent.  
@@ -125,7 +124,7 @@ search *
 
 ## <a name="azurediagnostics"></a>AzureDiagnostics
 
-### <a name="count-azure-diagnostics-records-per-category"></a>Compter les enregistrements de diagnostic Azure par catégorie
+### <a name="count-azure-diagnostics-records-per-category"></a>Compter les enregistrements des diagnostics Azure par catégorie
 Cet exemple compte tous les enregistrements des diagnostics Azure pour chaque catégorie unique.
 
 ```Kusto
@@ -144,7 +143,7 @@ AzureDiagnostics
 ```
 
 ### <a name="get-the-latest-record-per-category"></a>Obtenir le dernier enregistrement par catégorie
-Cet exemple obtient le dernier enregistrement de diagnostic Azure pour chaque catégorie unique.
+Cet exemple obtient le dernier enregistrement des diagnostics Azure pour chaque catégorie unique.
 
 ```Kusto
 AzureDiagnostics

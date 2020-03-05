@@ -2,7 +2,7 @@
 title: Optimiser les performances sur les machines virtuelles Azure de la série Lsv2 – Stockage
 description: Découvrez comment optimiser les performances de votre solution sur les machines virtuelles de la série Lsv2.
 services: virtual-machines-windows
-author: laurenhughes
+author: sasha-melamed
 manager: gwallace
 ms.service: virtual-machines-windows
 ms.topic: article
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: a14e38cd93e7d6273282e209db8ce83ec99f16db
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 57b248908a02327f2521be05920259681a26817a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74068159"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920227"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Optimiser les performances sur les machines virtuelles de la série Lsv2
 
@@ -79,7 +79,7 @@ Voici quelques scénarios où les données du client sont effacées par mesure d
 
 Pour en savoir plus sur les options de sauvegarde des données sur le stockage local, consultez [Sauvegarde et récupération d’urgence pour les disques IaaS Azure](backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 * **Comment lancer le déploiement de machines virtuelles de la série Lsv2 ?**  
    Comme n’importe quelle autre machine virtuelle, utilisez le [portail](quick-create-portal.md), [Azure CLI](quick-create-cli.md) ou [PowerShell](quick-create-powershell.md) pour créer une machine virtuelle.

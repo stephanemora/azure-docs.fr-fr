@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 12/11/2019
-ms.openlocfilehash: 883192e1d041014c23445b7a2fa0ece45eb76f10
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/02/2020
+ms.openlocfilehash: f356009197c0446efa2ea2d7f0e90040229df47b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435809"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251068"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Connecter Excel à Apache Hadoop dans Azure HDInsight avec le pilote ODBC Microsoft Hive
 
@@ -23,7 +23,7 @@ La solution de données volumineuses de Microsoft intègre des composants BI (Bu
 
 Il est également possible de connecter les données associées à un cluster HDInsight et d'autres sources de données, y compris d'autres clusters Hadoop (non HDInsight), à partir d'Excel au moyen du complément Microsoft Power Query pour Excel. Pour plus d’informations sur l’installation et l’utilisation de Power Query, consultez [Connexion d’Excel à HDInsight à l’aide de Power Query](../hdinsight-connect-excel-power-query.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 

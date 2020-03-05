@@ -3,17 +3,16 @@ title: Préparation à la modification du format dans les journaux de ressources
 description: Journaux de ressources Azure déplacés pour utiliser des objets blob d’ajout le 1er novembre 2018.
 author: johnkemnetz
 services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 09a5d95ead9f294d54a7491734b11c7247353444
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b90b6f8eabbda229fbed4dcef6a5d863ea721faf
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894504"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659133"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Préparation à la modification du format dans les journaux de plateforme Azure Monitor archivés dans un compte de stockage
 
@@ -35,7 +34,7 @@ Azure Monitor offre une fonctionnalité qui vous permet d’envoyer des journaux
   * [Données des journaux d’activité Azure en cours d’exportation par les profils de journaux](activity-log-collect.md)
 * Cette modification n’affecte pas :
   * Journaux de flux de réseau
-  * Les journaux du service Azure ne sont pas encore disponibles via Azure Monitor (par exemple, les journaux de ressources Azure App Service, les journaux d’analyses de stockage)
+  * Les journaux du service Azure ne sont pas encore disponibles via Azure Monitor (par exemple, les journaux de ressources Azure App Service ou les journaux d’analytique de stockage)
   * Routage des journaux de ressources et d’activité Azure vers d’autres destinations (Event Hubs, Log Analytics)
 
 ### <a name="how-to-see-if-you-are-impacted"></a>Comme savoir si vous êtes affecté
@@ -134,6 +133,6 @@ Les outils personnalisés doivent être mis à jour pour gérer le format actuel
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur [l’archivage des journaux de ressources dans un compte de stockage](./../../azure-monitor/platform/archive-diagnostic-logs.md)
+* En savoir plus sur [l’archivage des journaux de ressources relatifs aux ressources dans un compte de stockage](./../../azure-monitor/platform/archive-diagnostic-logs.md)
 * En savoir plus sur [l’archivage des données de journal d’activité dans un compte de stockage](./../../azure-monitor/platform/archive-activity-log.md)
 

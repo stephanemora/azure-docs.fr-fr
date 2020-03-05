@@ -3,20 +3,20 @@ title: Configurer les critères de complexité des mots de passe
 titleSuffix: Azure AD B2C
 description: Guide pratique pour configurer les exigences de complexité des mots de passe fournis par les consommateurs dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/11/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6e629f3c83d847cf20eccbe7a3fb0d3f444dac62
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: c5ef550af0c7e19531ea19093ea937880f7dcf14
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77430327"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185639"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurer les exigences de complexité pour les mots de passe dans Azure Active Directory B2C
 

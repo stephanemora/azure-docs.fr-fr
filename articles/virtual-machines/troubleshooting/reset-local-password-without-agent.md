@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 6faab5bffaddbbd5d8deb9c3834bf3d8fe3e3445
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: becbf88aeda164f7d916cbc1f1ace89262cc1a3f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058646"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921621"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Réinitialiser un mot de passe Windows local pour la machine virtuelle Azure hors connexion
 Vous pouvez réinitialiser le mot de passe Windows local d’une machine virtuelle dans Azure à l’aide du [portail Azure ou Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) à condition que l’agent invité Azure soit installé. Cette méthode est le principal moyen de réinitialiser un mot de passe sur une machine virtuelle Azure. Si l’agent invité Azure ne répond pas ou ne parvient pas à s’installer après chargement d’une image personnalisée, vous pouvez réinitialiser manuellement un mot de passe Windows. Cet article explique comment réinitialiser un mot de passe de compte local en attachant le disque virtuel du système d’exploitation source à une autre machine virtuelle. Les étapes décrites dans cet article ne s’appliquent pas aux contrôleurs de domaine Windows. 
@@ -101,6 +101,8 @@ Essayez toujours de réinitialiser un mot de passe à l’aide du [portail Azure
       * supprimez gpt.ini (si le fichier gpt.ini existait déjà, et que vous l’avez renommé gpt.ini.bak, renommez à nouveau le fichier .bak « gpt.ini »)
 
 ## <a name="detailed-steps-for-classic-vm"></a>Étapes détaillées pour une machine virtuelle classique
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 > [!NOTE]
 > Les étapes ne s’appliquent pas aux contrôleurs de domaine Windows. Elles fonctionnent uniquement sur un serveur autonome ou un serveur qui est membre d’un domaine.

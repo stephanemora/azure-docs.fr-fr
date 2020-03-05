@@ -3,7 +3,7 @@ title: Création et téléchargement d'un disque dur virtuel Linux CentOS dans�
 description: Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant le système d'exploitation Linux CentOS.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/25/2019
 ms.author: mimckitt
-ms.openlocfilehash: a5a6dd7e451d3204c8ab2bd2eae95db93c2f0837
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: dff90df255d6b7e050fad9a278666f81fade500c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750231"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246137"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Préparation d'une machine virtuelle CentOS pour Azure
 
@@ -26,7 +26,7 @@ Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure conte
 * [Préparation d’une machine virtuelle CentOS 7.0+ pour Azure](#centos-70)
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous avez déjà installé un système d'exploitation CentOS (ou une distribution dérivée similaire) de Linux dans un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](https://technet.microsoft.com/library/hh846766.aspx).
 

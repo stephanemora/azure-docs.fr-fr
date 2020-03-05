@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2e6aeda0e84b11221af110bda738d6d93f258978
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 857b50a04466f43a25cf80d7930cfb4639dc9d65
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894987"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301940"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Création d’une connexion de site à site dans le portail Azure
 
@@ -51,7 +51,7 @@ Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouv
 * **Sous-réseau :** Front-end : 10.1.0.0/24, back-end : 10.1.1.0/24 (facultatif pour cet exercice)
 * **Plage d’adresses du sous-réseau de passerelle :** 10.1.255.0/27
 * **Nom de la passerelle de réseau virtuel :** VNet1GW
-* **Nom de l'adresse IP publique :** VNet1GWIP
+* **Nom de l'adresse IP publique :** VNet1GWpip
 * **Type de VPN :** basé sur la route
 * **Type de connexion :** Site à site (IPsec)
 * **Type de passerelle :** VPN
@@ -61,7 +61,7 @@ Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouv
 
 ## <a name="CreatVNet"></a>1. Créez un réseau virtuel
 
-[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-create-virtual-network-portal-include.md)]
+[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="VNetGateway"></a>2. Créer la passerelle VPN
 
@@ -77,7 +77,7 @@ Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau
 * **Détails de l’instance > Type de passerelle :** VPN
 * **Détails de l’instance > Type de VPN :** basé sur la route
 * **Réseau virtuel > Plage d’adresses de sous-réseau de passerelle :** 10.1.255.0/27
-* **Adresse IP publique > Nom de l’adresse IP publique :** VNet1GWIP
+* **Adresse IP publique > Nom de l’adresse IP publique :** VNet1GWpip
 
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 

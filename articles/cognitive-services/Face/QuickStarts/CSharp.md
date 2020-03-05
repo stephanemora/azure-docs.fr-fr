@@ -10,27 +10,27 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: e4174ba19d518b4b1dfef9921fe39b0c76f6d1e3
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 8d1349c096b6a6c9bffef38a8b8b3c7ea6bbd432
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169278"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301809"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>Démarrage rapide : Détecter des visages dans une image à l’aide de l’API REST Visage et de C#
 
 Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Visage Azure avec C# pour détecter des visages humains dans une image.
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Clé d’abonnement au service Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions fournies dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service Visage et obtenir votre clé.
 - N’importe quelle édition de [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Créer le projet Visual Studio
 
-1. Dans Visual Studio, créez un projet **Application console (.NET Framework)** et nommez-le **FaceDetection**. 
+1. Dans Visual Studio, créez un projet **Application console (.NET Framework)** et nommez-le **FaceDetection**.
 1. Si votre solution comporte d’autres projets, sélectionnez celui-ci comme projet de démarrage unique.
 
 ## <a name="add-face-detection-code"></a>Ajoutez le code de détection de visage
@@ -44,6 +44,7 @@ Ajoutez les instructions `using` suivantes en haut de votre fichier *Program.cs*
 ```csharp
 using System;
 using System.IO;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -63,7 +64,7 @@ namespace DetectFace
 
         // Replace <Subscription Key> with your valid subscription key.
         const string subscriptionKey = "<Subscription Key>";
-        
+
         // replace <myresourcename> with the string found in your endpoint URL
         const string uriBase =
             "https://<myresourcename>.cognitive.microsoft.com/face/v1.0/detect";
@@ -76,6 +77,10 @@ Ajoutez le code suivant à la méthode **Main** de la classe **Program**. Ce cod
 ```csharp
         static void Main(string[] args)
         {
+
+            // Explicitly set TLS 1.2.
+            ServicePointManager.SecurityProtocol = ServicePointManager.SecurityProtocol |
+                SecurityProtocolType.Tls12;
 
             // Get the path and filename to process from the user.
             Console.WriteLine("Detect faces:");

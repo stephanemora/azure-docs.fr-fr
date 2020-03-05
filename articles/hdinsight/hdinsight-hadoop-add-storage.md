@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 6ad583fdb880e36e6ac9c2dfda56bb68378ea598
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 87eb04b7323186175195babf6a602fa12d25176f
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313997"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206705"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Ajouter des comptes de stockage supplémentaires à HDInsight
 
@@ -21,7 +21,7 @@ Découvrez comment utiliser des actions de script pour ajouter des *comptes* Sto
 > [!IMPORTANT]  
 > Les informations contenues dans ce document portent sur l’ajout d’un ou de plusieurs comptes de stockage supplémentaires à un cluster après sa création. Pour plus d’informations sur l’ajout de comptes de stockage lors de la création du cluster, consultez [Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un cluster Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Nom et clé du compte de stockage. Consultez [Gérer les clés d’accès au compte de stockage](../storage/common/storage-account-keys-manage.md).
@@ -46,7 +46,7 @@ Pendant le traitement, le script effectue les opérations suivantes :
 
 ## <a name="add-storage-account"></a>Ajout d’un compte de stockage
 
-Utilisez une [action de script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) pour appliquer les modifications avec les considérations suivantes :
+Utilisez une [action de script](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) pour appliquer les modifications avec les considérations suivantes :
 
 |Propriété | Valeur |
 |---|---|

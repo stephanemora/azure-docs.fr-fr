@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 5750d7cc6219714849aaf3e47b23708b54eefab1
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 4ad57c1c71a51f948bd405a5487a1e27e36bfff7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115713"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920890"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Gestion de notifications de maintenance planifiée à l’aide d’Azure CLI
 
@@ -36,6 +36,7 @@ az vm perform-maintenance -g myResourceGroup -n myVM
 
 ## <a name="classic-deployments"></a>Déploiements Classic
 
+[!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
 
 Si vous avez encore des machines virtuelles qui ont été déployées à l’aide du modèle de déploiement Classic, vous pouvez utiliser l’interface Azure Classic CLI pour interroger ces machines virtuelles et lancer la maintenance.
 

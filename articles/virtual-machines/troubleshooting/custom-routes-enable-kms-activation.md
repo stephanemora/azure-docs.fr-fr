@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: 47ff8870df7c89ee2ab3e48e064e31aa581f65f0
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 90034a56fcf5211059d37270e12391249f7a16b5
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748631"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920159"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>L’activation de Windows échoue dans un scénario de tunneling forcé
 
@@ -84,6 +84,8 @@ Pour ajouter l’itinéraire personnalisé, procédez comme suit :
 4. Essayez d’activer Windows pour voir si le problème est résolu.
 
 ### <a name="for-classic-vms"></a>Pour les machines virtuelles Classic
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 1. Ouvrez Azure PowerShell, puis [connectez-vous à votre abonnement Azure](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 2. Exécutez les commandes suivantes :

@@ -7,12 +7,12 @@ ms.custom:
 - seo-python-october2019
 - seodec18
 - mvc
-ms.openlocfilehash: ab079c7ad5d741d5a569e042ae8939cbeeff203b
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: e5cad7d9141963e5062423545f7e5b94f0575152
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533579"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252185"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Démarrage rapide : Déployer un instance de conteneur dans Azure à l’aide d’Azure CLI
 
@@ -58,8 +58,7 @@ az container show --resource-group myResourceGroup --name mycontainer --query "{
 
 Lorsque vous exécutez la commande, le nom de domaine complet du conteneur et son état d’approvisionnement s’affichent.
 
-```console
-$ az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+```output
 FQDN                               ProvisioningState
 ---------------------------------  -------------------
 aci-demo.eastus.azurecontainer.io  Succeeded
@@ -83,8 +82,7 @@ az container logs --resource-group myResourceGroup --name mycontainer
 
 La sortie affiche les journaux d’activité du conteneur et, normalement, les requêtes HTTP GET générées lorsque vous avez affiché l’application dans votre navigateur.
 
-```console
-$ az container logs --resource-group myResourceGroup --name mycontainer
+```output
 listening on port 80
 ::ffff:10.240.255.55 - - [21/Mar/2019:17:43:53 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
 ::ffff:10.240.255.55 - - [21/Mar/2019:17:44:36 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
@@ -101,10 +99,9 @@ Exécutez d’abord la commande [az container attach][az-container-attach] pour 
 az container attach --resource-group myResourceGroup --name mycontainer
 ```
 
-Une fois joints, actualisez votre navigateur quelques fois pour générer des sorties supplémentaires. Ensuite, détachez votre console avec la commande `Control+C`. Le résultat ressemble à ce qui suit :
+Une fois joints, actualisez votre navigateur quelques fois pour générer des sorties supplémentaires. Ensuite, détachez votre console avec la commande `Control+C`. Vous devez obtenir une sortie similaire à la suivante :
 
-```console
-$ az container attach --resource-group myResourceGroup --name mycontainer
+```output
 Container 'mycontainer' is in state 'Running'...
 (count: 1) (last timestamp: 2019-03-21 17:27:20+00:00) pulling image "mcr.microsoft.com/azuredocs/aci-helloworld"
 (count: 1) (last timestamp: 2019-03-21 17:27:24+00:00) Successfully pulled image "mcr.microsoft.com/azuredocs/aci-helloworld"
@@ -121,7 +118,7 @@ listening on port 80
 ::ffff:10.240.255.56 - - [21/Mar/2019:17:47:12 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Dès que vous avez fini d’utiliser le conteneur, supprimez-le à l’aide de la commande [az container delete][az-container-delete] :
 

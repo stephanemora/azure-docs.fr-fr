@@ -4,18 +4,18 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/26/2019
 ms.author: glenga
-ms.openlocfilehash: 07780c94960c581ce69e4fdd45b346c75ab8b098
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4ace70abe0112e0fe27d177c02bcb697746c92cc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329553"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78261948"
 ---
 ### <a name="set-the-storage-account-connection"></a>Définir la connexion de compte de stockage
 
 Ouvrez le fichier local.settings.json et copiez la valeur d’`AzureWebJobsStorage`, qui est la chaîne de connexion de compte de stockage. Définissez la variable d’environnement `AZURE_STORAGE_CONNECTION_STRING` sur la chaîne de connexion à l’aide de la commande Bash suivante :
 
-```azurecli-interactive
+```bash
 AZURE_STORAGE_CONNECTION_STRING="<STORAGE_CONNECTION_STRING>"
 ```
 

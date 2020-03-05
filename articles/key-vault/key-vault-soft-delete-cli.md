@@ -5,15 +5,16 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: aef4061a8349e6602ac4394cb31bbe76b6cb63c0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 7288e5d8c01122bea7650274cdaf358c7fc24cd0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976294"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197315"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI
 
@@ -34,7 +35,7 @@ Les opérations Key Vault sont gérées séparément par l’intermédiaire d’
 
 | Opération | Description | Autorisation utilisateur |
 |:--|:--|:--|
-|Liste|Énumère les coffres de clé supprimés.|Microsoft.KeyVault/deletedVaults/read|
+|List|Énumère les coffres de clé supprimés.|Microsoft.KeyVault/deletedVaults/read|
 |Recover|Restaure un coffre de clés supprimé.|Microsoft.KeyVault/vaults/write|
 |Purge|Supprime définitivement un coffre de clés supprimé et tout son contenu.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -133,7 +134,7 @@ Quand vous supprimez une clé dans un coffre de clés pour lequel la suppression
 
 Tout comme les coffres de clés, une clé, un secret ou un certificat supprimé(e) reste à l’état supprimé pendant 90 jours, sauf si vous le récupérez ou si vous le videz.
 
-#### <a name="keys"></a>Clés
+#### <a name="keys"></a>Keys
 
 Pour récupérer une clé qui a été supprimée de façon réversible :
 
@@ -150,7 +151,7 @@ Pour supprimer définitivement (opération également appelée vidage) une clé 
 az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-Les actions **recover** et **purge** ont leurs propres autorisations associées dans une stratégie d’accès au coffre de clés. Pour qu’un utilisateur ou un principal de service puisse exécuter une action **recover** ou **purge**, il doit disposer de l’autorisation correspondante pour cette clé ou ce secret. Par défaut, l’action **purge** n’est pas ajoutée à la stratégie d’accès d’un coffre de clés quand le raccourci « all » est utilisé pour accorder toutes les autorisations. Vous devez accorder spécifiquement l’autorisation **purge**. 
+Les actions de **récupération** et de **vidage** ont leurs propres autorisations associées dans une stratégie d’accès au coffre de clés. Pour qu’un utilisateur ou un principal de service puisse exécuter une action **recover** ou **purge**, il doit disposer de l’autorisation correspondante pour cette clé ou ce secret. Par défaut, l’action **purge** n’est pas ajoutée à la stratégie d’accès d’un coffre de clés quand le raccourci « all » est utilisé pour accorder toutes les autorisations. Vous devez accorder spécifiquement l’autorisation **purge**. 
 
 #### <a name="set-a-key-vault-access-policy"></a>Définir une stratégie d’accès au coffre de clés
 

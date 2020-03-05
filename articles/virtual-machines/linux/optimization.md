@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: a042e768ef6693d2ced6d679947a6fe321d259bf
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: a80446317a289f27cdbbff3b2939cfe0db45748f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934719"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918051"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimiser votre machine virtuelle Linux sur Azure
 Il est simple de créer une machine virtuelle Linux à partir de la ligne de commande ou du portail. Ce didacticiel vous explique comment configurer votre machine virtuelle de manière à en optimiser les performances sur la plateforme Microsoft Azure. Dans cette rubrique, une machine virtuelle de serveur Ubuntu est utilisée, mais vous pouvez également créer des machines virtuelles Linux en utilisant vos [propres images en tant que modèles](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Cet article repose sur l’hypothèse que vous disposez déjà d’un abonnement Azure actif ([s’inscrire pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/)) et que vous avez déjà approvisionné une machine virtuelle dans votre abonnement Azure. Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous vous êtes connecté à votre abonnement Azure avec la commande [az login](/cli/azure/reference-index) avant de [créer une machine virtuelle](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Disque de système d’exploitation Azure
@@ -135,5 +135,4 @@ Comme dans toute procédure d’optimisation, n’oubliez pas que vous devez eff
 Voici quelques liens utiles vous permettant d’accéder à des ressources supplémentaires :
 
 * [Guide d’utilisateur de l’agent Linux Azure](../extensions/agent-linux.md)
-* [Optimisation des performances MySQL sur les machines virtuelles Linux Azure](classic/optimize-mysql.md)
 * [Configuration d’un RAID logiciel sur Linux](configure-raid.md)

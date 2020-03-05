@@ -2,20 +2,20 @@
 title: ClaimsTransformations - Azure Active Directory B2C | Microsoft Docs
 description: Définition de l’élément ClaimsTransformations dans le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 66c94f08638895c85836fda37c3ae61f3857ee51
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e71d521dce40f6a8ec81286fcc95dc97bf10078c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836692"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189734"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -51,7 +51,7 @@ L’élément **ClaimsTransformation** contient les éléments suivants :
   </InputClaims>
   <InputParameters>
     ...
-  </InputParameters>                
+  </InputParameters>
   <OutputClaims>
     ...
   </OutputClaims>
@@ -62,7 +62,7 @@ L’élément **ClaimsTransformation** contient les éléments suivants :
 | Élément | Occurrences | Description |
 | ------- | -------- | ----------- |
 | InputClaims | 0:1 | Liste d’éléments **InputClaim** qui spécifient les types de revendications pris comme entrées de la transformation de revendication. Chacun de ces éléments contient une référence à un ClaimType déjà défini dans la section ClaimsSchema de la stratégie. |
-| InputParameters | 0:1 | Liste d’éléments **InputParameter** qui sont fournis comme entrée de la transformation de revendication.  
+| InputParameters | 0:1 | Liste d’éléments **InputParameter** qui sont fournis comme entrée de la transformation de revendication.
 | OutputClaims | 0:1 | Liste d’éléments **OutputClaim** qui spécifient les types de revendications générés après l’appel de la ClaimsTransformation. Chacun de ces éléments contient une référence à un ClaimType déjà défini dans la section ClaimsSchema. |
 
 ### <a name="inputclaims"></a>InputClaims
@@ -106,7 +106,7 @@ L’élément **OutputClaims** contient l’élément suivant :
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | Type de revendication de sortie attendu. |
 
-#### <a name="outputclaim"></a>OutputClaim 
+#### <a name="outputclaim"></a>OutputClaim
 
 L’élément **OutputClaim** contient les attributs suivants :
 
@@ -114,7 +114,7 @@ L’élément **OutputClaim** contient les attributs suivants :
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | Oui | Référence à un ClaimType déjà défini dans la section ClaimsSchema de la stratégie.
 | TransformationClaimType | Oui | Identificateur servant à référencer un type de transformation de revendication. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
- 
+
 Si la revendication d’entrée et la revendication de sortie sont du même type (chaîne ou booléen), vous pouvez utiliser la même revendication d’entrée que la revendication de sortie. Dans ce cas, la transformation de revendication change la revendication d’entrée avec la valeur de sortie.
 
 ## <a name="example"></a>Exemple

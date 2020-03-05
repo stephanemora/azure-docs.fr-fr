@@ -3,12 +3,12 @@ title: 'Tutoriel : Créer un contrôleur d’entrée Application Gateway dans A
 description: Tutoriel montrant comment créer un cluster Kubernetes avec Azure Kubernetes Service et utilisant Application Gateway comme contrôleur d’entrée
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: b16b0a40d14ecde87b2637976299d05d37d706f3
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 14b8f6ba74a06c126da239671cbb2053df19af7d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472262"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251760"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Tutoriel : Créer un contrôleur d’entrée Application Gateway dans Azure Kubernetes Service
 
@@ -765,7 +765,7 @@ Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet
 
 Remplacez l’espace réservé par la valeur appropriée. Toutes les ressources au sein du groupe de ressources spécifié sont supprimées.
 
-```bash
+```azurecli
 az group delete -n <resource-group>
 ```
 

@@ -1,19 +1,15 @@
 ---
 title: Détection intelligente - anomalies de performances | Microsoft Docs
 description: Application Insights réalise une analyse télémétrique intelligente de votre application et vous avertit des éventuels problèmes de performances. Cette fonctionnalité ne nécessite aucune configuration.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: b9a95bb2ee6ab137e974b46e24738ca5194f3bd2
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 3d8de08605d3dd693eb74a84a29c2efa6cad669a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820572"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671730"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Détection intelligente - anomalies de performances
 
@@ -51,7 +47,7 @@ Les notifications incluent des informations de diagnostic. Voici un exemple :
 
 
 
-## <a name="configure-email-notifications"></a>Configurer les notifications par courrier électronique
+## <a name="configure-email-notifications"></a>Configurer des notifications par courrier électronique
 
 Les notifications de détection intelligente sont activées par défaut et envoyées aux personnes disposant d’un accès de [lecteur Monitoring](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) et de [contributeur Monitoring](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) à l’abonnement dans lequel se trouve la ressource Application Insights. Pour le modifier, cliquez sur **Configurer** dans la notification par courrier électronique ou ouvrez Paramètres de détection intelligente dans Application Insights. 
   
@@ -61,7 +57,7 @@ Les notifications de détection intelligente sont activées par défaut et envoy
 
 Les courriers électroniques relatifs aux anomalies de performances de détections intelligentes se limitent à un courrier électronique par jour et par ressource Application Insights. Le courrier électronique n’est envoyé que si au moins un nouveau problème a été détecté ce jour-là. Vous n’obtiendrez pas plusieurs fois le même message. 
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 * *Les équipes Microsoft consultent-elles mes données ?*
   * Non. Le service est entièrement automatique. Vous seul obtenez ces notifications. Vos données sont [privées](../../azure-monitor/app/data-retention-privacy.md).
@@ -177,7 +173,7 @@ Modifiez l’intervalle de temps et les filtres pour explorer la télémétrie.
 ## <a name="next-steps"></a>Étapes suivantes
 Ces outils de diagnostic vous aident à inspecter les données de télémétrie à partir de votre application :
 
-* [Profileur](profiler.md) 
+* [Profiler](profiler.md) 
 * [Débogueur de capture instantanée](../../azure-monitor/app/snapshot-debugger.md)
 * [Analyse](../../azure-monitor/log-query/get-started-portal.md)
 * [Diagnostics intelligents Analytics](../../azure-monitor/app/analytics.md)

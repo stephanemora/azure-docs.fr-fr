@@ -1,18 +1,17 @@
 ---
 title: Connexions prises en charge avec IT Service Management Connector dans Azure Log Analytics | Microsoft Docs
 description: Cet article fournit des informations vous indiquant comment connecter vos produits/services ITSM à IT Service Management Connector (ITSMC) dans Azure Monitor pour surveiller et gérer les éléments de travail ITSM de manière centralisée.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: a4b8e1ca245d90018647577f338ed0833cbaf324
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: c6cad29b6cc392746a2e56323302521302835b2f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990281"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665865"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connecter des produits/services ITSM à IT Service Management Connector
 Cet article fournit des informations vous indiquant comment configurer la connexion entre votre produit/service ITSM au connecteur de gestion des services informatiques (ITSMC) dans Log Analytics pour gérer de manière centralisée vos éléments de travail. Pour plus d’informations sur le connecteur ITSM, consultez [Présentation](../../azure-monitor/platform/itsmc-overview.md).
@@ -32,7 +31,7 @@ Les produits/services ITSM suivants sont pris en charge. Sélectionnez le produi
 
 Les sections suivantes fournissent des détails sur la connexion de votre produit System Center Service Manager au connecteur ITSM dans Azure.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Vérifiez que les prérequis suivants sont remplis :
 
@@ -98,7 +97,7 @@ Exécutez le script en fournissant les informations obligatoires suivantes :
 
 - Détails de l’abonnement Azure
 - Nom de groupe ressources
-- Location
+- Emplacement
 - Détails du serveur Service Manager (nom du serveur, domaine, nom d’utilisateur et mot de passe)
 - Préfixe de nom de site pour votre application Web
 - Espace de noms ServiceBus.
@@ -177,7 +176,7 @@ L’image d’exemple suivante présente les détails d’une connexion réussie
 
 Les sections suivantes fournissent des détails sur la connexion de votre produit ServiceNow au connecteur ITSM dans Azure.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 Vérifiez que les prérequis suivants sont remplis :
 - Connecteur ITSM installé. Plus d’informations : [Ajout de la solution Connecteur de gestion des services informatiques](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Versions prises en charge par ServiceNow : New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
@@ -283,7 +282,7 @@ Une fois l’utilisateur créé, l’état de l’option **Liste de vérificatio
 Les sections suivantes fournissent des détails sur la connexion de votre produit Provance au connecteur ITSM dans Azure.
 
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Vérifiez que les prérequis suivants sont remplis :
 
@@ -336,7 +335,7 @@ En savoir plus : [Créer des éléments de travail ITSM à partir d’alertes Az
 
 Les sections suivantes fournissent des détails sur la connexion de votre produit Cherwell au connecteur ITSM dans Azure.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Vérifiez que les prérequis suivants sont remplis :
 

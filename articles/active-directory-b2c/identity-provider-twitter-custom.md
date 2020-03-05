@@ -3,20 +3,20 @@ title: Configurer la connexion avec un compte Twitter en utilisant des stratégi
 titleSuffix: Azure AD B2C
 description: Configurez la connexion avec un compte Twitter à l’aide de stratégies personnalisées dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bae7a235ee42ca02dc72fcbc8d9a694321571ac4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 85af3457f83f06c107f8b4aa9bd88a9f915c776f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76851268"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187931"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Twitter à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76851268"
 
 Cet article explique comment activer la connexion d’utilisateurs d’un compte Twitter à l’aide de [stratégies personnalisées](custom-policy-overview.md) dans Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md).
 - Si vous ne disposez pas d’un compte Twitter, créez-le sur la [page d’inscription Twitter](https://twitter.com/signup).

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 7198e68530a51e6c2002b3beb08f14615a5c70fb
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5f75ae1104297c461584e061f5a94aecd987caad
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012322"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246785"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Créer une passerelle d’application avec des règles d’acheminement par chemin d’accès URL à l’aide d’Azure CLI
 
@@ -67,7 +67,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway-with-url-map"></a>Créer la passerelle d’application avec une carte d’URL
 
-Vous pouvez utiliser la commande [az network application-gateway create](/cli/azure/network/application-gateway) pour créer la passerelle d’application nommée *myAppGateway*. Quand vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, notamment la capacité, la référence SKU et les paramètres HTTP. La passerelle d’application est affectée à *myAGSubnet* et à *myAGPublicIPAddress*, que vous avez créés. 
+Vous pouvez utiliser la commande [az network application-gateway create](/cli/azure/network/application-gateway) pour créer la passerelle d’application nommée *myAppGateway*. Quand vous créez une passerelle d’application avec Azure CLI, vous spécifiez des informations de configuration, telles que la capacité, la référence SKU et les paramètres HTTP. La passerelle d’application est affectée à *myAGSubnet* et à *myAGPublicIPAddress*, que vous avez créés. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -91,7 +91,7 @@ az network application-gateway create \
 - *appGatewayBackendHttpSettings* : spécifie que le port 80 et le protocole HTTP sont utilisés pour la communication.
 - *appGatewayHttpListener* : écouteur par défaut associé à *appGatewayBackendPool*.
 - *appGatewayFrontendIP* - assigne *myAGPublicIPAddress* à *appGatewayHttpListener*.
-- *rule1* : règle d’acheminement par défaut associée à *appGatewayHttpListener*.
+- *rule1* : règle de routage par défaut associée à *appGatewayHttpListener*.
 
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>Ajouter le port et les pools principaux image et vidéo
@@ -219,7 +219,7 @@ done
 
 Pour obtenir l’adresse IP publique de la passerelle d’application, vous pouvez utiliser la commande [az network public-ip show](/cli/azure/network/public-ip). Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Par exemple, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm` ou `http://40.121.222.19:8080/video/test.htm`.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -239,11 +239,11 @@ Modifiez l’URL `http://<ip-address>:8080/video/test.html` à la fin de l’URL
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Configurer le réseau
 > * Créer une passerelle d’application avec une carte d’URL
 > * Créer des groupes de machines virtuelles identiques avec les pools principaux
 
-Pour plus d’informations sur les passerelles d’application et leurs ressources associées, consultez les articles de procédures.
+Pour plus d’informations sur les passerelles d’application et leurs ressources associées, consultez les articles de guide pratique.

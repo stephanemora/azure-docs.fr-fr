@@ -1,18 +1,17 @@
 ---
 title: Collecter et analyser les journaux des événements Windows dans Azure Monitor | Microsoft Docs
 description: Décrit comment configurer la collecte des journaux d’événements Windows et par Azure Monitor et les détails des enregistrements créés.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: dd8f1e0e79f85c5d91966bcba13052f297422e67
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: aa34196233ce4037ef6fa49b782b9aa958f7632d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932407"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670506"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Sources de données de journal d’événements Windows dans Azure Monitor
 Les journaux d’événements Windows sont les [sources de données](agent-data-sources.md) les plus communément utilisées pour collecter des données à l’aide d’agents Windows puisque de nombreuses applications écrivent dans le journal d’événements Windows.  Vous pouvez collecter des événements à partir de journaux d’activité standard tels que Système et Application, ou spécifier des journaux d’activité personnalisés créés par les applications que vous souhaitez surveiller.
@@ -31,7 +30,7 @@ Lorsque vous tapez le nom d’un journal d’événements, Azure Monitor suggèr
 > [!NOTE]
 > Les événements critiques du journal d’événements Windows auront un niveau de gravité « Erreur » dans les journaux d’Azure Monitor.
 
-## <a name="data-collection"></a>Collecte des données
+## <a name="data-collection"></a>Collecte de données
 Azure Monitor collecte chaque événement correspondant à un niveau de gravité sélectionné à partir d’un journal d’événements surveillé à mesure que l’événement est créé.  L’agent enregistre sa position dans chaque journal des événements à partir duquel il collecte.  Si l’agent est mis hors connexion pendant un moment, il collecte les événements à partir de là où il s’était arrêté, même si ces événements ont été créés lorsque l’agent était hors connexion.  Il est possible que ces événements ne soient pas collectés si des événements non collectés d’un journal sont écrasés pendant que l’agent est hors connexion.
 
 >[!NOTE]
@@ -53,10 +52,10 @@ Les enregistrements d'événements Windows sont de type **Événement** et poss�
 | ParameterXml |Valeurs des paramètres d'événement au format XML. |
 | ManagementGroupName |Nom du groupe d’administration pour les agents System Center Operations Manager.  Pour les autres agents, cette valeur est `AOI-<workspace ID>`. |
 | RenderedDescription |Description de l'événement avec les valeurs de paramètres |
-| Source |Source de l’événement. |
+| Source |Source de l'événement. |
 | SourceSystem |Type d’agent auprès duquel l’événement a été collecté. <br> Ops Manager – Agent Windows, connexion directe ou géré par Operations Manager <br> Linux – Tous les agents Linux  <br> AzureStorage – Diagnostics Azure |
 | TimeGenerated |Date et heure de création de l’événement dans Windows. |
-| Nom d’utilisateur |Nom d'utilisateur du compte qui a consigné l'événement. |
+| UserName |Nom d'utilisateur du compte qui a consigné l'événement. |
 
 ## <a name="log-queries-with-windows-events"></a>Requêtes de journaux avec des événements Windows
 Le tableau suivant fournit plusieurs exemples de requêtes qui extraient des enregistrements d’événements Windows.

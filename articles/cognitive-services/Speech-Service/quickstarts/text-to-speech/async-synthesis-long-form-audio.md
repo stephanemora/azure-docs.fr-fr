@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: eef9a99e4c94fa45e21abfc9d19fcef1230ffe76
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: afa9437a00c6f30688c7942feea94f7db7ed490a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75944691"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919343"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Démarrage rapide : Synthèse asynchrone pour l’audio long dans Python (préversion)
 
@@ -24,13 +24,13 @@ Dans ce guide de démarrage rapide, vous utilisez l’API Audio long pour conver
 > [!NOTE]
 > La synthèse asynchrone de l’audio de long peut uniquement être utilisée avec des [voix neuronales personnalisées](../../how-to-custom-voice.md#custom-neural-voices).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Ce démarrage rapide nécessite :
 
 * Python 2.7.x ou 3.x.
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou l’éditeur de texte de votre choix.
-* Un abonnement Azure et une clé d’abonnement au service Speech. [Créez un compte Azure](../../get-started.md#try-the-speech-service-using-a-new-azure-account) et [créez une ressource Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) pour obtenir la clé. Lors de la création de la ressource Speech, vérifiez que votre niveau tarifaire est défini sur **S0** et que l’emplacement est défini sur une [région prise en charge](../../regions.md#standard-and-neural-voices).
+* Un abonnement Azure et une clé d’abonnement au service Speech. [Créez un compte Azure](../../get-started.md#new-resource) et [créez une ressource Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) pour obtenir la clé. Lors de la création de la ressource Speech, vérifiez que votre niveau tarifaire est défini sur **S0** et que l’emplacement est défini sur une [région prise en charge](../../regions.md#standard-and-neural-voices).
 
 ## <a name="create-a-project-and-import-required-modules"></a>Créez un projet et importez les modules requis
 

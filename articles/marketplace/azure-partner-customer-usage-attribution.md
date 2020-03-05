@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 9/23/2019
 ms.author: pabutler
-ms.openlocfilehash: c84f5538d2f553a713b52aa795a10acddac9aff8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c745a37805862b77e7893788d9d089c8447ae465
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819882"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302863"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribution de l’utilisation de client partenaire Azure
 
@@ -87,7 +87,7 @@ Cette ressource doit être ajoutée uniquement dans le fichier **mainTemplate.js
 
 ## <a name="use-the-resource-manager-apis"></a>Utiliser les API Resource Manager
 
-Dans certains cas, les partenaires préfèrent effectuer directement des appels d’API REST Resource Manager afin de déployer des services Azure. [Azure prend en charge plusieurs kits SDK](https://docs.microsoft.com/azure/#pivot=sdkstools) pour permettre ces appels. Vous pouvez utiliser l’un des kits SDK ou appeler les API REST directement pour déployer des ressources.
+Dans certains cas, les partenaires préfèrent effectuer directement des appels d’API REST Resource Manager afin de déployer des services Azure. [Azure prend en charge plusieurs kits SDK](https://docs.microsoft.com/azure/?pivot=sdkstools) pour permettre ces appels. Vous pouvez utiliser l’un des kits SDK ou appeler les API REST directement pour déployer des ressources.
 
 Si vous utilisez un modèle Resource Manager, vous devez baliser votre solution en vous conformant aux instructions précédentes. Si vous n’utilisez pas un modèle Resource Manager et n’effectuez pas d’appels directs d’API, vous pouvez toujours baliser votre déploiement pour associer l’utilisation des ressources Azure.
 
@@ -100,7 +100,7 @@ Pour autoriser l’attribution de l’utilisation de client, lorsque vous concev
 > [!Note]
 > Le format de la chaîne est important. Si le préfixe **pid-** n’est pas inclus, il est impossible d’interroger les données. D’autres kits SDK procèdent au suivi différemment. Pour implémenter cette méthode, passez en revue la prise en charge et le suivi de votre kit SDK Azure préféré.
 
-#### <a name="example-the-python-sdk"></a>Exemple : SDK Python
+#### <a name="example-the-python-sdk"></a>Exemple : SDK Python
 
 Pour Python, utilisez l’attribut **config**. Vous pouvez uniquement ajouter l’attribut à un UserAgent. Voici un exemple :
 
@@ -304,7 +304,7 @@ Consultez les instructions pas à pas présentes sur les captures d’écran sur
 
 Vous serez contacté par un consultant technique partenaire Microsoft afin d’organiser un appel destiné à évaluer l’étendue de vos besoins.
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 **Quel avantage l’ajout du GUID apporte-t-il au modèle ?**
 

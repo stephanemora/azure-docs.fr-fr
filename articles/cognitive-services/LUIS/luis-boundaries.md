@@ -7,29 +7,29 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/07/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 0654916b344cf47cf9942b883d62d392c0552979
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d584b00caef628eb9dfd085b1fdce2bb7b353988
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818930"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273520"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites pour vos clés et modèle LUIS
-LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](#model-boundaries), qui contrôle les intentions, les entités et les fonctionnalités dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. Le troisième domaine de limites est la [combinaison clavier](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS. 
+LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](#model-boundaries), qui contrôle les intentions, les entités et les fonctionnalités dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. Le troisième domaine de limites est la [combinaison clavier](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS.
 
 
 ## <a name="model-boundaries"></a>Limites du modèle
 
-Si votre application dépasse les limites du modèle LUIS, envisagez d’utiliser une application de [distribution LUIS](luis-concept-enterprise.md#dispatch-tool-and-model) ou un [conteneur LUIS](luis-container-howto.md). 
+Si votre application dépasse les limites du modèle LUIS, envisagez d’utiliser une application de [distribution LUIS](luis-concept-enterprise.md#dispatch-tool-and-model) ou un [conteneur LUIS](luis-container-howto.md).
 
 |Domaine|Limite|
 |--|:--|
 | [Nom de l’application][luis-get-started-create-app] | \* Nombre maximum de caractère par défaut |
-| APPLICATIONS| 500 applications par ressource de création Azure |
+| Applications| 500 applications par ressource de création Azure |
 | [Test par lot][batch-testing]| jeux de 10 données, 1 000 énoncés par jeu de données|
 | Liste explicite | 50 par application|
 | Entités externes | sans limite |
@@ -49,7 +49,7 @@ Si votre application dépasse les limites du modèle LUIS, envisagez d’utilise
 | [Versions](luis-concept-version.md)| 100 versions par application |
 | [Nom de version][luis-how-to-manage-versions] | 10 caractères restreints à l’alphanumérique et point (.) |
 
-\* 50 caractères par défaut maximum. 
+\* 50 caractères par défaut maximum.
 
 <a name="intent-and-entity-naming"></a>
 
@@ -66,7 +66,7 @@ Les éléments suivants doivent être uniques au sein d’une application LUIS :
 
 Les éléments suivants doivent être uniques au sein de l’étendue appliquée :
 
-* liste d’expressions 
+* liste d’expressions
 
 ## <a name="object-naming"></a>Attribution de noms aux objets
 
@@ -85,9 +85,9 @@ Language Understanding possède des clés séparées, un type pour la création 
 
 ## <a name="resource-key-limits"></a>Limités de clés de ressources
 
-Les clés de ressources ont différentes limites pour la création et le point de terminaison. La clé de point de terminaison de requête de prédiction LUIS n’est valide que pour les requêtes de point de terminaison. 
+Les clés de ressources ont différentes limites pour la création et le point de terminaison. La clé de point de terminaison de requête de prédiction LUIS n’est valide que pour les requêtes de point de terminaison.
 
-* 500 applications par ressource de création Azure 
+* 500 applications par ressource de création Azure
 
 |Clé|Création|Point de terminaison|Objectif|
 |--|--|--|--|
@@ -102,7 +102,7 @@ Les clés de ressources ont différentes limites pour la création et le point d
 
 ## <a name="keyboard-controls"></a>Commandes du clavier
 
-|Entrée de clavier | Description | 
+|Entrée de clavier | Description |
 |--|--|
 |Contrôle + E|bascule entre les jetons et les entités dans la liste d’énoncés|
 

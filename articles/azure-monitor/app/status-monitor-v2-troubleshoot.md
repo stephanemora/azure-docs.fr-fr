@@ -1,18 +1,16 @@
 ---
 title: Problèmes connus et résolution des problèmes d’Azure Application Insights Agent | Microsoft Docs
 description: Problèmes connus liés à Application Insights Agent et exemples de résolution. Surveillez les performances de site web sans avoir à redéployer le site web. Fonctionne avec les applications web ASP.NET hébergées en local, dans des machines virtuelles ou sur Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 30172bf65be52ba1ddd2b9127c3e2b5a284d48dc
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 217629ba5c386557455cc2d2b8bd47f85fa8f84e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899592"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671152"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Résolution des problèmes d’Application Insights Agent (anciennement appelé Status Monitor v2)
 
@@ -83,7 +81,7 @@ Ce problème est suivi [ici](https://github.com/microsoft/ApplicationInsights-Ho
 
     
     
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
     
 ### <a name="troubleshooting-powershell"></a>Résolution des problèmes liés à PowerShell
 
@@ -124,7 +122,7 @@ Consultez la [documentation de référence de l’API](status-monitor-v2-api-get
 ### <a name="troubleshooting-running-processes"></a>Résolution des problèmes liés aux processus en cours d’exécution
 
 Vous pouvez inspecter les processus sur l’ordinateur instrumenté pour déterminer si toutes les DLL sont chargées.
-Si la surveillance fonctionne, au moins 12 DLL doivent être chargées.
+Si la surveillance fonctionne, au moins 12 DLL doivent être chargées.
 
 Utilisez la commande `Get-ApplicationInsightsMonitoringStatus -InspectProcess` pour vérifier les DLL.
 
@@ -133,7 +131,7 @@ Consultez la [documentation de référence de l’API](status-monitor-v2-api-get
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>Collecter les journaux ETW à l’aide de PerfView
 
-#### <a name="setup"></a>Paramétrage
+#### <a name="setup"></a>Programme d’installation
 
 1. Télécharger PerfView.exe et PerfView64.exe depuis [GitHub](https://github.com/Microsoft/perfview/releases).
 2. Lancez PerfView64.exe.

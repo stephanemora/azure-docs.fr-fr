@@ -1,18 +1,15 @@
 ---
 title: Exemples pour le démarrage rapide de l’interface CLI Azure Monitor
 description: Exemples de commandes de l’interface de ligne de commande pour les fonctionnalités d’Azure Monitor. Azure Monitor est un service Microsoft Azure qui vous permet d’envoyer des notifications d’alerte, ou d’appeler des URL web en fonction des valeurs des données de télémétrie configurées ainsi que de mettre à l’échelle automatiquement des services cloud, des machines virtuelles et des applications web.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 05/16/2018
-ms.openlocfilehash: 0def528e0c432ecbc706622f0b8c29c2d610c663
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 69687cee8b8a907b82f2c848242ac64d54dedb87
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893533"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663502"
 ---
 # <a name="azure-monitor-cli-quick-start-samples"></a>Exemples pour le démarrage rapide de l’interface CLI Azure Monitor
 Cet article vous montre des exemples de commandes d’interface de ligne de commande (CLI) qui vous permettent d’accéder aux fonctionnalités de surveillance d’Azure Monitor. Azure Monitor permet une mise à l'échelle automatique des services cloud, des machines virtuelles et des applications web, et d’envoyer des notifications d'alerte ou d’appeler des URL web basées sur des valeurs de données de télémétrie configurées.
@@ -184,7 +181,7 @@ az monitor diagnostic-settings delete --name <diagnostic name> \
     --resource <target resource ID>
 ```
 
-## <a name="autoscale"></a>Autoscale
+## <a name="autoscale"></a>Mise à l’échelle automatique
 
 Utilisez les informations figurant dans cette section pour utiliser les paramètres de mise à l’échelle automatique. Vous devez modifier ces exemples.
 

@@ -1,14 +1,14 @@
 ---
 title: Envoyer des alertes sur l’intégrité de service avec ServiceNow
 description: Obtenir des notifications personnalisées sur les événements d’intégrité du service sur votre instance ServiceNow.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: f332b1e0e188797da172b4ae63f6e5ef1a97e59c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 3daae05aabff571010d043cf5602847e95ea29f0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551605"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654101"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Envoyer des alertes Azure Service Health avec ServiceNow à l’aide de webhooks
 

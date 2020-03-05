@@ -1,18 +1,14 @@
 ---
 title: Exploration des journaux d’activité .NET dans Application Insights
 description: Effectuer une recherche dans les journaux d’activité générés par Trace, NLog ou Log4Net.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/08/2019
-ms.openlocfilehash: 33dc415e06b7f49f75697abb05248750444fea7c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 273d5a2f4e1155541e159332312bdaa68aa175d7
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432641"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665984"
 ---
 # <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Découvrir les journaux des traces .NET/.NET Core et Python dans Application Insights
 

@@ -4,18 +4,17 @@ description: Créer des rapports complexes en toute simplicité grâce à des cl
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3b7affb9c7d7be790d4279c1db8174a5dd3b2c2a
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c5fb585d0eb6aeb7866c2ab04b324ee31fe903ca
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872772"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658047"
 ---
 # <a name="workbook-text-parameters"></a>Paramètres texte de classeur
 
@@ -30,7 +29,7 @@ Les zones de texte sont couramment utilisées en tant que variables internes par
 4. Dans le volet Nouveau paramètre qui apparaît, entrez :
     1. Nom du paramètre : `SlowRequestThreshold`
     2. Type de paramètre : `Text`
-    3. Obligatoire : `checked`
+    3. Obligatoire : `checked`
     4. Obtenir la valeur par défaut de la requête : `unchecked`
 5. Choisissez « Enregistrer » dans la barre d’outils pour créer le paramètre.
 
@@ -68,7 +67,7 @@ Voici à quoi ressemble le classeur en mode lecture.
 4. Dans le volet Nouveau paramètre qui apparaît, entrez :
     1. Nom du paramètre : `SlowRequestThreshold`
     2. Type de paramètre : `Text`
-    3. Obligatoire : `checked`
+    3. Obligatoire : `checked`
     4. Obtenir la valeur par défaut de la requête : `checked`
 5. Dans la zone KQL, ajoutez l’extrait de code suivant :
     ```kusto

@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: e5625ad7c9997c172aef6ead41b7cfa9ede652dd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7ba6ea8606fc354527ff4114bc45a0904941ba93
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438636"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918935"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk : Forum Aux Questions (FAQ)
 
@@ -113,7 +113,7 @@ Une fois la copie et la validation des données terminées, effectuez les étape
 R.  La solution de disques Data Box peut inclure jusqu'à 5 disques avec une capacité utilisable maximale de 35 To. Les disques eux-mêmes font 8 To (7 To utilisables).
 
 ### <a name="q-what-are-the-maximum-block-blob-and-page-blob-sizes-supported-by-data-box-disks"></a>Q. Quelle est la taille maximale des objets blob de blocs et des objets blob de pages prise en charge par chaque disque Data Box ? 
-R.  Les tailles maximales dépendent des limites du Stockage Azure. La taille maximale pour un objet blob de blocs est d’environ 4,768 Tio et la taille maximale pour un objet blob de page est de 8 Tio. Pour plus d’informations, consultez [Objectifs de performance et de scalabilité pour le Stockage Blob](../storage/blobs/scalability-targets.md).
+R.  Les tailles maximales dépendent des limites du Stockage Azure. La taille maximale pour un objet blob de blocs est d’environ 4,768 Tio et la taille maximale pour un objet blob de page est de 8 Tio. Pour plus d’informations, consultez [Objectifs de performance et de scalabilité pour le stockage d’objets blob](../storage/blobs/scalability-targets.md).
 
 ### <a name="q-what-is-the-data-transfer-speed-for-data-box-disks"></a>Q. Quelle est la vitesse de transfert des données des disques Data Box ?
 R. Lors de tests utilisant des disques connectés via USB 3.0, les performances des disques ont atteint 430 Mo/s. Les chiffres réels varient en fonction de la taille de fichier utilisée. Pour les fichiers plus petits, vous pouvez constater des performances moins élevées.

@@ -1,18 +1,17 @@
 ---
 title: Script automatisé permettant de créer l’application web Service Manager pour se connecter au connecteur ITSM dans Azure | Microsoft Docs
 description: Créez une application web Service Manager à l’aide d’un script automatisé pour vous connecter au connecteur de gestion des services informatiques (ITSM) dans Azure, et pour surveiller et gérer les éléments de travail ITSM de manière centralisée.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: a97ea4d505d17d1d5fb2f2035fb23f3fce94aebe
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f224e58905e2989caf16259e383726595c0206d5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990927"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672189"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Créer l’application web Service Manager à l’aide du script automatisé
 
@@ -22,7 +21,7 @@ Exécutez le script en fournissant les informations obligatoires suivantes :
 
 - Détails de l’abonnement Azure
 - Nom de groupe ressources
-- Location
+- Emplacement
 - Détails du serveur Service Manager (nom du serveur, domaine, nom d’utilisateur et mot de passe)
 - Préfixe de nom de site pour votre application Web
 - Espace de noms ServiceBus.
@@ -33,7 +32,7 @@ Enregistrez ces valeurs. Vous en aurez besoin lorsque vous créerez une connexio
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
  Windows Management Framework 5.0 ou version ultérieure.
 Par défaut, Windows 10 a la version 5.1. Vous pouvez télécharger l’infrastructure [ici](https://www.microsoft.com/download/details.aspx?id=50395) :

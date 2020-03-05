@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: f4e255309d32026b7f2bb4de67fce7ec37c753f6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 8dead08017f15a7429655b4bf17b6e8c8e481114
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529573"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251024"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Installer et utiliser l’extension Azure IoT pour Azure CLI
 
@@ -40,11 +40,11 @@ Suivez les [instructions d’installation](https://docs.microsoft.com/cli/azure/
 
 ### <a name="step-2---install-iot-extension"></a>Étape 2 - Installer l’extension IoT
 
-Le [Lisez-moi de l’extension IoT](https://github.com/Azure/azure-iot-cli-extension) décrit différentes manières d’installer l’extension. Le plus simple consiste à exécuter `az extension add --name azure-cli-iot-ext`. Après l’installation, vous pouvez utiliser `az extension list` pour valider les extensions actuellement installées ou `az extension show --name azure-cli-iot-ext` pour afficher les détails concernant l’extension IoT. Pour supprimer l’extension, vous pouvez utiliser `az extension remove --name azure-cli-iot-ext`.
+Le [Lisez-moi de l’extension IoT](https://github.com/Azure/azure-iot-cli-extension) décrit différentes manières d’installer l’extension. Le plus simple consiste à exécuter `az extension add --name azure-iot`. Après l’installation, vous pouvez utiliser `az extension list` pour valider les extensions actuellement installées ou `az extension show --name azure-iot` pour afficher les détails concernant l’extension IoT. Pour supprimer l’extension, vous pouvez utiliser `az extension remove --name azure-iot`.
 
 ## <a name="use-azure-iot-extension-for-the-azure-cli"></a>Utiliser l’extension Azure IoT pour Azure CLI
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 Pour vous connecter à votre abonnement Azure, exécutez la commande suivante :
 

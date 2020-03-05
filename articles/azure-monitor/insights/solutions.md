@@ -1,18 +1,17 @@
 ---
 title: Solutions de monitoring dans Azure Monitor | Microsoft Docs
 description: Les solutions de monitoring d’Azure Monitor représentent une collection de règles logiques, de visualisation et d'acquisition de données qui fournissent des métriques reposant sur un domaine problématique en particulier.  Cet article donne des informations sur l’installation et l’utilisation des solutions de monitoring.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 7ea7051b24deeddea25b1db771b73a226f650067
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a04ca3768ade6058c59393591c252bc4347a3663
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401146"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662992"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Solutions de monitoring dans Azure Monitor
 Les solutions de monitoring exploitent les services Azure pour offrir des insights supplémentaires sur le fonctionnement d’une application ou d’un service en particulier. Cet article offre une vue d’ensemble des solutions de monitoring Azure et des informations sur leur utilisation et leur installation.

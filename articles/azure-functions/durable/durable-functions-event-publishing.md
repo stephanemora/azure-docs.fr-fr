@@ -3,12 +3,12 @@ title: Publication de Fonctions durables sur Azure Event Grid (version prélimin
 description: Découvrez comment configurer la publication automatique de l’extension Fonctions durables sur Azure Event Grid.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 5ee60dadc90af5a9b941ba890bddb9b96de3f35d
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 52ffcd4eb81936ffcfa61580288c60bd59ffb744
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562160"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249759"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publication de Fonctions durables sur Azure Event Grid (version préliminaire)
 
@@ -36,7 +36,7 @@ Créez une rubrique Event Grid afin d’envoyer des événements à partir de l�
 
 Créez un groupe de ressources avec la commande `az group create`. Azure Event Grid ne prend pas en charge toutes les régions. Pour plus d’informations sur les régions prises en charge, consultez [Vue d’ensemble d’Azure Event Grid](../../event-grid/overview.md).
 
-```bash
+```azurecli
 az group create --name eventResourceGroup --location westus2
 ```
 
@@ -44,7 +44,7 @@ az group create --name eventResourceGroup --location westus2
 
 Une rubrique Event Grid fournit un point de terminaison défini par l’utilisateur vers lequel vous envoyez vos événements. Remplacez `<topic_name>` par un nom unique pour votre rubrique. Le nom de la rubrique doit être unique, car il devient une entrée DNS.
 
-```bash
+```azurecli
 az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
 ```
 
@@ -52,13 +52,13 @@ az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
 
 Obtenez le point de terminaison de la rubrique. Remplacez `<topic_name>` par le nom de votre choix.
 
-```bash
+```azurecli
 az eventgrid topic show --name <topic_name> -g eventResourceGroup --query "endpoint" --output tsv
 ```
 
 Obtenez la clé de la rubrique. Remplacez `<topic_name>` par le nom de votre choix.
 
-```bash
+```azurecli
 az eventgrid topic key list --name <topic_name> -g eventResourceGroup --query "key1" --output tsv
 ```
 

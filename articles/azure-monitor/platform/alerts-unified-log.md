@@ -2,18 +2,16 @@
 title: Alertes de journal dans Azure Monitor
 description: Déclenchez des e-mails, des notifications, des URL de sites web d’appel (webhooks) ou une automatisation lorsque les conditions de requête analytique que vous spécifiez sont remplies pour Alertes Azure.
 author: yanivlavi
-services: monitoring
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: b8cae9f7c43098b713d0d5d8f74e46cb0386600c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a6abf4665c27771497037da35f85bb540e6e904e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396492"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665219"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertes de journal dans Azure Monitor
 

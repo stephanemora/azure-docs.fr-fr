@@ -3,20 +3,20 @@ title: Sécuriser un service RESTful en utilisant une authentification HTTP de b
 titleSuffix: Azure AD B2C
 description: Sécurisez vos échanges de revendications d’API REST personnalisés dans votre instance Azure AD B2C à l’aide de l’authentification HTTP de base.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 986ad1845fa2699bb3462dceb3865300a035cb71
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 505d92e33606dac327778cae179df44efbfdf853
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850952"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183854"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Sécuriser vos services RESTful à l’aide de l’authentification de base HTTP
 
@@ -28,7 +28,7 @@ Dans cet article, vous ajoutez l’authentification HTTP de base à votre servic
 
 Pour plus d’informations, consultez [Authentification de base dans l’API web ASP.NET](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Effectuez les étapes de l’article [Procédure pas à pas : intégration des échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur](rest-api-claims-exchange-dotnet.md).
 

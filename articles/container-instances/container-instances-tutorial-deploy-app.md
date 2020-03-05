@@ -4,12 +4,12 @@ description: Tutoriel Azure Container Instances (partie 3 sur 3) - Déployer une
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d3cbf16feea299e320cf7e24092d00e93cb7cf5b
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 757b41bd69d69deb901e3b5b9a633dce3b9e133a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533363"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249971"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutoriel : Déployer une application conteneur sur Azure Container Instances
 
@@ -66,13 +66,12 @@ Répétez la commande [az container show][az-container-show] jusqu’à ce que l
 
 Une fois le déploiement réussi, affichez le nom de domaine complet du conteneur avec la commande [az container show][az-container-show] :
 
-```bash
+```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
 Par exemple :
-```console
-$ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
+```output
 "aci-demo.eastus.azurecontainer.io"
 ```
 
@@ -88,14 +87,13 @@ az container logs --resource-group myResourceGroup --name aci-tutorial-app
 
 Exemple de sortie :
 
-```bash
-$ az container logs --resource-group myResourceGroup --name aci-tutorial-app
+```output
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez plus besoin des ressources que vous avez créées dans cette série de didacticiels, vous pouvez exécuter la commande [az group delete][az-group-delete] pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Cette commande supprime le registre de conteneurs que vous avez créé, ainsi que le conteneur en cours d’exécution et toutes les ressources associées.
 

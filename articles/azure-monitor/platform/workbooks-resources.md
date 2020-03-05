@@ -4,18 +4,17 @@ description: Créer des rapports complexes en toute simplicité grâce à des cl
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 02456d6e690c2ef96b578a00f8e71ae2515ec089
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cc2cde7932f783f63ee2783f0589ce4f88f248a2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363113"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658100"
 ---
 # <a name="workbook-resource-parameters"></a>Paramètres de ressources des classeurs
 

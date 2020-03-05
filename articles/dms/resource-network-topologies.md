@@ -3,8 +3,8 @@ title: Topologies réseau pour les migrations d’instances managées SQL
 titleSuffix: Azure Database Migration Service
 description: Découvrez les configurations sources et cibles pour les migrations d’instances managées d’Azure SQL Database à l’aide du service Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 9a313ea798519273ce57961544ec5b37c4d9c5ca
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 48485b7ba0f846afa737454b092a6c1ee986b737
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749255"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254956"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-azure-database-migration-service"></a>Topologies de réseau pour des migrations d’instances gérées de bases de données SQL Azure à l’aide de Azure Database Migration Service
 

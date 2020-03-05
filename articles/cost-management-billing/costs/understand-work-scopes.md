@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 5e7d01c5383898fb14f57188cd1bee7ea64e8263
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 5e1117bdefc4916fedc5c316632641d77c2f09d3
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200963"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206025"
 ---
 # <a name="understand-and-work-with-scopes"></a>Comprendre et utiliser des étendues
 
@@ -65,7 +65,7 @@ Le rôle recommandé avec le niveau de privilège minimum est celui de Contribut
 
 - **Agir de cas de dépassement des budgets** : les Contributeurs Cost Management ont également besoin d’un accès pour créer et/ou gérer des groupes d’actions permettant de réagir automatiquement aux dépassements. Envisagez d’accorder le rôle [Contributeur de surveillance](../../role-based-access-control/built-in-roles.md#monitoring-contributor) à un groupe de ressources contenant le groupe d’actions à utiliser en cas de dépassement des seuils budgétaires. L’automatisation d’actions données nécessite des rôles supplémentaires pour les services spécifiques utilisés, comme Automation et Azure Functions.
 - **Planifier l’exportation des données de coût** : les Contributeurs Cost Management ont également besoin d’un accès à la gestion des comptes de stockage afin de planifier une exportation pour copier les données dans un compte de stockage. Envisagez d’accorder le rôle [Collaborateur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor) à un groupe de ressources contenant le compte de stockage vers lequel les données de coût de coûts seront exportées.
-- **Affichage des recommandations pour réaliser des économies** : les Lecteurs Cost Management et les Contributeurs Cost Management peuvent *afficher* les recommandations en matière de coûts par défaut. Toutefois, la possibilité de suivre ces recommandations requiert l’accès aux ressources individuelles. Envisagez d’accorder un [rôle propre au service](../../role-based-access-control/built-in-roles.md#built-in-role-descriptions) si vous souhaitez suivre une recommandation en matière de coûts.
+- **Affichage des recommandations pour réaliser des économies** : les Lecteurs Cost Management et les Contributeurs Cost Management peuvent *afficher* les recommandations en matière de coûts par défaut. Toutefois, la possibilité de suivre ces recommandations requiert l’accès aux ressources individuelles. Envisagez d’accorder un [rôle propre au service](../../role-based-access-control/built-in-roles.md#descriptions-and-ids) si vous souhaitez suivre une recommandation en matière de coûts.
 
 ## <a name="enterprise-agreement-scopes"></a>Étendues Contrat Entreprise
 

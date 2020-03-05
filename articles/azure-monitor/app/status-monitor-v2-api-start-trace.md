@@ -1,18 +1,16 @@
 ---
 title: Informations de référence sur l’API de l’agent Azure Application Insights
 description: Référence API d’Application Insights Agent. Start-Trace. Collectez les journaux ETW de Status Monitor et du kit de développement logiciel (SDK) Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: c97315b3a215f10e5b8f9533bf09fa5ac30ee16f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b9680101f1a22dd6d9c1617c8afc13a10ad1c594
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899649"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671220"
 ---
 # <a name="application-insights-agent-api-start-applicationinsightsmonitoringtrace"></a>API d’Application Insights Agent : Start-ApplicationInsightsMonitoringTrace
 
@@ -53,7 +51,7 @@ Vous disposez de trois options lors de la collecte des événements :
 4. Par défaut, si aucun commutateur n’est spécifié, les deux types d’événements seront collectés.
 
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Paramètres
 
 ### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
 **Facultatif.** Utilisez ce paramètre pour définir la durée pendant laquelle ce script doit collecter les événements. La valeur par défaut est de 5 minutes.

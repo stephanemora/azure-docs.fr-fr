@@ -1,18 +1,14 @@
 ---
 title: Utilisation de la recherche dans Azure Application Insights | Microsoft Docs
 description: Recherchez et filtrez la télémétrie brute envoyée par votre application web.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/30/2019
-ms.openlocfilehash: 77cd0a8d0c1a93e7dc1db931e987a172d31978ef
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678054"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669673"
 ---
 # <a name="using-search-in-application-insights"></a>Utilisation de la recherche dans Application Insights
 
@@ -96,7 +92,7 @@ Vous pouvez définir une durée, car les recherches sur les plages courtes sont 
 
 Recherchez des mots entiers, pas des sous-chaînes. Utilisez des guillemets pour délimiter les caractères spéciaux.
 
-| Chaîne | *Introuvable*. | Trouvé |
+| String | *Introuvable*. | Trouvé |
 | --- | --- | --- |
 | HomeController.About |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |États-Unis|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`

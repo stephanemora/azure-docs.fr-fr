@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: labrenne
-ms.openlocfilehash: a22117505dff35f9b92e3dd3c91dc8540557b218
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: bdf0b3bfc955d8a2e2ce1b363c8699ca719b957c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023036"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919003"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Monter un système de fichiers virtuel sur un pool Batch
 
@@ -88,9 +88,6 @@ new PoolAddParameter
 Une autre option consiste à utiliser le stockage d'objets blob Azure via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Le montage d’un système de fichiers blob nécessite une `AccountKey` ou `SasKey` pour votre compte de stockage. Pour plus d’informations sur l’obtention de ces clés, consultez [Gérer les clés d’accès des comptes de stockage](../storage/common/storage-account-keys-manage.md) ou [Utiliser des signatures d’accès partagé (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Pour plus d’informations sur l’utilisation de blobfuse, consultez le [Forum aux questions sur la résolution des problèmes](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ) de blobfuse. Pour accéder par défaut au répertoire monté avec blobfuse, exécutez la tâche en tant **qu'administrateur**. Blobfuse monte le répertoire au niveau de l’espace utilisateur et, lors de la création du pool, il est monté en tant que racine. Dans Linux, toutes les tâches **de l’Administrateur** sont racine. Toutes les options du module FUSE sont décrites dans la [Page de référence sur FUSE](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
 
 Outre le guide de résolution des problèmes, les problèmes GitHub dans le référentiel blobfuse sont un moyen utile de vérifier les problèmes et solutions pour blobfuse. Pour plus d’informations, consultez [Problèmes blobfuse](https://github.com/Azure/azure-storage-fuse/issues).
-
-> [!NOTE]
-> Blobfuse n’est actuellement pas pris en charge sur Debian. Pour plus d’informations, voir la section [SKU pris en charge](#supported-skus).
 
 ```csharp
 new PoolAddParameter
@@ -174,7 +171,8 @@ Pour obtenir les fichiers journaux de débogage, utilisez [OutputFiles](batch-ta
 |---|---|---|---|---|---|---|
 | lot | rendering-centos73 | rendu | :heavy_check_mark: <br>Remarque : Compatible avec CentOS 7.7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canonical | UbuntuServer | 16.04-LTS, 18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Credativ | Debian | 8, 9 | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Credativ | Debian | 8| :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Credativ | Debian | 9 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>Remarque : Compatible avec CentOS 7.4. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | centos-container | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | centos-container-rdma | 7.4 | :heavy_check_mark: <br>Remarque : Prend en charge le stockage A_8 ou 9</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

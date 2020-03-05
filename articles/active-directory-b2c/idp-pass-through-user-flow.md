@@ -3,20 +3,20 @@ title: Passer un jeton d’accès via un flux utilisateur à votre application
 titleSuffix: Azure AD B2C
 description: Découvrez comment passer un jeton d’accès pour les fournisseurs d’identité OAuth 2.0 en tant que revendication dans un flux utilisateur dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 25a8181d404091064c26407c98fe31465cd4f4b3
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 312d093548b6e3cf3654f45d7610e8fc474a87b8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76838953"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187779"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passer un jeton d’accès par le biais d’un flux utilisateur à une application dans Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Un [flux utilisateur](user-flow-overview.md) dans Azure AD B2C (Azure Active Di
 
 Pour l’instant, Azure AD B2C permet uniquement de passer le jeton d’accès de fournisseurs d’identité [OAuth 2.0](authorization-code-flow.md) (dont font partie [Facebook](identity-provider-facebook.md) et [Google](identity-provider-google.md)). Pour tous les autres fournisseurs d’identité, la revendication est retournée vide.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Votre application doit utiliser un [flux utilisateur v2](user-flow-versions.md).
 * Votre flux utilisateur est configuré avec un fournisseur d’identité OAuth 2.0.

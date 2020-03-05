@@ -15,12 +15,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4366f95a9c6d5c0e6b851583ac6001b3b413c08a
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: a5333d5a8f0972dac80efe6c641c515102a2d714
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085396"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917932"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-application"></a>Tutoriel : Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application Android 
 
@@ -58,7 +58,7 @@ Cet exemple utilise la bibliothèque d’authentification Microsoft pour Android
 
  MSAL renouvelle automatiquement les jetons, fournit une authentification unique (SSO) entre les autres applications de l’appareil et gère les comptes.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 * Ce tutoriel nécessite Android Studio version 3.5+.
 
@@ -155,7 +155,7 @@ Si vous n’avez pas encore d’application Android, effectuez les étapes suiva
         jcenter()
     }  
     dependencies{
-        implementation 'com.microsoft.identity.client:msal:1.2.+'
+        implementation 'com.microsoft.identity.client:msal:1.+'
         implementation 'com.microsoft.graph:microsoft-graph:1.5.+'
     }
     packagingOptions{

@@ -2,20 +2,20 @@
 title: Tutoriel – Créer un locataire Azure Active Directory B2C
 description: Découvrez comment préparer l’inscription de vos applications en créant un locataire Azure Active Directory B2C à l’aide du portail Azure.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/28/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9cb23dc11a853401d8d99a750a0c79082adbe036
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: c31f3c4c6688af7d2142180e8d9b7100965bad96
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547589"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186401"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutoriel : Créer un locataire Azure Active Directory B2C
 
@@ -68,8 +68,8 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     Pour **Groupe de ressources**, sélectionnez **Créer**. Entrez un **Nom** pour le groupe de ressources qui contiendra le locataire, sélectionnez l’**Emplacement du groupe de ressources**, puis **Créer**.
 
     ![Formulaire de liaison des paramètres d’abonnement dans le portail Azure](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
-    
-    Vous pouvez lier plusieurs locataires Azure AD B2C à un seul abonnement Azure pour la facturation. 
+
+    Vous pouvez lier plusieurs locataires Azure AD B2C à un seul abonnement Azure pour la facturation.
 
 ## <a name="select-your-b2c-tenant-directory"></a>Sélectionner l’annuaire de votre locataire B2C
 

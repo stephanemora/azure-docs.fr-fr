@@ -13,28 +13,26 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: d6e3d4d059e464795c712af1226d8202d00bfd74
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 470e38c21a250273216f93eb38a5334a4bb581e7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461160"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911783"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit pour Windows Server
 Pour les clients avec Software Assurance, Azure Hybrid Benefit pour Windows Server permet d’utiliser les licences Windows Server locales et d’exécuter des machines virtuelles Windows sur Azure à moindre coût. Vous pouvez utiliser Azure Hybrid Benefit pour Windows Server pour déployer de nouvelles machines virtuelles avec le système d’exploitation Windows. Cet article récapitule les étapes du déploiement de nouvelles machines virtuelles avec Azure Hybrid Benefit pour Windows Server. Il explique également comment mettre à jour des machines virtuelles existantes en cours d’exécution. Pour plus d’informations sur les licences et les réductions de coût relatives à Azure Hybrid Benefit pour Windows Server, consultez la [page de gestion des licences Azure Hybrid Benefit pour Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 
-> [!Important]
-> Chaque licence à 2 processeurs ou chaque ensemble de licences à 16 cœurs a droit à 2 instances pouvant contenir jusqu’à 8 cœurs ou à 1 instance pouvant contenir jusqu’à 16 cœurs. L’offre Azure Hybrid Benefit pour les licences de l’édition Standard ne peut être utilisée qu’une seule fois : localement ou dans Azure. Les avantages de l’édition Datacenter permettent une utilisation simultanée en local et dans Azure.
->
+Chaque licence à 2 processeurs ou chaque ensemble de licences à 16 cœurs a droit à 2 instances pouvant contenir jusqu’à 8 cœurs ou à 1 instance pouvant contenir jusqu’à 16 cœurs. L’offre Azure Hybrid Benefit pour les licences de l’édition Standard ne peut être utilisée qu’une seule fois : localement ou dans Azure. Les avantages de l’édition Datacenter permettent une utilisation simultanée en local et dans Azure.
 
-> [!Important]
-> Vous pouvez désormais utiliser Azure Hybrid Benefit pour Windows Server dans toutes les régions avec n’importe quelle machine virtuelle exécutant le système d’exploitation Windows Server, même si elle exécute des logiciels supplémentaires comme SQL Server ou des logiciels tiers de la Place de marché. 
->
+Vous pouvez désormais utiliser Azure Hybrid Benefit pour Windows Server dans toutes les régions avec n’importe quelle machine virtuelle exécutant le système d’exploitation Windows Server, même si elle exécute des logiciels supplémentaires comme SQL Server ou des logiciels tiers de la Place de marché. 
 
-> [!NOTE]
-> Pour les machines virtuelles classiques, seul le déploiement d’une nouvelle machine virtuelle à partir des images personnalisées locales est pris en charge. Pour tirer parti des fonctionnalités prises en charge dans cet article, vous devez d’abord migrer des machines virtuelles classiques vers le modèle Resource Manager.
->
 
+## <a name="classic-vms"></a>les machines virtuelles Classic,
+
+Pour les machines virtuelles classiques, seul le déploiement d’une nouvelle machine virtuelle à partir des images personnalisées locales est pris en charge. Pour tirer parti des fonctionnalités prises en charge dans cet article, vous devez d’abord migrer des machines virtuelles classiques vers le modèle Resource Manager.
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
  
 
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Façons d’utiliser Azure Hybrid Benefit pour Windows Server

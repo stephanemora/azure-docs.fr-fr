@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 5d0035e7c87806012d13117ae5335b7de5f3c99d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: ac67ef64ca4850c6e805b5314ace856114d889a7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132282"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917228"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Cas d’usage et scénarios courants pour Azure Active Directory Domain Services
 
@@ -97,7 +97,7 @@ Les considérations de déploiement suivantes s’appliquent à cet exemple de c
 
 Vous pouvez utiliser Azure AD DS pour fournir des services de domaine managés à vos serveurs Bureau à distance déployés sur Azure. Pour plus d’informations sur ce scénario de déploiement, consultez le guide pratique pour [intégrer Azure AD Domain Services à votre déploiement RDS][windows-rds].
 
-## <a name="domain-joined-hdinsight-clusters-preview"></a>Clusters HDInsight joints à un domaine (préversion)
+## <a name="domain-joined-hdinsight-clusters"></a>Clusters HDInsight joints à un domaine
 
 Vous pouvez configurer un cluster Azure HDInsight qui est joint à un domaine managé par Azure AD DS avec Apache Ranger activé. Vous pouvez créer et appliquer des stratégies Hive par le biais d’Apache Ranger et autoriser des utilisateurs, comme des scientifiques des données, à se connecter à Hive à l’aide d’outils ODBC, comme Excel ou Tableau. Nous poursuivons nos efforts pour ajouter d’autres charges de travail, comme HBase, Spark et Storm à HDInsight joint à un domaine.
 

@@ -3,20 +3,20 @@ title: Exemples de transformation de revendications d’entier pour les stratég
 titleSuffix: Azure AD B2C
 description: Exemples de transformations de revendications d’entier pour le schéma IEF (Identity Experience Framework) d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7295e03f0a0f94b3450b99acc4d10d6ff86c92e7
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: ece25e95bbbe9f1a1fa591c29ea9ffda0fefd369
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948845"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187676"
 ---
 # <a name="integer-claims-transformations"></a>Transformations de revendications d’entier
 
@@ -28,7 +28,7 @@ Cet article fournit des exemples pour l’utilisation de transformations de reve
 
 Convertit un type de données long en type de données string.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | long | ClaimType à convertir en une chaîne. |
 | OutputClaim | outputClaim | string | ClaimType généré après l’appel de cette ClaimsTransformation. |
@@ -46,7 +46,7 @@ Dans cet exemple, la revendication `numericUserId` avec un type de valeur long e
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputClaim** : 12334 (long)

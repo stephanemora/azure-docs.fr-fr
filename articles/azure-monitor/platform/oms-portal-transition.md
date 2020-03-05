@@ -1,18 +1,17 @@
 ---
 title: Migration du portail OMS vers Azure | Microsoft Docs
 description: Le portail OMS devient caduque et toutes ses fonctionnalités migrent vers le portail Azure. Cet article fournit des détails sur cette transition.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 170973d15b5f49021a0507bdd2fd6a2632777d48
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 680cd9b44cc447f9bdea38cb9d04fc661fba9c79
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932146"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659252"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Migration du portail OMS vers Azure
 

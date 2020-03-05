@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 26a427baddc99fa702b638c36b5378750364c849
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 988bd6dbb157276a9ee37c8ca3051a808f8b6499
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587020"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661071"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-cli-and-test-the-nat-service"></a>Tutoriel : Créer une passerelle NAT avec Azure CLI et tester le service NAT
 
@@ -62,7 +62,7 @@ Pour accéder à l’Internet public, vous avez besoin d’une ou de plusieurs a
 
 ### <a name="create-a-public-ip-prefix"></a>Créer un préfixe d’adresse IP publique
 
-Vous pouvez utiliser une ou plusieurs ressources d’adresse IP publique, des préfixes d’adresse IP publique, ou ces deux options à la fois avec la passerelle NAT. Nous allons ajouter une ressource de préfixe d’adresse IP publique à ce scénario pour le démontrer.   Utilisez la commande [az network public-ip prefix create](https://docs.microsoft.com/cli/azure/network/public-ip-prefix) pour créer une ressource de préfixe d’adresse IP publique nommée **myPublicIPprefixsource** dans **myResourceGroupNAT**.
+Vous pouvez utiliser une ou plusieurs ressources d’adresse IP publique, des préfixes d’adresse IP publique, ou ces deux options à la fois avec la passerelle NAT. Nous allons ajouter une ressource de préfixe d’adresse IP publique à ce scénario pour le démontrer.   Utilisez la commande [az network public-ip prefix create](/cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-create) pour créer une ressource de préfixe d’adresse IP publique nommée **myPublicIPprefixsource** dans **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network public-ip prefix create \

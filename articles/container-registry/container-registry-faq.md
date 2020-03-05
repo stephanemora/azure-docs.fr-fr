@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 74863823f3e8ef32565e01981d3a742d696a8165
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 699ee2c2c3b1a90231f24663619cc590aae9889d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708306"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252077"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -114,13 +114,13 @@ ACR prend en charge Docker Registry HTTP API V2. Les API sont accessibles à l�
 
 Si vous êtes sur bash :
 
-```bash
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
 ```
 
 Pour PowerShell :
 
-```powershell
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
@@ -151,13 +151,13 @@ docker push myregistry.azurecr.io/1gb:latest
 
 Vous devez être en mesure de voir que l’utilisation du stockage a augmenté dans le portail Azure, ou vous pouvez interroger l’utilisation à l’aide de l’interface CLI.
 
-```bash
+```azurecli
 az acr show-usage -n myregistry
 ```
 
 Supprimez l’image à l’aide de l’interface de ligne de commande Azure ou du portail et vérifiez que l’utilisation a été mise à jour au bout de quelques minutes.
 
-```bash
+```azurecli
 az acr repository delete -n myregistry --image 1gb
 ```
 
@@ -216,12 +216,12 @@ ACR prend en charge les [rôles personnalisés](container-registry-roles.md) qui
   Vous pouvez ensuite attribuer le rôle `AcrPull` ou `AcrPush` à un utilisateur (l’exemple suivant utilise `AcrPull`) :
 
   ```azurecli
-    az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
-    ```
+  az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
+  ```
 
   Ou bien, attribuez le rôle à un principal de service identifié par son ID d’application :
 
-  ```
+  ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
   ```
 
@@ -239,9 +239,9 @@ Le destinataire est alors en mesure de s’authentifier et d’accéder aux imag
   az acr repository list -n myRegistry
   ```
 
- Pour tirer (pull) une image :
-    
-  ```azurecli
+* Pour tirer (pull) une image :
+
+  ```console
   docker pull myregistry.azurecr.io/hello-world
   ```
 
@@ -275,9 +275,10 @@ Pour résoudre les problèmes courants liés à l’environnement et au registre
  - Si `docker pull` échoue en permanence, un problème affecte peut-être le démon Docker. Vous pouvez généralement résoudre le problème en redémarrant le démon Docker. 
  - Si vous continuez à voir ce problème après le redémarrage du démon Docker, il se peut que la machine ait un problème de connectivité réseau. Pour vérifier si le réseau d’ordre général sur la machine est sain, exécutez la commande suivante afin de tester la connectivité du point de terminaison. La version `az acr` minimale qui contient cette vérification de la connectivité est 2.2.9. Si vous utilisez une version antérieure, mettez à niveau votre interface de ligne de commande Azure.
  
-   ```azurecli
-    az acr check-health -n myRegistry
-    ```
+  ```azurecli
+  az acr check-health -n myRegistry
+  ```
+
  - Vous devez toujours avoir un mécanisme de nouvelle tentative sur toutes les opérations du client Docker.
 
 ### <a name="docker-pull-is-slow"></a>La commande docker pull est lente
@@ -437,7 +438,7 @@ Voici quelques scénarios dans lesquels les opérations peuvent ne pas être aut
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Comment collecter les traces http sur Windows ?
 
-#### <a name="prerequisites"></a>Conditions préalables requises
+#### <a name="prerequisites"></a>Prérequis
 
 - Activez le déchiffrement de https dans Fiddler : <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Autorisez Docker à utiliser un proxy via l’interface utilisateur Docker : <https://docs.docker.com/docker-for-windows/#proxies>

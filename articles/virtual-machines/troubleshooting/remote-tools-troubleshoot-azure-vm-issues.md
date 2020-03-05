@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 3f028431fcd4b338d2e610ce1828a02b753c4d32
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b86b1a2d8a49554cc3df99e0a32a2c0ccaacb560
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483697"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920006"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Utiliser des outils à distance pour résoudre les problèmes de machine virtuelle Azure
 
@@ -60,6 +60,9 @@ Vous pouvez utiliser la fonctionnalité Extension de script personnalisé pour e
 Chargez votre script sur un compte de stockage et générez son propre conteneur. Ensuite, exécutez le script suivant dans Azure PowerShell sur un ordinateur qui dispose d’une connectivité à la machine virtuelle.
 
 ### <a name="for-classic-deployment-model-vms"></a>Pour les machines virtuelles de modèle de déploiement classique
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 
 ```powershell
 #Set up the basic variables.

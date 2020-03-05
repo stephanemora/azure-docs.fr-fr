@@ -1,19 +1,15 @@
 ---
 title: 'Modèle de données de télémétrie d’Azure Application Insights : télémétrie des événements | Microsoft Docs'
 description: Modèle de données Application Insights pour la télémétrie des événements
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 620983fb2174fe7f32a61503b0b87e8e7ce0c330
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: bd8b2581f7642f6825aaf0d1b51c8e94d4333d33
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678150"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671878"
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>Télémétrie des événements : Modèle de données Application Insights
 
@@ -25,7 +21,7 @@ Sur le plan sémantique, les événements ne sont pas forcément corrélés aux 
 
 Nom de l’événement. Pour permettre le regroupement approprié et des mesures utiles, limitez votre application afin qu’elle génère un petit nombre de noms d’événements distincts. Par exemple, n’utilisez pas un nom distinct pour chaque instance générée d’un événement.
 
-Longueur max : 512 caractères
+Longueur maximale : 512 caractères
 
 ## <a name="custom-properties"></a>Propriétés personnalisées
 

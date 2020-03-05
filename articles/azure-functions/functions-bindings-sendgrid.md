@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: e318e5f9b192b9f857a0b97d076ce4cc87cfb73d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710982"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304002"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Liaisons SendGrid dans Azure Functions
 
@@ -32,13 +32,17 @@ Les liaisons SendGrid sont fournies dans le package NuGet [Microsoft.Azure.WebJo
 
 ## <a name="example"></a>Exemple
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui utilise un déclencheur de file d’attente Service Bus et une liaison de sortie SendGrid.
 
 ### <a name="synchronous"></a>Synchrone
 
 ```cs
+using SendGrid.Helpers.Mail;
+
+...
+
 [FunctionName("SendEmail")]
 public static void Run(
     [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
@@ -65,6 +69,10 @@ public class OutgoingEmail
 ### <a name="asynchronous"></a>Asynchrone
 
 ```cs
+using SendGrid.Helpers.Mail;
+
+...
+
 [FunctionName("SendEmail")]
 public static async void Run(
  [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
@@ -92,7 +100,7 @@ public class OutgoingEmail
 
 Vous pouvez omettre la définition de la propriété `ApiKey` de l’attribut si votre clé API se trouve dans un paramètre d’application nommé « AzureWebJobsSendGridApiKey ».
 
-# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 L’exemple suivant montre une liaison de sortie SendGrid dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison.
 
@@ -151,7 +159,7 @@ public class Message
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 L’exemple suivant montre une liaison de sortie SendGrid dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison.
 
@@ -193,7 +201,7 @@ module.exports = function (context, input) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 L’exemple suivant montre une fonction déclenchée par HTTP qui envoie un e-mail à l’aide de la liaison SendGrid. Vous pouvez fournir des valeurs par défaut dans la configuration de la liaison. Par exemple, l’adresse e-mail de l’*expéditeur* est configurée dans *function.json*. 
 
@@ -250,7 +258,7 @@ def main(req: func.HttpRequest, sendGridMessage: func.Out[str]) -> func.HttpResp
     return func.HttpResponse(f"Sent")
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 L’exemple suivant utilise l’annotation `@SendGridOutput` de la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime) pour envoyer un e-mail à l’aide de la liaison de sortie SendGrid.
 
@@ -306,7 +314,7 @@ public class HttpTriggerSendGrid {
 
 ## <a name="attributes-and-annotations"></a>Attributs et annotations
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs).
 
@@ -324,19 +332,19 @@ public static void Run(
 
 Vous trouverez un exemple complet sur la page [Exemple C#](#example).
 
-# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+# <a name="c-script"></a>[Script C#](#tab/csharp-script)
 
 Les attributs ne sont pas pris en charge par le script C#.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 Les attributs ne sont pas pris en charge par JavaScript.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Les attributs ne sont pas pris en charge par Python.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 L’annotation [SendGridOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) vous permet de configurer de manière déclarative la liaison SendGrid en fournissant des valeurs de configuration. Pour plus d’informations, consultez les sections [Exemple](#example) et [Configuration](#configuration).
 

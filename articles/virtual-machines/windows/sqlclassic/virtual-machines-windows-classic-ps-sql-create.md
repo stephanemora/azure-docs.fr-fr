@@ -15,18 +15,20 @@ ms.date: 08/07/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 24d8a0b88da44c53cb176244cd5fe7377514abda
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5bfdcfab37091a5f581ce147c0a6af5ccd8147a0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978113"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914787"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Approvisionner une machine virtuelle SQL Server à l’aide d’Azure PowerShell (Classic)
 
+[!INCLUDE [classic-vm-deprecation](../../../../includes/classic-vm-deprecation.md)]
+
 Cet article explique comment créer une machine virtuelle SQL Server dans Azure à l'aide des applets de commande PowerShell.
 
-> [!IMPORTANT] 
+> [!NOTE] 
 > Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../azure-resource-manager/management/deployment-models.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
 Pour obtenir la version Resource Manager de cette rubrique, consultez [Approvisionner une machine virtuelle SQL Server à l’aide d’Azure PowerShell (Resource Manager)](../sql/virtual-machines-windows-ps-sql-create.md).

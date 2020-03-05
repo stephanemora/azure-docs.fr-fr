@@ -1,18 +1,14 @@
 ---
 title: Exploration des mesures dans Azure Application Insights | Microsoft Docs
 description: Comment interpréter les graphiques dans Metric Explorer et comment personnaliser les panneaux de Metrics Explorer.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/22/2019
-ms.openlocfilehash: b0831ff500ba4cbe71dae6251fd960f6c96c0fe5
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: f85a8fe79e7f4f820d7c0e5b942730305e892095
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820793"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670166"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Exploration des mesures dans Application Insights
 Les mesures dans [Application Insights][start] sont des mesures et le nombre des événements envoyés par la télémétrie de votre application. Elles vous permettent de détecter les problèmes de performances et de constater les tendances dans l'utilisation de votre application. Il existe un large éventail de mesures standard et vous pouvez également créer vos propres mesures personnalisées et vos propres événements personnalisés.
@@ -28,7 +24,7 @@ Voici un exemple de jeu de graphiques :
 
 Tous les graphiques de mesures se trouvent dans le portail Application Insights. Dans la plupart des cas, ils peuvent être personnalisés, et vous pouvez ajouter plusieurs graphiques dans le panneau. Dans le volet d’aperçu, cliquez pour accéder aux graphiques plus détaillés (ayant des titres tels que « Server »), ou cliquez sur **Metrics Explorer** pour ouvrir un nouveau panneau où vous pouvez créer des graphiques personnalisés.
 
-## <a name="time-range"></a>Période
+## <a name="time-range"></a>Plage temporelle
 Vous pouvez modifier l’intervalle de temps sur lequel portent les graphiques et les grilles dans n’importe quel panneau.
 
 ![Ouvrez le panneau Vue d'ensemble de votre application dans le portail Azure](./media/metrics-explorer/03-range.png)
@@ -184,7 +180,7 @@ Si vous souhaitez obtenir des vues enrichies de vos données, vous pouvez [expor
 
 Dans un graphique de mesures, vous pouvez cliquer sur l’icône Analyse pour accéder directement à la requête d’analyse correspondante.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 *Mon graphique ne contient aucune donnée.*
 
 * Les filtres s’appliquent à tous les graphiques du panneau. Lorsque vous vous concentrez sur un graphique, vérifiez que vous n’avez pas défini un filtre qui exclut toutes les données d’un autre graphique.

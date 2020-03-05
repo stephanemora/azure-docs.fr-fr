@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 84ef01b5e7fc3f628b1cdf7a1f13175604ebcdd4
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 60f6443e041c2f3a76a9027bebd33dc29a07f445
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137956"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197468"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Procédure : Détecter les sentiments à l’aide de l’API Analyse de texte
 
@@ -50,7 +50,7 @@ L’API Analyse de texte offre deux versions de l’Analyse des sentiments – v
 | Étiquetage des sentiments                        |                       | X                     |
 | Gestion des versions des modèles                   |                       | X                     |
 
-#### <a name="version-30-previewtabversion-3"></a>[Version 3.0-preview](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
 ### <a name="sentiment-scoring"></a>Score de sentiment
 
@@ -76,10 +76,10 @@ Analyse des sentiments v3 peut retourner des scores et des étiquettes au niveau
 
 ### <a name="example-c-code"></a>Exemple de code C#
 
-Vous trouverez un exemple d’application C# qui appelle cette version d’Analyse des sentiments sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs).
+Vous trouverez un exemple d’application C# qui appelle cette version d’Analyse des sentiments sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/TextAnalyticsSentiment.cs).
 
 
-#### <a name="version-21tabversion-2"></a>[Version 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2.1](#tab/version-2)
 
 ### <a name="sentiment-scoring"></a>Score de sentiment
 
@@ -101,11 +101,11 @@ La taille du document doit être inférieure à 5 120 caractères par document.
 
 Créez une requête POST. Vous pouvez [utiliser Postman](text-analytics-how-to-call-api.md) ou la **console de test d’API** via les liens de référence suivants pour en structurer une rapidement et l’envoyer. 
 
-#### <a name="version-30-previewtabversion-3"></a>[Version 3.0-preview](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
 [Informations de référence sur Analyse des sentiments v3](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
 
-#### <a name="version-21tabversion-2"></a>[Version 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2.1](#tab/version-2)
 
 [Informations de référence sur Analyse des sentiments v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
@@ -116,11 +116,11 @@ Définissez le point de terminaison HTTPS pour l’analyse des sentiments à l�
 > [!NOTE]
 > Vous pouvez trouver votre clé et votre point de terminaison pour votre ressource Analyse de texte dans le portail Azure. Ces informations se trouvent dans la page **Démarrage rapide** de la ressource, sous **gestion des ressources**. 
 
-#### <a name="version-30-previewtabversion-3"></a>[Version 3.0-preview](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/sentiment`
 
-#### <a name="version-21tabversion-2"></a>[Version 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2.1](#tab/version-2)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
 
@@ -162,7 +162,7 @@ L’analyseur de sentiments classifie le texte comme principalement positif ou n
 
 La sortie est retournée immédiatement. Vous pouvez diffuser les résultats vers une application qui accepte JSON ou enregistrer la sortie dans un fichier sur le système local. Ensuite, importez la sortie dans une application que vous pouvez utiliser pour trier, rechercher et manipuler les données.
 
-#### <a name="version-30-previewtabversion-3"></a>[Version 3.0-preview](#tab/version-3)
+#### <a name="version-30-preview"></a>[Version 3.0-preview](#tab/version-3)
 
 ### <a name="sentiment-analysis-v3-example-response"></a>Exemple de réponse d’Analyse des sentiments v3
 
@@ -238,7 +238,7 @@ Les réponses d’Analyse des sentiments v3 contiennent des étiquettes de senti
 }
 ```
 
-#### <a name="version-21tabversion-2"></a>[Version 2.1](#tab/version-2)
+#### <a name="version-21"></a>[Version 2.1](#tab/version-2)
 
 ### <a name="sentiment-analysis-v2-example-response"></a>Exemple de réponse d’Analyse des sentiments v2
 

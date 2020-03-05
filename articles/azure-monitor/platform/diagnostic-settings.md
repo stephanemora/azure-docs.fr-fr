@@ -3,17 +3,16 @@ title: Créer un paramètre de diagnostic pour collecter les journaux et métriq
 description: Créez des paramètres de diagnostic pour transférer les journaux de la plateforme Azure vers les journaux Azure Monitor, le Stockage Azure ou Azure Event Hubs.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 22932121b97c1b0fe91c46b5eea0222a022a4e61
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: fb2f9ff5af68575d9f9d29e9a6aca83d603395b3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751084"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672410"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure
 [Les journaux de plateforme](platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Cet article fournit des détails sur la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme vers différentes destinations.

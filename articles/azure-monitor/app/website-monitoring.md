@@ -1,19 +1,15 @@
 ---
 title: 'Démarrage rapide : Superviser des sites web avec Azure Monitor Application Insights'
 description: Fournit des instructions de démarrage rapide permettant de configurer la supervision du site web côté client/navigateur avec Azure Monitor Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: quickstart
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 408b24c83c5b3d795a86d1ad0275d732bb54a6db
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 1c581867f1e7ebc29f2aaff97124a08bec4e3b40
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963617"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670846"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Démarrage rapide : Commencez à superviser votre site web avec Azure Monitor Application Insights
 
@@ -21,7 +17,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à ajouter le SDK JavaS
 
 Azure Monitor Application Insights vous permet de surveiller facilement la disponibilité, les performances et l’utilisation de votre site web. De plus, vous pouvez rapidement identifier et diagnostiquer les erreurs dans votre application sans attendre qu’un utilisateur ne les signale. Application Insights offre des fonctionnalités de supervision côté serveur et côté client/navigateur.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Un site web auquel vous pouvez ajouter le SDK JavaScript Application Insights.
@@ -84,7 +80,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
 3. Modifiez ``hello_world.html`` et ajoutez votre clé d’instrumentation.
 
-4. Ouvrez ``hello_world.html`` dans une session de navigateur locale. Cette action crée une seule vue de page. Vous pouvez actualiser votre navigateur pour générer plusieurs vues de page de test.
+4. Ouvrez ``hello_world.html`` dans une session de navigateur locale. Cette action crée une seule vue de page. Vous pouvez actualiser votre navigateur pour générer plusieurs affichages de page de test.
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Démarrer l’analyse dans le portail Azure
 

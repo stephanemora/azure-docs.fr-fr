@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1d3dd0f4f1da4d3815d4d879dd13ed5882f39e8f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 46044d4c6dd65944291aff157229be0abc60d3d7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230726"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913240"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Créer votre première fonction Azure avec Java et IntelliJ
 
@@ -24,14 +24,14 @@ Cet article vous explique :
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="set-up-your-development-environment"></a>Configuration de l'environnement de développement
+## <a name="set-up-your-development-environment"></a>Configurer l''environnement de développement
 
 Pour développer une fonction avec Java et IntelliJ, installez les logiciels suivants :
 
 - [Kit de développeur Java](https://www.azul.com/downloads/zulu/) (JDK), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 ou ultérieure
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), versions Community ou Ultimate avec Maven
-- [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure)
+- [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT]
 > Pour pouvoir suivre les différentes étapes de cet article, vous devez définir la variable d’environnement JAVA_HOME sur l’emplacement d’installation du JDK.
@@ -80,8 +80,6 @@ Maven crée les fichiers projet dans un nouveau dossier avec le même nom que la
 1. Sélectionnez **+** pour ajouter une configuration **Remote** (Distante).
 1. Renseignez les champs _Name_ (Nom) et _Settings_ (Paramètres), puis sélectionnez **OK** pour enregistrer la configuration.
 1. Après l’installation, sélectionnez **Debug (Déboguer) < Nom de la configuration distante >** ou appuyez sur les touches MAJ+F9 de votre clavier pour démarrer le débogage.
-
-   ![Déboguer des fonctions dans IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.png)
 
 1. Quand vous avez terminé, arrêtez le débogueur et le processus en cours d’exécution. Un seul hôte de fonction à la fois peut être actif et en cours d’exécution localement.
 

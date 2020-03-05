@@ -1,18 +1,17 @@
 ---
 title: Groupes d’ordinateurs dans les requêtes de journal Azure Monitor | Microsoft Docs
 description: Les groupes d’ordinateurs d’Azure Monitor permettent de formuler des requêtes de journal portant sur un ensemble spécifique d’ordinateurs.  Cet article décrit les différentes méthodes applicables pour créer des groupes d’ordinateurs et explique comment les utiliser dans une requête de journal.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: eedf04a2168c67449f97d8e462d4ff82653a22b3
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a005b6cec811b8a584123dc4c8abab77766961e0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513697"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655331"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Groupes d’ordinateurs dans les requêtes de journal Azure Monitor
 Les groupes d’ordinateurs d’Azure Monitor permettent de formuler des [requêtes de journal](../log-query/log-query-overview.md) portant sur un ensemble spécifique d’ordinateurs.  Vous peuplez chaque groupe d’ordinateurs soit à l’aide d’une requête que vous définissez, soit en important des groupes à partir de différentes sources.  Quand le groupe est inclus dans une requête de journal, les résultats sont limités aux enregistrements correspondant aux ordinateurs du groupe.
@@ -49,7 +48,7 @@ Le tableau suivant décrit les propriétés qui définissent un groupe d’ordin
 
 | Propriété | Description |
 |:---|:---|
-| Name   | Nom de la requête à afficher sur le portail. |
+| Nom   | Nom de la requête à afficher sur le portail. |
 | Alias de fonction | Alias unique utilisé pour identifier le groupe d’ordinateurs dans une requête. |
 | Category       | Catégorie servant à organiser les requêtes sur le portail. |
 

@@ -1,18 +1,17 @@
 ---
 title: FAQ sur la tarification d’Azure Network Performance Monitor | Microsoft Docs
 description: Forum aux questions - Azure Network Performance Monitor
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
-ms.openlocfilehash: 3d69637c2851764363209ed8dfbe8c24c636ffba
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c5a80c7ff6d08ce601a6c2bbb0db0ef866d3b425
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898786"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654390"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Modification de la tarification d’Azure Network Performance Monitor
 
@@ -110,7 +109,7 @@ Une connexion est un test d’accessibilité à un point de terminaison (URL ou 
 
 Reportez-vous à la section [Contrôle de la connexion](https://azure.microsoft.com/pricing/details/network-watcher/) pour connaître le coût de la surveillance d’un point de terminaison pour un mois entier. Les frais de données sont disponibles sur la [page de tarification](https://azure.microsoft.com/pricing/details/log-analytics/) de Log Analytics, dans la section relative à l’ingestion des données.
 
-## <a name="references"></a>Références
+## <a name="references"></a>References
 
 [FAQ sur la tarification de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) : la section FAQ contient des informations sur le niveau gratuit, la tarification par nœud, ainsi que d’autres détails de tarification.
 

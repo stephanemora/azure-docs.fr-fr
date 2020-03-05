@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7e4a916b3765007a130c6ae84b317c2c7b700f2e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: d61e33568297e6f72aca0ab736f8a14f1758ffa1
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834877"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255125"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Créer des modèles scikit-learn à l’échelle avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Dans cet article, les exemples de scripts classifient les images de fleurs d'iri
 
 Que vous soyez en train d’entraîner un modèle Machine Learning scikit-Learn à partir de zéro ou que vous transfériez un modèle existant dans le cloud, vous pouvez utiliser Azure Machine Learning pour faire mettre à l’échelle les travaux d’apprentissage open source à l’aide de ressources de calcul élastiques dans le cloud. Vous pouvez créer, déployer, mettre à jour et surveiller des modèles de niveau production avec Azure Machine Learning.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Exécutez ce code sur l’un de ces environnements :
  - Instance de calcul Azure Machine Learning : pas de téléchargement ni d’installation nécessaire
@@ -147,7 +147,7 @@ estimator = SKLearn(source_directory=project_folder,
 ```
 
 
-Pour plus d’informations sur la personnalisation de votre environnement Python, consultez [Créer et gérer des environnements pour la formation et le déploiement](how-to-use-environments.md). 
+Pour plus d’informations sur la personnalisation de votre environnement Python, consultez [Créer et gérer des environnements pour l’entraînement et le déploiement](how-to-use-environments.md). 
 
 ## <a name="submit-a-run"></a>Envoyer une exécution
 
@@ -187,7 +187,7 @@ from azureml.core import Model
 from azureml.core.resource_configuration import ResourceConfiguration
 
 model = run.register_model(model_name='sklearn-iris', 
-                           model_path='model.joblib',
+                           model_path='outputs/model.joblib',
                            model_framework=Model.Framework.SCIKITLEARN,
                            model_framework_version='0.19.1',
                            resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))

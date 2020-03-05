@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 54606b4fbbf7ae459298b3842f957de5256ba0df
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 799ed0e877bb3bddb3f179cdb3d6df6fca57e4d5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971143"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301350"
 ---
 # <a name="application-gateway-components"></a>Composants de passerelle d’application
 
@@ -53,7 +53,7 @@ Application Gateway prend en charge quatre protocoles : HTTP, HTTPS, HTTP/2 et 
 >La prise en charge du protocole HTTP/2 est disponible pour les clients se connectant aux écouteurs Application Gateway uniquement. La communication avec les pools de serveurs back-end s’effectue toujours sur HTTP/1.1. Par défaut, la prise en charge du protocole HTTP/2 est désactivée. Vous pouvez choisir de l’activer.
 
 - Spécifiez les protocoles HTTP ou HTTPS dans la configuration de l’écouteur.
-- La prise en charge des [protocoles WebSockets et HTTP/2](overview.md#websocket-and-http2-traffic) est effectuée de manière native. La [prise en charge de WebSocket](application-gateway-websocket.md) est activée par défaut. Il n’existe aucun paramètre configurable par l’utilisateur permettant d’activer ou de désactiver de manière sélective la prise en charge de WebSocket. Utilisez WebSockets avec les écouteurs HTTP et HTTPS.
+- La prise en charge des [protocoles WebSockets et HTTP/2](features.md#websocket-and-http2-traffic) est effectuée de manière native. La [prise en charge de WebSocket](application-gateway-websocket.md) est activée par défaut. Il n’existe aucun paramètre configurable par l’utilisateur permettant d’activer ou de désactiver de manière sélective la prise en charge de WebSocket. Utilisez WebSockets avec les écouteurs HTTP et HTTPS.
 
 Utilisez un écouteur HTTPS pour l’arrêt SSL. Un écouteur HTTPS déplace les tâches de chiffrement et de déchiffrement vers votre passerelle d’application pour que vos serveurs web ne soient pas saturés par la surcharge.
 
@@ -115,9 +115,9 @@ Le port et le protocole utilisés dans les paramètres HTTP permettent de déter
 
 Ce composant est également utilisé pour :
 
-- Déterminer si une session utilisateur doit être conservée sur le même serveur à l’aide de l’[affinité de session basée sur les cookies](overview.md#session-affinity)
+- Déterminer si une session utilisateur doit être conservée sur le même serveur à l’aide de l’[affinité de session basée sur les cookies](features.md#session-affinity)
 
-- Supprimer de manière appropriée les membres du pool de back-ends à l’aide du [drainage de connexion](overview.md#connection-draining)
+- Supprimer de manière appropriée les membres du pool de back-ends à l’aide du [drainage de connexion](features.md#connection-draining)
 
 - Associer un probe personnalisé pour superviser l’intégrité du back-end, définir le délai d’expiration de la requête, remplacer le nom d’hôte et le chemin dans la requête, et permettre de spécifier en un clic les paramètres du back-end App Service
 

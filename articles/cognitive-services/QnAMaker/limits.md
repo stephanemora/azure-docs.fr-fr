@@ -1,14 +1,14 @@
 ---
 title: Limites et frontières - QnA Maker
 description: QnA Maker présente des limites de métadonnées pour certaines parties de la base de connaissances et du service. Il est important de maintenir votre base de connaissances à l’intérieur de ces limites pour les tests et la publication.
-ms.topic: article
+ms.topic: reference
 ms.date: 02/14/2020
-ms.openlocfilehash: ba53513f21cfc2a4f16fe17decdf0df41570201c
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 6375a6c6efc0c7016d9947e04e9479385aa80af5
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650365"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273351"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites de la base de connaissances QnA Maker
 

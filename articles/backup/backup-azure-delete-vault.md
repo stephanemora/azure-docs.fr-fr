@@ -3,12 +3,12 @@ title: Supprimer un coffre Recovery Services Microsoft Azure
 description: Dans cet article, découvrez comment supprimer les dépendances, puis supprimer un coffre Recovery Services Sauvegarde Microsoft Azure (MARS).
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 172c632ae27c789f96e2e5cc1bdef492ef09f667
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 9ac9d0fd6411b512b319d02c94e86fa792243e0a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586459"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251429"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Supprimer un coffre Recovery Services Sauvegarde Azure
 
@@ -286,7 +286,7 @@ Pour supprimer un coffre Recovery Services existant, effectuez les opérations s
 
 - Pour arrêter la protection et supprimer les données de sauvegarde
 
-    ```CLI
+    ```azurecli
     az backup protection disable --container-name
                              --item-name
                              [--delete-backup-data {false, true}]
@@ -301,7 +301,7 @@ Pour supprimer un coffre Recovery Services existant, effectuez les opérations s
 
 - Supprimez un coffre Recovery Services existant :
 
-    ```CLI
+    ```azurecli
     az backup vault delete [--force]
                        [--ids]
                        [--name]

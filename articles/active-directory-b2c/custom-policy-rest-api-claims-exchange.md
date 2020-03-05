@@ -2,20 +2,20 @@
 title: Échanges de revendications de l’API REST - Azure Active Directory B2C
 description: Ajoutez des échanges de revendications de l’API REST aux stratégies personnalisées dans Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1caf0b3f6396cc008e77bb96e686fe78f462850b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 351b41f45fb84384ec0193f8e3130347d0b19401
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76851124"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189087"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Ajouter des échanges de revendications d’API REST aux stratégies personnalisées dans Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Le scénario qui est représenté dans cet article inclut les actions suivantes�
 2. Obtenir la ville dans laquelle cet utilisateur est inscrit.
 3. Retourner cet attribut à l’application sous forme de revendication.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md).
 - Un point de terminaison API REST avec lequel vous allez interargir. Cet article utilise une fonction Azure simple comme exemple. Pour créer la fonction Azure, consultez [Créer votre première fonction à l’aide du Portail Azure](../azure-functions/functions-create-first-azure-function.md).

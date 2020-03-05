@@ -8,15 +8,15 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 8c15ebacd0fd959fe789d7f3a9b33b16ee29a1b2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 46da828b7553fdf9cdded817febd3bb95cd4cbb9
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933628"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270672"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>Entités prédéfinies dépréciées dans une application LUIS
 Les entités prédéfinies suivantes sont désapprouvées et ne peuvent pas être ajoutées à de nouvelles applications LUIS.
@@ -43,7 +43,7 @@ Entité prédéfinie   |   Exemple d’énoncé   |   JSON
 **Encyclopedia** est disponible uniquement dans les paramètres régionaux `en-US`.
 
 #### <a name="encyclopedia-subtypes"></a>Sous-types de Encyclopedia
-L’entité intégrée Encyclopedia comprend plus de 100 sous-types dans le tableau suivant : De plus, les entités Encyclopedia sont souvent mappées à plusieurs types. Par exemple, la requête Ronald Reagan génère ce qui suit : 
+L’entité intégrée Encyclopedia comprend plus de 100 sous-types dans le tableau suivant : De plus, les entités Encyclopedia sont souvent mappées à plusieurs types. Par exemple, la requête Ronald Reagan génère ce qui suit :
 
 ```json
 {
@@ -163,5 +163,5 @@ Entité prédéfinie   |   Entité prédéfinie (sous-types)   |   Exemple d’�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les entités [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) et [number](luis-reference-prebuilt-number.md). 
+En savoir plus sur les entités [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) et [number](luis-reference-prebuilt-number.md).
 

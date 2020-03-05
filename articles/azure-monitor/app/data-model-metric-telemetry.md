@@ -1,19 +1,15 @@
 ---
 title: Modèle de données pour la télémétrie des métriques - Azure Application Insights
 description: Modèle de données Application Insights pour la télémétrie des mesures
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: f697d7543a8551993640ef8c6d6c98fee35c0d68
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3e4a1fc3de58b8e65ab9c7a288bdf3eb37e7bae0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922219"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671968"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Télémétrie des métriques : Modèle de données Application Insights
 
@@ -53,7 +49,7 @@ Poids de mesure de la mesure agrégée. Ne doit pas être défini pour une mesur
 
 Valeur minimale de la mesure agrégée. Ne doit pas être défini pour une mesure.
 
-## <a name="max"></a>max
+## <a name="max"></a>Max
 
 Valeur maximale de la mesure agrégée. Ne doit pas être défini pour une mesure.
 

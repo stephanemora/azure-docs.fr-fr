@@ -1,18 +1,17 @@
 ---
 title: Utilisation de fonctions dans les requêtes de journal Azure Monitor | Microsoft Docs
 description: Cet article décrit l’utilisation des fonctions pour appeler une requête à partir d’une autre requête de journal dans Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
-ms.openlocfilehash: 8d8473b88327d3d17346a0351d0a9fc510152cd8
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 7d94e53abbe8f4d2953729aa2363c3906ce94f74
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894174"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670217"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Utilisation de fonctions dans les requêtes de journal Azure Monitor
 
@@ -38,7 +37,7 @@ Pour créer une fonction avec Log Analytics sur le portail Azure, cliquez sur **
 ## <a name="use-a-function"></a>Utiliser une fonction
 Utilisez une fonction en incluant son alias dans une autre requête. Elle peut être utilisée comme toute autre table.
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 L’exemple de requête suivante retourne toutes les mises à jour de sécurité manquantes signalées le dernier jour. Enregistrez cette requête en tant que fonction avec l’alias _security_updates_last_day_. 
 
 ```Kusto
@@ -62,5 +61,5 @@ Reportez-vous à d'autres leçons pour écrire des requêtes de journal Azure Mo
 - [Fonctions d’agrégation](aggregations.md)
 - [Agrégations avancées](advanced-aggregations.md)
 - [JSON et structures de données](json-data-structures.md)
-- [Jointures](joins.md)
+- [Joins](joins.md)
 - [Graphiques](charts.md)

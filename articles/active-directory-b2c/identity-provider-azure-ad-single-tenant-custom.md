@@ -3,20 +3,20 @@ title: Configurer la connexion avec un compte Azure AD en utilisant des straté
 titleSuffix: Azure AD B2C
 description: Configurez la connexion avec un compte Azure Active Directory dans Azure Active Directory B2C à l’aide de stratégies personnalisées.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/11/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 64934dd5bc591415c0bad6ac3dc6a4a2d98dd005
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 5a6c85ebed7271655745de45694542fb359836e7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77136304"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188408"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Azure Active Directory à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "77136304"
 
 Cet article explique comment activer la connexion d’utilisateurs à partir d’une organisation Azure Active Directory (Azure AD) à l’aide de [stratégies personnalisées](custom-policy-overview.md) dans Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md).
 
@@ -52,7 +52,7 @@ Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spéc
 
 ## <a name="configuring-optional-claims"></a>Configuration des revendications facultatives
 
-Si vous souhaitez obtenir les revendications `family_name` et `given_name` à partir d’Azure AD, vous pouvez configurer des revendications facultatives pour votre application dans le manifeste de l’application ou dans l’interface utilisateur du portail Azure. Pour plus d’informations, consultez [Procédure : Fournir des revendications facultatives à votre application Azure AD](../active-directory/develop/active-directory-optional-claims.md).
+Si vous souhaitez obtenir les revendications `family_name` et `given_name` à partir d'Azure AD, vous pouvez configurer des revendications facultatives pour votre application dans l'interface utilisateur du portail Azure ou dans le manifeste de l'application. Pour plus d'informations, consultez [Procédure : Fournir des revendications facultatives à votre application Azure AD](../active-directory/develop/active-directory-optional-claims.md).
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). Recherchez et sélectionnez **Azure Active Directory**.
 1. Dans la section **Gérer**, sélectionnez **Inscriptions d’applications**.

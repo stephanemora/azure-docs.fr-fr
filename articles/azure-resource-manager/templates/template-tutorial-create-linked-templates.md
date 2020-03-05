@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/03/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e8f95f4987d0ce421defaed63ed9a587233d2bf4
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: dab69c32f7277cd5d746e001b36118e673401bca
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561593"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250138"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutoriel : Créer des modèles Azure Resource Manager liés
 
@@ -42,7 +42,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 * Visual Studio Code avec l’extension Outils Resource Manager. Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](use-vs-code-to-create-template.md).
 * Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de la machine virtuelle. Voici un exemple pour générer un mot de passe :
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
 

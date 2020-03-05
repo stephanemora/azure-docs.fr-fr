@@ -1,18 +1,16 @@
 ---
 title: Informations de référence sur l’API de l’agent Azure Application Insights
 description: Référence API d’Application Insights Agent. Enable-InstrumentationEngine. Surveillez les performances de site web sans avoir à redéployer le site web. Fonctionne avec les applications web ASP.NET hébergées en local, dans des machines virtuelles ou sur Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 796c2cc669e238499223d233cf4ddcf740af7c95
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b3f298ac31cc584cd16553186359c87f69f27aad
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899722"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671352"
 ---
 # <a name="application-insights-agent-api-enable-instrumentationengine"></a>API d’Application Insights Agent : Enable-InstrumentationEngine
 
@@ -43,7 +41,7 @@ Activez le moteur d’instrumentation si :
 PS C:\> Enable-InstrumentationEngine
 ```
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Paramètres
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
 **Facultatif.** Utilisez cette instruction switch pour accepter la licence et la déclaration de confidentialité dans les installations sans affichage.

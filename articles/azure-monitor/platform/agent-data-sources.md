@@ -1,18 +1,17 @@
 ---
 title: Configurer des sources de données d’agent dans Azure Monitor | Microsoft Docs
 description: Les sources de données définissent les données de journal qu’Azure Monitor collecte auprès des agents et d’autres sources connectées.  Cet article décrit la façon dont Azure Monitor utilise les sources de données, explique en détail comment les configurer, et fournit un résumé des différentes sources de données disponibles.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: f7960adca1c3665dbf8737cb10a898c58b1542ec
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: aec3fe2386ce916c556f6da295a8554fff140259
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932834"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668772"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Sources de données d’agent dans Azure Monitor
 Les données collectées par Azure Monitor à partir des agents dépendent des sources de données que vous configurez.  Les données provenant des agents sont stockées en tant que [données de journal](data-platform-logs.md) avec un ensemble d’enregistrements.  Chaque source de données crée des enregistrements d'un type particulier, chaque type ayant son propre ensemble de propriétés.
@@ -45,7 +44,7 @@ Vous configurez des sources de données à partir du menu **Données** dans **Pa
 4. Suivez le lien vers la documentation de chaque source de données dans le tableau ci-dessus pour plus d'informations sur leur configuration.
 
 
-## <a name="data-collection"></a>Collecte des données
+## <a name="data-collection"></a>Collecte de données
 Les configurations des sources de données sont remises en quelques minutes aux agents directement connectés à Azure Monitor.  Les données spécifiées sont collectées à partir de l’agent et remises directement à Azure Monitor à des intervalles spécifiques pour chaque source de données.  Consultez la documentation de chaque source de données pour obtenir ces informations spécifiques.
 
 Pour les agents System Center Operations Manager d’un groupe d'administration connecté, les configurations de sources de données sont traduites en packs d'administration et remises au groupe d'administration toutes les 5 minutes par défaut.  L’agent télécharge le pack d’administration comme tout autre, et collecte les données spécifiées. Selon la source de données, soit les données sont envoyées à un serveur d’administration qui les transfère à Azure Monitor, soit l’agent les envoie à Azure Monitor sans passer par le serveur de gestion. Pour plus d’informations, consultez [Data collection details for monitoring solutions in Azure](../insights/solutions-inventory.md) (Détails sur la collecte de données pour les solutions de supervision dans Azure).  Vous pouvez consulter les détails de la connexion à Operations Manager et à Azure Monitor et de la modification de la fréquence à laquelle la configuration est remise dans la rubrique [Configurer l’intégration avec System Center Operations Manager](om-agents.md).

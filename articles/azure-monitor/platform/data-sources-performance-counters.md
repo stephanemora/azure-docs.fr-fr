@@ -1,18 +1,17 @@
 ---
 title: Collecter et analyser les compteurs de performances dans Azure Monitor | Microsoft Docs
 description: Azure Monitor collecte les compteurs de performances pour analyser les performances sur les agents Windows et Linux.  Cet article explique comment configurer la collecte des compteurs de performances sur les agents Windows et Linux, comment ils sont stockés dans l’espace de travail et comment les analyser dans le portail Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 624996c86423bf486111fde8743117ea888862e7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d1a972a1d89066b961f2dcc28fba830e3a04ebc1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363827"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670540"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Sources de données de performance Windows et Linux dans Azure Monitor
 Les compteurs de performances dans Windows et Linux fournissent des informations sur les performances des composants matériels, systèmes d’exploitation et applications.  Azure Monitor peut non seulement collecter les compteurs de performances à intervalles réguliers pour effectuer une analyse en temps quasi réel, mais aussi agréger les données de performances pour réaliser des analyses à plus long terme et créer des rapports.

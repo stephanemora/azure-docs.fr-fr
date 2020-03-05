@@ -1,19 +1,15 @@
 ---
 title: Surveiller à l’aide de tests web à plusieurs étapes – Azure Application Insights
 description: Configuration des tests web multiétape pour surveiller vos applications web avec Azure Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 8e630f324a7a0ebdfcc74941e760b80fabefa8d3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3b8baad127b16a1bd9d071d0c3d4df68da8c3304
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928970"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655938"
 ---
 # <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
 
@@ -141,11 +137,11 @@ En comparant les différentes sessions, identifiez le jeton retransmis à partir
 Enregistrez un test web à l’aide de Visual Studio.
 Paramétrez les jetons, en définissant le paramètre lorsque le jeton est retourné par l’authentificateur et en l’utilisant dans la requête soumise sur le site. (Visual Studio tente de paramétrer le test, mais ne paramètre pas correctement les jetons.)
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Consultez l’[article dédié au dépannage](troubleshoot-availability.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Availability alerts](availability-alerts.md) (Alertes de disponibilité)
-* [Monitor availability and responsiveness of any web site](monitor-web-app-availability.md) (Surveiller la disponibilité et la réactivité d’un site web)
+* [Surveiller la disponibilité et de la réactivité d’un site web](monitor-web-app-availability.md)

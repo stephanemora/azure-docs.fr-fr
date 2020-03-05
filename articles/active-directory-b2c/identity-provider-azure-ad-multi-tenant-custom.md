@@ -3,20 +3,20 @@ title: Configurer la connexion pour les annuaires Azure AD multilocataires par d
 titleSuffix: Azure AD B2C
 description: Ajoutez un fournisseur d’identité Azure AD multilocataire en utilisant des stratégies personnalisées dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d8d13ec955867eb574b5f0d782727d6ff8d063a
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 9ad51e113a752e0692cb377a83d4819b4e284bb7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111548"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188432"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer une connexion pour un service Azure Active Directory mutualisé à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "77111548"
 
 Cet article explique comment autoriser la connexion d’utilisateurs à l’aide du point de terminaison mutualisé pour Azure Active Directory (Azure AD) à l’aide de [stratégies personnalisées](custom-policy-overview.md) dans Azure AD B2C. Cela permet aux utilisateurs issus de différents locataires Azure AD de se connecter avec Azure AD B2C sans avoir à configurer un fournisseur d’identité pour chaque locataire. Toutefois, les membres invités dans ces locataires **ne pourront pas** se connecter. Pour ce faire, vous devez [configurer individuellement chaque locataire](identity-provider-azure-ad-single-tenant-custom.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md).
 

@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 0c997fffc1adc60f774e651ed458d253b35a3bdd
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: f422d1dd6c76d78448ae4fb1012a5dae8d6108b3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612214"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299072"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutoriel : Créer une machine virtuelle de gestion pour configurer et administrer un domaine managé Azure Active Directory Domain Services
 
@@ -59,7 +59,6 @@ Azure AD DS fournit un domaine managé que vos utilisateurs, vos applications et
 
 Les membres du groupe *Administrateurs AAD DC* reçoivent des privilèges sur le domaine managé Azure AD DS leur permettant d’effectuer des tâches comme :
 
-* joindre des ordinateurs au domaine géré ;
 * Configurer l’objet de stratégie de groupe intégré pour les conteneurs *Ordinateurs AADDC* et *Utilisateurs AADDC* dans le domaine managé.
 * administrer le DNS sur le domaine géré ;
 * Créer et administrer des unités d’organisation personnalisées dans le domaine managé.
@@ -106,7 +105,7 @@ Pour installer les outils d’administration Active Directory sur une machine vi
 1. Dans le volet *Tableau de bord* de la fenêtre **Gestionnaire de serveur**, sélectionnez **Ajouter des rôles et des fonctionnalités**.
 1. Dans la page **Avant de commencer** de l’*Assistant Ajout de rôles et de fonctionnalités*, sélectionnez **Suivant**.
 1. Pour le *Type d’installation*, laissez l’option **Installation basée sur un rôle ou une fonctionnalité** cochée et sélectionnez **Suivant**.
-1. Dans la page **Sélection du serveur**, choisissez la machine virtuelle active dans le pool de serveurs, par exemple *myvm.aaddscontoso.com*, puis sélectionnez **Suivant**.
+1. Dans la page **Sélection du serveur**, choisissez la machine virtuelle actuelle dans le pool de serveurs, par exemple *myvm.aaddscontoso.com*, puis sélectionnez **Suivant**.
 1. Sur la page **Rôles de serveurs**, cliquez sur **Suivant**.
 1. Dans la page **Fonctionnalités**, développez le nœud **Outils d’administration de serveur distant**, puis développez le nœud **Outils d’administration de rôles**.
 

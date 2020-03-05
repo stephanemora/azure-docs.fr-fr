@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: c9513ca38c665a53bc14f284e87a1cc01035d135
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5728ce7125695b191de4f91d5bd9003384f428a7
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693184"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298305"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Déplacer des machines virtuelles Azure vers des zones de disponibilité
 Les zones de disponibilité dans Azure contribuent à protéger les applications et les données contre des échecs du centre de données. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. La séparation physique des zones de disponibilité au sein d’une région contribue à protéger les applications et les données contre des échecs du centre de données. Avec les zones de disponibilité, Azure offre un Contrat de niveau de service (SLA) de 99,99 % en lien avec la durée de fonctionnement des machines virtuelles. Les zones de disponibilité sont prises en charge dans certaines régions, comme indiqué dans [Que sont les zones de disponibilité dans Azure ?](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region).
@@ -70,7 +70,7 @@ Si vous avez déployé vos machines virtuelles en tant qu’*instance unique* da
     - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer)
     - [Adresse IP publique](../virtual-network/virtual-network-public-ip-address.md)
     
-   Pour tous les autres composants réseau, reportez-vous à la [documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network) sur la mise en réseau.
+   Pour tous les autres composants réseau, reportez-vous à la [documentation](https://docs.microsoft.com/azure/?pivot=products&panel=network) sur la mise en réseau.
 
     > [!IMPORTANT]
     > Veillez à utiliser un équilibreur de charge redondant interzone dans la cible. Pour en savoir plus, lisez le document [Standard Load Balancer et zones de disponibilité](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
@@ -116,7 +116,7 @@ Une fois le travail de réplication terminé, vous pouvez vérifier l’état de
 
    - **Dernier point traité** : bascule la machine virtuelle vers le dernier point de récupération qui a été traité par le service Site Recovery. L’horodatage est affiché. Cette option, avec laquelle aucun temps n’est passé à traiter les données, offre un objectif de délai de récupération faible (RTO).
    - **Dernier point de cohérence des applications** : cette option bascule toutes les machines virtuelles vers le dernier point de récupération de cohérence des applications. L’horodatage est affiché.
-   - **Personnalisé** : sélectionnez n’importe quel point de récupération.
+   - **Personnalisé** : sélectionnez n’importe quel point de récupération.
 
 3. Sélectionnez le réseau virtuel Azure cible vers lequel vous voulez déplacer les machines virtuelles Azure afin d’y tester la configuration. 
 
@@ -132,7 +132,7 @@ Une fois le travail de réplication terminé, vous pouvez vérifier l’état de
 1.  Dans le menu de la machine virtuelle, cliquez sur **Récupération d’urgence**.
 2. Sélectionnez l’icône **Basculement**.
 3. Dans **Basculement**, sélectionnez **Dernier**. 
-4. Sélectionnez **Arrêtez la machine avant de commencer le basculement**. Site Recovery tente d’arrêter la machine virtuelle source avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**. 
+4. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Site Recovery tente d’arrêter la machine virtuelle source avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**. 
 5. Une fois le travail terminé, vérifiez que la machine virtuelle apparaît bien dans la région Azure cible comme prévu.
 6. Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle > **Valider**. Cette étape termine le processus de déplacement vers la région cible. Attendez que le travail de validation soit terminé.
 

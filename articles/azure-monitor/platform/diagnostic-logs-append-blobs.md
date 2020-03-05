@@ -3,17 +3,16 @@ title: Préparation à la modification du format dans les journaux de ressources
 description: Décrit l’impact et la façon de mettre à jour vos outils pour gérer les nouveaux journaux de ressources Azure qui ont été modifiés pour utiliser des objets blobs d’ajout le 1er novembre 2018.
 author: johnkemnetz
 services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: dc7fd8916f356414437d4def21f26f0b651ee76f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: d30652d4e068cbceb79e6da60b48176b9de64647
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893516"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670438"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-resource-logs-archived-to-a-storage-account"></a>Préparation à la modification du format dans les journaux de ressources Azure Monitor archivés dans un compte de stockage
 

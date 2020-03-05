@@ -1,19 +1,17 @@
 ---
 title: Activer le Débogueur de capture instantanée pour les applications .NET dans Azure Service Fabric, le service cloud et les machines virtuelles | Microsoft Docs
 description: Activer le Débogueur de capture instantanée pour les applications .NET dans Azure Service Fabric, le service cloud et les machines virtuelles
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: brahmnes
 ms.author: bfung
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 98ceeeb8efb11e2caeffadeb48270c419cc7e430
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 194a2da23c8fb405c492df8f6ee173cc97fde4ec
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899814"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671337"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Activer le Débogueur de capture instantanée pour les applications .NET dans Azure Service Fabric, le service cloud et les machines virtuelles
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 22f50a6d5136eaff457c24864dae71261a20e13e
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: b0d4d1d13a329b0d95fcd0358f6141486b4435e5
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615612"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205005"
 ---
 # <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure
 
@@ -314,139 +314,6 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
 }
 ```
 
-#### <a name="retrieving-metadata-in-windows-virtual-machine"></a>Récupération de métadonnées dans une machine virtuelle Windows
-
-**Requête**
-
-Les métadonnées d’instance peuvent être récupérées dans Windows via l’utilitaire Powershell `curl` : 
-
-```bash
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-06-01 | select -ExpandProperty Content
-```
-
-Ou via l’applet de commande `Invoke-RestMethod` :
-
-```powershell
-
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2019-06-01 -Method get 
-```
-
-**Réponse**
-
-> [!NOTE]
-> La réponse est une chaîne JSON. L’exemple de réponse suivant est imprimé avec soin par souci de lisibilité.
-
-```json
-{
-  "compute": {
-    "azEnvironment": "AzurePublicCloud",
-    "customData": "",
-    "location": "centralus",
-    "name": "negasonic",
-    "offer": "lampstack",
-    "osType": "Linux",
-    "placementGroupId": "",
-    "plan": {
-        "name": "5-6",
-        "product": "lampstack",
-        "publisher": "bitnami"
-    },
-    "platformFaultDomain": "0",
-    "platformUpdateDomain": "0",
-    "provider": "Microsoft.Compute",
-    "publicKeys": [],
-    "publisher": "bitnami",
-    "resourceGroupName": "myrg",
-    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
-    "sku": "5-6",
-    "storageProfile": {
-        "dataDisks": [
-          {
-            "caching": "None",
-            "createOption": "Empty",
-            "diskSizeGB": "1024",
-            "image": {
-              "uri": ""
-            },
-            "lun": "0",
-            "managedDisk": {
-              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
-            },
-            "name": "exampledatadiskname",
-            "vhd": {
-              "uri": ""
-            },
-            "writeAcceleratorEnabled": "false"
-          }
-        ],
-        "imageReference": {
-          "id": "",
-          "offer": "UbuntuServer",
-          "publisher": "Canonical",
-          "sku": "16.04.0-LTS",
-          "version": "latest"
-        },
-        "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage",
-          "diskSizeGB": "30",
-          "diffDiskSettings": {
-            "option": "Local"
-          },
-          "encryptionSettings": {
-            "enabled": "false"
-          },
-          "image": {
-            "uri": ""
-          },
-          "managedDisk": {
-            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-            "storageAccountType": "Standard_LRS"
-          },
-          "name": "exampleosdiskname",
-          "osType": "Linux",
-          "vhd": {
-            "uri": ""
-          },
-          "writeAcceleratorEnabled": "false"
-        }
-    },
-    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "Department:IT;Environment:Test;Role:WebRole",
-    "version": "7.1.1902271506",
-    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmScaleSetName": "",
-    "vmSize": "Standard_A1_v2",
-    "zone": "1"
-  },
-  "network": {
-    "interface": [
-      {
-        "ipv4": {
-          "ipAddress": [
-            {
-              "privateIpAddress": "10.0.1.4",
-              "publicIpAddress": "X.X.X.X"
-            }
-          ],
-          "subnet": [
-            {
-              "address": "10.0.1.0",
-              "prefix": "24"
-            }
-          ]
-        },
-        "ipv6": {
-          "ipAddress": []
-        },
-        "macAddress": "002248020E1E"
-      }
-    ]
-  }
-}
-```
-
 ## <a name="metadata-apis"></a>API de métadonnées
 
 Les API suivantes sont disponibles via le point de terminaison de métadonnées :
@@ -530,38 +397,6 @@ Nonce est une chaîne facultative de 10 chiffres. S’il n’est pas fourni, IM
 
 > [!NOTE]
 > La réponse est une chaîne JSON. L’exemple de réponse suivant est imprimé avec soin par souci de lisibilité.
-
- ```json
-{
- "encoding":"pkcs7","signature":"MIIEEgYJKoZIhvcNAQcCoIIEAzCCA/8CAQExDzANBgkqhkiG9w0BAQsFADCBugYJKoZIhvcNAQcBoIGsBIGpeyJub25jZSI6IjEyMzQ1NjY3NjYiLCJwbGFuIjp7Im5hbWUiOiIiLCJwcm9kdWN0IjoiIiwicHVibGlzaGVyIjoiIn0sInRpbWVTdGFtcCI6eyJjcmVhdGVkT24iOiIxMS8yMC8xOCAyMjowNzozOSAtMDAwMCIsImV4cGlyZXNPbiI6IjExLzIwLzE4IDIyOjA4OjI0IC0wMDAwIn0sInZtSWQiOiIifaCCAj8wggI7MIIBpKADAgECAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBBAUAMCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tMB4XDTE4MTEyMDIxNTc1N1oXDTE4MTIyMDIxNTc1NlowKzEpMCcGA1UEAxMgdGVzdHN1YmRvbWFpbi5tZXRhZGF0YS5henVyZS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAML/tBo86ENWPzmXZ0kPkX5dY5QZ150mA8lommszE71x2sCLonzv4/UWk4H+jMMWRRwIea2CuQ5RhdWAHvKq6if4okKNt66fxm+YTVz9z0CTfCLmLT+nsdfOAsG1xZppEapC0Cd9vD6NCKyE8aYI1pliaeOnFjG0WvMY04uWz2MdAgMBAAGjYDBeMFwGA1UdAQRVMFOAENnYkHLa04Ut4Mpt7TkJFfyhLTArMSkwJwYDVQQDEyB0ZXN0c3ViZG9tYWluLm1ldGFkYXRhLmF6dXJlLmNvbYIQZ8VuSofHbJRAQNBNpiASdDANBgkqhkiG9w0BAQQFAAOBgQCLSM6aX5Bs1KHCJp4VQtxZPzXF71rVKCocHy3N9PTJQ9Fpnd+bYw2vSpQHg/AiG82WuDFpPReJvr7Pa938mZqW9HUOGjQKK2FYDTg6fXD8pkPdyghlX5boGWAMMrf7bFkup+lsT+n2tRw2wbNknO1tQ0wICtqy2VqzWwLi45RBwTGB6DCB5QIBATA/MCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBCwUAMA0GCSqGSIb3DQEBAQUABIGAld1BM/yYIqqv8SDE4kjQo3Ul/IKAVR8ETKcve5BAdGSNkTUooUGVniTXeuvDj5NkmazOaKZp9fEtByqqPOyw/nlXaZgOO44HDGiPUJ90xVYmfeK6p9RpJBu6kiKhnnYTelUk5u75phe5ZbMZfBhuPhXmYAdjc7Nmw97nx8NnprQ="
-}
-```
-
-L’objet blob de signature est une version signée [pkcs7](https://aka.ms/pkcs7) du document. Il contient le certificat utilisé pour la signature ainsi que les détails de machine virtuelle, comme vmId, sku, nonce, subscriptionId, timeStamp pour la création et l’expiration du document, et les informations du plan sur l’image. Les informations du plan ne sont fournies que pour les images Azure Marketplace. Le certificat peut être extrait de la réponse et utilisé pour valider que la réponse est correcte et provient d’Azure.
-
-#### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>Récupération de métadonnées attestées dans une machine virtuelle Windows
-
- **Requête**
-
-Les métadonnées d’instance peuvent être récupérées dans Windows via l’utilitaire Powershell `curl` :
-
- ```powershell
-curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" | select -ExpandProperty Content
-```
-
- Ou via l’applet de commande `Invoke-RestMethod` :
-
- ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" -Method get
-```
-
-La version de l’API est un champ obligatoire. Reportez-vous à la section disponibilité du service pour les versions d’API prises en charge.
-Nonce est une chaîne facultative de 10 chiffres. S’il n’est pas fourni, IMDS retourne à la place l’horodatage UTC actuel. En raison du mécanisme de mise en cache d’IMDS, une valeur nonce précédemment mise en cache peut être retournée.
-
- **Réponse**
-
-> [!NOTE]
-> La réponse est une chaîne JSON. L’exemple de réponse suivant est imprimé avec soin par souci de lisibilité.
 
  ```json
 {
@@ -845,7 +680,7 @@ Après avoir obtenu la signature ci-dessus, vous pouvez vérifier qu’elle éma
 [Azure China 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | *.metadata.azure.cn
 [Azure Allemagne](https://azure.microsoft.com/overview/clouds/germany/)                    | *.metadata.microsoftazure.de
 
-Il existe un problème connu au niveau du certificat utilisé pour la signature. Les certificats peuvent ne pas avoir de correspondance exacte `metadata.azure.com` pour le cloud public. Par conséquent, la validation de la certification doit autoriser un nom commun de tout sous-domaine `.metadata.azure.com`.
+Il existe un problème connu au niveau du certificat utilisé pour la signature. Les certificats peuvent ne pas avoir la correspondance exacte `metadata.azure.com` pour le cloud public. Par conséquent, la validation de la certification doit autoriser un nom commun de tout sous-domaine `.metadata.azure.com`.
 
 ```bash
 
@@ -862,51 +697,6 @@ openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -un
 ```
 
 Lorsque le certificat intermédiaire ne peut pas être téléchargé en raison de contraintes réseau pendant la validation, le certificat intermédiaire peut être épinglé. Azure remplacera toutefois les certificats conformément à la pratique PKI standard. Les certificats épinglés doivent être mis à jour en cas de remplacement. Si une mise à jour du certificat intermédiaire est planifiée, le blog Azure sera mis à jour et les clients Azure en seront informés. Vous pouvez trouver les certificats intermédiaires [ici](https://www.microsoft.com/pki/mscorp/cps/default.htm). Les certificats intermédiaires de chaque région peuvent être différents.
-
-### <a name="failover-clustering-in-windows-server"></a>Clustering de basculement dans Windows Server
-
-Pour certains scénarios, pendant l’interrogation du service Instance Metadata Service avec le clustering de basculement, vous devez ajouter une route à la table de routage.
-
-1. Ouvrez une invite de commandes avec des privilèges d’administrateur.
-
-2. Exécutez la commande suivante et notez l’adresse de l’interface pour la destination réseau (`0.0.0.0`) dans la table de routage IPv4.
-
-```bat
-route print
-```
-
-> [!NOTE]
-> L’exemple de sortie suivant provenant d’une machine virtuelle Windows Server avec un cluster de basculement activé contient uniquement la table de routage IPv4 par souci de simplicité.
-
-```bat
-IPv4 Route Table
-===========================================================================
-Active Routes:
-Network Destination        Netmask          Gateway       Interface  Metric
-          0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
-         10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
-        10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
-        10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
-        10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
-        127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
-        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
-  127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-      169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
-    169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
-  169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
-        224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
-        224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
-        224.0.0.0        240.0.0.0         On-link         10.0.1.10    266
-  255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-  255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
-  255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
-```
-
-1. Exécutez la commande suivante et notez l’adresse de l’interface pour la destination réseau (`0.0.0.0`) qui est (`10.0.1.10`) dans cet exemple.
-
-```bat
-route add 169.254.169.254/32 10.0.1.10 metric 1 -p
-```
 
 ### <a name="storage-profile"></a>Profil de stockage
 

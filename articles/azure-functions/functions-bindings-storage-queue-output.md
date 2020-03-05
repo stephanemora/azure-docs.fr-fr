@@ -6,16 +6,18 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 2c16cc965c1e7e98727170fd5896dd081482c692
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 76af5f398edd736874fa79095f2e80c02298eac0
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492534"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164642"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Liaisons de sortie de Stockage File d’attente Azure pour Azure Functions
 
 La solution Azure Functions peut créer des messages de Stockage File d’attente Azure en configurant une liaison de sortie.
+
+Pour plus d’informations sur les détails d’installation et de configuration, consultez la [vue d’ensemble](./functions-bindings-storage-queue.md).
 
 ## <a name="example"></a>Exemple
 

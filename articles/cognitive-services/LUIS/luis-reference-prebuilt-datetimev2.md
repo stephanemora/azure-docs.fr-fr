@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 01/07/2020
 ms.author: diberry
-ms.openlocfilehash: 8c29ebd675bb6af66203c13824dacbe9ea2421a2
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 30132983f37323e798efd330f5cc8f15c0a9d2b6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732793"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270735"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie datetimeV2 pour une application LUIS
 
@@ -31,7 +31,7 @@ L’énoncé suivant et sa réponse JSON partielle sont illustrés ci-dessous.
 
 `8am on may 2nd 2019`
 
-#### <a name="v3-responsetab1-1"></a>[Réponse V3](#tab/1-1)
+#### <a name="v3-response"></a>[Réponse V3](#tab/1-1)
 
 ```json
 "entities": {
@@ -53,7 +53,7 @@ L’énoncé suivant et sa réponse JSON partielle sont illustrés ci-dessous.
 }
 ```
 
-#### <a name="v3-verbose-responsetab1-2"></a>[Réponse détaillée V3](#tab/1-2)
+#### <a name="v3-verbose-response"></a>[Réponse détaillée V3](#tab/1-2)
 
 ```json
 
@@ -91,7 +91,7 @@ L’énoncé suivant et sa réponse JSON partielle sont illustrés ci-dessous.
 }
 ```
 
-#### <a name="v2-responsetab1-3"></a>[Réponse V2](#tab/1-3)
+#### <a name="v2-response"></a>[Réponse V2](#tab/1-3)
 
 ```json
 "entities": [
@@ -179,7 +179,7 @@ L’énoncé suivant et sa réponse JSON partielle sont illustrés ci-dessous.
 
 `May 2nd`
 
-#### <a name="v3-responsetab2-1"></a>[Réponse V3](#tab/2-1)
+#### <a name="v3-response"></a>[Réponse V3](#tab/2-1)
 
 ```json
 "entities": {
@@ -204,7 +204,7 @@ L’énoncé suivant et sa réponse JSON partielle sont illustrés ci-dessous.
 }
 ```
 
-#### <a name="v3-verbose-responsetab2-2"></a>[Réponse détaillée V3](#tab/2-2)
+#### <a name="v3-verbose-response"></a>[Réponse détaillée V3](#tab/2-2)
 
 ```json
 "entities": {
@@ -244,7 +244,7 @@ L’énoncé suivant et sa réponse JSON partielle sont illustrés ci-dessous.
 }
 ```
 
-#### <a name="v2-responsetab2-3"></a>[Réponse V2](#tab/2-3)
+#### <a name="v2-response"></a>[Réponse V2](#tab/2-3)
 
 ```json
   "entities": [
@@ -280,7 +280,7 @@ L’énoncé suivant et sa réponse JSON partielle sont illustrés ci-dessous.
 
 `May 2nd to May 5th`
 
-#### <a name="v3-responsetab3-1"></a>[Réponse V3](#tab/3-1)
+#### <a name="v3-response"></a>[Réponse V3](#tab/3-1)
 
 ```json
 
@@ -309,7 +309,7 @@ L’énoncé suivant et sa réponse JSON partielle sont illustrés ci-dessous.
 ```
 
 
-#### <a name="v3-verbose-responsetab3-2"></a>[Réponse détaillée V3](#tab/3-2)
+#### <a name="v3-verbose-response"></a>[Réponse détaillée V3](#tab/3-2)
 
 ```json
 
@@ -352,7 +352,7 @@ L’énoncé suivant et sa réponse JSON partielle sont illustrés ci-dessous.
 }
 ```
 
-#### <a name="v2-responsetab3-3"></a>[Réponse V2](#tab/3-3)
+#### <a name="v2-response"></a>[Réponse V2](#tab/3-3)
 
 ```json
 "entities": [
@@ -384,7 +384,7 @@ L’énoncé suivant et sa réponse JSON partielle sont illustrés ci-dessous.
 
 `Tuesday to Thursday`
 
-#### <a name="v3-responsetab4-1"></a>[Réponse V3](#tab/4-1)
+#### <a name="v3-response"></a>[Réponse V3](#tab/4-1)
 
 ```json
 "entities": {
@@ -411,7 +411,7 @@ L’énoncé suivant et sa réponse JSON partielle sont illustrés ci-dessous.
 }
 ```
 
-#### <a name="v3-verbose-responsetab4-2"></a>[Réponse détaillée V3](#tab/4-2)
+#### <a name="v3-verbose-response"></a>[Réponse détaillée V3](#tab/4-2)
 
 ```json
 "entities": {
@@ -453,7 +453,7 @@ L’énoncé suivant et sa réponse JSON partielle sont illustrés ci-dessous.
 }
 ```
 
-#### <a name="v2-responsetab4-3"></a>[Réponse V2](#tab/4-3)
+#### <a name="v2-response"></a>[Réponse V2](#tab/4-3)
 
 ```json
   "entities": [
@@ -492,7 +492,7 @@ L’énoncé suivant et sa réponse JSON partielle sont illustrés ci-dessous.
 
 `from 6pm to 7pm`
 
-#### <a name="v3-responsetab5-1"></a>[Réponse V3](#tab/5-1)
+#### <a name="v3-response"></a>[Réponse V3](#tab/5-1)
 
 Le code JSON suivant a le paramètre `verbose` défini sur `false` :
 
@@ -517,7 +517,7 @@ Le code JSON suivant a le paramètre `verbose` défini sur `false` :
     ]
 }
 ```
-#### <a name="v3-verbose-responsetab5-2"></a>[Réponse détaillée V3](#tab/5-2)
+#### <a name="v3-verbose-response"></a>[Réponse détaillée V3](#tab/5-2)
 
 Le code JSON suivant a le paramètre `verbose` défini sur `true` :
 
@@ -557,7 +557,7 @@ Le code JSON suivant a le paramètre `verbose` défini sur `true` :
     }
 }
 ```
-#### <a name="v2-responsetab5-3"></a>[Réponse V2](#tab/5-3)
+#### <a name="v2-response"></a>[Réponse V2](#tab/5-3)
 
 ```json
   "entities": [
@@ -588,7 +588,7 @@ L’énoncé suivant et sa réponse JSON partielle sont illustrés ci-dessous.
 
 `8am`
 
-#### <a name="v3-responsetab6-1"></a>[Réponse V3](#tab/6-1)
+#### <a name="v3-response"></a>[Réponse V3](#tab/6-1)
 
 ```json
 "entities": {
@@ -609,7 +609,7 @@ L’énoncé suivant et sa réponse JSON partielle sont illustrés ci-dessous.
     ]
 }
 ```
-#### <a name="v3-verbose-responsetab6-2"></a>[Réponse détaillée V3](#tab/6-2)
+#### <a name="v3-verbose-response"></a>[Réponse détaillée V3](#tab/6-2)
 
 ```json
 "entities": {
@@ -645,7 +645,7 @@ L’énoncé suivant et sa réponse JSON partielle sont illustrés ci-dessous.
     }
 }
 ```
-#### <a name="v2-responsetab6-3"></a>[Réponse V2](#tab/6-3)
+#### <a name="v2-response"></a>[Réponse V2](#tab/6-3)
 
 ```json
 "entities": [

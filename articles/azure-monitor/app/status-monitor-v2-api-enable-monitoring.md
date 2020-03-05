@@ -1,18 +1,16 @@
 ---
 title: Informations de référence sur l’API de l’agent Azure Application Insights
 description: Référence API d’Application Insights Agent. Enable-ApplicationInsightsMonitoring. Surveillez les performances de site web sans avoir à redéployer le site web. Fonctionne avec les applications web ASP.NET hébergées en local, dans des machines virtuelles ou sur Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: dccd7e617174bef4a85cb6293cbcc459542310f9
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 8bbdc96a49fffc91f80d24a9eb0926766f86ee16
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899704"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671305"
 ---
 # <a name="application-insights-agent-api-enable-applicationinsightsmonitoring"></a>API d’Application Insights Agent : Enable-ApplicationInsightsMonitoring
 
@@ -32,7 +30,7 @@ Après avoir activé la surveillance, nous vous recommandons d’utiliser [Métr
 
 > [!NOTE] 
 > - Pour commencer, vous avez besoin d’une clé d’instrumentation. Pour plus d’informations, consultez [Create an Application Insights resource](create-new-resource.md#copy-the-instrumentation-key) (Création d’une ressource Application Insights).
-> - Cette cmdlet nécessite que vous lisiez et acceptiez notre licence et déclaration de confidentialité.
+> - Cette cmdlet nécessite que vous lisiez et acceptiez nos licence et déclaration de confidentialité.
 
 > [!IMPORTANT] 
 > Cette cmdlet requiert une session PowerShell avec des autorisations d’administrateur, ainsi qu’une stratégie d’exécution avec élévation des privilèges. Pour plus d’informations, consultez [Run PowerShell as Admin with an elevated execution policy](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy) (Exécuter PowerShell en tant qu’administrateur avec une stratégie d’exécution avec élévation de privilèges).
@@ -65,7 +63,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ```
 
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Paramètres
 
 ### <a name="-instrumentationkey"></a>-InstrumentationKey
 **Obligatoire.** Utilisez ce paramètre pour fournir une clé d’instrumentation unique que l’ensemble des applications utiliseront sur l’ordinateur cible.
@@ -77,7 +75,7 @@ Vous pouvez créer un script d’installation unique pour plusieurs ordinateurs 
 > [!IMPORTANT]
 > Les applications effectueront le mappage avec les règles dans l’ordre d’apparition de ces dernières. Par conséquent, vous devez d’abord spécifier les règles les plus spécifiques et finir par les règles les plus génériques.
 
-#### <a name="schema"></a>Schéma
+#### <a name="schema"></a>schéma
 `@(@{MachineFilter='.*';AppFilter='.*';InstrumentationSettings=@{InstrumentationKey='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'}})`
 
 - **MachineFilter** est une expression régulière C# obligatoire associée au nom de la machine virtuelle ou de l’ordinateur.
@@ -91,7 +89,7 @@ Vous pouvez créer un script d’installation unique pour plusieurs ordinateurs 
 
 
 ### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
-**Facultatif.** Utilisez cette instruction switch pour permettre au moteur d’instrumentation de collecter des événements et des messages sur ce qui se passe pendant l’exécution d’un processus managé. Ces événements et les messages incluent les codes de résultat de dépendance, les verbes HTTP et le texte de commande SQL.
+**Facultatif.** Utilisez cette instruction switch pour permettre au moteur d’instrumentation de collecter des événements et des messages sur ce qui se passe pendant l’exécution d’un processus managé. Ces événements et messages incluent les codes de résultat de dépendance, les verbes HTTP et le texte de commande SQL.
 
 Le moteur d’instrumentation ajoute une surcharge et est désactivé par défaut.
 
@@ -105,7 +103,7 @@ Ce script échoue avec le message indiquant que des étapes d’installation sup
 Utilisez ce commutateur pour ignorer cette vérification et poursuivre l’installation des prérequis. Pour plus d’informations, consultez [known conflict-with-iis-shared-configuration](status-monitor-v2-troubleshoot.md#conflict-with-iis-shared-configuration)
 
 ### <a name="-verbose"></a>-Verbose
-**Paramètre commun.** Utilisez cette instruction switch pour afficher les journaux détaillés.
+**Paramètre commun.** Utilisez ce commutateur pour afficher les journaux détaillés.
 
 ### <a name="-whatif"></a>-WhatIf 
 **Paramètre commun.** Utilisez cette instruction switch pour tester et valider vos paramètres d’entrée sans réellement activer la surveillance.

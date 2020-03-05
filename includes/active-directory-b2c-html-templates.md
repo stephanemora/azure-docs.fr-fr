@@ -1,16 +1,16 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 02/12/2020
-ms.author: marsma
-ms.openlocfilehash: 264604bfdf0c514e6464854f431addbc9d2dcdef
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.author: mimart
+ms.openlocfilehash: d43b879057001d62ea72bd2e011ad52957d47470
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77373104"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189013"
 ---
 ## <a name="sample-templates"></a>Exemples de modèles
 Vous trouverez ici des exemples de modèles pour la personnalisation de l’interface utilisateur :
@@ -32,7 +32,7 @@ Pour utiliser l’exemple :
     <link href="./css/assets.css" rel="stylesheet" type="text/css" />
     ```
 
-    À 
+    À
     ```html
     <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
     ```

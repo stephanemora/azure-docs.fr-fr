@@ -1,18 +1,17 @@
 ---
 title: Expérience Journaux simples dans Azure Monitor (préversion) | Microsoft Docs
 description: L’expérience Journaux simples vous permet de créer des requêtes de base dans Azure Monitor sans interagir directement avec KQL.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/12/2019
-ms.openlocfilehash: 0b8b23d5d355614bf74b1b22c6a8443b9a2f9391
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 59bcb42edaf7d46498a3514b4f1c919c6e8cc0c4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932984"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660255"
 ---
 # <a name="simple-logs-experience-in-azure-monitor-preview"></a>Expérience Journaux simples dans Azure Monitor (préversion)
 Azure Monitor offre une [expérience riche](get-started-portal.md) pour la création de [requêtes de journal](log-query-overview.md) à l’aide du langage KQL. Toutefois, vous pouvez ne pas avoir besoin de toute la puissance de KQL et préférer une expérience simplifiée pour des exigences de requête de base. L’expérience Journaux simples vous permet de créer des requêtes de base sans interagir directement avec KQL. Vous pouvez également utiliser Journaux simples comme outil d’apprentissage pour KQL, car vous avez besoin de requêtes plus sophistiquées.

@@ -3,12 +3,12 @@ title: Erreurs de SKU non disponible
 description: Décrit comment résoudre les erreurs de référence SKU non disponible quand vous déployez des ressources avec Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 02/18/2020
-ms.openlocfilehash: be341a5ed5321fe71b0e3b34ba5f6cc823958c8b
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 5d055540b4c0d8f2900d2ede6735662801be5974
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462290"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250643"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Résoudre les erreurs de référence SKU non disponible
 
@@ -70,7 +70,7 @@ az vm list-skus --location southcentralus --size Standard_F --output table
 
 La commande retourne des résultats similaires à ce qui suit :
 
-```azurecli
+```output
 ResourceType     Locations       Name              Zones    Capabilities    Restrictions
 ---------------  --------------  ----------------  -------  --------------  --------------
 virtualMachines  southcentralus  Standard_F1                ...             None

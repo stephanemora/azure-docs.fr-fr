@@ -1,18 +1,17 @@
 ---
 title: Créer des vues pour analyser les données de journal dans Azure Monitor | Microsoft Docs
 description: Grâce au Concepteur de vues d’Azure Monitor, vous pouvez créer des vues personnalisées affichées dans le portail Azure qui contiennent différentes visualisations sur les données dans l’espace de travail Log Analytics. Cet article contient une présentation du Concepteur de vues et présente des procédures de création et de modification des vues personnalisées.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/10/2019
-ms.openlocfilehash: e5d707200d1e1eab9becbb30181649525f3a5a7b
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 9a7521f61dc59bd954629a05638c159ab0e70556
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77166474"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658487"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Créer des vues personnalisées à l’aide du Concepteur de vues dans Azure Monitor
 Grâce au Concepteur de vues d’Azure Monitor, vous pouvez créer plusieurs vues personnalisées dans le portail Azure qui peuvent vous aider à visualiser les données dans votre espace de travail Log Analytics. Cet article fournit une présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.

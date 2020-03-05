@@ -1,19 +1,18 @@
 ---
 title: Recherches enregistrées dans des solutions de gestion | Microsoft Docs
 description: Les solutions de gestion incluent généralement des requêtes de journal enregistrées afin d’analyser les données collectées par la solution. Cet article décrit comment définir les recherches enregistrées Log Analytics dans un modèle Resource Manager.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ff9c45ffb636f53951a763f617c25a2e8c09088
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 61fc64e140af091b5ff3f631398daf901557791b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977718"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663026"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Ajout de recherches et d’alertes enregistrées Log Analytics à une solution de gestion (préversion)
 
@@ -28,7 +27,7 @@ Les [solutions de gestion](solutions.md) incluent généralement des [recherches
 > [!NOTE]
 > Les exemples cités dans cet article utilisent des paramètres et des variables obligatoires ou communs aux solutions de gestion. Ils sont décrits dans la rubrique [Concevoir et générer une solution de gestion dans Azure](solutions-creating.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous êtes déjà familiarisé avec la [création d’une solution de gestion](solutions-creating.md) et la structure d’un [modèle Resource Manager](../../azure-resource-manager/templates/template-syntax.md) et d’un fichier solution.
 
 

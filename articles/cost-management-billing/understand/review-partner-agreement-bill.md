@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: dd0d53fb89df5372d3974b85cdb659f6cfbbedd8
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 61d47c2f308555265ccabad4d7456026ee9a639c
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199090"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299310"
 ---
 # <a name="tutorial-review-your-microsoft-partner-agreement-invoice"></a>Tutoriel : Passer en revue votre facture de Contrat Partenaire Microsoft
 
@@ -38,7 +38,7 @@ Vous devez être inscrit à Azure depuis plus de 30 jours. Azure vous facture �
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-- Connectez-vous au portail Azure sur https://portal.azure.com.
+- Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifier l'accès à un contrat client Microsoft
 

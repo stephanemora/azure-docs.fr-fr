@@ -3,15 +3,15 @@ title: Spécifications Microsoft Azure FXT Edge Filer | Microsoft Docs
 description: Spécifications physiques et environnementales des appareils Azure FXT Edge Filer
 author: ekpgh
 ms.service: fxt-edge-filer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 90d56ad0cec3d187d4c7307f8c004b14c3860390
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254714"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227477"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Spécifications Azure FXT Edge Filer
 
@@ -30,13 +30,13 @@ Cet article explique les spécifications matérielles des nœuds physiques Azure
 
 Le système dispose de dix baies de disques accessibles en façade. Chaque lecteur rempli est étiqueté à droite avec des informations de capacité. 
 
-Les numéros de lecteur figurant dans l’espace entre les lecteurs. Dans Azure FXT Edge Filer, le lecteur 0 est le lecteur supérieur gauche, et le lecteur 1 est directement en dessous.
+Les numéros de disque figurent dans l’espace entre les disques. Dans Azure FXT Edge Filer, le disque 0 est le disque supérieur gauche, et le disque 1 est directement en dessous.
 
 ![photo d’une baie de disque dur dans le châssis FXT, montrant les numéros de disque et les étiquettes de capacité](media/fxt-drives-photo.png)
 
 | Numéros de lecteur    |  Utilisation   |  Spécifications |
 |------------------|--------|-----------------|
-| 0, 1             | OS     | SSD SATA de 480 Go |
+| 0, 1             | Système d''exploitation     | SSD SATA de 480 Go |
 | 2, 3, 4, 5, 6, 7, 8, 9 | Données   | FXT 6600 : Disque SSD NVMe de 3,2 To <br> FXT 6400 : Disque SSD NVMe de 1,6 To |
 
 

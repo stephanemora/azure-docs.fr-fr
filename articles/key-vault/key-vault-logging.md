@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 997651887c3c378e4791553d5ff05f585ad169ea
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8915970cd4c70228fad3b49921f4c81d6d90aa72
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000669"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195326"
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 
@@ -39,7 +40,7 @@ Pour obtenir des informations générales sur Key Vault, consultez l’article [
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
+Pour suivre ce tutoriel, vous devez disposer des éléments suivants :
 
 * Un coffre de clés existant que vous utilisez déjà.  
 * Azure PowerShell, version 1.0.0 ou ultérieure. Pour installer Azure PowerShell et l’associer à votre abonnement Azure, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). Si vous avez déjà installé Azure PowerShell et que vous ne connaissez pas la version que vous utilisez, à partir de la console Azure PowerShell, entrez `$PSVersionTable.PSVersion`.  

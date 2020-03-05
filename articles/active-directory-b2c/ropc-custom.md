@@ -3,20 +3,20 @@ title: Configurer le flux des informations d’identification par mot de passe d
 titleSuffix: Azure AD B2C
 description: Découvrez comment configurer le flux des informations d’identification par mot de passe de propriétaire de ressource (ROPC) à l’aide de stratégies personnalisées dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: marsma
+ms.date: 02/27/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 95601735064451a91530907e5e6b59f579ff0e28
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 55b4750d2c601a4d3c66bcd8235a9718d6daaf9d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840262"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186991"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurer le flux des informations d’identification par mot de passe de propriétaire de ressource dans Azure Active Directory B2C en utilisant un stratégie personnalisée
 
@@ -24,19 +24,9 @@ ms.locfileid: "76840262"
 
 Dans Azure Active Directory B2C (Azure AD B2C), le flux des informations d’identification par mot de passe du propriétaire de ressource est un flux d’authentification standard OAuth. Dans ce flux, une application, également appelée partie de confiance, échange des informations d’identification valides pour des jetons. Les informations d’identification incluent un ID utilisateur et un mot de passe. Les jetons retournés sont un jeton d’ID, un jeton d’accès et un jeton d’actualisation.
 
-Les options prises en charge dans le flux ROPC sont les suivantes :
+[!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
-- **Client natif** : une interaction de l’utilisateur lors de l’authentification se produit lorsque le code s’exécute sur un appareil côté utilisateur.
-- **Flux client public** : seules les informations d’identification de l’utilisateur collectées par une application sont envoyées dans l’appel d’API. Les informations d’identification de l’application ne sont pas envoyées.
-- **Ajouter de nouvelles revendications** : Il est possible de modifier le contenu du jeton de l’ID pour ajouter de nouvelles revendications.
-
-Les flux suivants ne sont pas pris en charge :
-
-- **Serveur à serveur** : le système de protection des identités a besoin d’une adresse IP fiable collectée auprès de l’appelant (le client natif) dans le cadre de l’interaction. Dans un appel d’API côté serveur, seule l’adresse IP du serveur est utilisée. Si trop d’authentifications échouent, le système de protection des identités peut considérer une adresse IP répétée comme étant celle d’une personne malveillante.
-- **Application monopage** : application frontale principalement écrite en JavaScript. Souvent, l’application est écrite en utilisant une infrastructure comme AngularJS, Ember.js ou Durandal.js.
-- **Flux client confidentiel** : l’ID du client d’application est validé, mais le secret d’application ne l’est pas.
-
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md).
 
@@ -264,8 +254,8 @@ Utilisez votre application de développement d’API favorite pour générer un 
 | Clé | Valeur |
 | --- | ----- |
 | username | `user-account` |
-| password | `password1` |
-| grant_type | password |
+| mot de passe | `password1` |
+| grant_type | mot de passe |
 | scope | openid `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | jeton id_token |

@@ -1,19 +1,18 @@
 ---
 title: Ressources Azure Automation dans des solutions de gestion | Microsoft Docs
 description: Les solutions de gestion comprennent généralement des runbooks dans Azure Automation pour automatiser des processus tels que la collecte et le traitement de l’analyse des données.  Cet article explique comment inclure des runbooks et leurs ressources associées dans une solution.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d55af7354ea7d78263e55872e257a2814ebe4130
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8ef9f27546e9db95d5a41769e1b5bc7bc0c2f851
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401816"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663060"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Ajout de ressources Azure Automation à une solution de gestion (préversion)
 > [!NOTE]
@@ -26,7 +25,7 @@ Les [solutions de gestion]( solutions.md) comprennent généralement des runbook
 > Les exemples dans cet article utilisent des paramètres et des variables obligatoires ou communs aux solutions de gestion. Ils sont décrits dans la rubrique [Conception et génération d’une solution de gestion dans Azure]( solutions-creating.md) 
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous êtes déjà familiarisé avec les informations suivantes.
 
 - Comment [créer une solution de gestion]( solutions-creating.md).
@@ -166,7 +165,7 @@ Les propriétés des ressources d’informations d’identification sont décrit
 | Propriété | Description |
 |:--- |:--- |
 | userName |Nom d’utilisateur des informations d’identification. |
-| password |Mot de passe des informations d’identification. |
+| mot de passe |Mot de passe des informations d’identification. |
 
 
 ## <a name="schedules"></a>Planifications

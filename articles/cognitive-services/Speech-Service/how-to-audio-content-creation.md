@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: dapine
-ms.openlocfilehash: aed9c0a72af063c84c0744757772e11c689ac14c
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 4785356963e7df1d7b175ac21ceebc921f851ffb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561032"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913648"
 ---
 # <a name="improve-synthesis-with-audio-content-creation"></a>Améliorer la synthèse avec la création de contenu audio
 
@@ -43,7 +43,7 @@ Ce diagramme montre les étapes nécessaires pour paramétrer et exporter des so
 
 Suivez ces étapes pour créer une ressource Speech et la connecter à Speech Studio.
 
-1. Suivez ces instructions pour vous [inscrire pour obtenir un compte Azure](get-started.md#try-the-speech-service-using-a-new-azure-account) et pour [créer une ressource Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Assurez-vous que votre niveau tarifaire est défini sur **S0**. Si vous utilisez l’une des voix neuronales, assurez-vous de créer votre ressource dans une [région prise en charge](regions.md#standard-and-neural-voices).
+1. Suivez ces instructions pour vous [inscrire pour obtenir un compte Azure](get-started.md#new-resource) et pour [créer une ressource Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Assurez-vous que votre niveau tarifaire est défini sur **S0**. Si vous utilisez l’une des voix neuronales, assurez-vous de créer votre ressource dans une [région prise en charge](regions.md#standard-and-neural-voices).
 2. Connectez-vous à [Création de contenu audio](https://aka.ms/audiocontentcreation).
 3. Sélectionnez un projet existant ou cliquez sur **Créer un nouveau**.
 4. Vous pouvez modifier votre abonnement à tout moment avec l’option **Paramètres**, située dans le haut de la section.

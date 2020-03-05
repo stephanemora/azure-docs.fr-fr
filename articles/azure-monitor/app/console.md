@@ -1,19 +1,15 @@
 ---
 title: Azure Application Insights pour les applications console | Microsoft Docs
 description: Surveiller la disponibilité, les performances et l’utilisation.des applications Web.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/02/2019
 ms.reviewer: lmolkova
-ms.openlocfilehash: c8c71fa3798b7c56550b742a8b19c83336bb6ddf
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: baaea0f8055eeff0314fcf5fde00729ea8091d12
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889139"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655427"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights pour les applications console .NET
 

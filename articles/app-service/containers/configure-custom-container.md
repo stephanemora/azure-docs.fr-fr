@@ -3,12 +3,12 @@ title: Configurer un conteneur Linux personnalisé
 description: Découvrez comment configurer un conteneur Linux personnalisé dans Azure App Service. Cet article présente les tâches de configuration les plus courantes.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: d9d6311e69ba4e3893da81a16b06c8baed78cdcd
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 6baa1fbd4932aa83a54081ff166dcae7f258fff9
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671878"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255881"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurer un conteneur Linux personnalisé pour Azure App Service
 
@@ -160,10 +160,12 @@ Les listes suivantes présentent des options de configuration Docker Compose pri
 
 L’utilisation d’un conteneur personnalisé avec l’intégration au réseau virtuel peut nécessiter une configuration de conteneur supplémentaire. Consultez [Intégrer une application à un réseau virtuel Azure](../web-sites-integrate-with-vnet.md).
 
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Déployer à partir du référentiel de conteneurs privé](tutorial-custom-docker-image.md)
+> [Tutoriel : Déployer à partir du référentiel de conteneurs privé](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Application WordPress avec plusieurs conteneurs](tutorial-multi-container-app.md)
+> [Tutoriel : Application WordPress avec plusieurs conteneurs](tutorial-multi-container-app.md)

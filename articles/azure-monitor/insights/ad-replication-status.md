@@ -1,18 +1,17 @@
 ---
 title: Surveiller l’état de la réplication Active Directory avec Azure Monitor | Microsoft Docs
 description: Le pack de solution État de la réplication Active Directory surveille régulièrement votre environnement Active Directory pour déterminer si des échecs de réplication se produisent.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: 31e6d0c8b374bd494ae8fda36f4f38aabb1ac96b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bfc9572e8b21692a386c510ffd3409c571eff8f4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406091"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667174"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Surveiller l’état de la réplication Active Directory avec Azure Monitor
 
@@ -27,7 +26,7 @@ La solution AD Replication Status supervise régulièrement votre environnement 
 ## <a name="installing-and-configuring-the-solution"></a>Installation et configuration de la solution
 Utilisez les informations suivantes pour installer et configurer la solution.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 * La solution AD Replication Status nécessite l’installation d’une version prise en charge du .NET Framework (version 4.6.2 ou ultérieure) sur chaque ordinateur sur lequel est installé l’agent Log Analytics pour Windows (également appelé Microsoft Monitoring Agent (MMA)).  Cet agent est utilisé par System Center 2016 Operations Manager, Operations Manager 2012 R2 et Azure Monitor.
 * La solution prend en charge les contrôleurs de domaine exécutant Windows Server 2008 et 2008 R2, Windows Server 2012 et 2012 R2 et Windows Server 2016.

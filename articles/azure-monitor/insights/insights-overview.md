@@ -1,18 +1,17 @@
 ---
 title: Vue d’ensemble des Insights dans Azure Monitor | Microsoft Docs
 description: Les Insights fournissent une expérience de surveillance personnalisée dans Azure Monitor pour des applications et services spécifiques. Cet article fournit une brève description de chacune des informations actuellement disponibles.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
-ms.openlocfilehash: d1b53267daa2d47baf9976727bbaf3fa56172432
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 15ea7698c9e90fa8b0dfa20f71b552a2b0e9c7d2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832093"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657246"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Vue d’ensemble des Insights dans Azure Monitor
 Les Insights offrent une expérience de surveillance personnalisée pour des applications et services spécifiques. Ils stockent des données sur la [plateforme de données Azure Monitor](../platform/data-platform.md) et exploitent d’autres fonctionnalités d’analyse et d’alerte d’Azure Monitor, mais peuvent également collecter des données supplémentaires et offrir une expérience utilisateur unique sur le portail Azure. Vous pouvez accéder aux informations à partir de la section **Insights** du menu du Azure Monitor du portail Azure.
@@ -26,7 +25,7 @@ Voir [Présentation d’Application Insights](../app/app-insights-overview.md).
 
 ![Application Insights](media/insights-overview/app-insights.png)
 
-## <a name="azure-monitor-for-containers"></a>Azure Monitor pour des conteneurs
+## <a name="azure-monitor-for-containers"></a>Azure Monitor pour conteneurs
 Azure Monitor pour les conteneurs supervise les performances des charges de travail de conteneur déployées sur Azure Container Instances ou sur des clusters Kubernetes managés hébergés sur Azure Kubernetes Service (AKS). La surveillance de vos conteneurs est cruciale, particulièrement lorsque vous exécutez un cluster de production à grande échelle, avec plusieurs applications.
 
 Voir [Vue d’ensemble d’Azure Monitor pour conteneurs](../insights/container-insights-overview.md).

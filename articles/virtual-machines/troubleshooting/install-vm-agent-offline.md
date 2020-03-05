@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 438143d3253f1cab1afb958a90f427dcba59a98e
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 8ea85b560f35c79b3d5066d794f587345810b5d0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059251"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920856"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installer l’agent de machine virtuelle Azure en mode hors connexion 
 
@@ -35,13 +35,13 @@ Installez l’agent de machine virtuelle en mode hors connexion dans les scénar
 
 Procédez comme suit pour installer l’agent de machine virtuelle en mode hors connexion.
 
-### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Étape 1 : attacher le disque du système d’exploitation de la machine virtuelle à une autre machine virtuelle en tant que disque de données
+### <a name="step-1-attach-the-os-disk-of-the-vm-to-another-vm-as-a-data-disk"></a>Étape 1 : attacher le disque du système d’exploitation de la machine virtuelle à une autre machine virtuelle en tant que disque de données
 
-1. Prenez un instantané du disque du système d’exploitation de la machine virtuelle affectée, créez un disque à partir de l’instantané, puis attachez le disque à une machine virtuelle de dépannage. Pour en savoir plus, consultez [Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération avec le Portail Microsoft Azure](troubleshoot-recovery-disks-portal-windows.md). Pour la machine virtuelle classique, supprimez la machine virtuelle et conservez le disque du système d’exploitation, puis attachez le disque du système d’exploitation à la machine virtuelle de dépannage.
+1. Effectuez une capture instantanée du disque du système d’exploitation de la machine virtuelle affectée, créez un disque à partir de cette capture instantanée, puis attachez le disque à une machine virtuelle de dépannage. Pour en savoir plus, consultez [Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide du portail Azure](troubleshoot-recovery-disks-portal-windows.md). Pour la machine virtuelle classique, supprimez la machine virtuelle et conservez le disque du système d’exploitation, puis attachez le disque du système d’exploitation à la machine virtuelle de dépannage.
 
 2.  Connectez-vous à la machine virtuelle de dépannage. Ouvrez **Gestion de l’ordinateur** > **Gestion des disques**. Vérifiez que le disque du système d’exploitation est en ligne et que les lettres de lecteur sont attribuées aux partitions de disque.
 
-### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Étape 2 : modifier le disque du système d’exploitation pour installer l’agent de machine virtuelle Azure
+### <a name="step-2-modify-the-os-disk-to-install-the-azure-vm-agent"></a>Étape 2 : modifier le disque du système d’exploitation pour installer l’agent de machine virtuelle Azure
 
 1.  Effectuez une connexion Bureau à distance à la machine virtuelle de dépannage.
 
@@ -66,7 +66,7 @@ Procédez comme suit pour installer l’agent de machine virtuelle en mode hors 
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\RdAgent
 
-8.  Utilisez les fichiers existants de la machine virtuelle de dépannage comme référentiel pour l’installation de l’agent de machine virtuelle. Effectuez ensuite les tâches suivantes :
+8.  Utilisez les fichiers existants de la machine virtuelle de dépannage comme référentiel pour l’installation de l’agent de machine virtuelle. Suivez les étapes ci-dessous :
 
     1. À partir de la machine virtuelle de dépannage, exportez les sous-clés suivantes au format du Registre (.reg) : 
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
@@ -105,6 +105,8 @@ Procédez comme suit pour installer l’agent de machine virtuelle en mode hors 
 Si vous avez créé la machine virtuelle à l’aide du modèle de déploiement Resource Manager, vous avez terminé.
 
 ### <a name="use-the-provisionguestagent-property-for-classic-vms"></a>Utiliser la propriété ProvisionGuestAgent pour les machines virtuelles classiques
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 Si vous avez créé la machine virtuelle à l’aide du modèle classique, utilisez le module Azure PowerShell pour mettre à jour la propriété **ProvisionGuestAgent**. La propriété informe Azure que la machine virtuelle a l’agent de machine virtuelle installé.
 

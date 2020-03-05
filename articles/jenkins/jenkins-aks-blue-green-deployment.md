@@ -4,12 +4,12 @@ description: Découvrez comment déployer sur Azure Kubernetes Service (AKS) à 
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, continuous delivery, cd
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: ae9c496cd820bf1263cac50fb676990ed65ed0ba
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 9d6551f910bd99322f844b44130ebb03732df83c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158558"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251478"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Déployer sur Azure Kubernetes Service (AKS) à l’aide de Jenkins et du modèle de déploiement bleu/vert
 
@@ -84,19 +84,19 @@ Afin de créer un cluster Kubernetes managé avec [Azure CLI 2.0](https://docs.m
 
 1. Connectez-vous à votre compte Azure. Après avoir entré la commande suivante, vous recevez des instructions qui expliquent comment effectuer la connexion. 
     
-    ```bash
+    ```azurecli
     az login
     ```
 
 1. Pendant l’exécution de la commande `az login` à l’étape précédente, une liste de tous vos abonnements Azure apparaît (avec leur ID d’abonnement). Au cours de cette étape, vous pourrez définir l’abonnement Azure par défaut. Remplacez l’espace réservé &lt;your-subscription-id> par l’identifiant d’abonnement Azure de votre choix. 
 
-    ```bash
+    ```azurecli
     az account set -s <your-subscription-id>
     ```
 
 1. Créez un groupe de ressources. Remplacez l’espace réservé &lt;your-subscription-id> par le nom de votre nouveau groupe de ressources, puis remplacez l’espace réservé &lt;your-location> par l’emplacement. La commande `az account list-locations` affiche tous les emplacements Azure. Tous les emplacements ne sont pas disponibles dans la préversion d’AKS. Si vous indiquez un emplacement non valide à ce moment-là, le message d’erreur affiche la liste des emplacements disponibles.
 
-    ```bash
+    ```azurecli
     az group create -n <your-resource-group-name> -l <your-location>
     ```
 
@@ -129,7 +129,7 @@ Vous pouvez configurer un déploiement bleu/vert dans AKS manuellement ou à l�
 #### <a name="set-up-a-kubernetes-cluster-manually"></a>Configurer manuellement un cluster Kubernetes 
 1. Télécharger la configuration de Kubernetes dans votre dossier de profil.
 
-    ```bash
+    ```azurecli
     az aks get-credentials -g <your-resource-group-name> -n <your-kubernetes-cluster-name> --admin
     ```
 
@@ -157,13 +157,13 @@ Vous pouvez configurer un déploiement bleu/vert dans AKS manuellement ou à l�
     
     Mettez à jour le nom DNS de l’adresse IP correspondante avec la commande suivante :
 
-    ```bash
+    ```azurecli
     az network public-ip update --dns-name aks-todoapp --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
     ```
 
     Renouvelez l’appel de `todoapp-test-blue` et `todoapp-test-green` :
 
-    ```bash
+    ```azurecli
     az network public-ip update --dns-name todoapp-blue --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
 
     az network public-ip update --dns-name todoapp-green --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
@@ -175,13 +175,13 @@ Vous pouvez configurer un déploiement bleu/vert dans AKS manuellement ou à l�
 
 1. Exécutez la commande `az acr create` pour créer une instance de Container Registry. Dans la section suivante, vous pouvez ensuite utiliser `login server` en guise d’URL du registre Docker.
 
-    ```bash
+    ```azurecli
     az acr create -n <your-registry-name> -g <your-resource-group-name>
     ```
 
 1. Exécutez la commande `az acr credential` pour afficher vos informations d’identification Container Registry. Notez le nom d’utilisateur et le mot de passe du registre Docker, car ils vous serviront dans la section suivante.
 
-    ```bash
+    ```azurecli
     az acr credential show -n <your-registry-name>
     ```
 
@@ -224,7 +224,7 @@ Dans cette section, vous pourrez voir comment préparer le serveur Jenkins pour 
 
 1. Dans votre propre dépôt, accédez à `/deploy/aks/`, puis ouvrez `Jenkinsfile`.
 
-2. Mettez à jour le fichier comme suit :
+2. Mettez le fichier à jour comme suit :
 
     ```groovy
     def servicePrincipalId = '<your-service-principal>'
@@ -253,9 +253,9 @@ Dans cette section, vous pourrez voir comment préparer le serveur Jenkins pour 
 
 1. Saisissez le chemin du script en tant que `deploy/aks/Jenkinsfile`.
 
-## <a name="run-the-job"></a>Exécution de la tâche
+## <a name="run-the-job"></a>Exécuter le travail
 
-1. Vérifiez que vous pouvez exécuter votre projet dans votre environnement local. Voici comment procéder : [Exécuter le projet sur l’ordinateur local](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
+1. Vérifiez que vous pouvez exécuter votre projet dans votre environnement local. Voici comment faire : [Exécuter le projet sur l’ordinateur local](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
 
 1. Exécuter le travail Jenkins. La première fois que vous exécutez le travail, Jenkins déploie l’application todo sur l’environnement bleu, qui constitue l’environnement inactif par défaut. 
 
@@ -272,15 +272,15 @@ Si vous exécutez la build plusieurs fois, elle passe par les déploiements bleu
 
 Pour en savoir plus sur le déploiement sans interruption de service, consultez ce [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/301-jenkins-aks-zero-downtime-deployment). 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin des ressources que vous avez créées dans ce tutoriel, vous pouvez les supprimer.
 
-```bash
+```azurecli
 az group delete -y --no-wait -n <your-resource-group-name>
 ```
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si vous constatez des bogues dans les plug-ins Jenkins, enregistrez un problème dans le [Jenkins JIRA](https://issues.jenkins-ci.org/) du composant en question.
 

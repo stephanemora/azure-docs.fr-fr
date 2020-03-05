@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: 1075c03820efba44ceb8dea28aff6302d2667cf2
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 654efd8f5fbe31131ae03a8e794bc2113df2d29f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892428"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912186"
 ---
 # <a name="secure-access-to-application-data"></a>Sécuriser l’accès aux données d’application
 
@@ -44,8 +44,9 @@ blobStorageAccount=<blob_storage_account>
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
-az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbnails  \
---public-access off
+az storage container set-permission \ 
+--account-name $blobStorageAccount --account-key $blobStorageAccountKey \ 
+--name thumbnails --public-access off
 ``` 
 
 ## <a name="configure-sas-tokens-for-thumbnails"></a>Configurer des jetons SAS pour les miniatures
@@ -129,7 +130,7 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 
 Les classes, propriétés et méthodes suivantes sont utilisées dans la tâche précédente :
 
-|Classe  |properties| Méthodes  |
+|Classe  |Propriétés| Méthodes  |
 |---------|---------|---------|
 |[StorageCredentials](/dotnet/api/microsoft.azure.cosmos.table.storagecredentials)    |         |
 |[CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)     | |[CreateCloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient)        |

@@ -12,18 +12,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: d9732f232c5a7ec1e551f42fe0e8187e382aec6e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: beb1562738699bbcede58d8214e69342abbb7c93
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981868"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921468"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows affiche une erreur dans un écran bleu lors du démarrage d’une machine virtuelle Azure
 Cet article décrit les erreurs dans un écran bleu que vous pouvez rencontrer quand vous démarrez une machine virtuelle Windows dans Microsoft Azure. Il fournit les étapes pour vous aider à collecter des données pour un ticket de support. 
 
-> [!NOTE] 
-> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/management/deployment-models.md). Cet article traite de l’utilisation du modèle de déploiement Resource Manager que nous recommandons pour les nouveaux déploiements à la place du modèle de déploiement classique.
 
 ## <a name="symptom"></a>Symptôme 
 

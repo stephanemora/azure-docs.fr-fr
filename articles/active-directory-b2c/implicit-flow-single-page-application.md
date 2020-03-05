@@ -3,20 +3,20 @@ title: Connexion monopage avec un flux implicite
 titleSuffix: Azure AD B2C
 description: Découvrez comment ajouter une connexion monopage en utilisant un flux implicite OAuth 2.0 avec Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: efef55ab42313854ab27d323824a76488d520ad1
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 3e77e597fbd33a1f1358ecaa2d2aea3fe075a70f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850596"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187727"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Connexion sur page unique en utilisant un flux implicite OAuth 2.0 dans Azure Active Directory B2C
 

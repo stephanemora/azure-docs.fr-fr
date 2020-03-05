@@ -3,12 +3,12 @@ title: Déployer des ressources inter-abonnements et groupes de ressources
 description: Montre comment cibler plusieurs groupes de ressources et des abonnements Azure pendant le déploiement.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 8f5fbd51456003059f6a32fc32b32194a936434a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 47573fedd7915d95d6ed98e3fd0aaf840331552b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154208"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250606"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements
 
@@ -119,7 +119,7 @@ Si vous définissez `resourceGroup`sur le nom d’un groupe de ressources qui n�
 
 Pour tester le modèle précédent et voir les résultats, utilisez PowerShell ou Azure CLI.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Déployez deux comptes de stockage sur deux groupes de ressources dans le **même abonnement** en utilisant :
 
@@ -162,7 +162,7 @@ New-AzResourceGroupDeployment `
   -secondSubscriptionID $secondSub
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Déployez deux comptes de stockage sur deux groupes de ressources dans le **même abonnement** en utilisant :
 
@@ -317,7 +317,7 @@ L’[exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 Pour tester le modèle précédent et voir les résultats, utilisez PowerShell ou Azure CLI.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name parentGroup -Location southcentralus
@@ -340,7 +340,7 @@ La sortie de l’exemple précédent est :
  linkedRG         String                     Linked resource group is linkedgroup
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create --name parentGroup --location southcentralus
@@ -355,7 +355,7 @@ az group deployment create \
 
 La sortie de l’exemple précédent est :
 
-```azurecli
+```output
 "outputs": {
   "defaultScopeRG": {
     "type": "String",

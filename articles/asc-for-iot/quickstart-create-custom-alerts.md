@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2020
 ms.author: mlottner
-ms.openlocfilehash: 510a2c3f04cc4c307acad18ee3012d9407155f9f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 063e5c9e7d75fd1c07d148c265b1fe64eee3cbc8
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766459"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303526"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Démarrage rapide : Créer des alertes personnalisées
 
@@ -80,7 +80,6 @@ Utilisez des groupes de sécurité pour regrouper vos appareils par catégories 
 ## <a name="alerts-available-for-customization"></a>Alertes disponibles pour la personnalisation
 
 Azure Security Center pour IoT propose un grand nombre d’alertes qui peuvent être personnalisées en fonction de vos besoins spécifiques. Consultez le [tableau d’alertes personnalisables](concept-customizable-security-alerts.md) pour connaître la gravité des alertes, la source de données et la description ainsi que les étapes de correction que nous suggérons, si et quand chaque alerte est reçue. 
-|
 
 
 ## <a name="next-steps"></a>Étapes suivantes

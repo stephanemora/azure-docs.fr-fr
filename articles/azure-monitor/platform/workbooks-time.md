@@ -4,18 +4,17 @@ description: Créer des rapports complexes en toute simplicité grâce à des cl
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 1d1ee243fa9df8a77a6ce80ecb9d8e5336e8b19b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 380b8a7ce286ab06b6935bf63bf3a0e82f371c2f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872755"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658011"
 ---
 # <a name="workbook-time-parameters"></a>Paramètres de temps des classeurs
 
@@ -62,7 +61,7 @@ Voici à quoi ressemble le classeur en mode lecture.
 4. Le contrôle de texte affiche le texte : _L’intervalle de temps choisi est Last 24 hours (Dernières 24 heures)_ .
 
 ## <a name="time-parameter-options"></a>Options de paramètre de temps
-| Paramètre | Explication | Exemples |
+| Paramètre | Explication | Exemple |
 | ------------- |:-------------|:-------------|
 | `{TimeRange}` | Étiquette de l’intervalle de temps | 24 dernières heures |
 | `{TimeRange:label}` | Étiquette de l’intervalle de temps | 24 dernières heures |

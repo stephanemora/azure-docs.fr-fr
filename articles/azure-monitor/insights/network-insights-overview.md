@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor pour réseaux (préversion)
 description: Vue d’ensemble rapide d’Azure Monitor pour réseau, qui fournit une vue complète de l’intégrité et des métriques pour toutes les ressources réseau déployées sans aucune configuration.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 3bb92b85779366081349dab777be67e063469678
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0f5b2fbd13cb9658e255fde727e115df748aaed9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839982"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654866"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor pour réseaux (préversion)
 Azure Monitor pour réseau fournit une vue complète de l’intégrité et des métriques pour toutes les ressources réseau déployées sans aucune configuration. La fonctionnalité de recherche avancée aide à identifier les dépendances de ressources, par l’activation de scénarios tels que l’identification des ressources qui hébergent votre site web, en recherchant simplement le nom du site web hébergé.

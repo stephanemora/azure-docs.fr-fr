@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 42f11ecb8e7c7ae47b5a5ab5ff4f946833945aa1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7069ff363cf274ba855efc9b598d8d01e64e18d1
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471184"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250110"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutoriel : Sécuriser des artefacts dans les déploiements de modèles Azure Resource Manager
 
@@ -31,7 +31,7 @@ Ce tutoriel décrit les tâches suivantes :
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
@@ -39,7 +39,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 * Consultez [Tutoriel : Importer des fichiers SQL BACPAC avec des modèles Azure Resource Manager](./template-tutorial-deploy-sql-extensions-bacpac.md). Le modèle utilisé dans ce tutoriel est celui développé dans ce tutoriel. Un lien de téléchargement du modèle complet est fourni dans cet article.
 * Pour une sécurité optimale, utilisez un mot de passe généré pour le compte administrateur de SQL Server. Voici un exemple que vous pouvez utiliser pour générer un mot de passe :
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
 

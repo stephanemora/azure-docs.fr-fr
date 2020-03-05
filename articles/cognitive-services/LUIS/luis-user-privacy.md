@@ -8,19 +8,19 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 061f019fe36e4d5495a41fc81e56d9673ad595fc
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4e3e0d04b0086905b80e26fb4f838c36b5b5545e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953456"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273358"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exporter et supprimer vos données client dans Language Understanding (LUIS) dans Cognitive Services
 
-Supprimer les données des clients pour garantir la confidentialité et la conformité. 
+Supprimer les données des clients pour garantir la confidentialité et la conformité.
 
 ## <a name="summary-of-customer-data-request-features"></a>Résumé des fonctionnalités de demande de données client
 Language Understanding Intelligent Service (LUIS) préserve le contenu du client pour utiliser le service, mais l’utilisateur de LUIS contrôle totalement l’affichage, l’exportation et la suppression des ses données. Il peut le faire par le biais du [portail](luis-reference-regions.md) web LUIS ou des [API de création (également appelées programmatiques) de LUIS](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -39,7 +39,7 @@ Les utilisateurs de LUIS contrôlent totalement la suppression de tout contenu u
 
 | | **Compte d’utilisateur** | **Application** | **Exemple(s) d’énoncé(s)** | **Requêtes utilisateur final** |
 | --- | --- | --- | --- | --- |
-| **Portal** | [Lien](luis-concept-data-storage.md#delete-an-account) | [Lien](luis-how-to-start-new-app.md#delete-app) | [Lien](luis-concept-data-storage.md#utterances-in-an-intent) | [Énoncés d’apprentissage actif](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Énoncés enregistrés](luis-concept-data-storage.md#disable-logging-utterances) |
+| **Portail** | [Lien](luis-concept-data-storage.md#delete-an-account) | [Lien](luis-how-to-start-new-app.md#delete-app) | [Lien](luis-concept-data-storage.md#utterances-in-an-intent) | [Énoncés d’apprentissage actif](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Énoncés enregistrés](luis-concept-data-storage.md#disable-logging-utterances) |
 | **API** | [Lien](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Lien](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Lien](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Lien](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 
@@ -58,7 +58,7 @@ Pour activer l’[apprentissage actif](luis-how-to-review-endpoint-utterances.md
 * [Australie](#australia)
 * [États-Unis](#united-states)
 
-À l’exception des données d’apprentissage actif (décrites ci-dessous), LUIS suit les [pratiques de stockage de données pour les services régionaux](https://azuredatacentermap.azurewebsites.net/). 
+À l’exception des données d’apprentissage actif (décrites ci-dessous), LUIS suit les [pratiques de stockage de données pour les services régionaux](https://azuredatacentermap.azurewebsites.net/).
 
 ### <a name="europe"></a>Europe
 
@@ -68,7 +68,7 @@ Le portail [eu.luis.ai](https://eu.luis.ai) et Europe Authoring (également appe
 * France
 * Royaume-Uni
 
-Lors du déploiement dans ces zones géographiques Azure, les énoncés provenant des utilisateurs finaux de votre application et reçus par le point de terminaison sont stockés dans la zone géographique Europe d’Azure pour l’apprentissage actif. Vous pouvez désactiver l’apprentissage actif, consultez [Désactiver l’apprentissage actif](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Pour gérer les énoncés stockés, consultez [Supprimer un énoncé](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+Lors du déploiement dans ces zones géographiques Azure, les énoncés provenant des utilisateurs finaux de votre application et reçus par le point de terminaison sont stockés dans la zone géographique Europe d’Azure pour l’apprentissage actif. Vous pouvez désactiver l’apprentissage actif, consultez [Désactiver l’apprentissage actif](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Pour gérer les énoncés stockés, consultez [Supprimer un énoncé](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 ### <a name="australia"></a>Australie
 
@@ -76,7 +76,7 @@ Le portail [au.luis.ai](https://au.luis.ai) et Australia Authoring (également a
 
 * Australie
 
-Lors du déploiement dans ces zones géographiques Azure, les énoncés provenant des utilisateurs finaux de votre application et reçus par le point de terminaison sont stockés dans la zone géographique Australie d’Azure pour l’apprentissage actif. Vous pouvez désactiver l’apprentissage actif, consultez [Désactiver l’apprentissage actif](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Pour gérer les énoncés stockés, consultez [Supprimer un énoncé](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+Lors du déploiement dans ces zones géographiques Azure, les énoncés provenant des utilisateurs finaux de votre application et reçus par le point de terminaison sont stockés dans la zone géographique Australie d’Azure pour l’apprentissage actif. Vous pouvez désactiver l’apprentissage actif, consultez [Désactiver l’apprentissage actif](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Pour gérer les énoncés stockés, consultez [Supprimer un énoncé](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 ### <a name="united-states"></a>États-Unis
 
@@ -84,7 +84,7 @@ Le portail [luis.ai](https://www.luis.ai) et United States Authoring (également
 
 * Zones géographiques Azure pas prises en charge par les régions de création d’Europe ou d’Australie
 
-Lors du déploiement dans ces zones géographiques Azure, les énoncés provenant des utilisateurs finaux de votre application et reçus par le point de terminaison sont stockés dans la zone géographique États-Unis d’Azure pour l’apprentissage actif. Vous pouvez désactiver l’apprentissage actif, consultez [Désactiver l’apprentissage actif](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Pour gérer les énoncés stockés, consultez [Supprimer un énoncé](luis-how-to-review-endpoint-utterances.md#delete-utterance). 
+Lors du déploiement dans ces zones géographiques Azure, les énoncés provenant des utilisateurs finaux de votre application et reçus par le point de terminaison sont stockés dans la zone géographique États-Unis d’Azure pour l’apprentissage actif. Vous pouvez désactiver l’apprentissage actif, consultez [Désactiver l’apprentissage actif](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Pour gérer les énoncés stockés, consultez [Supprimer un énoncé](luis-how-to-review-endpoint-utterances.md#delete-utterance).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

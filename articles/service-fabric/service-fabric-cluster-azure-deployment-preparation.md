@@ -3,12 +3,12 @@ title: Planifier un déploiement de cluster Azure Service Fabric
 description: Découvrez-en plus sur la planification et la préparation d'un déploiement de cluster de production Service Fabric sur Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 32d48f9ffa056d252bdf762304340f245d80fd26
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1762a6975448301957579b3437a8af5c89b3accd
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834448"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193474"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planifier et préparer un déploiement de cluster
 
@@ -77,7 +77,6 @@ Les disques de système d’exploitation éphémères ne sont pas spécifiques d
         "virtualMachineProfile": {
             "storageProfile": {
                 "osDisk": {
-                        "vhdContainers": ["[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('vmStorageAccountName')), variables('storageApiVersion')).primaryEndpoints.blob, parameters('vmStorageAccountContainerName'))]"],
                         "caching": "ReadOnly",
                         "createOption": "FromImage",
                         "diffDiskSettings": {

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 927f57ae3ca90f5701791022b68c4bf0d91d4e7d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 4008779f0ec16bcaf6b995cf7f33d15a8f1e5665
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112081"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190651"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Implémentation de la navigation par facettes dans la Recherche cognitive Azure
 
@@ -34,11 +34,11 @@ Dans le développement de votre application, l’écriture du code qui construit
 ## <a name="sample-code-and-demo"></a>Exemple de code et démonstration
 Cet article prend l’exemple d’un portail de recrutement. L’exemple est implémenté en tant qu’application ASP.NET MVC.
 
--   Consultez et testez la [démonstration en ligne du portail de recrutement de la Recherche cognitive Azure](https://azjobsdemo.azurewebsites.net/).
+- Consultez et testez la [démonstration en ligne du portail de recrutement de la Recherche cognitive Azure](http://azjobsdemo.azurewebsites.net/).
 
--   Téléchargez le code à partir du [référentiel Azure-Samples sur GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
+- Téléchargez le code à partir du [référentiel Azure-Samples sur GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 Si vous êtes novice en recherche et développement, considérez que la navigation par facettes affiche les possibilités de recherche autonome. Il s'agit d'un type d'expérience de recherche détaillée, en fonction de filtres prédéfinis, utilisés pour limiter rapidement les résultats de la recherche à l'aide d'actions de type pointer et cliquer. 
 
 ### <a name="interaction-model"></a>Modèle d’interaction

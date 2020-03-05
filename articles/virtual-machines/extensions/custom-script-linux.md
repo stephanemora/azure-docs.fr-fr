@@ -3,7 +3,7 @@ title: Exécuter des scripts personnalisés sur des machines virtuelles Linux da
 description: Automatiser les tâches de configuration de machine virtuelle Linux à l’aide de l’extension de script personnalisé v2
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 22346501444694675d92d9a37497f9304c76e13d
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 2190bfd1a260d7b866fedc1f7c699faef2431a93
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156554"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246164"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Utiliser l’extension de script personnalisé Azure version 2 avec des machines virtuelles Linux
 L’extension de script personnalisé version 2 télécharge et exécute des scripts sur des machines virtuelles Azure. Elle est utile pour la configuration de post-déploiement, l’installation de logiciels ou toute autre tâche de configuration/gestion. Il est possible de télécharger des scripts à partir du Stockage Azure ou de tout autre emplacement Internet accessible, ou de les fournir au runtime de l’extension. 
@@ -110,7 +110,7 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| Name | Valeur/Exemple | Type de données | 
+| Nom | Valeur/Exemple | Type de données | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | Date |
 | publisher | Microsoft.Compute.Extensions | string |

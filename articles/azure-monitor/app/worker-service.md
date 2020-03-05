@@ -1,18 +1,14 @@
 ---
 title: Application Insights pour les applications Service Worker (applications non HTTP)
 description: Surveillance des applications .NET Core/.NET Framework non HTTP avec Azure Monitor Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/16/2019
-ms.openlocfilehash: bea30ade6d9f6eb77d18c671b824b138ba94fddb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2d4b3a38b059d603c96fc9267b44707ed32c8c1d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406185"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669333"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights pour les applications Service Worker (applications non HTTP)
 
@@ -24,7 +20,7 @@ Le nouveau kit de développement logiciel (SDK) n’effectue pas de collecte de 
 
 Le [SDK Application Insights pour Service Worker](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) est particulièrement bien adapté aux applications non HTTP, peu importe où et comment elles s’exécutent. Si votre application est en cours d’exécution et dispose d’une connectivité réseau vers Azure, les données de télémétrie peuvent être collectées. La surveillance Application Insights est prise en charge partout où .NET Core est pris en charge. Ce package peut être utilisé dans le nouveau [Service Worker .NET Core 3.0](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances), les [tâches en arrière-plan dans Asp.Net Core 2.1/2.2](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2), les applications console (.NET Core/ .NET Framework), etc.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Clé d’instrumentation Application Insights valide. Cette clé est requise pour envoyer les données de télémétrie à Application Insights. Si vous avez besoin créer une ressource Application Insights pour obtenir une instrumentation clé, consultez [Créer une ressource Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 

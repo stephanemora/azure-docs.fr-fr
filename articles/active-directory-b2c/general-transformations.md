@@ -3,20 +3,20 @@ title: Exemples de transformation de revendications générales pour les straté
 titleSuffix: Azure AD B2C
 description: Exemples de transformations de revendications générales pour le schéma Identity Experience Framework (IEF) d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/03/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 98d9730168764f0ba683a246f9ac224c13d3bf31
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: afdf2f531ede30d868123d89cac94fcfae070384
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982804"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188543"
 ---
 # <a name="general-claims-transformations"></a>Transformations de revendications générales
 
@@ -36,13 +36,13 @@ Copie la valeur d’une revendication dans une autre. Les deux revendications do
 Utilisez cette transformation de revendications pour copier la valeur d’une revendication de chaîne ou numérique dans une autre revendication. L’exemple suivant copie la valeur de revendication externalEmail dans la revendication d’e-mail.
 
 ```XML
-<ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim"> 
+<ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim">
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="externalEmail" TransformationClaimType="inputClaim"/>
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="email" TransformationClaimType="outputClaim"/>
-  </OutputClaims>         
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -51,7 +51,7 @@ Utilisez cette transformation de revendications pour copier la valeur d’une re
 - Revendications d’entrée :
     - **inputClaim** : bob@contoso.com
 - Revendications de sortie :
-    - **outputClaim** : bob@contoso.com 
+    - **outputClaim** : bob@contoso.com
 
 ## <a name="doesclaimexist"></a>DoesClaimExist
 

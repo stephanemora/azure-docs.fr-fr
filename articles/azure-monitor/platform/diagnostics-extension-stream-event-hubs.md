@@ -1,18 +1,17 @@
 ---
 title: Envoyer des données provenant de l’extension Diagnostics Azure pour Windows à Azure Event Hubs
 description: Configurez l’extension de diagnostic dans Azure Monitor pour envoyer des données à Azure Event Hubs afin de pouvoir les transférer vers des emplacements en dehors d’Azure.
-ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
-ms.openlocfilehash: 573a56c537e48687e310acff8639c50d0d0c6e3d
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 5e5034e99d37d3681192c2ad066f28acd1c4aeeb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467961"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672529"
 ---
 # <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Envoyer des données provenant de l’extension Diagnostics Azure pour Windows à Azure Event Hubs
 L’extension Diagnostics Azure est un agent présent dans Azure Monitor qui collecte des données de supervision dans le système d’exploitation invité et des charges de travail de machines virtuelles Azure et autres ressources de calcul. Cet article explique comment envoyer des données de l’extension Diagnostics Azure pour Windows (WAD) à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) afin de pouvoir les transférer vers des emplacements en dehors d’Azure.

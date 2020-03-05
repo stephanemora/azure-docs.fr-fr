@@ -7,18 +7,18 @@ ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 6a530c96c99a9f22f1943a5b874656bcabd9594b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c2bf401713dc7ae3b060181f1df56d0915f68aed
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906476"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269499"
 ---
 # <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Démarrage rapide : Gérer des objets blob avec le SDK JavaScript v10 en Node.js
 
 Dans ce guide de démarrage rapide, vous découvrez comment gérer des objets blob avec Node.js. Les objets blob sont des objets pouvant contenir de grandes quantités de texte ou de données binaires, notamment des images, des documents, des médias en streaming et des données d’archive. Vous allez charger, télécharger, lister et supprimer des objets blob, et vous allez gérer des conteneurs.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Un compte de stockage Azure. [Créer un compte de stockage](../common/storage-account-create.md).
@@ -409,4 +409,4 @@ Ce guide de démarrage rapide explique comment gérer des objets blob et des con
 
 > [!div class="nextstepaction"]
 > [Dépôt du kit SDK Stockage Azure v10 pour JavaScript](https://github.com/Azure/azure-storage-js)
-> [Informations de référence sur l’API JavaScript Stockage Azure](/javascript/api/overview/azure/storage?view=azure-node-legacy)
+> [Informations de référence sur l’API JavaScript Stockage Azure](/javascript/api/overview/azure/storage-overview)

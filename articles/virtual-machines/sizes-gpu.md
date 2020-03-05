@@ -3,7 +3,7 @@ title: Tailles des machines virtuelles – GPU | Microsoft Docs
 description: Répertorie les différentes tailles de GPU optimisées disponibles pour les machines virtuelles dans Azure. Répertorie des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau, ainsi que sur le débit de stockage et la bande passante réseau pour les tailles disponibles dans cette série.
 services: virtual-machines
 documentationcenter: ''
-author: jonbeck7
+author: vikancha
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: d88c76afb3426dce8c68ae4bcda366fe17700aa7
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 7e1e0d488844a94bd0be2b91398678e620295729
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566044"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913580"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tailles de machine virtuelle à GPU optimisé
 
@@ -51,7 +51,7 @@ Si vous choisissez d’installer manuellement les pilotes GPU NVIDIA, voir [Conf
 
 - Si vous voulez déployer plus de quelques machines virtuelles de série N, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat. Si vous utilisez un [compte gratuit Azure](https://azure.microsoft.com/free/), vous pouvez seulement utiliser un nombre limité de cœurs de calcul Azure.
 
-- Vous devrez probablement augmenter le quota de cœurs (par région) de votre abonnement Azure, ainsi que le quota pour les cœurs NC, NCv2, NCv3, ND, NDv2, NV ou NVv2. Pour demander une augmentation de quota, [ouvrez une demande de service clientèle en ligne](/../azure-supportability/how-to-create-azure-support-request.md) gratuitement. Les limites par défaut peuvent varier en fonction de la catégorie de votre abonnement.
+- Vous devrez probablement augmenter le quota de cœurs (par région) de votre abonnement Azure, ainsi que le quota pour les cœurs NC, NCv2, NCv3, ND, NDv2, NV ou NVv2. Pour demander une augmentation de quota, [ouvrez une demande de service clientèle en ligne](../azure-portal/supportability/how-to-create-azure-support-request.md) gratuitement. Les limites par défaut peuvent varier en fonction de la catégorie de votre abonnement.
 
 ## <a name="other-sizes"></a>Autres tailles
 

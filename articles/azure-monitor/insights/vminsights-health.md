@@ -1,18 +1,17 @@
 ---
 title: Comprendre l’intégrité de vos machines virtuelles Azure | Microsoft Docs
 description: Cet article décrit comment comprendre l’intégrité des machines virtuelles et des systèmes d’exploitation sous-jacents grâce à Azure Monitor pour machines virtuelles.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: e01223783130ea6b276db26bab709e2b51a8f76d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3cecb04a4f299051860c45425f0fc4e13c3722ea
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399787"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656294"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Comprendre l’intégrité de vos machines virtuelles Azure
 
@@ -302,7 +301,7 @@ Vous pouvez filtrer cette vue en sélectionnant des valeurs dans les menus déro
 
 |Colonne |Description |
 |-------|------------|
-|Subscription |Sélectionnez un abonnement Azure. Seules les alertes dans l’abonnement sélectionné sont incluses dans la vue. |
+|Abonnement |Sélectionnez un abonnement Azure. Seules les alertes dans l’abonnement sélectionné sont incluses dans la vue. |
 |Groupe de ressources |Sélectionnez un seul groupe de ressources. Seules les alertes avec des cibles dans le groupe de ressources sélectionné sont incluses dans la vue. |
 |Type de ressource |Sélectionnez un ou plusieurs types de ressources. Par défaut, seules les alertes des **machines virtuelles** cibles sont sélectionnées et incluses dans cette vue. Cette colonne n’est disponible qu’après qu’un groupe de ressources a été spécifié. |
 |Ressource |Sélectionnez une ressource. Seules les alertes ayant ces ressources pour cible sont incluses dans l’affichage. Cette colonne n’est disponible qu’après qu’un type de ressource a été spécifié. |

@@ -1,23 +1,22 @@
 ---
 title: Connexion de Configuration Manager à Azure Monitor | Microsoft Docs
 description: Cet article décrit comment connecter Configuration Manager à l’espace de travail dans Azure Monitor et commencer à analyser des données.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 5b5af034b116ec1cdcefc811630683c9f560c840
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3140c0de6fbe090e3d040202cd581c455f03b6d6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513651"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655254"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Connexion de Configuration Manager à Azure Monitor
 Vous pouvez connecter votre environnement Microsoft Endpoint Configuration Manager à Azure Monitor pour synchroniser les données de regroupement d’appareils et faire référence à ces regroupements dans Azure Monitor et Azure Automation.  
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Azure Monitor prend en charge Configuration Manager (Current Branch), version 1606 et ultérieure.
 

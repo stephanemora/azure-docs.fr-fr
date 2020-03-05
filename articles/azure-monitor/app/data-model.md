@@ -3,22 +3,18 @@ title: Modèle de données de télémétrie d’Azure Application Insights | Mic
 description: Présentation du modèle de données Application Insights
 services: application-insights
 documentationcenter: .net
-author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: b14ce5cc83dcbbeef2379d21027d4bca337fd9fd
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 94013a12e1cf48a8007fce2547c200d82a657b71
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376038"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671832"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modèle de données de télémétrie d’Application Insights
 

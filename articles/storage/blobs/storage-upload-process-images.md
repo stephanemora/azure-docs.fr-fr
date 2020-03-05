@@ -8,24 +8,24 @@ ms.topic: tutorial
 ms.date: 11/16/2019
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.openlocfilehash: 1c06cf12ac3264e77934a71426f9194136074e71
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: e4a2b1ee1b2b2726b7e0a807a965dbf4bc6b9500
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132972"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196992"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Tutoriel : Charger des données d’image dans le cloud avec le Stockage Azure
 
 Ce tutoriel est la première partie d’une série d’étapes. Dans ce tutoriel, vous allez apprendre à déployer une application web qui utilise la bibliothèque de client Stockage Azure dans le but de charger des images dans un compte de stockage. À la fin, vous disposerez d’une application web qui stocke et affiche des images à partir du Stockage Azure.
 
-# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+# <a name="net"></a>[\.NET](#tab/dotnet)
 ![Application de redimensionnement d’image dans .NET](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejs-v2-sdktabnodejs"></a>[SDK Node.js V2](#tab/nodejs)
+# <a name="nodejs-v2-sdk"></a>[SDK Node.js V2](#tab/nodejs)
 ![Application de redimensionnement d’image dans Node.js V2](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
-# <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK Node.js V10](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[SDK Node.js V10](#tab/nodejsv10)
 ![Application de redimensionnement d’image dans Node.js V10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
@@ -69,7 +69,7 @@ L’exemple charge des images sur un conteneur Blob dans un compte de stockage A
 Dans la commande suivante, indiquez le nom global unique de votre compte de stockage Blob dans l’espace réservé `<blob_storage_account>`.
 
 ```azurecli-interactive
-$blobStorageAccount="<blob_storage_account>"
+blobStorageAccount="<blob_storage_account>"
 
 az storage account create --name $blobStorageAccount --location southeastasia --resource-group myResourceGroup --sku Standard_LRS --kind blobstorage --access-tier hot
 
@@ -84,7 +84,7 @@ Récupérez la clé du compte de stockage avec la commande [az storage account k
 L’accès public du conteneur *Images* est défini sur `off`. L’accès public du conteneur *Miniatures* est défini sur `container`. Le paramètre d’accès public `container` permet aux utilisateurs qui visitent la page web de voir les miniatures.
 
 ```azurecli-interactive
-$blobStorageAccountKey=$(az storage account keys list -g myResourceGroup -n $blobStorageAccount --query [0].value --output tsv)
+blobStorageAccountKey=$(az storage account keys list -g myResourceGroup -n $blobStorageAccount --query "[0].value" --output tsv)
 
 az storage container create -n images --account-name $blobStorageAccount --account-key $blobStorageAccountKey --public-access off
 
@@ -117,7 +117,7 @@ L’application web offre un espace d’hébergement au code de l’exemple d’
 Dans la commande suivante, remplacez `<web_app>` par un nom unique. Les caractères valides sont `a-z`, `0-9` et `-`. Si `<web_app>` n’est pas unique, le message d’erreur suivant s'affiche : _Un site web avec ce nom `<web_app>` existe déjà._ L’URL par défaut de l’application web est `https://<web_app>.azurewebsites.net`.  
 
 ```azurecli-interactive
-$webapp="<web_app>"
+webapp="<web_app>"
 
 az webapp create --name $webapp --resource-group myResourceGroup --plan myAppServicePlan
 
@@ -125,7 +125,7 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>Déployer l’exemple d’application à partir du référentiel GitHub
 
-# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+# <a name="net"></a>[\.NET](#tab/dotnet)
 
 App Service prend en charge plusieurs façons de déployer du contenu vers une application web. Dans ce didacticiel, vous déployez l’application web depuis un [exemple de référentiel GitHub public](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configurez le déploiement GitHub sur l’application web avec la commande [az webapp deployment source config](/cli/azure/webapp/deployment/source).
 
@@ -136,7 +136,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 ```
 
-# <a name="nodejs-v2-sdktabnodejs"></a>[SDK Node.js V2](#tab/nodejs)
+# <a name="nodejs-v2-sdk"></a>[SDK Node.js V2](#tab/nodejs)
 App Service prend en charge plusieurs façons de déployer du contenu vers une application web. Dans ce didacticiel, vous déployez l’application web depuis un [exemple de référentiel GitHub public](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node). Configurez le déploiement GitHub sur l’application web avec la commande [az webapp deployment source config](/cli/azure/webapp/deployment/source). 
 
 ```azurecli-interactive
@@ -144,7 +144,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 ```
 
-# <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK Node.js V10](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[SDK Node.js V10](#tab/nodejsv10)
 App Service prend en charge plusieurs façons de déployer du contenu vers une application web. Dans ce didacticiel, vous déployez l’application web depuis un [exemple de référentiel GitHub public](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10). Configurez le déploiement GitHub sur l’application web avec la commande [az webapp deployment source config](/cli/azure/webapp/deployment/source). 
 
 ```azurecli-interactive
@@ -156,7 +156,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 ## <a name="configure-web-app-settings"></a>Configurer les paramètres de l’application web
 
-# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+# <a name="net"></a>[\.NET](#tab/dotnet)
 
 L’exemple d’application web utilise la [bibliothèque de client du Stockage Azure](/dotnet/api/overview/azure/storage) pour demander des jetons d’accès de requête, qui servent à charger des images. Les informations d’identification du compte de stockage utilisées par le SDK Stockage sont définies dans les paramètres de l’application web. Ajoutez des paramètres d’application à l’application déployée avec la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
 
@@ -165,18 +165,18 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
 
 ```
 
-# <a name="nodejs-v2-sdktabnodejs"></a>[SDK Node.js V2](#tab/nodejs)
+# <a name="nodejs-v2-sdk"></a>[SDK Node.js V2](#tab/nodejs)
 
 L’exemple d’application web utilise la [bibliothèque de client du Stockage Azure](https://docs.microsoft.com/javascript/api/azure-storage) pour demander des jetons d’accès de requête, qui servent à charger des images. Les informations d’identification du compte de stockage utilisées par le SDK Stockage sont définies dans les paramètres de l’application web. Ajoutez des paramètres d’application à l’application déployée avec la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
 
 ```azurecli-interactive
-$storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
+storageConnectionString=$(az storage account show-connection-string --resource-group resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
 
 az webapp config appsettings set --name $webapp --resource-group myResourceGroup --settings AzureStorageConfig__ImageContainer=images AzureStorageConfig__ThumbnailContainer=thumbnails AzureStorageConfig__AccountName=$blobStorageAccount AzureStorageConfig__AccountKey=$blobStorageAccountKey AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
 
 ```
 
-# <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK Node.js V10](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[SDK Node.js V10](#tab/nodejsv10)
 
 L’exemple d’application web utilise la [bibliothèque de client du Stockage Azure](https://github.com/Azure/azure-storage-js) pour demander des jetons d’accès de requête, qui servent à charger des images. Les informations d’identification du compte de stockage utilisées par le SDK Stockage sont définies dans les paramètres de l’application web. Ajoutez des paramètres d’application à l’application déployée avec la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings).
 
@@ -193,7 +193,7 @@ Une fois l’application web déployée et configurée, vous pouvez tester la fo
 
 Pour tester l’application web, accédez à l’URL de l’application publiée. L’URL par défaut de l’application web est `https://<web_app>.azurewebsites.net`.
 
-# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+# <a name="net"></a>[\.NET](#tab/dotnet)
 
 Sélectionnez la zone **Charger des photos** pour sélectionner et charger un fichier, ou faites glisser un fichier dans la zone. L’image disparaît si le chargement a réussi. La section **Miniatures générées** reste vide jusqu’aux tests effectués plus loin dans cette rubrique.
 
@@ -236,7 +236,7 @@ Les classes et méthodes suivantes sont utilisées dans la tâche précédente 
 |[CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer)    | [GetBlockBlobReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getblockblobreference)        |
 |[CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob)     | [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.file.cloudfile.uploadfromstreamasync)        |
 
-# <a name="nodejs-v2-sdktabnodejs"></a>[SDK Node.js V2](#tab/nodejs)
+# <a name="nodejs-v2-sdk"></a>[SDK Node.js V2](#tab/nodejs)
 
 Sélectionnez **Choisir un fichier** pour sélectionner un fichier, puis cliquez sur **Charger une image**. La section **Miniatures générées** reste vide jusqu’aux tests effectués plus loin dans cette rubrique. 
 
@@ -300,7 +300,7 @@ router.post('/', uploadStrategy, (req, res) => {
 });
 ```
 
-# <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK Node.js V10](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[SDK Node.js V10](#tab/nodejsv10)
 
 Sélectionnez **Choisir un fichier** pour sélectionner un fichier, puis cliquez sur **Charger une image**. La section **Miniatures générées** reste vide jusqu’aux tests effectués plus loin dans cette rubrique. 
 
@@ -382,7 +382,7 @@ router.post('/', uploadStrategy, async (req, res) => {
 
 ## <a name="verify-the-image-is-shown-in-the-storage-account"></a>Vérifier que l’image s’affiche dans le compte de stockage
 
-Connectez-vous au [Portail Azure](https://portal.azure.com). Dans le menu de gauche, sélectionnez **Comptes de stockage**, puis sélectionnez le nom de votre compte de stockage. Sélectionnez **Conteneurs**, puis sélectionnez le conteneur **images**.
+Connectez-vous au [portail Azure](https://portal.azure.com). Dans le menu de gauche, sélectionnez **Comptes de stockage**, puis sélectionnez le nom de votre compte de stockage. Sélectionnez **Conteneurs**, puis sélectionnez le conteneur **images**.
 
 Vérifiez que l’image s’affiche dans le conteneur.
 
@@ -392,19 +392,19 @@ Vérifiez que l’image s’affiche dans le conteneur.
 
 Pour tester l’affichage des miniatures, chargez une image dans le conteneur **Miniatures** afin de vérifier que l’application peut lire les **miniatures** du conteneur.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com). Dans le menu de gauche, sélectionnez **Comptes de stockage**, puis sélectionnez le nom de votre compte de stockage. Sélectionnez **Conteneurs**, puis sélectionnez le conteneur **thumbnails** (miniatures). Cliquez sur **Charger** pour ouvrir le volet **Charger des objets Blob**.
+Connectez-vous au [portail Azure](https://portal.azure.com). Dans le menu de gauche, sélectionnez **Comptes de stockage**, puis sélectionnez le nom de votre compte de stockage. Sélectionnez **Conteneurs**, puis sélectionnez le conteneur **thumbnails** (miniatures). Cliquez sur **Charger** pour ouvrir le volet **Charger des objets Blob**.
 
 Choisissez un fichier à l’aide du sélecteur de fichiers, puis sélectionnez **Charger**.
 
 Revenez à votre application pour vérifier que l’image chargée dans le conteneur **thumbnails** est visible.
 
-# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
+# <a name="net"></a>[\.NET](#tab/dotnet)
 ![Application de redimensionnement d’image .NET avec la nouvelle image affichée](media/storage-upload-process-images/figure2.png)
 
-# <a name="nodejs-v2-sdktabnodejs"></a>[SDK Node.js V2](#tab/nodejs)
+# <a name="nodejs-v2-sdk"></a>[SDK Node.js V2](#tab/nodejs)
 ![Application de redimensionnement d’image Node.js V2 avec la nouvelle image affichée](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
-# <a name="nodejs-v10-sdktabnodejsv10"></a>[SDK Node.js V10](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[SDK Node.js V10](#tab/nodejsv10)
 ![Application de redimensionnement d’image Node.js V10 avec la nouvelle image affichée](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---

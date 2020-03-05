@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: a505145eeba47eda9950c5a4c8221e4c9ae4b3a4
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8c7c9c2e3a1195422db30ba913b1cea3a1a360e4
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024073"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301690"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutoriel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
 
@@ -43,7 +43,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 > Ce didacticiel ne peut pas être suivi avec un **abonnement d’essai gratuit Azure**.
 > Si vous avez un compte gratuit, accédez à votre profil et modifiez votre abonnement sur **Paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/). Ensuite, [supprimez la limite de dépense](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit), et [demandez une augmentation du quota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) pour les processeurs virtuels dans votre région. Lorsque vous créez votre espace de travail Azure Databricks, vous pouvez sélectionner le tarif **Version d’évaluation (Premium - 14 jours de DBU offerts)** pour donner à l’accès de l’espace de travail un accès gratuit aux DBU d’Azure Databricks pendant 14 jours.
      
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer ce tutoriel, effectuez les tâches suivantes :
 
@@ -59,7 +59,7 @@ Avant de commencer ce tutoriel, effectuez les tâches suivantes :
 
    Vous devrez faire certaines choses spécifiques pendant que vous suivrez les étapes décrites dans cet article.
 
-   * Au cours des étapes décrites dans la section [Attribuer un rôle à l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) de l’article, veillez à affecter le rôle **Contributeur aux données Blob du stockage** au principal de service dans l’étendue du compte Data Lake Storage Gen2. Si vous attribuez le rôle à l’abonnement ou au groupe de ressources parent, des erreurs d’autorisation seront générées tant que ces attributions de rôles ne seront pas propagées au compte de stockage.
+   * Au cours des étapes décrites dans la section [Attribuer un rôle à l’application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) de l’article, veillez à affecter le rôle **Contributeur aux données Blob du stockage** au principal de service dans l’étendue du compte Data Lake Storage Gen2. Si vous attribuez le rôle à l’abonnement ou au groupe de ressources parent, des erreurs d’autorisation seront générées tant que ces attributions de rôles ne seront pas propagées au compte de stockage.
 
       Si vous préférez utiliser une liste de contrôle d’accès (ACL) pour associer le principal de service à un fichier ou répertoire spécifique, consultez [Contrôle d’accès dans Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
@@ -227,7 +227,7 @@ Dans la cellule, appuyez sur **Maj+Entrée** pour exécuter le code.
     ```
    Le résultat ressemble à ce qui suit :
 
-   ```bash
+   ```output
    +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
    |               artist|     auth|firstName|gender|itemInSession|  lastName|   length|  level|            location|method|    page| registration|sessionId|                song|status|           ts|userId|
    +---------------------+---------+---------+------+-------------+----------+---------+-------+--------------------+------+--------+-------------+---------+--------------------+------+-------------+------+
@@ -253,7 +253,7 @@ Le fichier brut de l’exemple de données **small_radio_json.json** capture l�
 
    Vous recevez une sortie similaire à l’extrait de code suivant :
 
-   ```bash
+   ```output
    +---------+----------+------+--------------------+-----+
    |firstname|  lastname|gender|            location|level|
    +---------+----------+------+--------------------+-----+
@@ -289,7 +289,7 @@ Le fichier brut de l’exemple de données **small_radio_json.json** capture l�
 
    Vous recevez une sortie similaire à l’extrait de code suivant.
 
-   ```bash
+   ```output
    +---------+----------+------+--------------------+-----------------+
    |firstname|  lastname|gender|            location|subscription_type|
    +---------+----------+------+--------------------+-----------------+

@@ -1,19 +1,15 @@
 ---
 title: Explorer les journaux d’activité de traçage .NET à l’aide d’ILogger – Azure Application Insights
 description: Exemples d’utilisation du fournisseur Azure Application Insights ILogger avec les applications console et ASP.NET Core.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: b538196467ba1d69e679a111ca313f922738b048
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 2c97c79229c6f136c154169253f2299b7756a105
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716028"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192470"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider pour les journaux ILogger .NET Core
 
@@ -396,7 +392,7 @@ Si vous rencontrez une double journalisation lorsque vous déboguez depuis Visua
  }
 ```
 
-### <a name="i-updated-to-microsoftapplicationinsightsaspnet-sdkhttpswwwnugetorgpackagesmicrosoftapplicationinsightsaspnetcore-version-271-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely"></a>J’ai effectué la mise à jour vers le [Kit de développement logiciel (SDK) Microsoft.ApplicationInsights.AspNet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.1, et les journaux d’activité d’ILogger sont capturés automatiquement. Comment désactiver complètement cette fonctionnalité ?
+### <a name="i-updated-to-microsoftapplicationinsightsaspnet-sdk-version-271-and-logs-from-ilogger-are-captured-automatically-how-do-i-turn-off-this-feature-completely"></a>J’ai effectué la mise à jour vers le [Kit de développement logiciel (SDK) Microsoft.ApplicationInsights.AspNet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.7.1, et les journaux d’activité d’ILogger sont capturés automatiquement. Comment désactiver complètement cette fonctionnalité ?
 
 Consultez la section [Contrôler le niveau de journalisation](../../azure-monitor/app/ilogger.md#control-logging-level) pour découvrir comment filtrer les journaux en général. Pour désactiver ApplicationInsightsLoggerProvider, utilisez `LogLevel.None` :
 
@@ -430,7 +426,7 @@ Lorsque vous utilisez le package autonome, `TelemetryClient` n’est pas inject�
 ```csharp
 public class MyController : ApiController
 {
-   // This telemtryclient can be used to track additional telemetry using TrackXXX() api.
+   // This telemetryclient can be used to track additional telemetry using TrackXXX() api.
    private readonly TelemetryClient _telemetryClient;
    private readonly ILogger _logger;
 

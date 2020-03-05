@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/08/2018
 ms.author: genli
-ms.openlocfilehash: 7756d4c808e104b0de14e1cea4af5e843cff755c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 92ad33fbc759605ae901c3bcf09283c8e0b1c4b5
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981767"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918187"
 ---
 #  <a name="cannot-remote-desktop-to-azure-virtual-machines-because-of-static-ip"></a>Impossible de connecter un bureau à distance à des machines virtuelles Azure en raison de l’adresse IP statique
 
 Cet article décrit un problème dans lequel vous ne pouvez pas connecter un bureau distant à des machines virtuelles (VM) Windows Azure après qu’une IP statique a été configurée sur la machine virtuelle.
 
-> [!NOTE]
-> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/management/deployment-models.md). Cet article traite du modèle de déploiement Resource Manager, que nous recommandons pour les nouveaux déploiements plutôt que le modèle de déploiement Classic.
 
 ## <a name="symptoms"></a>Symptômes
 

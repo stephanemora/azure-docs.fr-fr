@@ -4,12 +4,12 @@ description: Décrit comment utiliser la limitation avec des requêtes Azure Res
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 129ca3ba32d48345bde931c6bd2084c3da79be39
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 43ccf4f2e8098f6577f18943c4ab4132884b66f2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659370"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251342"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitation des requêtes de Resource Manager
 
@@ -27,9 +27,9 @@ Les limites de limitation par heure par défaut sont indiquées dans le tableau 
 
 | Étendue | Opérations | Limite |
 | ----- | ---------- | ------- |
-| Subscription | lectures | 12 000 |
-| Subscription | suppressions | 15000 |
-| Subscription | écritures | 1200 |
+| Abonnement | lectures | 12 000 |
+| Abonnement | suppressions | 15000 |
+| Abonnement | écritures | 1200 |
 | Locataire | lectures | 12 000 |
 | Locataire | écritures | 1200 |
 
@@ -162,7 +162,7 @@ az group list --verbose --debug
 
 Renvoie un grand nombre de valeurs, notamment celles-ci :
 
-```azurecli
+```output
 msrest.http_logger : Response status: 200
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'
@@ -182,7 +182,7 @@ az group create -n myresourcegroup --location westus --verbose --debug
 
 Renvoie un grand nombre de valeurs, notamment celles-ci :
 
-```azurecli
+```output
 msrest.http_logger : Response status: 201
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'

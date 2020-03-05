@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 92c4a40de7e35d0580fe407e36305a50ad68094c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 4b314fbdb9cbc0c0b797cbee8e92ee4702bbea81
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981784"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919462"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Les Services Bureau à distance ne démarrent pas sur une machine virtuelle Azure
 
 Cet article explique comment résoudre les problèmes de connexion à une machine virtuelle Azure quand les Services Bureau à distance, ou TermService, ne démarrent pas ou échouent au démarrage.
 
-> [!NOTE]  
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager et classique](../../azure-resource-manager/management/deployment-models.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager. Nous vous recommandons d’utiliser ce modèle pour les nouveaux déploiements, plutôt que le modèle de déploiement Classic.
 
 ## <a name="symptoms"></a>Symptômes
 

@@ -12,18 +12,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 590505d954d52ebec9f8a5c344d6e750f11ef677
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981365"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921451"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows affiche « CRITICAL SERVICE FAILED » sur écran bleu lors du démarrage d’une machine virtuelle Azure
 Cet article décrit l’erreur « CRITICAL SERVICE FAILED » que vous pouvez rencontrer lorsque vous démarrez une machine virtuelle Windows dans Microsoft Azure. Il fournit des étapes de dépannage pour vous aider à résoudre les problèmes. 
 
-> [!NOTE] 
-> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/management/deployment-models.md). Cet article traite de l’utilisation du modèle de déploiement Resource Manager que nous recommandons pour les nouveaux déploiements à la place du modèle de déploiement classique.
 
 ## <a name="symptom"></a>Symptôme 
 

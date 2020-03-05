@@ -1,18 +1,15 @@
 ---
 title: Services et schémas pris en charge pour les journaux de ressource Azure
 description: Découvrez les services pris en charge et le schéma d’événement pour les journaux de ressource Azure.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-author: rboucher
-ms.author: robb
-ms.openlocfilehash: 044c453152d44420d5e78855751a2680698e89f3
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: de102c5dc4104aafc44b87b14aeea0b30cb7c083
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120143"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670387"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Services, schémas et catégories pris en charge pour les journaux de ressource Azure
 
@@ -25,7 +22,7 @@ Une combinaison du type de ressource (disponible dans la propriété `resourceId
 
 ## <a name="top-level-resource-logs-schema"></a>Schéma de niveau supérieur des journaux de ressource
 
-| Name | Obligatoire ou facultatif | Description |
+| Nom | Obligatoire ou facultatif | Description |
 |---|---|---|
 | time | Obligatoire | Horodatage (heure UTC) de l’événement. |
 | resourceId | Obligatoire | ID de la ressource qui a émis l’événement. Pour les services abonnés, cet ID prend la forme /tenants/tenant-id/providers/provider-name. |

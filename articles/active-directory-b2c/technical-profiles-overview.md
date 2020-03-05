@@ -3,20 +3,20 @@ title: Vue d’ensemble des profils techniques dans les stratégies personnalis�
 titleSuffix: Azure AD B2C
 description: Découvrez comment les profils techniques sont utilisés dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/11/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3b0e59912d740e30b0e29fb882542f1995ab6f54
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 48324d252e22ca898f923e1f0ad9b76df1c10861
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505658"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183650"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>À propos des profils techniques dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Un profil technique permet les types de scénarios suivants :
 - [Autodéclaré](self-asserted-technical-profile.md) : interaction avec l’utilisateur. Par exemple, collecter les informations d’identification de l’utilisateur pour se connecter, afficher la page d’inscription ou la réinitialisation du mot de passe.
 - [Gestion des sessions](custom-policy-reference-sso.md) : gère différents types de sessions.
 - [Application Insights](../azure-monitor/app/usage-overview.md)
-- [Mot de passe à usage unique](one-time-password-technical-profile.md) : prend en charge la gestion de la génération et de la vérification d’un mot de passe à usage unique. 
+- [Mot de passe à usage unique](one-time-password-technical-profile.md) : prend en charge la gestion de la génération et de la vérification d’un mot de passe à usage unique.
 
 ## <a name="technical-profile-flow"></a>Flux du profil technique
 
@@ -48,7 +48,7 @@ Tous les types de profils techniques partagent le même concept. Vous pouvez env
 
 ![Schéma illustrant le workflow du profil technique](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
  
-1. **Gestion de session d’authentification unique (SSO)**  : restaure l’état de session du profil technique à l’aide de la [gestion de session d’authentification unique](custom-policy-reference-sso.md). 
+1. **Gestion de session d’authentification unique (SSO)**  : restaure l’état de session du profil technique à l’aide de la [gestion de session d’authentification unique](custom-policy-reference-sso.md).
 1. **Transformation des revendications d’entrée** : les revendications d’entrée de chaque [transformation de revendications](claimstransformations.md) d’entrée sont récupérées auprès du conteneur de revendications.  Les revendications de sortie d’une transformation des revendications d’entrée peuvent être des revendications d’entrée d’une transformation de revendications d’entrée ultérieure.
 1. **Revendications d’entrée** : les revendications sont récupérées auprès du conteneur de revendications et sont utilisées pour le profil technique. Par exemple, un [profil technique autodéclaré](self-asserted-technical-profile.md) utilise les revendications d’entrée pour préremplir les revendications de sortie fournies par l’utilisateur. Un profil technique d’API REST utilise les revendications d’entrée pour envoyer les paramètres d’entrée au point de terminaison de l’API REST. Azure Active Directory utilise la revendication d’entrée comme identificateur unique pour lire, mettre à jour ou supprimer un compte.
 1. **Exécution du profil technique** : le profil technique échange les revendications avec le tiers configuré. Par exemple :
@@ -64,7 +64,7 @@ Tous les types de profils techniques partagent le même concept. Vous pouvez env
 
 ## <a name="technical-profile-inclusion"></a>Éléments inclus dans le profil technique
 
-Un profil technique peut inclure un autre profil technique pour modifier des paramètres ou ajouter de nouvelles fonctionnalités.  L’élément `IncludeTechnicalProfile` est une référence au profil technique de base dont est dérivé un profil technique. Le nombre de niveaux n’est pas limité. 
+Un profil technique peut inclure un autre profil technique pour modifier des paramètres ou ajouter de nouvelles fonctionnalités.  L’élément `IncludeTechnicalProfile` est une référence au profil technique de base dont est dérivé un profil technique. Le nombre de niveaux n’est pas limité.
 
 Par exemple, le profil technique **AAD-UserReadUsingAlternativeSecurityId-NoError** inclut le profil **AAD-UserReadUsingAlternativeSecurityId**. Ce profil technique définit l’élément de métadonnées `RaiseErrorIfClaimsPrincipalDoesNotExist` sur `true`, et génère une erreur si aucun compte de réseau social ne figure dans l’annuaire. **AAD-UserReadUsingAlternativeSecurityId-NoError** remplace ce comportement et désactive ce message d’erreur.
 

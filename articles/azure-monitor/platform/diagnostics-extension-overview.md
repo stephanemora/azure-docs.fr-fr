@@ -1,18 +1,17 @@
 ---
 title: Vue d’ensemble de l’extension Diagnostics Azure
 description: Utilisation des diagnostics Azure pour le débogage, la mesure des performances, la surveillance, l’analyse du trafic dans Cloud Services, Virtual Machines et Service Fabric
-ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: d9db4b4c8e6d82f29d227b9f8afe528e000c651e
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 6cb514312db525ffd2ccf9f7b70968daaa94f322
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467995"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672376"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Vue d’ensemble de l’extension Diagnostics Azure
 L’extension Diagnostics Azure est un [agent présent dans Azure Monitor](agents-overview.md) qui collecte des données de supervision dans le système d’exploitation invité des ressources de calcul Azure, notamment des machines virtuelles. Cet article fournit une vue d’ensemble de l’extension Diagnostics Azure, notamment des fonctionnalités spécifiques qu’elle prend en charge ainsi que des options d’installation et de configuration. 
@@ -25,8 +24,8 @@ L’agent Log Analytics dans Azure Monitor peut également être utilisé pour c
 
 Les principales différences à prendre en compte sont les suivantes :
 
-- L’extension Diagnostics Azure peut être utilisée uniquement avec des machines virtuelles Azure. L’agent Log Analytics peut être utilisé avec des machines virtuelles dans Azure, d’autres clouds et en local.
-- L’extension Diagnostics Azure envoie les données au Stockage Azure, aux [métriques Azure Monitor](data-platform-metrics.md) (Windows uniquement) et à Event Hubs. L’agent Log Analytics collecte les données dans des [journaux Azure Monitor](data-platform-logs.md).
+- L’extension Diagnostics Azure peut être utilisée uniquement avec des machines virtuelles Azure. L’agent Log Analytics peut être utilisé avec des machines virtuelles dans Azure, dans d’autres clouds et en local.
+- L’extension Diagnostics Azure envoie des données à Stockage Azure, à [Azure Monitor Metrics](data-platform-metrics.md) (Windows uniquement) et à Event Hubs. L’agent Log Analytics collecte des données dans des [journaux d’activité Azure Monitor](data-platform-logs.md).
 - L’agent Log Analytics est requis pour les [solutions](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md) et d’autres services tels qu’[Azure Security Center](/azure/security-center/).
 
 ## <a name="costs"></a>Coûts
@@ -86,7 +85,7 @@ LAD écrit les données dans des tables au sein du Stockage Azure. Elle prend en
 
 
 ## <a name="installation-and-configuration"></a>Installation et configuration
-L’extension de diagnostic étant implémentée en tant qu’[extension de machine virtuelle](/virtual-machines/extensions/overview) dans Azure, elle prend en charge les mêmes options d’installation à l’aide de modèles Gestionnaire des ressources, de PowerShell et de l’interface CLI. Pour plus d’informations sur l’installation et la maintenance des extensions de machine virtuelle, consultez [Extensions et fonctionnalités de machine virtuelle pour Windows](/virtual-machines/extensions/features-windows) et [Extensions et fonctionnalités de machine virtuelle pour Linux](/virtual-machines/extensions/features-linux).
+L’extension de diagnostic étant implémentée en tant qu’[extension de machine virtuelle](../../virtual-machines/extensions/overview.md) dans Azure, elle prend en charge les mêmes options d’installation à l’aide de modèles Gestionnaire des ressources, de PowerShell et de l’interface CLI. Pour plus d’informations sur l’installation et la maintenance des extensions de machine virtuelle, consultez [Extensions et fonctionnalités de machine virtuelle pour Windows](../../virtual-machines/extensions/features-windows.md) et [Extensions et fonctionnalités de machine virtuelle pour Linux](../../virtual-machines/extensions/features-linux.md).
 
 Vous pouvez également installer et configurer les deux extensions de diagnostic Windows et Linux dans le portail Azure sous **Paramètres de diagnostic** dans la section **Supervision** du menu de la machine virtuelle.
 

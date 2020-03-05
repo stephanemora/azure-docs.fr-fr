@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: d819d4f7b3049a5c034ec8ac5170175f3ad3e9bb
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 71afce335910e4d42fb3d67f6d443510a6599b8b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190847"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918320"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Démarrage rapide : Utiliser des files d’attente Azure Service Bus avec Java pour envoyer et recevoir des messages
 
@@ -30,7 +30,7 @@ Dans ce tutoriel, vous allez apprendre à créer des applications Java afin d’
 > [!NOTE]
 > Vous trouverez des exemples Java sur GitHub dans le [référentiel azure-service-bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Si vous n’avez pas de file d’attente à utiliser, suivez les étapes de l’article [Utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) pour créer une file d’attente.
     1. Consultez la **vue d’ensemble** rapide des **files d’attente** Service Bus. 
@@ -193,7 +193,7 @@ Les principes de base des files d’attente Service Bus étant appris, consultez
 
 Pour plus d’informations, consultez le [Centre pour développeurs Java](https://azure.microsoft.com/develop/java/).
 
-[Azure SDK for Java]: https://docs.microsoft.com/java/api/overview/azure/
+[Azure SDK for Java]: /azure/java/java-sdk-azure-get-started
 [Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

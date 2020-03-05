@@ -1,17 +1,18 @@
 ---
 title: Mondes de sécurité Azure Key Vault | Microsoft Docs
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 07/03/2017
-ms.openlocfilehash: 1e18befe05e5a1d33aa4e5445b80c6d6fd7239af
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 35d2683495a12b864378f8fb6f5edb6663d92c27
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883177"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194918"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Mondes de sécurité Azure Key Vault et limites géographiques
 
@@ -35,7 +36,7 @@ Par exemple, la sauvegarde d’une clé effectuée par un abonnement spécifique
 
 Les régions sont mappées aux mondes de sécurité, illustrés sous forme d’en-têtes principaux dans les tableaux :
 
-Dans l’article « Produits par région », par exemple, l’onglet **Amérique** contient les éléments EAST US, CENTRAL US, WEST US, tous mappés à la région Amérique. 
+Dans l’article « Produits par région », par exemple, l’onglet **Amérique** contient les éléments USA EST, USA CENTRE, USA OUEST, tous mappés à la région Amérique. 
 
 >[!NOTE]
 >US DOD EAST et US DOD CENTRAL sont des exceptions, dans la mesure où ils possèdent leurs propres mondes de sécurité. 

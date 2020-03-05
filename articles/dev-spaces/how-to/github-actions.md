@@ -1,17 +1,17 @@
 ---
-title: Actions GitHub & Azure Kubernetes Service
+title: Actions GitHub & Azure Kubernetes Service (préversion)
 services: azure-dev-spaces
 ms.date: 02/04/2020
 ms.topic: conceptual
 description: Passez en revue et testez les modifications à partir d’une demande de tirage (pull request) directement dans Azure Kubernetes Service avec des actions GitHub et Azure Dev Spaces.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Actions GitHub, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 35050d0c9d1e6062866747dc8544d03574a8d8fe
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 49715e38f36d4421b7327640ec8392a83b3c2996
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026096"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252372"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Actions GitHub & Azure Kubernetes Service (préversion)
 
@@ -27,7 +27,7 @@ Dans ce guide, vous allez apprendre à :
 > [!IMPORTANT]
 > Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free).
 * [Azure CLI][azure-cli-installed].
@@ -39,7 +39,7 @@ Dans ce guide, vous allez apprendre à :
 
 Créer un Azure Container Registry (ACR) :
 
-```cmd
+```azurecli
 az acr create --resource-group MyResourceGroup --name <acrName> --sku Basic
 ```
 
@@ -52,7 +52,7 @@ Enregistrez la valeur *loginServer* à partir de la sortie, car elle est utilis�
 
 Utilisez [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] pour créer un principal du service. Par exemple :
 
-```cmd
+```azurecli
 az ad sp create-for-rbac --sdk-auth --skip-assignment
 ```
 
@@ -60,19 +60,19 @@ Enregistrez la sortie JSON, car elle est utilisée à une étape ultérieure.
 
 Utilisez [az aks show][az-aks-show] pour afficher l’*ID* de votre cluster AKS :
 
-```cmd
+```azurecli
 az aks show -g MyResourceGroup -n MyAKS  --query id
 ```
 
 Utilisez [az cr show][az-acr-show] pour afficher l’*ID* de votre ACR :
 
-```cmd
+```azurecli
 az acr show --name <acrName> --query id
 ```
 
 Utilisez [az role assignment create][az-role-assignment-create] pour offrir l’accès *Contributeur* à votre cluster AKS et l’accès *AcrPush* à votre ACR.
 
-```cmd
+```azurecli
 az role assignment create --assignee <ClientId> --scope <AKSId> --role Contributor
 az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 ```
@@ -158,7 +158,7 @@ Si vous fusionnez vos modifications dans la branche *master* de votre fourche, u
 
 ## <a name="clean-up-your-azure-resources"></a>Nettoyer vos ressources Azure
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

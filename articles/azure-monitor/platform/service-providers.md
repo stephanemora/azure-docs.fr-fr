@@ -1,18 +1,17 @@
 ---
 title: Journaux Azure Monitor pour les fournisseurs de services | Microsoft Docs
 description: Les journaux Azure Monitor permettent aux fournisseurs de services gérés (MSP), aux grandes entreprises, aux éditeurs de logiciels indépendants (ISV) et aux fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 1b5c181569ea569ecc4808284683501cb20f7bf5
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: ed398e12ee90f2eef2cfa78e2ed02701e6012517
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117064"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658878"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Journaux Azure Monitor pour les fournisseurs de services
 

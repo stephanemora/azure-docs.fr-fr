@@ -2,20 +2,19 @@
 title: Appeler un webhook avec une alerte de métrique classique dans Azure Monitor
 description: Découvrez comment rediriger des alertes de métrique Azure vers d’autres systèmes que Azure.
 author: harelbr
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: fd4bf2d404a7152da04e72d323f463c18167f5bf
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 27510871f9a022cb27c6b03b812ce1d37b47312c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705511"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665066"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Appeler un webhook avec une alerte de métrique classique dans Azure Monitor
+
 Les Webhooks permettent de rediriger une notification d’alerte Azure vers d’autres systèmes pour effectuer un post-traitement ou des actions personnalisées. Vous pouvez utiliser un Webhook sur une alerte pour rediriger cette dernière vers des services qui envoient des SMS, consignent des bogues, avertissent une équipe dans des services de conversation instantanée/messagerie ou effectuent d’autres actions. 
 
 Cet article décrit comment définir un Webhook sur une alerte de métrique Azure. Il montre également à quoi ressemble la charge utile d’une requête HTTP POST sur un Webhook. Pour plus d’informations sur la configuration et le schéma d’une alerte de journal d’activité Azure (alertes sur les événements), consultez [Appeler un Webhook sur une alerte de journal d’activité Azure](alerts-log-webhook.md).

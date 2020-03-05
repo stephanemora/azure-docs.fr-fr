@@ -4,19 +4,19 @@ description: Dans ce didacticiel, vous allez découvrir comment configurer une t
 ms.topic: tutorial
 ms.date: 05/04/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: a26f1207eccd615804babe230df689d27beae49f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6882cb683e0bd8b76bb1207e628e43f24c7b5987
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74840780"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252114"
 ---
-# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Didacticiel : automatiser la génération des images de conteneur dans le cloud lorsque vous validez le code source
+# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutoriel : automatiser la génération des images de conteneur dans le cloud lorsque vous validez le code source
 
 En plus d'une [tâche rapide](container-registry-tutorial-quick-task.md), ACR Tasks prend en charge la génération d'images de conteneur Docker dans le cloud lorsque vous validez le code source dans un référentiel Git. Les contextes Git pris en charge par ACR Tasks incluent les dépôts GitHub publics ou privés, et les dépôts Azure.
 
 > [!NOTE]
-> ACR Tasks ne prend pas en charge les déclencheurs de validation et de demande de tirage (pull request) dans les dépôts GitHub Enterprise.
+> Actuellement, ACR Tasks ne prend pas en charge les déclencheurs de validation et de demande de tirage (pull request) dans les référentiels GitHub Enterprise.
 
 Dans ce tutoriel, votre tâche ACR génère et envoie (push) une seule image conteneur spécifiée dans un Dockerfile lorsque vous validez le code source dans un référentiel Git. Pour créer une [tâche à plusieurs étapes](container-registry-tasks-multi-step.md) utilisant un fichier YAML pour définir les étapes permettant de créer, d’envoyer (push) et éventuellement de tester plusieurs conteneurs lors de la validation du code, consultez [Tutoriel : Exécuter un workflow de conteneur à plusieurs étapes dans le cloud lorsque vous validez le code source](container-registry-tutorial-multistep-task.md). Pour une vue d’ensemble d’ACR Tasks, consultez [Automatiser les mises à jour correctives du système d’exploitation et de l'infrastructure avec ACR Tasks](container-registry-tasks-overview.md).
 
@@ -42,7 +42,9 @@ Maintenant que vous avez terminé les étapes requises pour permettre à ACR Tas
 
 Tout d’abord, renseignez ces variables d’environnement shell avec des valeurs appropriées pour votre environnement. Cette étape n’est pas strictement obligatoire, mais facilite un peu l’exécution des commandes multilignes de l’interface de ligne de commande Azure de ce didacticiel. Si vous ne renseignez pas ces variables d’environnement, vous devrez remplacer manuellement chaque valeur à chaque fois qu’elle apparaît dans les exemples de commandes.
 
-```azurecli-interactive
+[![Lancement de l’incorporation](https://shell.azure.com/images/launchcloudshell.png "Lancement d’Azure Cloud Shell")](https://shell.azure.com)
+
+```console
 ACR_NAME=<registry-name>        # The name of your Azure container registry
 GIT_USER=<github-username>      # Your GitHub user account name
 GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
@@ -208,13 +210,13 @@ Maintenant que vous avez testé la tâche en l’exécutant manuellement, décle
 
 Vérifiez d’abord que vous êtes dans répertoire contenant votre clone local du [dépôt][sample-repo] :
 
-```azurecli-interactive
+```console
 cd acr-build-helloworld-node
 ```
 
 Exécutez alors les commandes suivantes pour créer, valider et envoyer un nouveau fichier vers votre duplication du référentiel sur GitHub :
 
-```azurecli-interactive
+```console
 echo "Hello World!" > hello.txt
 git add hello.txt
 git commit -m "Testing ACR Tasks"

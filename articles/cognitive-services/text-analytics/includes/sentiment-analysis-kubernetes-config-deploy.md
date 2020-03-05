@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: bd93773e4d3c5e06bca752612dac6c563a2f5da1
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2a99f85cf861c0c36ffac136cdf1f792b40719b2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383483"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78262269"
 ---
 ### <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>Déployer le conteneur Analyse des sentiments vers un cluster AKS
 
@@ -44,7 +44,7 @@ ms.locfileid: "74383483"
 
 1. Ouvrez l’éditeur de texte de votre choix. L’exemple suivant utilise Visual Studio Code.
 
-    ```azurecli
+    ```console
     code .
     ```
 
@@ -103,7 +103,7 @@ ms.locfileid: "74383483"
 
     Une fois la configuration de déploiement correctement appliquée par la commande, un message similaire à la sortie suivante s’affiche :
 
-    ```console
+    ```output
     deployment.apps "sentiment" created
     service "sentiment" created
     ```
@@ -115,7 +115,7 @@ ms.locfileid: "74383483"
 
     Vous obtiendrez ainsi l’état d’exécution du pod :
 
-    ```console
+    ```output
     NAME                         READY     STATUS    RESTARTS   AGE
     sentiment-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
@@ -128,7 +128,7 @@ ms.locfileid: "74383483"
 
     La sortie de l’état d’exécution du service *sentiment* dans le pod :
 
-    ```console
+    ```output
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
     kubernetes   ClusterIP      10.0.0.1      <none>           443/TCP          2m
     sentiment    LoadBalancer   10.0.100.64   168.61.156.180   5000:31234/TCP   2m

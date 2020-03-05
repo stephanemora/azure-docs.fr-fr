@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: f6b95f76af4c83459ac81ff1703d8588f649326c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 4b6d954d06f09bef5240bddc4860ddbc83513d69
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970540"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916589"
 ---
 # <a name="language-and-region-support-for-luis"></a>Prise en charge de la région et de la langue pour LUIS
 
@@ -61,7 +61,7 @@ La prise en charge linguistique varie pour les [entités prédéfinies](luis-ref
 [!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
 
 ### <a name="speech-api-supported-languages"></a>Langues prises en charge par l’API Microsoft Speech
-Consultez les [langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) par Speech pour connaître les langues du mode de dictée de Speech.
+Consultez les [langues prises en charge](../speech-service/speech-to-text.md) par Speech pour connaître les langues du mode de dictée de Speech.
 
 ### <a name="bing-spell-check-supported-languages"></a>Langues prises en charge par la vérification orthographique Bing
 Consultez les [langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) par la vérification orthographique Bing pour obtenir la liste des langues prises en charge et leur état.
@@ -74,7 +74,7 @@ Dans la culture `en-us`, LUIS apprend à distinguer la plupart des mots anglais,
 ### <a name="hybrid-languages"></a>Langues hybrides
 Les langues hybrides combinent des mots de deux cultures, comme l’anglais et le chinois. Ces langues ne sont pas prises en charge dans LUIS, car une application est basée sur une culture unique.
 
-## <a name="tokenization"></a>Création de jetons
+## <a name="tokenization"></a>Segmentation du texte en unités lexicales
 Pour effectuer l’apprentissage machine, LUIS décompose l’énoncé en [jetons](luis-glossary.md#token) selon la culture.
 
 |Langage|  chaque espace ou caractère spécial | niveau caractère|mots composés|[entité renvoyée sous forme de jeton](luis-concept-data-extraction.md#tokenized-entity-returned)

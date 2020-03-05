@@ -3,21 +3,21 @@ title: 'Démarrage rapide : Configurer la connexion pour une application de bur
 titleSuffix: Azure AD B2C
 description: Dans ce guide de démarrage rapide, vous allez exécuter un exemple d’application Desktop WPF qui utilise Azure Active Directory B2C pour la connexion aux comptes.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f36b705d590f34a79aefe14355f25f7639562d2a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ebed2f5e8664bd4336219f9387b8d27c8f3a1c59
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908970"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187302"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Démarrage rapide : Configurer la connexion pour une application de bureau à l’aide d’Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Azure Active Directory B2C (Azure AD B2C) assure la gestion des identités de c
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.
 - Un compte de réseau social Facebook, Google ou Microsoft.

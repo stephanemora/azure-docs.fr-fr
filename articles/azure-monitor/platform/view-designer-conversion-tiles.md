@@ -3,16 +3,15 @@ title: Concepteur de vues Azure Monitor pour les conversions de vignettes de cla
 description: ''
 author: austonli
 ms.author: aul
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: b1cce6d1aafabda62b71ecd38ff5ac7df1033b26
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: f07d15521c787dfd588c285bff57616059caa2f3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561984"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658624"
 ---
 # <a name="azure-monitor-view-designer-tile-conversions"></a>Conversions de vignettes du Concepteur de vues Azure Monitor
 Le [Concepteur de vues](view-designer.md) est une fonctionnalité d’Azure Monitor qui vous permet de créer des vues personnalisées pour vous aider à visualiser les données de votre espace de travail Log Analytics, avec des graphiques, des listes et des chronologies. Ces vues sont progressivement supprimées et remplacées par des classeurs qui offrent des fonctionnalités supplémentaires. Cet article fournit des détails sur la conversion de différentes vignettes en classeurs.

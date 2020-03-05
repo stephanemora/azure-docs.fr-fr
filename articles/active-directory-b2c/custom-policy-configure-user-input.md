@@ -3,20 +3,20 @@ title: Ajouter des revendications et personnaliser les entrées utilisateur dans
 titleSuffix: Azure AD B2C
 description: Découvrez comment personnaliser l’entrée utilisateur et ajouter des revendications au parcours d’inscription ou de connexion dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ebbc0c8ac067635d31714468f1aee047b3683eb0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2d279a2a368e606e036b24172eb94b667b3255db
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76850472"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267952"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Ajouter des revendications et personnaliser l’entrée utilisateur avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76850472"
 
 Dans le cadre de cet article, vous ajoutez une nouvelle entrée fournie par l’utilisateur (une revendication) à votre parcours utilisateur d’inscription dans Azure Active Directory B2C (Azure AD B2C).  Vous allez configurer l’entrée sous forme de liste déroulante et définir si elle est requise.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Suivez les étapes de l’article [Bien démarrer avec les stratégies personnalisées](custom-policy-get-started.md). Testez le parcours utilisateur d’inscription ou de connexion pour inscrire un nouveau compte local avant de continuer.
 
@@ -264,7 +264,7 @@ Les éléments suivants sont utilisés pour définir la revendication :
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire Azure AD.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
-4. Sélectionnez **Identity Experience Framework (préversion)** .
+4. Sélectionnez **Infrastructure d’expérience d’identité**.
 5. Sélectionnez **Charger une stratégie personnalisée**, puis chargez les deux fichiers de stratégie que vous avez modifiés.
 2. Sélectionnez la stratégie d’inscription et de connexion que vous avez chargée, puis cliquez sur le bouton **Exécuter maintenant**.
 3. Vous devriez pouvoir vous inscrire à l’aide d’une adresse de messagerie.

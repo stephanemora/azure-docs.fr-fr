@@ -4,38 +4,15 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/23/2019
 ms.author: glenga
-ms.openlocfilehash: 14c821e5b1d98a05c791ea102fc4bdd58fdc9525
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 8bdd8b9d900cc50fdeb34ff7d233ac4d7e17a45c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71839107"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191023"
 ---
-Une fois la propriété `name` configurée, vous pouvez commencer à l’utiliser pour accéder à la liaison en tant qu’attribut de méthode dans la signature de la fonction. Dans l’exemple suivant, `msg` est une instance de la [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest).
+Mettez à jour *HttpExample\\\_\_init\_\_.py* pour correspondre au code suivant, en ajoutant le paramètre `msg` à la définition de fonction et `msg.set(name)` sous l’instruction `if name:`.
 
-```python
-import logging
+:::code language="python" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/HttpExample/__init__.py":::
 
-import azure.functions as func
-
-
-def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
-
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
-
-    if name:
-        msg.set(name)
-        return func.HttpResponse(f"Hello {name}!")
-    else:
-        return func.HttpResponse(
-            "Please pass a name on the query string or in the request body",
-            status_code=400
-        )
-```
+Le paramètre `msg` est une instance de la [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest). Sa méthode `set` écrit un message de type chaîne dans la file d’attente. Dans le cas présent, il s’agit du nom passé à la fonction dans la chaîne de requête de l’URL.

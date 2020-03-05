@@ -1,18 +1,17 @@
 ---
 title: Activer Azure Monitor (préversion) pour un environnement hybride | Microsoft Docs
 description: Cet article décrit comment activer des Azure Monitor pour machines virtuelles pour un environnement de cloud hybride contenant une ou plusieurs machines virtuelles.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 0afc67bf6d9e997ef615ecadc6836b36ed73e2ea
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bd44eebf8aceaf7fe32cf8cf1b1152db32acb344
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969681"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669622"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Activer Azure Monitor pour machines virtuelles (préversion) pour un environnement hybride
 
@@ -80,7 +79,7 @@ Si le démarrage de l’agent de dépendances échoue, recherchez des informatio
 
 Les fichiers de l’agent de dépendances sont placés dans les répertoires suivants :
 
-| Fichiers | Location |
+| Fichiers | Emplacement |
 |:--|:--|
 | Fichiers principaux | /opt/microsoft/dependency-agent |
 | Fichiers journaux | /var/opt/microsoft/dependency-agent/log |

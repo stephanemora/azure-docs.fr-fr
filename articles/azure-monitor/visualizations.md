@@ -1,18 +1,17 @@
 ---
 title: Visualisation des données à partir d’Azure Monitor | Microsoft Docs
 description: Récapitulatif des méthodes disponibles pour visualiser les métriques et les données de journal stockées dans Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/24/2018
-ms.openlocfilehash: c350cb1f8e7343f6d8e7a416aa0bba71388eaa86
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7bace6ff6eb7dd1c02e4907e338fc0be9d66471c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597832"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657807"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualisation des données à partir d’Azure Monitor
 Cet article récapitule les méthodes disponibles pour visualiser les métriques et les données de journal stockées dans Azure Monitor.

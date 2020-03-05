@@ -1,18 +1,15 @@
 ---
 title: Comprendre le schéma Webhook utilisé dans les alertes du journal d’activité
 description: Découvrez le schéma du JSON publié sur une URL de Webhook en cas d’activation d’une alerte du journal d’activité.
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 03/31/2017
-ms.openlocfilehash: eb43db7a67063622f6a6125178267573cd209471
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.subservice: alerts
+ms.openlocfilehash: c076b8dcea350f9ddd66977e89ce99b81f377b17
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748804"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669044"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook des alertes du journal d’activité Azure
 Dans le cadre de la définition d’un groupe d’actions, vous pouvez configurer des points de terminaison Webhook pour qu’ils reçoivent des notifications d’alerte du journal d’activité. Grâce aux Webhooks, vous pouvez acheminer ces notifications vers d’autres systèmes à des fins de post-traitement ou d’exécution d’actions personnalisées. Cet article montre également à quoi ressemble la charge utile d’une requête HTTP POST pour un webhook.

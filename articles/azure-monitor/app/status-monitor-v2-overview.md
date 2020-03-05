@@ -1,18 +1,16 @@
 ---
 title: Vue d’ensemble d’Azure Application Insights Agent | Microsoft Docs
 description: Vue d’ensemble d’Application Insights Agent. Surveillez les performances de site web sans avoir à redéployer le site web. Fonctionne avec les applications web ASP.NET hébergées en local, dans des machines virtuelles ou sur Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 61c3721745550b43aea730d0bcd2230b0435ff53
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 4a240bc62816a46bc37108777a8b081b74047738
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899608"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671169"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Déployer Azure Monitor Application Insights Agent pour les serveurs locaux
 
@@ -47,12 +45,12 @@ Application Insights Agent se trouve ici : https://www.powershellgallery.com/pa
 - [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
 - [Start-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 - [Dépannage](status-monitor-v2-troubleshoot.md)
 - [Problèmes connus](status-monitor-v2-troubleshoot.md#known-issues)
 
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 - Application Insights Agent prend-il en charge les installations basées sur un serveur proxy ?
 
@@ -87,5 +85,5 @@ Ajoutez des données de télémétrie :
 
 * [Créez des tests web](monitor-web-app-availability.md) pour vous assurer que votre site reste actif.
 * [Ajoutez la télémétrie de client web](../../azure-monitor/app/javascript.md) pour afficher les exceptions à partir du code de la page web et activer le suivi des appels.
-* [Ajoutez le Kit SDK Application Insights à votre code](../../azure-monitor/app/asp-net.md) afin de pouvoir insérer un suivi et journaliser les appels.
+* [Ajoutez le kit de développement logiciel (SDK) Application Insights à votre code](../../azure-monitor/app/asp-net.md) afin de pouvoir insérer un suivi et journaliser les appels.
 

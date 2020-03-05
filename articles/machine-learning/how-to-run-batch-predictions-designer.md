@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: peterlu
 author: peterclu
-ms.date: 01/13/2020
+ms.date: 02/24/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: 95a3c1b892cacd802f359fdc03de74fa60a1e118
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: fdda35d3a617a30169748f4f6b42c8726e7e3512
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138103"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920686"
 ---
-# <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Exécuter des prédictions par lots à l’aide du concepteur Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Exécuter des prédictions par lots à l’aide du concepteur Azure Machine Learning (préversion)
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Dans cet article, vous allez apprendre à utiliser le concepteur pour créer un pipeline de prédiction par lots. La prédiction par lots vous permet de noter en continu et à la demande des jeux de données volumineux via un service web qui peut être déclenché à partir de n'importe quelle bibliothèque HTTP.
 
@@ -31,7 +31,7 @@ Au cours de cette procédure, vous allez apprendre à effectuer les tâches suiv
 
 Pour configurer les services de scoring par lots à l'aide du kit de développement logiciel (SDK), consultez cette [procédure](how-to-run-batch-predictions.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Cette procédure suppose que vous disposez déjà d'un pipeline de formation. Pour accéder à une présentation guidée du concepteur, suivez la [première partie du tutoriel du concepteur](tutorial-designer-automobile-price-train-score.md). 
 

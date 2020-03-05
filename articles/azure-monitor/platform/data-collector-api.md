@@ -1,18 +1,17 @@
 ---
 title: API Collecte de données HTTP Azure Monitor | Microsoft Docs
 description: L’API Collecte de données HTTP Azure Monitor permet d’ajouter des données POST JSON à un espace de travail Log Analytics à partir de tout client pouvant appeler l’API REST. Cet article explique comment utiliser l’API, et contient des exemples montrant comment publier des données à l’aide de différents langages de programmation.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: 136644dbcfe9e2835f799b284d21263913bc67b4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f12e9e90b99a055945c34398ff5351334c344253
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932591"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666750"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Transmettre des données à Azure Monitor avec l’API Collecteur de données HTTP (préversion publique)
 Cet article vous montre comment utiliser l’API Collecte de données HTTP pour transmettre des données à Azure Monitor à partir d’un client API REST.  Il explique comment mettre en forme les données collectées par le script ou l’application, les inclure dans une requête et faire en sorte qu’Azure Monitor autorise cette requête.  Il est illustré par des exemples pour PowerShell, C# et Python.
@@ -52,13 +51,13 @@ Pour utiliser l’API Collecte de données HTTP, il vous suffit de créer une re
 ### <a name="request-headers"></a>En-têtes de requête
 | En-tête | Description |
 |:--- |:--- |
-| Authorization |Signature de l’autorisation. Plus loin dans cet article, vous pouvez lire comment créer un en-tête HMAC-SHA256. |
+| Autorisation |Signature de l’autorisation. Plus loin dans cet article, vous pouvez lire comment créer un en-tête HMAC-SHA256. |
 | Log-Type |Spécifiez le type d’enregistrement des données envoyées. Ne peut contenir que des lettres, des chiffres et des traits de soulignement (_) et ne doit pas dépasser 100 caractères. |
 | x-ms-date |Date à laquelle la requête a été traitée, au format RFC 1123. |
 | x-ms-AzureResourceId | ID de la ressource Azure à laquelle les données doivent être associées. Cette opération remplit la propriété [_ResourceId](log-standard-properties.md#_resourceid) et permet d’inclure les données dans des requêtes [centrées sur la ressource](design-logs-deployment.md#access-mode). Si ce champ n’est pas spécifié, les données ne sont pas incluses dans des requêtes centrées sur la ressource. |
 | time-generated-field | Nom d’un champ de données qui contient l’horodateur de l’élément de données. Si vous spécifiez un champ, son contenu est utilisé pour **TimeGenerated**. Si ce champ n’est pas spécifié, la valeur par défaut de **TimeGenerated** est l’heure d’ingestion du message. Le contenu du champ de message doit suivre le format ISO 8601 AAAA-MM-JJThh:mm:ssZ. |
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>Autorisation
 Toute demande adressée à l’API Collecte de données HTTP Azure Monitor doit inclure un en-tête d’autorisation. Pour authentifier une demande, vous devez la signer avec la clé primaire ou secondaire de l’espace de travail qui effectue la demande. Ensuite, transmettez cette signature dans le cadre de la demande.   
 
 Voici le format de l’en-tête d’autorisation :
@@ -135,8 +134,8 @@ Pour identifier le type de données d’une propriété, Azure Monitor ajoute un
 
 | Type de données de propriété | Suffixe |
 |:--- |:--- |
-| Chaîne |_s |
-| Booléen |_b |
+| String |_s |
+| Boolean |_b |
 | Double |_d |
 | Date/time |_t |
 | GUID (stocké en tant que chaîne) |_g |
@@ -199,7 +198,7 @@ Ce tableau répertorie l’ensemble complet de codes d’état que le service pe
 | 500 |Erreur interne du serveur |UnspecifiedError |Le service a rencontré une erreur interne. Relancez la requête. |
 | 503 |Service indisponible |ServiceUnavailable |Le service est actuellement indisponible pour recevoir des demandes. Relancez la requête. |
 
-## <a name="query-data"></a>Données de requête
+## <a name="query-data"></a>Interroger des données
 Pour interroger des données soumises par l’API Collecte de données HTTP Azure Monitor, recherchez des enregistrements dont la valeur **Type** correspond à la valeur **LogType** que vous avez spécifiée, assortie de **_CL**. Par exemple, si vous avez utilisé **MyCustomLog**, vous devriez retourner tous les enregistrements avec `MyCustomLog_CL`.
 
 ## <a name="sample-requests"></a>Exemples de demandes

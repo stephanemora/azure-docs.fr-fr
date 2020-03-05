@@ -2,17 +2,16 @@
 title: Collecter le journal d’activité Azure avec les paramètres de diagnostic (préversion) – Azure Monitor | Microsoft Docs
 description: Utilisez des paramètres de diagnostic pour transférer les journaux d’activité Azure vers les journaux Azure Monitor, Stockage Azure ou Azure Event Hubs.
 author: bwren
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: fcdcef5d63163b24fe5de0f547dc2dde00cd674f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: fcf7eef269c9fa8b62217fb64ed792aece1fce4e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016253"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670336"
 ---
 # <a name="update-to-azure-activity-log-collection-and-export"></a>Mettre à jour la collecte et l'exportation du journal d'activité Azure
 Le [journal d’activité Azure](platform-logs-overview.md) est un [journal de plateforme](platform-logs-overview.md) qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. La méthode d'envoi des entrées du journal d'activité vers [un hub d'événements ou un compte de stockage](activity-log-export.md) ou vers un [espace de travail Log Analytics](activity-log-collect.md) a changé pour utiliser les [paramètres de diagnostic](diagnostic-settings.md). Cet article compare les méthodes, et explique comment effacer les paramètres hérités en vue de passer aux paramètres de diagnostic.
