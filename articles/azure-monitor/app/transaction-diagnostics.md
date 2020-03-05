@@ -1,19 +1,15 @@
 ---
 title: Diagnostics de transaction Azure Application Insights | Microsoft Docs
 description: Diagnostics de transaction de bout en bout Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 1ed3713fe4a6c9403be13f444d0409af459a1e70
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899572"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671135"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostics de transaction entre composants unifiés
 
@@ -76,7 +72,7 @@ Si le Débogueur de capture instantanée ne fonctionne pas, contactez **snapshot
 
 ![Intégration de Profiler](media/transaction-diagnostics/profilerTraces.png)
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 *Je vois un composant unique sur le graphique, et les autres n’apparaissent que comme des dépendances externes sans détails sur ce qu’il s’est passé dans ces composants.*
 
@@ -98,4 +94,4 @@ Les chronologies sont ajustées pour les variations d’horloges dans le graphiq
 
 *Pourquoi la plupart des requêtes d’éléments associés est manquante dans la nouvelle expérience ?*
 
-C’est normal. Tous les éléments associés, sur tous les composants, sont déjà disponibles sur le côté gauche (sections supérieure et inférieure). La nouvelle expérience comporte deux éléments associés non couverts par le côté gauche : l’ensemble de la télémétrie cinq minutes avant et après cet événement et la chronologie utilisateur.
+C'est la procédure normale. Tous les éléments associés, sur tous les composants, sont déjà disponibles sur le côté gauche (sections supérieure et inférieure). La nouvelle expérience comporte deux éléments associés non couverts par le côté gauche : l’ensemble de la télémétrie cinq minutes avant et après cet événement et la chronologie utilisateur.

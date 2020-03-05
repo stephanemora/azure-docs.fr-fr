@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 10/18/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f54382d652c3fc59b8ff462d41ec8c0fbdbe8498
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 474f2634e6f7ddc1840548c39ae86cb54c3bf08e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596689"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299667"
 ---
 # <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Détecter un problème avec Privileged Identity Management
 
@@ -34,9 +34,9 @@ En tant que propriétaire actif ou administrateur de l’accès utilisateur pour
 
 Ce problème peut se produire lorsque le rôle administrateur de l’accès utilisateur pour le principal du service PIM a été accidentellement supprimé de l’abonnement. Pour que le service Privileged Identity Management puisse accéder aux ressources Azure, le principal du service MS-PIM doit toujours avoir le [rôle administrateur d’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator) sur l’abonnement Azure.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
-Attribuez le rôle d’administrateur de l’accès utilisateur au nom de principal du service Privileged Identity Management (MS – PIM) au niveau de l’abonnement. Cette attribution doit autoriser le service Privileged Identity Management à accéder aux ressources Azure. Le rôle peut être attribué au niveau d’un groupe d’administration ou au niveau de l’abonnement, en fonction de vos besoins. Pour plus d’informations sur les principaux de service, consultez [Attribuer une application à un rôle](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role).
+Attribuez le rôle d’administrateur de l’accès utilisateur au nom de principal du service Privileged Identity Management (MS – PIM) au niveau de l’abonnement. Cette attribution doit autoriser le service Privileged Identity Management à accéder aux ressources Azure. Le rôle peut être attribué au niveau d’un groupe d’administration ou au niveau de l’abonnement, en fonction de vos besoins. Pour plus d’informations sur les principaux de service, consultez [Attribuer une application à un rôle](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

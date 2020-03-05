@@ -2,18 +2,15 @@
 title: Métriques de la plateforme Azure Monitor exportables par le biais des paramètres de diagnostic
 description: Liste des métriques disponibles pour chaque type de ressource avec Azure Monitor.
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: reference
 ms.date: 02/10/2020
-author: rboucher
-ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: e530663ef4ebfbef9371c48f4c70578b14a63605
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 7a75655d1707dd2491065974ed8addc4c2da1a6a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368240"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661360"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métriques de plateforme Azure Monitor exportables par le biais des paramètres de diagnostic
 
@@ -851,7 +848,7 @@ Le tableau contient les colonnes suivantes.
 | **Oui**  | **Oui** |  Microsoft.EventHub/namespaces  |  OUTMSGS  |  Messages sortants (obsolète) (déprécié)  |  Count  |  Total | 
 | Non  | Non |  Microsoft.EventHub/namespaces  |  QuotaExceededErrors  |  Erreurs de dépassement de quota.  |  Count  |  Total | 
 | Non  | Non |  Microsoft.EventHub/namespaces  |  ServerErrors  |  Erreurs de serveur.  |  Count  |  Total | 
-| Non  | Non |  Microsoft.EventHub/namespaces  |  Size  |  Size  |  Octets  |  Average | 
+| Non  | Non |  Microsoft.EventHub/namespaces  |  Taille  |  Taille  |  Octets  |  Average | 
 | Non  | Non |  Microsoft.EventHub/namespaces  |  SuccessfulRequests  |  Requêtes ayant réussi  |  Count  |  Total | 
 | **Oui**  | **Oui** |  Microsoft.EventHub/namespaces  |  SUCCREQ  |  Requêtes réussies (déconseillé)  |  Count  |  Total | 
 | **Oui**  | **Oui** |  Microsoft.EventHub/namespaces  |  SVRBSY  |  Erreurs de serveur occupé (déconseillé)  |  Count  |  Total | 
@@ -1335,7 +1332,7 @@ Le tableau contient les colonnes suivantes.
 | **Oui**  | **Oui** |  Microsoft.ServiceBus/namespaces  |  OutgoingMessages  |  Messages sortants  |  Count  |  Total | 
 | Non  | Non |  Microsoft.ServiceBus/namespaces  |  ScheduledMessages  |  Nombre de messages planifiés dans une file d’attente/rubrique.  |  Count  |  Average | 
 | Non  | Non |  Microsoft.ServiceBus/namespaces  |  ServerErrors  |  Erreurs de serveur.  |  Count  |  Total | 
-| Non  | Non |  Microsoft.ServiceBus/namespaces  |  Size  |  Size  |  Octets  |  Average | 
+| Non  | Non |  Microsoft.ServiceBus/namespaces  |  Taille  |  Taille  |  Octets  |  Average | 
 | Non  | Non |  Microsoft.ServiceBus/namespaces  |  SuccessfulRequests  |  Requêtes ayant réussi  |  Count  |  Total | 
 | Non  | Non |  Microsoft.ServiceBus/namespaces  |  ThrottledRequests  |  Demandes limitées.  |  Count  |  Total | 
 | Non  | Non |  Microsoft.ServiceBus/namespaces  |  UserErrors  |  Erreurs d’utilisateur.  |  Count  |  Total | 

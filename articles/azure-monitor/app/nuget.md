@@ -1,18 +1,14 @@
 ---
 title: Packages NuGet Application Insights Azure Monitor
 description: Liste de packages NuGet Azure Monitor Application Insights pour ASP.NET, ASP.NET Core, Python
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: reference
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/16/2018
-ms.openlocfilehash: 0bac42242bc08fcc07bba12847a4aeb79424dc78
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5675c0fad61f1b75aa7e93db02246eed43967ec2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406564"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669996"
 ---
 # <a name="application-insights-nuget-packages"></a>Packages NuGet Application Insights
 

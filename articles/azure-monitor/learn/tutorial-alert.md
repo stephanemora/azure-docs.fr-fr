@@ -1,19 +1,18 @@
 ---
 title: Envoyer des alertes à partir d’Azure Application Insights | Microsoft Docs
 description: Didacticiel pour envoyer des alertes en réponse aux erreurs dans votre application à l’aide d’Azure Application Insights.
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/10/2019
 ms.custom: mvc
-ms.openlocfilehash: e45e6fb38296c5f3337f9edfb50cd9548ca5e210
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7195de1cf58e5dd2e1d0b49b309f3afc718cca92
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398442"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656260"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Surveiller et alerter sur l’intégrité des applications avec Azure Application Insights
 
@@ -25,7 +24,7 @@ Vous allez apprendre à effectuer les actions suivantes :
 > * Créer des tests de disponibilité pour vérifier en permanence la réponse de l’application
 > * Envoyer des messages aux administrateurs lorsqu’un problème se produit
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel :
 

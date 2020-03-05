@@ -1,23 +1,22 @@
 ---
 title: Structure des journaux Azure Monitor | Microsoft Docs
 description: Pour récupérer des données de journal à partir d'Azure Monitor, vous devez exécuter une requête de journal.  Cet article explique comment les nouvelles requêtes de journal sont utilisées dans Azure Monitor et présente les concepts avec lesquels vous devez vous familiariser avant de créer une requête.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 6ce8470da6b444cedb7bff1d14bcc6448b52fe94
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1d647ba7e8d4f0e29252dfff95099e39bab87895
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893635"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662074"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Structure des journaux Azure Monitor
 La possibilité d’extraire rapidement des informations de vos données à l’aide d’une [requête de journal](log-query-overview.md) est une puissante fonctionnalité d’Azure Monitor. Pour créer des requêtes efficaces et utiles, vous devez comprendre certains concepts de base tels que l’emplacement où se trouvent les données que vous souhaitez et la manière dont elles sont structurées. Cet article présente les concepts de base que vous devez comprendre pour commencer.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Les données contenues des journaux Azure Monitor sont stockées dans un espace de travail Log Analytics ou une application Application Insights. Les deux sont alimentés par [Azure Data Explorer](/azure/data-explorer/), ce qui signifie qu’ils tirent parti de ses puissants moteur de données et langage de requête.
 
 Les données des espaces de travail et des applications sont organisées en tables dont chacune stocke des types de données spécifiques et a son propre ensemble de propriétés. Dans un espace de travail Log Analytics, la plupart des [sources de données](../platform/data-sources.md) écrivent dans leurs propres tables, tandis qu’Application Insights écrit dans un ensemble prédéfini de tables dans une application. Les requêtes de journal étant très flexibles, elle vous permettent de combiner facilement les données de plusieurs tables et même d’utiliser une requête inter-ressources pour combiner des données de tables figurant dans plusieurs espaces de travail ou pour écrire des requêtes combinant des données d’espace de travail et d’application.
@@ -53,7 +52,7 @@ Lorsque vous créez une application dans Application Insights, une application c
 
 Contrairement à un espace de travail Log Analytics, une application Application Insights a un ensemble fixe de tables. Comme vous ne pouvez pas configurer d’autres sources de données à écrire dans l’application, aucune table supplémentaire ne peut être créée. 
 
-| Table | Description | 
+| Table de charge de travail | Description | 
 |:---|:---|
 | availabilityResults | Données de synthèse de tests de disponibilité. |
 | browserTimings      | Données sur les performances du client, comme le temps nécessaire pour traiter les données entrantes. |

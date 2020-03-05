@@ -1,18 +1,14 @@
 ---
 title: Configurer des analyses d’application web pour ASP.NET avec Azure Application Insights | Microsoft Docs
 description: Configurez les outils d’analytique des performances, de la disponibilité et du comportement des utilisateurs de votre site web ASP.NET, hébergé en local ou dans Azure.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/08/2019
-ms.openlocfilehash: a72bb5dd02776fe8410bb515e4e17a292d12048f
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 0843d6c04bf6fc9bab07207072990fb3fb8f1844
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677670"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665916"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurer Application Insights pour votre site web ASP.NET
 
@@ -29,7 +25,7 @@ Pour Application Insights à votre site web ASP.NET, vous devez :
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="ide"></a> Étape 1 : Ajouter le Kit SDK Application Insights
+## <a name="ide"></a> Étape 1 : Ajouter le Kit SDK Application Insights
 
 > [!IMPORTANT]
 > Les captures d’écran de cet exemple sont basées sur Visual Studio 2017 version 15.9.9 ou ultérieure. L’expérience d’ajout d’Application Insights varie selon les versions de Visual Studio et le type de modèle ASP.NET. Les versions plus anciennes peuvent comporter du texte de remplacement tel que « Configurer Application Insights ».
@@ -60,14 +56,14 @@ Si vous souhaitez définir le groupe de ressources ou l’emplacement où vos do
 > [!NOTE]
 > Si vous ne souhaitez pas envoyer de données de télémétrie au portail pendant le débogage, ajoutez simplement le kit de développement logiciel (SDK) Application Insights à votre application, mais ne configurez pas de ressource dans le portail. Vous êtes en mesure de voir les données de télémétrie dans Visual Studio pendant le débogage. Plus tard, vous pouvez revenir à cette page de configuration, ou vous pouvez attendre d’avoir déployé votre application et [activer les données de télémétrie au moment de l’exécution](../../azure-monitor/app/monitor-performance-live-website-now.md).
 
-## <a name="run"></a> Étape 2 : Exécutez l'application.
+## <a name="run"></a> Étape 2 : Exécutez l'application.
 Exécutez votre application en appuyant sur F5. Ouvrez différentes pages pour générer des données de télémétrie.
 
 Un décompte des événements consignés s’affiche dans Visual Studio.
 
 ![Capture d’écran de Visual Studio. Le bouton Application Insights apparaît pendant le débogage.](./media/asp-net/00006-Events.png)
 
-## <a name="step-3-see-your-telemetry"></a>Étape 3 : afficher vos données de télémétrie
+## <a name="step-3-see-your-telemetry"></a>Étape 3 : afficher vos données de télémétrie
 Vous pouvez voir vos données de télémétrie dans Visual Studio ou sur le portail web Application Insights. Recherchez les données de télémétrie dans Visual Studio pour vous aider à déboguer votre application. Surveillez les performances et l’utilisation dans le portail web lorsque votre système est en ligne. 
 
 ### <a name="see-your-telemetry-in-visual-studio"></a>Afficher vos données de télémétrie dans Visual Studio

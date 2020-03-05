@@ -1,20 +1,18 @@
 ---
 title: Groupes intelligents
 description: Les groupes intelligents sont des regroupements d’alertes qui vous aident à limiter leur nombre.
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
-ms.author: robb
+ms.subservice: alerts
 ms.date: 05/15/2018
-ms.openlocfilehash: 83ea68ad92a6c78ccf56483e1f0c2cbcbcd7d22a
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 05b05f8bc079bb3768ac2f1a03593bc9260b41aa
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552351"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665491"
 ---
 # <a name="smart-groups"></a>Groupes intelligents
+
 En matière de gestion des alertes, il est souvent difficile de distinguer les alertes qui sont véritablement importantes au milieu du bruit de fond. Les groupes intelligents visent à résoudre ce problème.  
 
 Les groupes intelligents sont automatiquement créés en utilisant des algorithmes de Machine Learning pour combiner des alertes associées qui correspondent à un même problème.  Quand une alerte est créée, l’algorithme l’ajoute à un groupe intelligent ou à un groupe intelligent, nouveau ou existant, en fonction d’informations telles que des modèles historiques, la similarité des propriétés ou la similarité de la structure. Par exemple, si le pourcentage d’UC augmente simultanément sur plusieurs machines virtuelles d’un abonnement, de nombreuses alertes individuelles sont créées. Avec les groupes intelligents, si ces alertes se sont déjà produites de la même manière par le passé, elles seront regroupées au sein d’un groupe intelligent, impliquant que la cause racine est peut-être commune. De plus, cela signifie que pour certaines alertes de dépannage, non seulement les groupes intelligents permettent de réduire le bruit de fond en gérant les alertes associées en tant qu’unité agrégée, mais ils proposent une potentielle cause racine commune à ces alertes.
@@ -24,6 +22,7 @@ L’algorithme ne prend actuellement en compte que les alertes du même service 
 Vous pouvez afficher les détails des groupes intelligents et en définir l’état comme vous le pouvez pour des alertes. Chaque alerte est un membre d’un seul groupe intelligent. 
 
 ## <a name="smart-group-state"></a>État du groupe intelligent
+
 L’état du groupe intelligent est un concept similaire à l’état de l’alerte, ce qui vous permet de gérer le processus de résolution au niveau d’un groupe intelligent. Comme pour l’état d’une alerte, lorsqu’un groupe intelligent est créé, il dispose de l’état **Nouveau**, qui peut être modifié sur **Reconnu** ou **Fermé**.
 
 Les états de groupe intelligent suivants sont pris en charge.

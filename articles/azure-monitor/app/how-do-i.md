@@ -1,18 +1,14 @@
 ---
 title: Comment... dans Azure Application Insights | Microsoft Docs
 description: FAQ dans Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/04/2017
-ms.openlocfilehash: 61bd5898c494018a2bacbd894d4dc2aac97f53b4
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 5b65087c361911f0714723c315e0b7f7e9bb74e6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928417"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663855"
 ---
 # <a name="how-do-i--in-application-insights"></a>Comment ... dans Application Insights ?
 ## <a name="get-an-email-when-"></a>Recevoir un message électronique quand...
@@ -91,7 +87,7 @@ Vous recevrez des messages électroniques quand la métrique est supérieure et 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Tableau de bord avec des données provenant d’autres sources et d’Application Insights
 * [Exportez la télémétrie dans Power BI](../../azure-monitor/app/export-power-bi.md ).
 
-Ou
+ou
 
 * Utilisez SharePoint comme tableau de bord, pour afficher les données des composants WebPart de SharePoint. [Utilisez l’exportation continue et Stream Analytics pour exporter vers SQL](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md).  Utilisez PowerView pour examiner la base de données et créer un composant WebPart de SharePoint pour PowerView.
 
@@ -100,7 +96,7 @@ Ou
 ### <a name="filter-out-anonymous-or-authenticated-users"></a>Filtrer les utilisateurs authentifiés ou anonymes
 Si vos utilisateurs se connectent, vous pouvez définir l’[ID d’utilisateur authentifié](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (Cela n’est pas automatique.)
 
-Vous pouvez ensuite effectuer les opérations suivantes :
+Ensuite, vous pouvez :
 
 * Rechercher des ID d’utilisateur spécifiques
 

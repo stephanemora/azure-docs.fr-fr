@@ -1,18 +1,17 @@
 ---
 title: Activer Azure Monitor pour machines virtuelles à l’aide d’Azure Policy | Microsoft Docs
 description: Cet article décrit l’activation d’Azure Monitor pour machines virtuelles sur plusieurs groupes de machines virtuelles identiques ou plusieurs machines virtuelles Azure à l’aide d’Azure Policy.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: d9458230d07c1c40a3eec2d51879f58fac6543b5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 267072b06d936822eae7e7257d62566a020471bb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365816"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656226"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Activer Azure Monitor pour machines virtuelles (préversion) à l’aide d’Azure Policy
 
@@ -77,7 +76,7 @@ Pour plus d’informations sur l’affectation d’Azure Policy, consultez [Vue 
 
 Les définitions de stratégie pour une machine virtuelle Azure sont listées dans le tableau ci-dessous.
 
-|Name |Description |Type |
+|Nom |Description |Type |
 |-----|------------|-----|
 |\[Préversion\] : Activer Azure Monitor pour machines virtuelles |Activez Azure Monitor pour machines virtuelles dans l’étendue spécifiée (groupe d’administration, abonnement ou groupe de ressources). Utilise l’espace de travail Log Analytics comme paramètre. |Initiative |
 |\[Préversion\] : Vérifier le déploiement de l’agent de dépendances - Image de machine virtuelle (système d’exploitation) non listée |Présente les machines virtuelles comme non conformes si l’image de machine virtuelle (système d’exploitation) n’est pas définie dans la liste et si l’agent n’est pas installé. |Stratégie |
@@ -91,7 +90,7 @@ Les définitions de stratégie pour une machine virtuelle Azure sont listées da
 
 Les définitions de stratégie pour un groupe de machines virtuelles identiques Azure sont listées dans le tableau ci-dessous.
 
-|Name |Description |Type |
+|Nom |Description |Type |
 |-----|------------|-----|
 |\[Préversion\] : Activer Azure Monitor pour les groupes de machines virtuelles identiques |Activez Azure Monitor pour les groupes de machines virtuelles identiques dans l’étendue spécifiée (groupe d’administration, abonnement ou groupe de ressources). Utilise l’espace de travail Log Analytics comme paramètre. Remarque : Si la stratégie de mise à niveau du groupe identique est définie sur Manuelle, appliquez l’extension à toutes les machines virtuelles du groupe en appelant une mise à niveau. Dans l’interface de ligne de commande, il s’agit de `az vmss update-instances`. |Initiative |
 |\[Préversion\] : Auditer le déploiement de l’agent de dépendances dans des groupes de machines virtuelles identiques - Image de machine virtuelle (système d’exploitation) non listée |Présente le groupe de machines virtuelles identiques comme non conforme si l’image de machine virtuelle (système d’exploitation) n’est pas définie dans la liste et si l’agent n’est pas installé. |Stratégie |
@@ -103,7 +102,7 @@ Les définitions de stratégie pour un groupe de machines virtuelles identiques 
 
 La stratégie autonome (non incluse avec l’initiative) est décrite ici :
 
-|Name |Description |Type |
+|Nom |Description |Type |
 |-----|------------|-----|
 |\[Préversion\] : Auditer les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités |Signalez les machines virtuelles comme non conformes si elles ne se connectent pas à l’espace de travail Log Analytics spécifié dans l’attribution de stratégie ou d’initiative. |Stratégie |
 

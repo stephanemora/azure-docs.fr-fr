@@ -1,18 +1,14 @@
 ---
 title: Exporter à l’aide de Stream Analytics à partir d’Azure Application Insights | Microsoft Docs
 description: Stream Analytics peut transformer, filtrer et acheminer en continu les données que vous exportez depuis Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/08/2019
-ms.openlocfilehash: 3be1a643cbe942c0b740ae8ebcc2c7f2dda24854
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: b93bc49d005e3e54f1e5db84e6ff1adc49e25a65
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677947"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664012"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Utiliser Stream Analytics pour traiter des données exportées depuis Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) est l’outil idéal pour traiter des données [exportées depuis Application Insights](export-telemetry.md). Stream Analytics peut extraire des données de diverses sources. Il peut transformer et filtrer les données, puis les acheminer vers plusieurs récepteurs.
@@ -184,7 +180,7 @@ Collez cette requête :
 
 * Cette requête inclut les valeurs des propriétés de dimension, indépendamment d’une dimension particulière se trouvant à un index fixe dans le tableau de dimension.
 
-## <a name="run-the-job"></a>Exécution de la tâche
+## <a name="run-the-job"></a>Exécuter le travail
 Vous pouvez sélectionner une date dans le passé à partir de laquelle démarrer la tâche. 
 
 ![Sélectionnez la tâche et cliquez sur Interroger. Collez l’exemple ci-dessous.](./media/export-stream-analytics/SA008.png)

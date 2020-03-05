@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: b27baed20d8e36bf5790036e2fdc0804a94a4ea1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0e19271b5c69610dd9f44c3121e195b80732279c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589434"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669537"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>Présentation du service NAT de Réseau virtuel (préversion publique)
 
@@ -39,7 +39,7 @@ Le service NAT (traduction d’adresses réseau) de Réseau virtuel simplifie la
 
 
 >[!NOTE] 
->Le service NAT de Réseau virtuel est disponible en préversion publique pour l’instant. Actuellement, il n’est disponible que dans un ensemble limité de [régions](#region-availability). Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.comsupport/legal/preview-supplemental-terms).
+>Le service NAT de Réseau virtuel est disponible en préversion publique pour l’instant. Actuellement, il n’est disponible que dans un ensemble limité de [régions](#region-availability). Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
 
 ## <a name="static-ip-addresses-for-outbound-only"></a>Adresses IP statiques pour le trafic sortant uniquement
 
@@ -200,5 +200,5 @@ Nous aimerions savoir comment nous pouvons améliorer le service. Faites-nous pa
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez-en plus sur les [ressources de passerelle NAT](./nat-gateway-resource.md).
-- [Dites-nous quoi créer ensuite dans UserVoice](https://aka/natuservoice).
+- [Dites-nous quoi créer ensuite dans UserVoice](https://aka.ms/natuservoice).
 - [Faites-nous part de vos commentaires sur la préversion publique](https://aka.ms/natfeedback).

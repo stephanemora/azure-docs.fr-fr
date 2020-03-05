@@ -3,16 +3,16 @@ title: Contrats et avenants Azure EA
 description: Cet article explique dans quelle mesure les contrats et avenants Azure EA affectent votre utilisation du portail Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: c38f28120b7c84077d8d5012c4be4698680e5fdb
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 5198bd240f0c4e23910504fd039d64a73ddb41c9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200810"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301418"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contrats et avenants Azure EA
 
@@ -25,10 +25,6 @@ Tout avenant concernant les clients Azure doit passer par l’équipe partenaire
 ## <a name="enrollment-provisioning-status"></a>État du provisionnement de l’inscription
 
 La date de début d’un nouvel engagement financier est définie par la date à laquelle le centre régional des opérations l’a traité. Étant donné que les commandes d’engagement financier via le portail Azure EA sont traitées dans le fuseau horaire UTC, vous pouvez constater un certain délai si votre bon de commande d’engagement financier a été traité dans une autre région. La date de début de couverture sur le bon de commande sur https://www.explore.ms indique le début de l’engagement financier. La date de début de couverture est le moment où l’engagement financier apparaît dans le portail Azure EA.
-
-## <a name="special-pricing-and-azure-commitment-discount-amendments"></a>Tarification spéciale et modifications des remises d’engagement Azure
-
-Si vous avez besoin d’un tarif spécial et d’avenants ACD (Azure Commitment Discount), vous devez en discuter avec l’équipe en charge de votre compte. L’équipe des opérations Azure peut appliquer la remise ACD une fois qu’un avenant a été traité par le service commercial et demandé à l’équipe des opérations Azure. La remise ACD est appliquée uniquement au mois en cours. Les mois précédents sont compensés par un crédit rétroactif. 
 
 ## <a name="support-offer-not-provisioned"></a>Offre de support non provisionnée
 

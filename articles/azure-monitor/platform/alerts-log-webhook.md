@@ -2,18 +2,17 @@
 title: Actions webhook pour les alertes de journal dans les alertes Azure
 description: Cet article explique comment créer une règle d’alerte de journal à l’aide de l’espace de travail Log Analytics ou Application Insights, comment l’alerte envoie les données en tant que webhook HTTP et les détails des différentes personnalisations possibles.
 author: yanivlavi
+ms.author: yalavi
 services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 3a072ae64104f8fded49ff6a00f5b58902c39903
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 7b1956ad2bf9bf38ba9edc4c7234078557564071
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838567"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667701"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Actions webhook pour les règles d’alerte de journal
 Quand une [alerte de journal est créée dans Azure](alerts-log.md), vous avez l’option de la [configuration à l’aide de groupes d’actions](action-groups.md) pour exécuter une ou plusieurs actions. Cet article décrit les différentes actions webhook disponibles et les détails de la configuration du webhook personnalisé basé sur JSON.
@@ -210,5 +209,5 @@ Voici un exemple de charge utile pour une action de webhook personnalisée pour 
 - Comprendre comment [gérer les alertes de journal dans Azure](alerts-log.md).
 - Créer et gérer des [groupes d’actions dans Azure](action-groups.md).
 - En savoir plus sur [Application Insights](../../azure-monitor/app/analytics.md).
-- En savoir plus sur [les requêtes dans les journaux](../log-query/log-query-overview.md). 
+- Découvrez plus en détail les [requêtes dans les journaux](../log-query/log-query-overview.md). 
 
