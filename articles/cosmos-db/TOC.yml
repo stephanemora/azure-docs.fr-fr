@@ -540,7 +540,10 @@
         - name: Pare-feu IP
           href: firewall-support.md
         - name: Accès à partir de réseaux virtuels
+          displayName: service endpoint
           href: vnet-service-endpoint.md
+        - name: Balises de service
+          href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Contrôle d’accès en fonction du rôle
           displayName: rbac
           href: role-based-access-control.md
@@ -983,6 +986,7 @@
         - name: Configurer le pare-feu IP
           href: how-to-configure-firewall.md
         - name: Configurer l’accès à partir de réseaux virtuels
+          displayName: service endpoints
           href: how-to-configure-vnet-service-endpoint.md
         - name: Configurer l’accès depuis des points de terminaison privés
           href: how-to-configure-private-endpoints.md

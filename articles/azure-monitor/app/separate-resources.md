@@ -1,18 +1,14 @@
 ---
 title: Séparation des données de télémétrie dans Azure Application Insights
 description: Télémétrie directe de différentes ressources pour les tampons de développement, de test et de production.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/15/2017
-ms.openlocfilehash: c58a54dd4916b5687d46cbf4b816bd656113f9ff
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3580d162f4b3955a04ffcd0f13933221bfef3b65
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406413"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671458"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Séparation des télémétries de développement, de test et de production
 
