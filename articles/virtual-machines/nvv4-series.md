@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 82720a99128facee2d1617d69f1ed852b232de43
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 3b1deceb8d5c6e2a22254b2719449e5adb069def
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492466"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565395"
 ---
 # <a name="nvv4-series-preview"></a>Série NVv4 (préversion)
 
@@ -40,11 +40,11 @@ Mise en cache du Stockage Premium :  Prise en charge
 
 Pour tirer parti des fonctionnalités GPU des machines virtuelles Azure de série N exécutant Windows, installez des pilotes GPU NVIDIA ou AMD.
 
-[L’extension du pilote GPU NVIDIA](/extensions/hpccompute-gpu-windows.md) installe les pilotes CUDA ou GRID NVIDIA appropriés sur une machine virtuelle de série N. Installez ou gérez l’extension à l’aide du portail Azure ou d’outils tels qu’Azure PowerShell ou les modèles Azure Resource Manager. Consultez la [documentation sur l’extension du pilote GPU NVIDIA](/extensions/hpccompute-gpu-windows.md) pour connaître les systèmes d’exploitation pris en charge et les étapes de déploiement. Pour des informations générales sur les extensions de machine virtuelle, consultez [Extensions et fonctionnalités des machines virtuelles Azure](/extensions/overview.md).
+[L’extension Pilotes GPU NVIDIA](/extensions/hpccompute-gpu-windows.md) installe les pilotes CUDA ou GRID NVIDIA appropriés sur une machine virtuelle Windows de série N. Installez ou gérez l’extension à l’aide du portail Azure ou d’outils tels qu’Azure PowerShell ou les modèles Azure Resource Manager. Consultez la [documentation sur l’extension du pilote GPU NVIDIA](/extensions/hpccompute-gpu-windows.md) pour connaître les systèmes d’exploitation pris en charge et les étapes de déploiement. Pour des informations générales sur les extensions de machine virtuelle, consultez [Extensions et fonctionnalités des machines virtuelles Azure](/extensions/overview.md).
 
-Si vous choisissez d’installer manuellement les pilotes GPU NVIDIA, voir [Configuration des pilotes GPU de série N pour Windows](/windows/n-series-driver-setup.md) ou [Configuration des pilotes GPU de série N pour Linux](/linux/n-series-driver-setup) pour connaître les systèmes d’exploitation et pilotes pris en charge, ainsi que les étapes d’installation et de vérification.
+Si vous choisissez d’installer manuellement les pilotes GPU NVIDIA, consultez [Configuration des pilotes GPU de série N pour Windows](/windows/n-series-driver-setup.md) pour connaître les systèmes d’exploitation pris en charge, les pilotes et les étapes d’installation et de vérification.
 
-Pour installer manuellement les pilotes GPU AMD, voir [Configuration des pilotes GPU AMD de série N pour Windows](/windows/n-series-driver-setup.md) afin de connaître les systèmes d’exploitation et pilotes pris en charge, ainsi que les étapes d’installation et de vérification.
+Pour installer manuellement les pilotes GPU AMD, consultez [Configuration des pilotes GPU AMD de série N pour Windows](/windows/n-series-amd-driver-setup.md) pour connaître les systèmes d’exploitation pris en charge, les pilotes et les étapes d’installation et de vérification.
 
 ## <a name="other-sizes"></a>Autres tailles
 

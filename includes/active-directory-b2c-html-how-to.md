@@ -3,14 +3,14 @@ author: mmacy
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 02/12/2020
+ms.date: 02/26/2020
 ms.author: marsma
-ms.openlocfilehash: 9612abbe078ab8d9e8c10c2da923a9a9b233d094
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 4cf8eba9632c51ce9b5bcc42feae2446348890c2
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77373141"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77651615"
 ---
 ## <a name="use-custom-page-content"></a>Utiliser un contenu de page personnalisé
 
@@ -61,7 +61,7 @@ Lorsque vous utilisez vos propres fichiers HTML et CSS pour personnaliser l’in
 ## <a name="guidelines-for-using-custom-page-content"></a>Instructions pour l’utilisation de contenu de page personnalisé
 
 - Utilisez une URL absolue lorsque vous incluez des ressources externes telles que des fichiers multimédias, CSS et JavaScript dans votre fichier HTML.
-- Ajoutez l’attribut `data-preload="true"` dans les balises HTML pour contrôler l’ordre de chargement des fichiers CSS et JavaScript. Grâce à `data-preload=true`, la page est construite avant d’être affichée à l’utilisateur. Cet attribut permet d’éviter le « scintillement » de la page en préchargeant le fichier CSS, sans que le code HTML non stylisé soit affiché à l’utilisateur. L’extrait de code HTML suivant montre l’utilisation de la balise `data-preload`.
+- Avec la [version 1.2.0 de la mise en page](../articles/active-directory-b2c/page-layout.md) et les suivantes, vous pouvez ajouter l’attribut `data-preload="true"` dans vos balises HTML pour contrôler l’ordre de chargement des fichiers CSS et JavaScript. Grâce à `data-preload=true`, la page est construite avant d’être affichée à l’utilisateur. Cet attribut permet d’éviter le « scintillement » de la page en préchargeant le fichier CSS, sans que le code HTML non stylisé soit affiché à l’utilisateur. L’extrait de code HTML suivant montre l’utilisation de la balise `data-preload`.
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```

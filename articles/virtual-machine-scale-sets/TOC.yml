@@ -1,4 +1,4 @@
-- name: Documentation sur les groupes de machines virtuelles identiques
+- name: Documentation Virtual Machine Scale Sets
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -247,6 +247,8 @@
           href: virtual-machine-scale-sets-networking.md
         - name: Mises à niveau automatiques des systèmes d’exploitation
           href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Réparations automatiques des instances (préversion)
+          href: virtual-machine-scale-sets-automatic-instance-repairs.md
         - name: Protection des instances
           href: virtual-machine-scale-sets-instance-protection.md
         - name: Stratégie de scale-in

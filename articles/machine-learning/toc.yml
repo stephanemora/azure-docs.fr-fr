@@ -38,14 +38,14 @@
               href: tutorial-1st-experiment-sdk-train.md
         - name: Classification d’images (données MNIST)
           items:
-            - name: 1. Effectuer l’apprentissage d’un modèle
+            - name: 1. Entraîner un modèle
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
             - name: 2. Déployer un modèle
               href: tutorial-deploy-models-with-aml.md
         - name: Régression avec ML automatisé (données des taxis de New York)
           items:
-            - name: Former automatiquement un modèle ML
+            - name: Entraîner automatiquement un modèle ML
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
         - name: Pipelines de Machine Learning (avancé)
@@ -208,6 +208,9 @@
         - name: Créer des jeux de données avec des étiquettes
           displayName: 'data, labels, torchvision'
           href: how-to-use-labeled-dataset.md
+        - name: Ingestion des données avec Azure Data Factory
+          displayName: 'data, ingestion, adf'
+          href: how-to-data-ingest-adf.md
         - name: DevOps pour l’ingestion de données
           displayName: 'data, ingestion, devops'
           href: how-to-cicd-data-ingestion.md

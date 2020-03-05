@@ -6,7 +6,7 @@ documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a44cf9aa5b3287a01617be6439cd04b9a5caa73
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 3dbe5871a78634d2866ec1a3d1455492762ff2aa
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484228"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619241"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Créer un point de terminaison SCIM et configurer l'approvisionnement des utilisateurs avec Azure Active Directory (Azure AD)
 
@@ -966,6 +966,9 @@ Pour héberger le service dans Internet Information Services, un développeur cr
 
 Les demandes d’Azure Active Directory incluent un jeton de support OAuth 2.0.   Tout service recevant la demande doit authentifier l’émetteur comme étant Azure Active Directory pour permettre au client Azure Active Directory attendu d’accéder au service de l’API Microsoft Graph.  Dans le jeton, l’émetteur est identifié par une revendication iss, comme « iss» :"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Dans cet exemple, l’adresse de base de la valeur de revendication, https://sts.windows.net, identifie Azure Active Directory en tant qu’émetteur, tandis que le segment d’adresse relative, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, est un identificateur unique du locataire Azure Active Directory au nom duquel le jeton a été émis. L’audience du jeton est l’ID du modèle d’application de l’application dans la galerie. L’ID du modèle d’application pour toutes les applications personnalisées est 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. L’ID du modèle d’application de chaque application dans la galerie varie. Veuillez contacter ProvisioningFeedback@microsoft.com pour toute question sur l’ID du modèle d’application d’une application de galerie. Chaque application inscrite dans un seul abonné peut recevoir la même revendication `iss` avec des requêtes SCIM.
 
+   > [!NOTE]
+   > Il est ***déconseillé*** de laisser ce champ vide et d'utiliser un jeton généré par Azure AD. Cette option est principalement destinée à des fins de test.
+
 Les développeurs qui utilisent les bibliothèques CLI fournies par Microsoft pour la création d’un service SCIM peuvent authentifier les demandes d’Azure Active Directory à l’aide du package Microsoft.Owin.Security.ActiveDirectory en exécutant les opérations suivantes : 
 
 Dans un fournisseur, commencez par implémenter la propriété Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior lui faisant retourner une méthode à appeler à chaque démarrage du service : 
@@ -1448,12 +1451,15 @@ Si vous créez une application qui sera utilisée par plusieurs locataires, vous
 ### <a name="gallery-onboarding-checklist"></a>Liste de vérification d’intégration à la galerie
 Suivez la liste de vérification ci-dessous pour vous assurer que votre application est intégrée rapidement et que les clients bénéficient d’une expérience de déploiement sans heurts. Les informations seront collectées auprès de vous lors de l’intégration à la galerie. 
 > [!div class="checklist"]
-> * [Prise en charge de SCIM 2.0 ](https://tools.ietf.org/html/draft-wahl-scim-profile-00) (obligatoire)
+> * Prise en charge d’un point de terminaison de groupe et d’utilisateur [SCIM 2.0](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) (un seul est obligatoire, mais il est recommandé de disposer des deux)
 > * Prise en charge d’au moins 25 demandes par seconde par locataire (obligatoire)
-> * Prise en charge de la détection de schéma (recommandée)
+> * Établissement de contacts d’ingénierie et de support pour guider l’intégration des clients à la galerie de publications (obligatoire)
+> * Trois informations d’identification de test sans date d’expiration pour l’application (obligatoire)
 > * Prise en charge de l’octroi de code d’autorisation OAuth ou d’un jeton de longue durée, comme décrit ci-dessous (obligatoire)
-> * Établissez un point de contact d’ingénierie et de support pour la prise en charge de l’intégration à la galerie de publications de clients (obligatoire)
+> * Établissement d’un point de contact d’ingénierie et de support pour la prise en charge de l’intégration des clients à la galerie de publications (obligatoire)
+> * Prise en charge de la mise à jour de l’appartenance à plusieurs groupes avec un seul correctif (recommandé) 
 > * Documentation publique de votre point de terminaison SCIM (recommandée) 
+> * [Prise en charge de la détection de schéma](https://tools.ietf.org/html/rfc7643#section-6) (recommandée)
 
 
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>Autorisation des connecteurs d’approvisionnement de connecteurs dans la galerie d’applications

@@ -1,4 +1,4 @@
-- name: Documentation Équilibreur de charge
+- name: Documentation Load Balancer
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -6,15 +6,15 @@
       href: load-balancer-overview.md
 - name: Démarrage rapide
   items:
-    - name: Portail
+    - name: Créer un équilibreur de charge - Portail
       href: quickstart-load-balancer-standard-public-portal.md
-    - name: Azure CLI
+    - name: Créer un équilibreur de charge - Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
-    - name: Azure PowerShell
+    - name: Créer un équilibreur de charge - PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: "Modèle Azure\_Resource\_Manager"
+    - name: Créer un équilibreur de charge - Modèle
       href: quickstart-load-balancer-standard-public-template.md
-      displayName: ARM
+  expanded: true
 - name: Tutoriels
   items:
     - name: Équilibrer la charge de trafic internet vers des machines virtuelles
