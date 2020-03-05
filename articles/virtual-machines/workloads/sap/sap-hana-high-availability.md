@@ -1,23 +1,23 @@
 ---
-title: Haute disponibilité de SAP HANA sur les machines virtuelles Azure sur SUSE Linux Enterprise Server | Microsoft Docs
+title: Haute disponibilité de SAP HANA sur des machines virtuelles Azure sur SLES | Microsoft Docs
 description: Haute disponibilité de SAP HANA sur les machines virtuelles Azure sur SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: ''
-author: MSSedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/06/2019
-ms.author: sedusch
-ms.openlocfilehash: ffa2f937a14aa14750480d1c45498fb4c49fcc30
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.author: radeltch
+ms.openlocfilehash: 65ba7c0d8115e7125f1318e7fdca979cfab02474
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721499"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565840"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Haute disponibilité de SAP HANA sur les machines virtuelles Azure sur SUSE Linux Enterprise Server
 
@@ -77,7 +77,7 @@ Commencez par lire les notes et publications SAP suivantes :
   * Configuration d’une infrastructure à performances optimisées SAP HANA SR (SLES pour les applications SAP 12 SP1). Le guide contient toutes les informations requises pour configurer la réplication système SAP HANA en développement local. Utilisez ce guide comme référence.
   * Configuration d’une infrastructure à coût optimisé SAP HANA SR (SLES pour les applications SAP 12 SP1)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Pour atteindre la haute disponibilité, SAP HANA est installé sur deux machines virtuelles. Les données sont répliquées à l’aide de la réplication de système HANA.
 
@@ -233,7 +233,7 @@ Suivez ces étapes pour déployer le modèle :
    Pour plus d’informations sur les ports requis pour SAP HANA, consultez le chapitre [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Connexions aux bases de données locataires) dans le guide [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Bases de données locataires SAP HANA) ou la [Note SAP 2388694][2388694].
 
 > [!IMPORTANT]
-> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, voir [Sondes d’intégrité Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) (Sondes d’intégrité Load Balancer).
 > Voir aussi la note SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="create-a-pacemaker-cluster"></a>Créez un cluster Pacemaker
@@ -485,7 +485,7 @@ Les étapes de cette section utilisent les préfixes suivants :
 
 1. **[2]** Configurez la réplication de système sur le nœud secondaire.
 
-   Inscrivez le site secondaire en tant que <hanasid\>adm :
+   Inscrivez le site secondaire en tant que <hanasid\>adm :
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -513,8 +513,8 @@ sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana
 Ensuite, créez les ressources HANA :
 
 > [!IMPORTANT]
-> Des tests récents ont révélé des situations où netcat cessait de répondre aux demandes en raison du backlog et de sa capacité à gérer une seule connexion. La ressource netcat cesse d’écouter les demandes d’Azure Load Balancer et l’adresse IP flottante devient indisponible.  
-> Pour les clusters Pacemaker existants, nous vous recommandons de remplacer netcat par socat en suivant les instructions de la page [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128). Notez que la modification nécessite un bref temps d’arrêt.  
+> Des tests récents ont révélé des cas où netcat cessait de répondre aux demandes en raison du backlog et de sa capacité à ne gérer qu’une seule connexion. La ressource netcat cesse d’écouter les demandes d’Azure Load Balancer et l’adresse IP flottante devient indisponible.  
+> Pour les clusters Pacemaker existants, nous vous recommandons de remplacer netcat par socat en suivant les instructions de la page [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128). Notez que la modification nécessitera un bref temps d’arrêt.  
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 
