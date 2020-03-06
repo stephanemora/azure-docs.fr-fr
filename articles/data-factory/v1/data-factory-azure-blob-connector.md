@@ -13,11 +13,11 @@ ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: eab332f102b9e39981e2d8ed6e84f73fada87a1a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981667"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358566"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Échanger des données avec le Stockage Blob Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -173,7 +173,7 @@ Cette section décrit le comportement résultant de l’opération de copie pour
 ## <a name="walkthrough-use-copy-wizard-to-copy-data-tofrom-blob-storage"></a>Procédure pas à pas : Utiliser l’Assistant Copie pour copier des données vers/à partir de Stockage Blob
 Examinons comment copier rapidement des données vers/depuis un stockage Blob Azure. Dans cette procédure pas à pas, les banques de données source et de destination sont du type Stockage Blob Azure. Le pipeline de cette procédure pas à pas copie des données entre les dossiers d’un même conteneur d’objets blob. Cette procédure pas à pas est volontairement simple pour vous montrer les paramètres ou les propriétés lorsque vous utilisez le Stockage Blob en tant que source ou récepteur.
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 1. Créez un **compte de stockage Azure** à usage général si vous n’en avez pas encore un. Vous utilisez le stockage d’objets blob comme banque de données **source** et de **destination** dans cette procédure pas à pas. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-account-create.md) pour découvrir comment en créer un.
 2. Créez un conteneur d’objets blob nommé **adfblobconnector** dans le compte de stockage.
 4. Créez un dossier nommé **input** dans le conteneur **adfblobconnector**.
@@ -231,7 +231,7 @@ Examinons comment copier rapidement des données vers/depuis un stockage Blob Az
     ![Outil de copie - Choisir le fichier ou le dossier d’entrée](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
 7. Dans la page **File format settings** (Paramètres de format de fichier), vous pouvez voir les délimiteurs et le schéma qui sont détectés automatiquement par l’Assistant en analysant le fichier.
     1. Vérifiez les options suivantes :  
-        a. L’option **Format de fichier** est définie sur **Format du texte**. La liste déroulante contient tous les formats pris en charge. Par exemple :  JSON, Avro, ORC, Parquet.
+        a. L’option **Format de fichier** est définie sur **Format du texte**. La liste déroulante contient tous les formats pris en charge. Par exemple : JSON, Avro, ORC, Parquet.
        b. L’option **Séparateur de colonnes** est définie sur `Comma (,)`. Vous pouvez voir les autres séparateurs de colonnes pris en charge par Data Factory dans la liste déroulante. Vous pouvez également spécifier un séparateur personnalisé.
        c. L’option **Séparateur de lignes** est définie sur `Carriage Return + Line feed (\r\n)`. Vous pouvez voir les autres séparateurs de lignes pris en charge par Data Factory dans la liste déroulante. Vous pouvez également spécifier un séparateur personnalisé.
        d. L’option **Skip line count** (Nombre de lignes à ignorer) est définie sur **0**. Entrez ici le nombre de lignes que vous souhaitez ignorer en haut du fichier.

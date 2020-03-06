@@ -13,11 +13,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 9d86fa9bfe9c17867b8a30519b79d9ee8c5af363
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932005"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358585"
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
 > [!NOTE]
@@ -37,7 +37,7 @@ Vous pouvez augmenter le nombre des instances d’une passerelle de gestion des 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 ### <a name="capabilities-of-data-management-gateway"></a>Fonctionnalités de la passerelle de gestion des données
 La passerelle de gestion des données offre les fonctionnalités suivantes :
 
@@ -80,7 +80,7 @@ Voici le flux de données global et un résumé des étapes pour la copie à l�
 
 Étant donné que l’activité de copie s’exécute selon une fréquence spécifique, l’utilisation des ressources (processeur, mémoire) sur l’ordinateur suit également le même modèle avec des pics et des baisses d’inactivité. L'utilisation des ressources dépend également en grande partie de la quantité de données déplacées. Lorsque plusieurs travaux sont en cours, vous constaterez une augmentation des ressources utilisées pendant les heures de pointe.
 
-### <a name="installation-options"></a>Options d’installation
+### <a name="installation-options"></a>Options d'installation
 La passerelle de gestion des données peut être installée comme suit :
 
 * En téléchargeant un package d’installation MSI à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=39717). Le fichier MSI peut également servir à mettre à niveau la passerelle de gestion des données existante vers la version la plus récente, en conservant tous les paramètres.
@@ -251,7 +251,7 @@ Si vous utilisez un pare-feu tiers, vous pouvez ouvrir manuellement le port 805
 
 Si vous préférez ne pas ouvrir le port 8050 sur l’ordinateur passerelle, utilisez d’autres mécanismes que l’application **Définition des informations d’identification** pour configurer les informations d’identification de la banque de données. Vous pouvez par exemple utiliser la cmdlet PowerShell [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue). Consultez la section Configuration des informations d’identification et de la sécurité pour savoir comment configurer les informations d’identification de la banque de données.
 
-## <a name="update"></a>Mettre à jour
+## <a name="update"></a>Update
 Par défaut, la passerelle de gestion des données est automatiquement mise à jour lorsqu’une version plus récente est disponible. La passerelle n’est pas mise à jour tant que toutes les tâches planifiées ne sont pas terminées. Aucune autre tâche n’est traitée par la passerelle avant la fin de l’opération de mise à jour. Si la mise à jour échoue, la passerelle est restaurée vers son ancienne version.
 
 L’heure de mise à jour planifiée s’affiche aux emplacements suivants :
@@ -365,7 +365,7 @@ Le tableau suivant fournit les descriptions des colonnes utilisées dans la list
 Propriété de surveillance | Description
 :------------------ | :----------
 Nom | Nom de la passerelle logique et nœuds associés à la passerelle. Le nœud est un ordinateur Windows local sur lequel la passerelle est installée. Pour plus d’informations sur la multitude de nœuds (jusqu’à quatre) dans une seule passerelle logique, consultez [Passerelle de gestion des données - Haute disponibilité et scalabilité](data-factory-data-management-gateway-high-availability-scalability.md).
-Statut | État de la passerelle logique et des nœuds de passerelle. Exemple : En ligne/Hors connexion/Limité/etc. Pour plus d’informations sur ces états, consultez la section [État de la passerelle](#gateway-status).
+Statut | État de la passerelle logique et des nœuds de passerelle. Exemple : En ligne/Hors connexion/Limité/etc. Pour plus d’informations sur ces états, consultez la section [État de la passerelle](#gateway-status).
 Version | Indique la version de la passerelle logique et de chaque nœud de passerelle. La version de la passerelle logique est déterminée selon la version de la majorité des nœuds dans le groupe. S’il existe des nœuds de différentes versions dans l’installation de la passerelle logique, seuls les nœuds dont le numéro de version est identique à celui de la passerelle logique fonctionnent correctement. Les autres sont en mode limité et ont besoin d’une mise à jour manuelle (uniquement si la mise à jour automatique échoue).
 Mémoire disponible | Mémoire disponible sur un nœud de passerelle. Cette valeur est un instantané en quasi temps réel.
 Utilisation du processeur | Utilisation du processeur d’un nœud de passerelle. Cette valeur est un instantané en quasi temps réel.
@@ -381,7 +381,7 @@ Le tableau suivant indique les états possibles d’un **nœud de passerelle** 
 Statut  | Commentaires/Scénarios
 :------- | :------------------
 En ligne | Nœud connecté au service Data Factory.
-Hors ligne | Le nœud est hors connexion.
+Hors connexion | Le nœud est hors connexion.
 Mise à niveau | Le nœud est en cours de mise à jour automatique.
 Limité | Dû à un problème de connectivité. Éventuellement dû à un problème de port HTTP 8050, à un problème de connectivité du bus de service ou à un problème de synchronisation des informations d’identification.
 Inactif | La configuration du nœud est différente de celle de la majorité des autres nœuds.<br/><br/> Un nœud peut être inactif quand il ne parvient pas à se connecter à d’autres nœuds.
@@ -392,13 +392,13 @@ Statut | Commentaires
 :----- | :-------
 Doit être inscrite | Aucun nœud n’est encore inscrit sur cette passerelle logique.
 En ligne | Les nœuds de passerelle sont en ligne.
-Hors ligne | Aucun nœud n’est en ligne.
+Hors connexion | Aucun nœud n’est en ligne.
 Limité | Tous les nœuds inclus dans cette passerelle ne sont pas dans un état intègre. Cet état est un avertissement pouvant indiquer que certains nœuds sont en panne ! <br/><br/>Peut être dû à un problème de synchronisation des informations d’identification sur le nœud répartiteur/rôle de travail.
 
 ## <a name="scale-up-gateway"></a>Monter en puissance la passerelle
 Vous pouvez configurer le nombre de **travaux de déplacement de données simultanés** qui peuvent s’exécuter sur un nœud pour augmenter la capacité de déplacement des données entre les magasins de données locaux et dans le cloud.
 
-Quand la mémoire disponible et le processeur ne sont pas correctement utilisés, mais que la capacité inactive s’élève à 0, vous devez monter en puissance en augmentant le nombre de travaux simultanés pouvant s’exécuter sur un nœud. Vous pouvez également monter en puissance quand les activités expirent parce que la passerelle est surchargée. Dans les paramètres avancés d’un nœud de passerelle, vous pouvez augmenter la capacité maximale d’un nœud.
+Quand la mémoire disponible et le processeur ne sont pas correctement utilisés, mais que la capacité inactive s’élève à 0, vous devez augmenter la taille des instances en augmentant le nombre de travaux simultanés pouvant s’exécuter sur un nœud. Vous pouvez également augmenter la taille des instances quand les activités expirent parce que la passerelle est surchargée. Dans les paramètres avancés d’un nœud de passerelle, vous pouvez augmenter la capacité maximale d’un nœud.
 
 ## <a name="troubleshooting-gateway-issues"></a>Résolution des problèmes de la passerelle
 Consultez l’article [Résolution des problèmes de la passerelle](data-factory-troubleshoot-gateway-issues.md) pour plus d’informations/de conseils pour résoudre les problèmes liés à la passerelle de gestion des données.
@@ -518,7 +518,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
     ```
     Agent registration is successful!
     ```
-    Vous pouvez inscrire la passerelle sur un ordinateur distant en utilisant le paramètre IsRegisterOnRemoteMachine. Exemple :
+    Vous pouvez inscrire la passerelle sur un ordinateur distant en utilisant le paramètre IsRegisterOnRemoteMachine. Exemple :
 
     ```powershell
     .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
