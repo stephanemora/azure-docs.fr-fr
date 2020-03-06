@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.openlocfilehash: 9360a90b457f99cb9c15deda80dce8233069100d
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606517"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357474"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Liaison de sortie Azure Cosmos DB pour Azure Functions 2.x
 
@@ -619,5 +619,5 @@ Cette section décrit les paramètres de configuration globale disponibles pour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Exécuter une fonction lors de la création ou de la modification d’un document Azure Cosmos DB (déclencheur)](./functions-bindings-cosmosdb-v2-trigger.md)
+- [Exécuter une fonction lors de la création ou de la modification d’un document Azure Cosmos DB (Déclencheur)](./functions-bindings-cosmosdb-v2-trigger.md)
 - [Lire un document Azure Cosmos DB (liaison d’entrée)](./functions-bindings-cosmosdb-v2-input.md)
