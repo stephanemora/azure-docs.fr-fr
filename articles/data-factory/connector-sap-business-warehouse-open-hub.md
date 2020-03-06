@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
 ms.openlocfilehash: 84098901d58e2087c7ece77049e445bb5c76f2a9
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923779"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357255"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Copier des données à partir de SAP Business Warehouse via Open Hub à l'aide d'Azure Data Factory
 
@@ -106,14 +106,14 @@ Les propriétés prises en charge pour le service lié SAP Business Warehouse Op
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **SapOpenHub** | OUI |
-| server | Nom du serveur sur lequel réside l’instance SAP BW. | OUI |
-| systemNumber | Numéro de système du système SAP BW.<br/>Valeur autorisée : nombre décimal à deux chiffres représenté sous forme de chaîne. | OUI |
-| clientId | ID client du client dans le système SAP W.<br/>Valeur autorisée : nombre décimal à trois chiffres représenté sous forme de chaîne. | OUI |
+| type | La propriété type doit être définie sur : **SapOpenHub** | Oui |
+| server | Nom du serveur sur lequel réside l’instance SAP BW. | Oui |
+| systemNumber | Numéro de système du système SAP BW.<br/>Valeur autorisée : nombre décimal à deux chiffres représenté sous forme de chaîne. | Oui |
+| clientId | ID client du client dans le système SAP W.<br/>Valeur autorisée : nombre décimal à trois chiffres représenté sous forme de chaîne. | Oui |
 | langage | Langue utilisée par le système SAP. | Non (la valeur par défaut est **EN**)|
-| userName | Nom de l’utilisateur ayant accès au serveur SAP. | OUI |
-| password | Mot de passe pour l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |OUI |
+| userName | Nom de l’utilisateur ayant accès au serveur SAP. | Oui |
+| mot de passe | Mot de passe pour l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
 
 **Exemple :**
 
@@ -148,8 +148,8 @@ Pour copier des données depuis et vers SAP BW Open Hub, définissez la proprié
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **SapOpenHubTable**.  | OUI |
-| openHubDestinationName | Nom de la destination Open Hub à partir de laquelle les données doivent être copiées. | OUI |
+| type | La propriété type doit être définie sur **SapOpenHubTable**.  | Oui |
+| openHubDestinationName | Nom de la destination Open Hub à partir de laquelle les données doivent être copiées. | Oui |
 
 Si vous avez défini `excludeLastRequest` et `baseRequestId` dans le jeu de données, il reste pris en charge tel quel, mais nous vous suggérons d’utiliser le nouveau modèle dans la source d’activité à l’avenir.
 
@@ -182,7 +182,7 @@ Pour copier des données à partir de SAP BW Open Hub, les propriétés prises e
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de **type** de la source d’activité de copie doit être définie sur **SapOpenHubSource**. | OUI |
+| type | La propriété de **type** de la source d’activité de copie doit être définie sur **SapOpenHubSource**. | Oui |
 | excludeLastRequest | Indique s'il faut exclure les enregistrements de la dernière requête. | Non (la valeur par défaut est **true**) |
 | baseRequestId | ID de requête pour le chargement delta. Une fois ceci défini, seules les données dont le requestId est **supérieur à** la valeur de cette propriété sont récupérées.  | Non |
 
@@ -230,14 +230,14 @@ Lors de la copie de données à partir de SAP BW Open Hub, les mappages suivants
 
 | Type SAP ABAP | Type de données intermédiaires de Data Factory |
 |:--- |:--- |
-| C (Chaîne) | Chaîne |
+| C (Chaîne) | String |
 | I (entier) | Int32 |
 | F (Float) | Double |
-| D (Date) | Chaîne |
-| T (Heure) | Chaîne |
+| D (Date) | String |
+| T (Heure) | String |
 | P (« packed » DCB, Devise, Décimal, Qté) | Decimal |
-| N (Numc) | Chaîne |
-| X (données binaires et brutes) | Chaîne |
+| N (Numc) | String |
+| X (données binaires et brutes) | String |
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 

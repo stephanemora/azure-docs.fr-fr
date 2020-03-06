@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: d41fd7f66ecef3a563345424d7dc4366e47d3f0e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226558"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355634"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
 
@@ -29,7 +29,7 @@ Prenons les exemples suivants pour voir comment implémenter différentes foncti
 | Exemple de scénario | Déclencheur | Liaison d’entrée | Liaison de sortie |
 |-------------|---------|---------------|----------------|
 | Un nouveau message en file d’attente arrive et exécute une fonction pour écrire des données dans une autre file d’attente. | File d’attente<sup>*</sup> | *Aucun* | File d’attente<sup>*</sup> |
-|Une tâche planifiée lit le contenu du stockage d’objets blob et crée un document Cosmos DB. | Minuteur | Stockage Blob | Cosmos DB |
+|Une tâche planifiée lit le contenu du stockage d’objets blob et crée un document Cosmos DB. | Minuterie | Stockage Blob | Cosmos DB |
 |Event Grid est utilisé pour lire une image du stockage d’objets blob et un document de Cosmos DB pour envoyer un e-mail. | Event Grid | Stockage d’objets blob et Cosmos DB | SendGrid |
 | Webhook qui utilise Microsoft Graph pour mettre à jour une feuille Excel. | HTTP | *Aucun* | Microsoft Graph |
 
