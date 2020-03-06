@@ -4,12 +4,12 @@ description: Découvrez les ports et adresses requis pour contrôler le trafic d
 services: container-service
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: a76f4eb8680d07193feb29450fdba7bb2a710a68
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: d69921ce23e961879fea6be68838f86bfcc703d0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595006"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191297"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Contrôler le trafic de sortie pour les nœuds de cluster dans Azure Kubernetes Service (AKS)
 
@@ -143,7 +143,7 @@ Les règles de nom de domaine complet/d’application suivantes sont requises po
 | cloudflare.docker.com | HTTPS:443 | Cette adresse est utilisée pour extraire des images Linux Alpine et d’autres Azure Dev Spaces Alpine |
 | gcr.io | HTTP:443 | Cette adresse est utilisée pour extraire les images Helm/Tiller |
 | storage.googleapis.com | HTTP:443 | Cette adresse est utilisée pour extraire les images Helm/Tiller |
-| azds-<guid>.<location>.azds.io | HTTPS:443 | Pour communiquer avec les services back-end Azure Dev Spaces pour votre contrôleur. Le nom de domaine complet exact se trouve dans « dataplaneFqdn » dans %USERPROFILE%\.azds\settings.json |
+| azds-\<guid\>.\<location\>.azds.io | HTTPS:443 | Pour communiquer avec les services back-end Azure Dev Spaces pour votre contrôleur. Le nom de domaine complet exact se trouve dans « dataplaneFqdn » dans %USERPROFILE%\.azds\settings.json |
 
 ## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Adresses et ports requis pour les clusters AKS avec Azure Policy (en préversion publique) activé
 
@@ -156,7 +156,7 @@ Les noms de domaine complets/règles d’application suivants sont requis pour l
 |-----------------------------------------|-----------|----------|
 | gov-prod-policy-data.trafficmanager.net | HTTPS:443 | Cette adresse est utilisée pour le bon fonctionnement d’Azure Policy. (actuellement en préversion dans AKS) |
 | raw.githubusercontent.com | HTTPS:443 | Cette adresse est utilisée pour extraire les stratégies intégrées de GitHub afin de garantir le bon fonctionnement d’Azure Policy. (actuellement en préversion dans AKS) |
-| *.gk.<location>.azmk8s.io | HTTPS:443 | Le module complémentaire Azure Policy communique avec le point de terminaison d’audit d’opérateur de contrôle en cours d’exécution sur le serveur maître pour obtenir les résultats d’audit. |
+| *.gk.\<location\>.azmk8s.io | HTTPS:443   | Le module complémentaire Azure Policy communique avec le point de terminaison d’audit d’opérateur de contrôle en cours d’exécution sur le serveur maître pour obtenir les résultats d’audit. |
 | dc.services.visualstudio.com | HTTPS:443 | Le module complémentaire Azure Policy envoie des données de télémétrie au point de terminaison Applications Insights. |
 
 ## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Requis par les nœuds basés sur Windows Server (en préversion publique) activés
