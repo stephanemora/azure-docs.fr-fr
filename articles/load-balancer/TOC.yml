@@ -1,4 +1,4 @@
-- name: Documentation Load Balancer
+- name: Documentation Équilibreur de charge
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -12,7 +12,8 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Créer un équilibreur de charge - PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Créer un équilibreur de charge - Modèle
+    - name: Créer un équilibreur de charge - Modèle ARM
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
   expanded: true
 - name: Tutoriels

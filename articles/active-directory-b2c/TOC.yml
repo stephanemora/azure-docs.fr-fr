@@ -48,6 +48,8 @@
   href: code-samples.md
 - name: Concepts
   items:
+    - name: Bonnes pratiques pour Azure AD B2C
+      href: best-practices.md
     - name: Types d’applications
       href: application-types.md
     - name: Protocoles d’authentification

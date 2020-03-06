@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: kumud
 ms.openlocfilehash: fa933b820d8677e4d080b54ce5e6a5d506ea38fc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978928"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360516"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Créer, changer ou supprimer un groupe de sécurité réseau
 
@@ -127,7 +127,7 @@ Le nombre de règles par groupe de sécurité réseau que vous pouvez créer par
     |Protocol     | Sélectionnez **Any (Tout)** , **TCP**, **UDP** ou **ICMP**.        |         |
     |Action     | Sélectionnez **Autoriser** ou **Refuser**.        |         |
     |Priority     | Entrez une valeur comprise entre 100 et 4096 qui est unique pour toutes les règles de sécurité au sein du groupe de sécurité réseau. |Les règles sont traitées par ordre de priorité. Plus le numéro est faible, plus la priorité est élevée. Nous vous recommandons de laisser un écart entre les numéros de priorité quand vous créez des règles, par exemple, 100, 200, 300. Cela permet par la suite d’intercaler de nouvelles règles.         |
-    |Name     | Nom unique de la règle au sein du groupe de sécurité réseau.        |  Le nom peut comprendre jusqu’à 80 caractères. Il doit commencer par une lettre ou un chiffre, se terminer par une lettre, un chiffre ou un trait de soulignement, et ne peut contenir que des lettres, des chiffres, des traits de soulignement, des points ou des tirets.       |
+    |Nom     | Nom unique de la règle au sein du groupe de sécurité réseau.        |  Le nom peut comprendre jusqu’à 80 caractères. Il doit commencer par une lettre ou un chiffre, se terminer par une lettre, un chiffre ou un trait de soulignement, et ne peut contenir que des lettres, des chiffres, des traits de soulignement, des points ou des tirets.       |
     |Description     | Description facultative.        |         |
 
 **Commandes**
@@ -194,10 +194,10 @@ Un groupe de sécurité d’application contient zéro interface réseau, ou plu
 
     | Paramètre        | Valeur                                                   |
     | ---            | ---                                                     |
-    | Name           | Le nom doit être unique au sein d’un groupe de ressources.        |
-    | Subscription   | Sélectionnez votre abonnement.                               |
+    | Nom           | Le nom doit être unique au sein d’un groupe de ressources.        |
+    | Abonnement   | Sélectionnez votre abonnement.                               |
     | Resource group | Sélectionnez un groupe de ressources existant ou créez-en un. |
-    | Location       | Sélectionner un emplacement                                       |
+    | Emplacement       | Sélectionner un emplacement                                       |
 
 **Commandes**
 
@@ -254,7 +254,7 @@ Pour exécuter des tâches sur des groupes de sécurité réseau, des règles de
 
 ### <a name="network-security-group"></a>Groupe de sécurité réseau
 
-| Action                                                        |   Name                                                                |
+| Action                                                        |   Nom                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   Obtenir un groupe de sécurité réseau                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   Créer ou mettre à jour un groupe de sécurité réseau                             |
@@ -264,7 +264,7 @@ Pour exécuter des tâches sur des groupes de sécurité réseau, des règles de
 
 ### <a name="network-security-group-rule"></a>Règle de groupe de sécurité réseau
 
-| Action                                                        |   Name                                                                |
+| Action                                                        |   Nom                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/rules/read            |   Obtenir une règle                                                            |
 | Microsoft.Network/networkSecurityGroups/rules/write           |   Créer ou mettre à jour une règle                                               |
@@ -272,7 +272,7 @@ Pour exécuter des tâches sur des groupes de sécurité réseau, des règles de
 
 ### <a name="application-security-group"></a>Groupe de sécurité d’application
 
-| Action                                                                     | Name                                                     |
+| Action                                                                     | Nom                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Joindre une configuration IP aux groupes de sécurité d’application|
 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Joindre une règle de sécurité aux groupes de sécurité d’application    |

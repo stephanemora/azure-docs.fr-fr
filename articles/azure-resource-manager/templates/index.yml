@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Documentation sur les modèles Azure Resource Manager
-summary: Un modèle Resource Manager est un fichier JSON (JavaScript Object Notation) qui définit l’infrastructure et la configuration pour votre projet.
+title: Documentation sur les modèles ARM
+summary: Les modèles Azure Resource Manager sont des fichiers JSON (JavaScript Object Notation) qui définissent l’infrastructure et la configuration de votre projet.
 metadata:
-  title: Documentation Azure Resource Manager
+  title: Documentation sur les modèles ARM
   description: Découvrir comment développer des modèles Azure Resource Manager et les utiliser pour déployer des ressources Azure
   services: azure-resource-manager
   ms.service: azure-resource-manager
@@ -11,15 +11,15 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 12/19/2019
-  ms.openlocfilehash: 43cd4dadc33ddc498106084ee26ef0819c14b973
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.date: 03/04/2020
+  ms.openlocfilehash: 0ea805d87db78d0a7fadad0a07e01e9387d568a5
+  ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75469928"
+  ms.lasthandoff: 03/05/2020
+  ms.locfileid: "78299242"
 landingContent:
-- title: À propos des modèles Azure Resource Manager
+- title: À propos des modèles ARM
   linkLists:
   - linkListType: overview
     links:
@@ -27,7 +27,7 @@ landingContent:
       url: overview.md
   - linkListType: concept
     links:
-    - text: Meilleures pratiques
+    - text: Bonnes pratiques
       url: template-best-practices.md
     - text: Modes de déploiement
       url: deployment-modes.md

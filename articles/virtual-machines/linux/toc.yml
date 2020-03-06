@@ -726,6 +726,10 @@
           href: ../../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Déplacer dans une zone de disponibilité
           href: ../../site-recovery/move-azure-vms-avset-azone.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Déplacer les configurations du contrôle de maintenance vers une autre région
+          href: ../move-region-maintenance-configuration.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        - name: Déplacer les ressources des configurations du contrôle de maintenance vers une autre région
+          href: ../move-region-maintenance-configuration-resources.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Migrer des machines virtuelles AWS et locales
           href: ../windows/on-prem-to-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
           items:

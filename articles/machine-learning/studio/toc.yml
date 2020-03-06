@@ -1,6 +1,6 @@
 - name: Documentation Machine Learning Studio (classique)
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: Machine Learning Studio (classique)
@@ -8,19 +8,19 @@
       href: what-is-ml-studio.md
     - name: Comparer nos produits ML
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
-- name: Tutoriels
+- name: Démarrages rapides
   items:
     - name: Créer votre première expérience
       displayName: quickstart
       href: create-experiment.md
-    - name: Créer une solution prédictive
-      items:
-        - name: 1 - Créer une expérience
-          href: tutorial-part1-credit-risk.md
-        - name: 2 - Entraîner et évaluer
-          href: tutorial-part2-credit-risk-train.md
-        - name: 3 - Déployer un service web
-          href: tutorial-part3-credit-risk-deploy.md
+- name: Tutoriels
+  items:
+    - name: "1\_: Créer une expérience prédictive"
+      href: tutorial-part1-credit-risk.md
+    - name: "2\_: Entraîner et évaluer la solution"
+      href: tutorial-part2-credit-risk-train.md
+    - name: "3\_: Déployer un service web"
+      href: tutorial-part3-credit-risk-deploy.md
 - name: Exemples
   items:
     - name: Jeux de données disponibles
@@ -50,9 +50,9 @@
       items:
         - name: Créer
           href: create-workspace.md
-        - name: gérer
+        - name: Gérer
           href: manage-workspace.md
-        - name: Résolution des problèmes
+        - name: Dépanner
           href: troubleshooting-creating-ml-workspace.md
         - name: Déployer à l’aide d’ARM
           href: deploy-with-resource-manager-template.md
@@ -84,7 +84,7 @@
               href: algorithm-parameters-optimize.md
             - name: Interpréter les résultats
               href: interpret-model-results.md
-            - name: Déboguer
+            - name: Débogage
               href: debug-models.md
         - name: Reformer des modèles
           items:
@@ -116,7 +116,7 @@
           href: deploy-a-machine-learning-web-service.md
         - name: Fonctionnement
           href: model-progression-experiment-to-web-service.md
-        - name: Préparation du déploiement
+        - name: Préparer le déploiement
           href: convert-training-experiment-to-scoring-experiment.md
         - name: Obtenir des données externes
           displayName: 'import, export'
@@ -137,7 +137,7 @@
           href: create-endpoint.md
     - name: Consommer des modèles
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: consume-web-services.md
         - name: Utiliser Excel
           href: consuming-from-excel.md
@@ -147,7 +147,7 @@
           href: dedicated-capacity-for-bes-jobs.md
     - name: Cas d'utilisation
       items:
-        - name: Désengagement de clients
+        - name: Attrition clients
           href: azure-ml-customer-churn-scenario.md
         - name: analyse de sentiments
           href: text-analytics-module-tutorial.md

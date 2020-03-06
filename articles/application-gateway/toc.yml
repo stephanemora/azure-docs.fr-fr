@@ -39,6 +39,8 @@
   items:
     - name: Concepts de base
       items:
+        - name: Fonctionnalités Application Gateway
+          href: features.md
         - name: Fonctionnement d’Application Gateway
           href: how-application-gateway-works.md
         - name: Composants d’Application Gateway
