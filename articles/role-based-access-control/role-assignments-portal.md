@@ -15,11 +15,11 @@ ms.date: 01/25/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: e2458b07602bca3b6f12b2f486b509c11d705461
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138345"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78344371"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Ajouter ou supprimer des attributions de rôles avec le RBAC Azure et le portail Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "77138345"
 
 Si vous devez attribuer des rôles d’administrateur dans Azure Active Directory, consultez [Afficher et attribuer des rôles d’administrateur dans Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour ajouter ou supprimer des attributions de rôles, vous devez disposer :
 

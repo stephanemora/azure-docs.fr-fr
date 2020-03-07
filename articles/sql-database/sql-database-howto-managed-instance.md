@@ -12,11 +12,11 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 04/16/2019
 ms.openlocfilehash: 906ae2a970ce1d5b82302d0277ca45bd93c23011
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811195"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356527"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Utiliser une instance managée dans Azure SQL Database
 

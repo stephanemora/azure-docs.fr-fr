@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: 669701f91ab28a4eb734b0346be6515dc44e8685
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975004"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356997"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Informations de référence pour les développeurs F# sur Azure Functions
 
@@ -245,7 +245,7 @@ Si vous le souhaitez, vous pouvez placer automatiquement les assemblys de réfé
 2016-04-04T19:02:57.455 Packages restored.
 ```
 
-## <a name="environment-variables"></a>Variables d’environnement
+## <a name="environment-variables"></a>Variables d'environnement
 Pour obtenir une variable d’environnement ou une valeur de paramètre d’application, utilisez `System.Environment.GetEnvironmentVariable`. Par exemple :
 
 ```fsharp
@@ -287,7 +287,7 @@ La directive `#load` ne fonctionne qu’avec des fichiers `.fsx` (script F#), et
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :
 
-* [F# Guide](/dotnet/articles/fsharp/index) (Guide F#)
+* [F# Guide](/dotnet/articles/fsharp/index)
 * [Meilleures pratiques pour Azure Functions](functions-best-practices.md)
 * [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)
 * [Azure Functions triggers and bindings (Déclencheurs et liaisons Azure Functions)](functions-triggers-bindings.md)

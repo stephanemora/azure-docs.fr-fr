@@ -4,11 +4,11 @@ description: Découvrez comment trouver les adresses IP entrantes et sortantes d
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612885"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358074"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Adresses IP dans Azure Functions
 
