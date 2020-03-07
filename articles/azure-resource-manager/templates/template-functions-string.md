@@ -4,11 +4,11 @@ description: Décrit les fonctions à utiliser dans un modèle Azure Resource Ma
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.openlocfilehash: f8d19179461693331a6091ec7a3562f536b959e4
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207059"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356358"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Fonctions de chaînes pour les modèles Azure Resource Manager
 

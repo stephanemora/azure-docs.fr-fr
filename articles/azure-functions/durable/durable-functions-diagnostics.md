@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 4cb832f8fe11ac2581e97d9cdcc777eaff702ee9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231471"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78356707"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostics de Durable Functions dans Azure
 
@@ -26,20 +26,20 @@ L’extension Fonctions durables d’Azure émet également des *événements de
 
 Chaque événement du cycle de vie d’une instance d’orchestration entraîne l’inscription d’un événement de suivi dans la collection des **suivis** d’Application Insights. Cet événement contient une charge utile **customDimensions** avec plusieurs champs.  Les noms de champs contiennent tous le préfixe `prop__`.
 
-* **hubName** : Nom du hub de tâches dans lequel vos orchestrations sont en cours d’exécution.
+* **hubName** : Nom du hub de tâches dans lequel vos orchestrations sont en cours d’exécution.
 * **appName** : Le nom de l’application de fonction. Ce champ est utile si plusieurs de vos applications de fonction partagent la même instance Application Insights.
 * **slotName** : [emplacement de déploiement](../functions-deployment-slots.md) dans lequel s’exécute l’application de fonction actuelle. Ce champ est utile pour tirer parti des emplacements de déploiement pour la version de vos orchestrations.
 * **functionName** : Nom de la fonction d’orchestrateur ou d’activité.
 * **functionType** : Type de la fonction, par exemple **Orchestrateur** ou **Activité**.
 * **instanceId** : ID unique de l’instance d’orchestration.
-* **state** : État d’exécution du cycle de vie de l’instance. Les valeurs valides incluent :
+* **state** : État d’exécution du cycle de vie de l’instance. Les valeurs valides sont les suivantes :
   * **Scheduled** : La fonction a été planifiée pour être exécutée, mais elle n’a pas encore démarré.
   * **Started** : La fonction a démarré, mais elle n’a pas encore été attendue ou s’est terminée.
   * **Awaited** : L’orchestrateur a planifié des tâches et attend qu’elles se terminent.
   * **Listening** : L’orchestrateur écoute une notification d’événement externe.
   * **Completed** : La fonction s’est terminée avec succès.
-  * **Failed** : La fonction a échoué avec une erreur.
-* **reason** : Données supplémentaires associées à l’événement de suivi. Par exemple, si une instance attend une notification d’événement externe, ce champ indique le nom de l’événement attendu. Si une fonction a échoué, ce champ contient les détails de l’erreur.
+  * **Échec** : La fonction a échoué avec une erreur.
+* **reason** : données supplémentaires associées à l’événement de suivi. Par exemple, si une instance attend une notification d’événement externe, ce champ indique le nom de l’événement attendu. Si une fonction a échoué, ce champ contient les détails de l’erreur.
 * **isReplay** : Valeur booléenne qui indique si l’événement de suivi est destiné à une réexécution.
 * **extensionVersion** : Version de l’extension Tâche durable. Ces informations de version sont particulièrement importantes pour signaler d’éventuels bogues dans l’extension. Des instances à long terme peuvent signaler plusieurs versions si une mise à jour se produit pendant leur exécution.
 * **sequenceNumber** : Numéro séquentiel d’extension pour un événement. Combiné avec le timestamp, il permet de classer les événements par durée d’exécution. *Notez que ce numéro sera réinitialisé à zéro si l’hôte redémarre alors que l’instance est en cours d’exécution, il est donc important de toujours d’abord trier par timestamp, puis par sequenceNumber.*
@@ -60,7 +60,7 @@ Le niveau de détail des données de suivi transmises à Application Insights pe
 }
 ```
 
-#### <a name="functions-20"></a>Functions 2.0
+#### <a name="functions-20"></a>Functions 2.0
 
 ```json
 {
@@ -86,7 +86,7 @@ Pour activer l’émission d’événements de relecture d’orchestration déta
 }
 ```
 
-#### <a name="functions-20"></a>Functions 2.0
+#### <a name="functions-20"></a>Functions 2.0
 
 ```javascript
 {
@@ -189,7 +189,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
+### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 ```javascript
 const df = require("durable-functions");
@@ -260,7 +260,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
+#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 ```javascript
 const df = require("durable-functions");
@@ -305,7 +305,7 @@ Done!
 ```
 
 > [!NOTE]
-> Les exemples C# précédents portent sur Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article sur les [versions de Durable Functions](durable-functions-versions.md).
+> Les exemples C# précédents portent sur Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
 ## <a name="custom-status"></a>État personnalisé
 
@@ -328,9 +328,9 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 ```
 
 > [!NOTE]
-> L’exemple C# précédent porte sur Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
+> L’exemple C# précédent porte sur Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
+### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 ```javascript
 const df = require("durable-functions");

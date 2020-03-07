@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
 ms.openlocfilehash: fbfd3e2577655e8cfccd84fffe2971ff509bd2f4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977456"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357967"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Démarrage rapide : Créer une fabrique de données Azure et un pipeline à l’aide de l’API REST
 
@@ -32,7 +32,7 @@ Ce guide de démarrage rapide explique comment utiliser l’API REST pour créer
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
