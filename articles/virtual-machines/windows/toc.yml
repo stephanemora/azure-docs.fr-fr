@@ -508,11 +508,13 @@
     - name: Superviser des machines virtuelles
       items:
         - name: Azure Monitor pour machines virtuelles
-          href: ../../azure-monitor/insights/vminsights-overview.md
+          href: ../../azure-monitor/insights/vminsights-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Créer des alertes de métriques
-          href: ../../azure-monitor/platform/alerts-metric.md
+          href: ../../azure-monitor/platform/alerts-metric.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Créer des alertes de journal
-          href: ../../azure-monitor/platform/alerts-log.md
+          href: ../../azure-monitor/platform/alerts-log.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: Obtenir les métriques d'utilisation avec REST
+          href: ../linux/metrics-vm-usage-rest.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Utiliser des images
       items:
         - name: Images partagées

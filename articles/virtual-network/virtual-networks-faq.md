@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
 ms.openlocfilehash: e45d5393833973889b28a95ec86b89593a091f99
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121806"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358859"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -309,7 +309,7 @@ Oui. La même ressource TAP de réseau virtuel peut être utilisée pour agrége
 
 Le TAP de réseau virtuel est disponible en préversion. Pendant la période de préversion, il n’existe aucun contrat de niveau de service. La fonctionnalité ne doit pas être utilisée pour des charges de travail de production. Quand une interface réseau de machine virtuelle est activée avec une configuration TAP, les mêmes ressources sur l’hôte Azure allouées à la machine virtuelle pour envoyer le trafic de production sont utilisées pour exécuter la fonction de mise en miroir et envoyer les paquets mis en miroir. Sélectionnez la taille de machine virtuelle [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) appropriée pour garantir que suffisamment de ressources sont disponibles pour que la machine virtuelle envoie le trafic de production et le trafic mis en miroir.
 
-### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>La mise en réseau accélérée pour [Linux](create-vm-accelerated-networking-cli.md) ou [Windows](create-vm-accelerated-networking-powershell.md) est-elle prise en charge avec le TAP de réseau virtuel ?
+### <a name="is-accelerated-networking-for-linux-or-windows-supported-with-virtual-network-tap"></a>La mise en réseau accélérée pour [Linux](create-vm-accelerated-networking-cli.md) ou [Windows](create-vm-accelerated-networking-powershell.md) est-elle prise en charge avec le TAP de réseau virtuel ?
 
 Vous pourrez ajouter une configuration TAP sur une interface réseau attachée à une machine virtuelle activée avec la mise en réseau accélérée. Mais l’ajout de la configuration TAP affecte les performances et la latence sur la machine virtuelle, car le déchargement pour la mise en miroir du trafic n’est actuellement pas prise en charge par la mise en réseau accélérée Azure.
 

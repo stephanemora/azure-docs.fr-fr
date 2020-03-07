@@ -4,11 +4,11 @@ description: Explique comment utiliser Azure Resource Manager pour les tâches d
 ms.topic: overview
 ms.date: 08/29/2019
 ms.openlocfilehash: f7e11ada8bf10baa99faf08d2b4b401e3bea2d9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75455863"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78344598"
 ---
 # <a name="azure-resource-manager-overview"></a>Présentation d’Azure Resource Manager
 
