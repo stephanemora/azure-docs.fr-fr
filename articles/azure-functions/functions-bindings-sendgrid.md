@@ -6,11 +6,11 @@ ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304002"
+ms.locfileid: "78358315"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Liaisons SendGrid dans Azure Functions
 
