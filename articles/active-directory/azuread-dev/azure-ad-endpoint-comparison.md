@@ -12,12 +12,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
-ms.openlocfilehash: 56a5221504a3905855fa5dc713707f34ae357aea
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: d910a76397a40a14d960b59f60561cbee470f5c4
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163702"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358449"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Pourquoi mettre à jour à la plateforme d’identités Microsoft (v2.0) ?
 
@@ -34,7 +34,7 @@ Lorsque vous développez une nouvelle application, il est important de connaîtr
 * Le point de terminaison de la Plateforme d’identités Microsoft permet aux comptes professionnels et scolaires d’Azure AD ainsi qu’aux comptes Microsoft personnels (MSA), tels que hotmail.com, outlook.com et msn.com, de se connecter.
 * Les deux points de terminaison acceptent également des connexions d’ *[utilisateurs invités](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* issus d’un répertoire Azure AD pour les applications configurées comme étant *[à client unique](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* ou pour les applications *mutualisées* configurées de manière à pointer vers le point de terminaison spécifique du locataire (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-Le point de terminaison de la Plateforme d’identités Microsoft vous permet d’écrire des applications qui acceptent les connexions à partir de comptes Microsoft personnels, ainsi que de comptes professionnels ou scolaires. Ceci vous donne la possibilité d’écrire votre application de façon complètement indépendante des comptes. Par exemple, si votre application appelle [Microsoft Graph](https://graph.microsoft.io), certaines fonctionnalités et données supplémentaires seront disponibles pour les comptes professionnels, comme leurs sites SharePoint ou les données de leurs annuaires. Mais pour de nombreuses actions, comme la [lecture du courrier d’un utilisateur](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_messages), vous pouvez utiliser le même code pour accéder à la messagerie, aussi bien pour les comptes professionnels que scolaires.
+Le point de terminaison de la Plateforme d’identités Microsoft vous permet d’écrire des applications qui acceptent les connexions à partir de comptes Microsoft personnels, ainsi que de comptes professionnels ou scolaires. Ceci vous donne la possibilité d’écrire votre application de façon complètement indépendante des comptes. Par exemple, si votre application appelle [Microsoft Graph](https://graph.microsoft.io), certaines fonctionnalités et données supplémentaires seront disponibles pour les comptes professionnels, comme leurs sites SharePoint ou les données de leurs annuaires. Mais pour de nombreuses actions, comme la [lecture du courrier d’un utilisateur](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0), vous pouvez utiliser le même code pour accéder à la messagerie, aussi bien pour les comptes professionnels que scolaires.
 
 Pour le point de terminaison de la Plateforme d’identités Microsoft, vous pouvez utiliser la bibliothèque MSAL (Microsoft Authentication Library) pour accéder aux différents mondes (utilisateurs privés, scolaires ou professionnels). Le point de terminaison Azure AD v1.0 accepte les connexions uniquement depuis des comptes professionnels et scolaires.
 
@@ -70,7 +70,7 @@ Pour le point de terminaison v1.0, une demande d’autorisation OAuth 2.0 à Azu
 ```text
 GET https://login.microsoftonline.com/common/oauth2/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&resource=https://graph.windows.net/
+&resource=https://graph.microsoft.com/
 ...
 ```
 
@@ -81,7 +81,7 @@ Pour les applications utilisant le point de terminaison de la Plateforme d’ide
 ```text
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&scope=https://graph.windows.net/directory.read%20https://graph.windows.net/directory.write
+&scope=https://graph.microsoft.com/directory.read%20https://graph.microsoft.com/directory.write
 ...
 ```
 
