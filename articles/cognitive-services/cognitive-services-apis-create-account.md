@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
 ms.openlocfilehash: dd4444bf42bcc8dda95f8fa37b42a365538efa85
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482868"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78362450"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Créer un compte Cognitive Services dans le portail Azure
 
@@ -31,7 +31,7 @@ Ce guide de démarrage rapide vous montre comment commencer à utiliser Azure Co
 
 1. Crée une ressource.
 
-    #### <a name="multi-service-resourcetabmultiservice"></a>[Ressource multiservice](#tab/multiservice)
+    #### <a name="multi-service-resource"></a>[Ressource multiservice](#tab/multiservice)
     
     La ressource multiservice est nommée **Cognitive Services** dans le portail. [Créez une ressource Cognitive Services](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
     
@@ -43,7 +43,7 @@ Ce guide de démarrage rapide vous montre comment commencer à utiliser Azure Co
     | Translator Text  | Recherche Bing v7 <br>(Web, Image, Actualités, Vidéo, Visuel) | Recherche personnalisée Bing | Recherche d’entité Bing            | Suggestion automatique Bing |
     | Vérification orthographique Bing |                                                      |                    |                               |                  |
     
-    #### <a name="single-service-resourcetabsingleservice"></a>[Ressource monoservice](#tab/singleservice)
+    #### <a name="single-service-resource"></a>[Ressource monoservice](#tab/singleservice)
 
     Utilisez les liens ci-dessous afin de créer une ressource pour les services Cognitive Services disponibles :
 
@@ -58,7 +58,7 @@ Ce guide de démarrage rapide vous montre comment commencer à utiliser Azure Co
 
 3. Sur la page **Créer**, renseignez les informations suivantes :
 
-    #### <a name="multi-service-resourcetabmultiservice"></a>[Ressource multiservice](#tab/multiservice)
+    #### <a name="multi-service-resource"></a>[Ressource multiservice](#tab/multiservice)
 
     |    |    |
     |--|--|
@@ -72,7 +72,7 @@ Ce guide de démarrage rapide vous montre comment commencer à utiliser Azure Co
 
     Cliquez sur **Créer**.
 
-    #### <a name="single-service-resourcetabsingleservice"></a>[Ressource monoservice](#tab/singleservice)
+    #### <a name="single-service-resource"></a>[Ressource monoservice](#tab/singleservice)
 
     |    |    |
     |--|--|
@@ -101,7 +101,7 @@ Ce guide de démarrage rapide vous montre comment commencer à utiliser Azure Co
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources supprime également toutes les autres ressources se trouvant dans le groupe.
 
