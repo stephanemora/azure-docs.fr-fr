@@ -4,10 +4,10 @@
   items:
     - name: Présentation d’Azure Scheduler
       href: scheduler-intro.md
-- name: Prise en main
+- name: Bien démarrer
   items:
-    - name: "Créer et gérer des travaux\_- Portail"
-      href: scheduler-get-started-portal.md
+    - name: "Créer et gérer des planifications\_- Azure PowerShell"
+      href: scheduler-powershell-reference.md
     - name: Migrer de Scheduler vers Logic Apps
       href: migrate-from-scheduler-to-logic-apps.md
 - name: Concepts
@@ -24,7 +24,7 @@
           href: scheduler-limits-defaults-errors.md
         - name: Haute disponibilité et fiabilité
           href: scheduler-high-availability-reliability.md
-    - name: Développement
+    - name: Développer
       items:
         - name: Générer des planifications complexes et des récurrences avancées
           href: scheduler-advanced-complexity.md
