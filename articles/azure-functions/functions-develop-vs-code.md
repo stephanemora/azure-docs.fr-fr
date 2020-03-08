@@ -4,11 +4,11 @@ description: Découvrez comment développer et tester Azure Functions à l’aid
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.openlocfilehash: 41a1a64be4823769f6bf23b251fec94fd68eb0f0
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484772"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358035"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Développer Azure Functions avec Visual Studio Code
 
