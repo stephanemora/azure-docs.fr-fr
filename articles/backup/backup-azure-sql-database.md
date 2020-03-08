@@ -4,11 +4,11 @@ description: Cet article explique comment sauvegarder SQL Server avec Azure, ain
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.openlocfilehash: 39f2348a95be95a03dada45d48952dce99ec4ec7
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74462592"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78392790"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>À propos de la sauvegarde SQL Server sur des machines virtuelles Azure
 
@@ -76,39 +76,39 @@ En fonction de la préférence de sauvegarde et des types de sauvegardes (compl�
 
 * **Préférence de sauvegarde : Primaire**
 
-**Type de sauvegarde** | **Node**
+**Type de sauvegarde** | **Nœud**
     --- | ---
-    Complet | Primaire
-    Différentielle | Primaire
-    Journal |  Primaire
-    Copie complète uniquement |  Primaire
+    Complète | Principal
+    Différentielle | Principal
+    Journal |  Principal
+    Copie complète uniquement |  Principal
 
 * **Préférence de sauvegarde : Secondaire uniquement**
 
-**Type de sauvegarde** | **Node**
+**Type de sauvegarde** | **Nœud**
 --- | ---
-Complet | Primaire
-Différentielle | Primaire
-Journal |  Secondaire
-Copie complète uniquement |  Secondaire
+Complète | Principal
+Différentielle | Principal
+Journal |  Secondary
+Copie complète uniquement |  Secondary
 
 * **Préférence de sauvegarde : Secondaire**
 
-**Type de sauvegarde** | **Node**
+**Type de sauvegarde** | **Nœud**
 --- | ---
-Complet | Primaire
-Différentielle | Primaire
-Journal |  Secondaire
-Copie complète uniquement |  Secondaire
+Complète | Principal
+Différentielle | Principal
+Journal |  Secondary
+Copie complète uniquement |  Secondary
 
 * **Pas de préférence de sauvegarde**
 
-**Type de sauvegarde** | **Node**
+**Type de sauvegarde** | **Nœud**
 --- | ---
-Complet | Primaire
-Différentielle | Primaire
-Journal |  Secondaire
-Copie complète uniquement |  Secondaire
+Complète | Principal
+Différentielle | Principal
+Journal |  Secondary
+Copie complète uniquement |  Secondary
 
 ## <a name="set-vm-permissions"></a>Définir des autorisations de machine virtuelle
 
