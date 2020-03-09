@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 70523dc12f3f20362fcf4a2c3cb456a182038e8a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982244"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357538"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Créer, modifier ou supprimer un réseau virtuel
 
@@ -171,7 +171,7 @@ Vous pouvez supprimer un réseau virtuel uniquement si aucune ressource n’est 
 
 Pour effectuer des tâches sur des réseaux virtuels, votre compte doit posséder le rôle de [contributeur de réseaux](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un rôle [personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des actions appropriées qui sont répertoriées dans le tableau suivant :
 
-| Action                                  |   Name                                |
+| Action                                  |   Nom                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft.Network/virtualNetworks/read   |   Lire un réseau virtuel              |
 |Microsoft.Network/virtualNetworks/write  |   Création ou mise à jour d’un réseau virtuel  |
