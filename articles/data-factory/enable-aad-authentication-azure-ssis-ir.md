@@ -12,11 +12,11 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 5/14/2019
 ms.openlocfilehash: 70367a38fbf7b59486e2eaaf6c05634aa7575869
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927438"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360461"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Activer l’authentification Azure Active Directory pour Azure-SSIS Integration Runtime
 
@@ -95,7 +95,7 @@ Vous pouvez [configurer et gérer l’authentification Azure AD avec SQL](https
 
 Pour cette nouvelle étape, vous avez besoin de  [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)  (SSMS).
 
-1. Démarrez SSMS.
+1. Démarrer SSMS.
 
 2. Dans la boîte de dialogue **Se connecter au serveur**, dans le champ **Nom du serveur**, entrez le nom de votre serveur Azure SQL Database.
 
@@ -155,7 +155,7 @@ Suivez les étapes décrites dans [Approvisionner un administrateur d’Azure Ac
 
 Pour cette nouvelle étape, vous avez besoin de  [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)  (SSMS).
 
-1.  Démarrez SSMS.
+1.  Démarrer SSMS.
 
 2.  Connectez-vous à votre instance Managed Instance à l’aide d’un compte SQL Server qui est un **administrateur système**. Il s’agit d’une limitation temporaire qui sera levée une fois que les principaux de serveur (connexions) Azure AD d’Azure SQL Database Managed Instance deviendront des comptes en disponibilité générale. L’erreur suivante s’affiche si vous essayez d’utiliser un compte d’administrateur Azure AD pour créer la connexion : Msg 15247, Niveau 16, État 1, Ligne 1 L’utilisateur n’est pas autorisé à effectuer cette action.
 
