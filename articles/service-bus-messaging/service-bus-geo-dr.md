@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 24d6658733ea38c15f0673d10db3c0ff5ef51c23
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190161"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357748"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Géorécupération d’urgence Azure Service Bus
 
@@ -49,7 +49,7 @@ Cet article emploie les termes suivants :
 
 -  *Basculement* : processus d’activation de l’espace de noms secondaire.
 
-## <a name="setup"></a>Paramétrage
+## <a name="setup"></a>Programme d’installation
 
 La section suivante est une présentation de l’association de deux espaces de noms.
 
@@ -105,7 +105,7 @@ Vous pouvez automatiser le basculement à l’aide de systèmes de surveillance 
 
 ![2][]
 
-## <a name="management"></a>gestion
+## <a name="management"></a>Gestion
 
 Si vous avez fait une erreur (par exemple, vous avez associé les mauvaises régions lors de la configuration initiale), vous pouvez rompre le couplage des deux espaces de noms à tout moment. Si vous souhaitez utiliser les espaces de noms couplés comme des espaces de noms standard, supprimez l’alias.
 

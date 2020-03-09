@@ -1,5 +1,5 @@
 - name: Documentation sur la Place de marché Azure et d’AppSource
-  href: index.md
+  href: index.yml
   items:
     - name: Feuille de route de la Place de marché Azure et d’AppSource
       href: ./marketplace-roadmap.md
@@ -51,9 +51,6 @@
           items:
             - name: Bonnes pratiques pour le référencement des offres
               href: ./gtm-offer-listing-best-practices.md
-              items:
-                - name: Catégories
-                  href: ./gtm-offer-listing-best-practices-categories.md
             - name: Guide pratique pour être référencé
               href: ./gtm-how-to-get-featured.md
             - name: Validation du contenu de la Place de marché
@@ -176,7 +173,7 @@
         - name: Offre d’application Azure
           href: ./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md
           items:
-            - name: Conditions préalables requises
+            - name: Prérequis
               href: ./cloud-partner-portal/azure-applications/cpp-prerequisites.md
             - name: Créer une offre d’application Azure
               href: ./cloud-partner-portal/azure-applications/cpp-create-offer.md
@@ -202,7 +199,7 @@
         - name: Services de conseil
           href: ./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md
           items:
-            - name: Conditions préalables requises
+            - name: Prérequis
               href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md
             - name: Créer une offre de services de conseil
               href: ./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md
@@ -216,7 +213,7 @@
         - name: Offre de conteneurs
           href: ./cloud-partner-portal/containers/cpp-containers-offer.md
           items:
-            - name: Conditions préalables requises
+            - name: Prérequis
               href: ./cloud-partner-portal/containers/cpp-prerequisites.md
             - name: Créer une offre de conteneur
               href: ./cloud-partner-portal/containers/cpp-create-offer.md
@@ -253,7 +250,7 @@
         - name: Offre Dynamics 365 for Customer Engagement
           href: ./cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer.md
           items:
-            - name: Conditions préalables requises
+            - name: Prérequis
               href: ./cloud-partner-portal/dyn365ce/cpp-prerequisites.md
             - name: Créer une offre Customer Engagement
               href: ./cloud-partner-portal/dyn365ce/cpp-create-offer.md
@@ -275,7 +272,7 @@
         - name: "Offre Dynamics\_365 for Operations"
           href: ./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md
           items:
-            - name: Conditions préalables requises
+            - name: Prérequis
               href: ./cloud-partner-portal-orig/pre-requisites.md
             - name: Comment publier
               href: ./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md
@@ -292,7 +289,7 @@
         - name: Offre de module IoT Edge
           href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
           items:
-            - name: Conditions préalables requises
+            - name: Prérequis
               href: ./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md
             - name: Créer une offre de module IoT Edge
               href: ./cloud-partner-portal/iot-edge-module/cpp-create-offer.md
@@ -314,7 +311,7 @@
         - name: "Offre d’application Power\_BI"
           href: ./cloud-partner-portal/power-bi/cpp-power-bi-offer.md
           items:
-            - name: Conditions préalables requises
+            - name: Prérequis
               href: ./cloud-partner-portal/power-bi/cpp-prerequisites.md
             - name: "Créer une offre d’application Power\_BI"
               href: ./cloud-partner-portal/power-bi/cpp-create-offer.md
@@ -338,7 +335,7 @@
         - name: Offre de machine virtuelle
           href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
           items:
-            - name: Conditions préalables requises
+            - name: Prérequis
               href: ./cloud-partner-portal/virtual-machine/cpp-prerequisites.md
             - name: Créer une offre de machine virtuelle
               href: ./cloud-partner-portal/virtual-machine/cpp-create-offer.md
@@ -402,7 +399,7 @@
       items:
         - name: Vue d’ensemble
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
-        - name: Conditions préalables requises
+        - name: Prérequis
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
         - name: Considérations
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md

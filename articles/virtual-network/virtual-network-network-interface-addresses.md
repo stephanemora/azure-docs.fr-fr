@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
 ms.openlocfilehash: a2a85d98bf29e78d58bf0c578ce79943bae21fc1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543067"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355982"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ajouter, modifier ou supprimer des adresses IP pour une interface réseau Azure
 
@@ -53,7 +53,7 @@ Vous pouvez ajouter autant d’adresses [privées](#private) et [publiques](#pub
 
    |Paramètre|Requis ?|Détails|
    |---|---|---|
-   |Name|Oui|Doit être unique pour l’interface réseau|
+   |Nom|Oui|Doit être unique pour l’interface réseau|
    |Type|Oui|Étant donné que vous ajoutez une configuration IP à une interface réseau existante et que chaque interface réseau doit disposer d’une configuration IP [principale](#primary), la seule option possible est **Secondaire**.|
    |Méthode d’affectation d’adresses IP privées|Oui|[**Dynamique**](#dynamic) : Azure attribue la prochaine adresse disponible pour la plage d’adresses de sous-réseau dans laquelle l’interface réseau est déployée. [**Statique**](#static) : vous attribuez une adresse inutilisée pour la plage d’adresses de sous-réseau dans laquelle l’interface réseau est déployée.|
    |Adresse IP publique|Non|**Désactivé :** aucune ressource d’adresse IP publique n’est associée à la configuration IP. **Activée :** sélectionnez une adresse IP publique IPv4 existante, ou créez-en une. Pour savoir comment créer une adresse IP publique, consultez l’article [Adresses IP publiques](virtual-network-public-ip-address.md#create-a-public-ip-address).|
