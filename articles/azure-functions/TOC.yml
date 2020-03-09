@@ -1,4 +1,4 @@
-- name: Documentation Functions
+- name: Documentation des fonctions
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -50,6 +50,8 @@
       href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr
     - name: Machine learning avec TensorFlow
       href: functions-machine-learning-tensorflow.md
+    - name: Classification d’images avec PyTorch
+      href: machine-learning-pytorch.md
     - name: Créer une image Linux personnalisée
       href: functions-create-function-linux-custom-image.md
     - name: Fonctions sur un appareil IoT Edge

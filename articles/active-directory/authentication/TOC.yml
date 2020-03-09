@@ -110,20 +110,18 @@
           href: howto-registration-mfa-sspr-combined-troubleshoot.md
     - name: Protection de mot de passe Azure AD
       items:
-        - name: Intégration locale
-          items:
-            - name: Déployer la protection par mot de passe d’Azure AD
-              href: howto-password-ban-bad-on-premises-deploy.md
-            - name: Configurer la protection par mot de passe d’Azure AD
-              href: howto-password-ban-bad-on-premises-operations.md
-            - name: Surveiller la protection par mot de passe d’Azure AD
-              href: howto-password-ban-bad-on-premises-monitor.md
-            - name: Résoudre les problèmes de protection par mot de passe d’Azure AD
-              href: howto-password-ban-bad-on-premises-troubleshoot.md
-            - name: Forum aux questions
-              href: howto-password-ban-bad-on-premises-faq.md
-            - name: Historique des versions de l’agent local
-              href: howto-password-ban-bad-on-premises-agent-versions.md
+        - name: Planifier et déployer en local
+          href: howto-password-ban-bad-on-premises-deploy.md
+        - name: Activer et configurer en local
+          href: howto-password-ban-bad-on-premises-operations.md
+        - name: Superviser des déploiements locaux
+          href: howto-password-ban-bad-on-premises-monitor.md
+        - name: Résoudre les problèmes liés aux déploiements locaux
+          href: howto-password-ban-bad-on-premises-troubleshoot.md
+        - name: FAQ sur le niveau local
+          href: howto-password-ban-bad-on-premises-faq.md
+        - name: Historique des versions de l’agent local
+          href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: Valeurs de verrouillage intelligent Azure AD
       href: howto-password-smart-lockout.md
     - name: Sans mot de passe

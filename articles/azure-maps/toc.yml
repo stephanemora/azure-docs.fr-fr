@@ -165,6 +165,22 @@
               href: map-get-information-from-coordinate.md
             - name: Afficher des directions de A à B
               href: map-route.md
+        - name: Module d’E/S spatiales
+          items:
+            - name: Utiliser le module d’E/S spatiales
+              href: how-to-use-spatial-io-module.md
+            - name: Ajouter une couche de données simple
+              href: spatial-io-add-simple-data-layer.md
+            - name: Lire et écrire des données spatiales
+              href: spatial-io-read-write-spatial-data.md
+            - name: Ajouter une couche OGC
+              href: spatial-io-add-ogc-map-layer.md
+            - name: Se connecter à un service WFS
+              href: spatial-io-connect-wfs-service.md
+            - name: Exploiter les opérations de base
+              href: spatial-io-core-operations.md
+            - name: Détails sur les formats de données pris en charge
+              href: spatial-io-supported-data-format-details.md
         - name: Navigateurs pris en charge pour le kit SDK web
           href: supported-browsers.md
     - name: Développer avec le kit Android SDK

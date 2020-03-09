@@ -38,14 +38,14 @@
               href: tutorial-1st-experiment-sdk-train.md
         - name: Classification d’images (données MNIST)
           items:
-            - name: 1. Entraîner un modèle
+            - name: 1. Effectuer l’apprentissage d’un modèle
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
             - name: 2. Déployer un modèle
               href: tutorial-deploy-models-with-aml.md
         - name: Régression avec ML automatisé (données des taxis de New York)
           items:
-            - name: Entraîner automatiquement un modèle ML
+            - name: Former automatiquement un modèle ML
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
         - name: Pipelines de Machine Learning (avancé)
@@ -75,10 +75,10 @@
       href: samples-notebooks.md
     - name: Azure Open Datasets
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+    - name: Jeux de données dans le concepteur
+      href: sample-designer-datasets.md
     - name: Exemples MLOps de bout en bout
       href: 'https://github.com/microsoft/MLOps'
-    - name: Exemples de jeux de données du concepteur
-      href: designer-sample-datasets.md
 - name: Concepts
   items:
     - name: Espace de travail

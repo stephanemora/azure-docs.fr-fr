@@ -1,8 +1,8 @@
-- name: Documentation Azure Private Link
+- name: Documentation sur Liaison privée Azure
   href: index.yml
 - name: Vue d’ensemble
   items:
-    - name: "Qu’est-ce qu’Azure Private Link\_?"
+    - name: "Qu’est-ce que Liaison privée Azure\_?"
       href: private-link-overview.md
 - name: Démarrages rapides
   items:
@@ -30,6 +30,8 @@
       href: create-private-endpoint-storage-portal.md
     - name: Se connecter en privé à un compte Cosmos DB
       href: create-private-endpoint-cosmosdb-portal.md
+    - name: Se connecter en privé à une application web
+      href: create-private-endpoint-webapp-portal.md
     - name: Désactiver les stratégies réseau pour un point de terminaison privé
       href: disable-private-endpoint-network-policy.md
     - name: Désactiver les stratégies réseau pour un service Liaison privée

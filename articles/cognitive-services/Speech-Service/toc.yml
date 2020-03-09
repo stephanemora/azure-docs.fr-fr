@@ -193,10 +193,8 @@
           items:
             - name: API REST de synthèse vocale
               href: rest-text-to-speech.md
-        - name: Utilisation du poste téléphonique
-          items:
-            - name: Utilisation du poste téléphonique avec l’API Speech (SAPI)
-              href: sapi-phoneset-usage.md
+        - name: Ensembles phonétiques SSML
+          href: speech-ssml-phonetic-sets.md
     - name: Ressources
       items:
         - name: Questions fréquentes (FAQ) sur la synthèse vocale
@@ -494,19 +492,14 @@
           href: speech-devices-sdk.md
         - name: Obtenir le Kit de développement logiciel (SDK) de dispositifs vocaux
           href: get-speech-devices-sdk.md
-        - name: Notes de publication
-          href: devices-sdk-release-notes.md
-        - name: "Détails de Roobo\_v1"
-          href: speech-devices-sdk-roobo-v1.md
-        - name: "Détails de Roobo\_v2"
-          href: speech-devices-sdk-roobo-v2.md
-        - name: Spécification du microphone
     - name: Matériel
       items:
         - name: Recommandations sur le réseau de microphones
           href: speech-devices-sdk-microphone.md
-        - name: "Kit Roobo\_v1"
+        - name: "Détails de Roobo\_v1"
           href: speech-devices-sdk-roobo-v1.md
+        - name: "Détails de Roobo\_v2"
+          href: speech-devices-sdk-roobo-v2.md
     - name: Démarrage rapide
       items:
         - name: Utiliser le SDK Speech Devices
