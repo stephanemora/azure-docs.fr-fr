@@ -8,18 +8,18 @@ ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 88c35b7b1420b5d89f9215f7da3ccf24870024e9
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597801"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357684"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
-Le service [Azure Files](storage-files-introduction.md) peut être déployé principalement de deux façons : en montant directement les partages de fichiers Azure serverless, ou en mettant en cache les partages de fichiers Azure en local avec Azure File Sync. L’option de déploiement que vous choisissez modifie les éléments que vous devez prendre en compte lors de la planification de votre déploiement. 
+Le service [Azure Files](storage-files-introduction.md) peut être déployé principalement de deux façons : en montant directement les partages de fichiers Azure serverless, ou en mettant en cache les partages de fichiers Azure en local avec Azure File Sync. L'option de déploiement que vous choisissez détermine les éléments à prendre en compte lors de la planification de votre déploiement. 
 
-- **Montage direct d’un partage de fichiers Azure**. Étant donné qu’Azure Files fournit un accès SMB, vous pouvez monter des partages de fichiers Azure, localement ou dans le cloud, à l’aide du client SMB standard qui est disponible dans Windows, macOS et Linux. À partir du moment où les partages de fichiers Azure sont serverless, le déploiement de scénarios de production ne nécessite pas la gestion d’un serveur de fichiers ni celle d’un appareil NAS. Cela signifie que vous n’avez pas besoin d’appliquer des correctifs logiciels ni de remplacer des disques physiques. 
+- **Montage direct d'un partage de fichiers Azure** : étant donné qu'Azure Files fournit un accès SMB, vous pouvez monter des partages de fichiers Azure localement ou dans le cloud à l'aide du client SMB standard disponible sous Windows, macOS et Linux. Dans la mesure où les partages de fichiers Azure sont serverless, vous n'avez aucun serveur de fichiers ou appareil NAS à gérer lors des déploiements liés à des scénarios de production. Concrètement, cela signifie que vous n'avez aucun correctif logiciel à appliquer ni aucun disque physique à remplacer. 
 
-- **Mise en cache du partage de fichiers Azure en local avec Azure File Sync**. Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme une instance Windows Server locale (ou cloud) en cache rapide de votre partage de fichiers Azure. 
+- **Mise en cache d'un partage de fichiers Azure localement à l'aide d'Azure File Sync** : Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files, tout en conservant la flexibilité, le niveau de performance et la compatibilité d'un serveur de fichiers local. Azure File Sync transforme une instance Windows Server locale (ou cloud) en cache rapide de votre partage de fichiers Azure. 
 
 Cet article traite principalement de considérations relatives au déploiement, afin de déployer un partage de fichiers Azure en vue de son montage directement par un client local ou un client cloud. Pour planifier un déploiement d’Azure File Sync, consultez [Planification d’un déploiement Azure File Sync](storage-sync-files-planning.md).
 
@@ -30,7 +30,7 @@ Lorsque vous déployez des partages de fichiers Azure dans des comptes de stocka
 
 - Déployez uniquement des partages de fichiers Azure dans des comptes de stockage ayant d’autres partages de fichiers Azure. Bien que les comptes de stockage GPv2 vous permettent de disposer de comptes de stockage mixte, à partir du moment où les ressources de stockage (telles que les partages de fichiers Azure et les conteneurs d’objets BLOB) partagent les limites du compte de stockage, la combinaison des ressources peut compliquer la résolution des problèmes de performances par la suite. 
 
-- Faites attention aux limites d’IOPS d’un compte de stockage lors du déploiement des partages de fichiers Azure. Dans l’idéal, vous devriez mapper les partages de fichiers 1 à 1 avec les comptes de stockage, mais cela n’est pas toujours possible en raison de limites et de restrictions différentes, provenant à la fois de votre organisation et d’Azure. S’il n’est pas possible d’avoir un seul partage de fichiers déployé dans un compte de stockage, tenez compte des partages qui seront très actifs et des partages qui le seront moins, afin de garantir que les partages de fichiers les plus sollicités ne soient pas mis ensemble dans le même compte de stockage.
+- Faites attention aux limites d’IOPS d’un compte de stockage lors du déploiement des partages de fichiers Azure. Dans l'idéal, une correspondance 1:1 doit être respectée entre les partages de fichiers et les comptes de stockage, mais cela n'est pas toujours possible en raison des différentes limites et restrictions imposées par votre organisation et Azure. S’il n’est pas possible d’avoir un seul partage de fichiers déployé dans un compte de stockage, tenez compte des partages qui seront très actifs et des partages qui le seront moins, afin de garantir que les partages de fichiers les plus sollicités ne soient pas mis ensemble dans le même compte de stockage.
 
 - Déployez uniquement des comptes GPv2 et FileStorage, et mettez à niveau les comptes de stockage GPv1 et Classic lorsque vous les trouvez dans votre environnement. 
 

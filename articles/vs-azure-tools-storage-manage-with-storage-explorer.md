@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
 ms.openlocfilehash: 7886d5a1ad0745550767b7d6f19592ca3c84b00a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891262"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357031"
 ---
 # <a name="get-started-with-storage-explorer"></a>Prise en main de l’Explorateur Stockage
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 L’Explorateur Stockage Microsoft Azure est une application autonome qui vous permet d’utiliser facilement les données Stockage Azure sur Windows, macOS et Linux. Dans cet article, vous allez découvrir différentes façons de vous connecter à vos comptes de stockage Azure et de les gérer.
 
@@ -25,7 +25,7 @@ L’Explorateur Stockage Microsoft Azure est une application autonome qui vous p
 
 ## <a name="prerequisites"></a>Prérequis
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 L’Explorateur Stockage est pris en charge sur les versions suivantes de Windows :
 
@@ -35,13 +35,13 @@ L’Explorateur Stockage est pris en charge sur les versions suivantes de Window
 
 Pour toutes les versions de Windows, l’Explorateur Stockage requiert le .NET Framework 4.6.2 ou une version ultérieure.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[macOS](#tab/macos)
 
 L’Explorateur Stockage est pris en charge sur les versions suivantes de macOS :
 
 * macOS 10.12 Sierra et versions ultérieures
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 L’Explorateur Stockage est disponible dans le [Snap Store](https://snapcraft.io/storage-explorer) pour les distributions de Linux les plus courantes. Il s’agit de la méthode d’installation recommandée. Le snap Explorateur Stockage installe toutes ses dépendances et mises à jour quand de nouvelles versions sont publiées sur le Snap Store.
 
