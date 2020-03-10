@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/24/2019
 ms.openlocfilehash: 28d0da369083d75bc175111d808828e186a366fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444131"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78358379"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guide sur les performances et la scalabilité de l’activité de copie
 
@@ -58,7 +58,7 @@ La copie ADF est scalable à différents niveaux :
 ![Mise à l’échelle de la copie ADF](media/copy-activity-performance/adf-copy-scalability.png)
 
 - Le flux de contrôle ADF peut démarrer plusieurs activités de copie en parallèle, par exemple [Pour chaque boucle](control-flow-for-each-activity.md).
-- Une seule activité de copie peut tirer parti des ressources de calcul évolutives : lorsque vous utilisez Azure Integration Runtime, vous pouvez spécifier [jusqu'à 256 DIUs](#data-integration-units) pour chaque activité de copie serverless ; lorsque vous utilisez des Integration Runtime auto-hébergés, vous pouvez mettre à l’échelle manuellement la machine ou la monter en charge sur plusieurs machines ([jusqu’à 4 nœuds](create-self-hosted-integration-runtime.md#high-availability-and-scalability)), et une seule activité de copie partitionnera son jeu de fichiers sur tous les nœuds.
+- Une seule activité de copie peut tirer parti des ressources de calcul évolutives : lorsque vous utilisez Azure Integration Runtime, vous pouvez spécifier [jusqu'à 256 DIUs](#data-integration-units) pour chaque activité de copie serverless ; lorsque vous utilisez des Integration Runtime auto-hébergés, vous pouvez effectuer un scale-up de la machine ou un scale-out vers plusieurs machines ([jusqu’à 4 nœuds](create-self-hosted-integration-runtime.md#high-availability-and-scalability)), et une seule activité de copie partitionnera son jeu de fichiers sur tous les nœuds.
 - Une activité de copie unique lit et écrit dans le magasin de données à l’aide de plusieurs threads [en parallèle](#parallel-copy).
 
 ## <a name="performance-tuning-steps"></a>Procédure de réglage des performances
@@ -293,8 +293,8 @@ Vous êtes facturé en fonction de deux étapes : la durée de la copie et le ty
 
 Voici des références relatives à la surveillance et au réglage des performances pour quelques banques de données prises en charge :
 
-* Stockage Blob Azure : [Objectifs d’extensibilité et de performances pour le stockage Blob](../storage/blobs/scalability-targets.md) et [liste de contrôle des performances et de l’extensibilité pour le stockage Blob](../storage/blobs/storage-performance-checklist.md).
-* Stockage Table Azure : [Objectifs d’extensibilité et de performances pour le stockage Table](../storage/tables/scalability-targets.md) et [Liste de contrôle des performances et de l’extensibilité pour le stockage Table](../storage/tables/storage-performance-checklist.md).
+* Stockage Blob Azure : [Objectifs de performance et de scalabilité pour le stockage d’objets blob](../storage/blobs/scalability-targets.md) et [Liste de contrôle des performances et de la scalabilité pour le stockage d’objets blob](../storage/blobs/storage-performance-checklist.md).
+* Stockage Table Azure : [Objectifs de performance et de scalabilité pour le stockage Table](../storage/tables/scalability-targets.md) et [Liste de contrôle des performances et de la scalabilité pour le stockage Table](../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database : Vous pouvez [surveiller les performances](../sql-database/sql-database-single-database-monitor.md) et vérifier le pourcentage de l’unité de transaction de base de données (DTU).
 * Azure SQL Data Warehouse : Sa capacité est mesurée en DWU (Data Warehouse Units). Consultez [Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB : [Niveaux de performances dans Azure Cosmos DB](../cosmos-db/performance-levels.md).
