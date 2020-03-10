@@ -23,7 +23,7 @@
       href: stream-analytics-manage-job.md
     - name: 2 - Exécuter Azure Functions
       href: stream-analytics-with-azure-functions.md
-    - name: 3 - Exécuter une instance UDF JavaScript
+    - name: 3 - Exécuter une fonction UDF JavaScript
       href: stream-analytics-javascript-user-defined-functions.md
     - name: 4 - Déployer avec CI/CD dans Azure Pipelines
       href: stream-analytics-tools-visual-studio-cicd-vsts.md
@@ -223,6 +223,9 @@
       href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Langage de requête Stream Analytics
   items:
+    - name: Vue d’ensemble du langage de requête Stream Analytics
+      href: /stream-analytics-query/stream-analytics-query-language-reference
+      maintainContext: true
     - name: Fonctions intégrées
       items:
         - name: Vue d’ensemble de Fonctions intégrées
