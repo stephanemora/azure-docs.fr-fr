@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 985417200737e00ddbda4194cf7596b11c74ac10
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 1d144a48f79e59b35c88c5b338747d3186ebceda
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153721"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920737"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Arbre de décision optimisé à deux classes
 
@@ -38,6 +38,7 @@ Vous pouvez effectuer l’apprentissage de ce type de modèle à l’aide de l�
   
     + **Single Parameter** (Paramètre unique) : si vous savez comment vous voulez configurer le modèle, vous pouvez fournir un ensemble spécifique de valeurs comme arguments.
   
+    + **Plage de paramètres** : en cas de doute sur les paramètres à utiliser, utilisez le module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md). Vous fournissez une plage de valeurs, et le mode d'apprentissage effectue une itération sur plusieurs combinaisons de paramètres pour déterminer la combinaison de valeurs qui produit le meilleur résultat.
   
 3.  Dans le champ **Maximum number of leaves per tree** (Nombre maximal de nœuds terminaux par arbre), indiquez le nombre maximal de nœuds terminaux qui peuvent être créés dans un arbre quelconque.
   

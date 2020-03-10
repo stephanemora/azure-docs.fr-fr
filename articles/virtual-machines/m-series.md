@@ -2,17 +2,17 @@
 title: Série M – Machines virtuelles Microsoft Azure
 description: Spécifications pour les machines virtuelles de la série M.
 services: virtual-machines
-author: jonbeck7
+author: ayshakeen
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: lahugh
-ms.openlocfilehash: 49b12341e5ca119ee20c7e509d9bbef64d4d5b37
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: e8952218675493710cbdd1f92661e9a9c077f34c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492586"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164047"
 ---
 # <a name="m-series"></a>Série M
 
@@ -26,9 +26,13 @@ Premium Storage :  Prise en charge
 
 Mise en cache du Stockage Premium :  Prise en charge
 
+Migration dynamique : Non prise en charge
+
+Mises à jour avec préservation de la mémoire : Non prises en charge
+
 Accélérateur d’écriture :  [Pris en charge](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS/Mbits/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS/Mbits/s | Nombre de cartes réseau/bande passante réseau attendue (Mbits/s) max. |
 |---|---|---|---|---|---|---|---|
 | Standard_M8ms <sup>2</sup>       | 8   | 218.75 | 256   | 8  | 10 000/100 (793)     | 5 000/125   | 4/2 000  |
 | Standard_M16ms <sup>2</sup>      | 16  | 437.5  | 512   | 16 | 20 000/200 (1587)    | 10 000/250  | 8/4 000  |

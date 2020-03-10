@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: fc1f81c616dc6ee664bb5be924f2a1586646d16d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 544de1b4ac46a58d533f71a46266807a3b93820a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76279157"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920040"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analyser les journaux et les métriques avec les paramètres de diagnostic
 
@@ -32,7 +32,7 @@ Choisissez la catégorie de journal et de métrique que vous souhaitez analyser.
 
 ## <a name="metrics"></a>Mesures
 
-Pour obtenir la liste complète des métriques, consultez [Mesures Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
+Pour obtenir la liste complète des métriques, voir [Mesures Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options).
 
 Pour commencer, activez l’un de ces services pour recevoir les données. Pour en savoir plus sur la configuration de Log Analytics, consultez [Prise en main de Log Analytics dans Azure Monitor](../azure-monitor/log-query/get-started-portal.md). 
 
@@ -114,7 +114,7 @@ Pour en savoir plus sur le langage de requête qui est utilisé dans Log Analyti
 1. Pour consulter les journaux d’application, recherchez un conteneur appelé **insights-logs-applicationconsole**.
 1. Pour consulter les métriques des applications, recherchez un conteneur appelé **insights-metrics-pt1m**.
 
-Pour en savoir plus sur l’envoi d’informations de diagnostic à un compte de stockage, consultez [Stocker et afficher des données de diagnostic dans le stockage Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-to-storage).
+Pour en savoir plus sur l’envoi d’informations de diagnostic à un compte de stockage, consultez [Stocker et afficher des données de diagnostic dans le stockage Azure](../storage/common/storage-introduction.md).
 
 ### <a name="use-your-event-hub"></a>Utiliser votre hub d’événements
 

@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 0b321f3548910a2bc79e4473609de30eda8c8622
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/10/2020
+ms.openlocfilehash: a3eafc28dc6d0f44a1f1019cb3393259aa2a698a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314349"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920346"
 ---
 # <a name="score-svd-recommender"></a>Noter le générateur de recommandations SVD
 
-Cet article décrit comment utiliser le module Noter le générateur de recommandations SVD dans le concepteur Azure Machine Learning. Utilisez ce module pour créer des prédictions à l’aide d’un modèle de recommandation entraîné en fonction de l’algorithme SVD (décomposition à valeur unique).
+Cet article décrit comment utiliser le module Noter le générateur de recommandations SVD dans le concepteur Azure Machine Learning (préversion). Utilisez ce module pour créer des prédictions à l’aide d’un modèle de recommandation entraîné en fonction de l’algorithme SVD (décomposition à valeur unique).
 
 Le générateur de recommandations SVD peut générer deux différents types de prédictions :
 
@@ -91,7 +91,7 @@ Pour recommander des éléments pour les utilisateurs, vous fournissez une liste
 
 5. **Nombre maximal d’éléments à recommander à un utilisateur** : Entrez le nombre d’éléments à retourner pour chaque utilisateur. Par défaut, le module recommande cinq éléments.
 
-6. **Taille minimale du pool de recommandations par utilisateur** : Entrez une valeur qui indique le nombre de recommandations antérieures requises. Par défaut, ce paramètre est défini sur **2**, ce qui signifie qu’au moins deux autres utilisateurs doivent avoir recommandé l’élément.
+6. **Taille minimale du pool de recommandations par utilisateur** : Entrez une valeur qui indique le nombre de recommandations antérieures requises. Par défaut, ce paramètre est défini sur 2, ce qui signifie qu’au moins deux autres utilisateurs doivent avoir recommandé l’élément.
 
    Utilisez cette option seulement si vous effectuez un scoring en mode d’évaluation. L’option n’est pas disponible si vous sélectionnez **À partir de tous les éléments** ou **À partir d’éléments non notés (pour suggérer de nouveaux éléments aux utilisateurs)** .
 

@@ -1,18 +1,14 @@
 ---
 title: Analyse des performances et de l’utilisation pour les applications de bureau Windows
 description: Analysez l’utilisation et les performances de votre application de bureau Windows avec Application Insights.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/29/2019
-ms.openlocfilehash: a9dfc32a0f33db5639d5f74667a90a248dc358a1
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 8234b9ba2c92fc64cfa8f598db99954e00caab45
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052454"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670829"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Analyse des niveaux de performance et de l’utilisation dans les applications de bureau Windows Classic
 
@@ -24,7 +20,7 @@ Les applications hébergées en local, dans Azure, et dans d’autres clouds peu
 3. Dans Visual Studio, modifiez les packages NuGet de votre projet d’application et ajoutez Microsoft.ApplicationInsights.WindowsServer. (Ou choisissez Microsoft.ApplicationInsights si vous souhaitez simplement l’API nue, sans modules de collecte de télémétrie standard.)
 4. Définissez la clé d’instrumentation dans votre code :
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "`*votre clé*`";`
+    `TelemetryConfiguration.Active.InstrumentationKey = "` *votre clé* `";`
    
     ou dans ApplicationInsights.config (si vous avez installé l’un des packages de télémétrie standard) :
    
@@ -97,7 +93,7 @@ namespace CustomInitializer.Telemetry
     }
 }
 ```
-Instanciez l’initialiseur dans la méthode `Program.cs` `Main()` ci-dessous, en définissant la clé d’Instrumentation :
+Instanciez l’initialiseur dans la méthode `Program.cs` `Main()` ci-dessous, en définissant la clé d’instrumentation :
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;

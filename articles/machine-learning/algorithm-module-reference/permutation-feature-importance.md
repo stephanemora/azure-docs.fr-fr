@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 9ef859cce68e13f5207d77d8396bc69ddbbce339
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/24/2020
+ms.openlocfilehash: 8611abd4e504e0378b744b12d0adb5fa22f5476b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314944"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920363"
 ---
 # <a name="permutation-feature-importance"></a>Importance de la fonctionnalité de permutation
 
-Cet article explique comment utiliser le module Importance de la fonctionnalité de permutation dans le concepteur Azure Machine Learning, afin de calculer un ensemble de scores d’importance de fonctionnalité pour votre jeu de données. Vous utilisez ces scores pour vous aider à déterminer les meilleures fonctionnalités à utiliser dans un modèle.
+Cet article explique comment utiliser le module Importance de la fonctionnalité de permutation dans Azure Machine Learning Designer (préversion), afin de calculer un ensemble de scores d’importance de fonctionnalité pour votre jeu de données. Vous utilisez ces scores pour vous aider à déterminer les meilleures fonctionnalités à utiliser dans un modèle.
 
 Dans ce module, les valeurs des fonctionnalités sont mélangées aléatoirement, une colonne à la fois. Les performances du modèle sont mesurées avant et après. Vous pouvez choisir l’une des métriques standard pour mesurer les performances.
 
@@ -46,7 +46,7 @@ La génération d’un ensemble de scores de fonctionnalités exige que vous dis
 
     -   **Classification**
 
-        Exactitude, Précision, Rappel, Perte moyenne de journal  
+        Exactitude, Précision, Rappel  
 
     -   **Régression**
 

@@ -1,21 +1,19 @@
 ---
-title: Configuration d’alertes dans Azure Application Insights | Microsoft Docs
+title: Définir des alertes dans Azure Application Insights
 description: Tenez-vous informé des temps de réponse lents, des exceptions et des autres changements de performances ou d’utilisation de votre application web.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/23/2019
 ms.reviewer: lagayhar
-ms.openlocfilehash: a21e2676d1b03472c58e2f95095a1a59d00b16be
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.subservice: alerts
+ms.openlocfilehash: 80759c94d7cc5b60b6e38a34b85fb64c3c18fd2e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678402"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666715"
 ---
 # <a name="set-alerts-in-application-insights"></a>Configuration d’alertes dans Application Insights
+
 [Azure Application Insights][start] peut vous signaler les changements qui se produisent au niveau des métriques de performances ou des métriques d’utilisation de votre application web. 
 
 Application Insights supervise votre application en production sur un [large éventail de plateformes][platforms] pour vous aider à diagnostiquer les problèmes de performances et à comprendre les modèles d’utilisation.
@@ -23,11 +21,12 @@ Application Insights supervise votre application en production sur un [large év
 Il existe plusieurs types d’alertes :
 
 * Les [**alertes de métrique**](../../azure-monitor/platform/alerts-metric-overview.md) indiquent quand une métrique dépasse une valeur seuil pendant une certaine période, comme les temps de réponse, le nombre d’exceptions, l’utilisation du processeur ou les affichages de page.
-* Les [**alertes de journal** ](../../azure-monitor/platform/alerts-unified-log.md) sont utilisées pour décrire les alertes lors desquelles le signal d'alerte repose sur une requête Kusto personnalisée.
+* Les [**alertes de journal**](../../azure-monitor/platform/alerts-unified-log.md) sont utilisées pour décrire les alertes lors desquelles le signal d'alerte repose sur une requête Kusto personnalisée.
 * Les [**tests web**][availability] vous indiquent à quel moment votre site est indisponible sur Internet, ou à quel moment il répond lentement. [Plus d’informations][availability]
 * Les [**diagnostics proactifs**](../../azure-monitor/app/proactive-diagnostics.md) sont configurés automatiquement pour vous informer des modèles de performances exceptionnelles.
 
 ## <a name="set-a-metric-alert"></a>Définir une alerte métrique
+
 Ouvrez l'onglet des règles d’alerte, puis utilisez le bouton Ajouter.
 
 ![Dans l'onglet des règles d’alerte, cliquez sur Ajouter une alerte. Définissez votre application comme ressource à mesurer, fournissez un nom pour l’alerte et sélectionnez une métrique.](./media/alerts/01-set-metric.png)
@@ -164,12 +163,12 @@ Cette section ne s'applique qu'aux alertes classiques et vous aidera à optimise
 
 * Nous recommandons l'utilisation de destinataires spécifiques pour les notifications d'alertes classiques.
 
-* Pour les alertes liées aux métriques Application Insights (notamment les métriques de disponibilité), l’option **bulk/group** check-box, si elle est activée, envoie des alertes aux utilisateurs ayant des rôles de propriétaire, contributeur ou lecteur dans l’abonnement. En effet, _tous_ les utilisateurs ayant accès à la ressource Application Insights sont dans la portée et recevront des notifications.
+* Pour les alertes liées aux métriques Application Insights (notamment les métriques de disponibilité), l’option **bulk/group** check-box, si elle est activée, envoie des alertes aux utilisateurs ayant des rôles de propriétaire, contributeur ou lecteur dans l’abonnement. Dans les faits, _tous_ les utilisateurs ayant accès à la ressource Application Insights sont concernés et recevront des notifications.
 
 > [!NOTE]
 > Si vous utilisez actuellement l'option **En bloc/groupe** et que vous la désactivez, vous ne pourrez pas annuler la modification.
 
-Utilisez la nouvelle expérience d'alerte ou les alertes en temps quasi-réel si vous devez notifier les utilisateurs en fonction de leur rôle. Avec les [groupes d’actions](../platform/action-groups.md), vous pouvez configurer des notifications par e-mail aux utilisateurs ayant n’importe quel rôle contributeur/propriétaire/lecteur (sans que ces rôles soient combinés en une même option).
+Utilisez la nouvelle expérience d'alerte ou les alertes en temps quasi-réel si vous devez notifier les utilisateurs en fonction de leur rôle. Avec les [groupes d'actions](../platform/action-groups.md), vous pouvez configurer des notifications par e-mail à l'intention des utilisateurs dotés du rôle de contributeur, de propriétaire ou de lecteur (rôles non combinés en une même option).
 
 ## <a name="automation"></a>Automatisation
 * [Utiliser PowerShell pour automatiser la configuration d’alertes](../../azure-monitor/app/powershell-alerts.md)

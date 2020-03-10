@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8522a537301c1d35da2a2eb46b4374fa4daf6a27
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1c24782285ac9b06d5499351eebe1693ade07297
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580682"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162942"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurer un pare-feu IP dans Azure Cosmos DB
 
@@ -43,20 +43,20 @@ Lorsque vous activez une stratégie de contrôle d’accès IP par programme, vo
 |Gouvernement des États-Unis|52.244.48.71|
 |Toutes les autres régions|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
-Vous pouvez activer l’accès au portail Azure en sélectionnant l’option **Autoriser l’accès à partir du portail Azure** comme illustré dans la capture d’écran suivante :
+Vous pouvez autoriser l’accès de demandes au portail Azure en sélectionnant l’option **Autoriser l’accès à partir du portail Azure**, comme illustré dans la capture d’écran suivante :
 
 ![Capture d’écran montrant comment activer l’accès au Portail Azure](./media/how-to-configure-firewall/enable-azure-portal.png)
 
 ### <a name="allow-requests-from-global-azure-datacenters-or-other-sources-within-azure"></a>Autoriser les demandes à partir de centres de données Azure internationaux ou d’autres sources au sein d’Azure
 
-Si vous accédez à votre compte Azure Cosmos DB à partir de services qui ne fournissent pas d’adresse IP statique (par exemple, Azure Stream Analytics et Azure Functions), vous pouvez toujours utiliser le pare-feu IP pour limiter l’accès. Pour autoriser l’accès au compte Azure Cosmos DB à partir de ces services, ajoutez l’adresse IP 0.0.0.0 à la liste des adresses IP autorisées. L’adresse IP 0.0.0.0 limite les demandes envoyées à votre compte Azure Cosmos DB à partir de la plage d’adresses IP du centre de données Azure. Ce paramètre n’autorise aucune autre plage d’adresses IP à accéder à votre compte Azure Cosmos DB.
+Si vous accédez à votre compte Azure Cosmos DB à partir de services qui ne fournissent pas d’adresse IP statique (par exemple, Azure Stream Analytics et Azure Functions), vous pouvez toujours utiliser le pare-feu IP pour limiter l’accès. Vous pouvez autoriser l’accès à partir d’autres sources au sein du portail Azure en sélectionnant l’option **Accepter les connexions des centres de données Azure**, comme illustré dans la capture d’écran suivante :
+
+![Capture d’écran montrant comment ouvrir la page Pare-feu sur le Portail Azure](./media/how-to-configure-firewall/enable-azure-services.png)
+
+Lorsque vous activez cette option, l’adresse IP `0.0.0.0` est ajoutée à la liste des adresses IP autorisées. L’adresse IP `0.0.0.0` limite les demandes envoyées à votre compte Azure Cosmos DB à partir de la plage d’adresses IP du centre de données Azure. Ce paramètre n’autorise aucune autre plage d’adresses IP à accéder à votre compte Azure Cosmos DB.
 
 > [!NOTE]
 > Cette option configure le pare-feu pour autoriser toutes les demandes d’Azure, notamment les demandes envoyées par les abonnements d’autres clients déployés dans Azure. Comme la liste des adresses IP autorisées par cette option est grande, elle limite l’efficacité d’une stratégie de pare-feu. Utilisez cette option uniquement si vos demandes ne proviennent pas d’adresses IP statiques ou de sous-réseaux de réseaux virtuels. Comme le portail est déployé dans Azure, quand vous choisissez cette option, vous autorisez automatiquement l’accès à partir du portail Azure.
-
-Vous pouvez autoriser l’accès au portail Azure en sélectionnant l’option **Accepter les connexions des centres de données Azure** comme illustré dans la capture d’écran suivante :
-
-![Capture d’écran montrant comment ouvrir la page Pare-feu sur le Portail Azure](./media/how-to-configure-firewall/enable-azure-services.png)
 
 ### <a name="requests-from-your-current-ip"></a>Demandes à partir de votre adresse IP actuelle
 

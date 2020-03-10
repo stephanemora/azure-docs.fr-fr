@@ -2,13 +2,13 @@
 title: Prise en charge des étiquettes pour les ressources
 description: Indique les types de ressources Azure qui prennent en charge les étiquettes. Fournit des détails pour tous les services Azure.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 09dd71ef8c3ac4803a988dffbdca47116c967a0e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/26/2020
+ms.openlocfilehash: 6100c667c7df0b3e1740777565d260af9fa818a3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207925"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657571"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](tag-resources.md). La colonne intitulée **Prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **Balise dans le rapport des coûts** indique si ce type de ressource transmet la balise au rapport des coûts. Vous pouvez afficher les coûts à l’aide d’étiquettes dans l’[analyse Azure Cost Management](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) et les [données de facturation et d’utilisation quotidienne Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -116,8 +116,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.Migrate](#microsoftmigrate)
 > - [Microsoft.MixedReality](#microsoftmixedreality)
 > - [Microsoft.NetApp](#microsoftnetapp)
-> - [Microsoft.Notebooks](#microsoftnotebooks)
 > - [Microsoft.Network](#microsoftnetwork)
+> - [Microsoft.Notebooks](#microsoftnotebooks)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft.ObjectStore](#microsoftobjectstore)
 > - [Microsoft.OffAzure](#microsoftoffazure)
@@ -136,7 +136,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
-> - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
@@ -292,6 +291,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | automationAccounts | Oui | Oui |
 > | automationAccounts / configurations | Oui | Oui |
 > | automationAccounts / jobs | Non | Non |
+> | automationAccounts / privateEndpointConnectionProxies | Non | Non |
+> | automationAccounts / privateEndpointConnections | Non | Non |
+> | automationAccounts / privateLinkResources | Non | Non |
 > | automationAccounts / runbooks | Oui | Oui |
 > | automationAccounts / softwareUpdateConfigurations | Non | Non |
 > | automationAccounts / webhooks | Non | Non |
@@ -711,6 +713,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | registries / importImage | Non | Non |
 > | registries / privateEndpointConnectionProxies | Non | Non |
 > | registries / privateEndpointConnectionProxies / validate | Non | Non |
+> | registries / privateEndpointConnections | Non | Non |
 > | registries / privateLinkResources | Non | Non |
 > | registries / queueBuild | Non | Non |
 > | registries / regenerateCredential | Non | Non |
@@ -1052,6 +1055,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | partnerNamespaces / eventChannels | Non | Non |
 > | partnerRegistrations | Oui | Oui |
 > | partnerTopics | Oui | Oui |
+> | partnerTopics / eventSubscriptions | Non | Non |
 > | systemTopics | Oui | Oui |
 > | systemTopics / eventSubscriptions | Non | Non |
 > | topics | Oui | Oui |
@@ -1288,6 +1292,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- | ----------- |
 > | getEntities | Non | Non |
 > | managementGroups | Non | Non |
+> | managementGroups / settings | Non | Non |
 > | les ressources | Non | Non |
 > | startTenantBackfill | Non | Non |
 > | tenantBackfillStatus | Non | Non |
@@ -1395,15 +1400,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | netAppAccounts | Oui | Non |
 > | netAppAccounts / capacityPools | Oui | Non |
 > | netAppAccounts / capacityPools / volumes | Oui | Non |
-> | netAppAccounts / capacityPools / volumes / mountTargets | Oui | Non |
-> | netAppAccounts / capacityPools / volumes / snapshots | Oui | Non |
-
-## <a name="microsoftnotebooks"></a>Microsoft.Notebooks
-
-> [!div class="mx-tableFixed"]
-> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
-> | ------------- | ----------- | ----------- |
-> | NotebookProxies | Non | Non |
+> | netAppAccounts / capacityPools / volumes / snapshots | Non | Non |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -1495,6 +1492,13 @@ Accédez à un espace de noms du fournisseur de ressources :
 > Pour Azure Front Door Service, vous pouvez appliquer des balises lors de la création de la ressource, mais la mise à jour ou l’ajout de balises n’est actuellement pas pris en charge.
 
 
+## <a name="microsoftnotebooks"></a>Microsoft.Notebooks
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | NotebookProxies | Non | Non |
+
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -1556,6 +1560,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | legacyPeerings | Non | Non |
 > | peerAsns | Non | Non |
 > | peerings | Oui | Oui |
+> | peeringServiceCountries | Non | Non |
 > | peeringServiceProviders | Non | Non |
 > | peeringServices | Oui | Oui |
 
@@ -1680,13 +1685,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- | ----------- |
 > | applications | Oui | Oui |
 > | saasresources | Non | Non |
-
-## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-
-> [!div class="mx-tableFixed"]
-> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
-> | ------------- | ----------- | ----------- |
-> | jobcollections | Oui | Oui |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -2026,6 +2024,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
 > | périphériques | Oui | Oui |
+> | registeredSubscriptions | Non | Non |
 > | vendors | Non | Non |
 > | vendors / skus | Non | Non |
 > | vendors / vnfs | Non | Non |

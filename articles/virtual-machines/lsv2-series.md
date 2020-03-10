@@ -2,17 +2,17 @@
 title: Série Lsv2 – Machines virtuelles Microsoft Azure
 description: Spécifications pour les machines virtuelles de la série Lsv2.
 services: virtual-machines
-author: jonbeck7
+author: sasha-melamed
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: b10433190ccc7703938bed2a75a5d816f073295e
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 103e19d6e299956b5ee1ad45b577e25f9f2de1c4
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587258"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164030"
 ---
 # <a name="lsv2-series"></a>Série Lsv2
 
@@ -31,7 +31,11 @@ Premium Storage : Prise en charge
 
 Mise en cache du Stockage Premium : Non pris en charge
 
-| Size | Processeurs virtuels | Mémoire (Gio) | Disque temporaire<sup>1</sup> (Gio) | Disques NVMe<sup>2</sup> | Débit de disque NVMe <sup>3</sup> (IOPS de lecture/Mbits/s) | Débit maximal de disque de données sans mise en cache (IOPS / Mbits/s)<sup>4</sup> | Nombre max de disques de données | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
+Migration dynamique : Non prise en charge
+
+Mises à jour avec préservation de la mémoire : Non prises en charge
+
+| Taille | Processeurs virtuels | Mémoire (Gio) | Disque temporaire<sup>1</sup> (Gio) | Disques NVMe<sup>2</sup> | Débit de disque NVMe <sup>3</sup> (IOPS de lecture/Mbits/s) | Débit maximal de disque de données sans mise en cache (IOPS / Mbits/s)<sup>4</sup> | Nombre max de disques de données | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_L8s_v2   |  8 |  64 |  80 |  1 x 1,92 To  | 400 000/2 000  | 8 000/160   | 16 | 2 / 3 200   |
 | Standard_L16s_v2  | 16 | 128 | 160 |  2 x 1,92 To  | 800 000/4 000  | 16 000/320  | 32 | 4 / 6 400   |
