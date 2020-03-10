@@ -3,21 +3,21 @@ title: Configurer Azure AD B2C en tant qu’IdP SAML pour vos applications
 title-suffix: Azure AD B2C
 description: Comment configurer Azure AD B2C pour fournir des assertions de protocole SAML à vos applications (fournisseurs de services). Azure AD B2C agira en tant que fournisseur d’identité unique (IdP) à votre application SAML.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/24/2020
-ms.author: marsma
+ms.date: 02/27/2020
+ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5ec83857ebabc92bf86f9f84a43746a0e561218a
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 1c362cd2924de73b2e40e634fe554ff1526e09d8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77647597"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189648"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Inscrire une application SAML dans Azure AD B2C
 
@@ -63,7 +63,7 @@ Si vous ne disposez pas encore d’un fournisseur de services SAML et d’un poi
 
 ## <a name="1-set-up-certificates"></a>1. Configurer des certificats
 
-Pour créer une relation d’approbation entre votre fournisseur de services et Azure AD B2C, vous devez fournir des certificats X509 et leurs clés privées.
+Pour établir une relation d'approbation entre votre fournisseur de services et Azure AD B2C, vous devez fournir les certificats X509 de l'application web.
 
 * **Certificats du fournisseur de services**
   * Certificat avec une clé privée stockée dans votre application web. Ce certificat est utilisé par votre fournisseur de services pour signer la demande SAML envoyée à Azure AD B2C. Azure AD B2C lit la clé publique à partir des métadonnées du fournisseur de services pour valider la signature.
@@ -142,11 +142,11 @@ Vous pouvez modifier la valeur des métadonnées de `IssuerUri`. Il s’agit de 
       </CryptographicKeys>
       <InputClaims/>
       <OutputClaims/>
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml"/>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-sp"/>
     </TechnicalProfile>
 
     <!-- Session management technical profile for SAML based tokens -->
-    <TechnicalProfile Id="SM-Saml">
+    <TechnicalProfile Id="SM-Saml-sp">
       <DisplayName>Session Management Provider</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
     </TechnicalProfile>

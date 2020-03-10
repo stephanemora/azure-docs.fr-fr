@@ -1,25 +1,26 @@
 ---
 title: Intégration et déploiement continus
-description: Expérience DevOps de base de données de classe entreprise pour SQL Data Warehouse avec prise en charge intégrée de l’intégration et du déploiement continus à l’aide d’Azure Pipelines.
+description: Expérience DevOps de base de données pour l’entreprise destinée à l’entreposage de données avec prise en charge intégrée de l’intégration et du déploiement continus à l’aide d’Azure Pipelines.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: integration
-ms.date: 08/28/2019
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8178e5ff9ff4816ddd422d3c45cfc0e1e0b3d41
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: azure-synapse
+ms.openlocfilehash: cb28afc84c423c5c5321a8f948e82f82031888a0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712989"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195938"
 ---
-# <a name="continuous-integration-and-deployment-for-azure-sql-data-warehouse"></a>Intégration et déploiement continus pour Azure SQL Data Warehouse
+# <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Intégration et déploiement continus pour l’entreposage de données
 
-Ce tutoriel simple décrit comment intégrer votre projet de base de données SQL Server Data Tools (SSDT) à Azure DevOps et comment tirer parti d’Azure Pipelines pour configurer l’intégration et le déploiement continus. Ce tutoriel constitue la seconde étape de la création de votre pipeline d’intégration et de déploiement continus avec SQL Data Warehouse. 
+Ce tutoriel simple décrit comment intégrer votre projet de base de données SQL Server Data Tools (SSDT) à Azure DevOps et comment tirer parti d’Azure Pipelines pour configurer l’intégration et le déploiement continus. Ce tutoriel constitue la deuxième étape de la génération de votre pipeline d’intégration et de déploiement continus pour l’entreposage de données. 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -61,7 +62,7 @@ Ce tutoriel simple décrit comment intégrer votre projet de base de données SQ
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Explorer la section [Architecture Azure SQL Data Warehouse](massively-parallel-processing-mpp-architecture.md)
-- [Créer rapidement un entrepôt de données SQL Data Warehouse](create-data-warehouse-portal.md)
+- Explorer l’[architecture MPP SQL Analytics](massively-parallel-processing-mpp-architecture.md)
+- [Créer rapidement un pool SQL](create-data-warehouse-portal.md)
 - [Charger des exemples de données](sql-data-warehouse-load-sample-databases.md)
 - Explorer les [vidéos](/azure/sql-data-warehouse/sql-data-warehouse-videos)

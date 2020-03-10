@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 429c221609005136663d5e64a1b8650027cba411
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: c6da4b54dbc982c69e9d3004a5da8f63deffa3e9
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588737"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246026"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>Démarrage rapide : Créer une passerelle NAT avec le portail Azure
 
@@ -32,27 +32,24 @@ Ce guide de démarrage rapide vous montre comment utiliser le service NAT de Ré
 
 Connectez-vous au [portail Azure](https://portal.azure.com).
 
-### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
+## <a name="virtual-network-and-parameters"></a>Réseau virtuel et paramètres
 
-Avant de déployer une machine virtuelle et de pouvoir utiliser votre passerelle NAT, il nous faut créer le groupe de ressources et le réseau virtuel.  
+Avant de déployer une machine virtuelle et de pouvoir utiliser votre passerelle NAT, il nous faut créer le groupe de ressources et le réseau virtuel.
 
-1. En haut à gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**, ou recherchez **Réseau virtuel** dans la recherche de la Place de marché.
+Dans les étapes de cette section, vous devrez remplacer les paramètres du tableau ci-dessous par la valeur indiquée correspondante :
 
-2. Dans **Créer un réseau virtuel**, entrez ou sélectionnez ces informations :
+| Paramètre                   | Valeur                |
+|-----------------------------|----------------------|
+| **\<nom_groupe_ressources>**  | myResourceGroupNAT |
+| **\<nom_réseau_virtuel>** | myVNet          |
+| **\<nom_région>**          | USA Est 2      |
+| **\<espace_d’adressage_IPv4>**   | 192.168.0.0\16          |
+| **\<nom_sous-réseau>**          | mySubnet        |
+| **\<plage_adresses_sous-réseau>** | 192.168.0.0\24          |
 
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    | Nom | Entrez **myVNet**. |
-    | Espace d’adressage | entrez **192.168.0.0/16**. |
-    | Abonnement | Sélectionnez votre abonnement.|
-    | Resource group | Sélectionnez Créer - **myResourceGroupNAT**. |
-    | Emplacement | Sélectionnez **USA Est**.|
-    | Sous-réseau - Nom | Entrez **mySubnet**. |
-    | Plage d’adresses du sous-réseau | Entrez **192.168.0.0/24**. |
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
-3. Conservez les autres valeurs par défaut et sélectionnez **Créer**.
-
-### <a name="create-a-vm-to-use-the-nat-gateway"></a>Créer une machine virtuelle pour utiliser la passerelle NAT
+## <a name="create-a-vm-to-use-the-nat-gateway"></a>Créer une machine virtuelle pour utiliser la passerelle NAT
 
 Nous allons à présent créer une machine virtuelle pour utiliser le service NAT. Cette machine virtuelle dispose d’une adresse IP publique à utiliser comme adresse IP publique au niveau de l’instance pour vous permettre d’accéder à la machine virtuelle. Le service NAT reconnaît la direction du flux et remplace la destination Internet par défaut dans votre sous-réseau. L’adresse IP publique de la machine virtuelle n’est pas utilisée pour les connexions sortantes.
 

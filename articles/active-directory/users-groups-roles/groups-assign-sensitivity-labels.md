@@ -9,31 +9,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 02/24/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07859299805c5f7be869350adbdbfa675775888c
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 51b242a76e1daec7d401d797e8c9887821117246
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404804"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656940"
 ---
 # <a name="assign-sensitivity-labels-to-office-365-groups-in-azure-active-directory-preview"></a>Attribuer des étiquettes de sensibilité aux groupes Office 365 dans Azure Active Directory (préversion)
 
-Azure Active Directory (Azure AD) prend en charge l’application d’étiquettes de sensibilité publiées par le [Centre de conformité Microsoft 365](https://sip.protection.office.com/homepage) dans les groupes Office 365. Les étiquettes de sensibilité s’appliquent au groupe parmi des services tels qu’Outlook, Microsoft Teams et SharePoint. Cette fonctionnalité est actuellement disponible en préversion publique.
+Azure Active Directory (Azure AD) prend en charge l’application d’étiquettes de sensibilité publiées par le [Centre de conformité Microsoft 365](https://sip.protection.office.com/homepage) dans les groupes Office 365. Les étiquettes de sensibilité s’appliquent au groupe parmi des services tels qu’Outlook, Microsoft Teams et SharePoint. Cette fonctionnalité est actuellement disponible en préversion publique. Pour plus d’informations sur la prise en charge des applications Office 365, consultez la [prise en charge d’Office 365 pour les étiquettes de sensibilité](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-new-sensitivity-labels).
 
 > [!IMPORTANT]
-> L’utilisation d’étiquettes de sensibilité Azure AD pour les groupes Office 365 requiert une licence Azure Active Directory Premium P1.
-
-## <a name="group-settings-controlled-by-labels"></a>Paramètres de groupe contrôlés par des étiquettes
-
-Deux paramètres peuvent être associés à une étiquette :
-
-- **Confidentialité** : Les administrateurs peuvent associer un paramètre de confidentialité à l’étiquette pour déterminer si un groupe est public ou privé.
-- **Accès invité** : Les administrateurs peuvent appliquer la stratégie invité pour tous les groupes auxquels l’étiquette est attribuée. Cette stratégie spécifie si les invités peuvent être ajoutés en tant que membres ou non. Si la stratégie d’invité est configurée pour une étiquette, tous les groupes auxquels vous attribuez l’étiquette n’autorisent pas la modification du paramètre AllowToAddGuests.
+> Pour configurer cette fonctionnalité, au moins une licence Azure Active Directory Premium P1 doit être active dans votre organisation Azure AD.
 
 ## <a name="enable-sensitivity-label-support-in-powershell"></a>Activer la prise en charge des étiquettes de sensibilité dans PowerShell
 
@@ -87,11 +80,11 @@ Vous avez terminé. Vous avez activé la fonctionnalité et vous pouvez applique
 
 1. Enregistrez vos modifications, puis sélectionnez **Créer**.
 
-Votre groupe est créé et les stratégies associées à l’étiquette sélectionnée sont ensuite automatiquement appliquées.
+Votre groupe est créé et les paramètres de site et de groupe associés à l'étiquette sélectionnée sont automatiquement appliqués.
 
 ## <a name="assign-a-label-to-an-existing-group-in-azure-portal"></a>Attribuer une étiquette à un groupe existant dans le Portail Azure
 
-1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte administrateur général ou administrateur de groupes, ou en tant que propriétaire du groupe.
+1. Connectez-vous au [Centre d'administration Azure AD](https://aad.portal.azure.com) avec un compte administrateur de groupes, ou en tant que propriétaire du groupe.
 1. Sélectionnez **Groupes**.
 1. Dans la page **Tous les groupes**, sélectionnez le groupe que vous souhaitez étiqueter.
 1. Sur la page du groupe sélectionné, sélectionnez **Propriétés** et sélectionnez une étiquette de sensibilité dans la liste.
@@ -109,22 +102,9 @@ Votre groupe est créé et les stratégies associées à l’étiquette sélecti
 1. Sélectionnez **Supprimer**.
 1. Sélectionnez **Enregistrer** pour enregistrer vos modifications.
 
-## <a name="office-365-app-support-for-sensitivity-labels"></a>Prise en charge des applications Office 365 pour les étiquettes de sensibilité
-
-Les applications et services Office 365 suivants prennent en charge les étiquettes de sensibilité dans cette préversion :
-
-- Centre d’administration Azure AD
-- Centre de conformité Microsoft 365
-- SharePoint
-- Outlook sur le web
-- Teams
-- Centre d’administration SharePoint
-
-Pour plus d’informations sur la prise en charge des applications Office 365, consultez la [prise en charge d’Office 365 pour les étiquettes de sensibilité](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-new-sensitivity-labels).
-
 ## <a name="using-classic-azure-ad-classifications"></a>Utilisation des classifications Azure AD classiques
 
-Une fois cette fonctionnalité activée, Office 365 ne prend plus en charge les classifications « classiques » pour les nouveaux groupes. Les classifications classiques sont les anciennes classifications que vous avez configurées en définissant des valeurs pour le paramètre `ClassificationList` dans Azure AD PowerShell. Lorsque cette fonctionnalité est activée, ces classifications ne sont pas appliquées aux groupes.
+Une fois cette fonctionnalité activée, les classifications « classiques » des groupes n'apparaîtront que pour les groupes et sites existants, et vous ne devez les utiliser pour de nouveaux groupes que si vous créez des groupes dans des applications qui ne prennent pas en charge les étiquettes de sensibilité. Si nécessaire, votre administrateur peut ultérieurement les convertir en étiquettes de sensibilité. Les classifications classiques sont les anciennes classifications que vous avez configurées en définissant des valeurs pour le paramètre `ClassificationList` dans Azure AD PowerShell. Lorsque cette fonctionnalité est activée, ces classifications ne sont pas appliquées aux groupes.
 
 ## <a name="troubleshooting-issues"></a>Résolution des problèmes
 
@@ -136,9 +116,7 @@ L’option Étiquette de sensibilité s’affiche uniquement pour les groupes lo
 1. La fonctionnalité est activée, EnableMIPLabels possède la valeur true dans PowerShell.
 1. Le groupe est un groupe Office 365.
 1. Le locataire dispose d’une licence active Azure Active Directory Premium P1.
-1. L’utilisateur actuellement connecté a accès aux étiquettes publiées.
 1. L’utilisateur actuellement connecté dispose de privilèges suffisants pour attribuer des étiquettes. L’utilisateur doit être un administrateur général, un administrateur de groupe ou le propriétaire du groupe.
-1. Une licence Office 365 est attribuer à l’utilisateur actuellement connecté. Pour plus d’informations sur les conditions requises pour les licences, consultez [Étiquettes de sensibilité dans les applications Office](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-office-apps).
 
 Assurez-vous que toutes les conditions sont remplies pour attribuer des étiquettes à un groupe.
 
@@ -149,7 +127,7 @@ Si l’étiquette que vous recherchez ne figure pas dans la liste, cela peut êt
 - L’étiquette n’est peut-être pas publiée dans le centre de conformité Microsoft 365. Cela peut également s’appliquer aux étiquettes qui ne sont plus publiées. Pour plus d’informations, contactez votre administrateur.
 - L’étiquette peut être publiée, mais elle n’est pas disponible pour l’utilisateur qui est connecté. Contactez votre administrateur pour plus d’informations sur la façon d’obtenir l’accès à l’étiquette.
 
-### <a name="how-can-i-change-the-label-on-a-group"></a>Comment puis-je modifier l’étiquette d’un groupe ?
+### <a name="how-to-change-the-label-on-a-group"></a>Modifier l'étiquette d'un groupe
 
 Les étiquettes peuvent être échangées à tout moment à l’aide des mêmes étapes que l’attribution d’une étiquette à un groupe existant, comme suit :
 

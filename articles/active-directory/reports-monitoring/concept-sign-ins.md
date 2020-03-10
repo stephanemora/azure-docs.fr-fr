@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/09/2019
+ms.date: 02/26/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256194d8b0b5e6b08210e9338d945774603ac328
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ffb2ff87eb78ed4088225f832b6df55726196493
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429760"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656596"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
@@ -37,7 +37,7 @@ L’architecture de création de rapports dans Azure Active Directory (Azure 
 
 Cet article présente une vue d’ensemble du rapport de connexions.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 
@@ -101,59 +101,90 @@ Sélectionnez un élément dans la vue sous forme de liste pour obtenir des info
 
 ## <a name="filter-sign-in-activities"></a>Filtrer les activités de connexion
 
-Commencez par réduire les données signalées jusqu’au niveau qui vous convient. Ensuite, filtrez les données de connexions en utilisant le champ de date comme filtre par défaut. Azure AD vous offre une large gamme de filtres supplémentaires que vous pouvez définir.
+Commencez par réduire les données signalées jusqu’au niveau qui vous convient. Ensuite, filtrez les données de connexions en utilisant le champ de date comme filtre par défaut. Azure AD offre une large gamme de filtres supplémentaires que vous pouvez définir :
 
 ![Activité de connexion](./media/concept-sign-ins/04.png "Activité de connexion")
 
-Le filtre **Utilisateur** vous permet de spécifier le nom ou le nom d’utilisateur principal de l’utilisateur qui vous intéresse.
+**ID de requête** : ID de la requête qui vous intéresse.
 
-Le filtre **Application** vous permet de spécifier le nom de l’application qui vous intéresse.
+**Utilisateur** : nom ou nom d’utilisateur principal (UPN) de l’utilisateur qui vous intéresse.
 
-Le filtre **État de la connexion** vous permet de sélectionner :
+**Application** : nom de l’application cible.
+ 
+**État** : état de connexion qui vous intéresse :
 
-- Tous
 - Succès
+
 - Échec
 
-Le filtre **Accès conditionnel** vous permet de sélectionner l’état de stratégie d’autorité de certification pour l’authentification dans :
+- Interrompu
 
-- Tous
-- Non appliqué
+
+**Adresse IP** : adresse IP de l’appareil utilisé pour se connecter à votre locataire.
+
+**Emplacement** : emplacement à partir duquel la connexion a été établie :
+
+- City
+
+- Département/Province
+
+- Pays/région
+
+
+**Ressource** : nom du service utilisé pour la connexion.
+
+
+**ID de ressource** : ID du service utilisé pour la connexion.
+
+
+**Application cliente** : type de l’application cliente utilisée pour se connecter à votre locataire :
+
+![Filtre d’application cliente](./media/concept-sign-ins/client-app-filter.png)
+
+
+|Nom|Authentification moderne|Description|
+|---|:-:|---|
+|SMTP authentifié| |Utilisé par les clients POP et IMAP pour envoyer des e-mails.|
+|Découverte automatique| |Utilisé par les clients Outlook et EAS pour rechercher des boîtes aux lettres dans Exchange Online et s’y connecter.|
+|Exchange ActiveSync| |Ce filtre affiche toutes les tentatives de connexion où le protocole EAS a été utilisé.|
+|Browser|![Vérification](./media/concept-sign-ins/check.png)|Affiche toutes les tentatives de connexion d’utilisateurs à l’aide de navigateurs web|
+|Exchange ActiveSync| | Affiche toutes les tentatives de connexion d’utilisateurs avec des applications clientes utilisant Exchange ActiceSync pour se connecter à Exchange Online|
+|Exchange Online PowerShell| |Utilisé pour se connecter à Exchange Online à l’aide de PowerShell à distance. Si vous bloquez l’authentification de base pour Exchange Online PowerShell, vous devez utiliser le module Exchange Online PowerShell pour vous connecter. Pour obtenir des instructions, consultez [Se connecter à Exchange Online PowerShell à l’aide de l’authentification multifacteur](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|Exchange Web Services| |Interface de programmation utilisée par Outlook, Outlook pour Mac et des applications tierces.|
+|IMAP4| |Un client de messagerie hérité qui utilise IMAP pour récupérer le courrier électronique.|
+|MAPI sur HTTP| |Utilisé par Outlook 2010 et versions ultérieures.|
+|Applications mobiles et clients de bureau|![Vérification](./media/concept-sign-ins/check.png)|Affiche toutes les tentatives de connexion d’utilisateurs à l’aide d’applications mobiles et de clients de bureau.|
+|Carnet d’adresses en mode hors connexion| |Copie des collections de listes d’adresses téléchargées et utilisées par Outlook.|
+|Outlook Anywhere (RPC sur HTTP)| |Utilisé par Outlook 2016 et versions antérieures.|
+|Service Outlook| |Utilisé par l’application Courrier et Calendrier pour Windows 10.|
+|POP3| |Un client de messagerie hérité qui utilise POP3 pour récupérer le courrier électronique.|
+|Reporting Web Services| |Utilisé pour récupérer des données de rapports dans Exchange Online.|
+|Autres clients| |Affiche toutes les tentatives de connexion d’utilisateurs où l’application cliente n’est pas incluse ou connue.|
+
+
+
+**Système d’exploitation** : le système d’exploitation s’exécutant sur l’appareil a utilisé l’authentification auprès de votre locataire. 
+
+
+**Explorateur d’appareils** : si la connexion a été établie à partir d’un navigateur, ce champ vous permet de filtrer par nom de navigateur.
+
+
+**ID de corrélation** : ID de corrélation de l’activité.
+
+
+**Accès conditionnel** : état des règles d’accès conditionnel appliquées
+
+- Non applicable 
+
 - Succès
+
 - Échec
 
-Le filtre **Date** vous permet de définir un intervalle de temps pour les données renvoyées.  
-Les valeurs possibles sont les suivantes :
 
-- Un mois
-- 7 jours
-- 24 heures
-- Intervalle de temps personnalisé
 
-Lorsque vous sélectionnez une plage personnalisée, vous pouvez configurer une heure de début et une heure de fin.
 
-Si vous ajoutez des champs à votre affichage de connexions, ils sont automatiquement ajoutés à la liste de filtres. Par exemple, en ajoutant un champ **Application cliente** à votre liste, vous obtenez également une autre option de filtre qui vous permet de définir les filtres suivants :  
-![Activité de connexion](./media/concept-sign-ins/12.png "Activité de connexion")
 
-- **Browser**  
-    Ce filtre affiche tous les événements où des tentatives de connexion ont été effectuées à l’aide des flux de navigateur.
-- **Exchange ActiveSync (pris en charge)**  
-    Ce filtre affiche toutes les tentatives de connexion où le protocole Exchange ActiveSync (EAS) a été tenté depuis des plateformes prises en charge comme iOS, Android et Windows Phone.
-- **Exchange ActiveSync (non pris en charge)**  
-    Ce filtre affiche toutes les tentatives de connexion où le protocole EAS a été tenté depuis des plateformes non prises en charge comme les distributions Linux.
-- **Clients Mobile Apps et Desktop** : ce filtre affiche toutes les tentatives de connexion qui n’utilisaient pas de flux de navigateur. Par exemple, des applications mobiles provenant de n’importe quelle plateforme et utilisant n’importe quel protocole ou n’importe quelle application cliente Desktop comme Office sur Windows ou MacOS.
-  
-- **Autres clients**
-    - **IMAP**  
-        Un client de messagerie hérité qui utilise IMAP pour récupérer le courrier électronique.
-    - **MAPI**  
-        Office 2013, où la bibliothèque ADAL est activée et utilise MAPI.
-    - **Anciens clients Office**  
-        Office 2013 dans sa configuration par défaut où la bibliothèque ADAL n’est pas activée et utilise MAPI, ou Office 2016, où la bibliothèque ADAL a été désactivée.
-    - **POP**  
-        Un client de messagerie hérité qui utilise POP3 pour récupérer le courrier électronique.
-    - **SMTP**  
-        Un client de messagerie hérité qui utilise SMTP pour envoyer le courrier électronique.
+
 
 ## <a name="download-sign-in-activities"></a>Télécharger les activités de connexion
 
@@ -197,7 +228,7 @@ En cliquant sur un élément, vous obtenez plus d’informations sur l’opérat
 - ID de l'application
 - Application
 - Client
-- Location
+- Emplacement
 - Adresse IP
 - Date
 - MFA obligatoire

@@ -8,15 +8,15 @@ ms.subservice: core
 ms.topic: reference
 author: peterclu
 ms.author: peterlu
-ms.date: 12/17/2019
-ms.openlocfilehash: d3feb62c0c7fa24dd998add08d17ebd1d4e9ee6c
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.date: 02/22/2020
+ms.openlocfilehash: ece4b7a85ff5738900b8f999cc2f14ba35ecab0d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162580"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920091"
 ---
-# <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Informations de référence sur les algorithmes et les modules du concepteur Azure Machine Learning
+# <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Informations de référence sur les algorithmes et les modules du concepteur Azure Machine Learning (préversion)
 
 Ce contenu de référence présente l’arrière-plan technique de chacun des algorithmes d’apprentissage automatique et les modules disponibles dans le concepteur Azure Machine Learning (préversion).
 
@@ -57,6 +57,7 @@ Pour savoir quels algorithmes choisir, consultez
 | Langage R | Écrivez du code et incorporez-le dans un module pour intégrer R à votre pipeline. | [Exécuter un script R](execute-r-script.md) |
 | Analyse de texte | Fournissez des outils de calcul spécialisés pour travailler avec du texte structuré et non structuré. | [Extraire les caractéristiques de n-grammes du texte](extract-n-gram-features-from-text.md) <br/> [Hachage des caractéristiques](feature-hashing.md) <br/> [Pré-traiter le texte](preprocess-text.md) |
 | Recommandation | Génération de modèles de recommandation. | [Évaluer le générateur de recommandations](evaluate-recommender.md) <br/> [Noter le générateur de recommandations SVD](score-svd-recommender.md) <br/> [Entraîner le générateur de recommandations SVD](train-SVD-recommender.md) |
+| Détection des anomalies | Créez des modèles de détection des anomalies. | [Détection des anomalies basée sur l'analyse en composantes principales (ACP)](pca-based-anomaly-detection.md) <br/> [Former le modèle de détection des anomalies](train-anomaly-detection-model.md) |
 
 ## <a name="error-messages"></a>Messages d’erreur
 

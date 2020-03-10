@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 02/27/2020
 ms.author: sngun
-ms.openlocfilehash: 6af5f4c3ab028f8f0c6945eba86ec79dd6027680
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 1f2051addfa1266b754d230c3804834c63f89002
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587462"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274072"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutoriel : Développer une application web ASP.NET Core MVC avec Azure Cosmos DB à l’aide du kit SDK .NET
 
@@ -171,6 +171,38 @@ Et finalement, ajoutez une vue qui permet de modifier un élément en suivant ce
 
 Une fois ces étapes terminées, fermez tous les documents *cshtml* dans Visual Studio. Vous reviendrez à ces vues plus tard.
 
+### <a name="initialize-services"></a>Déclarer et initialiser les services
+
+Pour commencer, nous allons ajouter une classe qui contient la logique permettant de se connecter à Azure Cosmos DB et de l’utiliser. Pour ce tutoriel, nous allons encapsuler cette logique dans une classe nommée `CosmosDBService` et une interface nommée `ICosmosDBService`. Ce service effectue les opérations CRUD. Il effectue aussi des opérations de flux de lecture, comme lister les éléments incomplets, créer, modifier et supprimer les éléments.
+
+1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Ajouter** > **Nouveau dossier**. Nommez le dossier *Services*.
+
+1. Cliquez avec le bouton droit sur le dossier **Services**, sélectionnez **Ajouter** > **Classe**. Nommez la nouvelle classe *CosmosDBService* et sélectionnez **Ajouter**.
+
+1. Remplacez le contenu de *CosmosDBService.cs* par le code suivant :
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
+
+1. Cliquez avec le bouton droit sur le dossier **Services**, sélectionnez **Ajouter** > **Classe**. Nommez la nouvelle classe *ICosmosDBService* et sélectionnez **Ajouter**.
+
+1. Ajoutez le code suivant à la classe *ICosmosDBService* :
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
+
+1. Ouvrez le fichier *Startup.cs* dans votre solution et remplacez la méthode `ConfigureServices` par :
+
+    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="ConfigureServices":::
+
+    Le code de cette étape initialise le client en fonction de la configuration en tant qu’instance singleton à injecter via l’[Injection de dépendances dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection).
+
+1. Dans le même fichier, ajoutez la méthode **InitializeCosmosClientInstanceAsync** suivante, qui lit la configuration et initialise le client.
+
+   [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)]
+
+1. Définissez la configuration dans le fichier *appsettings.json* du projet comme dans l’extrait de code suivant :
+
+   :::code language="json" source="~/samples-cosmosdb-dotnet-core-web-app/src/appsettings.json":::
+
 ### <a name="add-a-controller"></a>Ajout d'un contrôleur
 
 1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le dossier **Controllers**, sélectionnez **Ajouter** > **Contrôleur**.
@@ -189,62 +221,15 @@ L’attribut **ValidateAntiForgeryToken** est utilisé ici pour protéger cette 
 
 Nous utilisons également l’attribut **Bind** sur le paramètre de méthode pour établir une protection contre les attaques par sur-validation. Pour plus d’informations, consultez [Didacticiel : Implémentez la fonctionnalité CRUD avec Entity Framework dans ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
 
-## <a name="connect-to-cosmosdb"></a>Étape 5 : Se connecter à Azure Cosmos DB
-
-Maintenant que nous nous sommes occupés des éléments de base MVC, ajoutons le code pour se connecter à Azure Cosmos DB et effectuer des opérations CRUD.
-
-### <a name="perform-crud-operations"></a>Effectuer des opérations CRUD sur les données
-
-Pour commencer, nous allons ajouter une classe qui contient la logique permettant de se connecter à Azure Cosmos DB et de l’utiliser. Pour ce tutoriel, nous allons encapsuler cette logique dans une classe nommée `CosmosDBService` et une interface nommée `ICosmosDBService`. Ce service effectue les opérations CRUD. Il effectue aussi des opérations de flux de lecture, comme lister les éléments incomplets, créer, modifier et supprimer les éléments.
-
-1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Ajouter** > **Nouveau dossier**. Nommez le dossier *Services*.
-
-1. Cliquez avec le bouton droit sur le dossier **Services**, sélectionnez **Ajouter** > **Classe**. Nommez la nouvelle classe *CosmosDBService* et sélectionnez **Ajouter**.
-
-1. Remplacez le contenu de *CosmosDBService.cs* par le code suivant :
-
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
-
-1. Répétez les deux étapes précédentes, mais cette fois-ci, utilisez le nom *ICosmosDBService*, puis utilisez le code suivant :
-
-   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
-
-1. Dans le gestionnaire **Configure les services**, ajoutez la ligne suivante :
-
-    ```csharp
-    services.AddSingleton<ICosmosDbService>(InitializeCosmosClientInstanceAsync(Configuration.GetSection("CosmosDb")).GetAwaiter().GetResult());
-    ```
-
-    Le code de l’étape précédente reçoit `CosmosClient` avec le constructeur. Suivant le pipeline ASP.Net Core, nous devons accéder au fichier *Startup.cs* du projet. Le code de cette étape initialise le client en fonction de la configuration en tant qu’instance singleton à injecter via l’[Injection de dépendances dans ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection).
-
-1. Dans le même fichier, ajoutez la méthode **InitializeCosmosClientInstanceAsync** suivante, qui lit la configuration et initialise le client.
-
-    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync":::
-
-1. Définissez la configuration dans le fichier *appsettings.json* du projet. Ouvrez le fichier et ajoutez une section nommée **CosmosDb** :
-
-   ```csharp
-     "CosmosDb": {
-        "Account": "<enter the URI from the Keys blade of the Azure Portal>",
-        "Key": "<enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Portal>",
-        "DatabaseName": "Tasks",
-        "ContainerName": "Items"
-      }
-   ```
-
-Si vous exécutez l’application, le pipeline d’ASP.NET Core instancie **CosmosDbService** et conserve une seule instance comme singleton. Quand **ItemController** traite les demandes côté client, il reçoit cette instance unique et peut l’utiliser pour les opérations CRUD.
-
-Si vous générez et exécutez ce projet maintenant, vous devriez voir ce qui suit :
-
-![Capture d’écran de l’application web de liste des tâches (todo list) créée dans ce tutoriel de base de données](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
-
-## <a name="run-the-application"></a>Étape 6 : Exécuter l’application localement
+## <a name="run-the-application"></a>Étape 5 : Exécuter l’application localement
 
 Pour tester l’application sur votre ordinateur local, effectuez les étapes suivantes :
 
-1. Sélectionnez F5 dans Visual Studio pour générer l’application en mode débogage. Cette opération doit générer l'application et lancer un navigateur avec la page de grille vide que nous avons vue auparavant :
+1. Appuyez sur F5 dans Visual Studio pour générer l’application en mode débogage. Cette opération doit générer l'application et lancer un navigateur avec la page de grille vide que nous avons vue auparavant :
 
    ![Capture d’écran de l’application web de liste des tâches créée par ce tutoriel](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
+   
+   Si, en fait, l’application s’ouvre sur la page d’accueil, ajoutez `/Item` à l’URL.
 
 1. Sélectionnez le lien **Créer nouveau** et ajoutez des valeurs aux champs **Nom** et **Description**. Laissez la case **Terminé** décochée. Si vous la sélectionnez, l’application ajoute le nouvel élément dans un état terminé. L’élément n’apparaît plus dans la liste initiale.
 
@@ -260,7 +245,7 @@ Pour tester l’application sur votre ordinateur local, effectuez les étapes su
 
 1. Une fois que vous avez testé l'application, sélectionnez Ctrl+F5 pour arrêter le débogage de l’application. Vous êtes prêt à déployer.
 
-## <a name="deploy-the-application-to-azure"></a>Étape 7 : Déployer l’application
+## <a name="deploy-the-application-to-azure"></a>Étape 6 : Déployer l’application
 
 Maintenant que l’application complète fonctionne correctement avec Azure Cosmos DB, nous allons déployer cette application web vers Azure App Service.  
 

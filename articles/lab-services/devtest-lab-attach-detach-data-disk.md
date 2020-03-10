@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 02/28/2020
 ms.author: spelluru
-ms.openlocfilehash: e6b470c55815255c50a42821b0bf52219d890206
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 3f18425408e6526904db85eae1c3a4db41d11a58
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170076"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198786"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Attacher ou détacher un disque de données sur une machine virtuelle dans Azure DevTest Labs
 [Azure Disques managés](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) gère les comptes de stockage associés aux disques de données des machines virtuelles. Un utilisateur attache un nouveau disque de données à une machine virtuelle et spécifie le type et la taille du disque voulu, puis Azure crée et gère le disque automatiquement. Le disque de données peut ensuite être détaché de la machine virtuelle, soit pour être rattaché ultérieurement à la même machine virtuelle, soit pour être attaché à une autre machine virtuelle qui appartient au même utilisateur.
@@ -40,8 +40,6 @@ Suivez ces étapes pour créer et attacher un disque de données managé à une 
 1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires. 
 1. Dans la liste de **Mes machines virtuelles**, sélectionnez-en une en cours d’exécution.
 1. Dans le menu de gauche, sélectionnez **Disques**.
-
-    ![Sélectionner des disques de données pour une machine virtuelle](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-data-disk.png)
 1. Choisissez **Attacher un nouveau disque** pour créer un disque de données et l’attacher à la machine virtuelle.
 
     ![Attacher un nouveau disque de données à une machine virtuelle](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-new.png)
@@ -50,7 +48,7 @@ Suivez ces étapes pour créer et attacher un disque de données managé à une 
     ![Compléter le formulaire « attacher un nouveau disque »](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-new-form.png)
 1. Sélectionnez **OK**.
 
-Au bout de quelques instants, le disque de données est créé et attaché à la machine virtuelle ; il apparaît dans la liste des **DISQUES DE DONNÉES** pour cette machine virtuelle.
+Au bout de quelques instants, le nouveau disque de données est créé et attaché à la machine virtuelle, et apparaît dans la liste des **Disques de données** pour cette machine.
 
 ### <a name="attach-an-existing-disk"></a>Association d'un disque existant
 Suivez ces étapes pour rattacher un disque de données disponible à une machine virtuelle en cours d’exécution. 
@@ -59,13 +57,13 @@ Suivez ces étapes pour rattacher un disque de données disponible à une machin
 1. Dans le menu de gauche, sélectionnez **Disques**.
 1. Sélectionnez **Attacher un disque existant** pour attacher à la machine virtuelle un disque de données disponible.
 
-    ![Attacher un disque de données existant à une machine virtuelle](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing2.png)
+    ![Attacher un disque de données existant à une machine virtuelle](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing-button.png)
 
 1. À partir du volet **Attacher un disque existant**, sélectionnez OK.
 
     ![Attacher un disque de données existant à une machine virtuelle](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing.png)
 
-Au bout de quelques instants, le disque de données est attaché à la machine virtuelle et il apparaît dans la liste des **DISQUES DE DONNÉES** pour cette machine virtuelle.
+Au bout de quelques instants, le disque de données est attaché à la machine virtuelle et apparaît dans la liste des **Disques de données** pour cette celle-ci.
 
 ## <a name="detach-a-data-disk"></a>Détachement d'un disque de données
 Lorsque vous n’avez plus besoin d’un disque de données attaché à une machine virtuelle, détachez-le tout simplement. Le fait de détacher le disque le supprime de la machine virtuelle, mais il est conservé dans le stockage pour une utilisation ultérieure.
@@ -75,9 +73,9 @@ Si vous souhaitez réutiliser les données du disque, vous pouvez le rattacher �
 ### <a name="detach-from-the-vms-management-pane"></a>Détacher un disque à partir du volet de gestion de la machine virtuelle
 1. À partir de votre liste de machines virtuelles, sélectionnez une machine possédant un disque de données attaché.
 1. Dans le menu de gauche, sélectionnez **Disques**.
+1. Dans la liste des **Disques de données**, sélectionnez le disque de données que vous souhaitez détacher.
 
-    ![Sélectionner des disques de données pour une machine virtuelle](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-data-disk.png) 
-1. Dans la liste des **DISQUES DE DONNÉES**, sélectionnez le disque de données que vous souhaitez détacher.
+    ![Sélectionner des disques de données pour une machine virtuelle](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-button.png) 
 1. Sélectionnez **Détacher** dans le haut du volet d’informations du disque.
 
     ![Détachement d'un disque de données](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk2.png)
@@ -86,9 +84,7 @@ Si vous souhaitez réutiliser les données du disque, vous pouvez le rattacher �
 Le disque est détaché et disponible pour être attaché à une autre machine virtuelle. 
 ### <a name="detach-from-the-labs-main-pane"></a>Détacher un disque à partir du volet principal du laboratoire
 1. Dans de volet principal de votre laboratoire, sélectionnez **Mes disques de données**.
-
-    ![Accéder à des disques de données du laboratoire](./media/devtest-lab-attach-detach-data-disk/devtest-lab-my-data-disks.png)
-1. Cliquez avec le bouton droit sur le disque de données à détacher, ou sélectionnez ses points de suspension (...), et choisissez **Détacher**.
+1. Cliquez avec le bouton droit sur le disque de données à détacher, ou sélectionnez les points de suspension ( **...** ) correspondants, puis choisissez **Détacher**.
 
     ![Détachement d'un disque de données](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk.png)
 1. Sélectionnez **Oui** pour confirmer que vous souhaitez le détacher.
@@ -102,8 +98,6 @@ Le disque est détaché et disponible pour être attaché à une autre machine v
 Si une machine virtuelle existante utilise des disques de données non managés, vous pouvez facilement convertir cette machine virtuelle pour qu’elle utilise des disques managés. Ce processus convertit le disque du système d’exploitation ainsi que tous les autres disques de données attachés.
 
 Pour mettre à niveau un disque de données non managé, suivez les étapes décrites dans cet article et [détachez le disque de données](#detach-a-data-disk) d’une machine virtuelle non managée. Ensuite, [rattachez le disque](#attach-an-existing-disk) à une machine virtuelle managée pour le mettre automatiquement à niveau en le faisant passer de disque non managé à disque managé.
-
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur la gestion des disques de données des [machines virtuelles revendicables](devtest-lab-add-claimable-vm.md#unclaim-a-vm).

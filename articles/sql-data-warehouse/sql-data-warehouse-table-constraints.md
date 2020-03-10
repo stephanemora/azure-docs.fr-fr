@@ -1,6 +1,6 @@
 ---
 title: Clés primaires, étrangères et uniques
-description: Prise en charge des contraintes de table dans Azure SQL Data Warehouse
+description: Prise en charge des contraintes de table SQL Analytics dans Azure Synapse Analytics
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,29 +10,29 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 8f3102425c6f984df0f50bc05eeb6f9a5e66d3dd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 0379bed08c3ee6931e931a78a2d2c91664535250
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685479"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198131"
 ---
-# <a name="primary-key-foreign-key-and-unique-key-in-azure-sql-data-warehouse"></a>Clé primaire, clé étrangère et clé unique dans Azure SQL Data Warehouse
+# <a name="primary-key-foreign-key-and-unique-key-in-sql-analytics"></a>Clé primaire, clé étrangère et clé unique dans SQL Analytics
 
-Découvrez les contraintes de table dans Azure SQL Data Warehouse, notamment la clé primaire, la clé étrangère et la clé unique.
+Découvrez les contraintes de table SQL Analytics, notamment la clé primaire, la clé étrangère et la clé unique.
 
 ## <a name="table-constraints"></a>Contraintes de table 
-Azure SQL Data Warehouse prend en charge les contraintes de table suivantes : 
+SQL Analytics prend en charge les contraintes de table suivantes : 
 - La contrainte PRIMARY KEY est prise en charge seulement si NONCLUSTERED et NOT ENFORCED sont tous les deux utilisés.    
 - La contrainte UNIQUE est prise en charge seulement si NOT ENFORCED est utilisé.   
 
-La contrainte FOREIGN KEY n’est pas prise en charge dans Azure SQL Data Warehouse.  
+La contrainte FOREIGN KEY n'est pas prise en charge dans SQL Analytics.  
 
-## <a name="remarks"></a>Remarques
-La présence d’une clé primaire et/ou d’une clé unique permet au moteur de l’entrepôt de données de générer un plan d’exécution optimal pour une requête.  Toutes les valeurs d’une colonne de clé primaire ou d’une colonne de contrainte unique doivent être uniques. 
+## <a name="remarks"></a>Notes
+La présence d'une clé primaire et/ou d'une clé unique permet au moteur de SQL Analytics de générer un plan d'exécution optimal pour une requête.  Toutes les valeurs d’une colonne de clé primaire ou d’une colonne de contrainte unique doivent être uniques. 
 
-Après avoir créé une table avec une contrainte de clé primaire ou unique dans Azure Data Warehouse, les utilisateurs doivent s’assurer que toutes les valeurs de ces colonnes sont uniques.  Si cette condition n’est pas respectée, la requête risque de retourner un résultat inexact.  Cet exemple illustre le fait qu’une requête peut retourner un résultat inexact si la colonne de contrainte de clé primaire ou unique contient des valeurs en double.  
+Après avoir créé une table avec contrainte de clé primaire ou unique dans SQL Analytics, les utilisateurs doivent s'assurer que toutes les valeurs de ces colonnes sont uniques.  Si cette condition n’est pas respectée, la requête risque de retourner un résultat inexact.  Cet exemple illustre le fait qu’une requête peut retourner un résultat inexact si la colonne de contrainte de clé primaire ou unique contient des valeurs en double.  
 
 ```sql
  -- Create table t1
@@ -158,12 +158,12 @@ a1          total
 ```
 
 ## <a name="examples"></a>Exemples
-Création d’une table d’entrepôt de données avec une clé primaire : 
+Création d'une table SQL Analytics avec clé primaire : 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Création d’une table d’entrepôt de données avec une contrainte unique :
+Création d'une table SQL Analytics avec contrainte unique :
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -171,4 +171,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir créé les tables dans votre entrepôt de données, l’étape suivante va être de charger des données dans ces tables. Pour suivre un tutoriel sur le chargement, consultez [Chargement de données dans SQL Data Warehouse](load-data-wideworldimportersdw.md).
+Après avoir créé les tables dans votre base de données SQL Analytics, l'étape suivante consiste à charger des données dans ces tables. Pour suivre un tutoriel consacré au chargement, consultez [Chargement de données dans des bases de données SQL Analytics](load-data-wideworldimportersdw.md).

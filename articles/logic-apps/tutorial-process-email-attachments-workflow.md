@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/20/2019
-ms.openlocfilehash: 9f25486aba9549855939b06ea5b8dfc14db0af95
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/27/2020
+ms.openlocfilehash: 4adcda6030ed59cb6cc2285eb1c1eea0f768662c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969117"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662752"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutoriel : Automatiser les tâches de traitement des e-mails avec Azure Logic Apps, Azure Functions et Stockage Azure
 
@@ -34,7 +34,7 @@ Lorsque vous avez terminé, votre application logique ressemble au flux de trava
 
 ![Application logique terminée de niveau élevé](./media/tutorial-process-email-attachments-workflow/overview.png)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -89,7 +89,7 @@ Vous pouvez enregistrer les e-mails entrants et les pièces jointes en tant qu�
 
 1. Créez un conteneur de stockage d’objets blob pour vos pièces jointes.
 
-   1. Dans le menu de votre compte de stockage, sélectionnez **Vue d’ensemble**. Sous **Services**, sélectionnez **Conteneurs**.
+   1. Dans le menu de votre compte de stockage, sélectionnez **Vue d’ensemble**. Dans le volet Vue d’ensemble, sélectionnez **Conteneurs**.
 
       ![Ajouter un conteneur de stockage d’objets blob](./media/tutorial-process-email-attachments-workflow/create-storage-container.png)
 
@@ -223,24 +223,24 @@ Après avoir vérifié le bon fonctionnement de votre fonction, créez votre app
 
 ## <a name="create-your-logic-app"></a>Créer votre application logique
 
-1. Dans la zone de recherche de la page d’accueil Azure, recherchez et sélectionnez **Logic Apps**.
+1. Dans la zone de recherche Azure du haut, entrez `logic apps`, puis sélectionnez **Logic Apps**.
 
    ![Rechercher et sélectionner « Logic Apps »](./media/tutorial-process-email-attachments-workflow/find-select-logic-apps.png)
 
-1. Dans la page **Logic Apps**, sélectionnez **Ajouter**.
+1. Dans le volet **Logic Apps**, sélectionnez **Ajouter**.
 
-   ![Ajouter une nouvelle application logique](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
+   ![Ajouter une nouvelle application logique](./media/tutorial-process-email-attachments-workflow/add-new-logic-app.png)
 
-1. Sous **Créer une application logique**, indiquez les détails de votre application logique comme indiqué ici. Sélectionnez **Créer** quand vous avez terminé.
+1. Dans le volet **Application logique**, indiquez les détails de votre application logique comme indiqué ici. Quand vous avez terminé, sélectionnez **Vérifier + créer**.
 
    ![Spécifier les informations de l’application logique](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
    | Paramètre | Valeur | Description |
    | ------- | ----- | ----------- |
-   | **Nom** | LA-ProcessAttachment | Nom de l’application logique. |
    | **Abonnement** | <*your-Azure-subscription-name*> | Abonnement Azure que vous avez utilisé précédemment. |
    | **Groupe de ressources** | LA-Tutorial-RG | Groupe de ressources Azure que vous avez utilisé précédemment. |
-   | **Lieu** | USA Ouest | Région que vous avez utilisée précédemment. |
+   | **Nom de l’application logique** | LA-ProcessAttachment | Nom de l’application logique. |
+   | **Sélectionner l’emplacement** | USA Ouest | Région que vous avez utilisée précédemment. |
    | **Log Analytics** | Off | Pour ce tutoriel, sélectionnez le paramètre **Désactivé**. |
    ||||
 
@@ -667,7 +667,15 @@ Félicitations ! Vous avez maintenant créé et exécuté une application logiqu
 
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contient votre application logique et les ressources associées.
 
-1. Dans le menu Azure principal, choisissez **Groupes de ressources**. Dans la liste des groupes de ressources, sélectionnez le groupe de ressources utilisé dans ce tutoriel. Dans le volet **Vue d’ensemble**, sélectionnez **Supprimer un groupe de ressources**.
+1. Dans la zone de recherche Azure du haut, entrez `resources groups`, puis sélectionnez **Groupes de ressources**.
+
+   ![Rechercher et sélectionner « Groupes de ressources »](./media/tutorial-process-email-attachments-workflow/find-azure-resource-groups.png)
+
+1. Dans la liste des **Groupes de ressources**, sélectionnez le groupe de ressources pour ce tutoriel. 
+
+   ![Rechercher le groupe de ressources pour le tutoriel](./media/tutorial-process-email-attachments-workflow/find-select-tutorial-resource-group.png)
+
+1. Dans le volet **Vue d’ensemble**, sélectionnez **Supprimer un groupe de ressources**.
 
    ![Supprimer le groupe de ressources de l’application logique](./media/tutorial-process-email-attachments-workflow/delete-resource-group.png)
 

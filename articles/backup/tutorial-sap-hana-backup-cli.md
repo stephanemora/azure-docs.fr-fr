@@ -3,12 +3,12 @@ title: Tutoriel - Sauvegarde de base de données SAP HANA sur Azure à l’aide 
 description: Dans ce tutoriel, vous allez découvrir comment sauvegarder des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure dans un coffre Recovery Services de Sauvegarde Azure à l’aide de l’interface CLI.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: 6d35b6ebfc6f47f5775c24407b645b97112387c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cdc8a8fb09a086a2b9212c21d071f267991fa275
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470804"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206620"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutoriel : Sauvegarder des bases de données SAP HANA sur une machine virtuelle Azure à l’aide de l’interface CLI
 
@@ -68,7 +68,7 @@ westus2    saphanaVault     saphanaResourceGroup
 
 ## <a name="register-and-protect-the-sap-hana-instance"></a>Inscrire et protéger l’instance de SAP HANA
 
-Pour que l’instance de SAP HANA (la machine virtuelle avec SAP HANA installée) soit découverte par les services Azure, un [script de pré-inscription](https://aka.ms/scriptforpermsonhana) doit être exécuté sur l’ordinateur SAP HANA. Vérifiez que tous les [prérequis](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#prerequisites) sont respectés avant d’exécuter le script. Pour en savoir plus sur ce que fait le script, reportez-vous à la section [Configuration des autorisations](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#setting-up-permissions).
+Pour que l’instance de SAP HANA (la machine virtuelle avec SAP HANA installée) soit découverte par les services Azure, un [script de pré-inscription](https://aka.ms/scriptforpermsonhana) doit être exécuté sur l’ordinateur SAP HANA. Vérifiez que tous les [prérequis](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#prerequisites) sont respectés avant d’exécuter le script. Pour en savoir plus sur ce que fait le script, reportez-vous à la section [Ce que fait le script de préinscription](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
 Une fois le script exécuté, l’instance de SAP HANA peut être inscrite auprès du coffre Recovery Services créé précédemment. Pour inscrire l’instance, utilisez l’applet de commande [az backup container register](https://docs.microsoft.com/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-register). *VMResourceId* est l’ID de ressource de la machine virtuelle que vous avez créée pour installer SAP HANA.
 

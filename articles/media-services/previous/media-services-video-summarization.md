@@ -15,16 +15,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: da397c180b6ccaf91084a0ec22210c7bcc88a5dc
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: a79e718c04f81b1552d63ab98b6dcd6bb428fb50
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084795"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918312"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Utiliser Azure Media Video Thumbnails pour créer une synthèse d’une vidéo  
- 
-## <a name="overview"></a>Vue d'ensemble
+
+> [!NOTE]
+> Le processeur multimédia **Azure Media Video Thumbnails** va être mis hors service. Pour connaître la date de mise hors service, consultez la rubrique [Composants hérités](legacy-components.md).
+
+## <a name="overview"></a>Vue d’ensemble
 
 Le processeur multimédia **Azure Media Video Thumbnails** vous permet de créer une synthèse d’une vidéo pour les clients souhaitant juste voir un aperçu d’une vidéo longue. Par exemple, les clients peuvent vouloir visionner une courte « synthèse d’une vidéo » quand ils passent le pointeur sur une miniature. En ajustant les paramètres d’ **Azure Media Video Thumbnails** via une configuration prédéfinie, vous pouvez faire appel à la puissance de la technologie de détection et de concaténation d’images pour générer de façon algorithmique un sous-clip descriptif.  
 
@@ -106,7 +109,7 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 ```csharp
     using System;

@@ -491,6 +491,8 @@
           href: data-flow-exists.md
         - name: Filtrer
           href: data-flow-filter.md
+        - name: Aplatir
+          href: data-flow-flatten.md
         - name: Join
           href: data-flow-join.md
         - name: Recherche
@@ -515,8 +517,6 @@
           href: data-flow-unpivot.md
         - name: Fenêtre
           href: data-flow-window.md
-        - name: Aplatir
-          href: data-flow-flatten.md
     - name: Paramétrable
       items:
         - name: Paramétrage des services liés

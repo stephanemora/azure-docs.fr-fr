@@ -12,18 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/16/2019
+ms.date: 02/27/2020
 ms.author: b-juche
-ms.openlocfilehash: c2984e012ae83a8bc17d72ed4eac0c5c469c2694
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 70d3a2a501952a5e20b1ff8e99f48f4d7aefce8d
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522866"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163962"
 ---
 # <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>Qu’est-ce que la hiérarchie de stockage d’Azure NetApp Files
 
 Avant de créer un volume dans Azure NetApp Files, vous devez acheter et configurer un pool de capacité disponible.  Pour configurer un pool de capacité, vous devez disposer d’un compte NetApp. Comprendre la hiérarchie de stockage s’avère utile pour configurer et gérer vos ressources Azure NetApp Files.
+
+> [!IMPORTANT] 
+> Actuellement, Azure NetApp Files ne prend pas en charge la migration des ressources entre les abonnements.
 
 ## <a name="azure_netapp_files_account"></a>Comptes NetApp
 

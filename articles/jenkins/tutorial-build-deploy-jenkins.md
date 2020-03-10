@@ -4,12 +4,12 @@ description: Avec ce didacticiel, vous allez apprendre à configurer l’intégr
 keywords: jenkins, azure, devops, machine virtuelle, cicd
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 380d547aaee68ad40ae12a4836826d2addae3a18
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: cae28b293a6217996b44c839dc8836ec940c3155
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606376"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192606"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutoriel : Déployer votre application vers des machines virtuelles Linux dans Azure à l’aide de Jenkins et Azure DevOps Services
 
@@ -96,9 +96,9 @@ Tout d’abord, vous devez configurer deux plug-ins Jenkins : **NodeJS** et **V
 5. Sélectionnez **Trigger release in TFS/Team Services** (Déclencher la mise en production dans TFS/Team Services). Entrez l’URI de votre organisation Azure DevOps Services, par exemple **https://{nom-de-votre-organisation}.visualstudio.com**.
 6. Entrer le nom du **projet**.
 7. Choisissez un nom pour le pipeline de mise en production. (Vous créerez ce pipeline de mise en production plus tard dans Azure DevOps Services.)
-8. Choisissez les informations d’identification pour vous connecter à votre environnement Azure DevOps Services ou Team Foundation Server :
+8. Choisissez les informations d’identification pour vous connecter à votre environnement Azure DevOps Services ou Azure DevOps Server :
    - Laissez le champ **Username** (Nom d’utilisateur) vide si vous utilisez Azure DevOps Services. 
-   - Entrez un nom d’utilisateur et un mot de passe si vous utilisez une version locale de Team Foundation Server.    
+   - Entrez un nom d’utilisateur et un mot de passe si vous utilisez une version locale d’Azure DevOps Server.    
    ![Configuration des actions post-build Jenkins](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
 5. Enregistrez le projet Jenkins.
 

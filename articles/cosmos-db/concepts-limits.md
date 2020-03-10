@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 5681efc202df511745532e4a314e88b319e9880a
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 99f255d9991b51897ee31671835dabb5f3e359fd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623401"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916504"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -168,6 +168,9 @@ Le tableau suivant liste les limites propres à la prise en charge des fonctionn
 | --- | --- |
 | Taille de mémoire maximale pour les requêtes MongoDB | 40 Mo |
 | Durée d’exécution maximale des opérations MongoDB| 30 s |
+| Délai d’expiration de connexion inactive pour la fermeture de connexion côté serveur* | 30 minutes |
+
+\* Nous recommandons que les applications clientes définissent le délai d’expiration de connexion inactive dans les paramètres du pilote sur 2-3 minutes, car le [délai d’expiration par défaut pour Azure LoadBalancer est de 4 minutes](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout).  Ce délai d’expiration garantit que les connexions inactives ne sont pas fermées par un équilibreur de charge intermédiaire entre la machine cliente et Azure Cosmos DB.
 
 ## <a name="try-cosmos-db-free-limits"></a>Limites liées à l’essai gratuit de Cosmos DB
 

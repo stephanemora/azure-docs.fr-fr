@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2da009189e0265aafcb26b7ec96837965f1ea0c5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f17192e738bb82fb348c660488e6296aa550bd25
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76838545"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913478"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Résoudre les erreurs et les avertissements courants de l’indexeur dans la Recherche cognitive Azure
 
@@ -152,9 +152,9 @@ Le document a été lu et traité, mais l’indexeur n’a pas pu l’ajouter à
 
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"/>
 
-## <a name="error-could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>Erreur : Impossible d’indexer le document parce que les données de l’indexeur ne sont pas valides
+## <a name="error-could-not-index-document-because-some-of-the-documents-data-was-not-valid"></a>Erreur : impossible d’indexer le document parce que certaines données de celui-ci n’étaient pas valides
 
-Le document a été lu et traité mais, en raison d’une discordance dans la configuration des champs d’index et la nature des données extraites par l’indexeur, il n’a pas pu être ajouté à l’index de recherche. Cela peut se produire si :
+L’indexeur a lu et traité le document mais, en raison d’une discordance de configuration des champs d’index et des données extraites et traitées par l’indexeur, il n’a pas été possible d’ajouter les données à l’index de recherche. Cela peut se produire si :
 
 | Motif | Détails/Exemple
 | --- | ---
@@ -166,12 +166,11 @@ Le document a été lu et traité mais, en raison d’une discordance dans la co
 
 Dans tous ces cas, consultez les [types de données pris en charge ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) et le [mappage des types de données pour les indexeurs](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) pour vous assurer de générer le schéma d’index correctement et de définir les [mappages de champs d’indexeur](search-indexer-field-mappings.md) appropriés. Le message d’erreur comprendra des détails qui peuvent aider à identifier la source de l’incompatibilité.
 
-<a name="could-not-process-document-within-indexer-max-run-time"/>
-
 ## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Erreur : Impossible d’utiliser la stratégie de suivi des modifications intégré car la table contient une clé primaire composite
 
 Cela s’applique aux tables SQL, et se produit généralement lorsque la clé est définie en tant que clé composite ou, lorsque la table a défini un index cluster unique (comme avec l’index SQL, mais pas l’index Azure Search). Ceci est principalement dû au fait que l’attribut de clé est transformé en une clé primaire composite dans le cas d’un [index cluster unique](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). Dans ce cas, vérifiez que votre table SQL n’a pas d’index cluster unique, ou que vous mappez le champ clé à un champ pour lequel les valeurs en double sont impossibles.
 
+<a name="could-not-process-document-within-indexer-max-run-time"/>
 
 ## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>Erreur : Impossible de traiter le document en respectant le temps d’exécution max. de l’indexeur
 

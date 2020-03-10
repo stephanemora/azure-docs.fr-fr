@@ -1,18 +1,17 @@
 ---
 title: Collecter des journaux de ressources à partir d’une ressource Azure et les analyser avec Azure Monitor
 description: Tutoriel permettant de configurer les paramètres de diagnostic afin de collecter des journaux de ressources à partir d’une ressource Azure dans un espace de travail Log Analytics où ils peuvent être analysés avec une requête de journal.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 90b2a9bc9e3e8aa6297f02a46163717a2bf58a22
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d356042d65c419163de4951e64a635a22ea90e6d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532612"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269189"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutoriel : Collecter et analyser des journaux de ressources à partir d’une ressource Azure
 
@@ -26,7 +25,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Créer une requête de journal simple pour analyser des journaux.
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel, vous avez besoin d’une ressource Azure à superviser. Vous pouvez utiliser n’importe quelle ressource de votre abonnement Azure qui prend en charge les paramètres de diagnostic. Pour déterminer si une ressource prend en charge les paramètres de diagnostic, accédez à son menu dans le portail Azure et vérifiez qu’une option **Paramètres de diagnostic** figure dans la section **Supervision** du menu.
 
@@ -47,7 +46,7 @@ Un espace de travail Log Analytics dans Azure Monitor collecte et indexe les don
    - **Abonnement**: sélectionnez l’abonnement où stocker l’espace de travail. Il n’est pas obligatoire qu’il s’agisse du même abonnement que celui de la ressource supervisée.
    - **Groupe de ressources** : sélectionnez un groupe de ressources existant ou cliquez sur **Créer** pour en créer un. Il n’est pas obligatoire qu’il s’agisse du même groupe de ressources que celui de la ressource supervisée.
    - **Emplacement** : sélectionnez une région Azure ou créez-en une nouvelle. Il n’est pas obligatoire qu’il s’agisse du même emplacement que celui de la ressource supervisée.
-   - **Niveau tarifaire** : sélectionnez *Gratuit* pour conserver sept jours de données. Vous pourrez modifier ce niveau tarifaire ultérieurement. Cliquez sur le lien **Tarifs Log Analytics** pour en savoir plus sur les différents niveaux tarifaires.
+   - **Niveau tarifaire** : Sélectionnez le niveau tarifaire *Paiement à l’utilisation*. Vous pourrez modifier ce niveau tarifaire ultérieurement. Cliquez sur le lien **Tarifs Log Analytics** pour en savoir plus sur les différents niveaux tarifaires.
 
     ![Nouvel espace de travail](media/tutorial-resource-logs/new-workspace.png)
 
@@ -63,8 +62,8 @@ Les [paramètres de diagnostic](../platform/diagnostic-settings.md) définissent
 
 3. Chaque paramètre de diagnostic comporte trois parties :
  
-   - **Nom** : il n’a aucun effet significatif, et n’a pour but que de décrire le paramètre.
-   - **Destinations** : une ou plusieurs destinations auxquelles envoyer les journaux. Tous les services Azure partagent le même ensemble de trois destinations possibles. Chaque paramètre de diagnostic peut définir une ou plusieurs destinations, mais pas plus d’une destination d’un type spécifique. 
+   - **Name** : il n’a aucun effet significatif, et n’a pour but que de décrire le paramètre.
+   - **Destinations** : Une ou plusieurs destinations auxquelles envoyer les journaux. Tous les services Azure partagent le même ensemble de trois destinations possibles. Chaque paramètre de diagnostic peut définir une ou plusieurs destinations, mais pas plus d’une destination d’un type spécifique. 
    - **Categories** : catégories de journaux à envoyer à chacune des destinations. L’ensemble des catégories varie en fonction de chaque service Azure.
 
 4. Sélectionnez **Envoyer vers un espace de travail Log Analytics**, puis sélectionnez l’espace de travail que vous avez créé.
@@ -85,7 +84,7 @@ Les données sont récupérées à partir d’un espace de travail Log Analytics
     > [!NOTE]
     > Si vous avez ouvert Log Analytics à partir du menu Azure Monitor, l’étendue sera définie sur l’espace de travail Log Analytics. Dans ce cas, les requêtes incluront tous les enregistrements dans l’espace de travail.
    
-    ![Journaux](media/tutorial-resource-logs/logs.png)
+    ![Journaux d’activité](media/tutorial-resource-logs/logs.png)
 
 4. Le service présenté dans l’exemple écrit les journaux de ressources dans la table **AzureDiagnostics**, mais les autres services peuvent écrire dans d’autres tables. Consultez [Services, schémas et catégories pris en charge pour les journaux de ressources Azure](../platform/diagnostic-logs-schema.md) pour plus de détails sur les tables utilisées par les différents services Azure.
 

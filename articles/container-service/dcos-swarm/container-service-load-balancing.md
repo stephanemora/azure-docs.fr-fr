@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: d8dff1dc063cc3b940fbdf0698b8b328b90d60b6
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: a8f863f16888e6eca2dbc72c5dd612c38edbe46e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277830"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273374"
 ---
 # <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(DÉPRÉCIÉ) Équilibrer la charge des conteneurs dans un cluster DC/OS Azure Container Service
 
@@ -43,9 +43,11 @@ L’outil **Marathon Load Balancer (marathon-lb)** achemine les demandes entrant
 
 L’équilibreur de charge Marathon se reconfigure dynamiquement en fonction des conteneurs que vous avez déployés. Il est également résistant à la perte d’un conteneur ou d’un agent. Le cas échéant, Apache Mesos redémarre le conteneur ailleurs et l’outil marathon-lb s’adapte.
 
+Accédez à [https://shell.azure.com](https://shell.azure.com) pour ouvrir Cloud Shell dans votre navigateur.
+
 Exécutez la commande suivante pour installer l’équilibreur de charge marathon sur le cluster de l’agent public.
 
-```azurecli-interactive
+```console
 dcos package install marathon-lb
 ```
 
@@ -97,7 +99,7 @@ Ensuite, créez un fichier nommé *hello-web.json* et copiez-y le contenu suivan
 
 Utilisez l’interface de ligne de commande DC/OS pour exécuter l’application. Par défaut, Marathon déploie l’application sur le cluster privé. Cela signifie que le déploiement ci-dessus est uniquement accessible via votre équilibreur de charge, ce qui correspond généralement au comportement souhaité.
 
-```azurecli-interactive
+```console
 dcos marathon app add hello-web.json
 ```
 

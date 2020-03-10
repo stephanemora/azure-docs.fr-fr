@@ -1,41 +1,52 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentation Windows Virtual Desktop
+summary: Fournissez une expérience de bureau virtuel et des applications distantes à n’importe quel appareil. Réunissez Microsoft 365 et Azure pour offrir aux utilisateurs la seule expérience Windows 10 multisession, assortie d’une extensibilité exceptionnelle et de coûts informatiques réduits.
 metadata:
-  title: Documentation Windows Virtual Desktop | Microsoft Docs
-  description: "Windows Virtual Desktop pour Azure est une expérience Windows\_10 Entreprise multi-utilisateur virtualisée dans le cloud."
-  author: Heidilohr
-  manager: lizross
+  title: Documentation Windows Virtual Desktop
+  description: Windows Virtual Desktop pour Azure est une expérience Windows 10 Entreprise multi-utilisateur virtualisée dans le cloud.
   ms.service: virtual-desktop
   services: virtual-desktop
   ms.topic: landing-page
-  ms.date: 02/20/2019
+  manager: lizross
+  author: Heidilohr
   ms.author: helohr
-abstract:
-  description: "Fournissez une expérience de bureau virtuel et des applications distantes à n’importe quel appareil. Réunissez Microsoft\_365 et Azure pour offrir aux utilisateurs la seule expérience Windows\_10 multisession, assortie d’une extensibilité exceptionnelle et de coûts informatiques réduits."
-sections:
-  - title: Vue d’ensemble
-    items:
-      - type: paragraph
-        text: 'Découvrez Windows Virtual Desktop et comment l’utiliser. Les tutoriels, les guides pratiques et le contenu de référence, entre autres, vous montrent comment configurer des pools d’hôtes et des locataires, et comment attribuer des rôles à des utilisateurs pour votre environnement Windows Virtual Desktop.'
-      - type: list
-        style: unordered
-        items:
-          - html: "<a href=\"/azure/virtual-desktop/overview\">Qu’est-ce que Windows Virtual Desktop\_?</a>"
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: 'Découvrez comment installer et configurer Windows Virtual Desktop, et comment vous connecter au client quand vous êtes prêt.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Créer un locataire dans Windows Virtual Desktop</a>
-          - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Créer un pool d’hôtes avec la Place de marché Azure</a>
-          - html: <a href="/azure/virtual-desktop/manage-app-groups">Gérer des groupes d’applications pour Windows Virtual Desktop</a>
-          - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Créer des principaux de service et des attributions de rôles avec PowerShell</a>
-  - title: Informations de référence
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/powershell/windows-virtual-desktop/overview">PowerShell</a>
+  ms.date: 03/06/2020
+  ms.openlocfilehash: f37b0cd68c62813dd4c642d9e45a20a91d08c31c
+  ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 03/07/2020
+  ms.locfileid: "78898666"
+landingContent:
+- title: À propos de Windows Virtual Desktop
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que Windows Virtual Desktop ?
+      url: overview.md
+- title: Bien démarrer
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Créer un locataire dans Windows Virtual Desktop
+      url: tenant-setup-azure-active-directory.md
+    - text: Créer un pool d’hôtes avec la Place de marché Azure
+      url: create-host-pools-azure-marketplace.md
+    - text: Gérer des groupes d’applications pour Windows Virtual Desktop
+      url: manage-app-groups.md
+    - text: Créer des principaux de service et des attributions de rôles avec PowerShell
+      url: create-service-principal-role-powershell.md
+- title: Se connecter à Windows Virtual Desktop
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Client Windows Desktop
+      url: connect-windows-7-and-10.md
+    - text: Client web
+      url: connect-web.md
+    - text: Client Android
+      url: connect-android.md
+    - text: Client macOS
+      url: connect-macos.md
+    - text: Client iOS
+      url: connect-ios.md

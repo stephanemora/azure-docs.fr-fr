@@ -1,46 +1,54 @@
 ---
 title: Qu’est-ce que Liaison privée Azure ?
-description: Découvrez comment utiliser le service Liaison privée Azure pour accéder aux services PaaS Azure, comme Stockage Azure et SQL Database, ainsi qu’aux services de partenaires ou de clients hébergés par Azure sur un point de terminaison privé dans votre réseau virtuel.
+description: Vue d’ensemble des fonctionnalités, de l’architecture et de l’implémentation d’Azure Private Link. Découvrez comment les points de terminaison privés Azure et le service Azure Private Link fonctionnent et comment les utiliser.
 services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 01/09/2020
+ms.date: 02/27/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: aea424d4e74f0744f5891a0d7b3b08008fa227b5
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 710c5a780841135344d92e93a02f97963b36b09e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562035"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921388"
 ---
 # <a name="what-is-azure-private-link"></a>Qu’est-ce que Liaison privée Azure ? 
-Azure Private Link vous permet d’accéder aux services PaaS Azure (par exemple Stockage Azure, Azure Cosmos DB et SQL Database) ainsi qu’aux services de partenaires ou de clients hébergés par Azure sur un [Point de terminaison privé](private-endpoint-overview.md) dans votre réseau virtuel. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez également créer votre propre [service Liaison privée](private-link-service-overview.md) dans votre réseau virtuel et le distribuer en privé à vos clients. L’expérience de configuration et de consommation à l’aide du service Liaison privée Azure est cohérente entre les services PaaS Azure, appartenant au client et de partenaires partagés.
+Azure Private Link vous permet d’accéder aux services Azure PaaS comme :
+ 
+ - **Stockage Azure**
+ - **Azure Cosmos DB**
+ - **Azure SQL Database**
+
+Private Link permet d’accéder à des services clients et partenaires hébergés sur un [point de terminaison privé](private-endpoint-overview.md) de votre réseau virtuel.
+
+Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft. L’exposition de votre service à l’Internet public n’est plus nécessaire. Vous pouvez créer votre propre [service de liaison privée](private-link-service-overview.md) dans votre réseau virtuel et le distribuer à vos clients. La configuration et la consommation à l’aide d’Azure Private Link est cohérente entre le service Azure PaaS, les services appartenant au client et les services de partenaires partagés.
 
 > [!IMPORTANT]
-> Azure Private Link est maintenant une fonctionnalité en disponibilité générale. Private Endpoint et Private Link Service (service derrière l’équilibreur de charge Standard) sont en disponibilité générale. Différentes versions d’Azure PaaS seront intégrées à Azure Private Link à différentes échéances. Vérifiez la section [Disponibilité](https://docs.microsoft.com/azure/private-link/private-link-overview#availability) ci-dessous pour connaître le statut précis d’Azure PaaS sur Private Link. Pour en savoir plus sur les limitations connues, consultez [Point de terminaison privé](private-endpoint-overview.md#limitations) et [Service Liaison privée](private-link-service-overview.md#limitations). 
+> Azure Private Link est maintenant en disponibilité générale. Le point de terminaison privé et le service Private Link (service derrière l’équilibreur de charge standard) sont tous les deux en disponibilité générale. Différentes versions d’Azure PaaS seront intégrées à Azure Private Link à différentes échéances. Vérifiez la section [Disponibilité](https://docs.microsoft.com/azure/private-link/private-link-overview#availability) ci-dessous pour connaître l’état précis d’Azure PaaS sur Private Link. Pour en savoir plus sur les limitations connues, consultez [Point de terminaison privé](private-endpoint-overview.md#limitations) et [Service Liaison privée](private-link-service-overview.md#limitations). 
 
 ![Vue d’ensemble du point de terminaison privé](media/private-link-overview/private-endpoint.png)
 
 ## <a name="key-benefits"></a>Principaux avantages
 Le service Liaison privée Azure offre les avantages suivants :  
-- **Accès en privé aux services sur la plateforme Azure** : Connectez votre réseau virtuel à des services s’exécutant dans Azure en privé sans avoir besoin d’une adresse IP publique au niveau de la source ou de la destination. Les fournisseurs de services peuvent afficher leurs services en privé dans leur propre réseau virtuel et les consommateurs peuvent accéder à ces services en privé dans leur réseau virtuel local. La plateforme Liaison privée gère la connectivité entre le consommateur et les services sur le réseau principal Azure. 
+- **Accès en privé aux services sur la plateforme Azure** : Connectez votre réseau virtuel à des services dans Azure sans adresse IP publique au niveau de la source ou de la destination. Les fournisseurs de services peuvent afficher leurs services dans leur propre réseau virtuel et les consommateurs peuvent accéder à ces services dans leur réseau virtuel local. La plateforme Liaison privée gère la connectivité entre le consommateur et les services sur le réseau principal Azure. 
  
-- **Réseaux locaux et appairés** : Accédez aux services s’exécutant dans Azure à partir d’un réseau local par le biais de l’appairage privé ExpressRoute/tunnels VPN et de réseaux virtuels appairés à l’aide de points de terminaison privés. Il n’est pas nécessaire de configurer l’appairage public ni de transiter par Internet pour atteindre le service. Cette fonctionnalité offre un moyen sécurisé de migrer des charges de travail vers Azure.
+- **Réseaux locaux et appairés** : Accédez aux services s’exécutant dans Azure en local par le biais du peering privé ExpressRoute, de tunnels VPN et de réseaux virtuels appairés à l’aide de points de terminaison privés. Il n’est pas nécessaire de configurer le peering public ni de transiter par Internet pour atteindre le service. Private Link offre un moyen sécurisé de migrer des charges de travail vers Azure.
  
-- **Protection contre l’exfiltration de données** :  Avec le service Liaison privée Azure, le point de terminaison privé du réseau virtuel est mappé à une instance spécifique de la ressource PaaS du client, par opposition à l’ensemble du service. Le point de terminaison privé permet aux clients de se connecter uniquement à la ressource spécifique et non à une autre ressource du service. Ce mécanisme intégré offre une protection contre les risques liés à l’exfiltration des données. 
+- **Protection contre la fuite de données** : Un point de terminaison privé est mappé à une instance d’une ressource PaaS plutôt qu’au service entier. Les consommateurs peuvent se connecter uniquement à la ressource spécifique. L’accès à toute autre ressource du service est bloqué. Ce mécanisme offre une protection contre les risques de fuite de données. 
  
-- **Global Reach** : Connectez-vous en privé à des services s’exécutant dans d’autres régions. Cela signifie que le réseau virtuel du consommateur peut se trouver dans la région A et qu’il peut se connecter aux services qui se trouvent derrière Liaison privée dans la région B.  
+- **Global Reach** : Connectez-vous en privé à des services s’exécutant dans d’autres régions. Le réseau virtuel du consommateur peut se trouver dans la région A et se connecter aux services qui se trouvent derrière Private Link dans la région B.  
  
-- **Extension à vos propres services** : Tirez parti des mêmes expérience et fonctionnalités pour afficher votre propre service en privé aux consommateurs dans Azure. En plaçant votre service derrière Standard Load Balancer, vous pouvez l’activer pour Liaison privée. Le consommateur peut alors se connecter directement à votre service à l’aide d’un point de terminaison privé dans son propre réseau virtuel. Vous pouvez gérer ces demandes de connexion à l’aide d’un simple flux d’appels d’approbation. Le service Liaison privée Azure fonctionne également pour les consommateurs et services appartenant à différents locataires Active Directory. 
+- **Extension à vos propres services** : Activez les mêmes expériences et fonctionnalités pour afficher votre service en privé aux consommateurs dans Azure. En plaçant votre service derrière une instance Azure Load Balancer standard, vous pouvez l’activer pour Private Link. Le consommateur peut alors se connecter directement à votre service à l’aide d’un point de terminaison privé dans son propre réseau virtuel. Vous pouvez gérer les demandes de connexion à l’aide d’un flux d’appels d’approbation. Azure Private Link fonctionne pour les consommateurs et services appartenant à différents locataires Azure Active Directory. 
 
 ## <a name="availability"></a>Disponibilité 
- Le tableau suivant liste les services Liaison privée et les régions où ils sont disponibles. 
+ Le tableau suivant liste les services Private Link et les régions où ils sont disponibles. 
 
 |Scénario  |Services pris en charge  |Régions disponibles | Statut  |
 |:---------|:-------------------|:-----------------|:--------|
-|Liaison privée pour les services appartenant au client|Services Liaison privée derrière Standard Load Balancer | Toutes les régions publiques  | GA <br/> [En savoir plus](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+|Liaison privée pour les services appartenant au client|Services Private Link derrière l’instance Azure Load Balancer standard | Toutes les régions publiques  | GA <br/> [En savoir plus](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
 |Liaison privée pour les services PaaS Azure   | Stockage Azure        |  Toutes les régions publiques      | PRÉVERSION <br/> [En savoir plus](/azure/storage/common/storage-private-endpoints)  |
 |  | Azure Data Lake Storage Gen2        |  Toutes les régions publiques      | PRÉVERSION <br/> [En savoir plus](/azure/storage/common/storage-private-endpoints)  |
 |  |  Azure SQL Database         | Toutes les régions publiques      |   PRÉVERSION <br/> [En savoir plus](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
@@ -55,8 +63,15 @@ Pour obtenir les notifications les plus récentes, consultez la [page relative a
 
 ## <a name="logging-and-monitoring"></a>Enregistrement et surveillance
 
-Le service Liaison privée Azure est intégré à Azure Monitor, ce qui vous permet d’archiver les journaux dans un compte de stockage, de transmettre des événements à votre hub d’événements ou de les envoyer à des journaux Azure Monitor. Vous pouvez accéder aux informations suivantes sur Azure Monitor : 
-- **Point de terminaison privé** : Données traitées par le point de terminaison privé (entrée/sortie)
+Azure Private Link offre une intégration à Azure Monitor. Cette combinaison permet les opérations suivantes :
+
+ - Archive de journaux dans un compte de stockage.
+ - Streaming d’événements vers votre hub d’événements.
+ - Journalisation d’Azure Monitor.
+
+Vous pouvez accéder aux informations suivantes sur Azure Monitor : 
+- **Point de terminaison privé** : 
+    - Données traitées par le point de terminaison privé (entrée/sortie)
  
 - **Service Liaison privée** :
     - Données traitées par le service Liaison privée (entrée/sortie)
@@ -75,12 +90,9 @@ Pour connaître les limites, consultez [Limites de Liaison privée Azure](../azu
 Pour connaître les détails du SLA, consultez [SLA pour Azure Private Link](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/).
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Créer un point de terminaison privé pour un serveur SQL Database à l’aide du portail](create-private-endpoint-portal.md)
-- [Créer un point de terminaison privé pour un serveur SQL Database à l’aide de PowerShell](create-private-endpoint-powershell.md)
-- [Créer un point de terminaison privé pour un serveur SQL Database à l’aide de l’interface CLI](create-private-endpoint-cli.md)
-- [Créer un point de terminaison privé pour un compte de stockage à l’aide du portail](create-private-endpoint-storage-portal.md)
-- [Créer un point de terminaison privé pour un compte Cosmos Azure à l’aide du portail](../cosmos-db/how-to-configure-private-endpoints.md)
-- [Créer votre propre service Liaison privée à l’aide d’Azure PowerShell](create-private-link-service-powershell.md)
+
+- [Démarrage rapide : Créer un point de terminaison privé au moyen du portail Azure](create-private-endpoint-portal.md)
+- [Démarrage rapide : Créer un service Private Link avec le portail Azure](create-private-link-service-portal.md)
 
 
  

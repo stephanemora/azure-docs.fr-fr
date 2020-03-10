@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 10/11/2019
 ms.author: rohink
-ms.openlocfilehash: 8391d92a2e2970378c11c043ca9f5d4f6dc44696
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 52bf9e061eb57c7ce6ea698b7468b5ba5e11b4e8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939365"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78244978"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Démarrage rapide : Créer une zone Azure DNS privée avec le portail Azure
 
@@ -48,7 +48,7 @@ Une zone DNS contient les entrées DNS d’un domaine. Pour commencer à héberg
 
 1. Dans la page **Créer une zone DNS privée**, tapez ou sélectionnez les valeurs suivantes :
 
-   - **Groupe de ressources** : Sélectionnez **Créer**, entrez *MyAzureResourceGroup*, puis sélectionnez **OK**. Le nom du groupe de ressources doit être unique au sein de l’abonnement Azure. 
+   - **Groupe de ressources** : Sélectionnez **Créer**, entrez *MyAzureResourceGroup*, puis sélectionnez **OK**. Le nom du groupe de ressources doit être unique au sein de l’abonnement Azure.
    -  **Name** : Tapez *private.contoso.com* pour cet exemple.
 1. Pour **Emplacement du groupe de ressources**, sélectionnez un **USA Centre-Ouest**.
 
@@ -58,13 +58,21 @@ Une zone DNS contient les entrées DNS d’un domaine. Pour commencer à héberg
 
 La création de la zone peut prendre plusieurs minutes.
 
-## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
+## <a name="virtual-network-and-parameters"></a>Réseau virtuel et paramètres
 
-1. Dans l’angle supérieur gauche de page du portail, sélectionnez **Créer une ressource**, **Mise en réseau**, puis **Réseau virtuel**.
-2. Pour **Nom**, tapez **myAzureVNet**.
-3. Pour **Groupe de ressources**, sélectionnez **MyAzureResourceGroup**.
-4. Pour **Emplacement**, sélectionnez **USA Centre-Ouest**.
-5. Acceptez les autres valeurs par défaut, puis sélectionnez **Créer**.
+Dans les étapes de cette section, vous devrez remplacer les paramètres du tableau ci-dessous par la valeur indiquée correspondante :
+
+| Paramètre                   | Valeur                |
+|-----------------------------|----------------------|
+| **\<nom_groupe_ressources>**  | MyAzureResourceGroup (sélectionnez un groupe de ressources existant) |
+| **\<nom_réseau_virtuel>** | MyAzureVNet          |
+| **\<nom_région>**          | Centre-USA Ouest      |
+| **\<espace_d’adressage_IPv4>**   | 10.2.0.0\16          |
+| **\<nom_sous-réseau>**          | MyAzureSubnet        |
+| **\<plage_adresses_sous-réseau>** | 10.2.0.0\24          |
+
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="link-the-virtual-network"></a>Lier le réseau virtuel
 
@@ -88,9 +96,8 @@ Maintenant, créez deux machines virtuelles afin de pouvoir tester votre zone DN
 1. Sélectionnez **MyAzureResourceGroup** comme groupe de ressources.
 1. Entrez **myVM01** en tant que nom de machine virtuelle.
 1. Pour **Région**, sélectionnez **USA Centre-Ouest**.
-1. Entrez **azureadmin** en tant que nom d’utilisateur administrateur.
-2. Entrez **Azure12345678** en tant que mot de passe, puis confirmez le mot de passe.
-
+1. Entrez un nom d’utilisateur administrateur.
+2. Entrez un mot de passe et confirmez-le.
 5. Pour **Ports d’entrée publics**, sélectionnez **Autoriser les ports sélectionnés**, puis, pour **Sélectionner des ports d’entrée**, choisissez **RDP (3389)** .
 10. Acceptez les autres valeurs par défaut pour la page, puis cliquez sur **Suivant : Disques >** .
 11. Accepter les valeurs par défaut sur la page **Disques**, puis cliquez sur **Suivant : Mise en réseau >** .

@@ -3,20 +3,20 @@ title: Exemples de transformation de revendications StringCollection pour les st
 titleSuffix: Azure AD B2C
 description: Exemples de transformations de revendications StringCollection pour le schéma Identity Experience Framework (IEF) d’Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
-ms.author: marsma
+ms.date: 02/27/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8f91db91eff3320691a5979d9453bf515ccd59a2
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 6aea537ebff4ae61e00861e6cafe742a7feb165e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982294"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186775"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformations de revendications StringCollection
 
@@ -26,13 +26,13 @@ Cet article fournit des exemples pour l’utilisation des transformations de rev
 
 ## <a name="additemtostringcollection"></a>AddItemToStringCollection
 
-Ajoute une revendication de chaîne à une nouvelle revendication stringCollection.
+Ajoute une revendication de chaîne à une nouvelle revendication stringCollection à valeurs uniques.
 
 | Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | ClaimType à ajouter à la revendication de sortie. |
 | InputClaim | collection | stringCollection | [Facultatif] Si spécifié, la transformation de revendication copie les éléments de cette collection et ajoute l’élément à la fin de la revendication de collection de sortie. |
-| OutputClaim | collection | stringCollection | ClaimTypes générés après l’appel de cette ClaimsTransformation. |
+| OutputClaim | collection | stringCollection | ClaimType généré après l'appel de cette transformation de revendication, avec la valeur spécifiée dans la revendication d'entrée. |
 
 Utilisez cette transformation de revendication pour ajouter une chaîne à un objet stringCollection nouveau ou existant. Elle est couramment utilisée dans un profil technique **AAD-UserWriteUsingAlternativeSecurityId**. Avant la création d’un compte social, la transformation de revendication **CreateOtherMailsFromEmail** lit le ClaimType et ajoute la valeur au ClaimType **otherMails**.
 
@@ -60,13 +60,13 @@ La transformation de revendication suivante ajoute le ClaimType **e-mail** au Cl
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
-Ajoute un paramètre de chaîne à une nouvelle revendication stringCollection.
+Ajoute un paramètre de chaîne à une nouvelle revendication stringCollection à valeurs uniques.
 
 | Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | [Facultatif] Si spécifié, la transformation de revendication copie les éléments de cette collection et ajoute l’élément à la fin de la revendication de collection de sortie. |
 | InputParameter | item | string | Valeur à ajouter à la revendication de sortie. |
-| OutputClaim | collection | stringCollection | ClaimTypes qui sont générés après l’appel de cette ClaimsTransformation. |
+| OutputClaim | collection | stringCollection | ClaimType généré après que cette transformation de revendication a été appelée, avec la valeur spécifiée dans le paramètre d’entrée. |
 
 Utilisez cette transformation de revendication pour ajouter une valeur de chaîne à un objet stringCollection nouveau ou existant. L’exemple suivant ajoute une adresse e-mail constante (admin@contoso.com) à la revendication **otherMails**.
 
@@ -147,7 +147,7 @@ L’exemple suivant vérifie si le type de revendication stringCollection `roles
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
-  </OutputClaims>         
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 

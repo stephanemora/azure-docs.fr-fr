@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer le réacheminement de port - Portail Azure'
+title: 'Tutoriel : Configurer le réacheminement de port - Portail Azure'
 titleSuffix: Azure Load Balancer
 description: Ce didacticiel montre comment configurer la redirection de port à l’aide d’Azure Load Balancer pour créer des connexions à des machines virtuelles dans un réseau virtuel Azure.
 services: load-balancer
@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 6dda01543a6a7f447adefcc6cc3cfa3ea5da5492
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: e740a65d453a69a987e938a5170ae8e04c7bfe40
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048843"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249875"
 ---
-# <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Didacticiel : Configurer la redirection de port dans Azure Load Balancer à l’aide du portail
+# <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutoriel : Configurer la redirection de port dans Azure Load Balancer à l’aide du portail
 
 La redirection de port vous permet de vous connecter à des machines virtuelles dans un réseau virtuel Azure à l’aide de l’adresse IP publique et du numéro de port d’un Azure Load Balancer. 
 
@@ -45,11 +45,11 @@ Pour toutes les étapes de ce didacticiel, connectez-vous au portail Azure à l�
 Commencez par créer un équilibreur de charge standard public qui permet d’équilibrer la charge du trafic sur les machines virtuelles. Un équilibreur de charge standard prend uniquement en charge une adresse IP publique standard. Lorsque vous créez un équilibreur de charge standard, vous créez également une adresse IP publique standard qui est configurée en tant qu’équilibreur de charge frontal et nommée **LoadBalancerFrontend** par défaut. 
 
 1. En haut à gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
-2. Dans l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Vérifier + créer** :
+2. Sous l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Vérifier + créer** :
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Subscription               | Sélectionnez votre abonnement.    |    
+    | Abonnement               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer** et tapez *MyResourceGroupLB* dans la zone de texte.|
     | Nom                   | *myLoadBalancer*                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
@@ -62,39 +62,40 @@ Commencez par créer un équilibreur de charge standard public qui permet d’é
     >[!NOTE]
      >Veillez à créer votre équilibreur de charge et toutes ses ressources dans un emplacement prenant en charge les zones de disponibilité. Pour plus d’informations, consultez [Régions prenant en charge les zones de disponibilité](../availability-zones/az-overview.md#services-support-by-region). 
 
-3. Dans l’onglet **Vérifier + créer**, cliquez sur **Créer**.  
+3. Sous l’onglet **Vérifier + créer**, cliquez sur **Créer**.  
   
 ## <a name="create-and-configure-back-end-servers"></a>Créer et configurer des serveurs principaux
 
 Créez un réseau virtuel avec deux machines virtuelles, puis ajoutez les machines virtuelles au pool principal de votre équilibreur de charge. 
 
-### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
+## <a name="virtual-network-and-parameters"></a>Réseau virtuel et paramètres
 
-1. En haut à gauche du portail, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
-   
-1. Dans le volet **Créer un réseau virtuel**, tapez ou sélectionnez les valeurs suivantes :
-   
-   - **Nom** : Tapez *MyVNet*.
-   - **Groupe de ressources** : Faites défiler la liste déroulante **Sélectionner** et choisissez **MyResourceGroupLB**. 
-   - **Sous-réseau** > **Nom** : Entrez *MyBackendSubnet*.
-   
-1. Sélectionnez **Create** (Créer).
+Dans les étapes de cette section, vous devrez remplacer les paramètres du tableau ci-dessous par la valeur indiquée correspondante :
 
-   ![Créez un réseau virtuel](./media/tutorial-load-balancer-port-forwarding-portal/2-load-balancer-virtual-network.png)
+| Paramètre                   | Valeur                |
+|-----------------------------|----------------------|
+| **\<nom_groupe_ressources>**  | myResourceGroupLB (sélectionnez un groupe de ressources existant) |
+| **\<nom_réseau_virtuel>** | myVNet          |
+| **\<nom_région>**          | Europe Ouest      |
+| **\<espace_d’adressage_IPv4>**   | 10.3.0.0\16          |
+| **\<nom_sous-réseau>**          | myBackendSubnet        |
+| **\<plage_adresses_sous-réseau>** | 10.3.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-vms-and-add-them-to-the-load-balancer-back-end-pool"></a>Créer des machines virtuelles et les ajouter au pool principal de l’équilibreur de charge
 
 1. En haut à gauche du portail, sélectionnez **Créer une ressource** > **Calcul** > **Windows Server 2016 Datacenter**. 
    
 1. Dans **Créer une machine virtuelle**, tapez ou sélectionnez les valeurs suivantes sous l’onglet **De base** :
-   - **Abonnement** > **Groupe de ressources** : Faites défiler la liste déroulante et sélectionnez **MyResourceGroupLB**.
+   - **Abonnement** > **Groupe de ressources** : Faites défiler la liste et sélectionnez **MyResourceGroupLB**.
    - **Nom de la machine virtuelle** : Tapez *MyVM1*.
-   - **Région** : Sélectionnez **Europe Ouest**. 
+   - **Région** : Sélectionnez **Europe Ouest**. 
    - **Nom d’utilisateur** : Tapez *azureuser*.
-   - **Mot de passe** : Tapez *Azure1234567*. 
+   - **Mot de passe** : Tapez *Azure1234567*. 
      Retapez le mot de passe dans le champ **Confirmer le mot de passe**.
    
-1. Sélectionnez l’onglet **Mise en réseau** ou choisissez **Suivant : Disques**, puis **Suivant : Mise en réseau**. 
+1. Sélectionnez l'onglet **Mise en réseau** ou choisissez **Suivant : Disques**, puis **Suivant : Mise en réseau**. 
    
    Vérifiez que les éléments suivants sont sélectionnés :
    - **Réseau virtuel** : **MyVNet**
@@ -146,10 +147,10 @@ Créez une règle de groupe de sécurité réseau (NSG) pour les machines virtue
    - **Source** : Sélectionnez **Balise du service**.  
    - **Balise du service source** : Sélectionnez **Internet**. 
    - **Plages de ports de destination** : Entrez *80*.
-   - **Protocole** : Sélectionnez **TCP**. 
-   - **Action** : Sélectionnez **Autoriser**.  
-   - **Priorité** : Entrez *100*. 
-   - **Nom** : Entrez *MyHTTPRule*. 
+   - **Protocole** : Sélectionnez **TCP**. 
+   - **Action** : Sélectionnez **Autoriser**.  
+   - **Priorité** : Entrez *100*. 
+   - **Name** : Entrez *MyHTTPRule*. 
    - **Description** : Entrez *Autoriser HTTP*. 
    
 1. Sélectionnez **Ajouter**. 
@@ -188,9 +189,9 @@ Pour permettre à l’équilibreur de charge de superviser l’état d’une mac
    
 1. Dans la page **Ajouter une sonde d’intégrité**, tapez ou sélectionnez les valeurs suivantes :
    
-   - **Nom** : Entrez *MyHealthProbe*.
-   - **Protocole** : Faites défiler et sélectionnez **HTTP**. 
-   - **Port** : Entrez *80*. 
+   - **Name** : Entrez *MyHealthProbe*.
+   - **Protocole** : Faites défiler et sélectionnez **HTTP**. 
+   - **Port** : Entrez *80*. 
    - **Chemin d’accès** : Acceptez */* comme URI par défaut. Vous pouvez remplacer cette valeur avec n’importe quel autre URI. 
    - **Intervalle** : Entrez *15*. L’intervalle est le nombre de secondes entre les tentatives de la sonde.
    - **Seuil de défaillance sur le plan de l’intégrité** : Entrez *2*. Cette valeur est le nombre d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme défaillante.
@@ -211,9 +212,9 @@ La règle d’équilibreur de charge nommée **MyLoadBalancerRule** écoute sur 
    
 1. Dans la page **Ajouter une règle d’équilibrage de charge**, tapez ou sélectionnez les valeurs suivantes :
    
-   - **Nom** : Tapez *MyLoadBalancerRule*.
+   - **Name** : Entrez *MyLoadBalancerRule*.
    - **Protocole** : Sélectionnez **TCP**.
-   - **Port** : Entrez *80*.
+   - **Port** : Entrez *80*.
    - **Port principal** : Entrez *80*.
    - **Pool principal** : Sélectionnez **MyBackendPool**.
    - **Sonde d’intégrité** : Sélectionnez **MyHealthProbe**. 
@@ -232,12 +233,12 @@ Créez une règle de traduction d’adresses réseau (NAT) de trafic entrant d�
    
 1. Dans la page **Ajouter une règle NAT de trafic entrant**, tapez ou sélectionnez les valeurs suivantes :
    
-   - **Nom** : Tapez *MyNATRuleVM1*.
+   - **Name** : Tapez *MyNATRuleVM1*.
    - **Port** : Tapez *4221*.
    - **Machine virtuelle cible** : Sélectionnez **MyVM1** dans la liste déroulante.
    - **Configuration IP réseau** : Sélectionnez **ipconfig1** dans la liste déroulante.
    - **Mappage de port** : Sélectionnez **Personnalisé**.
-   - **Port cible** : Tapez *3389*.
+   - **Port cible** : Entrez *3389*.
    
 1. Sélectionnez **OK**.
    
@@ -328,7 +329,7 @@ Avec la redirection de port, vous pouvez appliquer le Bureau à distance à une 
 
 La connexion RDP réussit, car la règle NAT de trafic entrant **MyNATRuleVM2** dirige le trafic du port frontal 4222 de l’équilibreur de charge vers le port 3389 de MyVM2 (port RDP).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer l’équilibreur de charge et toutes les ressources associées quand vous n’en avez plus besoin, ouvrez le groupe de ressources **MyResourceGroupLB**, puis sélectionnez **Supprimer un groupe de ressources**.
 

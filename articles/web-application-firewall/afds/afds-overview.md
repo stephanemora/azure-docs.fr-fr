@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 02/01/2020
 ms.author: victorh
-ms.openlocfilehash: 925b859de28b8878412ee99402ffd727edcc4e7c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: c8ff1849668d5effe15b6c25d00f3965a17b8e3e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934722"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915637"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Pare-feu d’applications web Azure sur Azure Front Door
 
@@ -77,7 +77,7 @@ Vous pouvez configurer des règles WAF personnalisées comme expliqué ci-dessou
 
 ### <a name="azure-managed-rule-sets"></a>Ensembles de règles managées par Azure
 
-Les ensembles de règles managées par Azure fournissent un moyen simple de déployer une solution de protection contre diverses menaces de sécurité courantes. Dans la mesure où ces ensembles de règles sont managées par Azure, les règles sont mises à jour comme il convient pour vous protéger contre les nouvelles signatures d’attaque. Disponible en préversion publique, l’ensemble de règles par défaut managées par Azure inclut des règles de protection contre les catégories de menaces suivantes :
+Les ensembles de règles managées par Azure fournissent un moyen simple de déployer une solution de protection contre diverses menaces de sécurité courantes. Dans la mesure où ces ensembles de règles sont managées par Azure, les règles sont mises à jour comme il convient pour vous protéger contre les nouvelles signatures d’attaque. L’ensemble de règles par défaut managées par Azure inclut des règles de protection contre les catégories de menaces suivantes :
 
 - Scripts intersites (XSS)
 - Attaques Java
@@ -91,6 +91,8 @@ Les ensembles de règles managées par Azure fournissent un moyen simple de dép
 
 Le numéro de version de l’ensemble de règles par défaut s’incrémente quand de nouvelles signatures d’attaque sont ajoutées à l’ensemble de règles.
 L’ensemble de règles par défaut est activé en mode Détection par défaut dans vos stratégies WAF. Vous pouvez activer ou désactiver des règles individuellement dans l’ensemble de règles par défaut en fonction des exigences propres à votre application. Vous pouvez également définir des actions spécifiques (AUTORISER/BLOQUER/REDIRIGER/JOURNALISER) pour chaque règle.
+
+Parfois, il peut se révéler utile d’omettre certains attributs de demande d’une évaluation de pare-feu d’applications web (WAF). Les jetons insérés par Active Directory qui sont utilisés pour l’authentification en sont un exemple courant. Vous pouvez configurer une liste d’exclusion pour une règle managée, pour un groupe de règles ou pour la totalité de l’ensemble de règles.  
 
 L’action par défaut est BLOQUER. De plus, des règles personnalisées peuvent être configurées dans la même stratégie WAF si vous souhaitez ignorer les règles préconfigurées de l’ensemble de règles par défaut.
 

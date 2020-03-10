@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2020
+ms.date: 02/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4cc4db9ffcb700d4b65a7f5c21d258e9af52d164
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 155498aeaea30bf2da1d5aa0dbcb322aeb43bbdd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598525"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661292"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurations du stockage des machines virtuelles SAP HANA Azure
 
@@ -35,6 +35,10 @@ Pour en savoir plus sur ces types de disques, consultez l’article [Sélectionn
 Azure offre deux méthodes de déploiement avec les disques durs virtuels sur le stockage Azure Standard et Premium. Si le scénario global le permet, tirez parti des déploiements [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/). 
 
 Pour obtenir une liste des types de stockage et les contrats SLA associés pour les débits d’IOPS et de stockage, passez en revue la [documentation Azure sur les disques managés](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+> [!IMPORTANT]
+> Indépendamment du type de stockage Azure choisi, le système de fichiers utilisé sur ce stockage doit être pris en charge par SAP pour le système d’exploitation et le SGBD spécifiques. La [Note de support SAP n°405827](https://launchpad.support.sap.com/#/notes/405827) répertorie les systèmes de fichiers pris en charge pour les différents systèmes d’exploitation et bases de données, sont SAP HANA. Cela s’applique à tous les volumes SAP HANA qui pourraient accéder à des fins de lecture et d’écriture pour n’importe quelle tâche. En particulier, en utilisant NFS sur Azure pour SAP HANA, des restrictions supplémentaires des versions NFS s’appliquent, comme indiqué plus loin dans cet article 
+
 
 Les conditions certifiée SAP HANA minimales pour les différents types de stockages sont les suivantes : 
 
@@ -278,7 +282,7 @@ Les [limites de débit Azure NetApp Files](https://docs.microsoft.com/azure/azur
 
 Pour respecter les exigences de débit minimal SAP pour les données et le journal, et conformément aux instructions pour `/hana/shared`, les tailles recommandées ressemblent à ceci :
 
-| Volume | Size<br /> Niveau de stockage Premium | Size<br /> Niveau de stockage Ultra | Protocole NFS pris en charge |
+| Volume | Taille<br /> Niveau de stockage Premium | Taille<br /> Niveau de stockage Ultra | Protocole NFS pris en charge |
 | --- | --- | --- |
 | /hana/log/ | 4 Tio | 2 Tio | v4.1 |
 | /hana/data | 6,3 Tio | 3,2 Tio | v4.1 |

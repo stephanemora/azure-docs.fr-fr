@@ -12,19 +12,15 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: c11f7daf68585d63d19fca282ef2f4a306303ac7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 72c363c34a3e7e01cb32917dd87237e4bbfc9490
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160727"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249143"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web ASP.NET Core
-
-Dans ce guide de démarrage rapide, vous allez découvrir comment une application web ASP.NET Core peut connecter des comptes personnels (hotmail.com, outlook.com, etc.) et des comptes professionnels et scolaires à partir de n’importe quelle instance Azure Active Directory (Azure AD).
-
-![Fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.svg)
-
+Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour découvrir comment une application web ASP.NET Core peut connecter des comptes personnels (hotmail.com, outlook.com, etc.) et des comptes professionnels et scolaires à partir de n’importe quelle instance Azure Active Directory (Azure AD). (Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour une illustration.)
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Inscrire et télécharger votre application de démarrage rapide
 > Vous disposez de deux options pour démarrer votre application de démarrage rapide :
@@ -66,22 +62,32 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment une applicatio
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>Étape 2 : Télécharger votre projet ASP.NET Core
 
-- [Télécharger la solution Visual Studio 2019](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
-
-#### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : Configurer votre projet Visual Studio
-
-1. Extrayez le fichier zip dans un dossier local du dossier racine, par exemple, **C:\Azure-Samples**
-1. Si vous utilisez Visual Studio 2019, ouvrez la solution dans Visual Studio (facultatif).
-1. Modifiez le fichier **appsettings.json**. Recherchez `ClientId` et mettez à jour la valeur de `ClientId` avec la valeur de l’**ID d’application (client)** de l’application que vous avez inscrite. 
-
-    ```json
-    "ClientId": "Enter_the_Application_Id_here"
-    "TenantId": "Enter_the_Tenant_Info_Here"
-    ```
+> [!div renderon="docs"]
+> [Télécharger la solution Visual Studio 2019](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
+> Exécutez le projet à l’aide de Visual Studio 2019.
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Téléchargez l’exemple de code]().
+
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Étape 3 : Votre application est configurée et prête à être exécutée
+> Nous avons configuré votre projet avec les valeurs des propriétés de votre application et il est prêt à être exécuté. 
+> [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Ce guide de démarrage rapide prend en charge Enter_the_Supported_Account_Info_Here.
+> > Enter_the_Supported_Account_Info_Here
+> [!div renderon="docs"]
+> #### <a name="step-3-run-your-visual-studio-project"></a>Étape 3 : Exécuter votre projet Visual Studio
+> 1. Extrayez le fichier zip dans un dossier local du dossier racine, par exemple, **C:\Azure-Samples**
+> 1. Ouvrez la solution dans Visual Studio 
+> 1. Modifiez le fichier **appsettings.json**. Recherchez `ClientId` et mettez à jour la valeur de `ClientId` avec la valeur de l’**ID d’application (client)** de l’application que vous avez inscrite. 
+>
+>    ```json
+>    "ClientId": "Enter_the_Application_Id_here"
+>    "TenantId": "Enter_the_Tenant_Info_Here"
+>    ```
+
+
 
 > [!div renderon="docs"]
 > Où :
@@ -97,6 +103,9 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment une applicatio
 ## <a name="more-information"></a>Informations complémentaires
 
 Cette section offre une vue d’ensemble du code requis pour connecter les utilisateurs. Cette vue d’ensemble peut être utile pour comprendre comment le code fonctionne, les principaux arguments et également si vous souhaitez ajouter une connexion à une application ASP.NET Core existante.
+
+### <a name="how-the-sample-works"></a>Fonctionnement de l’exemple
+![Fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.svg)
 
 ### <a name="startup-class"></a>Classe de démarrage
 

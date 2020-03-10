@@ -145,10 +145,6 @@
             - name: Outputs
               displayName: 'iteration,copy'
               href: copy-outputs.md
-        - name: Ressources de niveau abonnement
-          href: deploy-to-subscription.md
-        - name: Ressources de niveau groupe d’administration
-          href: deploy-to-management-group.md
     - name: Utiliser des outils de création
       items:
         - name: Visual Studio Code
@@ -182,7 +178,15 @@
           href: rollback-on-error.md
         - name: Sécuriser un modèle avec un jeton SAS
           href: secure-template-with-sas-token.md
-        - name: Déployer sur plusieurs groupes de ressources ou abonnements
+    - name: Déploiements délimités
+      items:
+        - name: Abonnement
+          href: deploy-to-subscription.md
+        - name: Groupe d’administration
+          href: deploy-to-management-group.md
+        - name: Locataire
+          href: deploy-to-tenant.md
+        - name: Plusieurs groupes de ressources ou abonnements
           href: cross-resource-group-deployment.md
     - name: Fournir des paramètres
       items:

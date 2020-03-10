@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: a17ff15e71251e781cd30c33a5616af85e4f4eb9
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 1aff2815144f776b351e92d8945b267d1451f9f6
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260081"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915705"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utiliser l’injection de dépendances dans .NET Azure Functions
 
@@ -21,7 +21,7 @@ Azure Functions prend en charge le modèle de conception logicielle d’injectio
 
 - L’injection de dépendances est prise en charge depuis Azure Functions 2.x.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de pouvoir utiliser l’injection de dépendances, vous devez installer les packages NuGet suivants :
 
@@ -130,7 +130,7 @@ Si vous avez besoin de votre propre fournisseur de journalisation, inscrivez un 
 
 > [!WARNING]
 > - N’ajoutez pas `AddApplicationInsightsTelemetry()` à la collection de services, car il enregistre des services en conflit avec les services fournis par l’environnement.
-> - N’inscrivez pas votre propre `TelemetryConfiguration` ou `TelemetryClient` si vous utilisez la fonctionnalité intégrée Application Insights.
+> - N’inscrivez pas votre propre `TelemetryConfiguration` ou `TelemetryClient` si vous utilisez la fonctionnalité intégrée Application Insights. Si vous devez configurer votre propre instance `TelemetryClient`, créez-en une via la `TelemetryConfiguration` injectée, comme indiqué dans [Superviser Azure Functions](./functions-monitoring.md#version-2x-and-later-2).
 
 ## <a name="function-app-provided-services"></a>Services fournis par Function App
 

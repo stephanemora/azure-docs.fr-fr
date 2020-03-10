@@ -1,35 +1,32 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: load balancer
 author: KumudD
 ms.service: load-balancer
 ms.topic: include
-ms.date: 02/08/2018
+ms.date: 02/21/2020
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: 4219df03f74f737c5f2435f9bc0842189dc1fd49
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 33e6fecafa2b9748a27794800365974ebc975d0e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76909129"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78202522"
 ---
-| | Référence SKU standard | Référence SKU De base |
+| | Standard Load Balancer | Basic Load Balancer |
 | --- | --- | --- |
-| Taille de pool de serveur principal | Prend en charge jusqu’à 1 000 instances. | Prend en charge jusqu’à 300 instances. |
-| Points de terminaison du pool du serveur principal | Toute machine virtuelle dans un seul réseau virtuel, y compris la combinaison de machines virtuelles, de groupes à haute disponibilité et de groupes de machines virtuelles identiques. | Machines virtuelles dans un groupe à haute disponibilité ou un groupe de machines virtuelles identiques unique. |
+| [Taille du pool backend](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer) | Prend en charge jusqu’à 1 000 instances. | Prend en charge jusqu’à 300 instances. |
+| Points de terminaison du pool du serveur principal | Toutes les machines virtuelles ou tous les groupes de machines virtuelles identiques d’un seul réseau virtuel. | Machines virtuelles dans un groupe à haute disponibilité ou un groupe de machines virtuelles identiques unique. |
 | [Sondes d’intégrité](../articles/load-balancer/load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
 | [Comportement en cas de panne de sonde d’intégrité](../articles/load-balancer/load-balancer-custom-probe-overview.md#probedown) | Les connexions TCP restent actives sur une sonde d’instance en panne __et__ sur toutes les sondes en panne. | Les connexions TCP restent actives sur une sonde d’instance en panne. Toutes les connexions TCP s'arrêtent quand toutes les sondes sont en panne. |
-| Zones de disponibilité | Serveurs frontaux redondants interzones et zonaux pour le trafic entrant et sortant. Les mappages de flux sortants survivent aux défaillances de zone. Équilibrage de charge entre les zones. | Non disponible |
-| Diagnostics | Azure Monitor. Indicateurs de performances multidimensionnels, y compris compteurs d’octets et de paquets. État de la sonde d’intégrité. Tentatives de connexion (TCP SYN). Intégrité de la connexion sortante (flux SNAT réussis et échoués). Mesures de plan de données actives. | Azure Log Analytics pour équilibreur de charge public uniquement. Alerte d’épuisement des ressources SNAT. Mesure de l’intégrité du pool du serveur principal. |
-| Ports HA | Équilibreur de charge interne | Non disponible |
-| Sécurisé par défaut | Les adresses IP publiques, les points de terminaison d’équilibreurs de charge publics et les points de terminaison d’équilibreurs de charge internes sont fermés aux flux entrants, sauf s’ils sont autorisés par un groupe de sécurité réseau. Notez que le trafic interne du réseau virtuel vers l’équilibreur de charge interne est toujours autorisé. | Ouvertes par défaut. Groupe de sécurité réseau facultatif. |
-| [Connexions sortantes](../articles/load-balancer/load-balancer-outbound-connections.md) | Vous pouvez définir explicitement des règles NAT de trafic sortant basées sur un pool avec des [règles de trafic sortant](../articles/load-balancer/load-balancer-outbound-rules-overview.md). Vous pouvez utiliser plusieurs serveurs frontaux avec refus par règle d’équilibrage de charge. Un scénario sortant _doit_ être explicitement créé pour que la machine virtuelle, le groupe à haute disponibilité ou le groupe de machines virtuelles identiques utilise la connectivité sortante. Les points de terminaison de service de réseau virtuel peuvent être atteints sans définir de connectivité sortante et ne sont pas comptabilisés dans les données traitées. Toutes les adresses IP publiques, y compris les services PaaS Azure non disponibles en tant que points de terminaison de service de réseau virtuel, doivent être atteintes en utilisant la connectivité sortante et sont comptabilisées dans les données traitées. Quand seul un équilibreur de charge interne gère une machine virtuelle, un groupe à haute disponibilité ou un groupe de machines virtuelles identiques, les connexions sortantes via les règles SNAT par défaut ne sont pas disponibles. À la place, utilisez des [règles de trafic sortant](../articles/load-balancer/load-balancer-outbound-rules-overview.md). La programmation de SNAT sortante dépend du protocole de transport de la règle d’équilibrage de charge entrante. | Serveur frontal unique, sélectionné de manière aléatoire quand plusieurs serveurs frontaux sont présents. Quand seul un équilibreur de charge interne gère une machine virtuelle, un groupe à haute disponibilité ou un groupe de machines virtuelles identiques, le mode SNAT par défaut est utilisé. |
-| [Règles de trafic sortant](../articles/load-balancer/load-balancer-outbound-rules-overview.md) | Configuration déclarative de règles NAT de trafic sortant, en utilisant des adresses IP publiques, des préfixes IP publics ou les deux. Délai d'inactivité sortant configurable (4-120 minutes). Allocation de ports SNAT personnalisée | Non disponible |
-| [Réinitialisation TCP pendant le délai d’inactivité](../articles/load-balancer/load-balancer-tcp-reset.md) | Activer la réinitialisation TCP (TCP RST) pendant le délai d’inactivité sur n’importe quelle règle | Non disponible |
+| Zones de disponibilité | Front-ends redondants interzones et zonaux pour le trafic entrant et sortant. | Non disponible |
+| Diagnostics | [Métriques multidimensionnelles Azure Monitor](../articles/load-balancer/load-balancer-standard-diagnostics.md) | [Journaux d’activité Azure Monitor](../articles/load-balancer/load-balancer-monitor-log.md) |
+| Ports HA | [Disponibles pour l’équilibreur de charge interne](../articles/load-balancer/load-balancer-ha-ports-overview.md) | Non disponible |
+| Sécurisé par défaut | Fermé aux flux entrants, sauf s’ils sont autorisés par un groupe de sécurité réseau. Notez que le trafic interne du réseau virtuel vers l’équilibreur de charge interne est autorisé. | Ouvertes par défaut. Groupe de sécurité réseau facultatif. |
+| Règles de trafic sortant | [Configuration NAT déclarative de règles de trafic sortant](../articles/load-balancer/load-balancer-outbound-rules-overview.md) | Non disponible |
+| Réinitialisation du protocole TCP en cas d’inactivité | [Disponible sur n’importe quelle règle](../articles/load-balancer/load-balancer-tcp-reset.md) | Non disponible |
 | [Plusieurs serveurs frontaux](../articles/load-balancer/load-balancer-multivip-overview.md) | Entrant et [sortant](../articles/load-balancer/load-balancer-outbound-connections.md) | Entrant uniquement |
 | Opérations de gestion | La plupart des opérations < 30 secondes | Généralement 60 à 90 secondes et plus |
-| Contrat SLA | 99,99 % pour le chemin de données avec deux machines virtuelles saines. | Non applicable | 
-| Tarifs | Facturation en fonction du nombre de règles configurées et des données associées aux ressources traitées en entrée et en sortie. | Aucuns frais |
-|  |  |  |
+| Contrat SLA | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Non disponible | 

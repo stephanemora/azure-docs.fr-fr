@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/25/2020
 ms.author: rajanaki
-ms.openlocfilehash: 68d975a1b8bb8d47011bb292d3cf897956b31712
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 208177d10e9002fafe2495710da229541a11a43e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623617"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661668"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Dépréciation de la récupération d'urgence entre des sites gérés par un client (avec VMM) à l'aide d'Azure Site Recovery
 
@@ -36,10 +36,8 @@ Récupération d’urgence entre des sites appartenant à un client et gérés p
 
 Vous trouverez ci-dessous les alternatives parmi lesquelles le client peut choisir pour s’assurer que sa stratégie de récupération d’urgence ne sera pas compromise lorsque le scénario sera déprécié. 
 
-- Option 1 (recommandée) : Choisissez de [commencer à utiliser Azure comme cible de récupération d’urgence pour les machines virtuelles sur les hôtes Hyper-V](hyper-v-azure-tutorial.md).
+- Option 1 (recommandée) : Choisissez de [commencer à utiliser Azure comme cible de récupération d’urgence](hyper-v-vmm-azure-tutorial.md).
 
-    > [!IMPORTANT]
-    > Notez que votre environnement local peut toujours disposer de SCVMMM, mais que vous configurerez ASR avec des références aux hôtes Hyper-V uniquement.
 
 - Option n°2 : Choisissez de continuer la réplication de site à site en utilisant la [solution de réplication Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica) sous-jacente ; mais vous ne serez alors pas en mesure de gérer les configurations de récupération d’urgence à l’aide d’Azure Site Recovery dans le Portail Azure. 
 
@@ -50,15 +48,11 @@ Si vous choisissez d’utiliser l’option 1, veuillez exécuter les étapes su
 
 1. [Désactiver la protection de toutes les machines virtuelles associées aux VMM](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-secondary-vmm-server-using-the-system-center-vmm-to-vmm-scenario). Utilisez l’option **Désactiver la réplication et supprimer** ou exécutez les scripts mentionnés pour vous assurer que les paramètres de réplication locaux sont nettoyés. 
 
-2. [Désinscrire tous les serveurs VMM](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server)
+2. [Annuler l’inscription de tous les serveurs VMM](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server) de la configuration de la réplication de site à site.
 
 3. [Préparer les ressources Azure](tutorial-prepare-azure-for-hyperv.md) pour activer la réplication de vos machines virtuelles.
 4. [Préparer des serveurs Hyper-V locaux](hyper-v-prepare-on-premises-tutorial.md)
-
-> [!IMPORTANT]
-> Notez qu'il n'est pas nécessaire de suivre les étapes de la section Préparer un VMM.
-
-5. [Configurer la réplication des machines virtuelles](hyper-v-azure-tutorial.md)
+5. [Configurer la réplication des machines virtuelles dans le cloud VMM](hyper-v-vmm-azure-tutorial.md)
 6. Cette étape est facultative, mais recommandée : [Exécuter un test de récupération d’urgence](tutorial-dr-drill-azure.md)
 
 Si vous choisissez d'utiliser l'option 2 du réplica Hyper-V, suivez les étapes ci-dessous :

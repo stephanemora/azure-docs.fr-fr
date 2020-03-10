@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 812680e587ac5c5c8b3d949199a615fcd85fa610
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 301b68d0dfaeef6d5cfdd4d7a5a504794ac877f4
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485350"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205818"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples
 
@@ -35,12 +35,19 @@ Pour suivre cette procédure de démarrage rapide, vous avez besoin des élémen
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurer l’outil d’étiquetage des exemples
 
 Vous allez utiliser le moteur Docker pour exécuter l’outil d’étiquetage des exemples. Procédez comme suit pour configurer le conteneur Docker. Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).
-1. Tout d’abord, installez Docker sur un ordinateur hôte. L’ordinateur hôte peut être votre ordinateur local ([Windows](https://docs.docker.com/docker-for-windows/), [macOS](https://docs.docker.com/docker-for-mac/) ou [Linux](https://docs.docker.com/install/)). Vous pouvez aussi utiliser un service d’hébergement Docker dans Azure, comme [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index) ou un cluster Kubernetes [déployé sur une pile Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). L’ordinateur hôte doit satisfaire à la configuration matérielle suivante :
+1. Tout d’abord, installez Docker sur un ordinateur hôte. Ce guide va vous montrer comment utiliser l’ordinateur local en tant qu’hôte. Si vous voulez utiliser un service d’hébergement Docker dans Azure, consultez le guide pratique [Déployer l’outil d’étiquetage des exemples](../deploy-label-tool.md). 
+
+   L’ordinateur hôte doit satisfaire à la configuration matérielle suivante :
 
     | Conteneur | Minimum | Recommandé|
     |:--|:--|:--|
     |Outil d’étiquetage des exemples|2 cœurs, 4 Go de mémoire|4 cœurs, 8 Go de mémoire|
-    
+
+   Installez Docker sur votre ordinateur en suivant les instructions appropriées pour votre système d’exploitation : 
+   * [Windows](https://docs.docker.com/docker-for-windows/)
+   * [macOS](https://docs.docker.com/docker-for-mac/)
+   * [Linux](https://docs.docker.com/install/).
+
 1. Récupérez le conteneur de l’outil d’étiquetage des exemples avec la commande `docker pull`.
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
@@ -116,17 +123,23 @@ Cliquez sur **Run OCR on all files** (Exécuter l’OCR sur tous les fichiers) d
 
 ### <a name="apply-labels-to-text"></a>Appliquer des étiquettes à du texte
 
-Ensuite, vous allez créer des étiquettes et les appliquer aux éléments de texte que vous souhaitez que le modèle reconnaisse.
+Vous allez ensuite créer des balises (étiquettes) et les appliquer aux éléments de texte que vous souhaitez que le modèle reconnaisse.
 
 1. Tout d’abord, utilisez le volet de l’éditeur d’étiquettes pour créer les étiquettes que vous souhaitez identifier.
+  1. Cliquez sur **+** pour créer une étiquette.
+  1. Entrez le nom de l’étiquette.
+  1. Appuyez sur Entrée pour enregistrer l’étiquette.
 1. Dans l’éditeur principal, cliquez et faites glisser pour sélectionner un ou plusieurs mots parmi les éléments de texte mis en évidence.
+1. Cliquez sur l’étiquette que vous souhaitez appliquer ou appuyez sur la touche du clavier correspondante. Les touches numériques sont affectées comme touches d’accès rapide pour les 10 premières étiquettes. Vous pouvez réorganiser vos étiquettes à l’aide des icônes de flèches haut et bas dans le volet de l’éditeur d’étiquettes.
+    > [!Tip]
+    > Gardez à l’esprit les conseils suivants quand vous étiquetez vos formulaires.
+    > * Vous ne pouvez appliquer qu’une seule étiquette à chaque élément de texte sélectionné.
+    > * Chaque étiquette ne peut être appliquée qu’une seule fois par page. Si une valeur apparaît plusieurs fois sur le même formulaire, créez des étiquettes différentes pour chaque instance, par exemple « facture n° 1 », « facture n° 2 », etc.
+    > * Les étiquettes ne peuvent pas s’étendre sur plusieurs pages.
+    > * Étiquetez les valeurs telles qu’elles apparaissent sur le formulaire ; n’essayez pas de fractionner une valeur en deux parties avec deux étiquettes différentes. Par exemple, un champ d’adresse doit être étiqueté avec une étiquette unique, même s’il s’étend sur plusieurs lignes.
+    > * N’incluez pas de clés dans vos champs étiquetés&mdash;uniquement les valeurs.
+    > * Les données de la table doivent être détectées automatiquement et seront disponibles dans le fichier JSON de sortie final. Toutefois, si le modèle ne parvient pas à détecter toutes les données de votre table, vous pouvez aussi étiqueter manuellement ces champs. Étiquetez chaque cellule de la table avec une étiquette différente. Si vos formulaires comportent des tables avec un nombre variable de lignes, veillez à étiqueter au moins un formulaire avec la table la plus grande possible.
 
-    > [!NOTE]
-    > Vous ne pouvez pas sélectionner du texte qui s’étend sur plusieurs pages.
-1. Cliquez sur l’étiquette que vous souhaitez appliquer ou appuyez sur la touche du clavier correspondante. Vous ne pouvez appliquer qu’une seule étiquette à chaque élément de texte sélectionné, et chaque étiquette ne peut être appliquée qu’une seule fois par page.
-
-    > [!TIP]
-    > Les touches numériques sont affectées comme raccourcis clavier pour les dix premières étiquettes. Vous pouvez réorganiser vos étiquettes à l’aide des icônes de flèches haut et bas dans le volet de l’éditeur d’étiquettes.
 
 Suivez les étapes ci-dessus pour étiqueter cinq de vos formulaires, puis passez à l’étape suivante.
 

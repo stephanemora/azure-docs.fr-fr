@@ -14,16 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: a8560df6120dd773e13dbfc7427d9a16e6f6c83b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 83fe7867a3128ac82597c028452863a1ad681ace
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896001"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914311"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Utiliser Azure Media Content Moderator pour détecter du contenu potentiellement osé et réservé aux adultes 
 
-## <a name="overview"></a>Vue d'ensemble
+> [!NOTE]
+> Le processeur multimédia **Azure Media Content Moderator** sera mis hors service. Pour connaître la date de mise hors service, consultez la rubrique [Composants hérités](legacy-components.md).
+
+## <a name="overview"></a>Vue d’ensemble
 Le processeur multimédia (MP) **Azure Media Content Moderator** vous permet d’utiliser la modération assistée par ordinateur pour vos vidéos. Par exemple, vous souhaiterez peut-être détecter du contenu potentiellement osé et réservé aux adultes dans des vidéos et demander à vos équipes humaines en charge de la modération d’en examiner le contenu.
 
 Le processeur multimédia **Azure Media Content Moderator** est actuellement disponible en préversion.

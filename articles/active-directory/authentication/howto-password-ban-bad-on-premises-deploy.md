@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f61ab87a3eb1bd4b81a8e67a182a4cb6a09aa069
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 4a3eb121b68311084fd516c6abb7e00ad70eba8b
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888955"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226831"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Déployer la protection par mot de passe d’Azure AD
 
@@ -106,6 +106,7 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
    * Chacun de ces services fournit uniquement des stratégies de mot de passe pour une forêt unique. La machine hôte doit être jointe à un domaine dans cette forêt. Les domaines racine et enfant sont tous deux pris en charge. Vous avez besoin d’une connectivité réseau entre au moins un contrôleur de domaine dans chaque domaine de la forêt et la machine de protection de mot de passe.
    * Vous pouvez exécuter le service proxy sur un contrôleur de domaine à des fins de test. Toutefois, ce contrôleur de domaine nécessite alors une connectivité internet, ce qui peut poser un problème de sécurité. Nous recommandons cette configuration à des fins de test uniquement.
    * À des fins de redondance, nous recommandons au moins deux serveurs proxy. Consultez [Haute disponibilité](howto-password-ban-bad-on-premises-deploy.md#high-availability).
+   * L'exécution du service proxy sur un contrôleur de domaine en lecture seule n'est pas prise en charge.
 
 1. Installez le service proxy de protection par mot de passe Azure AD à l’aide de l’installateur de logiciel `AzureADPasswordProtectionProxySetup.exe`.
    * L’installation du logiciel ne nécessite pas un redémarrage. L’installation du logiciel peut être automatisée à l’aide de procédures MSI standard, par exemple :
@@ -133,11 +134,11 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
 
      `Register-AzureADPasswordProtectionProxy`
 
-     Cette applet de commande exige les informations d’identification d’administrateur général pour votre locataire Azure. Vous avez également besoin des privilèges d’administrateur de domaine Active Directory local dans le domaine racine de la forêt. Vous devez également exécuter cette applet de commande à l’aide d’un compte avec des privilèges d’administrateur local.
+     Cette applet de commande exige les informations d’identification d’administrateur général pour votre locataire Azure. Vous avez également besoin des privilèges d’administrateur de domaine Active Directory local dans le domaine racine de la forêt. Cette cmdlet doit également être exécutée à l'aide d'un compte disposant de privilèges d'administrateur local.
 
      Une fois que cette commande a réussi pour un service proxy, des appels supplémentaires de cette commande réussiront mais ils ne sont pas nécessaires.
 
-      L’applet de commande `Register-AzureADPasswordProtectionProxy` prend en charge les trois modes d’authentification suivants. Les deux premiers modes prennent en charge Azure Multi-Factor Authentication, contrairement au troisième mode. Pour plus d’informations, consultez les commentaires ci-dessous.
+      L’applet de commande `Register-AzureADPasswordProtectionProxy` prend en charge les trois modes d’authentification suivants. Les deux premiers modes prennent en charge Azure Multi-Factor Authentication, contrairement au troisième mode. Pour plus d'informations, consultez les commentaires ci-dessous.
 
      * Mode d’authentification interactive :
 
@@ -179,11 +180,11 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
    > Il peut y avoir un retard notable avant la fin, la première fois que vous exécutez cette applet de commande pour un locataire Azure spécifique. À moins qu’une erreur soit signalée, ne vous inquiétez pas de ce retard.
 
 1. Inscrivez la forêt.
-   * Vous devez initialiser la forêt Active Directory locale avec les informations d’identification nécessaires pour communiquer avec Azure à l’aide de l’applet de commande PowerShell `Register-AzureADPasswordProtectionForest`.
+   * Initialisez la forêt Active Directory locale avec les informations d'identification nécessaires pour communiquer avec Azure à l'aide de la cmdlet PowerShell `Register-AzureADPasswordProtectionForest`.
 
       Cette applet de commande exige les informations d’identification d’administrateur général pour votre locataire Azure.  Vous devez également exécuter cette applet de commande à l’aide d’un compte avec des privilèges d’administrateur local. Elle requiert également des privilèges d’administrateur d’entreprise Active Directory en local. Cette étape est exécutée une seule fois par forêt.
 
-      L’applet de commande `Register-AzureADPasswordProtectionForest` prend en charge les trois modes d’authentification suivants. Les deux premiers modes prennent en charge Azure Multi-Factor Authentication, contrairement au troisième mode. Pour plus d’informations, consultez les commentaires ci-dessous.
+      L’applet de commande `Register-AzureADPasswordProtectionForest` prend en charge les trois modes d’authentification suivants. Les deux premiers modes prennent en charge Azure Multi-Factor Authentication, contrairement au troisième mode. Pour plus d'informations, consultez les commentaires ci-dessous.
 
      * Mode d’authentification interactive :
 
@@ -266,7 +267,7 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
    Le service proxy ne prend pas en charge l’utilisation d’informations d’identification spécifiques pour la connexion à un proxy HTTP.
 
 1. Facultatif : Configurez le service proxy de protection par mot de passe pour être à l’écoute sur un port spécifique.
-   * Le logiciel de l’agent DC pour la protection par mot de passe sur les contrôleurs de domaine utilise RPC sur TCP pour communiquer avec le service proxy. Par défaut, le service proxy est à l’écoute sur n’importe quel point de terminaison RPC dynamique disponible. Toutefois, vous pouvez configurer le service pour être à l’écoute sur un port TCP spécifique, si cela est nécessaire en raison de la topologie du réseau ou de la configuration du pare-feu dans votre environnement.
+   * Le logiciel de l’agent DC pour la protection par mot de passe sur les contrôleurs de domaine utilise RPC sur TCP pour communiquer avec le service proxy. Par défaut, le service proxy est à l’écoute sur n’importe quel point de terminaison RPC dynamique disponible. Vous pouvez configurer le service pour qu'il écoute sur un port TCP spécifique, si cela s'avère nécessaire en raison de la topologie du réseau ou de la configuration du pare-feu de votre environnement.
       * <a id="static" /></a>Pour configurer le service afin qu’il s’exécute sous un port statique, utilisez l’applet de commande `Set-AzureADPasswordProtectionProxyConfiguration`.
 
          ```powershell
@@ -343,6 +344,8 @@ Il n’y a aucune configuration supplémentaire requise pour déployer la protec
 ## <a name="read-only-domain-controllers"></a>Contrôleurs de domaines en lecture seule
 
 Les modifications/définitions de mot de passe ne sont pas traitées ni rendues persistantes sur les contrôleurs de domaine en lecture seule. Elles sont transférés vers des contrôleurs de domaine accessibles en écriture. Par conséquent, vous n’êtes pas tenu d’installer le logiciel de l’agent DC sur les contrôleurs de domaine en lecture seule.
+
+L'exécution du service proxy sur un contrôleur de domaine en lecture seule n'est pas prise en charge.
 
 ## <a name="high-availability"></a>Haute disponibilité
 

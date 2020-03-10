@@ -5,12 +5,12 @@ services: container-service
 ms.topic: tutorial
 ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 1e977d927a301bee4be6cf3856114692542981b4
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: bc31a4197b08cbeb1a99820d7ff490f20147c7bf
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621219"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191263"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutoriel : Déployer un cluster Azure Kubernetes Service (AKS)
 
@@ -43,6 +43,8 @@ az aks create \
     --generate-ssh-keys \
     --attach-acr <acrName>
 ```
+
+Vous pouvez également configurer manuellement un principal de service pour extraire des images d’ACR. Pour plus d’informations, consultez [Authentification ACR à l’aide de principaux de service](../container-registry/container-registry-auth-service-principal.md) ou [S’authentifier à partir de Kubernetes avec un secret de tirage (pull)](../container-registry/container-registry-auth-kubernetes.md).
 
 Après quelques minutes, le déploiement se termine et retourne des informations au format JSON concernant le déploiement AKS.
 

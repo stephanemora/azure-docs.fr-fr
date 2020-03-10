@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/05/2019
+ms.date: 03/04/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0bd53b72c334b35daea0864acf61cc432c272ae
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: aba42e6bd9b11e47d793219c0ff06b9177d609f5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442120"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298817"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Provisionnement cloud pilote pour une forêt AD synchronisée existante 
 
@@ -31,7 +31,7 @@ Avant de suivre ce tutoriel, tenez compte des éléments suivants :
 3. Vérifiez que ms-ds-consistencyGUID a été renseigné pour les objets figurant dans l’étendue pilote afin d’avoir une correspondance exacte entre le provisionnement cloud et les objets. 
 
    > [!NOTE]
-   > La synchronisation Azure AD Connect ne renseigne pas *ms-ds-consistencyGUID* par défaut pour les objets de groupe. Suivez les étapes décrites dans [ce billet de blog](https://blogs.technet.microsoft.com/markrenoden/2017/10/13/choosing-a-sourceanchor-for-groups-in-multi-forest-sync-with-aad-connect/) pour renseigner *ms-ds-consistencyGUID* pour les objets de groupe.
+   > La synchronisation Azure AD Connect ne renseigne pas *ms-ds-consistencyGUID* par défaut pour les objets de groupe.
 
 4. Il s’agit d’un scénario avancé. Veillez à suivre avec précision les étapes décrites dans ce tutoriel.
 
@@ -119,7 +119,7 @@ Les mêmes étapes doivent être suivies pour tous les types d’objets (utilisa
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Installer l’agent de provisionnement Azure AD Connect
 1. Connectez-vous au serveur que vous allez utiliser à l’aide des autorisations d’administrateur d’entreprise.  Si vous utilisez le tutoriel [Environnement de base Active Directory et Azure](tutorial-basic-ad-azure.md), il s’agit de CP1.
-2. Téléchargez l’agent de provisionnement cloud Azure AD Connect [ici](https://go.microsoft.com/fwlink/?linkid=2109037).
+2. Téléchargez l’agent de provisionnement cloud Azure AD Connect en utilisant la procédure décrite [ici](how-to-install.md#install-the-agent).
 3. Exécuter le provisionnement cloud Azure AD Connect (AADConnectProvisioningAgent.Installer)
 3. Dans l’écran de démarrage, **acceptez** les termes du contrat de licence et cliquez sur **Installer**.</br>
 ![Écran d’accueil](media/how-to-install/install1.png)</br>

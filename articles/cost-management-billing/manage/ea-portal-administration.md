@@ -3,16 +3,16 @@ title: Administration du portail Azure EA
 description: Cet article présente les tâches courantes à la charge d’un administrateur dans le portail Azure EA.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/24/2020
+ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 1da26b3a1c028a49655b9089ac0119e3274e37a4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 79225d4dfe9e53da6936f8647c9f5a1dff0b4909
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598389"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301470"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
@@ -24,7 +24,7 @@ Les administrateurs d’entreprise disposent de la majorité des privilèges lor
 
 ## <a name="update-user-state-from-pending-to-active"></a>Mettre à jour l’état utilisateur de En attente à Actif
 
-Lorsque de nouveaux propriétaires de compte sont ajoutés pour la première fois à une inscription Azure EA, leur état est _En attente_. Quand un nouveau propriétaire de compte reçoit l’e-mail de bienvenue et d’activation, il peut se connecter pour activer son compte. Une fois qu’il active son compte, l’état du compte est mis à jour de _En attente_ à _Actif_. Le propriétaire du compte doit lire le message d’« avertissement », puis cliquer sur **Continuer**. Un nouvel utilisateur peut être invité à entrer son prénom et son nom pour créer un compte de commerce. Il doit alors ajouter les informations requises pour continuer et le compte est activé.
+Lorsque de nouveaux propriétaires de compte sont ajoutés pour la première fois à une inscription Azure EA, leur état est _En attente_. Quand un nouveau propriétaire de compte reçoit l’e-mail de bienvenue et d’activation, il peut se connecter pour activer son compte. Une fois qu’il active son compte, l’état du compte est mis à jour de _En attente_ à _Actif_. Le propriétaire du compte doit lire le message « Avertissement », puis sélectionner **Continuer**. Un nouvel utilisateur peut être invité à entrer son prénom et son nom pour créer un compte de commerce. Dans ce cas, il doit ajouter les informations nécessaires pour continuer. Le compte est alors activé.
 
 ## <a name="add-a-department-admin"></a>Ajouter un administrateur de service
 
@@ -39,28 +39,28 @@ Les administrateurs d’entreprise peuvent associer des comptes existants à des
 ### <a name="to-associate-an-account-to-a-department"></a>Pour associer un compte à un service
 
 1. Connectez-vous au portail Azure EA en tant qu’administrateur d’entreprise.
-1. Cliquez sur **Gérer** dans le volet de navigation de gauche.
-1. Cliquez sur **Service**.
-1. Placez le pointeur sur la ligne contenant le compte souhaité, puis cliquez sur l’icône du crayon à droite.
-1. Sélectionnez le service de votre choix dans le menu déroulant.
-1. Cliquez sur **Enregistrer**.
+1. Sélectionnez **Gérer** dans le volet de navigation de gauche.
+1. Sélectionnez **Service**.
+1. Placez le pointeur sur la ligne contenant le compte, puis sélectionnez l’icône du crayon à droite.
+1. Sélectionnez le service dans le menu déroulant.
+1. Sélectionnez **Enregistrer**.
 
 ## <a name="department-spending-quotas"></a>Quotas de dépenses des services
 
-Les clients EA peuvent définir ou modifier des quotas de dépenses pour chaque service pour une inscription. Le montant de quota de dépenses est défini pour la période d’engagement actuelle. À la fin de la période d’engagement actuelle, le système prolonge le quota de dépenses existant jusqu’à la période d’engagement suivante, sauf si les valeurs sont mises à jour.
+Les clients EA peuvent définir ou changer des quotas de dépenses pour chaque service dans le cadre d’une inscription. Le montant de quota de dépenses est défini pour la période d’engagement actuelle. À la fin de la période d’engagement actuelle, le système prolonge le quota de dépenses existant jusqu’à la période d’engagement suivante, sauf si les valeurs sont mises à jour.
 
 L’administrateur de service peut afficher le quota de dépenses, mais seul l’administrateur d’entreprise peut mettre à jour le montant du quota. L’administrateur d’entreprise et l’administrateur de service recevront des notifications lorsque le quota aura atteint 50 %, 75 %, 90 % et 100 %.
 
 ### <a name="enterprise-administrator-to-set-the-quota"></a>Administrateur d’entreprise, pour définir le quota :
 
  1. Ouvrez le portail Azure EA.
- 1. Cliquez sur **Gérer** dans le volet de navigation de gauche.
- 1. Cliquez sur l’onglet **Service**.
- 1. Cliquez sur le service souhaité.
- 1. Cliquez sur l’icône du crayon dans la section des détails du service, ou cliquez sur le bouton **+ Ajouter un service** pour ajouter un quota de dépenses à un nouveau service.
- 1. Sous Détails du service, entrez un montant de quota de dépenses dans la devise de l’inscription, dans la zone Quota de dépenses $ (doit être supérieur à 0).
+ 1. Sélectionnez **Gérer** dans le volet de navigation de gauche.
+ 1. Sélectionnez l’onglet **Service**.
+ 1. Sélectionnez le Service.
+ 1. Sélectionnez le symbole de crayon dans la section Détails du service, ou sélectionnez le symbole **+ Ajouter un service** pour ajouter un quota de dépenses à un nouveau service.
+ 1. Sous Détails du service, entrez un montant de quota de dépenses dans la devise de l’inscription, dans la zone Quota de dépenses $ (doit être supérieur à 0).
     - Vous pouvez également modifier le nom du service et le centre de coûts à ce stade.
- 1. Cliquez sur **Enregistrer**.
+ 1. Sélectionnez **Enregistrer**.
 
 Le quota de dépenses du service apparaît maintenant dans la vue de liste des services de l’onglet Service. À la fin de l’engagement actuel, le portail Azure EA conserve les quotas de dépenses pour la période d’engagement suivante.
 
@@ -69,8 +69,8 @@ Le montant du quota du service est indépendant de l’engagement financier actu
 ### <a name="department-administrator-to-view-the-quota"></a>Administrateur de service, pour afficher le quota :
 
 1. Ouvrez le portail Azure EA.
-1. Cliquez sur **Gérer** dans le volet de navigation de gauche.
-1. Cliquez sur l’onglet **Service** et affichez la vue de liste des services avec des quotas de dépenses.
+1. Sélectionnez **Gérer** dans le volet de navigation de gauche.
+1. Sélectionnez l’onglet **Service**, puis consultez la vue de liste des services avec des quotas de dépenses.
 
 Si vous êtes un client indirect, les fonctionnalités de coût doivent être activées par votre partenaire de canal.
 
@@ -88,35 +88,35 @@ Pour plus d’informations sur les rôles d’utilisateur, consultez [Rôles d�
 
 ## <a name="add-an-azure-ea-account"></a>Ajouter un compte Azure EA
 
-Le compte Azure EA est une unité d’organisation dans le portail Azure EA qui est utilisée pour administrer les abonnements et pour la création de rapports. Pour accéder aux services Azure et les utiliser, vous devez créer un compte ou vous en faire créer-un.
+Le compte Azure EA est une unité d’organisation dans le portail Azure EA. Il est utilisé pour gérer des abonnements, ainsi que pour créer des rapports. Pour accéder aux services Azure et les utiliser, vous devez créer un compte ou vous en faire créer-un.
 
 Pour plus d’informations sur les comptes Azure, consultez Ajouter un compte.
 
 ## <a name="enterprise-devtest-offer"></a>Offre Enterprise Dev/Test
 
-En tant qu’administrateur d’entreprise Azure, vous pouvez désormais autoriser les propriétaires de comptes de votre organisation à créer des abonnements basés sur l’offre EA Dev/Test. Pour cela, cochez la case à cocher Dev/Test pour ce propriétaire de compte dans le portail Azure EA.
+En tant qu’administrateur d’entreprise Azure, vous pouvez autoriser les propriétaires de comptes de votre organisation à créer des abonnements basés sur l’offre EA Dev/Test. Pour ce faire, sélectionnez la zone Dev/Test du propriétaire du compte dans le portail Azure EA.
 
 Une fois que vous avez coché la case Dev/Test, informez le propriétaire du compte afin qu’il puisse configurer les abonnements Dev/Test EA nécessaires pour ses équipes d’abonnés Dev/Test.
 
-Cette offre permet aux abonnés Visual Studio actifs d’exécuter des charges de travail de développement et de test sur Azure à des tarifs Dev/Test spéciaux, avec un accès à la galerie complète d’images Dev/Test, y compris Windows 8.1 et Windows 10.
+L’offre permet aux abonnés Visual Studio actifs d’exécuter des charges de travail de développement et de test sur Azure à des tarifs Dev/Test spéciaux. Elle fournit un accès à la galerie complète d’images Dev/Test, notamment Windows 8.1 et Windows 10.
 
 ### <a name="to-set-up-the-enterprise-devtest-offer"></a>Pour configurer l’offre Enterprise Dev/Test :
 
 1. Connectez-vous en tant qu’administrateur d’entreprise.
-1. Cliquez sur **Gérer** dans le volet de navigation de gauche.
-1. Cliquez sur l’onglet **Compte**.
-1. Cliquez sur la ligne du compte sur lequel vous souhaitez activer l’accès Dev/Test.
-1. Cliquez sur l’icône du crayon à droite de la ligne.
+1. Sélectionnez **Gérer** dans le volet de navigation de gauche.
+1. Sélectionnez l’onglet **Compte**.
+1. Sélectionnez la ligne du compte sur lequel vous souhaitez activer l’accès Dev/Test.
+1. Sélectionnez le symbole de crayon à droite de la ligne.
 1. Cochez la case Dev/Test.
-1. Cliquez sur **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 Lorsqu’un utilisateur est ajouté en tant que propriétaire du compte par le biais du portail Azure EA, tous les abonnements Azure associés au propriétaire du compte qui sont basés sur l’offre PAYG Dev/Test ou les offres de crédit mensuel pour les abonnés Visual Studio sont convertis en l’offre EA Dev/Test. Les abonnements basés sur d’autres types d’offres, tels que PAYG, associés au propriétaire du compte, sont convertis en offres Microsoft Azure Enterprise.
 
-L’offre Dev/Test ne s’applique pas aux clients Azure Gov pour le moment.
+L’offre Dev/Test ne s’applique pas aux clients Azure Government pour le moment.
 
 ## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Transférer un compte d’entreprise vers une nouvelle inscription
 
-Un transfert de compte déplace un propriétaire de compte d’une inscription à une autre. Tous les abonnements associés sous le propriétaire du compte seront déplacés vers l’inscription cible. Cette opération est effectuée quand vous avez plusieurs inscriptions actives et que vous souhaitez uniquement déplacer les propriétaires de comptes sélectionnés.
+Un transfert de compte déplace un propriétaire de compte d’une inscription à une autre. Tous les abonnements associés sous le propriétaire du compte seront déplacés vers l’inscription cible. Utilisez un transfert de compte quand vous avez plusieurs inscriptions actives et que vous voulez uniquement déplacer les propriétaires de comptes sélectionnés.
 
 Cette section est fournie à titre d’information uniquement, car l’action ne peut pas être effectuée par un administrateur d’entreprise. Pour transférer un compte d’entreprise vers une nouvelle inscription, une demande de support est nécessaire.
 
@@ -148,18 +148,18 @@ Un transfert d’inscription est envisagé dans les cas suivants :
 
 - La durée d’engagement d’une inscription en cours se termine.
 - Une inscription présente l’état expiré/étendu et un nouveau contrat est négocié.
-- Vous avez plusieurs inscriptions et souhaitez centraliser tous les comptes et la facturation dans le cadre d’une seule inscription.
+- Vous avez plusieurs inscriptions et vous voulez combiner tous les comptes et la facturation sous une seule inscription.
 
 Cette section est fournie à titre d’information uniquement, car l’action ne peut pas être effectuée par un administrateur d’entreprise. Pour transférer une inscription d’entreprise vers une nouvelle, une demande de support est nécessaire.
 
 Lorsque vous demandez à transférer une inscription d’entreprise complète vers une autre inscription, les actions suivantes se produisent :
 
-- L’ensemble des services, abonnements et comptes Azure, ainsi que la structure d’inscription toute entière, dont tous les administrateurs de service EA, sont transférés vers une nouvelle inscription cible.
+- L’ensemble des services, abonnements et comptes Azure, ainsi que la structure d’inscription toute entière, dont tous les administrateurs de service EA, effectuent un transfert vers une nouvelle inscription cible.
 - L’état de l’inscription est défini sur _Transféré_. L’inscription transférée est disponible uniquement à des fins de création de rapports d’utilisation.
 - Vous ne pouvez pas ajouter de rôles ni d’abonnements à une inscription transférée. L’état transféré empêche une utilisation supplémentaire en relation avec l’inscription.
 - Tout solde restant de l’engagement monétaire dans le contrat est perdu, y compris les termes futurs.
--   Si l’inscription à partir de laquelle vous transférez inclut des achats RI, les frais d’achat RI resteront dans l’inscription source. Toutefois, tous les avantages RI seront transférés pour être utilisés dans la nouvelle inscription.
--   Les frais d’achat à usage unique de la place de marché et les frais fixes mensuels déjà engagés sur l’ancienne inscription ne seront pas transférés vers la nouvelle inscription. Les frais de la place de marché basés sur la consommation seront transférés.
+-    Si l’inscription à partir de laquelle vous effectuez le transfert inclut des achats RI, les frais d’achat RI resteront dans l’inscription source. Toutefois, tous les avantages RI seront transférés pour être utilisés dans la nouvelle inscription.
+-    Les frais d’achat à usage unique de la place de marché et les frais fixes mensuels déjà engagés sur l’ancienne inscription ne seront pas transférés vers la nouvelle inscription. Les frais de la place de marché basés sur la consommation seront transférés.
 
 ### <a name="effective-transfer-date"></a>Date de transfert effectif
 
@@ -203,7 +203,7 @@ Pour afficher les utilisateurs disposant d’un accès RBAC à l’abonnement :
 2. Sélectionnez l’abonnement à visualiser, puis sélectionnez **Contrôle d’accès (IAM)** .
 3. Sélectionnez **Attributions de rôles**. La page des attributions de rôles liste tous les utilisateurs qui disposent d’un accès RBAC à l’abonnement.
 
-Si l’abonnement est transféré vers un compte figurant dans un autre locataire Azure AD, tous les utilisateurs, groupes et principaux de service qui disposaient d’un contrôle [RBAC](../../role-based-access-control/overview.md) pour gérer les ressources _perdent_ leur accès. Même si l’accès RBAC n’est pas présent, l’accès à l’abonnement peut être disponible via des mécanismes de sécurité, notamment :
+Si l’abonnement est transféré vers un compte figurant dans un autre locataire Azure AD, tous les utilisateurs, groupes et principaux de service qui disposaient d’un contrôle [RBAC](../../role-based-access-control/overview.md) pour gérer les ressources _perdent_ leur accès. Même si l’accès RBAC n’est pas présent, l’accès à l’abonnement peut être disponible par le biais de mécanismes de sécurité, notamment :
 
 - Certificats de gestion accordant à l’utilisateur des droits d’administrateur sur les ressources d’abonnement. Pour plus d'informations, consultez la rubrique [Créer et télécharger un certificat de gestion pour Microsoft Azure](../../cloud-services/cloud-services-certs-create.md).
 - Touches d’accès rapide pour les services tels que Storage. Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage Azure](../../storage/common/storage-account-overview.md).
@@ -214,28 +214,30 @@ Le destinataire doit envisager la mise à jour des secrets associés au service 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans le menu Hub, sélectionnez **Toutes les ressources**.
 3. Sélectionnez la ressource.
-4. Dans la page de la ressource, cliquez sur **Paramètres** pour afficher et mettre à jour les secrets existants.
+4. Dans la page des ressources, sélectionnez **Paramètres** pour voir et mettre à jour les secrets existants.
 
 ## <a name="delete-subscription"></a>Supprimer l’abonnement
 
-Pour supprimer un abonnement dans lequel vous êtes le propriétaire du compte :
+Pour supprimer un abonnement dans lequel vous êtes le propriétaire du compte :
 
 1. Connectez-vous au portail Azure avec les informations d’identification associées à votre compte.
 1. Dans le menu Hub, sélectionnez **Abonnements**.
-1. Dans le panneau des abonnements dans le coin supérieur gauche de la page, sélectionnez celui que vous souhaitez annuler et cliquez sur **Annuler l’abonnement** pour ouvrir l’onglet d’annulation.
-1. Entrez le nom de l’abonnement et choisissez un motif d’annulation, puis cliquez sur le bouton **Annuler l’abonnement**.
+1. Dans le panneau des abonnements situé en haut à gauche de la page, sélectionnez celui que vous voulez annuler, puis sélectionnez **Annuler l’abonnement** pour ouvrir l’onglet d’annulation.
+1. Entrez le nom de l’abonnement et choisissez un motif d’annulation, puis sélectionnez le bouton **Annuler l’abonnement**.
 
-Notez que seuls les administrateurs de compte peuvent annuler des abonnements.
+Seuls les administrateurs de compte peuvent annuler des abonnements.
+
+Pour plus d’informations, consultez [Que se passe-t-il après l’annulation de mon abonnement ?](cancel-azure-subscription.md#what-happens-after-i-cancel-my-subscription)
 
 ## <a name="delete-an-account"></a>Supprimer un compte
 
 La suppression de compte ne peut être effectuée que pour les comptes actifs sans abonnements actifs.
 
 1. Dans Enterprise Portal, sélectionnez **Gérer** dans le volet de navigation de gauche.
-1. Cliquez sur l’onglet **Compte**.
+1. Sélectionnez l’onglet **Compte**.
 1. Dans la table comptes, sélectionnez le compte que vous souhaitez supprimer.
-1. Cliquez sur l’icône X à droite de la ligne de compte.
-1. Une fois qu’il n’y a pas d’abonnements actifs sous le compte, cliquez sur le bouton **Oui** sous la ligne de compte pour confirmer la suppression du compte.
+1. Sélectionnez le symbole X à droite de la ligne de compte.
+1. Une fois qu’il n’y a pas d’abonnements actifs sous le compte, sélectionnez **Oui** sous la ligne de compte pour confirmer la suppression du compte.
 
 ## <a name="update-notification-settings"></a>Mettre à jour les paramètres de notification
 
@@ -251,11 +253,11 @@ Pour afficher les paramètres actuels des notifications :
 
 Pour ajouter un contact :
 
-1. Cliquez sur **+Ajouter un contact**.
+1. Sélectionnez **+Ajouter un contact**.
 2. Entrez l’adresse e-mail, puis confirmez-la.
-3. Cliquez sur **Enregistrer**.
+3. Sélectionnez **Enregistrer**.
 
-Le nouveau contact de notification s’affiche dans la section **Contact de notification**. Pour modifier la fréquence de notification, sélectionnez le contact de notification et cliquez sur le symbole de crayon à droite de la ligne sélectionnée. Définissez la fréquence sur **quotidienne**, **hebdomadaire**, **mensuelle** ou **aucune**.
+Le nouveau contact de notification s’affiche dans la section **Contact de notification**. Pour changer la fréquence de notification, sélectionnez le contact de notification, puis le symbole de crayon à droite de la ligne sélectionnée. Définissez la fréquence sur **quotidienne**, **hebdomadaire**, **mensuelle** ou **aucune**.
 
 Vous pouvez supprimer les notifications de cycle de vie _La date de fin de la période de couverture approche_ et _La date de désactivation et de déprovisionnement approche_. La désactivation des notifications de cycle de vie supprime les notifications relatives à la période de couverture et à la date de fin du contrat.
 
@@ -265,23 +267,23 @@ Chaque administrateur partenaire dans le portail Azure EA peut ajouter ou suppri
 
 ### <a name="add-a-partner-administrator"></a>Ajouter un administrateur partenaire
 
-Pour afficher la liste de toutes les inscriptions associées à la même organisation partenaire que l’utilisateur actuel, cliquez sur l’onglet **Inscription** et sélectionnez une zone d’inscription souhaitée.
+Pour voir la liste de toutes les inscriptions associées à la même organisation partenaire que l’utilisateur actuel, sélectionnez l’onglet **Inscription**, puis sélectionnez une zone d’inscription souhaitée.
 
 1. Connectez-vous en tant qu’administrateur partenaire.
-1. Cliquez sur **Gérer** dans le volet de navigation de gauche.
-1. Cliquez sur l’onglet **Partenaire**.
-1. Cliquez sur **+ Ajouter un administrateur** et renseignez l’adresse e-mail, le contact de notification et les détails de notification.
-1. Appuyez sur **Ajouter**.
+1. Sélectionnez **Gérer** dans le volet de navigation de gauche.
+1. Sélectionnez l’onglet **Partenaire**.
+1. Sélectionnez **+ Ajouter un administrateur**, puis renseignez l’adresse e-mail, le contact de notification et les détails de notification.
+1. Sélectionnez **Ajouter**.
 
 ### <a name="remove-a-partner-administrator"></a>Supprimer un administrateur partenaire
 
-Pour afficher la liste de toutes les inscriptions associées à la même organisation partenaire que l’utilisateur actuel, cliquez sur l’onglet **Inscription** et sélectionnez une zone d’inscription souhaitée.
+Pour voir la liste de toutes les inscriptions associées à la même organisation partenaire que l’utilisateur actuel, sélectionnez l’onglet **Inscription**, puis sélectionnez une zone d’inscription souhaitée.
 
 1. Connectez-vous en tant qu’administrateur partenaire.
-1. Cliquez sur **Gérer** dans le volet de navigation de gauche.
-1. Cliquez sur l’onglet **Partenaire**.
+1. Sélectionnez **Gérer** dans le volet de navigation de gauche.
+1. Sélectionnez l’onglet **Partenaire**.
 1. Sous la section Administrateur, sélectionnez la ligne appropriée pour l’administrateur que vous souhaitez supprimer.
-1. Appuyez sur l’icône X à droite.
+1. Sélectionnez le symbole X, à droite.
 1. Confirmez la suppression.
 
 ## <a name="manage-partner-notifications"></a>Gérer les notifications des partenaires
@@ -291,12 +293,12 @@ Les administrateurs partenaires peuvent gérer la fréquence à laquelle ils re�
 Si une notification n’est pas reçue par un utilisateur, vérifiez que les paramètres de notification de l’utilisateur sont corrects en procédant comme suit.
 
 1. Connectez-vous au portail Azure EA en tant qu’administrateur d’entreprise.
-2. Cliquez sur **Gérer**, puis sur l’onglet **Partenaire**.
+2. Sélectionnez **Gérer**, puis l’onglet **Partenaire**.
 3. Affichez la liste des administrateurs dans la section Administrateur.
-4. Pour modifier les préférences de notification, pointez sur l’administrateur approprié et cliquez sur le symbole de crayon.
-5. Augmentez la fréquence de notification et les notifications de cycle de vie selon les besoins.
-6. Ajoutez un contact, si nécessaire, puis cliquez sur **Ajouter**.
-7. Cliquez sur **Enregistrer**.
+4. Pour modifier les préférences de notification, pointez sur l’administrateur approprié, puis sélectionnez le symbole de crayon.
+5. Augmentez la fréquence de notification et les notifications de cycle de vie en fonction des besoins.
+6. Ajoutez un contact, si nécessaire, puis sélectionnez **Ajouter**.
+7. Sélectionnez **Enregistrer**.
 
 ![Exemple montrant la zone Ajouter un contact ](./media/ea-portal-administration/create-ea-manage-partner-notification.png)
 
@@ -307,15 +309,15 @@ Les administrateurs partenaires peuvent consulter une liste de toutes leurs insc
 ### <a name="view-a-list-of-enrollments"></a>Afficher une liste d’inscriptions
 
 1. Connectez-vous en tant qu’administrateur partenaire.
-1. Cliquez sur **Gérer** dans la barre de navigation sur le côté gauche de la page.
-1. Cliquez sur l’onglet **Inscription**.
-1. Cochez la case correspondant à l’inscription souhaitée.
+1. Sélectionnez **Gérer** dans la barre de navigation sur le côté gauche de la page.
+1. Sélectionnez l’onglet **Inscription**.
+1. Cochez la case correspondant à l’inscription.
 
-Une vue de toutes les inscriptions reste en haut de la page, avec des zones pour chaque inscription. Vous pouvez également naviguer entre les inscriptions en cliquant sur le numéro d’inscription en cours dans la barre de navigation sur le côté gauche de la page. Une fenêtre contextuelle s’affiche pour vous permettre de rechercher des inscriptions ou de sélectionner une autre inscription en cliquant sur la zone appropriée.
+Une vue de toutes les inscriptions reste en haut de la page, avec des zones pour chaque inscription. Vous pouvez également naviguer entre les inscriptions en sélectionnant le numéro d’inscription en cours dans la barre de navigation sur le côté gauche de la page. Une fenêtre contextuelle s’affiche pour vous permettre de rechercher des inscriptions ou de sélectionner une autre inscription en sélectionnant la zone appropriée.
 
 ## <a name="azure-sponsorship-offer"></a>Offre Azure Sponsorship
 
-L’offre Azure Sponsorship est un compte Microsoft Azure sponsorisé limité. Elle est disponible sur invitation électronique pour certains clients sélectionnés par Microsoft. Si vous bénéficiez de l’offre Microsoft Azure Sponsorship, vous recevrez une invitation par e-mail pour votre ID de compte.
+L’offre Azure Sponsorship est un compte Microsoft Azure sponsorisé limité. Elle est disponible sur invitation par e-mail pour certains clients sélectionnés par Microsoft. Si vous bénéficiez de l’offre Microsoft Azure Sponsorship, vous recevrez une invitation par e-mail pour votre ID de compte.
 
 Pour plus d’informations, créez une [demande de support pour l’activation de Sponsorship](https://aka.ms/azrsponsorship).
 
@@ -346,7 +348,7 @@ Un seul propriétaire de compte est autorisé par abonnement.  Des rôles suppl�
 
 ### <a name="can-an-azure-account-owner-be-listed-under-more-than-one-department"></a>Un propriétaire de compte Azure peut-il être répertorié sous plusieurs services ?
 
-Un propriétaire de compte ne peut être associé qu’à un seul service.  Cela permet d’assurer une surveillance et une répartition précises des coûts et des dépenses associés au service auquel il est associé dans le cadre de l’inscription EA dans le portail Azure EA.
+Non, un propriétaire de compte ne peut être associé qu’à un seul service. La stratégie permet de garantir une supervision et une répartition précises des coûts et des dépenses associés au service auquel il est associé dans le cadre de l’inscription EA dans le portail Azure EA.
 
 ### <a name="can-an-azure-account-owner-be-listed-as-a-security-group"></a>Un propriétaire de compte Azure peut-il être répertorié en tant que groupe de sécurité ?
 
@@ -356,13 +358,13 @@ Non, un propriétaire d’abonnement doit être une authentification de compte M
 
 Un propriétaire de compte Azure peut créer et gérer un nombre illimité d’abonnements.
 
-### <a name="how-can-i-accessview-all-my-organizations-subscriptions"></a>Comment puis-je accéder à tous les abonnements de mon organisation et les afficher ?
+### <a name="how-can-i-accessview-all-my-organizations-subscriptions"></a>Comment puis-je accéder à tous les abonnements de mon organisation et les consulter ?
 
 Aujourd’hui, cette opération doit être effectuée via une stratégie. Cela signifie que vous devez exiger que, pour chaque abonnement créé, votre compte soit ajouté à un rôle d’abonnement à l’aide de l’accès en fonction du rôle.
 
 ### <a name="where-do-i-go-to-create-a-subscription"></a>Où puis-je créer un abonnement ?
 
-Avant de pouvoir créer un abonnement d’offre Enterprise Azure (EA), votre compte doit être ajouté au rôle de propriétaire du compte par l’administrateur de votre inscription EA dans le portail Azure EA. Vous devez ensuite vous connecter au portail Azure EA pour obtenir votre droit de créer des abonnements de type EA. Nous vous recommandons de créer votre premier abonnement EA à partir du lien « + Ajouter un abonnement » dans l’onglet de l’abonnement sur le portail EA.  Toutefois, une fois que votre compte est autorisé, il peut être plus facile de créer des abonnements dans portal.azure.com sous l’onglet de l’abonnement dans le coin supérieur gauche de la page, où vous pouvez créer et renommer votre abonnement en une seule étape.
+Avant de pouvoir créer un abonnement d’offre Enterprise Azure (EA), votre compte doit être ajouté au rôle de propriétaire du compte par l’administrateur de votre inscription EA dans le portail Azure EA. Vous devez ensuite vous connecter au portail Azure EA pour obtenir votre droit de créer des abonnements de type EA. Nous vous recommandons de créer votre premier abonnement EA à partir du lien « + Ajouter un abonnement » sous l’onglet de l’abonnement sur le portail EA.  Toutefois, une fois que votre compte est autorisé, il peut être plus facile de créer des abonnements dans portal.azure.com sous l’onglet de l’abonnement dans le coin supérieur gauche de la page, où vous pouvez créer et renommer votre abonnement en une seule étape.
 
 ### <a name="who-can-create-a-subscription"></a>Qui peut créer un abonnement ?
 

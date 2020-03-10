@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a7bf9690b4f50c771afc4745bbc2e5377adbba
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 736a543a6f28697dd4f1ddf85317e97a87b86e78
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848474"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227066"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Activer la connexion sans mot de passe avec l'application Microsoft Authenticator (préversion)
 
@@ -93,6 +93,10 @@ Les utilisateurs finals qui sont activés pour MFA par le biais d’un serveur A
 ### <a name="device-registration"></a>Enregistrement de l’appareil
 
 L’une des conditions requises pour la création de cette information d’identification forte est que l’appareil sur lequel l’application Microsoft Authenticator est installée soit inscrit dans le locataire Azure AD pour un utilisateur individuel. Du fait des restrictions en matière d’inscription d’appareil, un appareil ne peut être inscrit que dans un seul locataire. Cette limite signifie qu’un seul compte professionnel ou scolaire de l’application Microsoft Authenticator peut être activé pour la connexion par téléphone.
+
+### <a name="intune-mobile-application-management"></a>Gestion des applications mobiles Intune 
+
+Les utilisateurs finaux soumis à une stratégie exigeant une gestion des applications mobiles (GAM) ne peuvent pas inscrire d’informations d’identification sans mot de passe dans l’application Microsoft Authenticator. 
 
 > [!NOTE]
 > L’inscription de l’appareil n’est pas la même que la gestion des appareils ou « MDM ». Il associe uniquement un ID d’appareil et un ID d’utilisateur dans le répertoire Azure AD.  

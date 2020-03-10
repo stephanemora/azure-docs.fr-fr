@@ -1,19 +1,17 @@
 ---
 title: Écrire du code pour effectuer le suivi des requêtes avec Azure Application Insights | Microsoft Docs
 description: Écrivez du code pour effectuer le suivi des requêtes avec Application Insights afin d’obtenir des profils pour vos requêtes.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3f449c98ed44f13fb6b3849ef2457cd8fbd916de
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c59cbe852a91a91c7b3adb4452328700ec718a82
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900011"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671594"
 ---
 # <a name="write-code-to-track-requests-with-application-insights"></a>Écrire du code pour effectuer le suivi des requêtes avec Application Insights
 
@@ -33,7 +31,7 @@ Pour suivre manuellement les requêtes, procédez comme suit :
         ```
       Pour plus d’informations sur cette configuration de clé d’instrumentation générale, consultez [Use Service Fabric with Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md) (Utiliser Service Fabric avec Application Insights).  
 
-  1. Pour tout bloc de code que vous souhaitez instrumenter, encadrez-le d’une instruction **using** `StartOperation<RequestTelemetry>`, comme indiqué dans l’exemple suivant :
+  1. Pour tout bloc de code que vous souhaitez instrumenter, encadrez-le d'une instruction `StartOperation<RequestTelemetry>` **using**, comme indiqué dans l'exemple suivant :
 
         ```csharp
         using Microsoft.ApplicationInsights;

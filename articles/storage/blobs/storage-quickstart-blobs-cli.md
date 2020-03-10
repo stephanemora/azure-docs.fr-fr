@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: tamram
-ms.openlocfilehash: 57ab56fe3028da9011e86c589209e7505e69e719
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 58532c6eb6e01a993bce7d6e22a7b5274a465963
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650911"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298164"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>Démarrage rapide : Créer, télécharger et lister des objets blob avec Azure CLI
 
@@ -28,6 +28,8 @@ L’interface de ligne de commande Azure (Azure CLI) est l’expérience de lign
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
+## <a name="install-the-azure-cli-locally"></a>Installer l’interface Azure CLI localement
+
 Si vous choisissez d’installer et d’utiliser l’interface Azure CLI localement, vous devez exécuter Azure CLI version 2.0.46 ou ultérieure pour ce démarrage rapide. Exécutez `az --version` pour déterminer votre version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 Si vous exécutez Azure CLI localement, vous devez vous connecter et vous authentifier. Cette étape n’est pas nécessaire si vous utilisez Azure Cloud Shell. Pour vous connecter à Azure CLI, exécutez `az login` et authentifiez-vous dans la fenêtre du navigateur :
@@ -36,11 +38,13 @@ Si vous exécutez Azure CLI localement, vous devez vous connecter et vous authen
 az login
 ```
 
+Pour plus d’informations sur l’authentification avec Azure CLI, consultez [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli).
+
 ## <a name="authorize-access-to-blob-storage"></a>Autoriser l’accès au stockage Blob
 
 Vous pouvez autoriser l’accès au stockage Blob à partir d’Azure CLI avec des informations d’identification Azure AD ou en utilisant la clé d’accès au compte de stockage. Il est recommandé d’utiliser des informations d’identification Azure AD. Cet article explique comment autoriser les opérations de stockage Blob en utilisant Azure AD.
 
-Les commandes Azure CLI pour les opérations de données sur le stockage Blob prennent en charge le paramètre `--auth-mode`, qui vous permet de spécifier la façon dont une opération donnée est autorisée. Définissez le paramètre `--auth-mode` sur `login` pour autoriser les informations d’identification Azure AD. Pour plus d’informations, consultez [Exécuter des commandes Azure CLI avec des informations d’identification Azure AD pour accéder à des données d’objet blob ou de file d’attente](../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Les commandes Azure CLI pour les opérations de données sur le stockage Blob prennent en charge le paramètre `--auth-mode`, qui vous permet de spécifier la façon dont une opération donnée est autorisée. Définissez le paramètre `--auth-mode` sur `login` pour autoriser les informations d’identification Azure AD. Pour plus d’informations, consultez [Autoriser l’accès aux données d’objet blob et de file d’attente avec Azure CLI](../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Seules les opérations sur les données de stockage Blob prennent en charge le paramètre `--auth-mode`. Les opérations de gestion, comme la création d’un groupe de ressources ou d’un compte de stockage, utilisent automatiquement des informations d’identification Azure AD pour l’autorisation.
 
@@ -149,7 +153,7 @@ azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous n’avez plus besoin des ressources de votre groupe de ressources, y compris du compte de stockage que vous avez créé dans ce guide de démarrage rapide, supprimez le groupe de ressources avec la commande [az group delete](/cli/azure/group). N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
+Si vous voulez supprimer les ressources que vous avez créées dans le cadre de ce guide de démarrage rapide, notamment le compte de stockage, supprimez le groupe de ressources à l’aide de la commande [az group delete](/cli/azure/group). N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 
 ```azurecli
 az group delete \

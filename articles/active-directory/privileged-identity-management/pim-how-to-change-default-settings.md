@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77132ae9a10eda7170ac56f2b7c65a3ebcde8d6d
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 4dd525973a8c8ba5bb3103126b4ddb5b6973590a
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498962"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205022"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurer les paramètres des rôles Azure AD dans Privileged Identity Management
 
@@ -107,7 +107,7 @@ Vous pouvez exiger que les utilisateurs saisissent une justification métier lor
 
 ## <a name="require-approval-to-activate"></a>Demander une approbation pour activation
 
-Si vous souhaitez exiger l’approbation pour activer un rôle, suivez ces étapes.
+Si vous définissez plusieurs approbateurs, l’approbation est accomplie dès que l’un d’eux approuve ou refuse. Vous ne pouvez pas demander l’approbation d’au moins deux utilisateurs. Pour exiger l’approbation pour activer un rôle, procédez comme suit.
 
 1. Cochez la case **Exiger une approbation pour activer**.
 

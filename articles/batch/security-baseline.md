@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4094ace5772b99c646a31d6a4722bbb080fbfff7
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 779b7d071b1161c53bdba08738539c4c682882d2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589652"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273539"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Base de référence de sécurité Azure pour Batch
 
@@ -21,11 +21,11 @@ La base de référence de sécurité Azure pour Batch contient des recommandatio
 
 La base de référence pour ces services est tirée du [benchmark de sécurité Azure version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview) qui fournit des recommandations sur la façon de sécuriser des solutions cloud sur Azure en suivant nos conseils sur les bonnes pratiques.
 
-Pour plus d’informations, consultez [Vue d’ensemble des références de base de la sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Pour plus d’informations, consultez [Vue d’ensemble des lignes de base de sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
 ## <a name="network-security"></a>Sécurité réseau
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Sécurité réseau](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : sécurité réseau](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1 : Protéger les ressources à l'aide de groupes de sécurité réseau ou du Pare-feu Azure sur votre réseau virtuel
 
@@ -59,7 +59,7 @@ Comprendre la sécurité réseau fournie par Azure Security Center :
 
 https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -98,7 +98,7 @@ Activer les journaux de flux NSG :
 
 https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -127,7 +127,7 @@ Place de marché Azure :
 
 https://azuremarketplace.microsoft.com/marketplace/?term=Firewall
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -141,14 +141,14 @@ https://azuremarketplace.microsoft.com/marketplace/?term=Firewall
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8 : Réduire la complexité et les frais administratifs liés aux règles de sécurité réseau
 
-**Conseils** : Utilisez des étiquettes de service de réseau virtuel pour définir des contrôles d’accès réseau sur les groupes de sécurité réseau ou les Pare-feu Azure associés à vos pools Azure Batch. Vous pouvez utiliser des étiquettes de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de l’étiquette de service (par exemple, ApiManagement) dans le champ Source ou Destination approprié d'une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par l’étiquette de service et met à jour automatiquement l’étiquette de service quand les adresses changent.
+**Conseils** : Utilisez des étiquettes de service de réseau virtuel pour définir des contrôles d’accès réseau sur les groupes de sécurité réseau ou les Pare-feu Azure associés à vos pools Azure Batch. Vous pouvez utiliser des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de la balise de service (par exemple, ApiManagement) dans le champ Source ou Destination approprié d'une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent.
 
 
 Comprendre et utiliser les étiquettes de service :
 
 https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -162,7 +162,7 @@ Configurer et gérer Azure Policy :
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -171,7 +171,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 **Conseils** : Utilisez des étiquettes pour les groupes de sécurité réseau et autres ressources liées à la sécurité réseau et au flux de trafic qui sont associés à vos pools Azure Batch. Concernant les règles NSG individuelles, utilisez le champ « Description » pour spécifier le besoin métier et/ou la durée (etc.) de chaque règle qui autorise le trafic vers/depuis un réseau.
 
 
-Utilisez l’une des définitions de stratégie Azure intégrées en lien avec l’étiquetage, comme « Exiger une étiquette et sa valeur », pour vous assurer que toutes les ressources créées sont étiquetées et être informé de l’existence de ressources non étiquetées.
+Utilisez l’une des définitions de stratégie Azure intégrée en lien avec l’étiquetage, telles que « Exiger une étiquette et sa valeur » pour vous assurer que toutes les ressources créées sont étiquetées et être informé de l’existence de ressources non étiquetées.
 
 
 Vous pouvez utiliser Azure PowerShell ou Azure CLI pour rechercher des ressources ou effectuer des actions sur des ressources en fonction de leurs étiquettes.
@@ -191,7 +191,7 @@ Créer un groupe de sécurité réseau :
 
 https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -209,13 +209,13 @@ Créer des alertes dans Azure Monitor : https://docs.microsoft.com/azure/azure-
 
 ## <a name="logging-and-monitoring"></a>Journalisation et supervision
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Journalisation et supervision](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : journalisation et supervision](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1 : Utiliser des sources de synchronisation date/heure approuvées
 
 **Conseils** : Pour Azure Batch, par défaut, Microsoft utilise la synchronisation date/heure. Toutefois, si vous avez des exigences spécifiques en matière de synchronisation date/heure, vous pouvez implémenter ces changements.
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Microsoft
 
@@ -271,7 +271,7 @@ Se connecter à distance à vos nœuds de pool Azure Batch :
 
 https://docs.microsoft.com/azure/batch/batch-api-basics#error-handling
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -289,7 +289,7 @@ Configurer la période de conservation des journaux dans l’espace de travail A
 
 https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -302,7 +302,7 @@ Configurer des alertes de métrique Azure Batch :
 
 https://docs.microsoft.com/azure/batch/batch-diagnostics
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -315,7 +315,7 @@ Configurer des alertes de métrique Azure Batch :
 
 https://docs.microsoft.com/azure/batch/batch-diagnostics
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -323,7 +323,7 @@ https://docs.microsoft.com/azure/batch/batch-diagnostics
 
 **Conseils** : Exécutez Windows Defender sur chacun de vos nœuds Batch si vous utilisez un système d’exploitation Windows, ou fournissez votre propre solution anti-programme malveillant si vous travaillez sur Linux.
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -331,7 +331,7 @@ https://docs.microsoft.com/azure/batch/batch-diagnostics
 
 **Conseils** : Implémentez une solution tierce pour la journalisation DNS.
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -339,13 +339,13 @@ https://docs.microsoft.com/azure/batch/batch-diagnostics
 
 **Conseils** : Configurez manuellement la journalisation de la console et la transcription PowerShell au niveau de chaque nœud.
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
 ## <a name="identity-and-access-control"></a>Contrôle des accès et des identités
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Contrôle des accès et des identités](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : contrôle des accès et des identités](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### <a name="31-maintain-inventory-of-administrative-accounts"></a>3.1 : Tenir un inventaire des comptes d’administration
 
@@ -466,7 +466,7 @@ Superviser les activités liées aux identités et aux accès des utilisateurs d
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -480,7 +480,7 @@ Comment configurer des emplacements nommés dans Azure :
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -498,7 +498,7 @@ Authentifier les applications Batch avec AAD :
 
 https://docs.microsoft.com/azure/batch/batch-aad-auth
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -511,7 +511,7 @@ Comment utiliser les révisions d’accès des identités Azure :
 
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -524,7 +524,7 @@ Comment intégrer des journaux d’activité Azure dans Azure Monitor :
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -533,7 +533,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 **Conseils** : Utilisez les détections de risques et la fonctionnalité Identity Risk d’Azure Active Directory (AAD) pour configurer des réponses automatiques aux actions suspectes détectées liées aux identités d’utilisateur. De plus, vous pouvez ingérer des données dans Azure Sentinel pour approfondir votre examen.
 
 
-Examiner les connexions risquées à AAD :
+Comment examiner les connexions risquées à AAD :
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
@@ -547,11 +547,11 @@ Comment intégrer Azure Sentinel :
 
 https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
-### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13 : Fournir à Microsoft un accès aux données client pertinentes pendant les scénarios de support
+### <a name="313-divprovide-microsoft-with-access-to-relevant-customer-data-during-support-scenariosbrdiv"></a>3.13 : <div>Fournir à Microsoft un accès aux données client pertinentes pendant les scénarios de support<br></div>
 
 **Conseils** : Non disponible. Customer Lockbox n’est pas actuellement pris en charge pour Azure Batch. Liste des services pris en charge pour Customer Lockbox : https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
@@ -561,7 +561,7 @@ https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 ## <a name="data-protection"></a>Protection des données
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Protection des données](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : protection des données](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1 : Conserver un inventaire des informations sensibles
 
@@ -572,7 +572,7 @@ Créer et utiliser des étiquettes :
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -614,13 +614,13 @@ Comment sécuriser des comptes de stockage Azure :
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : actuellement non disponible
 
-**Responsabilité** : Customer
+**Responsabilité** : Partagé
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4 : Chiffrer toutes les informations sensibles en transit
 
-**Conseils** : Chiffrer toutes les informations sensibles en transit. Par défaut, les ressources Microsoft Azure négocient TLS 1.2. Assurez-vous que les clients qui se connectent à vos pools Azure Batch ou magasins de données (comptes Stockage Azure) sont en mesure de négocier TLS 1.2 ou une version ultérieure.
+**Instructions** : Chiffrer toutes les informations sensibles en transit. Par défaut, les ressources Microsoft Azure négocient TLS 1.2. Assurez-vous que les clients qui se connectent à vos pools Azure Batch ou magasins de données (comptes Stockage Azure) sont en mesure de négocier TLS 1.2 ou une version ultérieure.
 
 
 Assurez-vous aussi que le protocole HTTPS est obligatoire pour accéder au compte de stockage contenant vos données Azure Batch.
@@ -654,7 +654,7 @@ Comment sécuriser des comptes de stockage Azure :
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Partagé
 
@@ -672,7 +672,7 @@ Configuration de RBAC dans Azure :
 
 https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -690,7 +690,7 @@ Comprendre la protection des données client dans Azure :
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Supervision Azure Security Center** : Oui
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Partagé
 
@@ -704,7 +704,7 @@ Comment gérer les clés de chiffrement des comptes de stockage Azure :
 
 https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -728,7 +728,7 @@ Comment activer la journalisation/l’audit supplémentaire pour un compte de st
 
 https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -743,7 +743,7 @@ https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
 
 Éventuellement, si vous avez un abonnement à Rapid7, à Qualys ou à toute autre plateforme de gestion des vulnérabilités, vous pouvez installer manuellement des agents d’évaluation des vulnérabilités sur les nœuds de pool Batch et gérer ces nœuds par le biais du portail en question.
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -751,7 +751,7 @@ https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
 
 **Conseils** : Les images des nœuds de pool Azure Batch de base sont gérées et tenues à jour par Microsoft. Assurez-vous de garder le système d’exploitation des nœuds de pool Azure Batch à jour avec les correctifs pendant toute la durée de vie du cluster, ce qui peut nécessiter l’activation des mises à jour automatiques, la supervision des nœuds ou des redémarrages périodiques.
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Partagé
 
@@ -759,7 +759,7 @@ https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
 
 **Conseils** : Assurez-vous de garder les applications tierces installées sur les nœuds de pool Azure Batch à jour avec les correctifs pendant toute la durée de vie du cluster, ce qui peut nécessiter l’activation des mises à jour automatiques, la supervision des nœuds ou des redémarrages périodiques.
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -767,7 +767,7 @@ https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
 
 **Conseils** : Si vous avez un abonnement à Rapid7, à Qualys ou à toute autre plateforme de gestion des vulnérabilités, vous pouvez utiliser le portail de ce fournisseur pour consulter et comparer les analyses de vulnérabilités dos à dos.
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -788,7 +788,7 @@ https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
 **Conseils** : Utilisez Azure Resource Graph pour interroger/découvrir toutes les ressources (calcul, stockage, réseau, etc.) dans vos abonnements. Vérifiez que vous avez les autorisations (lecture) appropriées dans votre locataire et que vous êtes en mesure d’établir une liste de tous les abonnements Azure et de toutes les ressources dans vos abonnements.
 
 
-Bien que les ressources Azure classiques puissent être découvertes via Resource Graph, il est vivement recommandé de créer et d’utiliser des ressources Azure Resource Manager à l’avenir.
+Bien que les ressources Azure classiques puissent être découvertes via Resource Graph, il est vivement recommandé de créer et d'utiliser des ressources Azure Resource Manager (ARM) à l'avenir.
 
 
 Créer des requêtes avec Azure Graph :
@@ -811,14 +811,14 @@ https://docs.microsoft.com/azure/role-based-access-control/overview
 
 ### <a name="62-maintain-asset-metadata"></a>6.2 : Gérer les métadonnées de ressources
 
-**Conseils** : Appliquez des étiquettes aux ressources Azure en fournissant des métadonnées pour les organiser de façon logique par catégories.
+**Conseils** : Appliquez des balises aux ressources Azure en fournissant des métadonnées pour les organiser de façon logique par catégories.
 
 
-Créer et utiliser des étiquettes :
+Comment créer et utiliser des étiquettes :
 
 https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -863,13 +863,16 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 - Types de ressources non autorisés
 - Types de ressources autorisés
 
+
 Utilisez Azure Resource Graph pour interroger/découvrir les ressources dans vos abonnements. Vérifiez que toutes les ressources Azure présentes dans l’environnement sont approuvées.
+
 
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
+
 Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -877,7 +880,7 @@ Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/govern
 
 **Conseils** : Pour les nœuds de pool Azure Batch, implémentez une solution tierce qui détecte la présence d’applications logicielles non approuvées sur les nœuds de cluster.
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -885,7 +888,7 @@ Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/govern
 
 **Conseils** : Pour les nœuds de pool Azure Batch, implémentez une solution tierce qui détecte la présence d’applications logicielles non approuvées sur les nœuds de cluster.
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -893,7 +896,7 @@ Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/govern
 
 **Conseils** : Pour les nœuds de pool Azure Batch, implémentez une solution tierce qui empêche l’exécution de logiciels non autorisés.
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -901,18 +904,17 @@ Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/govern
 
 **Conseils** : Appliquez des restrictions quant au type de ressources pouvant être créées dans les abonnements clients, en utilisant une stratégie Azure avec les définitions intégrées suivantes :
 
+
 - Types de ressources non autorisés
 - Types de ressources autorisés
 
-Configurer et gérer Azure Policy :
 
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Refuser un type de ressource spécifique avec Azure Policy :
 
-https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Comment refuser un type de ressource spécifique avec Azure Policy : https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -920,20 +922,18 @@ https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-
 
 **Conseils** : Pour les nœuds de pool Azure Batch, implémentez une solution tierce qui empêche l’exécution de types de fichiers non autorisés.
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
-### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager-via-scripts"></a>6.11 : Limiter la capacité des utilisateurs à interagir avec Azure Resource Manager via des scripts
+### <a name="611-divlimit-users-ability-to-interact-with-azure-resource-manager-via-scriptsdiv"></a>6.11 : <div>Limiter la capacité des utilisateurs à interagir avec Azure Resource Manager via des scripts</div>
 
 **Conseils** : Utilisez l’accès conditionnel Azure pour limiter la capacité des utilisateurs à interagir avec Azure Resource Manager en configurant « Bloquer l’accès » pour l’application « Gestion Microsoft Azure ».
 
 
-Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Manager :
+Configurer l'accès conditionnel pour bloquer l'accès à Azure Resource Manager : https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
-
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -949,9 +949,7 @@ Cela ne concerne pas Azure Batch, car les utilisateurs (non-administrateurs) des
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13 : Séparer physiquement ou logiquement des applications à risque élevé
 
-**Conseils** : Non disponible.
-
-Le benchmark concerne les applications web s’exécutant sur Azure App Service ou des ressources IaaS.
+**Aide** : Non applicable. Le benchmark concerne les applications web s’exécutant sur Azure App Service ou des ressources IaaS.
 
 **Supervision Azure Security Center** : Non applicable
 
@@ -966,10 +964,14 @@ Le benchmark concerne les applications web s’exécutant sur Azure App Service 
 **Conseils** : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.Batch » pour créer des stratégies personnalisées d’audit ou d’application de la configuration de vos comptes et pools Azure Batch.
 
 
-Afficher les alias Azure Policy disponibles : https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Comment voir les alias Azure Policy disponibles :
+
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 
-Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Configurer et gérer Azure Policy :
+
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Supervision Azure Security Center** : Non applicable
 
@@ -991,7 +993,9 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 - Microsoft.Storage
 - Microsoft.Network
 
+
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Comprendre les effets d’Azure Policy : https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
@@ -1003,17 +1007,23 @@ Comprendre les effets d’Azure Policy : https://docs.microsoft.com/azure/gover
 
 **Conseils** : Les images des systèmes d’exploitation des pools Azure Batch sont gérées et tenues à jour par Microsoft. L’implémentation de la configuration d’état au niveau du système d’exploitation vous incombe.
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Partagé
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5 : Stocker en toute sécurité la configuration des ressources Azure
 
-**Conseils** : Si vous avez des définitions de stratégie Azure personnalisées pour vos comptes ou pools Azure Batch, ou pour des ressources associées, utilisez Azure DevOps/Repos pour stocker et gérer votre code en toute sécurité.
+**Aide** : Si vous utilisez des définitions de stratégie Azure personnalisées pour vos comptes ou pools Azure Batch (ou ressources associées), utilisez Azure Repos pour stocker et gérer votre code en toute sécurité.
 
-Stocker du code dans Azure DevOps : https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-Documentation Azure Repos : https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Comment stocker du code dans Azure DevOps :
+
+https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+
+
+Documentation Azure Repos
+
+https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Supervision Azure Security Center** : Non applicable
 
@@ -1024,11 +1034,16 @@ Documentation Azure Repos : https://docs.microsoft.com/azure/devops/repos/index
 **Conseils** : Si vous utilisez des images personnalisées pour vos pools Azure Batch, utilisez le contrôle d’accès en fonction du rôle (RBAC) pour garantir que seuls les utilisateurs autorisés pourront accéder aux images.
 
 
-Comprendre le contrôle d’accès en fonction du rôle dans Azure : https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
+Comprendre RBAC dans Azure :
 
-Configurer le contrôle d’accès en fonction du rôle dans Azure : https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
+https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
 
-**Supervision Azure Security Center** : Actuellement non disponible
+
+Configuration de RBAC dans Azure :
+
+https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
+
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -1042,7 +1057,7 @@ Configurer et gérer Azure Policy :
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -1050,7 +1065,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Conseils** : Implémentez une solution tierce qui maintient l’état souhaité pour les systèmes d’exploitation de vos nœuds de pool Azure Batch.
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -1058,8 +1073,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Conseils** : Utilisez des alias Azure Policy dans l’espace de noms « Microsoft.Batch » pour créer des stratégies personnalisées d’audit ou d’application de la configuration de votre instance Azure Batch. Vous pouvez également employer des stratégies intégrées créées spécifiquement pour Azure Batch ou les ressources utilisées par Azure Batch, par exemple :
 
-- Les sous-réseaux doivent être associés à un groupe de sécurité réseau
-- Les comptes de stockage doivent utiliser un point de terminaison de service de réseau virtuel
+- Les sous-réseaux doivent être associés à un groupe de sécurité réseau - Les comptes de stockage doivent utiliser un point de terminaison de service de réseau virtuel
 - Les journaux de diagnostic doivent être activés dans les comptes Batch
 
 Afficher les alias Azure Policy disponibles : https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
@@ -1067,7 +1081,7 @@ Afficher les alias Azure Policy disponibles : https://docs.microsoft.com/powers
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -1075,7 +1089,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 **Conseils** : Implémentez une solution tierce pour superviser l’état des systèmes d’exploitation de vos nœuds de pool Azure Batch.
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -1098,7 +1112,7 @@ Fournir une authentification Key Vault avec une identité managée :
 
 https://docs.microsoft.com/azure/key-vault/managed-identity
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1128,7 +1142,7 @@ Configuration de Credential Scanner : https://secdevtools.azurewebsites.net/help
 
 **Conseils** : Exécutez Windows Defender sur vos nœuds de pool Azure Batch individuels si vous utilisez un système d’exploitation Windows, ou fournissez votre propre solution anti-programme malveillant si vous travaillez sur Linux.
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -1152,13 +1166,13 @@ https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
 **Conseils** : Exécutez Windows Defender sur vos nœuds de pool Azure Batch individuels si vous utilisez un système d’exploitation Windows et vérifiez que la mise à jour automatique est activée. Fournissez votre propre solution anti-programme malveillant si vous êtes sur Linux.
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
 ## <a name="data-recovery"></a>Récupération des données
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Récupération de données](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : récupération de données](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1 : Mettre en place des sauvegardes automatiques régulières
 
@@ -1187,7 +1201,7 @@ Comment sauvegarder des clés de coffre de clés dans Azure :
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1205,7 +1219,7 @@ Restaurer une clé gérée par le client avec PowerShell :
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -1218,13 +1232,13 @@ Activer la suppression réversible dans Azure Key Vault :
 
 https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
 ## <a name="incident-response"></a>Réponse aux incidents
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Réponse aux incidents](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : réponse aux incidents](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
 
 ### <a name="101-create-incident-response-guide"></a>10.1 : Créer un guide de réponse aux incidents
 
@@ -1274,7 +1288,7 @@ https://docs.microsoft.com/azure/security-center/security-center-provide-securit
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5 : Intégrer des alertes de sécurité à votre système de réponse aux incidents
 
-**Conseils** : Exportez vos alertes et recommandations d’Azure Security Center à l’aide de la fonctionnalité d’exportation continue. L’exportation continue vous permet d’exporter les alertes et les recommandations manuellement, ou automatiquement de manière continue. Vous pouvez utiliser le connecteur de données Azure Security Center pour envoyer les alertes à Azure Sentinel.
+**Conseils** : Exportez vos alertes et recommandations d’Azure Security Center à l’aide de la fonctionnalité d’exportation continue. L’exportation continue vous permet d’exporter les alertes et les recommandations manuellement, ou automatiquement de manière continue. Vous pouvez utiliser le connecteur de données Azure Security Center pour diffuser en continu les alertes vers Azure Sentinel.
 
 
 Comment configurer l’exportation continue :
@@ -1286,7 +1300,7 @@ Comment diffuser des alertes dans Azure Sentinel :
 
 https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -1300,13 +1314,13 @@ Comment configurer l’automatisation du flux de travail et Logic Apps :
 
 https://docs.microsoft.com/azure/security-center/workflow-automation
 
-**Supervision Azure Security Center** : Actuellement non disponible
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Tests d’intrusion et exercices Red Team
 
-*Pour plus d’informations, consultez [Contrôle de sécurité : Tests d’intrusion et exercices Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Pour plus d’informations, consultez [Contrôle de sécurité : tests d’intrusion et exercices Red Team](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-to-remediate-all-critical-security-findings-within-60-days"></a>11.1 : Procéder régulièrement à des tests d’intrusion de vos ressources Azure et résoudre tous les problèmes de sécurité critiques détectés dans un délai de 60 jours
 
@@ -1324,3 +1338,7 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Responsabilité** : Partagé
 
+## <a name="next-steps"></a>Étapes suivantes
+
+- Consultez le [benchmark de sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Apprenez-en davantage sur les [Bases de référence de la sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

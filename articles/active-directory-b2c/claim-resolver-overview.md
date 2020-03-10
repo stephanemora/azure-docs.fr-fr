@@ -3,20 +3,20 @@ title: Programmes de résolution de revendication
 titleSuffix: Azure AD B2C
 description: Découvrez comment utiliser les programme de résolution de revendication dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
-ms.author: marsma
+ms.date: 03/02/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4434c877f69391f5dc5926c6aed07049ba46b7b7
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 02277d2da2e431ac1cefdd9b018af4c25f7d5a9a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425644"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189835"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>À propos des résolveurs de revendication dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -75,6 +75,7 @@ Les sections suivantes répertorient les résolveurs de revendication disponible
 | {OIDC:Prompt} | Paramètre de chaîne de requête `prompt`. | login |
 | {OIDC:Resource} |Paramètre de chaîne de requête `resource`. | N/A |
 | {OIDC:scope} |Paramètre de chaîne de requête `scope`. | openid |
+| {OIDC:RedirectUri} |Paramètre de chaîne de requête `redirect_uri`. | https://jwt.ms |
 
 ### <a name="context"></a>Context
 
@@ -85,7 +86,7 @@ Les sections suivantes répertorient les résolveurs de revendication disponible
 | {Context:DateTimeInUtc} |Date et heure UTC.  | 10/10/2018 12:00:00 |
 | {Context:DeploymentMode} |Mode de déploiement de la stratégie.  | Production |
 | {Context:IPAddress} | Adresse IP utilisateur. | 11.111.111.11 |
-
+| {Context:KMSI} | Indique si la case [Maintenir la connexion](custom-policy-keep-me-signed-in.md) est cochée. |  true |
 
 ### <a name="non-protocol-parameters"></a>Paramètres non liés au protocole
 
@@ -116,9 +117,9 @@ Tous les noms de paramètre inclus dans le cadre d’une requête OIDC ou OAuth2
 | {SAML:ForceAuthn} | Valeur de l'attribut `ForceAuthN`, provenant de l'élément `AuthnRequest` de la demande SAML. | True |
 | {SAML:ProviderName} | Valeur de l'attribut `ProviderName`, provenant de l'élément `AuthnRequest` de la demande SAML.| Contoso.com |
 
-## <a name="using-claim-resolvers"></a>Utilisation de programmes de résolution de revendications 
+## <a name="using-claim-resolvers"></a>Utilisation de programmes de résolution de revendications
 
-Vous pouvez utiliser des programmes de résolution de revendications avec les éléments suivants : 
+Vous pouvez utiliser des programmes de résolution de revendications avec les éléments suivants :
 
 | Élément | Élément | Paramètres |
 | ----- | ----------------------- | --------|
@@ -134,7 +135,7 @@ Vous pouvez utiliser des programmes de résolution de revendications avec les é
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
 |Profil technique [RelyingParty](relyingparty.md#technicalprofile)| `OutputClaim`| 2 |
 
-Paramètres : 
+Paramètres :
 1. Les métadonnées `IncludeClaimResolvingInClaimsHandling` doivent être définies sur `true`.
 1. L'attribut des revendications d'entrée ou de sortie `AlwaysUseDefaultValue` doit être défini sur `true`.
 
@@ -194,7 +195,7 @@ Ainsi, Azure AD B2C envoie les paramètres ci-dessus à la page de contenu HTML�
 
 ### <a name="content-definition"></a>Définition de contenu
 
-Une définition de contenu ([ContentDefinition](contentdefinitions.md)`LoadUri`) vous permet d'envoyer des programmes de résolution de revendications pour extraire du contenu à partir de différents emplacements, conformément aux paramètres utilisés. 
+Une définition de contenu ([ContentDefinition](contentdefinitions.md)`LoadUri`) vous permet d'envoyer des programmes de résolution de revendications pour extraire du contenu à partir de différents emplacements, conformément aux paramètres utilisés.
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -223,7 +224,7 @@ Avec Azure Application Insights et les résolveurs de revendication, vous pouvez
 
 ### <a name="relying-party-policy"></a>Stratégie de partie de confiance
 
-Le profil technique d'une stratégie [Partie de confiance](relyingparty.md) vous permet d'envoyer l'ID du locataire ou l'ID de corrélation à l'application par partie de confiance dans le jeton JWT. 
+Le profil technique d'une stratégie [Partie de confiance](relyingparty.md) vous permet d'envoyer l'ID du locataire ou l'ID de corrélation à l'application par partie de confiance dans le jeton JWT.
 
 ```XML
 <RelyingParty>

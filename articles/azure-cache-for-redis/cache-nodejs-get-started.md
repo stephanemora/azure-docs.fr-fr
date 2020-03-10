@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: e0458fd257942a455daef911a303437fea03b11b
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 07e2d6f174e5af4af9bdcac73dc74f5cf061ed41
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122010"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300483"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Démarrage rapide : Utiliser le cache Azure pour Redis avec Node.js
 
@@ -55,7 +55,7 @@ Ne créez pas de connexion pour chaque opération dans votre code. Réutilisez p
 
 ## <a name="create-a-new-nodejs-app"></a>Créer une application Node.js
 
-Créez un fichier de script nommé *redistest.js*.
+Créez un fichier de script nommé *redistest.js*. Utilisez la commande `npm install redis bluebird` pour installer les packages nécessaires.
 
 Ajoutez l’exemple JavaScript suivant au fichier. Ce code vous montre comment se connecter à une instance de cache Azure pour Redis à l’aide du nom d’hôte de cache et des variables d’environnement de la clé. Le code stocke et récupère également une valeur de chaîne dans le cache. Les commandes `PING` et `CLIENT LIST` sont également exécutées. Pour plus d’exemples d’utilisation de Redis avec le client [node_redis](https://github.com/mranney/node_redis), consultez [https://redis.js.org/](https://redis.js.org/).
 
@@ -63,6 +63,7 @@ Ajoutez l’exemple JavaScript suivant au fichier. Ce code vous montre comment s
 var redis = require("redis");
 var bluebird = require("bluebird");
 
+// Convert Redis client API to use promises, to make it usable with async/await syntax
 bluebird.promisifyAll(redis.RedisClient.prototype);
 bluebird.promisifyAll(redis.Multi.prototype);
 
@@ -108,7 +109,7 @@ Dans l’exemple ci-dessous, vous pouvez voir que la clé `Message` présentait 
 
 ![Application Cache Redis terminée](./media/cache-nodejs-get-started/redis-cache-app-complete.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez d’exécuter le didacticiel suivant, vous pouvez conserver les ressources créées dans le cadre de ce guide de démarrage rapide afin de les réutiliser.
 

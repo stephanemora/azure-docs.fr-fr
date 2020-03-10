@@ -4,18 +4,17 @@ description: Créer des rapports complexes en toute simplicité grâce à des cl
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: f3a7e47d1e6ac0018c8695751ba2ea5091ddbfe8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3e7dda85f1f890d5ae0eb4722c3e028b373fdcab
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872823"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658215"
 ---
 # <a name="workbook-parameters"></a>Paramètres du classeur
 
@@ -40,7 +39,7 @@ Il est possible de faire référence à ces valeurs de paramètre dans d’autre
 3. Cliquez sur le bouton bleu _Ajouter un paramètre_.
 4. Dans le volet Nouveau paramètre qui apparaît, entrez :
     1. Nom du paramètre : `TimeRange` *(notez que les __noms__ de paramètres **ne peuvent pas** comporter d’espaces ou de caractères spéciaux)*
-    2. Nom d’affichage : `Time Range` *(cependant, les __noms d’affichage__ peuvent comporter des espaces, des caractères spéciaux, des emoji, etc.)*
+    2. Nom d’affichage : `Time Range` *(cependant, les __noms d’affichage__ peuvent comporter des espaces, des caractères spéciaux, des emojis, etc.)*
     2. Type de paramètre : `Time range picker`
     3. Obligatoire : `checked`
     4. Intervalles de temps disponibles : Last hour (Dernière heure), Last 12 hours (12 dernières heures), Last 24 hours (Dernières 24 heures), Last 48 hours (48 dernières heures), Last 3 days (3 derniers jours), Last 7 days (7 derniers jours) et Allow custom time range selection (Autoriser la sélection d’un intervalle de temps personnalisé)

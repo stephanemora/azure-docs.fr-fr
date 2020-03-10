@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1547f0e600031f558dcc0157df2a35fdf3f9db2c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 07c8f84f2e37abd87953d8e4cb20b37258b25fda
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224683"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920474"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurations et opérations de l’infrastructure SAP HANA sur Azure
 Ce document fournit des instructions pour la configuration des infrastructures Azure et le fonctionnement des systèmes SAP HANA qui sont déployés sur des machines virtuelles Azure natives. Le document inclut également des informations de configuration pour le scale-out de SAP HANA sur la référence SKU de machine virtuelle M128s. Ce document n’a pas pour but de remplacer la documentation SAP standard, qui propose le contenu suivant :
@@ -67,7 +67,7 @@ Déployez les machines virtuelles sur Azure en utilisant :
 Vous pouvez également déployer une plateforme SAP HANA installée et complète sur les services de machine virtuelle Azure par le biais de la [plateforme cloud SAP](https://cal.sap.com/). Le processus d’installation est décrit dans [Déploiement de SAP S/4HANA ou BW/4HANA sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) ou avec le processus d’automatisation publié [ici](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 >[!IMPORTANT]
-> Pour pouvoir utiliser des machines virtuelles M208xx_v2, vous devez sélectionner avec soin votre image Linux dans la galerie d’images de machine virtuelle Azure. Pour plus d’informations, lisez l’article [Tailles de machine virtuelle à mémoire optimisée](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series). 
+> Pour pouvoir utiliser des machines virtuelles M208xx_v2, vous devez sélectionner avec soin votre image Linux dans la galerie d’images de machine virtuelle Azure. Pour plus d’informations, lisez l’article [Tailles de machine virtuelle à mémoire optimisée](../../mv2-series.md).
 > 
 
 
@@ -112,115 +112,59 @@ Les [groupes de sécurité réseau Azure](https://docs.microsoft.com/azure/virtu
 
 L’image suivante représente une vue d’ensemble d’un schéma de déploiement approximatif pour SAP HANA selon une architecture de réseau virtuel hub and spoke :
 
-![Schéma de déploiement approximatif pour SAP HANA](media/hana-vm-operations/hana-simple-networking.PNG)
+![Schéma de déploiement approximatif pour SAP HANA](media/hana-vm-operations/hana-simple-networking-dmz.png)
 
 Pour déployer SAP HANA dans Azure sans une connexion de site à site, vous voulez protéger l’instance SAP HANA de l’internet public et le masquer derrière un proxy. Dans ce scénario de base, le déploiement s’appuie sur les services DNS intégrés à Azure pour résoudre les noms d’hôte. Dans un déploiement plus complexe où des adresses IP publiques sont utilisées, les services DNS intégrés à Azure sont particulièrement importants. Utilisez des groupes de sécurité réseau et [appliances virtuelles réseau Azure](https://azure.microsoft.com/solutions/network-appliances/) pour contrôler et surveiller le routage à partir d’internet dans votre architecture de réseau virtuel Azure dans Azure. L’image suivante représente un schéma approximatif pour le déploiement de SAP HANA sans connexion de site à site dans une architecture de réseau virtuel  hub and spoke :
   
-![Schéma de déploiement approximatif pour SAP HANA sans une connexion de site à site](media/hana-vm-operations/hana-simple-networking2.PNG)
+![Schéma de déploiement approximatif pour SAP HANA sans une connexion de site à site](media/hana-vm-operations/hana-simple-networking-dmz.png)
  
 
 Vous trouverez une autre description sur l’utilisation des appliances virtuelles réseau Azure pour contrôler et surveiller l’accès à partir d’Internet sans l’architecture de réseau virtuel hub et spoke dans l’article [Déployer des appliances virtuelles réseau hautement disponibles](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha).
 
 
 ## <a name="configuring-azure-infrastructure-for-sap-hana-scale-out"></a>Configuration de l’infrastructure Azure pour le scale-out de SAP HANA
-Microsoft dispose d’une référence SKU de machine virtuelle de série M certifiée pour une configuration de scale-out de SAP HANA. Le type de machine virtuelle M128s a obtenu une certification pour un scale-out allant jusqu'à 16 nœuds. Pour les changements dans les certifications de scale-out pour SAP HANA sur des machines virtuelles Azure, consultez la [liste des plateformes IaaS certifiées](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure).
+Pour connaître les types de machines virtuelles Azure certifiés pour le scale-out OLAP ou le scale-out S/4HANA, consultez le [répertoire matériel SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). La présence d'une coche dans la colonne « Clustering » indique que le scale-out est pris en charge. Le type d'application indique si le scale-out OLAP ou le scale-out S/4HANA est pris en charge. Pour plus d'informations sur les nœuds certifiés pour le scale-out de chacune des machines virtuelles, consultez les entrées de la référence SKU de machine virtuelle appropriée dans le répertoire matériel SAP HANA.
 
-Les versions de système d’exploitation minimales pour le déploiement de configurations de scale-out dans les machines virtuelles Azure sont :
-
-- SUSE Linux 12 SP3
-- Red Hat Linux 7.4
-
-Sur les 16 nœuds de certification de scale-out
-
-- Le nœud principal est au nombre de 1
-- Les nœuds de travail sont au nombre de 15 maximum
+Concernant les versions minimales du système d'exploitation pour le déploiement de configurations scale-out dans les machines virtuelles Azure, consultez les entrées de la référence SKU de machine virtuelle appropriée dans le répertoire matériel SAP HANA. Dans une configuration scale-out OLAP à n nœuds, un nœud fait office de nœud principal. Les autres nœuds, jusqu'à la limite de la certification, font office de nœud Worker. Les nœuds de secours supplémentaires ne sont pas pris en compte pas dans le nombre de nœuds certifiés
 
 >[!NOTE]
->Dans les déploiements de scale-out de machine virtuelle Azure, il est impossible d’utiliser un nœud de secours
+> Les déploiements scale-out de machines virtuelles Azure de SAP HANA avec nœud de secours ne sont possibles qu'avec le stockage [Azure NetApp Files](https://azure.microsoft.com/services/netapp/). Aucun autre stockage Azure certifié SAP HANA ne permet la configuration de nœuds de secours SAP HANA
 >
 
-Si Azure dispose d’un service NFS natif avec [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), le service NFS, bien que pris en charge pour la couche Application SAP, n’est pas encore certifié pour SAP HANA. Par conséquent les partages NFS doivent encore être configurés à l’aide d’une fonctionnalité tierce. 
+Pour /hana/shared, nous recommandons également l'utilisation d'[Azure NetApp Files](https://azure.microsoft.com/services/netapp/). 
 
+Dans une configuration scale-out, une conception de base classique pour un nœud unique se présentera comme suit :
 
-Par conséquent, les volumes **/hana/data** et **/hana/log** ne peuvent pas être partagés. L’impossibilité de partager ces volumes de nœuds uniques empêche l’utilisation d’un nœud de secours SAP HANA dans une configuration scale-out.
-
-Par conséquent, la conception de base pour un nœud unique dans une configuration scale-out va ressembler à ceci :
-
-![Scale-out de base pour un nœud unique](media/hana-vm-operations/scale-out-basics.PNG)
+![Scale-out de base pour un nœud unique](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
 
 La configuration de base d’un nœud de machine virtuelle pour le scale-out de SAP HANA ressemble à ceci :
 
-- Pour **/Hana/Shared**, vous devez créer un partage NFS hautement disponible. Jusqu’à présent, il existe différentes possibilités pour obtenir un tel partage hautement disponible. Celles-ci sont documentées conjointement avec SAP NetWeaver :
-    - [Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
-    - [GlusterFS sur les machines virtuelles Azure sur Red Hat Enterprise Linux pour SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-glusterfs)
-    - [Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server avec Azure NetApp Files pour les applications SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
-    - [Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux avec Azure NetApp Files pour les applications SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
-- Tous les autres volumes de disque NE sont **PAS** partagés entre les différents nœuds et NE sont **PAS** basés sur NFS. Les configurations d’installation et les étapes pour les installations de scale-out HANA avec **/hana/data** et **/hana/log** non partagés sont fournies plus bas dans ce document.
-
->[!NOTE]
->Le cluster NFS hautement disponible illustré dans les graphismes est documenté dans [Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs). D’autres possibilités sont documentées dans la liste ci-dessus.
-
-Le dimensionnement des volumes pour les nœuds est identique au scale-up, sauf pour **/hana/shared**. Pour la référence SKU de machine virtuelle M128s, voici les tailles et les types suggérés :
-
-| Référence de la machine virtuelle | RAM | Bande passante E/S DE MACHINE VIRTUELLE<br /> Débit | /hana/data | /hana/log | /root volume | /usr/sap | hana/backup |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| M128s | 2 000 Gio | 2 000 Mo/s |3 x P30 | 2 x P20 | 1 x P6 | 1 x P6 | 2 x P40 |
+- Pour **/hana/shared**, vous utilisez le service NFS natif fourni par Azure NetApp Files. 
+- Les autres volumes de disque ne sont pas partagés entre les différents nœuds et ne sont pas basés sur NFS. Les configurations d'installation et les étapes relatives aux installations de scale-out HANA avec **/hana/data** et **/hana/log** non partagés sont fournies plus loin dans ce document. Pour savoir si un stockage certifié HANA peut être utilisé, consultez l'article [Configurations du stockage des machines virtuelles SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
 
 
-Vérifiez que le débit de stockage des différents volumes suggérés est suffisant pour la charge de travail à exécuter. Si la charge de travail nécessite de plus grands volumes pour **/hana/data** et **/hana/log**, augmentez le nombre de disques durs virtuels de stockage Azure Premium. Le dimensionnement d’un volume avec davantage de disques durs virtuels que le nombre suggéré permet d’augmenter le débit d’IOPS et d’E/S dans les limites définies pour le type de machine virtuelle Azure. Applique également l’Accélérateur des écritures Azure aux disques qui forment le volume **/hana/log**.
- 
-Dans le document [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) (Exigences de stockage SAP HANA TDI) se trouve une formule qui définit la taille du volume **/hana/shared** pour le scale-out comme la taille de mémoire d’un nœud de travail unique par quatre nœuds de travail.
+Pour le dimensionnement des volumes ou des disques, vous devez vérifier la taille requise en fonction du nombre de nœuds Worker en consultant le document [Exigences de stockage TDI SAP HANA](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). Le document contient une formule que vous devez appliquer pour obtenir la capacité requise du volume
 
-En supposant que vous prenez la machine virtuelle Azure M128s certifiée scale-out SAP HANA avec environ 2 To de mémoire, les recommandations de SAP peuvent être résumées ainsi :
-
-- Un nœud principal et jusqu’à quatre nœuds Worker, le volume **/hana/shared** doit avoir une taille de 2 To. 
-- Un nœud principal et cinq à huit nœuds worker, le volume **/hana/shared** doit être de 4 To. 
-- Un nœud principal et de neuf à 12 nœuds de travail, le volume **/hana/shared** doit être de 6 To. 
-- Un nœud principal et de 12 à 15 nœuds de travail, le volume **/hana/shared** doit être de 8 To.
-
-L’autre conception importante illustrée dans le graphique de la configuration de nœud unique pour un scale-out de machine virtuelle SAP HANA est le réseau virtuel, plus précisément la configuration du sous-réseau. SAP recommande fortement de séparer le trafic client/application des communications entre les nœuds HANA. Comme indiqué dans les graphiques, cet objectif est réalisé en attachant deux cartes réseau virtuelles différentes à la machine virtuelle. Chacune des cartes réseau virtuelles est dans un sous-réseau différent et dispose d’un adresse IP distincte. Vous contrôlez le trafic avec les règles de routage à l’aide de groupes de sécurité réseau ou d’itinéraires définis par l’utilisateur.
+L'autre critère de conception illustré dans le graphique de la configuration de nœud unique pour un scale-out de machine virtuelle SAP HANA est le réseau virtuel, plus précisément la configuration du sous-réseau. SAP recommande fortement de séparer le trafic client/application des communications entre les nœuds HANA. Comme indiqué dans les graphiques, cet objectif est réalisé en attachant deux cartes réseau virtuelles différentes à la machine virtuelle. Chacune des cartes réseau virtuelles est dans un sous-réseau différent et dispose d’un adresse IP distincte. Vous contrôlez le trafic avec les règles de routage à l’aide de groupes de sécurité réseau ou d’itinéraires définis par l’utilisateur.
 
 En particulier dans Azure, il n’existe aucun moyen ni de méthode pour appliquer la qualité de service et les quotas sur des cartes réseau virtuelles spécifiques. Par conséquent, la séparation de la communication client/application et intra-nœud n’ouvre pas d’opportunité pour prioriser un flux plutôt que l’autre. Au lieu de cela, la séparation reste une mesure de sécurité pour la protection des communications intra-nœud dans les configurations de scale-out.  
 
->[!IMPORTANT]
->SAP recommande fortement de séparer le trafic réseau vers le côté client/application et le trafic intra-nœud, comme décrit dans ce document. Il est par conséquent fortement recommandé de mettre une architecture en place, comme indiqué dans les derniers graphiques.
+>[!NOTE]
+>SAP recommande de séparer le trafic réseau vers le côté client/application et le trafic intra-nœud, comme décrit dans ce document. Il est par conséquent recommandé de mettre une architecture en place, comme indiqué dans les derniers graphiques. Consultez également votre équipe de sécurité et de conformité pour plus d'informations sur les exigences qui s'écartent de la recommandation 
 >
 
 Du point de vue du réseau, l’architecture réseau minimale requise serait la suivante :
 
-![Scale-out de base pour un nœud unique](media/hana-vm-operations/scale-out-networking-overview.PNG)
-
-Les limites prises en charge jusqu'à présent sont de 15 nœuds de travail en plus du nœud principal.
-
-Du point de vue du stockage, l’architecture de stockage ressemblerait à ceci :
+![Scale-out de base pour un nœud unique](media/hana-vm-operations/overview-scale-out-networking.png)
 
 
-![Scale-out de base pour un nœud unique](media/hana-vm-operations/scale-out-storage-overview.PNG)
-
-Le volume **/hana/shared** se trouve sur la configuration de partage NFS hautement disponible, tandis que tous les autres disques sont montés « en local » sur les machines virtuelles individuelles. 
-
-### <a name="highly-available-nfs-share"></a>Partage NFS haute disponibilité
-À l’heure actuelle, le cluster NFS hautement disponible fonctionne sous SUSE Linux uniquement. Le document [Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs) décrit la procédure de configuration. Si vous ne partagez pas le cluster NFS avec d’autres configurations HANA en dehors du réseau virtuel Azure qui exécute les instances SAP HANA, installez-le dans le même réseau virtuel. Installez-le dans son propre sous-réseau et assurez-vous que tout le trafic arbitraire ne peut accéder au sous-réseau. Au lieu de cela, vous souhaiterez limiter le trafic vers ce sous-réseau aux adresses IP de la machine virtuelle qui exécute le trafic vers le volume **/hana/shared**.
-
-Concernant la carte réseau virtuelle d’une machine virtuelle de scale-out HANA devant acheminer le trafic **/hana/shared**, voici les recommandations :
-
-- Étant donné que le trafic vers **/hana/shared** est modéré, routez-le via la carte réseau virtuelle assignée au réseau client dans la configuration minimale
-- Enfin, pour le trafic vers **/hana/shared**, déployez un troisième sous-réseau dans le réseau virtuel où vous déployez la configuration de scale-out SAP HANA et assignez une troisième carte réseau virtuelle hébergée dans ce sous-réseau. Utilisez la troisième carte réseau virtuelle et l’adresse IP associée pour le trafic vers le partage NFS. Vous pouvez ensuite appliquer des accès et des règles de routage spécifiques.
-
->[!IMPORTANT]
->Le trafic réseau entre les machines virtuelles qui déploient SAP HANA en scale-out et un NFS à haute disponibilité ne peut en aucun cas être routé via une [NVA](https://azure.microsoft.com/solutions/network-appliances/) ou des appliances virtuelles similaires, tandis que les groupes de sécurité réseau Azure ne contiennent pas ces appareils. Vérifiez vos règles d’acheminement pour vous assurer que les appliances virtuelles réseau ou appliances virtuelles similaires sont contournées lors de l’accès au partage NFS à haute disponibilité depuis les machines virtuelles SAP HANA en cours d’exécution.
-> 
-
-Si vous souhaitez partager le cluster NFS à haute disponibilité entre les configurations de SAP HANA, déplacez toutes ces configurations HANA dans le même réseau virtuel. 
- 
 
 ### <a name="installing-sap-hana-scale-out-n-azure"></a>Installation du scale-out SAP HANA dans Azure
 Lors de l’installation d’une configuration de scale-out SAP, vous devez procéder :
 
 - Au déploiement d’une nouvelle infrastructure de réseau virtuel Azure ou à l’adaptation d’une existante
-- Au déploiement de nouvelles machines virtuelles en utilisant les volumes Stockage Premium gérés par Azure
-- Au déploiement d’un nouveau cluster NFS à haute disponibilité, ou à l’adaptation d’un cluster existant
-- À l’adaptation d’un routage réseau pour vous assurer que, par exemple, les communications intra-nœud entre les machines virtuelles ne sont pas acheminées via un [NVA](https://azure.microsoft.com/solutions/network-appliances/). Il en est de même pour le trafic entre les machines virtuelles et le cluster NFS à haute disponibilité.
+- Déployer les nouvelles machines virtuelles à l'aide du Stockage Premium géré par Azure, de volumes de disques Ultra et/ou de volumes NFS basés sur ANF
+- - À l’adaptation d’un routage réseau pour vous assurer que, par exemple, les communications intra-nœud entre les machines virtuelles ne sont pas acheminées via un [NVA](https://azure.microsoft.com/solutions/network-appliances/). 
 - À l’installation du nœud principal SAP HANA.
 - À l’adaptation des paramètres de configuration du nœud principal SAP HANA
 - Continuez avec l’installation des nœuds de travail SAP HANA
@@ -229,11 +173,11 @@ Lors de l’installation d’une configuration de scale-out SAP, vous devez proc
 Votre infrastructure de machine virtuelle Azure est déployée, et toutes les autres tâches de préparation sont terminées. Vous devez installer les configurations de scale-out SAP HANA en suivant ces étapes :
 
 - Installer le nœud principal SAP HANA selon la documentation de SAP
-- **Après l’installation, vous devez modifier le fichier global.ini et y ajouter le paramètre « basepath_shared = no »** . Ce paramètre permet à SAP HANA de s’exécuter avec un scale-out sans les volumes « shared » **/hana/data** et **/hana/log** entre les nœuds. Pour plus de détails à ce sujet, voir le document [SAP Note #2080991](https://launchpad.support.sap.com/#/notes/2080991).
-- Après avoir modifié le paramètre pour global.ini, redémarrer l’instance SAP HANA
+- Si vous utilisez le Stockage Premium Azure ou des disques de stockage Ultra, avec des disques non partagés de /hana/data et /hana/log, vous devez modifier le fichier global.ini en y ajoutant le paramètre 'basepath_shared = no'. Ce paramètre permet à SAP HANA de s’exécuter avec un scale-out sans les volumes « shared » **/hana/data** et **/hana/log** entre les nœuds. Pour plus de détails à ce sujet, voir le document [SAP Note #2080991](https://launchpad.support.sap.com/#/notes/2080991). Si vous utilisez des volumes NFS basés sur ANF pour /hana/data et /hana/log, cette modification n'est pas nécessaire
+- Après la modification éventuelle du paramètre global.ini, redémarrez l'instance SAP HANA
 - Ajoutez des nœuds de travail supplémentaires. Voir aussi <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Spécifiez le réseau interne pour la communication inter-nœuds de SAP HANA lors de l’installation ou ultérieurement, avec par exemple l’outil hdblcm local. Pour plus de détails à ce sujet, voir également le document [SAP Note #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
 
-Après cette routine d’installation, la configuration de scale-out que vous avez installée utilisera des disques non partagés pour exécuter **/hana/data** et **/hana/log**, tandis que le volume **/hana/shared** sera placé sur le partage NFS à haute disponibilité.
+Pour plus d'informations sur la configuration d'un système scale-out SAP HANA avec nœud de secours sur SUSE Linux, consultez [Déployer un système scale-out SAP HANA avec nœud de secours sur des machines virtuelles Azure à l'aide d'Azure NetApp Files sur SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse). Vous trouverez une documentation équivalente pour Red Hat dans l'article [Déployer un système scale-out SAP HANA avec nœud de secours sur des machines virtuelles Azure à l'aide d'Azure NetApp Files sur Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel). 
 
 
 ## <a name="sap-hana-dynamic-tiering-20-for-azure-virtual-machines"></a>SAP HANA Dynamic Tiering 2.0 pour les machines virtuelles Azure
@@ -243,7 +187,7 @@ En plus des certifications SAP HANA sur les machines virtuelles Azure de série 
 SAP HANA Dynamic Tiering 2.0 n’est pas pris en charge par SAP BW ou S4HANA. Les cas d’utilisation principaux sont actuellement des applications HANA natives.
 
 
-### <a name="overview"></a>Vue d'ensemble
+### <a name="overview"></a>Vue d’ensemble
 
 L’image ci-dessous donne une vue d’ensemble de la prise en charge de DT 2.0 sur Microsoft Azure. Il existe un ensemble de conditions obligatoires, qui doivent être suivies pour être conforme à la certification officielle :
 
@@ -256,7 +200,7 @@ L’image ci-dessous donne une vue d’ensemble de la prise en charge de DT 2.0 
 
 La section suivante contient plus de détails à ce sujet.
 
-![Vue d’ensemble de l’architecture de SAP HANA DT 2.0](media/hana-vm-operations/hana-dt-20.PNG)
+![Vue d’ensemble de l’architecture de SAP HANA DT 2.0](media/hana-vm-operations/hana-data-tiering.png)
 
 
 
@@ -315,7 +259,7 @@ Comme la machine virtuelle M64-32ms a beaucoup de mémoire, la charge d’E/S pe
 
 En particulier au cas où la charge de travail implique des lectures intensives, vous pouvez accélérer les performances des E/S en activant le cache d’hôte Azure « en lecture seule », comme c’est recommandé pour les volumes de données des logiciels de base de données. Pour le journal des transactions, le cache disque d’hôte Azure doit par contre être défini sur « aucun ». 
 
-Concernant la taille du volume des journaux, un point de départ recommandé est une heuristique de 15 % de la taille des données. Vous pouvez créer le volume des journaux en utilisant des types de disque Azure différents, en fonction des exigences quant au débit et aux coûts. Pour le volume de journaux, un débit d’E-S élevé est nécessaire.  En cas d’utilisation de la machine virtuelle type M64-32ms, il est fortement recommandé d’activer l’[Accélérateur d’écriture](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator). L’accélérateur d’écriture Azure permet une latence optimale des écritures sur disque pour le journal des transactions (disponible seulement pour la série M). Vous devez néanmoins prendre en compte certains éléments, comme le nombre maximal de disques par type de machine virtuelle. Vous pouvez trouver plus d’informations sur l’accélérateur d’écriture [ici](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
+Concernant la taille du volume des journaux, un point de départ recommandé est une heuristique de 15 % de la taille des données. Vous pouvez créer le volume des journaux en utilisant des types de disque Azure différents, en fonction des exigences quant au débit et aux coûts. Pour le volume du fichier journal, un débit d'E-S élevé est nécessaire.  En cas d'utilisation de la machine virtuelle de type M64-32ms, l'[Accélérateur d'écriture](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) doit obligatoirement être activé. L’accélérateur d’écriture Azure permet une latence optimale des écritures sur disque pour le journal des transactions (disponible seulement pour la série M). Vous devez néanmoins prendre en compte certains éléments, comme le nombre maximal de disques par type de machine virtuelle. Vous pouvez trouver plus d’informations sur l’accélérateur d’écriture [ici](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
 
 
 Voici quelques exemples de dimensionnement du volume des journaux :
@@ -363,11 +307,22 @@ Si vous avez une connexion de site à site entre vos emplacements locaux et Azur
 
 Si vous vous connectez à Azure par le biais d’Internet et que vous n’avez pas installé de routeur SAP pour la machine virtuelle avec SAP HANA, vous devez installer le composant. Installez SAProuter sur une machine virtuelle distincte dans le sous-réseau de gestion. L’image suivante représente un schéma approximatif pour le déploiement de SAP HANA sans une connexion de site à site et avec SAProuter :
 
-![Schéma de déploiement approximatif pour SAP HANA sans une connexion de site à site et avec SAProuter](media/hana-vm-operations/hana-simple-networking3.PNG)
+![Schéma de déploiement approximatif pour SAP HANA sans une connexion de site à site et avec SAProuter](media/hana-vm-operations/hana-simple-networking-saprouter.png)
 
 Veillez à installer SAProuter sur une machine virtuelle distincte, et non sur votre machine virtuelle Jumpbox. La machine virtuelle distincte doit avoir une adresse IP statique. Pour connecter votre SAProuter au SAProuter hébergé par SAP, contactez SAP pour obtenir une adresse IP. (Le SAProuter qui est hébergé par SAP est l’équivalent de l’instance de SAProuter que vous installez sur la machine virtuelle.) Utilisez l’adresse IP de SAP pour configurer votre instance de SAProuter. Dans les paramètres de configuration, le seul port nécessaire est le port TCP 3299.
 
 Pour plus d’informations sur la façon de configurer et de gérer des connexions de prise en charge à distance par le biais de SAProuter, consultez la [documentation SAP](https://support.sap.com/en/tools/connectivity-tools/remote-support.html).
 
 ### <a name="high-availability-with-sap-hana-on-azure-native-vms"></a>Haute disponibilité avec SAP HANA sur les machines virtuelles Azure natives
-Si vous exécutez SUSE Linux Enterprise Server pour des applications SAP 12 SP1 ou version ultérieure, vous pouvez établir un cluster Pacemaker avec des appareils STONITH. Vous pouvez utiliser les appareils afin de définir une configuration SAP HANA qui utilise la réplication synchrone avec la réplication de système HANA et le basculement automatique. Pour plus d’informations sur la procédure de configuration, consultez le [Guide de la haute disponibilité de SAP HANA sur les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
+Si vous exécutez SUSE Linux Enterprise Server ou Red Hat, vous pouvez établir un cluster Pacemaker avec des appareils STONITH. Vous pouvez utiliser les appareils afin de définir une configuration SAP HANA qui utilise la réplication synchrone avec la réplication de système HANA et le basculement automatique. Pour plus d'informations, reportez-vous à la section Étapes suivantes.
+
+## <a name="next-steps"></a>Étapes suivantes
+Familiarisez-vous avec les articles répertoriés
+- [Configurations du stockage des machines virtuelles SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+- [Déployer un système scale-out SAP HANA avec nœud de secours sur des machines virtuelles Azure à l’aide d’Azure NetApp Files sur SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse)
+- [Déployer un système scale-out SAP HANA avec nœud de secours sur des machines virtuelles Azure à l’aide d’Azure NetApp Files sur Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel)
+- [Haute disponibilité de SAP HANA sur les machines virtuelles Azure sur SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
+- [Haute disponibilité de SAP HANA sur les machines virtuelles Azure sur Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel)
+
+ 
+

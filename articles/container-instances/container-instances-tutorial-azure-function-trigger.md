@@ -4,14 +4,14 @@ description: Créer une fonction PowerShell serverless déclenchée par HTTP pou
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.custom: ''
-ms.openlocfilehash: 49eb0721972a92f33bda2532367bc78280b6e655
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 51146886e3f52cb6a60d49da0d57aea1e2c55106
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533369"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196533"
 ---
-# <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Didacticiel : Utiliser une fonction Azure déclenchée par HTTP pour créer un groupe de conteneurs
+# <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutoriel : Utiliser une fonction Azure déclenchée par HTTP pour créer un groupe de conteneurs
 
 [Azure Functions](../azure-functions/functions-overview.md) est un service de calcul serverless pouvant exécuter des scripts ou du code en réponse à divers événements, notamment une requête HTTP, un minuteur ou un message dans une file d’attente Stockage Azure.
 
@@ -30,7 +30,7 @@ Vous allez apprendre à effectuer les actions suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Consultez [Créer votre première fonction PowerShell dans Azure](../azure-functions/functions-create-first-function-powershell.md#prerequisites) pour obtenir les prérequis à l’installation et à l’utilisation de Visual Studio Code avec Azure Functions sur votre système d’exploitation.
+Consultez [Créer votre première fonction dans Azure](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-powershell#configure-your-environment) pour obtenir les prérequis à l’installation et à l’utilisation de Visual Studio Code avec Azure Functions sur votre système d’exploitation.
 
 Certaines étapes présentées dans cet article utilisent l’interface de ligne de commande Azure (Azure CLI). Pour effectuer ces étapes, vous pouvez utiliser Azure Cloud Shell ou une installation locale d’Azure CLI. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
@@ -177,13 +177,13 @@ Vérifiez que le conteneur a été exécuté avec la commande [az container logs
 az container logs --resource-group myfunctionapp --name mycontainergroup
 ```
 
-Exemple de sortie :
+Exemple de sortie :
 
 ```console
 Hello from an Azure container instance triggered by an Azure function
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez plus besoin des ressources que vous avez créées dans ce tutoriel, vous pouvez exécuter la commande [az group delete][az-group-delete] pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Cette commande supprime le registre de conteneurs que vous avez créé, ainsi que le conteneur en cours d’exécution et toutes les ressources associées.
 
@@ -193,7 +193,7 @@ az group delete --name myfunctionapp
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez créé une fonction Azure qui prend une requête HTTP et déclenche le déploiement d’un groupe de conteneurs. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez créé une fonction Azure qui prend une requête HTTP et déclenche le déploiement d’un groupe de conteneurs. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Utiliser Visual Studio Code avec l’extension Azure Functions pour créer une fonction PowerShell de base déclenchée par HTTP.

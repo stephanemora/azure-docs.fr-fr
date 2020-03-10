@@ -2,20 +2,20 @@
 title: UserJourneys | Microsoft Docs
 description: Spécifiez l’élément UserJourneys d’une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/04/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7ec2d24c399e44bf973fc1ee78466dbee26f0394
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: d73a1a3ce23817d9d6f742a4a8c730afb58ee0c8
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983178"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226994"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -25,13 +25,13 @@ Les parcours utilisateur spécifient des chemins explicites par le biais desquel
 
 Ces parcours utilisateur peuvent être considérés comme des modèles disponibles pour répondre aux besoins fondamentaux des différentes parties de confiance de la communauté d’intérêt. Les parcours utilisateur facilitent la définition de la portion « partie de confiance » d’une stratégie. Une stratégie peut définir plusieurs parcours utilisateur. Chaque parcours utilisateur est une séquence d’étapes d’orchestration.
 
-Pour définir les parcours utilisateur pris en charge par la stratégie, un élément **UserJourneys** est ajouté sous l’élément de niveau supérieur du fichier de stratégie. 
+Pour définir les parcours utilisateur pris en charge par la stratégie, un élément **UserJourneys** est ajouté sous l’élément de niveau supérieur du fichier de stratégie.
 
 L’élément **UserJourneys** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| UserJourney | 1:n | Parcours utilisateur qui définit toutes les constructions nécessaires pour un flux d’utilisateur complet. | 
+| UserJourney | 1:n | Parcours utilisateur qui définit toutes les constructions nécessaires pour un flux d’utilisateur complet. |
 
 L’élément **UserJourney** contient l’attribut suivant :
 
@@ -49,7 +49,7 @@ L’élément **UserJourney** contient les éléments suivants :
 
 Un parcours utilisateur est représenté en tant que séquence d’orchestration qui doit être suivie pour que la transaction réussisse. Si une étape échoue, la transaction échoue. Ces étapes d’orchestration référencent à la fois les composants et les fournisseurs de revendications autorisés dans le fichier de stratégie. Toute étape d’orchestration responsable de l’affichage d’une expérience utilisateur a également une référence à l’identificateur de définition de contenu correspondant.
 
-Les étapes d’orchestration peuvent être exécutées de manière conditionnelle, en fonction de conditions préalables définies dans l’élément d’étape d’orchestration. Par exemple, vous pouvez effectuer une étape d’orchestration uniquement si une revendication spécifique existe, ou si une revendication est égale ou non à la valeur spécifiée. 
+Les étapes d’orchestration peuvent être exécutées de manière conditionnelle, en fonction de conditions préalables définies dans l’élément d’étape d’orchestration. Par exemple, vous pouvez effectuer une étape d’orchestration uniquement si une revendication spécifique existe, ou si une revendication est égale ou non à la valeur spécifiée.
 
 Pour spécifier la liste ordonnée d’étapes d’orchestration, un élément **OrchestrationSteps** est ajouté à la stratégie. Cet élément est obligatoire.
 
@@ -57,33 +57,33 @@ L’élément **OrchestrationSteps** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| OrchestrationStep | 1:n | Étape d’orchestration ordonnée. | 
+| OrchestrationStep | 1:n | Étape d’orchestration ordonnée. |
 
 L’élément **OrchestrationSteps** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| `Order` | Oui | Ordre des étapes d’orchestration. | 
-| `Type` | Oui | Type de l’étape d’orchestration. Valeurs possibles : <ul><li>**ClaimsProviderSelection** : indique que l’étape d’orchestration présente divers fournisseurs de revendications à l’utilisateur afin qu’il en sélectionne un.</li><li>**CombinedSignInAndSignUp** : indique que l’étape d’orchestration présente une page combinée d’inscription de compte local et de connexion au fournisseur d’identité sociale.</li><li>**ClaimsExchange** : indique que l’étape d’orchestration échange des revendications avec un fournisseur de revendications.</li><li>**SendClaims** : indique que l’étape d’orchestration envoie les revendications à la partie de confiance avec un jeton émis par un émetteur de revendications.</li></ul> | 
-| ContentDefinitionReferenceId | Non | Identificateur de la [définition de contenu](contentdefinitions.md) associée à cette étape d’orchestration. L’identificateur de référence de définition de contenu est généralement défini dans le profil technique autodéclaré, mais il existe certains cas où Azure AD B2C doit afficher quelque chose sans profil technique, Il existe deux exemples : si le type de l’étape d’orchestration est une des suivantes : `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`, Azure AD B2C doit afficher la sélection du fournisseur d’identité sans avoir de profil technique. | 
+| `Order` | Oui | Ordre des étapes d’orchestration. |
+| `Type` | Oui | Type de l’étape d’orchestration. Valeurs possibles : <ul><li>**ClaimsProviderSelection** : indique que l’étape d’orchestration présente divers fournisseurs de revendications à l’utilisateur afin qu’il en sélectionne un.</li><li>**CombinedSignInAndSignUp** : indique que l’étape d’orchestration présente une page combinée d’inscription de compte local et de connexion au fournisseur d’identité sociale.</li><li>**ClaimsExchange** : indique que l’étape d’orchestration échange des revendications avec un fournisseur de revendications.</li><li>**GetClaims** : indique que l’étape d’orchestration lit les revendications d’entrée.</li><li>**SendClaims** : indique que l’étape d’orchestration envoie les revendications à la partie de confiance avec un jeton émis par un émetteur de revendications.</li></ul> |
+| ContentDefinitionReferenceId | Non | Identificateur de la [définition de contenu](contentdefinitions.md) associée à cette étape d’orchestration. L’identificateur de référence de définition de contenu est généralement défini dans le profil technique autodéclaré, mais il existe certains cas où Azure AD B2C doit afficher quelque chose sans profil technique, Il existe deux exemples : si le type de l’étape d’orchestration est une des suivantes : `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`, Azure AD B2C doit afficher la sélection du fournisseur d’identité sans avoir de profil technique. |
 | CpimIssuerTechnicalProfileReferenceId | Non | Le type de l’étape d’orchestration est `SendClaims`. Cette propriété définit l’identificateur de profil technique du fournisseur de revendications qui émet le jeton pour la partie de confiance.  Si elle est absente, aucun jeton de partie de confiance n’est créé. |
 
 
 L’élément **OrchestrationStep** peut contenir les éléments suivants :
 
 | Élément | Occurrences | Description |
-| ------- | ----------- | ----------- | 
-| Preconditions | 0:n | Liste de conditions préalables qui doivent être remplies pour que l’étape d’orchestration s’exécute. | 
-| ClaimsProviderSelections | 0:n | Liste de sélection de fournisseur de revendications pour l’étape d’orchestration. | 
-| ClaimsExchanges | 0:n | Liste d’échanges de revendications pour l’étape d’orchestration. | 
+| ------- | ----------- | ----------- |
+| Preconditions | 0:n | Liste de conditions préalables qui doivent être remplies pour que l’étape d’orchestration s’exécute. |
+| ClaimsProviderSelections | 0:n | Liste de sélection de fournisseur de revendications pour l’étape d’orchestration. |
+| ClaimsExchanges | 0:n | Liste d’échanges de revendications pour l’étape d’orchestration. |
 
 ### <a name="preconditions"></a>Preconditions
 
 L’élément **Preconditions** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
-| ------- | ----------- | ----------- | 
-| Precondition | 1:n | En fonction du profil technique utilisé, redirige le client d’après la sélection de fournisseur de revendications ou effectue un appel au serveur pour échanger des revendications. | 
+| ------- | ----------- | ----------- |
+| Precondition | 1:n | En fonction du profil technique utilisé, redirige le client d’après la sélection de fournisseur de revendications ou effectue un appel au serveur pour échanger des revendications. |
 
 
 #### <a name="precondition"></a>Precondition
@@ -93,14 +93,14 @@ L’élément **Precondition** contient les attributs suivants :
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | `Type` | Oui | Type de vérification ou de requête à exécuter pour cette condition préalable. La valeur peut être **ClaimsExist**, qui indique que les actions doivent être effectuées si les revendications spécifiées existent dans le jeu de revendications actuel de l’utilisateur, ou **ClaimEquals**, qui indique que les actions doivent être effectuées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
-| `ExecuteActionsIf` | Oui | Utilisez un test true ou false pour décider si les actions mentionnées dans la condition préalable doivent être effectuées. | 
+| `ExecuteActionsIf` | Oui | Utilisez un test true ou false pour décider si les actions mentionnées dans la condition préalable doivent être effectuées. |
 
 L’élément **Precondition** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | Valeur | 1:n | ClaimTypeReferenceId à interroger. Un autre élément de valeur contient la valeur à vérifier.</li></ul>|
-| Action | 1:1 | Action à effectuer si la vérification de condition préalable dans une étape d’orchestration a la valeur true. Si la valeur de `Action` est `SkipThisOrchestrationStep`, l’élément `OrchestrationStep` associé ne doit pas être exécuté. | 
+| Action | 1:1 | Action à effectuer si la vérification de condition préalable dans une étape d’orchestration a la valeur true. Si la valeur de `Action` est `SkipThisOrchestrationStep`, l’élément `OrchestrationStep` associé ne doit pas être exécuté. |
 
 #### <a name="preconditions-examples"></a>Exemples de conditions préalables
 
@@ -151,7 +151,7 @@ Plusieurs conditions préalables peuvent être vérifiées. L’exemple suivant 
       <Value>email</Value>
       <Action>SkipThisOrchestrationStep</Action>
     </Precondition>
-  </Preconditions>      
+  </Preconditions>
   <ClaimsExchanges>
     <ClaimsExchange Id="SelfAsserted-SocialEmail" TechnicalProfileReferenceId="SelfAsserted-SocialEmail" />
   </ClaimsExchanges>
@@ -168,17 +168,17 @@ L’élément **ClaimsProviderSelections** contient l’élément suivant :
 | ------- | ----------- | ----------- |
 | ClaimsProviderSelection | 1:n | Fournit la liste des fournisseurs de revendications qui peuvent être sélectionnés.|
 
-L’élément **ClaimsProviderSelections** contient les attributs suivants : 
+L’élément **ClaimsProviderSelections** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| DisplayOption| Non | Contrôle le comportement d’un cas où une sélection unique de fournisseur de revendications est disponible. Valeurs possibles :  `DoNotShowSingleProvider` (valeur par défaut), l’utilisateur est redirigé immédiatement vers le fournisseur d’identité fédérée. Ou  `ShowSingleProvider` Azure AD B2C affiche la page de connexion avec la sélection unique de fournisseur d’identité. Pour utiliser cet attribut, la [version de la définition de contenu](page-layout.md) doit être  `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` ou une version ultérieure.| 
+| DisplayOption| Non | Contrôle le comportement d’un cas où une sélection unique de fournisseur de revendications est disponible. Valeurs possibles :  `DoNotShowSingleProvider` (valeur par défaut), l’utilisateur est redirigé immédiatement vers le fournisseur d’identité fédérée. Ou  `ShowSingleProvider` Azure AD B2C affiche la page de connexion avec la sélection unique de fournisseur d’identité. Pour utiliser cet attribut, la [version de la définition de contenu](page-layout.md) doit être  `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` ou une version ultérieure.|
 
-L’élément **ClaimsProviderSelection** contient les attributs suivants : 
+L’élément **ClaimsProviderSelection** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| TargetClaimsExchangeId | Non | Identificateur de l’échange de revendications, qui est exécuté à l’étape d’orchestration suivante de la sélection du fournisseur de revendications. Cet attribut ou l’attribut ValidationClaimsExchangeId doit être spécifié, mais pas les deux. | 
+| TargetClaimsExchangeId | Non | Identificateur de l’échange de revendications, qui est exécuté à l’étape d’orchestration suivante de la sélection du fournisseur de revendications. Cet attribut ou l’attribut ValidationClaimsExchangeId doit être spécifié, mais pas les deux. |
 | ValidationClaimsExchangeId | Non | Identificateur de l’échange de revendications, qui est exécuté lors de l’étape d’orchestration en cours afin de valider la sélection du fournisseur de revendications. Cet attribut ou l’attribut TargetClaimsExchangeId doit être spécifié, mais pas les deux. |
 
 ### <a name="claimsproviderselection-example"></a>Exemple de ClaimsProviderSelection
@@ -195,7 +195,7 @@ Dans l’étape d’orchestration suivante, l’utilisateur peut choisir de se c
     <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
     </ClaimsProviderSelections>
     <ClaimsExchanges>
-    <ClaimsExchange Id="LocalAccountSigninEmailExchange" 
+    <ClaimsExchange Id="LocalAccountSigninEmailExchange"
                     TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
     </ClaimsExchanges>
 </OrchestrationStep>
@@ -224,11 +224,11 @@ L’élément **ClaimsExchanges** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| ClaimsExchange | 1:n | En fonction du profil technique utilisé, redirige le client conformément à l’élément ClaimsProviderSelection sélectionné, ou effectue un appel au serveur pour échanger des revendications. | 
+| ClaimsExchange | 1:n | En fonction du profil technique utilisé, redirige le client conformément à l’élément ClaimsProviderSelection sélectionné, ou effectue un appel au serveur pour échanger des revendications. |
 
 L’élément **ClaimsExchange** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Id | Oui | Identificateur de l’étape d’échange de revendications. L’identificateur est utilisé pour référencer l’échange de revendications à partir d’une étape de sélection de fournisseur de revendications dans la stratégie. | 
+| Id | Oui | Identificateur de l’étape d’échange de revendications. L’identificateur est utilisé pour référencer l’échange de revendications à partir d’une étape de sélection de fournisseur de revendications dans la stratégie. |
 | TechnicalProfileReferenceId | Oui | Identificateur du profil technique qui doit être exécuté. |

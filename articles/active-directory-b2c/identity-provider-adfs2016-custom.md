@@ -3,20 +3,20 @@ title: Ajouter ADFS en tant que fournisseur d’identités SAML en utilisant des
 titleSuffix: Azure AD B2C
 description: Configurer ADFS 2016 à l’aide du protocole SAML et de stratégies personnalisées dans Azure Active Directory B2C
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/07/2018
-ms.author: marsma
+ms.date: 02/27/2020
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 684e4a410ac8624066c897b4078ea4044a965357
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: bfe39d9528927f995d14772e07e02b2a0528e5e0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76851068"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188526"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Ajouter ADFS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "76851068"
 
 Cet article explique comment activer la connexion d’un compte d’utilisateur ADFS à l’aide de [stratégies personnalisées](custom-policy-overview.md) dans Azure Active Directory B2C (Azure AD B2C). Vous allez activer la connexion en ajoutant un [profil technique SAML](saml-technical-profile.md) à une stratégie personnalisée.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md).
 - Assurez-vous d’avoir accès à un fichier .pfx de certificat avec une clé privée. Vous pouvez générer votre propre certificat autosigné et le charger dans Azure AD B2C. Azure AD B2C utilise ce certificat pour signer la requête SAML envoyée à votre fournisseur d’identité SAML.
@@ -48,11 +48,11 @@ Vous devez enregistrer votre certificat dans votre client Azure AD B2C.
 
 Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte ADFS, vous devez définir le compte en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié.
 
-Vous pouvez définir un compte ADFS en tant que fournisseur de revendications en l’ajoutant à l’élément **ClaimsProviders** dans le fichier d’extension de votre stratégie.
+Vous pouvez définir un compte ADFS en tant que fournisseur de revendications en l’ajoutant à l’élément **ClaimsProviders** dans le fichier d’extension de votre stratégie. Pour plus d’informations, voir [Définir un profil technique SAML](saml-technical-profile.md).
 
 1. Ouvrez le fichier *TrustFrameworkExtensions.xml*.
-2. Recherchez l’élément **ClaimsProviders**. S’il n’existe pas, ajoutez-le sous l’élément racine.
-3. Ajoutez un nouveau **ClaimsProvider** comme suit :
+1. Recherchez l’élément **ClaimsProviders**. S’il n’existe pas, ajoutez-le sous l’élément racine.
+1. Ajoutez un nouveau **ClaimsProvider** comme suit :
 
     ```xml
     <ClaimsProvider>
@@ -87,14 +87,33 @@ Vous pouvez définir un compte ADFS en tant que fournisseur de revendications en
             <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
             <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
           </OutputClaimsTransformations>
-          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-idp"/>
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
     ```
 
-4. Remplacez `your-ADFS-domain` par le nom de votre domaine ADFS et remplacez la valeur de la revendication de sortie **identityProvider** par votre DNS (valeur arbitraire qui indique votre domaine).
-5. Enregistrez le fichier .
+1. Remplacez `your-ADFS-domain` par le nom de votre domaine ADFS et remplacez la valeur de la revendication de sortie **identityProvider** par votre DNS (valeur arbitraire qui indique votre domaine).
+
+1. Recherchez la section `<ClaimsProviders>` et ajoutez l’extrait de code XML suivant. Si votre stratégie contient déjà le profil technique `SM-Saml-idp`, passez à l’étape suivante. Pour plus d’informations, voir [Gestion de sessions d’authentification unique](custom-policy-reference-sso.md).
+
+    ```XML
+    <ClaimsProvider>
+      <DisplayName>Session Management</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="SM-Saml-idp">
+          <DisplayName>Session Management Provider</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <Item Key="IncludeSessionIndex">false</Item>
+            <Item Key="RegisterServiceProviders">false</Item>
+          </Metadata>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
+
+1. Enregistrez le fichier .
 
 ### <a name="upload-the-extension-file-for-verification"></a>Télécharger le fichier d’extension pour la vérification
 

@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Pause et reprise du calcul avec le portail Azure '
-description: Utilisez le Portail Azure pour interrompre le calcul dans Azure SQL Data Warehouse afin de réduire les coûts. Reprenez le calcul dès que vous pourrez à nouveau utiliser l’entrepôt de données.
+description: Utilisez le portail Azure afin de mettre en pause le calcul pour le pool SQL en vue de réduire les coûts. Reprenez le calcul dès que vous pourrez à nouveau utiliser l’entrepôt de données.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,98 +10,99 @@ ms.subservice: manage
 ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 14f66f71948f75a723c9fdbed7490d54c2c3e2b2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 49684e6844c2d9f58e9b750b12991428218e4426
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692997"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200606"
 ---
-# <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Démarrage rapide : Suspendre et reprendre le calcul pour un entrepôt Azure SQL Data Warehouse sur le portail Azure
+# <a name="quickstart-pause-and-resume-compute-in-azure-synapse-analytics-sql-pool-in-the-azure-portal"></a>Démarrage rapide : Mettre en pause et reprendre le calcul dans le pool SQL Azure Synapse Analytics dans le portail Azure
 
-Utilisez le Portail Azure pour interrompre le calcul dans Azure SQL Data Warehouse afin de réduire les coûts. [Reprenez le calcul](sql-data-warehouse-manage-compute-overview.md) quand vous êtes prêt à utiliser l’entrepôt de données.
+Utilisez le portail Azure afin de mettre en pause le calcul pour le pool SQL en vue de réduire les coûts. [Reprenez le calcul](sql-data-warehouse-manage-compute-overview.md) quand vous êtes prêt à utiliser l’entrepôt de données.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Utilisez la section [Créer et connecter – Portail](create-data-warehouse-portal.md) pour créer un entrepôt de données nommé **mySampleDataWarehouse**. 
+Utilisez [Créer et connecter - Portail](create-data-warehouse-portal.md) pour créer un pool SQL nommé **mySampleDataWarehouse**. 
 
-## <a name="pause-compute"></a>Suspension du calcul
+## <a name="pause-compute"></a>Mise en pause du calcul
 
-Pour réduire les coûts, vous pouvez interrompre et reprendre des ressources de calcul à la demande. Par exemple, si vous n’utilisez pas la base de données pendant la nuit et les week-ends, vous pouvez la suspendre à ces moments et la reprendre pendant la journée. Aucune ressource de calcul ne vous sera facturée tant que la base de données restera suspendue. Le stockage, en revanche, continuera à occasionner des frais. 
+Pour réduire les coûts, vous pouvez interrompre et reprendre des ressources de calcul à la demande. Par exemple, si vous n’utilisez pas la base de données pendant la nuit et les week-ends, vous pouvez la mettre en pause et la reprendre pendant la journée. Aucune ressource de calcul ne vous sera facturée tant que la base de données restera en pause. Le stockage, en revanche, continuera à occasionner des frais. 
 
-Suivez les étapes ci-dessous pour interrompre un entrepôt de données SQL.
+Suivez ces étapes pour mettre en pause le pool SQL.
 
-1. Cliquez sur **Bases de données SQL** dans la page de gauche du portail Azure.
-2. Sélectionnez **mySampleDataWarehouse** dans la page **Bases de données SQL**. L’entrepôt de données s’ouvre. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+2. Cliquez sur **Azure Synapse Analytics (anciennement SQL DW)** dans la page de navigation de gauche du portail Azure.
+2. Sélectionnez **mySampleDataWarehouse** dans la page **Azure Synapse Analytics (anciennement SQL DW)** pour ouvrir le pool SQL. 
 3. Sur la page **mySampleDataWarehouse**, **l’État** est **En ligne**.
 
     ![Calcul en ligne](media/pause-and-resume-compute-portal/compute-online.png)
 
-4. Pour suspendre l’entrepôt de données, cliquez sur le bouton **Suspendre**. 
+4. Pour mettre en pause un pool SQL, cliquez sur le bouton **Suspendre**. 
 5. Une question de confirmation apparaît, vous demandant si vous souhaitez continuer. Cliquez sur **Oui**.
 6. Après quelques instants, **l’État** passe à **Suspension en cours**.
 
-    ![Suspension en cours](media/pause-and-resume-compute-portal/pausing.png)
+    ![Pause en cours](media/pause-and-resume-compute-portal/pausing.png)
 
-7. Une fois l’opération de suspension terminée, l’état passe à **Suspendu** et la case d’option devient **Démarrer**.
-8. Les ressources de calcul de l’entrepôt de données sont maintenant hors ligne. Le calcul ne vous sera pas facturé tant que le service n’aura pas repris.
+7. Une fois l’opération de mise en pause terminée, l’état est **Suspendu** et la case d’option est **Reprendre**.
+8. Les ressources de calcul du pool SQL sont maintenant hors ligne. Le calcul ne vous sera pas facturé tant que le service n’aura pas repris.
 
     ![Calcul hors ligne](media/pause-and-resume-compute-portal/compute-offline.png)
 
 
 ## <a name="resume-compute"></a>Reprise du calcul
 
-Suivez les étapes ci-dessous pour reprendre un entrepôt de données SQL.
+Suivez ces étapes pour la reprise du pool SQL.
 
-1. Cliquez sur **Bases de données SQL** dans la page de gauche du portail Azure.
-2. Sélectionnez **mySampleDataWarehouse** dans la page **Bases de données SQL**. L’entrepôt de données s’ouvre. 
+1. Cliquez sur **Azure Synapse Analytics (anciennement SQL DW)** dans la page de gauche du portail Azure.
+2. Sélectionnez **mySampleDataWarehouse** dans la page **Azure Synapse Analytics (anciennement SQL DW)** pour ouvrir la page du pool SQL. 
 3. Sur la page **mySampleDataWarehouse**, **l’État** est **Suspendu**.
 
     ![Calcul hors ligne](media/pause-and-resume-compute-portal/compute-offline.png)
 
-4. Pour reprendre l’entrepôt de données, cliquez sur **Démarrer**. 
+4. Pour la reprise du pool SQL, cliquez sur **Reprendre**. 
 5. Une question de confirmation apparaît, vous demandant si vous souhaitez le démarrer. Cliquez sur **Oui**.
 6. **L’État** passe à **Reprise en cours**.
 
     ![Reprise](media/pause-and-resume-compute-portal/resuming.png)
 
-7. Une fois l’entrepôt de données de nouveau en ligne, l’état passe à **En ligne** et la case d’option devient **Suspendre**.
-8. Les ressources de calcul de l’entrepôt de données sont à présent en ligne ; vous pouvez utiliser le service. Les frais de calcul ont repris.
+7. Une fois le pool SQL de nouveau en ligne, l’état est **En ligne** et la case d’option est **Suspendre**.
+8. Les ressources de calcul du pool SQL sont à présent en ligne. Vous pouvez utiliser le service. Les frais de calcul ont repris.
 
     ![Calcul en ligne](media/pause-and-resume-compute-portal/compute-online.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Les unités Data Warehouse Unit et les données stockées dans votre entrepôt de données vous sont facturées. Ces ressources de calcul et de stockage sont facturées séparément. 
 
-- Si vous souhaitez conserver les données dans le stockage, suspendez le calcul.
-- Si vous voulez éviter des frais futurs, vous pouvez supprimer l’entrepôt de données. 
+- Si vous souhaitez conserver les données dans le stockage, mettez en pause le calcul.
+- Si vous voulez éviter des frais à venir, vous pouvez supprimer le pool SQL. 
 
 Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et cliquez sur votre entrepôt de données.
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis cliquez sur votre pool SQL.
 
-    ![Supprimer des ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Nettoyer les ressources](media/pause-and-resume-compute-portal/clean-up-resources.png)
 
-1. Pour suspendre le calcul, cliquez sur le bouton **Suspendre**. Quand l’entrepôt de données est suspendu, un bouton **Démarrer** est visible.  Pour reprendre le calcul, cliquez sur **Démarrer**.
+1. Pour mettre en pause le calcul, cliquez sur le bouton **Suspendre**. 
 
-2. Pour supprimer l’entrepôt de données afin de ne pas être facturé pour le calcul ou le stockage, cliquez sur **Supprimer**.
+2. Pour supprimer le pool SQL afin de ne pas être facturé pour le calcul ou le stockage, cliquez sur **Supprimer**.
 
-3. Pour supprimer le serveur SQL que vous avez créé, cliquez sur **mynewserver-20171113.database.windows.net**, puis sur **Supprimer**.  N’oubliez pas que la suppression du serveur supprime également toutes les bases de données qui lui sont attribuées.
+3. Pour supprimer le serveur SQL que vous avez créé, cliquez sur **sqlpoolservername.database.windows.net**, puis sur **Supprimer**.  N’oubliez pas que la suppression du serveur supprime également toutes les bases de données qui lui sont attribuées.
 
 4. Pour supprimer le groupe de ressources, cliquez sur **myResourceGroup**, puis sur **Supprimer le groupe de ressources**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous venez de suspendre et de reprendre le calcul pour votre entrepôt de données. Pour en savoir plus sur Azure SQL Data Warehouse, continuez avec le didacticiel de chargement des données.
+Vous venez de mettre en pause et de reprendre le calcul pour votre pool SQL. Pour connaître les étapes suivantes, passez au tutoriel sur le chargement des données.
 
 > [!div class="nextstepaction"]
-> [Charger des données dans un entrepôt SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Charger des données dans un pool SQL](load-data-from-azure-blob-storage-using-polybase.md)

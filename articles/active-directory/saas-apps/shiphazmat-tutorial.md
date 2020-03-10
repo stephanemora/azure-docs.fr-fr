@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à ShipHazmat | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à ShipHazmat | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ShipHazmat.
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 02/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2258f74268ed858d46d8faf2fec7bc404e836808
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 9a08b247a6c1b2f954f66aa4b853532142d3aaba
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72599682"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205804"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shiphazmat"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à ShipHazmat
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-shiphazmat"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à ShipHazmat
 
 Dans ce tutoriel, vous allez découvrir comment intégrer ShipHazmat avec Azure Active Directory (Azure AD). Quand vous intégrez ShipHazmat à Azure AD, vous pouvez :
 
@@ -31,7 +30,7 @@ Dans ce tutoriel, vous allez découvrir comment intégrer ShipHazmat avec Azure 
 * Permettre à vos utilisateurs de se connecter automatiquement à ShipHazmat avec leur compte Azure AD.
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,6 +45,8 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * ShipHazmat prend en charge l’authentification unique lancée par le **fournisseur d’identité**
 * ShipHazmat prend en charge le provisionnement d’utilisateurs **juste-à-temps**
+* Une fois que vous avez configuré ShipHazmat, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
 
 ## <a name="adding-shiphazmat-from-the-gallery"></a>Ajout de ShipHazmat à partir de la galerie
 
@@ -90,6 +91,17 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique ShipHazmat](mailto:support@bureaudg.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+
+1. L’application ShipHazmat attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
+
+    ![image](common/default-attributes.png)
+
+1. En plus de ce qui précède, l’application ShipHazmat s’attend à ce que quelques attributs supplémentaires repassent dans la réponse SAML, comme indiqué ci-dessous. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
+
+    | Nom | Attribut source|
+    | ------------ | --------- |
+    | city | user.city |
+    | state | user.state |
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application**, puis enregistrez-la sur votre ordinateur.
 
@@ -143,8 +155,10 @@ Quand vous cliquez sur la vignette ShipHazmat dans le volet d’accès, vous dev
 
 - [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Essayer ShipHazmat avec Azure AD](https://aad.portal.azure.com/)
+
+- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

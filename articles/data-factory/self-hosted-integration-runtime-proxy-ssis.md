@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 02/06/2020
-ms.openlocfilehash: 5f9e15b83c36c6c19fbe93c5f1df365f6f763c81
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/28/2020
+ms.openlocfilehash: e2d1a1c6e924e879e05af80e2e36a38e8a5cde66
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187681"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273957"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurer un IR auto-hébergé en tant que proxy pour Azure-SSIS IR dans Azure Data Factory
 
@@ -165,8 +165,9 @@ Les deuxièmes tâches intermédiaires qui s’exécutent sur votre instance d�
 
 ## <a name="current-limitations"></a>Limites actuelles
 
-- Seules les tâches de flux de données avec les gestionnaires de connexions de fichiers plats, OLEDB ou ODBC (Open Database Connectivity) et les sources de fichiers plats, OLEDB ou ODBC, ou destination OLEDB, sont actuellement prises en charge. 
+- Seules les tâches de flux de données avec les gestionnaires de connexions de fichiers plats, OLEDB ou ODBC (Open Database Connectivity), ou les sources de fichiers plats, OLEDB ou ODBC sont actuellement prises en charge. 
 - Seuls les services liés de stockage d’objets blob Azure configurés avec une authentification de type *Clé de compte*, *URI SAS (Shared Access Signature)* ou *Principal du service* sont actuellement pris en charge.
+- *ParameterMapping* n'est pas encore pris en charge dans la source OLEDB. Pour résoudre ce problème, utilisez *Commande SQL à partir d'une variable* en tant que mode d'accès (*AccessMode*) et utilisez *Expression* pour insérer vos variables/paramètres dans une commande SQL. En guise d'illustration, vous trouverez un exemple de package *(ParameterMappingSample.dtsx)* dans le dossier *SelfhostedIrProxy/Limitations* du conteneur de notre préversion publique. Pour y accéder, entrez l'URI SAS suivant dans l'[Explorateur Stockage Azure](https://storageexplorer.com/) : *https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2018-04-08T14%3A10%3A00Z&se=2020-04-10T14%3A10%3A00Z&sv=2017-04-17&sig=mFxBSnaYoIlMmWfxu9iMlgKIvydn85moOnOch6%2F%2BheE%3D&sr=c* .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

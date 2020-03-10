@@ -9,18 +9,23 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 114a460b3db67af278f813de2e7a18d571cf3c28
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: e7caacf23cb489da6f9f85748ae839bc4babff8e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613440"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917303"
 ---
 # <a name="migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrer Azure Active Directory Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager
 
 Azure Active Directory Domain Services (AD DS) prend en charge un unique déplacement des clients utilisant actuellement le modèle de réseau virtuel classique vers le modèle de réseau virtuel Resource Manager. Les domaines managés Azure AD DS qui utilisent le modèle de déploiement Resource Manager offrent des fonctionnalités supplémentaires telles que la stratégie de mot de passe affinée, les journaux d’audit et la protection par verrouillage de compte.
 
 Cet article décrit les avantages et les considérations à prendre en compte pour la migration, ainsi que les étapes nécessaires pour réussir la migration d’une instance Azure AD DS existante.
+
+> [!NOTE]
+> En 2017, le service Azure AD Domain Services est devenu disponible pour l’hébergement dans un réseau Azure Resource Manager. Depuis lors, nous avons pu créer un service plus sécurisé utilisant les fonctionnalités modernes d’Azure Resource Manager. Étant donné que les déploiements d’Azure Resource Manager remplacent entièrement les déploiements d’Azure Classic, les déploiements de réseau virtuel Classic d’Azure AD DS seront mis hors service le 1er mars 2023.
+>
+> Pour plus d’informations, voir l’[avis de désapprobation officiel](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
 
 ## <a name="overview-of-the-migration-process"></a>Vue d’ensemble du processus de migration
 

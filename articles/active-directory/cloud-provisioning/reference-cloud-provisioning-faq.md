@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2067bea25dae05c496c81929ae65d00565bf4f1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: fbc1baa86bb81c8975587e84427a72ccc044805e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020758"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916572"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ Azure Active Directory Connect
 
@@ -71,6 +71,14 @@ Non, le provisionnement cloud ne prend pas en charge l’écriture différée de
 **Q : Je provisionne des utilisateurs à l’aide du provisionnement cloud. J’ai supprimé la configuration. Pourquoi les anciens objets synchronisés sont-ils toujours visibles dans Azure AD ?** 
 
 Lorsque vous supprimez la configuration, le provisionnement cloud ne nettoie pas les objets synchronisés dans Azure AD. Pour vous assurer de ne plus avoir les anciens objets, changez l’étendue de la configuration en spécifiant un groupe vide ou des unités d’organisation. Une fois que le provisionnement s’exécute et nettoie les objets, désactivez et supprimez la configuration. 
+
+**Q :  Que signifie : Exchange hybride n’est pas pris en charge  ?**
+
+La fonctionnalité de déploiement Exchange hybride permet la coexistence de boîtes aux lettres Exchange en local et dans Office 365. Azure AD Connect synchronise un ensemble spécifique d’attributs d’Azure AD dans votre annuaire local.  L’agent de provisionnement cloud ne synchronise pas pour l’instant ces attributs dans votre annuaire local et il n’est par conséquent pas pris en charge comme remplacement pour Azure AD Connect.
+
+**Q :  Puis-je installer l’agent de provisionnement cloud sur Windows Server Core ?**
+
+Non, l’installation de l’agent sur Server Core n’est pas prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes 
 

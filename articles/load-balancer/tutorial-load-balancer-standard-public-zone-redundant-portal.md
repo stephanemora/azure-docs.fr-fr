@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 99ba530d4857520693060d83ad78a7f127003a3d
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: f521cc68476e2f9df1cc8288cf41156da3851cd0
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732318"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251890"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge des machines virtuelles sur les zones de disponibilité avec un équilibreur de charge standard à l’aide du portail Azure
 
@@ -54,9 +54,9 @@ L’équilibreur de charge standard prend uniquement en charge une adresse IP pu
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Subscription               | Sélectionnez votre abonnement.    |    
+    | Abonnement               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer** et tapez *MyResourceGroupLBAZ* dans la zone de texte.|
-    | Name                   | *myLoadBalancer*                                   |
+    | Nom                   | *myLoadBalancer*                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
     | Type          | Sélectionnez **Public**.                                        |
     | SKU           | Sélectionnez **Standard**.                          |
@@ -69,16 +69,20 @@ L’équilibreur de charge standard prend uniquement en charge une adresse IP pu
 
 Dans cette section, vous allez créer un réseau virtuel, des machines virtuelles dans différentes zones de la région, puis installer IIS sur les machines virtuelles afin de tester l’équilibreur de charge redondant interzone. Ainsi, si une zone échoue, la sonde d’intégrité de la machine virtuelle de la même zone échoue, et le trafic continue à être pris en charge par les machines virtuelles dans les autres zones.
 
-### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
-Créez un réseau virtuel pour le déploiement de vos serveurs principaux.
+## <a name="virtual-network-and-parameters"></a>Réseau virtuel et paramètres
 
-1. Sur le côté gauche de l’écran, cliquez sur **Créer une ressource** > **Réseau** > **Réseau virtuel** et entrez ces valeurs pour le réseau virtuel :
-    - *myVNet* : pour le nom du réseau virtuel.
-    - *myResourceGroupLBAZ* : pour le nom du groupe de ressources existant
-    - *myBackendSubnet* : pour le nom du sous-réseau.
-2. Cliquez sur **Créer** pour créer le réseau virtuel.
+Dans les étapes de cette section, vous devrez remplacer les paramètres du tableau ci-dessous par la valeur indiquée correspondante :
 
-    ![Créez un réseau virtuel](./media/load-balancer-standard-public-availability-zones-portal/2-load-balancer-virtual-network.png)
+| Paramètre                   | Valeur                |
+|-----------------------------|----------------------|
+| **\<nom_groupe_ressources>**  | myResourceGroupLBAZ (sélectionnez un groupe de ressources existant) |
+| **\<nom_réseau_virtuel>** | myVNet          |
+| **\<nom_région>**          | Europe Ouest      |
+| **\<espace_d’adressage_IPv4>**   | 10.0.0.0\16          |
+| **\<nom_sous-réseau>**          | myBackendSubnet        |
+| **\<plage_adresses_sous-réseau>** | 10.0.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
 

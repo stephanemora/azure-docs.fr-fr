@@ -1,6 +1,6 @@
 ---
 title: Éléments de langage T-SQL
-description: Liens vers la documentation des instructions T-SQL prises en charge dans Azure SQL Data Warehouse.
+description: Liens vers la documentation relative aux instructions T-SQL prises en charge dans SQL Analytics.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: query
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 02f463e12547ba64a05e04988d9c192bba4f6a27
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: edd77d711654a7f2793eb3c08b93e85fc0a89e8f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692530"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198420"
 ---
-# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Éléments de langage T-SQL pris en charge dans Azure SQL Data Warehouse
-Liens vers la documentation des éléments de langage T-SQL pris en charge dans Azure SQL Data Warehouse.
+# <a name="t-sql-language-elements-supported-in-sql-analytics"></a>Éléments du langage T-SQL pris en charge dans SQL Analytics
+Liens vers la documentation relative aux éléments du langage T-SQL pris en charge dans SQL Analytics.
 
 ## <a name="core-elements"></a>Éléments fondamentaux
 * [conventions de syntaxe](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
@@ -47,17 +47,17 @@ Liens vers la documentation des éléments de langage T-SQL pris en charge dans 
 * [TRY...CATCH](https://msdn.microsoft.com/library/ms175976.aspx)
 * [WHILE](https://msdn.microsoft.com/library/ms178642.aspx)
 
-## <a name="operators"></a>Operators
+## <a name="operators"></a>Opérateurs
 * [+ (Ajout)](https://msdn.microsoft.com/library/ms178565.aspx)
 * [+ (Concaténation de chaîne)](https://msdn.microsoft.com/library/ms177561.aspx)
 * [- (Négatif)](https://msdn.microsoft.com/library/ms189480.aspx)
 * [- (Soustraction)](https://msdn.microsoft.com/library/ms189518.aspx)
 * [* (Multiplication)](https://msdn.microsoft.com/library/ms176019.aspx)
-* [/ (Division)](https://msdn.microsoft.com/library/ms175009.aspx)
+* [/ (Diviser)](https://msdn.microsoft.com/library/ms175009.aspx)
 * [Modulo](https://msdn.microsoft.com/library/ms190279.aspx)
 
 ## <a name="wildcard-characters-to-match"></a>Caractères génériques à comparer
-* [= (Est égal à)](https://msdn.microsoft.com/library/ms175118.aspx)
+* [= (Égal à)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [&gt; (Supérieur à)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [&lt; (Inférieur à)](https://msdn.microsoft.com/library/ms179873.aspx)
 * [&gt;= (Supérieur ou égal à)](https://msdn.microsoft.com/library/ms181567.aspx)
@@ -73,7 +73,7 @@ Liens vers la documentation des éléments de langage T-SQL pris en charge dans 
 * [NOT](https://msdn.microsoft.com/library/ms189455.aspx)
 * [OR](https://msdn.microsoft.com/library/ms188361.aspx)
 
-### <a name="bitwise-operators"></a>Opérateurs au niveau du bit
+### <a name="bitwise-operators"></a>Opérateurs de bits
 * [&amp; (Opérateur AND au niveau du bit)](https://msdn.microsoft.com/library/ms174965.aspx)
 * [| (Opérateur OR au niveau du bit)](https://msdn.microsoft.com/library/ms186714.aspx)
 * [^ (Opérateur OR exclusif au niveau du bit)](https://msdn.microsoft.com/library/ms190277.aspx)
@@ -255,7 +255,7 @@ Liens vers la documentation des éléments de langage T-SQL pris en charge dans 
 * [sp_tables](https://msdn.microsoft.com/library/ms186250.aspx)
 * [sp_unprepare](https://msdn.microsoft.com/library/ff848735.aspx)
 
-## <a name="set-statements"></a>Instructions SET
+## <a name="set-statements"></a>SET, instructions
 * [SET ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
 * [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
 * [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
@@ -278,5 +278,5 @@ Liens vers la documentation des éléments de langage T-SQL pris en charge dans 
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations de référence, consultez [Instructions T-SQL dans Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md) et [Vues système dans Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).
+Pour plus d'informations, consultez [Instructions T-SQL dans SQL Analytics](sql-data-warehouse-reference-tsql-statements.md) et [Vues système dans SQL Analytics](sql-data-warehouse-reference-tsql-system-views.md).
 

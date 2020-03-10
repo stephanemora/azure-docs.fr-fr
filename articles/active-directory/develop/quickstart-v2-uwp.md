@@ -11,18 +11,16 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 86401e0a827d1941b2d183d8c17371ba915c81ae
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e78477b9c046bbdbcb67a3ff1a5420c0808a748e
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063694"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274316"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Démarrage rapide : Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (UWP)
 
-Ce guide de démarrage rapide contient un exemple de code qui montre comment une application de plateforme Windows universelle (UWP) peut connecter des utilisateurs avec des comptes personnels ou des comptes professionnels et scolaires, obtenir un jeton d’accès et appeler l’API Microsoft Graph.
-
-![Fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-uwp/uwp-intro.svg)
+Ce guide de démarrage rapide contient un exemple de code qui montre comment une application de plateforme Windows universelle (UWP) peut connecter des utilisateurs avec des comptes personnels ou des comptes professionnels et scolaires, obtenir un jeton d’accès et appeler l’API Microsoft Graph. (Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour une illustration.)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Inscrire et télécharger votre application de démarrage rapide
@@ -64,22 +62,32 @@ Ce guide de démarrage rapide contient un exemple de code qui montre comment une
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Étape 2 : Télécharger votre projet Visual Studio
 
- - [Télécharger le projet Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
+> [!div renderon="docs"]
+> [Télécharger le projet Visual Studio](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : Configurer votre projet Visual Studio
+> [!div class="sxs-lookup" renderon="portal"]
+> Exécutez le projet à l’aide de Visual Studio 2019.
+> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [Téléchargez l’exemple de code](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip).
 
-1. Extrayez le fichier zip dans un dossier local proche de la racine du disque, par exemple, **C:\Azure-Samples**.
-1. Ouvrez le projet dans Visual Studio. Vous pouvez être invité à installer un SDK UWP. Si c’est le cas, acceptez.
-1. Modifiez **MainPage.Xaml.cs** en remplaçant les valeurs du champ `ClientId` :
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Étape 3 : Votre application est configurée et prête à être exécutée
+> Nous avons configuré votre projet avec les valeurs des propriétés de votre application et il est prêt à être exécuté. 
 
-    ```csharp
-    private const string ClientId = "Enter_the_Application_Id_here";
-    ```
 > [!div class="sxs-lookup" renderon="portal"]
 > > [!NOTE]
-> > Ce guide de démarrage rapide prend en charge Enter_the_Supported_Account_Info_Here.    
+> > Enter_the_Supported_Account_Info_Here
 
 > [!div renderon="docs"]
+> #### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : Configurer votre projet Visual Studio
+> 
+> 1. Extrayez le fichier zip dans un dossier local proche de la racine du disque, par exemple, **C:\Azure-Samples**.
+> 1. Ouvrez le projet dans Visual Studio. Vous pouvez être invité à installer un SDK UWP. Si c’est le cas, acceptez.
+> 1. Modifiez **MainPage.Xaml.cs** en remplaçant les valeurs du champ `ClientId` :
+>
+>    ```csharp
+>    private const string ClientId = "Enter_the_Application_Id_here";
+>    ```
 > Où :
 > - `Enter_the_Application_Id_here` - est l’ID de l’application pour l’application que vous avez inscrite.
 >
@@ -90,13 +98,15 @@ Ce guide de démarrage rapide contient un exemple de code qui montre comment une
 
 Si vous voulez suivre le guide de démarrage rapide sur votre ordinateur Windows :
 
-1. Dans la barre d’outils Visual Studio, choisissez la bonne plateforme (probablement **x64** ou **x86**, mais pas ARM).
-   > Notez que l’appareil cible passe de *Appareil* à *Machine locale*.
+1. Dans la barre d’outils Visual Studio, choisissez la bonne plateforme (probablement **x64** ou **x86**, mais pas ARM). Vous pourrez noter que l’appareil cible passe de *Appareil* à *Machine locale*
 1. Sélectionnez Déboguer | **Démarrer sans débogage**.
 
 ## <a name="more-information"></a>Informations complémentaires
 
 Cette section fournit plus d’informations sur le démarrage rapide.
+
+### <a name="how-the-sample-works"></a>Fonctionnement de l’exemple
+![Fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-uwp/uwp-intro.svg)
 
 ### <a name="msalnet"></a>MSAL.NET
 

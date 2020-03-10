@@ -9,13 +9,13 @@ ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 12/25/2019
-ms.openlocfilehash: 560339fb04e3bbbe42c4370655e74e8536a7c015
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/22/2020
+ms.openlocfilehash: 7fd51f587ff51e09254741615d3059d038e1205a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963364"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915909"
 ---
 # <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Générer un classifieur et utiliser une sélection de fonctionnalités afin de prédire des revenus avec le concepteur Azure Machine Learning
 
@@ -25,13 +25,13 @@ ms.locfileid: "76963364"
 
 Découvrez comment générer un classifieur de Machine Learning sans écrire une seule ligne de code à l’aide du concepteur (préversion). Cet échantillon forme un **arbre de décision optimisé à deux classes** pour prédire le revenu du recensement pour adultes (> = 50 000 ou < = 50 000).
 
-Comme cela répond à la question « Lequel ?», il s’agit d’un problème de classification. Toutefois, vous pouvez appliquer le même processus fondamental pour traiter n’importe quel type de problème d’apprentissage automatique : régression, classification, clustering, etc.
+Étant donné que la question répond à « Lequel ? », il s’agit d’un problème de classification. Toutefois, vous pouvez appliquer le même processus fondamental pour traiter n’importe quel type de problème d’apprentissage automatique : régression, classification, clustering, etc.
 
 Voici le graphique final du pipeline pour cet échantillon :
 
 ![Graphique du pipeline](./media/how-to-designer-sample-classification-predict-income/overall-graph.png)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
@@ -51,7 +51,7 @@ Effectuez les étapes suivantes pour créer le pipeline :
 
 1. Faites glisser le module de jeu de données Adult Census Income Binary dans le canevas du pipeline.
 1. Ajoutez un module **Split Data** (Fractionner les données) pour créer les jeux de formation et de test. Définissez la fraction de lignes dans le premier jeu de données de sortie sur 0.7. Ce paramètre spécifie que 70 % des données seront sorties sur le port gauche du module et le reste sur le port droit. Nous utilisons le jeu de données de gauche pour la formation et celui de droite pour le test.
-1. Ajoutez le module **Sélection de fonctionnalité basée sur le filtre** pour sélectionner 5 fonctionnalités par PearsonCorreclation. 
+1. Ajoutez le module **Sélection de caractéristiques basée sur le filtre** pour sélectionner 5 caractéristiques par PearsonCorrelation. 
 1. Ajoutez un module **Two-Class Boosted Decision Tree** (Arbre de décision optimisé à deux classes) pour initialiser un classifieur d’arbre de décision optimisé.
 1. Ajoutez un module **Train Model** (Entraîner le modèle). Connectez le classifieur de l’étape précédente au port d’entrée gauche du module **Train Model** (Entraîner le modèle). Connectez le jeu de données filtré à partir du module de sélection de fonctionnalités basée sur le filtre en tant que jeu de données de formation.  Le module **Train Model** (Entraîner le modèle) va effectuer l’apprentissage du classifieur.
 1. Ajoutez le module Sélectionner la transformation des colonnes et appliquer la transformation pour appliquer la même transformation (sélection de fonctionnalité basée sur des filtres) au jeu de données de test.

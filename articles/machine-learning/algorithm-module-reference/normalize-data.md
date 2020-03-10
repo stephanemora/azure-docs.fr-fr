@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 8eb54e232478ae24e1efb49a8ad43dc827aa2b6a
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 2cf0efb24a10da602ac0c26276a081342776cdcc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77150678"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920397"
 ---
 # <a name="normalize-data-module"></a>Module Normaliser des données
 
@@ -104,7 +104,7 @@ Le module **Normaliser des données** génère deux sorties :
 
 - Pour enregistrer la transformation afin de pouvoir appliquer la même méthode de normalisation à un autre jeu de données, sélectionnez le module, puis **Inscrire le jeu de données** sous l’onglet **Sorties** dans le panneau droit.
 
-    Vous pouvez ensuite charger les transformations enregistrées à partir du groupe **Transformations** du volet de navigation de gauche et les appliquer à un jeu de données doté du même schéma à l'aide de [./Appliquer une transformation](apply-transformation.md).  
+    Vous pouvez ensuite charger les transformations enregistrées à partir du groupe **Transformations** du volet de navigation de gauche et les appliquer à un jeu de données doté du même schéma à l’aide de [Appliquer une transformation](apply-transformation.md).  
 
 
 ## <a name="next-steps"></a>Étapes suivantes

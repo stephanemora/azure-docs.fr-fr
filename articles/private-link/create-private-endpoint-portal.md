@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 491ba986c6ca71be0bc5b13e2f9f0717ffec99a4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 485eb14938fc7e490ea2d68c9090cdfdbf01cc8f
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028881"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252560"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Démarrage rapide : Créer un point de terminaison privé au moyen du portail Azure
 
@@ -28,26 +28,22 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour héberger la machine virtuelle qui est utilisée pour accéder à votre ressource de liaison privée (un serveur SQL dans Azure pour cet exemple).
 
-### <a name="create-the-virtual-network"></a>Créer un réseau virtuel
-
+## <a name="virtual-network-and-parameters"></a>Réseau virtuel et paramètres
 
 Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour héberger la machine virtuelle qui est utilisée pour accéder à votre ressource de liaison privée.
 
-1. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
-1. Dans **Créer un réseau virtuel**, entrez ou sélectionnez ces informations :
+Dans les étapes figurant dans cette section, vous devez remplacer les paramètres suivants par les informations ci-dessous :
 
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    | Name | Entrez *MyVirtualNetwork*. |
-    | Espace d’adressage | Entrez *10.1.0.0/16*. |
-    | Subscription | Sélectionnez votre abonnement.|
-    | Resource group | Sélectionnez **Créer nouveau**, entrez *myResourceGroup* et sélectionnez **OK**. |
-    | Location | Sélectionnez **WestCentralUS**.|
-    | Sous-réseau - Nom | Entrez *mySubnet*. |
-    | Plage d’adresses du sous-réseau | Entrez *10.1.0.0/24*. |
-    |||
-1. Conservez les autres valeurs par défaut, puis sélectionnez **Créer**.
+| Paramètre                   | Valeur                |
+|-----------------------------|----------------------|
+| **\<nom_groupe_ressource>**  | myResourceGroup |
+| **\<nom_réseau_virtuel>** | myVirtualNetwork          |
+| **\<nom_région>**          | Centre-USA Ouest    |
+| **\<espace_d’adressage_IPv4>**   | 10.1.0.0\16          |
+| **\<nom_sous-réseau>**          | mySubnet        |
+| **\<plage_adresses_sous-réseau>** | 10.1.0.0\24          |
 
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machine"></a>Créer une machine virtuelle
 
@@ -58,14 +54,14 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
     | Paramètre | Valeur |
     | ------- | ----- |
     | **DÉTAILS DU PROJET** | |
-    | Subscription | Sélectionnez votre abonnement. |
+    | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.  |
     | **DÉTAILS DE L’INSTANCE** |  |
     | Nom de la machine virtuelle | Entrez *myVm*. |
     | Région | Sélectionnez **WestCentralUS**. |
     | Options de disponibilité | Conservez la valeur par défaut **Aucune redondance d’infrastructure nécessaire**. |
     | Image | Sélectionnez **Windows Server 2019 Datacenter**. |
-    | Size | Conservez la valeur par défaut **Standard DS1 v2**. |
+    | Taille | Conservez la valeur par défaut **Standard DS1 v2**. |
     | **COMPTE ADMINISTRATEUR** |  |
     | Nom d’utilisateur | Entrez un nom d’utilisateur de votre choix. |
     | Mot de passe | Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
@@ -107,7 +103,7 @@ Dans cette section, vous allez créer un serveur de base de données SQL dans Az
     | Paramètre | Valeur |
     | ------- | ----- |
     | **Détails de la base de données** | |
-    | Subscription | Sélectionnez votre abonnement. |
+    | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.|
     | **DÉTAILS DE L’INSTANCE** |  |
     | Nom de la base de données  | Entrez *mydatabase*. Si ce nom est utilisé, créez un nom unique. |
@@ -120,7 +116,7 @@ Dans cette section, vous allez créer un serveur de base de données SQL dans Az
     |Nom du serveur  | Entrez *myserver*. Si ce nom est utilisé, créez un nom unique.|
     | Connexion d’administrateur serveur| Entrez le nom d’un administrateur de votre choix. |
     | Mot de passe | Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 8 caractères et satisfaire aux exigences définies. |
-    | Location | Sélectionnez une région Azure dans laquelle vous souhaitez que votre serveur SQL Server réside. |
+    | Emplacement | Sélectionnez une région Azure dans laquelle vous souhaitez que votre serveur SQL Server réside. |
     
 7. Sélectionnez **OK**. 
 8. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration. 
@@ -138,10 +134,10 @@ Dans cette section, vous allez créer un serveur SQL Server et lui ajouter un po
     | Paramètre | Valeur |
     | ------- | ----- |
     | **Détails du projet** | |
-    | Subscription | Sélectionnez votre abonnement. |
+    | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.|
     | **DÉTAILS DE L’INSTANCE** |  |
-    | Name | Entrez *myPrivateEndpoint*. Si ce nom est utilisé, créez un nom unique. |
+    | Nom | Entrez *myPrivateEndpoint*. Si ce nom est utilisé, créez un nom unique. |
     |Région|Sélectionnez **WestCentralUS**.|
     |||
 5. Sélectionnez **Suivant : Ressource**.
@@ -150,7 +146,7 @@ Dans cette section, vous allez créer un serveur SQL Server et lui ajouter un po
     | Paramètre | Valeur |
     | ------- | ----- |
     |Méthode de connexion  | Sélectionnez Se connecter à une ressource Azure dans mon répertoire.|
-    | Subscription| Sélectionnez votre abonnement. |
+    | Abonnement| Sélectionnez votre abonnement. |
     | Type de ressource | Sélectionnez **Microsoft.Sql/servers**. |
     | Ressource |Sélectionnez *myServer*|
     |Sous-ressource cible |Sélectionnez *sqlServer*|

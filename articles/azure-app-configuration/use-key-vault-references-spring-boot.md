@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 17d86f25de6eecee535d6f812f4ef0b078a4b6db
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d1fb963753577e9518d93262f9c9c7a1cf984005
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75752495"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656005"
 ---
 # <a name="tutorial-use-key-vault-references-in-a-java-spring-app"></a>Tutoriel : Utiliser des références Key Vault dans une application Java Spring
 
@@ -41,11 +41,11 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Créer une clé App Configuration qui référence une valeur stockée dans Key Vault.
 > * Accéder à la valeur de cette clé à partir d’une application Java Spring.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-Avant d’effectuer ce tutoriel, installez le [kit SDK .NET Core](https://dotnet.microsoft.com/download).
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
+* Un [kit de développement Java (JDK)](https://docs.microsoft.com/java/azure/jdk) pris en charge avec version 8
+* [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 ou ultérieure
 
 ## <a name="create-a-vault"></a>Création d'un coffre
 
@@ -56,10 +56,10 @@ Avant d’effectuer ce tutoriel, installez le [kit SDK .NET Core](https://dotnet
 1. Dans la liste des résultats, sélectionnez **Coffres de clés** sur la gauche.
 1. Dans **Coffres de clés**, sélectionnez **Ajouter**.
 1. Sur la droite, dans **Créer un coffre de clés**, renseignez les informations suivantes :
-    - Sélectionnez **Abonnement** pour choisir un abonnement.
-    - Dans **Groupe de ressources**, sélectionnez **Créer un nouveau** et entrez un nom de groupe de ressources.
-    - Dans **Nom du coffre de clés**, un nom unique est requis. Pour ce tutoriel, entrez **Contoso-vault2**.
-    - Dans la liste déroulante **Région**, choisissez un emplacement.
+    * Sélectionnez **Abonnement** pour choisir un abonnement.
+    * Dans **Groupe de ressources**, sélectionnez **Créer un nouveau** et entrez un nom de groupe de ressources.
+    * Dans **Nom du coffre de clés**, un nom unique est requis. Pour ce tutoriel, entrez **Contoso-vault2**.
+    * Dans la liste déroulante **Région**, choisissez un emplacement.
 1. Conservez les valeurs par défaut des autres options **Création d’un coffre de clés**.
 1. Sélectionnez **Create** (Créer).
 
@@ -74,9 +74,9 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
 1. Depuis les pages des propriétés Key Vault, sélectionnez **Secrets**.
 1. Sélectionnez **Générer/Importer**.
 1. Dans le volet **Créer un secret**, saisissez les valeurs suivantes :
-    - **Options de chargement** : Entrez **Manuel**.
-    - **Name** : Entrez **Message**.
-    - **Valeur** : Entrez **Hello from Key Vault**.
+    * **Options de chargement** : Entrez **Manuel**.
+    * **Name** : Entrez **Message**.
+    * **Valeur** : Entrez **Hello from Key Vault**.
 1. Conservez les valeurs par défaut des autres propriétés **Créer un secret**.
 1. Sélectionnez **Create** (Créer).
 
@@ -87,10 +87,10 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
 1. Sélectionnez **Explorateur de configuration**.
 
 1. Sélectionnez **+ Créer** > **Référence Key Vault**, puis choisissez les valeurs suivantes :
-    - **Clé** : Sélectionnez **/application/config.keyvaultmessage**
-    - **Étiquette** : Laissez cette valeur vide.
-    - **Abonnement**, **Groupe de ressources** et **Key Vault** : Entrez les valeurs correspondant aux valeurs du coffre de clés que vous avez créé à la section précédente.
-    - **Secret** : Sélectionnez le secret nommé **Message** que vous avez créé dans la section précédente.
+    * **Clé** : Sélectionnez **/application/config.keyvaultmessage**
+    * **Étiquette** : Laissez cette valeur vide.
+    * **Abonnement**, **Groupe de ressources** et **Key Vault** : Entrez les valeurs correspondant aux valeurs du coffre de clés que vous avez créé à la section précédente.
+    * **Secret** : Sélectionnez le secret nommé **Message** que vous avez créé dans la section précédente.
 
 ## <a name="connect-to-key-vault"></a>Se connecter à Key Vault
 
@@ -119,8 +119,15 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
 
 1. Exécutez la commande suivante pour autoriser le principal du service à accéder à votre coffre de clés :
 
+    ```console
+    az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get
     ```
-    az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
+
+1. Exécutez la commande suivante pour récupérer votre ID d’objet, puis ajoutez-le à App Configuration.
+
+    ```console
+    az ad sp show --id <clientId-of-your-service-principal>
+    az role assignment create --role "App Configuration Data Reader" --assignee-object-id <objectId-of-your-service-principal> --resource-group <your-resource-group>
     ```
 
 1. Créez les variables d’environnement suivantes, en utilisant les valeurs du principal de service affichées à l’étape précédente :
@@ -130,7 +137,7 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
     * **AZURE_TENANT_ID** : *tenantId*
 
 > [!NOTE]
-> Ces informations d’identification Key Vault sont utilisées uniquement dans votre application. Votre application s’authentifie directement auprès de Key Vault à l’aide de ces informations d’identification. Elles ne sont jamais transmises au service App Configuration.
+> Ces informations d’identification Key Vault sont utilisées uniquement dans votre application.  Votre application s’authentifie directement auprès de Key Vault à l’aide de ces informations d’identification sans impliquer le service App Configuration.  Le coffre de clés fournit l’authentification pour votre application et votre service App Configuration sans partager ni exposer les clés.
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Mettre à jour votre code pour utiliser une référence Key Vault
 
@@ -157,17 +164,73 @@ Pour ajouter un secret au coffre, vous n’avez qu’à effectuer deux autres é
     }
     ```
 
+1. Créez un fichier nommé *AzureCredentials.java* et ajoutez le code ci-dessous.
+
+    ```java
+    package com.example;
+
+    import com.azure.core.credential.TokenCredential;
+    import com.azure.identity.EnvironmentCredentialBuilder;
+    import com.microsoft.azure.spring.cloud.config.AppConfigurationCredentialProvider;
+    import com.microsoft.azure.spring.cloud.config.KeyVaultCredentialProvider;
+
+    public class AzureCredentials implements AppConfigurationCredentialProvider, KeyVaultCredentialProvider{
+
+        @Override
+        public TokenCredential getKeyVaultCredential(String uri) {
+            return getCredential();
+        }
+
+        @Override
+        public TokenCredential getAppConfigCredential(String uri) {
+            return getCredential();
+        }
+
+        private TokenCredential getCredential() {
+            return new EnvironmentCredentialBuilder().build();
+        }
+
+    }
+    ```
+
+1. Créez un fichier nommé *AppConfiguration.java*. Puis, ajoutez le code ci-dessous.
+
+    ```java
+    package com.example;
+
+    import org.springframework.context.annotation.Bean;
+    import org.springframework.context.annotation.Configuration;
+
+    @Configuration
+    public class AppConfiguration {
+
+        @Bean
+        public AzureCredentials azureCredentials() {
+            return new AzureCredentials();
+        }
+    }
+    ```
+
+1. Créez un fichier nommé *spring.factories* dans le répertoire META-INF de vos ressources et ajoutez :
+
+    ```factories
+    org.springframework.cloud.bootstrap.BootstrapConfiguration=\
+    com.example.AppConfiguration
+    ```
+
 1. Générez votre application Spring Boot avec Maven, puis exécutez-la. Par exemple :
 
     ```shell
     mvn clean package
     mvn spring-boot:run
     ```
+
 1. Lorsque votre application s’exécute, utilisez *curl* pour la tester. Par exemple :
 
       ```shell
       curl -X GET http://localhost:8080/
       ```
+
     Vous voyez le message que vous avez entré dans le magasin App Configuration. Vous voyez également le message que vous avez entré dans Key Vault.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources

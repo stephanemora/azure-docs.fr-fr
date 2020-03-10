@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 47d526ea410bc449c91ae4fb10913850c447f1b3
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: cb6095f1579334b9fe35a02a3006de32ff551989
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582641"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268170"
 ---
-# <a name="tutorial-stream-live-with-media-services"></a>Didacticiel : Diffuser en direct avec Media Services
+# <a name="tutorial-stream-live-with-media-services"></a>Tutoriel : Diffuser en direct avec Media Services
 
 > [!NOTE]
 > Bien que ce didacticiel utilise des exemples [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), les étapes générales sont les mêmes pour [l’API REST](https://docs.microsoft.com/rest/api/media/liveevents), [l’interface de ligne de commande](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) et d’autres [kits de développement logiciel (SDK)](media-services-apis-overview.md#sdks) pris en charge.
@@ -32,7 +32,7 @@ Dans Azure Media Services, les [événements en direct](https://docs.microsoft.c
 Ce didacticiel explique les procédures suivantes :
 
 > [!div class="checklist"]
-> * Télécharger l’exemple d’application décrit dans la rubrique
+> * Télécharger l’exemple d’application décrit dans la rubrique.
 > * Examiner le code qui effectue la diffusion en continu
 > * Surveiller l’événement avec le [Lecteur multimédia Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) à l’adresse https://ampdemo.azureedge.net
 > * Supprimer des ressources.
@@ -47,7 +47,7 @@ Les éléments suivants sont requis pour suivre le didacticiel :
 - [Créer un compte Media Services](create-account-cli-how-to.md).<br/>Veillez à mémoriser les valeurs utilisées pour le nom du groupe de ressources et le nom du compte Media Services.
 - Suivez les étapes décrites dans [Accéder à l’API Azure Media Services avec Azure CLI](access-api-cli-how-to.md) et enregistrez les informations d’identification. Vous en aurez besoin pour accéder à l’API.
 - Une caméra ou appareil (tel qu’un ordinateur portable) utilisé pour diffuser un événement.
-- Un encodeur vidéo dynamique local qui convertit les signaux de la caméra en flux de données qui sont envoyés vers le service de vidéo en flux continu Media Services. La diffusion doit se faire au format **RTMP** ou **Smooth Streaming**.
+- Un encodeur dynamique local qui convertit les signaux de la caméra en flux de données qui sont envoyés vers le service de vidéo en flux continu Media Services. Consultez [Encodeurs dynamiques locaux recommandés](recommended-on-premises-live-encoders.md). La diffusion doit se faire au format **RTMP** ou **Smooth Streaming**.
 
 > [!TIP]
 > Veillez à consulter [Diffusion en continu avec Media Services v3](live-streaming-overview.md) avant de commencer. 
@@ -171,7 +171,7 @@ Pour regarder l’événement, copiez l’URL de streaming obtenue à l’exécu
 
 Une fois arrêté, l’événement en direct est automatiquement converti en contenu à la demande. Même après l’arrêt et la suppression de l’événement, les utilisateurs pourront lire votre contenu archivé en tant que vidéo à la demande tant que vous n’aurez pas supprimé l’élément multimédia. Vous ne pouvez pas supprimer d’élément multimédia s’il est utilisé par un événement. Vous devez d’abord supprimer l’événement.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes de stockage et Media Services que vous avez créés pour ce didacticiel, supprimez le groupe de ressources créé précédemment.
 

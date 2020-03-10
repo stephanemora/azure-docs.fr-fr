@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: f94427ddfbdc19836cd177fd642987aaaeedf1ee
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 653b12ddd54c5ec9e4e7dd23a323f34460daa962
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152089"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920414"
 ---
 # <a name="multiclass-neural-network-module"></a>Module Multiclass Neural Network (Réseau neuronal à multiclasse)
 
@@ -46,7 +46,7 @@ Pour calculer la sortie du réseau pour une entrée donnée, une valeur est calc
 
     - **Single Parameter** (Paramètre unique) : choisissez cette option si vous savez déjà comment vous souhaitez configurer le modèle.
 
-    
+    - **Plage de paramètres** : sélectionnez cette option si vous ignorez quels paramètres choisir et souhaitez exécuter un balayage des paramètres. Sélectionnez la plage de valeurs sur laquelle vous souhaitez effectuer l’itération. Le module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md) effectue alors une itération sur toutes les combinaisons possibles des paramètres que vous avez fournis pour déterminer les hyperparamètres qui produisent les résultats optimaux.  
 
 3. **Hidden layer specification** (Spécification de couche masquée) : Sélectionnez le type d’architecture de réseau à créer.
 

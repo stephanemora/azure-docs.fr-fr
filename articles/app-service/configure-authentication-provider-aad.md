@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 69959418c52eb7324efe19ca41481e426b822ab4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 717336e0ddfe99c96afda4861f4de1239ee949bf
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842353"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913206"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Configurer votre application App Service pour utiliser une connexion Azure AD
 
@@ -25,6 +25,9 @@ Adoptez ces bonnes pratiques pour configurer votre application et l’authentifi
 - Évitez de partager des autorisations entre des environnements en utilisant des inscriptions d’application distinctes pour des emplacements de déploiement distincts. Dans le cadre des tests d’un nouveau code, cette pratique peut permettre d’éviter que des problèmes n’affectent l’application de production.
 
 ## <a name="express"> </a>Configurer avec des paramètres express
+
+> [!NOTE]
+> L’option **Express** n’est pas disponible pour les clouds du secteur publique. 
 
 1. Dans le [Azure portal], recherchez et sélectionnez **App Services**, puis sélectionnez votre application.
 2. Dans la barre de navigation gauche, sélectionnez **Authentification/Autorisation**  > **sur**.

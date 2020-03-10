@@ -3,17 +3,17 @@ title: Tutoriel – Réduire les coûts Azure avec des recommandations
 description: Ce tutoriel vous permet de réduire les coûts Azure quand vous agissez sur les recommandations d’optimisation.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 796d843461d5d622988f7992439a7c4426186761
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6f84b3fb75a3774dc14fd1ea045ab9cf1eeb5451
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199957"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245412"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>Tutoriel : Optimiser les coûts à partir de recommandations
 
@@ -32,7 +32,7 @@ Des recommandations sont disponibles pour diverses étendues et divers types de 
 - Abonnement
 - Resource group
 
-Vous devez disposer de machines virtuelles actives avec au moins 14 jours d’activité.
+Si vous disposez d’un nouvel abonnement, vous ne pouvez pas utiliser les fonctionnalités de Cost Management tout de suite. Vous risquez de devoir attendre jusqu’à 48 heures avant de pouvoir utiliser toutes les fonctionnalités de Cost Management. De plus, vous devez disposer de machines virtuelles actives avec au moins 14 jours d’activité.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com/).

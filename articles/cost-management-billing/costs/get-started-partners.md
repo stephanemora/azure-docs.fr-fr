@@ -4,17 +4,17 @@ description: Cet article explique aux partenaires comment utiliser les fonctionn
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/10/2020
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 9f35f0ae2b310fba462a3f45038496854077da27
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: f81ec71ffe5cdf7f70e309282307a1c4bb293219
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117589"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245480"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Prise en main d’Azure Cost Management pour les partenaires
 
@@ -41,7 +41,7 @@ Voici un exemple montrant les coûts pour un client unique.
 
 Toutes les fonctionnalités disponibles dans Azure Cost Management sont également disponibles avec les API REST. Utilisez les API pour automatiser les tâches de gestion des coûts.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 En tant que partenaire, Azure Cost Management est disponible en mode natif uniquement pour les abonnements qui figurent sur le plan Azure.
 
@@ -94,7 +94,7 @@ Les partenaires peuvent utiliser l’étendue pour effectuer un rapprochement av
 
 - Facture filtrée spécifique
 - Customer
-- Subscription
+- Abonnement
 - Resource group
 - Ressource
 - Service Azure
@@ -140,18 +140,14 @@ Quand la stratégie de coût est définie sur **Oui**, les utilisateurs d’abon
 
 Quand la stratégie de visualisation des coûts est activée, tous les services associés à l’utilisation d’abonnements indiquent les coûts selon les tarifs de paiement à l’utilisation. L’utilisation de réservations apparaît avec des frais nuls pour les coûts réels et amortis. Les achats et les droits ne sont pas associés à un abonnement spécifique. Ainsi, les achats ne sont pas affichés dans l’étendue d’abonnement.
 
-Pour voir les coûts relatifs au locataire client, ouvrez **Gestion des coûts + facturation** et sélectionnez le compte de facturation Contrat Partenaire Microsoft approprié.
 
-![Sélectionner un compte de facturation](./media/get-started-partners/select-billing-account.png)
+### <a name="view-customer-costs"></a>Consulter les coûts client
 
-Sous **Facturation**, sélectionnez **Abonnements Azure**, puis sélectionnez un client.
-
-![Sélectionner un client d’abonnement Azure](./media/get-started-partners/subscriptions-select-customer.png)
-
-Sélectionnez **Analyse des coûts** et commencez à examiner les coûts.
-L’analyse des coûts, les budgets et les alertes sont disponibles pour les étendues RBAC de groupe de ressources et d’abonnement selon les tarifs de paiement à l’utilisation.
+Pour voir les coûts relatifs au locataire client, ouvrez **Gestion des coûts + Facturation**. Sélectionnez **Analyse des coûts**, puis définissez l’étendue sur l’abonnement du locataire client pour commencer à examiner les coûts.
 
 ![Voir l’analyse des coûts en tant que client ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
+
+L’analyse des coûts, les budgets et les alertes sont disponibles pour les étendues RBAC de groupe de ressources et d’abonnement selon les tarifs de paiement à l’utilisation.
 
 Les vues amorties et les coûts réels pour les instances réservées dans les étendues RBAC indiquent des frais nuls. Les coûts des instances réservées sont indiqués uniquement dans les étendues de facturation dans lesquelles les achats ont été effectués.
 
@@ -213,7 +209,7 @@ Les champs de données suivants sont disponibles dans les fichiers de détails s
 | resourceGroup | Nom du groupe de ressources Azure utilisé pour la gestion des ressources du cycle de vie. | Nom du groupe de ressources. |
 | instanceID (ou) ResourceID | Identificateur de l’instance de ressource. | Affiché sous la forme d’un URI de ressource comprenant des propriétés de ressources complètes. |
 | resourceLocation | Nom de l’emplacement de la ressource. | Emplacement de la ressource. |
-| Location | Emplacement normalisé de la ressource. | N/A |
+| Emplacement | Emplacement normalisé de la ressource. | N/A |
 | effectivePrice | Prix unitaire effectif du service, dans la devise de tarification. Il est unique pour un produit, une famille de services, un compteur et une offre. Utilisé avec la tarification dans la grille tarifaire associée au compte de facturation. Lorsque la tarification est hiérarchisée ou qu’une quantité est incluse, cette option affiche le prix de consommation combiné. | Prix unitaire une fois les ajustements effectués. |
 | Quantité | Quantité mesurée achetée ou consommée. Quantité du compteur utilisée au cours de la période de facturation. | Nombre d’unités. Assurez-vous que cela correspond aux informations de votre système de facturation au cours du rapprochement. |
 | unitOfMeasure | Identifie l’unité dans laquelle le service est facturé. Par exemple, des Go et des heures. | Identifie l’unité dans laquelle le service est facturé. Par exemple, Go, heures et 10 000 s. |

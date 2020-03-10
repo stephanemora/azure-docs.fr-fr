@@ -12,11 +12,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.openlocfilehash: 4146191453e7c7a589dacc41345a36a29a540de5
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964328"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78360486"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Créer un runtime d’intégration Azure-SSIS dans Azure Data Factory
 
@@ -37,7 +37,7 @@ Le tutoriel [Provisionner le runtime d’intégration Azure-SSIS dans Azure Data
 
 Cet article montre comment provisionner un IR Azure-SSIS à l’aide du portail Azure, d’Azure PowerShell et d’un modèle Azure Resource Manager.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

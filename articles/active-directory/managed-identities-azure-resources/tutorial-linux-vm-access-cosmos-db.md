@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 04/09/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eb77802a4d6c29bb16912f1d74d950b6461b598
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f15a269656f205b0acb6a49740dd4c625c0bdd41
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74183340"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248283"
 ---
-# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder à Azure Cosmos DB 
+# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder à Azure Cosmos DB 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -67,14 +67,14 @@ Ensuite, ajoutez une collection de données dans le compte Cosmos DB que vous po
 
 ## <a name="retrieve-the-principalid-of-the-linux-vms-system-assigned-managed-identity"></a>Récupérer le `principalID` de l’identité managée attribuée par le système de la machine virtuelle Linux
 
-Pour accéder aux clés d’accès au compte Cosmos DB à partir du gestionnaire de ressources dans la section suivante, vous devez récupérer le `principalID` de l’identité managée attribuée par le système de la machine virtuelle Linux.  Veillez à remplacer les valeurs des paramètres `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (groupe de ressources dans lequel vous machine virtuelle réside) et `<VM NAME>` avec vos propres valeurs.
+Pour accéder aux clés d’accès au compte Cosmos DB à partir du gestionnaire de ressources dans la section suivante, vous devez récupérer le `principalID` de l’identité managée attribuée par le système de la machine virtuelle Linux.  Veillez à remplacer les valeurs de paramètre `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (groupe de ressources dans lequel réside votre machine virtuelle) et `<VM NAME>` par vos propres valeurs.
 
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01
 ```
 La réponse inclut les détails de l’identité managée attribuée par le système (notez le principalID tel qu’il est utilisé dans la section suivante) :
 
-```bash  
+```output  
 {
     "id": "/subscriptions/<SUBSCRIPTION ID>/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe>",
   "identity": {
@@ -96,7 +96,7 @@ az role assignment create --assignee <MI PRINCIPALID> --role '<ROLE NAME>' --sco
 
 La réponse comprend les détails de l’attribution de rôle créée :
 
-```
+```output
 {
   "id": "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMOS DB ACCOUNT>/providers/Microsoft.Authorization/roleAssignments/5b44e628-394e-4e7b-bbc3-d6cd4f28f15b",
   "name": "5b44e628-394e-4e7b-bbc3-d6cd4f28f15b",
@@ -159,13 +159,13 @@ La réponse CURL vous donne la liste des clés.  Par exemple, si vous obtenez le
 
 Maintenant que vous disposez de la clé d’accès pour le compte Cosmos DB, vous pouvez la passer à un SDK Cosmos DB et effectuer des appels pour accéder au compte.  Pour un exemple rapide, vous pouvez passer la clé d’accès à Azure CLI.  Vous pouvez obtenir l’`<COSMOS DB CONNECTION URL>` sous l’onglet **Vue d’ensemble**, dans le panneau du compte Cosmos DB, dans le portail Azure.  Remplacez `<ACCESS KEY>` par la valeur que vous avez obtenue ci-dessus :
 
-```bash
+```azurecli
 az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>
 ```
 
 Cette commande CLI retourne des informations détaillées sur la collection :
 
-```bash
+```output
 {
   "collection": {
     "_conflicts": "conflicts/",

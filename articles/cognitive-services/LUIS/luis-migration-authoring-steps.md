@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/30/2019
+ms.date: 02/28/2020
 ms.author: diberry
-ms.openlocfilehash: 9c92a3ad2fc6a372b58aa651228a7bbccdf8ba0a
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: f5197ae79670e4543c58224a33838706edae6218
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552018"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194634"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Étapes d’une migration vers une ressource de création Azure
 
 À partir du portail LUIS, effectuez la migration de toutes les applications que vous avez en vue d’utiliser la ressource de création Azure.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * **Facultatif** : Sauvegardez les applications qui figurent dans la liste des applications du portail LUIS en exportant chaque application ou en utilisant l’[API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) d’exportation.
 * **Facultatif** : Enregistrez la liste de chaque contributeur de l’application. Tous les collaborateurs peuvent recevoir un e-mail dans le cadre du processus de migration.
@@ -32,7 +32,10 @@ Si vous n’avez pas d’abonnement Azure, [créez-en un](https://azure.microsof
 
 ## <a name="access-the-migration-process"></a>Accéder au processus de migration
 
-Chaque semaine, vous êtes invité à effectuer la migration de vos applications. Vous pouvez fermer cette fenêtre pour ne pas effectuer la migration. Si vous souhaitez effectuer la migration avant la prochaine période planifiée, vous pouvez démarrer le processus de migration à l’aide de l’icône de **verrou** située dans la barre d’outils supérieure du portail LUIS.
+Chaque semaine, vous êtes invité à effectuer la migration de vos applications. Vous pouvez fermer cette fenêtre pour ne pas effectuer la migration. Si vous souhaitez effectuer la migration avant la prochaine période planifiée, vous pouvez démarrer le processus de migration à l’aide de l’icône **Azure** située dans la barre d’outils supérieure du portail LUIS.
+
+> [!div class="mx-imgBorder"]
+> ![Icône Migration](./media/migrate-authoring-key/migration-button.png)
 
 ## <a name="app-owner-begins-the-migration-process"></a>Le propriétaire de l’application démarre le processus de migration
 

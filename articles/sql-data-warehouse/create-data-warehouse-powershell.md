@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Créer un entrepôt - Azure PowerShell'
-description: Créez rapidement un serveur logique SQL Database, une règle de pare-feu au niveau du serveur et un entrepôt de données avec Azure PowerShell.
+title: 'Démarrage rapide : Créer un entrepôt de données (PowerShell)'
+description: Créez rapidement un serveur logique d’entrepôt de données Azure Synapse Analytics, avec une règle de pare-feu au niveau du serveur à l’aide d’Azure PowerShell.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,22 +10,24 @@ ms.subservice: development
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 94dcc0dee5dd4fe81eb5ce067d7ace31edeca353
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 9df9b4b1bdb33a856d9e31d65981e8654af049d2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461509"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199986"
 ---
-# <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Démarrage rapide : Créer et interroger un entrepôt de données SQL Azure avec Azure PowerShell
+# <a name="quickstart-create--query-a-data-warehouse-with-azure-powershell"></a>Démarrage rapide : Créer et interroger un entrepôt de données avec Azure PowerShell
 
-Créez rapidement un entrepôt de données SQL Azure à l’aide d’Azure PowerShell.
+Créez un entrepôt de données Azure Synapse Analytics en provisionnant un pool SQL à l’aide d’Azure PowerShell.
+
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 > [!NOTE]
-> La création d’un entrepôt SQL Data Warehouse peut entraîner un nouveau service facturable.  Pour en savoir plus, voir [SQL Data Warehouse - Tarification](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> La création d’un entrepôt peut donner lieu à un nouveau service facturable.  Pour plus d’informations, consultez [Tarification Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -68,7 +70,7 @@ $password = "ChangeYourAdminPassword1"
 $startip = "0.0.0.0"
 $endip = "0.0.0.0"
 # The database name
-$databasename = "mySampleDataWarehosue"
+$databasename = "mySampleDataWarehouse"
 ```
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
@@ -78,6 +80,7 @@ Créez un [groupe de ressources Azure](../azure-resource-manager/management/over
 ```powershell
 New-AzResourceGroup -Name $resourcegroupname -Location $location
 ```
+
 ## <a name="create-a-logical-server"></a>Création d'un serveur logique
 
 Créez un [serveur logique SQL Azure](../sql-database/sql-database-logical-servers.md) avec la commande [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver). Un serveur logique contient un groupe de bases de données gérées en tant que groupe. L’exemple suivant illustre la création d’un serveur nommé de façon aléatoire dans votre groupe de ressources avec un utilisateur administrateur nommé `ServerAdmin` et un mot de passe `ChangeYourAdminPassword1`. Remplacez les valeurs prédéfinies par ce que vous souhaitez.
@@ -100,7 +103,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> SQL Database et SQL Data Warehouse communiquent par le biais du port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut ne pas être autorisé par le pare-feu de votre réseau. Dans ce cas, vous ne pourrez pas vous connecter à votre serveur SQL Azure, sauf si votre service informatique ouvre le port 1433.
+> Les points de terminaison SQL communiquent via le port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut ne pas être autorisé par le pare-feu de votre réseau. Dans ce cas, vous ne pourrez pas vous connecter à votre serveur SQL Azure, sauf si votre service informatique ouvre le port 1433.
 >
 
 
@@ -121,10 +124,10 @@ New-AzSqlDatabase `
 Les paramètres obligatoires sont :
 
 * **RequestedServiceObjectiveName** : quantité de valeurs [Data Warehouse Unit](what-is-a-data-warehouse-unit-dwu-cdwu.md) que vous demandez. L’augmentation de cette quantité augmente les coûts de calcul. Pour obtenir la liste des valeurs prises en charge, consultez les [limites de mémoire et de concurrence](memory-concurrency-limits.md).
-* **DatabaseName** : nom de l’entrepôt de données SQL que vous créez.
+* **DatabaseName** : nom de l’entrepôt de données que vous créez.
 * **ServerName** : nom du serveur que vous utilisez pour la création.
 * **ResourceGroupName** : groupe de ressources que vous utilisez. Pour trouver des groupes de ressources disponibles dans votre abonnement, utilisez Get-AzureResource.
-* **Edition** : l’édition doit être « DataWarehouse » pour créer un entrepôt de données SQL.
+* **Edition** : doit être « DataWarehouse » pour créer un entrepôt de données.
 
 Les paramètres facultatifs sont :
 
@@ -148,6 +151,6 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez créé un entrepôt de données, créé une règle de pare-feu, vous vous êtes connecté à votre entrepôt de données et vous avez exécuté quelques requêtes. Pour en savoir plus sur Azure SQL Data Warehouse, continuez avec le didacticiel de chargement des données.
+Vous avez créé un entrepôt de données, créé une règle de pare-feu, vous vous êtes connecté à votre entrepôt de données et vous avez exécuté quelques requêtes. Pour en savoir plus, passez au tutoriel sur le chargement des données.
 > [!div class="nextstepaction"]
->[Charger des données dans un entrepôt SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+>[Charger des données dans un entrepôt de données](load-data-from-azure-blob-storage-using-polybase.md)

@@ -1,24 +1,28 @@
 ---
-title: Documentation Azure Scheduler - Didacticiels, informations de référence sur les API | Microsoft Docs
-description: Apprenez à utiliser Scheduler pour planifier et appeler des tâches, notamment des actions d’application récurrentes et des travaux de maintenance courants. Didacticiels, références d’API et autres.
+title: Documentation Azure Scheduler
+description: Créez, planifiez et exécutez des travaux automatisés dans le cloud, notamment des actions d’application récurrentes et de la maintenance courante
 services: scheduler
-author: carmonmills
-manager: carmonm
-layout: LandingPage
 ms.service: scheduler
+author: derek1ee
+ms.author: estfan
+layout: LandingPage
 ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carmonm
-ms.openlocfilehash: ddf335d0c2b165ae98feab0b42e60527f87de59c
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.date: 02/23/2020
+ms.openlocfilehash: 026d4590160d8292fed5e1a678715ac65fdbd859
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610336"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898606"
 ---
 # <a name="scheduler-documentation"></a>Documentation Scheduler
 
-Découvrez comment utiliser Scheduler pour planifier et appeler automatiquement des tâches récurrentes dans le cloud. Des didacticiels, références d’API et autres documents vous montrent comment planifier et surveiller diverses tâches, telles que des actions d’application récurrentes et des travaux de maintenance courants.
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en phase de [mise hors service](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Pour poursuivre les travaux que vous avez configurés dans Scheduler, veuillez [migrer vers Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) dès que possible. 
+>
+> Scheduler n’est plus disponible dans le portail Azure, mais l’[API REST](/rest/api/scheduler) et les [applets de commande Azure Scheduler PowerShell](scheduler-powershell-reference.md) restent disponibles pour vous permettre de gérer vos travaux et collections de travaux.
+
+Découvrez comment créer, planifier, exécuter, gérer et mettre à jour des travaux récurrents automatisés dans le cloud. Des tutoriels, informations de référence sur les API et autre documentation vous montrent comment planifier et superviser des travaux, tels que des actions d’application récurrentes et de la maintenance courante.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -40,6 +44,24 @@ Découvrez comment utiliser Scheduler pour planifier et appeler automatiquement 
         </a>
     </li>
     <li>
+        <a href="/azure/scheduler/migrate-from-scheduler-to-logic-apps">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Migrer d’Azure Scheduler vers Azure Logic Apps</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
         <a href="https://azure.microsoft.com/documentation/videos/index/?services=scheduler">
         <div class="cardSize">
             <div class="cardPadding">
@@ -51,24 +73,6 @@ Découvrez comment utiliser Scheduler pour planifier et appeler automatiquement 
                     </div>
                     <div class="cardText">
                         <h3>Bibliothèque vidéo Azure Scheduler</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/scheduler/scheduler-get-started-portal">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Prise en main d’Azure Scheduler</h3>
                     </div>
                 </div>
             </div>

@@ -12,16 +12,16 @@ ms.workload: infrastructure
 ms.date: 1/16/2020
 ms.author: ushan
 ms.custom: devops
-ms.openlocfilehash: eba793a761bd9f96b1a4ec5d4730f08187a758ef
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 5707a99b329915b35131fe793b0dfabd02348677
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515256"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912526"
 ---
 # <a name="tutorial-integrated-devops-for-iaas-and-paas-on-azure"></a>Tutoriel : DevOps intégré pour IaaS et PaaS sur Azure
 
-Avec des solutions de bout en bout sur Azure, les équipes peuvent implémenter des pratiques DevOps dans chacune des phases du cycle de vie des applications : planification, développement, livraison et fonctionnement. 
+Avec des solutions de bout en bout sur Azure, les équipes peuvent implémenter des pratiques DevOps dans chacune des phases du cycle de vie des applications : planification, développement, livraison et exploitation. 
 
 Vous trouverez ci-dessous quelques-uns des services Azure qui simplifient les charges de travail cloud, et que vous pouvez combiner dans le cadre de scénarios étonnamment puissants.
 Ces technologies, associées aux personnes et aux processus appropriés, permettent aux équipes d’apporter sans cesse de la valeur ajoutée aux clients. 

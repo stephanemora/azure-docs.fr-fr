@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d250377e15b957c10322dbba9ca587dd58944ad
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 51c14fd7f427c29c47521a7355309e62ab2254ca
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794975"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298613"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez le provisionnement cloud, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. 
@@ -34,9 +34,9 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 * Vous pouvez passer trois différents types d’arguments dans des fonctions :
   
   1. Des attributs, qui doivent être placés entre crochets. Par exemple : [nom_attribut]
-  2. Des constantes de chaîne, qui doivent être placées entre des guillemets doubles. Par exemple :  « États-Unis »
-  3. D’autres fonctions. Par exemple :  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Par exemple :  « Nom de l’entreprise : \\"Contoso"\\ »
+  2. Des constantes de chaîne, qui doivent être placées entre des guillemets doubles. Par exemple : « États-Unis »
+  3. D’autres fonctions. Par exemple : FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
+* Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Par exemple : « Nom de l’entreprise : \\"Contoso"\\ »
 
 ## <a name="list-of-functions"></a>Liste des fonctions
 | Liste des fonctions | Description |
@@ -80,7 +80,7 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 |[Word](#word)|La fonction Word retourne un mot contenu dans une chaîne, en fonction des paramètres qui décrivent les délimiteurs à utiliser et le nombre de mots à retourner.|
 
 ---
-### <a name="append"></a>Append
+### <a name="append"></a>Ajouter
 **Fonction :**<br> Append(source, suffixe)
 
 **Description :**<br> prend une valeur de chaîne source et ajoute le suffixe à la fin de celle-ci.
@@ -89,8 +89,8 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
    | Nom | Requis / Répétition | Type | Notes |
    | --- | --- | --- | --- |
-   | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
-   | **suffix** |Obligatoire |Chaîne |Chaîne que vous souhaitez ajouter à la fin de la valeur source. |
+   | **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
+   | **suffix** |Obligatoire |String |Chaîne que vous souhaitez ajouter à la fin de la valeur source. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -187,7 +187,7 @@ La fonction Count renvoie le nombre d’éléments dans un attribut à valeurs m
 `num Count(mvstr attribute)`
 
 ---
-### <a name="cstr"></a>CStr
+### <a name="cstr"></a>CChaîne
 **Description :**  
 La fonction CStr convertit en un type de données de chaîne.
 
@@ -252,9 +252,9 @@ Si l’attribut accountName n’est pas présent, renvoie une erreur sur l’obj
 
    | Nom | Requis / Répétition | Type | Notes |
    | --- | --- | --- | --- |
-   | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
-   | **inputFormat** |Obligatoire |Chaîne |Format attendu de la valeur source. Pour connaitre les formats pris en charge, consultez [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-   | **outputFormat** |Obligatoire |Chaîne |Format de la date de sortie. |
+   | **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
+   | **inputFormat** |Obligatoire |String |Format attendu de la valeur source. Pour connaitre les formats pris en charge, consultez [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+   | **outputFormat** |Obligatoire |String |Format de la date de sortie. |
 
 ---
 ### <a name="guid"></a>Guid
@@ -352,7 +352,7 @@ L’inverse de cette fonction est appelé IsNullOrEmpty.
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
 ---
-### <a name="item"></a>Item
+### <a name="item"></a>Élément
 **Description :**  
 La fonction Item renvoie un élément à partir d’une chaîne/d’un attribut à valeurs multiples.
 
@@ -394,11 +394,11 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
    | Nom | Requis / Répétition | Type | Notes |
    | --- | --- | --- | --- |
-   | **separator** |Obligatoire |Chaîne |Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
-   | **source1  … sourceN** |Requis, nombre de fois variable |Chaîne |Valeurs de chaîne à joindre ensemble. |
+   | **separator** |Obligatoire |String |Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
+   | **source1  … sourceN** |Requis, nombre de fois variable |String |Valeurs de chaîne à joindre ensemble. |
 
 ---
-### <a name="left"></a>Left
+### <a name="left"></a>Gauche
 **Description :**  
 La fonction Left renvoie un nombre spécifié de caractères en partant de la gauche d’une chaîne.
 
@@ -422,7 +422,7 @@ Si la chaîne contient moins de caractères que le nombre spécifié dans numCha
 Retourne `Joh`.
 
 ---
-### <a name="mid"></a>Mid
+### <a name="mid"></a>ExtracChaîne
 **Fonction :**<br> Mid(source, début, longueur)
 
 **Description :**<br> retourne une sous-chaîne de la valeur source. Une sous-chaîne est une chaîne qui ne contient que certains des caractères de la chaîne source.
@@ -431,9 +431,9 @@ Retourne `Joh`.
 
    | Nom | Requis / Répétition | Type | Notes |
    | --- | --- | --- | --- |
-   | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut. |
-   | **start** |Obligatoire |integer |Index dans la chaîne **source** où la sous-chaîne doit commencer. Le premier caractère dans la chaîne aura l’index 1, le deuxième caractère aura l’index 2, et ainsi de suite. |
-   | **length** |Obligatoire |integer |Longueur de la sous-chaîne. Si la longueur se termine à l’extérieur de la chaîne **source**, la fonction retourne la sous-chaîne de l’index **start** jusqu’à la fin de l’index **source**. |
+   | **source** |Obligatoire |String |Généralement le nom de l’attribut. |
+   | **start** |Obligatoire |entier |Index dans la chaîne **source** où la sous-chaîne doit commencer. Le premier caractère dans la chaîne aura l’index 1, le deuxième caractère aura l’index 2, et ainsi de suite. |
+   | **length** |Obligatoire |entier |Longueur de la sous-chaîne. Si la longueur se termine à l’extérieur de la chaîne **source**, la fonction retourne la sous-chaîne de l’index **start** jusqu’à la fin de l’index **source**. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -445,10 +445,10 @@ Retourne `Joh`.
 
    | Nom | Requis / Répétition | Type | Notes |
    | --- | --- | --- | --- |
-   | **source** |Obligatoire |Chaîne | Généralement un attribut de nom ou de prénom. |
+   | **source** |Obligatoire |String | Généralement un attribut de nom ou de prénom. |
 
 ---
-### <a name="not"></a>not
+### <a name="not"></a>Not
 **Fonction :**<br> Not(source)
 
 **Description :**<br> inverse la valeur booléenne de la **source**. Si la valeur **source** est « *True* », cette fonction retourne «*False* ». Sinon, elle retourne «*True*».
@@ -499,13 +499,13 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
    | Nom | Requis / Répétition | Type | Notes |
    | --- | --- | --- | --- |
-   | **source** |Obligatoire |Chaîne |Généralement, nom de l’attribut de l’objet **source**. |
-   | **oldValue** |Facultatif |Chaîne |Valeur à remplacer dans **source** ou **template**. |
-   | **regexPattern** |Facultatif |Chaîne |Modèle d’expression régulière pour la valeur à remplacer dans **source**. Ou, quand **replacementPropertyName** est utilisé, modèle pour extraire la valeur de **replacementPropertyName**. |
-   | **regexGroupName** |Facultatif |Chaîne |Nom du groupe à l’intérieur de **regexPattern**. Nous extrayons la valeur de ce groupe en tant que **replacementValue** à partir de **replacementPropertyName** uniquement quand **replacementPropertyName** est utilisé. |
-   | **replacementValue** |Facultatif |Chaîne |Nouvelle valeur par laquelle remplacer l’ancienne. |
-   | **replacementAttributeName** |Facultatif |Chaîne |Nom de l’attribut à utiliser pour la valeur de remplacement. |
-   | **template** |Facultatif |Chaîne |Lorsque la valeur **template** est fournie, nous recherchons la valeur **oldValue** dans le modèle et la remplaçons par la valeur **source**. |
+   | **source** |Obligatoire |String |Généralement, nom de l’attribut de l’objet **source**. |
+   | **oldValue** |Facultatif |String |Valeur à remplacer dans **source** ou **template**. |
+   | **regexPattern** |Facultatif |String |Modèle d’expression régulière pour la valeur à remplacer dans **source**. Ou, quand **replacementPropertyName** est utilisé, modèle pour extraire la valeur de **replacementPropertyName**. |
+   | **regexGroupName** |Facultatif |String |Nom du groupe à l’intérieur de **regexPattern**. Nous extrayons la valeur de ce groupe en tant que **replacementValue** à partir de **replacementPropertyName** uniquement quand **replacementPropertyName** est utilisé. |
+   | **replacementValue** |Facultatif |String |Nouvelle valeur par laquelle remplacer l’ancienne. |
+   | **replacementAttributeName** |Facultatif |String |Nom de l’attribut à utiliser pour la valeur de remplacement. |
+   | **template** |Facultatif |String |Lorsque la valeur **template** est fournie, nous recherchons la valeur **oldValue** dans le modèle et la remplaçons par la valeur **source**. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -524,7 +524,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
    | Nom | Requis / Répétition | Type | Notes |
    | --- | --- | --- | --- |
-   | **uniqueValueRule1  … uniqueValueRuleN** |Au moins 2 requis, aucune limite supérieure |Chaîne | Liste des règles de génération de valeur unique à évaluer. |
+   | **uniqueValueRule1  … uniqueValueRuleN** |Au moins 2 requis, aucune limite supérieure |String | Liste des règles de génération de valeur unique à évaluer. |
 
 
 ---
@@ -537,7 +537,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
   | Nom | Requis / Répétition | Type | Notes |
   |--- | --- | --- | --- |
-  | **[appRoleAssignments]** |Obligatoire |Chaîne |Objet **[appRoleAssignments]** . |
+  | **[appRoleAssignments]** |Obligatoire |String |Objet **[appRoleAssignments]** . |
 
 ---
 ### <a name="split"></a>Split
@@ -549,8 +549,8 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
    | Nom | Requis / Répétition | Type | Notes |
    | --- | --- | --- | --- |
-   | **source** |Obligatoire |Chaîne |**source** à mettre à jour. |
-   | **délimiteur** |Obligatoire |Chaîne |Spécifie le caractère qui sera utilisé pour fractionner la chaîne (exemple : « , ») |
+   | **source** |Obligatoire |String |**source** à mettre à jour. |
+   | **délimiteur** |Obligatoire |String |Spécifie le caractère qui sera utilisé pour fractionner la chaîne (exemple : « , ») |
 
 ---
 ### <a name="stringfromsid"></a>StringFromSid
@@ -570,10 +570,10 @@ La fonction StringFromSid convertit en chaîne un tableau d’octets contenant u
 
    | Nom | Requis / Répétition | Type | Notes |
    | --- | --- | --- | --- |
-   | **source** |Obligatoire |Chaîne |**source** à mettre à jour. |
+   | **source** |Obligatoire |String |**source** à mettre à jour. |
 
 ---
-### <a name="switch"></a>Switch
+### <a name="switch"></a>Commutateur
 **Fonction :**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Description :**<br> quand la valeur **source** correspond à une **clé**, retourne la **valeur** de cette **clé**. Si la valeur **source** ne correspond à aucune clé, retourne **defaultValue**.  Les paramètres **key** et **value** doivent toujours être fournis par paires. La fonction attend toujours un nombre pair de paramètres.
@@ -582,10 +582,10 @@ La fonction StringFromSid convertit en chaîne un tableau d’octets contenant u
 
    | Nom | Requis / Répétition | Type | Notes |
    | --- | --- | --- | --- |
-   | **source** |Obligatoire |Chaîne |**Source** à mettre à jour. |
-   | **defaultValue** |Facultatif |Chaîne |Valeur par défaut à utiliser quand la source ne correspond à aucune clé. Peut être une chaîne vide (""). |
-   | **key** |Obligatoire |Chaîne |**Key** avec laquelle comparer la valeur **source**. |
-   | **value** |Obligatoire |Chaîne |Valeur de remplacement pour la **source** correspondant à la clé. |
+   | **source** |Obligatoire |String |Valeur **source** à vérifier. |
+   | **defaultValue** |Facultatif |String |Valeur par défaut à utiliser quand la source ne correspond à aucune clé. Peut être une chaîne vide (""). |
+   | **key** |Obligatoire |String |**Key** avec laquelle comparer la valeur **source**. |
+   | **value** |Obligatoire |String |Valeur de remplacement pour la **source** correspondant à la clé. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -597,8 +597,8 @@ La fonction StringFromSid convertit en chaîne un tableau d’octets contenant u
 
    | Nom | Requis / Répétition | Type | Notes |
    | --- | --- | --- | --- |
-   | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source |
-   | **culture** |Facultatif |Chaîne |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
+   | **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source |
+   | **culture** |Facultatif |String |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
 
 ---
 
@@ -611,12 +611,12 @@ La fonction StringFromSid convertit en chaîne un tableau d’octets contenant u
 
   | Nom | Requis / Répétition | Type | Notes |
   | --- | --- | --- | --- |
-  | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
-  | **culture** |Facultatif |Chaîne |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
+  | **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
+  | **culture** |Facultatif |String |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
 
 ---
 
-### <a name="trim"></a>Trim
+### <a name="trim"></a>SupprEspace
 **Description :**  
 La fonction Trim supprime les espaces blancs situés au début et à la fin d’une chaîne.
 

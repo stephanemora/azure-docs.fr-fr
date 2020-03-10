@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: banders
-ms.openlocfilehash: c1cced862bee1ec4579f3e6e5145968dec7613e4
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 1c5dd5ebd5023b75aad5dabf6a721a1193a6224d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500572"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272205"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
@@ -42,6 +42,7 @@ Plans de service :
 - **Azure Database pour PostgreSQL** : seuls les coûts de calcul sont inclus dans une réservation. Une réservation ne couvre pas les frais de logiciels, de réseau ou de stockage qui sont associés aux serveurs de base de données PostgreSQL.
 - **Azure Database pour MariaDB** : seuls les coûts de calcul sont inclus dans une réservation. Une réservation ne couvre pas les frais de logiciels, de réseau ou de stockage qui sont associés au serveur de base de données MariaDB.
 - **Azure Data Explorer** : une réservation couvre les frais de majoration. Une réservation ne couvre pas les frais de calcul, de stockage ou de réseau associés à l’utilisation des clusters.
+- **Azure Cache pour Redis** : seuls les coûts de calcul sont inclus dans une réservation. Une réservation ne couvre pas les frais de stockage ou de réseau associés aux instances de cache Redis.
 - **Disques managés SSD Premium** : une réservation est effectuée pour une référence SKU de disque spécifiée. 
 
 Abonnements logiciels :

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73de446513915bbc5cba9d8b9cf23d08d18cc362
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 3139d39797c3bc576bb39f1438b7e6d3f37e3c5c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585983"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248841"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
 
@@ -69,7 +69,7 @@ Une méthode courante pour améliorer la protection de tous les utilisateurs con
 
 Pour permettre à vos utilisateurs d’accéder facilement à vos applications cloud, Azure AD prend en charge un éventail de protocoles d’authentification, notamment l’authentification héritée. *L’authentification héritée* est un terme qui fait référence à une requête d’authentification effectuée par :
 
-- D’anciennes versions de clients Office qui n’utilisent pas l’authentification moderne (par exemple, un client Office 2010).
+- Les clients Office qui n'utilisent pas l'authentification moderne (par exemple, un client Office 2010).
 - Tout client qui utilise d’anciens protocoles de messagerie tels que IMAP, SMTP ou POP3.
 
 Aujourd’hui, la majorité des tentatives de connexion compromettantes ont pour origine l’authentification héritée. L’authentification héritée ne prend pas en charge Multi-Factor Authentication. Même si une stratégie Multi-Factor Authentication est activée sur votre annuaire, un attaquant peut s’authentifier à l’aide d’un protocole plus ancien et contourner Multi-Factor Authentication. 

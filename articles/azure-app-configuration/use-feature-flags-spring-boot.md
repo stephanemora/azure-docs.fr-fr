@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc
-ms.openlocfilehash: 8c66e2995462701f7ddaefc3a2623c02fee883ef
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 090ede85301f9e7aff14394c8fb5c7d558d98dd4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687199"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656022"
 ---
-# <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Tutoriel : Utiliser des indicateurs de fonctionnalités dans une application Spring Boot
+# <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Tutoriel : Utiliser des indicateurs de fonctionnalité dans une application Spring Boot
 
 Les bibliothèques de gestion des fonctionnalités Spring Boot Core fournissent une prise en charge de l’implémentation des indicateurs de fonctionnalités dans une application Spring Boot. Ces bibliothèques vous permettent d’ajouter des indicateurs de fonctionnalités à votre code de façon déclarative.
 
@@ -29,7 +29,7 @@ Les bibliothèques de gestion des fonctionnalités gèrent également les cycles
 
 L’article [Démarrage rapide : Ajouter des indicateurs de fonctionnalités à une application Spring Boot](./quickstart-feature-flag-spring-boot.md) montre plusieurs façons d’ajouter des indicateurs de fonctionnalités à une application Spring Boot. Ce tutoriel explique plus en détails ces différentes méthodes.
 
-Ce didacticiel vous apprendra à effectuer les opérations suivantes :
+Dans ce didacticiel, vous apprendrez à :
 
 > [!div class="checklist"]
 > * Ajouter des indicateurs de fonctionnalités dans des parties clés de votre application afin de contrôler la disponibilité des fonctionnalités
@@ -51,11 +51,23 @@ Nous vous recommandons de conserver les indicateurs de fonctionnalités en dehor
 
 Le moyen le plus simple de connecter votre application Spring Boot à App Configuration est de passer par le fournisseur de configuration :
 
+### <a name="spring-cloud-11x"></a>Spring Cloud 1.1.x
+
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-    <version>1.1.0.M4</version>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>1.1.1</version>
+</dependency>
+```
+
+### <a name="spring-cloud-12x"></a>Spring Cloud 1.2.x
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>1.2.1</version>
 </dependency>
 ```
 
@@ -69,23 +81,22 @@ Le gestionnaire de fonctionnalités prend en charge *application.yml* comme sour
 
 ```yml
 feature-management:
-  featureSet:
-    features:
-      FeatureA: true
-      FeatureB: false
-      FeatureC:
-        EnabledFor:
-          -
-            name: Percentage
-            parameters:
-              value: 50
+  feature-set:
+    feature-a: true
+    feature-b: false
+    feature-c:
+      enabled-for:
+        -
+          name: Percentage
+          parameters:
+            value: 50
 ```
 
 Par convention, la section `feature-management` de ce document YAML est utilisée pour les paramètres des indicateurs de fonctionnalités. L’exemple précédent montre trois indicateurs de fonctionnalités avec leurs filtres définis dans la propriété `EnabledFor` :
 
-* `FeatureA` est défini sur *on*.
-* `FeatureB` est défini sur *off*.
-* `FeatureC` spécifie un filtre nommé `Percentage` avec une propriété `Parameters`. `Percentage` est un filtre configurable. Dans cet exemple, `Percentage` spécifie une probabilité de 50 % que l’indicateur `FeatureC` soit défini sur *on*.
+* `feature-a` est défini sur *on*.
+* `feature-b` est défini sur *off*.
+* `feature-c` spécifie un filtre nommé `Percentage` avec une propriété `parameters`. `Percentage` est un filtre configurable. Dans cet exemple, `Percentage` spécifie une probabilité de 50 % que l’indicateur `feature-c` soit défini sur *on*.
 
 ## <a name="feature-flag-checks"></a>Vérifications des indicateurs de fonctionnalités
 
@@ -94,7 +105,7 @@ Le modèle de gestion des fonctionnalités de base consiste à d’abord vérifi
 ```java
 private FeatureManager featureManager;
 ...
-if (featureManager.isEnabled("FeatureA"))
+if (featureManager.isEnabledAsync("feature-a"))
 {
     // Run the following code
 }
@@ -118,11 +129,11 @@ public class HomeController {
 
 ## <a name="controller-actions"></a>Actions de contrôleur
 
-Dans les contrôleurs MVC, vous utilisez un attribut `@FeatureGate` pour déterminer si une action spécifique est activée. L’action `Index` suivante exige que `FeatureA` soit défini sur *on* pour pouvoir être exécutée :
+Dans les contrôleurs MVC, vous utilisez un attribut `@FeatureGate` pour déterminer si une action spécifique est activée. L’action `Index` suivante exige que `feature-a` soit défini sur *on* pour pouvoir être exécutée :
 
 ```java
 @GetMapping("/")
-@FeatureGate(feature = "FeatureA")
+@FeatureGate(feature = "feature-a")
 public String index(Model model) {
     ...
 }
@@ -132,7 +143,7 @@ Quand une action ou un contrôleur MVC est bloqué car l’indicateur de fonctio
 
 ## <a name="mvc-filters"></a>Filtres MVC
 
-Vous pouvez configurer des filtres MVC de sorte que leur activation soit basée sur l’état d’un indicateur de fonctionnalité. Le code suivant ajoute un filtre MVC nommé `FeatureFlagFilter`. Ce filtre est déclenché dans le pipeline MVC seulement si `FeatureA` est activé.
+Vous pouvez configurer des filtres MVC de sorte que leur activation soit basée sur l’état d’un indicateur de fonctionnalité. Le code suivant ajoute un filtre MVC nommé `FeatureFlagFilter`. Ce filtre est déclenché dans le pipeline MVC seulement si `feature-a` est activé.
 
 ```java
 @Component
@@ -144,7 +155,7 @@ public class FeatureFlagFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        if(!featureManager.isEnabled("FeatureA")) {
+        if(!featureManager.isEnabled("feature-a")) {
             chain.doFilter(request, response);
             return;
         }
@@ -156,11 +167,11 @@ public class FeatureFlagFilter implements Filter {
 
 ## <a name="routes"></a>Itinéraires
 
-Vous pouvez utiliser des indicateurs de fonctionnalités pour rediriger des routes. Le code suivant redirige un utilisateur à partir de `FeatureA` :
+Vous pouvez utiliser des indicateurs de fonctionnalités pour rediriger des routes. Le code suivant redirige un utilisateur à partir de `feature-a` :
 
 ```java
 @GetMapping("/redirect")
-@FeatureGate(feature = "FeatureA", fallback = "/getOldFeature")
+@FeatureGate(feature = "feature-a", fallback = "/getOldFeature")
 public String getNewFeature() {
     // Some New Code
 }

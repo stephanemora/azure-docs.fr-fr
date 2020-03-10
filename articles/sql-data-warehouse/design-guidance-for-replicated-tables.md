@@ -1,6 +1,6 @@
 ---
 title: Conseils de conception pour les tables répliquées
-description: Recommandations relatives à la conception de tables répliquées dans votre schéma Azure SQL Data Warehouse. 
+description: Recommandations sur la conception de tables répliquées dans SQL Analytics
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,32 +10,32 @@ ms.subservice: development
 ms.date: 03/19/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 18577cb729c9f17a112979cd1ebb763af38b9ca2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: ff141b0da0eb2fe68bbeccb7e39292a70b7305f0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693044"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194748"
 ---
-# <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Guide de conception pour l’utilisation de tables répliquées dans Azure SQL Data Warehouse
-Cet article vous fournit des recommandations relatives à la conception de tables répliquées dans votre schéma SQL Data Warehouse. Utilisez ces recommandations pour améliorer les performances des requêtes en réduisant le déplacement de données et la complexité des requêtes.
+# <a name="design-guidance-for-using-replicated-tables-in-sql-analytics"></a>Conseils de conception pour l'utilisation de tables répliquées dans SQL Analytics
+Cet article vous donne des recommandations sur la conception de tables répliquées dans votre schéma SQL Analytics. Utilisez ces recommandations pour améliorer les performances des requêtes en réduisant le déplacement de données et la complexité des requêtes.
 
 > [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
 ## <a name="prerequisites"></a>Prérequis
-Cet article suppose que vous êtes familiarisé avec les concepts de distribution et de déplacement des données dans SQL Data Warehouse.  Pour plus d’informations, consultez l’article sur [l’architecture](massively-parallel-processing-mpp-architecture.md). 
+Cet article suppose que les concepts de distribution et de déplacement de données dans SQL Analytics vous sont familiers.  Pour plus d’informations, consultez l’article sur [l’architecture](massively-parallel-processing-mpp-architecture.md). 
 
 Dans le cadre de la conception d’une table, essayez d’en savoir autant que possible sur vos données et la façon dont elles sont interrogées.  Considérez par exemple les questions suivantes :
 
 - Quelle est la taille de la table ?   
 - Quelle est la fréquence d’actualisation de la table ?   
-- Est-ce que je dispose de tables de faits et de dimension dans un entrepôt de données ?   
+- Est-ce que je dispose de tables de faits et de dimension dans une base de données SQL Analytics ?   
 
 ## <a name="what-is-a-replicated-table"></a>Qu’est-ce qu’une table répliquée ?
 Une table répliquée possède une copie complète de la table accessible sur chaque nœud de calcul. La réplication d’une table évite le transfert de données entre des nœuds de calcul avant une jointure ou une agrégation. Étant donné que la table possède plusieurs copies, le fonctionnement des tables répliquées est optimal lorsque la taille de la table est inférieure à 2 Go compressés.  2 Go n’est pas une limite inconditionnelle.  Si les données sont statiques et ne changent pas, vous pouvez répliquer des tables plus volumineuses.
 
-Le diagramme suivant illustre une table répliquée accessible sur chaque nœud de calcul. Dans SQL Data Warehouse, la table répliquée est entièrement copiée dans une base de données de distribution sur chaque nœud de calcul. 
+Le diagramme suivant illustre une table répliquée accessible sur chaque nœud de calcul. Dans SQL Analytics, la table répliquée est entièrement copiée dans une base de données de distribution sur chaque nœud de calcul. 
 
 ![Table répliquée](media/guidance-for-using-replicated-tables/replicated-table.png "Table répliquée")  
 
@@ -49,8 +49,8 @@ Envisagez d’utiliser une table répliquée dans les cas suivants :
 Les tables répliquées ne produisent sans doute pas les meilleurs résultats dans les cas suivants :
 
 - La table est l’objet d’opérations d’insertion, de mise à jour et de suppression fréquentes. Ces opérations DLM (langage de manipulation de données) nécessitent une regénération de la table répliquée. La reconstruction fréquente peut diminuer les performances.
-- L’entrepôt de données est souvent mis à l’échelle. La mise à l’échelle d’un entrepôt de données modifie le nombre de nœuds de calcul, ce qui entraîne une reconstruction de la table répliquée.
-- La table comporte un grand nombre de colonnes, mais les opérations de données n’accèdent généralement qu’à un nombre restreint de colonnes. Dans ce scénario, au lieu de répliquer la table entière, il peut s’avérer plus efficace de distribuer la table et de créer ensuite un index sur les colonnes fréquemment sollicitées. Quand une requête requiert le déplacement des données, SQL Data Warehouse déplace uniquement les données pour les colonnes demandées. 
+- La base de données SQL Analytics est fréquemment mise à l'échelle. La mise à l'échelle d'une base de données SQL Analytics modifie le nombre de nœuds de calcul, ce qui entraîne une reconstruction de la table répliquée.
+- La table comporte un grand nombre de colonnes, mais les opérations de données n’accèdent généralement qu’à un nombre restreint de colonnes. Dans ce scénario, au lieu de répliquer la table entière, il peut s’avérer plus efficace de distribuer la table et de créer ensuite un index sur les colonnes fréquemment sollicitées. Lorsqu'une requête exige un déplacement de données, SQL Analytics déplace uniquement les données des colonnes demandées. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Utiliser des tables répliquées avec des prédicats de requête simples
 Avant de décider de distribuer ou de répliquer une table, pensez aux types de requêtes que vous projetez d’exécuter sur la table. Lorsque possible,
@@ -118,11 +118,11 @@ Nous avons recréé les tables `DimDate` et `DimSalesTerritory` en tant que tabl
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>Considérations relatives aux performances pour la modification des tables répliquées
-SQL Data Warehouse implémente une table répliquée en conservant une version principale de la table. Il copie la version principale dans une base de données de distribution sur chaque nœud de calcul. En cas de modification, SQL Data Warehouse met d’abord à jour la table principale. Puis, il reconstruit les tables sur chaque nœud de calcul. Une reconstruction d’une table répliquée implique la copie de la table sur chaque nœud de calcul et la construction des index.  Par exemple, une table répliquée sur un DW400 a 5 copies des données.  Une copie principale et une copie complète sur chaque nœud de calcul.  Toutes les données sont stockées dans des bases de données de distribution. SQL Data Warehouse utilise ce modèle pour prendre en charge les instructions de modification de données plus rapides et les opérations de mise à l’échelle flexibles. 
+SQL Analytics implémente une table répliquée en conservant une version principale de la table. Il copie la version principale dans une base de données de distribution sur chaque nœud de calcul. En cas de modification, SQL Analytics met d'abord à jour la table principale. Puis, il reconstruit les tables sur chaque nœud de calcul. Une reconstruction d’une table répliquée implique la copie de la table sur chaque nœud de calcul et la construction des index.  Par exemple, une table répliquée sur un DW400 a 5 copies des données.  Une copie principale et une copie complète sur chaque nœud de calcul.  Toutes les données sont stockées dans des bases de données de distribution. SQL Analytics utilise ce modèle pour prendre en charge des instructions de modification de données plus rapides et des opérations de mise à l'échelle flexibles. 
 
 Les reconstructions sont requises après les événements suivants :
 - Des données sont chargées ou modifiées
-- L’entrepôt de données est mis à l’échelle à un niveau différent
+- L'instance SQL Analytics est mise à l'échelle à un autre niveau
 - La définition de la table est mise à jour
 
 Les reconstructions ne sont pas requises après les événements suivants :
@@ -132,7 +132,7 @@ Les reconstructions ne sont pas requises après les événements suivants :
 La reconstruction ne se produit pas immédiatement après la modification des données. Au lieu de cela, la reconstruction est déclenchée la première fois qu’une requête est sélectionnée à partir de la table.  La requête qui a déclenché la reconstruction lit immédiatement à partir de la version principale de la table pendant que les données sont copiées de façon asynchrone sur chaque nœud de calcul. Tant que la copie des données n’est pas terminée, les requêtes suivantes continuent d’utiliser la version principale de la table.  Si la table répliquée fait l’objet d’une activité qui entraîne une reconstruction, la copie des données est invalidée et l’instruction select suivante engendre une nouvelle copie des données. 
 
 ### <a name="use-indexes-conservatively"></a>Utilisation restrictive des index
-Les pratiques d’indexation standard s’appliquent aux tables répliquées. SQL Data Warehouse reconstruit chaque index de table répliquée dans le cadre de la reconstruction. Utilisez les index uniquement lorsque le gain de performances compense le coût de reconstruction des index.  
+Les pratiques d’indexation standard s’appliquent aux tables répliquées. SQL Analytics reconstruit chaque index de table répliquée dans le cadre de la reconstruction. Utilisez les index uniquement lorsque le gain de performances compense le coût de reconstruction des index.  
  
 ### <a name="batch-data-loads"></a>Chargements de données par lots
 Lors du chargement de données dans des tables répliquées, essayez de réduire les reconstructions en regroupant les chargements par lots. Effectuez tous les chargements par lots avant d’exécuter des instructions select.
@@ -182,8 +182,8 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 ## <a name="next-steps"></a>Étapes suivantes 
 Pour créer une table répliquée, utilisez l’une de ces instructions :
 
-- [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (SQL Analytics)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE AS SELECT (SQL Analytics)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 Pour une vue d’ensemble des tables distribuées, consultez [Tables distribuées](sql-data-warehouse-tables-distribute.md).
 

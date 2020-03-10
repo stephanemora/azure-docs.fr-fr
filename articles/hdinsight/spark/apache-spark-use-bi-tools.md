@@ -1,25 +1,25 @@
 ---
-title: 'Didacticiel : Analyser les données Azure HDInsight Apache Spark avec Power BI'
+title: 'Tutoriel : Analyser les données Azure HDInsight Apache Spark avec Power BI'
 description: Didacticiel - Utiliser Microsoft Power BI pour visualiser les données Apache Spark stockées sur les clusters HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 10/03/2019
-ms.openlocfilehash: 3fd1405d8421d71f52d9cd215dd055ce1595abd0
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.custom: hdinsightactive,mvc
+ms.date: 03/02/2020
+ms.openlocfilehash: d7330225ecbdc6715847821a47c140a3c2b8d1b9
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327271"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251948"
 ---
-# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Didacticiel : Analyser les données d’Apache Spark à l’aide de Power BI dans HDInsight
+# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutoriel : Analyser les données d’Apache Spark à l’aide de Power BI dans HDInsight
 
 Dans ce didacticiel, vous allez apprendre à utiliser [Microsoft Power BI](https://powerbi.microsoft.com/) pour visualiser des données sur un cluster Apache Spark dans [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Visualiser les données Spark à l’aide de Power BI
 
@@ -128,51 +128,51 @@ Le service Power BI vous permet de partager des rapports et tableaux de bord dan
 
 1. Ouvrez Power BI Desktop.
 
-1. À partir de l’ongle **Accueil**, cliquez sur **Publier**.
+1. Sous l’onglet **Accueil**, sélectionnez **Publier**.
 
     ![Publier à partir de Power BI Desktop](./media/apache-spark-use-bi-tools/apache-spark-bi-publish.png "Publier à partir de Power BI Desktop")
 
-1. Sélectionnez l’espace de travail sur lequel vous souhaiter publier vos jeu de données et rapport, puis cliquez sur **Sélectionnez**. Dans l’image suivante, l’option par défaut **Mon espace de travail** est sélectionnée.
+1. Sélectionnez un espace de travail où publier votre jeu de données et votre rapport, puis cliquez sur **Sélectionnez**. Dans l’image suivante, l’option par défaut **Mon espace de travail** est sélectionnée.
 
-    ![Sélectionner l’espace de travail dans lequel publier le jeu de données et générer des rapports](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Sélectionner l’espace de travail dans lequel publier le jeu de données et générer des rapports") 
+    ![Sélectionner l’espace de travail dans lequel publier le jeu de données et générer des rapports](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "Sélectionner l’espace de travail dans lequel publier le jeu de données et générer des rapports")
 
-1. Une fois la publication réussie, cliquez sur **Ouvrir 'BuildingTemperature.pbix' dans Power BI**.
+1. Une fois la publication réussie, sélectionnez **Ouvrir « BuildingTemperature.pbix » dans Power BI**.
 
-    ![Publication réussie, cliquer pour entrer les informations d’identification](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Publication réussie, cliquer pour entrer les informations d’identification") 
+    ![Publication réussie, cliquer pour entrer les informations d’identification](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "Publication réussie, cliquer pour entrer les informations d’identification")
 
-1. Dans le service Power BI, cliquez sur **Entrer les informations d’identification**.
+1. Dans le service Power BI, sélectionnez **Entrer les informations d’identification**.
 
     ![Entrer les informations d’identification dans le service Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "Entrer les informations d’identification dans le service Power BI")
 
-1. Cliquez sur **Modifier les informations d’identification**.
+1. Sélectionnez **Modifier les informations d’identification**.
 
     ![Modifier les informations d’identification dans le service Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-edit-credentials.png "Modifier les informations d’identification dans le service Power BI")
 
-1. Entrez les informations du compte de connexion HDInsight, puis cliquez sur **Se connecter**. Le nom du compte par défaut est *administrateur*.
+1. Entrez les informations du compte de connexion HDInsight, puis sélectionnez **Se connecter**. Le nom du compte par défaut est *administrateur*.
 
     ![Se connecter au cluster Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-sign-in.png "Se connecter au cluster Spark")
 
-1. Dans le volet gauche, accédez à **Espace de travail** > **Mon espace de travail** > **RAPPORTS**, puis cliquez sur **BuildingTemperature**.
+1. Dans le volet gauche, accédez à **Espaces de travail** > **Mon espace de travail** > **RAPPORTS**, puis sélectionnez **BuildingTemperature**.
 
     ![Rapport figurant sous rapports dans le volet de gauche](./media/apache-spark-use-bi-tools/apache-spark-bi-service-left-pane.png "Rapport figurant sous rapports dans le volet de gauche")
 
     Vous devez également voir **BuildingTemperature** sous **JEUX DE DONNÉES** dans le volet gauche.
 
-    Le visuel que vous avez créé dans Power BI Desktop est désormais disponible dans le service Power BI. 
+    Le visuel que vous avez créé dans Power BI Desktop est désormais disponible dans le service Power BI.
 
-1. Pointez votre curseur sur la visualisation, puis cliquez sur l’icône d’épingle dans le coin supérieur droit.
+1. Pointez votre curseur sur la visualisation, puis sélectionnez l’icône d’épingle dans le coin supérieur droit.
 
     ![Rapport dans le service Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-service-report.png "Rapport dans le service Power BI")
 
-1. Sélectionnez « Nouveau tableau de bord », entrez le nom `Building temperature`, puis cliquez sur **Épingler**.
+1. Sélectionnez « Nouveau tableau de bord », entrez le nom `Building temperature`, puis sélectionnez **Épingler**.
 
     ![Épingler au nouveau tableau de bord](./media/apache-spark-use-bi-tools/apache-spark-bi-pin-dashboard.png "Épingler au nouveau tableau de bord")
 
-1. Dans le rapport, cliquez sur **Accéder au tableau de bord**.
+1. Dans le rapport, sélectionnez **Accéder au tableau de bord**.
 
 Votre visuel est épinglé au tableau de bord ; vous pouvez ajouter d’autres visuels au rapport et les épingler au même tableau de bord. Pour plus d’informations sur les rapports et les tableaux de bord, consultez [Rapports dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-reports/) et [Tableaux de bord dans le service Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Après avoir terminé ce didacticiel, vous souhaiterez peut-être supprimer le cluster. Avec HDInsight, vos données sont stockées dans le stockage Azure. Vous pouvez ainsi supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même quand vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, mieux vaut supprimer les clusters quand ils ne sont pas utilisés.
 

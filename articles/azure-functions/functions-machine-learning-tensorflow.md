@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: e98655dca7d682e5c42f3b0ae7f26c892bd12377
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: c64d87b2430cc1d733a67bbc1e803590a37b1714
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710706"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190770"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutoriel : Appliquer des modèles Machine Learning dans Azure Functions avec Python et TensorFlow
 
@@ -23,9 +23,9 @@ Dans cet article, vous allez découvrir comment utiliser Python, TensorFlow et A
 > * Créez une API HTTP serverless pour classifier une image comme contenant un chien ou un chat.
 > * Consommez l’API à partir d’une application web.
 
-## <a name="prerequisites"></a>Conditions préalables requises 
+## <a name="prerequisites"></a>Prérequis 
 
-- Un compte Azure avec une abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Python 3.7.4](https://www.python.org/downloads/release/python-374/). (Le fonctionnement de Python 3.7.4 et Python 3.6.x avec Azure Functions a été vérifié ; Python 3.8 et ultérieur ne sont pas encore pris en charge.)
 - [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
 - Un éditeur de code tel que [Visual Studio Code](https://code.visualstudio.com/).
@@ -59,7 +59,7 @@ Dans cet article, vous allez découvrir comment utiliser Python, TensorFlow et A
 Accédez au dossier *start*, et exécutez les commandes suivantes pour créer et activer un environnement virtuel nommé `.venv`. Veillez à utiliser Python 3.7, qui est pris en charge par Azure Functions.
 
 
-# <a name="bashtabbash"></a>[bash](#tab/bash)
+# <a name="bash"></a>[bash](#tab/bash)
 
 ```bash
 cd start
@@ -79,7 +79,7 @@ Si Python n’a pas installé le package venv sur votre distribution Linux, exé
 sudo apt-get install python3-venv
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 cd start
@@ -93,7 +93,7 @@ py -m venv .venv
 .venv\scripts\activate
 ```
 
-# <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+# <a name="cmd"></a>[Cmd](#tab/cmd)
 
 ```cmd
 cd start
@@ -109,7 +109,7 @@ py -m venv .venv
 
 ---
 
-Vous exécutez toutes les commandes suivantes dans cet environnement virtuel activé. (Pour quitter l’environnement virtuel, exécutez `deactivate`.)
+Vous devez exécuter toutes les commandes suivantes dans cet environnement virtuel activé. (Pour quitter l’environnement virtuel, exécutez `deactivate`.)
 
 
 ## <a name="create-a-local-functions-project"></a>Créer un projet de fonctions local
@@ -133,7 +133,7 @@ Dans Azure Functions, un projet de fonction est un conteneur pour une ou plusieu
     func new --name classify --template "HTTP trigger"
     ```
 
-    Cette commande crée un dossier correspondant au nom de la fonction, *classify*. Dans ce dossier se trouvent deux fichiers : *\_\_init\_\_.py*, qui contient le code de la fonction, et *function.json*, qui décrit le déclencheur de la fonction, et ses liaisons d’entrée et de sortie. Pour plus d’informations sur le contenu de ces fichiers, consultez [Créer une fonction Python déclenchée par HTTP dans Azure - Examiner le contenu du fichier](functions-create-first-function-python.md#optional-examine-the-file-contents).
+    Cette commande crée un dossier correspondant au nom de la fonction, *classify*. Dans ce dossier se trouvent deux fichiers : *\_\_init\_\_.py*, qui contient le code de la fonction, et *function.json*, qui décrit le déclencheur de la fonction, et ses liaisons d’entrée et de sortie. Pour plus d’informations sur le contenu de ces fichiers, consultez la section [Examiner le contenu du fichier](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#optional-examine-the-file-contents) du guide de démarrage rapide Python.
 
 
 ## <a name="run-the-function-locally"></a>Exécuter la fonction localement
@@ -158,19 +158,19 @@ Pour modifier la fonction `classify` de façon à classifier une image en foncti
 
 1. Dans le dossier *start*, exécutez la commande suivante pour copier les fichiers modèle dans le dossier *classify*. Veillez à inclure `\*` dans la commande. 
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     cp ../resources/model/* classify
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\model\* classify
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     copy ..\resources\model\* classify
@@ -182,19 +182,19 @@ Pour modifier la fonction `classify` de façon à classifier une image en foncti
 
 1. Dans le dossier *start*, exécutez la commande suivante pour copier un fichier avec le code helper dans le dossier *classify* :
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     cp ../resources/predict.py classify
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     copy ..\resources\predict.py classify
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     copy ..\resources\predict.py classify
@@ -266,19 +266,19 @@ Pour tester l’appel du point de terminaison de fonction à partir d’une autr
 
 1. Démarrez un serveur HTTP avec Python :
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
 
     ```bash 
     python -m http.server
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
     ```powershell
     py -m http.server
     ```
 
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
 
     ```cmd
     py -m http.server

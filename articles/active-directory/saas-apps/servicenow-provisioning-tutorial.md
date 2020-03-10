@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e954de97e6573e330c42915b44bbc0c40abc54d
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 9e93d4b3f1880f2ac56a32a7b85aa6801fb7c14e
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063242"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205098"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutoriel : Configurer ServiceNow pour l'approvisionnement automatique d'utilisateurs
 
@@ -35,7 +35,7 @@ Ce didacticiel décrit les étapes que vous devez effectuer dans ServiceNow et A
 > * Approvisionner des groupes et des appartenances aux groupes dans ServiceNow
 > * [Authentification unique](servicenow-tutorial.md) à ServiceNow (recommandé)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
@@ -142,7 +142,7 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 * **EntryJoiningPropertyValueIsMissing :** Passez en revue vos [mappages d’attributs](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) pour identifier l’attribut correspondant. Cette valeur doit être présente sur l’utilisateur ou le groupe que vous tentez d’approvisionner. 
 * Passez en revue l’[API SOAP de ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) pour comprendre les exigences ou les limitations (par exemple, le format pour spécifier l’indicatif du pays pour un utilisateur).
 * Certains déploiements ServiceNow nécessitent l’autorisation des plages d’adresses IP pour le service d’approvisionnement Azure AD. Les plages d’adresses IP réservées pour le service d’approvisionnement Azure AD se trouvent [ici](https://www.microsoft.com/download/details.aspx?id=56519) sous « AzureActiveDirectoryDomainServices ».
-* L’approvisionnement des utilisateurs vers le cloud du secteur public ServiceNow n’est pas pris en charge actuellement.
+* Par défaut, les demandes d'approvisionnement sont envoyées à https://{nom-de-votre-instance}.service-now.com/{nom-table}. Si vous avez besoin de l'URL d'un locataire personnalisé, vous pouvez entrer l'URL complète dans le champ du nom de l'instance.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

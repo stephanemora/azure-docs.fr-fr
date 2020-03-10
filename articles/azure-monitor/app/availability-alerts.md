@@ -1,19 +1,17 @@
 ---
 title: Configurer les alertes de disponibilité avec Azure Application Insights | Microsoft Docs
 description: Configurez des tests web dans Application Insights. Recevez des alertes si un site web devient indisponible ou répond lentement.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: a1637ac82c33c2a541bcec9f2848a248c29d56ca
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e0c1a93ef663762bec199abc5aa7eabbc821168d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872670"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654951"
 ---
 # <a name="availability-alerts"></a>Alertes de disponibilité
 
@@ -66,7 +64,7 @@ La règle d’alerte pour les emplacements de X en dehors de Y est activée par 
 
 Pour automatiser ce processus à l’aide de modèles Azure Resource Manager, voir la [Créer une alerte de métrique avec un modèle Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Consultez l’[article dédié au dépannage](troubleshoot-availability.md).
 

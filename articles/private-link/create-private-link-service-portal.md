@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 02/03/2020
 ms.author: allensu
-ms.openlocfilehash: e316da12345c0bf1ea3682dadb1a7a65f250747b
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: f21b440ee0e2c53d9824300e85b683629c1575da
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191099"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252543"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-the-azure-portal"></a>Démarrage rapide : Créer un service Private Link en utilisant le portail Azure
 
@@ -29,21 +29,22 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 Créez d’abord un réseau virtuel. Ensuite, créez un équilibreur de charge interne à utiliser avec le service Private Link.
 
-### <a name="create-the-virtual-network"></a>Créer un réseau virtuel
+## <a name="virtual-network-and-parameters"></a>Réseau virtuel et paramètres
 
 Dans cette section, vous créez un réseau virtuel. Vous créez également le sous-réseau pour héberger l’équilibreur de charge qui accède à votre service Private Link.
 
-1. En haut à gauche du portail, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
+Dans les étapes figurant dans cette section, vous devez remplacer les paramètres suivants par les informations ci-dessous :
 
-1. Dans le volet **Créer un réseau virtuel**, entrez ou sélectionnez les valeurs suivantes :
+| Paramètre                   | Valeur                |
+|-----------------------------|----------------------|
+| **\<nom_groupe_ressource>**  | myResourceGroupLB |
+| **\<nom_réseau_virtuel>** | myVNet          |
+| **\<nom_région>**          | USA Est 2      |
+| **\<espace_d’adressage_IPv4>**   | 10.3.0.0\16          |
+| **\<nom_sous-réseau>**          | myBackendSubnet        |
+| **\<plage_adresses_sous-réseau>** | 10.3.0.0\24          |
 
-   - **Name** : Entrez **myVNet**.
-   - **Groupe de ressources** : Sélectionnez **Créer**, entrez **myResourceGroupLB**, puis sélectionnez **OK**.
-   - **Sous-réseau** > **Nom** : Entrez **myBackendSubnet**.
-
-1. Sélectionnez **Create** (Créer).
-
-   ![Créez un réseau virtuel](../load-balancer/media/tutorial-load-balancer-basic-internal-portal/2-load-balancer-virtual-network.png)
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-a-standard-load-balancer"></a>Créer un équilibreur de charge standard
 
@@ -67,7 +68,7 @@ Utilisez le portail pour créer un équilibreur de charge interne standard. Le n
 
 1. Acceptez les valeurs par défaut pour les paramètres restants, puis sélectionnez **Vérifier + créer**.
 
-1. Sous l’onglet **Vérifier + créer**, sélectionnez **Créer**.
+1. Sous l’onglet **Review + create (Vérifier + créer)** , sélectionnez **Créer**.
 
 ### <a name="create-standard-load-balancer-resources"></a>Créer des ressources d’équilibreur de charge standard
 
@@ -120,7 +121,7 @@ Pour créer une règle d’équilibreur de charge :
 
 1. Dans la page **Ajouter une règle d’équilibrage de charge**, entrez ou sélectionnez les valeurs suivantes, si elles ne sont pas déjà présentes :
 
-   - **Nom** : Entrez **myLoadBalancerRule**.
+   - **Name** : Entrez **myLoadBalancerRule**.
    - **Adresse IP du serveur frontal :** Entrez **LoadBalancerFrontEnd**.
    - **Protocole** : Sélectionnez **TCP**.
    - **Port** : Entrez **80**.

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 5298655437e04736e56193c443b8a770ea929606
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 10821639fb26af935326bda0bff7895105da675c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152412"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919955"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Module de régression d’arbre de décision boosté
 
@@ -54,7 +54,9 @@ La méthode de boosting de gradient peut également servir pour les problèmes d
   
 2.  Spécifiez le mode d’apprentissage du modèle en définissant l’option **Créer un mode d’apprentissage**.  
   
-    -   **Single Parameter** (Paramètre unique) : sélectionnez cette option si vous savez comment vous voulez configurer le modèle, et fournissez un ensemble spécifique de valeurs en tant qu’arguments.  
+    -   **Single Parameter** (Paramètre unique) : sélectionnez cette option si vous savez comment vous voulez configurer le modèle, et fournissez un ensemble spécifique de valeurs en tant qu’arguments. 
+     
+    -   **Plage de paramètres** : sélectionnez cette option si vous ignorez quels paramètres choisir et souhaitez exécuter un balayage des paramètres. Sélectionnez la plage de valeurs sur laquelle vous souhaitez effectuer l’itération. Le module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md) effectue alors une itération sur toutes les combinaisons possibles des paramètres que vous avez fournis pour déterminer les hyperparamètres qui produisent les résultats optimaux.    
    
   
 3. **Maximum number of leaves per tree** (Nombre maximal de feuilles par arbre) : indiquer le nombre maximal de nœuds terminaux (feuilles) qui peuvent être créés dans n’importe quel arbre.  
@@ -75,7 +77,6 @@ La méthode de boosting de gradient peut également servir pour les problèmes d
 
     Par défaut, la valeur de départ aléatoire est définie sur 0, ce qui signifie qu’elle est obtenue à partir de l’horloge système.
   
-8. **Allow unknown categorical levels** (Autoriser les niveaux de catégorie inconnus) : sélectionnez cette option afin de créer un groupe pour les valeurs inconnues dans les jeux d’apprentissage et de validation. Si cette option est désélectionnée, le modèle n’accepte que les valeurs contenues dans les données d’apprentissage. Le modèle risque d’être moins précis pour les valeurs connues, mais il pourra fournir de meilleures prédictions pour les nouvelles valeurs (inconnues).
 
 9. Ajoutez un jeu de données d’apprentissage et l’un des modules d’apprentissage :
 

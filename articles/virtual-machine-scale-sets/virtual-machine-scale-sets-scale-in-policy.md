@@ -1,32 +1,32 @@
 ---
 title: Utiliser des stratégies de scale-in personnalisées avec des groupes de machines virtuelles identiques Azure
 description: Découvrez comment utiliser des stratégies de scale-in personnalisées avec des groupes de machines virtuelles identiques Azure qui utilisent la configuration de scale-in automatique pour gérer le nombre d’instances.
-author: avverma
+services: virtual-machine-scale-sets
+author: avirishuv
+manager: vashan
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 02/26/2020
 ms.author: avverma
-ms.openlocfilehash: 8e51ebab36d75d1c9512446ee0370f7359a72551
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: ffcdaf76bdd08ee5505ddbeff6a6698e231b6171
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271763"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919836"
 ---
-# <a name="preview-use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Aperçu : Utiliser des stratégies de scale-in personnalisées avec des groupes de machines virtuelles identiques Azure
+# <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Utiliser des stratégies de scale-in personnalisées avec des groupes de machines virtuelles identiques Azure
 
-Vous pouvez effectuer un scale-out ou un scale-in du déploiement d’un groupe de machines virtuelles identiques en fonction d’un ensemble de métriques, notamment des métriques personnalisées de plateforme et définies par l’utilisateur. Alors qu’un scale-out crée de nouvelles machines virtuelles basées sur le modèle de groupe identique, un scale-in affecte les machines virtuelles en cours d’exécution qui peuvent avoir des configurations et/ou des fonctions différentes à mesure que la charge de travail du groupe identique évolue. 
+Vous pouvez effectuer un scale-out ou un scale-in du déploiement d’un groupe de machines virtuelles identiques en fonction d’un ensemble de métriques, notamment des métriques personnalisées de plateforme et définies par l’utilisateur. Alors qu’un scale-out crée des machines virtuelles basées sur le modèle de groupe identique, un scale-in affecte les machines virtuelles en cours d’exécution qui peuvent avoir des configurations et/ou des fonctions différentes à mesure que la charge de travail du groupe identique évolue. 
 
-La fonctionnalité de stratégie de scale-in offre aux utilisateurs un moyen de configurer l’ordre dans lequel les machines virtuelles font l’objet du scale-in. La préversion introduit trois configurations de scale-in : 
+La fonctionnalité de stratégie de scale-in offre aux utilisateurs un moyen de configurer l’ordre dans lequel les machines virtuelles font l’objet du scale-in, par le biais de trois configurations de mise à l’échelle : 
 
 1. Default
 2. NewestVM
 3. OldestVM
-
-***Cette fonctionnalité d’évaluation est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production.***
 
 ### <a name="default-scale-in-policy"></a>Stratégie de scale-in par défaut
 
@@ -54,6 +54,17 @@ Une stratégie de scale-in est définie dans le modèle de groupe de machines vi
 
 Une stratégie de scale-in peut être définie sur le modèle de groupe de machines virtuelles identiques des manières suivantes :
 
+### <a name="azure-portal"></a>Portail Azure
+ 
+Les étapes suivantes définissent la stratégie de scale-in lors de la création d’un groupe identique. 
+ 
+1. Accédez à **Groupes identiques de machines virtuelles**.
+1. Sélectionnez **+ Ajouter** pour créer un groupe identique.
+1. Accédez à l’onglet **Mise à l’échelle**. 
+1. Recherchez la section **Stratégie de scale-in**.
+1. Sélectionnez une stratégie de scale-in dans la liste déroulante.
+1. Lorsque vous avez fini de créer le groupe identique, sélectionnez le bouton **Vérifier + créer**.
+
 ### <a name="using-api"></a>Utilisation de l’API
 
 Exécutez une instruction PUT sur le groupe de machines virtuelles identiques à l’aide de l’API 2019-03-01 :
@@ -70,6 +81,33 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
         } 
     }    
 } 
+```
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Créez un groupe de ressources, puis un groupe identique avec une stratégie de scale-in définie comme *OldestVM*.
+
+```azurepowershell-interactive
+New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "<VMSS location>"
+New-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "<VMSS location>" `
+  -VMScaleSetName "myScaleSet" `
+  -ScaleInPolicy “OldestVM”
+```
+
+### <a name="azure-cli-20"></a>Azure CLI 2.0
+
+L’exemple suivant ajoute une stratégie de scale-in lors de la création d’un groupe identique. Commencez par créer un groupe de ressources, puis créez un groupe identique avec une stratégie de scale-in *OldestVM*. 
+
+```azurecli-interactive
+az group create --name <myResourceGroup> --location <VMSSLocation>
+az vmss create \
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --image UbuntuLTS \
+  --admin-username <azureuser> \
+  --generate-ssh-keys \
+  --scale-in-policy OldestVM
 ```
 
 ### <a name="using-template"></a>Utilisation d’un modèle
@@ -94,6 +132,15 @@ Le même processus s’applique lors de l’utilisation de « NewestVM » dans
 
 La modification de la stratégie de scale-in suit le même processus que l’application de la stratégie de scale-in. Par exemple, si, dans l’exemple ci-dessus, vous souhaitez remplacer la stratégie « OldestVM » par « NewestVM », vous pouvez le faire des manières suivantes :
 
+### <a name="azure-portal"></a>Portail Azure
+
+Vous pouvez modifier la stratégie de scale-in d’un groupe identique via le portail Azure. 
+ 
+1. Dans un groupe de machines virtuelles identiques existant, dans le menu de gauche, sélectionnez **Mise à l’échelle**.
+1. Sélectionnez l’onglet **Stratégie de scale-in**.
+1. Sélectionnez une stratégie de scale-in dans la liste déroulante.
+1. Lorsque vous avez terminé, sélectionnez **Enregistrer**. 
+
 ### <a name="using-api"></a>Utilisation de l’API
 
 Exécutez une instruction PUT sur le groupe de machines virtuelles identiques à l’aide de l’API 2019-03-01 :
@@ -110,6 +157,27 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
         } 
     }    
 }
+```
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Mettez à jour la stratégie de scale-in d’un groupe identique existant :
+
+```azurepowershell-interactive
+Update-AzVmss `
+ -ResourceGroupName "myResourceGroup" `
+ -VMScaleSetName "myScaleSet" `
+ -ScaleInPolicy “OldestVM”
+```
+
+### <a name="azure-cli-20"></a>Azure CLI 2.0
+
+Voici un exemple de mise à jour de la stratégie de scale-in d’un groupe identique existant : 
+
+```azurecli-interactive
+az vmss update \  
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --scale-in-policy OldestVM
 ```
 
 ### <a name="using-template"></a>Utilisation d’un modèle
@@ -169,7 +237,7 @@ Pour un groupe de machines virtuelles identiques non zonal, la stratégie choisi
 
 ## <a name="troubleshoot"></a>Dépanner
 
-1. Échec d’activation de scaleInPolicy Si vous obtenez une erreur « BadRequest » avec un message d’erreur indiquant que le membre « scaleInPolicy » est introuvable sur l’objet de type « properties », vérifiez la version de l’API utilisée pour le groupe de machines virtuelles identiques. L’API de version 2019-03-01 ou ultérieure est requise pour cette préversion.
+1. Échec d’activation de scaleInPolicy Si vous obtenez une erreur « BadRequest » avec un message d’erreur indiquant que le membre « scaleInPolicy » est introuvable sur l’objet de type « properties », vérifiez la version de l’API utilisée pour le groupe de machines virtuelles identiques. La version d’API 2019-03-01 ou une version ultérieure est requise pour cette fonctionnalité.
 
 2. Sélection incorrecte des machines virtuelles pour le scale-in : reportez-vous aux exemples ci-dessus. Si votre groupe de machines virtuelles identiques est un déploiement zonal, la stratégie de scale-in est appliquée en premier aux zones déséquilibrées, puis dans tout le groupe identique une fois l’équilibrage des zones effectué. Si l’ordre de scale-in n’est pas cohérent avec les exemples ci-dessus, soumettez une requête auprès de l’équipe du groupe de machines virtuelles identiques afin d’obtenir une assistance pour la résolution des problèmes.
 

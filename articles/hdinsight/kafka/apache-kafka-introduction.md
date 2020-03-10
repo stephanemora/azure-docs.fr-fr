@@ -1,27 +1,27 @@
 ---
 title: Une présentation d’Apache Kafka sur HDInsight - Azure
 description: 'Découvrez Apache Kafka sur HDInsight : Présentation, fonctionnalités et exemples et informations de prise en main.'
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: overview
-ms.date: 06/13/2019
-ms.openlocfilehash: 543a18ad48384e3502231f85516a092468db2387
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.custom: hdinsightactive
+ms.date: 02/25/2020
+ms.openlocfilehash: 92f56f3b405470bc8ae0e9ebab2450ddc31b3c6a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560097"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672172"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>Présentation d’Apache Kafka dans Azure HDInsight
 
-[Apache Kafka](https://kafka.apache.org) est une plateforme de diffusion en continu distribuée open source qui permet de générer des pipelines de données et des applications de diffusion en continu en temps réel. Kafka fournit également des fonctionnalités de courtier de messages semblables à une file d’attente, où vous pouvez publier et vous abonner aux flux de données nommés. 
+[Apache Kafka](https://kafka.apache.org) est une plateforme de diffusion en continu distribuée open source qui permet de générer des pipelines de données et des applications de diffusion en continu en temps réel. Kafka fournit également des fonctionnalités de courtier de messages semblables à une file d’attente, où vous pouvez publier et vous abonner aux flux de données nommés.
 
 Voici les caractéristiques spécifiques de Kafka sur HDInsight :
 
-* Il s’agit d’un service administré qui propose un processus de configuration simplifiée. En résulte une configuration testée et prise en charge par Microsoft.
+* Il s’agit d’un service managé qui propose un processus de configuration simplifié. En résulte une configuration testée et prise en charge par Microsoft.
 
 * Microsoft propose un contrat de niveau de service (SLA) à 99,9 % sur la durée de fonctionnement de Kafka. Pour plus d’informations, consultez le document [Informations sur le contrat SLA de HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
@@ -29,7 +29,7 @@ Voici les caractéristiques spécifiques de Kafka sur HDInsight :
 
     Pour plus d’informations sur les disques managés, consultez [Azure Disques managés](../../virtual-machines/windows/managed-disks-overview.md).
 
-* Kafka a été conçu avec une vision unidimensionnelle du rack. Azure sépare chaque rack en deux dimensions : les domaines de mise à jour et les domaines d’erreur. Microsoft fournit des outils permettant de rééquilibrer les partitions et les réplicas Kafka entre les domaines de mise à jour et les domaines d’erreur. 
+* Kafka a été conçu avec une vision unidimensionnelle du rack. Azure sépare chaque rack en deux dimensions : les domaines de mise à jour et les domaines d’erreur. Microsoft fournit des outils permettant de rééquilibrer les partitions et les réplicas Kafka entre les domaines de mise à jour et les domaines d’erreur.
 
     Pour plus d’informations, consultez [Haute disponibilité avec Apache Kafka dans HDInsight](apache-kafka-high-availability.md).
 
@@ -41,15 +41,15 @@ Voici les caractéristiques spécifiques de Kafka sur HDInsight :
 
     Pour plus d’informations, consultez [Analyser les journaux d’activité pour Apache Kafka dans HDInsight](apache-kafka-log-analytics-operations-management.md).
 
-### <a name="apache-kafka-on-hdinsight-architecture"></a>Architecture Apache Kafka dans HDInsight
+## <a name="apache-kafka-on-hdinsight-architecture"></a>Architecture Apache Kafka dans HDInsight
 
 Le diagramme suivant illustre une configuration Kafka type qui utilise des groupes de consommateurs, un partitionnement et une réplication afin d’offrir une lecture parallèle des événements avec tolérance de panne :
 
 ![Diagramme de configuration du cluster Kafka](./media/apache-kafka-introduction/kafka-cluster-diagram.png)
 
-Apache ZooKeeper gère l’état du cluster Kafka. ZooKeeper est conçu pour des transactions simultanées, résilientes et à faible latence. 
+Apache ZooKeeper gère l’état du cluster Kafka. ZooKeeper est conçu pour des transactions simultanées, résilientes et à faible latence.
 
-Kafka stocke les enregistrements (données) dans des **rubriques**. Les enregistrements sont produits par des **producteurs** et utilisés par des **consommateurs**. Les producteurs envoient les enregistrements aux **répartiteurs** Kafka. Chaque nœud Worker dans votre cluster HDInsight est un répartiteur Kafka. 
+Kafka stocke les enregistrements (données) dans des **rubriques**. Les enregistrements sont produits par des **producteurs** et utilisés par des **consommateurs**. Les producteurs envoient les enregistrements aux **répartiteurs** Kafka. Chaque nœud Worker dans votre cluster HDInsight est un répartiteur Kafka.
 
 Les rubriques partitionnent les enregistrements entre les répartiteurs. Au cours de l’utilisation des enregistrements, il est possible d’utiliser jusqu’à un consommateur par partition pour effectuer un traitement parallèle des données.
 
@@ -59,35 +59,17 @@ La réplication est employée pour dupliquer les partitions sur les nœuds, offr
 
 Voici les tâches et les modèles courants réalisables avec Kafka sur HDInsight :
 
-* **Réplication des données Apache Kafka** : Kafka fournit l’utilitaire MirrorMaker, qui réplique les données entre les clusters Kafka.
-
-    Pour obtenir des informations sur l’utilisation de MirrorMaker, consultez [Répliquer des rubriques Apache Kafka avec Apache Kafka dans HDInsight](apache-kafka-mirroring.md).
-
-* **Modèle de messagerie de publication et d’abonnement** : Kafka fournit une API de producteur pour la publication des enregistrements dans une rubrique Kafka. L’API de consommateur est utilisée lors de l’abonnement à un sujet.
-
-    Pour plus d’informations, consultez [Démarrer avec Apache Kafka dans HDInsight](apache-kafka-get-started.md).
-
-* **Traitement de flux** : Kafka est souvent utilisé avec Apache Storm ou Spark pour le traitement des flux en temps réel. Kafka 0.10.0.0 (HDInsight version 3.5 et 3.6) a introduit une API de diffusion en continu qui vous permet de créer des solutions de diffusion en continu sans Storm ni Spark.
-
-    Pour plus d’informations, consultez [Démarrer avec Apache Kafka dans HDInsight](apache-kafka-get-started.md).
-
-* **Évolution horizontale** : Kafka partitionne les flux de données entre les nœuds du cluster HDInsight. Les processus consommateur peuvent être associés à des partitions individuelles pour fournir un équilibrage de charge lors de l’utilisation des enregistrements.
-
-    Pour plus d’informations, consultez [Démarrer avec Apache Kafka dans HDInsight](apache-kafka-get-started.md).
-
-* **Livraison chronologique** : Dans chaque partition, les enregistrements sont stockés dans le flux de données dans leur ordre de réception. En associant un processus consommateur par partition, vous pouvez garantir que les enregistrements sont traités dans l’ordre.
-
-    Pour plus d’informations, consultez [Démarrer avec Apache Kafka dans HDInsight](apache-kafka-get-started.md).
-
-## <a name="use-cases"></a>Cas d'utilisation
-
-* **Messagerie** : Dans la mesure où Kafka prend en charge le modèle de messagerie de publication et d’abonnement, il est souvent utilisé comme courtier de messages.
-
-* **Suivi des activités** : Étant donné que Kafka assure la journalisation dans l’ordre des enregistrements, il peut être utilisé pour effectuer le suivi et recréer des activités. Par exemple, les actions de l’utilisateur sur un site web ou dans une application.
-
-* **Agrégation** : Avec le traitement de flux de données, vous pouvez agréger des informations à partir de différents flux afin de combiner et de centraliser les informations dans des données opérationnelles.
-
-* **Transformation** : Avec le traitement de flux de données, vous pouvez combiner et enrichir les données à partir de plusieurs rubriques d’entrée dans une ou plusieurs rubriques de sortie.
+|Utilisation |Description |
+|---|---|
+|Réplication des données Apache Kafka|Kafka fournit l’utilitaire MirrorMaker, qui réplique les données entre les clusters Kafka. Pour obtenir des informations sur l’utilisation de MirrorMaker, consultez [Répliquer des rubriques Apache Kafka avec Apache Kafka dans HDInsight](apache-kafka-mirroring.md).|
+|Modèle de messagerie publication-abonnement|Kafka fournit une API de producteur pour la publication des enregistrements dans une rubrique Kafka. L’API de consommateur est utilisée lors de l’abonnement à un sujet. Pour plus d’informations, consultez [Démarrer avec Apache Kafka dans HDInsight](apache-kafka-get-started.md).|
+|Traitement des flux de données|Kafka est souvent utilisé avec Apache Storm ou Spark pour le traitement des flux en temps réel. Kafka 0.10.0.0 (HDInsight version 3.5 et 3.6) a introduit une API de diffusion en continu qui vous permet de créer des solutions de diffusion en continu sans Storm ni Spark. Pour plus d’informations, consultez [Démarrer avec Apache Kafka dans HDInsight](apache-kafka-get-started.md).|
+|Mise à l’échelle horizontale|Kafka partitionne les flux de données entre les nœuds du cluster HDInsight. Les processus consommateur peuvent être associés à des partitions individuelles pour fournir un équilibrage de charge lors de l’utilisation des enregistrements. Pour plus d’informations, consultez [Démarrer avec Apache Kafka dans HDInsight](apache-kafka-get-started.md).|
+|Livraison chronologique|Dans chaque partition, les enregistrements sont stockés dans le flux de données dans leur ordre de réception. En associant un processus consommateur par partition, vous pouvez garantir que les enregistrements sont traités dans l’ordre. Pour plus d’informations, consultez [Démarrer avec Apache Kafka dans HDInsight](apache-kafka-get-started.md).|
+|Messagerie|Dans la mesure où Kafka prend en charge le modèle de messagerie de publication et d’abonnement, il est souvent utilisé comme courtier de messages.|
+|Suivi des activités|Étant donné que Kafka assure la journalisation dans l’ordre des enregistrements, il peut être utilisé pour effectuer le suivi et recréer des activités. Par exemple, les actions de l’utilisateur sur un site web ou dans une application.|
+|Agrégation|Avec le traitement de flux de données, vous pouvez agréger des informations à partir de différents flux afin de combiner et de centraliser les informations dans des données opérationnelles.|
+|Transformation|Avec le traitement de flux de données, vous pouvez combiner et enrichir les données à partir de plusieurs rubriques d’entrée dans une ou plusieurs rubriques de sortie.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

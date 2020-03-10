@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 2ae84b59cd70a5b27ad3e501db6cfae110d90fbd
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b0d9437b10bc54aac481eb630f12a2b99d2360a1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209781"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672461"
 ---
 # <a name="building-an-accessible-application"></a>Création d’une application accessible
 
@@ -32,9 +32,11 @@ Le SDK web Azure Maps comporte de nombreuses fonctionnalités d’accessibilité
 Vous trouverez [ici](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/) des informations complètes sur la conformité de l’accessibilité pour tous les produits Microsoft. Recherchez « Azure Maps web » pour trouver le document spécial pour le SDK web Azure Maps. 
 
 ## <a name="navigating-the-map"></a>Navigation dans la carte
+
 Il existe plusieurs façons d’effectuer des zooms, des panoramiques, des rotations et des tangages de la carte. Les informations suivantes détaillent les différentes façons de naviguer dans la carte.
 
 **Faire un zoom sur la carte**
+
 - À l’aide de la souris, double-cliquez sur la carte pour faire un zoom avant d’un niveau.
 - Faites tourner la roulette de la souris pour faire un zoom sur la carte.
 - À l’aide d’un écran tactile, touchez la carte avec deux doigts et rapprochez-les pour faire un zoom arrière ou écartez-les pour faire un zoom avant.
@@ -45,23 +47,46 @@ Il existe plusieurs façons d’effectuer des zooms, des panoramiques, des rotat
 - Maintenez le bouton `Shift` enfoncé et appuyez sur la carte à l’aide du bouton gauche de la souris, puis faites glisser pour dessiner une zone dans laquelle faire un zoom sur la carte.
 
 **Effectuer un panoramique sur la carte**
+
 - À l’aide de la souris, appuyez sur la carte avec le bouton gauche et faites-la glisser dans n’importe quelle direction.
 - À l’aide d’un écran tactile, touchez la carte et faites-la glisser dans n’importe quelle direction.
 - Quand le focus est placé sur la carte, utilisez les touches de direction pour la déplacer.
 
 **Faire pivoter la carte**
+
 - À l’aide de la souris, appuyez sur la carte avec le bouton droit et faites glisser le pointeur vers la gauche ou vers la droite. 
 - À l’aide d’un écran tactile, touchez la carte avec deux doigts et effectuez une rotation.
 - Quand le focus est placé sur la carte, utilisez la touche Maj et les touches de direction gauche ou droite.
 - Utilisez le contrôle de rotation avec une souris, une interaction tactile ou les touches Tab/Entrée du clavier.
 
 **Incliner la carte**
+
 - À l’aide de la souris, appuyez sur la carte avec le bouton droit et faites glisser le pointeur vers le haut ou vers le bas. 
 - À l’aide d’un écran tactile, touchez la carte avec deux doigts et faites-les glisser ensemble vers le haut ou vers le bas.
 - Quand le focus est placé sur la carte, utilisez la touche Maj et les touches de direction haut ou bas. 
 - Utilisez le contrôle de tangage avec une souris, une interaction tactile ou les touches Tab/Entrée du clavier.
 
-**Changer le style de carte** Tous les développeurs ne veulent pas que tous les styles de carte possibles soient disponibles dans leur application. Le développeur peut définir le style de carte et le changer par programmation. Si le développeur affiche le contrôle sélecteur de style de la carte, l’utilisateur peut changer le style de carte à l’aide de la souris, d’une interaction tactile ou du clavier avec la touches Tab ou Entrée. Le développeur peut spécifier les styles de carte qu’il souhaite rendre disponibles dans le contrôle sélecteur de style de carte. 
+## <a name="change-the-map-style"></a>Modifier le style de carte
+
+Certains développeurs ne veulent pas nécessairement que tous les styles de carte possibles soient disponibles dans leur application. Si le développeur affiche le contrôle sélecteur de style de la carte, l’utilisateur peut changer le style de carte à l’aide de la souris, d’une interaction tactile ou du clavier avec la touches Tab ou Entrée. Le développeur peut spécifier les styles de carte qu’il souhaite rendre disponibles dans le contrôle sélecteur de style de carte. Le développeur peut également définir et modifier le style de carte par programmation.
+
+**Utiliser un contraste élevé**
+
+- Lorsque le contrôle de carte est chargé, il vérifie si le contraste élevé est activé et si le navigateur le prend en charge.
+- Le contrôle de carte ne supervise pas le mode de contraste élevé de l’appareil. En cas de modification du mode de l’appareil, la carte n’est pas modifiée. Ainsi, l’utilisateur doit recharger la carte en actualisant la page.
+- Lorsque le contraste élevé est détecté, le style de carte bascule automatiquement vers le contraste élevé, et tous les contrôles intégrés utilisent un style de contraste élevé. Par exemple, ZoomControl, PitchControl, CompassControl, StyleControl et d’autres contrôles intégrés utilisent un style de contraste élevé.
+- Il existe deux types de contrastes élevés, clair et sombre. Si le type de contraste élevé est détectable par les contrôles de carte, le comportement de la carte est ajusté en conséquence. Si le type de contraste est clair, le style de carte grayscale_light est chargé. Si le type est indétectable ou sombre, le style high_contrast_dark est chargé.
+- Si vous créez des contrôles personnalisés, il est utile de savoir si les contrôles intégrés utilisent un style de contraste élevé. Les développeurs peuvent ajouter une classe CSS sur la balise div de conteneur de carte à vérifier. Les classes CSS qui seraient ajoutées sont `high-contrast-dark` et `high-contrast-light`. Pour vérifier l’utilisation de JavaScript, utilisez :
+
+```javascript
+map.getMapContainer().classList.contains("high-contrast-dark")
+```
+
+ou utilisez :
+
+```javascript
+map.getMapContainer().classList.contains("high-contrast-light")
+```
 
 ## <a name="keyboard-shortcuts"></a>Raccourcis clavier
 

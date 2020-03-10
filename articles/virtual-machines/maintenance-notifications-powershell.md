@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: c23a06c502bd43b52cb35220b711084c7c8c1c7a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: b23c210d7c8a9f1d42e6e1b46e0f7f81bda857b2
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121840"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916080"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Gestion de la maintenance planifiée à l’aide de PowerShell
 
 **Cet article s’applique aux machines virtuelles exécutant Linux et Windows.**
 
-Vous pouvez utiliser Azure Powershell pour voir quand la [maintenance](maintenance-notifications.md) des machines virtuelles est planifiée. Les informations de maintenance planifiée sont disponibles à partir de la cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) lorsque vous utilisez le paramètre `-status`.
+Vous pouvez utiliser Azure PowerShell pour savoir quand la [maintenance](maintenance-notifications.md) des machines virtuelles a été planifiée. Les informations de maintenance planifiée sont disponibles à partir de la cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) lorsque vous utilisez le paramètre `-status`.
   
 Les informations de maintenance sont retournées uniquement en cas de maintenance planifiée. Si aucune maintenance planifiée n’impacte la machine virtuelle, l’applet de commande ne retourne pas d’informations de maintenance. 
 
@@ -83,6 +83,8 @@ Restart-AzVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceG
 ```
 
 ## <a name="classic-deployments"></a>Déploiements Classic
+
+[!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
 
 Si vous avez encore des machines virtuelles qui ont été déployées à l’aide du modèle de déploiement Classic, vous pouvez utiliser PowerShell pour interroger ces machines virtuelles et démarrer la maintenance.
 

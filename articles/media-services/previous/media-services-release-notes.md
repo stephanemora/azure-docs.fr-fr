@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: cfe5ea47ad2cbed7bd2779ee535d7bef447475e5
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: a55ef4f814c0d13a6efbeeb8cd9a5565d2869432
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500344"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183293"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 
@@ -45,6 +45,10 @@ Nous souhaitons connaître vos impressions afin de pouvoir nous consacrer à la 
 
 ## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>Historique des versions de l’API REST
 Pour obtenir des informations sur l’historique des versions de l’API REST, consultez la [Référence de l’API REST d’Azure Media Services].
+
+## <a name="february-2020"></a>Février 2020
+
+Certains Processeurs multimédias Analytics seront mis hors service. Pour connaître les dates de mise hors service, voir la rubrique [Composants hérités](legacy-components.md).
 
 ## <a name="september-2019"></a>Septembre 2019
 
@@ -228,7 +232,7 @@ Media Services est désormais disponible dans les centres de données suivants 
 
 ## <a id="september_changes_15"></a>Version de septembre 2015
 Media Services offre désormais la possibilité de protéger la vidéo à la demande et les flux en direct avec la technologie DRM modulaire Widevine. Vous pouvez utiliser les partenaires des services de remise suivants pour fournir des licences Widevine :
-* [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/) 
+* [Axinom](https://www.axinom.com) 
 * [EZDRM](https://ezdrm.com/) 
 * [castLabs](https://castlabs.com/company/partners/azure/) 
 

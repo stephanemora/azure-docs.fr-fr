@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 02/03/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 559050d11b6b85a9842c679b94e0e5b2fd5dd0f8
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 873db6315841b585aa0ba6bcb843bfe05567836f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987711"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299259"
 ---
 # <a name="azure-media-services-v3-overview"></a>Vue d’ensemble d’Azure Media Services v3
 
@@ -34,13 +34,13 @@ Les kits SDK Media Services v3 sont basés sur la [spécification OpenAPI (Swag
 > Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](media-services-apis-overview.md#sdks) pris en charge.
 
 ## <a name="compliance-privacy-and-security"></a>Conformité, confidentialité et sécurité
+
+Pour rappel, vous devez respecter toutes les lois applicables dans le cadre de votre utilisation d’Azure Media Services et vous n’êtes pas autorisé à utiliser Media Services ou d’autres services Azure d’une manière qui porterait atteinte aux droits des tiers ou qui leur serait préjudiciable.
+
+Avant de charger une vidéo ou une image vers Media Services, Vous devez disposer de tous les droits appropriés pour utiliser la vidéo ou l’image, y compris, lorsque cela est requis par la Loi, avoir obtenu tous les consentements nécessaires de chaque personne (le cas échéant) apparaissant dans la vidéo ou l’image, pour autoriser l’utilisation, le traitement et le stockage de leurs données dans Media Services et Azure. Certaines juridictions peuvent imposer des obligations légales spéciales pour la collecte, le traitement en ligne et le stockage de catégories de données particulières, comme les données biométriques. Avant d’utiliser Media Services et Azure pour le traitement et le stockage de données soumises à des conditions légales spéciales, vous devez veiller à vous conformer à toutes les conditions légales qui s’appliquent.
+
+Pour en savoir plus sur la conformité, la confidentialité et la sécurité dans Media Services, consultez le [Centre de confidentialité](https://www.microsoft.com/trust-center/?rtc=1) Microsoft. Pour connaître les obligations de Microsoft en matière de confidentialité et les bonnes pratiques de gestion et de conservation de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions d’utilisation des services en ligne](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) (« OST ») et l’[Avenant au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. En utilisant Media Services, vous consentez à être lié par les dispositions de l’OST, du DPA et de la Déclaration de confidentialité.
  
-Pour rappel, vous devez vous soumettre à toutes les lois applicables dans le cadre de votre utilisation d’Azure Media Services et vous n’êtes pas autorisé à utiliser Azure Media Services ou tout autre service Azure d’une manière qui porterait atteinte aux droits des tiers ou qui leur serait préjudiciable. 
-
-Avant de charger des vidéos et/ou des images, y compris des données biométriques, sur Media Services à des fins de traitement et de stockage, vous devez (1) disposer de tous les droits appropriés sur les vidéos/images ; et (2) avoir obtenu le consentement des personnes présentes dans les vidéos pour autoriser l’utilisation et le stockage de leurs données biométriques dans Media Services. 
-
-Pour en savoir plus sur la conformité, la protection des données personnelles et la façon dont Microsoft protège et sécurise vos données dans Azure Media Services, visitez le [Centre de confidentialité](https://www.microsoft.com/trust-center/?rtc=1) Azure. Pour connaître les obligations de Microsoft en matière de protection des données personnelles et de traitement de vos données, consultez la [déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [conditions d’utilisation des services en ligne](https://www.microsoft.com/licensing/product-licensing/products) (« OST ») et l’[addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. Des informations sur la conservation et la suppression des données client sont disponibles dans le DPA. En utilisant Azure Media Services, vous consentez à être lié par les dispositions de l’OST, du DPA et de la déclaration de confidentialité.
-
 ## <a name="what-can-i-do-with-media-services"></a>Que puis-je faire avec Media Services ?
 
 Media Services vous permet de créer un grand nombre de flux de travail multimédias dans le cloud. Voici quelques exemples de ce que vous pouvez faire avec Media Services :
@@ -51,8 +51,8 @@ Media Services vous permet de créer un grand nombre de flux de travail multimé
 * Analyser les vidéos ou le contenu audio enregistrés. Par exemple, pour atteindre une satisfaction client optimale, les organisations peuvent extraire une reconnaissance vocale, et générer des index de recherche et des tableaux de bord. Elles peuvent ensuite extraire des informations sur les réclamations, les causes des réclamations et autres données pertinentes.
 * Créer un abonnement au service vidéo et diffuser du contenu DRM protégé lorsqu’un client (par exemple, un studio de cinéma) doit limiter l’accès et l’utilisation de l’œuvre protégée par copyright propriétaire.
 * Proposer du contenu hors connexion dans des avions, des trains et des voitures. Un client peut avoir besoin de télécharger du contenu sur son téléphone ou sa tablette pour pouvoir le lire lorsqu’il sera déconnecté du réseau.
-* Implémenter une plateforme vidéo de formation en ligne éducative avec Azure Media Services et les [API Azure Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai) pour le sous-titrage de la reconnaissance vocale, la traduction en plusieurs langues, etc.
-* Utilisez Azure Media Services avec les [API Azure Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai) pour ajouter des sous-titres et des légendes aux vidéos afin de répondre aux besoins d’une audience plus large (par exemple, les personnes ayant des problèmes d’audition ou souhaitant lire simultanément dans une autre langue).
+* Implémenter une plateforme vidéo de formation en ligne éducative avec Azure Media Services et les [API Azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) pour le sous-titrage de la reconnaissance vocale, la traduction en plusieurs langues, etc.
+* Utilisez Azure Media Services avec les [API Azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) pour ajouter des sous-titres et des légendes aux vidéos afin de répondre aux besoins d’une audience plus large (par exemple, les personnes ayant des problèmes d’audition ou souhaitant lire simultanément dans une autre langue).
 * Activez Azure CDN pour effectuer un scaling à grande échelle afin d’améliorer la gestion instantanée des charges importantes (par exemple le début d’un événement de lancement d’un produit).
 
 ## <a name="how-can-i-get-started-with-v3"></a>Comment bien démarrer avec v3 ? 
@@ -106,4 +106,3 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 ## <a name="next-steps"></a>Étapes suivantes
 
 [En savoir plus sur les concepts fondamentaux](concepts-overview.md)
-

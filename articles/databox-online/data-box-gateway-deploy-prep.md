@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: fdb4b7c370d5edadf3e0e5bc0d1ae548da6bcaa9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0446ee4fb238d2fa8447f998536c3c14d968f630
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438655"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303203"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutoriel : Préparer le déploiement d’Azure Data Box Gateway
 
@@ -42,7 +42,7 @@ Pour déployer Data Box Gateway, consultez les didacticiels suivants dans l’or
 
 Vous pouvez maintenant commencer à configurer le portail Azure.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Dans les informations suivantes, vous trouverez la configuration requise pour votre ressource Data Box Gateway, votre appareil Data Box Gateway et le réseau du centre de données.
 
@@ -94,7 +94,7 @@ Pour créer une ressource Data Box Gateway, effectuez les étapes suivantes dans
     - Ou bien, au portail Azure Government à cette URL : [https://portal.azure.us](https://portal.azure.us) Pour plus d’informations, accédez à [Se connecter à Azure Government à l’aide du portail](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. Dans le volet de gauche, sélectionnez **+ Créer une ressource**. Recherchez **Data Box Edge / Data Box Gateway**. Sélectionnez Data Box Edge / Data Box Gateway. Sélectionnez **Create** (Créer).
-3. Sélectionnez l’abonnement que vous souhaitez utiliser pour l’appareil Data Box Gateway. Sélectionnez la région dans laquelle vous souhaitez déployer la ressource Data Box Gateway. Pour cette version, les zones USA Est, Asie Sud-Est et Europe Ouest sont disponibles. Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil. Pour l’option **Data Box Gateway**, sélectionnez **Créer**.
+3. Sélectionnez l’abonnement que vous souhaitez utiliser pour l’appareil Data Box Gateway. Sélectionnez la région dans laquelle vous souhaitez déployer la ressource Data Box Gateway. Pour obtenir la liste complète des régions où la ressource Azure Stack Edge est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil. Pour l’option **Data Box Gateway**, sélectionnez **Créer**.
 
     ![Rechercher le service Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
 
@@ -102,15 +102,15 @@ Pour créer une ressource Data Box Gateway, effectuez les étapes suivantes dans
     
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Subscription    |Ce champ est automatiquement renseigné en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
+    |Abonnement    |Ce champ est automatiquement renseigné en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
     |Resource group  |Sélectionnez un groupe existant ou créez-en un.<br>Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/management/overview.md).     |
 
 5. Entrez ou sélectionnez les **détails de l’instance** suivants.
 
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Name   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom doit être compris entre 2 et 50 caractères, et se composer uniquement de lettres, de chiffres et de traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |   
-    |Région     |Pour cette version, les zones USA Est, Asie Sud-Est et Europe Ouest sont disponibles pour déployer votre ressource. Pour Azure Government, toutes les régions administratives listées dans les [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/) sont disponibles. <br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|
+    |Nom   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom doit être compris entre 2 et 50 caractères, et se composer uniquement de lettres, de chiffres et de traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |   
+    |Région     |Pour obtenir la liste complète des régions où la ressource Azure Stack Edge est disponible, consultez [Disponibilité des produits Azure par région](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Pour Azure Government, toutes les régions administratives listées dans les [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/) sont disponibles. <br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|
     
     ![Créer la ressource Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     

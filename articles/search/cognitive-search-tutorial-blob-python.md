@@ -1,97 +1,130 @@
 ---
-title: 'Tutoriel : Créer un ensemble de compétences en Python à l’aide des API REST'
+title: 'Tutoriel : Python et IA sur les objets blob Azure'
 titleSuffix: Azure Cognitive Search
-description: Parcourez un exemple d’extraction de données, de langage naturel et de traitement d’image par IA dans Recherche cognitive Azure avec un notebook Jupyter Python. Les données extraites sont indexées et sont facilement accessibles au moyen d’une requête.
+description: Parcourez un exemple d’extraction de texte et de traitement en langage naturel sur du contenu dans Stockage Blob en utilisant un notebook Python Jupyter et les API REST de Recherche cognitive Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: d9ae7f4b7dd8b0f45ae02bd2a90aca78127fd3d3
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.date: 02/26/2020
+ms.openlocfilehash: e7708b0043b7f5baf2c12e813306595cc358a01d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472398"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194052"
 ---
-# <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>Tutoriel : Créer un pipeline d’enrichissement par IA à l’aide de REST et de Python
+# <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutoriel : Utiliser Python et l’IA pour générer du contenu pouvant faire l’objet de recherches à partir d’objets blob Azure
 
-Dans ce tutoriel, vous découvrez les mécanismes de programmation de l’enrichissement des données dans la Recherche cognitive Azure avec des *compétences cognitives*. Les compétences sont secondées par des fonctions d’analyse des images et de traitement en langage naturel (NLP) dans Cognitive Services. Par le biais de la configuration et de la composition de compétences, vous pouvez extraire du texte et des représentations sous forme de texte d’un fichier image ou document analysé. Vous pouvez également détecter la langue, les entités, les expressions clés et bien plus encore. Le résultat est un contenu supplémentaire riche dans un index de recherche, créé avec des enrichissements par IA dans un pipeline d’indexation. 
+Si vous avez du texte non structuré ou des images dans Stockage Blob Azure, un [pipeline d’enrichissement par IA](cognitive-search-concept-intro.md) peut extraire des informations et créer du contenu utile pour les scénarios de recherche en texte intégral ou d’exploration de connaissances. Bien qu’un pipeline puisse traiter des images, ce tutoriel Python se concentre sur du texte, en appliquant la détection de la langue et le traitement en langage naturel pour créer des champs exploitables dans des requêtes, des facettes et des filtres.
 
-Dans ce tutoriel, vous allez utiliser Python pour effectuer les tâches suivantes :
+Ce tutoriel utilise Python et les [API REST de Recherche](https://docs.microsoft.com/rest/api/searchservice/) pour effectuer les tâches suivantes :
 
 > [!div class="checklist"]
-> * Créer un pipeline d’indexation qui enrichit les exemples de données destinés à un index
-> * Appliquer des compétences intégrées : reconnaissance d’entité, détection de la langue, manipulation de texte et extraction d’expression clé
-> * Découvrir comment chaîner des compétences en mappant les entrées aux sorties dans un ensemble de compétences
-> * Exécuter des demandes et passer en revue les résultats
-> * Réinitialiser l’index et les indexeurs pour un développement ultérieur
+> * Commencez avec des documents entiers (texte non structuré), comme des documents PDF, HTML, DOCX et PPTX, dans Stockage Blob Azure.
+> * Définissez un pipeline qui extrait du texte, détecte la langue, reconnaît les entités et détecte les expressions clés.
+> * Définissez un index pour stocker la sortie (contenu brut et paires nom-valeur générées par le pipeline).
+> * Exécutez le pipeline pour démarrer des transformations et une analyse, ainsi que pour créer et charger l’index.
+> * Explorez les résultats à l’aide de la recherche en texte intégral et d’une syntaxe de requête enrichie.
 
-La sortie obtenue est un index de recherche en texte intégral sur Recherche cognitive Azure. Vous pouvez améliorer cet index avec d’autres fonctionnalités standard, telles que des [synonymes](search-synonyms.md), des [profils de score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), des [analyseurs](search-analyzers.md) et des [filtres](search-filters.md). 
-
-Ce tutoriel s’exécute sur le service gratuit. Toutefois, le nombre de transactions gratuites est limité à 20 documents par jour. Si vous souhaitez exécuter ce tutoriel plusieurs fois le même jour, supprimez l’indexeur pour réinitialiser le compteur.
-
-> [!NOTE]
-> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
->
-> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l’extraction d’images sont présentés sur la [page de tarification du service Recherche cognitive Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
-
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Si vous n’avez pas d’abonnement Azure, ouvrez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Voici les services, outils et données utilisés dans ce tutoriel. 
-
-+ [Créez un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) pour stocker les exemples de données. Vérifiez que le compte de stockage se trouve dans la même région que Recherche cognitive Azure.
-
-+ [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), qui fournit des notebooks Python 3.x et Jupyter.
-
-+ Les [exemples de données](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) se composent d’un petit ensemble de fichiers de types différents. 
-
-+ [Créez un service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce tutoriel.
-
-## <a name="get-a-key-and-url"></a>Obtenir une clé et une URL
-
-Pour interagir avec votre service Recherche cognitive Azure, vous devez disposer de l’URL du service et d’une clé d’accès. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté la Recherche cognitive Azure à votre abonnement, effectuez ce qui suit pour obtenir les informations nécessaires :
-
-1. [Connectez-vous au portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
-
-1. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
-
-![Obtenir un point de terminaison et une clé d’accès HTTP](media/search-get-started-postman/get-url-key.png "Obtenir un point de terminaison et une clé d’accès HTTP")
-
-Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. Une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
-
-## <a name="prepare-sample-data"></a>Préparer l’exemple de données
-
-Le pipeline d’enrichissement extrait des données des sources de données Azure. Les données sources doivent provenir d’un type de source de données pris en charge pour un [indexeur de Recherche cognitive Azure](search-indexer-overview.md). Pour cet exercice, nous utilisons le stockage d’objets blob pour présenter plusieurs types de contenu.
-
-1. [Connectez-vous au portail Azure](https://portal.azure.com), accédez à votre compte de stockage Azure, cliquez sur **Objets blob**, puis sur **+ Conteneur**.
-
-1. [Créez un conteneur d’objets blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) pour contenir des exemples de données. Vous pouvez définir le niveau d’accès public sur l’une de ses valeurs valides.
-
-1. Une fois que le conteneur est créé, ouvrez-le, puis sélectionnez **Charger** dans la barre de commandes pour charger les exemples de fichiers que vous avez téléchargés lors de l’étape précédente.
-
-   ![Fichiers source sur le Stockage Blob Azure](./media/cognitive-search-quickstart-blob/sample-data.png)
-
-1. Une fois que les fichiers d’exemple sont chargés, obtenez le nom du conteneur et une chaîne de connexion pour votre stockage d’objets Blob. Pour ce faire, accédez à votre compte de stockage dans le portail Azure. Cliquez sur **Clés d’accès**, puis copiez le champ **Chaîne de connexion**.
-
-La chaîne de connexion aura ce format : `DefaultEndpointsProtocol=https;AccountName=<YOUR-STORAGE-ACCOUNT-NAME>;AccountKey=<YOUR-STORAGE-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
-
-Conservez la chaîne de connexion à portée de main. Vous en aurez besoin à une étape ultérieure.
-
-Il existe d’autres manières de spécifier la chaîne de connexion, par exemple en fournissant une signature d’accès partagé. Pour en savoir plus sur les informations d’identification de source de données, consultez [Indexation du stockage d’objets blob Azure](search-howto-indexing-azure-blob-storage.md#Credentials).
-
-## <a name="create-a-jupyter-notebook"></a>Créer un bloc-notes Jupyter
++ [Stockage Azure](https://azure.microsoft.com/services/storage/)
++ [Anaconda 3.7](https://www.anaconda.com/distribution/#download-section)
++ [Créer](search-create-service-portal.md) ou [rechercher un service de recherche existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
-> Cet article vous montre comment créer une source de données, un index, un indexeur et un ensemble de compétences à l’aide d’une série de scripts Python. Pour télécharger l’exemple de notebook complet, accédez au [dépôt Azure-Search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment).
+> Vous pouvez utiliser le service gratuit pour ce tutoriel. Avec un service de recherche gratuit, vous êtes limité à trois index, trois indexeurs et trois sources de données. Ce didacticiel crée une occurrence de chaque élément. Avant de commencer, veillez à disposer de l’espace suffisant sur votre service pour accepter les nouvelles ressources.
+
+## <a name="download-files"></a>Télécharger les fichiers
+
+1. Ouvrez ce [dossier OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) et en haut à gauche, cliquez sur **Télécharger** pour copier les fichiers sur votre ordinateur. 
+
+1. Cliquez avec le bouton droit sur le fichier zip et sélectionnez **Tout extraire**. Il y a 14 fichiers de différents types. Vous en utiliserez 7 dans le cadre de cet exercice.
+
+## <a name="1---create-services"></a>1 - Créer les services
+
+Ce tutoriel utilise Recherche cognitive Azure pour l’indexation et les requêtes, Cognitive Services pour l’enrichissement par IA sur le back-end, et Stockage Blob Azure pour fournir les données. Ce tutoriel reste sous l’allocation gratuite de 20 transactions par indexeur par jour sur Cognitive Services : les seuls services que vous devez créer sont donc la recherche et le stockage.
+
+Si possible, créez les deux services dans la même région et le même groupe de ressources pour des raisons de proximité et de facilité de gestion. Dans la pratique, votre compte de stockage Azure peut être dans une région quelconque.
+
+### <a name="start-with-azure-storage"></a>Démarrer avec le stockage Azure
+
+1. [Connectez-vous au portail Azure](https://portal.azure.com/) et cliquez sur **+ Créer une ressource**.
+
+1. Recherchez un *compte de stockage* et sélectionnez l’offre de compte de stockage Microsoft.
+
+   ![Créer un compte de stockage](media/cognitive-search-tutorial-blob/storage-account.png "Créer un compte de stockage")
+
+1. Sous l’onglet Bases, les éléments suivants sont obligatoires. Acceptez les valeurs par défaut pour tout le reste.
+
+   + **Groupe de ressources**. Sélectionnez un groupe existant ou créez-en un, mais utilisez le même groupe pour tous les services afin de pouvoir les gérer collectivement.
+
+   + **Nom du compte de stockage**. Si vous pensez que vous pouvez avoir plusieurs ressources du même type, utilisez le nom pour lever l’ambiguïté par type et par région, par exemple *blobstoragewestus*. 
+
+   + **Emplacement**. Si possible, choisissez le même emplacement que celui utilisé pour Recherche cognitive Azure et Cognitive Services. Un emplacement unique annule les frais liés à la bande passante.
+
+   + **Type de compte**. Choisissez la valeur par défaut, *StorageV2 (v2 universel)* .
+
+1. Cliquez sur **Vérifier + créer** pour créer le service.
+
+1. Une fois qu’il est créé, cliquez sur **Accéder à la ressource** pour ouvrir la page Vue d’ensemble.
+
+1. Cliquez sur le service **Objets blob**.
+
+1. Cliquez sur **+ Conteneur** pour créer un conteneur et nommez-le *cog-search-demo*.
+
+1. Sélectionnez *cog-search-demo*, puis cliquez sur **Charger** pour ouvrir le dossier dans lequel vous avez enregistré les fichiers téléchargés. Sélectionnez tous les fichiers autres que des images. Vous devez disposer de 7 fichiers. Cliquez sur **OK** pour effectuer le chargement.
+
+   ![Charger les exemples de fichiers](media/cognitive-search-tutorial-blob/sample-files.png "Charger les exemples de fichiers")
+
+1. Avant de quitter Stockage Azure, obtenez une chaîne de connexion afin de pouvoir formuler une connexion dans Recherche cognitive Azure. 
+
+   1. Revenez à la page Vue d’ensemble de votre compte de stockage (nous avons utilisé *blobstragewestus* comme exemple). 
+   
+   1. Dans le volet de navigation gauche, sélectionnez **Clés d’accès** et copiez l’une des chaînes de connexion. 
+
+   La chaîne de connexion est une URL similaire à l’exemple suivant :
+
+      ```http
+      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
+      ```
+
+1. Enregistrez la chaîne de connexion dans le Bloc-Notes. Vous en aurez besoin plus tard lors de la configuration de la connexion à la source de données.
+
+### <a name="cognitive-services"></a>Cognitive Services
+
+L’enrichissement par IA s’appuie sur Cognitive Services, notamment Analyse de texte et Vision par ordinateur pour le traitement des images et du langage naturel. Si votre objectif était de réaliser un prototype ou un projet réel, vous devriez à ce stade provisionner Cognitive Services (dans la même région que Recherche cognitive Azure) afin de pouvoir l’attacher aux opérations d’indexation.
+
+Cependant, dans le cadre de cet exercice, vous pouvez ignorer le provisionnement des ressources, car Recherche cognitive Azure peut se connecter à Cognitive Services en arrière-plan et vous fournir 20 transactions gratuites par exécution de l’indexeur. Comme ce tutoriel utilise 7 transactions, l’allocation gratuite est suffisante. Pour les projets de plus grande envergure, prévoyez de provisionner Cognitive Services au niveau S0 du paiement à l’utilisation. Pour plus d’informations, consultez [Attacher Cognitive Services](cognitive-search-attach-cognitive-services.md).
+
+### <a name="azure-cognitive-search"></a>Recherche cognitive Azure
+
+Le troisième composant est Recherche cognitive Azure, que vous pouvez [créer dans le portail](search-create-service-portal.md). Vous pouvez utiliser le niveau gratuit pour effectuer cette procédure pas à pas. 
+
+Comme avec le stockage Blob Azure, prenez un moment pour collecter la clé d’accès. Par ailleurs, lorsque vous commencez à structurer les demandes, vous devez fournir le point de terminaison et la clé API d’administration utilisés pour authentifier chaque demande.
+
+### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Obtenir une clé API d’administration et une URL pour Recherche cognitive Azure
+
+1. [Connectez-vous au Portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez le nom de votre service de recherche. Vous pouvez confirmer le nom de votre service en passant en revue l’URL du point de terminaison. Si votre URL de point de terminaison est `https://mydemo.search.windows.net`, le nom du service doit être `mydemo`.
+
+2. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
+
+   Obtenez aussi la clé de requête. Il est recommandé d’émettre des demandes de requête avec un accès en lecture seule.
+
+   ![Obtenir le nom du service, les clés d’administration et les clés de requête](media/search-get-started-nodejs/service-name-and-keys.png)
+
+Une clé API est nécessaire dans l’en-tête de chaque requête envoyée à votre service. Une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
+
+## <a name="2---start-a-notebook"></a>2 - Démarrer un notebook
+
+Créez le bloc-notes en suivant les instructions ci-dessous ou téléchargez un notebook terminé à partir du [dépôt Azure-Search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment).
 
 Utilisez Anaconda Navigator pour lancer Jupyter Notebook et créer un notebook Python 3.
-
-## <a name="connect-to-azure-cognitive-search"></a>Se connecter à la Recherche cognitive Azure
 
 Dans le notebook, exécutez ce script pour charger les bibliothèques permettant d’exploiter JSON et de formuler des requêtes HTTP.
 
@@ -101,7 +134,7 @@ import requests
 from pprint import pprint
 ```
 
-Ensuite, définissez les noms de la source de données, de l’index, de l’indexeur et de l’ensemble de compétences. Exécutez ce script afin de configurer les noms pour ce tutoriel.
+Dans le même notebook, définissez les noms de la source de données, de l’index, de l’indexeur et de l’ensemble de compétences. Exécutez ce script afin de configurer les noms pour ce tutoriel.
 
 ```python
 # Define the names for the data source, skillset, index and indexer
@@ -110,9 +143,6 @@ skillset_name = "cogsrch-py-skillset"
 index_name = "cogsrch-py-index"
 indexer_name = "cogsrch-py-indexer"
 ```
-
-> [!Tip]
-> Sur un service gratuit, vous êtes limité à trois index, indexeurs et sources de données. Ce didacticiel crée une occurrence de chaque élément. Avant d’aller plus loin, vérifiez que vous disposez de suffisamment de place pour créer des objets.
 
 Dans le script suivant, remplacez les espaces réservés par vos service de recherche (YOUR-SEARCH-SERVICE-NAME) et clé API d’administration (YOUR-ADMIN-API-KEY), puis exécutez-le pour configurer le point de terminaison de service de la recherche.
 
@@ -126,11 +156,15 @@ params = {
 }
 ```
 
-## <a name="create-a-data-source"></a>Création d'une source de données
+## <a name="3---create-the-pipeline"></a>3 - Créer le pipeline
 
-Maintenant que vos services et fichiers sources sont préparés, commencez à assembler les composants de votre pipeline d’indexation. Commencez par un objet source de données qui indique à Recherche cognitive Azure comment récupérer des données d’une source externe.
+Dans Recherche cognitive Azure, le traitement de l’IA se produit pendant l’indexation (ou l’ingestion de données). Cette partie de la procédure pas à pas crée quatre objets : source de données, définition d’index, ensemble de compétences, indexeur. 
 
-Dans le script suivant, remplacez l’espace réservé YOUR-BLOB-RESOURCE-CONNECTION-STRING par la chaîne de connexion de l’objet blob que vous avez créé à l’étape précédente. Ensuite, exécutez le script pour créer une source de données nommée `cogsrch-py-datasource`.
+### <a name="step-1-create-a-data-source"></a>Étape 1 : Création d'une source de données
+
+Un [objet Source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source) fournit la chaîne de connexion au conteneur d’objets blob contenant les fichiers.
+
+Dans le script suivant, remplacez l’espace réservé YOUR-BLOB-RESOURCE-CONNECTION-STRING par la chaîne de connexion de l’objet blob que vous avez créé à l’étape précédente. Remplacez le texte de l’espace réservé pour le conteneur. Ensuite, exécutez le script pour créer une source de données nommée `cogsrch-py-datasource`.
 
 ```python
 # Create a data source
@@ -143,7 +177,7 @@ datasource_payload = {
         "connectionString": datasourceConnectionString
     },
     "container": {
-        "name": "basic-demo-data-pr"
+        "name": "<YOUR-BLOB-CONTAINER-NAME>"
     }
 }
 r = requests.put(endpoint + "/datasources/" + datasource_name,
@@ -157,19 +191,18 @@ Dans le portail Azure, dans la page de tableau de bord du service de recherche, 
 
 ![Vignette Sources de données dans le portail](./media/cognitive-search-tutorial-blob-python/py-data-source-tile.png "Vignette Sources de données dans le portail")
 
-## <a name="create-a-skillset"></a>Créer un ensemble de compétences
+### <a name="step-2-create-a-skillset"></a>Étape 2 : Créer un ensemble de compétences
 
 Dans cette étape, vous allez définir un ensemble d’étapes d’enrichissement à appliquer à vos données. Vous appelez chaque étape d’enrichissement une *compétence* et l’ensemble des étapes d’enrichissement un *ensemble de compétences*. Ce tutoriel utilise des [compétences cognitives prédéfinies](cognitive-search-predefined-skills.md) pour l’ensemble de compétences :
+
++ [Reconnaissance d’entité](cognitive-search-skill-entity-recognition.md) pour extraire les noms d’organisations du contenu dans le conteneur d’objets blob.
 
 + [Détection de la langue](cognitive-search-skill-language-detection.md) pour identifier la langue du contenu.
 
 + [Fractionnement de texte](cognitive-search-skill-textsplit.md) pour découper un grand contenu en plus petits morceaux avant d’appeler la compétence d’extraction de phrases clés. L’extraction de phrases clés accepte des entrées de 50 000 caractères au maximum. Certains fichiers d’exemple doivent être fractionnés pour satisfaire cette limite.
 
-+ [Reconnaissance d’entité](cognitive-search-skill-entity-recognition.md) pour extraire les noms d’organisations du contenu dans le conteneur d’objets blob.
-
 + [Extraction de phrases clés](cognitive-search-skill-keyphrases.md) pour extraire les principales expressions clés. 
 
-### <a name="python-script"></a>Script Python
 Utilisez le script suivant pour créer un ensemble de compétences appelé `cogsrch-py-skillset`.
 
 ```python
@@ -270,7 +303,7 @@ Les sorties peuvent être mappées à un index, utilisées comme entrée d’une
 
 Pour plus d’informations sur les principes de base des ensembles de compétences, consultez [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md).
 
-## <a name="create-an-index"></a>Création d'un index
+### <a name="step-3-create-an-index"></a>Étape 3 : Création d'un index
 
 Dans cette section, vous définissez le schéma d’index en spécifiant les champs à inclure dans l’index de recherche et en définissant les attributs de recherche pour chaque champ. Les champs ont un type et peuvent prendre des attributs qui déterminent la façon dont le champ est utilisé (pour la recherche, le tri, etc.). Les noms des champs dans un index ne sont pas tenus de correspondre exactement aux noms des champs dans la source. Dans une étape ultérieure, vous ajoutez des mappages de champs dans un indexeur pour connecter les champs sources et de destination. Pour cette étape, définissez l’index à l’aide de conventions d’affectation de noms de champs appropriées à votre application de recherche.
 
@@ -338,9 +371,11 @@ La demande doit retourner un code d’état 201 confirmant la réussite.
 
 Pour en savoir plus sur la définition d’un index, consultez [Créer un index (API REST de la Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-## <a name="create-an-indexer-map-fields-and-execute-transformations"></a>Créer un indexeur, mapper les champs et exécuter des transformations
+### <a name="step-4-create-and-run-an-indexer"></a>Étape 4 : Créer et exécuter un indexeur
 
-À ce stade, vous avez créé une source de données, un ensemble de compétences et un index. Ces trois composants deviennent partie intégrante d’un [indexeur](search-indexer-overview.md) qui extrait chaque élément pour l’insérer dans une opération unique à plusieurs phases. Pour lier ces objets en un indexeur, vous devez définir des mappages de champs.
+Un [indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer) pilote le pipeline. Les trois composants que vous avez créés jusqu’à présent (source de données, ensemble de compétences, index) sont les entrées d’un indexeur. La création de l’indexeur sur Recherche cognitive Azure est l’événement qui met en mouvement la totalité du pipeline. 
+
+Pour lier ces objets en un indexeur, vous devez définir des mappages de champs.
 
 + Les fieldMappings sont traités avant l’ensemble de compétences, en mappant les champs sources de la source de données sur des champs cibles dans un index. Si les noms et types de champ sont identiques aux deux extrémités, aucun mappage n’est nécessaire.
 
@@ -401,14 +436,14 @@ r = requests.put(endpoint + "/indexers/" + indexer_name,
 print(r.status_code)
 ```
 
-La demande doit retourner rapidement un code d’état 201 ; toutefois, le traitement peut prendre plusieurs minutes. Bien que le jeu de données soit petit, les compétences analytiques, telles que l’analyse d’image, sont gourmandes en ressources de calcul et en temps.
+La demande doit retourner sous peu un code d’état 201, bien que le traitement puisse cependant durer plusieurs minutes. Bien que le jeu de données soit petit, les compétences analytiques, telles que l’analyse d’image, sont gourmandes en ressources de calcul et en temps.
 
-Utilisez le script [Vérifier l’état de l’indexeur](#check-indexer-status) dans la section suivante pour déterminer si le processus de l’indexeur est terminé.
+Vous pouvez [superviser l’état de l’indexeur](#check-indexer-status) pour déterminer à quel moment il est en cours d’exécution ou terminé.
 
 > [!TIP]
 > La création d’un indexeur appelle le pipeline. Tout problème lié à l’accès aux données, au mappage des entrées et des sorties ou à l’ordre des opérations apparaît à ce stade. Pour réexécuter le pipeline avec des modifications de code ou de script, vous pouvez être amené à supprimer d’abord des objets. Pour plus d’informations, consultez [Réinitialiser et réexécuter](#reset).
 
-#### <a name="explore-the-request-body"></a>Explorer le corps de la demande
+#### <a name="about-the-request-body"></a>À propos du corps de la demande
 
 Le script affecte à `"maxFailedItems"` la valeur -1, ce qui indique au moteur d’indexation d’ignorer les erreurs au cours de l’importation des données. Cela est utile car très peu de documents figurent dans la source de données de démonstration. Pour une source de données plus volumineuse, vous définiriez une valeur supérieure à 0.
 
@@ -418,7 +453,7 @@ Lorsque le contenu est extrait, vous pouvez définir `imageAction` pour extraire
 
 <a name="check-indexer-status"></a>
 
-## <a name="check-indexer-status"></a>Vérifier l’état de l’indexeur
+## <a name="4---monitor-indexing"></a>4 - Surveiller l’indexation
 
 Une fois l’indexeur défini, il s’exécute automatiquement lorsque vous envoyez la demande. Selon les compétences cognitives que vous avez définies, l’indexation peut prendre plus de temps que prévu. Pour savoir si le traitement de l’indexeur est terminé, exécutez le script suivant.
 
@@ -433,18 +468,18 @@ Dans la réponse, supervisez les valeurs « status » et « endTime » de «
 
 ![L’indexeur est créé](./media/cognitive-search-tutorial-blob-python/py-indexer-is-created.png "L’indexeur est créé")
 
-Les avertissements sont courants avec certaines combinaisons de fichiers sources et de compétences et n’indiquent pas toujours un problème. Dans ce tutoriel, les avertissements sont sans conséquence. Par exemple, un des fichiers JPEG qui n’a pas de texte engendre l’affichage de l’avertissement dans la capture d’écran ci-après.
+Les avertissements sont courants avec certaines combinaisons de fichiers sources et de compétences et n’indiquent pas toujours un problème. De nombreux avertissements ont une importance mineure. Par exemple, si vous indexez un fichier JPEG qui n’a pas de texte, vous voyez l’avertissement dans la capture d’écran ci-après.
 
 ![Exemple d’avertissement de l’indexeur](./media/cognitive-search-tutorial-blob-python/py-indexer-warning-example.png "Exemple d’avertissement de l’indexeur")
 
-## <a name="query-your-index"></a>Interroger votre index
+## <a name="5---search"></a>5 - Recherche
 
 Une fois l’indexation terminée, exécutez des requêtes qui retournent le contenu de champs individuels. Par défaut, le service Recherche cognitive Azure retourne les 50 meilleurs résultats. Les données d’exemple sont petites si bien que la configuration par défaut fonctionne correctement. Toutefois, lorsque vous travaillez avec des jeux de données plus volumineux, vous pouvez être amené à inclure des paramètres dans la chaîne de requête pour retourner plus de résultats. Pour obtenir des instructions, consultez [Guide pratique pour présenter les résultats dans la Recherche cognitive Azure](search-pagination-page-layout.md).
 
-Comme étape de vérification, interrogez l’index au sujet de tous les champs.
+En guise d’étape de vérification, récupérez la définition de l’index montrant tous les champs.
 
 ```python
-# Query the index for all fields
+# Query the service for the index definition
 r = requests.get(endpoint + "/indexes/" + index_name,
                  headers=headers, params=params)
 pprint(json.dumps(r.json(), indent=1))
@@ -477,19 +512,13 @@ Vous pouvez utiliser GET ou POST, en fonction de la longueur et de la complexit�
 
 ## <a name="reset-and-rerun"></a>Réinitialiser et réexécuter
 
-Dans les premières étapes expérimentales de développement d’un pipeline, l’approche la plus pratique pour les itérations de conception consiste à supprimer les objets de Recherche cognitive Azure et à autoriser votre code à les reconstruire. Les noms des ressources sont uniques. La suppression d’un objet vous permet de le recréer en utilisant le même nom.
+Dans les premières étapes expérimentales du développement, l’approche la plus pratique pour les itérations de conception consiste à supprimer les objets de Recherche cognitive Azure et à autoriser votre code à les reconstruire. Les noms des ressources sont uniques. La suppression d’un objet vous permet de le recréer en utilisant le même nom.
 
-Pour réindexer vos documents avec les nouvelles définitions :
-
-1. Supprimez l’index pour supprimer les données persistantes. Supprimez l’indexeur pour le recréer sur votre service.
-2. Modifiez l’ensemble de compétences et la définition d’index.
-3. Recréez un index et un indexeur sur le service pour exécuter le pipeline.
-
-Vous pouvez utiliser le portail pour supprimer des index, des indexeurs et des ensembles de compétences. Quand vous supprimez l’indexeur, vous pouvez si vous le souhaitez, sélectivement supprimer l’index, l’ensemble de compétences et la source de données en même temps.
+Vous pouvez utiliser le portail pour supprimer les index, les indexeurs et les ensembles de compétences. Quand vous supprimez l’indexeur, vous pouvez si vous le souhaitez, sélectivement supprimer l’index, l’ensemble de compétences et la source de données en même temps.
 
 ![Supprimer les objets de recherche](./media/cognitive-search-tutorial-blob-python/py-delete-indexer-delete-all.png "Supprimer des objets de recherche dans le portail")
 
-Vous pouvez également les supprimer à l’aide d’un script. Le script suivant supprime l’ensemble de compétences que nous avons créé. Vous pouvez facilement modifier la demande de suppression de l’index, de l’indexeur et de la source de données.
+Vous pouvez également les supprimer à l’aide d’un script. Le script suivant montre comment supprimer un ensemble de compétences. 
 
 ```python
 # delete the skillset
@@ -498,7 +527,7 @@ r = requests.delete(endpoint + "/skillsets/" + skillset_name,
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-Lorsque votre code arrive à maturité, vous pouvez affiner une stratégie de regénération. Pour plus d’informations, consultez [How to rebuild an Azure Search index](search-howto-reindex.md) (Régénérer un index Recherche Azure).
+Le code d’état 204 est retourné lorsque la suppression réussit.
 
 ## <a name="takeaways"></a>Éléments importants à retenir
 
@@ -510,11 +539,13 @@ Enfin, vous avez appris à tester les résultats et réinitialiser le système p
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Le moyen le plus rapide de procéder à un nettoyage après un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche cognitive Azure et le service Blob Azure. En supposant que vous avez placé ces deux services dans le même groupe, supprimez le groupe de ressources pour supprimer définitivement tout ce qu’il contient, y compris les services et tout le contenu stocké que vous avez créé pour ce tutoriel. Dans le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble de chaque service.
+Lorsque vous travaillez dans votre propre abonnement, il est judicieux à la fin d’un projet de supprimer les ressources dont vous n’avez plus besoin. Les ressources laissées en cours d’exécution peuvent vous coûter de l’argent. Vous pouvez supprimer les ressources une par une, ou choisir de supprimer le groupe de ressources afin de supprimer l’ensemble des ressources.
+
+Vous pouvez rechercher et gérer les ressources dans le portail à l’aide des liens Toutes les ressources ou Groupes de ressources situés dans le volet de navigation de gauche.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Personnalisez ou étendez le pipeline avec des compétences personnalisées. La création d’une compétence personnalisée et son ajout dans un ensemble de compétences vous permet d’intégrer une analyse de texte ou d’image que vous écrivez vous-même.
+Maintenant que vous êtes familiarisé avec tous les objets d’un pipeline d’enrichissement par IA, examinons de plus près les définitions des ensembles de compétences et les compétences individuelles.
 
 > [!div class="nextstepaction"]
-> [Exemple : Création d’une compétence personnalisée pour l’enrichissement par l’IA](cognitive-search-create-custom-skill-example.md)
+> [Guide pratique pour créer un ensemble de compétences](cognitive-search-defining-skillset.md)

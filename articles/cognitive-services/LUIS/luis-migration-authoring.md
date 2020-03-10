@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 02/28/2020
 ms.author: diberry
-ms.openlocfilehash: 6e1005e3d9c3769de3249f3244d65a656edc963e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ec6f9592a4c149be382fab66cca27d929644d988
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891743"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194507"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Effectuer une migration vers une clé de ressource de création Azure
 
@@ -80,7 +80,7 @@ Après le processus de migration, toutes vos applications LUIS sont affectées 
 
 Vous pouvez créer d’autres ressources de création et les affecter à partir de la page **Gérer -> Ressources Azure** dans le _portail LUIS_.
 
-Vous pouvez ajouter des contributeurs à la ressource de création à partir du _portail Azure_, dans la page **Contrôle d’accès (IAM)** de cette ressource. Pour plus d’informations, consultez [Ajouter un accès contributeur](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource).
+Vous pouvez ajouter des contributeurs à la ressource de création à partir du _portail Azure_, dans la page **Contrôle d’accès (IAM)** de cette ressource. Pour plus d’informations, voir [Ajouter un accès contributeur](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource).
 
 |Portail|Objectif|
 |--|--|
@@ -104,12 +104,20 @@ Le propriétaire de l’application doit [ajouter votre e-mail à la ressource d
 
 Après le processus de migration, toutes les applications que vous possédez sont disponibles sur la page **Mes applications** du portail LUIS.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting-the-migration-process-for-luis-authoring"></a>Résolution de problèmes liés au processus de migration pour la création LUIS
 
-* Les clés de création LUIS ne sont visibles dans le portail LUIS qu’à l’issue du processus de migration. Si vous créez les clés de création, par exemple à l’aide de l’interface CLI LUIS, l’utilisateur doit toujours effectuer le processus de migration.
+* Les clés de création LUIS ne sont visibles dans le portail LUIS qu’à l’issue du processus de migration. Si vous créez les clés de création, par exemple à l’aide de l’interface CLI LUIS, l’utilisateur doit toujours effectuer le processus de migration dans le portail LUIS.
 * Si un utilisateur migré ajoute un utilisateur non migré en tant que contributeur sur sa ressource Azure, l’utilisateur non migré n’aura pas accès aux applications, sauf s’il migre.
-* Si un utilisateur non migré n’est pas propriétaire d’applications, mais qu’il est un collaborateur pour d’autres applications appartenant à d’autres personnes et que les propriétaires ont entrepris le processus de migration, cet utilisateur devra migrer pour avoir accès aux applications.
+* Si un utilisateur non migré n’est pas propriétaire d’applications, mais est un collaborateur pour d’autres applications appartenant à d’autres personnes et que les propriétaires ont entrepris le processus de migration, cet utilisateur devra migrer pour avoir accès aux applications.
 * Si un utilisateur non migré a ajouté un autre utilisateur migré en tant que collaborateur à son application, une erreur se produit, car vous ne pouvez pas ajouter un utilisateur migré en tant que collaborateur à une application. L’utilisateur non migré devra ensuite passer par le processus de migration et créer une ressource Azure, puis ajouter l’utilisateur migré en tant que contributeur à cette ressource.
+
+Vous recevez une erreur pendant le processus de migration dans les cas suivants :
+* Votre abonnement n’autorise pas la création de ressources Cognitive Services.
+* Votre migration a un impact négatif sur le runtime d’autres applications. Lors de la migration, tous les collaborateurs sont supprimés de vos applications, et vous êtes supprimé en tant que collaborateur d’autres applications. Ce processus signifie que les clés que vous avez attribuées sont également supprimées. La migration est bloquée si vous avez attribué des clés dans d’autres applications. Supprimez la clé que vous avez attribuée en toute sécurité avant d’effectuer la migration. Si vous savez que la clé que vous avez attribuée n’est pas utilisée dans le runtime, vous devez la supprimer pour pouvoir progresser dans la migration.
+
+Accédez à la liste des ressources Azure de votre application en utilisant le format d’URL suivant :
+
+`https://www.luis.ai/applications/REPLACE-WITH-YOUR-APP-ID/versions/REPLACE-WITH-YOUR-VERSION-ID/manage/resources`
 
 ## <a name="next-steps"></a>Étapes suivantes
 

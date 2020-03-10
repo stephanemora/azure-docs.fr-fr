@@ -1,6 +1,6 @@
 - name: Documentation de l’API Recherche d’images Bing
   href: ../bing-web-search/index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que la Recherche d’images Bing\_?"
@@ -26,14 +26,8 @@
           href: quickstarts/ruby.md
     - name: Kit SDK
       items:
-        - name: 'Utilisation de C#'
-          href: image-search-sdk-quickstart.md
-        - name: Utilisation de Node.js
-          href: image-search-sdk-node-quickstart.md
-        - name: Utilisation de Python
-          href: image-sdk-python-quickstart.md
-        - name: Utilisation de Java
-          href: image-sdk-java-quickstart.md
+        - name: Bibliothèques clientes Recherche d’images Bing
+          href: ./quickstarts/client-libraries.md
 - name: Tutoriels
   items:
     - name: Créer une application web de recherche d’images
@@ -93,7 +87,7 @@
       maintainContext: true
 - name: Ressources
   items:
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: bing-image-search-resource-faq.md
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/'

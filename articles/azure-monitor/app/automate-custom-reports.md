@@ -1,19 +1,15 @@
 ---
 title: Automatiser des rapports personnalisés avec des données Azure Application Insights
 description: Automatiser des rapports quotidients/hebdomadaires/mensuels personnalisés avec des données Azure Application Insights
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 2b23374972a071421b59bedf0eb5b9358b37d7a9
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: d91595a863901fcc420611ac644c7856e74320dd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677624"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655121"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatiser des rapports personnalisés avec des données Azure Application Insights
 
@@ -91,7 +87,7 @@ availabilityResults
 5. Sélectionnez le **_modèle de synthèse planifié Application Insights_** .
 
      > [!NOTE]
-     > Par défaut, les applications de fonction sont créées avec la version 2.x du runtime. Vous devez [cibler la version du runtime Azure Functions](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1.x** pour utiliser le modèle de synthèse planifié Application Insights.  ![Capture d’écran du runtime](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
+     > Par défaut, les applications de fonction sont créées avec la version 2.x du runtime. Vous devez [cibler la version ](https://docs.microsoft.com/azure/azure-functions/set-runtime-version)1.x **du runtime d'Azure Functions** pour utiliser le modèle de synthèse planifié Application Insights.  ![Capture d’écran du runtime](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
 
 
 

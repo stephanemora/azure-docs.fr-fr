@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble de la sécurité d’entreprise dans Azure HDInsight
 description: Découvrez les différentes méthodes pour garantir la sécurité de l’entreprise dans Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: overview
-ms.date: 09/23/2019
-ms.openlocfilehash: 0e7b2db188ef6ee7d6b80ba5da4010112008ad70
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 03/03/2020
+ms.openlocfilehash: 95bfe7d7788133d8548598cb30c8084bf64a977f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122111"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267716"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Vue d’ensemble de la sécurité d’entreprise dans Azure HDInsight
 
@@ -28,7 +28,7 @@ L’une des manières d’aborder la sécurité de l’entreprise divise les sol
 
 ### <a name="perimeter-security"></a>Sécurité du périmètre
 
-La sécurité du périmètre dans HDInsight est obtenue par le biais de [réseaux virtuels](../hdinsight-plan-virtual-network-deployment.md). Un administrateur d’entreprise peut créer un cluster à l’intérieur d’un réseau virtuel, et utiliser des groupes de sécurité réseau pour restreindre l’accès au réseau virtuel. Seules les adresses IP autorisées dans les règles de groupes de sécurité réseau entrantes sont en mesure de communiquer avec le cluster HDInsight. Cette configuration assure la sécurité du périmètre.
+La sécurité du périmètre dans HDInsight est obtenue par le biais de [réseaux virtuels](../hdinsight-plan-virtual-network-deployment.md). Un administrateur d’entreprise peut créer un cluster à l’intérieur d’un réseau virtuel (VNET) et utiliser des groupes de sécurité réseau (NSG) pour restreindre l’accès au réseau virtuel. Seules les adresses IP autorisées dans les règles de groupes de sécurité réseau entrantes sont en mesure de communiquer avec le cluster HDInsight. Cette configuration assure la sécurité du périmètre.
 
 Tous les clusters déployés sur un réseau virtuel auront aussi un point de terminaison privé qui se résout en une adresse IP privée sur le réseau virtuel, pour un accès HTTP privé aux passerelles de cluster.
 
@@ -36,7 +36,7 @@ Tous les clusters déployés sur un réseau virtuel auront aussi un point de ter
 
 Le [Pack Sécurité Entreprise](apache-domain-joined-architecture.md) d’HDInsight fournit l’authentification basée sur Active Directory, la prise en charge multi-utilisateur et le contrôle d’accès en fonction du rôle. L’intégration d’Active Directory est obtenue à l’aide d’[Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). Grâce à ces fonctionnalités, vous pouvez créer un cluster HDInsight joint à un domaine Active Directory managé. Vous pouvez ensuite configurer une liste d’employés de l’entreprise qui peuvent s’authentifier et se connecter au cluster.
 
-Avec cette configuration, des employés de l’entreprise peuvent se connecter aux nœuds du cluster à l’aide de leurs informations d’identification de domaine. Ils peuvent également utiliser leurs informations d’identification de domaine pour s’authentifier auprès d’autres points de terminaison approuvés comme les vues Ambari, ODBC, JDBC, PowerShell et les API REST afin d’interagir avec le cluster. 
+Avec cette configuration, des employés de l’entreprise peuvent se connecter aux nœuds du cluster à l’aide de leurs informations d’identification de domaine. Ils peuvent également utiliser leurs informations d’identification de domaine pour s’authentifier auprès d’autres points de terminaison approuvés comme les vues Ambari, ODBC, JDBC, PowerShell et les API REST afin d’interagir avec le cluster.
 
 ### <a name="authorization"></a>Autorisation
 
@@ -50,9 +50,9 @@ Par exemple, l’administrateur peut configurer [Apache Ranger](https://ranger.a
 
 L’audit de tous les accès aux ressources du cluster, et aux données, est nécessaire pour effectuer le suivi des accès non autorisés ou non intentionnels des ressources. Il est tout aussi important de protéger les ressources du cluster HDInsight des utilisateurs non autorisés, et de sécuriser les données.
 
-L’administrateur peut afficher et signaler tout accès aux données et aux ressources du cluster HDInsight. L’administrateur peut également voir et signaler toutes les modifications des stratégies de contrôle d’accès créées dans les points de terminaison pris en charge par Apache Ranger. 
+L’administrateur peut afficher et signaler tout accès aux données et aux ressources du cluster HDInsight. L’administrateur peut également voir et signaler toutes les modifications des stratégies de contrôle d’accès créées dans les points de terminaison pris en charge par Apache Ranger.
 
-Pour accéder aux journaux d’audit Apache Ranger et Ambari, ainsi qu’aux journaux d’accès SSH, [activez Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing), puis affichez les tables qui fournissent des enregistrements d’audit.
+Pour accéder aux journaux d’audit Apache Ranger et Ambari, et aux journaux d’accès SSH, [activez Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md#cluster-auditing), puis affichez les tables qui fournissent des enregistrements d’audit.
 
 ### <a name="encryption"></a>Chiffrement
 
@@ -62,7 +62,7 @@ Stockage Blob Azure et Azure Data Lake Storage Gen1/Gen2, les deux magasins de d
 
 ### <a name="compliance"></a>Conformité
 
-Les offres de conformité Azure sont basées sur divers types de garanties, notamment des certifications, attestations, validations, autorisations et évaluations officielles créées par des sociétés d’audit tierces indépendantes, ainsi que des modifications contractuelles, des auto-évaluations et des documents de conseils pour les clients créés par Microsoft. Pour plus d'informations sur la conformité de HDInsight, reportez-vous au [Centre de gestion de la confidentialité Microsoft](https://www.microsoft.com/trust-center) et à la [Présentation de la conformité Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
+Les offres de conformité Azure sont basées sur divers types de garanties, notamment des certifications, attestations, validations, autorisations et évaluations officielles créées par des sociétés d’audit tierces indépendantes, des modifications contractuelles, des auto-évaluations et des documents de conseils pour les clients fournis par Microsoft. Pour plus d'informations sur la conformité de HDInsight, reportez-vous au [Centre de gestion de la confidentialité Microsoft](https://www.microsoft.com/trust-center) et à la [Présentation de la conformité Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).
 
 ## <a name="shared-responsibility-model"></a>Modèle de responsabilité partagée
 

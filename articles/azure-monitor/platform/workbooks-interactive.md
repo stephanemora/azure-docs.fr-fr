@@ -4,18 +4,17 @@ description: Créer des rapports complexes en toute simplicité grâce à des cl
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 19fd8c108e8075d30ca494ca75d52952849c284a
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 4d9f6e48722f01970a90a3a1d8d8b58b5d939774
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872840"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658266"
 ---
 # <a name="interactive-workbooks"></a>Classeurs interactifs
 
@@ -32,7 +31,7 @@ Les classeurs permettent aux auteurs de construire des scénarios où le clic su
 Par exemple, un utilisateur peut disposer d’une grille qui affiche une liste de requêtes et certaines statistiques telles que le nombre d’échecs. Il pourrait la configurer de telle sorte qu’en cliquant sur une ligne correspondant à une requête, il obtiendrait des tableaux détaillés ci-dessous mis à jour afin de filtrer les données jusqu’à la définition de cette requête.
 
 ### <a name="setting-up-interactivity-on-grid-row-click"></a>Configuration de l’interactivité lors d’un clic sur une ligne de grille
-1. Basculez le classeur en mode édition en cliquant sur l’élément _Modifier_ de la barre d’outils.
+1. Basculez le classeur en mode d’édition en cliquant sur l’élément _Modifier_ de la barre d’outils.
 2. Utilisez le lien _Ajouter une requête_ pour ajouter un contrôle de requête de journal au classeur. 
 3. Sélectionnez le type de requête _Journal_, le type de ressource (par exemple, Application Insights) et les ressources à cibler.
 4. Utiliser l’éditeur de requête pour saisir le KQL pour votre analyse
@@ -79,7 +78,7 @@ Sur le contrôle KQL de référence, utilisez la fonction `todynamic` pour analy
 Les classeurs permettent aux auteurs d’ajouter de l’interactivité via un type spécial de convertisseur de colonne de grille appelé `link renderer`. Un convertisseur de liens convertit une cellule de grille en lien hypertexte en fonction du contenu de la cellule. Les classeurs prennent en charge de nombreux types de convertisseurs de liens, y compris ceux qui permettent d’ouvrir les panneaux de vue d’ensemble des ressources, les visionneuses de conteneurs de propriétés, la recherche App Insights, l’utilisation, le suivi des transactions, etc.
 
 ### <a name="setting-up-interactivity-using-grid-cell-clicks"></a>Configuration de l’interactivité à l’aide de clics dans des cellules de grille
-1. Basculez le classeur en mode édition en cliquant sur l’élément _Modifier_ de la barre d’outils.
+1. Basculez le classeur en mode d’édition en cliquant sur l’élément _Modifier_ de la barre d’outils.
 2. Utilisez le lien _Ajouter une requête_ pour ajouter un contrôle de requête de journal au classeur. 
 3. Sélectionnez le type de requête _Journal_, le type de ressource (par exemple, Application Insights) et les ressources à cibler.
 4. Utiliser l’éditeur de requête pour saisir le KQL pour votre analyse
@@ -121,14 +120,14 @@ Le classeur permet aux utilisateurs de faire apparaître ou disparaître certain
 2. Ajoutez un nouveau paramètre en haut :
     1. Nom : `ShowDetails`
     2. Type de paramètre : `Drop down`
-    3. Obligatoire : `checked`
-    4. Récupérer des données à partir de : `JSON`
+    3. Obligatoire : `checked`
+    4. Récupérer des données à partir de : `JSON`
     5. Entrée JSON : `["Yes", "No"]`
     6. Enregistrez pour valider les modifications.
 3. Définir la valeur du paramètre sur `Yes`
 4. Dans le contrôle de requête avec le graphique en aires, cliquez sur l’icône _Paramètres avancés_ (icône d’engrenage)
 5. Vérifier le paramètre `Make this item conditionally visible`
-    1. Cet élément est visible si la valeur de paramètre `ShowDetails` `equals` `Yes`
+    1. Cet élément est visible si la valeur du paramètre `ShowDetails` `equals` `Yes`
 6. Cliquez sur _Fin de l’édition_ pour valider les modifications.
 7. Cliquez sur _Fin de l’édition_ sur la barre d’outils du classeur pour passer en mode lecture.
 8. Basculez la valeur du paramètre `ShowDetails` sur `No`. Notez que le graphique ci-dessous disparaît.

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/02/2020
 ms.author: juliako
-ms.openlocfilehash: aee4390d9b892eddbd7dc59887f5268e4c35d3f7
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: efd8386f464bfdf2ac27d3be07e6572dc27952e1
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989788"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163588"
 ---
 # <a name="what-is-video-indexer"></a>Qu’est-ce que Video Indexer ?
 
@@ -27,9 +27,14 @@ Le diagramme suivant est une illustration et non une explication technique de la
 
 ![Diagramme de flux Azure Media Services Video Indexer](./media/video-indexer-overview/model-chart.png)
 
+
 ## <a name="compliance-privacy-and-security"></a>Conformité, confidentialité et sécurité
- 
-Il est important de vous rappeler que vous devez vous conformer à toutes les lois applicables dans le cadre de votre utilisation de Video Indexer, et que vous n’êtes pas autorisé à utiliser Video Indexer ou tout autre service Azure d’une façon qui porte atteinte aux droits d’autrui ou qui soit préjudiciable à autrui. Avant de charger des vidéos, y compris des données biométriques, vers le service Video Indexer à des fins de traitement et de stockage, Vous devez disposer de tous les droits appropriés sur les vidéos, y compris avoir obtenu le consentement de chaque personne apparaissant dans les vidéos. Pour en savoir plus sur la conformité, la confidentialité et la sécurité dans Video Indexer, consultez les [Conditions générales d’utilisation de Microsoft Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Pour connaître les obligations de confidentialité de Microsoft et le mode de traitement de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions d’utilisation des services en ligne](https://www.microsoft.com/licensing/product-licensing/products) (« OST ») et l’[Addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. Des informations complémentaires sur la confidentialité, notamment sur la conservation, la suppression et la destruction des données, sont disponibles dans l’OST et [ici](faq.md). En utilisant Video Indexer, vous acceptez de vous conformer aux Conditions d’utilisation de Cognitive Services, à l’OST, au DPA et à la Déclaration de confidentialité.
+
+Il est important de vous rappeler que vous devez vous conformer à toutes les lois applicables dans le cadre de votre utilisation du service Video Indexer, et que vous n’êtes pas autorisé à utiliser celui-ci ou tout autre service Azure d’une façon qui porte atteinte aux droits d’autrui ou qui soit préjudiciable pour autrui.
+
+Avant de charger une vidéo ou une image vers le service Video Indexer, vous devez disposer de tous les droits appropriés pour utiliser la vidéo ou l’image, y compris, lorsque cela est requis par la Loi, avoir obtenu tous les consentements nécessaires de chaque personne (le cas échéant) apparaissant dans la vidéo ou l’image, pour autoriser l’utilisation, le traitement et le stockage de leurs données dans le service Video Indexer et Azure. Certaines juridictions peuvent imposer des obligations légales spéciales pour la collecte, le traitement en ligne et le stockage de catégories de données particulières, comme des données biométriques. Avant d’utiliser le service Video Indexer et Azure pour le traitement et le stockage de données soumises à des obligations légales spéciales, vous devez vous assurer que vous vous conformez à tous les obligations légales applicables.
+
+Pour en savoir plus sur la conformité, la confidentialité et la sécurité dans le service Video Indexer, visitez le [Centre de confidentialité](https://www.microsoft.com/TrustCenter/CloudServices/Azure/default.aspx) Microsoft. Pour connaître les obligations de Microsoft en matière de confidentialité et les bonnes pratiques de gestion et de conservation de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions d’utilisation des services en ligne](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) (« OST ») et l’[Addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. En utilisant le service Video Indexer, vous consentez à être lié par les dispositions de l’OST, du DPA et de la Déclaration de confidentialité.
 
 ## <a name="what-can-i-do-with-video-indexer"></a>Que puis-je faire avec Video Indexer ?
 

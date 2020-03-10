@@ -1,36 +1,35 @@
 ---
-title: Créer un pipeline CI/CD pour Node.js avec Azure DevOps Projects
+title: Créer un pipeline CI/CD pour une application web progressive (PWA) avec GatsbyJS et Azure DevOps Projects
 description: DevOps Projects facilite la prise en main d’Azure. Ce composant vous aide à lancer une application sur le service Azure de votre choix en quelques étapes rapides.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
-author: mlearned
-manager: gwallace
+author: arob98
+manager: angrobe
 editor: ''
 ms.assetid: ''
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 07/09/2018
-ms.author: mlearned
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.date: 02/24/2020
+ms.author: angrobe
+ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 35eebeaa393ff75ada11752aaf9f195efddfa12b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 508a61d6bbb00692855e09601aed67ab3be9cc8d
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049796"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208975"
 ---
 #  <a name="quickstart-create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-projects"></a>Démarrage rapide : Créer un pipeline CI/CD dans Azure Pipelines pour Node.js avec Azure DevOps Projects
+Dans ce guide de démarrage rapide, vous allez créer une application web progressive (PWA) NodeJS à l’aide de [GatsbyJS](https://www.gatsbyjs.org/) et de l’expérience de création de projet Azure DevOps simplifiée. Quand vous aurez terminé, vous disposerez d’un pipeline d’intégration continue (CI) et d’un pipeline de livraison continue (CD) pour votre PWA dans Azure Pipelines. Azure DevOps Projects configure ce dont vous avez besoin pour le développement, le déploiement et la supervision.
 
-Dans ce guide de démarrage rapide, vous allez utiliser l’expérience Azure DevOps Projects simplifiée pour configurer un pipeline d’intégration continue (CI) et de livraison continue (CD) pour votre application Node.js dans Azure Pipelines. Vous pouvez utiliser Azure DevOps Projects pour configurer tout ce dont vous avez besoin pour développer, déployer et superviser votre application. 
-
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
-- Un compte et une organisation [Azure DevOps](https://azure.microsoft.com/services/devops/).
+- Une organisation [Azure DevOps](https://azure.microsoft.com/services/devops/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -40,42 +39,121 @@ DevOps Projects crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer
 
    ![Créer une ressource Azure dans le portail Azure](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
-1. Recherchez et sélectionnez **DevOps Projects**, puis sélectionnez **Créer**.
+2. Recherchez et sélectionnez **DevOps Projects**, puis sélectionnez **Créer**.
+
+ ![Créer un projet DevOps](_img/azure-devops-project-nodejs/create-devops-project.png) 
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Sélectionner un exemple d’application et le service Azure
 
-1. Sélectionnez l’exemple d’application Node.js.  
-    Les exemples Node.js offrent le choix entre plusieurs infrastructures d’application.
+1. Sélectionnez l’exemple d’application Node.js.   
 
-1. L’exemple de framework par défaut est Express.js. Laissez le paramètre par défaut, puis sélectionnez **Suivant**.  
-    La cible de déploiement par défaut est **Web App sur Windows**.  Le framework d’application, que vous avez choisi précédemment, détermine le type de cible de déploiement de service Azure disponible ici.  
+ ![Sélectionner l’exemple Node.js](_img/azure-devops-project-nodejs/select-nodejs-devops-project.png) 
 
-2. Laissez le service par défaut, puis sélectionnez **Suivant**.
- 
-## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configurer Azure DevOps et un abonnement Azure 
+2. **Express.js** est l’exemple d’infrastructure par défaut. Sélectionnez **Application Node.js simple** à la place, puis sélectionnez **Suivant**. 
 
-1. Créez une organisation Azure DevOps ou choisissez une organisation existante. 
-   
-   1. Entrez un nom pour votre projet.
-      
-   1. Sélectionnez votre abonnement et un emplacement Azure, entrez un nom pour votre application, puis sélectionnez **Terminé**.  
-      Après quelques minutes, le tableau de bord DevOps Projects s’affiche dans le portail Azure. Un exemple d’application est configuré dans un dépôt de votre organisation Azure DevOps, une build est exécutée et votre application est déployée sur Azure. Ce tableau de bord donne une visibilité sur votre dépôt de code, le pipeline CI/CD et votre application dans Azure.
-   
-1. Sélectionnez **Parcourir** pour voir votre application en cours d’exécution.
-   
-   ![Vue Tableau de bord d’un pipeline CI/CD](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
+ ![Sélectionner Application Node.js simple](_img/azure-devops-project-nodejs/simple-nodejs-project.png) 
 
-DevOps Projects a configuré automatiquement un déclencheur de build et de mise en production CI.  Vous êtes maintenant prêt à collaborer avec une équipe sur une application Node.js avec un processus CI/CD qui déploie automatiquement votre travail le plus récent sur votre site web.
+3. Les cibles de déploiement disponibles dans cette étape dépendent du framework d’application qui a été sélectionné à l’étape 2.  Dans cet exemple, **Application web Windows** est la cible de déploiement par défaut.  Laissez la sélection sur **Web App pour conteneurs**, puis sélectionnez **Suivant**.
 
-## <a name="commit-code-changes-and-execute-cicd"></a>Valider les modifications de code et exécuter CI/CD
+ ![Sélectionner la cible de déploiement](_img/azure-devops-project-nodejs/select-web-server.png) 
 
-DevOps Projects crée un dépôt Git dans Azure Repos ou dans GitHub. Suivez les étapes ci-dessous pour voir le dépôt et modifier le code dans votre application.
+## <a name="configure-a-project-name-and-an-azure-subscription"></a>Configurer un nom de projet et un abonnement Azure
 
-1. À gauche du tableau de bord DevOps Projects, sélectionnez le lien correspondant à votre branche master.  
-Ce lien ouvre une vue sur le référentiel Git récemment créé.
+1. À la dernière étape du workflow de création de projet DevOps, vous attribuez un nom au projet, vous sélectionnez un abonnement Azure, puis vous sélectionnez **Terminé**.  
 
-1. Pour afficher l’URL du clone du dépôt, sélectionnez **Cloner** en haut à droite du navigateur.   
-    Vous pouvez cloner votre référentiel Git dans votre environnement de développement intégré favori. Dans les prochaines étapes, vous allez utiliser le navigateur web pour effectuer des modifications de code directement dans la branche maîtresse et les valider.
+ ![Attribuer un nom au projet et sélectionner un abonnement](_img/azure-devops-project-nodejs/assign-project-name.png) 
+
+2. Une page de résumé s’affiche lorsque votre projet est généré et que votre application est déployée sur Azure. Après un court moment, un projet est créé dans votre [organisation Azure DevOps](https://dev.azure.com/) qui comprend un dépôt Git, un tableau Kanban, un pipeline de déploiement, des plans de test et les artefacts requis par votre application.  
+
+## <a name="managing-your-project"></a>Gérer votre projet
+
+1. Accédez à **Toutes les ressources** et recherchez votre projet DevOps. Sélectionnez votre **projet DevOps**.
+
+![Tableau de bord Azure DevOps dans la liste des ressources](_img/azure-devops-project-nodejs/azure-devops-project-in-resource-list.png)
+
+2. Vous accédez à un tableau de bord qui fournit des informations sur la page d’accueil de votre projet, le dépôt de code, le pipeline CI/CD, ainsi qu’un lien vers votre application en cours d’exécution. Sélectionnez **Page d’accueil du projet** pour voir votre application dans **Azure DevOps** et, dans un autre onglet du navigateur, sélectionnez **Point de terminaison d’application** pour voir l’exemple d’application s’exécuter.  Nous modifierons cet exemple plus tard afin d’utiliser l’application PWA générée avec GatsbyJS.
+
+![Tableau de bord Azure DevOps](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
+
+3. À partir de votre projet Azure DevOps, vous pouvez inviter des membres de l’équipe à collaborer et établir un tableau Kanban pour débuter le suivi de votre travail.  Vous pourrez trouver plus d’informations [ici](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops?view=azure-devops).
+
+![Vue d’ensemble d’Azure DevOps](_img/azure-devops-project-nodejs/azure-devops-overview.png)
+
+## <a name="clone-the-repo-and-install-your-gatsby-pwa"></a>Cloner le dépôt et installer votre application PWA Gatsby
+
+DevOps Projects crée un dépôt Git dans Azure Repos ou dans GitHub. Cet exemple a créé un dépôt Azure.  L’étape suivante consiste à cloner le dépôt et à apporter quelques modifications.
+
+1. Sélectionnez **Dépôts** dans votre **projet DevOps**, puis cliquez sur **Cloner**.  Il existe plusieurs façons de cloner le dépôt Git sur votre bureau.  Choisissez celle qui correspond à votre expérience de développement.  
+
+![Cloner le référentiel](_img/azure-devops-project-nodejs/clone-the-repo.png)
+
+2. Une fois le dépôt cloné sur votre bureau, apportez des modifications au modèle de démarrage. Commencez par installer l’interface CLI GatsbyJS à partir de votre terminal.
+```powershell
+npm install -g gatsby
+```
+
+3. À partir du terminal, accédez à la racine de votre dépôt. Vous devez voir trois dossiers comme dans cet exemple :
+```powershell
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        2/23/2020  10:42 PM                Application
+d-----        2/23/2020   3:05 PM                ArmTemplates
+d-----        2/23/2020   3:05 PM                Tests
+```
+
+4. Nous n’avons pas besoin des fichiers contenus dans le dossier Application, car nous allons remplacer ce dernier par un modèle de démarrage Gatsby. Exécutez les commandes suivantes, dans l’ordre, pour supprimer le dossier.
+```powershell
+cp .\Application\Dockerfile .
+rmdir Application
+```
+
+5. Utilisez l’interface CLI Gatsby pour générer un exemple d’application PWA. Exécutez `gatsby new` à partir du terminal pour démarrer l’Assistant PWA et sélectionnez `gatsby-starter-blog` comme modèle de démarrage. Le résultat doit ressembler à cet exemple :
+```powershell
+c:\myproject> gatsby new
+√ What is your project called? ... my-gatsby-project
+? What starter would you like to use? » - Use arrow-keys. Return to submit.
+    gatsby-starter-default
+    gatsby-starter-hello-world
+>   gatsby-starter-blog
+    (Use a different starter)
+```
+
+6. Vous avez maintenant un dossier nommé `my-gatsby-project`. Renommez-le en `Application` et copiez le fichier `Dockerfile` dans ce dossier.
+```powershell
+mv my-gatsby-project Application
+mv Dockerfile Application
+```
+
+7. Dans votre éditeur habituel, ouvrez le fichier Dockerfile et remplacez la première ligne `FROM node:8` par `FROM node:12`. En faisant cette modification, vous configurez votre conteneur pour qu’il utilise la version 12.x de Node.js à la place de la version 8.x. GatsbyJS nécessite des versions plus modernes de Node.js.
+
+8. Ensuite, ouvrez le fichier package.json dans le dossier Application et modifiez le [champ scripts](https://docs.npmjs.com/files/package.json#scripts) pour vous assurer que vos serveurs de développement et de production écoutent toutes les interfaces réseau disponibles (par exemple, 0.0.0.0) ainsi que le port 80. Si vous ne modifiez pas ces paramètres, le service d’applications conteneurs ne peut pas router le trafic vers votre application Node.js exécutée au sein de votre conteneur. Le champ `scripts` doit ressembler à l’exemple ci-dessous. Plus précisément, vous voulez changer les valeurs par défaut des cibles `develop`, `serve` et `start`.
+```json
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop  -H 0.0.0.0 -p 80",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run serve",
+    "serve": "npm run build && gatsby serve -H 0.0.0.0 -p 80",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  }
+```
+
+## <a name="edit-your-cicd-pipelines"></a>Modifier vos pipelines CI/CD
+
+1. Avant de valider le code de la section précédente, apportez quelques modifications à vos pipelines de build et de mise en production. Modifiez votre « pipeline de build » et mettez à jour la tâche Node pour utiliser Node.js version 12.x. Définissez le champ **Version de la tâche** sur 1.x et le champ **Version** sur 12.x.
+![Mettre à jour Node.js à la version 12.x](_img/azure-devops-project-nodejs/build-pipeline-update-node.png)
+
+2. Dans ce guide de démarrage rapide, nous ne créons pas de tests unitaires et nous désactivons ces étapes dans notre pipeline de build. Quand vous écrirez des tests, vous pourrez réactiver ces étapes. Cliquez avec le bouton droit pour sélectionner les tâches nommées **Installer les dépendances de test** et **Exécuter les tests unitaires**, puis désactivez-les.
+
+![Désactiver les tests de build](_img/azure-devops-project-nodejs/disable-build-unittests.png)
+
+3. Modifiez votre pipeline de mise en production.
+![Modifier le pipeline de mise en production](_img/azure-devops-project-nodejs/edit-release-pipeline.png)
+
+4. Comme avec le pipeline de build, modifiez la tâche Node pour utiliser la version 12.x et désactivez les deux tâches de test. Votre pipeline de mise en production doit ressembler à cette capture d’écran.
+
+![Pipeline de mise en production terminé](_img/azure-devops-project-nodejs/release-pipeline-complete.png)
 
 1. Sur la gauche du navigateur, accédez au fichier **views/index.pug**.
 
@@ -85,77 +163,36 @@ Ce lien ouvre une vue sur le référentiel Git récemment créé.
 1. Sélectionnez **Valider**, puis enregistrez vos modifications.
 
 1. Dans votre navigateur, accédez au tableau de bord DevOps Projects.   
-Vous devez maintenant voir une build en cours. Les modifications que vous venez d’effectuer font automatiquement l’objet d’une build et d’un déploiement via un pipeline CI/CD.
+Vous devez maintenant voir une build en cours. Les modifications que vous avez apportées font automatiquement l’objet d’une build et d’un déploiement par le biais d’un pipeline CI/CD.
 
-## <a name="examine-the-azure-cicd-pipeline"></a>Examiner le pipeline CI/CD Azure
+## <a name="commit-your-changes-and-examine-the-azure-cicd-pipeline"></a>Valider vos modifications et examiner le pipeline CI/CD Azure
 
-Dans l’étape précédente, DevOps Projects a automatiquement configuré un pipeline CI/CD complet. Explorez et personnalisez le pipeline selon vos besoins. Effectuez les étapes suivantes pour vous familiariser avec les pipelines de build et de mise en production.
+Aux deux étapes précédentes, vous avez ajouté une application PWA générée avec Gatsby à votre dépôt Git et vous avez modifié vos pipelines utilisés pour générer et déployer le code. Nous pouvons valider le code et observer son exécution tout au long des pipelines de build et de mise en production.
 
-1. En haut du tableau de bord DevOps Projects, sélectionnez **Pipelines de build**.  
-Ce lien ouvre un onglet du navigateur et le pipeline de build de votre nouveau projet.
+1. À partir de la racine du dépôt Git de votre projet dans un terminal, exécutez les commandes suivantes pour envoyer (push) le code vers votre projet Azure DevOps :
+```powershell
+git add .
+git commit -m "My first Gatsby PWA"
+git push
+```
 
-1. Pointez sur le champ **État**, puis sélectionnez les points de suspension (...).  
-    Cette action ouvre un menu permettant de lancer plusieurs activités, comme mettre une nouvelle build en file d’attente, mettre en pause une build et modifier le pipeline de build.
+2. Une build est démarrée dès la fin de la commande `git push`. Vous pouvez suivre la progression de la build dans le **tableau de bord Azure DevOps**.
 
-1. Sélectionnez **Modifier**.
+![Tableau de bord Azure DevOps dans la liste des ressources](_img/azure-devops-project-nodejs/azure-devops-project-in-resource-list.png)
 
-1. Dans ce volet, vous pouvez examiner les différentes tâches de votre pipeline de build.  
-La build effectue différentes tâches, comme la récupération (fetch) de sources dans le dépôt Git, la restauration de dépendances et la publication des sorties utilisées pour les déploiements.
-
-1. En haut du pipeline de build, sélectionnez le nom du pipeline de build.
-
-1. Remplacez le nom de votre pipeline de build par un nom plus descriptif, sélectionnez **Enregistrer et mettre en file d’attente**, puis sélectionnez **Enregistrer**.
-
-1. Sous le nom de votre pipeline de build, sélectionnez **Historique**.   
-Dans le volet **Historique**, vous pouvez voir une piste d’audit des modifications que vous avez apportées récemment à la build.  Azure Pipelines gère les modifications apportées au pipeline de build et vous permet de comparer les versions.
-
-1. Sélectionnez **Déclencheurs**.   
- DevOps Projects a créé automatiquement un déclencheur CI, et chaque validation dans le dépôt lance une nouvelle build.  Vous pouvez éventuellement choisir d’inclure ou d’exclure des branches dans le processus d’intégration continue.
-
-1. Sélectionnez **Rétention**.   
-En fonction de votre scénario, vous pouvez spécifier des stratégies pour conserver ou supprimer un certain nombre de builds.
-
-1. Sélectionnez **Build et mise en production**, puis **Mises en production**.  
- DevOps Projects crée un pipeline de mise en production pour gérer les déploiements sur Azure.
-
-1. Sur la gauche, sélectionnez les points de suspension (...) en regard de votre pipeline de mise en production, puis sélectionnez **Modifier**.  
-Le pipeline de mise en production définit le processus de mise en production.
-
-12. Sous **Artefacts**, sélectionnez **Déposer**.  
-    Le pipeline de build que vous avez examiné aux étapes précédentes génère la sortie utilisée pour l’artefact. 
-
-1. En regard de l’icône **Déposer**, sélectionnez le **déclencheur de déploiement continu**.  
-Ce pipeline de mise en production a un déclencheur CD activé, qui effectue un déploiement chaque fois qu’un nouvel artefact de build est disponible. Si vous le souhaitez, vous pouvez désactiver le déclencheur afin que vos déploiements nécessitent une exécution manuelle. 
+3. Après quelques minutes, vos pipelines de build et de mise en production se terminent et votre application PWA est déployée sur un conteneur. Cliquez sur le lien **Point de terminaison d’application** dans le tableau de bord ci-dessus. Vous devez normalement voir un projet de démarrage Gatsby pour les blogs.
 
 
-1. Sur la gauche, sélectionnez **Tâches**.   
-Les tâches sont les activités effectuées par votre processus de déploiement. Dans cet exemple, une tâche a été créée pour déployer sur Azure App Service.
-
-
-1. Sur la droite, sélectionnez **Afficher les mises en production**.  
-Cette vue affiche un historique des mises en production.
-
-1. Sélectionnez les points de suspension (...) en regard d’une de vos mises en production, puis sélectionnez **Ouvrir**.  
-Il y a plusieurs menus à explorer, comme un résumé des mises en production, les éléments de travail associés et les tests.
-
-1. Sélectionnez **Validations**.   
-Cette vue montre les validations de code associées au déploiement spécifique.
-
-1. Sélectionnez **Journaux d’activité**.  
-Les journaux d’activité contiennent des informations utiles sur le processus de déploiement. Ils peuvent être affichés pendant et après les déploiements.
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Quand vous n’en avez plus besoin, vous pouvez supprimer Azure App Service et les autres ressources associées que vous avez créées. Utilisez la fonctionnalité **Supprimer** du tableau de bord DevOps Projects.
+Si vous n’en avez plus besoin, vous pouvez supprimer Azure App Service et les autres ressources associées que vous avez créées. Utilisez la fonctionnalité **Supprimer** du tableau de bord DevOps Projects.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Quand vous avez configuré votre processus CI/CD, les pipelines de build et de mise en production ont été créés automatiquement. Vous pouvez le modifier afin qu’il réponde aux besoins de votre équipe. Pour en savoir plus sur le pipeline CI/CD, consultez :
+Quand vous configurez votre processus CI/CD, les pipelines de build et de mise en production sont créés automatiquement. Vous pouvez modifier ces pipelines en fonction des exigences de votre équipe. Pour en savoir plus sur le pipeline CI/CD, consultez :
 
 > [!div class="nextstepaction"]
 > [Personnaliser le processus CD](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
-## <a name="videos"></a>Videos
-
-> [!VIDEO https://www.youtube.com/embed/3etwjubReJs]

@@ -3,12 +3,12 @@ title: Créer un projet Azure Notebooks (préversion) avec un environnement pers
 description: Créez un projet dans Azure Notebooks (préversion) configuré avec un ensemble spécifique de packages installés et de scripts de démarrage.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 999133dd7d9d792956f9a2c93ec218e458c921e8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 6388cb7997cac5bef25975043a13c4e080f288d4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647065"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196839"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Démarrage rapide : Créer un projet avec un environnement personnalisé dans Azure Notebooks (préversion)
 
@@ -51,11 +51,14 @@ Dans Azure Notebooks, un projet est une collection de fichiers : notebooks, fich
 
 1. La commande **+ Ajouter** permet de créer une étape définie par une opération et un fichier cible sélectionné parmi les fichiers de votre projet. Les opérations suivantes sont prises en charge :
 
-    | Opération | Description |
-    | --- | --- |
-    | Requirements.txt | Les projets Python définissent leurs dépendances dans un fichier requirements.txt. Avec cette option, sélectionnez le fichier approprié dans la liste des fichiers du projet, et choisissez également la version de Python dans la liste déroulante qui s’affiche. Si nécessaire, sélectionnez **Annuler** pour revenir au projet, charger ou créer le fichier, puis revenez à l’onglet **Paramètres du projet** > **Environnement** et créez une nouvelle étape. Avec cette étape, l’exécution d’un notebook dans le projet exécute automatiquement `pip install -r <file>` |
-    | Script shell | Permet d’indiquer un script d’interpréteur de commandes bash (généralement un fichier avec l’extension *.sh*) qui contient les commandes que vous souhaitez exécuter pour initialiser l’environnement. |
-    | Environment.yml | Un projet Python qui utilise conda pour la gestion d’un environnement utilise un fichier *environments.yml* pour décrire les dépendances. Avec cette option, sélectionnez le fichier approprié dans la liste des fichiers du projet. |
+   | Opération | Description |
+   | --- | --- |
+   | Requirements.txt | Les projets Python définissent leurs dépendances dans un fichier requirements.txt. Avec cette option, sélectionnez le fichier approprié dans la liste des fichiers du projet, et choisissez également la version de Python dans la liste déroulante qui s’affiche. Si nécessaire, sélectionnez **Annuler** pour revenir au projet, charger ou créer le fichier, puis revenez à l’onglet **Paramètres du projet** > **Environnement** et créez une nouvelle étape. Avec cette étape, l’exécution d’un notebook dans le projet exécute automatiquement `pip install -r <file>` |
+   | Script shell | Permet d’indiquer un script d’interpréteur de commandes bash (généralement un fichier avec l’extension *.sh*) qui contient les commandes que vous souhaitez exécuter pour initialiser l’environnement. |
+   | Environment.yml | Un projet Python qui utilise conda pour la gestion d’un environnement utilise un fichier *environments.yml* pour décrire les dépendances. Avec cette option, sélectionnez le fichier approprié dans la liste des fichiers du projet. |
+
+   > [!WARNING]
+   > Comme il s’agit d’un service en préversion en cours de développement, il existe actuellement un problème connu où le paramètre `Environment.yml` n’est pas appliqué à votre projet comme prévu. À l’heure actuelle, le projet et les notebooks Jupyter qu’il contient ne chargent pas le fichier d’environnement spécifié.
 
 1. Pour supprimer une étape d’installation, sélectionnez la croix **X** à droite de l’étape.
 

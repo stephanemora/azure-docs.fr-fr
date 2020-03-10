@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 02/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 11a6a668b1028ba1640ef076606d4aeb4c3aae6e
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 82866d452289a29dcdcacc12db8048acb7a351ba
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589366"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250858"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps : Gestion, déploiement et surveillance des modèles avec Azure Machine Learning
 
@@ -71,6 +71,11 @@ Les modèles inscrits sont identifiés par leur nom et par leur version. Chaque 
 Vous ne pouvez pas supprimer un modèle inscrit qui est utilisé dans un déploiement actif.
 Pour plus d’informations, consultez la section consacrée à l’inscription d’un modèle dans l’article [Déployer des modèles](how-to-deploy-and-where.md#registermodel).
 
+### <a name="profile-models"></a>Modèles de profil
+
+Azure Machine Learning peut vous aider à comprendre les besoins en processeur et en mémoire du service qui sera créé lors du déploiement de votre modèle. Le profilage teste le service qui exécute votre modèle et retourne des informations telles que l’utilisation de l’UC, l’utilisation de la mémoire et la latence de la réponse. Il fournit également une recommandation pour l’UC et la mémoire en fonction de l’utilisation des ressources.
+Pour plus d’informations, voir la section consacrée au déploiement dans [Déployer des modèles](how-to-deploy-and-where.md#profilemodel).
+
 ### <a name="package-and-debug-models"></a>Empaqueter et déboguer des modèles
 
 Avant de déployer un modèle en production, il est empaqueté dans une image Docker. Dans la plupart des cas, la création d’image a lieu automatiquement en arrière-plan pendant le déploiement. Vous pouvez spécifier l’image manuellement.
@@ -78,10 +83,6 @@ Avant de déployer un modèle en production, il est empaqueté dans une image Do
 Si vous rencontrez des problèmes avec le déploiement, vous pouvez déployer sur votre environnement de développement local pour la résolution des problèmes et le débogage.
 
 Pour plus d’informations, consultez [Déployer des modèles](how-to-deploy-and-where.md#registermodel) et [Résolution des problèmes liés aux déploiements](how-to-troubleshoot-deployment.md).
-
-### <a name="validate-and-profile-models"></a>Valider et profiler des modèles
-
-Azure Machine Learning peut utiliser le profilage pour déterminer les paramètres de processeur et de mémoire idéaux à utiliser lors du déploiement de votre modèle. La validation de modèle se produit dans le cadre de ce processus, à l’aide de données que vous fournissez pour le processus de profilage.
 
 ### <a name="convert-and-optimize-models"></a>Convertir et optimiser les modèles
 

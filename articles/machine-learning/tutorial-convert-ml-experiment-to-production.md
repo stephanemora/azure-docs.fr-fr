@@ -7,20 +7,21 @@ ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 7f5e24261fd5d006004a51186e22f6bfe1b8ab32
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 5a7c4ce6d5868efef4cfb4fbe2183ec8337ff5b6
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589179"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301843"
 ---
 # <a name="tutorial-convert-ml-experimental-code-to-production-code"></a>Tutoriel : Convertir du code expérimental ML en code de production
 
-Un projet de Machine Learning nécessite des expérimentations au cours desquelles des hypothèses sont testées avec des outils Agile comme Jupyter Notebook sur des jeux de données réels. Quand le modèle est prêt pour la production, vous devez placer le code du modèle dans un dépôt de code de production. Dans certains cas, le code du modèle doit être converti en scripts Python qui sont placés dans le dépôt de code de production. Ce tutoriel décrit l’approche recommandée pour exporter du code d’expérimentation en scripts Python.  
+Un projet de Machine Learning nécessite des expérimentations au cours desquelles des hypothèses sont testées avec des outils Agile comme Jupyter Notebook sur des jeux de données réels. Quand le modèle est prêt pour la production, vous devez placer le code du modèle dans un dépôt de code de production. Dans certains cas, le code du modèle doit être converti en scripts Python qui sont placés dans le dépôt de code de production. Ce tutoriel décrit l’approche recommandée pour exporter du code d’expérimentation en scripts Python.
 
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
+>
 > * Nettoyer le code non essentiel
 > * Refactoriser le code Jupyter Notebook en fonctions
 > * Créer des scripts Python pour des tâches associées
@@ -41,7 +42,7 @@ from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 import joblib
- 
+
 X, y = load_diabetes(return_X_y=True)
 
 X_train, X_test, y_train, y_test = train_test_split(
@@ -64,13 +65,15 @@ joblib.dump(value=reg, filename=model_name)
 ## <a name="refactor-code-into-functions"></a>Refactoriser le code en fonctions
 
 Deuxièmement, le code Jupyter doit être refactorisé en fonctions. La refactorisation du code en fonctions facilite le test unitaire et rend le code plus facile à gérer. Dans cette section, vous allez refactoriser :
+
 - Le notebook Diabetes Ridge Regression Training (`experimentation/Diabetes Ridge Regression Training.ipynb`)
 - Le notebook Diabetes Ridge Regression Scoring (`experimentation/Diabetes Ridge Regression Scoring.ipynb`)
 
 ### <a name="refactor-diabetes-ridge-regression-training-notebook-into-functions"></a>Refactoriser le notebook Diabetes Ridge Regression Training en fonctions
+
 Dans `experimentation/Diabetes Ridge Regression Training.ipynb`, effectuez les étapes suivantes :
 
-1. Créez une fonction appelée `train_model` qui prend les paramètres `data` et `alpha` et retourne un modèle. 
+1. Créez une fonction appelée `train_model` qui prend les paramètres `data` et `alpha` et retourne un modèle.
 1. Copiez le code sous les titres « Train Model on Training Set » et « Validate Model on Validation Set » dans la fonction `train_model`.
 
 La fonction `train_model` doit ressembler au code suivant :
@@ -106,7 +109,7 @@ def main():
 
     model_name = "sklearn_regression_model.pkl"
     alpha = 0.5
-    
+
     X, y = load_diabetes(return_X_y=True)
 
     X_train, X_test, y_train, y_test = train_test_split(
@@ -147,7 +150,7 @@ def main():
 
     model_name = "sklearn_regression_model.pkl"
     alpha = 0.5
-    
+
     X, y = load_diabetes(return_X_y=True)
 
     X_train, X_test, y_train, y_test = train_test_split(
@@ -163,6 +166,7 @@ main()
 ```
 
 ### <a name="refactor-diabetes-ridge-regression-scoring-notebook-into-functions"></a>Refactoriser le notebook Diabetes Ridge Regression Scoring en fonctions
+
 Dans `experimentation/Diabetes Ridge Regression Scoring.ipynb`, effectuez les étapes suivantes :
 
 1. Créez une fonction appelée `init`. Celle-ci ne prend aucun paramètre et ne retourne rien.
@@ -212,6 +216,7 @@ request_header = {}
 prediction = run(raw_data, request_header)
 print("Test result: ", prediction)
 ```
+
 Le code précédent définit les variables `raw_data` et `request_header`, appelle la fonction `run` avec `raw_data` et `request_header`, puis imprime les prédictions.
 
 Après refactorisation, `experimentation/Diabetes Ridge Regression Scoring.ipynb` doit ressembler au code suivant sans le markdown :
@@ -242,11 +247,14 @@ print("Test result: ", prediction)
 ```
 
 ## <a name="combine-related-functions-in-python-files"></a>Combiner des fonctions associées dans des fichiers Python
+
 Troisièmement, les fonctions associées doivent être fusionnées dans des fichiers Python pour faciliter la réutilisation du code. Dans cette section, vous allez créer des fichiers Python pour les notebooks suivants :
+
 - Le notebook Diabetes Ridge Regression Training (`experimentation/Diabetes Ridge Regression Training.ipynb`)
 - Le notebook Diabetes Ridge Regression Scoring (`experimentation/Diabetes Ridge Regression Scoring.ipynb`)
 
 ### <a name="create-python-file-for-the-diabetes-ridge-regression-training-notebook"></a>Créer un fichier Python pour le notebook Diabetes Ridge Regression Training
+
 Convertissez votre notebook en script exécutable. Pour cela, exécutez dans une invite de commandes l’instruction suivante qui utilise le package nbconvert et le chemin de `experimentation/Diabetes Ridge Regression Training.ipynb` :
 
 ```
@@ -274,7 +282,7 @@ def train_model(data, alpha):
 def main():
     model_name = "sklearn_regression_model.pkl"
     alpha = 0.5
-    
+
     X, y = load_diabetes(return_X_y=True)
 
     X_train, X_test, y_train, y_test = train_test_split(
@@ -292,6 +300,7 @@ main()
 Le fichier `train.py` situé dans le répertoire `diabetes_regression/training` du dépôt MLOpsPython prend en charge les arguments de ligne de commande (à savoir `build_id`, `model_name`et `alpha`). Vous pouvez ajouter la prise en charge des arguments de ligne de commande à votre fichier `train.py` pour prendre en charge les noms de modèles dynamiques et les valeurs `alpha`, mais cela n’est pas obligatoire pour que le code s’exécute correctement.
 
 ### <a name="create-python-file-for-the-diabetes-ridge-regression-scoring-notebook"></a>Créer un fichier Python pour le notebook Diabetes Ridge Regression Scoring
+
 Convertissez votre notebook en script exécutable. Pour cela, exécutez dans une invite de commandes l’instruction suivante qui utilise le package nbconvert et le chemin de `experimentation/Diabetes Ridge Regression Scoring.ipynb` :
 
 ```
@@ -344,11 +353,13 @@ def init():
 ```
 
 ## <a name="create-unit-tests-for-each-python-file"></a>Créer des tests unitaires pour chaque fichier Python
+
 Quatrièmement, des tests unitaires doivent être créés pour chaque fichier Python afin de rendre le code plus robuste et plus facile à gérer. Dans cette section, vous allez créer un test unitaire pour l’une des fonctions de `train.py`.
 
-`train.py` contient deux fonctions : `train_model` et `main`. Chaque fonction a besoin d’un test unitaire, mais nous n’allons en créer qu’un seul pour la fonction `train_model` à l’aide du framework Pytest dans ce tutoriel.  Pytest n’est pas le seul framework de test unitaire Python, mais c’est l’un des plus couramment utilisés. Pour plus d’informations, visitez [Pytest](https://pytest.org).
+`train.py` contient deux fonctions : `train_model` et `main`. Chaque fonction a besoin d’un test unitaire, mais nous n’allons en créer qu’un seul pour la fonction `train_model` à l’aide du framework Pytest dans ce tutoriel. Pytest n’est pas le seul framework de test unitaire Python, mais c’est l’un des plus couramment utilisés. Pour plus d’informations, visitez [Pytest](https://pytest.org).
 
 Un test unitaire contient généralement trois actions principales :
+
 - Organiser l’objet : création et configuration des objets nécessaires
 - Agir sur un objet
 - Déclarer ce qui est attendu
@@ -379,29 +390,40 @@ class TestTrain:
 ```
 
 ## <a name="use-your-own-model-with-mlopspython-code-template"></a>Utiliser votre propre modèle avec le modèle de code MLOpsPython
-Si vous avez suivi les étapes de ce guide, vous disposez d’un ensemble de scripts qui correspondent aux scripts d’entraînement, de score et de test disponibles dans le dépôt MLOpsPython.  Conformément à la structure mentionnée ci-dessus, les étapes suivantes expliquent ce qu’il faut faire pour utiliser ces fichiers dans votre propre projet de Machine Learning :  
 
-1.  Suivre le guide de démarrage
-2.  Remplacer le code d’entraînement
-3.  Remplacer le code de calcul du score
-4.  Mettre à jour le code d’évaluation
+Si vous avez suivi les étapes de ce guide, vous disposez d’un ensemble de scripts qui correspondent aux scripts d’entraînement, de score et de test disponibles dans le dépôt MLOpsPython.  Conformément à la structure mentionnée ci-dessus, les étapes suivantes expliquent ce qu’il faut faire pour utiliser ces fichiers dans votre propre projet de Machine Learning :
+
+1. Suivez le guide [Bien démarrer](https://github.com/microsoft/MLOpsPython/blob/master/docs/getting_started.md) pour MLOpsPython
+2. Suivez les [instructions de démarrage](https://github.com/microsoft/MLOpsPython/blob/master/bootstrap/README.md) de MLOpsPython pour créer le point de départ de votre projet
+3. Remplacer le code d’entraînement
+4. Remplacer le code de calcul du score
+5. Mettre à jour le code d’évaluation
 
 ### <a name="follow-the-getting-started-guide"></a>Suivre le guide de démarrage
-Vous devez suivre le guide de démarrage pour disposer des pipelines et de l’infrastructure de prise en charge nécessaires à l’exécution de MLOpsPython.  Nous vous recommandons de déployer le code MLOpsPython en l’état avant d’ajouter votre propre code pour vérifier que la structure et le pipeline fonctionnent correctement.  Il est également utile de vous familiariser avec la structure de code du dépôt.
+Suivre le guide [Bien démarrer](https://github.com/microsoft/MLOpsPython/blob/master/docs/getting_started.md) est nécessaire pour disposer des pipelines et de l’infrastructure de prise en charge nécessaires à l’exécution de MLOpsPython.
+
+### <a name="follow-the-bootstrap-instructions"></a>Suivre les instructions de démarrage
+
+Le guide [Démarrer à partir du dépôt MLOpsPython](https://github.com/microsoft/MLOpsPython/blob/master/bootstrap/README.md) vous aidera à préparer rapidement le dépôt pour votre projet.
+
+**Remarque :** Comme le script de démarrage renomme le dossier diabetes_regression avec le nom de projet de votre choix, nous faisons référence à votre projet sous la forme `[project name]` quand des chemins sont impliqués.
 
 ### <a name="replace-training-code"></a>Remplacer le code d’entraînement
-Le remplacement du code utilisé pour entraîner le modèle et la suppression ou le remplacement des tests unitaires correspondants sont nécessaires pour que la solution fonctionne avec votre propre code.  Suivez ces étapes spécifiquement :
 
-1. Remplacez `diabetes_regression\training\train.py`. Ce script entraîne votre modèle localement ou sur la capacité de calcul Azure ML.
-1. Supprimez ou remplacez les tests unitaires d’entraînement présents dans `tests/unit/code_test.py`.
+Le remplacement du code utilisé pour entraîner le modèle et la suppression ou le remplacement des tests unitaires correspondants sont nécessaires pour que la solution fonctionne avec votre propre code. Suivez ces étapes spécifiquement :
+
+1. Remplacez `[project name]/training/train.py`. Ce script entraîne votre modèle localement ou sur la capacité de calcul Azure ML.
+1. Supprimez ou remplacez les tests unitaires d’entraînement présents dans `[project name]/training/test_train.py`.
 
 ### <a name="replace-score-code"></a>Remplacer le code de calcul du score
-Pour que le modèle fournisse des fonctionnalités d’inférence en temps réel, le code de calcul du score doit être remplacé. Le modèle MLOpsPython utilise le code de calcul du score pour déployer le modèle afin d’effectuer un scoring en temps réel sur des applications ACI, AKS ou web.  Si vous souhaitez conserver le scoring, remplacez `diabetes_regression/scoring/score.py`.
+
+Pour que le modèle fournisse des fonctionnalités d’inférence en temps réel, le code de calcul du score doit être remplacé. Le modèle MLOpsPython utilise le code de calcul du score pour déployer le modèle afin d’effectuer un scoring en temps réel sur des applications ACI, AKS ou web. Si vous souhaitez conserver le scoring, remplacez `[project name]/scoring/score.py`.
 
 ### <a name="update-evaluation-code"></a>Mettre à jour le code d’évaluation
-Le modèle MLOpsPython utilise le script evaluate_model pour comparer les performances du modèle récemment entraîné à celles du modèle de production actuel selon l’erreur quadratique moyenne. Si les performances du modèle récemment entraîné sont supérieures à celles du modèle de production actuel, les pipelines continuent. Sinon, les pipelines sont arrêtés. Pour conserver l’évaluation, remplacez toutes les instances de `mse` dans `diabetes_regression/evaluate/evaluate_model.py` par la métrique de votre choix. 
 
-Pour vous débarrasser de l’évaluation, définissez la variable de pipeline DevOps `RUN_EVALUATION` dans `.pipelines\diabetes_regression-variables` avec la valeur `false`.
+Le modèle MLOpsPython utilise le script evaluate_model pour comparer les performances du modèle récemment entraîné à celles du modèle de production actuel selon l’erreur quadratique moyenne. Si les performances du modèle récemment entraîné sont supérieures à celles du modèle de production actuel, les pipelines continuent. Sinon, les pipelines sont annulés. Pour conserver l’évaluation, remplacez toutes les instances de `mse` dans `[project name]/evaluate/evaluate_model.py` par la métrique de votre choix.
+
+Pour vous débarrasser de l’évaluation, définissez la variable de pipeline DevOps `RUN_EVALUATION` dans `.pipelines/[project name]-variables-template.yml` avec la valeur `false`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

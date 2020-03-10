@@ -4,12 +4,12 @@ description: Découvrez comment utiliser le plug-in Azure App Service Jenkins po
 keywords: jenkins, azure, devops, app service
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: de1bf0ea06210c86ff1da21dcac667754f11d7f4
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: fcaf45003e865cc5aac3f6bd4580479a27d38b50
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158518"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251457"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Déployer sur Azure App Service à l’aide du plug-in Jenkins 
 
@@ -17,7 +17,7 @@ Pour déployer une application web Java sur Azure, vous pouvez utiliser Azure CL
 * Chargement de fichiers.
 * Docker pour Web Apps sur Linux.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Configurer Jenkins pour déployer Web Apps via le chargement de fichiers.
 > * Configurer Jenkins pour déployer Web App pour conteneurs.
@@ -67,7 +67,7 @@ Pour déployer votre projet dans Web Apps, vous pouvez télécharger vos artefac
 Avant de configurer le travail dans Jenkins, vous avez besoin d’un plan Azure App Service et d’une application web pour l’exécution de l’application Java.
 
 
-1. Créez un plan Azure App Service avec le niveau tarifaire **GRATUIT** à l’aide de la [commande Azure CLI](/cli/azure/appservice/plan#az-appservice-plan-create) `az appservice plan create`. Le plan App Service définit les ressources physiques utilisées pour héberger vos applications. Toutes les applications affectées à un plan App Service partagent ces ressources. Les ressources partagées vous aident à réduire les coûts lorsque vous hébergez plusieurs applications.
+1. Créez un plan Azure App Service avec le niveau tarifaire **GRATUIT** en utilisant la [commande Azure CLI](/cli/azure/appservice/plan#az-appservice-plan-create) `az appservice plan create`. Le plan App Service définit les ressources physiques utilisées pour héberger vos applications. Toutes les applications affectées à un plan App Service partagent ces ressources. Les ressources partagées vous aident à réduire les coûts lorsque vous hébergez plusieurs applications.
 2. Créez une application web. Vous pouvez utiliser le [portail Azure](/azure/app-service/configure-common) ou la commande Azure CLI `az` suivante :
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
@@ -207,10 +207,13 @@ Pour la valeur **URL de Registre Docker**, entrez l’URL à l’aide du format 
 ### <a name="for-azure-app-service-on-linux"></a>Pour Azure App Service sur Linux
 
 1. Pour vérifier votre application web, exécutez la commande suivante dans Azure CLI :
-    ```CLI
+    
+    ```azurecli
     az acr repository list -n <myRegistry> -o json
     ```
+    
     Le message suivant s’affiche :
+    
     ```CLI
     ["calculator"]
     ```
@@ -231,7 +234,7 @@ Si vous constatez des bogues dans les plug-ins Jenkins, enregistrez un problème
 
 Dans ce didacticiel, vous avez utilisé le plug-in Jenkins Azure App Service pour effectuer le déploiement sur Azure.
 
-Vous avez appris à effectuer les actions suivantes :
+Vous avez appris à :
 
 > [!div class="checklist"]
 > * Configurer Jenkins pour déployer Azure App Service via le téléchargement de fichiers 

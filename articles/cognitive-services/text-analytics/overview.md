@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que l’API Text Analytics ? - Capacités -
+title: Qu’est-ce que l’API Analyse de texte ? - Capacités -
 titleSuffix: Azure Cognitive Services
 description: Utiliser l’API Text Analytics dans Azure Cognitive Services pour analyser les sentiments, extraire les expressions clés, détecter la langue et reconnaître des entités.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 11/07/2019
 ms.author: aahi
-ms.openlocfilehash: 0f16c687f9816e99e05c2495a05596bd988ca9d2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 66bc1e5441210b8d9153812c826643159fe53d50
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827314"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251327"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Qu’est-ce que l’API Analyse de texte ?
 
-L’API Text Analytics est un service cloud qui fournit un traitement en langage naturel avancé de texte brut. Elle inclut quatre fonctions principales : analyse des sentiments, extraction de phrases clés, détection de la langue et la reconnaissance d’entités.
+L’API Analyse de texte est un service cloud qui fournit un traitement en langage naturel avancé de texte brut. Elle inclut quatre fonctions principales : analyse des sentiments, extraction de phrases clés, détection de la langue et reconnaissance des entités nommées.
 
 L’API fait partie d’[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), une collection d’algorithmes de machine learning et d’intelligence artificielle dans le cloud pour vos projets de développement.
 
@@ -51,7 +51,7 @@ Le flux de travail est simple : vous envoyez des données pour analyse et trait
 
 2. [Formulez une demande](how-tos/text-analytics-how-to-call-api.md#json-schema) contenant vos données sous forme de texte brut non structuré en JSON.
 
-3. Publiez la demande sur le point de terminaison établi pendant l’inscription, en ajoutant la ressource souhaitée : analyse des sentiments, extraction de phrases clés, détection de la langue ou identification d’entité.
+3. Publiez la demande sur le point de terminaison établi pendant l’inscription, en ajoutant la ressource souhaitée : analyse des sentiments, extraction de phrases clés, détection de la langue ou reconnaissance des entités nommées.
 
 4. Diffusez ou stockez la réponse localement. En fonction de la demande, les résultats sont un score de sentiment, une collection de phrases clés extraites ou un code de langue.
 

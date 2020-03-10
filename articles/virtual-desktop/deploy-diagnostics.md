@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 03/03/2020
 ms.author: helohr
-ms.openlocfilehash: 5eff53119362cd03c9a6497e3133984627e513c1
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 9e42ff0ec5b44dca743d2ec1470c2eef655b9436
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368855"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273107"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Déployer l’outil de diagnostic
 
@@ -117,7 +117,7 @@ Voici comment configurer manuellement les compteurs de performances recommandés
 Découvrez-en plus sur les compteurs de performances sur [Source de données des performances Windows et Linux dans Azure Monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
 
 >[!NOTE]
->Les compteurs supplémentaires que vous configurez ne s’affichent pas dans l’outil de diagnostic lui-même. Pour qu’il apparaisse dans l’outil de diagnostic, vous devez configurer le fichier config de l’outil. Les instructions pour effectuer cette opération avec l’administration avancé seront disponibles dans GitHub à une date ultérieure.
+>Les compteurs supplémentaires que vous configurez n'apparaîtront pas dans l'outil de diagnostic lui-même. Pour qu’il apparaisse dans l’outil de diagnostic, vous devez configurer le fichier config de l’outil. Les instructions pour effectuer cette opération avec l’administration avancé seront disponibles dans GitHub à une date ultérieure.
 
 ## <a name="validate-the-script-results-in-the-azure-portal"></a>Valider les résultats du script dans le Portail Azure
 
@@ -128,10 +128,9 @@ Avant de poursuivre le déploiement de l’outil de diagnostic, nous vous recomm
 Pour vous assurer que votre inscription d’application possède des autorisations d’API :
 
 1. Ouvrez un navigateur et connectez-vous au [Portail Azure](https://portal.azure.com/) avec votre compte d’administrateur.
-2. Accédez à **Inscriptions d’applications** et recherchez votre inscription d’application Azure AD.
-
-      ![La page des autorisations d’API.](media/api-permissions-page.png)
-
+2. Accédez à **Azure Active Directory**.
+3. Accédez à **Inscriptions d'applications** et sélectionnez **Toutes les applications**.
+4. Recherchez votre inscription d'application Azure AD avec le nom d'application que vous avez entré à l'étape 5 de [Créer une inscription d'application Azure Active Directory](deploy-diagnostics.md#create-an-azure-active-directory-app-registration).
 
 ### <a name="review-your-log-analytics-workspace"></a>Consulter votre espace de travail Log Analytics
 
@@ -143,7 +142,7 @@ Pour vous assurer que votre espace de travail Log Analytics dispose des compteur
 4. Assurez-vous que les compteurs suivants sont préconfigurés :
 
    - LogicalDisk(\*)\\%Espace libre : Affiche la quantité d’espace libre de l’espace total utilisable sur le disque sous forme de pourcentage.
-   - LogicalDisk(C:)\\Moy. Longueur de file d'attente du disque : La longueur de la requête de transfert sur le disque pour votre lecteur C. La valeur ne doit pas dépasser 2 pendant plus d’une courte période.
+   - LogicalDisk(C:)\\Moy. Longueur de file d'attente du disque : La longueur de la requête de transfert sur le disque pour votre lecteur C. La valeur ne doit pas dépasser 2 très longtemps.
    - Mémoire(\*)\\Mo disponibles : Mémoire disponible pour le système en mégaoctets.
    - Informations processeur(\*)\\Temps processeur : pourcentage de durée calendaire passée par le processeur pour exécuter des threads actives.
    - Retard d’entrée utilisateur par session(\*)\\Délai d’entrée maximal

@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 37055d9b59d49091261109e3553f99bcc03d8e14
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 48c28831d1fbbfc4fe78ebe12e5a158a8259cf44
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163530"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190294"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procédure : Activer l’authentification unique entre applications sur Android à l’aide de la bibliothèque ADAL
 
@@ -32,7 +32,7 @@ La plateforme d’identité de Microsoft, avec les kits de développement logici
 
 Dans cette procédure, vous allez découvrir comment configurer le Kit de développement logiciel (SDK) dans votre application afin de fournir l’authentification unique à vos clients.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Cette procédure suppose que vous savez comment :
 
@@ -60,7 +60,7 @@ Si un répartiteur compatible, tel que l’application Microsoft Authenticator, 
 
 #### <a name="how-microsoft-ensures-the-application-is-valid"></a>Garantie de la validité de l’application par Microsoft
 
-Pour sécuriser les connexions assistées avec répartiteur, il est essentiel de s’assurer de l’identité de l’application appelant le répartiteur. iOS et Android ne fournissent pas d’identificateurs uniques valides uniquement pour une application donnée. Ainsi, des applications malveillantes peuvent « usurper » l’identité d’une application légitime en utilisant son identificateur et recevoir les jetons destinés à l’application légitime. Pour garantir que Microsoft communique toujours avec la bonne application au moment de l’exécution, le développeur est invité à fournir un URI de redirection (redirectURI) personnalisé quand il inscrit son application auprès de Microsoft. **Nous expliquons ci-dessous comment les développeurs doivent créer cet URI de redirection.** Cet URI de redirection personnalisé contient l’empreinte de certificat de l’application et est garanti comme étant propre à l’application par Google Play Store. Lorsqu’une application appelle le répartiteur, celui-ci demande au système d’exploitation Android de lui fournir l’empreinte du certificat qui a appelé le répartiteur. Le répartiteur fournit cette empreinte de certificat à Microsoft dans le cadre de l’appel au système d’identité. Si l’empreinte de certificat de l’application ne correspond pas à l’empreinte de certificat fournie par le développeur au moment de l’inscription, l’accès aux jetons de la ressource demandés par l’application est refusé. Cette vérification permet de s’assurer que seule l’application inscrite par le développeur reçoit les jetons.
+Pour sécuriser les connexions assistées dans un répartiteur, il est essentiel de s’assurer de l’identité de l’application appelant le répartiteur. iOS et Android ne fournissent pas d’identificateurs uniques valides uniquement pour une application donnée. Ainsi, des applications malveillantes peuvent « usurper » l’identité d’une application légitime en utilisant son identificateur et recevoir les jetons destinés à l’application légitime. Pour garantir que Microsoft communique toujours avec la bonne application au moment de l’exécution, le développeur est invité à fournir un URI de redirection (redirectURI) personnalisé quand il inscrit son application auprès de Microsoft. **Nous expliquons ci-dessous comment les développeurs doivent créer cet URI de redirection.** Cet URI de redirection personnalisé contient l’empreinte de certificat de l’application et est garanti comme étant propre à l’application par Google Play Store. Lorsqu’une application appelle le répartiteur, celui-ci demande au système d’exploitation Android de lui fournir l’empreinte du certificat qui a appelé le répartiteur. Le répartiteur fournit cette empreinte de certificat à Microsoft dans le cadre de l’appel au système d’identité. Si l’empreinte de certificat de l’application ne correspond pas à l’empreinte de certificat fournie par le développeur au moment de l’inscription, l’accès aux jetons de la ressource demandés par l’application est refusé. Cette vérification permet de s’assurer que seule l’application inscrite par le développeur reçoit les jetons.
 
 Les connexions réparties avec authentification unique présentent les avantages suivants :
 

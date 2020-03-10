@@ -4,12 +4,12 @@ description: Découvrez comment utiliser Ansible pour créer et configurer un se
 keywords: ansible, azure, devops, bash, playbook, mysql, base de données
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: f068b3022c94466a20b524240dc293392b1f42ff
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 9cd574417733518b993bb242c2c168aba338e34a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603111"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247866"
 ---
 # <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Tutoriel : Configurer des bases de données dans Azure Database pour MySQL avec Ansible
 
@@ -24,7 +24,7 @@ ms.locfileid: "77603111"
 > * Créer un serveur MySQL
 > * Créer une base de données MySQL
 > * Configurer une règle de pare-feu autorisant une application externe à se connecter au serveur
-> * Se connecter au serveur MySQL avec Azure Cloud Shell
+> * Se connecter à votre serveur MySql à partir d’Azure Cloud Shell
 > * Interroger les serveurs MySQL disponibles
 > * Lister toutes les bases de données des serveurs connectés
 
@@ -155,11 +155,15 @@ ansible-playbook mysql_firewall.yml
 
 ## <a name="connect-to-the-server"></a>Connexion au serveur
 
-Cette section utilise Azure Cloud Shell pour se connecter au serveur créé précédemment.
+Dans cette section, vous utilisez Azure Cloud Shell pour vous connecter au serveur que vous avez créé.
 
-1. Sélectionnez le bouton **Essayer** dans le code suivant :
+1. Ouvrez shell.azure.com en cliquant sur le lien ci-dessous.
 
-    ```azurecli-interactive
+   [![Lancement de l’incorporation](https://shell.azure.com/images/launchcloudshell.png "Lancement d’Azure Cloud Shell")](https://shell.azure.com)
+
+1. Entrez le code suivant :
+
+    ```sql
     mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
     ```
 
@@ -171,7 +175,7 @@ Cette section utilise Azure Cloud Shell pour se connecter au serveur créé pré
     
     Si tout se passe bien, la sortie est de ce type :
     
-    ```
+    ```output
     demo@Azure:~$ mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
     Enter password:
     Welcome to the MySQL monitor.  Commands end with ; or \g.

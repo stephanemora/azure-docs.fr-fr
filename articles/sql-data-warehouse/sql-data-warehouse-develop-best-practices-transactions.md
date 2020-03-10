@@ -1,6 +1,6 @@
 ---
 title: Optimisation de transactions
-description: Apprenez comment optimiser les performances de votre code transactionnel dans Azure SQL Data Warehouse tout en limitant les risques de restaurations de longue durée.
+description: Découvrez comment optimiser les performances de votre code transactionnel dans SQL Analytics tout en minimisant les risques de restaurations de longue durée.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,21 +10,21 @@ ms.subservice: development
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: b8b8be9467ade870e57355be91b0de329b0f6217
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 6f7005f1706e72ea1794f99c030a25fa533327b8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692864"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195836"
 ---
-# <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Optimisation des transactions pour Azure SQL Data Warehouse
-Apprenez comment optimiser les performances de votre code transactionnel dans Azure SQL Data Warehouse tout en limitant les risques de restaurations de longue durée.
+# <a name="optimizing-transactions-in-sql-analytics"></a>Optimisation des transactions dans SQL Analytics
+Découvrez comment optimiser les performances de votre code transactionnel dans SQL Analytics tout en minimisant les risques de restaurations de longue durée.
 
 ## <a name="transactions-and-logging"></a>Transactions et journalisation
-Les transactions sont une composante importante d’un moteur de base de données relationnelle. SQL Data Warehouse utilise les transactions durant la modification des données. Ces transactions peuvent être explicites ou implicites. Les instructions uniques INSERT, UPDATE et DELETE sont toutes des exemples de transactions implicites. Les transactions explicites utilisent BEGIN TRAN, COMMIT TRAN ou ROLLBACK TRAN. Les transactions explicites sont généralement utilisées quand plusieurs instructions de modification doivent être liées dans une seule unité atomique. 
+Les transactions sont une composante importante d’un moteur de base de données relationnelle. SQL Analytics utilise les transactions durant la modification des données. Ces transactions peuvent être explicites ou implicites. Les instructions uniques INSERT, UPDATE et DELETE sont toutes des exemples de transactions implicites. Les transactions explicites utilisent BEGIN TRAN, COMMIT TRAN ou ROLLBACK TRAN. Les transactions explicites sont généralement utilisées quand plusieurs instructions de modification doivent être liées dans une seule unité atomique. 
 
-Azure SQL Data Warehouse valide les modifications apportées à la base de données à l’aide de fichiers journaux d’activité de transactions. Chaque distribution présente son propre fichier journal. Les écritures des fichiers journaux de transactions sont automatiques. Aucune configuration n’est requise. Notez toutefois que ce processus, qui garantit l’écriture, introduit par ailleurs une surcharge dans le système. Pour réduire des effets, vous pouvez écrire du code efficace sur le plan transactionnel. Ce type de code se classe principalement en deux catégories.
+SQL Analytics valide les modifications apportées à la base de données à l’aide de journaux des transactions. Chaque distribution présente son propre fichier journal. Les écritures des fichiers journaux de transactions sont automatiques. Aucune configuration n’est requise. Notez toutefois que ce processus, qui garantit l’écriture, introduit par ailleurs une surcharge dans le système. Pour réduire des effets, vous pouvez écrire du code efficace sur le plan transactionnel. Ce type de code se classe principalement en deux catégories.
 
 * Utilisez autant que possible des constructions de journalisation minimale.
 * Traitez les données en les regroupant par lots définis, afin d’éviter les transactions isolées de longue durée.
@@ -68,17 +68,17 @@ CTAS et INSERT...SELECT sont des opérations de chargement en bloc. Toutefois, c
 
 | Index primaire | Scénario de chargement | Mode de journalisation |
 | --- | --- | --- |
-| Segment de mémoire |Quelconque |**Minimal** |
+| Segment de mémoire (heap) |Quelconque |**Minimal** |
 | Index cluster |Table cible vide |**Minimal** |
 | Index cluster |Les lignes chargées ne se chevauchent pas avec les pages existantes dans la cible. |**Minimal** |
-| Index cluster |Les lignes chargées se chevauchent avec les pages existantes dans la cible. |Complet |
+| Index cluster |Les lignes chargées se chevauchent avec les pages existantes dans la cible. |Complète |
 | Index columstore en cluster |Taille de lot >= 102 400 par distribution alignée sur la partition |**Minimal** |
-| Index columstore en cluster |Taille de lot < 102 400 par distribution alignée sur la partition |Complet |
+| Index columstore en cluster |Taille de lot < 102 400 par distribution alignée sur la partition |Complète |
 
 Il est important de noter que toute opération d’écriture effectuée dans le cadre d’une mise à jour d’index secondaires ou non cluster correspond à une journalisation complète.
 
 > [!IMPORTANT]
-> SQL Data Warehouse présente 60 distributions. Par conséquent, en partant du principe que l’ensemble des lignes sont distribuées équitablement et placées dans une partition unique, votre lot devra comporter 6 144 000 lots ou plus pour faire l’objet d’une journalisation minimale lors d’une écriture vers un index columstore en cluster. Si la table est partitionnée et que les lignes insérées dépassent les limites de la partition, il vous faudra 6 144 000 lignes par limite de partition, pour une distribution uniforme des données. Dans chaque distribution, l’ensemble des partitions doivent isolément dépasser le seuil de 102 400 lignes pour que l’insertion fasse l’objet d’une journalisation minimale dans la distribution.
+> Une base de données SQL Analytics contient 60 distributions. Par conséquent, en partant du principe que l’ensemble des lignes sont distribuées équitablement et placées dans une partition unique, votre lot devra comporter 6 144 000 lots ou plus pour faire l’objet d’une journalisation minimale lors d’une écriture vers un index columstore en cluster. Si la table est partitionnée et que les lignes insérées dépassent les limites de la partition, il vous faudra 6 144 000 lignes par limite de partition, pour une distribution uniforme des données. Dans chaque distribution, l’ensemble des partitions doivent isolément dépasser le seuil de 102 400 lignes pour que l’insertion fasse l’objet d’une journalisation minimale dans la distribution.
 > 
 > 
 
@@ -177,7 +177,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Les fonctions de gestion des charges de travail SQL Data Warehouse peuvent faciliter la recréation des tables de grande taille. Pour plus d’informations, consultez l’article [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md).
+> Les fonctionnalités de gestion de la charge de travail SQL Analytics peuvent faciliter la recréation des tables de grande taille. Pour plus d’informations, consultez l’article [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md).
 > 
 > 
 
@@ -405,18 +405,18 @@ END
 ```
 
 ## <a name="pause-and-scaling-guidance"></a>Conseils sur la suspension et la mise à l’échelle
-Azure SQL Data Warehouse vous permet de [suspendre, de reprendre et de mettre à l’échelle](sql-data-warehouse-manage-compute-overview.md) à la demande votre entrepôt de données. Quand vous suspendez ou mettez à l’échelle votre instance de SQL Data Warehouse, il est important de comprendre que l’ensemble des transactions en cours sont immédiatement arrêtées ; toute transaction ouverte est restaurée. Si votre charge de travail a émis une modification de données incomplète et de longue durée avant l’opération de suspension ou de mise à l’échelle, cette tâche devra être annulée. Cette annulation peut avoir une incidence sur le délai nécessaire à la suspension ou à la mise à l’échelle de votre base de données Azure SQL Data Warehouse. 
+SQL Analytics vous permet de [suspendre, reprendre et mettre à l’échelle](sql-data-warehouse-manage-compute-overview.md) votre pool SQL à la demande. Quand vous suspendez ou mettez à l’échelle votre pool SQL, il est important de comprendre que l’ensemble des transactions en cours sont immédiatement arrêtées, ce qui entraîne la restauration de toute transaction ouverte. Si votre charge de travail a émis une modification de données incomplète et de longue durée avant l’opération de suspension ou de mise à l’échelle, cette tâche devra être annulée. Cette annulation peut avoir une incidence sur le temps nécessaire à la suspension ou à la mise à l’échelle de votre pool SQL. 
 
 > [!IMPORTANT]
 > `UPDATE` et `DELETE` correspondant toutes deux à des journalisations complètes, ces opérations d’annulation et de rétablissement peuvent nécessiter un délai considérablement plus important que des journalisations minimales de taille équivalente. 
 > 
 > 
 
-La configuration idéale consiste à laisser les modifications en cours de données se terminer avant la suspension ou la mise à l’échelle de SQL Data Warehouse. Toutefois, ce scénario n’est pas toujours pratique. Pour pallier le risque d’une longue restauration, envisagez l’une des options suivantes :
+La configuration idéale consiste à laisser les transactions de modification de données en cours se terminer avant la suspension ou la mise à l’échelle du pool SQL. Toutefois, ce scénario n’est pas toujours pratique. Pour pallier le risque d’une longue restauration, envisagez l’une des options suivantes :
 
 * Réécrire les opérations de longue durée à l’aide de [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 * Décomposer l’opération en segments, en traitant un sous-ensemble des lignes
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez [Transactions dans SQL Data Warehouse](sql-data-warehouse-develop-transactions.md) pour en savoir plus sur les niveaux d’isolement et les limites transactionnelles.  Pour une vue d’ensemble des autres bonnes pratiques, consultez [Bonnes pratiques relatives à SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Pour en savoir plus sur les niveaux d’isolement et les limites transactionnelles, voir [Transactions dans SQL Analytics](sql-data-warehouse-develop-transactions.md).  Pour une vue d’ensemble des autres bonnes pratiques, consultez [Bonnes pratiques relatives à SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

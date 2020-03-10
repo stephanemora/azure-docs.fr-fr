@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: a6c1e14e332f6081111d2a58a30702093b99a876
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c9d5c2efc14dec5beee0eaf81a4f628421ef3d49
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198239"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657042"
 ---
 # <a name="glossary"></a>Glossaire
 
@@ -47,9 +47,9 @@ La liste suivante décrit les mots courants utilisés avec les services Azure Ma
 
 <a name="asynchronous-request"></a> **Requête asynchrone** : Requête HTTP qui ouvre une connexion et adresse une requête au serveur qui retourne un identificateur pour la requête asynchrone, puis ferme la connexion. Le serveur continue de traiter la requête et l’utilisateur peut en vérifier l’état à l’aide de l’identificateur. Lorsque le traitement de la requête est terminé, l’utilisateur peut télécharger la réponse. Ce type de requête est utilisé pour les processus durables.
 
-<a name="autocomplete"></a> **Saisie semi-automatique** : Fonctionnalité dans une application qui anticipe la fin d’un mot que l’utilisateur est en train de taper. 
+<a name="autocomplete"></a> **Saisie semi-automatique** : Fonctionnalité d'une application qui anticipe la fin d'un mot que l'utilisateur est en train de taper. 
 
-<a name="autosuggest"></a> **Suggestion automatique** : Fonctionnalité dans une application qui anticipe de manière logique ce que l’utilisateur est en train de taper.
+<a name="autosuggest"></a> **Suggestion automatique** : Fonctionnalité d'une application qui anticipe de manière logique ce que l'utilisateur est en train de taper.
 
 <a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)**  : Ancien nom d’Azure Maps à l’époque de sa préversion.
 

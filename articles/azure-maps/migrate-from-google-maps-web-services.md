@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: fac83a7a5137a50a26721da58395cc2e915f222d
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: fae9b8a2101329383cc90c8f7f0ff225e3a9059c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086192"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913816"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Migrer un service web à partir de Google Maps
 
@@ -24,21 +24,24 @@ Le tableau suivant présente les API du service Azure Maps, qui offrent des fonc
 
 | API du service Google Maps | API du service Azure Maps                                                                      |
 |-------------------------|---------------------------------------------------------------------------------------------|
-| Directions              | [Itinéraire](https://docs.microsoft.com/rest/api/maps/route)                               |
-| Matrice des distances         | [Matrice d’itinéraire](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview) |
-| Géocodage               | [Recherche](https://docs.microsoft.com/rest/api/maps/search)                             |
-| Recherche de lieux           | [Recherche](https://docs.microsoft.com/rest/api/maps/search)                             |
-| Autocomplétion des lieux      | [Recherche](https://docs.microsoft.com/rest/api/maps/search)                             |
-| Carte statique              | [Afficher](https://docs.microsoft.com/rest/api/maps/render/getmapimage)                 |
-| Fuseau horaire               | [Fuseau horaire](https://docs.microsoft.com/rest/api/maps/timezone)                        |
+| Directions              | [Itinéraire](https://docs.microsoft.com/rest/api/maps/route)                                     |
+| Matrice des distances         | [Matrice d’itinéraire](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)       |
+| Géocodage               | [action](https://docs.microsoft.com/rest/api/maps/search)                                   |
+| Recherche de lieux           | [action](https://docs.microsoft.com/rest/api/maps/search)                                   |
+| Autocomplétion des lieux      | [action](https://docs.microsoft.com/rest/api/maps/search)                                   |
+| Snap to Roads            | Consultez la section [Calculer des itinéraires et des directions](#calculate-routes-and-directions).            |
+| Speed Limits            | Consultez la section [Géocodage inverse d’une coordonnée](#reverse-geocode-a-coordinate).                  |
+| Carte statique              | [Render](https://docs.microsoft.com/rest/api/maps/render/getmapimage)                       |
+| Time Zone (Fuseau horaire)               | [Fuseau horaire](https://docs.microsoft.com/rest/api/maps/timezone)                              |
 
 Actuellement, les API de service suivantes ne sont pas disponibles dans Azure Maps :
 
-- Élévation
+- Elevation
 - Géolocalisation
-- Détails de lieux et Photos de lieux. Les numéros de téléphone et l’URL du site web sont disponibles dans l’API de recherche Azure Maps.
+- Places details and photos (détails et photos des lieux) : les numéros de téléphone et URL de site web sont disponibles dans l’API de recherche Azure Maps.
 - URL de cartes
-- Routes. Les données sur les limitations de vitesse sont disponibles par le biais des API de géocodage de routes et de géocodage inverse dans Azure Maps.
+- Nearest Roads (routes les plus proches) : cette fonctionnalité est proposée par le SDK web comme indiqué [ici](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic
+) mais n’est pas disponible comme service pour l’instant.
 - Affichage des rues statiques
 
 Azure Maps offre plusieurs autres services web REST qui peuvent être utiles :
@@ -176,8 +179,8 @@ Calculez des itinéraires et des directions à l’aide d’Azure Maps. Azure Ma
 
 Le service de routage Azure Maps fournit les API suivantes pour le calcul des itinéraires :
 
-- [**Calculer l’itinéraire**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) : Calculez un itinéraire et traitez aussitôt la requête. Cette API prend en charge les requêtes GET et POST. Utilisez des requêtes POST quand vous spécifiez un grand nombre de points de cheminement, ou quand vous utilisez la plupart des options d’itinéraire. L’utilisation de POST permet de garantir que la requête d’URL ne devient pas trop longue et ne provoque pas de problèmes.
-- [**Itinéraire par lots**](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview) : Créez une requête contenant jusqu'à 1 000 requêtes d’itinéraire, puis traitez-les sur une certaine période. Toutes les données sont traitées en parallèle sur le serveur. Une fois le traitement terminé, vous pouvez télécharger l’ensemble complet des résultats.
+- [**Calculer l’itinéraire**](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) : Calculez un itinéraire et traitez aussitôt la requête. Cette API prend en charge les requêtes GET et POST. Les requêtes POST sont recommandées lors de la spécification d'un grand nombre de points de cheminement ou lors de l'utilisation de nombreuses options de routage pour s'assurer que la requête URL ne devienne pas trop longue et n’entraîne des problèmes. L’opération POST Route Direction dans Azure Maps permet d’utiliser des milliers de [points de référence](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints) et de recréer un itinéraire logique entre eux (« alignement sur la route »). 
+- [**Itinéraire par lots**](https://docs.microsoft.com/rest/api/maps/route/postroutedirectionsbatchpreview) : Créez une requête contenant jusqu'à 1 000 requêtes d’itinéraire, puis traitez-les sur une certaine période. Toutes les données seront traitées en parallèle sur le serveur et, une fois l’opération terminée, l’ensemble complet des résultats pourra être téléchargé.
 - [**Services de mobilité**](https://docs.microsoft.com/rest/api/maps/mobility) : Calculez des itinéraires et des directions en utilisant les transports en commun.
 
 Le tableau suivant référence de manière croisée les paramètres de l’API Google Maps et les paramètres d’API comparables dans Azure Maps.
@@ -215,7 +218,7 @@ L’API d’itinéraire Azure Maps offre certaines fonctionnalités supplémenta
 - Limiter l’élévation de l’itinéraire.
 - Itinéraire basé sur les spécifications du moteur. Calculez les itinéraires pour les véhicules à combustion ou électriques en fonction des caractéristiques du moteur et de la réserve de carburant ou d’électricité.
 - Prise en charge des paramètres d’itinéraire pour véhicules utilitaires, tels que les dimensions du véhicule, le poids, le nombre d’axes et le type de cargaison.
-- Spécifier la vitesse maximale du véhicule.
+- Spécifiez la vitesse maximale du véhicule.
 
 De plus, le service Route dans Azure Maps prend en charge le [calcul des plages d’itinéraires](https://docs.microsoft.com/rest/api/maps/route/getrouterange). Le calcul des plages d’itinéraires est également appelé isochrones. Cela implique la génération d’un polygone couvrant une zone qui peut être parcourue dans n’importe quelle direction à partir d’un point d’origine, tout ceci dans un laps de temps ou une quantité de carburant spécifié(e).
 
@@ -261,7 +264,7 @@ En plus de pouvoir générer une image de carte statique, le service de rendu Az
 
 **Avant : Google Maps**
 
-Ajoutez des marqueurs à l’aide du paramètre `markers` dans l’URL. Le paramètre `markers` prend en compte un style et une liste de localisations à afficher sur la carte avec ce style, comme indiqué ci-dessous :
+Ajoutez des marqueurs à l’aide du paramètre `markers` dans l’URL. Le paramètre `markers` prend en compte un style et une liste d’emplacements à afficher sur la carte avec ce style, comme indiqué ci-dessous :
 
 ```
 &markers=markerStyles|markerLocation1|markerLocation2|...
@@ -308,7 +311,7 @@ Dans Azure Maps, la localisation de l’épingle doit être au format « longit
 
 - `default` : icône d’épingle par défaut.
 - `none` : aucune icône n’apparaît, seules les étiquettes seront affichées.
-- `custom` : spécifie une icône personnalisée à utiliser. Une URL pointant vers l'image de l'icône peut être ajoutée à la fin du paramètre `pins`, après les informations de localisation de l’épingle.
+- `custom` : spécifie une icône personnalisée à utiliser. Une URL pointant vers l'image de l'icône peut être ajoutée à la fin du paramètre `pins`, après les informations d’emplacement de l’épingle.
 - `{udid}` : identifiant unique de données (UDID) pour une icône stockée dans la plateforme de stockage de données Azure Maps.
 
 Ajoutez des styles d’épingle avec le format `optionNameValue`. Séparez les différents styles à l’aide de barres verticales (\|). Par exemple : `iconType|optionName1Value1|optionName2Value2`. Les noms et les valeurs des options ne sont pas séparés. Utilisez les noms d’options de style suivants pour appliquer un style aux marqueurs :
@@ -344,7 +347,7 @@ Ajoutons trois épingles avec les valeurs d’étiquette « 1 », « 2 » et
 
 ![Marqueurs multiples Azure Maps](media/migrate-google-maps-web-services/azure-maps-multiple-markers.png)</center>
 
-### <a name="path-url-parameter-format-comparison"></a>Comparaison du format du paramètre URL des tracés
+### <a name="path-url-parameter-format-comparison"></a>Comparaison du format du paramètre URL des chemins d'accès
 
 **Avant : Google Maps**
 
@@ -356,14 +359,14 @@ Ajoutez des lignes et un polygone à une image de carte statique à l’aide du 
 
 Utilisez des styles supplémentaires en ajoutant des paramètres `path` supplémentaires à l’URL avec un style et un jeu de localisations différents.
 
-Les localisations de tracés sont spécifiés au format `latitude1,longitude1|latitude2,longitude2|…`. Les tracés peuvent être encodés ou contenir des adresses de points.
+Les localisations de tracés sont spécifiés au format `latitude1,longitude1|latitude2,longitude2|…`. Les chemins d’accès peuvent être encodés ou contenir des adresses de points.
 
-Ajoutez des styles de tracés au format `optionName:value`, et séparez les différents styles à l’aide de barres verticales (\|). Séparez également les noms et les valeurs des options à l’aide d’un signe deux-points (:). Comme ceci : `optionName1:value1|optionName2:value2`. Les noms d’options de style suivants peuvent être utilisés pour appliquer un style à des tracés dans Google Maps :
+Ajoutez des styles de tracés au format `optionName:value`, et séparez les différents styles à l’aide de barres verticales (\|). Séparez également les noms et les valeurs des options à l’aide d’un signe deux-points (:). Comme ceci : `optionName1:value1|optionName2:value2`. Les noms d’options de style suivants peuvent être utilisés pour appliquer un style à des chemins d'accès dans Google Maps :
 
-- `color` : couleur du contour du polygone ou du tracé. Peut être une couleur hexadécimale 24 bits (`0xrrggbb`), une couleur hexadécimale 32 bits (`0xrrggbbbaa`) ou l’une des valeurs suivantes : noir, brun, vert, violet, jaune, bleu, gris, orange, rouge, blanc.
+- `color` : couleur du contour du chemin d'accès ou du polygone. Peut être une couleur hexadécimale 24 bits (`0xrrggbb`), une couleur hexadécimale 32 bits (`0xrrggbbbaa`) ou l’une des valeurs suivantes : noir, brun, vert, violet, jaune, bleu, gris, orange, rouge, blanc.
 - `fillColor` : couleur de remplissage de la zone du chemin d'accès avec (polygone). Peut être une couleur hexadécimale 24 bits (`0xrrggbb`), une couleur hexadécimale 32 bits (`0xrrggbbbaa`) ou l’une des valeurs suivantes : noir, brun, vert, violet, jaune, bleu, gris, orange, rouge, blanc.
-- `geodesic` : indique si le tracé doit être une ligne qui suit la courbure de la Terre.
-- `weight` : épaisseur de la ligne du tracé en pixels.
+- `geodesic` : indique si le chemin d’accès doit être une ligne qui suit la courbure de la Terre.
+- `weight` : épaisseur de la ligne du chemin d'accès en pixels.
 
 Ajoutez une opacité de ligne rouge et une épaisseur de pixel à la carte entre les coordonnées, dans le paramètre d’URL. Dans l’exemple ci-dessous, la ligne a une opacité de 50 % et une épaisseur de quatre pixels. Les coordonnées sont longitude : -110, latitude : 45 et longitude : -100, latitude : 50.
 

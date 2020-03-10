@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 0cc9328fa08f7e9125ecb41576c67f95382bc1bf
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 17b78e03e330e342e9d558dd3ca5d9071bcd3c2f
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892379"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163928"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Copier des données d’une source OData à l’aide d’Azure Data Factory
 
@@ -38,9 +38,9 @@ Vous pouvez copier les données d’une source OData dans tout magasin de donn�
 Plus précisément, ce connecteur OData prend en charge ce qui suit :
 
 - OData version 3.0 et 4.0.
-- Copie de données avec une des authentifications suivantes : **Anonyme**, **De base**, **Windows**, **Principal de service AAD** et **Identités managées pour ressources Azure**.
+- Copie de données avec une des authentifications suivantes : **Anonyme**, **De base**, **Windows** et **Principal de service AAD**.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -58,9 +58,9 @@ Les propriétés prises en charge pour le service lié OData sont les suivantes 
 |:--- |:--- |:--- |
 | type | La propriété **type** doit être définie sur **OData**. |Oui |
 | url | URL racine du service OData. |Oui |
-| authenticationType | Type d’authentification utilisé pour se connecter à la source OData. Les valeurs autorisées sont **Anonyme**, **De base**, **Windows**, **AadServicePrincipal** et **Managed Service Identity**. L’authentification OAuth par utilisateur n’est pas prise en charge. | Oui |
+| authenticationType | Type d’authentification utilisé pour se connecter à la source OData. Les valeurs autorisées sont les suivantes : **Anonyme**, **De base**, **Windows** et **Principal de service AAD**. L'authentification OAuth par utilisateur n'est pas prise en charge. | Oui |
 | userName | Si vous utilisez l’authentification De base ou Windows, spécifiez un **nom d’utilisateur**. | Non |
-| password | Spécifiez le **mot de passe** associé au **nom d’utilisateur spécifié**. Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée dans Data Factory. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
+| mot de passe | Spécifiez le **mot de passe** associé au **nom d’utilisateur spécifié**. Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée dans Data Factory. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
 | servicePrincipalId | Spécifiez l’ID de l’application Azure Active Directory. | Non |
 | aadServicePrincipalCredentialType | Spécifiez le type d’informations d’identification à utiliser pour l’authentification de principal du service. Valeurs autorisées : `ServicePrincipalKey` ou `ServicePrincipalCert`. | Non |
 | servicePrincipalKey | Spécifiez la clé de l’application Azure Active Directory. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |

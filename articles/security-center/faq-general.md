@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: b13e5e0000cdd8e33f459400cc4c24d107ccaba3
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: f9043ae1414b63f25583d52100774f3e87754a74
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604795"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661837"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ - Questions générales sur Azure Security Center
 
@@ -38,16 +38,17 @@ Azure Security Center surveille les ressources Azure suivantes :
 * Machines virtuelles (VM) (y compris [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 * Groupes identiques de machines virtuelles
 * Réseaux virtuels Azure
+* Containers
 * Service SQL Azure
 * Compte de Stockage Azure
 * Azure Web Apps (dans [App Service Environment](../app-service/environment/intro.md))
 * Solutions de partenaires intégrées à votre abonnement Azure, par exemple pare-feu d’applications web sur les machines virtuelles et sur App Service Environment
 
-En outre, les ordinateurs non Azure (y compris en local) peuvent également être analysés par Azure Security Center (les [ordinateurs Windows](./quick-onboard-windows-computer.md) et [Linux](./quick-onboard-linux-computer.md) sont pris en charge)
+En outre, les machines non-Azure (notamment locales) peuvent également être supervisées par Azure Security Center. Les [ordinateurs Windows](./quick-onboard-windows-computer.md) et les [ordinateurs Linux](./quick-onboard-linux-computer.md) sont pris en charge.
 
 
 ## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Comment connaître l’état de sécurité actuel de mes ressources Azure ?
-La page **Vue d’ensemble de Security Center** affiche les mesures de sécurité globales de votre environnement pour les ressources suivantes : Compute, Mise en réseau, Stockage et données, et Applications. Chaque type de ressource possède un indicateur montrant la présence éventuelle de failles de sécurité. Cliquez sur chaque vignette pour afficher une liste des problèmes de sécurité identifiés par Security Center, ainsi qu’un inventaire des ressources dans votre abonnement.
+La page **Vue d’ensemble de Security Center** affiche les mesures de sécurité globales de votre environnement pour les ressources suivantes : Compute, Mise en réseau, Stockage et données, et Applications. Chaque type de ressource possède un indicateur montrant les failles de sécurité identifiées. Cliquez sur chaque vignette pour afficher une liste des problèmes de sécurité identifiés par Security Center, ainsi qu’un inventaire des ressources dans votre abonnement.
 
 
 

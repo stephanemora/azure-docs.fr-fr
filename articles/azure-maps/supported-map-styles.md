@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9cdfd0d029057e36e010203b7c35a5aafee4b574
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: a65f20e04603403a1d3a180e364626d5b4440661
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208282"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664493"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Styles de cartes pris en charge dans Azure Maps
 Azure Maps prend en charge plusieurs styles de mappage intégrés, qui sont décrits ci-dessous.
@@ -52,7 +52,7 @@ Le style **satellite** est une combinaison d’imagerie satellite et d’imageri
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Ce style de carte est un hybride qui montre des routes et des noms superposés à une imagerie satellite et aérienne.
 
-![style de carte satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
+![style de carte satellite_road_labels](./media/supported-map-styles/satellite-road-labels.png)
 
 **API applicables :**
 * Contrôle de carte du SDK web
@@ -61,7 +61,7 @@ Ce style de carte est un hybride qui montre des routes et des noms superposés �
 ## <a name="grayscale_dark"></a>grayscale_dark
 **Nuances de gris foncé** est une version plus sombre du style carte routière.
 
-![style de carte gray_scale](./media/supported-map-styles/grayscale_dark.png)
+![style de carte gray_scale](./media/supported-map-styles/grayscale-dark.png)
 
 **API applicables :**
 * [Image de la carte](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -73,7 +73,7 @@ Ce style de carte est un hybride qui montre des routes et des noms superposés �
 ## <a name="grayscale_light"></a>grayscale_light
 **Nuances de gris clair** est une version plus claire du style carte routière.
 
-![style de carte nuances de gris clair](./media/supported-map-styles/grayscale_light.png)
+![style de carte nuances de gris clair](./media/supported-map-styles/grayscale-light.png)
 
 **API applicables :**
 * Contrôle de carte du SDK web
@@ -99,6 +99,14 @@ Le **relief par ombres portées** est un style d’Azure Maps qui reprend le rel
 * Contrôle de carte du SDK web
 * Commandes de carte Android
 
+## <a name="high_contrast_dark"></a>high_contrast_dark
+
+**high_contrast_dark** est un style de carte sombre avec un contraste plus élevé que d’autres styles.
+
+![style de carte sombre à contraste élevé](./media/supported-map-styles/high-contrast-dark.png)
+
+**API applicables :**
+* Contrôle de carte du SDK web
 
 ## <a name="next-steps"></a>Étapes suivantes
 

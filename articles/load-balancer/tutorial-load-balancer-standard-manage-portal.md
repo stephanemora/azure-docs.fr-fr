@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 4d4703ccb4ee96eb69a780f91eae1eb6da9e1578
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5b39186a39fbd2398fb4045ba62797e321fc3284
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225177"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249869"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic Internet sur les machines virtuelles avec le portail Azure
 
@@ -45,11 +45,11 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 Dans cette section, vous allez créer un équilibreur de charge standard qui équilibre la charge de machines virtuelles. L’équilibreur de charge standard prend uniquement en charge une adresse IP publique standard. Lorsque vous créez un équilibreur de charge standard, vous devez également créer une adresse IP publique standard configurée en tant que frontale (nommée *LoadBalancerFrontend* par défaut) pour cet équilibreur de charge standard. 
 
 1. En haut à gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
-2. Dans l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Vérifier + créer** :
+2. Sous l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Vérifier + créer** :
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Subscription               | Sélectionnez votre abonnement.    |    
+    | Abonnement               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer**, puis entrez *myResourceGroupSLB* dans la zone de texte.|
     | Nom                   | *myLoadBalancer*                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
@@ -116,22 +116,20 @@ Une règle d’équilibreur de charge sert à définir la distribution du trafic
 
 Dans cette section, vous allez créer un réseau virtuel ainsi que trois machines virtuelles pour le pool principal de l’équilibreur de charge, puis installer IIS sur les machines virtuelles afin de tester l’équilibreur de charge.
 
-### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
+## <a name="virtual-network-and-parameters"></a>Réseau virtuel et paramètres
 
-1. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
-2. Dans **Créer un réseau virtuel**, entrez ou sélectionnez ces informations :
+Dans les étapes de cette section, vous devrez remplacer les paramètres du tableau ci-dessous par la valeur indiquée correspondante :
 
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    | Nom | Entrez *myVNet*. |
-    | Espace d’adressage | Entrez *10.1.0.0/16*. |
-    | Subscription | Sélectionnez votre abonnement.|
-    | Resource group | Sélectionner une ressource existante – *myResourceGroupSLB*. |
-    | Location | Sélectionnez **Europe Ouest**.|
-    | Sous-réseau - Nom | Entrez *myBackendSubnet*. |
-    | Plage d’adresses du sous-réseau | Entrez *10.1.0.0/24*. |
-    
-3. Laissez les autres valeurs par défaut et sélectionnez **Créer**.
+| Paramètre                   | Valeur                |
+|-----------------------------|----------------------|
+| **\<nom_groupe_ressources>**  | myResourceGroupSLB (sélectionnez un groupe de ressources existant) |
+| **\<nom_réseau_virtuel>** | myVNet          |
+| **\<nom_région>**          | Europe Ouest      |
+| **\<espace_d’adressage_IPv4>**   | 10.1.0.0\16          |
+| **\<nom_sous-réseau>**          | mySubnet        |
+| **\<plage_adresses_sous-réseau>** | 10.1.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
@@ -164,7 +162,7 @@ Le service Standard Load Balancer ne prend en charge que des machines virtuelles
 1. Sélectionnez l’onglet **Gestion** ou sélectionnez **Suivant** > **Gestion**. Sous **Supervision**, définissez **Diagnostics de démarrage** sur **Désactivé**. 
 1. Sélectionnez **Revoir + créer**.   
 1. Passez en revue les paramètres, puis sélectionnez **Créer**.
-1. Suivez les étapes pour créer deux machines virtuelles supplémentaires, *myVM2* et *myVM3*, avec une adresse IP publique de référence (SKU) standard dans **Zone de disponibilité** **2** et **3**, avec tous les autres paramètres identiques à ceux de *myVM1*.  
+1. Suivez les étapes pour créer deux machines virtuelles supplémentaires, *myVM2* et *myVM3*, avec une adresse IP publique de référence SKU standard respectivement dans **Zone de disponibilité** **2** et **3**, avec tous les autres paramètres identiques à ceux de *myVM1*.  
 
 ### <a name="create-network-security-group-rule"></a>Créer une règle de groupe de sécurité réseau
 
@@ -239,7 +237,7 @@ Pour ré-ajouter *myVM1* au pool principal, procédez comme suit :
    2. Pour **Sélectionner un équilibreur de charge**, choisissez *MyLoadBalancer*.
    3. Pour **Sélectionner un pool principal**, choisissez *myBackendPool*. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’avez plus besoin du groupe de ressources, de l’équilibreur de charge et de toutes les ressources associées, supprimez-les. Pour ce faire, sélectionnez le groupe de ressources *myResouceGroupSLB* contenant l’équilibreur de charge, puis sélectionnez **Supprimer**.
 

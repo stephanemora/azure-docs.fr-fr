@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 1367bf32eea58b828c00ee23a59a32a2fec699ab
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8fdc64632be8b5fcb3dca8de2ee833fef25719fe
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983093"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656736"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Limitations et restrictions des URL de réponse/URI de redirection
 
@@ -54,7 +54,7 @@ Le modèle d’application Azure AD ne prend pas en charge les URI avec caractè
 > [!NOTE]
 > La nouvelle expérience [Inscription d'applications](https://go.microsoft.com/fwlink/?linkid=2083908) ne permet pas aux développeurs d’ajouter des URI avec caractères génériques dans l’interface utilisateur. L'ajout d'URI avec caractères génériques pour les applications se connectant à des comptes professionnels ou scolaires est uniquement pris en charge par le biais de l’éditeur du manifeste d’application. À l’avenir, les nouvelles applications ne pourront pas utiliser de caractères génériques dans les URI de redirection. Toutefois, les applications plus anciennes dont les URI de redirection contiennent des caractères génériques continueront de fonctionner.
 
-Si votre scénario implique plus d'URI de redirection que la limite maximale autorisée, plutôt que d’ajouter une URI avec caractères génériques, envisagez une des approches suivantes.
+Si votre scénario implique plus d’URI de redirection que la limite maximale autorisée, au lieu d’ajouter un URI de redirection avec caractères génériques, envisagez les approches suivantes.
 
 ### <a name="use-a-state-parameter"></a>Utiliser un paramètre d’état
 
@@ -70,10 +70,6 @@ Dans cette approche :
 
 > [!NOTE]
 > Cette approche permet à un client compromis de modifier les paramètres supplémentaires envoyés dans le paramètre d'état, redirigeant ainsi l'utilisateur vers une URL différente, ce qui correspond à la [menace de redirecteur ouvert](https://tools.ietf.org/html/rfc6819#section-4.2.4) décrite dans le document RFC 6819. Par conséquent, le client doit protéger ces paramètres en chiffrant l'état ou en le vérifiant par un autre moyen, tel que la validation du nom de domaine dans l'URI de redirection par rapport au jeton.
-
-### <a name="add-redirect-uris-to-service-principals"></a>Ajouter des URI de redirection aux principaux de service
-
-Une autre approche consiste à ajouter des URI de redirection aux [principaux de service](app-objects-and-service-principals.md#application-and-service-principal-relationship) qui représentent votre inscription d’application dans n’importe quel locataire Azure AD. Vous pouvez adopter cette approche si vous n'êtes pas en mesure d'utiliser un paramètre d'état ou si votre scénario implique que vous ajoutiez de nouvelles URI de redirection à votre inscription d'application pour chaque nouveau locataire que vous prenez en charge. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

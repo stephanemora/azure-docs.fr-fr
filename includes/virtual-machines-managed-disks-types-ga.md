@@ -1,25 +1,25 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 02/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a355307eef9f5ce1f833cfd7924f5efa234a0cd7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e145cf481dd165144b188e6205e4b78cc61359fd
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73522772"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78202536"
 ---
 ## <a name="premium-ssd"></a>SSD Premium
 
 Les disques SSD Premium Azure offrent une prise en charge très performante et une faible latence pour les machines virtuelles avec des charges de travail qui utilisent beaucoup d’entrée/sortie (E/S). Pour tirer parti de la vitesse et des performances des disques de stockage Premium, vous pouvez migrer les disques de machines virtuelles existantes vers des disques SSD Premium. Les disques SSD Premium sont adaptés aux applications de production critiques. Ces disques sont utilisables uniquement avec des séries de machines virtuelles compatibles avec le stockage Premium.
 
-Pour en savoir plus sur les types et les tailles de machines virtuelles individuelles dans Azure pour Windows, notamment les tailles compatibles avec le stockage Premium, consultez [Tailles des machines virtuelles Windows](../articles/virtual-machines/windows/sizes.md). Pour en savoir plus sur les types et les tailles de machines virtuelles individuelles dans Azure pour Linux, notamment les tailles compatibles avec le stockage Premium, consultez [Tailles des machines virtuelles Linux](../articles/virtual-machines/linux/sizes.md).
+Pour en savoir plus sur les types et les tailles de machines virtuelles individuelles dans Azure pour Windows, notamment les tailles compatibles avec le stockage Premium, consultez [Tailles des machines virtuelles Windows](../articles/virtual-machines/windows/sizes.md). Pour en savoir plus sur les types et les tailles de machines virtuelles individuelles dans Azure pour Linux, notamment les tailles compatibles avec le stockage Premium, consultez [Tailles des machines virtuelles Linux](../articles/virtual-machines/linux/sizes.md). À partir de l'un ou l'autre de ces articles, vous devez vérifier chaque taille de machine virtuelle pour déterminer si elle est compatible avec le stockage Premium.
 
 ### <a name="disk-size"></a>Taille du disque
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
@@ -34,7 +34,7 @@ La prise en charge des rafales de disque sera activée sur les nouveaux déploie
 
 ### <a name="transactions"></a>Transactions
 
-Pour les disques SSD Premium, chaque opération d’E/S inférieure ou égale à 256 Kio de débit est considérée comme une seule opération d’E/S. Les opérations d’E/S supérieures à 256 Kio de débit sont considérées comme plusieurs opérations d’E/S de 256 Kio chacune.
+Pour les disques SSD Premium, chaque opération d’E/S inférieure ou égale à 256 Kio de débit est considérée comme une seule opération d’E/S. Les opérations d’E/S dont le débit est supérieur à 256 Kio sont considérées comme des opérations d’E/S distinctes, de 256 Kio chacune.
 
 ## <a name="standard-ssd"></a>SSD Standard
 
@@ -47,7 +47,7 @@ Les disques SSD Standard sont conçus pour fournir des latences de quelques mill
 
 ### <a name="transactions"></a>Transactions
 
-Pour les disques SSD Standard, chaque opération d’E/S inférieure ou égale à 256 Kio de débit est considérée comme une seule opération d’E/S. Les opérations d’E/S supérieures à 256 Kio de débit sont considérées comme plusieurs opérations d’E/S de 256 Kio chacune. Ces transactions ont un impact sur la facturation.
+Pour les disques SSD Standard, chaque opération d’E/S inférieure ou égale à 256 Kio de débit est considérée comme une seule opération d’E/S. Les opérations d’E/S dont le débit est supérieur à 256 Kio sont considérées comme des opérations d’E/S distinctes, de 256 Kio chacune. Ces transactions ont un impact sur la facturation.
 
 ## <a name="standard-hdd"></a>HDD Standard
 

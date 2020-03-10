@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: e8f2b2661a07da43e924929df7666cfd970372b1
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 57671aa170e02cd773ba927a698d3ecece2ab4e3
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623903"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163539"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Niveaux tarifaires pour Azure Database for MariaDB
 
@@ -61,7 +61,7 @@ Vous pouvez surveiller votre consommation d’E/S dans le Portail Azure ou à l�
 
 ### <a name="reaching-the-storage-limit"></a>Atteindre la limite de stockage
 
-Les serveurs avec moins de 100 Go de stockage approvisionnés sont marqués en lecture seule si l’espace de stockage libre est inférieur à 512 Mo ou à 5 % de la taille approvisionnée. Les serveurs avec plus de 100 Go de stockage approvisionnés sont marqués en lecture seule lorsque l’espace de stockage libre est inférieur à 5 Go.
+Les serveurs avec moins de 100 Go de stockage approvisionnés sont marqués en lecture seule si l'espace de stockage libre est inférieur à 5 % de la taille approvisionnée. Les serveurs avec plus de 100 Go de stockage approvisionnés sont marqués en lecture seule lorsque l’espace de stockage libre est inférieur à 5 Go.
 
 Par exemple, si vous avez approvisionné 110 Go de stockage et que l’utilisation réelle dépasse 105 Go, le serveur est marqué en lecture seule. Sinon, si vous avez provisionné 5 Go de stockage, le serveur est marqué en lecture seule quand le stockage disponible est inférieur à 256 Mo.
 
@@ -71,9 +71,9 @@ Nous vous recommandons d’activer la croissance automatique du stockage ou de c
 
 ### <a name="storage-auto-grow"></a>Croissance automatique du stockage
 
-La croissance automatique du stockage permet à votre serveur de disposer en permanence d’un espace de stockage suffisant et de ne pas passer en lecture seule. Si la croissance automatique du stockage est activée, le stockage évolue automatiquement sans affecter la charge de travail. Pour les serveurs avec moins de 100 Go de stockage provisionnés, la taille de stockage provisionné augmente de 5 Go quand l’espace de stockage libre est inférieur à 10 % de la taille de stockage provisionné. Pour les serveurs avec plus de 100 Go de stockage provisionnés, la taille de stockage provisionné augmente de 5 % quand l’espace de stockage libre est inférieur à 10 % de la taille de stockage provisionné. Les limites de stockage maximales indiquées ci-dessus s’appliquent.
+La croissance automatique du stockage permet à votre serveur de disposer en permanence d’un espace de stockage suffisant et de ne pas passer en lecture seule. Si la croissance automatique du stockage est activée, le stockage évolue automatiquement sans affecter la charge de travail. Pour les serveurs avec moins de 100 Go de stockage approvisionnés, la taille de stockage approvisionnée augmente de 5 Go lorsque l'espace de stockage libre est inférieur à 10 % de la taille de stockage approvisionnée. Pour les serveurs avec plus de 100 Go de stockage approvisionnés, la taille de stockage approvisionnée augmente de 5 % lorsque l'espace de stockage libre est inférieur à 10 Go de la taille de stockage approvisionnée. Les limites de stockage maximales indiquées ci-dessus s’appliquent.
 
-Par exemple, si vous avez provisionné 1000 Go de stockage et que l’utilisation réelle dépasse 900 Go, la taille de stockage du serveur passe à 1050 Go. Sinon, si vous avez configuré 10 Go de stockage, la taille de stockage passe à 15 Go lorsque moins de 1 Go de stockage est libre.
+Par exemple, si vous avez approvisionné 1000 Go de stockage et que l'utilisation réelle dépasse 990 Go, la taille de stockage du serveur passe à 1050 Go. Sinon, si vous avez configuré 10 Go de stockage, la taille de stockage passe à 15 Go lorsque moins de 1 Go de stockage est libre.
 
 N’oubliez pas que le stockage peut seulement monter en puissance.
 

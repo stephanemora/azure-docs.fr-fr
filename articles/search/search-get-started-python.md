@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
-ms.openlocfilehash: 15a3801a7ea99d6d799bcd8adf340b03f36bc196
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 93fb9ec735de1abf89eb217d0f4096fcfc0afe94
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121621"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227098"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Démarrage rapide : Créer un index Recherche cognitive Azure en Python à l’aide de notebooks Jupyter
 
@@ -30,7 +30,7 @@ Générez un notebook Jupyter qui crée, charge et interroge un index Recherche 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Les services et outils suivants sont indispensables dans ce guide de démarrage rapide. 
 
@@ -126,7 +126,7 @@ Cet index est nommé « hotels-quickstart » et contient les définitions de c
     }
     ```
 
-2. Dans une autre cellule, formulez la requête. Cette requête PUT cible la collection d’index de votre service de recherche et crée un index basé sur le schéma d’index que vous avez fourni dans la cellule précédente.
+2. Dans une autre cellule, formulez la requête. Cette requête POST cible la collection d’index de votre service de recherche et crée un index basé sur le schéma d’index que vous avez fourni dans la cellule précédente.
 
    ```python
    url = endpoint + "indexes" + api_version

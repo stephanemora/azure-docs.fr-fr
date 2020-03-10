@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/15/2020
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: eda567fda13d6caca679d0ce4947e042eca9530d
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 94ed936e619461a2dbf7ec837c2d80e21c01c88e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651931"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919989"
 ---
 # <a name="detecting-and-handling-batch-service-errors"></a>Détection et gestion des erreurs du service Batch
 
@@ -33,11 +33,16 @@ Il est important de toujours rechercher les erreurs éventuelles quand vous trav
 - La limitation de bande passante peut provoquer des erreurs telles que des réponses HTTP du code d’état 429 ou 503 avec l’en-tête Retry-after.
 - Erreurs 4xx qui incluent des erreurs comme AlreadyExists et InvalidOperation. Cela signifie que la ressource n’est pas dans l’état correct pour la transition d’état.
 
+Pour plus d’informations sur les différents types de codes d’erreur et des codes d’erreur spécifiques, voir [État et codes d’erreur dans Batch](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).
+
 ## <a name="when-to-retry"></a>Quand faire une nouvelle tentative
 
 Les API du service Batch vous envoient une notification en cas d’erreur. Elles permettent toutes de faire une nouvelle tentative et elles incluent toutes un gestionnaire de nouvelles tentatives global à cet effet. Il est préférable d’utiliser ce mécanisme intégré.
 
 Après une erreur, vous devez attendre un peu (quelques secondes entre deux nouvelles tentatives) avant de réessayer. Si vous réessayez trop souvent ou trop rapidement, le gestionnaire de nouvelles tentatives limite la bande passante.
 
+### <a name="for-more-information"></a>Informations supplémentaires  
+
+La rubrique [Outils et API Batch](batch-apis-tools.md) renvoie à des informations de référence sur les API. L’API .NET, par exemple, a une [classe RetryPolicyProvider]( https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet) dans laquelle la stratégie de nouvelle tentative requise doit être spécifiée. 
 
 Pour plus d’informations sur chaque API et leurs stratégies de nouvelles tentatives par défaut, consultez [État et codes d’erreur dans Batch](https://docs.microsoft.com/rest/api/batchservice/batch-status-and-error-codes).

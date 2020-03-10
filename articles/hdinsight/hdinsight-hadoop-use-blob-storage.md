@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/01/2019
-ms.openlocfilehash: 55cddf5317938dea353517cde7260a1aa531d1df
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 02/28/2020
+ms.openlocfilehash: f496f6c06d36f817b0a933bdc68d5c53f308e3f2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061256"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192623"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utiliser le stockage Azure avec des clusters Azure HDInsight
 
@@ -38,7 +38,7 @@ Le partage d’un conteneur blob en tant que système de fichiers par défaut su
 > [!NOTE]  
 > Le niveau d’accès archive est un niveau hors connexion dont la latence de récupération de plusieurs heures n’est pas recommandée pour une utilisation avec HDInsight. Pour plus d’informations, voir [Niveau d’accès archive](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
 
-## <a name="access-files-from-the-cluster"></a>Accès aux fichiers à partir du cluster
+## <a name="access-files-from-within-cluster"></a>Accès aux fichiers à partir de l’intérieur d’un cluster
 
 Il existe plusieurs méthodes pour accéder aux fichiers dans Data Lake Storage à partir d’un cluster HDInsight. Le modèle d'URI offre à la fois un accès non chiffré (avec le préfixe *wasb:* ) et un accès chiffré SSL (avec *wasbs*). Dans la mesure du possible, nous vous recommandons d’utiliser *wasbs* , même lorsqu’il s’agit d’accéder à des données qui résident dans la même région Azure.
 
@@ -122,6 +122,17 @@ LOCATION 'wasbs:///example/data/';
 LOCATION '/example/data/';
 ```
 
+## <a name="access-files-from-outside-cluster"></a>Accès aux fichiers à partir de l’extérieur d’un cluster
+
+Microsoft fournit les outils suivants pour utiliser Stockage Azure :
+
+| Outil | Linux | OS X | Windows |
+| --- |:---:|:---:|:---:|
+| [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
+| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
+| [AZCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
+
 ## <a name="identify-storage-path-from-ambari"></a>Identifier le chemin de stockage à partir d’Ambari
 
 * Pour identifier le chemin d'accès complet à la mémoire par défaut configurée, naviguez jusqu'à :
@@ -132,6 +143,8 @@ LOCATION '/example/data/';
 
     **HDFS** > **Configs**, puis entrez `blob.core.windows.net` dans la zone de saisie du filtre.
 
+Pour obtenir le chemin d’accès à l’aide de l’API REST Ambari, voir [Obtenir le stockage par défaut](./hdinsight-hadoop-manage-ambari-rest-api.md#get-the-default-storage).
+
 ## <a name="blob-containers"></a>Conteneurs d’objets blob
 
 Pour utiliser des objets blob, commencez par créer un [compte Stockage Azure](../storage/common/storage-create-storage-account.md). À cette étape, vous spécifiez une région Azure dans laquelle le compte de stockage est créé. Le cluster et le compte de stockage doivent être hébergés dans la même région. La base de données SQL Server de metastore Hive et la base de données SQL Server de metastore Apache Oozie doivent également se trouver dans la même région.
@@ -141,17 +154,6 @@ Où qu’il réside, chaque objet blob que vous créez appartient à un conteneu
 Le conteneur d’objets blob par défaut stocke les informations spécifiques de cluster telles que l’historique et les journaux d’activité des travaux. Ne partagez pas un conteneur d’objets blob par défaut avec plusieurs clusters HDInsight. Cela est susceptible d’endommager l’historique des travaux. Il est recommandé d’utiliser un conteneur différent pour chaque cluster et de placer des données partagées sur un compte de stockage lié et spécifié dans le déploiement de tous les clusters pertinents, plutôt que d’utiliser le compte de stockage par défaut. Pour plus d'informations sur la configuration des comptes de stockage liés, consultez [Créer des clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md). Vous pouvez, toutefois, réutiliser un conteneur de stockage par défaut une fois le cluster HDInsight d'origine supprimé. Pour les clusters HBase, vous pouvez conserver le schéma et les données de la table HBase en créant un cluster HBase à l’aide du conteneur d’objets blob par défaut utilisé par un cluster HBase ayant été supprimé.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
-
-## <a name="interacting-with-azure-storage"></a>Interaction avec Stockage Azure
-
-Microsoft fournit les outils suivants pour utiliser Stockage Azure :
-
-| Outil | Linux | OS X | Windows |
-| --- |:---:|:---:|:---:|
-| [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
-| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
-| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
-| [AZCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
 
 ## <a name="use-additional-storage-accounts"></a>Utiliser des comptes de stockage supplémentaires
 

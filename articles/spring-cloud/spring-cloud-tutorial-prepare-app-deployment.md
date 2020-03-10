@@ -6,16 +6,22 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: af3611e4c4d1f5d8ca52b3ceb80d79dcfd7d2061
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 49ebfec131c8b9fa7b8535163c03eb7cb692790d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190733"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200020"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Préparer une application Spring Java pour le déploiement dans Azure Spring Cloud
 
 Ce guide de démarrage rapide vous montre comment préparer une application Java Spring existante afin de la déployer sur Azure Spring Cloud. S’il est correctement configuré, Azure Spring Cloud fournit des services robustes pour superviser, mettre à l’échelle et mettre à jour votre application Java Spring Cloud.
+
+D’autres exemples expliquent comment déployer une application sur Azure Spring Cloud quand le fichier POM est configuré. 
+* [Lancer l’application en utilisant le portail Azure](spring-cloud-quickstart-launch-app-portal.md)
+* [Lancer l’application en utilisant Azure CLI](spring-cloud-quickstart-launch-app-cli.md)
+
+Cet article explique les dépendances nécessaires et comment les ajouter au fichier POM.
 
 ## <a name="java-runtime-version"></a>Version du runtime Java
 
@@ -25,16 +31,18 @@ Azure Spring Cloud prend en charge Java 8 et Java 11. L’environnement d’h�
 
 ## <a name="spring-boot-and-spring-cloud-versions"></a>Versions de Spring Boot et de Spring Cloud
 
-Seules les applications Spring Boot sont prises en charge dans Azure Spring Cloud. Les versions 2.1 et 2.2 de Spring Boot sont prises en charge. Le tableau ci-dessous liste les combinaisons prises en charges de Spring Boot et Spring Cloud :
+Pour préparer une application Spring Boot existante pour un déploiement sur Azure Spring Cloud, incluez les dépendances Spring Boot et Spring Cloud dans le fichier POM de l’application comme indiqué dans les sections suivantes.
+
+Azure Spring Cloud prend en charge seulement les applications Spring Boot version 2.1 et 2.2. Le tableau ci-dessous liste les combinaisons prises en charges de Spring Boot et Spring Cloud :
 
 Version de Spring Boot | Version de Spring Cloud
 ---|---
 2.1 | Greenwich.RELEASE
 2.2 | Hoxton.RELEASE
 
-Vérifiez que votre fichier pom.xml comprend les dépendances Spring Boot et Spring Cloud qui correspondent à votre version de Spring Boot.
-
 ### <a name="dependencies-for-spring-boot-version-21"></a>Dépendances pour Spring Boot version 2.1
+
+Pour Spring Boot version 2.1, ajoutez les dépendances suivantes au fichier POM de l’application.
 
 ```xml
     <!-- Spring Boot dependencies -->
@@ -60,6 +68,8 @@ Vérifiez que votre fichier pom.xml comprend les dépendances Spring Boot et Spr
 
 ### <a name="dependencies-for-spring-boot-version-22"></a>Dépendances pour Spring Boot version 2.2
 
+Pour Spring Boot version 2.2, ajoutez les dépendances suivantes au fichier POM de l’application.
+
 ```xml
     <!-- Spring Boot dependencies -->
     <parent>
@@ -84,7 +94,7 @@ Vérifiez que votre fichier pom.xml comprend les dépendances Spring Boot et Spr
 
 ## <a name="azure-spring-cloud-client-dependency"></a>Dépendance du client Azure Spring Cloud
 
-Azure Spring Cloud héberge et gère pour vous les composants Spring Cloud. Ces composants sont notamment Spring Cloud Service Registry et Spring Cloud Config Server. Ajoutez la bibliothèque cliente d’Azure Spring Cloud à vos dépendances pour permettre la communication avec votre instance du service Azure Spring Cloud.
+Azure Spring Cloud héberge et gère les composants Spring Cloud. Les composants sont notamment Spring Cloud Service Registry et Spring Cloud Config Server. Ajoutez la bibliothèque cliente d’Azure Spring Cloud à vos dépendances pour permettre la communication avec votre instance du service Azure Spring Cloud.
 
 Le tableau suivant liste les versions d’Azure Spring Cloud qui sont compatibles avec les applications qui utilisent Spring Boot et Spring Cloud.
 
@@ -97,6 +107,8 @@ Ajoutez l’une des dépendances suivantes à votre fichier pom.xml. Sélectionn
 
 ### <a name="dependency-for-azure-spring-cloud-version-21"></a>Dépendance pour Azure Spring Cloud version 2.1
 
+Pour Spring Boot version 2.1, ajoutez la dépendance suivante au fichier POM de l’application.
+
 ```xml
 <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -106,6 +118,8 @@ Ajoutez l’une des dépendances suivantes à votre fichier pom.xml. Sélectionn
 ```
 
 ### <a name="dependency-for-azure-spring-cloud-version-22"></a>Dépendance pour Azure Spring Cloud version 2.2
+
+Pour Spring Boot version 2.2, ajoutez la dépendance suivante au fichier POM de l’application.
 
 ```xml
 <dependency>
@@ -117,7 +131,33 @@ Ajoutez l’une des dépendances suivantes à votre fichier pom.xml. Sélectionn
 
 ## <a name="other-required-dependencies"></a>Autres dépendances nécessaires
 
-Pour activer les fonctionnalités intégrées d’Azure Spring Cloud, votre application doit inclure les dépendances suivantes. Ceci garantit que votre application se configure elle-même correctement avec chaque composant.  
+Pour activer les fonctionnalités intégrées d’Azure Spring Cloud, votre application doit inclure les dépendances suivantes. Ceci garantit que votre application se configure elle-même correctement avec chaque composant.
+
+### <a name="enablediscoveryclient-annotation"></a>Annotation EnableDiscoveryClient
+
+Ajoutez l’annotation suivante au code source de l’application.
+```java
+@EnableDiscoveryClient
+```
+Par exemple, regardez l’application piggymetrics provenant des exemples précédents :
+```java
+package com.piggymetrics.gateway;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+
+@SpringBootApplication
+@EnableDiscoveryClient
+@EnableZuulProxy
+
+public class GatewayApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(GatewayApplication.class, args);
+    }
+}
+```
 
 ### <a name="service-registry-dependency"></a>Dépendance Service Registry
 
@@ -175,6 +215,13 @@ Ajoutez les dépendances `spring-cloud-starter-sleuth` et `spring-cloud-starter-
 ```
 
  Vous devez également permettre à une instance Azure Application Insights de fonctionner avec votre instance du service Azure Spring Cloud. Pour savoir comment utiliser Application Insights avec Azure Spring Cloud, lisez le [tutoriel sur le suivi distribué](spring-cloud-tutorial-distributed-tracing.md).
+
+## <a name="see-also"></a>Voir aussi
+* [Analyser les journaux et les métriques des applications](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
+* [Configurer votre serveur de configuration](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server)
+* [Utiliser le suivi distribué avec Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+* [Guide de démarrage rapide Spring](https://spring.io/quickstart)
+* [Documentation Spring Boot](https://spring.io/projects/spring-boot)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

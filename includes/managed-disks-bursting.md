@@ -1,21 +1,21 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/24/2019
+ms.date: 02/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7564d40aa9344288c0368818b0b6501dc22a5a27
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a04df7ed283a17ddad6af87cf8215ff8d39a5079
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705524"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78202564"
 ---
-Le mode rafale est actuellement en préversion pour les disques SSD Premium. Le mode rafale est pris en charge sur toutes les tailles de disques SSD Premium qui sont inférieures ou égales à 512 Gio (P20 ou version inférieure). Ces tailles de disque prennent en charge les rafales sur une base d’effort optimal et utilisent un système de crédit pour gérer celles-ci. Les crédits s’accumulent dans un compartiment de rafales chaque fois que le trafic du disque est inférieur à la cible de performances approvisionnée pour leur taille de disque, et des crédits sont consommés lorsque le trafic va au-delà de la cible. Le suivi du trafic du disque est effectué sur la base des IOPS et de la bande passante dans la cible approvisionnée.
+Le mode rafale est actuellement en préversion pour les disques SSD Premium. Le mode rafale est pris en charge sur toutes les tailles de disques SSD Premium qui sont inférieures ou égales à 512 Gio (P20 ou version inférieure). Ces tailles de disque prennent en charge les rafales sur une base d’effort optimal et utilisent un système de crédit pour gérer celles-ci. Les crédits s’accumulent dans un compartiment de rafales chaque fois que le trafic du disque est inférieur à la cible de performances approvisionnée pour leur taille de disque, et des crédits sont consommés lorsque le trafic va au-delà de la cible. Le suivi du trafic du disque est effectué sur la base des IOPS et de la bande passante dans la cible approvisionnée. Le mode rafale du disque ne contourne pas les limitations de taille des machines virtuelles en matière d'IOPS ou de débit.
 
 Le mode rafale du disque est activé par défaut sur les nouveaux déploiements des tailles de disque qui le prennent en charge. Les tailles de disque existantes, si elles prennent en charge le mode rafale du disque, peuvent activer les rafales via l’une des méthodes suivantes :
 

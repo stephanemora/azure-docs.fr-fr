@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Équilibrer la charge de machines virtuelles à l’intérieur d’une zone - Portail Azure'
+title: 'Tutoriel : Équilibrer la charge de machines virtuelles à l’intérieur d’une zone - Portail Azure'
 titleSuffix: Azure Load Balancer
 description: Ce tutoriel montre comment créer un équilibreur de charge standard avec serveur frontal zonal pour équilibrer la charge de machines virtuelles dans une zone de disponibilité à l’aide du portail Azure.
 services: load-balancer
@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 07d4b206c5651bb708ed8b56437a8769dff46557
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 940636a5e368a84aaaf0d4490bf874d56d3ddb6e
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225167"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251906"
 ---
-# <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Didacticiel : Équilibrer la charge de machines virtuelles dans une zone de disponibilité avec Standard Load Balancer à l’aide du portail Azure
+# <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge de machines virtuelles dans une zone de disponibilité avec Standard Load Balancer à l’aide du portail Azure
 
 Ce tutoriel crée une instance publique [Azure Standard Load Balancer](https://aka.ms/azureloadbalancerstandard) avec un serveur frontal zonal utilisant une adresse IP publique standard à l’aide du portail Azure. Dans ce scénario, vous pouvez spécifier une zone particulière pour vos instances de serveur frontal et de serveur principal, afin d’aligner votre chemin de données et vos ressources avec une zone spécifique. Vous apprenez à effectuer les fontions suivantes :
 
@@ -52,7 +52,7 @@ Standard Load Balancer prend uniquement en charge une adresse IP publique standa
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Subscription               | Sélectionnez votre abonnement.    |    
+    | Abonnement               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer** et tapez *MyResourceGroupZLB* dans la zone de texte.|
     | Nom                   | *myLoadBalancer*                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
@@ -63,18 +63,24 @@ Standard Load Balancer prend uniquement en charge une adresse IP publique standa
     |Zone de disponibilité| Sélectionnez **1**.    |
 3. Sous l’onglet **Vérifier + créer**, cliquez sur **Créer**.   
 
-   ## <a name="create-backend-servers"></a>Créer des serveurs principaux
+## <a name="create-backend-servers"></a>Créer des serveurs principaux
 
 Dans cette section, vous créez un réseau virtuel. Vous créez également deux machines virtuelles dans la même zone (à savoir, la zone 1) pour la région à ajouter au pool principal de votre équilibreur de charge. Vous installez ensuite IIS sur les machines virtuelles pour faciliter le test de l’équilibreur de charge redondant interzone. Si une machine virtuelle échoue, la sonde d’intégrité de la machine virtuelle dans la même zone échoue. Le trafic continue à être pris en charge par les autres machines virtuelles au sein de la même zone.
 
-### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
-1. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.  Entrez ces valeurs pour le réseau virtuel :
-    - **myVNet**, pour le nom du réseau virtuel.
-    - **myResourceGroupZLB**, pour le nom du groupe de ressources existant.
-    - **myBackendSubnet**, pour le nom du sous-réseau.
-2. Sélectionnez **Créer** pour créer le réseau virtuel.
+## <a name="virtual-network-and-parameters"></a>Réseau virtuel et paramètres
 
-    ![Créez un réseau virtuel](./media/tutorial-load-balancer-standard-zonal-portal/create-virtual-network.png)
+Dans les étapes de cette section, vous devrez remplacer les paramètres du tableau ci-dessous par la valeur indiquée correspondante :
+
+| Paramètre                   | Valeur                |
+|-----------------------------|----------------------|
+| **\<nom_groupe_ressources>**  | myResourceGroupZLB (sélectionnez un groupe de ressources existant) |
+| **\<nom_réseau_virtuel>** | myVNet          |
+| **\<nom_région>**          | Europe Ouest      |
+| **\<espace_d’adressage_IPv4>**   | 10.0.0.0\16          |
+| **\<nom_sous-réseau>**          | myBackendSubnet        |
+| **\<plage_adresses_sous-réseau>** | 10.0.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ## <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
 
@@ -216,7 +222,7 @@ Une règle d’équilibreur de charge définit la distribution du trafic vers le
       ![Serveur web IIS](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 3. Pour voir l’équilibrage de charge en action, forcez l’arrêt de la machine virtuelle qui s’affiche. Actualisez le navigateur pour voir l’autre nom de serveur affiché dans le navigateur.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’équilibreur de charge et toutes les ressources associées. Sélectionnez le groupe de ressources qui contient l’équilibreur de charge. Puis sélectionnez **Supprimer**.
 
