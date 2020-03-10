@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: jingwang
 ms.openlocfilehash: 056909f5fd5838e5ae50fb84bd3535029d862acf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475987"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78355700"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Conserver les métadonnées et les listes de contrôle d'accès à l'aide de l'outil Copier l'activité d'Azure Data Factory
 
