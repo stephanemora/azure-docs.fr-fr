@@ -393,6 +393,7 @@
           href: media-services-deliver-asset-download.md
         - name: Scénario de basculement de diffusion en continu
           href: media-services-implement-failover.md
+          displayName: 'HA, high availability'
     - name: Utiliser
       items:
         - name: Lecture de contenu multimédia avec des lecteurs existants
