@@ -5,14 +5,14 @@ author: chrissie926
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 02/01/2020
 ms.author: menchi
-ms.openlocfilehash: 064bfd7a51f3ccb0252f37fbaa11ebc122a4b97f
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5ef6c4de288a764abbe434c5d84fc99e154f7492
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807423"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303594"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux de module dans IoT Hub
 
@@ -174,7 +174,7 @@ Le backend de solution opère sur le jumeau de module en utilisant les opératio
 
 * **Recevoir des notifications jumelles**. Cette opération permet au back-end de la solution d’être notifié lorsque le jumeau est modifié. Pour ce faire, votre solution IoT doit créer un itinéraire et définir la source de données équivalente à *twinChangeEvents*. Par défaut, aucune notification jumelle n’est envoyée. Autrement dit, aucun itinéraire n’existe préalablement. Si le taux de variation est trop élevé, ou pour d’autres raisons, telles que des défaillances internes, IoT Hub peut envoyer une seule notification qui contient toutes les modifications. Par conséquent, si l’audit et la journalisation fiables de tous les états intermédiaires sont nécessaires pour votre application, vous devez utiliser des messages appareil-à-cloud. Le message de notification jumelle inclut le corps et les propriétés.
 
-  - properties
+  - Propriétés
 
     | Nom | Valeur |
     | --- | --- |
@@ -236,11 +236,15 @@ Les kits [Azure IoT device SDK](iot-hub-devguide-sdks.md) simplifient l’utilis
 
 Les Tags (balises) ainsi que les propriétés souhaitées (Desired) et signalées (Reported) sont des objets JSON soumis aux restrictions suivantes :
 
-* Toutes les clés dans des objets JSON sont des chaînes UNICODE UTF-8 de 64 octets respectant la casse. Les caractères autorisés excluent les caractères de contrôle UNICODE (segments C0 et C1), ainsi que `.`, SP et `$`.
+* **Clés** : Toutes les clés dans des objets JSON sont des chaînes UNICODE UTF-8 de 64 octets respectant la casse. Les caractères autorisés excluent les caractères de contrôle UNICODE (segments C0 et C1), ainsi que `.`, SP et `$`.
 
-* Toutes les valeurs figurant dans les objets JSON peuvent être des types JSON suivants : booléen, nombre, chaîne, objet. Les tableaux ne sont pas autorisés. La valeur maximale pour les entiers est 4503599627370495, tandis que la valeur minimale pour les entiers est-4503599627370496.
+* **Valeurs** : Toutes les valeurs figurant dans les objets JSON peuvent être des types JSON suivants : booléen, nombre, chaîne, objet. Les tableaux ne sont pas autorisés.
 
-* Tous les objets JSON dans les balises ainsi que dans les propriétés souhaitées et signalées, peuvent avoir une profondeur maximale de 5. Par exemple, l’objet suivant est valide :
+    * Les entiers peuvent avoir une valeur minimale de 4503599627370496 et une valeur maximale de 4503599627370495.
+
+    * Les valeurs de chaîne sont encodées au format UTF-8 et peuvent avoir une longueur maximale de 512 octets.
+
+* **Profondeur** : Tous les objets JSON dans les balises ainsi que dans les propriétés souhaitées et signalées, peuvent avoir une profondeur maximale de 5. Par exemple, l’objet suivant est valide :
 
     ```json
     {
@@ -262,19 +266,27 @@ Les Tags (balises) ainsi que les propriétés souhaitées (Desired) et signalée
     }
     ```
 
-* Aucune valeur de chaîne ne peut avoir une longueur supérieure à 512 octets.
-
 ## <a name="module-twin-size"></a>Taille de jumeau de module
 
-IoT Hub applique une limite de taille de 8 Ko à la valeur `tags`, et une limite de taille de 32 Ko aux valeurs `properties/desired` et `properties/reported`. Ces totaux sont exclusivement des éléments en lecture seule.
+IoT Hub applique une limite de taille de 8 Ko à la valeur `tags`, et une limite de taille de 32 Ko aux valeurs `properties/desired` et `properties/reported`. Ces totaux n’incluent pas les éléments en lecture seule, tels que `$etag`, `$version` et `$metadata/$lastUpdated`.
 
-La taille est calculée en comptant tous les caractères à l’exception des caractères de contrôle UNICODE (segments C0 et C1) et des espaces qui apparaissent en dehors d’une constante de chaîne.
+La taille du jumeau est calculée comme suit :
+
+* Pour chaque propriété du document JSON, IoT Hub calcule et ajoute de façon cumulative la longueur de la clé et la valeur de la propriété.
+
+* Les clés de propriété sont considérées comme des chaînes encodées au format UTF8.
+
+* Les valeurs de propriété simples sont considérées comme des chaînes encodées au format UTF8, des valeurs numériques (huit octets) ou des valeurs booléennes (quatre octets).
+
+* La taille des chaînes encodées au format UTF8 est calculée en comptant tous les caractères, à l’exception des caractères de contrôle UNICODE (segments C0 et C1).
+
+* Les valeurs de propriété complexes (objets imbriqués) sont calculées en fonction de la taille agrégée des clés de propriété et des valeurs de propriété qu’elles contiennent.
 
 IoT Hub rejette en générant une erreur toute opération susceptible d’augmenter la taille de ces documents au-delà de la limite.
 
 ## <a name="module-twin-metadata"></a>Métadonnées de jumeau de module
 
-IoT Hub tient à jour l’horodateur de la dernière mise à jour de chaque objet JSON dans les propriétés souhaitées et signalées du jumeau de module. Les horodateurs sont exprimés en UTC et codés au format [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) `YYYY-MM-DDTHH:MM:SS.mmmZ`.
+IoT Hub tient à jour l’horodateur de la dernière mise à jour de chaque objet JSON dans les propriétés souhaitées et signalées du jumeau de module. Les horodateurs sont exprimés en UTC et codés au format [ISO8601](https://en.wikipedia.org/wiki/ISO_8601)`YYYY-MM-DDTHH:MM:SS.mmmZ`.
 Par exemple :
 
 ```json

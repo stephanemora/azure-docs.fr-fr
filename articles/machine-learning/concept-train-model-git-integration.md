@@ -9,20 +9,35 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 10/11/2019
-ms.openlocfilehash: b83eb1556ed3f4a41409faf70f6ba9d8cd28322d
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 10e4ba16e00a37d532a2eceb69fedb8f5b62be8b
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732176"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301656"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Intégration de Git pour Azure Machine Learning
 
-[Git ](https://git-scm.com/) est un système de gestion de versions connue qui vous permet de partager vos projets et de collaborer. Lors de la soumission d’un travail d’entraînement à Azure Machine Learning, si les fichiers d’entraînement sont stockés dans un dépôt Git local, les informations sur le dépôt font l’objet d’un suivi dans le cadre du processus d’entraînement.
+[Git](https://git-scm.com/) est un système de gestion de versions connu qui vous permet de partager vos projets et de collaborer. 
+
+Azure Machine Learning prend entièrement en charge les dépôts Git pour le suivi du travail. Vous pouvez cloner des dépôts directement dans le système de fichiers de votre espace de travail partagé, ou utiliser Git sur votre station de travail locale ou à partir d’un pipeline CI/CD.
+
+Lors de la soumission d’un travail à Azure Machine Learning, si les fichiers sources sont stockés dans un dépôt Git local, les informations sur le dépôt font l’objet d’un suivi dans le cadre du processus d’entraînement.
 
 Étant donné qu’Azure Machine Learning effectue le suivi des informations à partir d’un dépôt Git local, il n’est lié à aucun dépôt central spécifique. Votre dépôt peut être cloné à partir de GitHub, GitLab, Bitbucket, Azure DevOps ou de tout autre service compatible Git.
 
-## <a name="how-does-git-integration-work"></a>Fonctionnement de l’intégration de Git
+## <a name="clone-git-repositories-into-your-workspace-file-system"></a>Cloner des dépôts Git dans le système de fichiers de votre espace de travail
+Azure Machine Learning fournit un système de fichiers partagé pour tous les utilisateurs de l’espace de travail.
+Pour cloner un dépôt Git dans ce partage de fichiers, nous vous recommandons de créer une instance de calcul et d’ouvrir un terminal.
+Une fois le terminal ouvert, vous avez accès à un client Git complet et pouvez cloner et utiliser Git par le biais de l’interface CLI Git.
+
+Nous vous recommandons de cloner le dépôt dans le répertoire de vos utilisateurs afin que d’autres ne puissent pas créer de collisions directement sur votre branche de travail.
+
+Vous pouvez cloner n’importe quel dépôt Git auprès duquel vous pouvez vous authentifier (GitHub, Azure Repos, BitBucket, etc.)
+
+Pour obtenir un guide sur l’utilisation de l’interface CLI Git, consultez [cette page](https://guides.github.com/introduction/git-handbook/).
+
+## <a name="track-code-that-comes-from-git-repositories"></a>Suivre le code provenant de dépôts Git
 
 Lorsque vous soumettez une exécution d’entraînement à partir du kit SDK Python ou de l’interface CLI de Machine Learning, les fichiers nécessaires à l’entraînement du modèle sont chargés dans votre espace de travail. Si la commande `git` est disponible dans votre environnement de développement, le processus de chargement l’utilise pour vérifier si les fichiers sont stockés dans un dépôt Git. Si tel est le cas, les informations de votre dépôt Git sont également chargées lors de l’exécution d’entraînement. Ces informations sont stockées dans les propriétés suivantes pour l’exécution d’entraînement :
 

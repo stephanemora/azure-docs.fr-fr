@@ -1,6 +1,6 @@
 ---
 title: Guide de conception de tables distribuées
-description: Recommandations pour la conception des tables distribuées par hachage et par tourniquet dans Azure SQL Data Warehouse.
+description: Recommandations pour la conception des tables distribuées par hachage et par tourniquet dans SQL Analytics.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,18 +10,18 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 025c60485625a4ab4d2e29b1e81d8574f6187b93
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.custom: azure-synapse
+ms.openlocfilehash: 3a07dd6ccd5d0bf3440df21b2af4e67cbcf663c9
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049130"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199442"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Guide de conception des tables distribuées dans Azure SQL Data Warehouse
-Recommandations pour la conception des tables distribuées par hachage et par tourniquet dans Azure SQL Data Warehouse.
+# <a name="guidance-for-designing-distributed-tables-in-sql-analytics"></a>Guide de conception des tables distribuées dans SQL Analytics
+Recommandations pour la conception des tables distribuées par hachage et par tourniquet dans SQL Analytics.
 
-Cet article suppose que vous êtes familiarisé avec les concepts de distribution et de déplacement des données dans SQL Data Warehouse.  Pour plus d’informations, consultez [Azure SQL Data Warehouse – architecture MPP (traitement massivement parallèle)](massively-parallel-processing-mpp-architecture.md). 
+Cet article suppose que les concepts de distribution et de déplacement de données dans SQL Analytics vous sont familiers.  Pour plus d’informations, consultez [Architecture de traitement massivement parallèle (MPP) SQL Analytics](massively-parallel-processing-mpp-architecture.md). 
 
 ## <a name="what-is-a-distributed-table"></a>Qu’est-ce qu’une table distribuée ?
 Une table distribuée apparaît sous la forme d’une table unique, mais les lignes sont en réalité stockées sur 60 distributions. Les lignes sont distribuées avec un algorithme de hachage ou de tourniquet.  
@@ -34,7 +34,7 @@ Dans le cadre de la conception d’une table, essayez d’en savoir autant que p
 
 - Quelle est la taille de la table ?   
 - Quelle est la fréquence d’actualisation de la table ?   
-- Est-ce que je dispose de tables de faits et de dimension dans un entrepôt de données ?   
+- Est-ce que je dispose de tables de faits et de dimension dans une base de données SQL Analytics ?   
 
 
 ### <a name="hash-distributed"></a>Distribution par hachage
@@ -42,7 +42,7 @@ Une table distribuée par hachage distribue les lignes de la table sur les nœud
 
 ![Table distribuée](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Table distribuée")  
 
-Comme les valeurs identiques sont toujours hachées sur la même distribution, l’entrepôt de données a une connaissance intégrée des emplacements des lignes. SQL Data Warehouse utilise ces informations pour réduire le déplacement des données pendant les requêtes, ce qui améliore les performances de ces dernières. 
+Comme les valeurs identiques sont toujours hachées sur la même distribution, SQL Analytics a une connaissance intégrée de l’emplacement des lignes. SQL Analytics utilise ces informations pour réduire le déplacement des données pendant les requêtes, ce qui améliore les performances de ces dernières. 
 
 Les tables distribuées par hachage fonctionnent correctement pour des tables de faits volumineuses dans un schéma en étoile. Elles peuvent contenir un très grand nombre de lignes et réaliser néanmoins des performances élevées. Il existe bien entendu certaines considérations relatives à la conception qui vous aident à obtenir les performances que le système distribué doit fournir. Le choix d’une colonne de distribution appropriée est l’une de ces considérations qui est décrite dans cet article. 
 
@@ -65,7 +65,7 @@ Vous pouvez envisager une distribution par tourniquet des données de votre tabl
 - si la jointure est moins importante que d’autres dans la requête ;
 - lorsque la table est une table temporaire intermédiaire ;
 
-Le didacticiel [Chargement de données des taxis new-yorkais vers Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) donne un exemple de chargement de données dans une table de mise en lots distribuée par tourniquet.
+Le didacticiel [Chargement de données des taxis new-yorkais](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) donne un exemple de chargement de données dans une table de mise en lots distribuée par tourniquet dans SQL Analytics.
 
 
 ## <a name="choosing-a-distribution-column"></a>Choix d’une colonne de distribution
@@ -109,7 +109,7 @@ Pour équilibrer le traitement parallèle, sélectionnez une colonne de distribu
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Choisir une colonne de distribution qui réduit le déplacement des données
 
-Pour obtenir un résultat de requête correct, les requêtes peuvent déplacer des données d’un nœud de calcul à un autre. Le déplacement des données se produit généralement quand les requêtes possèdent des jointures et agrégations sur des tables distribuées. Le choix d’une colonne de distribution qui réduit le déplacement des données est l’une des stratégies les plus importantes pour optimiser les performances de SQL Data Warehouse.
+Pour obtenir un résultat de requête correct, les requêtes peuvent déplacer des données d’un nœud de calcul à un autre. Le déplacement des données se produit généralement quand les requêtes possèdent des jointures et agrégations sur des tables distribuées. Le choix d’une colonne de distribution qui réduit le déplacement des données est l’une des stratégies les plus importantes pour optimiser les performances de votre base de données SQL Analytics.
 
 Pour réduire le déplacement des données, sélectionnez une colonne de distribution qui :
 
@@ -137,7 +137,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 Pour identifier les tables avec une asymétrie des données supérieure à 10 % :
 
 1. Créez la vue dbo.vTableSizes qui figure dans l’article [Vue d’ensemble des tables](sql-data-warehouse-tables-overview.md#table-size-queries).  
-2. Exécutez la requête suivante :
+2. Exécutez la requête suivante :
 
 ```sql
 select *
@@ -217,7 +217,7 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Pour créer une table distribuée, utilisez l’une de ces instructions :
 
-- [CREATE TABLE (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE AS SELECT (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 

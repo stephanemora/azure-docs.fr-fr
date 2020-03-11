@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jonbeck
-ms.openlocfilehash: dc2086223dea9bff311aac9e7d4771b5273f0e91
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b900a95df00ccdd0ad9b5bee3887364195c7d1c2
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492550"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226729"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Tailles de machines virtuelles de calcul haute performance
 
@@ -46,6 +46,10 @@ Les machines virtuelles de la [série H](h-series.md) sont optimisées pour les 
   
 - **Réseau virtuel** : un [réseau virtuel](https://azure.microsoft.com/documentation/services/virtual-network/) Azure n’est pas requis pour utiliser les instances qui nécessitent beaucoup de ressources système. Cependant, pour bon nombre de scénarios de déploiement, vous avez besoin d’au moins un réseau virtuel Azure cloud ou d’une connexion de site à site si vous devez accéder à des ressources locales. Si nécessaire, créez un réseau virtuel avant de déployer les instances. L’ajout de machines virtuelles nécessitant beaucoup de ressources système à un réseau virtuel dans un groupe d’affinités n’est pas pris en charge.
 - **Redimensionnement** : en raison de leur matériel spécialisé, vous pouvez uniquement redimensionner les instances nécessitant beaucoup de ressources système qui appartiennent à la même famille de taille (série H ou série A nécessitant beaucoup de ressources système). Par exemple, vous pouvez redimensionner une machine virtuelle de la série H uniquement d’une seule taille en une autre de cette même série. Le redimensionnement d’une taille ne nécessitant pas beaucoup de ressources système en une taille nécessitant beaucoup de ressources système n’est pas pris en charge.  
+
+> [!NOTE]
+> La mise hors service des machines virtuelles A8-A11 est planifiée pour le mois de mars 2021. Pour plus d’informations, consultez le [Guide de migration HPC](https://azure.microsoft.com/resources/hpc-migration-guide/).
+
 ## <a name="rdma-capable-instances"></a>Instances prenant en charge RDMA
 
 Un sous-ensemble d’instances nécessitant beaucoup de ressources système (A8, A9, H16r et H16mr) offre une interface réseau pour la connectivité par accès direct à la mémoire à distance (RDMA). Les tailles de la série N désignées par « r », telles que les configurations NC24rs (NC24rs_v2 et NC24rs_v3) sont également compatibles RDMA. Cette interface s’ajoute à l’interface réseau Azure standard disponible pour d’autres tailles de machine virtuelle.
@@ -78,7 +82,7 @@ Dans certains déploiements des instances A8 et A9, l’extension HpcVmDrivers e
   } 
   ```
 
-  La commande suivante installe la dernière version 1.0 de l’extension InfiniBandDriverWindows sur toutes les machines virtuelles prenant en charge RDMA qui existent dans un groupe de machines virtuelles identique nommé *myVMSS* et déployées dans le groupe de ressources nommé *myResourceGroup* :
+  La commande suivante installe la dernière version 1.0 de l’extension InfiniBandDriverWindows sur toutes les machines virtuelles prenant en charge RDMA d’un groupe de machines virtuelles identiques existant, nommé *myVMSS* et déployées dans le groupe de ressources nommé *myResourceGroup* :
 
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
@@ -87,7 +91,7 @@ Dans certains déploiements des instances A8 et A9, l’extension HpcVmDrivers e
   Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -InstanceId "*"
   ```
 
-  Pour plus d’informations, consultez [Extensions et fonctionnalités de la machine virtuelle](/extensions/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vous pouvez également utiliser les extensions pour les machines virtuelles déployées dans le [modèle de déploiement classique](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
+  Pour plus d’informations, consultez [Extensions et fonctionnalités de la machine virtuelle](./extensions/overview.md). Vous pouvez également utiliser les extensions pour les machines virtuelles déployées dans le [modèle de déploiement classique](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
 - **Espace d’adressage réseau RDMA** : le réseau RDMA dans Azure réserve l’espace d’adressage 172.16.0.0/16. Si vous exécutez des applications MPI sur des instances déployées dans un réseau virtuel Azure, assurez-vous que l’espace d’adressage du réseau virtuel ne chevauche pas le réseau RDMA.
 
@@ -99,7 +103,7 @@ Azure fournit plusieurs options pour créer des clusters de machines virtuelles 
 
 - **Groupes de machines virtuelles identiques** : dans un groupe de machines virtuelles identiques, veillez à limiter le déploiement à un seul groupe de placements. Par exemple, dans un modèle Resource Manager, définissez la propriété `singlePlacementGroup` avec la valeur `true`. 
 
-- **MPI entre les machines virtuelles** : si la communication MPI est nécessaire entre les machines virtuelles (VM), assurez-vous que les machines virtuelles sont dans le même groupe à haute disponibilité ou le même groupe identique de machines virtuelles.
+- **MPI entre les machines virtuelles** : si la communication MPI est nécessaire entre les machines virtuelles, assurez-vous que les machines virtuelles sont dans le même groupe à haute disponibilité ou dans le groupe de machines virtuelles identiques.
 
 - **Azure CycleCloud** : Créez un cluster HPC dans [Azure CycleCloud](/azure/cyclecloud/) pour exécuter des travaux MPI sur des nœuds Windows.
 

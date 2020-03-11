@@ -4,12 +4,12 @@ description: Découvrez comment mettre à jour des nœuds Linux et les redémarr
 services: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.openlocfilehash: b0bb7a3309cf1b56a5779b54b34310aa01f3e719
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 74b12c1bc6e2a88582cc357c8091b5590e6bf3cb
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594938"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191280"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Appliquer des mises à jour de sécurité et du noyau à des nœuds Linux dans Azure Kubernetes Service (AKS)
 
@@ -51,13 +51,23 @@ Vous ne pouvez pas rester sur la même version de Kubernetes lors d’un événe
 
 ## <a name="deploy-kured-in-an-aks-cluster"></a>Déployer kured dans un cluster AKS
 
-Pour déployer le DaemonSet `kured`, appliquez l’exemple de manifeste YAML suivant à partir de leur page de projet GitHub. Ce manifeste crée un rôle, et un rôle de cluster, des liaisons et un compte de service, puis déploie le DaemonSet avec `kured` version 1.1.0, qui prend en charge les clusters AKS 1.9 ou ultérieur.
+Pour déployer le DaemonSet `kured`, installez le chart Helm Kured officiel suivant. Cela crée un rôle et un rôle de cluster, des liaisons et un compte de service, puis déploie le DaemonSet à l’aide de `kured`.
 
 ```console
-kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.2.0/kured-1.2.0-dockerhub.yaml
+# Add the stable Helm repository
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+
+# Update your local Helm chart repository cache
+helm repo update
+
+# Create a dedicated namespace where you would like to deploy kured into
+kubectl create namespace kured
+
+# Install kured in that namespace with Helm 3 (only on Linux nodes, kured is not working on Windows nodes)
+helm install kured stable/kured --namespace kured --set nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-Vous pouvez également configurer des paramètres supplémentaires pour `kured`, comme l’intégration à Prometheus ou Slack. Pour plus d’informations sur les paramètres de configuration supplémentaires, consultez les [documents d’installation de kured][kured-install].
+Vous pouvez également configurer des paramètres supplémentaires pour `kured`, comme l’intégration à Prometheus ou Slack. Pour plus d’informations sur les paramètres de configuration supplémentaires, consultez le [chart Helm kured][kured-install].
 
 ## <a name="update-cluster-nodes"></a>Mettre à jour des nœuds de cluster
 
@@ -96,7 +106,7 @@ Pour connaître les clusters AKS qui utilisent des nœuds Windows Server, consul
 
 <!-- LINKS - external -->
 [kured]: https://github.com/weaveworks/kured
-[kured-install]: https://github.com/weaveworks/kured#installation
+[kured-install]: https://hub.helm.sh/charts/stable/kured
 [kubectl-get-nodes]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->

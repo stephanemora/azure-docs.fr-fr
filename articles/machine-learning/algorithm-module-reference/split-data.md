@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 3e831e58b47d53e2924956cab13568c69bc1432e
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: d889cd3325784f564d03e5d75dde1ec760c66804
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153738"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268532"
 ---
 # <a name="split-data-module"></a>Module Fractionner les données
 
@@ -84,34 +84,74 @@ Ce module est particulièrement utile quand vous devez séparer des données en 
 
     En fonction de l’expression régulière entrée, le jeu de données est divisé en deux ensembles de lignes : les lignes avec des valeurs correspondant à l’expression et les autres. 
 
+Les exemples suivants montrent comment diviser un jeu de données à l’aide de l’option **Expression régulière**. 
+
+### <a name="single-whole-word"></a>Mot entier unique 
+
+Cet exemple place dans le premier jeu de données toutes les lignes qui contiennent le texte `Gryphon` dans la colonne `Text`, et place les autres lignes dans la deuxième sortie de **Fractionner les données** :
+
+```text
+    \"Text" Gryphon  
+```
+
+### <a name="substring"></a>Substring
+
+Cet exemple recherche la chaîne spécifiée dans n’importe quelle position dans la deuxième colonne du jeu de données, dénotée ici par la valeur d’index 1. La correspondance respecte la casse.
+
+```text
+(\1) ^[a-f]
+```
+
+Le premier jeu de données de résultats contient toutes les lignes où la colonne d’index commence par l’un des caractères suivants : `a`, `b`, `c`, `d`, `e`, `f`. Toutes les autres lignes sont dirigées vers la deuxième sortie.
+
 ## <a name="relative-expression-split"></a>Fractionnement Expression relative
 
 1. Ajoutez le module [Fractionner les données](./split-data.md) à votre pipeline et connectez-le en tant qu’entrée au jeu de données que vous souhaitez fractionner.
   
 2. Pour **Mode de fractionnement**, sélectionnez **Fractionnement Expression relative**.
   
-3. Dans la zone de texte **Expression relationnelle**, entrez une expression permettant une opération de comparaison, sur une même colonne :
+3. Dans la zone de texte **Expression relationnelle**, entrez une expression qui effectue une opération de comparaison sur une seule colonne :
 
-
- - Colonne numérique :
-    - La colonne contient des nombres de n’importe quel type de données numérique, y compris les types de données date/heure.
-
-    - L’expression peut faire référence à un nom de colonne.
-
-    - Utilisez une esperluette (&) pour l’opération AND et une barre verticale (|) pour l’opération OR.
-
-    - Les opérateurs suivants sont pris en charge : `<`, `>`, `<=`, `>=`, `==`, `!=`
-
-    - Vous ne pouvez pas regrouper les opérations en utilisant `(` et `)`.
-
- - Colonne de chaîne : 
-    - Les opérateurs suivants sont pris en charge : `==`, `!=`
-
-
+   Pour la **Colonne numérique** :
+   - La colonne contient des nombres de n’importe quel type de données numérique, y compris les types de données date et heure.
+   - L’expression peut faire référence à un nom de colonne.
+   - Utilisez le caractère esperluette `&` pour l’opération ET. Utilisez le caractère de barre verticale `|` pour l’opération OU.
+   - Les opérateurs suivants sont pris en charge : `<`, `>`, `<=`, `>=`, `==`, `!=`.
+   - Vous ne pouvez pas regrouper les opérations en utilisant `(` et `)`.
+   
+   Pour la **Colonne de chaîne** :
+   - Les opérateurs suivants sont pris en charge : `==`, `!=`.
 
 4. Exécuter le pipeline.
 
     L’expression divise le jeu de données en deux ensembles de lignes : les lignes avec des valeurs correspondant à la condition, et les autres.
+
+Les exemples suivants montrent comment diviser un jeu de données à l’aide de l’option **Expression régulière** dans le module **Fractionner les données** :  
+
+### <a name="using-calendar-year"></a>Utilisation de l’année civile
+
+Un scénario courant consiste à diviser un jeu de données par années. L’expression suivante sélectionne toutes les lignes où les valeurs dans la colonne `Year` sont supérieures à `2010`.
+
+```text
+\"Year" > 2010
+```
+
+L’expression de date doit tenir compte de toutes les parties de date incluses dans la colonne de données, et le format des dates dans la colonne de données doit être cohérent. 
+
+Par exemple, dans une colonne de date au format `mmddyyyy`, l’expression doit être semblable à ce qui suit :
+
+```text
+\"Date" > 1/1/2010
+```
+
+### <a name="using-column-indices"></a>Utilisation d’index de colonnes
+
+L’expression suivante montre comment utiliser l’index de colonne pour sélectionner toutes les lignes de la première colonne du jeu de données qui contiennent des valeurs inférieures ou égales à 30, mais différentes de 20.
+
+```text
+(\0)<=30 & !=20
+```
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

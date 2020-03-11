@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 529e188d1a4ee00cee7f3d023ab45a48dd0d3c5f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9883256fc801d37acd4ea10226bd9e541f9135f7
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428386"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268652"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Science des données avec une image Data Science Virtual Machine Linux sur Azure
 
@@ -24,7 +24,7 @@ Les tâches de science des données décrites dans cette procédure pas à pas s
 
 Au cours de cette procédure pas à pas, nous analysons le jeu de données [spambase](https://archive.ics.uci.edu/ml/datasets/spambase). Spambase est un ensemble d’e-mails marqués comme courrier indésirable ou normal (n’est pas considéré comme courrier indésirable). Spambase contient également des statistiques sur le contenu des e-mails. Nous parlerons des statistiques plus loin dans la procédure pas à pas.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de pouvoir utiliser une DSVM Linux, vous devez posséder les composants requis suivants :
 
@@ -187,6 +187,8 @@ Pour déployer le code de l’arbre de décision à partir de la section précé
    ![Le jeton d’autorisation principal d’Azure Machine Learning Studio (classique)](./media/linux-dsvm-walkthrough/workspace-token.png)
 1. Chargez le package **AzureML** , puis définissez les valeurs des variables avec votre jeton et votre ID d’espace de travail dans votre session R sur la machine virtuelle de science des données :
 
+        if(!require("devtools")) install.packages("devtools")
+        devtools::install_github("RevolutionAnalytics/AzureML")
         if(!require("AzureML")) install.packages("AzureML")
         require(AzureML)
         wsAuth = "<authorization-token>"
@@ -206,9 +208,23 @@ Pour déployer le code de l’arbre de décision à partir de la section précé
         return(colnames(predictDF)[apply(predictDF, 1, which.max)])
         }
 
+1. Créez un fichier settings.json pour cet espace de travail :
+
+        vim ~/.azureml/settings.json
+
+1. Assurez-vous que le contenu suivant est placé dans settings.json :
+
+         {"workspace":{
+           "id": "<workspace-id>",
+           "authorization_token": "<authorization-token>",
+           "api_endpoint": "https://studioapi.azureml.net",
+           "management_endpoint": "https://management.azureml.net"
+         }
+
 
 1. Publiez la fonction **predictSpam** sur AzureML à l’aide de la fonction **publishWebService** :
 
+        ws <- workspace()
         spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
 
 1. Cette fonction prend la fonction **predictSpam**, crée un service web nommé **spamWebService** avec des entrées et des sorties définies, et renvoie des informations sur le nouveau point de terminaison.

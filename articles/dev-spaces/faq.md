@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Obtenez des réponses aux questions les plus fréquemment posées sur Azure Dev Spaces.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: 964fa9ec4948bf178c310af8e35913fda5f70c0f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 285fdb7892d2da40dd50e025cb1dd7644ec17ae0
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934179"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255725"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Forum aux questions sur Azure Dev Spaces
 
@@ -64,6 +64,14 @@ Oui. Vous pouvez utiliser Azure Dev Spaces sur des clusters AKS avec les [plages
 ## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-restricted-egress-traffic-for-cluster-nodes"></a>Puis-je utiliser Azure Dev Spaces sur des clusters AKS avec un trafic de sortie restreint pour les nœuds de cluster ?
 
 Oui, vous pouvez utiliser Azure Dev Spaces sur des clusters AKS avec le [trafic de sortie restreint pour les nœuds de cluster][aks-restrict-egress-traffic] activé une fois que les noms de domaine complets appropriés ont été autorisés. Pour plus d’informations sur l’utilisation de clusters AKS avec un trafic de sortie restreint pour les nœuds de cluster activé avec Azure Dev Spaces sont disponibles [ici](configure-networking.md#ingress-and-egress-network-traffic-requirements).
+
+## <a name="can-i-use-azure-dev-spaces-on-rbac-enabled-aks-clusters"></a>Puis-je utiliser Azure Dev Spaces sur des clusters AKS compatibles avec RBAC ?
+
+Oui, vous pouvez utiliser Azure Dev Spaces sur des clusters AKS compatibles ou non avec RBAC.
+
+## <a name="what-happens-when-i-enable-ingress-for-project-in-visual-studio"></a>Que se passe-t-il lorsque j’active l’entrée pour le projet dans Visual Studio ?
+
+Lorsque vous utilisez Visual Studio pour préparer votre projet, vous avez la possibilité d’activer l’entrée pour votre service. L’activation de l’entrée crée un point de terminaison public permettant d’accéder à votre service lors de son exécution sur votre cluster AKS, ce qui est facultatif. Si vous n’activez pas l’entrée, votre service est uniquement accessible à partir de votre cluster AKS.
 
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled

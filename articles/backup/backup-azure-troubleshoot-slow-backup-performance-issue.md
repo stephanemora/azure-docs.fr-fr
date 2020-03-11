@@ -4,12 +4,12 @@ description: Apporte des conseils visant à vous aider à diagnostiquer la cause
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: f8988d3df7f61d2fce4c8fa5b49e42e872c185b8
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: ed91a1cd8600f4e1ac208b0036c3d4ba74c0e6bb
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603140"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295961"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Résolution des problèmes de sauvegarde lente de fichiers et de dossiers dans Azure Backup
 
@@ -44,19 +44,19 @@ Par ailleurs, nous vous recommandons vivement de passer en revue le [Forum aux q
 
 La présence de goulots d’étranglement sur l’ordinateur en cours de sauvegarde peut engendrer des retards. Par exemple, la capacité de l’ordinateur à lire le disque ou à écrire dessus ou encore la disponibilité de la bande passante pour l’envoi de données peuvent créer des goulots d’étranglement.
 
-Windows fournit un outil intégré appelé [Analyseur de performances](h https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (Performance Monitor ou Perfmon) pour détecter les goulots d’étranglement.
+Windows fournit un outil intégré appelé [Analyseur de performances](https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (Performance Monitor ou Perfmon) pour détecter les goulots d’étranglement.
 
 Voici quelques compteurs de performances et plages qui peuvent être utiles pour diagnostiquer les goulots d’étranglement et permettre des sauvegardes optimales.
 
 | Compteur | Statut |
 | --- | --- |
-| Disque logique (disque physique)--% temps d’inactivité |• 100 % à 50 % d’inactivité = sain</br>• 49 % à 20 % d’inactivité = avertissement ou analyse</br>• 19 % à 0 % d’inactivité = critique ou hors spécifications |
-| Disque logique (disque physique)--% moy. disque s/lecture ou disque s/écriture |• 0,001 ms à 0,015 ms = sain</br>• 0,015 ms à 0,025 ms = avertissement ou analyse</br>• 0,026 ms ou plus = critique ou hors spécifications |
+| Disque logique (disque physique)--% temps d’inactivité |* 100 % à 50 % d’inactivité = sain</br>* 49 % à 20 % d’inactivité = avertissement ou analyse</br>* 19 % à 0 % d’inactivité = critique ou hors spécifications |
+| Disque logique (disque physique)--% moy. disque s/lecture ou disque s/écriture |* 0,001 ms à 0,015 ms = sain</br>* 0,015 ms à 0,025 ms = avertissement ou analyse</br>* 0,026 ms ou plus = critique ou hors spécifications |
 | Disque logique (disque physique)--Taille de file d’attente du disque actuelle (pour toutes les instances) |80 demandes pendant plus de 6 minutes |
-| Mémoire--Octets de réserve non paginée |• Moins de 60 % de la réserve utilisée = sain<br>• 61 à 80 % du pool consommé = avertissement ou analyse</br>• Plus de 80 % de la réserve utilisée = critique ou hors spécifications |
-| Mémoire--Octets de réserve paginée |• Moins de 60 % de la réserve utilisée = sain</br>• 61 à 80 % du pool consommé = avertissement ou analyse</br>• Plus de 80 % de la réserve utilisée = critique ou hors spécifications |
-| Mémoire--Mégaoctets disponibles |• 50 % de mémoire disponible ou plus = sain</br>• 25 % de mémoire disponible = analyse</br>• 10 % de mémoire disponible = avertissement</br>• Moins de 100 Mo ou 5 % de mémoire disponible = critique ou hors spécifications |
-| Processeur--\%temps processeur (toutes les instances) |• Moins de 60 % utilisés = sain</br>• 61 à 90 % utilisés = analyse ou attention</br>• 91 % à 100 % utilisés = critique |
+| Mémoire--Octets de réserve non paginée |* Moins de 60 % du pool consommé = sain<br>* 61 à 80 % du pool consommé = avertissement ou analyse</br>* Plus de 80 % du pool consommé = critique ou hors spécifications |
+| Mémoire--Octets de réserve paginée |* Moins de 60 % du pool consommé = sain</br>* 61 à 80 % du pool consommé = avertissement ou analyse</br>* Plus de 80 % du pool consommé = critique ou hors spécifications |
+| Mémoire--Mégaoctets disponibles |* 50 % de mémoire disponible ou plus = sain</br>* 25 % de mémoire disponible = analyse</br>* 10 % de mémoire disponible = avertissement</br>* Moins de 100 Mo ou 5 % de mémoire disponible = critique ou hors spécifications |
+| Processeur--\%temps processeur (toutes les instances) |* Moins de 60 % consommés = sain</br>* 61 à 90 % consommés = analyse ou attention</br>* 91 % à 100 % consommés = critique |
 
 > [!NOTE]
 > Si vous déterminez que l’infrastructure est la cause du problème, nous vous recommandons de défragmenter les disques régulièrement pour de meilleures performances.

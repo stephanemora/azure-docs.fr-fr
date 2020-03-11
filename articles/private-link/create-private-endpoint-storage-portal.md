@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: bb1913d77616869c889c464a41e8166b3a88b03c
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 8c76333d5a2be8a2c589dbe54389b023fef34854
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028875"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252530"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Connexion privée à un compte de stockage à l’aide d’Azure Private Endpoint
 Azure Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link.
@@ -29,24 +29,22 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour héberger la machine virtuelle qui est utilisée pour accéder à votre ressource Private Link (un compte de stockage pour cet exemple).
 
-### <a name="create-the-virtual-network"></a>Créer un réseau virtuel
+## <a name="virtual-network-and-parameters"></a>Réseau virtuel et paramètres
 
 Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour héberger la machine virtuelle qui est utilisée pour accéder à votre ressource Private Link.
 
-1. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
-1. Dans **Créer un réseau virtuel**, entrez ou sélectionnez ces informations :
+Dans les étapes de cette section, vous devrez remplacer les paramètres du tableau ci-dessous par la valeur indiquée correspondante :
 
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    | Name | Entrez *MyVirtualNetwork*. |
-    | Espace d’adressage | Entrez *10.1.0.0/16*. |
-    | Subscription | Sélectionnez votre abonnement.|
-    | Resource group | Sélectionnez **Créer nouveau**, entrez *myResourceGroup* et sélectionnez **OK**. |
-    | Location | Sélectionnez **WestCentralUS**.|
-    | Sous-réseau - Nom | Entrez *mySubnet*. |
-    | Plage d’adresses du sous-réseau | Entrez *10.1.0.0/24*. |
-    |||
-1. Conservez les autres valeurs par défaut, puis sélectionnez **Créer**.
+| Paramètre                   | Valeur                |
+|-----------------------------|----------------------|
+| **\<nom_groupe_ressource>**  | myResourceGroup |
+| **\<nom_réseau_virtuel>** | myVirtualNetwork          |
+| **\<nom_région>**          | Centre-USA Ouest      |
+| **\<espace_d’adressage_IPv4>**   | 10.1.0.0\16          |
+| **\<nom_sous-réseau>**          | mySubnet        |
+| **\<plage_adresses_sous-réseau>** | 10.1.0.0\24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 
 ### <a name="create-virtual-machine"></a>Créer une machine virtuelle
@@ -58,14 +56,14 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
     | Paramètre | Valeur |
     | ------- | ----- |
     | **DÉTAILS DU PROJET** | |
-    | Subscription | Sélectionnez votre abonnement. |
+    | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.  |
     | **DÉTAILS DE L’INSTANCE** |  |
     | Nom de la machine virtuelle | Entrez *myVm*. |
     | Région | Sélectionnez **WestCentralUS**. |
     | Options de disponibilité | Conservez la valeur par défaut **Aucune redondance d’infrastructure nécessaire**. |
     | Image | Sélectionnez **Windows Server 2019 Datacenter**. |
-    | Size | Conservez la valeur par défaut **Standard DS1 v2**. |
+    | Taille | Conservez la valeur par défaut **Standard DS1 v2**. |
     | **COMPTE ADMINISTRATEUR** |  |
     | Nom d’utilisateur | Entrez un nom d’utilisateur de votre choix. |
     | Mot de passe | Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
@@ -106,7 +104,7 @@ Dans cette section, vous allez créer un compte de stockage privé à l’aide d
     | Paramètre | Valeur |
     | ------- | ----- |
     | **DÉTAILS DU PROJET** | |
-    | Subscription | Sélectionnez votre abonnement. |
+    | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.|
     | **DÉTAILS DE L’INSTANCE** |  |
     | Nom du compte de stockage  | Entrez *mystorageaccount*. Si ce nom est utilisé, créez un nom unique. |
@@ -124,10 +122,10 @@ Dans cette section, vous allez créer un compte de stockage privé à l’aide d
     | Paramètre | Valeur |
     | ------- | ----- |
     | **DÉTAILS DU PROJET** | |
-    | Subscription | Sélectionnez votre abonnement. |
+    | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.|
-    |Location|Sélectionnez **WestCentralUS**.|
-    |Name|Entrez *myPrivateEndpoint*.  |
+    |Emplacement|Sélectionnez **WestCentralUS**.|
+    |Nom|Entrez *myPrivateEndpoint*.  |
     |Sous-ressource de stockage|Conservez l’objet **Blob** par défaut. |
     | **MISE EN RÉSEAU** |  |
     | Réseau virtuel  | Sélectionnez *MyVirtualNetwork* dans le groupe de ressources *myResourceGroup*. |

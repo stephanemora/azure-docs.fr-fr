@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: 5c199d074a6655ad14a0c66925e4302f70424970
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 834a097eb77cc7de2d0a3643bf1499ff7517ddb0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615988"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912271"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gérer et résoudre les alertes de sécurité dans Azure Security Center
 
@@ -67,7 +67,7 @@ Le Centre de sécurité collecte, analyse et intègre automatiquement les donné
 
 1. Les étapes de correction suggérées par Security Center dépendent de l’alerte de sécurité. Suivez-les pour chaque alerte. 
 
-    Dans certains cas, afin d’atténuer une alerte de détection de menaces, vous devrez peut-être utiliser d’autres contrôles ou services Azure pour implémenter la correction recommandée. 
+    Dans certains cas, afin d’atténuer une alerte de sécurité, vous devrez peut-être utiliser d’autres contrôles ou services Azure pour implémenter la correction recommandée. 
 
     Les rubriques suivantes vous guident tout au long des différentes alertes en fonction des types de ressources :
     
@@ -81,7 +81,7 @@ Le Centre de sécurité collecte, analyse et intègre automatiquement les donné
 
     Les rubriques suivantes expliquent comment Security Center utilise les différentes données de télémétrie qu’il collecte à partir de l’intégration à l’infrastructure Azure afin d’appliquer des couches de protection supplémentaires pour les ressources déployées sur Azure :
     
-    * [Alertes pour la couche de gestion Azure (Azure Resource Manager) [préversion]](threat-protection.md#management-layer)
+    * [Alertes pour la couche de gestion Azure (Azure Resource Manager) (préversion)](threat-protection.md#management-layer)
     * [Alertes pour Azure Key Vault (préversion)](threat-protection.md#azure-keyvault)
     * [Alertes pour la couche réseau Azure](threat-protection.md#network-layer)
     * [Alertes provenant d’autres services](threat-protection.md#alerts-other)    

@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 934a4fdf7cabb89c4b98c7800252cb24d4e23abf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 3369dc7cde7082659df556e008adb5e45b4c011c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013904"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246200"
 ---
 ## <a name="limitations"></a>Limites
 
@@ -98,6 +98,8 @@ Le prix de l’hôte est défini en fonction de la série de machines virtuelles
 Les licences logicielles, le stockage et l’utilisation du réseau sont facturés séparément de l’hôte et des machines virtuelles. Il n’y aucune modification pour ces éléments facturables.
 
 Pour plus d’informations, consultez la page [Tarification pour hôte dédié Azure](https://aka.ms/ADHPricing).
+
+Vous pouvez également économiser sur les coûts grâce à une [instance réservée d’ordinateurs Azure Dedicated Host](../articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md).
  
 ## <a name="vm-families-and-hardware-generations"></a>Séries de machines virtuelles et générations de matériel
 

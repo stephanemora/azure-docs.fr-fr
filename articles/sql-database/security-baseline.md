@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e1323467db875968f45557c6a7c0afdfee5e4221
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: ca8d0daf5b6d9bbad0d8fa24b4b150c5e6cd6b73
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589668"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300908"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Ligne de base de sécurité Azure pour Azure SQL Database
 
@@ -122,14 +122,11 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6 : Déployer des systèmes de détection et de prévention des intrusions basés sur le réseau (IDS/IPS)
 
-**Conseils** : Activation d'Advanced Threat Protection (ATP) pour Azure SQL Database.  Les utilisateurs reçoivent une alerte en cas d’activités de base de données suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès et de requêtes anormaux à la base de données. Advanced Threat Protection intègre également des alertes dans Azure Security Center.
+**Aide** : Activez Advanced Threat Protection (ATP) pour Azure SQL Database.  Les utilisateurs reçoivent une alerte en cas d’activités de base de données suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès et de requêtes anormaux à la base de données. Advanced Threat Protection intègre également des alertes dans Azure Security Center.
 
+Comprendre et utiliser Advanced Threat Protection pour Azure SQL Database : https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
-Comprendre et utiliser Advanced Threat Protection pour Azure SQL Database :
-
-https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
-
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -164,11 +161,14 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9 : Gérer les configurations de sécurité standard pour les périphériques réseau
 
-**Conseils** : Définissez et implémentez des configurations de sécurité réseau pour vos instances de serveur Azure SQL Database avec Azure Policy. Vous pouvez utiliser l’espace de noms « Microsoft. Sql » pour définir des définitions de stratégie personnalisées, ou utiliser l’une des définitions de stratégie intégrées conçues pour la protection réseau de serveur Azure SQL Database. Voici un exemple de stratégie de sécurité réseau intégrée applicable pour serveur Azure SQL Database : « SQL Server doit utiliser un point de terminaison de service de réseau virtuel »
+**Conseils** : Définissez et implémentez des configurations de sécurité réseau pour vos instances de serveur Azure SQL Database avec Azure Policy. Vous pouvez utiliser l’espace de noms « Microsoft. Sql » pour définir des définitions de stratégie personnalisées, ou utiliser l’une des définitions de stratégie intégrées conçues pour la protection réseau de serveur Azure SQL Database. Voici un exemple de stratégie de sécurité réseau intégrée applicable pour serveur Azure SQL Database : « SQL Server doit utiliser un point de terminaison de service de réseau virtuel ».
+ 
 
 Utilisez Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les artefacts d'environnement clés, tels que les modèles de gestion des ressources Azure, les contrôles d'accès en fonction du rôle (RBAC) et les stratégies, au sein d'une seule définition de blueprint. Appliquez facilement le blueprint aux nouveaux abonnements et environnements, et ajustez le contrôle et la gestion par le biais du versioning.
 
+
 Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Créer une instance Azure Blueprint : https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -251,7 +251,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging
 
 Comment diffuser en continu des diagnostics dans Azure SQL Analytics :
 
-https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-into-azure-sql-analytics
+https://docs.microsoft.com/azure/sql-database/sql-database-metrics-diag-logging#stream-diagnostic-telemetry-into-sql-analytics
 
 **Supervision Azure Security Center** : Oui
 
@@ -457,22 +457,37 @@ https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getst
 
 **Conseils** : Utilisez les rapports de sécurité Azure Active Directory pour générer des journaux et des alertes lorsque des activités suspectes ou potentiellement dangereuses se produisent dans l’environnement.
 
+
+
 Utilisez Advanced Threat Protection pour Azure SQL Database pour détecter les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles ou potentiellement dangereuses de bases de données.
 
-Comment identifier les utilisateurs Azure AD signalés pour une activité à risque : https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
-
-Comment superviser les activités liées aux identités et aux accès des utilisateurs dans Azure Security Center : https://docs.microsoft.com/azure/security-center/security-center-identity-access
-
-Examinez Advanced Threat Protection et les alertes potentielles : https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
 
 
-**Supervision Azure Security Center** : Oui
+Comment identifier les utilisateurs Azure AD signalés pour une activité à risque :
+
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
+
+
+
+Comment superviser les activités liées aux identités et aux accès des utilisateurs dans Azure Security Center :
+
+https://docs.microsoft.com/azure/security-center/security-center-identity-access
+
+
+
+Examinez Advanced Threat Protection et les alertes potentielles :
+
+https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
+
+
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8 : Gérer les ressources Azure à partir des emplacements approuvés uniquement
 
 **Conseils** : Utilisez des emplacements nommés à accès conditionnel pour autoriser l’accès au portail et à la gestion des ressources Azure uniquement à partir de regroupements logiques spécifiques de plages d’adresses IP ou de pays/régions.
+
 
 Comment configurer des emplacements nommés dans Azure : https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
@@ -714,7 +729,7 @@ Comment créer des alertes pour les événements du journal des activités Azure
 https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -774,7 +789,7 @@ Comment exporter un rapport d’évaluation des vulnérabilités dans Azure Secu
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment
 
-**Supervision Azure Security Center** : Oui
+**Supervision d’Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
 
@@ -796,11 +811,15 @@ Comprendre le degré de sécurisation Azure Security Center : https://docs.micr
 
 **Conseils** : Utilisez Azure Resource Graph pour interroger et découvrir toutes les ressources (y compris les instances SQL Server) au sein de vos abonnements.  Vérifiez que vous disposez des autorisations (en lecture) appropriées dans votre locataire et pouvez répertorier tous les abonnements Azure ainsi que les ressources qu’ils contiennent.
 
+
 Bien que les ressources Azure classiques puissent être découvertes via Resource Graph, il est vivement recommandé de créer et d’utiliser des ressources Azure Resource Manager à l’avenir.
+
 
 Créer des requêtes avec Azure Graph : https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
+
 Afficher vos abonnements Azure : https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+
 
 Comprendre Azure RBAC : https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -812,9 +831,13 @@ Comprendre Azure RBAC : https://docs.microsoft.com/azure/role-based-access-cont
 
 **Conseils** : Appliquez des balises aux ressources Azure en fournissant des métadonnées pour les organiser de façon logique par catégories.
 
-Créer et utiliser des balises : https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-**Supervision Azure Security Center** : actuellement non disponible
+
+Créer et utiliser des balises :
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -822,13 +845,25 @@ Créer et utiliser des balises : https://docs.microsoft.com/azure/azure-resourc
 
 **Conseils** : Utilisez des étiquettes, des groupes d’administration et diviser des abonnements, le cas échéant, pour organiser et suivre les ressources. Rapprochez régulièrement l’inventaire et assurez-vous que les ressources non autorisées sont supprimées de l’abonnement en temps utile.
 
-Créer des abonnements Azure supplémentaires : https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-Créer des groupes d’administration : https://docs.microsoft.com/azure/governance/management-groups/create
 
-Créer et utiliser des balises : https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Créer des abonnements Azure supplémentaires :
 
-**Supervision Azure Security Center** : actuellement non disponible
+https://docs.microsoft.com/azure/billing/billing-create-subscription
+
+
+
+Créer des groupes d’administration :
+
+https://docs.microsoft.com/azure/governance/management-groups/create
+
+
+
+Créer et utiliser des balises :
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -894,6 +929,7 @@ Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance
 
 Comment refuser un type de ressource spécifique avec Azure Policy : https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
+
 **Supervision Azure Security Center** : Non applicable
 
 **Responsabilité** : Customer
@@ -911,11 +947,9 @@ Comment refuser un type de ressource spécifique avec Azure Policy : https://do
 **Conseils** : Utilisez l’accès conditionnel Azure pour limiter la capacité des utilisateurs à interagir avec Azure Resource Manager en configurant « Bloquer l’accès » pour l’application « Gestion Microsoft Azure ».
 
 
-Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Manager :
+Configurer l’accès conditionnel pour bloquer l’accès à Azure Resource Manager : https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
-
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -1152,7 +1186,7 @@ Comprendre les sauvegardes et la continuité d’activité avec Azure SQL Server
 
 https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity
 
-**Supervision Azure Security Center** : Non applicable
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Partagé
 
@@ -1204,7 +1238,7 @@ Comment activer la suppression réversible dans Key Vault :
 
 https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
-**Supervision Azure Security Center** : actuellement non disponible
+**Supervision d’Azure Security Center** : Oui
 
 **Responsabilité** : Customer
 
@@ -1292,7 +1326,7 @@ Comment configurer l’automatisation du flux de travail et Logic Apps :
 
 https://docs.microsoft.com/azure/security-center/workflow-automation
 
-**Supervision Azure Security Center** : Oui
+**Supervision Azure Security Center** : actuellement non disponible
 
 **Responsabilité** : Customer
 
@@ -1314,3 +1348,7 @@ Vous trouverez plus d’informations sur la stratégie de Microsoft et l’exéc
 
 **Responsabilité** : Partagé
 
+## <a name="next-steps"></a>Étapes suivantes
+
+- Consultez le [benchmark de sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
+- Apprenez-en davantage sur les [Bases de référence de la sécurité Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

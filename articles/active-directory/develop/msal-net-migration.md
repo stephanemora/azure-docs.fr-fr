@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 4ffcd82931b4df92aa2885eb043deae90a70526f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 737b25fd4c83c459f033bd7b07f6362909e38056
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695345"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299881"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migration d’applications vers MSAL.NET
 
@@ -165,7 +165,7 @@ Les autorisations OAuth2 sont des étendues d’autorisation qu’une applicatio
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Étendues pour demander l’accès à des autorisations OAuth2 spécifiques d’une application v1.0
 
-Pour acquérir des jetons pour des étendues spécifiques d’une application v1.0 (par exemple, AAD Graph, à savoir https://graph.windows.net) ), vous devez créer des `scopes` en concaténant un identificateur de ressource de votre choix avec une autorisation OAuth2 souhaitée pour cette ressource.
+Pour acquérir des jetons pour une application acceptant les jetons v1.0 (par exemple, l’API Microsoft Graph, disponible à l’adresse https://graph.microsoft.com) ), vous devez créer des `scopes` en concaténant un identificateur de ressource de votre choix avec une autorisation OAuth2 souhaitée pour cette ressource.
 
 Par exemple, pour accéder au nom de l’utilisateur à une API web v1.0 dont l’URI de l’ID d’application est `ResourceId`, vous devez utiliser :
 
@@ -173,10 +173,10 @@ Par exemple, pour accéder au nom de l’utilisateur à une API web v1.0 dont l�
 var scopes = new [] {  ResourceId+"/user_impersonation"};
 ```
 
-Pour lire et écrire avec MSAL.NET Azure Active Directory à l’aide de l’API AAD Graph (https://graph.windows.net/) ), vous devez créer la liste des étendues, comme dans l’extrait de code suivant :
+Pour lire et écrire avec MSAL.NET Azure Active Directory à l’aide de l’API Microsoft Graph (https://graph.microsoft.com/) ), vous devez créer la liste des étendues, comme dans l’extrait de code suivant :
 
 ```csharp
-ResourceId = "https://graph.windows.net/";
+ResourceId = "https://graph.microsoft.com/";
 var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 

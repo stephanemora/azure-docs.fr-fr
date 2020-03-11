@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 316ed596cfa49987e229004c388267286ff50927
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 889897cfd4dc8714ae3aea556f0924c9dbcd7825
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000964"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299412"
 ---
 # <a name="design-secure-applications-on-azure"></a>Concevoir des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à envisager lorsque vous concevez des applications pour le cloud. Les ressources de formation ainsi que les questions et concepts de sécurité à examiner pendant les phases de conception et de configuration des exigences du [Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) y sont abordés. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour concevoir une application plus sécurisée.
@@ -26,7 +26,7 @@ Cet article présente les activités et contrôles de sécurité à envisager lo
 Les phases de Microsoft Security Development Lifecycle suivantes sont traitées dans cet article :
 
 - Entrainement
-- Configuration requise
+- Spécifications
 - Conception
 
 ## <a name="training"></a>Entrainement
@@ -38,7 +38,7 @@ Utilisez les ressources suivantes pendant la phase de formation, afin de vous fa
 
   - Le [Guide de prise en main pour les développeurs Azure](../../guides/developer/azure-developer-guide.md) fournit des informations essentielles aux développeurs qui souhaitent commencer à utiliser la plateforme Azure pour leurs besoins de développement.
 
-  - L’ensemble des [kits SDK et outils](https://docs.microsoft.com/azure/index#pivot=sdkstools) décrit les outils qui sont disponibles sur Azure.
+  - L’ensemble des [kits SDK et outils](https://docs.microsoft.com/azure/index?pivot=sdkstools) décrit les outils qui sont disponibles sur Azure.
 
   - La suite [Azure DevOps Services](https://docs.microsoft.com/azure/devops/) fournit des outils collaboratifs de développement. Ces outils comportent des pipelines haute performance, des dépôts Git gratuits, des tableaux Kanban configurables et des tests de charge basés sur le cloud, automatisés et complets.
     Le [Centre de ressources DevOps](https://docs.microsoft.com/azure/devops/learn/) combine nos ressources d’apprentissage des pratiques DevOps, le contrôle de version Git, les méthodes agiles, notre manière de travailler avec DevOps chez Microsoft et la façon dont vous pouvez évaluer la progression de vos propres opérations de développement.
@@ -49,7 +49,7 @@ Utilisez les ressources suivantes pendant la phase de formation, afin de vous fa
 
   - L’ensemble des [Bonnes pratiques de sécurité pour les solutions Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) s’utilise au fur et à mesure que vous concevez, déployez et gérez vos solutions cloud avec Azure.
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 La phase de détermination des exigences est une étape essentielle dans la définition de ce que votre application est, et de ce qu’elle fera lorsqu’elle sera publiée. La phase de configuration des exigences représente également un moment de réflexion à mener sur les contrôles de sécurité que vous allez créer dans votre application. Pendant cette phase, vous initiez également les étapes que vous allez suivre tout au long du SDL pour garantir la publication et le déploiement d’une application sécurisée.
 
 ### <a name="consider-security-and-privacy-issues"></a>Examiner les questions de confidentialité et de sécurité
@@ -84,7 +84,7 @@ Posez des questions de sécurité, telles que :
   - Mon application déploie-t-elle des activités logicielles à risque, comme permettre aux utilisateurs de charger ou de télécharger des fichiers ou d’autres données ? Si votre application développe des activités à risque, songez à la façon dont elle protégera les utilisateurs contre l’utilisation de données ou de fichiers malveillants.
 
 ### <a name="review-owasp-top-10"></a>Consulter le Top 10 OWASP
-Prévoyez de passer en revue le [ <span class="underline">Top 10 OWASP des risques liés à la sécurité des applications</span>](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
+Prévoyez de passer en revue le [<span class="underline">Top 10 OWASP des risques liés à la sécurité des applications</span>](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
 Le Top 10 OWASP traite des risques de sécurité critiques pour les applications web.
 La connaissance de ces risques de sécurité peut vous aider dans vos prises de décision en matière d’exigences et de conception pour diminuer ces risques dans votre application.
 
@@ -126,7 +126,7 @@ En ce qui concerne le développement, utilisez une bibliothèque de codages séc
 Veillez à utiliser la toute dernière version de votre framework, ainsi que toutes les fonctionnalités de sécurité disponibles dans le framework. Microsoft propose un [ensemble complet d’outils de développement](https://azure.microsoft.com/product-categories/developer-tools/) destiné à tous les développeurs, quels que soient la plateforme ou le langage dont ils se servent, pour fournir des applications cloud. Vous pouvez développer dans le langage de votre choix en choisissant parmi différents [kits SDK](https://azure.microsoft.com/downloads/).
 Vous pouvez profiter d’environnements de développement intégrés (IDE) complets et d’éditeurs équipés de fonctions de débogage avancé, ainsi que du support Azure intégré.
 
-Microsoft offre un éventail de [langages, frameworks et outils](https://docs.microsoft.com/azure/index#pivot=sdkstools&panel=sdkstools-all) que vous pouvez utiliser pour développer des applications sur Azure. Par exemple, [Azure pour les développeurs .NET et .NET Core](https://docs.microsoft.com/dotnet/azure/). À chaque langage et framework que nous proposons, correspondent des guides de démarrage rapide, des tutoriels et des informations de référence sur les API pour vous mettre rapidement le pied à l’étrier.
+Microsoft offre un éventail de [langages, frameworks et outils](https://docs.microsoft.com/azure/index?pivot=sdkstools&panel=sdkstools-all) que vous pouvez utiliser pour développer des applications sur Azure. Par exemple, [Azure pour les développeurs .NET et .NET Core](https://docs.microsoft.com/dotnet/azure/). À chaque langage et framework que nous proposons, correspondent des guides de démarrage rapide, des tutoriels et des informations de référence sur les API pour vous mettre rapidement le pied à l’étrier.
 
 Azure présente toute une gamme de services à utiliser pour héberger des applications web et des sites web. Ces services vous permettent de développer dans votre langage de prédilection, que ce soit .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python.
 [Azure App Service Web Apps](../../app-service/overview.md) (Web Apps) est un de ces services.
@@ -158,7 +158,7 @@ La modélisation de la conception de l’application et l’énumération des me
 | Répudiation            | Non-répudiation       | Activez [la surveillance et les diagnostics Azure](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).|
 | Divulgation d’informations | Confidentialité       | Chiffrer les données sensibles [au repos](../fundamentals/encryption-atrest.md) et [en transit](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
 | Déni de service      | Disponibilité          | Superviser les métriques de performances pour des conditions potentielles de déni de service. Implémentez des filtres de connexion. Combiné aux bonnes pratiques de la conception d’application, le [service de protection DDoS Azure](../../virtual-network/ddos-protection-overview.md#next-steps) assure une excellente protection contre les attaques DDoS.|
-| Élévation de privilège | Authorization         | Utiliser Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
+| Élévation de privilège | Autorisation         | Utiliser Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
 
 ### <a name="reduce-your-attack-surface"></a>Réduction de votre surface d’attaque
 

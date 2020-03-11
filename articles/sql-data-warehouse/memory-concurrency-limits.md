@@ -1,25 +1,25 @@
 ---
 title: Limites de mémoire et de concurrence
-description: Afficher les limites de mémoire et de concurrence allouées aux différents niveaux de performance et classes de ressources dans Azure SQL Data Warehouse.
+description: Consultez les limites de mémoire et de concurrence allouées aux différents niveaux de performance et classes de ressources dans Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 12/04/2019
+ms.date: 02/04/2020
 ms.author: rortloff
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: dfdaef0002f068dc4c9044e979b169de779cf6d5
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.reviewer: jrasnick
+ms.custom: azure-synapse
+ms.openlocfilehash: 73c7b756009035c8592c85bec3a6b7d85d93666c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851279"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200683"
 ---
-# <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limites de mémoire et de concurrence pour Azure SQL Data Warehouse
-Afficher les limites de mémoire et de concurrence allouées aux différents niveaux de performance et classes de ressources dans Azure SQL Data Warehouse.  
+# <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limites de mémoire et de concurrence pour Azure Synapse Analytics
+Consultez les limites de mémoire et de concurrence allouées aux différents niveaux de performance et classes de ressources dans Azure Synapse Analytics.  
 
 ## <a name="data-warehouse-capacity-settings"></a>Paramètres de la capacité de l’entrepôt de données
 Les tableaux suivants présentent la capacité maximale pour l’entrepôt de données à différents niveaux de performance. Pour modifier le niveau de performance, consultez [Calcul de mise à l’échelle – portail](quickstart-scale-compute-portal.md).
@@ -37,11 +37,11 @@ La plage des niveaux de service est comprise entre DW100c et DW30000c.
 | DW500c            | 1             | 60                             |   300                          |
 | DW1000c           | 2             | 30                             |   600                          |
 | DW1500c           | 3             | 20                             |   900                          |
-| DW2000c           | 4             | 15                             |  1 200                          |
-| DW2500c           | 5\.             | 12                             |  1 500                          |
-| DW3000c           | 6             | 10                             |  1 800                          |
+| DW2000c           | 4             | 15                             |  1200                          |
+| DW2500c           | 5             | 12                             |  1500                          |
+| DW3000c           | 6             | 10                             |  1800                          |
 | DW5000c           | 10            | 6                              |  3000                          |
-| DW6000c           | 12            | 5\.                              |  3600                          |
+| DW6000c           | 12            | 5                              |  3600                          |
 | DW7500c           | 15            | 4                              |  4500                          |
 | DW10000c          | 20            | 3                              |  6000                          |
 | DW15000c          | 30            | 2                              |  9000                          |
@@ -52,34 +52,34 @@ Le niveau de service maximal est DW30000c, qui correspond à 60 nœuds de calcul
 ## <a name="concurrency-maximums-for-workload-groups"></a>Valeurs maximales de concurrence pour les groupes de charge de travail
 Avec l’introduction des [groupes de charges de travail](sql-data-warehouse-workload-isolation.md), le concept d’emplacements de concurrence ne s’applique plus.  Les ressources par demande sont allouées selon un pourcentage et spécifiées dans la définition du groupe de charge de travail.  Toutefois, même avec la suppression des emplacements de concurrence, il existe des quantités minimales de ressources nécessaires par requête, en fonction du niveau de service.  Le tableau ci-dessous définit la quantité minimale de ressources nécessaires par requête entre les niveaux de service et la concurrence associée possible. 
 
-|Niveau de service|Nombre maximal de requêtes concurrentes|% min. pris en charge pour REQUEST_MIN_RESOURCE_GRANT_PERCENT|
+|Niveau de service|Nombre maximal de requêtes simultanées|% min. pris en charge pour REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|
-|DW100c|4|25%|
+|DW100c|4|25 %|
 |DW200c|8|12,5 %|
-|DW300c|12|8 %|
+|DW300c|12|8 %|
 |DW400c|16|6,25 %|
 |DW500c|20|5 %|
-|DW1000c|32|3 %|
-|DW1500c|32|3 %|
-|DW2000c|48|2%|
-|DW2500c|48|2%|
+|DW1000c|32|3 %|
+|DW1500c|32|3 %|
+|DW2000c|48|2 %|
+|DW2500c|48|2 %|
 |DW3000c|64|1,5 %|
 |DW5000c|64|1,5 %|
-|DW6000c|128|0,75 %|
-|DW7500c|128|0,75 %|
-|DW10000c|128|0,75 %|
-|DW15000c|128|0,75 %|
-|DW30000c|128|0,75 %|
+|DW6000c|128|0,75 %|
+|DW7500c|128|0,75 %|
+|DW10000c|128|0,75 %|
+|DW15000c|128|0,75 %|
+|DW30000c|128|0,75 %|
 ||||
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Valeurs maximales de concurrence pour les classes de ressources
-Pour s’assurer que chaque requête dispose de suffisamment de ressources pour s’exécuter efficacement, SQL Data Warehouse suit l’utilisation des ressources en assignant des emplacements de concurrence à chaque requête. Le système place les requêtes dans une file d’attente en fonction de l’importance et des emplacements de concurrence. Les requêtes attendent dans la file d’attente jusqu’à ce que suffisamment d’emplacements de concurrence soient disponibles. L’[importance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) et les emplacements de concurrence déterminent la hiérarchisation des priorités du processeur. Pour plus d’informations, voir [Analyser votre charge de travail](analyze-your-workload.md).
+Pour vérifier que chaque requête dispose de suffisamment de ressources pour s’exécuter efficacement, SQL Analytics dans Azure Synapse suit l’utilisation des ressources en assignant des emplacements de concurrence à chaque requête. Le système place les requêtes dans une file d’attente en fonction de l’importance et des emplacements de concurrence. Les requêtes attendent dans la file d’attente jusqu’à ce que suffisamment d’emplacements de concurrence soient disponibles. L’[importance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) et les emplacements de concurrence déterminent la hiérarchisation des priorités du processeur. Pour plus d’informations, voir [Analyser votre charge de travail](analyze-your-workload.md).
 
 **Classes de ressources statiques**
 
 Le tableau suivant indique le nombre maximal de requêtes concurrentes et d’emplacements de concurrence pour chaque [classe de ressources statique](resource-classes-for-workload-management.md).  
 
-| Niveau de service | Nombre maximal de requêtes concurrentes | Emplacements de concurrence disponibles | Emplacements utilisés par staticrc10 | Emplacements utilisés par staticrc20 | Emplacements utilisés par staticrc30 | Emplacements utilisés par staticrc40 | Emplacements utilisés par staticrc50 | Emplacements utilisés par staticrc60 | Emplacements utilisés par staticrc70 | Emplacements utilisés par staticrc80 |
+| Niveau de service | Nombre maximal de requêtes simultanées | Emplacements de concurrence disponibles | Emplacements utilisés par staticrc10 | Emplacements utilisés par staticrc20 | Emplacements utilisés par staticrc30 | Emplacements utilisés par staticrc40 | Emplacements utilisés par staticrc50 | Emplacements utilisés par staticrc60 | Emplacements utilisés par staticrc70 | Emplacements utilisés par staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -96,16 +96,16 @@ Le tableau suivant indique le nombre maximal de requêtes concurrentes et d’em
 | DW7500c       | 128                        |  300                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW10000c      | 128                        |  400                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW15000c      | 128                        |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-| DW30000c      | 128                        | 1 200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
+| DW30000c      | 128                        | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
 **Classes de ressources dynamiques**
 
 Le tableau suivant indique le nombre maximal de requêtes concurrentes et d’emplacements de concurrence pour chaque [classe de ressources dynamique](resource-classes-for-workload-management.md). Les classes de ressources dynamiques utilisent une allocation de pourcentage de mémoire 3-10-22-70 pour les classes de ressources small-medium-large-xlarge à tous les niveaux de service.
 
-| Niveau de service | Nombre maximal de requêtes concurrentes | Emplacements de concurrence disponibles | Emplacements utilisés par smallrc | Emplacements utilisés par mediumrc | Emplacements utilisés par largerc | Emplacements utilisés par xlargerc |
+| Niveau de service | Nombre maximal de requêtes simultanées | Emplacements de concurrence disponibles | Emplacements utilisés par smallrc | Emplacements utilisés par mediumrc | Emplacements utilisés par largerc | Emplacements utilisés par xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
-| DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5\.                    |
+| DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |
 | DW300c        | 12                         |   12                        | 1                     |  1                     |  2                    |   8                    |
 | DW400c        | 16                         |   16                        | 1                     |  1                     |  3                    |  11                    |
 | DW500c        | 20                         |   20                        | 1                     |  2                     |  4                    |  14                    |
@@ -119,7 +119,7 @@ Le tableau suivant indique le nombre maximal de requêtes concurrentes et d’em
 | DW7500c       | 32                         |  300                        | 9                     | 30                     |  66                   | 210                    |
 | DW10000c      | 32                         |  400                        | 12                    | 40                     |  88                   | 280                    |
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
-| DW30000c      | 32                         | 1 200                        | 36                    | 120                    | 264                   | 840                    |
+| DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
 
 Quand il n’y a pas suffisamment d’emplacements de concurrence libres pour démarrer l’exécution des requêtes, celles-ci sont mises en file d’attente et exécutées en fonction de leur importance.  Si l’importance est équivalente, les requêtes sont exécutées sur la base du « premier entré, premier sorti ».  À mesure que les requêtes se terminent et que le nombre de requêtes et d’emplacements chute sous les limites, SQL Data Warehouse libère des requêtes en file d’attente. 

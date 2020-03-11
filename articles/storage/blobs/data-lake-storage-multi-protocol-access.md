@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f34c5d5069a158579864320d0fbf965de8936d9c
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: e3997fc215637175165402a926bffc6ac8d02771
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896111"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914856"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage"></a>Accès multi-protocole pour Azure Data Lake Storage
 
@@ -26,7 +26,11 @@ Avec l’accès multi-protocole sur Data Lake Storage, vous pouvez travailler av
 Les fonctionnalités de stockage d’objets BLOB, telles que la [journalisation des diagnostics](../common/storage-analytics-logging.md), les [niveaux d’accès](storage-blob-storage-tiers.md) et les [stratégies de gestion du cycle de vie du stockage BLOB](storage-lifecycle-management-concepts.md), fonctionnent désormais avec les comptes qui ont un espace de noms hiérarchique. Par conséquent, vous pouvez activer des espaces de noms hiérarchiques sur vos comptes de stockage d’objets BLOB sans perdre l’accès à ces fonctionnalités importantes. 
 
 > [!NOTE]
-> L’accès multi-protocole sur Data Lake Storage est en disponibilité générale dans toutes les régions. Certains services Azure et certaines fonctionnalités de stockage Blob que l’accès multiprotocole active restent en version préliminaire. Pour plus d’informations, consultez les tableaux de chaque section de cet article. 
+> L’accès multi-protocole sur Data Lake Storage est en disponibilité générale dans toutes les régions. Certains services Azure et certaines fonctionnalités de stockage BLOB que l’accès multiprotocole active restent en version préliminaire.  Ces articles résument la prise en charge actuelle des fonctionnalités de stockage d’objets BLOB et des intégrations de service Azure. 
+>
+> [Fonctionnalités de stockage d'objets BLOB disponibles dans Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
+>
+>[Services Azure prenant en charge Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
 
 ## <a name="how-multi-protocol-access-on-data-lake-storage-works"></a>Comment fonctionne l’accès multi-protocole pour Azure Data Lake Storage
 
@@ -36,62 +40,12 @@ Les API d’objets BLOB et les API Data Lake Storage Gen2 peuvent fonctionner su
 
 Les outils et les applications existants qui utilisent l’API BLOB bénéficient automatiquement de ces avantages. Les développeurs ne sont pas obligés de les modifier. Data Lake Storage Gen2 applique de manière cohérente les listes de contrôle d’accès au niveau des répertoires et des fichiers, quel que soit le protocole utilisé par les outils et les applications pour accéder aux données. 
 
-## <a name="blob-storage-feature-support"></a>Prise en charge de la fonctionnalité Stockage Blob
+## <a name="see-also"></a>Voir aussi
 
-L’accès multiprotocole sur Data Lake Storage vous permet d’utiliser davantage de fonctionnalités de stockage d’objets Blob avec votre Data Lake Storage. Ce tableau répertorie les fonctionnalités qui sont activées par l’accès multiprotocole sur Data Lake Storage. 
-
-Les éléments qui apparaissent dans ce tableau changeront au fil du temps, car la prise en charge des fonctionnalités de stockage d’objets Blob continue à s’étendre. 
-
-> [!NOTE]
-> Si l’accès multiprotocole sur Data Lake Storage est en disponibilité générale, la prise en charge de certaines de ces fonctionnalités reste en version préliminaire. 
-
-|Fonctionnalité Stockage Blob | Niveau de support |
-|---|---|
-|[Niveau d’accès froid](storage-blob-storage-tiers.md)|Mise à la disposition générale|
-|API REST de blobs|Mise à la disposition générale|
-|SDK d’objets Blob |Mise à la disposition générale|
-|[PowerShell (Blob)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell) |Mise à la disposition générale|
-|[CLI (Blob)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-cli) |Mise à la disposition générale|
-|[Notifications via Azure Event Grid](data-lake-storage-events.md)|Mise à la disposition générale|
-|Les SDK Blob avec la sémantique du système de fichiers ([.NET](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-dotnet)&vert;[Python](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-python)&vert;[Java](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-java))|PRÉVERSION|
-|[PowerShell avec la sémantique du système de fichiers](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-powershell)|PRÉVERSION|
-|[CLI avec la sémantique du système de fichiers](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-directory-file-acl-cli)|PRÉVERSION|
-|[Journaux de diagnostic](../common/storage-analytics-logging.md)| PRÉVERSION|
-|[Stratégies de gestion du cycle de vie](storage-lifecycle-management-concepts.md)| PRÉVERSION|
-|[Archive access tier](storage-blob-storage-tiers.md) (Niveau d’accès archive)| PRÉVERSION|
-|[blobfuse](storage-how-to-mount-container-linux.md)|Pas encore pris en charge|
-|[Stockage non modifiable](storage-blob-immutable-storage.md)|Pas encore pris en charge|
-|[Instantanés](storage-blob-snapshots.md)|Pas encore pris en charge|
-|[Suppression réversible](storage-blob-soft-delete.md)|Pas encore pris en charge|
-|[Sites web statiques](storage-blob-static-website.md)|Pas encore pris en charge|
-
-Pour en savoir plus sur les problèmes connus et les limitations d’Azure Data Lake Storage Gen2, consultez [Problèmes connus](data-lake-storage-known-issues.md).
-
-## <a name="azure-ecosystem-support"></a>Prise en charge de l’écosystème Azure
-
-L’accès multiprotocole sur Data Lake Storage vous permet également de connecter plus de services Azure à votre Data Lake Storage. Ce tableau répertorie les services qui sont activés par l’accès multiprotocole sur Data Lake Storage. 
-
-Comme pour les fonctionnalités de stockage d’objets Blob, les éléments qui apparaissent dans ce tableau changeront au fil du temps, car la prise en charge des services Azure continue à s’étendre. 
-
-> [!NOTE]
-> Si l’accès multiprotocole sur Data Lake Storage est en disponibilité générale, la prise en charge de certains de ces services reste en version préliminaire. 
-
-|Service Azure | Niveau de support |
-|---|---|
-|[Azure Data Box](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|Mise à la disposition générale|
-|[Azure Event Hubs Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|Mise à la disposition générale|
-|[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal)|Mise à la disposition générale|
-|[IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c)|Mise à la disposition générale|
-|[Logic Apps](https://azure.microsoft.com/services/logic-apps/)|Mise à la disposition générale|
-|[Recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|PRÉVERSION|
-
-Pour obtenir la liste complète de la prise en charge de l’écosystème Azure avec Azure Data Lake Storage Gen2, consultez [Intégrer Azure Data Lake Storage avec les services Azure](data-lake-storage-integrate-with-azure-services.md).
-
-Pour en savoir plus sur les problèmes connus et les limitations d’Azure Data Lake Storage Gen2, consultez [Problèmes connus](data-lake-storage-known-issues.md).
-
-## <a name="next-steps"></a>Étapes suivantes
-
-Consultez [Problèmes connus](data-lake-storage-known-issues.md)
+- [Fonctionnalités de stockage d'objets BLOB disponibles dans Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md)
+- [Services Azure prenant en charge Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
+- [Plateformes open source prenant en charge Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md)
+- [Problèmes connus avec Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 
 
 

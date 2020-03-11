@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 9e1a7f7cd2643aae61e60d77ad74f4a08266a977
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: b646ee9b727d5adf4ec1c8b5c769b3d8f5c0fc1c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863595"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252031"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Spécifications techniques d’Azure Data Box Edge
 
@@ -52,6 +52,14 @@ L’appareil Data Box Edge a deux blocs d’alimentation de 100-240 V avec des 
 <!--## Power consumption statistics
 
 The following table lists the typical power consumption data (actual values may vary from the published) for the Data Box Edge device.-->
+
+## <a name="network-interface-specifications"></a>Spécifications de l’interface réseau
+
+Votre appareil Data Box Edge dispose de 6 interfaces réseau : PORT1-PORT6.
+
+| Caractéristique           | Description                 |
+|-------------------------|----------------------------|
+|  Interfaces réseau    | 2 interfaces 1 GbE : une pour la gestion, non configurable par l’utilisateur, utilisée pour l’installation initiale. L’autre interface peut être configurée par l’utilisateur, utilisée pour le transfert de données et est définie en mode DHCP par défaut. <br>2 interfaces 25 GbE : peuvent également fonctionner comme interfaces 10 GbE. Ces interfaces de données peuvent être configurées par l’utilisateur en mode statique ou DHCP (par défaut). <br> 2 interfaces 25 GbE : ces interfaces de données peuvent être configurées par l’utilisateur en mode statique ou DHCP (par défaut).                  |
 
 ## <a name="storage-specifications"></a>Spécifications de stockage
 

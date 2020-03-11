@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 62728f5b66825eb6698e37bb7ad3adbad831b465
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: fac9cba28f90f3642de660ed7d070b165c06bb2e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615343"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303254"
 ---
 # <a name="container-security-in-security-center"></a>Sécurité des conteneurs dans Security Center
 
@@ -33,10 +33,12 @@ Cet article décrit comment Security Center vous aide à améliorer, superviser 
 
 Pour obtenir des instructions sur l’utilisation de ces fonctionnalités, consultez [Superviser la sécurité de vos conteneurs](monitor-container-security.md).
 
-## <a name="vulnerability-management---scanning-container-images-preview"></a>Gestion des vulnérabilités : analyse des images conteneurs (préversion)
+## <a name="vulnerability-management---scanning-container-images"></a>Gestion des vulnérabilités : analyse des images conteneur
 Pour surveiller votre Azure Container Registry basé sur ARM, assurez-vous que vous êtes sur le niveau standard de Security Center (voir [tarification](/azure/security-center/security-center-pricing)). Activez ensuite le pack facultatif de registres de conteneurs. Quand une nouvelle image est envoyée (push), Security Center l’analyse avec un scanneur fourni par Qualys, leader des solutions de gestion des vulnérabilités.
 
 Si des problèmes sont détectés par Qualys ou Security Center, vous recevez une notification dans le tableau de bord de Security Center. Pour chaque vulnérabilité, Security Center fournit des recommandations actionnables, accompagnées d’une classification de gravité et de conseils sur la façon de corriger le problème. Pour plus d’informations concernant les recommandations de Security Center pour les conteneurs, consultez la [liste de référence des recommandations](recommendations-reference.md#recs-containers).
+
+Security Center filtre et classifie les résultats à partir de l’analyseur. Quand une image est saine, Security Center la marque comme telle. Security Center génère des recommandations de sécurité uniquement pour les images qui ont des problèmes à résoudre. En n’avertissant qu’en cas de problème, Security Center réduit le risque d’alertes d’information indésirables.
 
 ## <a name="environment-hardening"></a>Sécurisation renforcée de l’environnement
 
@@ -65,7 +67,7 @@ Pour plus d’informations sur les recommandations pertinentes de Security Cente
 
 Security Center assure une détection des menaces en temps réel pour vos environnements conteneurisés et génère des alertes en cas d’activités suspectes. Vous pouvez utiliser ces informations pour remédier rapidement aux problèmes de sécurité et améliorer la sécurité de vos conteneurs.
 
-Nous détectons les menaces au niveau de l’hôte et du cluster AKS. Pour plus d’informations, consultez [Protection contre les menaces pour les conteneurs Azure](threat-protection.md#azure-containers).
+Nous détectons les menaces au niveau de l’hôte et du cluster AKS. Pour plus d’informations, consultez [Détection des menaces pour les conteneurs Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-).
 
 
 ## <a name="container-security-faq"></a>FAQ sur la sécurité des conteneurs
@@ -73,16 +75,18 @@ Nous détectons les menaces au niveau de l’hôte et du cluster AKS. Pour plus 
 ### <a name="what-types-of-images-can-azure-security-center-scan"></a>Quels types d’images Azure Security Center peut-il analyser ?
 Security Center analyse des images du système d’exploitation Linux qui fournissent un accès à l’interpréteur de commandes. 
 
-L’analyseur Qualys ne prend pas en charge les images super-minimalistes, telles que les images de [base Docker](https://hub.docker.com/_/scratch/) ou « Distroless » qui contiennent uniquement votre application et ses dépendances de runtime (sans gestionnaire de packages, interpréteur de commandes ni système d’exploitation).
+L’analyseur Qualys ne prend pas en charge les images super-minimalistes, telles que les images de [base Docker](https://hub.docker.com/_/scratch/) ou « Distroless » qui contiennent uniquement votre application et ses dépendances de runtime sans gestionnaire de packages, interpréteur de commandes ni système d’exploitation.
 
-### <a name="how-does-we-scan-azure-security-center-scan-an-image"></a>Comment Azure Security Center analyse-t-il une image ?
+### <a name="how-does-azure-security-center-scan-an-image"></a>Comment Azure Security Center analyse une image ?
 L’image est extraite du registre. Elle est ensuite exécutée dans un bac à sable isolé à l’aide de l’analyseur Qualys qui extrait une liste de vulnérabilités connues.
+
+Security Center filtre et classifie les résultats à partir de l’analyseur. Quand une image est saine, Security Center la marque comme telle. Security Center génère des recommandations de sécurité uniquement pour les images qui ont des problèmes à résoudre. En n’avertissant qu’en cas de problème, Security Center réduit le risque d’alertes d’information indésirables.
 
 ### <a name="how-often-does-azure-security-center-scan-my-images"></a>Quelle est la fréquence à laquelle Azure Security Center analyse mes images ?
 Les analyses d’images sont déclenchées à chaque envoi (push).
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>Puis-je obtenir les résultats de l’analyse via l’API REST ?
-Oui. Les résultats se trouvent sous l’[API REST Sub-Assessments](/rest/api/securitycenter/subassessments/list/). En outre, vous pouvez utiliser Azure Resource Graph (ARG), l’API de type Kusto pour toutes vos ressources : une requête peut extraire une analyse spécifique.
+Oui. Les résultats se trouvent sous l’[API REST Sub-Assessments](/rest/api/securitycenter/subassessments/list/). De plus, vous pouvez utiliser Azure Resource Graph (ARG), l’API de type Kusto pour toutes vos ressources : une requête peut extraire une analyse spécifique.
  
 
 ## <a name="next-steps"></a>Étapes suivantes

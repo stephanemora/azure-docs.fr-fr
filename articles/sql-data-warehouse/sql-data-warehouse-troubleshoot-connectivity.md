@@ -1,6 +1,6 @@
 ---
 title: Résoudre les problèmes de connectivité
-description: Résolvez les problèmes de connectivité d’Azure SQL Data Warehouse.
+description: Résolution des problèmes de connectivité dans SQL Analytics.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -10,17 +10,17 @@ ms.subservice: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: d1139032176b3b44c58471b87cabd10ffeaa3d20
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 003366a6d88e018090475b6fb22d9042a97af823
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692427"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192249"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>Résolution des problèmes de connectivité
 
-Cet article répertorie les techniques de dépannage courantes relatives à la connexion à SQL Data Warehouse.
+Cet article liste les techniques de résolution des problèmes courantes relatives à la connexion à votre base de données SQL Analytics.
 - [Vérifier la disponibilité du service](./sql-data-warehouse-troubleshoot-connectivity.md#check-service-availability)
 - [Vérifier les opérations de mise à l’échelle ou interrompues](./sql-data-warehouse-troubleshoot-connectivity.md#check-for-paused-or-scaling-operation)
 - [Vérifier les paramètres de pare-feu](./sql-data-warehouse-troubleshoot-connectivity.md#check-your-firewall-settings)
@@ -32,33 +32,33 @@ Cet article répertorie les techniques de dépannage courantes relatives à la c
 
 ## <a name="check-service-availability"></a>Vérifier la disponibilité du service
 
-Vérifiez si le service est disponible. Dans le portail Azure, accédez à l’entrepôt SQL Data Warehouse auquel vous souhaitez vous connecter. Dans le panneau Table des matières à gauche, cliquez sur **Diagnostiquer et résoudre les problèmes**.
+Vérifiez si le service est disponible. Dans le portail Azure, accédez à la base de données SQL Analytics à laquelle vous essayez de vous connecter. Dans le panneau Table des matières à gauche, cliquez sur **Diagnostiquer et résoudre les problèmes**.
 
 ![Sélectionner l’intégrité des ressources](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-L’état de votre entrepôt SQL Data Warehouse s’affiche ici. Si le service ne s’affiche pas comme étant **disponible**, vérifiez d’autres étapes.
+L’état de votre instance SQL Analytics s’affiche ici. Si le service ne s’affiche pas comme étant **disponible**, vérifiez d’autres étapes.
 
 ![Service disponible](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Si l’intégrité des ressources indique que votre entrepôt de données est interrompu ou mis à l’échelle, suivez les instructions pour reprendre l’exécution de l’entrepôt de données.
+Si l’intégrité de vos ressources indique que votre instance SQL Analytics est interrompue ou mise à l’échelle, suivez les instructions permettant de reprendre l’exécution de votre instance.
 
 ![Service suspendu](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Des informations supplémentaires relatives à l’intégrité des ressources sont disponibles ici.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Vérifier les opérations de mise à l’échelle ou interrompues
 
-Dans le portail, vérifiez si votre entrepôt SQL Data Warehouse est interrompu ou mis à l’échelle.
+Dans le portail, vérifiez si votre instance SQL Analytics est interrompue ou mise à l’échelle.
 
 ![Service suspendu](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Si vous constatez que votre service est interrompu ou mis à l’échelle, vérifiez que ce n’est pas durant le programme de maintenance. Dans le portail, dans la *Vue d’ensemble* de votre entrepôt SQL Data Warehouse, vous verrez le programme de maintenance sélectionné.
+Si vous constatez que votre service est interrompu ou mis à l’échelle, vérifiez que ce n’est pas durant le programme de maintenance. Dans le portail, pour la *Vue d’ensemble* de votre instance SQL Analytics, vous voyez la planification de maintenance sélectionnée.
 
 ![Vue d’ensemble du programme de maintenance](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Sinon, contactez votre administrateur informatique pour vérifier que cette opération de maintenance n’est pas un événement planifié. Pour reprendre l’exécution de l’entrepôt SQL Data Warehouse, suivez les étapes décrites [ici](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
+Sinon, contactez votre administrateur informatique pour vérifier que cette opération de maintenance n’est pas un événement planifié. Pour reprendre l’exécution de l’instance SQL Analytics, suivez les étapes décrites [ici](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
 
 ## <a name="check-your-firewall-settings"></a>Vérifier les paramètres de pare-feu
 
-SQL Data Warehouse communique sur le port 1433.   Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433. Vous trouverez plus d’informations sur les configurations de pare-feu [ici](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules).
+La base de données SQL Analytics communique par le biais du port 1433.   Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433. Vous trouverez plus d’informations sur les configurations de pare-feu [ici](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Vérifiez les paramètres de point de terminaison de service/du réseau virtuel
 
@@ -68,10 +68,10 @@ Si vous recevez des erreurs 40914 et 40615, consultez la documentation [Résolut
 
 ### <a name="software"></a>Logiciel
 
-Vérifiez que vous utilisez bien les outils les plus récents pour vous connecter à votre entrepôt SQL Data Warehouse :
+Vérifiez que vous utilisez bien les outils les plus récents pour vous connecter à votre base de données SQL Analytics :
 
 * SSMS
-* Studio de données Azure
+* Azure Data Studio
 * SQL Server Data Tools (Visual Studio)
 
 ### <a name="drivers"></a>Pilotes
@@ -113,7 +113,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Problèmes de connexion intermittente
 
-Vérifiez si vous constatez une charge importante sur le serveur avec un grand nombre de requêtes en file d’attente. Vous devrez peut-être mettre à l’échelle l’entrepôt de données pour obtenir des ressources supplémentaires.
+Vérifiez si vous constatez une charge importante sur le serveur avec un grand nombre de requêtes en file d’attente. Vous devrez peut-être mettre à l’échelle votre instance SQL Analytics pour obtenir des ressources supplémentaires.
 
 ## <a name="common-error-messages"></a>Messages d’erreur courants
 

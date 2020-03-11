@@ -1,22 +1,23 @@
 ---
 title: Analyse des données avec Azure Machine Learning
-description: Utilisez Azure Machine Learning pour générer un modèle Machine Learning prédictif basé sur les données stockées dans Azure SQL Data Warehouse.
+description: Utilisez Azure Machine Learning pour générer un modèle Machine Learning prédictif basé sur les données stockées dans Azure Synapse.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: integration
-ms.date: 03/22/2019
+ms.date: 02/05/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 892d4642d700949d1d1169c69926021c751cef67
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+tag: azure-Synapse
+ms.openlocfilehash: f6765fdbb65f62bb790d1e8781512db572170b10
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721283"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195887"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analyse des données avec Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -28,16 +29,16 @@ ms.locfileid: "76721283"
 > 
 > 
 
-Ce didacticiel utilise Azure Machine Learning pour générer un modèle Machine Learning prédictif basé sur les données stockées dans Azure SQL Data Warehouse. Plus précisément, il crée une campagne marketing ciblée pour Adventure Works, le magasin de vélos, en prévoyant si un client est susceptible d’acheter ou non un vélo.
+Ce didacticiel utilise Azure Machine Learning pour générer un modèle Machine Learning prédictif basé sur les données stockées dans Azure Synapse. Plus précisément, il crée une campagne marketing ciblée pour Adventure Works, le magasin de vélos, en prévoyant si un client est susceptible d’acheter ou non un vélo.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Pour exécuter pas à pas ce didacticiel, vous avez besoin des éléments suivants :
 
-* un entrepôt SQL Data Warehouse préchargé avec les exemples de données AdventureWorksDW. Pour le configurer, consultez [Créer un Azure SQL Data Warehouse](create-data-warehouse-portal.md) et chargez les données d’exemple. Si vous disposez déjà d’un entrepôt de données, mais sans disposer d’exemples de données, vous pouvez [charger manuellement des exemples de données](sql-data-warehouse-load-sample-databases.md).
+* un pool SQL préchargé avec les exemples de données AdventureWorksDW. Pour le configurer, consultez [Créer un pool SQL](create-data-warehouse-portal.md) et chargez les données d’exemple. Si vous disposez déjà d’un entrepôt de données, mais sans disposer d’exemples de données, vous pouvez [charger manuellement des exemples de données](sql-data-warehouse-load-sample-databases.md).
 
 ## <a name="1-get-the-data"></a>1. Obtenir les données
 Les données sont indiquées dans la vue dbo.vTargetMail de la base de données AdventureWorksDW. Pour lire ces données :
@@ -46,7 +47,7 @@ Les données sont indiquées dans la vue dbo.vTargetMail de la base de données 
 2. Cliquez sur **+NOUVEAU** dans le coin inférieur gauche de l’écran et sélectionnez **Expérience vide**.
 3. Entrez un nom pour votre expérience : marketing ciblé.
 4. Faites glisser le module **Importer des données** sous **Entrée et sortie de données** dans le volet de modules du canevas.
-5. Spécifiez les détails de votre base de données SQL Data Warehouse dans le volet Propriétés.
+5. Spécifiez les détails de votre pool SQL dans le volet Propriétés.
 6. Spécifiez la **requête** de base de données pour lire les données intéressantes.
 
 ```sql
@@ -128,7 +129,7 @@ Vous verrez deux colonnes supplémentaires ajoutées à votre groupe de données
 * Probabilités évaluées : probabilité qu’un client soit un acheteur potentiel de vélo.
 * Étiquette de marquage : classification effectuée par le modèle – acheteur de vélo (1) ou non (0). Ce seuil de probabilité pour l’étiquetage est défini à 50 % et peut être ajusté.
 
-En comparant la colonne BikeBuyer (réelle) avec les étiquettes de marquage (prévision), vous pouvez voir comment le modèle a fonctionné. Ensuite, vous pouvez utiliser ce modèle pour élaborer des prévisions pour les nouveaux clients et publier ce modèle en tant que service web ou écrire les résultats dans SQL Data Warehouse.
+En comparant la colonne BikeBuyer (réelle) avec les étiquettes de marquage (prévision), vous pouvez voir comment le modèle a fonctionné. Ensuite, vous pouvez utiliser ce modèle pour élaborer des prédictions pour les nouveaux clients et publier ce modèle en tant que service web ou écrire les résultats dans Azure Synapse.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la création de modèles Machine Learning prédictifs, reportez-vous à [Introduction à Machine Learning sur Azure](https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/).

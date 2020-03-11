@@ -4,16 +4,16 @@ description: Découvrez comment détecter et résoudre les problèmes rencontré
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/31/2019
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 5ee1a20d4a3c46cab484b03b5fcc212a79d19047
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 1b0047cda3664759f4f1b6499c8a54ee22f98ab3
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513267"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227451"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Résolution des problèmes rencontrés avec Update Management
 
@@ -24,6 +24,36 @@ Il existe un utilitaire de résolution des problèmes qui permet à l’agent Wo
 Si vous rencontrez des problèmes quand vous essayez d’intégrer la solution sur une machine virtuelle, recherchez dans le journal **Operations Manager** sous **Journaux des applications et des services** sur l’ordinateur local des événements avec l’ID d’événement 4502 et des détails sur les événements qui contiennent **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
 
 La section suivante met en évidence des messages d’erreur spécifiques et des résolutions possibles pour chacun d’eux. Pour d’autres problèmes d’intégration, consultez [Résoudre les problèmes d’intégration des solutions](onboarding.md).
+
+## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>Scénario : Mise à jour remplacée indiquée comme manquante dans Update Management
+
+### <a name="issue"></a>Problème
+
+Les anciennes mises à jour apparaissent dans Update Management pour le compte Azure comme étant manquantes, même si elles ont été remplacées. Une mise à jour remplacée n’a pas besoin d’être installée, car une mise à jour ultérieure corrigeant la même vulnérabilité est disponible. Update Management ignore la mise à jour remplacée et la rend non applicable au profit de la mise à jour de remplacement. Pour plus d’informations sur un problème connexe, consultez [Mise à jour remplacée](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer).
+
+### <a name="cause"></a>Cause :
+
+Les mises à jour remplacées ne sont pas correctement indiquées comme refusées afin de pouvoir être considérées comme non applicables.
+
+### <a name="resolution"></a>Résolution
+
+Lorsqu'une mise à jour remplacée devient 100 % non applicable, vous devez modifier l’état d’approbation de cette mise à jour sur **refusée**. Pour effectuer cette opération pour toutes les mises à jour :
+
+1. Dans le compte Automation, sélectionnez **Update Management** pour afficher l’état de vos machines. Consultez [Voir les évaluations des mises à jour](../manage-update-multi.md#view-an-update-assessment).
+
+2. Vérifiez la mise à jour remplacée pour vous assurer qu’elle est 100 % non applicable. 
+
+3. Marquez la mise à jour comme refusée, sauf si vous avez une question la concernant. 
+
+4. Sélectionnez Ordinateurs et, dans la colonne Conformité, forcez une nouvelle analyse de la conformité. Consultez [Gérer les mises à jour pour plusieurs ordinateurs](../manage-update-multi.md).
+
+5. Répétez les étapes ci-dessus pour les autres mises à jour remplacées.
+
+6. Exécutez l’Assistant nettoyage pour supprimer les fichiers des mises à jour refusées. 
+
+7. Pour WSUS, nettoyez manuellement toutes les mises à jour remplacées afin d'actualiser l’infrastructure.
+
+8. Répétez cette procédure régulièrement pour corriger le problème d’affichage et limiter l’espace disque utilisé à des fins de gestion des mises à jour.
 
 ## <a name="nologs"></a>Scénario : Les machines ne s’affichent pas dans le portail sous Update Management
 

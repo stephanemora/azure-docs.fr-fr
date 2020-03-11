@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: ae7812670da836efa326b9224547e4d1b64374c2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 9213ef03f383dec7109652246411fac154b4a7f9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873282"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302506"
 ---
 # <a name="log-azure-cosmos-db"></a>LOG (Azure Cosmos DB)
  Retourne le logarithme naturel de l'expression numérique spécifiée.  
@@ -35,13 +35,13 @@ LOG (<numeric_expr> [, <base>])
   
   Renvoie une expression numérique.  
   
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
   
   Par défaut, LOG() renvoie le logarithme naturel. Vous pouvez modifier la base du logarithme avec une autre valeur en utilisant le paramètre de base facultatif.  
   
-  Le logarithme naturel est le logarithme de base **e**, où **e** est une constante irrationnelle approximativement égale à 2,718281828.  
+  Le logarithme népérien est le logarithme en base **e**, où **e** est une constante irrationnelle environ égale à 2,718281828.  
   
-  Le logarithme naturel de la valeur exponentielle d’un nombre est le nombre lui-même : LOG( EXP( n ) ) = n. Et la valeur exponentielle du logarithme naturel d’un nombre est le nombre lui-même : EXP( LOG( n ) ) = n.  
+  Le logarithme naturel de la valeur exponentielle d’un nombre est le nombre lui-même : LOG( EXP( n ) ) = n. Et la valeur exponentielle du logarithme naturel d’un nombre est le nombre lui-même : EXP( LOG( n ) ) = n.  
   
 ## <a name="examples"></a>Exemples
   
@@ -68,6 +68,10 @@ SELECT EXP(LOG(10)) AS expLog
 ```json
 [{expLog: 10.000000000000002}]  
 ```  
+
+## <a name="remarks"></a>Notes
+
+Cette fonction système n’utilisera pas l’index.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

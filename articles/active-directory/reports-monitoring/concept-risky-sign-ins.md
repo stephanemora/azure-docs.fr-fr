@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2019
+ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f19744e6c860ae315b681f5eb090cba23b153af
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: b77486064139895799ac5a48327377154f75da6d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008342"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273835"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Rapport de connexions à risque dans le portail Azure Active Directory
 
@@ -52,15 +52,15 @@ Pour découvrir comment attribuer des rôles d’administrateur à un utilisateu
 
 Toutes les éditions d’Azure AD vous indiquent les rapports de connexions risquées. Toutefois, le niveau de granularité d’un rapport varie entre les éditions : 
 
-- Dans les **éditions Azure Active Directory Free et Basic**, vous obtenez la liste des connexions risquées. 
+- Dans l’**édition Azure Active Directory Free**, vous obtenez la liste des connexions risquées. 
 
 - L’édition **Azure Active Directory Premium 1** vous permet également d’examiner certaines détections d’événements à risque sous-jacents, qui ont été détectés pour chaque rapport. 
 
 - L’édition **Azure Active Directory Premium 2** vous fournit les informations les plus détaillées sur toutes les détections d’événements à risque sous-jacents. Elle vous permet également de configurer des stratégies de sécurité répondant automatiquement aux niveaux de risque configurés.
 
-## <a name="risky-sign-ins-report-for-azure-ad-free-and-basic-edition"></a>Rapport sur les connexions risquées pour les éditions Azure AD Free et Basic
+## <a name="risky-sign-ins-report-for-azure-ad-free-edition"></a>Rapport sur les connexions risquées pour l’édition gratuite d’Azure AD
 
-Les éditions Azure AD Free et Basic vous fournissent la liste des connexions risquées qui ont été détectées pour vos utilisateurs. Chaque enregistrement contient les attributs suivants :
+L’édition gratuite d’Azure AD vous fournit la liste des connexions risquées qui ont été détectées pour vos utilisateurs. Chaque enregistrement contient les attributs suivants :
 
 - **Utilisateur** : nom d’utilisateur qui a été utilisé pendant l’opération de connexion.
 - **IP** : adresse IP du périphérique qui a été utilisé pour la connexion à Azure Active Directory.

@@ -10,28 +10,36 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 924705b7ce1d324583077797714491bdf3fc5cc9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: azure-synapse
+ms.openlocfilehash: 257b33802ea95138ef8149ef9302b14ca379e7ac
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721215"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195548"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Procédure de surveillance du cache Gen2
-L’architecture de stockage Gen2 nivelle automatiquement vos segments columnstore les plus fréquemment interrogés dans un cache résidant sur des disques SSD basés sur NVMe conçus pour les entrepôts de données Gen2. Les performances sont optimisées lorsque vos requêtes récupèrent des segments qui résident dans le cache. Cet article décrit la procédure de surveillance et de résolution des problèmes de lenteur des performances des requêtes en déterminant si votre charge de travail exploite lu cache Gen2 de façon optimale.  
+
+Cet article décrit la procédure de surveillance et de résolution des problèmes de lenteur des performances des requêtes en déterminant si votre charge de travail exploite lu cache Gen2 de façon optimale.
+
+L’architecture de stockage Gen2 nivelle automatiquement vos segments columnstore les plus fréquemment interrogés dans un cache résidant sur des disques SSD basés sur NVMe conçus pour les entrepôts de données Gen2. Les performances sont optimisées lorsque vos requêtes récupèrent des segments qui résident dans le cache.
+ 
 ## <a name="troubleshoot-using-the-azure-portal"></a>Résolution des problèmes à l’aide du portail Azure
-Vous pouvez utiliser Azure Monitor pour afficher les mesures du cache Gen2 afin de résoudre les problèmes de performances des requêtes. Commencez par accéder au portail Microsoft Azure et cliquez sur Monitor :
 
-![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache_0.png)
+Vous pouvez utiliser Azure Monitor pour afficher les mesures du cache Gen2 afin de résoudre les problèmes de performances des requêtes. Commencez par accéder au portail Microsoft Azure et cliquez sur **Superviser**, **Métriques** et **+ Sélectionner une étendue** :
 
-Sélectionnez le bouton Indicateurs de performance et renseignez **Abonnement**, **Groupe de** **ressources**, **Type de ressource** et **Nom de la ressource** pour votre entrepôt de données.
+![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache-0.png)
 
-Les métriques clés pour la résolution des problèmes du cache Gen2 sont **Pourcentage d’accès au cache** et **Pourcentage de cache utilisé**. Configurez le graphique de métrique Azure pour afficher ces deux métriques.
+Utilisez les barres de recherche et de liste déroulante pour rechercher votre entrepôt de données. Sélectionnez ensuite Appliquer.
 
-![Métriques du cache](./media/sql-data-warehouse-cache-portal/cache_1.png)
+![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache-1.png)
 
+Les métriques clés pour la résolution des problèmes du cache Gen2 sont **Pourcentage d’accès au cache** et **Pourcentage de cache utilisé**. Sélectionnez **Pourcentage d’accès au cache**, puis utilisez le bouton **Ajouter une métrique** pour ajouter **Pourcentage de cache utilisé**. 
+
+![Métriques du cache](./media/sql-data-warehouse-cache-portal/cache-2.png)
 
 ## <a name="cache-hit-and-used-percentage"></a>Correspondance dans le cache et pourcentage utilisé
+
 La matrice ci-dessous décrit les scénarios en fonction des valeurs des métriques de cache :
 
 |                                | **Pourcentage d’accès au cache élevé** | **Pourcentage d’accès au cache faible** |

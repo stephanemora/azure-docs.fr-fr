@@ -1,6 +1,6 @@
 ---
 title: Restaurer un entrepôt de données existant
-description: Guide pratique pour la restauration d’un Azure SQL Data Warehouse.
+description: Guide pratique pour restaurer un pool SQL existant.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -11,29 +11,29 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d0bcf9ca6373984989d24efd2af4ffbbb19c5548
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: bf83de481cf15711da45edf00e63262a05489247
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759682"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199522"
 ---
-# <a name="restore-an-existing-azure-sql-data-warehouse"></a>Restaurer un Azure SQL Data Warehouse existant
+# <a name="restore-an-existing-sql-pool"></a>Restaurer un pool SQL existant
 
-Dans cet article, vous allez apprendre à restaurer un Azure SQL Data Warehouse existant à partir du portail Azure et de PowerShell :
+Dans cet article, vous allez apprendre à restaurer un pool SQL existant dans Azure Synapse Analytics à l’aide du Portail Azure et de PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Vérifiez votre capacité de DTU.** Chaque SQL Data Warehouse est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut. Vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md)(Demander une modification du quota DTU).
+**Vérifiez votre capacité de DTU.** Chaque pool est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut. Vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md)(Demander une modification du quota DTU).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 1. Assurez-vous d’[installer Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Utilisez un point de restauration existant à partir duquel vous souhaitez effectuer la restauration. Si vous souhaitez créer une nouvelle restauration, consultez [le didacticiel pour créer un nouveau point de restauration défini par l’utilisateur](sql-data-warehouse-restore-points.md).
 
-## <a name="restore-an-existing-data-warehouse-through-powershell"></a>Restaurer un entrepôt de données existant via PowerShell
+## <a name="restore-an-existing-sql-pool-through-powershell"></a>Restaurer un pool SQL existant via PowerShell
 
-Pour restaurer un entrepôt de données à partir d’un point de restauration, utilisez le cmdlet [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) de PowerShell.
+Pour restaurer un pool SQL existant à partir d’un point de restauration, utilisez la cmdlet [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) de PowerShell.
 
 1. Ouvrez PowerShell.
 
@@ -41,17 +41,17 @@ Pour restaurer un entrepôt de données à partir d’un point de restauration, 
 
 3. Sélectionnez l’abonnement contenant la base de données à restaurer.
 
-4. Répertoriez les points de restauration pour l’entrepôt de données.
+4. Répertoriez les points de restauration pour le pool SQL.
 
 5. Sélectionnez le point de restauration souhaité à l’aide de l’élément RestorePointCreationDate.
 
-6. Restaurez l’entrepôt de données sur le point de restauration souhaité à l’aide du cmdlet [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) de PowerShell.
-        1. Pour restaurer le SQL Data Warehouse sur un autre serveur logique, veillez à spécifier le nom du serveur logique.  Ce serveur logique peut également se trouver dans un groupe de ressources et une région différents.
+6. Restaurez le pool SQL sur le point de restauration souhaité à l’aide de la cmdlet [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) de PowerShell.
+        1. Pour restaurer le pool SQL sur un autre serveur logique, veillez à spécifier le nom du serveur logique.  Ce serveur logique peut également se trouver dans un groupe de ressources et une région différents.
         2. Pour effectuer une restauration vers un autre abonnement, utilisez le bouton « Déplacer » pour déplacer le serveur logique vers un autre abonnement.
 
-7. Vérifiez que l’entrepôt de données restauré est en ligne.
+7. Vérifiez que le pool SQL restauré est en ligne.
 
-8. Une fois la restauration terminée, vous pouvez configurer votre entrepôt de données récupéré en suivant [Configurer votre base de données après récupération](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
+8. Une fois la restauration terminée, vous pouvez configurer votre pool SQL restauré en suivant les instructions de la section [Configurer votre base de données après récupération](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
 
 ```Powershell
 
@@ -87,20 +87,20 @@ $RestoredDatabase.status
 
 ```
 
-## <a name="restore-an-existing-data-warehouse-through-the-azure-portal"></a>Restaurer un entrepôt de données existant via le portail Azure
+## <a name="restore-an-existing-sql-pool-through-the-azure-portal"></a>Restaurer un pool SQL existant via le Portail Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Accédez à l’entrepôt SQL Data Warehouse à partir duquel vous souhaitez effectuer la restauration.
+2. Accédez au pool SQL à partir duquel effectuer la restauration.
 3. En haut du panneau Vue d’ensemble, sélectionnez **Restaurer**.
 
     ![ Présentation de la restauration](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. Sélectionnez **Points de restauration automatiques** ou **Points de restauration définis par l’utilisateur**. Si l’entrepôt de données n’a pas de points de restauration automatique, patientez quelques heures ou créez un point de restauration défini par l’utilisateur avant la restauration. Pour les points de restauration définis par l’utilisateur, sélectionnez un point existant ou créez-en un nouveau. Pour le **serveur**, vous pouvez choisir un serveur logique dans un groupe de ressources et une région différents ou en créer un nouveau. Après avoir fourni tous les paramètres, cliquez sur**Vérifier + Restaurer**.
+4. Sélectionnez **Points de restauration automatiques** ou **Points de restauration définis par l’utilisateur**. Si le pool SQL n’a pas de points de restauration automatique, patientez quelques heures ou créez un point de restauration défini par l’utilisateur avant la restauration. Pour les points de restauration définis par l’utilisateur, sélectionnez un point existant ou créez-en un nouveau. Pour le **serveur**, vous pouvez choisir un serveur logique dans un groupe de ressources et une région différents ou en créer un nouveau. Après avoir fourni tous les paramètres, cliquez sur**Vérifier + Restaurer**.
 
     ![Points de restauration automatiques](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Restaurer un entrepôt de données supprimé](sql-data-warehouse-restore-deleted-dw.md)
-- [Restaurer à partir d’un entrepôt de données géo-sauvegardé](sql-data-warehouse-restore-from-geo-backup.md)
+- [Restaurer un pool SQL supprimé](sql-data-warehouse-restore-deleted-dw.md)
+- [Effectuer une restauration à partir d’un pool SQL de géosauvegarde](sql-data-warehouse-restore-from-geo-backup.md)
 
  

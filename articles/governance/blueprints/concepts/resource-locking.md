@@ -1,14 +1,14 @@
 ---
 title: Présentation du verrouillage des ressources
 description: Découvrez les options de verrouillage dans Azure Blueprints pour protéger les ressources au moment d’affecter un blueprint.
-ms.date: 04/24/2019
+ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: e042a4d117e28a2fd2228ce36f1be98a1da31e91
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: b810e8d4ddd263f9e651704d1bf9b785ce0202db
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057343"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199697"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendre le verrouillage de ressources dans les blueprints Azure
 
@@ -33,6 +33,59 @@ Les ressources créées par des artefacts dans une attribution de blueprint ont 
 Il est généralement possible pour une personne disposant d’un [contrôle d’accès en fonction du rôle](../../../role-based-access-control/overview.md) (RBAC) approprié sur l’abonnement, tel que le rôle « Propriétaire », d’être autorisée à modifier ou supprimer n’importe quelle ressource. Cet accès n’est pas possible quand les blueprints appliquent un verrouillage dans le cadre d’une affectation déployée. Si l’attribution a été définie avec l’option **Lecture seule** ou **Ne pas supprimer**, même le propriétaire de l’abonnement ne peut pas effectuer l’action bloquée sur la ressource protégée.
 
 Cette mesure de sécurité assure la cohérence du blueprint défini et protège l’environnement pour la création duquel il a été conçu contre toute modification ou suppression accidentelle ou programmatique.
+
+### <a name="assign-at-management-group"></a>Attribuer au niveau du groupe d’administration
+
+Une option supplémentaire pour empêcher les propriétaires d’abonnements de supprimer une attribution de blueprint consiste à attribuer le blueprint à un groupe d’administration. Dans ce scénario, seuls les **propriétaires** du groupe d’administration disposent des autorisations nécessaires pour supprimer l’attribution de blueprint.
+
+Pour attribuer le blueprint à un groupe d’administration plutôt qu’à un abonnement, l’appel d’API REST change pour se présenter comme suit :
+
+```http
+PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{assignmentMG}/providers/Microsoft.Blueprint/blueprintAssignments/{assignmentName}?api-version=2018-11-01-preview
+```
+
+Le groupe d’administration défini par `{assignmentMG}` doit soit se trouver dans la hiérarchie des groupes d’administration, soit être le même groupe d’administration où la définition du blueprint est enregistrée.
+
+Le corps de la demande de l’attribution de blueprint ressemble à ceci :
+
+```json
+{
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "location": "eastus",
+    "properties": {
+        "description": "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+        "blueprintId": "/providers/Microsoft.Management/managementGroups/{blueprintMG}/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+        "scope": "/subscriptions/{targetSubscriptionId}",
+        "parameters": {
+            "storageAccountType": {
+                "value": "Standard_LRS"
+            },
+            "costCenter": {
+                "value": "Contoso/Online/Shopping/Production"
+            },
+            "owners": {
+                "value": [
+                    "johnDoe@contoso.com",
+                    "johnsteam@contoso.com"
+                ]
+            }
+        },
+        "resourceGroups": {
+            "storageRG": {
+                "name": "defaultRG",
+                "location": "eastus"
+            }
+        }
+    }
+}
+```
+
+La principale différence entre ce corps de demande et celui pour l’assignation à un abonnement est la propriété `properties.scope`. Cette propriété obligatoire doit être définie sur l’abonnement auquel s’applique l’attribution de blueprint. L’abonnement doit être un enfant direct de la hiérarchie de groupes d’administration dans laquelle l’attribution de blueprint est stockée.
+
+> [!NOTE]
+> Un blueprint attribué à l’étendue du groupe d’administration fonctionne toujours comme une attribution de blueprint de niveau abonnement. La seule différence réside dans l’emplacement où l’attribution de blueprint est stockée pour empêcher les propriétaires d’abonnements de supprimer l’attribution et les verrous associés.
 
 ## <a name="removing-locking-states"></a>Suppression des états de verrouillage
 
@@ -61,7 +114,7 @@ Une action de refus de type [Refuser les attributions](../../../role-based-acces
 
 ## <a name="exclude-a-principal-from-a-deny-assignment"></a>Exclure un principal d’une affectation de refus
 
-Dans certains scénarios de conception ou de sécurité, il peut être nécessaire d’exclure un principal de [l’affectation de refus](../../../role-based-access-control/deny-assignments.md) créée par l’affectation blueprint. Cette opération est effectuée dans l’API REST en ajoutant jusqu’à cinq valeurs au tableau **excludedPrincipals** de la propriété **locks** lors de la [création de l’affectation](/rest/api/blueprints/assignments/createorupdate). Exemple d’un corps de requête qui inclut **excludedPrincipals** :
+Dans certains scénarios de conception ou de sécurité, il peut être nécessaire d’exclure un principal de [l’affectation de refus](../../../role-based-access-control/deny-assignments.md) créée par l’affectation blueprint. Cette étape est effectuée dans l’API REST en ajoutant jusqu’à cinq valeurs au tableau **excludedPrincipals** de la propriété **locks** lors de la [création de l’attribution](/rest/api/blueprints/assignments/createorupdate). La définition d’attribution suivante est un exemple de corps de demande qui inclut **excludedPrincipals** :
 
 ```json
 {

@@ -1,26 +1,26 @@
 ---
 title: Configurer l’importance des charges de travail
-description: Découvrez comment définir l’importance au niveau de la requête.
+description: Découvrez comment définir l’importance du niveau de la demande dans Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.subservice: workload-management
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 02/04/2020
 ms.author: rortloff
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 59ba4b936f6098b0d0b3f5e571f107af088206e0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.reviewer: jrasnick
+ms.custom: azure-synapse
+ms.openlocfilehash: 8b2a4333717938edf9f3039e29e8df88cece7cc1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692697"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196795"
 ---
-# <a name="configure-workload-importance-in-azure-sql-data-warehouse"></a>Configurer l’importance de la charge de travail dans Azure SQL Data Warehouse
+# <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Configurer l’importance de la charge de travail dans Azure Synapse Analytics
 
-Le fait de définir l’importance dans Azure SQL Data Warehouse permet d’influencer la planification des requêtes. Les requêtes plus importantes seront programmées de manière à s’exécuter avant les requêtes moins importantes. Pour affecter une importance aux requêtes, vous devez créer un classifieur de charges de travail.
+Le fait de définir l’importance dans SQL Analytics pour Azure Synapse permet d’influencer la planification des requêtes. Les requêtes plus importantes seront programmées de manière à s’exécuter avant les requêtes moins importantes. Pour affecter une importance aux requêtes, vous devez créer un classifieur de charges de travail.
 
 ## <a name="create-a-workload-classifier-with-importance"></a>Créer un classifieur de charges de travail avec une importance
 
@@ -35,8 +35,8 @@ Pour créer un classifieur de charges de travail pour un utilisateur avec une im
 ```sql
 CREATE WORKLOAD CLASSIFIER ExecReportsClassifier  
     WITH (WORKLOAD_GROUP = 'xlargerc'
-                   ,MEMBERNAME        = 'name'  
-                   ,IMPORTANCE        =  above_normal);  
+         ,MEMBERNAME     = 'name'  
+         ,IMPORTANCE     =  above_normal);  
 
 ```
 
@@ -45,8 +45,8 @@ Pour créer un classifieur de charges de travail pour un utilisateur exécutant 
 ```sql
 CREATE WORKLOAD CLASSIFIER AdhocClassifier  
     WITH (WORKLOAD_GROUP = 'xlargerc'
-                   ,MEMBERNAME        = 'name'  
-                   ,IMPORTANCE        =  below_normal);  
+         ,MEMBERNAME     = 'name'  
+         ,IMPORTANCE     =  below_normal);  
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

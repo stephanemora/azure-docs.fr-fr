@@ -1,6 +1,6 @@
 ---
 title: Utiliser IDENTITY pour créer des clés de substitution
-description: Suggestions et exemples d’utilisation de la propriété IDENTITY pour créer des clés de substitution dans des tables Azure SQL Data Warehouse.
+description: Recommandations et exemples d’utilisation de la propriété IDENTITY pour créer des clés de substitution dans des tables SQL Analytics.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,25 +10,25 @@ ms.subservice: development
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 0ee15b975b5513077b26cceeb80ea3fb8c02456b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: c29b83b3473b8a4224587195587feacf834f2d72
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692472"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199425"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Utilisation de la propriété IDENTITY pour créer des clés de substitution dans Azure SQL Data Warehouse
+# <a name="using-identity-to-create-surrogate-keys-in-sql-analytics"></a>Utiliser IDENTITY pour créer des clés de substitution dans SQL Analytics
 
-Suggestions et exemples d’utilisation de la propriété IDENTITY pour créer des clés de substitution dans des tables Azure SQL Data Warehouse.
+Recommandations et exemples d’utilisation de la propriété IDENTITY pour créer des clés de substitution dans des tables SQL Analytics.
 
 ## <a name="what-is-a-surrogate-key"></a>Qu’est-ce qu’une clé de substitution ?
 
-Une clé de substitution dans une table est une colonne avec un identificateur unique pour chaque ligne. La clé n’est pas générée à partir des données de la table. Les modélisateurs de données aiment créer des clés de substitution sur leurs tables lorsqu’ils conçoivent des modèles d’entrepôt de données. Vous pouvez utiliser la propriété IDENTITY pour atteindre cet objectif de manière simple et efficace, sans affecter les performances de chargement.  
+Une clé de substitution dans une table est une colonne avec un identificateur unique pour chaque ligne. La clé n’est pas générée à partir des données de la table. Les modélisateurs de données aiment créer des clés de substitution sur leurs tables lorsqu’ils conçoivent des modèles SQL Analytics. Vous pouvez utiliser la propriété IDENTITY pour atteindre cet objectif de manière simple et efficace, sans affecter les performances de chargement.  
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Création d’une table avec une colonne IDENTITY
 
-La propriété IDENTITY est conçue pour augmenter la taille des instances sur toutes les distributions de l’entrepôt de données sans affecter les performances de chargement. Par conséquent, l’implémentation d’IDENTITY est adaptée pour atteindre ces objectifs.
+La propriété IDENTITY est conçue pour effectuer un scale-out sur toutes les distributions de la base de données SQL Analytics sans perturber les performances de chargement. Par conséquent, l’implémentation d’IDENTITY est adaptée pour atteindre ces objectifs.
 
 Vous pouvez définir une table ayant la propriété IDENTITY lorsque vous créez la table à l’aide d’une syntaxe similaire à l’instruction suivante :
 
@@ -50,7 +50,7 @@ Le reste de cette section met en évidence les nuances de l’implémentation po
 
 ### <a name="allocation-of-values"></a>Allocation de valeurs
 
-La propriété IDENTITY ne garantit pas l’ordre dans lequel les valeurs de substitution sont alloués, ce qui reflète le comportement de SQL Server et d’Azure SQL Database. Toutefois, dans Azure SQL Data Warehouse, l’absence de garantie est plus marquée.
+La propriété IDENTITY ne garantit pas l’ordre dans lequel les valeurs de substitution sont alloués, ce qui reflète le comportement de SQL Server et d’Azure SQL Database. Toutefois, dans SQL Analytics, l’absence de garantie est plus marquée.
 
 L’exemple suivant en est une illustration :
 
@@ -87,12 +87,12 @@ La plage de valeurs pour le type de données est répartie uniformément entre l
 
 Lorsqu’une colonne IDENTITY existante est sélectionnée dans une nouvelle table, la nouvelle colonne hérite de la propriété IDENTITY, sauf si une des conditions suivantes est remplie :
 
-- L’instruction SELECT contient une jointure.
-- Plusieurs instructions SELECT sont jointes à l’aide d’UNION.
+- L'instruction SELECT contient une jointure.
+- Plusieurs instructions SELECT sont reliées par UNION.
 - La colonne IDENTITY est répertoriée plusieurs fois dans la liste SELECT.
 - La colonne SELECT fait partie d’une expression.
 
-Si l’une de ces conditions est vraie, la colonne est créée comme étant NOT NULL au lieu d’hériter de la propriété IDENTITY.
+Si l'une de ces conditions est vérifiée, la colonne est créée avec l'attribut NOT NULL au lieu d'hériter de la propriété IDENTITY.
 
 ### <a name="create-table-as-select"></a>CREATE TABLE AS SELECT
 
@@ -100,7 +100,7 @@ CREATE TABLE AS SELECT (CTAS) suit le même comportement SQL Server que celui do
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Insérer explicitement des valeurs dans une colonne IDENTITY
 
-SQL Data Warehouse prend en charge la syntaxe `SET IDENTITY_INSERT <your table> ON|OFF`. Vous pouvez utiliser cette syntaxe pour insérer explicitement des valeurs dans la colonne IDENTITY.
+SQL Analytics prend en charge la syntaxe `SET IDENTITY_INSERT <your table> ON|OFF`. Vous pouvez utiliser cette syntaxe pour insérer explicitement des valeurs dans la colonne IDENTITY.
 
 Nombreux sont les modélisateurs de données à aimer utiliser des valeurs négatives prédéfinies pour certaines lignes dans leurs dimensions. Un exemple est la ligne -1 ou « membre inconnu ».
 
@@ -161,7 +161,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Il n’est pas possible d’utiliser `CREATE TABLE AS SELECT` actuellement lors du chargement des données dans une table comportant une colonne IDENTITY.
 >
 
-Pour plus d’informations sur le chargement de données, consultez [Conception de processus ELT pour Azure SQL Data Warehouse](design-elt-data-loading.md) et [Meilleures pratiques de chargement](guidance-for-loading-data.md).
+Pour plus d’informations sur le chargement de données, consultez [Conception de processus ELT pour SQL Analytics](design-elt-data-loading.md) et [Meilleures pratiques de chargement](guidance-for-loading-data.md).
 
 ## <a name="system-views"></a>Vues système
 
@@ -195,7 +195,7 @@ La propriété IDENTITY ne peut pas être utilisée :
 - Lorsque la colonne est également la clé de distribution
 - Lorsque la table est une table externe
 
-Les fonctions associées suivantes ne sont pas prises en charge dans SQL Data Warehouse :
+Les fonctions associées suivantes ne sont pas prises en charge dans SQL Analytics :
 
 - [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql)

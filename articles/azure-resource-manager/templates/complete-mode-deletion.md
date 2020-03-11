@@ -2,13 +2,13 @@
 title: Effectuer la suppression du mode
 description: Montre comment les types de ressources gèrent la suppression du mode complet dans les modèles Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 80d2ee356e3bc15a178862c453bf7f1ab8d66c77
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/26/2020
+ms.openlocfilehash: 5f797974212636460306c6a17869d6b8380545ab
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207806"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664404"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Suppression de ressources Azure pour les déploiements en mode complet
 
@@ -141,7 +141,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
-> - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
@@ -297,6 +296,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | automationAccounts | Oui |
 > | automationAccounts / configurations | Oui |
 > | automationAccounts / jobs | Non |
+> | automationAccounts / privateEndpointConnectionProxies | Non |
+> | automationAccounts / privateEndpointConnections | Non |
+> | automationAccounts / privateLinkResources | Non |
 > | automationAccounts / runbooks | Oui |
 > | automationAccounts / softwareUpdateConfigurations | Non |
 > | automationAccounts / webhooks | Non |
@@ -716,6 +718,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | registries / importImage | Non |
 > | registries / privateEndpointConnectionProxies | Non |
 > | registries / privateEndpointConnectionProxies / validate | Non |
+> | registries / privateEndpointConnections | Non |
 > | registries / privateLinkResources | Non |
 > | registries / queueBuild | Non |
 > | registries / regenerateCredential | Non |
@@ -1057,6 +1060,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | partnerNamespaces / eventChannels | Non |
 > | partnerRegistrations | Oui |
 > | partnerTopics | Oui |
+> | partnerTopics / eventSubscriptions | Non |
 > | systemTopics | Oui |
 > | systemTopics / eventSubscriptions | Non |
 > | topics | Oui |
@@ -1293,6 +1297,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- |
 > | getEntities | Non |
 > | managementGroups | Non |
+> | managementGroups / settings | Non |
 > | les ressources | Non |
 > | startTenantBackfill | Non |
 > | tenantBackfillStatus | Non |
@@ -1554,6 +1559,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | legacyPeerings | Non |
 > | peerAsns | Non |
 > | peerings | Oui |
+> | peeringServiceCountries | Non |
 > | peeringServiceProviders | Non |
 > | peeringServices | Oui |
 
@@ -1678,13 +1684,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- |
 > | applications | Oui |
 > | saasresources | Non |
-
-## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-
-> [!div class="mx-tableFixed"]
-> | Type de ressource | Effectuer la suppression du mode |
-> | ------------- | ----------- |
-> | jobcollections | Oui |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -2015,6 +2014,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Effectuer la suppression du mode |
 > | ------------- | ----------- |
 > | périphériques | Oui |
+> | registeredSubscriptions | Non |
 > | vendors | Non |
 > | vendors / skus | Non |
 > | vendors / vnfs | Non |

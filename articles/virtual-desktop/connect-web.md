@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: a29081f77587a96dc48930eab359610a42fc0be5
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9c738c5b7f233ffa34296eed67eb0f5497f737fc
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605819"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206671"
 ---
 # <a name="connect-with-the-web-client"></a>Se connecter avec le client web
 
@@ -41,3 +41,7 @@ Dans un navigateur, accédez au [client web de Windows Virtual Desktop](https://
 >Si vous vous êtes déjà connecté avec un compte Azure Active Directory différent de celui que vous voulez utiliser pour Windows Virtual Desktop, vous devez vous déconnecter ou utiliser une fenêtre de navigateur privée.
 
 Une fois que vous êtes connecté, une liste de ressources apparaît. Vous pouvez lancer des ressources en les sélectionnant comme vous le feriez pour une application normale dans l’onglet **Toutes les ressources**.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour en savoir plus sur l’utilisation du client web, voir [Prise en main du client web](https://go.microsoft.com/fwlink/?linkid=2120256).

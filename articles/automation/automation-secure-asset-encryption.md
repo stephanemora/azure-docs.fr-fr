@@ -9,12 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: e645be5ddd51a4fe7e7610e7f639407d5638f746
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 3c21e2fcdde9bffac91af56d49dfa0bf336e8c0c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920926"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246247"
 ---
 # <a name="secure-assets-in-azure-automation"></a>Ressources sécurisées dans Azure Automation
 
@@ -30,42 +30,44 @@ Chaque ressource sécurisée est chiffrée et stockée dans Azure Automation à 
 
 ## <a name="customer-managed-keys-with-key-vault-preview"></a>Clés gérées par le client avec Key Vault (préversion)
 
-Vous pouvez gérer le chiffrement des ressources sécurisées dans Azure Automation au niveau d’un compte Automation avec vos propres clés. Quand vous spécifiez une clé gérée par le client au niveau du compte Automation, cette clé est utilisée pour protéger la clé de chiffrement de compte et contrôler son accès. Cette dernière est à son tour utilisée pour chiffrer et déchiffrer toutes les ressources sécurisées. Les clés managées par le client offrent plus de flexibilité pour créer, permuter, désactiver et révoquer des contrôles d’accès. Vous pouvez également effectuer un audit sur les clés de chiffrement utilisées pour protéger vos ressources sécurisées. 
+Vous pouvez gérer le chiffrement des ressources sécurisées pour votre compte Automation avec vos propres clés. Quand vous spécifiez une clé gérée par le client au niveau du compte Automation, cette clé est utilisée pour protéger la clé de chiffrement de compte et contrôler son accès. Cette dernière est à son tour utilisée pour chiffrer et déchiffrer toutes les ressources sécurisées. Les clés managées par le client offrent plus de flexibilité pour créer, permuter, désactiver et révoquer des contrôles d’accès. Vous pouvez également effectuer un audit sur les clés de chiffrement utilisées pour protéger vos ressources sécurisées.
 
-Vous devez utiliser Azure Key Vault pour stocker les clés gérées par le client. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés.  Pour plus d’informations sur le coffre de clés Azure, consultez la page [Présentation du coffre de clés Azure](../key-vault/key-vault-overview.md)
+Utilisez Azure Key Vault pour stocker les clés gérées par le client. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés.  Pour plus d’informations sur le coffre de clés Azure, consultez la page [Présentation du coffre de clés Azure](../key-vault/key-vault-overview.md)
 
 ## <a name="enable-customer-managed-keys-for-an-automation-account"></a>Activer des clés gérées par le client pour un compte Automation
 
-Quand vous activez le chiffrement avec des clés gérées par le client pour un compte Automation, Azure Automation wrappe la clé de chiffrement de compte avec la clé gérée par le client dans le coffre de clés associé. L’activation des clés gérées par le client n’impacte pas les performances et le compte est immédiatement chiffré avec la nouvelle clé.
+Quand vous activez le chiffrement avec des clés gérées par le client pour un compte Automation, Azure Automation wrappe la clé de chiffrement de compte avec la clé gérée par le client dans le coffre de clés associé. L’activation des clés gérées par le client n’influe pas sur les performances et le compte est immédiatement chiffré avec la nouvelle clé.
 
-Un nouveau compte Automation est toujours chiffré à l’aide de clés gérées par Microsoft. Il est impossible d’activer des clés gérées par le client au moment de la création du compte. Les clés gérées par le client sont stockées dans Azure Key Vault, et le coffre de clés doit être provisionné avec des stratégies d’accès qui accordent des autorisations de clé à l’identité managée associée au compte Automation. L’identité managée est disponible uniquement après la création du compte de stockage.
+Un nouveau compte Automation est toujours chiffré à l’aide de clés gérées par Microsoft. Il est impossible d’activer des clés gérées par le client au moment de la création du compte. Les clés gérées par le client sont stockées dans Azure Key Vault, et le coffre de clés doit être approvisionné avec des stratégies d’accès qui accordent des autorisations de clé à l’identité managée associée au compte Automation. L’identité managée est disponible uniquement après la création du compte de stockage.
 
-Quand vous modifiez la clé utilisée pour le chiffrement de ressources sécurisées Azure Automation en activant ou en désactivant des clés gérées par le client, en mettant à jour la version de la clé ou en spécifiant une clé différente, le chiffrement de la clé de chiffrement de compte change, mais les ressources sécurisées de votre compte Azure Automation n’ont pas besoin d’être rechiffrées.
+Quand vous modifiez la clé utilisée pour le chiffrement de ressources sécurisées Azure Automation en activant ou en désactivant des clés gérées par le client, en mettant à jour la version de la clé ou en spécifiant une clé différente, le chiffrement de la clé de chiffrement de compte change, mais les ressources sécurisées de votre compte Azure Automation n’ont pas besoin d’être à nouveau chiffrées.
 
 Les trois sections suivantes décrivent les mécanismes d’activation des clés gérées par le client pour un compte Automation. 
 
 > [!NOTE] 
-> Pour activer les clés gérées par le client, vous devez effectuer des appels d’API REST Azure Automation à l’aide de l’API version 2020-01-13-preview
+> Pour activer les clés gérées par le client, vous devez effectuer des appels d’API REST Azure Automation à l’aide de l’API version 2020-01-13-preview
 
 ### <a name="pre-requisites-for-using-customer-managed-keys-in-azure-automation"></a>Prérequis à l’utilisation de clés gérées par le client dans Azure Automation
 
-Avant d’activer les clés gérées par le client pour un compte Automation, vous devez vérifier que les prérequis suivants sont remplis
+Avant d’activer les clés gérées par le client pour un compte Automation, vous devez vérifier que les prérequis suivants sont remplis :
 
  - La clé gérée par le client est stockée dans Azure Key Vault. 
- - Vous devez activer les propriétés **Suppression réversible** et **Ne pas vider** sur le coffre de clés. Ces fonctionnalités sont requises pour permettre la récupération des clés en cas de suppression accidentelle.
+ - Activez les propriétés **Suppression réversible** et **Ne pas vider** sur le coffre de clés. Ces fonctionnalités sont requises pour permettre la récupération des clés en cas de suppression accidentelle.
  - Seules les clés RSA sont prises en charge avec le chiffrement Azure Automation. Pour plus d’informations sur les clés, consultez [À propos des clés, des secrets et des certificats Azure Key Vault](../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 - Le compte Automation et le coffre de clés peuvent figurer dans des abonnements différents, mais doivent se trouver dans le même locataire Azure Active Directory.
 
 ### <a name="assign-an-identity-to-the-automation-account"></a>Affecter une identité au compte Automation
 
-Pour utiliser des clés gérées par le client avec un compte Automation, votre compte Automation doit s’authentifier auprès du coffre de clés qui stocke les clés gérées par le client. Azure Automation utilise des identités managées attribuées par le système pour authentifier le compte auprès de Key Vault. Pour en savoir plus sur les identités managées, consultez la section [Que sont les identités managées pour les ressources Azure ?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Pour utiliser des clés gérées par le client avec un compte Automation, votre compte Automation doit s’authentifier auprès du coffre de clés qui stocke les clés gérées par le client. Azure Automation utilise des identités managées attribuées par le système pour authentifier le compte auprès d’Azure Key Vault. Pour en savoir plus sur les identités managées, consultez la section [Que sont les identités managées pour les ressources Azure ?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-Configurer une identité managée attribuée par le système pour le compte Automation à l’aide de l’appel d’API REST suivant
+Configurez une identité managée attribuée par le système pour le compte Automation à l’aide de l’appel d’API REST suivant :
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
 ```
-Corps de la demande
+
+Corps de la requête :
+
 ```json
 { 
  "identity": 
@@ -73,9 +75,9 @@ Corps de la demande
   "type": "SystemAssigned" 
   } 
 }
-```    
+```
 
-L’identité attribuée par le système pour le compte Automation est retournée dans la réponse
+L’identité attribuée par le système pour le compte Automation est retournée dans une réponse semblable à la suivante :
 
 ```json
 {
@@ -93,14 +95,15 @@ L’identité attribuée par le système pour le compte Automation est retourné
 
 ### <a name="configure-the-key-vault-access-policy"></a>Configurer la stratégie d’accès au coffre de clés
 
-Une fois qu’une identité managée est affectée au compte Automation, vous configurez l’accès au coffre de clés qui stocke les clés gérées par le client. Azure Automation nécessite **get**, **recover**, **wrapKey**, **UnwrapKey** sur les clés gérées par le client.
+Une fois qu’une identité managée est attribuée au compte Automation, configurez l’accès au coffre de clés qui stocke les clés gérées par le client. Azure Automation nécessite les fonctions **get**, **recover**, **wrapKey** et **UnwrapKey** sur les clés gérées par le client.
 
-Une telle stratégie d’accès peut être définie à l’aide de l’appel d’API REST suivant.
+Une telle stratégie d’accès peut être définie à l’aide de l’appel d’API REST suivant :
 
 ```http
 PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault/accessPolicies/add?api-version=2018-02-14
 ```
-Corps de la demande
+
+Corps de la requête :
 
 ```json
 {
@@ -125,17 +128,18 @@ Corps de la demande
 }
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > Les champs **tenantId** et **objectId** doivent être fournis avec les valeurs **identity.tenantId** et **identity.principalId** respectivement à partir de la réponse de l’identité managée pour le compte Automation.
 
 ### <a name="change-the-configuration-of-automation-account-to-use-customer-managed-key"></a>Modifier la configuration du compte Automation pour utiliser la clé gérée par le client
 
-Enfin, vous pouvez basculer votre compte Automation des clés gérées par Microsoft vers des clés gérées par le client, à l’aide de l’appel d’API REST suivant.
+Enfin, vous pouvez basculer votre compte Automation des clés gérées par Microsoft vers des clés gérées par le client, à l’aide de l’appel d’API REST suivant :
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.Automation/automationAccounts/automation-account-name?api-version=2020-01-13-preview
 ```
-Corps de la demande
+
+Corps de la requête :
 
 ```json
  {
@@ -151,6 +155,7 @@ Corps de la demande
     }
   }
 ```
+
 Exemple de réponse
 
 ```json
@@ -177,17 +182,20 @@ Exemple de réponse
 
 ### <a name="rotate-customer-managed-keys"></a>Permuter des clés gérées par le client
 
-Vous pouvez permuter une clé gérée par le client dans Azure Key Vault en fonction de vos stratégies de conformité. Une fois la clé permutée, vous devez mettre à jour le compte Automation pour utiliser le nouvel URI de clé. 
+Vous pouvez permuter une clé gérée par le client dans Azure Key Vault en fonction de vos stratégies de conformité. Une fois la clé permutée, vous devez mettre à jour le compte Automation pour utiliser le nouvel URI de clé.
 
-La permutation de la clé ne déclenche pas le rechiffrement des ressources sécurisées dans le compte Automation. Aucune autre action n’est requise de la part de l’utilisateur.
+La permutation de la clé ne déclenche pas le rechiffrement des ressources sécurisées dans le compte Automation. Aucune action supplémentaire n’est requise.
 
 ### <a name="revoke-access-to-customer-managed-keys"></a>Révoquer l’accès aux clés gérées par le client
 
-Pour révoquer l’accès aux clés gérées par le client, utilisez PowerShell ou Azure CLI. Pour plus d’informations, consultez [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) ou [Interface de ligne de commande Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La révocation de l’accès bloque efficacement l’accès à toutes les ressources sécurisées dans le compte Automation, car la clé de chiffrement n’est pas accessible à Azure Automation.
+Pour révoquer l’accès aux clés gérées par le client, utilisez PowerShell ou Azure CLI. Pour plus d’informations, consultez [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) ou [Interface de ligne de commande Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La révocation de l’accès bloque efficacement l’accès à toutes les ressources sécurisées dans le compte Automation, car la clé de chiffrement est inaccessible pour Azure Automation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce qu’Azure Key Vault ?](../key-vault/key-vault-overview.md) 
+- [Qu’est-ce qu’Azure Key Vault ?](../key-vault/key-vault-overview.md)
+
 - [Ressources de certificats dans Azure Automation](shared-resources/certificates.md)
+
 - [Ressources d’informations d’identification dans Azure Automation](shared-resources/credentials.md)
+
 - [Ressources de variables dans Azure Automation](shared-resources/variables.md)

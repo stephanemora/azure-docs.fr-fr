@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/26/2019
+ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 1cc0132cc17217c858060e107dfcfc090a3ef8a7
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 3a9568e1a0307cd1713c511ef42c065424306548
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610996"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302880"
 ---
 # <a name="streaming-locators"></a>Localisateurs de diffusion en continu
 
@@ -98,12 +98,13 @@ Pour obtenir des localisateurs de streaming en fonction du nom de ressource asso
 |Java|[AssetStreamingLocator](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## <a name="also-see"></a>Voir aussi
+## <a name="see-also"></a>Voir aussi
 
 * [Éléments multimédias](assets-concept.md)
 * [Stratégies de diffusion en continu](streaming-policy-concept.md)
 * [Stratégies de clé de contenu](content-key-policy-concept.md)
+* [Tutoriel : Charger, encoder et diffuser en streaming des vidéos à l’aide de .NET](stream-files-tutorial-with-api.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Tutoriel : Charger, encoder et diffuser en streaming des vidéos à l’aide de .NET](stream-files-tutorial-with-api.md)
+[Guide pratique pour créer un localisateur de streaming et générer des URL](create-streaming-locator-build-url.md)

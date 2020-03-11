@@ -1,34 +1,34 @@
 ---
 title: Tutoriel charger des données à partir d’Azure Data Lake Storage
-description: Utilisez des tables externes PolyBase pour charger des données d’Azure Data Lake Storage dans Azure SQL Data Warehouse.
+description: Utilisez des tables externes PolyBase pour charger des données d’Azure Data Lake Storage pour SQL Analytics.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 12/06/2019
+ms.date: 03/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: fdbf0eb849549071b4cbbb961c9e9f71fce1faf8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.custom: azure-synapse
+ms.openlocfilehash: b0b9cffe0b69545a6d0219941b48ac9eb0f399b3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923642"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300585"
 ---
-# <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Chargement de données d’Azure Data Lake Storage dans Azure SQL Data Warehouse
-Ce guide explique comment utiliser des tables externes PolyBase pour charger des données Azure Data Lake Storage dans Azure SQL Data Warehouse. Même si vous pouvez exécuter des requêtes ad hoc sur des données stockées dans Data Lake Storage, pour optimiser les performances, nous vous recommandons d’importer les données dans SQL Data Warehouse. 
+# <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>Charger des données à partir d’Azure Data Lake Storage pour SQL Analytics
+Ce guide explique comment utiliser des tables externes PolyBase pour charger des données à partir d’Azure Data Lake Storage. Même si vous pouvez exécuter des requêtes ad hoc sur des données stockées dans Data Lake Storage, nous vous recommandons d’importer les données pour optimiser les performances. 
 
 > [!NOTE]  
-> Une alternative au chargement est [l’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) actuellement en préversion publique. Pour nous faire part de vos commentaires sur l’instruction COPY, envoyez un e-mail à la liste de distribution suivante : sqldwcopypreview@service.microsoft.com.
+> Une alternative au chargement est [l’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) actuellement en préversion publique.  L’instruction COPY offre une souplesse maximale. Pour nous faire part de vos commentaires sur l’instruction COPY, envoyez un e-mail à la liste de distribution suivante : sqldwcopypreview@service.microsoft.com.
 >
 > [!div class="checklist"]
 
 > * Créez les objets de base de données requis pour charger à partir de Data Lake Storage.
 > * Connectez-vous à un répertoire Data Lake Storage.
-> * Charger des données dans Azure SQL Data Warehouse.
+> * Chargez des données dans l’entrepôt de données.
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -37,7 +37,7 @@ Avant de commencer ce didacticiel, téléchargez et installez la dernière versi
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un entrepôt de données SQL Azure. Consultez [Créer et interroger un entrepôt de données SQL Azure](create-data-warehouse-portal.md).
+* Un pool SQL. Consultez [Créer un pool SQL et interroger des données](create-data-warehouse-portal.md).
 * Un compte Data Lake Storage. Voir [Prise en main d’Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). Pour ce compte de stockage, vous devez configurer ou spécifier l’une des informations d’identification suivantes pour le chargement : une clé de compte de stockage, un utilisateur d’application Azure Directory ou un utilisateur AAD qui a le rôle RBAC approprié pour le compte de stockage. 
 
 ##  <a name="create-a-credential"></a>Créer des informations d’identification
@@ -46,6 +46,8 @@ Vous pouvez ignorer cette section et passer à l’étape « Créer la source d
 Pour accéder à votre compte Data Lake Storage, vous devez créer une clé principale de base de données afin de chiffrer les informations secrètes d’identification. Vous créez ensuite des informations d’identification incluses dans l’étendue de la base de données pour stocker votre secret. Lors de l’authentification à l’aide des principaux de service (utilisateur de l’application Azure Directory), les informations d’identification incluses dans l’étendue de la base de données contiennent les informations d’identification du principal du service configurées dans AAD. Vous pouvez également utiliser les informations d’identification incluses dans l’étendue de la base de données pour stocker la clé du compte de stockage de Gen2.
 
 Pour vous connecter à Data Lake Storage à l’aide de principaux de service, vous devez **tout d’abord** créer une application Azure Active Directory, créer une clé d’accès et accorder l’accès aux applications au compte Data Lake Storage. Pour obtenir des instructions, consultez [S’authentifier auprès d’Azure Data Lake Storage en utilisant Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
+
+Connectez-vous à votre pool SQL avec un utilisateur disposant d’autorisations de niveau CONTRÔLE et exécutez les instructions SQL suivantes sur votre base de données :
 
 ```sql
 -- A: Create a Database Master Key.
@@ -194,7 +196,7 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 
 ## <a name="optimize-columnstore-compression"></a>Optimiser la compression columnstore
-Par défaut, SQL Data Warehouse stocke la table comme un index columnstore en cluster. Après un chargement, certaines lignes de données peuvent ne pas être compressées dans le columnstore.  Cela peut être dû à diverses raisons. Pour plus d’informations, consultez [Gérer les index columnstore](sql-data-warehouse-tables-index.md).
+Par défaut, les tables sont définies en tant qu’index cluster columnstore. Après un chargement, certaines lignes de données peuvent ne pas être compressées dans le columnstore.  Cela peut être dû à diverses raisons. Pour plus d’informations, consultez [Gérer les index Columnstore](sql-data-warehouse-tables-index.md).
 
 Pour optimiser les performances des requêtes et la compression du columnstore après un chargement, reconstruisez la table afin de forcer l’index columnstore à compresser toutes les lignes.
 
@@ -207,24 +209,25 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ## <a name="optimize-statistics"></a>Optimiser les statistiques
 Il est préférable de créer des statistiques sur une colonne immédiatement après un chargement. Les statistiques offrent plusieurs possibilités. Par exemple, si vous créez des statistiques sur une colonne pour chaque colonne, il faudra peut-être beaucoup de temps pour reconstruire toutes les statistiques. S’il est certain que des colonnes ne se trouveront pas dans les prédicats de requête, vous pouvez ignorer la création des statistiques sur ces colonnes.
 
-Si vous décidez de créer des statistiques sur une colonne pour chaque colonne de chaque table, vous pouvez utiliser l’exemple de code de procédure stockée `prc_sqldw_create_stats` dans l’article portant sur les [statistiques](sql-data-warehouse-tables-statistics.md) .
+Si vous décidez de créer des statistiques sur une colonne pour chaque colonne de chaque table, vous pouvez utiliser l’exemple de code de procédure stockée `prc_sqldw_create_stats` dans l’article portant sur les [statistiques](sql-data-warehouse-tables-statistics.md).
 
 L’exemple suivant est un bon point de départ pour la création de statistiques. Il permet de créer des statistiques sur une colonne pour chaque colonne de la table de dimension, et chaque colonne de jointure des tables de faits. Vous pouvez toujours ajouter ultérieurement des statistiques sur une ou plusieurs colonnes dans d’autres colonnes de table de faits.
 
 ## <a name="achievement-unlocked"></a>Et voilà !
-Vous avez correctement chargé les données dans Azure SQL Data Warehouse. Bon travail !
+Vous avez correctement chargé les données dans votre entrepôt de données. Bon travail !
 
 ## <a name="next-steps"></a>Étapes suivantes 
 Dans ce tutoriel, vous avez créé des tables externes pour définir la structure des données stockées dans Data Lake Storage Gen1, puis vous avez utilisé l’instruction PolyBase CREATE TABLE AS SELECT pour charger des données dans votre entrepôt de données. 
 
 Voici les étapes que vous avez effectuées :
 > [!div class="checklist"]
+>
 > * Création des objets de base de données à charger à partir de Data Lake Storage.
 > * Connexion à un répertoire Data Lake Storage.
-> * Chargement de données dans Azure SQL Data Warehouse.
+> * Données chargées dans l’entrepôt de données.
 >
 
-Le chargement des données est la première étape du développement d’une solution d’entreposage des données à l’aide de SQL Data Warehouse. Découvrez nos ressources de développement.
+Le chargement des données est la première étape du développement d’une solution d’entreposage des données à l’aide d’Azure Synapse Analytics. Découvrez nos ressources de développement.
 
 > [!div class="nextstepaction"]
-> [Apprendre à développer des tables dans SQL Data Warehouse](sql-data-warehouse-tables-overview.md)
+> [Découvrir comment développer des tables pour l’entreposage de données](sql-data-warehouse-tables-overview.md)

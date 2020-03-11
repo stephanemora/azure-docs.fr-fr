@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: f28c33f20556825d84edda34752ac64714327526
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 8fc85781f139b45e9e37f6e0f7cc36974041352d
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697334"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300007"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procédure : Configuration des conditions d’utilisation du service et de la déclaration de confidentialité d’une application
 
@@ -53,7 +53,7 @@ Quand les conditions d’utilisation et la déclaration de confidentialité sont
 
 * [À l’aide du portail Azure](#azure-portal)
 * [À l’aide de l’objet JSON de l’application](#app-object-json)
-* [À l’aide de l’API REST de MSGraph version bêta](#msgraph-beta-rest-api)
+* [À l’aide de l’API Microsoft Graph](#msgraph-rest-api)
 
 ### <a name="azure-portal"></a>À l’aide du Portail Azure
 Suivez les étapes ci-dessous dans le portail Azure.
@@ -77,12 +77,12 @@ Si vous préférez modifier directement l’objet JSON de l’application, vous 
     }
 ```
 
-### <a name="msgraph-beta-rest-api"></a>À l’aide de l’API REST de MSGraph version bêta
+### <a name="msgraph-rest-api"></a>À l’aide de l’API Microsoft Graph
 
-Pour mettre à jour toutes vos applications par programmation, vous pouvez utiliser l’API REST de MSGraph version bêta afin d’inclure des liens vers les documents des conditions d’utilisation et de la déclaration de confidentialité de votre application.
+Pour mettre à jour toutes vos applications par programmation, vous pouvez utiliser l’API Microsoft Graph afin d’inclure des liens vers les documents des conditions d’utilisation et de la déclaration de confidentialité.
 
 ```
-PATCH https://graph.microsoft.com/beta/applications/{application id}
+PATCH https://graph.microsoft.com/v1.0/applications/{application id}
 { 
     "appId": "{your application id}", 
     "info": { 
@@ -97,4 +97,4 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 
 > [!NOTE]
 > * Veillez à ne pas remplacer les valeurs préexistantes que vous avez affectées à l’un des champs suivants : `supportUrl`, `marketingUrl` et `logoUrl`.
-> * L’API REST de MSGraph version bêta fonctionne uniquement quand vous vous connectez avec un compte Azure AD. Les comptes Microsoft personnels ne sont pas pris en charge.
+> * L’API Microsoft Graph fonctionne uniquement lorsque vous vous connectez avec un compte Azure AD. Les comptes Microsoft personnels ne sont pas pris en charge.

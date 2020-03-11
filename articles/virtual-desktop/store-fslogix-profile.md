@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: fb473ec55ec6a5e93ba4ad22bf500414d54e4a5d
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 165e87b47deca2b7f175ec07b5c615ac25db0dd2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367206"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251746"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Options de stockage pour conteneurs de profil FSLogix dans Windows Virtual Desktop
 
@@ -26,6 +26,7 @@ Les tableaux suivants comparent les solutions de stockage que le stockage Azure 
 
 |Fonctionnalités|Azure Files|Azure NetApp Files|Espaces de stockage direct|
 |--------|-----------|------------------|---------------------|
+|Cas d’utilisation|Usage général|Ultra-performance ou migration à partir de NetApp (déployé localement)|Multiplateforme|
 |Service de plateforme|Oui, solution Azure native|Oui, solution Azure native|Non, auto-managé|
 |Disponibilité régionale|Toutes les régions|[Sélectionner les régions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Toutes les régions|
 |Redondance|Localement redondant/redondant interzone/géoredondant|Localement redondant|Localement redondant/redondant interzone/géoredondant|
@@ -41,7 +42,7 @@ Les tableaux suivants comparent les solutions de stockage que le stockage Azure 
 |Accès|Cloud, local et hybride (Azure File Sync)|Cloud, local (via ExpressRoute)|Cloud, local|
 |Backup|Intégration des instantanés de sauvegarde Azure|Instantanés Azure NetApp Files|Intégration des instantanés de sauvegarde Azure|
 |Sécurité et conformité|[Tous les certificats pris en charge par Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|Terminé selon ISO|[Tous les certificats pris en charge par Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
-|Intégration d’Azure Active Directory|Azure Active Directory et Azure Active Directory Domain Services|[Azure Active Directory Domain Services et Active Directory natif](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Prise en charge d’Active Directory natif ou d’Azure Active Directory Domain Services uniquement|
+|Intégration d’Azure Active Directory|[Active Directory natif et Azure Active Directory Domain Services](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)|[Azure Active Directory Domain Services et Active Directory natif](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Prise en charge d’Active Directory natif ou d’Azure Active Directory Domain Services uniquement|
 
 Une fois que vous avez choisi votre méthode de stockage, consultez [Tarification de Windows Virtual Desktop](https://azure.microsoft.com/pricing/details/virtual-desktop/) pour obtenir des informations sur nos plans de tarification.
 

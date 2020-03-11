@@ -2,17 +2,17 @@
 title: Série DC – Machines virtuelles Microsoft Azure
 description: Spécifications pour les machines virtuelles de la série DC.
 services: virtual-machines
-author: jonbeck7
+author: susaxen
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: lahugh
-ms.openlocfilehash: c4e141b7854925f5d12afce19481a6e9c2f8dd1d
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: fd8f01f0fc7180d271404ffee4496ff9cbac7222
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599610"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205923"
 ---
 # <a name="preview-dcv2-series"></a>Aperçu : Série DCv2
 
@@ -25,11 +25,15 @@ Premium Storage : Pris en charge*
 
 Mise en cache du Stockage Premium : Pris en charge*
 
+Migration dynamique : Non pris en charge
+
+Mises à jour avec préservation de la mémoire : Non pris en charge
+
 *Sauf pour Standard_DC8_v2
 
 
 
-| Size             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max. de cartes réseau / Bande passante réseau attendue (Mbits/s) |
+| Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max. de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
 | Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16 (21)                                                            | 1600/24                                   | 2                                            |
 | Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4 000/32 (43)                                                            | 3 200/48                                   | 2                                            |
@@ -37,7 +41,9 @@ Mise en cache du Stockage Premium : Pris en charge*
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16 000/128 (172)                                                         | 12 800/192                                 | 2                                            |
 
 - Les machines virtuelles de la série DCv2 sont des [machines virtuelles de 2e génération](./linux/generation-2.md#creating-a-generation-2-vm) et ne prennent en charge que les images `Gen2`.
-
+- Actuellement disponible dans Royaume-Uni Sud uniquement.
+- Génération précédente de machines virtuelles de calcul confidentiel : [Série DC](sizes-previous-gen.md)
+- Créer des machines virtuelles DCv2 à l’aide du portail Azure [Créer une machine virtuelle - Portail](./linux/quick-create-portal.md)
 
 
 

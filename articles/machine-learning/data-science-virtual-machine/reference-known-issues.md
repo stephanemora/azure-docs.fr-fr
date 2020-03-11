@@ -9,16 +9,16 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: reference
 ms.date: 10/10/2019
-ms.openlocfilehash: d022b1124146a1e506401e6cee257805e3a38fd3
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: b83effa95b17d712d4019f8ab5bf13c4f02a7d2b
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526544"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206518"
 ---
 # <a name="known-issues-and-troubleshooting-the-azure-data-science-virtual-machine"></a>Problèmes connus et dépannage d’Azure Data Science Virtual Machine
 
-Cet article vous aide à rechercher et corriger les erreurs ou les défaillances rencontrées lors de l’utilisation d’Azure Data Science Virtual Machine.
+Cet article vous aide à rechercher et corriger les erreurs ou les défaillances que vous pouvez rencontrer lors de l’utilisation d’Azure Data Science Virtual Machine.
 
 ## <a name="python-package-installation-issues"></a>Problèmes d’installation des packages Python
 
@@ -30,13 +30,18 @@ Utilisez `sudo pip install` à la place de `pip install` lors de l’installatio
 
 ### <a name="disk-encryption-fails-on-the-ubuntu-dsvm"></a>Le chiffrement de disque échoue sur la machine virtuelle DSVM Ubuntu
 
-Azure Disk Encryption (ADE) n’est actuellement pas pris en charge sur la machine virtuelle DSVM Ubuntu. Pour contourner ce problème, envisagez de configurer le [chiffrement de stockage Azure à l’aide de clés gérées par le client](../../storage/common/storage-encryption-keys-portal.md).
+Azure Disk Encryption (ADE) n’est actuellement pas pris en charge sur la machine virtuelle DSVM Ubuntu. Pour contourner ce problème, envisagez de configurer le [chiffrement côté serveur des disques managés Azure](../../virtual-machines/windows/disk-encryption.md).
 
 ## <a name="tool-appears-disabled"></a>Un outil apparaît désactivé
 
 ### <a name="hyper-v-does-not-work-on-the-windows-dsvm"></a>Hyper-V ne fonctionne pas sur la machine virtuelle DSVM Windows
 
-Il s’agit du comportement attendu ; comme pour les performances de démarrage, nous avons désactivé certains services. Pour réactiver, ouvrez la barre de recherche sur votre machine virtuelle DSVM Windows, tapez « Services », puis définissez tous les services Hyper-V sur « Manuel » et définissez « Gestion des machines virtuelles Hyper-V » sur « Automatique ».
+Pour le moment, Hyper-V ne fonctionne pas sur Windows. Pour garantir les performances au démarrage, nous avons désactivé certains services. Pour activer Hyper-V :
+
+1. Ouvrez la barre de recherche sur votre DSVM Windows.
+1. Saisissez « Services ».
+1. Définissez tous les services Hyper-V sur « Manual ».
+1. Définissez « Hyper-V Virtual Machine Management » sur « Automatic ».
 
 Votre écran final doit ressembler à ceci :
 

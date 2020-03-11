@@ -1,22 +1,22 @@
 ---
 title: Gestion des charges de travail
-description: Conseils pour l’implémentation de la gestion des charges de travail dans Azure SQL Data Warehouse.
+description: Conseils pour l’implémentation de la gestion des charges de travail dans Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/13/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 287ad5467f9f3aac7eb8c9d7c19ea15c380c6879
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.custom: azure-synapse
+ms.openlocfilehash: 14ea742a40afff8105560f1003655004687c7c9e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935410"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197655"
 ---
 # <a name="what-is-workload-management"></a>Qu’est-ce que la gestion des charges de travail ?
 
@@ -36,11 +36,11 @@ La capacité de performances d’un entrepôt de données est déterminée par l
 
 
 ## <a name="workload-management-concepts"></a>Concepts de gestion des charges de travail
-Par le passé, vous gériez les performances des requêtes sur SQL Data Warehouse par le biais de [classes de ressources](resource-classes-for-workload-management.md).  Les classes de ressources autorisaient l’attribution de mémoire à une requête en fonction de l’appartenance à un rôle.  La principale difficulté avec les classes de ressources est que, une fois celles-ci configurées, il n’existait aucune gouvernance ou possibilité de contrôler la charge de travail.  
+Dans le passé, pour SQL Analytics dans Azure Synapse, vous gériez les performances des requêtes par le biais de [classes de ressources](resource-classes-for-workload-management.md).  Les classes de ressources autorisaient l’attribution de mémoire à une requête en fonction de l’appartenance à un rôle.  La principale difficulté avec les classes de ressources est que, une fois celles-ci configurées, il n’existait aucune gouvernance ou possibilité de contrôler la charge de travail.  
 
 Par exemple, l’octroi d’une appartenance à un rôle d’utilisateur ad hoc à smallrc permettait à cet utilisateur de consommer 100 % de la mémoire sur le système.  Avec les classes de ressources, il n’existe aucun moyen de réserver et de garantir la disponibilité des ressources pour les charges de travail critiques.
 
-La gestion des charges de travail sur SQL Data Warehouse se compose de trois concepts de haut niveau : [La classification des charges de travail](sql-data-warehouse-workload-classification.md), [l’importance de la charge de travail](sql-data-warehouse-workload-importance.md) et [l’isolation de la charge de travail](sql-data-warehouse-workload-isolation.md).  Ces fonctionnalités vous permettent de mieux contrôler la façon dont votre charge de travail utilise les ressources système.
+La gestion des charges de travail SQL Analytics se compose de trois concepts généraux : [La classification des charges de travail](sql-data-warehouse-workload-classification.md), [l’importance de la charge de travail](sql-data-warehouse-workload-importance.md) et [l’isolation de la charge de travail](sql-data-warehouse-workload-isolation.md).  Ces fonctionnalités vous permettent de mieux contrôler la façon dont votre charge de travail utilise les ressources système.
 
 La classification des charges de travail est le concept d’affectation d’une requête à un groupe de charge de travail et de définition de niveaux d’importance.  Historiquement, cette affectation était effectuée via l’appartenance à un rôle à l’aide de [sp_addrolemember](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#change-a-users-resource-class).  Vous pouvez à présent utiliser le [CLASSIFIEUR CRÉER UNE CHARGE DE TRAVAIL](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  La fonctionnalité de classification fournit un ensemble plus riche d’options, avec les balises, les sessions et le temps nécessaire pour classer les requêtes.
 

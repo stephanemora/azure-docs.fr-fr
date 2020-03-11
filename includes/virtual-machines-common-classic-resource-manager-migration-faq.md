@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines
 author: tanmaygore
 ms.service: virtual-machines
@@ -8,20 +8,28 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: c923dfed24253ce2e3551c13a457f19d155a1e40
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: a9c045162e650b4468fb53676e367d2c658bf7cc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77068418"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912566"
 ---
+## <a name="what-is-the-time-required-for-migration"></a>Quel est le temps nécessaire pour une migration ?
+
+La planification et l’exécution de la migration dépend fortement de la complexité de l’architecture et peut prendre deux ou trois mois.  
+
+## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>Quelle est la définition d’un nouveau client sur des machines virtuelles IaaS (Classic) ?
+
+Les clients qui n’avaient pas de machines virtuelles IaaS (Classic) dans leurs abonnements en février 2020 (un mois avant le début de la dépréciation) sont considérés comme de nouveaux clients. 
+
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Ce plan de migration affecte-t-il l’un de mes services ou applications existants qui s’exécutent sur des machines virtuelles Azure ? 
 
-Non. Les machines virtuelles (Classic) sont des services entièrement pris en charge des services à disponibilité générale. Vous pouvez continuer à utiliser ces ressources pour développer votre empreinte sur Microsoft Azure.
+Pas jusqu’au 1er mars 2023 pour les machines virtuelles IaaS (Classic). Les machines virtuelles IaaS (Classic) sont des services entièrement pris en charge en disponibilité générale. Vous pouvez continuer à utiliser ces ressources pour développer votre empreinte sur Microsoft Azure. Le 1er mars 2023, ces machines virtuelles seront toutes mises hors service et toutes les machines virtuelles actives ou allouées seront arrêtées et libérées. Il n’y aura aucun impact sur d’autres ressources classiques comme les services cloud (Classic), les comptes de stockage (Classic), etc.   
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>Que se passera-t-il pour mes machines virtuelles si je n’envisage pas de procéder à cette migration dans un avenir proche ? 
 
-Nous ne déconseillons pas l’utilisation des API et du modèle de ressource Classic existants. Compte tenu des fonctionnalités avancées offertes par le modèle de déploiement Resource Manager, notre objectif est de faciliter la migration. Nous vous recommandons donc vivement de passer en revue [certaines des avancées réalisées](../articles/azure-resource-manager/management/deployment-models.md) en matière d’IaaS dans Resource Manager.
+Le 1er mars 2023, les machines virtuelles IaaS (Classic) seront toutes mises hors service et toutes les machines virtuelles actives ou allouées seront arrêtées et libérées. Pour éviter tout impact sur l’activité, nous vous recommandons vivement de commencer à planifier votre migration aujourd’hui et à la terminer avant le 1er mars 2023. Nous ne déconseillons pas l’utilisation des API, des services cloud ni du modèle de ressource Classic existants. Compte tenu des fonctionnalités avancées offertes par le modèle de déploiement Resource Manager, notre objectif est de faciliter la migration. Nous vous recommandons de commencer à planifier la migration de ces ressources vers Azure Resource Manager. 
 
 ## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>Quelles sont les implications de ce plan de migration pour mes outils existants ? 
 
@@ -37,7 +45,7 @@ Vous pouvez abandonner la migration tant que vos ressources se trouvent à l’�
 
 ## <a name="can-i-roll-back-my-migration-if-the-commit-operation-fails"></a>Puis-je restaurer ma migration en cas d’échec de l’opération de validation ? 
 
-Vous ne pouvez pas abandonner la migration si l’opération de validation échoue. Toutes les opérations de migration, notamment l’opération de validation, sont idempotentes. Nous vous recommandons donc de retenter l’opération après une courte période. Si l’erreur persiste, créez un ticket de support ou publiez un billet sur le forum Internet [Microsoft Q&A](https://docs.microsoft.com/answers/index.html).
+Vous ne pouvez pas abandonner la migration si l’opération de validation échoue. Toutes les opérations de migration, notamment l’opération de validation, sont idempotentes. Nous vous recommandons donc de retenter l’opération après une courte période. Si vous rencontrez toujours une erreur, créez un ticket de support.
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Dois-je acheter un autre circuit ExpressRoute si je dois utiliser la ressource IaaS sous Resource Manager ? 
 

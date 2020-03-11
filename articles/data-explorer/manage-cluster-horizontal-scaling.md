@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: d0c9fe9ebd040ee59ae8717e95fd1911eaef61be
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: ff7420619cffc2287ab8ff6332df605d56329549
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560454"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664131"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gérer la mise à l'échelle horizontale d'un cluster (montée en puissance) dans Azure Data Explorer pour prendre en compte les fluctuations de la demande
 
@@ -59,13 +59,14 @@ Si votre cluster approche un état de surutilisation, montez-le en charge pour q
 * Le nombre d’instances de cluster est inférieur au nombre maximal d’instances défini par l’utilisateur.
 * L’utilisation du cache est élevée pendant plus d’une heure.
 * L'UC reste élevée pendant plus d'une heure.
+* L’utilisation de l’ingestion est élevée pendant plus d’une heure.
 
 > [!NOTE]
 > La logique de montée en charge ne prend actuellement pas en compte la mesure de l'utilisation de l'ingestion. Si cette mesure est importante pour votre cas d'usage, utilisez la [mise à l'échelle automatique personnalisée](#custom-autoscale).
 
 **Diminuer la taille des instances**
 
-Si votre cluster approche un état de sous-utilisation, diminuer la taille des instances pour réduire’ les coûts tout en maintenant les performances. Plusieurs mesures sont utilisées pour vérifier qu’il est possible de diminuer la taille des instances du cluster en toute sécurité. Les règles suivantes sont évaluées quotidiennement pendant 7 jours avant la diminution de la taille des instances :
+Si votre cluster approche un état de sous-utilisation, diminuer la taille des instances pour réduire’ les coûts tout en maintenant les performances. Plusieurs mesures sont utilisées pour vérifier qu’il est possible de diminuer la taille des instances du cluster en toute sécurité. Les règles suivantes sont évaluées toutes les heures pendant six heures avant la diminution de la taille des instances :
 * Le nombre d’instances est supérieur à 2 et excède le nombre minimum d’instances défini.
 * Pour garantir qu’il n’y a pas de surcharge des ressources, vérifiez les mesures suivantes avant de diminuer la taille des instances : 
     * L’utilisation du cache n’est pas élevée

@@ -1,6 +1,6 @@
 - name: Documentation Service Fabric
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Qu’est-ce que Service Fabric ?
       href: service-fabric-overview.md
@@ -87,7 +87,7 @@
           href: service-fabric-tutorial-standalone-install-an-application.md
         - name: 4- Nettoyer votre cluster et supprimer l’infrastructure
           href: service-fabric-tutorial-standalone-clean-up.md
-- name: Bonnes pratiques
+- name: Meilleures pratiques
   items:
     - name: Vue d’ensemble des bonnes pratiques Service Fabric
       href: service-fabric-best-practices-overview.md
@@ -316,6 +316,8 @@
               href: service-fabric-cluster-resource-manager-defragmentation-metrics.md
             - name: Équilibrer un cluster
               href: service-fabric-cluster-resource-manager-balancing.md
+            - name: Sous-clustering
+              href: service-fabric-cluster-resource-manager-subclustering.md
             - name: Limitation
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: Mouvement de service
@@ -324,7 +326,7 @@
               href: service-fabric-cluster-resource-manager-autoscaling.md
     - name: Surveillance et diagnostics
       items:
-        - name: Vue d’ensemble de la surveillance
+        - name: Vue d'ensemble de la surveillance
           href: service-fabric-diagnostics-overview.md
         - name: Monitoring des applications
           href: service-fabric-diagnostics-event-generation-app.md
@@ -360,7 +362,7 @@
       href: configure-container-repository-credentials.md
 - name: Guides pratiques
   items:
-    - name: Configuration de l'environnement de développement
+    - name: Configurer l''environnement de développement
       items:
         - name: Windows
           href: service-fabric-get-started.md
@@ -446,7 +448,7 @@
                   href: service-fabric-reliable-services-secure-communication-java.md
                 - name: "Communications\_WCF sécurisées"
                   href: service-fabric-reliable-services-secure-communication-wcf.md
-            - name: Configuration
+            - name: Configurer
               href: service-fabric-reliable-services-configuration.md
             - name: Envoi de notifications
               href: service-fabric-reliable-services-notifications.md
@@ -643,9 +645,9 @@
                   href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
             - name: Scale
               items:
-                - name: Augmenter manuellement la taille des instances
+                - name: Effectuer un scale-out manuellement
                   href: service-fabric-cluster-scale-up-down.md
-                - name: Augmenter par programme la taille des instances
+                - name: Effectuer un scale-out programmatiquement
                   href: service-fabric-cluster-programmatic-scaling.md
                 - name: Effectuer un scale-up du type de nœud principal
                   href: service-fabric-scale-up-node-type.md
@@ -653,7 +655,7 @@
                   href: virtual-machine-scale-set-scale-node-type-scale-out.md
                 - name: Supprimer un type de nœud
                   href: service-fabric-how-to-remove-node-type.md
-            - name: Mise à niveau
+            - name: Mettre à niveau
               items:
                 - name: "Mise à niveau de la version de Service\_Fabric"
                   href: service-fabric-cluster-upgrade-version-azure.md
@@ -691,7 +693,7 @@
                   href: service-fabric-cluster-standalone-package-contents.md
             - name: Scale
               href: service-fabric-cluster-windows-server-add-remove-nodes.md
-            - name: Mise à niveau
+            - name: Mettre à niveau
               items:
                 - name: "Mise à niveau de la version de Service\_Fabric"
                   href: service-fabric-cluster-upgrade-windows-server.md
@@ -868,7 +870,7 @@
           href: service-fabric-service-model-schema-simple-types.md
         - name: Groupes d’éléments
           href: service-fabric-service-model-schema-element-groups.md
-    - name: Variables d’environnement
+    - name: Variables d'environnement
       href: service-fabric-environment-variables-reference.md
 - name: Ressources
   items:

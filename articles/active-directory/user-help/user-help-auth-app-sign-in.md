@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: b5f2b42728fd6f3d61695b4f88cc416015dd97cb
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: ac61c01c5e45b6e8e001a68781f93c3962cb581f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108261"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78297839"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Vous connecter à vos comptes à l’aide de l’application Microsoft Authenticator
 
@@ -31,7 +31,7 @@ Vous pouvez utiliser l’application Microsoft Authenticator de plusieurs maniè
   >[!Important]
   >Cette méthode de connexion par téléphone fonctionne uniquement avec vos comptes Microsoft professionnels, scolaires et personnels. Vos comptes non-Microsoft vous obligent à utiliser le processus de vérification en deux étapes standard.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de pouvoir utiliser l’application Microsoft Authenticator, vous devez :
 
@@ -49,13 +49,19 @@ La connexion par téléphone est disponible uniquement sur les appareils iOS et 
 
 ### <a name="turn-on-phone-sign-in"></a>Activer la connexion par téléphone
 
-- Ouvrez l’application Microsoft Authenticator, accédez à votre compte scolaire ou professionnel et activez la connexion par téléphone :
+Ouvrez l’application Microsoft Authenticator, accédez à votre compte scolaire ou professionnel, puis activez la connexion par téléphone.
 
-    - **Si vous voyez cette icône ![icône indiquant que la configuration a été effectuée](media/user-help-auth-app-sign-in/icon.png).** Si cette icône est visible en regard du nom de votre compte scolaire ou professionnel, cela signifie que vous avez déjà configuré la connexion par téléphone pour le compte. Vous serez peut-être invité à ajouter des notifications Push à votre compte, afin de pouvoir être averti des demandes d’authentification en dehors de l’application.
+Sur un appareil Android :
 
-    - **Si vous utilisez déjà l’application pour la vérification en deux étapes.** Si vous utilisez déjà l’application et la vérification en deux étapes, vous pouvez choisir la flèche déroulante en regard du nom du compte, puis sélectionner **Activer la connexion par téléphone**.
+- **Si vous voyez cette icône ![icône indiquant que la configuration a été effectuée](media/user-help-auth-app-sign-in/icon.png).** Si cette icône est visible en regard du nom de votre compte scolaire ou professionnel, cela signifie que vous avez déjà configuré la connexion par téléphone pour le compte. Vous serez peut-être invité à ajouter des notifications Push à votre compte, afin de pouvoir être averti des demandes d’authentification en dehors de l’application.
+- **Si vous utilisez déjà l’application pour la vérification à deux facteurs.** Si vous utilisez déjà l’application et la vérification à deux facteurs, vous pouvez sélectionner la flèche en regard du nom du compte, puis sélectionner **Activer la connexion par téléphone**.
+- **Si vous ne trouvez pas votre compte professionnel ou scolaire.** Si vous ne trouvez pas votre compte professionnel ou scolaire sur l’écran **Comptes** de l’application, cela signifie que vous ne l’avez pas encore ajouté à l’application. Ajoutez votre compte professionnel ou scolaire en suivant les étapes décrites dans l’article [Ajouter votre compte professionnel ou scolaire](user-help-auth-app-add-work-school-account.md).
 
-    - **Si vous ne trouvez pas votre compte professionnel ou scolaire.** Si vous ne trouvez pas votre compte professionnel ou scolaire sur l’écran **Comptes** de l’application, cela signifie que vous ne l’avez pas encore ajouté à l’application. Ajoutez votre compte professionnel ou scolaire en suivant les étapes décrites dans l’article [Ajouter votre compte professionnel ou scolaire](user-help-auth-app-add-work-school-account.md).
+Sur un appareil iOS :
+
+- **Lorsque vous appuyez sur la vignette de compte**, le compte s’ouvre dans un affichage plein écran du compte. Si vous voyez **Connexion par téléphone activée**, cela signifie que vous avez fini de configurer la connexion sans votre mot de passe. Si vous voyez **Activer la connexion par téléphone**, appuyez dessus pour activer la connexion par téléphone.
+- **Si vous avez déjà utilisé l’application pour la vérification à deux facteurs**, vous pouvez appuyer sur la vignette de compte, qui se développe alors en affichage plein écran du compte. Ensuite, appuyez sur **Activer la connexion par téléphone** pour activer la connexion par téléphone.
+- **Si vous ne trouvez pas votre compte professionnel ou scolaire** sur l’écran **Comptes** de l’application, cela signifie que vous ne l’avez pas encore ajouté à l’application. Ajoutez votre compte professionnel ou scolaire en suivant les étapes décrites dans l’article Ajouter votre compte professionnel ou scolaire.
 
 Une fois que vous avez activé la connexion par téléphone, vous pouvez vous connecter à l’aide de l’application Microsoft Authenticator.
 
@@ -82,13 +88,19 @@ Vous pouvez activer la connexion par téléphone pour votre compte Microsoft per
 
 ### <a name="turn-on-phone-sign-in"></a>Activer la connexion par téléphone 
 
-- Ouvrez l’application Microsoft Authenticator, accédez à votre compte Microsoft personnel et activez la connexion par téléphone :
+Ouvrez l’application Microsoft Authenticator, accédez à votre compte scolaire ou professionnel, puis activez la connexion par téléphone.
 
-    - **Si vous voyez cette icône ![icône indiquant que la configuration a été effectuée](media/user-help-auth-app-sign-in/icon.png).** Si cette icône est visible en regard du nom de votre compte Microsoft personnel, cela signifie que vous avez déjà configuré la connexion par téléphone pour le compte. Vous serez peut-être invité à ajouter des notifications Push à votre compte, afin de pouvoir être averti des demandes d’authentification en dehors de l’application.
+Sur un appareil Android :
 
-    - **Si vous utilisez déjà l’application pour la vérification en deux étapes.** Si vous utilisez déjà l’application et la vérification en deux étapes, vous pouvez choisir la flèche déroulante en regard du nom du compte, puis sélectionner **Activer la connexion par téléphone**.
+- **Si vous voyez cette icône ![icône indiquant que la configuration a été effectuée](media/user-help-auth-app-sign-in/icon.png).** Si cette icône est visible à côté du nom de votre compte Microsoft personnel, cela signifie que vous avez déjà configuré la connexion par téléphone pour le compte. Vous serez peut-être invité à ajouter des notifications Push à votre compte, afin de pouvoir être averti des demandes d’authentification en dehors de l’application.
+- **Si vous utilisez déjà l’application pour la vérification en deux étapes.** Si vous utilisez déjà l’application et la vérification à deux facteurs, vous pouvez sélectionner la flèche à côté du nom du compte, puis **Activer la connexion par téléphone**.
+- **Si vous ne trouvez pas votre compte professionnel ou scolaire.** Si vous ne trouvez pas votre compte Microsoft personnel sur l’écran **Comptes** de l’application, cela signifie que vous ne l’avez pas encore ajouté à l’application. Ajoutez votre compte en suivant les étapes décrites dans l’article [Ajouter des comptes Microsoft personnels](user-help-auth-app-add-personal-ms-account.md).
 
-    - **Si vous ne trouvez pas votre compte.** Si vous ne trouvez pas votre compte Microsoft personnel sur l’écran **Comptes** de l’application, cela signifie que vous ne l’avez pas encore ajouté à l’application. Ajoutez votre compte Microsoft personnel en suivant les étapes décrites dans l’article [Ajouter votre compte Microsoft personnel](user-help-auth-app-add-personal-ms-account.md#add-your-personal-microsoft-account).
+Sur un appareil iOS :
+
+- **Lorsque vous appuyez sur la vignette de compte**, le compte s’ouvre dans un affichage plein écran du compte. Si vous voyez **Connexion par téléphone activée**, cela signifie que vous avez fini de configurer la connexion sans votre mot de passe. Si vous voyez **Activer la connexion par téléphone**, appuyez dessus pour activer la connexion par téléphone.
+- **Si vous utilisez déjà l’application pour la vérification à deux facteurs**, vous pouvez appuyer sur la vignette de compte, qui se développe alors en affichage plein écran du compte. Ensuite, appuyez sur **Activer la connexion par téléphone** pour activer la connexion par téléphone.
+- **Si vous ne trouvez pas votre compte** sur l’écran **Comptes** de l’application, cela signifie que vous ne l’avez pas encore ajouté à l’application. Ajoutez votre compte Microsoft personnel en suivant les étapes décrites dans l’article [Ajouter des comptes Microsoft personnels](user-help-auth-app-add-personal-ms-account.md).
 
 ### <a name="sign-in-to-your-account-using-phone-sign-in"></a>Vous connecter à votre compte à l’aide de la connexion par téléphone
 
@@ -100,7 +112,7 @@ Vous pouvez activer la connexion par téléphone pour votre compte Microsoft per
 
 ## <a name="sign-in-using-two-factor-verification-for-your-account"></a>Vous connecter à l’aide de la vérification en deux étapes pour votre compte
 
-La méthode de vérification en deux étapes standard vous oblige à entrer votre nom d’utilisateur et votre mot de passe sur l’appareil sur lequel vous êtes connecté, puis à choisir si l’application Microsoft Authenticator envoie une notification ou si vous préférez copier le code de vérification associé à partir de l’écran **Comptes** de l’application Microsoft Authenticator. Vous activez la vérification en deux étapes pour votre compte dans le cadre du processus d’ajout du compte à l’application Microsoft Authenticator.
+La méthode de vérification à deux facteurs standard vous oblige à entrer votre nom d’utilisateur et votre mot de passe sur l’appareil sur lequel vous vous connectez, puis à choisir si l’application Microsoft Authenticator reçoit l’application Microsoft Authenticator. Sur un appareil Android, ces codes de vérification se trouvent dans l’écran Comptes. Sur un appareil iOS, ces codes de vérification se trouvent dans l’écran **Comptes** ou dans la vue plein écran d’un compte, en fonction du type de compte. Vous activez la vérification en deux étapes pour votre compte dans le cadre du processus d’ajout du compte à l’application Microsoft Authenticator.
 
 >[!Note]
 >Si vous ne voyez pas votre compte professionnel ou scolaire ou votre compte personnel sur l’écran **Comptes** de l’application Microsoft Authenticator, cela signifie que vous n’avez pas ajouté le compte à l’application Microsoft Authenticator. Pour ajouter votre compte, consultez [Ajouter votre compte professionnel ou scolaire](user-help-auth-app-add-work-school-account.md) ou [Ajouter vos comptes personnels](user-help-auth-app-add-personal-ms-account.md).

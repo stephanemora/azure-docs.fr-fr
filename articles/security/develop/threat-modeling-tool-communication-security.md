@@ -1,5 +1,6 @@
 ---
-title: Sécurité des communications - Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs
+title: Sécurité des communications pour Microsoft Threat Modeling Tool
+titleSuffix: Azure
 description: Mesures de correction des menaces exposées dans l’outil de modélisation des menaces
 services: security
 documentationcenter: na
@@ -15,22 +16,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 54d34a120c575fd01f746131d909058951d1facf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b861c54cfffe409946a2b23de4c7ccf2cd85433a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839253"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269893"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Infrastructure de sécurité : sécurité des communications | mesures d’atténuation 
 | Produit/Service | Article |
 | --------------- | ------- |
 | **Azure Event Hub** | <ul><li>[Sécuriser les communications vers Event Hub à l’aide du protocole SSL/TLS](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Vérifier les privilèges de compte de service et vérifier que les services personnalisés ou les pages ASP.NET respectent la sécurité CRM](#priv-aspnet)</li></ul> |
-| **Azure Data Factory** | <ul><li>[Utiliser la passerelle de gestion des données lors de la connexion du SQL Server local à Azure Data Factory](#sqlserver-factory)</li></ul> |
+| **Azure Data Factory**. | <ul><li>[Utiliser la passerelle de gestion des données lors de la connexion du SQL Server local à Azure Data Factory](#sqlserver-factory)</li></ul> |
 | **Serveur d’identité** | <ul><li>[Garantir que l’intégralité du trafic vers IdentityServer est sur la connexion HTTPS](#identity-https)</li></ul> |
 | **Application Web** | <ul><li>[Vérifier les certificats X.509 utilisés pour authentifier les connexions SSL, TLS et DTLS](#x509-ssltls)</li><li>[Configurer le certificat SSL pour le domaine personnalisé dans Azure App Service](#ssl-appservice)</li><li>[Forcer l’intégralité du trafic vers Azure App Service sur la connexion HTTPS](#appservice-https)</li><li>[Activer le protocole HTTP Strict Transport Security (HSTS)](#http-hsts)</li></ul> |
-| **Base de données** | <ul><li>[Assurer le chiffrement de la connexion SQL Server et la validation des certificats](#sqlserver-validation)</li><li>[Forcer des communications chiffrées vers SQL Server](#encrypted-sqlserver)</li></ul> |
+| **Sauvegarde de la base de données** | <ul><li>[Assurer le chiffrement de la connexion SQL Server et la validation des certificats](#sqlserver-validation)</li><li>[Forcer des communications chiffrées vers SQL Server](#encrypted-sqlserver)</li></ul> |
 | **Stockage Azure** | <ul><li>[Vérifier que la communication vers le stockage Azure est sur HTTPS](#comm-storage)</li><li>[Valider le hachage MD5 après le téléchargement de blobs si le protocole HTTPS ne peut pas être activé](#md5-https)</li><li>[Utiliser un client compatible SMB 3.0 pour garantir le chiffrement des données en transit vers les partages de fichiers Azure](#smb-shares)</li></ul> |
 | **Client mobile** | <ul><li>[Implémenter l’épinglage de certificat](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[Activer le protocole HTTPS - Sécuriser le canal de transport](#https-transport)</li><li>[WCF : définir le niveau de protection de la sécurité des messages sur EncryptAndSign](#message-protection)</li><li>[WCF : utiliser un compte avec des privilèges minimum pour exécuter votre service WCF](#least-account-wcf)</li></ul> |
@@ -44,7 +45,7 @@ ms.locfileid: "73839253"
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
 | **Composant**               | Azure Event Hub | 
-| **Phase SDL**               | Créer |  
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [Présentation du modèle de sécurité et de l’authentification Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
@@ -55,7 +56,7 @@ ms.locfileid: "73839253"
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
 | **Composant**               | Dynamics CRM | 
-| **Phase SDL**               | Créer |  
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | N/A  |
@@ -65,7 +66,7 @@ ms.locfileid: "73839253"
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Azure Data Factory | 
+| **Composant**               | Azure Data Factory | 
 | **Phase SDL**               | Déploiement |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | Types de services liés - Azure et local |
@@ -87,8 +88,8 @@ ms.locfileid: "73839253"
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Application web | 
-| **Phase SDL**               | Créer |  
+| **Composant**               | Application Web | 
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | N/A  |
@@ -98,8 +99,8 @@ ms.locfileid: "73839253"
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Application web | 
-| **Phase SDL**               | Créer |  
+| **Composant**               | Application Web | 
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | EnvironmentType - Azure |
 | **Informations de référence**              | [Activer le protocole HTTPS pour une application dans Azure App Service](../../app-service/configure-ssl-bindings.md) |
@@ -109,14 +110,14 @@ ms.locfileid: "73839253"
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Application web | 
-| **Phase SDL**               | Créer |  
+| **Composant**               | Application Web | 
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | EnvironmentType - Azure |
 | **Informations de référence**              | [Appliquer le protocole HTTPS sur Azure App Service](../../app-service/configure-ssl-bindings.md#enforce-https) |
 | **Étapes** | <p>Bien qu’Azure active déjà le protocole HTTPS pour les services d’application Azure grâce à un certificat générique pour le domaine *.azurewebsites.net, le domaine n’applique pas le protocole HTTPS. Les visiteurs peuvent toujours accéder à l’application à l’aide du protocole HTTP, ce qui peut compromettre la sécurité de l’application. Par conséquent, le protocole HTTPS doit être appliqué de manière explicite. Les applications ASP.NET MVC doivent utiliser le [filtre RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) qui force une demande HTTP non sécurisée à être renvoyée sur HTTPS.</p><p>Sinon, vous pouvez utiliser le module de réécriture d’URL, qui est inclus avec Azure App Service, pour appliquer le protocole HTTPS. Le module de réécriture d’URL permet aux développeurs de définir des règles qui sont appliquées aux demandes entrantes avant qu’elles ne soient transmises à votre application. Les règles de réécriture d’URL sont définies dans un fichier web.config stocké à la racine de l’application.</p>|
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 L’exemple suivant contient une règle de réécriture d’URL basique qui force tout le trafic entrant à utiliser le protocole HTTPS.
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -142,8 +143,8 @@ Cette règle fonctionne en renvoyant le code d’état HTTP 301 (redirection p
 
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
-| **Composant**               | Application web | 
-| **Phase SDL**               | Créer |  
+| **Composant**               | Application Web | 
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [OWASP HTTP Strict Transport Security Cheat Sheet](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) (Aide-mémoire sur HTTP Strict Transport Security par l’OWASP) |
@@ -154,7 +155,7 @@ Cette règle fonctionne en renvoyant le code d’état HTTP 301 (redirection p
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
 | **Composant**               | Base de données | 
-| **Phase SDL**               | Créer |  
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | SQL Azure  |
 | **Attributs**              | Version SQL - V12 |
 | **Informations de référence**              | [Best Practices on Writing Secure Connection Strings for SQL Database](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) (Bonnes pratiques sur l’écriture de chaînes de connexion sécurisées pour SQL Database) |
@@ -165,7 +166,7 @@ Cette règle fonctionne en renvoyant le code d’état HTTP 301 (redirection p
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
 | **Composant**               | Base de données | 
-| **Phase SDL**               | Créer |  
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | Local |
 | **Attributs**              | Version SQL - MsSQL2016, Version SQL - MsSQL2012, Version SQL - MsSQL2014 |
 | **Informations de référence**              | [Activer les connexions chiffrées dans le moteur de base de données](https://msdn.microsoft.com/library/ms191192)  |
@@ -187,7 +188,7 @@ Cette règle fonctionne en renvoyant le code d’état HTTP 301 (redirection p
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
 | **Composant**               | Stockage Azure | 
-| **Phase SDL**               | Créer |  
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | StorageType - Blob |
 | **Informations de référence**              | [Windows Azure Blob MD5 Overview](https://blogs.msdn.microsoft.com/windowsazurestorage/2011/02/17/windows-azure-blob-md5-overview/) (Vue d’ensemble de la vérification MD5 du service Blob Windows Azure) |
@@ -198,7 +199,7 @@ Cette règle fonctionne en renvoyant le code d’état HTTP 301 (redirection p
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
 | **Composant**               | Client mobile | 
-| **Phase SDL**               | Créer |  
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | StorageType - Fichier |
 | **Informations de référence**              | [Azure File Storage, now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/#comment-2529238931) (Le stockage de fichiers Azure est désormais disponible de manière générale), [Prise en main du stockage de fichiers Azure sur Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files/#_mount-the-file-share) |
@@ -209,13 +210,13 @@ Cette règle fonctionne en renvoyant le code d’état HTTP 301 (redirection p
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
 | **Composant**               | Stockage Azure | 
-| **Phase SDL**               | Créer |  
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique, Windows Phone |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [Certificate and Public Key Pinning](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#.Net) (Épinglage de clé publique et de certificat) |
 | **Étapes** | <p>L’épinglage de certificat assure une protection contre les interceptions. L’épinglage consiste à associer un hôte à sa clé publique ou à son certificat X509 attendu. Une fois qu’un certificat ou une clé publique est connu ou vu par un hôte, le certificat ou la clé publique est associé ou « épinglé » à l’hôte. </p><p>Par conséquent, lorsqu’un pirate tente une interception de SSL, lors de la liaison SSL, la clé du serveur du pirate sera différente de la clé du certificat épinglé et la demande sera rejetée, empêchant ainsi l’interception. L’épinglage de certificat peut être obtenu en implémentant le délégué `ServerCertificateValidationCallback` de ServicePointManager.</p>|
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 ```csharp
 using System;
 using System.Net;
@@ -286,7 +287,7 @@ namespace CertificatePinningExample
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
 | **Composant**               | WCF | 
-| **Phase SDL**               | Créer |  
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | NET Framework 3 |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_transport_security_enabled) |
@@ -297,13 +298,13 @@ namespace CertificatePinningExample
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
 | **Composant**               | WCF | 
-| **Phase SDL**               | Créer |  
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | .NET Framework 3 |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
 | **Étapes** | <ul><li>**EXPLICATION :** Quand le niveau de protection est défini sur « aucun », la protection des messages est désactivée. La confidentialité et l’intégrité sont obtenues grâce à un niveau approprié de paramétrage.</li><li>**RECOMMANDATIONS :**<ul><li>Quand `Mode=None`, la protection des messages est désactivée.</li><li>Quand `Mode=Sign`, les messages sont signés mais pas chiffrés. Cette valeur doit être utilisée lorsque l’intégrité du message est primordiale.</li><li>Quand `Mode=EncryptAndSign`, les messages sont signés et chiffrés.</li></ul></li></ul><p>Pensez à désactiver le chiffrement et signez uniquement votre message lorsque vous avez simplement besoin de valider l’intégrité des informations, sans vous soucier de la confidentialité. Cela peut être utile pour les opérations ou les contrats de service pour lesquels vous avez besoin de valider l’expéditeur d’origine, mais qu’aucune donnée sensible n’est transmise. Lorsque vous réduisez le niveau de protection, veillez à ce que le message ne contienne pas de données à caractère personnel.</p>|
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 La configuration du service et de l’opération permettant de signer uniquement le message est indiquée dans les exemples suivants. Exemple de contrat de service de `ProtectionLevel.Sign` : vous trouverez ci-dessous un exemple d’utilisation de ProtectionLevel.Sign au niveau du contrat de service : 
 ```
 [ServiceContract(Protection Level=ProtectionLevel.Sign] 
@@ -313,7 +314,7 @@ public interface IService
   } 
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 Exemple de contrat d’opération de `ProtectionLevel.Sign` (pour un contrôle granulaire) : Voici un exemple d’utilisation de `ProtectionLevel.Sign` au niveau du contrat d’opération :
 
 ```
@@ -326,7 +327,7 @@ string GetData(int value);
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
 | **Composant**               | WCF | 
-| **Phase SDL**               | Créer |  
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | .NET Framework 3 |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648826.aspx ) |
@@ -337,13 +338,13 @@ string GetData(int value);
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
 | **Composant**               | API Web | 
-| **Phase SDL**               | Créer |  
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | MVC5, MVC6 |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [Enforcing SSL in a Web API Controller](https://www.asp.net/web-api/overview/security/working-with-ssl-in-web-api) (Application de SSL dans un contrôleur d’API Web) |
 | **Étapes** | Si une application a une liaison HTTP et une liaison HTTPS, les clients peuvent toujours utiliser HTTP pour accéder au site. Pour éviter cela, utilisez un filtre d’action afin de vous assurer que les demandes envoyées aux API protégées sont toujours sur HTTPS.|
 
-### <a name="example"></a>Exemples 
+### <a name="example"></a>Exemple 
 Le code suivant montre un filtre d’authentification d’API web qui recherche SSL : 
 ```csharp
 public class RequireHttpsAttribute : AuthorizationFilterAttribute
@@ -378,7 +379,7 @@ public class ValuesController : ApiController
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
 | **Composant**               | Cache Azure pour Redis | 
-| **Phase SDL**               | Créer |  
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [Forum aux questions sur le Cache Redis Azure](https://azure.microsoft.com/documentation/articles/cache-faq/#when-should-i-enable-the-non-ssl-port-for-connecting-to-redis) |
@@ -391,7 +392,7 @@ Notez que Redis est conçu pour être accessible par les clients approuvés dans
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
 | **Composant**               | Passerelle de champ IoT | 
-| **Phase SDL**               | Créer |  
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | N/A  |
@@ -402,7 +403,7 @@ Notez que Redis est conçu pour être accessible par les clients approuvés dans
 | Intitulé                   | Détails      |
 | ----------------------- | ------------ |
 | **Composant**               | Passerelle cloud IoT | 
-| **Phase SDL**               | Créer |  
+| **Phase SDL**               | Build |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
 | **Informations de référence**              | [Guide du développeur Azure IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#messaging) |

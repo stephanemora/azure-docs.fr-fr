@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 069561c4bed55bf6021b594d693e076ef8d313bd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 76e7a9aa9c0f17501885c8bd06c6997fdc8d2104
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035472"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255688"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Conditions préalables courantes au déploiement d’OpenShift Container Platform 3.11 dans Azure
 
@@ -102,9 +102,9 @@ OpenShift communique avec Azure à l’aide d’un nom d’utilisateur et d’un
 
 Créez un principal de service avec la commande [az ad sp create-for-rbac](/cli/azure/ad/sp) et affichez les informations d’identification requises par OpenShift.
 
-L’exemple suivant crée un principal de service et lui assigne des autorisations de contributeur sur un groupe de ressources nommé openshiftrg.
+L’exemple suivant crée un principal de service et lui assigne des autorisations de contributeur sur un groupe de ressources nommé *openshiftrg*.
 
-Commencez par créer le groupe de ressources appelé openshiftrg :
+Commencez par créer le groupe de ressources appelé *openshiftrg* :
 
 ```azurecli
 az group create -l eastus -n openshiftrg
@@ -158,7 +158,7 @@ Vous devrez stocker ces fichiers dans des secrets du coffre de clés Key Vault. 
 | routingcertfile  | fichier de certificat (CERT) de routage  |
 | routingkeyfile   | fichier de clé (Key) de routage   |
 
-Créez les secrets à l’aide de l'interface de ligne de commande Azure (Azure CLI). Voici un exemple :
+Créez les secrets à l’aide de l'interface de ligne de commande Azure (Azure CLI). Voici un exemple.
 
 ```bash
 az keyvault secret set --vault-name KeyVaultName -n mastercafile --file ~/certificates/masterca.pem

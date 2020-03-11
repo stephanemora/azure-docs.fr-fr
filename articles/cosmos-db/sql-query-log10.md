@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 5950a2a40a78716a76e49fcdaeb3129948b6a0e1
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 6f47200f6978d91f46c010640bb9c2bb26e9b7d5
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871055"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302489"
 ---
 # <a name="log10-azure-cosmos-db"></a>LOG10 (Azure Cosmos DB)
  Retourne le logarithme en base 10 de l'expression numérique spécifiée.  
@@ -32,9 +32,9 @@ LOG10 (<numeric_expr>)
   
   Renvoie une expression numérique.  
   
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
   
-  Les fonctions LOG10 et POWER sont inversement liées entre elles. Par exemple, 10 ^ LOG10 (n) = n.  
+  Les fonctions LOG10 et POWER sont inversement proportionnelles. Par exemple, 10 ^ LOG10 (n) = n.  
   
 ## <a name="examples"></a>Exemples
   
@@ -49,6 +49,10 @@ SELECT LOG10(100) AS log10
 ```json
 [{log10: 2}]  
 ```  
+
+## <a name="remarks"></a>Notes
+
+Cette fonction système n’utilisera pas l’index.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

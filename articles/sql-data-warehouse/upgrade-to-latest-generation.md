@@ -1,6 +1,6 @@
 ---
 title: Passer à la dernière génération
-description: Mettez à niveau Azure SQL Data Warehouse vers la dernière génération de l’architecture matérielle et de stockage Azure.
+description: Mettez à niveau le pool SQL Azure Synapse Analytics avec la dernière génération de l’architecture matérielle et de stockage Azure.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -11,33 +11,33 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 02c426cd921f4af19f3b8c271e4b1c08eae2c3c2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 97cbae93b1ee2dd6ca4916f4efbb964141b33a3f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692456"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200772"
 ---
-# <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimiser les performances en mettant à niveau SQL Data Warehouse
+# <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Optimiser les performances en mettant à niveau le pool SQL Azure Synapse Analytics
 
-Mettez à niveau Azure SQL Data Warehouse vers la dernière génération de l’architecture matérielle et de stockage Azure.
+Mettez à niveau le pool SQL vers la dernière génération de l’architecture matérielle et de stockage Azure.
 
 ## <a name="why-upgrade"></a>Pourquoi procéder à une mise à niveau ?
 
-Vous pouvez maintenant effectuer une mise à niveau de manière fluide vers le niveau Gen2 optimisé pour le calcul d’Azure SQL Data Warehouse dans le portail Azure pour les [régions prises en charge](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Si votre région ne prend pas en charge la mise à niveau automatique, vous pouvez passer à une région prise en charge ou attendre que la mise à niveau automatique soit disponible dans votre région. Effectuez la mise à niveau dès maintenant pour bénéficier de la dernière génération de matériel et de l’architecture de stockage améliorée d’Azure, y compris de performances plus rapides, d’une plus grande évolutivité et d’un stockage en colonnes illimité. 
+Vous pouvez maintenant effectuer une mise à niveau de manière fluide vers le niveau Gen2 optimisé pour le calcul du pool SQL dans le portail Azure pour les [régions prises en charge](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Si votre région ne prend pas en charge la mise à niveau automatique, vous pouvez passer à une région prise en charge ou attendre que la mise à niveau automatique soit disponible dans votre région. Effectuez la mise à niveau dès maintenant pour bénéficier de la dernière génération de matériel et de l’architecture de stockage améliorée d’Azure, y compris de performances plus rapides, d’une plus grande évolutivité et d’un stockage en colonnes illimité. 
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## <a name="applies-to"></a>S’applique à
 
-Cette mise à niveau s’applique aux entrepôts de données de niveau Gen1 optimisé pour le calcul dans les [régions prises en charge](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
+Cette mise à niveau s’applique aux pools SQL de niveau Gen1 optimisé pour le calcul dans les [régions prises en charge](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 1. Vérifiez si votre [région](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) est prise en charge pour la migration GEN1 vers GEN2. Prenez note des dates de migration automatique. Pour éviter tout conflit avec le processus automatisé, planifiez votre migration manuelle avant la date de début du processus automatisé.
 2. Si vous vous trouvez dans une région qui n’est pas encore prise en charge, continuez à vérifier si votre région doit être ajoutée ou [effectuer la mise à niveau en utilisant la restauration](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) dans une région prise en charge.
 3. Si votre région est prise en charge, [effectuez la mise à niveau via le portail Azure](#upgrade-in-a-supported-region-using-the-azure-portal).
-4. **Sélectionnez le niveau de performances suggéré** pour l’entrepôt de données en fonction de votre niveau de performances actuel sur le niveau Gen1 optimisé pour le calcul en utilisant le mappage ci-dessous :
+4. **Sélectionnez le niveau de performances suggéré** pour le pool SQL en fonction de votre niveau de performances actuel sur le niveau Gen1 optimisé pour le calcul en utilisant le mappage ci-dessous :
 
    | Niveau Gen1 optimisé pour le calcul | Niveau Gen2 optimisé pour le calcul |
    | :-------------------------: | :-------------------------: |
@@ -68,12 +68,12 @@ Cette mise à niveau s’applique aux entrepôts de données de niveau Gen1 opti
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-1. Si l’entrepôt de données de niveau Gen1 optimisé pour le calcul à mettre à niveau est suspendu, [reprenez l’exécution de l’entrepôt de données](pause-and-resume-compute-portal.md).
+1. Si le pool SQL de niveau Gen1 optimisé pour le calcul à mettre à niveau est suspendu, [reprenez l’exécution du pool SQL](pause-and-resume-compute-portal.md).
 
    > [!NOTE]
-   > Azure SQL Data Warehouse doit s’exécuter pour que la migration vers Gen2 soit possible.
+   > Le pool SQL doit s’exécuter pour que la migration vers Gen2 soit possible.
 
 2. Attendez-vous à quelques minutes de temps d’arrêt. 
 
@@ -111,24 +111,24 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="start-the-upgrade"></a>Lancer la mise à niveau
 
-1. Ouvrez votre entrepôt de données de niveau Gen1 optimisé pour le calcul dans le portail Azure. Si l’entrepôt de données de niveau Gen1 optimisé pour le calcul à mettre à niveau est suspendu, [reprenez l’exécution de l’entrepôt de données](pause-and-resume-compute-portal.md). 
-2. Sous l’onglet Tâches, sélectionnez ensuite **Mettre à niveau vers Gen2** :  ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. Ouvrez votre pool SQL de niveau Gen1 optimisé pour le calcul dans le portail Azure. Si le pool SQL de niveau Gen1 optimisé pour le calcul à mettre à niveau est suspendu, [reprenez l’exécution du pool SQL](pause-and-resume-compute-portal.md). 
+2. Sous l’onglet Tâches, sélectionnez ensuite **Mettre à niveau vers Gen2** :  ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/upgrade-to-gen2-1.png)
     
     > [!NOTE]
     > Si vous ne voyez pas la carte **Mettre à niveau vers la 2e génération** sous l’onglet Tâches, votre type d’abonnement est limité dans la région actuelle.
     > [Envoyez un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md) pour mettre votre abonnement sur liste verte.
 
-3. Vérifiez que l’exécution de votre charge de travail est terminée et arrêtée avant de mettre à niveau. Vous subirez un temps d’arrêt de quelques minutes avant la remise en ligne de votre entrepôt de données comme entrepôt de données de niveau Gen2 optimisé pour le calcul. **Sélectionnez Upgrade**  (Mettre à niveau) :
+3. Vérifiez que l’exécution de votre charge de travail est terminée et arrêtée avant de mettre à niveau. Vous subirez un temps d’arrêt de quelques minutes avant la remise en ligne de votre pool SQL comme pool SQL de niveau Gen2 optimisé pour le calcul. **Sélectionnez Upgrade**  (Mettre à niveau) :
 
-   ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
+   ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/upgrade-to-gen2-2.png)
 
 4. **Surveillez votre mise à niveau** en vérifiant l’état dans le portail Azure :
 
-   ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_3.png)
+   ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/upgrade-to-gen2-3.png)
 
    La première étape du processus de mise à niveau passe par l’opération de mise à l’échelle (« Mise à niveau - Hors connexion ») pendant laquelle toutes les sessions seront supprimées et les connexions fermées. 
 
-   La deuxième étape du processus de mise à niveau est la migration des données (« Mise à niveau - En ligne »). La migration des données est un processus en arrière-plan progressif en ligne. Ce processus déplace lentement les données en colonnes de l’ancienne architecture de stockage vers la nouvelle architecture de stockage, en utilisant un cache de disque SSD local. Pendant ce temps, votre entrepôt de données sera en ligne à des fins d’interrogation et de chargement. Vos données pourront être interrogées, qu’elles aient été migrées ou non. La migration des données se produit à des taux variables selon la taille de vos données, de votre niveau de performance et du nombre de vos segments de columnstore. 
+   La deuxième étape du processus de mise à niveau est la migration des données (« Mise à niveau - En ligne »). La migration des données est un processus en arrière-plan progressif en ligne. Ce processus déplace lentement les données en colonnes de l’ancienne architecture de stockage vers la nouvelle architecture de stockage, en utilisant un cache de disque SSD local. Pendant ce temps, votre pool SQL sera en ligne à des fins d’interrogation et de chargement. Vos données pourront être interrogées, qu’elles aient été migrées ou non. La migration des données se produit à des taux variables selon la taille de vos données, de votre niveau de performance et du nombre de vos segments de columnstore. 
 
 5. **Recommandation facultative :** Une fois l’opération de mise à l’échelle est terminée, vous pouvez accélérer le processus de migration en arrière-plan. Vous pouvez forcer immédiatement le déplacement des données en exécutant la commande [Alter Index Rebuild](sql-data-warehouse-tables-index.md) sur toutes les tables columnstore primaires que vous interrogez sur une plus large classe de SLO et de ressources. Cette opération, par rapport au processus en arrière-plan progressif dont l’exécution peut prendre plusieurs heures en fonction du nombre et de la taille de vos tables, est en mode **hors connexion**. Toutefois, la migration des données sera beaucoup plus rapide et vous pourrez tirer pleinement parti de la nouvelle architecture de stockage améliorée avec des groupes de lignes de haute qualité.
  
@@ -184,9 +184,9 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 ## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Créer un point de restauration défini par l’utilisateur à l’aide du portail Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-2. Accédez à l’entrepôt SQL Data Warehouse pour lequel vous voulez créer un point de restauration.
+2. Accédez au pool SQL pour lequel vous souhaitez créer un point de restauration.
 
 3. En haut de la section Vue d’ensemble, sélectionnez **+Nouveau point de restauration**.
 
@@ -198,19 +198,15 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Restaurer une base de données active ou interrompue à l’aide du portail Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-2. Accédez à l’entrepôt SQL Data Warehouse à partir duquel vous souhaitez effectuer la restauration.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+2. Accédez au pool SQL à partir duquel effectuer la restauration.
 3. En haut de la section Vue d’ensemble, sélectionnez **Restaurer**.
 
     ![ Présentation de la restauration](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)
 
-4. Sélectionnez **Points de restauration automatiques** ou **Points de restauration définis par l’utilisateur**.
+4. Sélectionnez **Points de restauration automatiques** ou **Points de restauration définis par l’utilisateur**. Pour l’option Points de restauration définis par l’utilisateur, **sélectionnez un point de restauration défini par l’utilisateur** ou **créez un point de restauration défini par l’utilisateur**. Pour le serveur, sélectionnez **Créer** et choisissez un serveur dans une région géographique prise en charge par Gen2. 
 
     ![Points de restauration automatiques](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
-
-5. Pour l’option Points de restauration définis par l’utilisateur, sélectionnez un **Point de restauration** ou **Créer un point de restauration défini par l’utilisateur**. Choisissez un serveur dans une région géographique prise en charge par Gen2. 
-
-    ![Points de restauration définis par l’utilisateur](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
 ## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>Restaurer à partir d’une région géographique Azure à l’aide de PowerShell
 
@@ -249,8 +245,8 @@ $GeoRestoredDatabase.status
 La base de données récupérée sera compatible avec le chiffrement transparent des données si la base de données source l’est aussi.
 
 
-Si vous rencontrez des problèmes avec votre entrepôt de données, créez une [demande de support](sql-data-warehouse-get-started-create-support-ticket.md) et indiquez « Mise à niveau de Gen2 » comme cause possible.
+Si vous rencontrez des problèmes avec votre pool SQL, créez une [demande de support](sql-data-warehouse-get-started-create-support-ticket.md) et indiquez « Mise à niveau vers Gen2 » comme cause possible.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Votre entrepôt de données mis à niveau est en ligne. Pour tirer parti de l’architecture améliorée, consultez [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md).
+Votre pool SQL mis à niveau est en ligne. Pour tirer parti de l’architecture améliorée, consultez [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md).

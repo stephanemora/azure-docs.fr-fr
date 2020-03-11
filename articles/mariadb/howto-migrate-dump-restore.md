@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 660b39a063496eb6566d51dbef2c914499dc70c9
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 2/27/2020
+ms.openlocfilehash: 72735e83af97fde8377e27daa45501704ef5a3c8
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776003"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164540"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migrer votre base de données MariaDB dans Azure Database for MariaDB par sauvegarde et restauration
 Cet article décrit deux méthodes courantes pour sauvegarder et restaurer des bases de données dans votre serveur Azure Database for MariaDB.
@@ -22,10 +22,10 @@ Cet article décrit deux méthodes courantes pour sauvegarder et restaurer des b
 Pour parcourir ce guide pratique, vous aurez besoin des éléments suivants :
 - [Créer un serveur Azure Database for MariaDB - Portail Azure](quickstart-create-mariadb-server-database-using-azure-portal.md)
 - Utilitaire de ligne de commande [mysqldump](https://mariadb.com/kb/en/library/mysqldump/) installé sur une machine
-- MySQL Workbench ([téléchargement de MySQL Workbench](https://dev.mysql.com/downloads/workbench/)), Toad, Navicat ou un autre outil MySQL tiers pour exécuter les commandes de sauvegarde et de restauration
+- MySQL Workbench ([téléchargement de MySQL Workbench](https://dev.mysql.com/downloads/workbench/)) ou un autre outil MySQL tiers pour exécuter les commandes de sauvegarde et de restauration
 
 ## <a name="use-common-tools"></a>Utiliser des outils courants
-Utilisez les outils et utilitaires courants comme MySQL Workbench, mysqldump, Toad ou Navicat pour vous connecter à distance et restaurer les données dans Azure Database for MariaDB. Utilisez ces outils sur votre ordinateur client disposant d’une connexion web pour se connecter au serveur Azure Database for MariaDB. Utilisez une connexion chiffrée SSL pour appliquer les bonnes pratiques de sécurité. Consultez également [Configurer la connectivité SSL dans Azure Database for MariaDB](concepts-ssl-connection-security.md). Il est inutile de déplacer les fichiers de vidage dans un emplacement spécifique du cloud lors de la migration vers Azure Database for MariaDB. 
+Utilisez les outils et utilitaires courants tels que MySQL Workbench ou mysqldump pour vous connecter à distance et restaurer les données dans Azure Database for MariaDB. Utilisez ces outils sur votre ordinateur client disposant d’une connexion web pour se connecter au serveur Azure Database for MariaDB. Utilisez une connexion chiffrée SSL pour appliquer les bonnes pratiques de sécurité. Consultez également [Configurer la connectivité SSL dans Azure Database for MariaDB](concepts-ssl-connection-security.md). Il est inutile de déplacer les fichiers de vidage dans un emplacement spécifique du cloud lors de la migration vers Azure Database for MariaDB. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>Utilisations courantes de la sauvegarde et de la restauration
 Vous pouvez utiliser des utilitaires MySQL comme mysqldump et mysqlpump pour sauvegarder et charger des bases de données sur un serveur Azure Database for MariaDB dans de nombreux scénarios courants. 
@@ -81,7 +81,7 @@ $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sq
 ```
 
 ## <a name="create-a-database-on-the-target-server"></a>Créer une base de données sur le serveur cible
-Créez une base de données vide sur le serveur Azure Database for MariaDB cible vers lequel vous souhaitez effectuer la migration des données. Utilisez un outil comme MySQL Workbench, Toad ou Navicat pour créer la base de données. La base de données peut avoir le même nom que celle qui contient les données capturées, mais vous pouvez également créer une base de données avec un autre nom.
+Créez une base de données vide sur le serveur Azure Database for MariaDB cible vers lequel vous souhaitez effectuer la migration des données. Utilisez un outil tel que MySQL Workbench pour créer la base de données. La base de données peut avoir le même nom que celle qui contient les données capturées, mais vous pouvez également créer une base de données avec un autre nom.
 
 Pour vous connecter, localisez les informations de connexion dans la **Vue d’ensemble** de votre serveur Azure Database for MariaDB.
 

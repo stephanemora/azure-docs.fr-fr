@@ -3,12 +3,12 @@ title: Exécuter Azure Functions à partir d’un package
 description: Exécutez vos fonctions avec le runtime Azure Functions, en montant un fichier de package de déploiement qui contient les fichiers projet de votre application de fonction.
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.openlocfilehash: f5d3465e0899f7e5eab213bdb6234313128b7ec8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a3e11a7c4f3fd91df2fd9dd7a44f3922c4922585
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230356"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921111"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Exécuter des fonctions Azure à partir d’un fichier de package
 
@@ -58,7 +58,34 @@ Le [déploiement zip][Zip deployment for Azure Functions] est une fonctionnalit�
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+### <a name="use-key-vault-references"></a>Utiliser des références Key Vault
+
+Pour plus de sécurité, vous pouvez utiliser des références Key Vault en conjonction avec votre URL externe. L'URL reste ainsi chiffrée au repos et vous pouvez tirer parti de Key Vault pour la gestion et la rotation des secrets. Nous vous recommandons d'utiliser le stockage Blob Azure afin de pouvoir faire pivoter facilement la clé SAS associée. Le stockage Blob Azure est chiffré au repos, ce qui protège vos données d'application lorsqu'elles ne sont pas déployées sur App Service.
+
+1. Créez un coffre de clés Azure.
+
+    ```azurecli
+    az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus
+    ```
+
+1. Ajoutez votre URL externe en tant que secret dans Key Vault.
+
+    ```azurecli
+    az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<insert-your-URL>"
+    ```
+
+1. Créez le paramètre d'application `WEBSITE_RUN_FROM_PACKAGE` et définissez la valeur comme référence Key Vault à l'URL externe.
+
+    ```azurecli
+    az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"
+    ```
+
+Pour plus d'informations, consultez les articles suivants.
+
+- [Références Key Vault pour App Service](../app-service/app-service-key-vault-references.md)
+- [Chiffrement du stockage Azure pour les données au repos](../storage/common/storage-service-encryption.md)
+
+## <a name="troubleshooting"></a>Dépannage
 
 - L’option d’exécution à partir d’un package rend `wwwroot` accessible en lecture seule. Donc, vous recevez une erreur lors de l’écriture de fichiers dans ce répertoire.
 - Les formats TAR et GZIP ne sont pas pris en charge.

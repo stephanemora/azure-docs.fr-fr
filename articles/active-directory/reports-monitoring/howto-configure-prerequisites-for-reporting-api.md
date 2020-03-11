@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/30/2019
+ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a9559f85e31a38c50034d6aacc8f65e4d68aec2
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f25f13c60a60e1a397e4c63443ee786a9acdf6d1
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014433"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273800"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Prérequis pour accéder à l’API de création de rapports Azure Active Directory
 
@@ -106,7 +106,7 @@ La section suivante répertorie les étapes pour les deux API. Si vous ne voulez
 
     ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/05.png)
 
-2. Dans la page **Demander des autorisations d'API**, localisez **Prendre en charge les API héritées** **Azure Active Directory Graph**. 
+2. Dans la page **Demander des autorisations d’API**, localisez **Prendre en charge l’API héritée** **Azure Active Directory Graph**. 
 
     ![Inscription de l’application](./media/howto-configure-prerequisites-for-reporting-api/06.png)
 
@@ -189,36 +189,33 @@ Ces valeurs sont nécessaires lors de la configuration des appels à l’API de 
 
 ## <a name="troubleshoot-errors-in-the-reporting-api"></a>Résoudre les erreurs dans l'API de création de rapports
 
-Cette section répertorie les messages d'erreur couramment rencontrés lors de l'accès aux rapports d'activité à l'aide de l'API MS Graph. Elle indique également les étapes à suivre pour les résoudre.
+Cette section liste les messages d’erreur couramment rencontrés en accédant aux rapports d’activité à l’aide de l’API Microsoft Graph. Elle indique également les étapes à suivre pour les résoudre.
 
-### <a name="500-http-internal-server-error-while-accessing-microsoft-graph-v2-endpoint"></a>Erreur interne du serveur HTTP 500 lors de l’accès au point de terminaison Microsoft Graph V2
 
-Le point de terminaison Microsoft Graph v2 n’est pas pris en charge. Vous devez accéder aux journaux d’activité à l’aide du point de terminaison Microsoft Graph v1.
-
-### <a name="error-failed-to-get-user-roles-from-ad-graph"></a>Error: Impossible d'obtenir les rôles d'utilisateur à partir d'AD Graph
+### <a name="error-failed-to-get-user-roles-from-microsoft-graph"></a>Erreur : Impossible d’obtenir les rôles d’utilisateur à partir de Microsoft Graph
 
  Connectez-vous à votre compte à l’aide des deux boutons de connexion dans l’interface utilisateur de l’Afficheur Graph pour éviter d’obtenir une erreur lors de la tentative de connexion à l’aide de l’Afficheur Graph. 
 
 ![Afficheur Graph](./media/troubleshoot-graph-api/graph-explorer.png)
 
-### <a name="error-failed-to-do-premium-license-check-from-ad-graph"></a>Error: Impossible de vérifier la licence premium à partir d'AD Graph 
+### <a name="error-failed-to-do-premium-license-check-from-microsoft-graph"></a>Erreur : Impossible de vérifier la licence premium à partir de Microsoft Graph 
 
 Si vous rencontrez ce message d’erreur lorsque vous tentez d’accéder aux connexions à l’aide de l’Afficheur Graph, choisissez **Modifier les autorisations** sous votre compte, dans la barre de navigation gauche, puis sélectionnez **Tasks.ReadWrite** et **Directory.Read.All**. 
 
 ![Modifier l’interface utilisateur des autorisations](./media/troubleshoot-graph-api/modify-permissions.png)
 
 
-### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>Error: Le locataires n’est pas B2C ou le locataire n'a pas de licence premium
+### <a name="error-tenant-is-not-b2c-or-tenant-doesnt-have-premium-license"></a>Erreur : Le locataires n’est pas B2C ou le locataire n'a pas de licence premium
 
 L’accès aux rapports de connexion nécessite une licence Azure Active Directory Premium 1 (P1). Si vous voyez ce message d’erreur lorsque vous accédez aux connexions, vérifiez que votre locataire dispose bien d’une licence Azure AD P1.
 
-### <a name="error-the-allowed-roles-does-not-include-user"></a>Error: Les rôles autorisés n’incluent pas Utilisateur. 
+### <a name="error-the-allowed-roles-does-not-include-user"></a>Erreur : Les rôles autorisés n’incluent pas Utilisateur. 
 
  Évitez les erreurs lors de la tentative d’accès aux journaux d’audit ou à de connexion à l’aide de l’API. Assurez-vous que votre compte fait partie du rôle **Lecteur de sécurité** ou **Lecteur de rapports** dans votre locataire Azure Active Directory.
 
-### <a name="error-application-missing-aad-read-directory-data-permission"></a>Error: L'application ne dispose pas de l'autorisation AAD « Lire les données de l'annuaire » 
+### <a name="error-application-missing-aad-read-directory-data-permission"></a>Erreur : L'application ne dispose pas de l'autorisation AAD « Lire les données de l'annuaire » 
 
-### <a name="error-application-missing-msgraph-api-read-all-audit-log-data-permission"></a>Error: L'application ne dispose pas de l'autorisation de l'API MS Graph « Lire toutes les données du journal d'audit »
+### <a name="error-application-missing-microsoft-api-read-all-audit-log-data-permission"></a>Erreur : L’application ne dispose pas de l’autorisation de l’API Microsoft Graph « Lire toutes les données du journal d’audit »
 
 Pour vérifier que votre application est exécutée avec le bon ensemble d’autorisations, suivez les étapes décrites dans les [Prérequis pour accéder à l’API de création de rapports Azure Active Directory](howto-configure-prerequisites-for-reporting-api.md). 
 

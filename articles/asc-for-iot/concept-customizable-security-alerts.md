@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2020
+ms.date: 03/04/2020
 ms.author: mlottner
-ms.openlocfilehash: f10604d23901c2d7ed23f8b4f32a296f063d8620
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 32d79267559480de8ec91e5e66196bfd57e01cf1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776062"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299571"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Alertes de sécurité Azure Security Center pour IoT
 
@@ -29,7 +29,7 @@ Nous vous encourageons à créer des alertes personnalisées en fonction de votr
 
 Vous pouvez définir les alertes Azure Security Center pour IoT suivantes selon le comportement IoT Hub et/ou de l'appareil attendu. Pour plus d’informations sur la personnalisation de chaque alerte, consultez [Créer des alertes personnalisées](quickstart-create-custom-alerts.md).
 
-## <a name="azure-security-center-for-iot-alerts-available-for-customization"></a>Alertes Azure Security Center pour IoT personnalisables 
+## <a name="iot-hub-alerts-available-for-customization"></a>Alertes IoT Hub disponibles pour la personnalisation 
 
 
 
@@ -49,13 +49,18 @@ Vous pouvez définir les alertes Azure Security Center pour IoT suivantes selon 
 | Faible      | Alerte personnalisée : le nombre de vidages de file d’attente de commandes est en dehors de la plage autorisée                               | IoT Hub     | Le nombre de vidages de file d’attente de commandes dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.||
 | Faible      | Alerte personnalisée : le nombre de mises à jour de jumeau de module est en dehors de la plage autorisée                                       | IoT Hub     | Le nombre de mises à jour de jumeau de module dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.|
 | Faible      | Alerte personnalisée : le nombre d’opérations non autorisées est en dehors de la plage autorisée  | IoT Hub     | Le nombre d’opérations non autorisées dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.|
+|
+
+## <a name="agent-alerts-available-for-customization"></a>Alertes d’agent disponibles pour la personnalisation 
+
+| severity | Nom de l’alerte | Source de données | Description | Correction suggérée|
+|---|---|---|---|---|
 | Faible      | Alerte personnalisée : le nombre de connexions actives est en dehors de la plage autorisée  | Agent       | Le nombre de connexions actives dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.|  Examinez les journaux de l’appareil. Découvrez l’origine de la connexion et déterminez si elle est inoffensive ou malveillante. Si cela elle est malveillante, supprimez les programmes malveillants et identifiez la source. Si elles est inoffensive, ajoutez la source à la liste des connexions autorisées.  |
 | Faible      | Alerte personnalisée : une connexion sortante vers une adresse IP non autorisée a été créée                             | Agent       | Une connexion sortante a été créée à une adresse IP qui ne figure pas dans votre liste d’adresses IP autorisées. |Examinez les journaux de l’appareil. Découvrez l’origine de la connexion et déterminez si elle est inoffensive ou malveillante. Si cela elle est malveillante, supprimez les programmes malveillants et identifiez la source. Si elles est inoffensive, ajoutez la source à la liste des adresses IP autorisées.                        |
 | Faible      | Alerte personnalisée : le nombre de connexions locales ayant échoué est en dehors de la plage autorisée                               | Agent       | Le nombre de nombre de connexions locales ayant échoué dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée. |   |
 | Faible      | Alerte personnalisée : connexion d’un utilisateur ne figurant pas sur la liste des utilisateurs autorisés | Agent       | Un utilisateur local ne figurant pas sur la liste des utilisateurs autorisés s’est connecté à l’appareil.|  Si vous enregistrez des données brutes, accédez à votre compte Log Analytics et utilisez les données pour examiner l’appareil, identifier la source, puis corriger la liste verte ou rouge pour ces paramètres. Si vous n’enregistrez pas actuellement de données brutes, accédez à l’appareil, puis corrigez la liste verte ou rouge pour ces paramètres.|
 | Faible      | Alerte personnalisée : un processus non autorisé a été exécuté | Agent       | Un processus non autorisé a été exécuté sur l’appareil. |Si vous enregistrez des données brutes, accédez à votre compte Log Analytics et utilisez les données pour examiner l’appareil, identifier la source, puis corriger la liste verte ou rouge pour ces paramètres. Si vous n’enregistrez pas actuellement de données brutes, accédez à l’appareil, puis corrigez la liste verte ou rouge pour ces paramètres.  |
 |
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

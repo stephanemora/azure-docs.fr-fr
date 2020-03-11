@@ -206,11 +206,15 @@
   items:
     - name: Bien démarrer
       items:
+        - name: Créer un compte - Portail
+          href: create-account-portal.md
         - name: Créer un compte - CLI
           href: create-account-cli-how-to.md
           displayName: storage
         - name: Réinitialiser les informations d’identification du compte - CLI
           href: cli-reset-account-credentials.md
+        - name: Accéder aux API - Portail
+          href: access-api-portal.md
         - name: Accéder aux API - CLI
           href: access-api-cli-how-to.md
         - name: Mettre à l’échelle les unités réservées Multimédia - CLI

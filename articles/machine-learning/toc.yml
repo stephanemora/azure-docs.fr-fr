@@ -79,6 +79,8 @@
       href: sample-designer-datasets.md
     - name: Exemples MLOps de bout en bout
       href: 'https://github.com/microsoft/MLOps'
+    - name: Pipelines du concepteur
+      href: samples-designer.md
 - name: Concepts
   items:
     - name: Espace de travail
@@ -216,30 +218,6 @@
           href: how-to-cicd-data-ingestion.md
     - name: Entraîner des modèles
       items:
-        - name: Utiliser le concepteur
-          displayName: sample designer experiments
-          items:
-            - name: Prédire le prix
-              displayName: 'regression, studio'
-              href: how-to-designer-sample-regression-automobile-price-basic.md
-            - name: Prédire le prix (avancé)
-              displayName: 'regression, studio'
-              href: how-to-designer-sample-regression-automobile-price-compare-algorithms.md
-            - name: Prédire les revenus
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-predict-income.md
-            - name: Prédire le risque de crédit (avancé)
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-credit-risk-cost-sensitive.md
-            - name: Prédire l’évolution
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-churn.md
-            - name: Prédire les retards de vols
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-classification-flight-delay.md
-            - name: Classification de texte
-              displayName: 'classification, studio'
-              href: how-to-designer-sample-text-classification.md
         - name: Utiliser des estimateurs pour le machine learning
           items:
             - name: Créer des estimateurs dans l’entraînement

@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 31a9da0678f602afcc117e5b2f7927af379da668
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 72d87142f9b9c1f7bcb2b02281851bd1e29bc9c8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468298"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78262023"
 ---
 Azure Managed Disks propose quatre types de disque, chaque type étant destiné à des scénarios clients spécifiques.
 
@@ -40,8 +40,8 @@ Lorsque vous approvisionnez un disque Ultra, vous pouvez configurer de manière 
 Voici certaines fonctionnalités clés des disques Ultra :
 
 - Capacité du disque : La capacité des disques Ultra va de 4 Gio à 64 Tio.
-- IOPS du disque : Les disques Ultra prennent en charge des limites d’IOPS de 300 IOPS/Gio, avec au maximum 160 000 IOPS par disque. Pour atteindre le nombre d’IOPS provisionné, vérifiez que le nombre d’IOPS du disque sélectionné est inférieur à la limite d’IOPS de la machine virtuelle. Le nombre minimal d’IOPS par disque est de 2 IOPS/Gio, avec une base de référence globale minimale de 100 IOPS. Par exemple, si vous avez un disque Ultra de 4 Gio, vous avez au minimum 100 IOPS au lieu de huit IOPS.
-- Débit du disque : Avec les disques Ultra, la limite de débit d’un seul disque est de 256 Kio/s pour chaque IOPS provisionnée, avec au maximum 2 000 Mbits/s par disque (où 1 Mbits/s = 10^6 octets par seconde). Le débit minimal par disque est de 4 Kio/s pour chaque IOPS provisionnée, avec une base de référence globale minimale de 1 Mbits/s.
+- IOPS du disque : Les disques Ultra prennent en charge des limites d’IOPS de 300 IOPS/Gio, avec au maximum 160 000 IOPS par disque. Pour atteindre le nombre d’IOPS provisionné, vérifiez que le nombre d’IOPS du disque sélectionné est inférieur à la limite d’IOPS de la machine virtuelle. Le nombre minimal d’IOPS garanti par disque est de 2 IOPS/Gio avec une base de référence globale minimale de 100 IOPS. Par exemple, si vous avez un disque Ultra de 4 Gio, vous avez au minimum 100 IOPS au lieu de huit IOPS.
+- Débit du disque : Avec les disques Ultra, la limite de débit d’un seul disque est de 256 Kio/s pour chaque IOPS provisionnée, avec au maximum 2 000 Mbits/s par disque (où 1 Mbits/s = 10^6 octets par seconde). Le débit minimal garanti par disque est de 4 Kio/s pour chaque IOPS provisionnée avec une base de référence globale minimale de 1 Mbits/s.
 - Avec les disques Ultra, vous pouvez changer les attributs de performances des disques (IOPS et débit) au moment de l’exécution, sans avoir à détacher ces derniers de la machine virtuelle. Une fois qu’une opération de redimensionnement de performances de disque est émise sur un disque, elle peut mettre jusqu’à une heure à être appliquée. Le nombre d’opérations de redimensionnement de performances pendant une période de 24 heures est limité à quatre. Une opération de redimensionnement de performances peut échouer si la capacité de la bande passante des performances est insuffisante.
 
 ### <a name="disk-size"></a>Taille du disque

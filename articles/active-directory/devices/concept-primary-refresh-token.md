@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e195a93209875b9eabfaa2ad00772281922443c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 7b9240b863eef4d460cd8d3a47304fb96ffb4bc8
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476110"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917775"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Qu’est-ce qu’un jeton d’actualisation principal ?
 
@@ -117,6 +117,7 @@ Un PRT peut recevoir une revendication MFA (authentification multifacteur) dans 
    * Comme Windows Hello Entreprise est considéré comme authentification multifacteur, la revendication MFA est mise à jour lorsque le PRT lui-même est actualisé. Par conséquent, la durée de l’authentification multifacteur s’étend en continu lorsque les utilisateurs se connectent avec Windows Hello Entreprise.
 * **Authentification multifacteur pendant la connexion interactive WAM** : Pendant une demande de jeton via WAM, si un utilisateur doit avoir recours à l’authentification multifacteur pour accéder à l’application, le PRT renouvelé pendant cette interaction contient une revendication MFA.
    * Dans ce cas, la revendication MFA n’est pas actualisée en continu. Par conséquent, la durée de validité de l’authentification multifacteur est basée sur la durée de vie définie sur le répertoire.
+   * Lorsqu’un PRT et un RT existants sont utilisés pour accéder à une application, le PRT et le RT sont considérés comme la première preuve d’authentification. Un nouveau AT sera requis avec une deuxième preuve et une revendication MFA imprimée. Cela génère également un nouveau PRT et RT.
 * **Authentification multifacteur pendant l’inscription d’un appareil** : Si un administrateur a configuré ses paramètres d’appareil dans Azure AD pour que [soit exigée une authentification multifacteur pour inscrire des appareils](device-management-azure-portal.md#configure-device-settings), l’utilisateur doit utiliser l’authentification multifacteur pour terminer l’inscription. Pendant ce processus, le PRT émis pour l’utilisateur reçoit la revendication MFA lors de l’inscription. Cette fonctionnalité s’applique uniquement à l’utilisateur qui a effectué l’opération de jointure, pas aux autres utilisateurs qui se connectent sur cet appareil.
    * Comme pour la connexion interactive WAM, la revendication MFA n’est pas mise à jour en continu. Par conséquent, la durée de validité de l’authentification multifacteur est basée sur la durée de vie définie sur le répertoire.
 
@@ -146,8 +147,8 @@ Les diagrammes suivants illustrent les détails sous-jacents de l’émission, d
 
 | Étape | Description |
 | :---: | --- |
-| A | L’utilisateur entre son mot de passe dans l’interface utilisateur de connexion. Le processus LogonUI transmet les informations d’identification dans une mémoire tampon d’authentification à l’autorité de sécurité locale, qui les transmet à son tour en interne au fournisseur d’authentification cloud. Le fournisseur d’authentification cloud transfère cette demande au plug-in CloudAP. |
-| b | Le plug-in CloudAP lance une demande de découverte de domaine pour identifier le fournisseur d’identité pour l’utilisateur. Si le locataire de l’utilisateur possède un programme d’installation de fournisseur de fédération, Azure AD renvoie le point de terminaison MEX (Metadata Exchange) de ce fournisseur. Dans le cas contraire, Azure AD indique que l’utilisateur est géré, ce qui signifie qu’il peut s’authentifier avec Azure AD. |
+| Un | L’utilisateur entre son mot de passe dans l’interface utilisateur de connexion. Le processus LogonUI transmet les informations d’identification dans une mémoire tampon d’authentification à l’autorité de sécurité locale, qui les transmet à son tour en interne au fournisseur d’authentification cloud. Le fournisseur d’authentification cloud transfère cette demande au plug-in CloudAP. |
+| B | Le plug-in CloudAP lance une demande de découverte de domaine pour identifier le fournisseur d’identité pour l’utilisateur. Si le locataire de l’utilisateur possède un programme d’installation de fournisseur de fédération, Azure AD renvoie le point de terminaison MEX (Metadata Exchange) de ce fournisseur. Dans le cas contraire, Azure AD indique que l’utilisateur est géré, ce qui signifie qu’il peut s’authentifier avec Azure AD. |
 | C | Si l’utilisateur est géré, CloudAP obtiendra la valeur à usage unique à partir d’Azure AD. Si l’utilisateur est fédéré, le plug-in CloudAP demande un jeton SAML au fournisseur de fédération avec les informations d’identification de l’utilisateur. Une fois le jeton SAML reçu, il demande une valeur à usage unique à Azure AD. |
 | D | Le plug-in CloudAP crée la demande d’authentification avec les informations d’identification de l’utilisateur, une valeur à usage unique et une étendue de broker, signe la demande avec la clé d’appareil (dkpriv) et l’envoie à Azure AD. Dans un environnement fédéré, le plug-in CloudAP utilise le jeton SAML renvoyé par le fournisseur de fédération et non pas les informations d’identification de l’utilisateur. |
 | E | Azure AD valide les informations d’identification de l’utilisateur, la valeur à usage unique et la signature de l’appareil, il vérifie que l’appareil est valide dans le locataire et il émet le PRT chiffré. En même temps que le PRT, Azure AD émet également une clé symétrique, appelée clé de session, chiffrée par Azure AD à l’aide de la clé de transport (tkpub). En outre, la clé de session est également incorporée dans le PRT. Cette clé de session agit comme une clé de preuve de possession (PoP) pour les demandes suivantes avec ce PRT. |
@@ -159,8 +160,8 @@ Les diagrammes suivants illustrent les détails sous-jacents de l’émission, d
 
 | Étape | Description |
 | :---: | --- |
-| A | L’utilisateur entre son mot de passe dans l’interface utilisateur de connexion. Le processus LogonUI transmet les informations d’identification dans une mémoire tampon d’authentification à l’autorité de sécurité locale, qui les transmet à son tour en interne au fournisseur d’authentification cloud. Le fournisseur d’authentification cloud transfère cette demande au plug-in CloudAP. |
-| b | Si l’utilisateur a déjà ouvert une session, Windows lance la connexion avec les informations mises en cache et valide les informations d’identification pour connecter l’utilisateur. Toutes les 4 heures, le plug-in CloudAP lance le renouvellement du PRT de façon asynchrone. |
+| Un | L’utilisateur entre son mot de passe dans l’interface utilisateur de connexion. Le processus LogonUI transmet les informations d’identification dans une mémoire tampon d’authentification à l’autorité de sécurité locale, qui les transmet à son tour en interne au fournisseur d’authentification cloud. Le fournisseur d’authentification cloud transfère cette demande au plug-in CloudAP. |
+| B | Si l’utilisateur a déjà ouvert une session, Windows lance la connexion avec les informations mises en cache et valide les informations d’identification pour connecter l’utilisateur. Toutes les 4 heures, le plug-in CloudAP lance le renouvellement du PRT de façon asynchrone. |
 | C | Le plug-in CloudAP lance une demande de découverte de domaine pour identifier le fournisseur d’identité pour l’utilisateur. Si le locataire de l’utilisateur possède un programme d’installation de fournisseur de fédération, Azure AD renvoie le point de terminaison MEX (Metadata Exchange) de ce fournisseur. Dans le cas contraire, Azure AD indique que l’utilisateur est géré, ce qui signifie qu’il peut s’authentifier avec Azure AD. |
 | D | Si l’utilisateur est fédéré, le plug-in CloudAP demande un jeton SAML au fournisseur de fédération avec les informations d’identification de l’utilisateur. Une fois le jeton SAML reçu, il demande une valeur à usage unique à Azure AD. Si l’utilisateur est géré, CloudAP obtiendra directement la valeur à usage unique à partir d’Azure AD. |
 | E | Le plug-in CloudAP crée la demande d’authentification avec les informations d’identification de l’utilisateur, une valeur à usage unique et le PRT existant, signe la demande avec la clé de session et l’envoie à Azure AD. Dans un environnement fédéré, le plug-in CloudAP utilise le jeton SAML renvoyé par le fournisseur de fédération et non pas les informations d’identification de l’utilisateur. |
@@ -173,8 +174,8 @@ Les diagrammes suivants illustrent les détails sous-jacents de l’émission, d
 
 | Étape | Description |
 | :---: | --- |
-| A | Une application (par exemple Outlook, OneNote, etc.) initie une demande de jeton au WAM. Ce dernier demande à son tour au plug-in Azure AD WAM de traiter la demande de jeton. |
-| b | Si un jeton d’actualisation est déjà disponible pour l’application, le plug-in Azure AD WAM l’utilise pour demander un jeton d’accès. Pour fournir la preuve de la liaison de l’appareil, le plug-in WAM signe la demande avec la clé de session. Azure AD valide la clé de session et émet un jeton d’accès ainsi qu’un nouveau jeton d’actualisation pour l’application, chiffrés avec la clé de session. Le plug-in WAM demande au plug-in Cloud AP de déchiffrer les jetons, et ce dernier demande à son tour au TPM de les déchiffrer à l’aide de la clé de session. Le plug-in WAM obtient alors les deux jetons. Ensuite, le plug-in WAM fournit uniquement le jeton d’accès à l’application, tandis qu’il chiffre à nouveau le jeton d’actualisation avec DPAPI et le stocke dans son propre cache.  |
+| Un | Une application (par exemple Outlook, OneNote, etc.) initie une demande de jeton au WAM. Ce dernier demande à son tour au plug-in Azure AD WAM de traiter la demande de jeton. |
+| B | Si un jeton d’actualisation est déjà disponible pour l’application, le plug-in Azure AD WAM l’utilise pour demander un jeton d’accès. Pour fournir la preuve de la liaison de l’appareil, le plug-in WAM signe la demande avec la clé de session. Azure AD valide la clé de session et émet un jeton d’accès ainsi qu’un nouveau jeton d’actualisation pour l’application, chiffrés avec la clé de session. Le plug-in WAM demande au plug-in Cloud AP de déchiffrer les jetons, et ce dernier demande à son tour au TPM de les déchiffrer à l’aide de la clé de session. Le plug-in WAM obtient alors les deux jetons. Ensuite, le plug-in WAM fournit uniquement le jeton d’accès à l’application, tandis qu’il chiffre à nouveau le jeton d’actualisation avec DPAPI et le stocke dans son propre cache.  |
 | C |  Si aucun jeton d’actualisation n’est disponible pour l’application, le plug-in Azure AD WAM utilise le PRT pour demander un jeton d’accès. Pour fournir une preuve de possession, le plug-in WAM signe la demande contenant le PRT avec la clé de session. Azure AD valide la signature de la clé de session en comparant cette dernière à la clé de session incorporée dans le PRT, il vérifie que l’appareil est valide et émet un jeton d’accès et un jeton d’actualisation pour l’application. En outre, Azure AD peut émettre de nouveaux PRT (en fonction du cycle d’actualisation), tous chiffrés par la clé de session. |
 | D | Le plug-in WAM demande au plug-in Cloud AP de déchiffrer les jetons, et ce dernier demande à son tour au TPM de les déchiffrer à l’aide de la clé de session. Le plug-in WAM obtient alors les deux jetons. Ensuite, le plug-in WAM fournit uniquement le jeton d’accès à l’application, tandis qu’il chiffre à nouveau le jeton d’actualisation avec DPAPI et le stocke dans son propre cache. Le plug-in WAM utilisera le jeton d’actualisation à l’avenir pour cette application. Le plug-in WAM restitue également le nouveau PRT au plug-in CloudAP, qui le valide avec Azure AD avant de le mettre à jour dans son propre cache. Le plug-in CloudAP utilisera le nouveau PRT à l’avenir. |
 | E | Le gestionnaire de comptes web fournit le jeton d’accès qui vient d’être émis au plug-in WAM, qui à son tour le retransmet à l’application appelante.|
@@ -185,8 +186,8 @@ Les diagrammes suivants illustrent les détails sous-jacents de l’émission, d
 
 | Étape | Description |
 | :---: | --- |
-| A | Un utilisateur ouvre une session Windows avec ses informations d’identification pour obtenir un PRT. Une fois que l’utilisateur ouvre le navigateur, ce dernier (ou une extension) charge les URL du Registre. |
-| b | Lorsqu’un utilisateur ouvre une URL de connexion Azure AD, le navigateur ou l’extension compare l’URL avec celles obtenues à partir du Registre. Si elles correspondent, le navigateur appelle l’hôte de client natif pour obtenir un jeton. |
+| Un | Un utilisateur ouvre une session Windows avec ses informations d’identification pour obtenir un PRT. Une fois que l’utilisateur ouvre le navigateur, ce dernier (ou une extension) charge les URL du Registre. |
+| B | Lorsqu’un utilisateur ouvre une URL de connexion Azure AD, le navigateur ou l’extension compare l’URL avec celles obtenues à partir du Registre. Si elles correspondent, le navigateur appelle l’hôte de client natif pour obtenir un jeton. |
 | C | L’hôte de client natif vérifie l’appartenance de l’URL aux fournisseurs d’identités Microsoft (compte Microsoft ou Azure AD), extrait une valeur à usage unique envoyée de l’URL et effectue un appel au plug-in CloudAP pour obtenir un cookie de PRT. |
 | D | Le plug-in CloudAP crée le cookie de PRT, se connecte avec la clé de session liée au TPM et le renvoie à l’hôte de client natif. Comme le cookie est signé par la clé de session, il ne peut pas être altéré. |
 | E | L’hôte de client natif renvoie ce cookie de PRT au navigateur, qui l’inclut dans l’en-tête de demande x-ms-RefreshTokenCredential et demande les jetons à Azure AD. |

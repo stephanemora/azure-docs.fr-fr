@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51e5c58d29f01cadcc3ea2e8ec48ae67e58c4180
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 382c588ca005f95f4ae38e7506c0e3e8d842bd2c
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76909038"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298647"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Prérequis pour le provisionnement cloud Azure AD Connect
 Cet article fournit des conseils sur la façon de choisir et d’utiliser l’approvisionnement cloud Azure Active Directory (Azure AD) Connect en tant que solution d’identité.
@@ -26,7 +26,7 @@ Cet article fournit des conseils sur la façon de choisir et d’utiliser l’ap
 ## <a name="cloud-provisioning-agent-requirements"></a>Conditions requises de l’agent de provisionnement cloud
 Vous avez besoin des éléments suivants pour utiliser le provisionnement cloud Azure AD Connect :
     
-- Un compte d’administrateur général pour votre locataire Azure AD.
+- Un compte d’administrateur général pour votre locataire Azure AD qui n’est pas un utilisateur invité.
 - Un serveur local pour l’agent de provisionnement avec Windows 2012 R2 ou ultérieur.
 - Des configurations de pare-feu locales.
 
@@ -39,6 +39,10 @@ Le reste du document fournit des instructions détaillées pour ces prérequis.
 
 1. Créez un compte d’administrateur général « cloud uniquement » dans votre locataire Azure AD. De cette façon, vous pouvez gérer la configuration de votre locataire si vos services locaux venaient à échouer ou ne plus être disponibles. Découvrez comment [ajouter un compte d’administrateur général de type cloud uniquement](../active-directory-users-create-azure-portal.md). Cette étape est essentielle si vous voulez éviter de vous retrouver en dehors de votre locataire.
 1. Ajoutez un ou plusieurs [noms de domaine personnalisés](../active-directory-domains-add-azure-portal.md) à votre locataire Azure AD. Vos utilisateurs peuvent se connecter à l’aide de l’un de ces noms de domaine.
+
+### <a name="in-your-directory-in-active-directory"></a>Dans votre annuaire dans Azure Active Directory
+
+Exécutez l’[outil IdFix](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) afin de préparer les attributs d’annuaire pour la synchronisation.
 
 ### <a name="in-your-on-premises-environment"></a>Dans votre environnement local
 

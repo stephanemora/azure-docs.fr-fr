@@ -5,265 +5,128 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 03/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: spunukol
+ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a8832234978a2c8b2db25d88b5dd6c211b634b7
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 3a869f4fa82999192f75f2c114720151bae55680
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186454"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298426"
 ---
-# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger des applications clientes approuvées pour l’accès aux applications cloud avec l’accès conditionnel 
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger des applications clientes approuvées pour l’accès aux applications cloud avec l’accès conditionnel
+
+Les appareils mobiles sont régulièrement utilisés pour effectuer des tâches aussi bien personnelles que professionnelles. Tout en veillant à ce que le personnel puisse être productif, les organisations veulent également empêcher la perte de données depuis des applications potentiellement non sécurisées. Avec l’accès conditionnel, les organisations peuvent limiter l’accès aux seules applications clientes approuvées (avec une authentification moderne).
+
+Cet article présente deux scénarios permettant de configurer des stratégies d’accès conditionnel pour des ressources comme Office 365, Exchange Online et SharePoint Online.
+
+- [Scénario 1 : Les applications Office 365 demandent une application cliente approuvée](#scenario-1-office-365-apps-require-an-approved-client-app)
+- [Scénario 2 : Exchange Online et SharePoint Online demandent une application cliente approuvée](#scenario-2-exchange-online-and-sharepoint-online-require-an-approved-client-app)
+
+Dans l’accès conditionnel, on parle de nécessité d’une application cliente approuvée pour cette fonctionnalité. Pour obtenir la liste des applications clientes approuvées, consultez [Spécification d’application cliente approuvée](concept-conditional-access-grant.md#require-approved-client-app).
+
+## <a name="scenario-1-office-365-apps-require-an-approved-client-app"></a>Scénario 1 : Les applications Office 365 demandent une application cliente approuvée
+
+Dans ce scénario, Contoso a décidé que les utilisateurs se servant d’appareils mobiles peuvent accéder à tous les services Office 365, à condition qu’ils utilisent des applications clientes approuvées, comme Outlook Mobile, OneDrive et Microsoft Teams. Tous les utilisateurs de Contoso se connectent déjà à l’aide d’informations d’identification Azure AD et disposent des licences qui leur sont attribuées, notamment Azure AD Premium P1 ou P2 et Microsoft Intune.
+
+Les organisations doivent effectuer les trois étapes suivantes pour exiger l’utilisation d’une application cliente approuvée sur des appareils mobiles.
+
+**Étape 1 : Stratégie pour les clients à authentification moderne basés sur Android et iOS, nécessitant l’utilisation d’une application cliente approuvée lors de l’accès à Exchange Online**
+
+1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
+1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
+1. Sélectionnez **Nouvelle stratégie**.
+1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
+1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**
+   1. Sous **Inclure**, sélectionnez **Tous les utilisateurs** ou les **Utilisateurs et groupes** particuliers auxquels vous souhaitez appliquer cette stratégie. 
+   1. Sélectionnez **Terminé**.
+1. Sous **Applications cloud ou actions** > **Inclure**, sélectionnez **Office 365 (préversion)** .
+1. Sous **Conditions**, sélectionnez **Plateformes d’appareils**.
+   1. Définissez **Configurer** sur **Oui**.
+   1. Incluez **Android** et **iOS**.
+1. Sous **Conditions**, sélectionnez **Applications clientes (préversion)** .
+   1. Définissez **Configurer** sur **Oui**.
+   1. Sélectionnez **Applications mobiles et clients de bureau** et **Clients de l’authentification moderne**.
+1. Sous **Contrôles d’accès** > **Octroyer**, sélectionnez **Accorder l’accès**, **Demander une application cliente approuvée** et sélectionnez **Sélectionner**.
+1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
+1. Sélectionnez **Créer** pour créer et activer votre stratégie.
+
+**Étape 2 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online avec ActiveSync (EAS)**
+
+1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
+1. Sélectionnez **Nouvelle stratégie**.
+1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
+1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**
+   1. Sous **Inclure**, sélectionnez **Tous les utilisateurs** ou les **Utilisateurs et groupes** particuliers auxquels vous souhaitez appliquer cette stratégie. 
+   1. Sélectionnez **Terminé**.
+1. Sous **Applications cloud ou actions** > **Inclure**, sélectionnez **Office 365 Exchange Online**.
+1. Sous **Conditions** :
+   1. **Applications clientes (préversion)**  :
+      1. Définissez **Configurer** sur **Oui**.
+      1. Sélectionnez **Applications mobiles et clients de bureau** et **Clients Exchange ActiveSync**.
+1. Sous **Contrôles d’accès** > **Octroyer**, sélectionnez **Accorder l’accès**, **Demander une application cliente approuvée** et sélectionnez **Sélectionner**.
+1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
+1. Sélectionnez **Créer** pour créer et activer votre stratégie.
+
+**Étape 3 : Configurer la stratégie Intune App Protection pour les applications clientes iOS et Android**
+
+Consultez l’article [Guide pratique pour créer et assigner des stratégies de protection d’application](/intune/apps/app-protection-policies) afin de connaître les étapes de création des stratégies de protection d’application pour Android et iOS. 
+
+## <a name="scenario-2-exchange-online-and-sharepoint-online-require-an-approved-client-app"></a>Scénario 2 : Exchange Online et SharePoint Online demandent une application cliente approuvée
+
+Dans ce scénario, Contoso a décidé que les utilisateurs peuvent uniquement accéder aux e-mails et aux données SharePoint sur les appareils mobiles, à condition qu’ils utilisent une application cliente approuvée comme Outlook Mobile. Tous les utilisateurs de Contoso se connectent déjà à l’aide d’informations d’identification Azure AD et disposent des licences qui leur sont attribuées, notamment Azure AD Premium P1 ou P2 et Microsoft Intune.
+
+Les organisations doivent effectuer les trois étapes suivantes pour exiger l’utilisation d’une application cliente approuvée sur des appareils mobiles et des clients ActiveSync.
+
+**Étape 1 : Stratégie pour les clients à authentification moderne basés sur Android et iOS, nécessitant l’utilisation d’une application cliente approuvée lors de l’accès à Exchange Online et SharePoint Online**
+
+1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
+1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
+1. Sélectionnez **Nouvelle stratégie**.
+1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
+1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**
+   1. Sous **Inclure**, sélectionnez **Tous les utilisateurs** ou les **Utilisateurs et groupes** particuliers auxquels vous souhaitez appliquer cette stratégie. 
+   1. Sélectionnez **Terminé**.
+1. Sous **Applications cloud ou actions** > **Inclure**, sélectionnez **Office 365 Exchange Online** et **Office 365 SharePoint Online**.
+1. Sous **Conditions**, sélectionnez **Plateformes d’appareils**.
+   1. Définissez **Configurer** sur **Oui**.
+   1. Incluez **Android** et **iOS**.
+1. Sous **Conditions**, sélectionnez **Applications clientes (préversion)** .
+   1. Définissez **Configurer** sur **Oui**.
+   1. Sélectionnez **Applications mobiles et clients de bureau** et **Clients de l’authentification moderne**.
+1. Sous **Contrôles d’accès** > **Octroyer**, sélectionnez **Accorder l’accès**, **Demander une application cliente approuvée** et sélectionnez **Sélectionner**.
+1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
+1. Sélectionnez **Créer** pour créer et activer votre stratégie.
+
+**Étape 2 : Stratégie pour les clients Exchange ActiveSync nécessitant l’utilisation d’une application cliente approuvée**
+
+1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
+1. Sélectionnez **Nouvelle stratégie**.
+1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.
+1. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**
+   1. Sous **Inclure**, sélectionnez **Tous les utilisateurs** ou les **Utilisateurs et groupes** particuliers auxquels vous souhaitez appliquer cette stratégie. 
+   1. Sélectionnez **Terminé**.
+1. Sous **Applications cloud ou actions** > **Inclure**, sélectionnez **Office 365 Exchange Online**.
+1. Sous **Conditions** :
+   1. **Applications clientes (préversion)**  :
+      1. Définissez **Configurer** sur **Oui**.
+      1. Sélectionnez **Applications mobiles et clients de bureau** et **Clients Exchange ActiveSync**.
+1. Sous **Contrôles d’accès** > **Octroyer**, sélectionnez **Accorder l’accès**, **Demander une application cliente approuvée** et sélectionnez **Sélectionner**.
+1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
+1. Sélectionnez **Créer** pour créer et activer votre stratégie.
+
+**Étape 3 : Configurer la stratégie Intune App Protection pour les applications clientes iOS et Android**
 
-Vos employés utilisent des appareils mobiles pour des tâches à la fois personnelles et professionnelles. Tout en veillant à ce que vos employés restent productifs, vous voulez aussi éviter toute perte de données. Avec l’accès conditionnel Azure Active Directory (Azure AD), vous pouvez restreindre l’accès à vos applications cloud à des applications clientes approuvées capables de protéger vos données d’entreprise.  
-
-Cette rubrique explique comment configurer des stratégies d’accès conditionnel qui exigent des applications clientes approuvées.
-
-## <a name="overview"></a>Vue d’ensemble
-
-Avec l’[accès conditionnel Azure AD](overview.md), vous pouvez préciser la façon dont chaque utilisateur autorisé peut accéder aux ressources. Par exemple, vous pouvez limiter l’accès à vos applications cloud aux appareils approuvés.
-
-Vous pouvez utiliser des [stratégies de protection des applications Intune](https://docs.microsoft.com/intune/app-protection-policy) pour mieux protéger les données de votre entreprise. Les stratégies de protection des applications Intune n’exigent pas de solution de gestion des appareils mobiles (MDM), ce qui vous permet de protéger les données de votre entreprise avec ou sans inscription des appareils dans une solution de gestion des appareils.
-
-L’accès conditionnel Azure Active Directory vous permet de limiter l’accès à vos applications cloud à des applications clientes qui prennent en charge les stratégies Intune App Protection. Par exemple, vous pouvez restreindre l’accès à Exchange Online à l’application Outlook.
-
-Dans la terminologie relative à l’accès conditionnel, ces applications clientes sont appelées **applications clientes approuvées**.  
-
-![Accès conditionnel](./media/app-based-conditional-access/05.png)
-
-Pour obtenir la liste des applications clientes approuvées, consultez [Spécification d’application cliente approuvée](concept-conditional-access-grant.md).
-
-Vous pouvez combiner des stratégies d’accès conditionnel basé sur les applications avec d’autres stratégies, telles que les [stratégies d’accès conditionnel au niveau de l’appareil](require-managed-devices.md), afin de bénéficier d’une plus grande flexibilité en matière de protection des données pour les appareils personnels et d’entreprise.
-
-## <a name="before-you-begin"></a>Avant de commencer
-
-Cette rubrique part du principe que vous connaissez :
-
-- L’[exigence d’utilisation d’une application cliente approuvée](concept-conditional-access-grant.md).
-- Les concepts de base de l’[accès conditionnel dans Azure Active Directory](overview.md).
-- Comment [configurer une stratégie d’accès conditionnel](app-based-mfa.md).
-- Comment [migrer des stratégies d’accès conditionnel](best-practices.md#policy-migration).
-
-## <a name="prerequisites"></a>Conditions préalables requises
-
-Pour créer une stratégie d’accès conditionnel basé sur les applications, vous devez avoir un abonnement à Enterprise Mobility + Security ou à Azure Active Directory Premium, et les utilisateurs doivent disposer d’une licence pour EMS ou Azure AD. 
-
-## <a name="exchange-online-policy"></a>Stratégie Exchange Online 
-
-Ce scénario consiste en une stratégie d’accès conditionnel basé sur les applications pour l’accès à Exchange Online.
-
-### <a name="scenario-playbook"></a>Description du scénario
-
-Ce scénario part du principe qu’un utilisateur :
-
-- Configure l’e-mail à l’aide d’une application de messagerie native sur iOS ou Android pour se connecter à Exchange
-- Reçoit un e-mail qui indique que l’accès est disponible uniquement à l’aide de l’application Outlook
-- Télécharge l’application avec le lien
-- Ouvre l’application Outlook et se connecte avec les informations d’identification Azure AD
-- Est invité à installer Authenticator (iOS) ou le Portail d’entreprise (Android) pour continuer
-- Installe l’application et peut revenir à l’application Outlook pour continuer
-- Est invité à inscrire un appareil
-- Est en mesure d’accéder aux e-mails
-
-Les stratégies de protection d’application Intune sont activées au moment de l’accès aux données d’entreprise, et peuvent inviter l’utilisateur à redémarrer l’application, à utiliser un code PIN supplémentaire, etc. (si cette fonction est configurée pour l’application et la plateforme).
-
-### <a name="configuration"></a>Configuration 
-
-**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online**
-
-Pour les besoins de la stratégie d’accès conditionnel de cette étape, vous devez configurer les composants suivants :
-
-1. Le **nom** de votre stratégie d’accès conditionnel.
-1. **Utilisateurs et groupes** : Au moins un utilisateur ou un groupe doit être sélectionné pour chaque stratégie d’accès conditionnel.
-1. **Applications cloud :** Comme applications cloud, vous devez sélectionner **Office 365 Exchange Online**.
-1. **Conditions :** Comme **Conditions**, vous devez configurer **Plateformes d’appareils** et **Applications clientes** :
-   1. Comme **Plateformes d’appareils**, sélectionnez **Android** et **iOS**.
-   1. Dans **Applications clientes (préversion)** , sélectionnez **Applications mobiles et applications de bureau** et **Clients de l’authentification moderne**.
-1. Comme **Contrôles d’accès**, **Demander une application cliente approuvée (préversion)** doit être sélectionné.
-
-   ![Accès conditionnel](./media/app-based-conditional-access/05.png)
-
-**Étape 2 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online avec Active Sync (EAS)**
-
-Pour les besoins de la stratégie d’accès conditionnel de cette étape, vous devez configurer les composants suivants :
-
-1. Le **nom** de votre stratégie d’accès conditionnel.
-1. **Utilisateurs et groupes** : Au moins un utilisateur ou un groupe doit être sélectionné pour chaque stratégie d’accès conditionnel.
-1. **Applications cloud :** Comme applications cloud, vous devez sélectionner **Office 365 Exchange Online**.
-1. **Conditions :** Comme **Conditions**, configurez **Applications clientes (préversion)** . 
-   1. Dans **Applications clientes (préversion)** , sélectionnez **Applications mobiles et clients de bureau** et **Clients Exchange ActiveSync**.
-   1. Comme **Contrôles d’accès**, **Demander une application cliente approuvée (préversion)** doit être sélectionné.
-
-      ![Accès conditionnel](./media/app-based-conditional-access/05.png)
-
-**Étape 3 : configurer la stratégie de protection d’application Intune pour les applications clientes iOS et Android**
-
-Pour plus d’informations, consultez [Protéger les données et les applications avec Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
-
-## <a name="exchange-online-and-sharepoint-online-policy"></a>Stratégie Exchange Online et SharePoint Online
-
-Ce scénario se compose d’une stratégie d’accès conditionnel avec la gestion des applications mobiles pour l’accès à Exchange Online et SharePoint Online, avec les applications approuvées.
-
-### <a name="scenario-playbook"></a>Description du scénario
-
-Ce scénario part du principe qu’un utilisateur :
-
-- Tente d’utiliser l’application SharePoint pour se connecter à ses sites d’entreprise et les afficher
-- Tente de se connecter avec les mêmes informations d’identification que celles de l’application Outlook
-- N’est pas obligé de se réinscrire et peut accéder aux ressources
-
-### <a name="configuration"></a>Configuration
-
-**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online et SharePoint Online**
-
-Pour les besoins de la stratégie d’accès conditionnel de cette étape, vous devez configurer les composants suivants :
-
-1. Le **nom** de votre stratégie d’accès conditionnel.
-1. **Utilisateurs et groupes** : Au moins un utilisateur ou un groupe doit être sélectionné pour chaque stratégie d’accès conditionnel.
-1. **Applications cloud :** Comme applications cloud, vous devez sélectionner **Office 365 Exchange Online** et **Office 365 SharePoint Online**. 
-1. **Conditions :** Comme **Conditions**, vous devez configurer **Plateformes d’appareils** et **Applications clientes** :
-   1. Comme **Plateformes d’appareils**, sélectionnez **Android** et **iOS**.
-   1. Dans **Applications clientes (préversion)** , sélectionnez **Applications mobiles et clients de bureau** et **Clients de l’authentification moderne**.
-1. Comme **Contrôles d’accès**, **Demander une application cliente approuvée (préversion)** doit être sélectionné.
-
-   ![Accès conditionnel](./media/app-based-conditional-access/05.png)
-
-**Étape 2 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online avec Active Sync (EAS)**
-
-Pour les besoins de la stratégie d’accès conditionnel de cette étape, vous devez configurer les composants suivants :
-
-1. Le **nom** de votre stratégie d’accès conditionnel.
-1. **Utilisateurs et groupes** : Au moins un utilisateur ou un groupe doit être sélectionné pour chaque stratégie d’accès conditionnel.
-1. **Applications cloud :** Comme applications cloud, vous devez sélectionner **Office 365 Exchange Online**. En ligne 
-1. **Conditions :** Comme **Conditions**, configurez **Applications clientes** :
-   1. Dans **Applications clientes (préversion)** , sélectionnez **Applications mobiles et clients de bureau** et **Clients Exchange ActiveSync**.
-   1. Comme **Contrôles d’accès**, **Demander une application cliente approuvée (préversion)** doit être sélectionné.
-
-      ![Accès conditionnel](./media/app-based-conditional-access/05.png)
-
-**Étape 3 : configurer la stratégie de protection d’application Intune pour les applications clientes iOS et Android**
-
-![Accès conditionnel](./media/app-based-conditional-access/09.png)
-
-Pour plus d’informations, consultez [Protéger les données et les applications avec Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
-
-## <a name="app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Stratégie basée sur les applications ou stratégie d’appareil conforme pour Exchange Online et SharePoint Online
-
-Ce scénario consiste en une stratégie d’accès conditionnel basé sur les applications ou la conformité des appareils pour l’accès à Exchange Online.
-
-### <a name="scenario-playbook"></a>Description du scénario
-
-Ce scénario part du principe que :
- 
-- Certaines utilisateurs ont déjà été inscrits (avec ou sans appareils d’entreprise)
-- Les utilisateurs qui ne sont pas enregistrés et inscrits auprès d’Azure AD à l’aide d’une application protégée approuvée doivent inscrire un appareil pour accéder aux ressources
-- Les utilisateurs inscrits à l’aide de l’application protégée approuvée ne sont pas obligés de réinscrire l’appareil
-
-### <a name="configuration"></a>Configuration
-
-**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online et SharePoint Online**
-
-Pour les besoins de la stratégie d’accès conditionnel de cette étape, vous devez configurer les composants suivants :
-
-1. Le **nom** de votre stratégie d’accès conditionnel.
-1. **Utilisateurs et groupes** : Au moins un utilisateur ou un groupe doit être sélectionné pour chaque stratégie d’accès conditionnel.
-1. **Applications cloud :** Comme applications cloud, vous devez sélectionner **Office 365 Exchange Online** et **Office 365 SharePoint Online**. 
-1. **Conditions :** Comme **Conditions**, vous devez configurer **Plateformes d’appareils** et **Applications clientes**. 
-   1. Comme **Plateformes d’appareils**, sélectionnez **Android** et **iOS**.
-   1. Dans **Applications clientes (préversion)** , sélectionnez **Applications mobiles et clients de bureau** et **Clients de l’authentification moderne**.
-1. Comme **Contrôles d’accès**, vous devez sélectionner les éléments suivants :
-   - **Exiger que l’appareil soit marqué comme conforme**
-   - **Demander une application cliente approuvée (préversion)**
-   - **Demander un des contrôles sélectionnés**   
- 
-      ![Accès conditionnel](./media/app-based-conditional-access/11.png)
-
-**Étape 2 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online avec Active Sync (EAS)**
-
-Pour les besoins de la stratégie d’accès conditionnel de cette étape, vous devez configurer les composants suivants :
-
-1. Le **nom** de votre stratégie d’accès conditionnel.
-1. **Utilisateurs et groupes** : Au moins un utilisateur ou un groupe doit être sélectionné pour chaque stratégie d’accès conditionnel.
-1. **Applications cloud :** Comme applications cloud, vous devez sélectionner **Office 365 Exchange Online**. 
-1. **Conditions :** Comme **Conditions**, configurez **Applications clientes**. 
-   1. Dans **Applications clientes (préversion)** , sélectionnez **Applications mobiles et clients de bureau** et **Clients Exchange ActiveSync**.
-1. Comme **Contrôles d’accès**, **Demander une application cliente approuvée (préversion)** doit être sélectionné.
- 
-   ![Accès conditionnel](./media/app-based-conditional-access/11.png)
-
-**Étape 3 : configurer la stratégie de protection d’application Intune pour les applications clientes iOS et Android**
-
-![Accès conditionnel](./media/app-based-conditional-access/09.png)
-
-Pour plus d’informations, consultez [Protéger les données et les applications avec Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
-
-## <a name="app-based-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Stratégie basée sur les applications et stratégie d’appareil conforme pour Exchange Online et SharePoint Online
-
-Ce scénario consiste en une stratégie d’accès conditionnel basé sur les applications et la conformité des appareils pour l’accès à Exchange Online.
-
-### <a name="scenario-playbook"></a>Description du scénario
-
-Ce scénario part du principe qu’un utilisateur :
- 
-- Configure l’e-mail à l’aide d’une application de messagerie native sur iOS ou Android pour se connecter à Exchange
-- Reçoit un e-mail qui indique que l’accès exige l’inscription de l’appareil
-- Télécharge le portail d’entreprise et s’y connecte
-- Vérifie ses e-mails et est invité à utiliser l’application Outlook
-- Télécharge l’application Outlook
-- Ouvre l’application Outlook et entre les informations d’identification utilisées lors de l’inscription
-- L’utilisateur est en mesure d’accéder aux e-mails
-
-Les stratégies de protection d’application Intune sont activées au moment de l’accès aux données d’entreprise, et peuvent inviter l’utilisateur à redémarrer l’application, à utiliser un code PIN supplémentaire, etc. (si ceci est configuré pour l’application et la plateforme)
-
-### <a name="configuration"></a>Configuration
-
-**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online et SharePoint Online**
-
-Pour les besoins de la stratégie d’accès conditionnel de cette étape, vous devez configurer les composants suivants :
-
-1. Le **nom** de votre stratégie d’accès conditionnel.
-1. **Utilisateurs et groupes** : Au moins un utilisateur ou un groupe doit être sélectionné pour chaque stratégie d’accès conditionnel.
-1. **Applications cloud :** Comme applications cloud, vous devez sélectionner **Office 365 Exchange Online** et **Office 365 SharePoint Online**. 
-1. **Conditions :** Comme **Conditions**, vous devez configurer **Plateformes d’appareils** et **Applications clientes**. 
-   1. Comme **Plateformes d’appareils**, sélectionnez **Android** et **iOS**.
-   1. Dans **Applications clientes (préversion)** , sélectionnez **Applications mobiles et applications de bureau** et **Clients de l’authentification moderne**.
-1. Comme **Contrôles d’accès**, vous devez sélectionner les éléments suivants :
-   - **Exiger que l’appareil soit marqué comme conforme**
-   - **Demander une application cliente approuvée (préversion)**
-   - **Demander tous les contrôles sélectionnés**   
- 
-      ![Accès conditionnel](./media/app-based-conditional-access/13.png)
-
-**Étape 2 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online avec Active Sync (EAS)**
-
-Pour les besoins de la stratégie d’accès conditionnel de cette étape, vous devez configurer les composants suivants :
-
-1. Le **nom** de votre stratégie d’accès conditionnel.
-1. **Utilisateurs et groupes** : Au moins un utilisateur ou un groupe doit être sélectionné pour chaque stratégie d’accès conditionnel.
-1. **Applications cloud :** Comme applications cloud, vous devez sélectionner **Office 365 Exchange Online**. 
-1. **Conditions :** Comme **Conditions**, configurez **Applications clientes (préversion)** . 
-   1. Dans **Applications clientes (préversion)** , sélectionnez **Applications mobiles et clients de bureau** et **Clients Exchange ActiveSync**.
-
-   ![Accès conditionnel](./media/app-based-conditional-access/92.png)
-
-1. Comme **Contrôles d’accès**, vous devez sélectionner les éléments suivants :
-   - **Exiger que l’appareil soit marqué comme conforme**
-   - **Demander une application cliente approuvée (préversion)**
-   - **Demander tous les contrôles sélectionnés**   
-
-**Étape 3 : configurer la stratégie de protection d’application Intune pour les applications clientes iOS et Android**
-
-![Accès conditionnel](./media/app-based-conditional-access/09.png)
-
-Pour plus d’informations, consultez [Protéger les données et les applications avec Microsoft Intune](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune).
+Consultez l’article [Guide pratique pour créer et assigner des stratégies de protection d’application](/intune/apps/app-protection-policies) afin de connaître les étapes de création des stratégies de protection d’application pour Android et iOS. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment configurer une stratégie d’accès conditionnel, voir [Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel Azure Active Directory](app-based-mfa.md).
+[Qu’est-ce que l’accès conditionnel ?](overview.md)
 
-Si vous êtes prêt à configurer des stratégies d’accès conditionnel pour votre environnement, consultez les [meilleures pratiques pour l’accès conditionnel dans Azure Active Directory](best-practices.md). 
+[Composants de l’accès conditionnel](concept-conditional-access-policies.md)
+
+[Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md)

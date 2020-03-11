@@ -118,6 +118,8 @@
                   href: traffic-analytics-faq.md
                 - name: Agrégation de schémas et de données
                   href: traffic-analytics-schema.md
+                - name: "Mise à jour de schéma (août\_2019)"
+                  href: traffic-analytics-schema-update.md
             - name: Utiliser Power BI
               href: network-watcher-visualize-nsg-flow-logs-power-bi.md
             - name: Utiliser la pile élastique

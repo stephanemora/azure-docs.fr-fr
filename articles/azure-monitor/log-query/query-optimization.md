@@ -1,18 +1,17 @@
 ---
 title: Optimiser les requêtes de journal dans Azure Monitor
 description: Bonnes pratiques pour l’optimisation des requêtes de journal dans Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/25/2019
-ms.openlocfilehash: 521fd84e79196439ea220bd7ffa7cc6d0750f045
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.date: 02/28/2019
+ms.openlocfilehash: e5c3da94cf2440b30dc59fe20bc51a34095f7d5f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77648833"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269060"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimiser les requêtes de journal dans Azure Monitor
 Journaux Azure Monitor utilise [Azure Data Explorer (ADX)](/azure/data-explorer/) pour stocker les données de journal et exécuter des requêtes afin d’analyser ces données. Elle crée et gère les clusters ADX, et les optimise pour votre charge de travail de l’analyse des journaux. Quand vous exécutez une requête, elle est optimisée et routée vers le cluster ADX approprié qui stocke les données de l’espace de travail. Journaux Azure Monitor et Azure Data Explorer utilisent de nombreux mécanismes d’optimisation automatique des requêtes. Bien que les optimisations automatiques apportent une amélioration significative, vous pouvez parfois dans certains cas améliorer considérablement les performances de vos requêtes. Cet article explique les considérations relatives aux performances et plusieurs techniques permettant de les corriger.
@@ -64,7 +63,7 @@ Certaines des commandes et des fonctions de requête sont gourmandes en ressourc
 
 Ces fonctions consomment des ressources processeur proportionnellement au nombre de lignes qu’elles traitent. L’optimisation la plus efficace consiste à ajouter des conditions WHERE tôt dans la requête, qui peuvent filtrer le plus grand nombre d’enregistrements possible avant l’exécution de la fonction gourmande en ressources processeur.
 
-Par exemple, les requêtes suivantes produisent exactement le même résultat, mais la seconde est beaucoup plus efficace car la condition [where]() avant l’analyse exclut de nombreux enregistrements :
+Par exemple, les requêtes suivantes produisent exactement le même résultat, mais la seconde est beaucoup plus efficace car la condition [where](/azure/kusto/query/whereoperator) avant l’analyse exclut de nombreux enregistrements :
 
 ```Kusto
 //less efficient
@@ -259,8 +258,41 @@ by Computer
 ) on Computer
 ```
 
+Ce problème peut également se produire lorsque vous effectuez un filtrage par période juste après l’[union](/azure/kusto/query/unionoperator?pivots=azuremonitor) de plusieurs tables. Lorsque vous effectuez l’union, chaque sous-requête doit être délimitée. Vous pouvez utiliser l’instruction [let](/azure/kusto/query/letstatement) pour garantir la cohérence de la portée.
+
+Par exemple, la requête suivante analyse toutes les données des tables *Heartbeat* et *Perf*, et pas seulement celles du jour passé :
+
+```Kusto
+Heartbeat 
+| summarize arg_min(TimeGenerated,*) by Computer
+| union (
+    Perf 
+    | summarize arg_min(TimeGenerated,*) by Computer) 
+| where TimeGenerated > ago(1d)
+| summarize min(TimeGenerated) by Computer
+```
+
+Cette requête doit être corrigée de la façon suivante :
+
+```Kusto
+let MinTime = ago(1d);
+Heartbeat 
+| where TimeGenerated > MinTime
+| summarize arg_min(TimeGenerated,*) by Computer
+| union (
+    Perf 
+    | where TimeGenerated > MinTime
+    | summarize arg_min(TimeGenerated,*) by Computer) 
+| summarize min(TimeGenerated) by Computer
+```
+
+La mesure est toujours supérieure à la période spécifiée. Par exemple, si le filtre appliqué à la requête est de 7 jours, le système peut analyser 7,5 ou 8,1 jours. Cela est dû au fait que le système partitionne les données en segments de taille variable. Pour que tous les enregistrements pertinents soient analysés, il analyse l’intégralité de la partition, qui peut couvrir plusieurs heures, voire plus d’une journée.
+
+Il existe plusieurs cas où le système ne peut pas fournir une mesure exacte de l’intervalle de temps. C’est souvent le cas lorsque la période d’une requête est inférieure à un jour ou lorsque les requêtes englobent plusieurs espaces de travail.
+
+
 > [!IMPORTANT]
-> Cet indicateur n’est pas disponible pour les requêtes inter-région.
+> Cet indicateur présente uniquement les données traitées dans le cluster immédiat. Dans une requête multirégion, il ne représente qu’une seule des régions. Dans les requêtes à plusieurs espaces de travail, il n’inclut probablement pas tous les espaces de travail.
 
 ## <a name="age-of-processed-data"></a>Âge des données traitées
 Azure Data Explorer utilise plusieurs niveaux de stockage : en mémoire, disques SSD locaux et objets blob Azure beaucoup plus lents. Plus les données sont récentes, plus il est probable qu’elles soient stockées dans un niveau plus performant avec une latence plus faible, ce qui réduit la durée de la requête et la consommation des ressources processeur. Outre pour les données elles-mêmes, le système dispose d’un cache pour les métadonnées. Plus les données sont anciennes, moins il est probable que leurs métadonnées se trouvent dans le cache.
@@ -285,7 +317,7 @@ L’exécution d’une requête inter-région nécessite que le système sérial
 S’il n’y a pas vraiment de raison d’analyser toutes ces régions, vous devez ajuster l’étendue afin qu’elle couvre moins de régions. Si l’étendue de ressource est réduite, mais que de nombreuses régions sont toujours utilisées, la raison peut en être une mauvaise configuration. Par exemple, les journaux d’audit et les paramètres de diagnostic sont envoyés à différents espaces de travail dans différentes régions ou il existe plusieurs configurations de paramètres de diagnostic. 
 
 > [!IMPORTANT]
-> Cet indicateur n’est pas disponible pour les requêtes inter-région.
+> Lorsqu’une requête est exécutée dans plusieurs régions à la fois, les mesures du processeur et des données ne sont pas exactes, car elles représentent uniquement les mesures de l’une des régions.
 
 ## <a name="number-of-workspaces"></a>Nombre d’espaces de travail
 Les espaces de travail sont des conteneurs logiques qui permettent de séparer et d’administrer des données de journaux. Le back-end optimise le positionnement des espaces de travail sur les clusters physiques au sein de la région sélectionnée.
@@ -301,7 +333,7 @@ L’exécution de requêtes inter-région et inter-cluster nécessite que le sys
 > Dans certains scénarios à plusieurs espaces de travail, les mesures du processeur et des données ne sont pas précises et représentent la mesure uniquement de quelques-uns des espaces de travail.
 
 ## <a name="parallelism"></a>Parallélisme
-Pour exécuter les requêtes, Journaux Azure Monitor utilise de grands clusters d’Azure Data Explorer, qui varient en termes d’échelle. Le système met automatiquement à l’échelle les clusters en fonction de la capacité et de la logique de positionnement de l’espace de travail.
+Pour exécuter des requêtes, les journaux Azure Monitor utilisent de grands clusters Azure Data Explorer. L’échelle de ces clusters peut varier et atteindre plusieurs dizaines de nœuds de calcul. Le système met automatiquement à l’échelle les clusters en fonction de la capacité et de la logique de positionnement de l’espace de travail.
 
 Pour qu’une requête soit exécutée efficacement, elle est partitionnée et distribuée aux nœuds de calcul en fonction des données nécessaires à son traitement. Dans certains cas, le système ne peut pas effectuer cette opération de manière efficace. Cela peut entraîner une requête de longue durée. 
 

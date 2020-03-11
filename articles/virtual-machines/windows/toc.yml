@@ -337,7 +337,8 @@
               href: spot-portal.md
             - name: PowerShell
               href: spot-powershell.md
-            - name: Modèle
+            - name: Modèle ARM
+              displayName: Azure Resource Manager
               href: ../linux/spot-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: Codes d’erreur
               href: ../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
@@ -349,16 +350,17 @@
               href: create-vm-specialized-portal.md
             - name: PowerShell
               href: create-vm-specialized.md
-        - name: 'Utiliser un modèle avec C#'
+        - name: 'Utiliser un modèle ARM avec C#'
           href: csharp-template.md
+          displayName: Azure Resource Manager
         - name: Créer une machine virtuelle avec Chef
           href: ../../chef/chef-automation.md
         - name: Utiliser Java
           href: java.md
         - name: Utiliser Python
           href: python.md
-        - name: Utiliser un modèle
-          displayName: 'Azure Resource Manager template, ARM'
+        - name: Utiliser un modèle ARM
+          displayName: Azure Resource Manager template
           href: ps-template.md
         - name: Se connecter à une machine virtuelle
           href: connect-logon.md
@@ -473,7 +475,8 @@
           href: change-drive-letter.md
         - name: Modifier un groupe à haute disponibilité
           href: change-availability-set.md
-        - name: Télécharger un modèle
+        - name: Exporter un modèle ARM
+          displayName: Azure Resource Manager
           href: download-template.md
         - name: Agent de machine virtuelle Azure
           href: ../extensions/agent-windows.md
@@ -543,7 +546,8 @@
               href: image-builder-gallery-update-image-version.md
             - name: Stocker des scripts
               href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Référence de modèle
+            - name: Informations de référence sur les modèles ARM
+              displayName: Azure Resource Manager
               href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Dépanner
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
@@ -620,7 +624,8 @@
               href: attach-managed-disk-portal.md
         - name: Détacher un disque
           href: detach-disk.md
-        - name: Déployer des disques avec un modèle
+        - name: Déployer des disques avec un modèle ARM
+          displayName: Azure Resource Manager
           href: using-managed-disks-template-deployments.md
         - name: Activer les disques partagés
           href: disks-shared-enable.md
@@ -690,6 +695,7 @@
         - name: PowerShell
           href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
         - name: Modèle Azure Resource Manager
+          displayName: ARM
           href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
         - name: REST
           href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/windows/context/windows-vm-context
@@ -743,7 +749,8 @@
       href: /azure/templates/microsoft.compute/allversions
 - name: Ressources
   items:
-    - name: Créer des modèles
+    - name: Créer des modèles ARM
+      displayName: Azure Resource Manager
       href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Développer vos compétences avec Microsoft Learn
       href: /learn/browse/?products=azure-virtual-machines

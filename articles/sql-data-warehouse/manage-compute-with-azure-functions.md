@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Gérer le calcul avec Azure Functions'
-description: Comment utiliser Azure Functions pour gérer le calcul de votre entrepôt de données.
+title: 'Tutoriel : Gérer le calcul avec Azure Functions'
+description: Comment utiliser Azure Functions pour gérer les ressources de calcul de votre pool SQL dans Azure Synapse Analytics.
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -10,27 +10,27 @@ ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: bc350ed092c063dcc7eca479f064114be9eb28f5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: a08c2c3c0167f0d82fe901e19b02db22b0ad56c5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693017"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193147"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Utiliser Azure Functions pour gérer les ressources de calcul dans Azure SQL Data Warehouse
+# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Utiliser Azure Functions pour gérer les ressources de calcul dans un pool SQL Azure Synapse Analytics
 
-Ce tutoriel utilise Azure Functions pour gérer les ressources de calcul d’un entrepôt de données dans Azure SQL Data Warehouse.
+Ce tutoriel utilise Azure Functions pour gérer les ressources de calcul d’un pool SQL dans Azure Synapse Analytics.
 
-Pour utiliser l’application Azure Function avec Azure SQL Data Warehouse, vous devez créer un [compte de principal de service](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) avec accès collaborateur sous le même abonnement que votre instance d’entrepôt de données. 
+Pour utiliser l’application Azure Functions avec un pool SQL, vous devez créer un [compte de principal de service](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) avec accès collaborateur sous le même abonnement que votre instance de pool SQL. 
 
 ## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Déployer une mise à l’échelle basée sur un minuteur à l’aide d’un modèle Azure Resource Manager
 
 Pour déployer le modèle, vous avez besoin des informations suivantes :
 
-- Nom du groupe de ressources dans lequel se trouve votre instance SQL Data Warehouse
-- Nom du serveur logique dans lequel se trouve votre instance SQL Data Warehouse
-- Nom de votre instance SQL Data Warehouse
+- Nom du groupe de ressources dans lequel se trouve votre instance de pool SQL
+- Nom du serveur logique dans lequel se trouve votre instance de pool SQL
+- Nom de votre instance de pool SQL
 - ID de locataire (ID du répertoire) de votre annuaire Azure Active Directory
 - Identifiant d’abonnement 
 - ID d'application du principal de service
@@ -119,17 +119,17 @@ Actuellement, il n’y a que deux fonctions de mise à l’échelle incluses dan
 5. Définissez la variable de l’opération sur le comportement souhaité comme suit :
 
    ```javascript
-   // Resume the data warehouse instance
+   // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"
    }
 
-   // Pause the data warehouse instance
+   // Pause the SQL pool instance
    var operation = {
        "operationType": "PauseDw"
    }
 
-   // Scale the data warehouse instance to DW600
+   // Scale the SQL pool instance to DW600
    var operation = {
        "operationType": "ScaleDw",
        "ServiceLevelObjective": "DW600"
@@ -141,30 +141,30 @@ Actuellement, il n’y a que deux fonctions de mise à l’échelle incluses dan
 
 Cette section décrit ce dont vous avez besoin pour réaliser une planification plus complexe des fonctionnalités de mise en pause, de reprise et de mise à l’échelle.
 
-### <a name="example-1"></a>Exemple 1 :
+### <a name="example-1"></a>Exemple 1 :
 
 Montée en puissance quotidienne à 8 h 00 jusqu’à DW600 et descente en puissance à 20 h 00 jusqu’à DW200.
 
-| Fonction  | Planification     | Opération                                |
+| Fonction  | Planifier     | Opération                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Fonction1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",  "ServiceLevelObjective": "DW600"}` |
 | Fonction2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
 
-### <a name="example-2"></a>Exemple 2 : 
+### <a name="example-2"></a>Exemple 2 : 
 
 Montée en puissance quotidienne à 8h00 jusqu’à DW1000, descente en puissance à 16h00 jusqu’à DW600 et descente en puissance à 22h00 jusqu’à DW200.
 
-| Fonction  | Planification     | Opération                                |
+| Fonction  | Planifier     | Opération                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Fonction1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",  "ServiceLevelObjective": "DW1000"}` |
 | Fonction2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
 | Fonction3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
 
-### <a name="example-3"></a>Exemple 3 : 
+### <a name="example-3"></a>Exemple 3 : 
 
 Montée en puissance à 8 h 00 jusqu’à DW1000, descente en puissance unique jusqu’à DW600 à 16 h 00 les jours de semaine. Mise en pause le vendredi à 23 h 00, reprise à 7 h 00 le lundi matin.
 
-| Fonction  | Planification       | Opération                                |
+| Fonction  | Planifier       | Opération                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Fonction1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Fonction2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
@@ -177,7 +177,7 @@ Montée en puissance à 8 h 00 jusqu’à DW1000, descente en puissance unique j
 
 En savoir plus sur les fonctions Azure [Déclencheur de minuteur](../azure-functions/functions-create-scheduled-function.md).
 
-Consultez le [référentiel d’exemples](https://github.com/Microsoft/sql-data-warehouse-samples) SQL Data Warehouse.
+Consultez le [dépôt d’exemples](https://github.com/Microsoft/sql-data-warehouse-samples) du pool SQL.
 
 
 

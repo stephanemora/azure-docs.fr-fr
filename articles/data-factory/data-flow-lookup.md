@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/03/2019
-ms.openlocfilehash: 5cc54c95759ba1490f498305f05cc49a4411686d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 02/26/2020
+ms.openlocfilehash: 2216e1bf058eef486dbfefba24d52bdc6bdb232f
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930328"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164676"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Transformation de recherche de flux de données de mappage Azure Data Factory
 
@@ -36,9 +36,22 @@ Après avoir utilisé la transformation de recherche, vous pouvez ajouter un fra
 
 ## <a name="first-or-last-value"></a>Première ou dernière valeur
 
-Si vous obtenez plusieurs correspondances à partir de votre recherche, vous pouvez réduire les nombreuses lignes mises en correspondance par la sélection de la première ou de la dernière correspondance. Vous pouvez effectuer cette opération au moyen d’une transformation d’agrégation après votre recherche.
+La transformation de recherche est implémentée sous la forme d’une jointure externe gauche. Si vous obtenez plusieurs correspondances à partir de votre recherche, vous pouvez réduire les nombreuses lignes mises en correspondance en sélectionnant la première ou la dernière ligne correspondante ou en choisissant une ligne au hasard.
 
-Dans ce cas, une transformation d’agrégation nommée ```PickFirst``` est utilisée pour choisir la première valeur à partir des correspondances de recherche.
+### <a name="option-1"></a>Option 1 :
+
+![Single Row Lookup](media/data-flow/singlerowlookup.png "Recherche d’une ligne unique")
+
+* Correspond à plusieurs lignes : Laissez le champ vide pour retourner une correspondance de ligne unique
+* Correspond à : Sélectionnez la première, la dernière ou toute autre correspondance
+* Conditions de tri : Si vous sélectionnez la première ou dernière ligne, ADF requiert que vos données soient ordonnées de sorte qu’il existe une logique derrière la première et la dernière ligne
+
+> [!NOTE]
+> Utilisez uniquement la première ou dernière option sur votre sélecteur de ligne unique si vous devez contrôler la valeur à restaurer de votre recherche. L’utilisation de recherches « n’importe » ou sur plusieurs lignes permettra d’obtenir des résultats plus rapidement.
+
+### <a name="option-2"></a>Option 2 :
+
+Vous pouvez également effectuer cette opération au moyen d’une transformation d’agrégation après votre recherche. Dans ce cas, une transformation d’agrégation nommée ```PickFirst``` est utilisée pour choisir la première valeur à partir des correspondances de recherche.
 
 ![Agrégat de recherche](media/data-flow/lookup333.png "Agrégat de recherche")
 

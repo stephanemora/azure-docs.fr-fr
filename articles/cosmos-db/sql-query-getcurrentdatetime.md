@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8a2c3dcd3c8ca6dc9d751e50a7862fe98e6de510
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: d50b08ab85c7e299c465c3eb6f34e867d6634006
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351027"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303900"
 ---
 # <a name="getcurrentdatetime-azure-cosmos-db"></a>GetCurrentDateTime (Azure Cosmos DB)
  Retourne la date et l’heure UTC actuelles sous forme de chaîne ISO 8601.
@@ -25,7 +25,7 @@ GetCurrentDateTime ()
   
 ## <a name="return-types"></a>Types de retour
   
-  Retourne la valeur de la chaîne ISO 8601 (date et heure UTC actuelles) au format `YYYY-MM-DDThh:mm:ss.sssZ` où :
+  Retourne la valeur de la chaîne ISO 8601 (date et heure UTC actuelles) au format `YYYY-MM-DDThh:mm:ss.fffffffZ` où :
   
   |||
   |-|-|
@@ -36,16 +36,18 @@ GetCurrentDateTime ()
   |hh|Heure à deux chiffres (00 à 23)|
   |MM|Minutes à deux chiffres (00 à 59)|
   |ss|Secondes à deux chiffres (00 à 59)|
-  |.sss|Trois chiffres de fractions décimales d’une seconde|
+  |.fffffff|Fractions de seconde à 7 chiffres|
   |Z|Indicateur UTC (temps universel coordonné)||
   
   Pour plus d’informations sur le format ISO 8601, consultez [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601).
 
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
 
   GetCurrentDateTime() est une fonction non déterministe. 
   
   Le résultat retourné est au format UTC.
+
+  La précision est de 7 chiffres, avec une justesse de 100 nanosecondes.
 
 ## <a name="examples"></a>Exemples
   
@@ -59,7 +61,7 @@ SELECT GetCurrentDateTime() AS currentUtcDateTime
   
 ```json
 [{
-  "currentUtcDateTime": "2019-05-03T20:36:17.784Z"
+  "currentUtcDateTime": "2019-05-03T20:36:17.1234567Z"
 }]  
 ```  
 

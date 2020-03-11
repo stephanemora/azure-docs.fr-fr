@@ -2,18 +2,19 @@
 title: Services de conseil dans la Place de marché Azure et AppSource
 description: Cet article décrit les critères d’éligibilité et les exigences de publication des nouvelles offres de services de conseil dans la Place de marché Azure.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 10/29/2018
-ms.author: pabutler
-ms.openlocfilehash: cd90ae2b751a97c18dc8b6be4b8eb565a17df7a2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/27/2020
+ms.author: evansma
+ms.openlocfilehash: 1506a4180a5991e6f6e8ed946192bcbf10bbeac0
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191125"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78296149"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Services de conseil dans la Place de marché Azure et AppSource
 Les services de conseil dans la Place de marché Azure et AppSource permettent aux partenaires Microsoft de connecter les clients à des services pour gérer et étendre leur utilisation d’Azure en fonction de leurs besoins professionnels. 
@@ -33,12 +34,12 @@ Les vitrines de la Place de marché s’adaptent au public visé et aux produits
 |Expérience du produit      |Portail de gestion Azure|Dynamics 365, Office 365, applications clientes Office| 
 |Autres      |Publication locale par le biais d’Azure Stack, Services de conseil pour Azure, Services managés pour Azure|Services de conseil pour Dynamics et Power BI|
 
-Les offres de services de conseil qui sont basées sur Microsoft Dynamics 365 et Power BI peuvent être listées sur Microsoft AppSource. Pour plus d’informations, consultez [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) (Instructions de référencement des services de conseil Microsoft AppSource). 
+Les offres de services de conseil qui sont basées sur Microsoft Dynamics 365, Power Apps et Power BI peuvent être listées sur Microsoft AppSource. Pour plus d’informations, consultez [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) (Instructions de référencement des services de conseil Microsoft AppSource).
 
 Les offres de services de conseil et de services managés basées sur Microsoft Azure peuvent être listées sur la Place de marché Azure. Pour plus d’informations, consultez les articles sur la [publication d’un service de conseil Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) et sur la [publication d’une offre de services managés sur la Place de marché Azure](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
 > [!Note]
-> Les services de conseil de la Place de marché Azure doivent tirer parti des offres destinées à un **public technique axé sur des *solutions et services techniques Azure.* ** Les services de conseil dans AppSource doivent tirer parti des offres destinées à des experts souhaitant fournir des solutions de qualité pour Dynamics 365, Power BI ou PowerApps pour référencer leurs offres de services de conseil dans AppSource
+> Les services de conseil de la Place de marché Azure doivent tirer parti des offres destinées à un **public technique axé sur des *solutions et services techniques Azure.* ** Les services de conseil dans AppSource doivent tirer parti des offres destinées à des experts souhaitant fournir des solutions de qualité pour Dynamics 365, Power BI ou Power Apps pour référencer leurs offres de services de conseil dans AppSource
 > 
 > 
 > [!TIP]
@@ -61,24 +62,30 @@ Les partenaires doivent avoir une **compétence Silver ou Gold** dans le domaine
 
 |Produit principal |Condition d’éligibilité |
 |---------|---------|
-| Dynamics 365 for Customer Engagement    |   Compétence [Gestion de la relation client dans le Cloud](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency), statut Silver ou Gold.    | 
-|Dynamics 365 pour les opérations et la finance, édition Entreprise  |  Compétence [Planification des ressources d’entreprise](https://partner.microsoft.com/membership/enterprise-resource-planning-competency), statut Silver ou Gold, et un revenu généré par les opérations cloud d’au moins 25 000 $ au cours des 12 derniers mois.       |
-|Dynamics 365 pour les opérations et la finance, édition Business  |  Agir en tant que [fournisseur de services cloud](https://partner.microsoft.com/cloud-solution-provider) ou [partenaire de référence numérique](https://partner.microsoft.com/membership/digital-partner-of-record) pour au moins un client.      |
-|Power BI, Visuels personnalisés Power BI | Respecter les [critères du partenaire de solution](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
-|PowerApps | Avoir publié une solution de [présentation des partenaires](https://appsource.microsoft.com/partners).
+| Dynamics 365 Sales <br> Dynamics 365 Marketing <br> Dynamics 365 Customer Service <br> Dynamics 365 Field Service <br> Dynamics 365 Human Resources |   Doit être certifié Gold ou Silver dans la [Compétence Applications professionnelles dans le cloud](https://partner.microsoft.com/membership/cloud-business-applications-competency) pour l’option Engagement client.    | 
+| Dynamics 365 Finance <br> Dynamics 365 Supply Chain Management <br> Dynamics 365 Commerce <br> Dynamics 365 Human Resources <br> Dynamics 365 Project Service Automation |  Doit être certifié Gold ou Silver dans la [Compétence Applications professionnelles dans le cloud](https://partner.microsoft.com/membership/cloud-business-applications-competency) pour l’option Opérations unifiées.       |
+| Dynamics 365 Customer Insights | Doit avoir au moins une implémentation en production réussie de [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) avec au moins cinq mesures et cinq segments. |
+| Dynamics 365 Business Central | Doit être certifié Gold ou Silver dans la [Compétence Planification des ressources d’entreprise](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) et doit être le fournisseur de solutions cloud pour au moins trois clients Business Central. <br> <br> OU <br> <br> Doit avoir publié une application [Business Central dans AppSource](https://appsource.microsoft.com/) |
+| Power BI | Doit apparaître dans la [liste de présentation des partenaires Power BI](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=).|
+|Power Apps | Doit être éligible aux Avantages avancés dans le [Programme de partenariat Power Apps](https://aka.ms/PowerAppsPartner). |
+
+Références et ressources supplémentaires :
+
+1. [Microsoft Cloud Enablement Desk](https://aka.ms/CEDnominate) <br> Le formulaire de nomination de partenaire de l’expérience guidée Cloud Enablement Desk a pour but d’identifier un spécialiste de programme cloud susceptible d’expliquer en détail les avantages MPN et de servir de guide pour la réalisation des compétences.  
+2. Comment figurer dans la vitrine Power BI ? <br> Commencez par envoyer une demande afin de figurer sur la liste. Pour cela, consultez [Devenir un partenaire](https://powerbi.microsoft.com/become-a-partner/).
 
 <b>Pour plus d’informations, consultez les [compétences via Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
- 
 
-**Les partenaires intégrateurs de systèmes peuvent envoyer des offres de services de conseil pour les 18 pays/régions suivant(e)s**
+**Les partenaires intégrateurs de systèmes peuvent envoyer des offres de services de conseil pour les 21 pays/régions suivant(e)s**
 
-|Pays/régions éligibles |   |   |   |
+|   |   |   |   |
 |---------|----------|----------|----------|
-|Australie |France  |     Mexique          |Espagne       |
-|Belgique   |Allemagne |     Pays-bas     |Suède       |
-|Canada    |Inde   |     Nouvelle-Zélande     |United Kingdom  |
-|Danemark   |Italie   |     Norvège          |États-Unis |
-|Finlande   |Japon   |     Pologne          
+| Australie | Belgique | Canada | Danemark |
+| Finlande  | France | Allemagne  | Inde   |
+| Italie    | Japon  |  Mexique  |  Pays-Bas  |
+|  Nouvelle-Zélande  |  Norvège  |  Pologne  | Afrique du Sud |
+|  Espagne  | Suède  | Suisse  |  États-Unis  |
+| Royaume-Uni  |
 
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Comment s’inscrire aux services de conseil dans la Place de marché Azure et AppSource

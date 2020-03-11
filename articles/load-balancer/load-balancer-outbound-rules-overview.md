@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: 316b28faa458b03431cb48f02a8087116415b061
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d419c213b3bcfef3631d68eb9d4cb485291bed31
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075906"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304189"
 ---
 # <a name="load-balancer-outbound-rules"></a>Règles de trafic sortant dans Load Balancer
 
@@ -34,7 +34,7 @@ Les règles de trafic sortant vous permettent de déterminer :
 - le mode d’allocation des [ports SNAT sortants](load-balancer-outbound-connections.md#snat),
 - les protocoles qui fournissent la traduction sortante,
 - la durée à utiliser comme délai d’inactivité des connexions sortantes (de 4 à 120 minutes),
-- la réinitialisation TCP au terme du délai d’inactivité (préversion publique). 
+- la réinitialisation TCP au terme du délai d’inactivité.
 
 Les règles de trafic sortant étendent le [scénario 2](load-balancer-outbound-connections.md#lb) décrit dans l’article sur les [connexions sortantes](load-balancer-outbound-connections.md), mais la priorité du scénario reste la même.
 
@@ -95,7 +95,7 @@ Pour définir le délai d’inactivité des flux sortants à une (1) heure, util
 
           "idleTimeoutInMinutes": 60
 
-### <a name="tcprst"></a> <a name="tcpreset"></a> Activer la réinitialisation TCP au terme du délai d’inactivité (préversion)
+### <a name="tcprst"></a> <a name="tcpreset"></a> Activer la réinitialisation TCP au terme du délai d’inactivité
 
 Le comportement par défaut de Load Balancer consiste à supprimer silencieusement des flux quand le délai d’inactivité d’un flux sortant est atteint.  Avec le paramètre enableTCPReset, vous pouvez définir un comportement plus prévisible de l’application et contrôler s’il faut déclencher une réinitialisation TCP (TCP RST) bidirectionnelle quand le délai d’inactivité d’un flux sortant est atteint. 
 
@@ -103,7 +103,7 @@ Pour activer la réinitialisation TCP sur une règle de trafic sortant, utilisez
 
            "enableTcpReset": true
 
-Pour plus d’informations, y compris sur la disponibilité dans les régions, consultez [Réinitialisation TCP au terme du délai d’inactivité (préversion)](https://aka.ms/lbtcpreset).
+Pour plus d’informations, y compris sur la disponibilité dans les régions, consultez [Réinitialisation TCP au terme du délai d’inactivité](https://aka.ms/lbtcpreset).
 
 ### <a name="proto"></a> Prendre en charge les protocoles de transport TCP et UDP avec une seule règle
 
@@ -206,7 +206,6 @@ Lorsque vous utilisez un équilibreur de charge standard interne, la NAT de traf
 - Le nombre maximal de ports éphémères utilisables par adresse IP frontend est de 64 000.
 - Le délai d’inactivité défini pour un flux sortant doit être compris entre 4 et 120 minutes (240 à 7 200 secondes).
 - L’équilibreur de charge ne prend pas en charge ICMP pour la NAT de trafic sortant.
-- Le portail ne permet pas de configurer ni d’afficher les règles de trafic sortant.  Utilisez plutôt des modèles, l’API REST, Az CLI 2.0 ou PowerShell.
 - Les règles de trafic sortant peuvent uniquement être appliquées à la configuration d’adresse IP principale d’une carte réseau.  La présence de plusieurs cartes réseau est prise en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: ec99db9406c5c83cdcbf322c45cea40c6643ee8f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: e9ae19e503b6b54e881af3c6477f77ffa1c930b0
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770881"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252618"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoring dans Azure Database pour MySQL
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour MySQL propose diverses métriques qui fournissent des insights sur le comportement de votre serveur.
 
 ## <a name="metrics"></a>Mesures
-Toutes les métriques Azure présentent une fréquence d’une minute et chaque métrique fournit 30 jours d’historique. Vous pouvez configurer des alertes basées sur les métriques. Pour obtenir des instructions détaillées, consultez [Configurer des alertes sur les métriques](howto-alert-on-metric.md). Les autres tâches incluent la configuration d’actions automatisées, l’exécution d’analyses avancées et l’archivage de l’historique. Pour plus d’informations, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Toutes les métriques Azure présentent une fréquence d’une minute et chaque métrique fournit 30 jours d’historique. Vous pouvez configurer des alertes basées sur les métriques. Pour des instructions étape par étape, consultez [Configurer des alertes](howto-alert-on-metric.md). Les autres tâches incluent la configuration d’actions automatisées, l’exécution d’analyses avancées et l’archivage de l’historique. Pour plus d’informations, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 ### <a name="list-of-metrics"></a>Liste des métriques
 Ces métriques sont disponibles pour Azure Database pour MySQL :
@@ -41,9 +41,9 @@ Ces métriques sont disponibles pour Azure Database pour MySQL :
 |backup_storage_used|Stockage de sauvegarde utilisé|Octets|Quantité de stockage de sauvegarde utilisée.|
 
 ## <a name="server-logs"></a>Journaux d’activité du serveur
-Vous pouvez activer la journalisation des requêtes lentes et d’audit sur votre serveur. Ces journaux d’activité sont également disponibles via les journaux Azure Monitor, Event Hubs et le compte de stockage. Pour en savoir plus sur la journalisation, visitez les articles sur les  [journaux d’audit](concepts-audit-logs.md) et les [journaux de requêtes lentes](concepts-server-logs.md).
+Vous pouvez activer la journalisation des requêtes lentes et d’audit sur votre serveur. Ces journaux sont également disponibles par le biais des journaux de diagnostic Azure dans les journaux Azure Monitor, les hubs d’événements et le compte de stockage. Pour en savoir plus sur la journalisation, visitez les articles sur les  [journaux d’audit](concepts-audit-logs.md) et les [journaux de requêtes lentes](concepts-server-logs.md).
 
-## <a name="query-store"></a>Magasin de requêtes
+## <a name="query-store"></a>Magasin des requêtes
 Le [Magasin des requêtes](concepts-query-store.md) est une fonctionnalité qui effectue le suivi des performances des requêtes au fil du temps, y compris les statistiques d’exécution des requêtes et les événements d’attente. La fonctionnalité conserve les informations de performances du runtime de requête dans le schéma **mysql**. Vous pouvez contrôler la collecte et le stockage des données au moyen de différents boutons de configuration.
 
 ## <a name="query-performance-insight"></a>Query Performance Insight
@@ -52,13 +52,28 @@ Le [Magasin des requêtes](concepts-query-store.md) est une fonctionnalité qui 
 ## <a name="performance-recommendations"></a>Recommandations sur les performances
 La fonctionnalité [Recommandations sur les performances](concepts-performance-recommendations.md) identifie les opportunités d’amélioration des performances des charges de travail. La fonctionnalité Recommandations sur les performances fournit des recommandations pour créer des index susceptibles d’améliorer les performances de vos charges de travail. Pour générer des recommandations d’index, la fonctionnalité prend en compte différentes caractéristiques de la base de données, notamment son schéma et la charge de travail comme indiqué par le Magasin des requêtes. Après avoir implémenté une recommandation sur les performances, les clients doivent tester les performances pour évaluer l’impact des changements.
 
-## <a name="service-health"></a>État d’intégrité du service
-[Azure Service Health](../service-health/overview.md) fournit un affichage de toutes les notifications d’intégrité de service dans votre abonnement. Vous pouvez configurer des alertes Service Health pour vous avertir par le biais de vos canaux de communication préférés en cas de problèmes ou de modifications susceptibles de perturber les services et régions Azure que vous utilisez.
+## <a name="planned-maintenance-notification"></a>Notification de maintenance planifiée
 
-Vous pouvez afficher les événements de maintenance planifiée pour Azure Database pour MySQL à l’aide du type d’événement **Maintenance planifiée**. Pour savoir comment créer des **alertes d’intégrité de service**, consultez l’article [Créer des alertes de journal d’activité sur les notifications de service](../service-health/alerts-activity-log-service-notifications.md).
+Les **notifications de maintenance planifiée** vous permettent de recevoir des alertes concernant la maintenance planifiée à venir sur Azure Database pour MySQL. Ces notifications sont intégrées à la maintenance planifiée de [Service Health](../service-health/overview.md) et vous permettent d’afficher toutes les tâches de maintenance planifiée de vos abonnements dans un même emplacement. Cela permet également d’adapter la notification au public approprié pour divers groupes de ressources, car des contacts différents peuvent être responsables de différentes ressources. Vous recevez la notification concernant la maintenance à venir 72 heures avant l’événement.
+
+> [!Note]
+> Nous mettons tout en œuvre pour fournir une **notification de maintenance planifiée** avec un préavis de 72 heures pour tous les événements. Toutefois, en cas de correctifs critiques ou de sécurité, des notifications peuvent être envoyées dans un délai plus proche de l’événement ou être omises.
+
+### <a name="to-receive-planned-maintenance-notification"></a>Pour recevoir une notification de maintenance planifiée
+
+1. Dans le [portail](https://portal.azure.com), sélectionnez **Intégrité du service**.
+2. Dans la section **Alertes**, sélectionnez **Alertes d’intégrité**.
+3. Sélectionnez **+ Ajouter une alerte d’intégrité de service** et renseignez les champs.
+4. Renseignez les champs obligatoires. 
+5. Choisissez le **type d’événement**, puis sélectionnez **Maintenance planifiée** ou **Tout sélectionner**.
+6. Dans **Groupes d’actions**, définissez la manière dont vous souhaitez recevoir l’alerte (obtenir un e-mail, déclencher une application logique, etc.).  
+7. Vérifiez que l’activation de la règle lors de la création est définie sur Oui.
+8. Sélectionnez **Créer une règle d’alerte** pour terminer votre alerte.
+
+Pour obtenir des instructions détaillées sur la création d’**alertes d’intégrité de service**, consultez [Créer des alertes de journal d’activité sur les notifications de service](../service-health/alerts-activity-log-service-notifications.md).
 
 > [!IMPORTANT]
-> Les notifications de maintenance planifiée sont disponibles en préversion pour USA Est et Royaume-Uni Sud uniquement.
+> Les notifications de maintenance planifiée sont en préversion.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez le [guide pratique pour configurer des alertes](howto-alert-on-metric.md) pour savoir comment créer une alerte sur une métrique.

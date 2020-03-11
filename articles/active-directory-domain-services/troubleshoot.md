@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 3cb57fae2b1c67ece321a294e56612f49358405a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: c4b2dea05b459d6e9ae4eb086fa127d88a84a768
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612721"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249210"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Erreurs courantes et étapes de dépannage pour Azure Active Directory Domain Services
 
@@ -138,7 +138,7 @@ Si des utilisateurs de votre locataire Azure AD ne peuvent pas se connecter au d
       * Vous avez déployé la [dernière version recommandée d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) ou procédé à une mise à jour vers cette version.
       * Vous avez configuré Azure AD Connect pour [effectuer une synchronisation complète][hybrid-phs].
       * Selon la taille de votre annuaire, la mise à disposition des comptes d’utilisateurs et des hachages d’informations d’identification dans Azure AD DS peut prendre un certain temps. Veillez à attendre suffisamment longtemps avant d’essayer de vous authentifier pour le domaine managé.
-      * Si le problème persiste après la vérification des étapes précédentes, essayez de redémarrer *Microsoft Azure Active Directory Sync Services*. À partir de votre [machine virtuelle de gestion][management-vm], ouvrez une invite de commandes et exécutez les commandes suivantes :
+      * Si le problème persiste après la vérification des étapes précédentes, essayez de redémarrer *Microsoft Azure Active Directory Sync Services*. À partir de votre serveur Azure AD Connect, ouvrez une invite de commandes et exécutez les commandes suivantes :
     
         ```console
         net stop 'Microsoft Azure AD Sync'

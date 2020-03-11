@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 02/05/2020
-ms.openlocfilehash: c67fb21783a926f813d165528520b9d088154412
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.date: 03/01/2020
+ms.openlocfilehash: 3e7e5919a3f862f5cad243654972683d1879c4ba
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162393"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251086"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Utiliser Data Lake Storage Gen1 avec des clusters Azure HDInsight
 
@@ -31,7 +31,7 @@ Dans cet article, vous découvrez le fonctionnement de Data Lake Storage Gen1 av
 
 ## <a name="availability-for-hdinsight-clusters"></a>Disponibilité pour les clusters HDInsight
 
-Apache Hadoop prend en charge une notion de système de fichiers par défaut. Le système de fichiers par défaut implique un schéma et une autorité par défaut. Il peut également être utilisé pour résoudre les chemins d'accès relatifs. Pendant le processus de création du cluster HDInsight, vous pouvez spécifier un conteneur d’objets blob dans Stockage Azure comme système de fichiers par défaut ou, avec HDInsight 3.5 et versions plus récentes, vous pouvez sélectionner Stockage Azure ou Azure Data Lake Storage Gen1 comme système de fichiers par défaut avec quelques exceptions.
+Apache Hadoop prend en charge une notion de système de fichiers par défaut. Le système de fichiers par défaut implique un schéma et une autorité par défaut. Il peut également être utilisé pour résoudre les chemins d'accès relatifs. Pendant le processus de création du cluster HDInsight, vous pouvez spécifier un conteneur d’objets blob dans Stockage Azure comme système de fichiers par défaut ou, avec HDInsight 3.5 et versions plus récentes, vous pouvez sélectionner Stockage Azure ou Azure Data Lake Storage Gen1 comme système de fichiers par défaut avec quelques exceptions. Notez que le cluster et le compte de stockage doivent être hébergés dans la même région.
 
 Les clusters HDInsight peuvent utiliser Data Lake Storage Gen1 de deux manières :
 

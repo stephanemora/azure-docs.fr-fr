@@ -13,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: dbbe501b27bf7ae4d4cb4bc00501aeb1fb06819e
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 5e4c6fb91b93b1035c68350a5f77a3c16db7323f
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161220"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300110"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Intégration avec Azure Active Directory
 
@@ -38,13 +38,13 @@ Il existe plusieurs façons d’intégrer votre application à Azure AD. Béné
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Recherche des utilisateurs, gestion de l’attribution de privilèges d’accès des utilisateurs et contrôle de l’accès à votre application
 
-**Rechercher des utilisateurs dans le répertoire.**  Utilisez l'API Graph pour la recherche d’utilisateurs et recherchez d'autres personnes dans leur organisation lorsque vous invitez d'autres personnes ou que vous leur permettez l’accès, au lieu de leur demander de taper leur adresse e-mail. Les utilisateurs peuvent effectuer leur recherche dans une interface similaire à un carnet d’adresses, notamment en affichant les détails de la hiérarchie organisationnelle. En savoir plus sur [l’API Graph](active-directory-graph-api.md).
+**Rechercher des utilisateurs dans le répertoire.**  Utilisez l’API Microsoft Graph pour aider les utilisateurs à rechercher d’autres personnes dans leur organisation lorsque vous invitez d’autres personnes ou que vous leur accordez l’accès, au lieu de leur demander de taper leurs adresses e-mail. Les utilisateurs peuvent effectuer leur recherche dans une interface similaire à un carnet d’adresses, notamment en affichant les détails de la hiérarchie organisationnelle. Apprenez-en davantage sur l’[API Microsoft Graph](https://docs.microsoft.com/graph/overview).
 
-**Réutilisation des groupes Active Directory et des listes de distribution déjà gérées par votre client.**  Azure AD contient les groupes que votre client utilise déjà pour la distribution d’e-mail et la gestion des accès. À l'aide de l'API Graph, réutiliser ces groupes au lieu de demander à votre client de créer et de gérer un ensemble de groupes distinct dans votre application. Les informations sur les groupes peuvent également être envoyées à votre application dans les jetons de connexion. En savoir plus sur [l’API Graph](active-directory-graph-api.md).
+**Réutilisation des groupes Active Directory et des listes de distribution déjà gérées par votre client.**  Azure AD contient les groupes que votre client utilise déjà pour la distribution d’e-mail et la gestion des accès. À l’aide de l’API Microsoft Graph, réutilisez ces groupes au lieu de demander à votre client de créer et de gérer un ensemble de groupes distinct dans votre application. Les informations sur les groupes peuvent également être envoyées à votre application dans les jetons de connexion. Apprenez-en davantage sur l’[API Microsoft Graph](https://docs.microsoft.com/graph/overview).
 
-**Utilisation d’Azure AD pour contrôler quels utilisateurs ont accès à votre application.**  Les administrateurs et les propriétaires d’applications dans Azure AD peuvent attribuer l’accès aux applications à des utilisateurs et des groupes spécifiques. À l'aide de l'API Graph, vous pouvez lire cette liste et l'utiliser pour contrôler l’attribution de privilèges d’accès et la suppression de privilèges d’accès pour les ressources et l’accès à votre application.
+**Utilisation d’Azure AD pour contrôler quels utilisateurs ont accès à votre application.**  Les administrateurs et les propriétaires d’applications dans Azure AD peuvent attribuer l’accès aux applications à des utilisateurs et des groupes spécifiques. À l’aide de l’API Microsoft Graph, vous pouvez lire cette liste et l’utiliser pour contrôler le provisionnement et le déprovisionnement de ressources et l’accès au sein de votre application.
 
-**Utilisation d’Azure AD pour les rôles en fonction d’Access Control.**  Les administrateurs et les propriétaires d'applications peuvent attribuer des utilisateurs et des groupes aux rôles que vous définissez lorsque vous enregistrez votre application dans Azure AD. Les informations sur les rôles sont envoyées à votre application dans des jetons de connexion et peuvent également être lues à l'aide de l'API Graph. En savoir plus sur l’ [utilisation d'Azure AD pour les autorisations](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
+**Utilisation d’Azure AD pour les rôles en fonction d’Access Control.**  Les administrateurs et les propriétaires d'applications peuvent attribuer des utilisateurs et des groupes aux rôles que vous définissez lorsque vous enregistrez votre application dans Azure AD. Les informations sur les rôles sont envoyées à votre application dans des jetons de connexion et peuvent également être lues à l’aide de l’API Microsoft Graph. En savoir plus sur l’ [utilisation d'Azure AD pour les autorisations](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Accéder au profil de l’utilisateur, au calendrier, aux e-mails, aux contacts, aux fichiers et plus encore
 

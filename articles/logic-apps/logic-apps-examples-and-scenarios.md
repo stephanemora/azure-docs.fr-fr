@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 07/31/2019
-ms.openlocfilehash: 5b72ee02c2bbf811293a2bcdb15590e16e300a02
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/28/2020
+ms.openlocfilehash: c64483f18b2deb061704a4eb7171e575fdd561e8
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906672"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164625"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Scénarios, exemples, didacticiels et procédures pas à pas courants relatifs à Azure Logic Apps
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) vous permet d’orchestrer et d’intégrer différents services en fournissant [des centaines de connecteurs prêts à l’emploi](../connectors/apis-list.md), des connecteurs SQL Server ou SAP locaux à Azure Cognitive Services. Le service Logic Apps est un service « sans serveur ». Ainsi, vous n’avez pas à vous soucier de la mise à l’échelle ni des instances. Il vous suffit de définir le workflow avec un déclencheur et les actions exécutées par ce workflow. La plateforme sous-jacente gère la mise à l’échelle, la disponibilité et les performances. Le service Logic Apps se révèle d’une grande utilité pour les cas d’usage et les scénarios impliquant la coordination de plusieurs actions dans différents systèmes.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) vous permet d’orchestrer et d’intégrer différents services en fournissant [des centaines de connecteurs prêts à l’emploi](../connectors/apis-list.md), des connecteurs SQL Server ou SAP locaux à Azure Cognitive Services. Le service Logic Apps est un service « sans serveur ». Ainsi, vous n’avez pas à vous soucier de la mise à l’échelle ni des instances. Il vous suffit de définir le workflow avec un déclencheur et les actions exécutées par ce workflow. La plateforme sous-jacente gère la mise à l’échelle, la disponibilité et les performances. Le service Logic Apps se révèle d’une grande utilité pour les cas d’usage et les scénarios impliquant la coordination de plusieurs actions dans plusieurs systèmes et services.
 
-Voici quelques exemples et scénarios courants qui vous aideront à en savoir plus sur les nombreux modèles et fonctionnalités pris en charge par Azure Logic Apps.
+Pour vous aider à en savoir plus sur les capacités et les modèles pris en charge par Azure Logic Apps, cet article décrit des points de départ courants, des exemples et des scénarios.
 
-## <a name="popular-starting-points-for-logic-app-workflows"></a>Points de départ courants pour les workflows d’application logique
+## <a name="common-starting-points-for-logic-app-workflows"></a>Points de départ courants pour les workflows d’application logique
 
 Chaque application logique commence avec un seul et unique [*déclencheur*](../logic-apps/logic-apps-overview.md#logic-app-concepts), qui démarre votre workflow d’application logique et transmet des données. Certains connecteurs fournissent des déclencheurs, qui présentent les types suivants :
 
@@ -27,88 +27,118 @@ Chaque application logique commence avec un seul et unique [*déclencheur*](../l
 
 * *Déclencheurs d'émission* : écoutent les données au niveau d'un point de terminaison de service et attendent qu'un événement spécifique se produise. Lorsque cet événement se produit, le déclencheur s’active aussitôt en créant et exécutant une instance de workflow qui utilise toutes les données disponibles en tant qu’entrée.
 
-Voici quelques exemples de déclencheurs courants :
+Voici des exemples qui décrivent les déclencheurs couramment utilisés :
 
-* Interrogation :
+* Déclencheurs d’*interrogation* :
 
-  * Le [déclencheur **Périodicité**](../connectors/connectors-native-recurrence.md) vous permet de définir les date et heure de début et la périodicité du déclenchement de votre application logique. Par exemple, vous pouvez sélectionner les jours de la semaine et les heures de la journée auxquels votre application logique doit se déclencher. Pour plus d’informations, consultez les rubriques suivantes :
+  * Le [déclencheur **Périodicité**](../connectors/connectors-native-recurrence.md) vous permet de définir les date et heure de début et la périodicité du déclenchement de votre application logique. Par exemple, vous pouvez sélectionner les jours de la semaine et les heures de la journée auxquels votre application logique doit se déclencher. Pour plus d’informations, consultez les rubriques suivantes :<p>
 
     * [Créer et exécuter des tâches, processus et workflows automatisés récurrents avec Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
-    * [Tutoriel : Vérifier le trafic selon une planification avec Azure Logic Apps](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
+    * [Tutoriel : Créer des workflows automatisés périodiques basés sur la planification à l’aide d’Azure Logic Apps](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
 
-  * Le déclencheur « Lors de la réception d’un message électronique » permet à votre application logique de vérifier l’existence de nouveaux messages électroniques à partir de n’importe quel fournisseur de messagerie pris en charge par Logic Apps, par exemple, [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail](https://docs.microsoft.com/connectors/gmail/), [Outlook.com](https://docs.microsoft.com/connectors/outlook/), etc. Pour plus d’informations, consultez les rubriques suivantes : 
+  * Le déclencheur **Lors de la réception d’un e-mail** permet à votre application logique de vérifier l’existence de nouveaux e-mails à partir de n’importe quel fournisseur de messagerie pris en charge par Logic Apps, par exemple, [Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), [Gmail](https://docs.microsoft.com/connectors/gmail/), [Outlook.com](https://docs.microsoft.com/connectors/outlook/), etc. Pour plus d’informations, consultez les rubriques suivantes :<p>
 
-    * [Tutoriel : Gérer les requêtes de liste de diffusion avec Azure Logic Apps](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
-    * [Tutoriel : Automatiser la gestion des e-mails et des pièces jointes avec Azure Logic Apps](../logic-apps/tutorial-process-email-attachments-workflow.md)
+    * [Tutoriel : Créer des workflows automatisés basés sur l’approbation à l’aide d’Azure Logic Apps](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
+    * [Tutoriel : Automatiser les tâches de traitement des e-mails avec Azure Logic Apps, Azure Functions et Stockage Azure](../logic-apps/tutorial-process-email-attachments-workflow.md)
 
-  * Le [déclencheur **HTTP**](../connectors/connectors-native-http.md) permet à votre application logique de vérifier un point de terminaison de service spécifié en communiquant par le biais de HTTP.
-  
-* Émission :
+  * Le [déclencheur **HTTP**](../connectors/connectors-native-http.md) peut appeler un point de terminaison de service sur HTTP ou HTTPS. Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des workflows avec des points de terminaison HTTP](../logic-apps/logic-apps-http-endpoint.md).
 
-  * Le [déclencheur **Requête**](../connectors/connectors-native-reqres.md) permet à votre application logique de recevoir des requêtes HTTP et de répondre d’une certaine manière aux événements en temps réel.
+* Déclencheurs d’*émission* :
+
+  * Le [déclencheur de **requête**](../connectors/connectors-native-reqres.md) peut recevoir des requêtes HTTPS entrantes.
 
   * Le [déclencheur **HTTP Webhook**](../connectors/connectors-native-webhook.md) s’abonne au point de terminaison d’un service en inscrivant une *URL de rappel* auprès de ce service. De cette façon, le service peut tout simplement informer le déclencheur lorsque l’événement spécifié se produit, ce qui évite au déclencheur d’avoir à interroger le service.
 
-Après avoir reçu une notification concernant de nouvelles données ou un événement, le déclencheur s’active, crée une instance de workflow d’application logique et exécute les actions dans le workflow. Vous pouvez accéder à toutes les données du déclencheur dans l’ensemble du workflow. Par exemple, le déclencheur « On a new tweet » (En cas de nouveau tweet) transmet le contenu du tweet dans l’exécution de l’application logique. Pour commencer à utiliser Azure Logic Apps, reportez-vous aux rubriques de démarrage rapide suivantes :
+Lorsque l’événement spécifié se produit, le déclencheur s’active, ce qui crée une instance de workflow d’application logique et exécute les actions dans le workflow. Vous pouvez accéder à toutes les données du déclencheur dans l’ensemble du workflow. Par exemple, le déclencheur **En cas de nouveau tweet** sur Twitter transmet le contenu du tweet dans l’exécution de l’application logique. Pour commencer à utiliser Azure Logic Apps, reportez-vous aux rubriques de démarrage rapide suivantes :
 
-* [Démarrage rapide : Créer votre premier workflow automatisé avec Azure Logic Apps dans le portail Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Démarrage rapide : Créer des tâches, processus et workflows automatisés avec Azure Logic Apps à l’aide de Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+* [Démarrage rapide : Créer votre premier workflow automatisé avec Azure Logic Apps – Portail Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Démarrage rapide : Créer des tâches, des processus et des workflows automatisés avec Azure Logic Apps – Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Démarrage rapide : Créer et gérer des workflows automatisés d’application logique à l’aide de Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
 
-## <a name="respond-to-triggers-and-extend-actions"></a>Répondre aux déclencheurs et étendre des actions
+## <a name="control-flow-and-error-handling-capabilities"></a>Capacités de flux de contrôle et de gestion des erreurs
 
-Pour les systèmes et services pour lesquels aucun connecteur n’a été publié, vous pouvez également étendre les applications logiques.
-
-* [Créer des actions ou des déclencheurs personnalisés](../logic-apps/logic-apps-create-api-app.md)
-* [Configurer des actions de longue durée pour les exécutions de flux de travail](../logic-apps/logic-apps-create-api-app.md)
-* [Répondre aux événements et actions externes à l’aide de webhooks](../logic-apps/logic-apps-create-api-app.md)
-* [Appeler, déclencher ou imbriquer des flux de travail avec des réponses synchrones aux requêtes HTTP](../logic-apps/logic-apps-http-endpoint.md)
-* [Tutoriel : explique comment créer un tableau de bord social reposant sur l'intelligence artificielle en quelques minutes avec Logic Apps et Power BI](https://aka.ms/logicappsdemo)
-* [Vidéo : explique comment répondre aux webhooks SMS Twilio et envoyer une réponse textuelle](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
-
-## <a name="control-flow-error-handling-and-logging-capabilities"></a>Fonctionnalités de flux de contrôle, de gestion des erreurs et de journalisation
-
-Les applications logiques incluent de puissantes fonctionnalités de flux de contrôle avancé, notamment des conditions, des commutateurs, des boucles et des étendues. Pour garantir la résilience de vos solutions, vous pouvez également implémenter la gestion des erreurs et des exceptions dans vos flux de travail. Pour la notification et les journaux de diagnostic relatifs à l’état d’exécution des flux de travail, Azure Logic Apps fournit également la supervision et des alertes.
+Les applications logiques incluent de puissantes capacités de flux de contrôle avancé, comme des conditions, des commutateurs, des boucles et des étendues. Pour garantir la résilience de vos solutions, vous pouvez également implémenter la gestion des erreurs et des exceptions dans vos flux de travail.
 
 * Exécuter des actions différentes en fonction [d’instructions conditionnelles](../logic-apps/logic-apps-control-flow-conditional-statement.md) et [d’instructions switch](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Répéter les étapes ou traiter les éléments dans des tableaux et collections avec des boucles](../logic-apps/logic-apps-control-flow-loops.md)
 * [Regrouper des actions avec des étendues](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
-* [Gestion des erreurs de création et des exceptions dans un flux de travail](../logic-apps/logic-apps-exception-handling.md)
+* [Ajouter la gestion des erreurs et des exceptions dans un workflow](../logic-apps/logic-apps-exception-handling.md)
 * [Cas d’usage : montre comment un prestataire de soins de santé utilise la gestion des exceptions d'application logique pour les flux de travail HL7 FHIR](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
-* [Activer la surveillance, la journalisation et les alertes pour les applications logiques existantes](../logic-apps/monitor-logic-apps.md)
-* [Activer la surveillance et la journalisation des diagnostics lors de la création d’applications logiques](../logic-apps/monitor-logic-apps-log-analytics.md)
 
-## <a name="deploy-and-manage-logic-apps"></a>Déployer et gérer des applications logiques
+## <a name="create-custom-apis-and-connectors"></a>Créer des API et des connecteurs personnalisés
 
-Vous pouvez développer et déployer des applications logiques entièrement avec Visual Studio, Azure DevOps ou tout autre outil de génération automatisée et contrôle de code source. Pour prendre en charge le déploiement de flux de travail et de connexions dépendantes d’un modèle de ressource, les applications logiques utilisent des modèles de déploiement de ressources Azure. Les outils Visual Studio génèrent automatiquement ces modèles, que vous pouvez archiver dans le contrôle de code source à des fins de contrôle de version.
+Pour les systèmes et services pour lesquels aucun connecteur n’a été publié, vous pouvez également étendre les applications logiques.
 
-* [Créer et déployer des applications logiques avec Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
-* [Activer la surveillance, la journalisation et les alertes pour les applications logiques existantes](../logic-apps/monitor-logic-apps.md)
-* [Automatiser le déploiement d’application logique](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Créer des API personnalisées à appeler à partir d’Azure Logic Apps](../logic-apps/logic-apps-create-api-app.md)
+* [Rechercher régulièrement les nouvelles données ou les nouveaux événements à l’aide du modèle de déclencheur d’interrogation](../logic-apps/logic-apps-create-api-app.md#polling-triggers)
+* [Attendre et écouter les nouvelles données ou les nouveaux événements avec le modèle de déclencheur Webhook](../logic-apps/logic-apps-create-api-app.md#webhook-triggers)
+* [Effectuer des tâches longues avec le modèle d’action d’interrogation](../logic-apps/logic-apps-create-api-app.md#async-pattern)
+* [Effectuer des tâches longues avec le modèle d’action Webhook](../logic-apps/logic-apps-create-api-app.md#webhook-actions)
+* [Connecteurs personnalisés dans Azure Logic Apps](../logic-apps/custom-connector-overview.md)
+
+## <a name="build-business-to-business-b2b-solutions"></a>Créer des solutions interentreprises (B2B)
+
+Pour les solutions d’intégration d’entreprise et une communication fluide entre les organisations, vous pouvez générer des workflows évolutifs automatisés pour ces scénarios en utilisant Enterprise Integration Pack (EIP) avec Azure Logic Apps. Les organisations peuvent échanger des messages électroniques, même si elles utilisent des formats et des protocoles différents. EIP transforme différents formats en un format que les systèmes de votre organisation peuvent traiter et prend en charge les protocoles standard, notamment AS2, X12, EDIFACT et RosettaNet. Pour créer ces solutions, créez un compte d’intégration, qui est une ressource Azure distincte offrant un conteneur sécurisé, évolutif et facile à gérer pour les artefacts que vous définissez et utilisez avec vos workflows d’application logique. Par exemple, les artefacts incluent les partenaires commerciaux, les contrats, les mappages, les schémas, les certificats et les configurations de lots.
+
+* [Vue d’ensemble : Solutions d’intégration d’entreprise B2B avec Azure Logic Apps et Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* [Créer et gérer des comptes d’intégration pour les intégrations d’entreprise B2B dans Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+
+## <a name="access-azure-virtual-network-resources"></a>Accéder aux ressources du réseau virtuel Azure
+
+Parfois, vos applications logiques et vos comptes d’intégration doivent accéder à des ressources sécurisées, comme des machines virtuelles et d’autres systèmes ou services, qui se trouvent dans un réseau virtuel Azure. Pour configurer cet accès, vous pouvez créer un environnement de service d’intégration (ISE, integration service environment) dans lequel vous pouvez générer et exécuter vos applications logiques. Un ISE est une instance isolée et privée du service Logic Apps qui utilise des ressources dédiées, comme le stockage, et s’exécute séparément du service Logic Apps multilocataire « mondial ». La séparation entre votre instance privée isolée et l’instance mondiale publique permet également de réduire l’impact que les autres locataires Azure peuvent avoir sur les performances de vos applications, ce que l’on appelle également l’effet « voisins bruyants ».
+
+* [Vue d’ensemble : Accéder à des ressources de réseau virtuel Azure à partir d’Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)
+* [Se connecter à des réseaux virtuels Azure à partir d’Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
+
+## <a name="deploy-manage-and-monitor-logic-apps"></a>Déployer, gérer et surveiller des applications logiques
+
+Vous pouvez développer et déployer des applications logiques entièrement avec Visual Studio, Azure DevOps ou tout autre outil de génération automatisée et contrôle de code source. Pour prendre en charge le déploiement de flux de travail et de connexions dépendantes d’un modèle de ressource, les applications logiques utilisent des modèles de déploiement de ressources Azure. Les outils Visual Studio génèrent automatiquement ces modèles, que vous pouvez archiver dans le contrôle de code source à des fins de contrôle de version. Pour la notification et les journaux de diagnostic relatifs à l’état d’exécution des flux de travail, Azure Logic Apps fournit également la supervision et des alertes.
+
+### <a name="deploy"></a>Déployer
+
+* [Démarrage rapide : Créer des tâches, des processus et des workflows automatisés avec Azure Logic Apps – Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
+* [Vue d’ensemble : Automatiser le déploiement d’applications logiques](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Créer des modèles Azure Resource Manager afin d’automatiser le déploiement pour le service Azure Logic Apps](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
+* [Déployer des modèles Azure Resource Manager pour Azure Logic Apps](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
 * [Exemple : Se connecter à des files d’attente Azure Service Bus à partir d’Azure Logic Apps et déployer avec Azure Pipelines dans Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Exemple : Se connecter à des comptes Stockage Azure à partir d'Azure Logic Apps et déployer avec Azure Pipelines dans Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Exemple : Configurer une action Function App pour Azure Logic Apps et déployer avec Azure Pipelines dans Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Exemple : Se connecter à un compte d'intégration à partir d'Azure Logic Apps et déployer avec Azure Pipelines dans Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
+* [Exemple : Orchestrer Azure Pipelines à l’aide d’Azure Logic Apps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-pipeline-orchestration/azure-devops-orchestration-with-logic-apps/)
 
-## <a name="content-types-conversions-and-transformations-within-a-run"></a>Types de contenu, conversions et transformations d’une exécution
+### <a name="manage"></a>Gérer
+
+* [Gérer des applications logiques avec Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+* [Créer et gérer des comptes d’intégration pour les intégrations d’entreprise B2B](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+* [Gérer un environnement de service d’intégration dans Azure Logic Apps](../logic-apps/ise-manage-integration-service-environment.md)
+
+### <a name="monitor"></a>Moniteur
+
+* [Surveiller l’état d’exécution, examiner l’historique des déclencheurs et configurer des alertes pour Azure Logic Apps](../logic-apps/monitor-logic-apps.md)
+* [Configurer les journaux d’activité Azure Monitor et collecter des données de diagnostic pour Azure Logic Apps](../logic-apps/monitor-logic-apps-log-analytics.md)
+* [Configurer les journaux d’activité Azure Monitor et collecter des données de diagnostic pour des messages B2B dans Azure Logic Apps](../logic-apps/monitor-b2b-messages-log-analytics.md)
+* [Afficher et créer des requêtes de surveillance et de suivi dans des journaux d’activité Azure Monitor pour Azure Logic Apps](../logic-apps/create-monitoring-tracking-queries.md)
+
+## <a name="handle-content-types-conversions-and-transformations"></a>Gérer les types de contenu, les conversions et les transformations
 
 Vous pouvez accéder à plusieurs types de contenu, les convertir et les transformer à l’aide des nombreuses fonctions du [langage de définition de flux de travail](https://aka.ms/logicappsdocs) d’Azure Logic Apps. Par exemple, vous pouvez effectuer des conversions entre une chaîne, JSON et XML avec les expressions de flux de travail `@json()` et `@xml()`. Le moteur Logic Apps préserve les types de contenu pour prendre en charge le transfert de contenu entre les services sans perte.
 
-* [Fonctionnement des expressions de flux de travail dans les applications logiques](../logic-apps/logic-apps-author-definitions.md)
-* [Gérer les types de contenu non-JSON](../logic-apps/logic-apps-content-type.md), comme `application/xml`, `application/octet-stream` et`multipart/formdata`
-* [Schéma du langage de définition du flux de travail pour Azure Logic Apps](https://aka.ms/logicappsdocs)
+* [Gérer les types de contenu dans Azure Logic Apps](../logic-apps/logic-apps-content-type.md), comme `application/`, `application/octet-stream` et `multipart/formdata`
+* [Guide de référence sur l’utilisation des fonctions dans les expressions pour Azure Logic Apps et Power Automate](../logic-apps/workflow-definition-language-functions-reference.md)
+* [Schéma du langage de définition du flux de travail pour Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md)
 
 ## <a name="other-integrations-and-capabilities"></a>Autres intégrations et fonctionnalités
 
-Les applications logiques offrent également une intégration avec de nombreux services comme Azure Functions, la Gestion des API Azure, Azure App Services et les points de terminaison HTTP personnalisés, par exemple, REST et SOAP.
+Azure Logic Apps s’intègre à de nombreux services, comme Azure Functions, la Gestion des API Azure, Azure App Service et les points de terminaison HTTP personnalisés (par exemple, REST et SOAP).
 
-* [Créer un tableau de bord social en temps réel avec Azure Serverless](../logic-apps/logic-apps-scenario-social-serverless.md)
-* [Appeler Azure Functions à partir d’applications logiques](../logic-apps/logic-apps-azure-functions.md)
-* [Tutoriel : Déclencher des applications logiques avec Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
-* [Tutoriel : Surveiller les modifications d'une machine virtuelle avec Azure Event Grid et Azure Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Appeler Azure Functions à partir d’Azure Logic Apps](../logic-apps/logic-apps-azure-functions.md)
+* [Tutoriel : Appeler ou déclencher des applications logiques à l’aide d’Azure Functions et d’Azure Service Bus](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [Tutoriel : Créer un tableau de bord des insights client en streaming avec Azure Logic Apps et Azure Functions](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Tutoriel : Créer une fonction qui s'intègre à Azure Logic Apps et à Azure Cognitive Services pour analyser le sentiment lié à la publication Twitter](../azure-functions/functions-twitter-email.md)
+* [Tutoriel : Créer un tableau de bord social reposant sur l’intelligence artificielle à l’aide de Logic Apps et Power BI](https://aka.ms/logicappsdemo)
+* [Tutoriel : Superviser les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
 * [Tutoriel : Notifications et surveillance à distance IoT à l'aide d'Azure Logic Apps, avec connexion de votre hub IoT et de votre boîte aux lettres](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
-* [Blog : Appeler des points de terminaison SOAP à partir d'applications logiques](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
+* [Blog : Appeler des services SOAP à l’aide d’Azure Logic Apps](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>Scénarios de bout en bout
 

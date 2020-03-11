@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, red hat
-ms.openlocfilehash: 4241296a991283f14fbb294fdc059ecde58d6d75
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069753"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271372"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Gérer des conteneurs privilégiés dans un cluster Azure Red Hat OpenShift
 
@@ -121,17 +121,24 @@ Définissez les champs suivants lors du déploiement des enforcers :
 
 Vous trouverez les instructions de base que nous allons modifier dans la [documentation sur le déploiement Prisma Cloud](https://docs.paloaltonetworks.com/prisma/prisma-cloud/19-11/prisma-cloud-compute-edition-admin/install/install_openshift.html).
 
-Commencez par créer un projet OpenShift.
+Commencez par installer l’outil `twistcli` comme décrit dans les sections « Install Prisma Cloud » et « Download the Prisma Cloud software ».
+
+Créer un projet OpenShift
 ```
 oc new-project twistlock
 ```
 
-Vous pouvez suivre la documentation jusqu’à la section « Install Console » ; utilisez le registre de conteneurs Prisma Cloud au lieu de créer un registre interne.
+Ignorez la section facultative « Push the Prisma Cloud images to a private registry ». Elle n’est pas applicable à Azure Red Hat Openshift. Utilisez le registre en ligne à la place.
+
+Vous pouvez suivre la documentation officielle tout en appliquant les corrections décrites ci-dessous.
+Commencez par la section « Installer la console ».
 
 ### <a name="install-console"></a>Installer la console
 
 Lors de l’exécution de la commande `oc create -f twistlock_console.yaml` à l’étape 2, vous obtenez une erreur liée à la création de l’espace de noms.
 Vous pouvez l’ignorer en toute sécurité, l’espace de noms ayant déjà été créé avec la commande `oc new-project`.
+
+Utilisez `azure-disk` en guise de type de stockage.
 
 ### <a name="create-an-external-route-to-console"></a>Créer une route externe vers la console
 

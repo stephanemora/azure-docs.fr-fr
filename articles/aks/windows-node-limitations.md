@@ -4,12 +4,12 @@ description: En savoir plus sur les limitations connues lors de l’exécution d
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 157f890c65efd0de9fa7d8d7aa5cb43b4a902dfa
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 65c62324a27e8377a1cc9833595b15cf08c6c820
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615640"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298170"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitations actuelles pour les pools de nœuds Windows Server et les charges de travail d’application dans Azure Kubernetes Service (AKS)
 
@@ -69,7 +69,7 @@ Pendant la préversion, les pools de nœuds Windows ne prennent pas en charge la
 
 ## <a name="how-many-node-pools-can-i-create"></a>Combien de pools de nœuds puis-je créer ?
 
-Le cluster AKS peut comprendre au maximum huit (8) pools de nœuds. Vous pouvez avoir au maximum 400 nœuds dans ces pools de nœuds. [Limitations de pool de nœuds][nodepool-limitations].
+Le cluster AKS peut comprendre au maximum 10 pools de nœuds. Vous pouvez avoir au maximum 1000 nœuds dans ces pools de nœuds. [Limitations de pool de nœuds][nodepool-limitations].
 
 ## <a name="what-can-i-name-my-windows-node-pools"></a>Comment puis-je nommer mes pools de nœuds Windows ?
 

@@ -1,26 +1,26 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 12/13/2019
+ms.date: 02/27/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: a0ecb4f5fe54e9895898156893c1e686c6cc24e6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e02de4ee9c36f9c3f0c27bc02ee1c37ce3e4057c
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75392257"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78208183"
 ---
-Le tableau suivant présente les limites par défaut pour les comptes de stockage V1, V2 et d’objets blob universels. La limite d’*entrée* désigne toutes les données issues de requêtes envoyées à un compte de stockage. La limite de *sortie* désigne toutes les données issues des réponses reçues depuis un compte de stockage.
+Le tableau suivant présente les limites par défaut pour les comptes de stockage V1, V2 et d’objets blob universels. La limite d’*entrée* désigne toutes les données envoyées à un compte de stockage. La limite de *sortie* désigne toutes les données reçues d’un compte de stockage.
 
 | Ressource | Limite par défaut |
 | --- | --- |
 | Nombre de comptes de stockage par région et par abonnement, y compris les comptes standard et premium | 250 |
-| Capacité maximale du compte de stockage | 2 Pio pour les États-Unis et l'Europe, 500 Tio pour toutes les autres régions (y compris le Royaume-Uni)<sup>1</sup>|
+| Capacité maximale du compte de stockage | 5 Pio <sup>1</sup>|
 | Nombre maximal de conteneurs d’objets blob, de partages de fichiers, de tables, de files d’attente, d’entités ou de messages par compte de stockage | Aucune limite |
 | Taux de demande maximal<sup>1</sup> par compte de stockage | 20 000 demandes par seconde |
 | Entrée maximale<sup>1</sup> par compte de stockage (régions des États-Unis, Europe) | 25 Gbits |
@@ -31,7 +31,7 @@ Le tableau suivant présente les limites par défaut pour les comptes de stockag
 | Nombre maximal de règles de réseau virtuel par compte de stockage | 200 |
 | Nombre maximal de règles d’adresse IP par compte de stockage | 200 |
 
-<sup>1</sup>Les comptes Stockage Azure standard prennent en charge la demande de limites supérieures pour les entrées. Pour demander une augmentation des limites de compte pour la sortie, contactez le [support Azure](https://azure.microsoft.com/support/faq/). Pour plus d’informations, consultez [Annonce de comptes de stockage plus grands et à plus grande échelle](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
+<sup>1</sup>Les comptes Stockage Azure standard prennent en charge la demande de limites supérieures pour les entrées. Pour demander une augmentation des limites de compte pour la sortie, contactez le [support Azure](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> Si votre compte de stockage dispose d’un accès en lecture activé avec un stockage géoredondant (RA-GRS) ou un stockage géoredondant dans une zone géographique (RA-GZRS), les cibles de sortie de l’emplacement secondaire sont identiques à celles de l’emplacement principal. Voici certaines options de [réplication du Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) :
 

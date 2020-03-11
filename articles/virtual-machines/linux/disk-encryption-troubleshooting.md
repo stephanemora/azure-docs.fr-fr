@@ -7,22 +7,22 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1e96a3acf2a576e0656afb3abea9dd787bf989a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: dd21b6520dc68a6f7faa5500054b2865556e3dfb
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750054"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205906"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guide de rési=olution des problèmes Azure Disk Encryption
 
 Ce guide s’adresse aux informaticiens professionnels, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les organisations utilisent Azure Disk Encryption. Cet article est destiné à vous aider à résoudre les problèmes liés au chiffrement des disques.
 
-Avant d’effectuer l’une des étapes ci-dessous, vérifiez que les machines virtuelles que vous tentez de chiffrer figurent parmi les [tailles de machine virtuelle et les systèmes d’exploitation pris en charge](disk-encryption-overview.md#supported-vms-and-operating-systems), et que vous avez rempli toutes les conditions préalables :
+Avant d’effectuer l’une des étapes ci-dessous, vérifiez que les machines virtuelles que vous tentez de chiffrer sont conformes aux [tailles et systèmes d’exploitation de machine virtuelle pris en charge](disk-encryption-overview.md#supported-vms-and-operating-systems) et que tous les prérequis sont respectés :
 
 - [Conditions supplémentaires pour les machines virtuelles](disk-encryption-overview.md#supported-vms-and-operating-systems)
-- [Spécifications réseau](disk-encryption-overview.md#networking-requirements)
-- [Conditions requises pour le stockage des clés de chiffrement](disk-encryption-overview.md#encryption-key-storage-requirements)
+- [Exigences réseau](disk-encryption-overview.md#networking-requirements)
+- [Exigences liées au stockage des clés de chiffrement](disk-encryption-overview.md#encryption-key-storage-requirements)
 
  
 
@@ -96,21 +96,7 @@ Avant d’effectuer une autre tentative, il est recommandé de réévaluer les c
 
 ## <a name="troubleshooting-azure-disk-encryption-behind-a-firewall"></a>Résolution des problèmes Azure Disk Encryption derrière un pare-feu
 
-Lorsque la connectivité est limitée par un pare-feu, une exigence de proxy ou des paramètres de groupe de sécurité réseau (NSG), cela peut interrompre la capacité de l’extension à effectuer les tâches nécessaires. Cette interruption peut entraîner les messages d’état de type « État de l’extension non disponible sur la machine virtuelle ». Dans les scénarios prévus, le processus de chiffrement échoue. Les sections qui suivent décrivent certains problèmes courants au niveau du pare-feu qui valent la peine d’être examinés.
-
-### <a name="network-security-groups"></a>Groupes de sécurité réseau
-Les paramètres de groupe de sécurité réseau appliqués doivent permettre au point de terminaison de remplir les [conditions requises](disk-encryption-overview.md#networking-requirements) de configuration réseau indiquées pour le chiffrement de disque.
-
-### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault derrière un pare-feu
-
-Lorsque le chiffrement est activé avec des [informations d’identification Azure AD](disk-encryption-linux-aad.md#), la machine virtuelle cible doit autoriser la connectivité aux points de terminaison Azure Active Directory et à ceux de Key Vault. Les points de terminaison d’authentification Azure Active Directory actuels sont gérés dans les sections 56 et 59 de la documentation [URL et plages d’adresses IP Office 365](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges). Des instructions relatives à Key Vault sont fournies dans la documentation sur l’[accès à Azure Key Vault derrière un pare-feu](../../key-vault/key-vault-access-behind-firewall.md).
-
-### <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure 
-La machine virtuelle doit pouvoir accéder au point de terminaison [Azure Instance Metadata Service](../windows/instance-metadata-service.md) qui utilise une adresse IP non routable bien connue (`169.254.169.254`), accessible uniquement à partir de la machine virtuelle.  Les configurations de proxy qui modifient le trafic HTTP local à cette adresse (par exemple, en ajoutant un en-tête X-Forwarded-For) ne sont pas prises en charge.
-
-### <a name="linux-package-management-behind-a-firewall"></a>Gestion des packages Linux derrière un pare-feu
-
-Au moment de l’exécution, Azure Disk Encryption pour Linux s’appuie sur le système de gestion des packages de la distribution cible pour installer les composants prérequis nécessaires avant l’activation du chiffrement. Si les paramètres de pare-feu empêchent la machine virtuelle de télécharger et d’installer ces composants, des échecs sont à prévoir. Les étapes de configuration de ce système de gestion des packages peuvent varier selon la distribution. Sous Red Hat, lorsqu’un proxy est requis, vous devez absolument vous assurer que le gestionnaire d’abonnements et yum sont configurés correctement. Pour plus d’informations, consultez [Guide pratique pour résoudre les problèmes du gestionnaire d’abonnement et yum](https://access.redhat.com/solutions/189533).  
+Voir [Chiffrement de disque sur un réseau isolé](disk-encryption-isolated-network.md)
 
 ## <a name="troubleshooting-encryption-status"></a>Résolution des problèmes de l’état du chiffrement 
 

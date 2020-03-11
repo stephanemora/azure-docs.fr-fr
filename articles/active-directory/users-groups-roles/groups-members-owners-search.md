@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 02/28/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d11f5a9f2de8683365d663e85c275c3729ebf8a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a815446b79b3e5ec0a75e5d179953956643b16c9
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901313"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206110"
 ---
-# <a name="search-groups--and-members-preview-in-azure-active-directory"></a>Rechercher des groupes et des membres (préversion) dans Azure Active Directory
+# <a name="search-groups-and-members-preview-in-azure-active-directory"></a>Rechercher des groupes et des membres (préversion) dans Azure Active Directory
 
 Cet article explique comment rechercher des membres et des propriétaires d’un groupe, ainsi que comment utiliser des filtres de recherche dans le cadre de la préversion d’amélioration des groupes dans le portail Azure Active Directory (Azure AD). De nombreuses améliorations ont été apportées à l’expérience des groupes pour vous aider à gérer vos groupes, ainsi que leurs membres et propriétaires, rapidement et facilement. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -45,7 +45,7 @@ Si vous rencontrez des problèmes, vous pouvez revenir à l’expérience hérit
 
 ## <a name="group-search-and-sorting"></a>Recherche et tri de groupe
 
-La recherche dans une liste de groupes a été améliorée. Lorsque vous entrez une chaîne à rechercher, la fonction de recherche exécute automatiquement la commande `startswith` et effectue une recherche de sous-chaîne dans la liste des noms de groupes. La recherche de sous-chaîne porte uniquement sur des mots entiers et n’inclut pas de caractères spéciaux.
+La recherche dans une liste de groupes a été améliorée. Lorsque vous entrez une chaîne à rechercher, la fonction de recherche exécute automatiquement la commande `startswith` et effectue une recherche substring dans la liste des noms de groupes. La recherche de sous-chaîne porte uniquement sur des mots entiers et n’inclut pas de caractères spéciaux. La recherche substring respecte la casse.
 
 ![Nouvelles recherches de sous-chaînes dans la page Tous les groupes](./media/groups-members-owners-search/groups-search-preview.png)
 
@@ -86,7 +86,7 @@ Ces articles fournissent des informations supplémentaires sur l’utilisation d
 - [Ajouter une appartenance à un groupe](../fundamentals/active-directory-groups-membership-azure-portal.md)
 - [Gérer les règles dynamiques pour les utilisateurs dans un groupe](groups-create-rule.md)
 - [Modifier vos paramètres de groupe](../fundamentals/active-directory-groups-settings-azure-portal.md)
-- [Gérer l’accès aux ressources en utilisant des groupes](../fundamentals/active-directory-manage-groups.md)
+- [Gérer l’accès aux ressources à l’aide des groupes](../fundamentals/active-directory-manage-groups.md)
 - [Gérer l’accès aux applications SaaS en utilisant des groupes](groups-saasapps.md)
 - [Gérer des groupes au moyen de commandes PowerShell](groups-settings-v2-cmdlets.md)
 - [Ajouter un abonnement Azure à Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

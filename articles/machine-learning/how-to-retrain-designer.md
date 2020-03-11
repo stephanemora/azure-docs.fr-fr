@@ -1,23 +1,23 @@
 ---
-title: Réentraîner des modèles à l’aide du concepteur Azure Machine Learning
+title: Réentraîner des modèles à l’aide du concepteur Azure Machine Learning (préversion)
 titleSuffix: Azure Machine Learning
-description: Découvrez comment réentraîner des modèles avec des pipelines publiés dans le concepteur Azure Machine Learning.
+description: Découvrez comment réentraîner des modèles avec des pipelines publiés dans le concepteur Azure Machine Learning (préversion).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: peterlu
-author: peterclu
-ms.date: 12/15/2019
-ms.openlocfilehash: d1382da739fd8ca56d4cc53c2c302331bdfbf1c3
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.author: keli19
+author: likebupt
+ms.date: 02/24/2020
+ms.openlocfilehash: 8e7874ec2a0ea160d29f8755ca8680c4dfbeec1d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311867"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268500"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer"></a>Réentraîner des modèles avec le concepteur Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Réentraîner des modèles à l’aide du concepteur Azure Machine Learning (préversion)
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Ce guide pratique explique comment utiliser le concepteur Azure Machine Learning pour réentraîner un modèle Machine Learning. Découvrez comment utiliser des pipelines publiés pour automatiser les workflows de Machine Learning en vue d’un réentraînement.
 
@@ -29,7 +29,7 @@ Dans cet article, vous apprendrez comment :
 > * Publier le pipeline d’entraînement
 > * Réentraîner le modèle
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree).
 
@@ -69,11 +69,11 @@ Le concepteur enregistre toutes les sorties de pipeline, et notamment les modèl
 
 1. Sélectionnez le module **Entraîner le modèle**.
 
-1. Dans le volet Paramètres, sélectionnez **Sorties**.
+1. Dans le volet Paramètres, sélectionnez **Sorties+journaux**.
 
-1. Sélectionnez **Trained_model** pour télécharger le modèle.
+1. Cliquez sur l’icône **Afficher la sortie** et suivez les instructions de la fenêtre contextuelle pour localiser le modèle entraîné.
 
-![Capture d’écran montrant comment télécharger le modèle entraîné](./media/how-to-retrain-designer/download-model.png)
+![Capture d’écran montrant comment télécharger le modèle entraîné](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="create-a-pipeline-parameter"></a>Créer un paramètre de pipeline
 
@@ -119,7 +119,7 @@ Suivez les étapes ci-dessous pour envoyer une exécution de point de terminaiso
 
 1. Sélectionnez le pipeline que vous souhaitez exécuter.
 
-1. Sélectionnez **Exécuter**.
+1. Sélectionnez **Envoyer**.
 
 1. Dans la boîte de dialogue d’installation, vous pouvez indiquer une nouvelle valeur de chemin de données d’entrée, qui pointe vers votre nouveau jeu de données.
 
@@ -127,7 +127,9 @@ Suivez les étapes ci-dessous pour envoyer une exécution de point de terminaiso
 
 ### <a name="submit-runs-with-code"></a>Envoyer des exécutions avec du code
 
-Il existe plusieurs façons d’accéder programmatiquement à un point de terminaison REST en fonction de l’environnement de développement. Vous trouverez des exemples de code montrant comment envoyer des exécutions de pipeline avec des paramètres sous l’onglet **Consommer** de votre pipeline.
+Vous trouverez le point de terminaison REST d'un pipeline publié dans le panneau de vue d'ensemble. En appelant le point de terminaison, vous pouvez réentraîner le pipeline publié.
+
+Pour procéder à un appel REST, vous devez disposer d'un en-tête d'authentification de type porteur OAuth 2.0. Pour plus d’informations sur la configuration de l’authentification dans votre espace de travail et sur l’exécution d’un appel REST paramétrable, consultez [ce tutoriel](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

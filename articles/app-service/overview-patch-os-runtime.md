@@ -4,12 +4,12 @@ description: Découvrez comment Azure App Service met à jour le système d’ex
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 02fa89305c19ee4ec5e151ad36f7f5fa3e130f63
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 597964914f4022899ab027b735ec6932105497b4
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846243"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273636"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Système d’exploitation et mise à jour corrective du runtime dans Azure App Service
 
@@ -51,7 +51,7 @@ Les mises à jour et les désapprobations de runtime sont annoncées ici :
 
 ### <a name="new-patch-updates"></a>Nouvelles mises à jour correctives
 
-Les mises à jour correctives pour la version .NET, PHP, Java SDK ou Tomcat/Jetty sont appliquées automatiquement en remplaçant l’installation existante par la nouvelle version. Les mises à jour correctives Node.js sont installées côte à côte avec les versions existantes (comme pour les versions majeures et mineures à la section suivante). Les nouvelles versions du correctif Python peuvent être installées manuellement via des [extensions de site](https://www.siteextensions.net/packages?q=Tags%3A%22python%22), côte à côte avec les installations Python intégrées.
+Les mises à jour correctives pour la version .NET, PHP, Java SDK ou Tomcat/Jetty sont appliquées automatiquement en remplaçant l’installation existante par la nouvelle version. Les mises à jour correctives Node.js sont installées côte à côte avec les versions existantes (comme pour les versions majeures et mineures à la section suivante). Les nouvelles versions du correctif Python peuvent être installées manuellement par le biais des [extensions de site](https://azure.microsoft.com/blog/azure-web-sites-extensions/), côte à côte avec les installations Python intégrées.
 
 ### <a name="new-major-and-minor-versions"></a>Nouvelles versions majeures et mineures
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: f52d518d2ed1dfb62eed72cf9c0b839a37b7f856
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 0e60e782fa65cd5868bebe081673f9a158e07799
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201644"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921315"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorisations dans Azure Security Center
 
@@ -39,17 +39,17 @@ Outre ces rôles, il existe deux rôles propres à Security Center :
 
 ## <a name="roles-and-allowed-actions"></a>Rôles et actions autorisées
 
-Le tableau suivant affiche les rôles et les actions autorisées dans Security Center. Un X indique que l’action est autorisée pour ce rôle.
+Le tableau suivant affiche les rôles et les actions autorisées dans Security Center.
 
-| Role | Modifier une stratégie de sécurité | Appliquer des recommandations de sécurité à une ressource | Ignorer les alertes et les recommandations | Afficher les alertes et les recommandations |
+| Role | Modifier une stratégie de sécurité | Appliquer des recommandations de sécurité à une ressource</br> (y compris avec « Correction rapide ! ») | Ignorer les alertes et les recommandations | Afficher les alertes et les recommandations |
 |:--- |:---:|:---:|:---:|:---:|
-| Propriétaire de l’abonnement | X | X | X | X |
-| Collaborateur de l’abonnement | -- | X | X | X |
-| Propriétaire du groupe de ressources | -- | X | -- | X |
-| Collaborateur du groupe de ressources | -- | X | -- | X |
-| Lecteur | -- | -- | -- | X |
-| Security Administrator | X | -- | X | X |
-| Lecteur de sécurité | -- | -- | -- | X |
+| Propriétaire de l’abonnement | ✔ | ✔ | ✔ | ✔ |
+| Collaborateur de l’abonnement | -- | ✔ | ✔ | ✔ |
+| Propriétaire du groupe de ressources | -- | ✔ | -- | ✔ |
+| Collaborateur du groupe de ressources | -- | ✔ | -- | ✔ |
+| Lecteur | -- | -- | -- | ✔ |
+| Security Administrator | ✔ | -- | ✔ | ✔ |
+| Lecteur de sécurité | -- | -- | -- | ✔ |
 
 > [!NOTE]
 > Nous vous recommandons d’attribuer le rôle le moins permissif permettant aux utilisateurs d’effectuer leurs tâches. Par exemple, affectez le rôle Lecteur aux utilisateurs qui n’ont besoin que de consulter des informations sur l’intégrité de la sécurité d’une ressource sans effectuer aucune action, telles que l’application des recommandations ou la modification des stratégies.

@@ -1,5 +1,5 @@
 ---
-title: Former un réseau neuronal avec TensorFlow
+title: Formation et déploiement d’un modèle TensorFlow
 titleSuffix: Azure Machine Learning
 description: Découvrez comment exécuter des scripts d’entraînement TensorFlow à grande échelle avec Azure Machine Learning.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: a1c3e1948d53a168ce9a3e99cd932fa04e2fafc4
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: 2bbd81f3858aa78b9e0e2d610c0fdb0a67816c8e
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114370"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228317"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Créer un modèles de Deep Learning TensorFlow à l’échelle avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ Que vous développiez complètement un modèle TensorFlow ou que vous transmetti
 
 En savoir plus la [comparaison entre apprentissage profond et apprentissage automatique](concept-deep-learning-vs-machine-learning.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Exécutez ce code sur l’un de ces environnements :
 
@@ -305,13 +305,13 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ```
 
-## <a name="deployment"></a>Déploiement
+## <a name="deploy-a-tensorflow-model"></a>Déployer un modèle TensorFlow
 
 Le modèle que vous venez d’inscrire peut être déployé exactement de la même façon que n’importe quel autre modèle inscrit dans Azure Machine Learning, quel que soit l’estimateur utilisé pour l’entraînement. Le guide pratique de déploiement contient une section sur l’inscription des modèles, mais vous pouvez passer directement à la [création d’une cible de calcul](how-to-deploy-and-where.md#choose-a-compute-target) pour le déploiement, puisque vous disposez déjà d’un modèle inscrit.
 
-### <a name="preview-no-code-model-deployment"></a>(Préversion) Modèle de déploiement sans code
+## <a name="preview-no-code-model-deployment"></a>(Préversion) Modèle de déploiement sans code
 
-Au lieu de l’itinéraire de déploiement traditionnel, vous pouvez également utiliser la fonctionnalité de déploiement sans code (préversion) pour Tensorflow. En inscrivant votre modèle comme indiqué ci-dessus avec les paramètres `model_framework`, `model_framework_version` et `resource_configuration`, vous pouvez simplement utiliser la fonction statique `deploy()` pour déployer votre modèle.
+Au lieu de l’itinéraire de déploiement traditionnel, vous pouvez également utiliser la fonctionnalité de déploiement sans code (préversion) pour TensorFlow. En inscrivant votre modèle comme indiqué ci-dessus avec les paramètres `model_framework`, `model_framework_version` et `resource_configuration`, vous pouvez simplement utiliser la fonction statique `deploy()` pour déployer votre modèle.
 
 ```python
 service = Model.deploy(ws, "tensorflow-web-service", [model])

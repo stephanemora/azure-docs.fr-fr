@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 02/28/2020
 ms.author: victorh
-ms.openlocfilehash: 91f34d06532b2d7f56d293df40939212a4f3d68c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ab9a500d9535b55702b8baff15f8cc47e6ac2c86
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167079"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196701"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Intégrer un pare-feu Azure avec Azure Standard Load Balancer
 
@@ -28,20 +28,34 @@ Avec un équilibreur de charge public, l’équilibreur de charge est déployé 
 
 ### <a name="asymmetric-routing"></a>Routage asymétrique
 
-Le routage asymétrique signifie qu’un paquet suit un chemin jusqu’à la destination et en suit un autre lors du retour à la source. Ce problème se produit quand un sous-réseau dispose d’une route par défaut jusqu’à l’adresse IP privée du pare-feu et que vous utilisez un équilibreur de charge public. Dans ce cas, le trafic d’équilibreur de charge entrant est reçu par le biais de son adresse IP publique, mais le chemin de retour passe par l’adresse IP privée du pare-feu. Le pare-feu étant avec état, il supprime le paquet de retour, car le pare-feu n’a pas connaissance qu’une session de ce type a été établie.
+Le routage asymétrique signifie qu’un paquet suit un chemin jusqu’à la destination et en suit un autre lors du retour à la source. Ce problème se produit quand un sous-réseau dispose d’une route par défaut jusqu’à l’adresse IP privée du pare-feu et que vous utilisez un équilibreur de charge public. Dans ce cas, le trafic d’équilibreur de charge entrant est reçu par le biais de son adresse IP publique, mais le chemin de retour passe par l’adresse IP privée du pare-feu. Le pare-feu étant avec état, il supprime le paquet de retour, car le pare-feu n’a pas connaissance de l’établissement d’une session de ce type.
 
 ### <a name="fix-the-routing-issue"></a>Résoudre le problème de routage
 
-Quand vous déployez un pare-feu Azure sur un sous-réseau, l’une des étapes consiste à créer une route par défaut pour le sous-réseau, dirigeant les paquets via l’adresse IP privée du pare-feu située sur le sous-réseau du pare-feu Azure. Pour plus d’informations, consultez [Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](tutorial-firewall-deploy-portal.md#create-a-default-route)
+Quand vous déployez un pare-feu Azure sur un sous-réseau, l’une des étapes consiste à créer une route par défaut pour le sous-réseau, dirigeant les paquets via l’adresse IP privée du pare-feu située sur le sous-réseau du pare-feu Azure. Pour plus d’informations, consultez [Didacticiel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure](tutorial-firewall-deploy-portal.md#create-a-default-route)
 
 Quand vous introduisez le pare-feu dans votre scénario d’équilibreur de charge, vous souhaitez que votre trafic Internet entre par le biais de l’adresse IP de votre pare-feu. À partir de là, le pare-feu applique ses règles et dirige les paquets (grâce à la traduction d’adresses réseau) vers l’adresse IP publique de votre équilibreur de charge. C’est là que le problème se produit. Les paquets arrivent sur l’adresse IP publique du pare-feu, mais retournent vers le pare-feu par le biais de l’adresse IP privée (à l’aide de la route par défaut).
 Pour éviter ce problème, créez une route hôte supplémentaire pour l’adresse IP publique du pare-feu. Les paquets accédant à l’adresse IP publique du pare-feu sont routés via Internet. Cela évite de suivre la route par défaut jusqu’à l’adresse IP privée du pare-feu.
 
 ![Routage asymétrique](media/integrate-lb/Firewall-LB-asymmetric.png)
 
-Par exemple, les routes suivantes concernent un pare-feu à l’adresse IP publique 13.86.122.41 et l’adresse IP privée 10.3.1.4.
+### <a name="route-table-example"></a>Exemple de table de route
 
-![Table de routage](media/integrate-lb/route-table.png)
+Par exemple, les routes suivantes concernent un pare-feu à l’IP publique 20.185.97.136 et l’IP privée 10.0.1.4.
+
+> [!div class="mx-imgBorder"]
+> ![Table de routage](media/integrate-lb/route-table.png)
+
+### <a name="nat-rule-example"></a>Exemple de règle NAT
+
+Dans l’exemple suivant, une règle NAT traduit le trafic RDP au pare-feu à 20.185.97.136 vers l’équilibreur de charge à 20.42.98.220 :
+
+> [!div class="mx-imgBorder"]
+> ![NAT rule](media/integrate-lb/nat-rule-02.png)
+
+### <a name="health-probes"></a>Sondes d’intégrité
+
+N’oubliez pas que vous devez disposer d’un service web en cours d’exécution sur les hôtes du pool de l’équilibreur de charge si vous utilisez des sondes d’intégrité TCP pour le port 80 ou des sondes HTTP/HTTPS.
 
 ## <a name="internal-load-balancer"></a>Équilibreur de charge interne
 
@@ -56,6 +70,8 @@ Ainsi, vous pouvez déployer ce scénario de la même manière que le scénario 
 Pour améliorer la sécurité de votre scénario d’équilibreur de charge, vous pouvez utiliser des groupes de sécurité réseau (NSG).
 
 Vous pouvez par exemple créer un groupe de sécurité réseau sur le sous-réseau back-end où se trouvent les machines virtuelles à charge équilibrée. Autorisez le trafic entrant en provenance de l’adresse IP/du port du pare-feu.
+
+![Groupe de sécurité réseau](media/integrate-lb/nsg-01.png)
 
 Pour plus d’informations sur les groupes de sécurité réseau, consultez [Groupes de sécurité](../virtual-network/security-overview.md).
 

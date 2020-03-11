@@ -12,12 +12,12 @@ ms.date: 12/08/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 23433c816fc7b002c3426a0aac7c0aade8cdb338
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 9ea3388cb65b18c093ffff3ec8b8c9f2764ef189
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585847"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78300066"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procédure : Fournir des revendications facultatives à votre application Azure AD
 
@@ -122,7 +122,7 @@ Cet objet OptionalClaims renvoie au client le jeton d’ID pour y inclure un aut
 ## <a name="configuring-optional-claims"></a>Configuration des revendications facultatives
 
 > [!IMPORTANT]
-> Les jetons d’accès sont **toujours** générés à l’aide du manifeste de la ressource, pas du client.  Donc, dans la requête `...scope=https://graph.microsoft.com/user.read...`, la ressource est Graph.  Ainsi, le jeton d’accès est créé à l’aide du manifeste Graph, et non du manifeste du client.  Si vous modifiez le manifeste de votre application, les jetons pour Graph ne changent jamais.  Pour vérifier que vos modifications de `accessToken` sont effectives, demandez un jeton pour votre application, pas pour une autre application.  
+> Les jetons d’accès sont **toujours** générés à l’aide du manifeste de la ressource, pas du client.  Donc, dans la requête `...scope=https://graph.microsoft.com/user.read...`, la ressource est l’API Microsoft Graph.  Ainsi, le jeton d’accès est créé à l’aide du manifeste de l’API Microsoft Graph, et non du manifeste du client.  La modification du manifeste de votre application n’entraînera jamais de changement au niveau des jetons pour l’API Microsoft Graph.  Pour vérifier que vos modifications de `accessToken` sont effectives, demandez un jeton pour votre application, pas pour une autre application.  
 
 Vous pouvez configurer des revendications facultatives pour votre application par le biais de l’interface utilisateur ou du manifeste de l’application.
 
@@ -349,7 +349,7 @@ Dans cette section, vous allez suivre un scénario afin de voir comment utiliser
 Plusieurs options sont disponibles pour mettre à jour les propriétés de configuration d’identité d’une application afin d’activer et de configurer des revendications facultatives :
 -    Vous pouvez utiliser l’interface utilisateur **Configuration du jeton (préversion)** (Voir l’exemple ci-dessous)
 -    Vous pouvez utiliser le **Manifeste** (Voir l’exemple ci-dessous). Pour obtenir une présentation du manifeste, lisez d’abord l’article [Manifeste de l’application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest).
--   Il est également possible d’écrire une application qui utilise l’[API Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) pour mettre à jour votre application. Le type [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) dans le guide de référence de l’API Graph peut vous aider à configurer les revendications facultatives.
+-   Il est également possible d’écrire une application qui utilise l’[API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) pour mettre à jour votre application. Le type [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) dans le guide de référence de l’API Microsoft Graph peut vous aider à configurer les revendications facultatives.
 
 **Exemple :** Dans l’exemple ci-dessous, vous allez utiliser l’interface utilisateur **Configuration du jeton (préversion)** et le **Manifeste** pour ajouter des revendications facultatives aux jetons d’accès, d’ID et SAML destinés à votre application. Différentes revendications facultatives seront ajoutées à chaque type de jeton que l’application peut recevoir :
 -    Les jetons d’ID contiendront désormais l’UPN pour les utilisateurs fédérés au format complet (`<upn>_<homedomain>#EXT#@<resourcedomain>`).
