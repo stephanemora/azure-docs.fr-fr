@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: 4d7c094904529323b0665d14255d1eb76cb78bd3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/02/2020
+ms.openlocfilehash: 06428d4a9c4a4178212d16d42b8b3adffb5c9718
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891918"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250286"
 ---
 # <a name="copy-data-from-and-to-sftp-server-using-azure-data-factory"></a>Copier des données depuis et vers un serveur SFTP à l’aide d’Azure Data Factory
 
@@ -41,7 +41,7 @@ Plus précisément, ce connecteur SFTP prend en charge ce qui suit :
 - Copie de fichiers depuis et vers SFTP en utilisant une authentification **De base** ou **SshPublicKey**.
 - Copie de fichiers en l'état ou analyse/génération de fichiers avec les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -72,7 +72,7 @@ Pour utiliser l’authentification de base, définissez la propriété « authe
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | userName | Utilisateur ayant accès au serveur SFTP. |Oui |
-| password | Mot de passe de l’utilisateur (userName). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| mot de passe | Mot de passe de l’utilisateur (userName). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 
 **Exemple :**
 
@@ -287,7 +287,11 @@ Les propriétés suivantes sont prises en charge pour SFTP sous les paramètres 
 | type                     | La propriété type sous `storeSettings` doit être définie sur **SftpWriteSettings**. | Oui      |
 | copyBehavior             | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin relatif du fichier source vers le dossier source est identique au chemin relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les noms des fichiers cibles sont générés automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. | Non       |
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de données. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non       |
+| useTempFileRename | Indiquez si vous souhaitez effectuer un chargement dans un ou plusieurs fichiers temporaires puis les renommer, ou si vous souhaitez écrire directement dans le dossier ou l’emplacement de fichier cible. Par défaut, ADF écrit d’abord les données dans les fichiers temporaires, puis renomme les fichiers une fois le chargement terminé. Il procède ainsi pour deux raisons : 1) éviter un conflit d’écriture qui endommagerait le fichier si d’autres processus d’écriture étaient en cours dans ce fichier, et 2) vérifier que la version d’origine du fichier est présente tout au long du processus de transfert. Si votre serveur SFTP ne prend pas en charge l’opération de renommage, désactivez cette option et vérifiez qu’il n’existe pas un autre processus d’écriture en cours dans le fichier cible. Lisez les conseils de dépannage situés sous le tableau. | Non. La valeur par défaut est true. |
 | operationTimeout | Délai d’attente avant l’expiration de chaque demande d’écriture au serveur SFTP. La valeur par défaut est 60 minutes (01:00:00).|Non |
+
+>[!TIP]
+>Si vous avez rencontré l’erreur « UserErrorSftpPathNotFound », « UserErrorSftpPermissionDenied » ou « SftpOperationFail » lors de l’écriture de données dans SFTP alors que l’utilisateur SFTP dispose de l’autorisation appropriée, vérifiez que votre serveur SFTP prend en charge l’opération de renommage de fichier. Si ce n’est pas le cas, désactivez l’option permettant d’effectuer le chargement avec le fichier temporaire (`useTempFileRename`), puis réessayez. Découvrez la propriété du tableau ci-dessus. Si vous utilisez des runtime d’intégration auto-hébergés pour la copie, veillez à utiliser la version 4.6 ou une version ultérieure.
 
 **Exemple :**
 
@@ -350,7 +354,7 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 ## <a name="legacy-models"></a>Modèles hérités
 
 >[!NOTE]
->Les modèles suivants sont toujours pris en charge tels quels à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans les sections ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
+>Les Modèles suivants sont toujours pris en charge tels quels à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau Modèle mentionné dans les sections ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau Modèle.
 
 ### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 

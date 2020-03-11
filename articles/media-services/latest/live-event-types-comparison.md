@@ -1,6 +1,6 @@
 ---
 title: Types d’événements en temps réel Azure Media Services | Microsoft Docs
-description: 'Dans Azure Media Services, un événement en direct peut être de deux types : pass-through et Live Encoding. Cet article contient un tableau détaillé qui compare des types d’événements en direct.'
+description: Dans Azure Media Services, un événement en direct peut être *Pass-through* ou *Live Encoding*. Cet article contient un tableau détaillé qui compare des types d’événements en direct.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,16 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 2dd3b3ffae39d43a3b865804af2e743bad87f8ea
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: a28d4d96f643c12eeb6aa542db2c6af06f4fd954
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543050"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78244641"
 ---
 # <a name="live-event-types-comparison"></a>Comparaison des types d’événements en direct
 
-Dans Azure Media Services, un [événement en direct](https://docs.microsoft.com/rest/api/media/liveevents) peut être de deux types : pass-through et Live Encoding. 
+Dans Azure Media Services, un [événement en direct](https://docs.microsoft.com/rest/api/media/liveevents) peut être défini sur *Pass-through* (un encodeur live local envoie un flux à vitesse de transmission multiple) ou sur *Live Encoding* (un encodeur live local envoie un flux à vitesse de transmission unique). 
+
+Cet article compare les fonctionnalités des types d’événements en direct.
 
 ## <a name="types-comparison"></a>Comparaison des types 
 

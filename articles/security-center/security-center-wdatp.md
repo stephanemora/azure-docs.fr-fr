@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 46b9fe5c6a038aa98cf8df64c40bf8ea1747efec
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 13852acb39a420e2f0da84e18bef4df823c1fa78
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663606"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206263"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection avec Azure Security Center
 
@@ -48,7 +48,7 @@ Pour approfondir vos recherches, utilisez Microsoft Defender ATP. Microsoft Defe
 
 ![Page Microsoft Defender ATP avec des informations détaillées sur une alerte](media/security-center-wdatp/image3.png)
 
-## <a name="platform-support"></a>Prise en charge de plateformes
+## <a name="platform-support"></a>Plateforme prise en charge
 
 Microsoft Defender ATP dans Security Center prend en charge la détection sur Windows Server 2016, 2012 R2 et 2008 R2 SP1. Pour les machines virtuelles Azure, vous avez besoin d’un abonnement de niveau standard ; pour les autres, il vous faut un niveau standard pour l’espace de travail uniquement.
 
@@ -95,19 +95,21 @@ Si vous avez un proxy ou un pare-feu qui bloque le trafic anonyme, comme un capt
 
 Pour générer une alerte de test Microsoft Defender ATP inoffensive :
 
-1. Utilisez le Bureau à distance pour accéder à une machine virtuelle Windows Server 2012 R2 ou à une machine virtuelle Windows Server 2016. Ouvrez une fenêtre d’invite de commandes.
+1. Créez un dossier « C:\test-MDATP-test ».
 
-2. A l'invite, copiez et exécutez la commande suivante. La fenêtre d’invite de commandes se ferme automatiquement.
+1. Utilisez le Bureau à distance pour accéder à une machine virtuelle Windows Server 2012 R2 ou à une machine virtuelle Windows Server 2016. Ouvrez une fenêtre de ligne de commande.
+
+1. A l'invite, copiez et exécutez la commande suivante. La fenêtre d’invite de commandes se ferme automatiquement.
 
     ```
-    powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-WDATP-test\\invoice.exe'); Start-Process 'C:\\test-WDATP-test\\invoice.exe'
+    powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
     ```
 
    ![Une fenêtre d’invite de commandes avec la commande ci-dessus](media/security-center-wdatp/image4.jpeg)
 
 3. Si la commande réussit, une nouvelle alerte s’affiche sur le tableau de bord Azure Security Center et sur le portail Microsoft Defender ATP. L’alerte peut mettre quelques minutes à s’afficher.
 
-4. Pour examiner l’alerte dans Security Center, accédez à **Alertes de sécurité** > **Ligne de commande Powershell suspecte**.
+4. Pour examiner l’alerte dans Security Center, accédez à **Alertes de sécurité** > **Ligne de commande PowerShell suspecte**.
 
 5. Dans la fenêtre d’enquête, sélectionnez le lien d’accès au portail Microsoft Defender ATP.
 

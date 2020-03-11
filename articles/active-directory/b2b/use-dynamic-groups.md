@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 02/28/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4e3f64cb6aefb35c3f85bafc2bb408f998626d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41e8b81bc3594c6a378757636f70058510a38cc7
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112833"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226860"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Groupes dynamiques et Azure Active Directory B2B Collaboration
 
@@ -25,21 +25,51 @@ La configuration dynamique de l’appartenance au groupe de sécurité pour Azur
 
 La [licence Azure AD Premium P1 ou P2](https://azure.microsoft.com/pricing/details/active-directory/) appropriée est nécessaire pour créer et utiliser des groupes dynamiques. Pour en savoir plus, consultez l’article [Créer des règles basées sur les attributs pour l’appartenance à un groupe dynamique dans Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md).
 
-## <a name="what-are-the-built-in-dynamic-groups"></a>Que sont les groupes dynamiques intégrés ?
-Le groupe dynamique **Tous les utilisateurs** permet à des administrateurs de locataires de créer un groupe contenant tous les utilisateurs dans le locataire en un seul clic. Par défaut, le groupe **Tous les utilisateurs** inclut tous les utilisateurs du répertoire, dont les invités et les utilisateurs externes.
-Dans le nouveau portail d’administration Azure Active Directory, vous pouvez choisir d’activer le groupe **Tous les utilisateurs** dans l’affichage des paramètres de groupe.
+## <a name="creating-an-all-users-dynamic-group"></a>Création d'un groupe dynamique « Tous les utilisateurs »
+Vous pouvez créer un groupe contenant tous les utilisateurs d’un client à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression ultérieurs d’utilisateurs dans le client, l’appartenance du groupe est ajustée automatiquement.
 
-![Activer le groupe Tous les utilisateurs défini sur Oui](media/use-dynamic-groups/enable-all-users-group.png)
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte attribué au rôle d'administrateur général ou d’administrateur d’utilisateurs dans le locataire.
+1. Sélectionnez **Azure Active Directory**.
+2. Sous **Gérer**, sélectionnez **Groupes**, puis **Nouveau groupe**.
+1. Sur la page **Nouveau groupe**, sous **Type de groupe**, sélectionnez **Sécurité**. Entrez un **nom** et une **description** pour le nouveau groupe. 
+2. Sous **Type d'appartenance**, sélectionnez **Utilisateur dynamique**, puis **Ajouter une requête dynamique**. 
+4. Au-dessus de la zone de texte **Syntaxe de la règle**, sélectionnez **Modifier**. Sur la page **Modifier la syntaxe de la règle**, entrez l’expression suivante dans la zone de texte :
 
-## <a name="hardening-the-all-users-dynamic-group"></a>Renforcement de la sécurité du groupe dynamique Tous les utilisateurs
-Par défaut, le groupe **Tous les utilisateurs** contient également vos utilisateurs B2B Collaboration (invités). Vous pouvez sécuriser davantage votre groupe **Tous les utilisateurs** en utilisant une règle pour supprimer les utilisateurs invités. L’illustration suivante montre le groupe **Tous les utilisateurs** modifié de manière à exclure les invités.
+   ```
+   user.objectId -ne null
+   ```
+1. Sélectionnez **OK**. La règle s’affiche dans la zone Syntaxe de la règle :
 
-![Règle pour laquelle le type utilisateur n’est pas Invité](media/use-dynamic-groups/exclude-guest-users.png)
+   ![Syntaxe de la règle du groupe dynamique « Tous les utilisateurs »](media/use-dynamic-groups/all-user-rule-syntax.png)
 
-Vous trouverez peut-être aussi utile de créer un groupe dynamique contenant uniquement les utilisateurs invités, afin de pouvoir leur appliquer des stratégies (telles que des stratégies d’accès conditionnel Azure AD).
-Ce groupe pourrait ressembler à ceci :
+1.  Sélectionnez **Enregistrer**. Le nouveau groupe dynamique inclut désormais les utilisateurs invités B2B, ainsi que les utilisateurs membres.
 
-![Règle pour laquelle le type utilisateur est Invité](media/use-dynamic-groups/only-guest-users.png)
+
+1. Sélectionnez **Créer** sur la page **Nouveau groupe** pour créer le groupe.
+
+## <a name="creating-a-group-of-members-only"></a>Création d’un groupe de membres uniquement
+
+Si vous souhaitez exclure de votre groupe les utilisateurs invités et y inclure uniquement les membres de votre locataire, créez un groupe dynamique comme décrit ci-dessus, mais dans la zone **Syntaxe de la règle**, entrez l’expression suivante :
+
+```
+(user.objectId -ne null) and (user.userType -eq "Member")
+```
+
+L’image suivante illustre la syntaxe de règle d'un groupe dynamique modifié afin d’inclure uniquement les membres et d’exclure les invités.
+
+![Règle pour laquelle le type utilisateur est Membre](media/use-dynamic-groups/all-member-user-rule-syntax.png)
+
+## <a name="creating-a-group-of-guests-only"></a>Création d’un groupe d’invités uniquement
+
+Vous trouverez peut-être aussi utile de créer un groupe dynamique contenant uniquement les utilisateurs invités, afin de pouvoir leur appliquer des stratégies (telles que des stratégies d’accès conditionnel Azure AD). Créez un groupe dynamique comme décrit ci-dessus, mais dans la zone **Syntaxe de la règle**, entrez l’expression suivante :
+
+```
+(user.objectId -ne null) and (user.userType -eq "Guest")
+```
+
+L’image suivante illustre la syntaxe de règle d'un groupe dynamique modifié afin d’inclure uniquement les invités et d’exclure les membres.
+
+![Règle pour laquelle le type utilisateur est Invité](media/use-dynamic-groups/all-guest-user-rule-syntax.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

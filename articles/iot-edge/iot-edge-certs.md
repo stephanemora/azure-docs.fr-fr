@@ -8,12 +8,12 @@ ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a222f72e705184c5a7ba6701cfda41073c7eba57
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 58294c7afdf31ddd29611351d6442db1c4966157
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548745"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269050"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Comprendre Azure IoT Edge utilise les certificats
 
@@ -69,7 +69,7 @@ On peut raisonnablement se demander pourquoi IoT Edge a besoin d’un certifica
 
 * Avec n’importe quel processus reposant sur un certificat, le certificat d’autorité de certification racine et tous les certificats d’autorité de certification intermédiaires doivent être sécurisés et surveillés pendant tout le processus de déploiement d’un appareil IoT Edge. Le fabricant de l’appareil IoT Edge doit mettre en place des processus stricts pour un stockage et une utilisation appropriés de ses certificats intermédiaires. En outre, le certificat d’autorité de certification de l’appareil doit être conservé dans un emplacement de stockage aussi sécurisé que possible sur l’appareil lui-même, de préférence un module de sécurité matériel.
 
-* Le certificat de serveur du hub IoT Edge est présenté par le hub IoT Edge sur les appareils et les modules des clients qui se connectent. Le nom commun du certificat d’autorité de certification d’appareil **ne doit pas** être le même que le « hostname » qui sera utilisé dans le fichier config.yaml sur l’appareil IoT Edge. Le nom utilisé par les clients pour se connecter à IoT Edge (par exemple, via le paramètre GatewayHostName de la chaîne de connexion ou la commande CONNECT de MQTT) **ne peut pas être** le nom commun utilisé dans le certificat d’autorité de certification d’appareil. Cela est dû au fait que le hub IoT Edge présente sa chaîne d’approbation dans son intégralité afin que les clients la vérifient. Si le certificat de serveur du hub IoT Edge et le certificat d’autorité de certification d’appareil ont tous deux le même nom commun, vous obtenez une boucle de vérification, ce qui rend non valide votre certificat.
+* Le certificat de serveur du hub IoT Edge est présenté par le hub IoT Edge sur les appareils et les modules des clients qui se connectent. Le nom commun du certificat d’autorité de certification d’appareil **ne doit pas** être le même que le « hostname » qui sera utilisé dans le fichier config.yaml sur l’appareil IoT Edge. Le nom utilisé par les clients pour se connecter à IoT Edge (par exemple, via le paramètre GatewayHostName de la chaîne de connexion ou la commande CONNECT de MQTT) **ne peut pas être** identique au nom commun utilisé dans le certificat d’autorité de certification d’appareil. Cela est dû au fait que le hub IoT Edge présente sa chaîne d’approbation dans son intégralité afin que les clients la vérifient. Si le certificat de serveur du hub IoT Edge et le certificat d’autorité de certification d’appareil ont tous deux le même nom commun, vous obtenez une boucle de vérification, ce qui rend non valide votre certificat.
 
 * Étant donné que le certificat d’autorité de certification d’appareil est utilisé par le démon de sécurité IoT Edge pour générer les certificats IoT Edge finaux, il doit lui-même être un certificat de signature, ce qui signifie qu’il a des fonctionnalités de signature de certificat. L’application du paramètre « V3 Basic constraints CA:True » au certificat d’autorité de certification d’appareil configure automatiquement les propriétés d’utilisation de clé nécessaires.
 

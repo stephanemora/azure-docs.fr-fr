@@ -1,6 +1,6 @@
 ---
 title: Transparent Data Encryption (Portail)
-description: Chiffrement transparent des données (TDE) dans SQL Data Warehouse
+description: Transparent Data Encryption (TDE) dans Azure Synapse Analytics
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/30/2019
 ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4435c5f246d6dd20fd0b2c560634f6980d6aa2ff
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c121f9c16895a749922525d1ba85ee2c2e60cfb0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685770"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195854"
 ---
-# <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>Mise en route avec le chiffrement transparent des données (TDE) dans SQL Data Warehouse
+# <a name="get-started-with-transparent-data-encryption-tde"></a>Prise en main du chiffrement transparent des données (TDE)
 > [!div class="op_single_selector"]
 > * [Présentation de la sécurité](sql-data-warehouse-overview-manage-security.md)
 > * [Authentification](sql-data-warehouse-authentication.md)
@@ -31,22 +31,22 @@ ms.locfileid: "73685770"
 Pour activer le chiffrement transparent des données (TDE), vous devez être un administrateur ou un membre du rôle dbmanager.
 
 ## <a name="enabling-encryption"></a>Activation du chiffrement
-Pour activer le chiffrement transparent des données pour SQL Data Warehouse, procédez comme suit :
+Pour activer TDE, procédez comme suit :
 
 1. Ouvrez la base de données dans le [portail Azure](https://portal.azure.com)
 2. Dans le panneau de la base de données, cliquez sur le bouton **Paramètres**
 3. Sélectionnez l’option **Chiffrement transparent des données**![][1]
-4. Sélectionnez le paramètre **Activé** ![][2]
+4. Sélectionnez le paramètre **Activé**![][2]
 5. Sélectionnez **Enregistrer**
    ![][3]  
 
 ## <a name="disabling-encryption"></a>Désactivation du chiffrement
-Pour désactiver le chiffrement transparent des données pour SQL Data Warehouse, procédez comme suit :
+Pour désactiver TDE, procédez comme suit :
 
 1. Ouvrez la base de données dans le [portail Azure](https://portal.azure.com)
 2. Dans le panneau de la base de données, cliquez sur le bouton **Paramètres**
 3. Sélectionnez l’option **Chiffrement transparent des données**![][1]
-4. Sélectionnez le paramètre **Désactivé** ![][4]
+4. Sélectionnez le paramètre **Désactivé**![][4]
 5. Sélectionnez **Enregistrer**
    ![][5]  
 

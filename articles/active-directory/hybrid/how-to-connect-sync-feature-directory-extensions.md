@@ -16,15 +16,16 @@ ms.date: 11/12/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 138ca9bf3352c46b8ac495b58a2fd6d7bafeb658
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 80438319a6337dd6f28f9bdca8a428829b6cb0b9
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889815"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917911"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Synchronisation d’Azure AD Connect : Extensions d’annuaire
-Vous pouvez utiliser les extensions d’annuaire pour étendre le schéma dans Azure Active Directory (Azure AD) avec vos propres attributs à partir d’un annuaire Active Directory local. Cette fonctionnalité vous permet de générer des applications métiers en consommant les attributs que vous continuez à gérer en local. Ces attributs peuvent être consommés par le biais des [extensions d’annuaire de l’API Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou de [Microsoft Graph](https://developer.microsoft.com/graph/). Vous pouvez visualiser les attributs disponibles en utilisant [l’explorateur Azure AD Graph](https://graphexplorer.azurewebsites.net/) et [l’Explorateur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) respectivement. Vous pouvez également utiliser cette fonctionnalité pour créer des groupes dynamiques dans Azure AD.
+Vous pouvez utiliser les extensions d’annuaire pour étendre le schéma dans Azure Active Directory (Azure AD) avec vos propres attributs à partir d’un annuaire Active Directory local. Cette fonctionnalité vous permet de générer des applications métiers en consommant les attributs que vous continuez à gérer en local. Ces attributs peuvent être utilisés via des [extensions](https://docs.microsoft.com/graph/extensibility-overview
+). Vous pouvez voir les attributs disponibles à l’aide de [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Vous pouvez également utiliser cette fonctionnalité pour créer des groupes dynamiques dans Azure AD.
 
 Actuellement, aucune charge de travail Office 365 ne consomme ces attributs.
 
@@ -61,16 +62,12 @@ Veillez à sélectionner **Toutes les applications** pour voir cette application
 
 Les attributs ont pour préfixe **extension \_{ApplicationId}\_** . ApplicationId a la même valeur pour tous les attributs de votre locataire Azure AD. Vous aurez besoin de cette valeur pour tous les autres scénarios de cette rubrique.
 
-## <a name="viewing-attributes-using-graph"></a>Affichage des attributs avec Graph
+## <a name="viewing-attributes-using-the-microsoft-graph-api"></a>Affichage des attributs à l’aide de l’API Microsoft Graph
 
-Ces attributs sont désormais disponibles par le biais de l’API Azure AD Graph. Vous pouvez les interroger en utilisant [l’explorateur Azure AD Graph](https://graphexplorer.azurewebsites.net/).
-
-![Explorateur Azure AD Graph](./media/how-to-connect-sync-feature-directory-extensions/extension4.png)
-
-Vous avez également la possibilité d’interroger les attributs par le biais de l’API Microsoft Graph, en utilisant [l’explorateur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer#).
+Ces attributs sont désormais disponibles par le biais de l’API Microsoft Graph, en utilisant [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> Dans Microsoft Graph, vous devez demander que les attributs soient retournés. Sélectionnez explicitement les attributs comme suit : https\://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division.
+> Dans l’API Microsoft Graph, vous devez demander que les attributs soient retournés. Sélectionnez explicitement les attributs comme suit : `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`.
 >
 > Pour plus d’informations, consultez [Microsoft Graph : Utiliser des paramètres de requête](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 

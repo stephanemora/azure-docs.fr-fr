@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: memildin
-ms.openlocfilehash: b8b8b05f703a3eb05936ca95e2047a13650914cf
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: b1e1402f58b103570d6a98a5f9a01c8168abf749
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604269"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912358"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Comprendre les recommandations sur les conteneurs d’Azure Security Center
 
@@ -35,7 +35,7 @@ Azure Security Center fournit les fonctionnalités suivantes pour vous aider à 
 
     ![onglet Conteneur](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
-- **Détection en temps réel des menaces visant les conteneurs**<br> Security Center assure une détection des menaces en temps réel pour vos conteneurs sur des machines Linux avec le composant AuditD. Les alertes identifient plusieurs activités Docker suspectes, comme la création d’un conteneur privilégié sur l’hôte, l’indication de l’exécution d’un serveur SSH (Secure Shell) à l’intérieur d’un conteneur Docker ou l’utilisation de mineurs de chiffrement. Vous pouvez utiliser ces informations pour remédier rapidement aux problèmes de sécurité et améliorer la sécurité de vos conteneurs.
+- **Protection en temps réel contre les menaces visant les conteneurs**<br> Security Center assure une protection contre les menaces en temps réel pour vos conteneurs sur des machines Linux avec le composant AuditD. Les alertes identifient plusieurs activités Docker suspectes, comme la création d’un conteneur privilégié sur l’hôte, l’indication de l’exécution d’un serveur SSH (Secure Shell) à l’intérieur d’un conteneur Docker ou l’utilisation de mineurs de chiffrement. Vous pouvez utiliser ces informations pour remédier rapidement aux problèmes de sécurité et améliorer la sécurité de vos conteneurs.
 
     ![onglet Conteneur](./media/security-center-container-recommendations/docker-threat-detection.png)
 

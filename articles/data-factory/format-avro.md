@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/03/2020
 ms.author: jingwang
-ms.openlocfilehash: 6d867ccd8704d4aba4627e7b81638394b7e1e8d3
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 1717969aeb24a153f986c70ef60db1aac5c840fb
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77423777"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267788"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Format Avro dans Azure Data Factory
 
@@ -83,7 +83,11 @@ Les propriétés prises en charge dans la section ***\*récepteur\**** de l’ac
 
 ## <a name="data-type-support"></a>Prise en charge des types de données
 
-[Les types de données complexes](https://avro.apache.org/docs/current/spec.html#schema_complex) Avro ne sont pas pris en charge (enregistrements, enums, tables, cartes, unions et fixes).
+### <a name="copy-activity"></a>Activité de copie
+Les [types de données complexes](https://avro.apache.org/docs/current/spec.html#schema_complex) Avro ne sont pas pris en charge (enregistrements, enums, tables, cartes, unions et fixes) par l’activité de copie.
+
+### <a name="data-flows"></a>Flux de données
+Lorsque vous utilisez des fichiers Avro dans des flux de données, vous pouvez lire et écrire des types de données complexes, mais vous devez d’abord effacer le schéma physique du jeu de données. Dans les flux de données, vous pouvez définir votre projection logique et dériver les colonnes qui ont des structures complexes, puis mapper automatiquement ces champs à un fichier Avro.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

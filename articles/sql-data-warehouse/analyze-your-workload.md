@@ -1,30 +1,30 @@
 ---
 title: Analyser votre charge de travail
-description: Techniques d’analyse des priorités de requête de votre charge de travail dans Azure SQL Data Warehouse.
+description: Techniques d’analyse des priorités de requête de votre charge de travail dans Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 03/13/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 14e53c1ebe63fac0f7c8e29f66ee5aa0cb3b9526
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 9b1432c41e56c6e0bc3fd80f9c2dbb36374d9e2a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693117"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199993"
 ---
-# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analyser la charge de travail dans Azure SQL Data Warehouse
+# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Analyser la charge de travail dans Azure Synapse Analytics
 
-Techniques d’analyse de votre charge de travail dans Azure SQL Data Warehouse.
+Techniques d’analyse des priorités de votre charge de travail SQL Analytics dans Azure Synapse Analytics.
 
 ## <a name="resource-classes"></a>Classes de ressources
 
-SQL Data Warehouse fournit des classes de ressources pour affecter des ressources système aux requêtes.  Pour plus d’informations sur les classes de ressources, consultez [Classes de ressources et gestion des charges de travail](resource-classes-for-workload-management.md).  Les requêtes attendront si la classe de ressources affectée à une requête nécessite plus de ressources que de ressources actuellement disponibles.
+SQL Analytics fournit des classes de ressources pour attribuer des ressources système aux requêtes.  Pour plus d’informations sur les classes de ressources, consultez [Classes de ressources et gestion des charges de travail](resource-classes-for-workload-management.md).  Les requêtes attendront si la classe de ressources affectée à une requête nécessite plus de ressources que de ressources actuellement disponibles.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Détection des requêtes en file d’attente et autres vues de gestion dynamique
 
@@ -63,7 +63,7 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-SQL Data Warehouse offre les types d’attente suivants :
+SQL Analytics offre les types d’attente suivants :
 
 * **LocalQueriesConcurrencyResourceType** : requêtes qui figurent à l’extérieur de l’infrastructure d’emplacements de concurrence. Les requêtes DMV et les fonctions système telles que `SELECT @@VERSION` sont des exemples de requête locale.
 * **UserConcurrencyResourceType** : requêtes qui figurent à l’intérieur de l’infrastructure d’emplacements de concurrence. Les requêtes exécutées sur des tables d’utilisateurs finaux sont des exemples de requêtes qui doivent utiliser ce type de ressource.
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la gestion de la sécurité et des utilisateurs de base de données, consultez [Sécuriser une base de données dans SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). Pour plus d’informations sur la façon dont les classes de ressources plus élevées peuvent améliorer la qualité des index columnstore en cluster, consultez [Reconstruire des index pour améliorer la qualité de segment](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Pour plus d’informations sur la gestion de la sécurité et des utilisateurs de base de données, consultez [Sécuriser une base de données dans SQL Analytics](sql-data-warehouse-overview-manage-security.md). Pour plus d’informations sur la façon dont les classes de ressources plus élevées peuvent améliorer la qualité des index columnstore en cluster, consultez [Reconstruire des index pour améliorer la qualité de segment](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f1656d730d55d4c5ab7fb963e49a8057ad88c9f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 80f8d66795971c6a5c84be7088387e63d7acd7a7
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185538"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248681"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Configurer des domaines personnalisés dans avec le Proxy d’application Azure AD
 
@@ -130,9 +130,9 @@ Aucune restriction ne s’applique aux méthodes de signature de certificat. Les
 
 Vous pouvez utiliser un certificat avec caractères génériques tant que ceux-ci correspondent à l’URL externe. Vous devez utiliser des certificats avec caractères génériques pour des [applications génériques](application-proxy-wildcard.md). Si vous souhaitez utiliser le certificat pour accéder également aux sous-domaines, vous devez ajouter les caractères génériques du sous-domaine en tant qu’autres noms d’objet dans le même certificat. Par exemple, un certificat pour *\*.adventure-works.com* ne peut fonctionner pour *\*.apps.adventure-works.com* que si vous ajoutez *\*.apps.adventure-works.com* en tant qu’autre nom de l’objet. 
 
-Vous pouvez utiliser des certificats émis par votre propre infrastructure à clé publique (PKI) si la chaîne d’approbation est installée sur vos appareils clients. Intune peut déployer ces certificats sur des appareils gérés. Pour des appareils non gérés, vous devez installer ces certificats manuellement.
+Vous pouvez utiliser des certificats émis par votre propre infrastructure à clé publique (PKI) si la chaîne d’approbation est installée sur vos appareils clients. Intune peut déployer ces certificats sur des appareils gérés. Pour des appareils non gérés, vous devez installer ces certificats manuellement. 
 
-Il n’est pas judicieux d’utiliser une autorité de certification racine privée. L’autorité de certification racine privée devrait également être envoyée aux machines clientes, ce qui poserait de nombreuses difficultés. 
+Nous vous déconseillons d’utiliser une autorité de certification racine privée, car une telle autorité de certification doit également être envoyée aux ordinateurs clients, ce qui peut entraîner de nombreux défis.
 
 ### <a name="certificate-management"></a>Gestion des certificats
 

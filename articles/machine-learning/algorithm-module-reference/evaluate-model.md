@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
-ms.openlocfilehash: 5951c6ec63478b4b266f22eaf8bf3162e0a45df0
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.date: 02/24/2020
+ms.openlocfilehash: a665ee97f923620bb484243d5cd4904a647969e4
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137548"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917428"
 ---
 # <a name="evaluate-model-module"></a>Module Évaluer le modèle
 
@@ -25,7 +25,8 @@ Utilisez ce module pour mesurer la précision d’un modèle formé. Vous fourni
  Les métriques retournées par **Évaluer le modèle** varient selon le type de modèle que vous évaluez :  
   
 -   **Modèles de classification**    
--   **Modèles de régression**    
+-   **Modèles de régression**  
+-   **Modèles de clustering**  
 
 
 > [!TIP]
@@ -72,7 +73,7 @@ Le modèle ou les données associés au port de gauche apparaissent en premier d
 
 Par exemple, l’image suivante représente une comparaison des résultats de deux modèles de clustering qui ont été créés sur les mêmes données, mais avec des paramètres différents.  
 
-![AML&#95;Comparing2Models](media/module/aml-comparing2models.png "AML_Comparing2Models")  
+![Comparing2Models](media/module/evaluate-2-models.png)  
 
 Comme il s’agit d’un modèle de clustering, les résultats de l’évaluation sont différents de ceux obtenus si vous aviez comparé les scores de deux modèles de régression ou comparé deux modèles de classification. La présentation globale est toutefois la même. 
 
@@ -82,10 +83,11 @@ Cette section décrit les métriques retournées pour les types spécifiques de 
 
 + [modèles de classification](#metrics-for-classification-models)
 + [modèles de régression](#metrics-for-regression-models)
++ [modèles de clustering](#metrics-for-clustering-models)
 
 ### <a name="metrics-for-classification-models"></a>Métriques pour les modèles de classification
 
-Les métriques suivantes sont rapportées lors de l’évaluation de modèles de classification. Si vous comparez des modèles, elles sont classées selon la métrique que vous sélectionnez pour l’évaluation.  
+Les métriques suivantes sont rapportées lors de l’évaluation de modèles de classification.
   
 -   L’**exactitude** mesure l’adéquation d’un modèle de classification sous forme de proportion de résultats réels sur le nombre total de cas.  
   
@@ -105,7 +107,7 @@ Les métriques suivantes sont rapportées lors de l’évaluation de modèles de
  
 Les métriques retournées pour les modèles de régression sont conçues pour estimer la quantité d’erreurs.  Un modèle est jugé correctement adapté aux données si la différence entre valeurs observées et prévues est faible. Toutefois, l’observation du modèle des résidus (la différence entre n’importe quel point prédit et sa valeur réelle correspondante) peut vous en apprendre beaucoup sur un éventuel décalage dans le modèle.  
   
- Les métriques suivantes sont rapportées lors de l’évaluation de modèles de régression. Lorsque vous comparez des modèles, elles sont classées selon la métrique que vous sélectionnez pour l’évaluation.  
+ Les métriques suivantes sont rapportées lors de l’évaluation de modèles de régression.
   
 - L’**erreur absolue moyenne (MAE)** mesure la précision des prédictions par rapport aux résultats réels ; un score inférieur est donc préférence.  
   
@@ -118,6 +120,30 @@ Les métriques retournées pour les modèles de régression sont conçues pour e
 
   
 - Le **coefficient de détermination**, généralement appelé R<sup>2</sup>, représente la puissance prédictive du modèle sous la forme d’une valeur comprise entre 0 et 1. Zéro signifie que le modèle est aléatoire ; 1 signifie qu’il convient parfaitement. Soyez toutefois vigilant dans l’interprétation de valeurs R<sup>2</sup> car des valeurs faibles peuvent être totalement normales et des valeurs élevées peuvent être suspectes.
+
+###  <a name="metrics-for-clustering-models"></a>Mesures pour les modèles de clustering
+
+Étant donné que les modèles de clustering diffèrent considérablement des modèles de classification et de régression à de nombreux égards, [Évaluer le modèle](evaluate-model.md) retourne également un ensemble différent de statistiques pour les modèles de clustering.  
+  
+ Les statistiques retournées pour un modèle de clustering décrivent le nombre de points de données attribués à chaque cluster, le degré de séparation entre les clusters et le degré de regroupement des points de données dans chaque cluster.  
+  
+ Les statistiques du modèle de clustering sont calculées par rapport à la moyenne de l’ensemble du jeu de données, avec des lignes supplémentaires contenant les statistiques par cluster.  
+  
+Les mesures suivantes sont rapportées lors de l’évaluation de modèles de clustering.
+    
+-   Les scores de la colonne **Average Distance to Other Center** (distance moyenne à un autre centre) représentent la proximité moyenne de chaque point dans le cluster par rapport aux centroïdes de tous les autres clusters.   
+
+-   Les scores de la colonne **Average Distance to Cluster Center** (distance moyenne au centre du cluster) représentent la proximité de tous les points d’un cluster par rapport au centroïde de ce cluster.  
+  
+-   La colonne **Number of Points** (Nombre de points) indique le nombre de points de données attribués à chaque cluster, ainsi que le nombre total de points de données dans chaque cluster.  
+  
+     Si le nombre de points de données attribués aux clusters est inférieur au nombre total de points de données disponibles, cela signifie que les points de données n’ont pas pu être attribués à un cluster.  
+  
+-   Les scores de la colonne **Maximal Distance to Cluster Center** (Distance maximale au centre du cluster) représentent la somme des distances entre chaque point et le centroïde du cluster de ce point.  
+  
+     Si ce nombre est élevé, cela peut signifier que le cluster est très dispersé. Vous devez examiner cette statistique en même temps que la **distance moyenne au centre du cluster** pour déterminer la répartition du cluster.   
+
+-   Le score **Combined Evaluation** (Évaluation combinée) en bas de chaque section de résultats répertorie les scores moyens pour les clusters créés dans ce modèle particulier.  
   
 
 ## <a name="next-steps"></a>Étapes suivantes

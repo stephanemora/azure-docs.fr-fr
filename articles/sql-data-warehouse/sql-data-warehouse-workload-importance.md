@@ -1,26 +1,26 @@
 ---
 title: Importance des charges de travail
-description: Conseils pour la définition de l'importance des requêtes dans Azure SQL Data Warehouse.
+description: Conseils pour la définition de l’importance des requêtes SQL Analytics dans Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 05/01/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 76a77c1833ae1827f2a6a9b577b3cca51b35a344
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: azure-synapse
+ms.openlocfilehash: de7bb28770bc356514c392c3478fd0e33658f878
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351424"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191765"
 ---
-# <a name="azure-sql-data-warehouse-workload-importance"></a>Importance de la charge de travail dans Azure SQL Data Warehouse
+# <a name="azure-synapse-analytics-workload-importance"></a>Importance des charges de travail Azure Synapse Analytics
 
-Cet article explique comment l'importance de la charge de travail peut influer sur l’ordre d’exécution des requêtes SQL Data Warehouse.
+Cet article explique comment l’importance des charges de travail peut influer sur l’ordre d’exécution des requêtes SQL Analytics dans Azure Synapse.
 
 ## <a name="importance"></a>importance
 
@@ -38,7 +38,7 @@ Au-delà du scénario avec importance de base décrit ci-dessus et portant sur d
 
 ### <a name="locking"></a>Verrouillage
 
-L'accès aux verrous des activités de lecture et d’écriture est un point de contention naturelle. Des activités telles que le [basculement des partitions](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) ou [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) requièrent des verrous avec élévation de privilèges.  Sans importance des charges de travail, SQL Data Warehouse optimise le débit. Il y a optimisation du débit lorsque les requêtes en cours d'exécution et en file d'attente présentent les mêmes besoins de verrouillage en présence de ressources disponibles, et que les requêtes en file d'attente peuvent contourner les requêtes présentant des besoins de verrouillage plus élevés que celles arrivées dans la file d'attente plus tôt. L'importance des charges de travail est appliquée aux requêtes présentant des besoins de verrouillage plus élevés. Les requêtes présentant une importance plus élevée sont exécutées avant les requêtes présentant une plus faible importance.
+L'accès aux verrous des activités de lecture et d’écriture est un point de contention naturelle. Des activités telles que le [basculement des partitions](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) ou [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) requièrent des verrous avec élévation de privilèges.  Sans l’importance des charges de travail, SQL Analytics dans Azure Synapse optimise le débit. Il y a optimisation du débit lorsque les requêtes en cours d'exécution et en file d'attente présentent les mêmes besoins de verrouillage en présence de ressources disponibles, et que les requêtes en file d'attente peuvent contourner les requêtes présentant des besoins de verrouillage plus élevés que celles arrivées dans la file d'attente plus tôt. L'importance des charges de travail est appliquée aux requêtes présentant des besoins de verrouillage plus élevés. Les requêtes présentant une importance plus élevée sont exécutées avant les requêtes présentant une plus faible importance.
 
 Prenons l’exemple suivant :
 
@@ -50,7 +50,7 @@ Si Q2 et Q3 présentent la même importance, Q1 continue de s'exécuter et Q3 va
 
 ### <a name="non-uniform-requests"></a>Requêtes non uniformes
 
-Les requêtes soumises avec différentes classes de ressources sont un autre exemple de scénario dans lequel l'importance contribue à répondre aux besoins d'interrogation.  Comme indiqué précédemment, en présence d'une même importance, SQL Data Warehouse optimise le débit. Lorsque des requêtes de tailles différentes (par exemple, smallrc ou mediumrc) sont mises en file d'attente, SQL Data Warehouse choisit la première requête arrivée en fonction des ressources disponibles. Si l’importance des charges de travail est appliquée, la requête présentant la plus haute importance est planifiée ensuite.
+Les requêtes soumises avec différentes classes de ressources sont un autre exemple de scénario dans lequel l'importance contribue à répondre aux besoins d'interrogation.  Comme indiqué précédemment, en présence d’une même importance, SQL Analytics dans Azure Synapse optimise le débit. Quand des requêtes de tailles différentes (par exemple, smallrc ou mediumrc) sont mises en file d’attente, SQL Analytics choisit la première requête arrivée en fonction des ressources disponibles. Si l’importance des charges de travail est appliquée, la requête présentant la plus haute importance est planifiée ensuite.
   
 Considérez l'exemple suivant sur DW500c :
 
@@ -63,7 +63,7 @@ La classe de ressources de Q5 étant mediumrc, elle nécessite deux emplacements
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur la création d’un classifieur, consultez [CRÉER UN CLASSIFIEUR DE CHARGE DE TRAVAIL (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql).  
-- Pour plus d’informations sur la classification de la charge de travail Azure SQL Data Warehouse, consultez [Classification de la charge de travail](sql-data-warehouse-workload-classification.md).  
+- Pour plus d’informations sur la classification des charges de travail, consultez [Classification des charges de travail](sql-data-warehouse-workload-classification.md).  
 - Pour savoir comment créer un classifieur de charge de travail, consultez le démarrage rapide [Créer un classifieur de charge de travail](quickstart-create-a-workload-classifier-tsql.md). 
 - Consultez les articles qui expliquent comment [Configurer l’importance de la charge de travail](sql-data-warehouse-how-to-configure-workload-importance.md) et comment [Gérer et surveiller la charge de travail](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 - Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) pour voir les requêtes et l’importance attribuée.

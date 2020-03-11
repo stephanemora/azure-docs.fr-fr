@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 33dfc91381b23bf1ac33bef5274e1098df411f4a
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 0bca690fd585b288f15cbab21c1c951474390318
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609840"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196977"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gestion des applications pour plusieurs environnements
 
@@ -42,7 +42,7 @@ Lorsque vous créez des instances de l’application nommée dans Service Fabric
 
   - Dans PowerShell, l’applet de commande [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) considère les paramètres de l’application comme une table de hachage.
   - À l’aide de sfctl, la commande [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) considère les paramètres comme une chaîne JSON. Le script install.sh utilise sfctl.
-  - Visual Studio vous fournit un ensemble de fichiers de paramètres dans le dossier Paramètres du projet d’application. Ces fichiers de paramètres sont utilisés lors de la publication à partir de Visual Studio, à l’aide d’Azure DevOps Services ou de Team Foundation Server. Dans Visual Studio, les fichiers de paramètres sont passés au script Deploy-FabricApplication.ps1.
+  - Visual Studio vous fournit un ensemble de fichiers de paramètres dans le dossier Paramètres du projet d’application. Ces fichiers de paramètres sont utilisés lors de la publication à partir de Visual Studio, à l’aide d’Azure DevOps Services ou d’Azure DevOps Server. Dans Visual Studio, les fichiers de paramètres sont passés au script Deploy-FabricApplication.ps1.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Les articles suivants vous montrent comment utiliser certains des concepts décrits ici :

@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 075216cf7d67aa4d5a04f34a7ae3444a078b4c62
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/22/2020
+ms.openlocfilehash: 1778ba543e070bbffbbc8579b280373d834492fd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313907"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920793"
 ---
 # <a name="train-svd-recommender"></a>Entraîner le générateur de recommandations SVD
 
-Cet article décrit comment utiliser le module Entraîner le générateur de recommandations SVD dans le concepteur Azure Machine Learning. Utilisez ce module pour entraîner un modèle de recommandation basé sur l’algorithme SVD (décomposition à valeur unique).  
+Cet article décrit comment utiliser le module Entraîner le générateur de recommandations SVD dans le concepteur Azure Machine Learning (préversion). Utilisez ce module pour entraîner un modèle de recommandation basé sur l’algorithme SVD (décomposition à valeur unique).  
 
 Le module Entraîner le générateur de recommandations SVD lit un jeu de données de triplets utilisateur-élément-notation. Il retourne un générateur de recommandations SVD formé. Vous pouvez ensuite utiliser le modèle formé pour prédire des évaluations ou générer des recommandations à l’aide du module [Noter le générateur de recommandations SVD](score-svd-recommender.md).  
 
@@ -48,14 +48,11 @@ Avant d’utiliser le module, vos données d’entrée doivent être au format a
 + La deuxième colonne contient les identificateurs des éléments.
 + La troisième colonne contient l’évaluation de la paire utilisateur-élément. Les valeurs d’évaluation doivent être de type numérique.  
 
-Le jeu de données **Notations de restaurants** dans le concepteur Azure Machine Learning (sélectionnez **Jeux de données enregistrés**, puis **Exemples**) illustre le format attendu :
+Le jeu de données **Notations de films** dans le concepteur Azure Machine Learning (sélectionnez **Jeux de données**, puis **Exemples**) illustre le format attendu :
 
-|userID|placeID|rating|
-|------------|-------------|------------|
-|U1077|135085|2|
-|U1077|135038|2|
+![Notations de films](media/module/movie-ratings-dataset.png)
 
-À partir de cet exemple, vous pouvez voir qu’un utilisateur unique a évalué deux restaurants distincts. 
+À partir de cet exemple, vous pouvez voir qu’un utilisateur unique a évalué plusieurs films. 
 
 ### <a name="train-the-model"></a>Effectuer l’apprentissage du modèle
 

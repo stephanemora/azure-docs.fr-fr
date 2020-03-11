@@ -16,12 +16,12 @@ ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f40ed05391c36f820940d5351373ecd8f9492b17
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: d9d259c6e2a6ac9ced5f9a1c29d4aec08010f4dc
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120142"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190549"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Scénarios courants de la gestion des droits d’utilisation Azure AD
 
@@ -145,6 +145,7 @@ Il y a plusieurs façons de configurer la gestion des droits d’utilisation pou
 
 1. Ouvrir un package d’accès
 1. [Consulter les attributions](entitlement-management-access-package-assignments.md#view-who-has-an-assignment)
+1. [Archiver les rapports et les journaux](entitlement-management-logs-and-reporting.md)
 
 ### <a name="administrator-view-resources-assigned-to-users"></a>Administrateur : Afficher les ressources affectées aux utilisateurs
 

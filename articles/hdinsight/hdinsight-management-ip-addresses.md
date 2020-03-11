@@ -1,36 +1,36 @@
 ---
 title: Adresses IP de gestion Azure HDInsight
-description: Découvrez les adresses IP à partir desquelles vous devez autoriser le trafic entrant afin de configurer correctement les groupes de sécurité réseau et itinéraires définis par l’utilisateur pour la mise en réseau virtuelle avec Azure HDInsight.
-author: hol82
-ms.author: hol
-ms.reviewer: hrasheed
+description: Découvrez les adresses IP à partir desquelles vous devez autoriser le trafic entrant afin de configurer correctement les groupes de sécurité réseau et routes définies par l’utilisateur pour la mise en réseau virtuelle avec Azure HDInsight.
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/16/2019
-ms.openlocfilehash: 982e80f4c47a6f59b65edb06461a9d592248cc61
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.custom: hdinsightactive
+ms.date: 03/03/2020
+ms.openlocfilehash: 5e8f39b58f258742108fe323d9395efd87bc288f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76929883"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271808"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Adresses IP de gestion HDInsight
 
 > [!Important]
 > Dans la plupart des cas, vous pouvez désormais utiliser la fonctionnalité [balise de service](hdinsight-service-tags.md) pour les groupes de sécurité réseau, au lieu d’ajouter manuellement des adresses IP. Les nouvelles régions seront ajoutées uniquement pour les balises de service et les adresses IP statiques seront éventuellement déconseillées.
 
-Si vous utilisez des groupes de sécurité réseau ou des itinéraires définis par l’utilisateur pour contrôler le trafic vers votre cluster HDInsight, assurez-vous que votre cluster peut communiquer avec les services de gestion et d’intégrité Azure.  Certaines adresses IP sont propres à une région, et d'autres s’appliquent à toutes les régions Azure. Vous devrez peut-être autoriser le trafic provenant du service Azure DNS si vous n’utilisez pas de DNS personnalisé.
+Si vous utilisez des groupes de sécurité réseau ou des routes définies par l’utilisateur pour contrôler le trafic vers votre cluster HDInsight, vérifiez que votre cluster peut communiquer avec les services de gestion et d’intégrité Azure.  Certaines adresses IP sont propres à une région, et d’autres s’appliquent à toutes les régions Azure. Vous devrez peut-être autoriser le trafic provenant du service Azure DNS si vous n’utilisez pas de DNS personnalisé.
 
 Les sections suivantes traitent des adresses IP spécifiques qui doivent être autorisées.
 
 ## <a name="azure-dns-service"></a>Service Azure DNS
 
-Si vous utilisez le service DNS fourni par Azure, autorisez l’accès depuis l’adresse __168.63.129.16__ sur le port 53. Pour plus d’informations, voir le document [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Si vous utilisez un DNS personnalisé, ignorez cette étape.
+Si vous utilisez le service DNS fourni par Azure, autorisez l’accès à partir de l’adresse __168.63.129.16__ sur le port 53. Pour plus d’informations, voir le document [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Si vous utilisez un service DNS personnalisé, ignorez cette étape.
 
 ## <a name="health-and-management-services-all-regions"></a>Services de gestion et d'intégrité : Toutes les régions
 
-Autorisez le trafic provenant des adresses IP suivantes pour les services de gestion et d’intégrité Azure HDInsight qui s’appliquent à toutes les régions Azure :
+Autorisez le trafic provenant des adresses IP suivantes pour les services de gestion et d’intégrité Azure HDInsight, qui s’appliquent à toutes les régions Azure :
 
 | Adresse IP source | Destination  | Sens |
 | ---- | ----- | ----- |
@@ -70,7 +70,7 @@ Autorisez le trafic provenant des adresses IP répertoriées pour les services d
 | &nbsp; | OuJapon Est | 40.74.125.69</br>138.91.29.150 | \*:443 | Trafic entrant |
 | Corée du Sud | Centre de la Corée | 52.231.39.142</br>52.231.36.209 | \*:443 | Trafic entrant |
 | &nbsp; | Corée du Sud | 52.231.203.16</br>52.231.205.214 | \*:443 | Trafic entrant
-| United Kingdom | Ouest du Royaume-Uni | 51.141.13.110</br>51.141.7.20 | \*:443 | Trafic entrant |
+| Royaume-Uni | Ouest du Royaume-Uni | 51.141.13.110</br>51.141.7.20 | \*:443 | Trafic entrant |
 | &nbsp; | Sud du Royaume-Uni | 51.140.47.39</br>51.140.52.16 | \*:443 | Trafic entrant |
 | États-Unis | USA Centre | 13.89.171.122</br>13.89.171.124 | \*:443 | Trafic entrant |
 | &nbsp; | USA Est | 13.82.225.233</br>40.71.175.99 | \*:443 | Trafic entrant |
@@ -84,8 +84,9 @@ Pour plus d’informations sur les adresses IP à utiliser pour Azure Government
 
 Pour plus d’informations, voir la section [Contrôler le trafic réseau](hdinsight-plan-virtual-network-deployment.md#networktraffic).
 
-Si vous utilisez des itinéraires définis par l’utilisateur, vous devez spécifier un itinéraire et autoriser le trafic sortant du réseau virtuel vers les adresses IP ci-dessus avec le tronçon suivant défini sur « Internet ».
+Si vous utilisez des routes définies par l’utilisateur, vous devez spécifier une route et autoriser le trafic sortant du réseau virtuel vers les adresses IP ci-dessus avec le tronçon suivant défini sur « Internet ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer des réseaux virtuels pour les clusters Azure HDInsight](hdinsight-create-virtual-network.md)
+* [Étiquettes de service de groupe de sécurité réseau (NSG) pour Azure HDInsight](hdinsight-service-tags.md)

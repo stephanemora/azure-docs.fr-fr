@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Apprenez à utiliser Azure Dev Spaces et Azure Kubernetes Service pour assurer la continuité des activités et préparer la récupération d’urgence.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 8a223e9610d2b243cd78bf8b674262d6438421a9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 37c0048bfa7e72b25eb56603fc027045eba25cea
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438516"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78295825"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Continuité d’activité et reprise d’activité dans Azure Dev Spaces
 
@@ -27,11 +27,9 @@ L’activation de Dev Spaces sur des clusters AKS dans différentes régions vou
 
 Pour obtenir des informations générales sur les déploiements d’AKS dans plusieurs régions, consultez [Planifier le déploiement multi-région](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 
-Pour obtenir des informations sur le déploiement d’un cluster AKS compatible avec Azure Dev Spaces, consultez [Créer un cluster Kubernetes à l’aide d’Azure Cloud Shell](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)
-
 ### <a name="enable-dev-spaces-via-the-azure-portal"></a>Activer Dev Spaces via le portail Azure
 
-Cliquez sur l’élément de navigation **Dev Spaces** sous les propriétés de chaque cluster dans le portail Azure. Choisissez ensuite l’option pour activer Dev Spaces.
+Sélectionnez l’élément de menu **Dev Spaces** sous les paramètres de chaque cluster dans le portail Azure. Choisissez ensuite l’option pour activer Dev Spaces, puis enregistrez.
 
 ![Activation de Dev Spaces via le portail Azure](../media/common/enable-dev-spaces.jpg)
 
@@ -41,7 +39,7 @@ Répétez ce processus pour chaque cluster.
 
 Vous pouvez également activer Dev Spaces au niveau de la ligne de commande :
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
@@ -53,11 +51,11 @@ Vous devez déployer les versions les plus récentes de votre ensemble de servic
 
 ## <a name="select-the-correct-aks-cluster-to-use-for-dev-spaces"></a>Sélectionner le cluster AKS correct à utiliser pour Dev Spaces
 
-Une fois que vous avez correctement configuré un cluster de sauvegarde exécutant la base de référence de votre équipe, vous pouvez rapidement basculer sur le cluster de sauvegarde à tout moment. Ensuite, vous pouvez réexécuter les services individuels que vous utilisez dans Dev Spaces.
+Une fois que vous avez correctement configuré un cluster de sauvegarde exécutant la base de référence de votre équipe, vous pouvez rapidement basculer sur le cluster de sauvegarde à tout moment. Ensuite, vous pouvez réexécuter les services individuels sur lesquels vous travaillez dans les espaces de développement enfants.
 
 Sélectionnez un autre cluster avec la commande CLI suivante :
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <new resource group name> -n <new cluster name>
 ```
 

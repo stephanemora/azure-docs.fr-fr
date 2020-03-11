@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 3370fc72b45720e2aae5731623843a1bc498911c
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 71a02e47db288890d1392f5423da0ef817ecd690
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651951"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303118"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Ingestion des données dans Azure Machine Learning
 
@@ -55,7 +55,7 @@ Ces étapes et le diagramme suivant illustrent le workflow d’ingestion des don
 
 ## <a name="use-the-python-sdk"></a>Utiliser le SDK Python 
 
-Avec le [Kit de développement logiciel (SDK) Python](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py), vous pouvez incorporer des tâches d’ingestion des données dans une étape de [pipeline Azure Machine Learning](how-to-create-your-first-pipeline.md).
+Avec le [Kit de développement logiciel (SDK) Python](https://docs.microsoft.com/python/api/overview/azure/ml), vous pouvez incorporer des tâches d’ingestion des données dans une étape de [pipeline Azure Machine Learning](how-to-create-your-first-pipeline.md).
 
 Le tableau suivant récapitule les avantages et les inconvénients de l’utilisation du Kit de développement logiciel (SDK) et d’une étape de pipelines ML pour les tâches d’ingestion des données.
 
@@ -71,4 +71,5 @@ Dans le diagramme suivant, le pipeline Azure Machine Learning se compose de deux
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* Découvrez comment créer un pipeline d’ingestion de données pour Machine Learning avec [Azure Data Factory](how-to-data-ingest-adf.md).
 * Découvrez comment automatiser et gérer les cycles de vie du développement de vos pipelines d’ingestion des données avec [Azure Pipelines](how-to-cicd-data-ingestion.md).

@@ -1,6 +1,6 @@
 ---
 title: Instructions T-SQL
-description: Liens vers la documentation des instructions T-SQL prises en charge dans Azure SQL Data Warehouse.
+description: Liens vers la documentation pour les vues système prises en charge dans SQL Analytics.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: query
 ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 861675941693697a20da189edebe33d91918782c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: d37e1b727829505940b77c7a82293f90050a87c0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685521"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198352"
 ---
-# <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Instructions T-SQL prises en charge dans Azure SQL Data Warehouse
-Liens vers la documentation des instructions T-SQL prises en charge dans Azure SQL Data Warehouse.
+# <a name="t-sql-statements-supported-in-sql-analytics"></a>Instructions T-SQL prises en charge dans SQL Analytics
+Liens vers la documentation pour les vues système prises en charge dans SQL Analytics.
 
 ## <a name="data-definition-language-ddl-statements"></a>Instructions du langage de définition de données (DDL)
 * [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
@@ -64,7 +64,7 @@ Liens vers la documentation des instructions T-SQL prises en charge dans Azure S
 * [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)
 * [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx)
 
-## <a name="database-console-commands"></a>Commandes de la console de base de données
+## <a name="database-console-commands"></a>DBCC (Database Console Commands)
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 * [DBCC DROPRESULTSETCACHE](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest) (Préversion)
 * [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/mt204018.aspx)
@@ -92,10 +92,10 @@ Liens vers la documentation des instructions T-SQL prises en charge dans Azure S
 * [TOP](https://msdn.microsoft.com/library/ms189463.aspx)
 * [Alias](https://msdn.microsoft.com/library/mt631614.aspx)
 * [Condition de recherche](https://msdn.microsoft.com/library/ms173545.aspx)
-* [Sous-requêtes](https://msdn.microsoft.com/library/mt631613.aspx)
+* [Subqueries](https://msdn.microsoft.com/library/mt631613.aspx)
 
 ## <a name="security-statements"></a>Instructions de sécurité
-* Autorisations : [GRANT](https://msdn.microsoft.com/library/ms187965.aspx), [DENY](https://msdn.microsoft.com/library/ms188338.aspx), [REVOKE](https://msdn.microsoft.com/library/ms187728.aspx)
+* Autorisations : [GRANT](https://msdn.microsoft.com/library/ms187965.aspx), [DENY](https://msdn.microsoft.com/library/ms188338.aspx), [REVOKE](https://msdn.microsoft.com/library/ms187728.aspx)
 * [ALTER AUTHORIZATION](https://msdn.microsoft.com/library/ms187359.aspx)
 * [ALTER CERTIFICATE](https://msdn.microsoft.com/library/ms189511.aspx)
 * [ALTER DATABASE ENCRYPTION KEY](https://msdn.microsoft.com/library/bb630389.aspx)
@@ -120,4 +120,4 @@ Liens vers la documentation des instructions T-SQL prises en charge dans Azure S
 * [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations de référence, consultez [Éléments de langage T-SQL dans Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md) et [Vues système dans Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).
+Pour plus d’informations, consultez [Éléments de langage T-SQL dans SQL Analytics](sql-data-warehouse-reference-tsql-language-elements.md) et [Vues système dans SQL Analytics](sql-data-warehouse-reference-tsql-system-views.md).

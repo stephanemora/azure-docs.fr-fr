@@ -3,12 +3,12 @@ title: Configuration d’Azure Active Directory pour l’authentification des cl
 description: Découvrez comment configurer Azure Active Directory (Azure AD) pour authentifier les clients des clusters Service Fabric.
 ms.topic: conceptual
 ms.date: 6/28/2019
-ms.openlocfilehash: 2a6ffdb1c1fdc447545477286a6d131be2449cdb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 28c4c65cfcc77607dfe9a463a09ecd10389a6eca
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843818"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193376"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Configuration d’Azure Active Directory pour l’authentification des clients
 
@@ -26,7 +26,7 @@ Un cluster Service Fabric offre plusieurs points d’entrée pour ses fonctionna
 
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 Dans cet article, nous partons du principe que vous avez déjà créé un locataire. Si ce n’est pas le cas, commencez par lire [Guide pratique pour obtenir un locataire Azure Active Directory][active-directory-howto-tenant].
 
 Pour simplifier certaines des étapes impliquées dans la configuration d’Azure AD avec un cluster Service Fabric, nous avons créé un ensemble de scripts Windows PowerShell.
@@ -104,7 +104,7 @@ Lorsque vous essayez de vous connecter à Azure AD dans Service Fabric Explorer
 L’application en cluster (web) représentant Service Fabric Explorer tente de s’authentifier auprès d’Azure AD. Dans le cadre de cette demande, elle fournit l’URL de redirection. Cette dernière ne figure cependant pas dans la liste **URL DE RÉPONSE** de l’application Azure AD.
 
 #### <a name="solution"></a>Solution
-Sur la page Azure AD, sélectionnez **Inscriptions d’applications**, puis votre application en cluster et enfin **URL de réponse**. Dans le volet **URL de réponse**, ajoutez l’URL de Service Fabric Explorer à la liste ou remplacez l’un des éléments de la liste. Enregistrez vos modifications.
+Dans la page d’inscription d’application Azure AD pour votre cluster, sélectionnez **Authentification**, puis dans la section **URI de redirection**, ajoutez l’URL Service Fabric Explorer à la liste. Enregistrez vos modifications.
 
 ![URL de réponse d’application web][web-application-reply-url]
 

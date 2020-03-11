@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 15a396a86103f41f49d3b49878ec51c1e71add40
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 4f94ef66610b56d8843d59e5ca72a48143b742e8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772477"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251392"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Supervision dans Azure Database for MariaDB
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour MariaDB propose diverses métriques qui fournissent des insights sur le comportement de votre serveur.
@@ -44,7 +44,7 @@ Ces métriques sont disponibles pour Azure Database pour MariaDB :
 
 Vous pouvez activer la journalisation des requêtes lentes sur votre serveur. Ces journaux sont également disponibles par le biais des journaux de diagnostic Azure dans les journaux Azure Monitor, les hubs d’événements et le compte de stockage. Pour en savoir plus sur la journalisation, consultez la page  [journaux d’activité serveur](concepts-server-logs.md).
 
-## <a name="query-store"></a>Magasin de requêtes
+## <a name="query-store"></a>Magasin des requêtes
 
 [Magasin des requêtes](concepts-query-store.md) effectue le suivi des performances des requêtes au fil du temps, y compris les statistiques d’exécution des requêtes et les événements d’attente. La fonctionnalité conserve les informations de performances du runtime de requête dans le schéma **mysql**. Vous pouvez contrôler la collecte et le stockage des données au moyen de différents boutons de configuration.
 
@@ -56,13 +56,28 @@ Vous pouvez activer la journalisation des requêtes lentes sur votre serveur. Ce
 
 La fonctionnalité [Recommandations sur les performances](concepts-performance-recommendations.md) identifie les opportunités d’amélioration des performances des charges de travail. La fonctionnalité Recommandations sur les performances fournit des recommandations pour créer des index susceptibles d’améliorer les performances de vos charges de travail. Pour générer des recommandations d’index, la fonctionnalité prend en compte différentes caractéristiques de la base de données, notamment son schéma et la charge de travail comme indiqué par le Magasin des requêtes. Après avoir implémenté une recommandation sur les performances, les clients doivent tester les performances pour évaluer l’impact des changements.
 
-## <a name="service-health"></a>État d’intégrité du service
-[Azure Service Health](../service-health/overview.md) fournit un affichage de toutes les notifications d’intégrité de service dans votre abonnement. Vous pouvez configurer des alertes Service Health pour vous avertir par le biais de vos canaux de communication préférés en cas de problèmes ou de modifications susceptibles de perturber les services et régions Azure que vous utilisez.
+## <a name="planned-maintenance-notification"></a>Notification de maintenance planifiée
 
-Vous pouvez afficher les événements de maintenance planifiée pour Azure Database for MariaDB à l’aide du type d’événement **Maintenance planifiée**. Pour savoir comment créer des **alertes d’intégrité de service**, consultez l’article [Créer des alertes de journal d’activité sur les notifications de service](../service-health/alerts-activity-log-service-notifications.md).
+Les **notifications de maintenance planifiée** vous permettent de recevoir des alertes concernant la maintenance planifiée à venir sur votre Azure Database for MariaDB. Ces notifications sont intégrées à la maintenance planifiée de [Service Health](../service-health/overview.md) et vous permettent d’afficher toutes les tâches de maintenance planifiée de vos abonnements dans un même emplacement. Cela permet également d’adapter la notification pour le public approprié pour divers groupes de ressources, car des contacts différents peuvent être responsables de différentes ressources. Vous recevrez la notification concernant la maintenance à venir 72 heures avant l’événement.
+
+> [!Note]
+> Nous tenterons de fournir une **notification de maintenance planifiée** avec un préavis de 72 heures pour tous les événements. Toutefois, en cas de correctifs critiques ou de sécurité, des notifications peuvent être envoyées dans un délai plus proche de l’événement ou être omises.
+
+### <a name="to-receive-planned-maintenance-notification"></a>Pour recevoir une notification de maintenance planifiée
+
+1. Dans le [portail](https://portal.azure.com), sélectionnez **Intégrité du service**.
+2. Dans la section **Alertes**, sélectionnez **Alertes d’intégrité**.
+3. Sélectionnez **+ Ajouter une alerte d’intégrité du service** et renseignez les champs.
+4. Renseignez les champs obligatoires. 
+5. Choisissez le **type d’événement**, puis sélectionnez **Maintenance planifiée** ou **Tout sélectionner**.
+6. Dans **Groupes d’actions**, définissez la manière dont vous souhaitez recevoir l’alerte (obtenir un e-mail, déclencher une application logique, etc.).  
+7. Vérifiez que l’activation de la règle lors de la création est définie sur Oui.
+8. Sélectionnez **Créer une règle d’alerte** pour terminer votre alerte.
+
+Pour obtenir des instructions détaillées sur la création d’**alertes d’intégrité de service**, consultez [Créer des alertes de journal d’activité sur les notifications de service](../service-health/alerts-activity-log-service-notifications.md).
 
 > [!IMPORTANT]
-> Les notifications de maintenance planifiée sont disponibles en préversion pour USA Est et Royaume-Uni Sud uniquement.
+> Les notifications de maintenance planifiée sont actuellement en préversion.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

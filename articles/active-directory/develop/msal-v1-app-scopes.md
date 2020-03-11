@@ -12,12 +12,12 @@ ms.date: 11/25/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: e0ef46d23ba267bbfc1ff539eb659fafe2b44f8e
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: d5b2ef57af112169fb39e0da7a60b095698ff504
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085686"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299828"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Étendues pour une API web acceptant des jetons v1.0
 
@@ -25,7 +25,7 @@ Les autorisations OAuth2 sont des étendues d’autorisation qu’une applicatio
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Étendues pour demander l’accès à des autorisations OAuth2 spécifiques d’une application v1.0
 
-Afin d’acquérir des jetons pour des étendues spécifiques d’une application v1.0 (par exemple, Azure AD Graph, à savoir https://graph.windows.net), créez des étendues en concaténant l’identificateur de ressource de votre choix avec l’autorisation OAuth2 souhaitée pour cette ressource.
+Afin d’acquérir des jetons pour des étendues spécifiques d’une application v1.0 (par exemple, l’API Microsoft Graph, à savoir https://graph.microsoft.com), créez des étendues en concaténant l’identificateur de ressource de votre choix avec l’autorisation OAuth2 souhaitée pour cette ressource.
 
 Par exemple, pour l’accès au nom de l’utilisateur, une API web v1.0 où l’URI de l’identifiant de l’application est `ResourceId` :
 
@@ -37,15 +37,15 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-Pour lire et écrire avec MSAL.NET Azure AD à l’aide de l’API Azure AD Graph (https:\//graph.windows.net/), vous devez créer une liste des étendues, comme illustré dans les exemples suivants :
+Pour lire et écrire avec MSAL.NET Azure AD à l’aide de l’API Microsoft Graph (https:\//graph.microsoft.com/), vous devez créer une liste des étendues, comme illustré dans les exemples suivants :
 
 ```csharp
-string ResourceId = "https://graph.windows.net/";
+string ResourceId = "https://graph.microsoft.com/";
 var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
 ```
 
 ```javascript
-var ResourceId = "https://graph.windows.net/";
+var ResourceId = "https://graph.microsoft.com/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 

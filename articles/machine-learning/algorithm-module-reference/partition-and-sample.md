@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 772c16dc292d8bce4b927c9c2ce3ff6ee0ed399d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 827c76610162d74c5283177fef4989204321f44b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152123"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268705"
 ---
 # <a name="partition-and-sample-module"></a>Module Partition et échantillon
 
@@ -154,9 +154,9 @@ Cette option est utilisée lorsque vous avez divisé un jeu de données en plusi
 
 5. Si vous travaillez avec plusieurs partitions, vous devez ajouter des instances supplémentaires du module **Partition et échantillon** pour gérer chaque partition.
 
-    Par exemple, supposons que nous avons précédemment partitionné des patients dans quatre plis en fonction de leur âge. Pour travailler avec chaque pli, vous avez besoin de quatre copies du module **Partition et échantillon**, et dans chacun, vous sélectionnez un pli différent, comme indiqué ci-dessous. Il n’est pas correct d’utiliser directement la sortie **Assign to Folds** (Attribuer à des plis).  
+    Par exemple, le module **Partition et échantillon** de la deuxième ligne est défini sur **Assign to Folds** (Attribuer à des plis), et les modules de la troisième ligne sont définis sur **Pick Fold** (Choisir le pli).   
 
-    [![Partition et échantillon](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
+    ![Partition et échantillon](./media/module/partition-and-sample.png)
 
 5. Exécuter le pipeline.
 

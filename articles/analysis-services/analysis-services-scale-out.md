@@ -4,15 +4,15 @@ description: Répliquer les serveurs Azure Analysis Services avec Scale-out. Les
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 03/02/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fd91701a20b8a760eadcafe6f93f9ba5857a1c9f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310184"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247991"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -74,19 +74,23 @@ Pour optimiser les performances des opérations de traitement et de requête, vo
 
 ## <a name="monitor-qpu-usage"></a>Surveiller l’utilisation des unités de traitement des requêtes
 
-Pour déterminer si une montée en charge est nécessaire pour votre serveur, surveillez votre serveur dans le portail Azure en utilisant des métriques. Si vos unités de traitement des requêtes atteignent régulièrement le maximum, cela signifie que le nombre de requêtes sur vos modèles dépasse la limite d’unités de traitement des requêtes pour votre forfait. La métrique Longueur de la file d’attente des travaux du pool de requêtes augmente aussi quand le nombre de requêtes dans la file d’attente du pool de threads de requêtes dépasse les unités de traitement des requêtes disponibles. 
+Afin de déterminer si un scale-out est nécessaire pour votre serveur, [supervisez votre serveur](analysis-services-monitor.md) dans le portail Azure en utilisant des métriques. Si vos unités de traitement des requêtes atteignent régulièrement le maximum, cela signifie que le nombre de requêtes sur vos modèles dépasse la limite d’unités de traitement des requêtes pour votre forfait. La métrique Longueur de la file d’attente des travaux du pool de requêtes augmente aussi quand le nombre de requêtes dans la file d’attente du pool de threads de requêtes dépasse les unités de traitement des requêtes disponibles. 
 
 L’indicateur de QPU moyen par ServerResourceType est également intéressant. Cette mesure compare le nombre moyen de QPU pour le serveur principal et le pool de requêtes. 
 
 ![Indicateurs de montée en charge des requêtes](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
-### <a name="to-configure-qpu-by-serverresourcetype"></a>Configurer les QPU par ServerResourceType
+**Pour configurer les QPU (unités de traitement des requêtes) par ServerResourceType**
+
 1. Dans un graphique en courbes Mesures, cliquez sur **Ajouter une mesure**. 
 2. Dans **RESSOURCE**, sélectionnez votre serveur, puis, dans **ESPACE DE NOMS DE LA MESURE**, sélectionnez **Mesures standard Analysis Services** ; sélectionnez **QPU** dans **MESURE**, puis **Moyenne** dans **AGRÉGATION**. 
 3. Cliquez sur **Appliquer le fractionnement**. 
 4. Dans **VALEURS**, sélectionnez **ServerResourceType**.  
 
-Pour plus d’informations, consultez [Surveiller les métriques du serveur](analysis-services-monitor.md).
+### <a name="detailed-diagnostic-logging"></a>Journalisation des diagnostics détaillés
+
+Utilisez les journaux Azure Monitor pour obtenir des diagnostics plus détaillés des ressources serveur ayant fait l’objet d’un scale-out. Avec les journaux, vous pouvez utiliser des requêtes Log Analytics pour répartir les QPU et la mémoire par serveur et par réplica. Pour plus d’informations, consultez des exemples de requêtes dans [Journalisation des diagnostics Analysis Services](analysis-services-logging.md#example-queries).
+
 
 ## <a name="configure-scale-out"></a>Configurer la montée en charge
 

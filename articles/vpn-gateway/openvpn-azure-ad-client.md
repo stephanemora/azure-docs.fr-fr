@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/28/2020
 ms.author: alzam
-ms.openlocfilehash: 4b9678f72dd69db24b105d4b1d708928e29a09ba
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: fc48b0ae9cf4162b4b9abba14c6e909ca091fd23
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134511"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251613"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configurez un client VPN pour les connexions P2S de protocole OpenVPN : Authentification Azure AD
 
@@ -60,33 +60,33 @@ Une fois que vous disposez d’un profil fonctionnel et que vous devez le distri
 
 1. Dans la page, sélectionnez **Importer**.
 
-    ![importation](./media/openvpn-azure-ad-client/import/import1.jpg)
+    ![importer](./media/openvpn-azure-ad-client/import/import1.jpg)
 
-2. Accédez au fichier XML de profil et sélectionnez-le. Ensuite, sélectionnez **Ouvrir**.
+2. Accédez au fichier XML de profil et sélectionnez-le. Une fois le fichier sélectionné, sélectionnez **Ouvrir**.
 
-    ![importation](./media/openvpn-azure-ad-client/import/import2.jpg)
+    ![importer](./media/openvpn-azure-ad-client/import/import2.jpg)
 
 3. Spécifiez le nom du profil et sélectionnez **Enregistrer**.
 
-    ![importation](./media/openvpn-azure-ad-client/import/import3.jpg)
+    ![importer](./media/openvpn-azure-ad-client/import/import3.jpg)
 
 4. Sélectionnez **Se connecter** pour vous connecter au VPN.
 
-    ![importation](./media/openvpn-azure-ad-client/import/import4.jpg)
+    ![importer](./media/openvpn-azure-ad-client/import/import4.jpg)
 
 5. Une fois que vous êtes connecté, l’icône devient verte et indique **Connecté**.
 
-    ![importation](./media/openvpn-azure-ad-client/import/import5.jpg)
+    ![importer](./media/openvpn-azure-ad-client/import/import5.jpg)
 
 ### <a name="delete"></a>Pour supprimer un profil client
 
 1. Sélectionnez les points de suspension en regard du profil client que vous souhaitez supprimer. Sélectionnez ensuite **Supprimer**.
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![supprimer](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. Sélectionnez **Supprimer** pour effectuer la suppression.
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![supprimer](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="connection"></a>Créer une connexion
 
@@ -134,19 +134,19 @@ Ces étapes vous aident à configurer votre connexion pour qu’elle se connecte
 
 1. Pour diagnostiquer les problèmes de connexion, vous pouvez utiliser l’outil **Diagnostiquer**. Sélectionnez les points de suspension ( **...** ) en regard de la connexion VPN que vous souhaitez diagnostiquer pour afficher le menu. Sélectionnez ensuite **Diagnostiquer**.
 
-    ![diagnose](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
+    ![diagnostiquer](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
 
-2. Sur la page **Propriétés de connexion**, sélectionnez **Exécuter le diagnostic**.
+2. Dans la page **Propriétés de connexion**, sélectionnez **Exécuter le diagnostic**.
 
-    ![diagnose](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
+    ![diagnostiquer](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
 
 3. Connectez-vous avec vos informations d’identification.
 
-    ![diagnose](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
+    ![diagnostiquer](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
 
-4. Affichez les résultats du diagnostic.
+4. Examinez les résultats du diagnostic.
 
-    ![diagnose](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
+    ![diagnostiquer](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 
@@ -168,9 +168,26 @@ Vous pouvez Modifier le fichier XML de profil téléchargé et ajouter les balis
 </azvpnprofile>
 ```
 
+### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Comment ajouter des serveurs DNS personnalisés au client VPN ?
+
+Vous pouvez modifier le fichier XML de profil téléchargé et ajouter les balises **\<dnsservers>\<dnsserver> \</dnsserver>\</dnsservers>** .
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <dnsservers>
+        <dnsserver>x.x.x.x</dnsserver>
+        <dnsserver>y.y.y.y</dnsserver>
+    </dnsservers>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Comment ajouter des routes personnalisées au client VPN ?
 
-Vous pouvez modifier le fichier XML du profil téléchargé et ajouter les balises **\<route>\<includeroutes>\<destination>\<mask> \</route>\</includeroutes>\</destination>\</mask>** .
+Vous pouvez modifier le fichier XML du profil téléchargé et ajouter les balises **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** .
 
 ```
 <azvpnprofile>
@@ -181,6 +198,24 @@ Vous pouvez modifier le fichier XML du profil téléchargé et ajouter les balis
             <destination>x.x.x.x</destination><mask>24</mask>
         </route>
     </includeroutes>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Comment bloquer (exclure) des routes à partir du client VPN ?
+
+Vous pouvez modifier le fichier XML du profil téléchargé et ajouter les balises **\<excluderoutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</excluderoutes>** .
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <excluderoutes>
+        <route>
+            <destination>x.x.x.x</destination><mask>24</mask>
+        </route>
+    </excluderoutes>
     
 </clientconfig>
 </azvpnprofile>

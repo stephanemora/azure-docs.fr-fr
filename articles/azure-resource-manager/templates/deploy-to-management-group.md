@@ -2,19 +2,17 @@
 title: Déployer des ressources dans un groupe d’administration
 description: Décrit comment déployer des ressources au niveau du groupe d’administration dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 0419f3daca6845c6809c9f66e870fdf884a7193f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 03/02/2020
+ms.openlocfilehash: 3b2eeaf2c63a50cda1a32fee94c1e5b99822075d
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117043"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228097"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Créer des ressources au niveau du groupe d’administration
 
 En règle générale, vous déployez des ressources Azure sur un groupe de ressources dans votre abonnement Azure. Toutefois, vous pouvez également créer des ressources au niveau du groupe d'administration. Vous utilisez les déploiements au niveau du groupe d'administration pour effectuer des actions qui ont un sens à ce niveau, notamment l’affectation d’un [contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md) ou l’application de [stratégies](../../governance/policy/overview.md).
-
-Actuellement, pour déployer des modèles au niveau du groupe d’administration, vous devez utiliser l’API REST.
 
 ## <a name="supported-resources"></a>Ressources prises en charge
 
@@ -45,7 +43,16 @@ https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeployment
 
 ## <a name="deployment-commands"></a>Commandes de déploiement
 
-La commande que vous utilisez pour les déploiements de groupes d'administration est différente de celle utilisée pour les déploiements de groupes de ressources.
+Les commandes utilisées pour les déploiements de groupes d’administration sont différentes de celles utilisées pour les déploiements de groupes de ressources.
+
+Pour Azure PowerShell, utilisez [New-AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment). 
+
+```azurepowershell-interactive
+New-AzManagementGroupDeployment `
+  -ManagementGroupId "myMG" `
+  -Location "West US" `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json
+```
 
 Pour l’API REST, utilisez [Déploiements - Créer au niveau du groupe d’administration](/rest/api/resources/deployments/createorupdateatmanagementgroupscope).
 
@@ -150,7 +157,7 @@ L’exemple suivant assigne une définition de stratégie existante au groupe d'
 
 ## <a name="template-sample"></a>Exemple de modèle
 
-* Créez un groupe de ressources, une stratégie et une attribution de stratégie.  Voir [ici](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
+* [Créez un groupe de ressources, une stratégie et une attribution de stratégie](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

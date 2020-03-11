@@ -1,26 +1,26 @@
 ---
 title: Gérer et superviser l’importance de la charge de travail
-description: Découvrez comment gérer et surveiller l’importance du niveau de la demande dans Azure SQL Data Warehouse.
+description: Découvrez comment gérer et surveiller l’importance du niveau de la requête dans Azure Synapse Analytics.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.subservice: workload-management
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 02/04/2020
 ms.author: rortloff
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: ee9acb873c5118733de142045457028c3f4d5f61
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.reviewer: jrasnick
+ms.custom: azure-synapse
+ms.openlocfilehash: 6274bff9f9c57bfb06e58e1c4bfce6b6e265ac62
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692714"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195615"
 ---
-# <a name="manage-and-monitor-workload-importance-in-azure-sql-data-warehouse"></a>Gérer et surveiller l’importance de la charge de travail dans Azure SQL Data Warehouse
+# <a name="manage-and-monitor-workload-importance-in-azure-synapse-analytics"></a>Gérer et surveiller l’importance de la charge de travail dans Azure Synapse Analytics
 
-Gérer et surveiller l’importance du niveau de la demande dans Azure SQL Data Warehouse à l’aide des affichages catalogues et la gestion dynamique.
+Gérez et surveillez l’importance du niveau de la requête SQL Analytics dans Azure Synapse à l’aide des DMV et affichages catalogue.
 
 ## <a name="monitor-importance"></a>Surveiller l’importance
 
@@ -39,7 +39,7 @@ Pour en savoir plus sur la planification des requêtes, utilisez les affichages 
 
 ## <a name="manage-importance-with-catalog-views"></a>Gérer l’importance avec les affichages catalogue
 
-L’affichage catalogue sys.workload_management_workload_classifiers contient des informations sur les classifieurs de votre instance Azure SQL Data Warehouse. Pour exclure les classifieurs définis par le système qui mappent aux classes de ressources, exécutez le code suivant :
+L’affichage catalogue sys.workload_management_workload_classifiers contient des informations sur les classifieurs. Pour exclure les classifieurs définis par le système qui mappent aux classes de ressources, exécutez le code suivant :
 
 ```sql
 SELECT *

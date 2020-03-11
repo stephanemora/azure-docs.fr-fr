@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 44c942e43cd4be1d04f56e828e3e17c58713a706
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 2f12cf303c58f0fa614c59ffe643c6c2ee5d2415
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77559842"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246182"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Entrée et stockage des données dans Azure Time Series Insights - Préversion
 
@@ -159,10 +159,10 @@ Pour en savoir plus sur l’optimisation du débit et des partitions du hub, rep
 
 Lorsque vous créez un environnement de référence SKU pour la préversion de Time Series Insights assorti d’un *paiement à l’utilisation* (PAYG), vous créez deux ressources Azure :
 
-* Un environnement de préversion d’Azure Time Series Insights qui peut être configuré pour un stockage chaud.
+* Un environnement de préversion Azure Time Series Insights qui peut être configuré pour un stockage chaud des données.
 * Un compte d’objets blob GPv1 Stockage Azure pour le stockage froid de données.
 
-Les données de votre magasin chaud sont disponibles uniquement via [Time Series Query](./time-series-insights-update-tsq.md) et l’[explorateur d’Azure Time Series Insights (préversion)](./time-series-insights-update-explorer.md). 
+Les données de votre magasin chaud sont disponibles uniquement via [Time Series Query](./time-series-insights-update-tsq.md) et l’[explorateur d’Azure Time Series Insights (préversion)](./time-series-insights-update-explorer.md). Votre magasin chaud contiendra les données récentes soumises à la [période de rétention](./time-series-insights-update-plan.md#the-preview-environment) sélectionnée lors de la création de l’environnement Time Series Insights.
 
 Time Series Insights (préversion) enregistre les données de votre magasin froid dans le stockage Blob Azure au [format de fichier Parquet](#parquet-file-format-and-folder-structure). Time Series Insights (préversion) gère ces données de magasin froid en exclusivité, mais vous pouvez les lire directement en tant que fichiers Parquet standard.
 
@@ -186,12 +186,7 @@ Pour obtenir une description complète du stockage Blob Azure, lisez l’[intro
 
 Lorsque vous créez un environnement pour la préversion d’Azure Time Series Insights assorti d’un paiement à l’utilisation (PAYG), un compte d’objets blob GPv1 de Stockage Azure est créé en tant que magasin froid à long terme.  
 
-La préversion d’Azure Time Series Insights publie jusqu’à deux copies de chaque événement dans votre compte de Stockage Azure. La copie initiale comprend des événements classés par heure d’ingestion. Cet ordre des événements étant **toujours préservé**, d’autres services peuvent accéder à vos événements sans rencontrer de problèmes de séquencement. 
-
-> [!NOTE]
-> Vous pouvez également utiliser Spark, Hadoop et d’autres outils familiers pour traiter les fichiers Parquet bruts. 
-
-La préversion de Time Series Insights repartitionne les fichiers Parquet afin de les optimiser pour la requête Time Series Insights. Cette copie repartitionnée des données est également enregistrée. 
+La préversion d’Azure Time Series Insights conserve jusqu’à deux copies de chaque événement dans votre compte Stockage Azure. Une copie stocke les événements classés par heure d’ingestion, autorisant toujours l’accès aux événements dans un ordre chronologique. Au fil du temps, Time Series Insights (préversion) crée également une copie repartitionnée des données à optimiser pour une interrogation performante de Time Series Insights. 
 
 Pendant la durée de la préversion publique, les données sont stockées indéfiniment dans votre compte de Stockage Azure.
 
@@ -199,15 +194,11 @@ Pendant la durée de la préversion publique, les données sont stockées indéf
 
 Pour garantir les performances des requêtes et la disponibilité des données, ne modifiez ni ne supprimez aucun objet blob créé par Time Series Insights (préversion).
 
-#### <a name="accessing-and-exporting-data-from-time-series-insights-preview"></a>Accès et exportation des données à partir de Time Series Insights - Préversion
+#### <a name="accessing-time-series-insights-preview-cold-store-data"></a>Accès aux données du magasin froid Time Series Insights (préversion) 
 
-Vous souhaiterez peut-être accéder aux données affichées dans l’explorateur de Time Series Insights (préversion) pour les utiliser conjointement avec d’autres services. Par exemple, vous pouvez utiliser vos données pour générer un rapport dans Power BI ou pour effectuer l’apprentissage d’un modèle Machine Learning à l’aide d’Azure Machine Learning Studio. Vous pouvez également utiliser vos données pour transformer, visualiser et modéliser vos Jupyter Notebooks.
+En plus d’accéder à vos données à partir de l’[Explorateur Time Series Insights (préversion)](./time-series-insights-update-explorer.md) et de [Time Series Query](./time-series-insights-update-tsq.md), vous pouvez également accéder à vos données directement à partir des fichiers Parquet stockés dans le magasin froid. Par exemple, vous pouvez lire, transformer et nettoyer les données d’un notebook Jupyter, puis les utiliser pour effectuer l’apprentissage de votre modèle Azure Machine Learning dans le même workflow Spark.
 
-Vous pouvez accéder à vos données au moyen de trois méthodes générales :
-
-* À partir de l’explorateur Time Series Insights - Préversion. Vous pouvez exporter des données en tant que fichier CSV à partir de l’explorateur. Pour plus d’informations, consultez [Explorateur Time Series Insights (préversion)](./time-series-insights-update-explorer.md).
-* À partir de l’API Time Series Insights (préversion) à l’aide de la requête Get Events. Pour en savoir plus sur cette API, consultez [Requête de série chronologique](./time-series-insights-update-tsq.md).
-* Directement à partir d’un compte de Stockage Azure. Vous avez besoin d’un accès en lecture pour tous les comptes que vous utilisez afin d’accéder à vos données Time Series Insights (préversion). Pour en savoir plus, consultez [Gérer l’accès aux ressources de votre compte de stockage](../storage/blobs/storage-manage-access-to-resources.md).
+Pour accéder aux données directement à partir de votre compte Stockage Azure, vous avez besoin d’un accès en lecture au compte utilisé pour stocker vos données Time Series Insights (préversion). Vous pouvez ensuite lire les données sélectionnées en fonction de l’heure de création du fichier Parquet situé dans le dossier `PT=Time` décrit ci-dessous dans la section [Format de fichier Parquet](#parquet-file-format-and-folder-structure).  Pour plus d’informations sur l’activation de l’accès en lecture à votre compte de stockage, consultez [Gérer l’accès aux ressources de votre compte de stockage](../storage/blobs/storage-manage-access-to-resources.md).
 
 #### <a name="data-deletion"></a>Suppression des données
 
@@ -215,21 +206,21 @@ Ne supprimez pas vos fichiers Time Series Insights (préversion). Gérez les don
 
 ### <a name="parquet-file-format-and-folder-structure"></a>Format de fichier Parquet et structure de dossiers
 
-Parquet est un format de fichier en colonnes open source qui a été conçu pour un stockage et des performances efficaces. Time Series Insights (préversion) utilise le format Parquet pour ces raisons. Il partitionne les données par ID Time Series pour des performances de requête à l’échelle.  
+Parquet est un format de fichier en colonnes open source qui a été conçu pour un stockage et des performances efficaces. Time Series Insights (préversion) utilise Parquet pour permettre la performance des requêtes basées sur l’ID Time Series à grande échelle.  
 
 Pour plus d’informations sur le type de fichier Parquet, consultez la [documentation relative au format Parquet](https://parquet.apache.org/documentation/latest/).
 
 Time Series Insights (préversion) stocke des copies de vos données comme suit :
 
-* La première copie initiale est partitionnée par heure d’ingestion et stocke les données par ordre approximatif d’arrivée. Les données se trouvent dans le dossier `PT=Time` :
+* La première copie initiale est partitionnée par heure d’ingestion et stocke les données par ordre approximatif d’arrivée. Ces données se trouvent dans le dossier `PT=Time` :
 
   `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-* La deuxième copie repartitionnée est partitionnée par un regroupement d’ID Time Series et se trouve dans le dossier `PT=TsId` :
+* La deuxième copie repartitionnée est regroupée par ID Time Series et se trouve dans le dossier `PT=TsId` :
 
   `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-Dans les deux cas, les valeurs de temps correspondent à l’heure de création du blob. Les données du dossier `PT=Time` sont conservées. Les données du dossier `PT=TsId` seront optimisées pour la requête dans le temps et ne resteront pas statiques.
+Dans les deux cas, la propriété Time du fichier Parquet correspond à l’heure de création du blob. Les données du dossier `PT=Time` sont conservées sans aucune modification une fois qu’elles sont écrites dans le fichier. Les données du dossier `PT=TsId` seront optimisées pour les requêtes au fil du temps et ne sont pas statiques.
 
 > [!NOTE]
 > * `<YYYY>` correspond à une représentation de l’année à quatre chiffres.
@@ -239,10 +230,10 @@ Dans les deux cas, les valeurs de temps correspondent à l’heure de création 
 Les événements Time Series Insights (préversion) sont mappés au contenu du fichier Parquet comme suit :
 
 * Chaque événement correspond à une ligne unique.
-* Chaque ligne comprend la colonne **timestamp** avec un horodatage de l’événement. La propriété timestamp n’est jamais nulle. Par défaut, elle a la valeur **event enqueued time** si la propriété timestamp n’est pas spécifiée dans la source de l’événement. L’horodatage est toujours au format UTC.
-* Chaque ligne comprend les colonnes ID Time Series telle qu’elles sont définies lors de la création de l’environnement Time Series Insights. Le nom de la propriété comprend le suffixe `_string`.
+* Chaque ligne comprend la colonne **timestamp** avec un horodatage de l’événement. La propriété timestamp n’est jamais nulle. Par défaut, elle a la valeur **event enqueued time** si la propriété timestamp n’est pas spécifiée dans la source de l’événement. L’horodatage stocké est toujours au format UTC.
+* Chaque ligne comprend les colonnes ID Time Series (TSID) telles qu’elles sont définies lors de la création de l’environnement Time Series Insights. Le nom de la propriété TSID comprend le suffixe `_string`.
 * Toutes les autres propriétés envoyées en tant que données de télémétrie sont mappées à des noms de colonnes qui se terminent par `_string` (chaîne), `_bool` (booléen), `_datetime` (Date/Heure) et `_double` (double), selon le type de propriété.
-* Ce schéma de mappage s’applique à la première version du format de fichier, référencée comme **V=1**. Avec l’évolution de cette fonctionnalité, le nom est susceptible d’être incrémenté.
+* Ce schéma de mappage s’applique à la première version du format de fichier, référencée **V=1** et stockée dans le dossier de base du même nom. À mesure que cette fonctionnalité évolue, ce schéma de mappage est susceptible de changer et le nom de référence d’être incrémenté.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

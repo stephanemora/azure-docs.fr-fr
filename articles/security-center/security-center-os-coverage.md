@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 089fcc89f330e47a09187b5338176bf23fd801bb
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: e13149ba802f0f8b9a565e0aabd86ae05167f18b
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603753"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208814"
 ---
 # <a name="supported-platforms"></a>Plateformes prises en charge 
 
@@ -35,7 +35,6 @@ Dans le cas d’un environnement Azure activé sur un abonnement Azure, Azure Se
 
 > [!NOTE]
 > Pour bénéficier de l’ensemble complet des fonctionnalités de sécurité, vous devez disposer du [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent), qu’Azure Security Center utilise, installé et [correctement configuré pour envoyer des données à Azure Security Center](security-center-enable-data-collection.md#manual-agent).
-
 
 Les sections suivantes répertorient les systèmes d’exploitation serveur pris en charge sur lesquels peut s’exécuter le [Log Analytics Agent](../azure-monitor/platform/agents-overview.md#log-analytics-agent) qu’Azure Security Center utilise.
 
@@ -86,38 +85,6 @@ Des machines virtuelles sont également créées dans un abonnement client dans 
 
 Les machines virtuelles s’exécutant dans un service cloud sont également prises en charge. Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés. Pour en savoir plus sur les services cloud, consultez [Vue d’ensemble d’Azure Cloud Services](../cloud-services/cloud-services-choose-me.md).
 
-## Services PaaS <a name="paas-services"></a>
-
-Azure Security Center prend en charge les ressources Azure PaaS suivantes :
-
-* SQL
-* PostGreSQL
-* MySQL
-* CosmosDB
-* Compte de stockage
-* App Service
-* Fonction
-* Service cloud
-* Réseau virtuel
-* Subnet
-* Carte d’interface réseau
-* Groupe de sécurité réseau
-* Compte Batch
-* Compte Service Fabric
-* Compte Automation
-* Équilibrage de charge
-* Recherche
-* Espace de noms Service Bus
-* Stream Analytics
-* Espace de noms du hub d’événements
-* Logic Apps
-* Redis
-* Data Lake Analytics
-* Data Lake Store
-* Coffre de clés
-
-Pour en savoir plus sur les fonctionnalités prises en charge pour la liste ci-dessus de ressources PaaS, voir [fonctionnalités prises en charge par les services PaaS](security-center-services.md#paas-services).
-
 La protection des machines virtuelles résidant dans Azure Stack est également prise en charge. Pour plus d’informations sur l’intégration de Security Center avec Azure Stack, consultez [Intégrer vos machines virtuelles Azure Stack à Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -126,4 +93,4 @@ La protection des machines virtuelles résidant dans Azure Stack est également 
 - Découvrez comment [Security Center gère et protège les données](security-center-data-security.md).
 - [Découvrez comment planifier l’adoption d’Azure Security Center et prenez connaissance des considérations relatives à la conception](security-center-planning-and-operations-guide.md).
 - Découvrez les [fonctionnalités disponibles pour les différents environnements cloud](security-center-services.md).
-- Apprenez-en davantage sur la [détection des menaces pour les machines virtuelles et les serveurs dans Azure Security Center](security-center-alerts-iaas.md).
+- Découvrez la [protection contre les menaces pour les ordinateurs Windows et Linux dans Azure Security Center](threat-protection.md#windows-machines).

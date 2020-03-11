@@ -1,6 +1,6 @@
 ---
 title: Optimisation des performances avec la mise en cache des jeux de résultats
-description: Vue d’ensemble de la fonctionnalité de mise en cache du jeu de résultats pour Azure SQL Data Warehouse
+description: Vue d’ensemble de la fonctionnalité de mise en cache du jeu de résultats pour SQL Analytics dans Azure Synapse Analytics
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 461320b9c3ed48176fb60fe695704c582edcd552
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 3d204605e68cf8cf33f69d73fb20f3cc08674e44
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692942"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200530"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Optimisation des performances avec la mise en cache des jeux de résultats  
-Lorsque la mise en cache du jeu de résultats est activée, Azure SQL Data Warehouse met automatiquement en cache les résultats de la requête dans la base de données utilisateur ce qui permet de les utiliser de façon répétée.  Ainsi, les exécutions de requêtes suivantes obtiennent les résultats directement à partir du cache persistant de sorte que le recalcul n’est pas nécessaire.   La mise en cache des jeux de résultats améliore les performances des requêtes et réduit l’utilisation des ressources de calcul.  De plus, les requêtes qui recourent au cache du jeu de résultats n’utilisent pas d’emplacements de concurrence et ne sont donc pas prises en compte pour l’application des limites de concurrence existantes. Pour des raisons de sécurité, les utilisateurs ne peuvent accéder aux résultats mis en cache que s’ils ont les mêmes autorisations d’accès aux données que les utilisateurs qui créent les résultats mis en cache.  
+Quand la mise en cache du jeu de résultats est activée, SQL Analytics met automatiquement en cache les résultats de la requête dans la base de données utilisateur, ce qui permet de les utiliser de façon répétée.  Ainsi, les exécutions de requêtes suivantes obtiennent les résultats directement à partir du cache persistant de sorte que le recalcul n’est pas nécessaire.   La mise en cache des jeux de résultats améliore les performances des requêtes et réduit l’utilisation des ressources de calcul.  De plus, les requêtes qui recourent au cache du jeu de résultats n’utilisent pas d’emplacements de concurrence et ne sont donc pas prises en compte pour l’application des limites de concurrence existantes. Pour des raisons de sécurité, les utilisateurs ne peuvent accéder aux résultats mis en cache que s’ils ont les mêmes autorisations d’accès aux données que les utilisateurs qui créent les résultats mis en cache.  
 
 ## <a name="key-commands"></a>Commandes clés
 [Activer/désactiver la mise en cache du jeu de résultats pour une base de données utilisateur](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)
@@ -39,7 +39,8 @@ Une fois la mise en cache du jeu de résultats activée pour une base de donnée
 - Requêtes qui retournent des données avec une taille de ligne supérieure à 64 Ko
 
 > [!IMPORTANT]
-> Les opérations de création du cache de jeux de résultats et de récupération des données à partir du cache se produisent sur le nœud de contrôle d’une instance de l’entrepôt de données. Lorsque la mise en cache du jeu de résultats est activée, l’exécution de requêtes qui retournent un jeu de résultats volumineux (par exemple, supérieur à un million de lignes) peut entraîner une utilisation élevée du processeur sur le nœud de contrôle et ralentir la réponse globale à la requête sur l’instance.  Ces requêtes sont couramment utilisées lors de l’exploration de données et des opérations ETL. Pour éviter de contraindre le nœud de contrôle et de provoquer un problème de performances, il est conseillé aux utilisateurs de désactiver la mise en cache du jeu de résultats sur la base de données avant d’exécuter ce type de requêtes.  
+> Les opérations de création d’un cache de jeu de résultats et de récupération des données à partir du cache ont lieu sur le nœud de contrôle d’une instance SQL Analytics.
+> Quand la mise en cache des jeux de résultats est activée (ON), l’exécution de requêtes qui retournent un jeu de résultats volumineux (par exemple, > 1 million de lignes) peut entraîner une utilisation intensive du processeur sur le nœud de contrôle et allonger ainsi le temps de réponse de toutes les requêtes sur l’instance.  Ces requêtes sont couramment utilisées lors de l’exploration de données et des opérations ETL. Pour éviter une utilisation trop intensive du nœud de contrôle et les problèmes de performances qui en découlent, les utilisateurs doivent désactiver (OFF) la mise en cache des jeux de résultats sur la base de données avant d’exécuter ces types de requêtes.  
 
 Exécutez cette requête pendant toute la durée des opérations de mise en cache du jeu de résultats pour une requête :
 
@@ -75,7 +76,7 @@ WHERE request_id = <'Your_Query_Request_ID'>
 
 La taille maximale du cache du jeu de résultats est de 1 To par base de données.  Les résultats mis en cache sont automatiquement invalidés lorsque les données de requête sous-jacentes sont modifiées.  
 
-L’éviction du cache est gérée par Azure SQL Data Warehouse automatiquement après cette planification : 
+L’éviction du cache est gérée automatiquement par SQL Analytics selon la planification suivante : 
 - Toutes les 48 heures si le jeu de résultats n’a pas été utilisé ou a été invalidé. 
 - Lorsque le cache du jeu de résultats approche la taille maximale.
 
@@ -86,4 +87,4 @@ Les utilisateurs peuvent vider manuellement l’intégralité du cache du jeu de
 La suspension d’une base de données n’a pas pour effet de vider le jeu de résultats mis en cache.  
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse](sql-data-warehouse-overview-develop.md). 
+Pour obtenir des conseils supplémentaires, consultez la [vue d’ensemble du développement](sql-data-warehouse-overview-develop.md). 

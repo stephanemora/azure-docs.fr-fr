@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 1f609c33ea474508eb107c0df9993c2ba3483660
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 761011cba71c3907994616904cc854003abda7ee
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087030"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245133"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutoriel : Entraîner et déployer un modèle à partir de l’interface CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ Découvrez comment effectuer les actions suivantes :
 > * Déploiement du modèle en tant que service web
 > * Attribuer un score aux données à l’aide du service web
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
@@ -68,7 +68,7 @@ Le répertoire `examples/cli-train-deploy` du projet contient les fichiers suiva
 Le répertoire contient les fichiers suivants, qui servent à déployer le modèle entraîné sous forme de service web :
 
 * `aciDeploymentConfig.yml`: fichier de __configuration de déploiement__. Ce fichier définit l’environnement d’hébergement nécessaire au modèle.
-* `inferenceConfig.yml`: fichier de configuration de l’inférence. Ce fichier définit l’environnement logiciel utilisé par le service pour attribuer un score aux données avec le modèle.
+* `inferenceConfig.yml`: fichier de __configuration de l’inférence__. Ce fichier définit l’environnement logiciel utilisé par le service pour attribuer un score aux données avec le modèle.
 * `score.py`: script Python qui accepte les données entrantes, leur attribue un score en utilisant le modèle, puis retourne une réponse.
 * `scoring-env.yml`: dépendances conda nécessaires à l’exécution du modèle et du script `score.py`.
 * `testdata.json`: un fichier de données qui peut être utilisé pour tester le service web déployé.
@@ -381,7 +381,7 @@ Cette commande déploie un nouveau service nommé `myservice`, en utilisant la v
 
 Le fichier `inferenceConfig.yml` fournit des informations sur l'utilisation du modèle pour l'inférence. Par exemple, il fait référence au script d'entrée (`score.py`) et aux dépendances logicielles. 
 
-Pour plus d’informations sur la structure de ce fichier, consultez le [schéma de configuration de l’inférence](reference-azure-machine-learning-cli.md#inference-configuration-schema). Pour plus d’informations sur les scripts d’entrée, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md#prepare-deployment-artifacts).
+Pour plus d’informations sur la structure de ce fichier, consultez le [schéma de configuration de l’inférence](reference-azure-machine-learning-cli.md#inference-configuration-schema). Pour plus d’informations sur les scripts d’entrée, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
 
 Le fichier `aciDeploymentConfig.yml` décrit l’environnement de déploiement utilisé pour héberger le service. La configuration du déploiement dépend du type de calcul que vous utilisez pour le déploiement. Dans ce cas, il s’agit d’une instance de conteneur Azure. Pour plus d’informations, consultez le [schéma de configuration de déploiement](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 

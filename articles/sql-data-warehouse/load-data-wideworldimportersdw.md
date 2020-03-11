@@ -1,6 +1,6 @@
 ---
 title: 'Tutoriel : Charger des données avec le Portail Azure et SSMS'
-description: Ce didacticiel utilise le portail Azure et SQL Server Management Studio pour charger l’entrepôt de données WideWorldImportersDW depuis un objet blob Azure global vers Azure SQL Data Warehouse.
+description: Ce tutoriel utilise le portail Azure et SQL Server Management Studio pour charger l’entrepôt de données WideWorldImportersDW depuis un objet blob Azure global sur un pool SQL Azure Synapse Analytics.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,22 +10,22 @@ ms.subservice: load-data
 ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: a2adc2acdb9c1d850bb12833540ed8da51701e58
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: seo-lt-2019, synapse-analytics
+ms.openlocfilehash: d8242731466df9b80a6a6c3f0e340d6deb76e7d4
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75370134"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304036"
 ---
-# <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Tutoriel : Chargement de données dans Azure SQL Data Warehouse
+# <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutoriel : Charger des données sur un pool SQL Azure Synapse Analytics
 
-Ce tutoriel utilise PolyBase pour charger l’entrepôt de données WideWorldImportersDW depuis Stockage Blob Azure vers Azure SQL Data Warehouse. Ce didacticiel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour :
+Ce tutoriel utilise PolyBase pour charger l’entrepôt de données WideWorldImportersDW depuis Stockage Blob Azure vers votre entrepôt de données dans un pool SQL Azure Synapse Analytics. Ce didacticiel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour :
 
 > [!div class="checklist"]
-> * Créer un entrepôt de données dans le portail Azure
+> * Créer un entrepôt de données à l’aide d’un pool SQL dans le portail Azure
 > * Configurer une règle de pare-feu au niveau du serveur dans le portail Azure
-> * Se connecter à l’entrepôt de données avec SSMS
+> * Se connecter au pool SQL avec SSMS
 > * Créer un utilisateur désigné pour le chargement des données
 > * Créer des tables externes qui utilisent Azure Blob comme source de données
 > * Utiliser l’instruction T-SQL CTAS pour charger les données dans votre entrepôt de données
@@ -43,33 +43,30 @@ Avant de commencer ce didacticiel, téléchargez et installez la dernière versi
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-data-warehouse"></a>Créer un entrepôt SQL Data Warehouse vide
+## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Créer un entrepôt de données vide dans le pool SQL
 
-Un entrepôt Azure SQL Data Warehouse est créé avec un ensemble défini de [ressources de calcul](memory-concurrency-limits.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/management/overview.md) et dans un [serveur logique Azure SQL](../sql-database/sql-database-features.md). 
+Un pool SQL est créé avec un ensemble défini de [ressources de calcul](memory-concurrency-limits.md). Le pool SQL est créé dans un [groupe de ressources Azure](../azure-resource-manager/management/overview.md) et dans un [serveur logique Azure SQL](../sql-database/sql-database-features.md). 
 
-Suivez ces étapes pour créer un entrepôt SQL Data Warehouse vide. 
+Pour créer un pool SQL vide, suivez la procédure suivante. 
 
-1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
+1. Sélectionnez **Créer une ressource** dans le portail Azure.
 
-2. Sélectionnez **Bases de données** dans la page **Nouveau** et sélectionnez **SQL Data Warehouse** sous **Sélection** dans la page **Nouveau**.
+1. Sélectionnez **Bases de données** dans la page **Nouveau** et sélectionnez **Azure Synapse Analytics** sous **Sélection** dans la page **Nouveau**.
 
-    ![créer un entrepôt de données](media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
+    ![Créer un pool SQL](media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
 
-3. Remplissez le formulaire SQL Data Warehouse avec les informations suivantes :   
+1. Remplissez la section **Détails du projet** avec les informations suivantes :   
 
-   | Paramètre | Valeur suggérée | Description | 
-   | ------- | --------------- | ----------- | 
-   | **Nom de la base de données** | SampleDW | Pour les noms de base de données valides, consultez [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). | 
+   | Paramètre | Exemple | Description | 
+   | ------- | --------------- | ----------- |
    | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
-   | **Groupe de ressources** | SampleRG | Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming) (Conventions d’affectation de nom). |
-   | **Sélectionner une source** | Base de données vide | Indique de créer une base de données vide. Notez qu’un entrepôt de données est un type de base de données.|
+   | **Groupe de ressources** | myResourceGroup | Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming) (Conventions d’affectation de nom). |
 
-    ![créer un entrepôt de données](media/load-data-wideworldimportersdw/create-data-warehouse.png)
-
-4. Cliquez sur **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire de nouveau serveur** avec les informations suivantes : 
+1. Sous **Détails du pool SQL**, indiquez un nom pour votre pool SQL. Ensuite, sélectionnez un serveur existant dans la liste déroulante ou sélectionnez **Créer** sous les paramètres **Serveur** pour créer un serveur. Renseignez le formulaire avec les informations suivantes : 
 
     | Paramètre | Valeur suggérée | Description | 
     | ------- | --------------- | ----------- |
+    |**Nom du pool SQL**|SampleDW| Pour les noms de base de données valides, consultez [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). | 
     | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming) (Conventions d’affectation de nom). | 
     | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données).|
     | **Mot de passe** | Mot de passe valide | Votre mot de passe doit comporter au moins 8 caractères et contenir des caractères appartenant à trois des catégories suivantes : majuscules, minuscules, chiffres et caractères non alphanumériques. |
@@ -77,67 +74,52 @@ Suivez ces étapes pour créer un entrepôt SQL Data Warehouse vide.
 
     ![créer un serveur de base de données](media/load-data-wideworldimportersdw/create-database-server.png)
 
-5. Cliquez sur **Sélectionner**.
+1. **Sélectionner le niveau de performance**. Par défaut, le curseur est défini sur **DW1000c**. Déplacez le curseur vers le haut et vers le bas pour choisir l’échelle de performances souhaitée. 
 
-6. Cliquez sur **Niveau de performance** pour spécifier si l’entrepôt de données est de type Gen1 ou Gen2, et indiquer le nombre d’unités d’entrepôt de données. 
+    ![créer un serveur de base de données](media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
-7. Pour ce didacticiel, sélectionnez le niveau de service **Gen1**. Par défaut, le curseur est défini sur **DW400**.  Déplacez-le vers le haut et le bas pour voir son fonctionnement. 
+1. Dans la page **Paramètres supplémentaires**, définissez **Utiliser des données existantes** sur Aucun, et laissez le **Classement** sur la valeur par défaut *SQL_Latin1_General_CP1_CI_AS*. 
 
-    ![configurer les performances](media/load-data-wideworldimportersdw/configure-performance.png)
+1. Sélectionnez **Vérifier + créer** pour passer en revue vos paramètres, puis sélectionnez **Créer** pour créer votre entrepôt de données. Vous pouvez superviser votre progression en ouvrant la page **Déploiement en cours** à partir du menu **Notifications**. 
 
-8. Cliquez sur **Appliquer**.
-9. Dans la page SQL Data Warehouse, sélectionnez un **classement** pour la base de données vide. Pour ce didacticiel, utilisez la valeur par défaut. Pour en savoir plus sur les classements, voir [Classements](/sql/t-sql/statements/collations)
-
-11. Maintenant que vous avez rempli le formulaire SQL Database, cliquez sur **Créer** pour provisionner la base de données. Le provisionnement prend quelques minutes. 
-
-    ![cliquer sur créer](media/load-data-wideworldimportersdw/click-create.png)
-
-12. Dans la barre d’outils, cliquez sur **Notifications** pour surveiller le processus de déploiement.
-    
      ![notification](media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Créer une règle de pare-feu au niveau du serveur
 
-Le service SQL Data Warehouse crée un pare-feu au niveau du serveur qui empêche les applications et outils externes de se connecter au serveur ou à toute base de données sur le serveur. Pour activer la connectivité, vous pouvez ajouter des règles de pare-feu qui activent la connectivité pour des adresses IP spécifiques.  Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur](../sql-database/sql-database-firewall-configure.md) pour l’adresse IP de votre client. 
+Le service Azure Synapse Analytics crée un pare-feu au niveau du serveur qui empêche les applications et outils externes de se connecter au serveur ou à toute base de données sur le serveur. Pour activer la connectivité, vous pouvez ajouter des règles de pare-feu qui activent la connectivité pour des adresses IP spécifiques.  Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur](../sql-database/sql-database-firewall-configure.md) pour l’adresse IP de votre client. 
 
 > [!NOTE]
-> SQL Data Warehouse communique sur le port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433.
+> Le pool SQL Azure Synapse Analytics communique sur le port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433.
 >
 
-1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur **SampleDW** sur la page **Bases de données SQL**. La page de vue d’ensemble de votre base de données s’ouvre. Elle affiche le nom complet du serveur (par exemple, **sample-svr.database.windows.net**) et fournit des options pour poursuivre la configuration. 
 
-2. Copiez le nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les guides de démarrage rapide suivants. Pour ouvrir les paramètres du serveur, cliquez sur le nom du serveur.
+1. Une fois le déploiement terminé, recherchez le nom de votre pool dans la zone de recherche du menu de navigation, puis sélectionnez la ressource de pool SQL. Sélectionnez le nom du serveur. 
 
-    ![rechercher le nom du serveur](media/load-data-wideworldimportersdw/find-server-name.png) 
+    ![Accéder à votre ressource](media/load-data-wideworldimportersdw/search-for-sql-pool.png) 
 
-3. Pour ouvrir les paramètres du serveur, cliquez sur le nom du serveur.
+1. Sélectionnez le nom du serveur. 
+    ![nom du serveur](media/load-data-wideworldimportersdw/find-server-name.png) 
+
+1. Sélectionnez **Afficher les paramètres de pare-feu**. La page **Paramètres de pare-feu** du serveur de pool SQL s’ouvre. 
 
     ![paramètres du serveur](media/load-data-wideworldimportersdw/server-settings.png) 
 
-5. Cliquez sur **Afficher les paramètres de pare-feu**. La page **Paramètres de pare-feu** du serveur SQL Database s’ouvre. 
+1. Dans la page **Pare-feux et réseaux virtuels**, sélectionnez **Ajouter une adresse IP de client** pour ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu. Une règle de pare-feu peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
 
     ![règle de pare-feu de serveur](media/load-data-wideworldimportersdw/server-firewall-rule.png) 
 
-4.  Pour ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu, cliquez sur **Ajouter une adresse IP cliente** dans la barre d’outils. Une règle de pare-feu peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
+1. Sélectionnez **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur logique.
 
-5. Cliquez sur **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur logique.
-
-6. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
-
-Vous pouvez maintenant vous connecter au serveur SQL et à ses entrepôts de données à l’aide de cette adresse IP. La connexion fonctionne à partir de SQL Server Management Studio ou d’un autre outil de votre choix. Quand vous vous connectez, utilisez le compte serveradmin que vous avez créé précédemment.  
+Vous pouvez maintenant vous connecter au serveur SQL à l’aide de votre adresse IP cliente. La connexion fonctionne à partir de SQL Server Management Studio ou d’un autre outil de votre choix. Quand vous vous connectez, utilisez le compte serveradmin que vous avez créé précédemment.  
 
 > [!IMPORTANT]
 > Par défaut, l’accès via le pare-feu SQL Database est activé pour tous les services Azure. Cliquez sur **OFF** dans cette page, puis sur **Enregistrer** pour désactiver le pare-feu pour tous les services Azure.
 
 ## <a name="get-the-fully-qualified-server-name"></a>Obtenir le nom complet du serveur
 
-Obtenez le nom complet de votre serveur SQL dans le portail Azure. Vous utilisez le nom complet du serveur par la suite pour vous connecter au serveur.
+Le nom de serveur complet est celui utilisé pour se connecter au serveur. Accédez à votre ressource de pool SQL dans le portail Azure et affichez le nom complet sous **Nom du serveur**.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
-3. Dans le volet **Essentials** de la page du portail Azure pour votre base de données, recherchez et copiez le **nom du serveur**. Dans cet exemple, le nom complet est mynewserver-20171113.database.windows.net. 
-
-    ![informations de connexion](media/load-data-wideworldimportersdw/find-server-name.png)  
+![nom du serveur](media/load-data-wideworldimportersdw/find-server-name.png) 
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Se connecter au serveur comme administrateur du serveur
 
@@ -150,7 +132,7 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
     | Paramètre      | Valeur suggérée | Description | 
     | ------------ | --------------- | ----------- | 
     | Type de serveur | Moteur de base de données | Cette valeur est obligatoire |
-    | Nom du serveur | Nom complet du serveur | Par exemple, **sample-svr.database.windows.net** est un nom complet du serveur. |
+    | Nom du serveur | Nom complet du serveur | Par exemple, **sqlpoolservername.database.windows.net** est un nom complet du serveur. |
     | Authentication | l’authentification SQL Server | L’authentification SQL est le seul type d’authentification configuré dans ce didacticiel. |
     | Connexion | Compte d’administrateur de serveur | Il s’agit du compte que vous avez spécifié lorsque vous avez créé le serveur. |
     | Mot de passe | Mot de passe de votre compte d’administrateur de serveur | Il s’agit du mot de passe que vous avez spécifié lorsque vous avez créé le serveur. |
@@ -165,7 +147,7 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
 
 ## <a name="create-a-user-for-loading-data"></a>Créer un utilisateur pour le chargement des données
 
-Le compte d’administrateur de serveur est destiné à effectuer des opérations de gestion et ne convient pas pour l’exécution de requêtes sur les données utilisateur. Le chargement des données est une opération utilisant beaucoup de mémoire. Les valeurs maximales de mémoire sont définies en fonction de la génération de SQL Data Warehouse que vous utilisez, des [unités de l’entrepôt de données](what-is-a-data-warehouse-unit-dwu-cdwu.md) et des [classes de ressources](resource-classes-for-workload-management.md). 
+Le compte d’administrateur de serveur est destiné à effectuer des opérations de gestion et ne convient pas pour l’exécution de requêtes sur les données utilisateur. Le chargement des données est une opération utilisant beaucoup de mémoire. Les valeurs maximales de mémoire sont définies en fonction de la génération de pool SQL que vous utilisez, des [unités de l’entrepôt de données](what-is-a-data-warehouse-unit-dwu-cdwu.md) et des [classes de ressources](resource-classes-for-workload-management.md). 
 
 Il est préférable de créer une connexion et un utilisateur dédiés au chargement des données. Ensuite, ajoutez l’utilisateur de chargement à une [classe de ressource](resource-classes-for-workload-management.md) qui permet une allocation de mémoire maximale appropriée.
 
@@ -216,7 +198,7 @@ La première étape du chargement des données consiste à se connecter en tant 
 
 ## <a name="create-external-tables-and-objects"></a>Créer des tables externes et des objets
 
-Vous êtes prêt à commencer le processus de chargement des données dans votre nouvel entrepôt de données. Pour vous y référer ultérieurement, pour savoir comment charger vos données dans un Stockage Blob Azure ou pour les charger directement à partir de votre source dans SQL Data Warehouse, consultez la [présentation du chargement](sql-data-warehouse-overview-load.md).
+Vous êtes prêt à commencer le processus de chargement des données dans votre nouvel entrepôt de données. Pour vous y référer ultérieurement, pour savoir comment charger vos données vers le stockage d’objets Blob Azure ou pour les charger directement à partir de votre source dans le pool SQL, consultez la [présentation du chargement](sql-data-warehouse-overview-load.md).
 
 Exécutez les scripts SQL suivants pour spécifier les informations sur les données que vous voulez charger. Ces informations sont notamment l’emplacement des données, le format du contenu des données et la définition de table pour les données. Les données se trouvent dans un objet blob Azure global.
 
@@ -266,7 +248,7 @@ Exécutez les scripts SQL suivants pour spécifier les informations sur les donn
     CREATE SCHEMA wwi;
     ```
 
-7. Créez les tables externes. Les définitions de table sont stockées dans SQL Data Warehouse, mais les tables référencent les données stockées dans le Stockage Blob Azure. Exécutez les commandes T-SQL suivantes pour créer plusieurs tables externes pointant toutes vers l’objet blob Azure que vous avez défini précédemment dans la source de données externe.
+7. Créez les tables externes. Les définitions de table sont stockées dans la base de données, mais les tables référencent les données stockées dans le Stockage Blob Azure. Exécutez les commandes T-SQL suivantes pour créer plusieurs tables externes pointant toutes vers l’objet blob Azure que vous avez défini précédemment dans la source de données externe.
 
     ```sql
     CREATE EXTERNAL TABLE [ext].[dimension_City](
@@ -545,15 +527,15 @@ Exécutez les scripts SQL suivants pour spécifier les informations sur les donn
 
     ![Afficher les tables externes](media/load-data-wideworldimportersdw/view-external-tables.png)
 
-## <a name="load-the-data-into-your-data-warehouse"></a>Charger les données dans votre entrepôt de données
+## <a name="load-the-data-into-sql-pool"></a>Charger les données dans le pool SQL
 
-Cette section utilise les tables externes que vous avez définies pour charger les exemples de données d’Azure Blob dans SQL Data Warehouse.  
+Cette section utilise les tables externes que vous avez définies pour charger les exemples de données d’Azure Blob dans le pool SQL.  
 
 > [!NOTE]
 > Ce didacticiel charge directement les données dans la table finale. Dans un environnement de production, vous utilisez généralement l’instruction CREATE TABLE AS SELECT pour procéder au chargement dans une table de mise en lots. Lorsque les données se trouvent dans la table de mise en lots, vous pouvez effectuer toutes les transformations nécessaires. Pour ajouter les données de la table de mise en lots à une table de production, vous pouvez utiliser l’instruction INSERT...SELECT. Pour plus d’informations, voir [Insertion de données dans une table de production](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 > 
 
-Le script utilise l’instruction T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) pour charger les données d’Azure Storage Blob dans de nouvelles tables de votre entrepôt de données. CTAS crée une table en fonction des résultats d’une instruction select. La nouvelle table propose les mêmes colonnes et les mêmes types de données que les résultats de l’instruction select. Quand l’instruction select effectue une sélection dans une table externe, SQL Data Warehouse importe les données dans une table relationnelle de l’entrepôt de données. 
+Le script utilise l’instruction T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) pour charger les données d’Azure Storage Blob dans de nouvelles tables de votre entrepôt de données. CTAS crée une table en fonction des résultats d’une instruction select. La nouvelle table propose les mêmes colonnes et les mêmes types de données que les résultats de l’instruction select. Quand l’instruction select effectue une sélection dans une table externe, les données sont importées dans une table relationnelle de l’entrepôt de données. 
 
 Ce script ne charge pas les données dans les tables wwi.dimension_Date et wwi.fact_Sale. Ces tables sont générées lors d’une étape ultérieure pour que les tables aient un nombre de lignes important.
 
@@ -704,7 +686,7 @@ Ce script ne charge pas les données dans les tables wwi.dimension_Date et wwi.f
     ;
     ```
 
-2. Affichez vos données à mesure qu’elles sont chargées. Vous chargez plusieurs gigaoctets de données et les compressez au sein d’index de cluster columnstore hautes performances. Ouvrez une nouvelle fenêtre de requête sur SampleDW et exécutez la requête suivante pour afficher l’état du chargement. Une fois la requête démarrée, prenez un café et quelque chose à grignoter pendant que SQL Data Warehouse fait le gros du travail.
+2. Affichez vos données à mesure qu’elles sont chargées. Vous chargez plusieurs gigaoctets de données et les compressez au sein d’index de cluster columnstore hautes performances. Ouvrez une nouvelle fenêtre de requête sur SampleDW et exécutez la requête suivante pour afficher l’état du chargement. Une fois la requête démarrée, prenez un café et quelque chose à grignoter pendant que le pool SQL fait le gros du travail.
 
     ```sql
     SELECT
@@ -977,7 +959,8 @@ Utilisez les procédures stockées que vous avez créées pour générer des mil
     ```
 
 ## <a name="populate-the-replicated-table-cache"></a>Remplir le cache de la table répliquée
-SQL Data Warehouse réplique une table en mettant en cache les données sur chaque nœud Compute. Le cache est rempli lorsqu’une requête s’exécute sur la table. Par conséquent, la première requête d’une table répliquée peut nécessiter plus de temps pour remplir le cache. Une fois le cache rempli, les requêtes sur les tables répliquées s’exécutent plus rapidement.
+
+Le pool SQL réplique une table en mettant en cache les données sur chaque nœud Compute. Le cache est rempli lorsqu’une requête s’exécute sur la table. Par conséquent, la première requête d’une table répliquée peut nécessiter plus de temps pour remplir le cache. Une fois le cache rempli, les requêtes sur les tables répliquées s’exécutent plus rapidement.
 
 Exécutez ces requêtes SQL pour remplir le cache de la table répliquée sur les nœuds Compute. 
 
@@ -1112,16 +1095,16 @@ Dans ce didacticiel, vous avez appris à créer un entrepôt de données et un u
 
 Voici les étapes que vous avez effectuées :
 > [!div class="checklist"]
-> * Créer un entrepôt de données dans le portail Azure
+> * Créer un entrepôt de données à l’aide d’un pool SQL dans le portail Azure
 > * Configurer une règle de pare-feu au niveau du serveur dans le portail Azure
-> * Se connecter à l’entrepôt de données avec SSMS
+> * Se connecter au pool SQL avec SSMS
 > * Créer un utilisateur désigné pour le chargement des données
 > * Créer des tables externes pour les données dans Azure Storage Blob
 > * Utiliser l’instruction T-SQL CTAS pour charger les données dans votre entrepôt de données
 > * Afficher la progression des données à mesure du chargement
 > * Créer des statistiques sur les données nouvellement chargées
 
-Passez à la vue d’ensemble du développement pour savoir comment migrer une base de données existante vers SQL Data Warehouse.
+Passez à la vue d’ensemble du développement pour savoir comment migrer une base de données existante vers le pool SQL Azure Synapse.
 
 > [!div class="nextstepaction"]
->[Décisions de conception pour migrer une base de données existante vers SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
+>[Décisions de conception pour migrer une base de données existante vers le pool SQL](sql-data-warehouse-overview-develop.md)

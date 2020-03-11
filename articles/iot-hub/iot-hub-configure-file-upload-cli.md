@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: fe6ce23b9e87235521739b7808712a9d541dabf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df3c8d2abf59de6c9f685ad8d93e6689738df8e6
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734913"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78302523"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configurer les chargements de fichiers IoT Hub à l’aide d’Azure CLI
 
@@ -29,7 +29,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un IoT Hub Azure. Si vous n’avez pas de hub IoT, vous pouvez utiliser la [commande `az iot hub create`](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) pour en créer un, ou vous pouvez [Créer un IoT Hub à l’aide du portail](iot-hub-create-through-portal.md).
 
-* Un compte de stockage Azure. Si vous n’avez pas de compte de stockage Azure, vous pouvez utiliser [Azure CLI - Gérer les comptes de stockage](../storage/common/storage-azure-cli.md#manage-storage-accounts) afin d’en créer un ou utiliser le portail pour [créer un compte de stockage](../storage/common/storage-create-storage-account.md).
+* Un compte de stockage Azure. Si vous n’avez pas de compte Stockage Azure, vous pouvez utiliser Azure CLI pour en créer un. Pour plus d’informations, consultez la rubrique [Création d’un compte de stockage](../storage/common/storage-create-storage-account.md) .
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Se connecter à votre compte Azure et le définir
 

@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 03/03/2020
 ms.author: jgao
-ms.openlocfilehash: e881cde36bc56c175004e8d6adb9b7b85e9b5454
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3129d4c664ec487f2def6cc0d2668b7493f4c988
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616313"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272642"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Utiliser des scripts de déploiement dans des modèles (Préversion)
 
@@ -222,10 +222,16 @@ Les sorties de script de déploiement doivent être enregistrées à l’emplace
 
 [jq](https://stedolan.github.io/jq/) est utilisé dans l’exemple précédent. Il est fourni avec les images conteneurs. Consultez [Configurer l’environnement de développement](#configure-development-environment).
 
-## <a name="handle-non-terminating-errors"></a>Gérer les erreurs sans fin d’exécution
+## <a name="develop-deployment-scripts"></a>Développer des scripts de déploiement
+
+### <a name="handle-non-terminating-errors"></a>Gérer les erreurs sans fin d’exécution
 
 Vous pouvez contrôler la façon dont PowerShell répond aux erreurs sans fin d’exécution à l’aide de la variable [ **$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
 ) dans votre script de déploiement. Le moteur de script de déploiement ne définit ni ne modifie la valeur.  En dépit de la valeur que vous définissez pour $ErrorActionPreference, le script de déploiement définit l’état d’approvisionnement des ressources sur *Failed* (Échec) lorsque le script rencontre une erreur.
+
+### <a name="pass-secured-strings-to-deployment-script"></a>Passer des chaînes sécurisées au script de déploiement
+
+Définir des variables d’environnement dans vos instances de conteneur vous permet de fournir une configuration dynamique de l’application ou du script exécuté par le conteneur. Le script de déploiement gère les variables d’environnement sécurisées et non sécurisées de la même manière qu’Azure Container Instance. Pour plus d’informations, consultez [Définir des variables d’environnement dans des instances de conteneur](../../container-instances/container-instances-environment-variables.md#secure-values).
 
 ## <a name="debug-deployment-scripts"></a>Déboguer les scripts de déploiement
 

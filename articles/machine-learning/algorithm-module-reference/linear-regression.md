@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: f3cb583a3594b14266249ef80f8c49633c1df1de
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: cd634c41a1d6e3d9846e8299dd281b52beb77130
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152191"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912787"
 ---
 # <a name="linear-regression-module"></a>Module Régression linéaire
 Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
@@ -51,17 +51,15 @@ Pendant des années, les statisticiens ont développé des méthodes de régress
 
 Ce module prend en charge deux méthodes d’ajustement d’un modèle de régression, avec différentes options :
 
-+ [Créer un modèle de régression utilisant la descente de gradient en ligne](#bkmk_GradientDescent)
++ [Ajuster un modèle de régression utilisant les moindres carrés ordinaires](#create-a-regression-model-using-ordinary-least-squares)
+
+    Pour les jeux de données de petite taille, il est préférable de sélectionner la méthode des moindres carrés ordinaires. Elle devrait donner produire des résultats similaires à ceux obtenus dans Excel.
+    
++ [Créer un modèle de régression utilisant la descente de gradient en ligne](#create-a-regression-model-using-online-gradient-descent)
 
     La descente de gradient est une meilleure fonction de perte pour les modèles plus complexes, ou qui ont trop eu de données d’apprentissage compte tenu du nombre de variables.
 
-
-
-+ [Ajuster un modèle de régression utilisant les moindres carrés ordinaires](#bkmk_OrdinaryLeastSquares)
-
-    Pour les jeux de données de petite taille, il est préférable de sélectionner la méthode des moindres carrés ordinaires. Elle devrait donner produire des résultats similaires à ceux obtenus dans Excel.
-
-## <a name="bkmk_OrdinaryLeastSquares"></a> Créer un modèle de régression utilisant les moindres carrés ordinaires
+### <a name="create-a-regression-model-using-ordinary-least-squares"></a>Créer un modèle de régression utilisant les moindres carrés ordinaires
 
 1. Ajoutez le module **Modèle de régression linéaire** à votre pipeline dans le concepteur.
 
@@ -86,7 +84,7 @@ Ce module prend en charge deux méthodes d’ajustement d’un modèle de régre
 
 8. Exécuter le pipeline.
 
-## <a name="results-for-ordinary-least-squares-model"></a>Résultats de modèle de moindres carrés ordinaires
+### <a name="results-for-ordinary-least-squares-model"></a>Résultats de modèle de moindres carrés ordinaires
 
 Une fois l’apprentissage terminé :
 
@@ -94,7 +92,7 @@ Une fois l’apprentissage terminé :
 + Pour effectuer des prédictions, connectez le modèle formé au module [Score Model](./score-model.md) (Noter le modèle), ainsi qu’un jeu de données de nouvelles valeurs. 
 
 
-## <a name="bkmk_GradientDescent"></a> Créer un modèle de régression utilisant la descente de gradient en ligne
+### <a name="create-a-regression-model-using-online-gradient-descent"></a>Créer un modèle de régression utilisant la descente de gradient en ligne
 
 1. Ajoutez le module **Modèle de régression linéaire** à votre pipeline dans le concepteur.
 
@@ -105,6 +103,8 @@ Une fois l’apprentissage terminé :
 3. Pour **Create trainer mode** (créer un mode d’apprentissage), indiquer si vous souhaitez effectuer l’apprentissage du modèle avec un ensemble prédéfini de paramètres, ou si vous souhaitez optimiser le modèle à l’aide d’un balayage de paramètre.
 
     + **Single Parameter** (Paramètre unique) : si vous savez comment vous voulez configurer le réseau de régression linéaire, vous pouvez fournir un ensemble spécifique de valeurs en tant qu’arguments.
+    
+    + **Plage de paramètres** : Sélectionnez cette option si vous n’êtes pas sûr des paramètres à choisir et que vous souhaitez exécuter un balayage des paramètres. Sélectionnez une plage de valeurs à itérer, et le module [Optimiser les hyperparamètres du modèle](tune-model-hyperparameters.md) itère toutes les combinaisons possibles des paramètres que vous avez fournis pour déterminer les hyperparamètres qui produisent les résultats optimaux.  
 
    
 4. Pour **Learning rate** (Taux d’apprentissage), spécifiez le taux d’apprentissage initial pour l’optimiseur de descente de gradient stochastique.
@@ -133,7 +133,7 @@ Une fois l’apprentissage terminé :
 
 13. Exécuter le pipeline.
 
-## <a name="results-for-online-gradient-descent"></a>Résultats pour la descente de gradient en ligne
+### <a name="results-for-online-gradient-descent"></a>Résultats pour la descente de gradient en ligne
 
 Une fois l’apprentissage terminé :
 

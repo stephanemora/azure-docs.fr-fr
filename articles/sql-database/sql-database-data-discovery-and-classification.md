@@ -5,21 +5,22 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: ''
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse
 ms.devlang: ''
 ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/22/2019
-ms.openlocfilehash: dda65c94671044f3c5a569a3f9753951de9eee3a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/05/2020
+tags: azure-synapse
+ms.openlocfilehash: e22205e81178ac0caff4b71462ece776238900f6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717686"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191943"
 ---
-# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Découverte et classification des données pour Azure SQL Database et SQL Data Warehouse
+# <a name="azure-sql-database-and-azure-synapse-analytics-data-discovery--classification"></a>Découverte et classification des données pour Azure SQL Database et Azure Synapse Analytics
 
 Découverte et classification des données offre des fonctionnalités avancées intégrées à Azure SQL Database pour la **découverte**, la **classification**, l’**étiquetage** et la  & **génération de rapports** des données sensibles dans vos bases de données.
 
@@ -32,7 +33,7 @@ La découverte et la classification de vos données les plus sensibles (professi
 Découverte et classification des données fait partie de l'offre [Advanced Data Security](sql-database-advanced-data-security.md) (ADS) qui est un package unifié de fonctionnalités de sécurité SQL avancées. L'accès au composant Découverte et classification des données ainsi que sa gestion se font via le portail SQL ADS central.
 
 > [!NOTE]
-> Ce document a trait à Azure SQL Database et Azure SQL Data Warehouse. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse. Pour SQL Server (local), consultez [Découverte et classification de données SQL](https://go.microsoft.com/fwlink/?linkid=866999).
+> Ce document a trait à Azure SQL Database et Azure Synapse. Par souci de simplicité, le nom « SQL Database » est utilisé pour faire référence à SQL Database et à Azure Synapse. Pour SQL Server (local), consultez [Découverte et classification de données SQL](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>Présentation de Découverte et classification des données
 
@@ -138,7 +139,7 @@ En savoir plus sur le [contrôle d’accès en fonction du rôle pour les ressou
 
 ## <a id="subheading-5"></a>Gérer les classifications
 
-# <a name="t-sqltabazure-t-sql"></a>[T-SQL](#tab/azure-t-sql)
+# <a name="t-sql"></a>[T-SQL](#tab/azure-t-sql)
 Vous pouvez utiliser T-SQL pour ajouter/supprimer des classifications de colonne, ainsi que pour récupérer toutes les classifications pour la base de données entière.
 
 > [!NOTE]
@@ -148,7 +149,7 @@ Vous pouvez utiliser T-SQL pour ajouter/supprimer des classifications de colonne
 - Supprimer la classification d’une ou plusieurs colonnes : [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Voir toutes les classifications sur la base de données : [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-# <a name="rest-apistabazure-rest-api"></a>[API Rest](#tab/azure-rest-api)
+# <a name="rest-apis"></a>[API Rest](#tab/azure-rest-api)
 Vous pouvez utiliser des API REST pour gérer par programme les classifications et les recommandations. Les API REST publiées prennent en charge les opérations suivantes :
 
 - [Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) : crée ou met à jour l’étiquette de sensibilité d’une colonne donnée
@@ -159,7 +160,7 @@ Vous pouvez utiliser des API REST pour gérer par programme les classifications 
 - [Liste actuelle par base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) : affiche les étiquettes de sensibilité actuelles d’une base de données spécifiée
 - [Liste recommandée par base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) : affiche les étiquettes de sensibilité recommandées d’une base de données spécifiée
 
-# <a name="powershell-cmdlettabazure-powelshell"></a>[Applet de commande PowerShell](#tab/azure-powelshell)
+# <a name="powershell-cmdlet"></a>[Applet de commande PowerShell](#tab/azure-powelshell)
 Vous pouvez utiliser PowerShell pour gérer les classifications et les recommandations pour Azure SQL Database et Managed Instance.
 
 ### <a name="powershell-cmdlet-for-azure-sql-database"></a>Cmdlet PowerShell pour Azure SQL Database

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: f111b19eb07c218a9f3250ef3ffdb8a97cf07542
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 1a1b9907cd931716949d92d948a7d541fd2d5057
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420731"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206943"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Utiliser des réplicas en lecture seule pour équilibrer des charges de travail de requêtes en lecture seule
 
@@ -35,7 +35,7 @@ La fonctionnalité Échelle horizontale en lecture est activée par défaut sur 
 Si vous souhaitez vous assurer que l’application se connecte au réplica principal quel que soit le paramètre `ApplicationIntent` de la chaîne de connexion SQL, vous devez désactiver explicitement l’échelle horizontale en lecture lors de la création de la base de données ou de la modification de sa configuration. Par exemple, si vous mettez à niveau votre base de données de type Standard ou Usage général vers une base de données de type Premium, Critique pour l’entreprise ou Hyperscale, et souhaitez vous assurer que toutes vos connexions continuent d’aller vers le réplica principal, désactivez la fonctionnalité Échelle horizontale en lecture. Pour plus d’informations sur la façon de désactiver cette fonctionnalité, voir [Activer et désactiver l’échelle horizontale en lecture](#enable-and-disable-read-scale-out).
 
 > [!NOTE]
-> Les fonctionnalités Magasin de données des requêtes, Magasin de données des requêtes, Générateur de profils SQL Server et Audit ne sont pas prises en charge sur les réplicas en lecture seule.
+> Les fonctionnalités Magasin de données des requêtes, Événements étendus et Générateur de profils SQL ne sont pas prises en charge sur les réplicas en lecture seule.
 
 ## <a name="data-consistency"></a>Cohérence des données
 
@@ -96,7 +96,7 @@ Vous pouvez gérer le paramètre d’échelle horizontale en lecture sur le pann
 ### <a name="powershell"></a>PowerShell
 
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager (RM) est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Le module AzureRM continue à recevoir des résolutions de bogues jusqu’à au moins décembre 2020.  Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm. Pour en savoir plus sur leur compatibilité, consultez [Présentation du nouveau module Az Azure PowerShell](/powershell/azure/new-azureps-module-az).
+> Le module PowerShell Azure Resource Manager (RM) est toujours pris en charge par Azure SQL Database, mais tous les développements à venir sont destinés au module Az.Sql. Le module AzureRM continue à recevoir des résolutions de bogues jusqu’à au moins décembre 2020.  Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm. Pour en savoir plus sur leur compatibilité, consultez [Présentation du nouveau module Az Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
 La gestion de la lecture du Scale-out dans Azure PowerShell nécessite la version d’Azure PowerShell de décembre 2016 ou plus récente. Pour obtenir la version de PowerShell la plus récente, consultez [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 

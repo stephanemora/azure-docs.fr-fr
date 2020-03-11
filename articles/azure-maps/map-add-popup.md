@@ -3,18 +3,18 @@ title: Ajouter une fenêtre contextuelle à un point sur une carte | Microsoft A
 description: Dans cet article, vous allez apprendre à ajouter une fenêtre contextuelle à un point à l’aide du Kit de développement logiciel (SDK) Web Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
-ms.date: 07/29/2019
+ms.date: 02/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 45d210725f7f09663b126528479655d7f4d9c19f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 588de08666930937c3ad965b2609f8e207b75eca
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933351"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208846"
 ---
 # <a name="add-a-popup-to-the-map"></a>Ajouter une fenêtre contextuelle à la carte
 
@@ -80,26 +80,163 @@ Vous trouverez ci-dessous l’exemple de code d’exécution complet de la fonct
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Ajouter une fenêtre contextuelle à l’aide d’Azure Maps' src='//codepen.io/azuremaps/embed/MPRPvz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Affichez l’objet Pen <a href='https://codepen.io/azuremaps/pen/MPRPvz/'>Ajouter une fenêtre contextuelle à l’aide d’Azure Maps</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Ajouter une fenêtre contextuelle à l’aide d’Azure Maps' src='//codepen.io/azuremaps/embed/MPRPvz/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Affichez l’objet Pen <a href='https://codepen.io/azuremaps/pen/MPRPvz/'>Ajouter une fenêtre contextuelle à l’aide d’Azure Maps</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="reusing-a-popup-with-multiple-points"></a>Réutilisation d’une fenêtre contextuelle avec plusieurs points
 
-Si vous disposez d’un grand nombre de points et si vous souhaitez n’afficher qu’une seule fenêtre contextuelle à la fois, la meilleure solution consiste à créer une fenêtre contextuelle et à la réutiliser. La réutilisation de la fenêtre contextuelle permet de réduire considérablement le nombre d’éléments DOM créés par l’application, ce qui peut améliorer les performances. L’exemple suivant crée des caractéristiques à trois points. Si vous cliquez sur l’un d’eux, une fenêtre contextuelle s’affiche avec le contenu de ce point.
+Dans certains cas, la meilleure approche consiste à créer une fenêtre contextuelle et à la réutiliser. Par exemple, vous pouvez avoir un grand nombre de points et souhaiter afficher une seule fenêtre contextuelle à la fois. En réutilisant la fenêtre contextuelle, le nombre d’éléments DOM créés par l’application est nettement réduit, ce qui peut offrir un meilleur niveau de performance. L’exemple suivant crée des caractéristiques à trois points. Si vous cliquez sur l’un d’eux, une fenêtre contextuelle s’affiche avec le contenu de ce point.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Réutilisation d’une fenêtre contextuelle avec plusieurs épingles' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reusing Popup with Multiple Pin</a> (Réutilisation d’une fenêtre contextuelle avec plusieurs épingles) Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Réutilisation d’une fenêtre contextuelle avec plusieurs épingles' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>Reusing Popup with Multiple Pin</a> (Réutilisation d’une fenêtre contextuelle avec plusieurs épingles) Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="customizing-a-popup"></a>Personnalisation d’une fenêtre contextuelle
 
-Par défaut, la fenêtre contextuelle a un arrière-plan blanc, une flèche de pointeur en bas et un bouton Fermer dans le coin supérieur droit. L’exemple suivant change la couleur d’arrière-plan en noir à l’aide de l’option `fillColor` de la fenêtre contextuelle. Le bouton Fermer est supprimé en affectant la valeur false à l’option `CloseButton`. Le contenu HTML de la fenêtre contextuelle utilise un remplissage de 10 pixels par rapport aux bords de la fenêtre contextuelle. Le texte de couleur blanche s’affiche correctement sur l’arrière-plan noir.  
+Par défaut, la fenêtre contextuelle a un arrière-plan blanc, une flèche de pointeur au bas et un bouton de fermeture dans le coin supérieur droit. L’exemple suivant change la couleur d’arrière-plan en noir à l’aide de l’option `fillColor` de la fenêtre contextuelle. Le bouton Fermer est supprimé en affectant la valeur false à l’option `CloseButton`. Le contenu HTML de la fenêtre contextuelle utilise un remplissage de 10 pixels par rapport aux bords de la fenêtre contextuelle. Le texte de couleur blanche s’affiche correctement sur l’arrière-plan noir.  
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Fenêtre contextuelle personnalisée" src="//codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Fenêtre contextuelle personnalisée" src="//codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez la page <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>Customized Popup</a> (Fenêtre contextuelle personnalisée) d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="add-popup-templates-to-the-map"></a>Ajouter des modèles de fenêtre contextuelle à la carte
+
+Les modèles de fenêtre contextuelle facilitent la création de dispositions axées sur les données dans les fenêtres contextuelles. Les sections ci-dessous montrent comment différents modèles de fenêtre contextuelle sont utilisés pour générer du contenu mis en forme à l’aide des propriétés de fonctionnalités.
+
+### <a name="string-template"></a>Modèle String
+
+Le modèle String remplace les espaces réservés par les valeurs des propriétés de la fonctionnalité. Il n’est pas nécessaire d’attribuer des valeurs de type String aux propriétés de la fonctionnalité. Par exemple, `value1` contient un entier. Ces valeurs sont ensuite transmises à la propriété content de `popupTemplate`. 
+
+L’option `numberFormat` spécifie le format du nombre à afficher. Si `numberFormat` n’est pas spécifié, le code utilise le format de date du modèle de fenêtre contextuelle. L’option `numberFormat` met en forme les nombres à l’aide de la fonction [Number.toLocaleString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString). Pour mettre en forme les nombres importants, envisagez d’utiliser l’option `numberFormat` avec les fonctions de [NumberFormat.format](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat/format). Par exemple, l’extrait de code ci-dessous utilise `maximumFractionDigits` pour limiter le nombre de chiffres de fraction à deux.
+
+> [!Note]
+> Le modèle String ne peut afficher les images que d’une seule façon. Pour commencer, le modèle String doit contenir une balise d’image. La valeur transmise à la balise d’image doit être une URL qui mène à une image. Ensuite, le paramètre `isImage` de l’option `HyperLinkFormatOptions` du modèle String doit être défini sur true. L’option `isImage` indique que le lien hypertexte se rapporte à une image et qu’il sera chargé dans une balise d’image. L’image s’ouvrira une fois que l’utilisateur aura cliqué sur le lien hypertexte.
+
+```javascript
+new atlas.data.Feature(new atlas.data.Point([-20, -20]), {
+    title: 'Template 1 - String template',
+    value1: 1.2345678,
+    value2: {
+        subValue: 'Pizza'
+    },
+    arrayValue: [3, 4, 5, 6],
+    popupTemplate: {
+        content: 'This template uses a string template with placeholders.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
+        numberFormat: {
+            maximumFractionDigits: 2
+        }
+    }
+}),
+```
+
+### <a name="propertyinfo-template"></a>Modèle PropertyInfo
+
+Le modèle PropertyInfo affiche les propriétés disponibles de la fonctionnalité. L’option `label` indique le texte à afficher pour l’utilisateur. Si `label` n’est pas spécifié, le lien hypertexte s’affiche. Par ailleurs, si le lien hypertexte est une image, la valeur affectée à la balise « alt » s’affiche. `dateFormat` indique le format de la date. Si aucun format de date n’est spécifié, la date s’affiche sous forme de chaîne. L’option `hyperlinkFormat` affiche les liens cliquables. De la même manière, l’option `email` peut être utilisée pour afficher les adresses e-mail cliquables.
+
+Avant de présenter les propriétés à l’utilisateur final, le modèle PropertyInfo vérifie de manière récursive que les propriétés sont bel et bien définies pour cette fonctionnalité. Par ailleurs, il n’affiche pas les propriétés de style et title. Par exemple, les propriétés `color`, `size`, `anchor`, `strokeOpacity` et `visibility` ne sont pas affichées. Ainsi, une fois la vérification du chemin des propriétés terminée en arrière-plan, le modèle PropertyInfo affiche le contenu sous forme de tableau.
+
+```javascript
+new atlas.data.Feature(new atlas.data.Point([20, -20]), {
+    title: 'Template 2 - PropertyInfo',
+    createDate: new Date(),
+    dateNumber: 1569880860542,
+    url: 'https://aka.ms/AzureMapsSamples',
+    email: 'info@microsoft.com',
+    popupTemplate: {
+        content: [{
+    propertyPath: 'createDate',
+    label: 'Created Date'
+    },
+    {
+    propertyPath: 'dateNumber',
+    label: 'Formatted date from number',
+    dateFormat: {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'UTC',
+        timeZoneName: 'short'
+    }
+    },
+    {
+    propertyPath: 'url',
+    label: 'Code samples',
+    hideLabel: true,
+    hyperlinkFormat: {
+        lable: 'Go to code samples!',
+        target: '_blank'
+    }
+    },
+    {
+    propertyPath: 'email',
+    label: 'Email us',
+    hideLabel: true,
+    hyperlinkFormat: {
+        target: '_blank',
+        scheme: 'mailto:'
+        }
+    }
+        ]
+    }
+}),
+
+```
+
+### <a name="multiple-content-templates"></a>Modèles multicontenus
+
+Une fonctionnalité peut aussi afficher du contenu en combinant le modèle String et le modèle PropertyInfo. Dans ce cas, le modèle String affiche les valeurs des espaces réservés sur un arrière-plan blanc.  Parallèlement, le modèle PropertyInfo affiche une image en pleine largeur à l’intérieur d’un tableau. Dans cet exemple, les propriétés sont similaires à celles que nous avons expliquées dans les exemples précédents.
+
+```javascript
+new atlas.data.Feature(new atlas.data.Point([0, 0]), {
+    title: 'Template 3 - Multiple content template',
+    value1: 1.2345678,
+    value2: {
+    subValue: 'Pizza'
+    },
+    arrayValue: [3, 4, 5, 6],
+    imageLink: 'https://azuremapscodesamples.azurewebsites.net/common/images/Pike_Market.jpg',
+    popupTemplate: {
+    content: [
+      'This template has two pieces of content; a string template with placeholders and a array of property info which renders a full width image.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',
+      [{
+        propertyPath: 'imageLink',
+        label: 'Image',
+        hideImageLabel: true,
+        hyperlinkFormat: {
+          isImage: true
+        }
+      }]
+    ],
+    numberFormat: {
+      maximumFractionDigits: 2
+    }
+    }
+    }),
+]);
+```
+
+### <a name="points-without-a-defined-template"></a>Points sans modèle défini
+
+Quand le modèle de fenêtre contextuelle (Popup) n’est pas défini comme étant un modèle String, un modèle PropertyInfo ou une combinaison des deux, il utilise les paramètres par défaut. Quand `title` et `description` sont les seules propriétés affectées, le modèle de fenêtre contextuelle présente un arrière-plan blanc et un bouton de fermeture dans l’angle supérieur droit. De plus, sur les écrans de petit et moyen format, il affiche une flèche au bas. Les paramètres par défaut s’affichent à l’intérieur d’un tableau pour toutes les propriétés autres que `title` et `description`. Même en revenant aux paramètres par défaut, le modèle de fenêtre contextuelle peut toujours être manipulé par programmation. Par exemple, les utilisateurs peuvent désactiver la détection des liens hypertexte, mais les paramètres par défaut s’appliqueront toujours aux autres propriétés.
+
+Cliquez sur les points sur la carte dans CodePen. Il existe sur la carte un point pour chacun des modèles de fenêtre contextuelle suivants : modèle String, modèle PropertyInfo et modèle multicontenu. Il y a aussi trois points qui montrent comment les modèles s’affichent avec les paramètres par défaut.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='PopupTemplates' src='//codepen.io/azuremaps/embed/dyovrzL/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez le stylet <a href='https://codepen.io/azuremaps/pen/dyovrzL/'>PopupTemplates</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="reuse-popup-template"></a>Réutiliser le modèle de fenêtre contextuelle
+
+Vous pouvez réutiliser les modèles de fenêtre contextuelle comme vous réutiliseriez une fenêtre contextuelle. Cette approche s’avère utile quand vous voulez seulement afficher un modèle de fenêtre contextuelle à la fois, pour plusieurs points. En réutilisant le modèle de fenêtre contextuelle, le nombre d’éléments DOM créés par l’application est réduit, ce qui améliore le niveau de performance de votre application. L’exemple suivant utilise le même modèle de fenêtre contextuelle pour les trois points. Si vous cliquez sur l’un d’eux, une fenêtre contextuelle s’affiche avec le contenu de ce point.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='ReusePopupTemplate' src='//codepen.io/azuremaps/embed/WNvjxGw/?height=500&theme-id=0&default-tab=result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez le stylet <a href='https://codepen.io/azuremaps/pen/WNvjxGw/'>ReusePopupTemplates</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="popup-events"></a>Événements de fenêtres contextuelles
@@ -108,7 +245,7 @@ Les fenêtres contextuelles peuvent être ouvertes, fermées et déplacées. La 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Événements de fenêtres contextuelles" src="//codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Événements de fenêtres contextuelles" src="//codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Consultez la page <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>Popup events</a> d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

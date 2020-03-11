@@ -1,30 +1,30 @@
 ---
 title: Octroi de l’accès
-description: Découvrez comment octroyer un accès à Microsoft Azure SQL Database et SQL Data Warehouse.
+description: Découvrez comment octroyer un accès à Microsoft Azure SQL Database et Azure Synapse.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse
 ms.custom: sql-data-warehouse, seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 05/08/2019
-ms.openlocfilehash: 05a949bbd99a36c41143190d216116f78c433951
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/06/2020
+ms.openlocfilehash: 5142cc941b37cfef7be79e5129b6df7094bfd00e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826609"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197842"
 ---
-# <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Contrôle de l’accès à Azure SQL Database et SQL Data Warehouse
+# <a name="azure-sql-database-and-azure-synapse-access-control"></a>Contrôle de l’accès à Azure SQL Database et Azure Synapse
 
-Pour assurer la sécurité, Azure [SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) contrôlent l’accès avec des règles de pare-feu qui limitent la connectivité en fonction de l’adresse IP, des mécanismes d’authentification qui obligent les utilisateurs à prouver leur identité, et des mécanismes d’autorisation qui les restreignent à certaines actions et données. 
+Pour assurer la sécurité, Azure [SQL Database](sql-database-technical-overview.md) et [Azure Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) contrôlent l’accès avec des règles de pare-feu qui limitent la connectivité en fonction de l’adresse IP, des mécanismes d’authentification qui obligent les utilisateurs à prouver leur identité, et des mécanismes d’autorisation qui les restreignent à certaines actions et données. 
 
 > [!IMPORTANT]
-> Pour une vue d’ensemble des fonctionnalités de sécurité de SQL Database, consultez [Sécurisation de SQL Database](sql-database-security-overview.md). Pour un tutoriel, consultez [Sécuriser votre base de données Azure SQL](sql-database-security-tutorial.md). Pour avoir une vue d’ensemble des fonctionnalités de sécurité de SQL Database Warehouse, consultez [Présentation de la sécurité des bases de données SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)
+> Pour une vue d’ensemble des fonctionnalités de sécurité de SQL Database, consultez [Sécurisation de SQL Database](sql-database-security-overview.md). Pour un tutoriel, consultez [Sécuriser votre base de données Azure SQL](sql-database-security-tutorial.md). Pour obtenir une vue d’ensemble des fonctionnalités de sécurité SQL Analytics dans Azure Synapse, consultez [Vue d’ensemble de la sécurité Azure Synapse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 ## <a name="firewall-and-firewall-rules"></a>Pare-feu et règles de pare-feu
 
@@ -45,13 +45,13 @@ Une base de données SQL prend en charge deux types d’authentification :
 
   Cette méthode d’authentification utilise des identités gérées par Azure Active Directory, et est prise en charge pour les domaines managés et intégrés. Si vous souhaitez utiliser l’authentification Azure Active Directory, vous devez créer un autre administrateur de serveur appelé « administrateur Azure AD », autorisé à gérer les groupes et utilisateurs Active Directory Azure. Cet administrateur peut également effectuer toutes les opérations d’un administrateur de serveur ordinaire. Pour une procédure pas à pas relative à la création d’un administrateur Azure AD pour activer l’authentification Azure Active Directory, consultez [Connexion à la base de données SQL avec l’authentification Azure Active Directory](sql-database-aad-authentication.md) .
 
-Le moteur de base de données ferme les connexions restées inactives pendant plus de 30 minutes. La connexion nécessite une nouvelle identification pour fonctionner à nouveau. Les connexions perpétuelles à SQL Database requièrent une nouvelle autorisation (effectuée par le moteur de base de données) au moins toutes les 10 heures. Le moteur de base de données tente de renouveler l’autorisation à l’aide du mot de passe envoyé à l’origine. L’utilisateur n’a rien à saisir. Pour des raisons de performances, lorsqu’un mot de passe est réinitialisé dans SQL Database, la connexion n’est pas authentifiée à nouveau, même si elle est réinitialisée suite à un regroupement de connexions. Ce comportement est différent de SQL Server local. Si le mot de passe a été modifié depuis l’autorisation initiale de la connexion, celle-ci doit être interrompue et une nouvelle connexion établie à l’aide du nouveau mot de passe. Un utilisateur disposant de l’autorisation `KILL DATABASE CONNECTION` peut mettre explicitement fin à une connexion à SQL Database à l’aide de la commande [KILL](https://docs.microsoft.com/sql/t-sql/language-elements/kill-transact-sql).
+Le moteur de base de données ferme les connexions restées inactives pendant plus de 30 minutes. La connexion nécessite une nouvelle identification pour fonctionner à nouveau. Les connexions perpétuelles à SQL Database requièrent une nouvelle autorisation (effectuée par le moteur de base de données) au moins toutes les 10 heures. Le moteur de base de données tente de renouveler l’autorisation à l’aide du mot de passe envoyé à l’origine. L’utilisateur n’a rien à saisir. Pour des raisons de performances, lorsqu’un mot de passe est réinitialisé dans SQL Database, la connexion n’est pas authentifiée à nouveau, même si elle est réinitialisée suite à un regroupement de connexions. Cela est différent du comportement local de SQL Server. Si le mot de passe a été modifié depuis que la connexion a été initialement autorisée, la connexion doit être interrompue et une nouvelle connexion établie à l’aide du nouveau mot de passe. Un utilisateur disposant de l’autorisation `KILL DATABASE CONNECTION` peut mettre explicitement fin à une connexion à SQL Database à l’aide de la commande [KILL](https://docs.microsoft.com/sql/t-sql/language-elements/kill-transact-sql).
 
 Les comptes d’utilisateur peuvent être soit créés dans la base de données principale et autorisés à accéder à toutes les bases de données sur le serveur, soit créés dans la base de données elle-même (appelés utilisateurs à relation contenant-contenu). Pour plus d’informations sur la création et la gestion des connexions, consultez [Gérer les connexions](sql-database-manage-logins.md). Utilisez des bases de données autonomes pour améliorer la portabilité et l’évolutivité. Pour plus d’informations sur les utilisateurs autonomes, consultez [Utilisateurs de base de données autonome - Rendre votre base de données portable](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable), [CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) et [Bases de données autonomes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases).
 
 Nous vous recommandons, au titre de meilleure pratique, d’utiliser un compte dédié pour l’authentification de votre application. Cela vous permet de limiter les autorisations accordées à cette application et de réduire les risques d’activité malveillante, au cas où le code de votre application serait vulnérable à une attaque par injection de code SQL. La méthode recommandée consiste à créer un [utilisateur de base de données autonome](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable), qui permet à votre application de s’authentifier directement auprès de la base de données. 
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>Autorisation
 
 Le terme « autorisation » fait référence aux actions qu’un utilisateur peut exécuter dans une base de données Azure SQL Database et qui sont contrôlées par les [rôles détenus](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) et les [autorisations sur les objets](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine). Nous vous recommandons, à titre de meilleure pratique, d’accorder aux utilisateurs des privilèges aussi réduits que possible. Le compte d’administrateur du serveur avec lequel vous vous connectez appartient au groupe « db_owner », qui est autorisé à effectuer tout type d’opérations dans la base de données. Enregistrez ce compte pour l’utiliser lors du déploiement des mises à niveau de schéma et d’autres opérations de gestion. Utilisez le compte « ApplicationUser », doté d’autorisations plus limitées, pour vous connecter à la base de données à partir de votre application, en bénéficiant du niveau de privilèges le moins élevé requis par cette dernière. Pour plus d’informations, consultez [Gérer les connexions](sql-database-manage-logins.md).
 

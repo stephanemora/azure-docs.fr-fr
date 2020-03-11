@@ -8,19 +8,16 @@ ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b75740e9bff714ad68c93bea7e387e60da2f1c59
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 1370f65405963ebf825e986e6801607a0d96156e
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212497"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298086"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Ajouter un principal de service au rôle d’administrateur du serveur 
 
  Pour automatiser les tâches PowerShell sans assistance, un principal de service doit disposer des privilèges **Administrateur du serveur** sur le serveur Analysis Services géré. Cet article décrit comment ajouter un principal de service au rôle d’administrateurs du serveur sur un serveur Azure AS. Pour ce faire, vous pouvez utiliser SQL Server Management Studio ou un modèle Resource Manager.
- 
-> [!NOTE]
-> Pour les opérations de serveur utilisant des cmdlets Azure PowerShell, le principal de service doit également appartenir au rôle **Propriétaire** associé à la ressource dans le [contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/overview.md). 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Avant d’exécuter cette tâche, vous devez disposer d’un principal de service inscrit dans Azure Active Directory.
@@ -96,6 +93,24 @@ Le modèle Resource Manager suivant déploie un serveur Analysis Services avec u
     ]
 }
 ```
+
+## <a name="using-managed-identities"></a>Utilisation des identités managées
+
+Une identité managée peut également être ajoutée à la liste des administrateurs Analysis Services. Ainsi, vous pouvez avoir [une application logique avec une identité managée affectée par le système](../logic-apps/create-managed-service-identity.md) et souhaiter lui accorder la possibilité d’administrer votre serveur Analysis Services.
+
+Dans pratiquement tout le portail Azure et la majeure partie des API, les identités managées sont identifiées au moyen de leur ID d’objet de principal de service. Pour autant, Analysis Services exige qu’elles soient identifiées à l’aide de leur ID client. Pour obtenir l’ID client d’un principal de service, vous pouvez utiliser l’interface Azure CLI :
+
+```bash
+az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o tsv
+```
+
+Vous pouvez également utiliser PowerShell :
+
+```powershell
+(Get-AzureADServicePrincipal -ObjectId <ManagedIdentityServicePrincipalObjectId>).AppId
+```
+
+Ensuite, vous utilisez cet ID client conjointement avec l’ID de locataire pour ajouter l’identité managée à la liste des administrateurs Analysis Services, comme décrit ci-dessus.
 
 ## <a name="related-information"></a>Informations connexes
 

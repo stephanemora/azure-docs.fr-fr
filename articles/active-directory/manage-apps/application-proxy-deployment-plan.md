@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 959d959cd269884b3b75c4c23bfd0054ae64ced7
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b3278615b90fe2ef539456c3f00eb877918aa9c2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033647"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248363"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planifier le déploiement d’un proxy d’application Azure AD
 
@@ -36,7 +36,7 @@ La section suivante présente les éléments clés de la planification qui vous 
 
 ### <a name="prerequisites"></a>Prérequis
 
-Avant de commencer votre implémentation, vous devez respecter les prérequis suivants. Pour plus d’informations sur la configuration de votre environnement, y compris sur ces prérequis, consultez [ce didacticiel](application-proxy-add-on-premises-application.md).
+Avant de commencer votre implémentation, vous devez respecter les prérequis suivants. Pour plus d’informations sur la configuration de votre environnement, y compris sur ces prérequis, consultez [ce tutoriel](application-proxy-add-on-premises-application.md).
 
 * **Connecteurs** : les connecteurs sont des agents légers que vous pouvez déployer sur :
    * Du matériel physique local
@@ -54,7 +54,7 @@ Avant de commencer votre implémentation, vous devez respecter les prérequis su
 
    * Il n’est pas possible d’arrêter le trafic TLS du connecteur, car cela empêche les connecteurs d’établir un canal sécurisé vers leurs points de terminaison de proxy d’application Azure respectifs.
 
-   * Évitez toute forme d’inspection interne sur les communications TLS sortantes établies entre les connecteurs et Azure. Vous pouvez réaliser une inspection interne entre un connecteur et une application back-end. Toutefois, cette pratique n’est pas recommandée, car elle peut dégrader l’expérience utilisateur.
+   * Évitez toute forme d’inspection inline sur les communications TLS sortantes établies entre les connecteurs et Azure. Vous pouvez réaliser une inspection interne entre un connecteur et une application back-end. Toutefois, cette pratique n’est pas recommandée, car elle peut dégrader l’expérience utilisateur.
 
    * L’équilibrage de charge des connecteurs n’est pas pris en charge, ni même nécessaire.
 
@@ -68,7 +68,7 @@ Vous devez répondre aux exigences de base suivantes pour configurer et impléme
 
 * **Limites du service** : pour éviter qu’un même locataire ne surconsomme les ressources, des limites sont définies pour chaque application et chaque locataire. Pour voir ces limites, consultez [Restrictions et limites du service Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions). Ces limites sont basées sur un point de référence bien supérieur à l’utilisation classique, et fournissent une mémoire tampon largement suffisante pour la plupart des déploiements.
 
-* **Certificat public** : si vous utilisez des noms de domaine personnalisés, vous devez obtenir un certificat public émis par une autorité de certification non Microsoft ayant été approuvée. En fonction des exigences de votre organisation, l’obtention d’un certificat peut prendre un certain temps. Par conséquent, nous vous recommandons de démarrer le processus aussi tôt que possible. Le proxy d’application Azure prend en charge les certificats standard, [génériques](application-proxy-wildcard.md) et SAN.
+* **Certificat public** : Si vous utilisez des noms de domaine personnalisés, vous devez fournir un certificat SSL. En fonction des exigences de votre organisation, l’obtention d’un certificat peut prendre un certain temps. Par conséquent, nous vous recommandons de démarrer le processus aussi tôt que possible. Le proxy d’application Azure prend en charge les certificats standard, [génériques](application-proxy-wildcard.md) et SAN. Pour plus de détails, consultez [Configurer des domaines personnalisés avec le Proxy d’application Azure AD](application-proxy-configure-custom-domain.md).
 
 * **Exigences relatives aux domaines** : L’authentification unique à vos applications publiées à l’aide de la délégation Kerberos contrainte (KCD) nécessite que les serveurs exécutant le connecteur et l’application soient joints au domaine et qu’ils fassent partie du même domaine ou des domaines approuvés.
 Pour des informations détaillées, consultez [KCD pour l’authentification unique auprès du proxy d’application](application-proxy-configure-single-sign-on-with-kcd.md). Le service du connecteur s’exécute sur un système local et ne doit pas être configuré pour utiliser une identité personnalisée.
@@ -93,8 +93,8 @@ Compilez un inventaire de toutes les applications de l’étendue qui sont publi
 
 | Type d’informations| Informations à collecter |
 |---|---|
-| Type de service| Par exemple :  SharePoint, SAP, CRM, application web personnalisée, API |
-| Plateforme d’application | Par exemple :  Windows IIS, Apache sur Linux, Tomcat, NGINX |
+| Type de service| Par exemple : SharePoint, SAP, CRM, application web personnalisée, API |
+| Plateforme d’application | Par exemple : Windows IIS, Apache sur Linux, Tomcat, NGINX |
 | Appartenance au domaine| Nom de domaine complet (FQDN) du serveur web |
 | Emplacement de l’application | Emplacement du serveur web ou de la batterie de serveurs au sein de votre infrastructure |
 | Accès interne | URL exacte utilisée lors de l’accès à l’application en interne. <br> S’il s’agit d’une batterie de serveurs, quel type d’équilibrage de charge est utilisé ? <br> Indique si l’application extrait du contenu à partir de sources autres qu’elle-même.<br> Déterminer si l’application fonctionne sur des WebSockets. |
@@ -103,7 +103,7 @@ Compilez un inventaire de toutes les applications de l’étendue qui sont publi
 | Type d'authentification| Les types d’authentification pris en charge par l’application sont l’authentification de base, l’authentification Windows intégrée, l’authentification basée sur les formulaires, l’authentification basée sur les en-têtes, et les revendications. <br>Si l’application est configurée pour s’exécuter sous un compte de domaine spécifique, notez le nom de domaine complet (FQDN) du compte de service.<br> Pour une authentification basée sur SAML, ce sont l’URL de l’identificateur et l’URL de réponse. <br> Pour une authentification basée sur l’en-tête, il s’agit de la solution du fournisseur et d’une exigence spécifique concernant la gestion du type d’authentification. |
 | Nom du groupe de connecteurs | Nom logique du groupe de connecteurs qui sera désigné pour fournir le conduit et l’authentification unique à l’application back-end. |
 | Accès des utilisateurs et des groupes | Utilisateurs ou groupes d’utilisateurs qui recevront un accès externe à l’application. |
-| Conditions supplémentaires | Notez toutes les exigences supplémentaires relatives à l’accès à distance et à la sécurité qui doivent être factorisées dans la publication de l’application. |
+| Autres conditions requises | Notez toutes les exigences supplémentaires relatives à l’accès à distance et à la sécurité qui doivent être factorisées dans la publication de l’application. |
 
 Pour inventorier vos applications, vous pouvez télécharger cette [feuille de calcul pour l’inventaire des applications](https://aka.ms/appdiscovery).
 
@@ -170,7 +170,7 @@ L’implémentation de votre pilote directement dans un locataire de production 
 
 ### <a name="deploy-application-proxy"></a>Déployer le proxy d’application
 
-Les étapes nécessaires au déploiement de votre proxy d’application sont fournies dans ce [didacticiel sur l’ajout d’une application locale pour l’accès à distance](application-proxy-add-on-premises-application.md). Si l’installation a échoué, sélectionnez **Dépanner le proxy d’application** dans le portail ou utilisez le guide de dépannage [Problèmes lors de l’installation du connecteur d’agent de proxy d’application](application-proxy-connector-installation-problem.md).
+Les étapes nécessaires au déploiement de votre proxy d’application sont fournies dans ce [tutoriel sur l’ajout d’une application locale pour l’accès à distance](application-proxy-add-on-premises-application.md). Si l’installation a échoué, sélectionnez **Dépanner le proxy d’application** dans le portail ou utilisez le guide de dépannage [Problèmes lors de l’installation du connecteur d’agent de proxy d’application](application-proxy-connector-installation-problem.md).
 
 ### <a name="publish-applications-via-application-proxy"></a>Publier des applications via le proxy d’application
 
@@ -302,11 +302,11 @@ Ces journaux fournissent des informations détaillées sur les connexions aux ap
 
 Les connecteurs et le service se chargent de toutes les tâches de haut niveau de disponibilité. Vous pouvez superviser l’état de vos connecteurs à partir de la page Proxy d’application dans le portail Azure AD. Pour plus d’informations sur la maintenance des connecteurs, consultez [Présentation des connecteurs de proxy d’application Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#maintenance).
 
-![Exemple : Connecteurs de proxy d’application Azure AD](./media/application-proxy-connectors/app-proxy-connectors.png)
+![Exemple : Connecteurs de proxy d’application Azure AD](./media/application-proxy-connectors/app-proxy-connectors.png)
 
 #### <a name="windows-event-logs-and-performance-counters"></a>Journaux des événements Windows et compteurs de performances
 
-Les connecteurs ont des journaux d’activité de session et d’administration. Les journaux d’activité admin incluent les événements principaux et leurs erreurs. Les journaux d’activité de session incluent toutes les transactions et les détails de traitement. Les journaux et les compteurs se trouvent dans les journaux des événements Windows. Pour plus d’informations, consultez [Présentation des connecteurs de proxy d’application Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#under-the-hood). Suivez ce [didacticiel pour configurer les sources de données de journaux des événements dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
+Les connecteurs ont des journaux d’activité de session et d’administration. Les journaux d’activité admin incluent les événements principaux et leurs erreurs. Les journaux d’activité de session incluent toutes les transactions et les détails de traitement. Les journaux et les compteurs se trouvent dans les journaux des événements Windows. Pour plus d’informations, consultez [Présentation des connecteurs de proxy d’application Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#under-the-hood). Suivez ce [tutoriel pour configurer les sources de données de journaux des événements dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
 
 ### <a name="troubleshooting-guide-and-steps"></a>Guide de résolution des problèmes
 

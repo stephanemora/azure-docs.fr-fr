@@ -10,22 +10,22 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 3cc2f140eeed0a4667a01aa8c5ccbad7e4411521
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: abeb5c125a746842f522030878f93941450df974
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685993"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200547"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Réglage des performances avec un index columstore cluster ordonné  
 
-Quand des utilisateurs interrogent une table columnstore dans Azure SQL Data Warehouse, l’optimiseur vérifie les valeurs minimales et maximales stockées dans chaque segment.  Les segments en dehors des limites du prédicat de la requête ne sont pas lus à partir du disque vers la mémoire.  Une requête peut voir ses performances accélérer si le nombre de segments à lire et leur taille totale sont petits.   
+Quand des utilisateurs interrogent une table columnstore dans SQL Analytics, l’optimiseur vérifie les valeurs minimales et maximales stockées dans chaque segment.  Les segments en dehors des limites du prédicat de la requête ne sont pas lus à partir du disque vers la mémoire.  Une requête peut voir ses performances accélérer si le nombre de segments à lire et leur taille totale sont petits.   
 
 ## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Index columnstore cluster ordonné et non ordonné 
-Par défaut, pour chaque table Azure Data Warehouse créée sans option d’index, un composant interne (générateur d’index) crée un index columnstore cluster non ordonné.  Les données incluses dans chaque colonne sont compressées dans un segment de rowgroup distinct de l’index columnstore cluster.  Des métadonnées existent sur la plage de valeurs de chaque segment, si bien que les segments qui se trouvent en dehors des limites du prédicat de la requête ne sont pas lus à partir du disque pendant l’exécution de la requête.  Un index columnstore cluster offre le niveau de compression de données le plus élevé et réduit la taille des segments à lire si bien que les requêtes peuvent s’exécuter plus rapidement. En revanche, étant donné que le générateur d’index ne trie pas les données avant de les compresser dans des segments, les segments peuvent avoir des plages de valeurs qui se chevauchent, ce qui oblige les requêtes à lire plus de segments à partir du disque et prolongent donc leur durée d’exécution.  
+Par défaut, pour chaque table SQL Analytics créée sans option d’index, un composant interne (générateur d’index) crée un index columnstore cluster non ordonné dessus.  Les données incluses dans chaque colonne sont compressées dans un segment de rowgroup distinct de l’index columnstore cluster.  Des métadonnées existent sur la plage de valeurs de chaque segment, si bien que les segments qui se trouvent en dehors des limites du prédicat de la requête ne sont pas lus à partir du disque pendant l’exécution de la requête.  Un index columnstore cluster offre le niveau de compression de données le plus élevé et réduit la taille des segments à lire si bien que les requêtes peuvent s’exécuter plus rapidement. En revanche, étant donné que le générateur d’index ne trie pas les données avant de les compresser dans des segments, les segments peuvent avoir des plages de valeurs qui se chevauchent, ce qui oblige les requêtes à lire plus de segments à partir du disque et prolongent donc leur durée d’exécution.  
 
-Lors de la création d’un index columnstore cluster ordonné, le moteur Azure SQL Data Warehouse trie les données existantes en mémoire par clé d’ordre avant que le générateur d’index ne les compresse dans des segments d’index.  Avec les données triées, le chevauchement de segments est réduit, ce qui permet aux requêtes d’éliminer plus efficacement des segments et donc d’accélérer leurs performances, car le nombre de segments à lire à partir du disque est plus petit.  Si toutes les données peuvent être triées en mémoire simultanément, le chevauchement de segments peut être évité.  Étant donné la taille volumineuse des données dans les tables d’entrepôt de données, ce scénario ne se produit pas souvent.  
+Lors de la création d’un index columnstore cluster ordonné, le moteur SQL Analytics trie les données existantes en mémoire sur la ou les clés d’ordre avant que le générateur d’index ne les compresse dans des segments d’index.  Avec les données triées, le chevauchement de segments est réduit, ce qui permet aux requêtes d’éliminer plus efficacement des segments et donc d’accélérer leurs performances, car le nombre de segments à lire à partir du disque est plus petit.  Si toutes les données peuvent être triées en mémoire simultanément, le chevauchement de segments peut être évité.  Étant donné la taille volumineuse des données dans les tables SQL Analytics, ce scénario ne se produit pas souvent.  
 
 Pour vérifier les plages de segments d’une colonne, exécutez cette commande avec le nom de la table et le nom de la colonne :
 
@@ -44,7 +44,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> Dans une table avec index columnstore cluster ordonnée, les nouvelles données résultant du même lot d’opérations DML ou de chargement de données sont triées dans ce lot : il n’y a pas de tri global de toutes les données de la table.  Les utilisateurs peuvent reconstruire l’index columnstore cluster ordonné pour trier toutes les données de la table.  Dans Azure SQL Data Warehouse, la reconstruction de l’index columnstore est une opération hors connexion.  Pour une table partitionnée, la reconstruction est effectuée une partition à la fois.  Les données de la partition en cours de reconstruction sont « hors connexion » et ne sont pas disponibles tant que la reconstruction n’est pas terminée pour cette partition. 
+> Dans une table avec index columnstore cluster ordonnée, les nouvelles données résultant du même lot d’opérations DML ou de chargement de données sont triées dans ce lot : il n’y a pas de tri global de toutes les données de la table.  Les utilisateurs peuvent reconstruire l’index columnstore cluster ordonné pour trier toutes les données de la table.  Dans SQL Analytics, la reconstruction (REBUILD) de l’index columnstore est une opération hors connexion.  Pour une table partitionnée, la reconstruction est effectuée une partition à la fois.  Les données de la partition en cours de reconstruction sont « hors connexion » et ne sont pas disponibles tant que la reconstruction n’est pas terminée pour cette partition. 
 
 ## <a name="query-performance"></a>Performances des requêtes
 
@@ -110,7 +110,7 @@ CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX O
 AS SELECT * FROM ExampleTable
 OPTION (MAXDOP 1);
 ```
-- Pré-triez les données par la ou les clés de tri avant de les charger dans des tables Azure SQL Data Warehouse.
+- Pré-triez les données sur la ou les clés de tri avant de les charger dans des tables SQL Analytics.
 
 
 Voici un exemple de distribution de table à index columnstore cluster ordonné sans aucun segment qui se chevauche après l’application des recommandations ci-dessus. La table avec index columnstore cluster ordonnée est créée dans une base de données DWU1000c via CTAS à partir d’une table de segments de mémoire de 20 Go avec MAXDOP 1 et xlargerc.  L’index columnstore cluster ordonné est ordonné sur une colonne BIGINT sans doublons.  
@@ -145,4 +145,4 @@ WITH (DROP_EXISTING = ON)
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse](sql-data-warehouse-overview-develop.md).
+Pour obtenir des conseils supplémentaires, consultez la [vue d’ensemble du développement](sql-data-warehouse-overview-develop.md).

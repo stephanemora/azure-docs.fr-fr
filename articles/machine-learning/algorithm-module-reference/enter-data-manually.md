@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 61c3dde49d4cd298fb3a0f19dc1d8c00e54977af
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 949cdb4c53531a548380a6f0116fb45f91d7ba66
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152344"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268772"
 ---
 # <a name="enter-data-manually-module"></a>Module Entrer des données manuellement
 
@@ -36,13 +36,13 @@ Ce module peut être utile dans des scénarios tels que les suivants :
   
 2.  Pour **DataFormat**, sélectionnez l’une des options suivantes. Ces options déterminent comment les données que vous fournissez doivent être analysées. Les exigences relatives à chaque format sont considérablement différentes. Veillez par conséquent à lire les rubriques connexes.  
   
-    -   **ARFF**. Format de fichier de relation d’attribut, utilisé par Weka.   
+    -   **ARFF** : Format de fichier de relation d’attribut, utilisé par Weka.   
   
-    -   **CSV**. Format de valeurs séparées par des virgules. Pour plus d’informations, consultez [Convertir au format CSV](./convert-to-csv.md).  
+    -   **CSV** : Format de valeurs séparées par des virgules. Pour plus d’informations, consultez [Convertir au format CSV](./convert-to-csv.md).  
   
-    -   **SVMLight**. Format utilisé par Vowpal Wabbit et d’autres infrastructures de Machine Learning.  
+    -   **SVMLight** : Format utilisé par Vowpal Wabbit et d’autres infrastructures de Machine Learning.  
   
-    -   **TSV**. Format de valeurs séparées par des tabulations.
+    -   **TSV** : Format de valeurs séparées par des tabulations.
 
      Si vous choisissez un format et ne fournissez pas de données conformes aux spécifications de format, une erreur d’exécution se produit.
   
@@ -89,11 +89,9 @@ Ce module peut être utile dans des scénarios tels que les suivants :
         |0,00016|0,004|0,999961|0,00784|1|  
         |0|0,004|0,999955|0,008615|1|  
   
-4.  Appuyez sur ENTRÉE après chaque ligne, pour aller à la ligne.  
-  
-     **Veillez à appuyer sur ENTRÉE après la dernière ligne.** 
+4.  Appuyez sur ENTRÉE après chaque ligne, pour aller à la ligne.      
      
-     Si vous appuyez plusieurs fois sur ENTRÉE pour ajouter plusieurs lignes de fin vides, la dernière ligne vide est supprimée, mais les autres lignes vides sont considérées comme des valeurs manquantes.  
+     Si vous appuyez plusieurs fois sur Entrée pour ajouter plusieurs lignes de fin vides, les lignes vides sont supprimées.  
   
      Si vous créez des lignes avec des valeurs manquantes, vous pouvez toujours les filtrer ultérieurement.  
   

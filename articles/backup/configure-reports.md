@@ -3,12 +3,12 @@ title: Configurer les rapports de la Sauvegarde Azure
 description: Configurer et afficher les rapports de la Sauvegarde Azure à l’aide de Log Analytics et dAzure Workbooks
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: cefe81e53e89b8d7903469e836f3c5d2665febea
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 651d1383f0f292895ed95c91bafd5206d4f04c2c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582702"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161199"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 
@@ -47,6 +47,9 @@ Dans la section Supervision de votre coffre Recovery Services, sélectionnez **P
 
 La Sauvegarde Azure fournit également une stratégie Azure Policy intégrée, qui automatise la configuration des paramètres de diagnostic pour tous les coffres dans une étendue donnée. Reportez-vous à l’article suivant pour apprendre à utiliser cette stratégie : [Configurer les paramètres de diagnostic de coffre à grande échelle](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
 
+> [!NOTE]
+> Une fois que vous avez configuré les diagnostics, l’envoi (push) initial des données peut prendre jusqu’à 24 heures. Une fois que les données commencent à arriver dans l’espace de travail LA, vous pouvez ne pas voir immédiatement ces données dans les rapports, car les données d’une journée incomplète ne figurent pas dans les rapports (plus de détails [ici](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports)). Par conséquent, il est recommandé d’afficher les rapports 2 jours après avoir configuré vos coffres en vue d’envoyer des données à Log Analytics.
+
 3. **Afficher les rapports sur le portail Azure :**
 
 Une fois que vous avez configuré vos coffres pour envoyer des données à LA, affichez vos rapports de sauvegarde en accédant au panneau de n’importe quel coffre et en cliquant sur l’élément de menu **Rapports de sauvegarde**. 
@@ -56,7 +59,8 @@ Une fois que vous avez configuré vos coffres pour envoyer des données à LA, a
 Le fait de cliquer sur ce lien ouvre le classeur des rapports de sauvegarde.
 
 > [!NOTE]
-> Le chargement initial du rapport peut prendre jusqu’à 1 minute.
+> * Le chargement initial du rapport peut prendre jusqu’à 1 minute.
+> * Le coffre Recovery Services est simplement un point d’entrée pour les rapports de sauvegarde. Quand le classeur des rapports de sauvegarde s’ouvre à partir du panneau d’un coffre, vous pouvez voir les données agrégées issues de tous vos coffres (en sélectionnant le jeu de données approprié dans les espaces de travail LA).
 
 Vous trouverez ci-dessous une description des différents onglets du rapport :
 

@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 02/28/2020
 tags: connectors
-ms.openlocfilehash: 3370eea8909f30563babcf2a84f727ba51f67e29
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: e7a0791cc2bca672e7fde142650ad25e7e8ab58b
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77647642"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161872"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Superviser, créer et gérer des fichiers SFTP à l’aide de SSH et d’Azure Logic Apps
 
@@ -31,7 +31,28 @@ Pour connaître les différences entre le connecteur SFTP-SSH et le connecteur S
 
 ## <a name="limits"></a>limites
 
-* Par défaut, les actions SFTP-SSH peuvent lire ou écrire des fichiers allant jusqu’à *1 Go* mais uniquement en *éléments de 15 Mo* à la fois. Pour gérer les fichiers dont la taille est supérieure à 15 Mo, les actions SFTP-SSH prennent en charge la [segmentation des messages](../logic-apps/logic-apps-handle-large-messages.md), hormis l’action Copier le fichier qui accepte les fichiers jusqu’à 15 Mo uniquement. L’action **Obtenir le contenu du fichier** utilise implicitement la segmentation des messages.
+* Les actions SFTP-SSH prenant en charge la [segmentation](../logic-apps/logic-apps-handle-large-messages.md) peuvent gérer des fichiers jusqu’à 1 Go, tandis que les actions SFTP-SSH ne prenant pas en charge la segmentation peuvent gérer des fichiers jusqu’à 50 Mo. Bien que la taille de segment par défaut soit de 15 Mo, cette taille peut changer dynamiquement, à compter de 5 Mo et augmenter progressivement jusqu’à 50 Mo maximum, selon différents facteurs tels que la latence du réseau, le temps de réponse du serveur, etc.
+
+  > [!NOTE]
+  > Pour les applications logiques utilisées dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la version de ce connecteur avec l’étiquette ISE applique les [limites de messages de l’ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) à la place.
+
+  La taille de segment est associée à une connexion, ce qui signifie que vous pouvez utiliser la même connexion pour les actions prenant en charge la segmentation, puis pour les actions ne prenant pas en charge la segmentation. Dans ce cas, la taille de segment pour les actions ne prenant pas en charge les plages de segmentation est comprise entre 5 Mo et 50 Mo. Ce tableau indique les actions SFTP-SSH prenant en charge la segmentation :
+
+  | Action | Prise en charge de la segmentation |
+  |--------|------------------|
+  | **Copier un fichier** | Non |
+  | **Créer un fichier** | Oui |
+  | **Créer un dossier** | Non applicable |
+  | **Supprimer un fichier** | Non applicable |
+  | **Extraire une archive dans un dossier** | Non applicable |
+  | **Obtenir le contenu d’un fichier** | Oui |
+  | **Obtenir le contenu d’un fichier à l’aide du chemin** | Oui |
+  | **Obtenir les métadonnées d’un fichier** | Non applicable |
+  | **Obtenir les métadonnées d’un fichier à l’aide du chemin** | Non applicable |
+  | **Répertorier les fichiers dans un dossier** | Non applicable |
+  | **Renommer le fichier** | Non applicable |
+  | **Mettre à jour un fichier** | Non |
+  |||
 
 * Les déclencheurs SFTP-SSH ne prennent pas en charge la segmentation. Quand ils demandent le contenu des fichiers, les déclencheurs sélectionnent uniquement les fichiers dont la taille est inférieure ou égale à 15 Mo. Pour obtenir des fichiers supérieurs à 15 Mo, suivez plutôt ce modèle :
 
@@ -46,10 +67,6 @@ Pour connaître les différences entre le connecteur SFTP-SSH et le connecteur S
 Voici les autres principales différences entre le connecteur SFTP-SSH et le connecteur SFTP où le connecteur SFTP-SSH offre les fonctionnalités suivantes :
 
 * Il utilise la [bibliothèque SSH.NET](https://github.com/sshnet/SSH.NET), qui est une bibliothèque Secure Shell (SSH) open source prenant en charge .NET.
-
-* Par défaut, les actions SFTP-SSH peuvent lire ou écrire des fichiers allant jusqu’à *1 Go* mais uniquement en *éléments de 15 Mo* à la fois.
-
-  Pour gérer les fichiers supérieurs à 15 Mo, les actions SFTP-SSH peuvent utiliser la [segmentation des messages](../logic-apps/logic-apps-handle-large-messages.md). Cependant, l’action Copier le fichier n’accepte que les fichiers de 15 Mo car elle ne prend pas en charge la segmentation des messages. Les déclencheurs SFTP-SSH ne prennent pas en charge la segmentation. Pour charger des fichiers volumineux, vous devez disposer d’autorisations d’accès en lecture et en écriture au dossier racine de votre serveur SFTP.
 
 * Fournit l’action **Créer un dossier**, qui crée un dossier au niveau du chemin spécifié sur le serveur SFTP.
 

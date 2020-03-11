@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: 9b8f1065660ea8331853f8804e709134fe682ba7
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 0e3246f9da202b54cc0d1285795c25cfafb678d8
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566112"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207028"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Importer des clés protégées par HSM dans Key Vault (préversion)
 
@@ -90,6 +90,9 @@ La clé KEK doit être :
 - Générée dans le coffre de clés dans lequel vous envisagez d’importer la clé cible
 - Créée avec les opérations de clé autorisées définies sur `import`
 
+> [!NOTE]
+> La clé KEK doit avoir « Importer » comme seule opération de clé autorisée. « Importer » est incompatible avec toutes les autres opérations de clé.
+
 Pour créer une clé KEK avec les opérations de clé définies sur `import`, utilisez la commande [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create). Enregistrez l’identificateur de clé (`kid`) qui est retourné par la commande suivante. (Vous allez utiliser la valeur `kid` à l’[étape 3](#step-3-generate-and-prepare-your-key-for-transfer).)
 
 ```azurecli
@@ -115,7 +118,7 @@ Transférez le fichier BYOK sur votre ordinateur connecté.
 > [!NOTE] 
 > L’importation de clés RSA 1 024 bits n’est pas prise en charge. Actuellement, l’importation d’une clé Elliptic Curve (EC) n’est pas prise en charge.
 > 
-> **Problème connu** : l’importation d’une clé cible RSA 4K à partir d’un HSM SafeNet Luna échoue. Cet article sera mis à jour quand le problème sera résolu.
+> **Problème connu** : L’importation d’une clé cible RSA 4K à partir de modules HSM SafeNet Luna est uniquement prise en charge avec le microprogramme 7.4.0 ou une version plus récente.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>Étape 4 : Transférer votre clé vers Azure Key Vault
 

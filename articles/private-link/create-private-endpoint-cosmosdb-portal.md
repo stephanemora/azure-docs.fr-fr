@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: 23e04bf651c199364f23bf36f327de94c709d643
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: b7a50a2dabc9503ca5dbdd3388e29cfc69963885
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028580"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252596"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Se connecter en privé à un compte Azure Cosmos à l’aide d’Azure Private Link
 
@@ -25,26 +25,22 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
-### <a name="create-the-virtual-network"></a>Créer un réseau virtuel
+## <a name="virtual-network-and-parameters"></a>Réseau virtuel et paramètres
 
 Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour héberger la machine virtuelle qui est utilisée pour accéder à votre ressource Private Link (un compte Azure Cosmos pour cet exemple).
 
-1. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
+Dans les étapes de cette section, vous devrez remplacer les paramètres du tableau ci-dessous par la valeur indiquée correspondante :
 
-1. Dans **Créer un réseau virtuel**, entrez ou sélectionnez ces informations :
+| Paramètre                   | Valeur                |
+|-----------------------------|----------------------|
+| **\<nom_groupe_ressource>**  | myResourceGroup|
+| **\<nom_réseau_virtuel>** | myVirtualNetwork         |
+| **\<nom_région>**          | Centre-USA Ouest     |
+| **\<espace_d’adressage_IPv4>**   | 10.1.0.0\16          |
+| **\<nom_sous-réseau>**          | mySubnet        |
+| **\<plage_adresses_sous-réseau>** | 10.1.0.0\24          |
 
-    | Paramètre | Valeur |
-    | ------- | ----- |
-    | Name | Entrez *MyVirtualNetwork*. |
-    | Espace d’adressage | Entrez *10.1.0.0/16*. |
-    | Subscription | Sélectionnez votre abonnement.|
-    | Resource group | Sélectionnez **Créer nouveau**, entrez *myResourceGroup* et sélectionnez **OK**. |
-    | Location | Sélectionnez **WestCentralUS**.|
-    | Sous-réseau - Nom | Entrez *mySubnet*. |
-    | Plage d’adresses du sous-réseau | Entrez *10.1.0.0/24*. |
-    |||
-
-1. Conservez les autres valeurs par défaut, puis sélectionnez **Créer**.
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-the-virtual-machine"></a>Créer la machine virtuelle
 
@@ -55,14 +51,14 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
     | Paramètre | Valeur |
     | ------- | ----- |
     | **DÉTAILS DU PROJET** | |
-    | Subscription | Sélectionnez votre abonnement. |
+    | Abonnement | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.  |
     | **DÉTAILS DE L’INSTANCE** |  |
     | Nom de la machine virtuelle | Entrez *myVm*. |
     | Région | Sélectionnez **WestCentralUS**. |
     | Options de disponibilité | Conservez la valeur par défaut **Aucune redondance d’infrastructure nécessaire**. |
     | Image | Sélectionnez **Windows Server 2019 Datacenter**. |
-    | Size | Conservez la valeur par défaut **Standard DS1 v2**. |
+    | Taille | Conservez la valeur par défaut **Standard DS1 v2**. |
     | **COMPTE ADMINISTRATEUR** |  |
     | Nom d’utilisateur | Entrez un nom d’utilisateur de votre choix. |
     | Mot de passe | Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|

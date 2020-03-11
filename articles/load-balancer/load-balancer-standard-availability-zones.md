@@ -13,82 +13,31 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 0d61ad33b97b97c3a45334704544d72809e56848
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 5a65982c5c13eb4e4273efcfd8d14910b0f35572
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715259"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197145"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Référence Standard de Load Balancer et zones de disponibilité
 
 Azure Standard Load Balancer prend en charge les scénarios des [zones de disponibilité](../availability-zones/az-overview.md). Vous pouvez utiliser Standard Load Balancer pour optimiser la disponibilité de votre scénario de bout en bout en alignant les ressources sur des zones et en les distribuant parmi les zones.  Consultez les [zones de disponibilité](../availability-zones/az-overview.md) pour obtenir des informations sur les zones de disponibilité, les régions qui les prennent actuellement en charge et d’autres concepts et produits connexes. Les zones de disponibilité associées à Standard Load Balancer constituent un ensemble de fonctionnalités vaste et flexible capable de créer de nombreux scénarios différents.  Consultez ce document pour comprendre ces [concepts](#concepts) et obtenir des [conseils de conception](#design) de scénarios.
 
->[!IMPORTANT]
->Consultez les sujets connexes de l’article [Zones de disponibilité](../availability-zones/az-overview.md), y compris toutes les informations propres à une région.
-
 ## <a name="concepts"></a> Concepts des zones de disponibilité appliqués à Load Balancer
 
-Il n’existe aucune relation directe entre les ressources Load Balancer et l’infrastructure réelle ; la création d’un équilibrage de charge ne crée pas d’instance. Les ressources Load Balancer sont des objets dans lesquels vous pouvez exprimer la manière dont Azure doit programmer son infrastructure multilocataire prédéfinie pour obtenir le scénario que vous souhaitez créer.  Ces ressources revêtent une grande importance dans le contexte des zones de disponibilité, car une ressource Load Balancer peut à elle seule contrôler la programmation de l’infrastructure dans plusieurs zones de disponibilité, alors qu’un service redondant interzone apparaît comme une ressource unique du point de vue du client.  
-
-Une ressource Load Balancer elle-même est régionale mais jamais zonale.  Un réseau virtuel et un sous-réseau sont toujours régionaux mais jamais zonaux. La granularité de ce que vous pouvez configurer est restreinte par chaque configuration de définition de pool principal, frontal et de règle.
-
+Une ressource Load Balancer elle-même est régionale mais jamais zonale. La granularité de ce que vous pouvez configurer est restreinte par chaque configuration de définition de pool principal, frontal et de règle.
 Dans le contexte des zones de disponibilité, le comportement et les propriétés d’une règle d’équilibreur de charge sont décrits comme redondants interzone ou zonaux.  Ces adjectifs décrivent la zonalité d’une propriété.  Dans le contexte de Load Balancer, la redondance interzone implique toujours *plusieurs zones* tandis que l’adjectif zonal implique une isolation du service dans une *zone unique*.
-
 À la fois public et interne, Load Balancer prend en charge les scénarios zonaux et redondants interzone. Le trafic peut être dirigé vers les zones en fonction des besoins (*équilibrage de charge entre les zones*). 
 
 ### <a name="frontend"></a>Serveur frontal
 
 Un front-end d’équilibreur de charge est une configuration IP front-end qui fait référence à une ressource d’adresse IP publique ou à une adresse IP privée au sein du sous-réseau d’une ressource de réseau virtuel.  Il forme le point de terminaison à charge équilibrée où votre service est exposé.
+Une ressource d’équilibreur de charge peut contenir règles avec des front-ends zonaux et redondants interzone en même temps. Quand une ressource IP publique ou une adresse IP privée est garantie dans une zone, la zonalité (ou son manque) n’est pas mutable.  Pour modifier ou omettre la zonalité d’un front-end d’adresse IP publique ou privée, vous devez recréer l’adresse IP publique dans la zone appropriée.  Les zones de disponibilité ne modifient pas les contraintes pour plusieurs front-ends, examinent [plusieurs front-ends pour l’équilibreur de charge](load-balancer-multivip-overview.md) afin d’obtenir les détails pour cette fonctionnalité.
 
-Une ressource d’équilibreur de charge peut contenir règles avec des front-ends zonaux et redondants interzone en même temps. 
+#### <a name="zone-redundant"></a>Redondant interzone 
 
-Quand une ressource IP publique ou une adresse IP privée est garantie dans une zone, la zonalité (ou son manque) n’est pas mutable.  Pour modifier ou omettre la zonalité d’un front-end d’adresse IP publique ou privée, vous devez recréer l’adresse IP publique dans la zone appropriée.  Les zones de disponibilité ne modifient pas les contraintes pour plusieurs front-ends, examinent [plusieurs front-ends pour l’équilibreur de charge](load-balancer-multivip-overview.md) afin d’obtenir les détails pour cette fonctionnalité.
-
-#### <a name="zone-redundant-by-default"></a>Redondance dans une zone par défaut
-
-Dans une région avec des zones de disponibilité, un front-end Standard Load Balancer est redondant interzone par défaut.  La redondance interzone signifie que tous les flux entrants et sortants sont servis simultanément par plusieurs zones de disponibilité dans une région à l’aide d’une adresse IP unique. Les schémas de redondance DNS ne sont pas nécessaires. Une adresse IP de front-end unique peut survivre à des échecs de zone et être utilisée pour atteindre tous les membres du pool principal (non impactés) indépendamment de la zone. Une ou plusieurs zones de disponibilité peuvent échouer sans empêcher le chemin de données de survivre dans la mesure où une seule zone de la région reste saine. L’adresse IP unique du front-end est servie simultanément par plusieurs déploiements d’infrastructure indépendants dans plusieurs zones de disponibilité.  Il ne s’agit pas d’un chemin de données sans réponse, car toute nouvelle tentative ou tout rétablissement réussissent dans les autres zones non impactées par les défaillances de zone.   
-
-L’extrait suivant montre comment définir une adresse IP publique redondante interzone à utiliser avec votre Standard Load Balancer public. Si vous utilisez des modèles Resource Manager existants dans votre configuration, ajoutez la section **sku** à ces modèles.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-L’extrait suivant montre comment définir une adresse IP de front-end redondante interzone pour votre Standard Load Balancer interne. Si vous utilisez des modèles Resource Manager existants dans votre configuration, ajoutez la section **sku** à ces modèles.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zone_redundant_frontend",
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-Les extraits précédents ne sont pas des modèles complets, mais ils ont pour but de montrer comment exprimer les propriétés des zones de disponibilité.  Vous devez incorporer ces instructions dans vos modèles.
+Dans une région avec des zones de disponibilité, un front-end Standard Load Balancer peut être redondant interzone.  La redondance interzone signifie que tous les flux entrants et sortants sont servis simultanément par plusieurs zones de disponibilité dans une région à l’aide d’une adresse IP unique. Les schémas de redondance DNS ne sont pas nécessaires. Une adresse IP de front-end unique peut survivre à des échecs de zone et être utilisée pour atteindre tous les membres du pool principal (non impactés) indépendamment de la zone. Une ou plusieurs zones de disponibilité peuvent échouer sans empêcher le chemin de données de survivre dans la mesure où une seule zone de la région reste saine. L’adresse IP unique du front-end est servie simultanément par plusieurs déploiements d’infrastructure indépendants dans plusieurs zones de disponibilité.  Il ne s’agit pas d’un chemin de données sans réponse, car toute nouvelle tentative ou tout rétablissement réussissent dans les autres zones non impactées par les défaillances de zone.   
 
 #### <a name="optional-zone-isolation"></a>Isolation de la zone facultative
 
@@ -101,49 +50,6 @@ Pour fusionner ces concepts (le même backend à la fois redondant interzone et 
 Pour un front-end Load Balancer public, vous ajoutez un paramètre *zones* à la ressource IP publique référencée par la configuration IP frontale utilisée par la règle respective.
 
 Pour un frontend Load Balancer interne, ajoutez un paramètre *zones* à la configuration IP de frontend Load Balancer interne. Le frontend zonal amène Load Balancer à garantir une adresse IP d’un sous-réseau dans une zone spécifique.
-
-L’extrait suivant montre comment définir une adresse IP publique standard zonale dans Zone de disponibilité 1. Si vous utilisez des modèles Resource Manager existants dans votre configuration, ajoutez la section **sku** à ces modèles.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "zones": [ "1" ],
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-L’extrait suivant montre comment définir un front-end Standard Load Balancer interne dans Zone de disponibilité 1. Si vous utilisez des modèles Resource Manager existants dans votre configuration, ajoutez la section **sku** à ces modèles. Définissez également la propriété **zones** dans la configuration IP frontend de la ressource enfant.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zonal_frontend_in_az1",
-                        "zones": [ "1" ],
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-Les extraits précédents ne sont pas des modèles complets, mais ils ont pour but de montrer comment exprimer les propriétés des zones de disponibilité.  Vous devez incorporer ces instructions dans vos modèles.
 
 ### <a name="cross-zone-load-balancing"></a>Équilibrage de charge entre les zones
 
@@ -201,14 +107,6 @@ Il est important de comprendre que dès lors qu’un service de bout en bout tra
   - Quand une zone est rétablie, votre application comprend-elle comment converger en toute sécurité ?
 
 Passez en revue les [modèles de conception cloud Azure](https://docs.microsoft.com/azure/architecture/patterns/) pour améliorer la résilience de votre application aux scénarios de défaillance.
-
-### <a name="zonalityguidance"></a> Redondant interzone et zonal
-
-La redondance interzone favorise la simplicité avec une option non spécifique à la zone et en même temps résiliente avec une adresse IP unique pour le service.  À son tour, la complexité s’en retrouve réduite.  La redondance interzone permet également une mobilité entre les zones et peut s’utiliser sans risque sur les ressources de toute zone.  De plus, c’est une option durable dans les régions sans zones de disponibilité, ce qui permettra de limiter les modifications nécessaires une fois qu’une région obtiendra réellement des zones de disponibilité.  La syntaxe de configuration d’une adresse IP ou d’un front-end redondants interzone réussit dans n’importe quelle région, y compris celles dépourvues de zones de disponibilité : une zone n’est pas spécifiée au sein des zones : propriété de la ressource.
-
-Le mode zonal peut fournir une garantie explicite dans une zone, en partageant explicitement son sort avec l’intégrité de la zone. La création d’une règle Load Balancer avec un front-end d’adresse IP zonale ou un front-end Load Balancer interne zonal peut être souhaitable, notamment si votre ressource attachée est une machine virtuelle zonale dans la même zone.  Ou peut-être que votre application nécessite des connaissances explicites sur la zone dans laquelle une ressource se trouve à l’avance et que vous voulez réfléchir explicitement à la disponibilité dans des zones distinctes.  Vous pouvez choisir d’exposer plusieurs frontends zonaux pour un service de bout en bout distribué entre des zones (autrement dit, des frontends zonaux par zone pour plusieurs groupes zonaux de machines virtuelles identiques).  Et si vos frontends zonaux sont des adresses IP publiques, vous pouvez les utiliser pour exposer votre service avec [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Ou bien, vous pouvez utiliser plusieurs frontends zonaux pour obtenir des insights d’intégrité et de performance par zone par le biais de solutions de surveillance tierces et exposer le service global avec un frontend redondant interzone. Vous devez uniquement servir des ressources zonales avec des frontends zonaux alignés sur la même zone et éviter les scénarios entre zones potentiellement dangereux pour les ressources zonales.  Les ressources zonales existent uniquement dans les régions où des zones de disponibilité existent.
-
-Il n’est pas possible de déterminer le meilleur choix sans connaître l’architecture du service.  Passez en revue les [modèles de conception cloud Azure](https://docs.microsoft.com/azure/architecture/patterns/) pour améliorer la résilience de votre application aux scénarios de défaillance.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [zones de disponibilité](../availability-zones/az-overview.md)

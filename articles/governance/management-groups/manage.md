@@ -3,12 +3,12 @@ title: Comment utiliser vos groupes d’administration - Gouvernance Azure
 description: Découvrez comment afficher, tenir, mettre à jour et supprimer votre hiérarchie de groupes d’administration.
 ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 59f1b48e0a668d506a87ae1ef14de6df76b26ad7
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 94df67888c0ed0ea532844a92a362a181621d3d3
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751231"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267939"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration
 
@@ -17,6 +17,12 @@ Si votre organisation dispose de plusieurs abonnements, vous pouvez avoir besoin
 Les groupes d’administration vous permettent une gestion de qualité professionnelle à grande échelle, quel que soit le type de vos abonnements.  Pour plus d’informations sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](overview.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+>[!IMPORTANT]
+>Le cache de groupe d’administration et les jetons utilisateur Azure Resource Manager sont conservés pendant 30 minutes avant d’être forcés à s’actualiser.  L’affichage d’une action telle que le déplacement d’un groupe d’administration ou d’un abonnement peut prendre jusqu’à 30 minutes.  
+>Pour voir les mises à jour plus rapidement, vous devez mettre à jour votre jeton en actualisant le navigateur, en vous connectant puis vous déconnectant, ou en demandant un nouveau jeton.  
+
+
 
 ## <a name="change-the-name-of-a-management-group"></a>Modifier le nom d’un groupe d’administration
 
@@ -125,7 +131,7 @@ Vous pouvez afficher tous les groupes pour lesquels vous avez un rôle RBAC dire
 
 ### <a name="view-in-powershell"></a>Afficher dans PowerShell
 
-Utilisez la commande Get-AzManagementGroup pour récupérer tous les groupes.  Consultez les modules [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) pour obtenir la liste complète des commandes GET PowerShell de groupe d'administration.  
+Utilisez la commande Get-AzManagementGroup pour récupérer tous les groupes.  Consultez les modules [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) pour obtenir la liste complète des commandes GET PowerShell de groupe d’administration.  
 
 ```azurepowershell-interactive
 Get-AzManagementGroup

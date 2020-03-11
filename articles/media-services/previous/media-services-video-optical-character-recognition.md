@@ -14,16 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 11f897852ce820e666d7403f42735b2ee3bdd73b
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 11889bd6df0bcc9564c17fdaacc333df1d418660
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084823"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918307"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Utilisation d’Azure Media Analytics pour convertir le contenu texte de fichiers vidéo en texte numérique  
 
-## <a name="overview"></a>Vue d'ensemble
+> [!NOTE]
+> Le processeur multimédia **Azure Media OCR** sera mis hors service. Pour connaître la date de mise hors service, consultez la rubrique [Composants hérités](legacy-components.md).
+
+## <a name="overview"></a>Vue d’ensemble
 Si vous devez extraire le contenu texte de vos fichiers vidéo et générer un texte numérique modifiable et pouvant faire l’objet d’une recherche, vous devez utiliser Azure Media Analytics OCR (reconnaissance optique de caractères). Ce processeur multimédia Azure détecte le contenu texte de vos fichiers vidéo et génère les fichiers texte à utiliser. La reconnaissance optique de caractères vous permet d’automatiser l’extraction de métadonnées explicites à partir du signal vidéo de votre contenu multimédia.
 
 Lorsque vous l’utilisez conjointement avec un moteur de recherche, vous pouvez facilement indexer vos données multimédia par texte et améliorer ainsi la détectabilité du contenu. Cela est particulièrement utile dans une vidéo contenant beaucoup de texte, comme un enregistrement vidéo ou une capture d’écran de diaporama. Le processeur multimédia Azure OCR est optimisé pour le texte numérique.
@@ -117,7 +120,7 @@ La sortie contient les attributs suivants :
 | interval |intervalle de chaque événement dans le fragment donné |
 | événements |tableau contenant des régions |
 | region |objet représentant des mots ou expressions détectés |
-| Langage |langue du texte détecté dans une région |
+| langage |langue du texte détecté dans une région |
 | orientation |orientation du texte détecté dans une région |
 | lignes |tableau de lignes de texte détecté dans une région |
 | text |le texte réel |
@@ -192,7 +195,7 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 ```csharp
 using System;

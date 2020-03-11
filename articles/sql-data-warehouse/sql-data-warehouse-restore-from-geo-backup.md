@@ -1,6 +1,6 @@
 ---
 title: Restaurer un entrepôt de données géosauvegardé
-description: Guide pratique pour la restauration géo-redondante d’Azure SQL Data Warehouse.
+description: Guide pratique de géorestauration d'un pool SQL.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 69ba3ed981a27dfff41ea9ea52e1da769a9366c4
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 624c6665e70802907be8a41015b78d36cca7df1c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759616"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198341"
 ---
-# <a name="geo-restore-azure-sql-data-warehouse"></a>Restauration géo-redondante d’Azure SQL Data Warehouse
+# <a name="geo-restore-for-sql-pool"></a>Géorestauration pour un pool SQL
 
-Dans cet article, vous allez apprendre à restaurer votre entrepôt de données à partir d’une sauvegarde géo-redondante via le portail Azure et PowerShell.
+Dans cet article, vous allez apprendre à restaurer votre pool SQL à partir géosauvegarde via le portail Azure et PowerShell.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Vérifiez votre capacité de DTU.** Chaque SQL Data Warehouse est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut. Vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md)(Demander une modification du quota DTU).
+**Vérifiez votre capacité de DTU.** Chaque pool SQL est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut. Vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md)(Demander une modification du quota DTU).
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Restaurer à partir d’une région géographique Azure à l’aide de PowerShell
 
@@ -74,20 +74,27 @@ La base de données récupérée sera compatible avec le chiffrement transparent
 
 ## <a name="restore-from-an-azure-geographical-region-through-azure-portal"></a>Restaurer à partir d’une région géographique Azure à l’aide du portail Azure
 
-Suivez les étapes décrites ci-dessous pour restaurer Azure SQL Data Warehouse à partir d’une sauvegarde géo-redondante :
+Suivez les étapes décrites ci-dessous pour restaurer un pool SQL à partir d’une géosauvegarde :
 
 1. Connectez-vous à votre compte [Portail Azure](https://portal.azure.com/).
-1. Cliquez sur **+ créer une ressource** et recherchez SQL Data Warehouse, puis cliquez sur **Créer**.
+1. Cliquez sur **+ Créer une ressource**. 
 
-    ![Nouveau DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
-1. Renseignez les informations demandées dans l' onglet **Bases**, puis cliquez sur **Suivant : Paramètres supplémentaires**.
+![Nouveau DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-    ![Concepts de base](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
-1. Pour **utiliser le paramètre de données existant**, sélectionnez **Sauvegarde** et sélectionnez la sauvegarde appropriée dans les options de défilement vers le dessous. Cliquez sur **Revoir + créer**.
+3. Cliquez sur **Bases de données**, puis sur Azure Synapse Analytics (anciennement SQL DW) **.
+
+![Nouveau DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
+
+4. Renseignez les informations demandées dans l' onglet **Bases**, puis cliquez sur **Suivant : Paramètres supplémentaires**.
+
+![Concepts de base](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+
+5. Pour **utiliser le paramètre de données existant**, sélectionnez **Sauvegarde** et sélectionnez la sauvegarde appropriée dans les options de défilement vers le dessous. Cliquez sur **Revoir + créer**.
  
-   ![sauvegarde](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
-2. Une fois l’entrepôt de données restauré, vérifiez que l'**état** est En ligne.
+![sauvegarde](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
+
+6. Une fois l’entrepôt de données restauré, vérifiez que l'**état** est En ligne.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Restaurer un entrepôt de données existant](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restaurer un entrepôt de données supprimé](sql-data-warehouse-restore-deleted-dw.md)
+- [Restaurer un pool SQL existant](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restaurer un pool SQL supprimé](sql-data-warehouse-restore-deleted-dw.md)

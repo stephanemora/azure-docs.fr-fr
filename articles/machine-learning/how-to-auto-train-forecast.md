@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f5bd6b741f85f35fe03c941ed09728354d6b3d2d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 859f8a9c2bf644461c8945255de9f925b4e943f4
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905700"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251842"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,7 +57,7 @@ Les apprenants natifs de série chronologique sont également fournis dans le ca
 
 La moyenne mobile intégrée autorégressive (ARIMA) est une méthode statistique populaire pour la prévision de série chronologique. Cette technique de prévision est couramment utilisée dans les scénarios de prévision à court terme où les données montrent des tendances telles que des cycles, qui peuvent être imprévisibles et difficiles à modéliser ou à prévoir. Auto-ARIMA transforme vos données en données fixes afin d’obtenir des résultats cohérents et fiables.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un espace de travail Azure Machine Learning. Pour créer l’espace de travail, voir [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 * Cet article suppose une connaissance de base en matière de configuration d’une expérience de Machine Learning automatisé. Suivez le [didacticiel](tutorial-auto-train-models.md) ou les [procédures](how-to-configure-auto-train.md) pour afficher les modèles de conception des expériences de Machine Learning automatisé.
@@ -178,13 +178,14 @@ Consultez les [exemples de notebooks de prévision](https://github.com/Azure/Mac
 ### <a name="configure-a-dnn-enable-forecasting-experiment"></a>Configurer une expérience de prévision d’activation des DNN
 
 > [!NOTE]
-> La prise en charge de DNN pour les prévisions dans le Machine Learning automatisé est en version préliminaire.
+> La prise en charge de DNN pour les prévisions dans le Machine Learning automatisé est en préversion et n’est pas prise en charge pour les exécutions locales.
 
 Pour tirer parti des DNN pour les prévisions, vous devez définir le paramètre `enable_dnn` dans AutoMLConfig sur « true ». 
 
-Pour pouvoir utiliser des DNN, nous vous recommandons d’utiliser un cluster de calcul AML avec des références SKU GPU et au moins deux nœuds comme cible de calcul. Pour plus d’informations, consultez la [documentation Capacité de calcul AML](how-to-set-up-training-targets.md#amlcompute). Pour plus d’informations sur les tailles de machine virtuelle qui incluent des GPU, consultez [Tailles de machine virtuelle à GPU optimisé](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
+Nous vous recommandons d’utiliser un cluster de calcul AML avec des références SKU GPU et au moins deux nœuds comme cible de calcul. Afin d’accorder suffisamment de temps pour que l’entraînement DNN se termine, nous vous recommandons de définir le délai d’expiration de l’expérience sur au moins quelques heures.
+Pour plus d’informations sur le calcul AML et les tailles de machine virtuelle qui incluent des GPU, consultez la [documentation sur le calcul AML](how-to-set-up-training-targets.md#amlcompute) et la [documentation sur les tailles de machine virtuelle à GPU optimisé](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
 
-Afin d’accorder suffisamment de temps pour que la formation DNN se termine, nous vous recommandons de définir le délai d’expiration de l’expérience sur au moins quelques heures.
+Pour obtenir un exemple de code détaillé utilisant des DNN, consultez [Beverage Production Forecasting notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb).
 
 ### <a name="view-feature-engineering-summary"></a>Afficher le résumé de l’ingénierie des caractéristiques
 
