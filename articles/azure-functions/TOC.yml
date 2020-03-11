@@ -44,6 +44,8 @@
       href: functions-openapi-definition.md
     - name: Se connecter à un réseau virtuel
       href: functions-create-vnet.md
+    - name: Établir un accès au site privé
+      href: functions-create-private-site-access.md
     - name: Redimensionnement d’image avec Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Créer une application web sans serveur
