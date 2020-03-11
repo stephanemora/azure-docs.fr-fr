@@ -1,5 +1,5 @@
 - name: Documentation Cloud Foundry
-  href: index.md
+  href: index.yml
 - name: Démarrages rapides
   expanded: true
   items:

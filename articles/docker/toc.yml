@@ -1,5 +1,5 @@
 - name: Documentation Docker
-  href: index.md
+  href: index.yml
 - name: Démarrage rapide
   expanded: true
   items:

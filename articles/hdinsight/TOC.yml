@@ -708,6 +708,8 @@
               href: ./interactive-query/interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
             - name: Résolution de problèmes HIVE Apache
               href: ./hdinsight-troubleshoot-hive.md
+            - name: Journaux Apache Hive occupant tout l’espace disque sur le nœud principal
+              href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
 - name: ML Services
   items:
     - name: Vue d’ensemble

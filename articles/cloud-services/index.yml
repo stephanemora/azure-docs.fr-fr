@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Documentation Azure Cloud Services
+summary: Découvrez comment utiliser les Services cloud pour héberger et exécuter des applications et des API hautement disponibles et évolutives. Montre comment gérer des hôtes de machine virtuelle et configurer, corriger et installer des logiciels.
+metadata:
+  title: Documentation Azure Cloud Services
+  description: Décrit comment utiliser Cloud Services pour héberger et exécuter des applications et des API hautement disponibles et scalables.
+  ms.service: cloud-services
+  service: cloud-services
+  ms.topic: landing-page
+  author: tgore03
+  ms.author: tagore
+  ms.date: 03/06/2020
+  ms.openlocfilehash: 11699a28ab3b5863812c9c171428896aeaaefec1
+  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 03/09/2020
+  ms.locfileid: "78943175"
+landingContent:
+- title: À propos de Cloud Services
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Présentation de Services cloud
+      url: cloud-services-choose-me.md
+  - linkListType: video
+    links:
+    - text: Vidéothèque Cloud Services
+      url: https://azure.microsoft.com/documentation/videos/index/?services=cloud-services
+- title: Bien démarrer
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: ASP.NET
+      url: cloud-services-dotnet-get-started.md
+    - text: Python pour Visual Studio
+      url: cloud-services-python-ptvs.md
+- title: Développer
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Créer des rôles web et de travail PHP
+      url: ../cloud-services-php-create-web-role.md
+    - text: Créer et déployer une application Node.js
+      url: cloud-services-nodejs-develop-deploy-app.md
+    - text: Créer et déployer une application web Node.js avec Express
+      url: cloud-services-nodejs-develop-deploy-express-app.md
+- title: Déployer
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Créer et déployer un service cloud dans le portail
+      url: cloud-services-how-to-create-deploy-portal.md
+    - text: Créer un conteneur de service cloud vide dans PowerShell
+      url: cloud-services-powershell-create-cloud-container.md
+- title: Gérer
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Tâches de gestion courantes
+      url: cloud-services-how-to-manage-portal.md
+    - text: Configurer le service cloud
+      url: cloud-services-how-to-configure-portal.md

@@ -1,6 +1,6 @@
 ### YamlMime:Landing
-title: Plateforme d’identités Microsoft (anciennement Azure Active Directory pour développeurs)
-summary: 'La plateforme d’identités Microsoft est une évolution de la plateforme de développement Azure Active Directory (Azure AD). Elle permet aux développeurs de générer des applications qui connectent toutes les identités Microsoft et obtiennent des jetons pour appeler des API Microsoft comme Microsoft Graph ou des API que des développeurs ont créées. C’est une plateforme complète qui se compose des éléments suivants : OAuth 2.0 et service d’authentification conforme aux normes OpenID Connect, bibliothèques open source, inscription et configuration d’applications, solide documentation conceptuelle de référence, exemples de démarrage rapide, exemples de code, tutoriels et guides pratiques.'
+title: Documentation sur la plateforme d’identités Microsoft
+summary: 'La plateforme d’identités Microsoft permet aux développeurs de créer des applications qui connectent toutes les identités Microsoft et obtiennent des jetons pour appeler des API Microsoft comme Microsoft Graph ou des API que vous créez. Cette plateforme complète se compose des éléments suivants : OAuth 2.0 et service d’authentification conforme aux normes OpenID Connect, bibliothèques open source, inscription et configuration d’applications, solide documentation conceptuelle de référence, démarrages rapides, exemples de code, tutoriels et guides pratiques.'
 metadata:
   ms.topic: landing-page
   ms.date: 06/22/2019
@@ -9,21 +9,21 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: ea67860d851e9228ca14c6e53c4831f8d6f34f17
-  ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+  ms.openlocfilehash: edc613b275d996ac8ef8ed4470529153fdcfbecb
+  ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 02/13/2020
-  ms.locfileid: "77194536"
+  ms.lasthandoff: 03/09/2020
+  ms.locfileid: "78943474"
 landingContent:
 - title: À propos de la plateforme d’identités Microsoft
   linkLists:
   - linkListType: overview
     links:
-    - text: Évolution de la plateforme d’identités Microsoft
-      url: about-microsoft-identity-platform.md
     - text: Plateforme d’identité Microsoft (v2.0)
       url: v2-overview.md
+    - text: Évolution de la plateforme d’identités Microsoft
+      url: about-microsoft-identity-platform.md
     - text: Azure Active Directory pour les développeurs (v1.0)
       url: ../azuread-dev/v1-overview.md
   - linkListType: concept
