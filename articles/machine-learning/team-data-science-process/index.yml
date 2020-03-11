@@ -1,37 +1,41 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentation sur le processus TDSP (Team Data Science Process)
+summary: Apprenez à utiliser le processus Team Data Science Process, méthodologie de science des données agile et itérative pour des solutions d’analytique prédictive et des applications intelligentes.
 metadata:
   title: Documentation sur le processus TDSP (Team Data Science Process)
-  description: 'Découvrez le fonctionnement du processus Team Data Science Process, qui est une méthodologie de science des données agile et itérative permettant de fournir des solutions d’analyse prédictive et des applications intelligentes avec efficacité. Le processus TDSP permet d’améliorer la collaboration et l’apprentissage au sein des équipes. Il distille les meilleures pratiques et structures de Microsoft et d’autres acteurs du secteur qui facilitent l’implémentation d’initiatives de science des données. L’objectif est d’aider les entreprises à exploiter pleinement les avantages de leur programme d’analytique.'
-  services: machine-learning
-  author: marktab
+  description: Apprenez à utiliser le processus Team Data Science Process, méthodologie de science des données agile et itérative pour des solutions d’analytique prédictive et des applications intelligentes.
   ms.service: machine-learning
   ms.subservice: team-data-science-process
   ms.topic: landing-page
-  ms.date: 01/10/2020
+  author: marktab
   ms.author: marktab
-abstract:
-  description: "Le processus Team\_Data\_Science\_Process est une méthodologie de science des données agile et itérative permettant de fournir des solutions d’analyse prédictive et des applications intelligentes avec efficacité. Le processus TDSP permet d’améliorer la collaboration et l’apprentissage au sein des équipes. Il distille les meilleures pratiques et structures de Microsoft et d’autres acteurs du secteur qui facilitent l’implémentation d’initiatives de science des données. L’objectif est d’aider les entreprises à exploiter pleinement les avantages de leur programme d’analytique."
-sections:
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: "Apprenez-en davantage sur le processus Team\_Data\_Science\_Process\_:"
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="overview">Vue d'ensemble</a>
-          - html: <a href="lifecycle">Cycle de vie</a>
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: "Apprendre à utiliser le processus Team\_Data\_Science\_Process dans différents scénarios\_:"
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="walkthroughs-spark">Spark avec PySpark et Scala</a>
-          - html: <a href="walkthroughs-hdinsight-hadoop">Hive avec HDInsight Hadoop</a>
-          - html: <a href="walkthroughs-azure-data-lake">U-SQL avec Azure Data Lake</a>
-          - html: '<a href="walkthroughs-sql-server">R, Python et T-SQL avec SQL Server</a>'
-          - html: <a href="walkthroughs-sql-data-warehouse">T-SQL et Python avec SQL DW</a>
+  ms.date: 03/10/2020
+  ms.openlocfilehash: 5090cbcf6c177b99f4932eb77647520c3602a832
+  ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 03/11/2020
+  ms.locfileid: "79087390"
+landingContent:
+- title: Découvrir le processus
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que le processus Team Data Science Process ?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Cycle de vie du processus
+      url: lifecycle.md
+    - text: Présentation de l’entreprise
+      url: lifecycle-business-understanding.md
+    - text: Acquisition de données
+      url: lifecycle-data.md
+- title: Planifier et développer un projet
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Planification du projet
+      url: team-data-science-process-project-templates.md
+    - text: Développement agile
+      url: agile-development.md
