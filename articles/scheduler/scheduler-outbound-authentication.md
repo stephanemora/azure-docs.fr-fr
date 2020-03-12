@@ -1,25 +1,26 @@
 ---
-title: Authentification sortante - Azure Scheluler
+title: Authentification sortante
 description: Découvrez comment configurer ou supprimer l’authentification sortante pour Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 2ea09330fb8d3d97da5fbc197dba9668f1a4f685
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: bcd14e618323aec1c7ce47fcebb25099fa96be81
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300842"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898509"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Authentification sortante pour Azure Scheluler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est [en phase de mise hors service](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Pour poursuivre les travaux que vous avez configurés dans Scheduler, veuillez [migrer vers Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) dès que possible.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en phase de [mise hors service](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Pour poursuivre les travaux que vous avez configurés dans Scheduler, veuillez [migrer vers Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) dès que possible. 
+>
+> Scheduler n’est plus disponible dans le portail Azure, mais l’[API REST](/rest/api/scheduler) et les [applets de commande Azure Scheduler PowerShell](scheduler-powershell-reference.md) restent disponibles pour vous permettre de gérer vos travaux et collections de travaux.
 
 Les travaux Azure Scheduler peuvent avoir à appeler des services qui requièrent une authentification, tels que d’autres services Azure, Salesforce.com, Facebook et des sites web personnalisés sécurisés. Le service appelé peut déterminer si le travail Scheduler peut accéder aux ressources demandées. 
 
@@ -47,9 +48,9 @@ Lorsque vous ajoutez l'authentification à l'aide du modèle `ClientCertificate`
 | Élément | Obligatoire | Description |
 |---------|----------|-------------|
 | **authentication** (élément parent) | Objet d'authentification pour l'utilisation d'un certificat client SSL |
-| **type** | OUI | Type d’authentification. Pour les certificats client SSL, la valeur est `ClientCertificate`. |
-| **pfx** | OUI | Contenu codé en base64 du fichier PFX |
-| **mot de passe** | OUI | Mot de passe pour accéder au fichier PFX |
+| **type** | Oui | Type d’authentification. Pour les certificats client SSL, la valeur est `ClientCertificate`. |
+| **pfx** | Oui | Contenu codé en base64 du fichier PFX |
+| **mot de passe** | Oui | Mot de passe pour accéder au fichier PFX |
 ||| 
 
 ### <a name="response-body---client-certificate"></a>Corps de la réponse - Certificat client 
@@ -167,9 +168,9 @@ Lorsque vous ajoutez l'authentification à l'aide du modèle `Basic`, spécifiez
 | Élément | Obligatoire | Description |
 |---------|----------|-------------|
 | **authentication** (élément parent) | Objet d'authentification pour l’utilisation de l’authentification de base | 
-| **type** | OUI | Type d’authentification. Pour l'authentification de base, la valeur est `Basic`. | 
-| **nom d’utilisateur** | OUI | Nom d'utilisateur à authentifier | 
-| **mot de passe** | OUI | Mot de passe à authentifier |
+| **type** | Oui | Type d’authentification. Pour l'authentification de base, la valeur est `Basic`. | 
+| **username** | Oui | Nom d'utilisateur à authentifier | 
+| **mot de passe** | Oui | Mot de passe à authentifier |
 |||| 
 
 ### <a name="response-body---basic"></a>Corps de la réponse - De base
@@ -180,7 +181,7 @@ Lorsqu'une demande est envoyée avec des informations d'authentification, la ré
 |---------|-------------|
 | **authentication** (élément parent) | Objet d'authentification pour l’utilisation de l’authentification de base |
 | **type** | Type d’authentification. Pour l'authentification de base, la valeur est `Basic`. |
-| **nom d’utilisateur** | Nom d'utilisateur authentifié |
+| **username** | Nom d'utilisateur authentifié |
 ||| 
 
 ### <a name="sample-rest-request---basic"></a>Exemple de demande REST - De base
@@ -284,12 +285,12 @@ Lorsque vous ajoutez l'authentification à l'aide du modèle `ActiveDirectoryOAu
 
 | Élément | Obligatoire | Description |
 |---------|----------|-------------|
-| **authentication** (élément parent) | OUI | Objet d'authentification pour l'utilisation de l’authentification ActiveDirectoryOAuth |
-| **type** | OUI | Type d’authentification. Pour l’authentification ActiveDirectoryOAuth, la valeur est `ActiveDirectoryOAuth`. |
-| **client** | OUI | L’identificateur de client pour le client Azure AD. Pour trouver l’identificateur de locataire pour le locataire Azure AD, exécutez `Get-AzureAccount` dans Azure PowerShell. |
-| **public ciblé** | OUI | Cette valeur est définie sur `https://management.core.windows.net/`. | 
-| **clientId** | OUI | Identifiant client de l’application Azure AD | 
-| **secret** | OUI | Secret du client qui demande le jeton | 
+| **authentication** (élément parent) | Oui | Objet d'authentification pour l'utilisation de l’authentification ActiveDirectoryOAuth |
+| **type** | Oui | Type d’authentification. Pour l’authentification ActiveDirectoryOAuth, la valeur est `ActiveDirectoryOAuth`. |
+| **client** | Oui | L’identificateur de client pour le client Azure AD. Pour trouver l’identificateur de locataire pour le locataire Azure AD, exécutez `Get-AzureAccount` dans Azure PowerShell. |
+| **public ciblé** | Oui | Cette valeur est définie sur `https://management.core.windows.net/`. | 
+| **clientId** | Oui | Identifiant client de l’application Azure AD | 
+| **secret** | Oui | Secret du client qui demande le jeton | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>Corps de la réponse - OAuth Active Directory
@@ -403,10 +404,9 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
-* [Présentation d’Azure Scheduler](scheduler-intro.md)
 * [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
 * [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)
-* [API REST d’Azure Scheduler](https://msdn.microsoft.com/library/mt629143)
+* [Informations de référence sur l’API REST d’Azure Scheluler](/rest/api/scheduler)
 * [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)

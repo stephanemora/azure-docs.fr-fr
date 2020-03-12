@@ -11,18 +11,18 @@ ms.topic: overview
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 8f27e8e8693fc5d1d3e432b78f2877d71274f146
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f6b55163440b25bf69c76e9b1217c439b0884d5d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978473"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331040"
 ---
 # <a name="what-is-the-translator-text-api"></a>Qu’est-ce que l’API de traduction de texte Translator Text ?
 
 Il est facile d’intégrer l’API de traduction de texte Translator Text dans vos applications, sites web, outils et solutions. Cette interface vous permet d’ajouter des expériences utilisateur multilingues dans [plus de 60 langues](languages.md). Elle peut être utilisée sur tout type de plateforme matérielle possédant un système d’exploitation adapté à la traduction de texte en texte.
 
-L’API de traduction de texte Translator Text fait partie de la collection d’[API Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=ai) Azure d’algorithmes de machine learning et d’intelligence artificielle dans le cloud, que vous pouvez utiliser directement dans vos projets de développement.
+L’API de traduction de texte Translator Text fait partie de la collection d’[API Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) Azure d’algorithmes de machine learning et d’intelligence artificielle dans le cloud, que vous pouvez utiliser directement dans vos projets de développement.
 
 ## <a name="about-microsoft-translator"></a>À propos de Microsoft Translator
 

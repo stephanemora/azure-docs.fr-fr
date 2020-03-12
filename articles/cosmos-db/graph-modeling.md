@@ -4,15 +4,15 @@ description: Découvrez comment modéliser une base de données de graphe avec l
 author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: d1e21827dda26f1c577f6cc70a5e34bb09a34d9c
-ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
+ms.openlocfilehash: dc9a5616aa2bb1f7e09045b9cfe4f4d7e9c69be2
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2019
-ms.locfileid: "75500060"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898324"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modélisation des données de graphe pour l’API Gremlin d’Azure Cosmos DB
 

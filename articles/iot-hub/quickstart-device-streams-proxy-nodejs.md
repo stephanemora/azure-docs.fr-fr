@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: f7dfa1bf391e4affba52fc40a8c22ea9b5f4b4df
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: c372a0a09fd3143f570aa4b316c9191e617c69e2
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470681"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675456"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>Démarrage rapide : Activer SSH et RDP sur un flux d’appareil IoT Hub à l’aide d’une application de proxy Node.js (préversion)
 
@@ -55,8 +55,10 @@ Microsoft Azure IoT Hub prend actuellement en charge les flux d’appareil en ta
 Ajoutez l’extension Azure IoT pour Azure CLI à votre instance Cloud Shell en exécutant la commande suivante. L’extension IoT ajoute des commandes spécifiques à IoT Hub, à IoT Edge et au service IoT Hub Device Provisioning (DPS) à Azure CLI.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 

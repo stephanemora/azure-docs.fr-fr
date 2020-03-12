@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c26197a14e78b1cf1a1e078ba0145eca207206bf
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 05a3a8cf14a591dd3037175e4eed5b5bd8d3096c
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561966"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672655"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Comprendre les stations de travail sécurisées gérées par Azure
 
@@ -81,18 +81,18 @@ Les stratégies d’imbrication renforcent la sécurité en augmentant le nombre
 
 Essentielle pour une station de travail sécurisée : une solution de chaîne d’approvisionnement dans laquelle vous utilisez une station de travail approuvée appelée « racine de confiance ». La technologie qui doit être prise en compte lors de la sélection de la racine du matériel de confiance doit inclure les technologies suivantes qui sont présentes sur les ordinateurs portables récents : 
 
-* [Trusted Platform Module (TPM) 2.0](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-tpm)
-* [Chiffrement de lecteur BitLocker](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-bitlocker)
-* [Démarrage sécurisé UEFI](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot)
-* [Pilotes et microprogrammes distribués via Windows Update](https://docs.microsoft.com/windows-hardware/drivers/dashboard/understanding-windows-update-automatic-and-optional-rules-for-driver-distribution)
-* [Virtualisation et intégrité HVCI activées](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-vbs)
-* [Pilotes et applications HVCI-Ready](https://docs.microsoft.com/windows-hardware/test/hlk/testref/driver-compatibility-with-device-guard)
-* [Windows Hello](https://docs.microsoft.com/windows-hardware/design/device-experiences/windows-hello-biometric-requirements)
-* [Protection des E/S DMA](https://docs.microsoft.com/windows/security/information-protection/kernel-dma-protection-for-thunderbolt)
-* [System Guard](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
-* [Veille moderne](https://docs.microsoft.com/windows-hardware/design/device-experiences/modern-standby)
+* [Trusted Platform Module (TPM) 2.0](/windows-hardware/design/device-experiences/oem-tpm)
+* [Chiffrement de lecteur BitLocker](/windows-hardware/design/device-experiences/oem-bitlocker)
+* [Démarrage sécurisé UEFI](/windows-hardware/design/device-experiences/oem-secure-boot)
+* [Pilotes et microprogrammes distribués via Windows Update](/windows-hardware/drivers/dashboard/understanding-windows-update-automatic-and-optional-rules-for-driver-distribution)
+* [Virtualisation et intégrité HVCI activées](/windows-hardware/design/device-experiences/oem-vbs)
+* [Pilotes et applications HVCI-Ready](/windows-hardware/test/hlk/testref/driver-compatibility-with-device-guard)
+* [Windows Hello](/windows-hardware/design/device-experiences/windows-hello-biometric-requirements)
+* [Protection des E/S DMA](/windows/security/information-protection/kernel-dma-protection-for-thunderbolt)
+* [System Guard](/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
+* [Veille moderne](/windows-hardware/design/device-experiences/modern-standby)
 
-Pour cette solution, la racine de confiance est déployée avec la technologie [Microsoft AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) avec du matériel qui répond aux conditions techniques modernes requises. Pour sécuriser une station de travail, Autopilot vous permet d’utiliser des appareils Windows 10 Microsoft OEM optimisés. Ces appareils sont fournis par le fabricant dans un état correct connu. Au lieu de réimager l’image d’un appareil potentiellement non sécurisé, Autopilot peut faire passer un appareil Windows à l’état « prêt à l’emploi ». Il applique des paramètres et des stratégies, installe des applications et modifie même l’édition de Windows 10. Par exemple, Autopilot peut changer l’installation de Windows d’un appareil de Windows 10 Professionnel vers Windows 10 Entreprise pour qu’il puisse utiliser les fonctionnalités avancées.
+Pour cette solution, la racine de confiance est déployée avec la technologie [Microsoft AutoPilot](/windows/deployment/windows-autopilot/windows-autopilot) avec du matériel qui répond aux conditions techniques modernes requises. Pour sécuriser une station de travail, Autopilot vous permet d’utiliser des appareils Windows 10 Microsoft OEM optimisés. Ces appareils sont fournis par le fabricant dans un état correct connu. Au lieu de réimager l’image d’un appareil potentiellement non sécurisé, Autopilot peut faire passer un appareil Windows à l’état « prêt à l’emploi ». Il applique des paramètres et des stratégies, installe des applications et modifie même l’édition de Windows 10. Par exemple, Autopilot peut changer l’installation de Windows d’un appareil de Windows 10 Professionnel vers Windows 10 Entreprise pour qu’il puisse utiliser les fonctionnalités avancées.
 
 ![Niveaux de station de travail sécurisée](./media/concept-azure-managed-workstation/supplychain.png)
 
@@ -105,7 +105,7 @@ Ce guide décrit plusieurs profils et rôles de sécurité qui peuvent vous aide
 
 * **Sécurité renforcée** :cette solution protégée d’entrée de gamme convient aux particuliers, aux utilisateurs des petites entreprises et aux développeurs généraux.
 
-   La station de travail renforcée est basée sur des stratégies et permet d’améliorer la sécurité du profil de sécurité faible. Elle constitue un moyen sécurisé de travailler avec des données client en utilisant également des outils de productivité comme la messagerie et la navigation web. Vous pouvez utiliser des stratégies d’audit et Intune pour surveiller une station de travail renforcée en termes de comportement des utilisateurs et d’utilisation des profils. Déployez le profil de station de travail renforcée avec le script Windows10 (1809), qui lui permet de tirer parti de la protection avancée contre les programmes malveillants avec [Advanced Threat Protection (ATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
+   La station de travail renforcée est basée sur des stratégies et permet d’améliorer la sécurité du profil de sécurité faible. Elle constitue un moyen sécurisé de travailler avec des données client en utilisant également des outils de productivité comme la messagerie et la navigation web. Vous pouvez utiliser des stratégies d’audit et Intune pour surveiller une station de travail renforcée en termes de comportement des utilisateurs et d’utilisation des profils. Déployez le profil de station de travail renforcée avec le script Windows10 (1809), qui lui permet de tirer parti de la protection avancée contre les programmes malveillants avec [Advanced Threat Protection (ATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
 
 * **Haute sécurité** : le moyen le plus efficace de réduire la surface d’attaque d’une station de travail consiste à supprimer la possibilité d’administrer soi-même la station de travail. La suppression des droits d’administrateur local améliore la sécurité, mais cela peut avoir un impact sur la productivité si cette approche implémentée de manière incorrecte. Le profil haute sécurité s’appuie sur le profil de sécurité renforcée à une différence notable : la suppression de l’administrateur local. Ce profil est conçu pour les utilisateurs importants : cadres, utilisateurs responsables de la paie et des données sensibles, approbateurs de services et processus.
 
@@ -121,8 +121,8 @@ Ce guide décrit plusieurs profils et rôles de sécurité qui peuvent vous aide
 
 * **Isolé** : ce scénario personnalisé hors connexion représente l’extrémité du spectre. Aucun script d’installation n’est fourni dans ce cas. Vous devrez peut-être gérer une fonction critique pour l’entreprise qui requiert un système d’exploitation hérité non pris en charge ou non corrigé. Par exemple, une ligne de production de valeur élevée ou un système vital. Étant donné que la sécurité est essentielle et que les services cloud ne sont pas disponibles, vous pouvez gérer et mettre à jour ces ordinateurs manuellement ou à l’aide d’une architecture de forêt Active Directory isolée telle que l’environnement d’administration de sécurité renforcée (Enhanced Security Admin Environment, ESAE). Dans ce cas, envisagez de supprimer tous les accès à l’exception des contrôles d’intégrité de base d’Intune et d’ATP.
 
-   * [Communications réseau requises pour Intune](https://docs.microsoft.com/intune/network-bandwidth-use)
-   * [Communications réseau requises pour ATP](https://docs.microsoft.com/azure-advanced-threat-protection/configure-proxy)
+   * [Communications réseau requises pour Intune](/intune/network-bandwidth-use)
+   * [Communications réseau requises pour ATP](/azure-advanced-threat-protection/configure-proxy)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

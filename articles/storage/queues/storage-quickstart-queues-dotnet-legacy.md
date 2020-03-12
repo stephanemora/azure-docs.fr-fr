@@ -8,18 +8,18 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.openlocfilehash: f51038b1e79a699c15ad2fd969d75c09a2530f6f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d5e8250a75cc26d4b9843875f71325e163ef23b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457606"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943553"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Démarrage rapide : Utiliser le SDK Stockage Azure v11 pour .NET afin de gérer une file d’attente
 
 Ce guide de démarrage rapide explique comment utiliser la bibliothèque cliente Stockage Azure version 11 pour .NET afin de créer une file d’attente et d’y ajouter des messages. Il explique ensuite comment lire et traiter des messages de la file d’attente. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -35,7 +35,7 @@ Pour plus d’informations sur le choix entre .NET Core et .NET Framework, consu
 ### <a name="linux"></a>Linux
 
 - Installer [.NET Core pour Linux](https://www.microsoft.com/net/download/linux)
-- Installer [Visual Studio Code](https://www.visualstudio.com/) et l’[extension C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068) (optionnel)
+- Installer [Visual Studio Code](https://www.visualstudio.com/) et l’[extension C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) (optionnel)
 
 ### <a name="macos"></a>macOS
 

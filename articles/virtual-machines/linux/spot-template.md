@@ -14,41 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 457f1008b75fe0605c0d2934f2de09937fac8d21
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 0e635fe7ce9b442a9cc8f0fdf614feef5a3a756a
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162444"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082793"
 ---
 # <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Déployer des machines virtuelles Spot à l’aide d’un modèle Resource Manager
 
 L’utilisation de [machines virtuelles Spot](spot-vms.md) vous permet de tirer parti de notre capacité inutilisée en réalisant des économies significatives. Dès qu’Azure a besoin de récupérer toute la capacité, l’infrastructure Azure supprime les machines virtuelles Spot. Les machines virtuelles Spot sont donc appropriées pour les charges de travail capables de gérer les interruptions, comme les travaux de traitement par lots, les environnements de développement et de test, les charges de travail de calcul importantes, entre autres.
 
-Les tarifs des machines virtuelles Spot sont variables, en fonction de la région et de la référence SKU. Pour plus d’informations, consultez les prix des machines virtuelles pour [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) et [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
+Les tarifs des machines virtuelles Spot sont variables, en fonction de la région et de la référence SKU. Pour plus d’informations, consultez les prix des machines virtuelles pour [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) et [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
 Vous avez la possibilité de définir un prix maximal que vous êtes prêt à payer, par heure, pour la machine virtuelle. Le prix maximal d’une machine virtuelle Spot peut être défini en dollars américains (USD), en utilisant jusqu’à 5 décimales. Par exemple, la valeur `0.98765` correspond à un prix maximal de 0,98765 $ USD par heure. Si vous définissez `-1` comme prix maximal, la machine virtuelle n’est pas supprimée en fonction du prix. Le prix de la machine virtuelle sera le prix actuel de Spot ou le prix d’une machine virtuelle standard, la valeur la plus faible étant retenue, à condition que la capacité et le quota soient disponibles. Pour plus d’informations sur la définition du prix maximal, consultez [Machines virtuelles Spot - Tarifs](spot-vms.md#pricing).
 
 > [!IMPORTANT]
 > Les instances Spot sont actuellement en préversion publique.
-> Cette préversion n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette préversion n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
+## <a name="use-a-template"></a>Utiliser un modèle
 
-
-## <a name="use-a-template"></a>Utiliser un modèle 
-
-Pour les déploiements de machines virtuelles Spot à l’aide d’un modèle, utilisez `"apiVersion": "2019-03-01"` ou version ultérieure. Ajoutez les propriétés `priority`, `evictionPolicy` et `billingProfile` à votre modèle : 
+Pour les déploiements de machines virtuelles Spot à l’aide d’un modèle, utilisez `"apiVersion": "2019-03-01"` ou version ultérieure. Ajoutez les propriétés `priority`, `evictionPolicy` et `billingProfile` à votre modèle :
 
 ```json
-                "priority": "Spot",
-                "evictionPolicy": "Deallocate",
-                "billingProfile": {
-                    "maxPrice": -1
-                }
+"priority": "Spot",
+"evictionPolicy": "Deallocate",
+"billingProfile": {
+    "maxPrice": -1
+}
 ```
-
-
 
 Voici un exemple de modèle avec les propriétés ajoutées pour une machine virtuelle Spot. Remplacez les noms de ressources par les vôtres et `<password>` par un mot de passe du compte administrateur local sur la machine virtuelle.
 
@@ -163,7 +160,7 @@ Voici un exemple de modèle avec les propriétés ajoutées pour une machine vir
                 "evictionPolicy": "Deallocate",
                 "billingProfile": {
                     "maxPrice": -1
-                }               
+                }
             }
         },
         {

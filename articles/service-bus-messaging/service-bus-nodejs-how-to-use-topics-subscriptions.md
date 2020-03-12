@@ -14,21 +14,20 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/16/2020
 ms.author: aschhab
-ms.openlocfilehash: e6ac3c74a0a8346ad8a6820c676224bfcba0e8b4
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: c85b63b4a56e74b0fef9a122ec995b4106496cbe
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264439"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330444"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Démarrage rapide : Utilisation des rubriques et abonnements Service Bus avec Node.js et le package azure-sb
-> [!div class="op_multi_selector" title1="Langage de programmation" title2="Package Node.js"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
-
 Dans ce tutoriel, vous allez apprendre à créer des applications Node.js à envoyer des messages à une rubrique Service Bus et recevoir des messages à partir d’un abonnement Service Bus à l’aide du package [azure-sb](https://www.npmjs.com/package/azure-sb). Les exemples sont écrits en JavaScript et utilisent le [module Azure Node.js](https://www.npmjs.com/package/azure), qui utilise en interne le package `azure-sb`.
 
-Le package [azure-sb](https://www.npmjs.com/package/azure-sb) utilise les [API d’exécution REST Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Le nouveau package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) utilisant le [protocole AMQP 1.0](service-bus-amqp-overview.md) plus rapide permet d’accélérer l’expérience. Pour en savoir plus sur le nouveau package, consultez [Utilisation des rubriques et abonnements Service Bus avec Node.js et le package @azure/service-bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), sinon poursuivez votre lecture pour savoir comment utiliser le package [azure](https://www.npmjs.com/package/azure).
+> [!IMPORTANT]
+> Le package [azure-sb](https://www.npmjs.com/package/azure-sb) utilise les [API d’exécution REST Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Le nouveau package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) utilisant le [protocole AMQP 1.0](service-bus-amqp-overview.md) plus rapide permet d’accélérer l’expérience. 
+> 
+> Pour en savoir plus sur le nouveau package, consultez [Utilisation des rubriques et abonnements Service Bus avec Node.js et le package @azure/service-bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), sinon poursuivez votre lecture pour savoir comment utiliser le package [azure](https://www.npmjs.com/package/azure).
 
 Voici les scénarios abordés ici :
 
@@ -40,7 +39,7 @@ Voici les scénarios abordés ici :
 
 Pour plus d’informations sur les rubriques et les abonnements, consultez la section [Étapes suivantes](#next-steps).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 - Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Suivez les étapes dans [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour créer un **espace de noms** Service Bus et obtenir la **chaîne de connexion**.
 

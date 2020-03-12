@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a31894719863b16cc92f7e5bf4d7c85944c8850e
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 8fa8ca50a8d8cae7543c6aacb84fa57bc2f9c3a4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721300"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945219"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Key Vault pour Linux
 
@@ -67,7 +67,7 @@ L’extrait JSON suivant illustre le schéma de l’extension de machine virtuel
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| Name | Valeur/Exemple | Type de données |
+| Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | Date |
 | publisher | Microsoft.Azure.KeyVault | string |
@@ -102,6 +102,7 @@ La configuration JSON d’une extension de machine virtuelle doit être imbriqu�
       "typeHandlerVersion": "1.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
+          "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g. "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,

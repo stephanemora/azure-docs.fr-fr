@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 11/05/2019
-ms.openlocfilehash: 06b890a9186ec38ce3f851c9f36b778ec7549f76
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.date: 03/05/2020
+ms.openlocfilehash: 5e90416b23b057ad5079a551242895802ac641c9
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77580522"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399120"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Créer un espace de travail pour Azure Machine Learning avec Azure CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -355,9 +355,9 @@ Pour plus d’informations, consultez la documentation [az ml workspace delete](
 > [!WARNING]
 > Le déplacement de votre espace de travail Azure Machine Learning vers un autre abonnement, ou le déplacement de l’abonnement propriétaire vers un nouveau locataire, n’est pas pris en charge. En effet, cela peut provoquer des erreurs.
 
-### <a name="deleting-the-azure-container-registry"></a>Suppression d’Azure Container Registry
+### <a name="deleting-the-azure-container-registry"></a>Suppression d'Azure Container Registry
 
-L’espace de travail Azure Machine Learning utilise Azure Container Registry (ACR) pour certaines opérations. Il crée automatiquement une instance ACR lorsqu’il en a besoin d’une pour la première fois.
+L'espace de travail Azure Machine Learning utilise Azure Container Registry (ACR) pour certaines opérations. Il crée automatiquement une instance ACR dès qu'il en a besoin.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 

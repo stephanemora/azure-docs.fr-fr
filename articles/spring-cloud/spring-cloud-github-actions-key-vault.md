@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/20/2019
-ms.openlocfilehash: efe8c1a2726054c54934926f652e338797d4efa1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 78cd5945e394219be0551bbe97afef07f18b61f7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776146"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945470"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Authentifier Azure Spring Cloud auprès de Key Vault dans GitHub Actions
 Le coffre de clés est un emplacement sécurisé pour stocker les clés. Au sein des entreprises, les utilisateurs doivent stocker les informations d’identification des environnements CI/CD dans l’étendue qu’ils contrôlent. La clé permettant d’accéder aux informations d’identification dans le coffre de clés doit être limitée à l’étendue des ressources.  Elle a uniquement accès à l’étendue du coffre de clés, et non à l’ensemble de l’étendue Azure. Elle est assimilable à une clé qui peut ouvrir uniquement un coffre-fort, non à une clé principale qui peut ouvrir toutes les portes d’un bâtiment. C’est un moyen d’obtenir une clé avec une autre clé, ce qui est utile dans un workflow CI/CD. 
@@ -32,7 +32,6 @@ Avec les résultats :
     "tenantId": "<GUID>",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"
@@ -69,7 +68,6 @@ Voici de nouveau les résultats :
     "tenantId": "<GUID>",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3bc69f8bd946fa50ba272c287047aae7981af4e3
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 432604dd3db1629a4c9b10d0d5c8649f3817d97f
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074461"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673151"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Créer une passerelle d’application qui héberge plusieurs sites web à l’aide d’Azure PowerShell
 
@@ -227,7 +227,7 @@ for ($i=1; $i -le 2; $i++)
     -ImageReferencePublisher MicrosoftWindowsServer `
     -ImageReferenceOffer WindowsServer `
     -ImageReferenceSku 2016-Datacenter `
-    -ImageReferenceVersion latest
+    -ImageReferenceVersion latest `
     -OsDiskCreateOption FromImage
 
   Set-AzVmssOsProfile $vmssConfig `
@@ -292,7 +292,7 @@ Remplacez l’adresse par celle de votre autre domaine. Voici ce qui doit appara
 
 ![Tester le site fabrikam dans la passerelle d’application](./media/tutorial-multiple-sites-powershell/application-gateway-iistest2.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources, la passerelle d’application et toutes les ressources associées à l’aide de [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 

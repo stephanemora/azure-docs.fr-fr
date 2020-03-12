@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b90b6f8eabbda229fbed4dcef6a5d863ea721faf
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 001dfbc78c0027249143e933684523d47af383d1
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659133"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096780"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Préparation à la modification du format dans les journaux de plateforme Azure Monitor archivés dans un compte de stockage
 
 > [!WARNING]
-> Si vous envoyez des [journaux ou des métriques d’activité des ressources Azure à un compte de stockage via les paramètres de ressources](resource-logs-collect-storage.md) ou [des journaux d’activité à un compte de stockage via les profils de journaux d’activité](activity-log-export.md), le format des données dans le compte de stockage a été modifié en lignes JSON le 1er novembre 2018. Les instructions ci-dessous détaillent les conséquences liées à ce changement et comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format.
+> Si vous envoyez des [journaux ou des métriques d’activité des ressources Azure à un compte de stockage via les paramètres de ressources](resource-logs-collect-storage.md) ou [des journaux d’activité à un compte de stockage via les profils de journaux d’activité](resource-logs-collect-storage.md), le format des données dans le compte de stockage a été modifié en lignes JSON le 1er novembre 2018. Les instructions ci-dessous détaillent les conséquences liées à ce changement et comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format.
 >
 
 ## <a name="what-changed"></a>Ce qui a changé

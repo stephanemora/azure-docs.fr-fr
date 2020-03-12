@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 42431c0db55219c3cb49968986c1a0c7f071b219
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 10c8008d73390174c44ec503f708c1e2c0011e09
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509273"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944313"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utiliser Visual Studio Code afin de développer et déboguer des modules pour Azure IoT Edge
 
@@ -28,7 +28,7 @@ Cet article fournit des instructions pour le développement et le débogage de m
 >[!NOTE]
 >La prise en charge du développement et du débogage des appareils Linux ARM64 est disponible en [préversion publique](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour plus d’informations, consultez [Développer et déboguer des modules IoT Edge ARM64 dans Visual Studio Code (préversion)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Vous pouvez utiliser un ordinateur ou une machine virtuelle Windows, macOS ou Linux comme machine de développement. Sur les ordinateurs Windows, vous pouvez développer des modules Windows ou Linux. Pour développer des modules Windows, utilisez un ordinateur Windows exécutant la version 1809/build 17763 ou une version plus récente. Pour développer des modules Linux, utilisez un ordinateur Windows qui est conforme à la [configuration requise pour Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
@@ -37,9 +37,9 @@ Commencez par installer [Visual Studio Code](https://code.visualstudio.com/), pu
 - [Outils IoT Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 - [Extension Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 - Extension(s) Visual Studio spécifique(s) au langage utilisé pour le développement :
-  - C#, y compris Azure Functions : [Extension C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+  - C#, y compris Azure Functions : [Extension C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
   - Python : [Extension Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  - Java : [Pack d’extension Java pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+  - Java : [Pack d’extension Java pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
   - C : [Extension C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 
 Vous devrez également installer d'autres outils spécifiques au langage utilisé pour développer votre module :
@@ -50,7 +50,7 @@ Vous devrez également installer d'autres outils spécifiques au langage utilis�
 
 - Node.js : [Node.js](https://nodejs.org). Vous pourrez également installer [Yeoman](https://www.npmjs.com/package/yo) et le [générateur de module Node.js Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
-- Java : [Java SE Development Kit 10](https://aka.ms/azure-jdks) et [Maven](https://maven.apache.org/). Vous devrez [définir la variable d'environnement `JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)de manière à ce qu'elle pointe vers votre installation JDK.
+- Java : [Java SE Development Kit 10](https://aka.ms/azure-jdks) et [Maven](https://maven.apache.org/). Vous devrez [définir la variable d'environnement `JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)de manière à ce qu'elle pointe vers votre installation JDK.
 
 Pour générer et déployer l'image de votre module, vous devez disposer de Docker pour générer l'image du module et d'un registre de conteneurs pour stocker cette image :
 

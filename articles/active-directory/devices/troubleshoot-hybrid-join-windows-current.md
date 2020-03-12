@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd53b95472c72d70721612d8684779c206aad74e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f3ce27c59ead4e126cb143d1831ece0e93e119ef
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888795"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672279"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Résolution des problèmes liés aux appareils hybrides joints à Azure Active Directory 
 
@@ -356,7 +356,7 @@ Servez-vous des journaux de l’Observateur d’événements pour identifier la 
    - Résolution : désactivez le module de plateforme sécurisée (TPM) sur les appareils présentant cette erreur. Windows 1809 détecte automatiquement les échecs du module TPM et effectue la jointure Azure AD hybride sans utiliser le module TPM.
 - **NTE_AUTHENTICATION_IGNORED** (0x80090031/-2146893775)
    - Motif : module TPM verrouillé.
-   - Résolution : Erreur temporaire. Attendez la période de temps de recharge. La tentative de jointure devrait aboutir après un certain temps. Vous trouverez des informations supplémentaires dans l’article [Principes de base du module de plateforme sécurisée (TPM)](https://docs.microsoft.com/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering).
+   - Résolution : Erreur temporaire. Attendez la période de temps de recharge. La tentative de jointure devrait aboutir après un certain temps. Vous trouverez des informations supplémentaires dans l’article [Principes de base du module de plateforme sécurisée (TPM)](/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering).
 
 ##### <a name="network-errors"></a>Erreurs réseau
 

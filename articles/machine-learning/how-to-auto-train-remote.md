@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: bad957a70079a5513f103968066e2ff6a436cd77
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 03/09/2020
+ms.openlocfilehash: 9e499d609a3f78dc5f422b9ed90df09be30f2e7c
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754146"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080409"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Entraîner des modèles avec le machine learning automatisé dans le cloud
 
@@ -24,7 +24,7 @@ ms.locfileid: "75754146"
 
 Dans Azure Machine Learning, vous effectuez l'apprentissage de votre modèle sur différents types de ressources de calcul que vous gérez. La cible de calcul peut être un ordinateur local ou une ressource dans le cloud.
 
-Vous pouvez facilement faire monter en puissance/en charge votre expérience de Machine Learning. Pour cela, il vous suffit d’ajouter des cibles de calcul, par exemple Capacité de calcul Machine Learning (AmlCompute). AmlCompute est une infrastructure de capacité de calcul managée qui vous permet de créer facilement une capacité de calcul à un ou plusieurs nœuds.
+Vous pouvez facilement effectuer un scale-up ou un scale-out de votre expérience de Machine Learning. Pour cela, il vous suffit d’ajouter des cibles de calcul, par exemple Capacité de calcul Machine Learning (AmlCompute). AmlCompute est une infrastructure de capacité de calcul managée qui vous permet de créer facilement une capacité de calcul à un ou plusieurs nœuds.
 
 Dans cet article, vous allez découvrir comment créer un modèle avec le Machine Learning automatisé avec AmlCompute.
 

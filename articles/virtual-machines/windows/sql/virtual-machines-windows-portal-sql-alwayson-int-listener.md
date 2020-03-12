@@ -15,11 +15,11 @@ ms.date: 02/16/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
 ms.openlocfilehash: aefd7a55090da7f55404d6f551ab61268582ff5a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039649"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096140"
 ---
 # <a name="configure-a-load-balancer-for-an-availability-group-on-azure-sql-server-vms"></a>Configurer un équilibreur de charge pour un groupe de disponibilité sur des machines virtuelles SQL Server Azure
 Cet article explique comment créer un équilibreur de charge pour un groupe de disponibilité SQL Server AlwaysOn dans des machines virtuelles Azure s’exécutant avec Azure Resource Manager. Un groupe de disponibilité nécessite un équilibreur de charge lorsque les instances SQL Server se trouvent sur des machines virtuelles Azure. Cet équilibrage de charge stocke l’adresse IP de l’écouteur de groupe de disponibilité. Si un groupe de disponibilité englobe plusieurs régions, chaque région a besoin d’un équilibreur de charge.
@@ -50,7 +50,7 @@ Dans cette partie de la tâche, procédez comme suit :
 > 
 > 
 
-### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>Étape 1 : Créer l’équilibrage de charge et configurer l’adresse IP
+### <a name="step-1-create-the-load-balancer-and-configure-the-ip-address"></a>Étape 1 : Créer l’équilibrage de charge et configurer l’adresse IP
 Créez d’abord l’équilibreur de charge. 
 
 1. Dans le portail Azure, ouvrez le groupe de ressources contenant les machines virtuelles SQL Server. 
@@ -79,7 +79,7 @@ Créez d’abord l’équilibreur de charge.
 
 Azure crée l’équilibreur de charge. Cet équilibrage de charge appartient à un réseau, un sous-réseau, un groupe de ressources et un emplacement spécifiques. Une fois qu’Azure a terminé la tâche, vérifiez les paramètres de l’équilibreur de charge dans Azure. 
 
-### <a name="step-2-configure-the-back-end-pool"></a>Étape 2 : Configurez le pool principal
+### <a name="step-2-configure-the-back-end-pool"></a>Étape 2 : Configurez le pool principal
 Azure appelle *pool principal* ce pool d’adresses principal. En l’occurrence, le pool principal est constitué des adresses des deux instances de SQL Server dans votre groupe de disponibilité. 
 
 1. Dans votre groupe de ressources, cliquez sur l’équilibreur de charge que vous avez créé. 
@@ -120,7 +120,7 @@ La sonde définit la façon dont Azure identifie l’instance de SQL Server qui 
 4.  Cliquez sur **OK**. 
 
 > [!NOTE]
-> Vérifiez que le port que vous spécifiez est ouvert sur le pare-feu des deux instances de SQL Server. Les deux instances nécessitent une règle de trafic entrant pour le port TCP que vous utilisez. Pour plus d’informations, consultez [Ajouter ou modifier une règle de pare-feu](https://technet.microsoft.com/library/cc753558.aspx) . 
+> Vérifiez que le port que vous spécifiez est ouvert sur le pare-feu des deux instances de SQL Server. Les deux instances nécessitent une règle de trafic entrant pour le port TCP que vous utilisez. Pour plus d’informations, consultez [Ajouter ou modifier une règle de pare-feu](https://technet.microsoft.com/library/cc753558.aspx). 
 > 
 > 
 
@@ -144,7 +144,7 @@ Les règles d’équilibrage de charge déterminent comment l’équilibreur de 
    | **Sonde** |Utilisez le nom de la sonde que vous avez créée pour cet équilibrage de charge. |
    | **Persistance de session** |**Aucun** |
    | **Délai d’inactivité (minutes).** |*4* |
-   | **Adresse IP flottante (retour serveur direct)** |**Activé** |
+   | **Adresse IP flottante (retour direct du serveur)** |**Activé** |
 
    > [!NOTE]
    > Il peut être nécessaire de faire défiler le panneau vers le bas pour voir tous les paramètres.
@@ -165,7 +165,7 @@ L’étape suivante consiste à configurer l’écouteur sur le cluster et à le
 
 1. Créez l’écouteur du groupe de disponibilité sur le cluster de basculement. 
 
-2. Mettez l’écouteur en ligne.
+2. Mettez l'écouteur en ligne.
 
 ### <a name="step-5-create-the-availability-group-listener-on-the-failover-cluster"></a>Étape 5 : Créer l’écouteur de groupe de disponibilité sur le cluster de basculement
 Dans cette étape, vous créez manuellement l’écouteur du groupe de disponibilité dans le Gestionnaire du cluster de basculement et dans SQL Server Management Studio.
@@ -192,7 +192,7 @@ Testez la connexion en procédant comme suit :
 
 1. Envoyez une requête RDP à une instance de SQL Server qui se trouve dans le même réseau virtuel, mais qui ne détient pas le réplica. Ce serveur peut être une autre instance de SQL Server dans le cluster.
 
-2. Utilisez l’utilitaire **sqlcmd** pour tester la connexion. Par exemple, le script suivant établit une connexion **sqlcmd** au réplica principal par le biais de l’écouteur avec une authentification Windows :
+2. Utilisez l’utilitaire **sqlcmd** pour tester la connexion. Par exemple, le script suivant établit une connexion **sqlcmd** avec le réplica principal au moyen de l’écouteur avec une authentification Windows :
    
         sqlcmd -S <listenerName> -E
 
@@ -238,13 +238,13 @@ Pour ajouter une adresse IP à un équilibreur de charge avec le portail Azure, 
     |Paramètre |Valeur
     |:-----|:----
     |**Nom** |Nom destiné à identifier la règle d’équilibrage de charge. 
-    |**Adresse IP du serveur frontal** |Sélectionnez l’adresse IP que vous avez créée. 
+    |**Frontend IP address (Adresse IP frontale)** |Sélectionnez l’adresse IP que vous avez créée. 
     |**Protocole** |TCP
     |**Port** |Utilisez le port utilisé par les instances SQL Server. Une instance par défaut utilise le port 1433, à moins que vous l’ayez changé. 
     |**Port principal** |Utilisez la même valeur que **Port**.
     |**Pool back-end** |Pool qui contient les machines virtuelles dotées des instances SQL Server. 
     |**Sonde d’intégrité** |Choisissez la sonde que vous avez créée.
-    |**Persistance de session** |Aucun
+    |**Persistance de session** |None
     |**Délai d’inactivité (minutes).** |Valeur par défaut (4)
     |**Adresse IP flottante (retour direct du serveur)** | activé
 
@@ -293,7 +293,7 @@ Si un groupe de disponibilité participe à un groupe de disponibilité distribu
    |**Port principal** | 5022 - Utilisez la même valeur que **Port**.
    |**Pool back-end** |Pool qui contient les machines virtuelles dotées des instances SQL Server. 
    |**Sonde d’intégrité** |Choisissez la sonde que vous avez créée.
-   |**Persistance de session** |Aucun
+   |**Persistance de session** |None
    |**Délai d’inactivité (minutes).** |Valeur par défaut (4)
    |**Adresse IP flottante (retour direct du serveur)** | activé
 

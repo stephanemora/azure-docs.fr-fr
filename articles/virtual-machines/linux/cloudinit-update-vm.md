@@ -1,24 +1,17 @@
 ---
 title: Utiliser cloud-init dans une machine virtuelle Linux sur Azure
 description: Guide pratique pour utiliser cloud-init pour mettre à jour et installer des packages dans une machine virtuelle Linux lors de la création avec l’interface Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: cynthn
-ms.openlocfilehash: 7bb48ec11ec042f021203c1716968daa9ab45047
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7b7a03572a001fc6d5114635b33510f1a4b1bc70
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973133"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969151"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>Utiliser cloud-init pour mettre à jour et installer des packages dans une machine virtuelle Linux sur Azure
 Cet article montre comment utiliser [cloud-init](https://cloudinit.readthedocs.io) pour mettre à jour des packages sur une machine virtuelle Linux ou un groupe de machines virtuelles identiques au moment de l’approvisionnement dans Azure. Ces scripts cloud-init s’exécutent au premier démarrage une fois que les ressources ont été approvisionnées par Azure. Pour plus d’informations sur le fonctionnement de cloud-init en mode natif dans Azure et sur les versions de Linux prises en charge, consultez [Présentation de cloud-init](using-cloud-init.md)
@@ -26,7 +19,7 @@ Cet article montre comment utiliser [cloud-init](https://cloudinit.readthedocs.i
 ## <a name="update-a-vm-with-cloud-init"></a>Mettre à jour une machine virtuelle avec cloud-init
 Pour des raisons de sécurité, configurez une machine virtuelle pour appliquer les dernières mises à jour au premier démarrage. Étant donné que cloud-init fonctionne sur différentes distributions Linux, il est inutile de spécifier `apt` ou `yum` pour le gestionnaire de package. Vous définissez plutôt `package_upgrade` et laissez le processus cloud-init déterminer le mécanisme approprié pour la distribution en cours d’utilisation. Ce flux de travail vous permet d’utiliser les mêmes scripts cloud-init sur toutes les distributions.
 
-Pour voir le processus de mise à niveau en action, créez dans l’interpréteur de commandes actif un fichier nommé *cloud_init_upgrade.txt* et collez-y la configuration suivante. Pour cet exemple, créez le fichier dans Cloud Shell et non sur votre ordinateur local. Vous pouvez utiliser l’éditeur de votre choix. Entrez `sensible-editor cloud_init_upgrade.txt` pour créer le fichier et afficher la liste des éditeurs disponibles. Choisissez le n°1 pour utiliser l’éditeur **nano**. Vérifiez que l’intégralité du fichier cloud-init est copiée correctement, en particulier la première ligne.  
+Pour voir le processus de mise à niveau en action, créez dans l’interpréteur de commandes actif un fichier nommé *cloud_init_upgrade.txt* et collez-y la configuration suivante. Pour cet exemple, créez le fichier dans Cloud Shell et non sur votre ordinateur local. Vous pouvez utiliser l’éditeur de votre choix. Entrez `sensible-editor cloud_init_upgrade.txt` pour créer le fichier et afficher la liste des éditeurs disponibles. Choisissez le n°1 pour utiliser l’éditeur **nano**. Vérifiez que l’intégralité du fichier cloud-init est copiée, en particulier la première ligne.  
 
 ```yaml
 #cloud-config

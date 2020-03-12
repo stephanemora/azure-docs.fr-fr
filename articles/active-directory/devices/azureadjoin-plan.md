@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67c42de09c75b7dd6737b80071f1f6eba094b132
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a6bbecf0e365ba7a8424da775245181fa64c21f6
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512417"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672692"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procédure : Planifier votre implémentation de la jointure d’Azure AD
 
@@ -24,7 +24,7 @@ La jonction Azure AD vous permet de joindre des appareils directement à Azure A
 
 Cet article vous fournit les informations nécessaires pour planifier votre implémentation de la jonction Azure AD.
  
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous avez lu la [Présentation de la gestion des appareils dans Azure Active Directory](../device-management-introduction.md).
 
@@ -59,7 +59,7 @@ La jonction Azure AD fonctionne à la fois avec les environnements gérés et le
 
 ### <a name="managed-environment"></a>Environnement géré
 
-Un environnement géré peut être déployé via la [synchronisation du hachage de mot de passe](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) ou via l’[authentification directe](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) avec l’authentification unique fluide.
+Un environnement géré peut être déployé via la [synchronisation du hachage de mot de passe](/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) ou via l’[authentification directe](/azure/active-directory/hybrid/how-to-connect-pta-quick-start) avec l’authentification unique fluide.
 
 Ces scénarios ne nécessitent pas la configuration d’un serveur de fédération pour l’authentification.
 
@@ -78,7 +78,7 @@ Lorsque vous utilisez AD FS, vous devez activer les points de terminaison WS-Tru
 Si votre fournisseur d’identité ne prend pas en charge ces protocoles, la jonction Azure AD ne fonctionne pas en mode natif. 
 
 >[!NOTE]
-> Actuellement, la jointure Azure AD ne fonctionne pas avec [AD FS 2019 configuré avec des fournisseurs d’authentification externes comme méthode d’authentification principale](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). La jointure Azure AD est par défaut l’authentification par mot de passe comme méthode principale, ce qui entraîne des échecs d’authentification dans ce scénario
+> Actuellement, la jointure Azure AD ne fonctionne pas avec [AD FS 2019 configuré avec des fournisseurs d’authentification externes comme méthode d’authentification principale](/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). La jointure Azure AD est par défaut l’authentification par mot de passe comme méthode principale, ce qui entraîne des échecs d’authentification dans ce scénario
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Authentification basée sur les cartes à puce et les certificats
@@ -91,7 +91,7 @@ Vous ne pouvez pas utiliser l’authentification basée sur des cartes à puce o
 
 Si vous créez des utilisateurs dans :
 
-- **Active Directory local** : vous devez les synchroniser avec Azure AD en utilisant [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
+- **Active Directory local** : vous devez les synchroniser avec Azure AD en utilisant [Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
 - **Azure AD** : aucune configuration supplémentaire n’est nécessaire.
 
 Les UPN locaux qui sont différents dans les UPN Azure AD ne sont pas pris en charge sur les appareils joints à Azure AD. Si vos utilisateurs utilisent un nom d’utilisateur principal local, vous devez prévoir d’utiliser leur nom d’utilisateur principal dans Azure AD.
@@ -127,9 +127,9 @@ Passez en revue les stratégies prises en charge ou non pour déterminer si vous
 - Les stratégies non prises en charge sont-elles nécessaires pour les appareils ou les utilisateurs joints à Azure AD ?
 - Les stratégies non prises en charge sont-elles applicables dans un déploiement cloud ?
 
-Si votre solution MDM n’est pas disponible via la galerie d’applications Azure AD, vous pouvez l’ajouter en suivant la procédure décrite dans [Intégration d’Azure Active Directory à MDM](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
+Si votre solution MDM n’est pas disponible via la galerie d’applications Azure AD, vous pouvez l’ajouter en suivant la procédure décrite dans [Intégration d’Azure Active Directory à MDM](/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
 
-Via la cogestion, vous pouvez utiliser SCCM pour gérer certains aspects de vos appareils, les stratégies étant délivrées via votre plateforme MDM. Microsoft Intune permet la cogestion avec SCCM. Pour plus d’informations sur la cogestion des appareils Windows 10, consultez [Présentation de la cogestion](https://docs.microsoft.com/configmgr/core/clients/manage/co-management-overview). Si vous utilisez un produit MDM autre qu’Intune, vérifiez auprès de votre fournisseur MDM les scénarios de cogestion applicables.
+Via la cogestion, vous pouvez utiliser SCCM pour gérer certains aspects de vos appareils, les stratégies étant délivrées via votre plateforme MDM. Microsoft Intune permet la cogestion avec SCCM. Pour plus d’informations sur la cogestion des appareils Windows 10, consultez [Présentation de la cogestion](/configmgr/core/clients/manage/co-management-overview). Si vous utilisez un produit MDM autre qu’Intune, vérifiez auprès de votre fournisseur MDM les scénarios de cogestion applicables.
 
 **Recommandation :** Envisagez la gestion uniquement MDM pour les appareils joints à Azure AD.
 
@@ -155,7 +155,7 @@ Si vos applications sont créées de façon personnalisée et/ou hébergées loc
 - Activer le fonctionnement de l’authentification Windows intégrée 
 - Offrir une expérience d’authentification unique sans invites aux utilisateurs. 
 
-Si vous utilisez AD FS, consultez [Vérifier et gérer l’authentification unique avec AD FS](https://docs.microsoft.com/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
+Si vous utilisez AD FS, consultez [Vérifier et gérer l’authentification unique avec AD FS](/previous-versions/azure/azure-services/jj151809(v%3dazure.100)). 
 
 **Recommandation :** Envisagez l'hébergement dans le cloud (Azure, par exemple) et l'intégration à Azure AD pour une meilleure expérience.
 
@@ -163,7 +163,7 @@ Si vous utilisez AD FS, consultez [Vérifier et gérer l’authentification uniq
 
 Les utilisateurs bénéficient de l’authentification unique sur les appareils joints à Azure AD si l’appareil a accès à un contrôleur de domaine. 
 
-**Recommandation :** Déployez le [proxy Azure AD App](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) pour permettre un accès sécurisé à ces applications.
+**Recommandation :** Déployez le [proxy Azure AD App](/azure/active-directory/manage-apps/application-proxy) pour permettre un accès sécurisé à ces applications.
 
 ### <a name="on-premises-network-shares"></a>Partages de réseau local
 
@@ -171,7 +171,7 @@ Vos utilisateurs bénéficient de l’authentification unique à partir d’appa
 
 ### <a name="printers"></a>Imprimantes
 
-Pour les imprimantes, vous devez déployer l’[impression cloud hybride](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) pour la découverte des imprimantes sur les appareils joints à Azure AD. 
+Pour les imprimantes, vous devez déployer l’[impression cloud hybride](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) pour la découverte des imprimantes sur les appareils joints à Azure AD. 
 
 Les imprimantes ne peuvent pas être découvertes automatiquement dans un environnement cloud uniquement, mais vos utilisateurs peuvent également utiliser le chemin UNC des imprimantes pour les ajouter directement. 
 
@@ -183,15 +183,15 @@ Les appareils joints à AD Azure ne prennent pas en charge les applications loca
 
 ### <a name="remote-desktop-services"></a>Services Bureau à distance
 
-La connexion Bureau à distance à des appareils joints à Azure AD nécessite que l’ordinateur hôte soit joint à Azure AD ou à Azure AD Hybride. Le Bureau à distance depuis un appareil non joint ou non-Windows n’est pas pris en charge. Pour plus d’informations, consultez [Se connecter à un PC distant joint à Azure AD](https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc)
+La connexion Bureau à distance à des appareils joints à Azure AD nécessite que l’ordinateur hôte soit joint à Azure AD ou à Azure AD Hybride. Le Bureau à distance depuis un appareil non joint ou non-Windows n’est pas pris en charge. Pour plus d’informations, consultez [Se connecter à un PC distant joint à Azure AD](/windows/client-management/connect-to-remote-aadj-pc)
 
 ## <a name="understand-your-provisioning-options"></a>Comprendre vos options de provisionnement
 
 Vous pouvez provisionner la jonction Azure AD en utilisant les approches suivantes :
 
-- **Libre-service dans OOBE/Paramètres** : dans le mode libre-service, les utilisateurs sont soumis au processus de jonction Azure AD pendant l’expérience OOBE Windows ou depuis Paramètres Windows. Pour plus d’informations, consultez [Joindre votre appareil professionnel au réseau de votre organisation](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network). 
-- **Windows Autopilot** : Windows Autopilot permet la préconfiguration des appareils pour une meilleure expérience dans OOBE pour effectuer une jonction Azure AD. Pour plus d’informations, consultez [Vue d’ensemble de Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot). 
-- **Inscription en bloc** : l’inscription en bloc permet une jonction Azure AD pilotée par l’administrateur avec un outil de provisionnement en bloc pour configurer les appareils. Pour plus d’informations, consultez [Inscription en bloc pour les appareils Windows](https://docs.microsoft.com/intune/windows-bulk-enroll).
+- **Libre-service dans OOBE/Paramètres** : dans le mode libre-service, les utilisateurs sont soumis au processus de jonction Azure AD pendant l’expérience OOBE Windows ou depuis Paramètres Windows. Pour plus d’informations, consultez [Joindre votre appareil professionnel au réseau de votre organisation](/azure/active-directory/user-help/user-help-join-device-on-network). 
+- **Windows Autopilot** : Windows Autopilot permet la préconfiguration des appareils pour une meilleure expérience dans OOBE pour effectuer une jonction Azure AD. Pour plus d’informations, consultez [Vue d’ensemble de Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
+- **Inscription en bloc** : l’inscription en bloc permet une jonction Azure AD pilotée par l’administrateur avec un outil de provisionnement en bloc pour configurer les appareils. Pour plus d’informations, consultez [Inscription en bloc pour les appareils Windows](/intune/windows-bulk-enroll).
  
 Voici une comparaison de ces trois approches 
  
@@ -296,7 +296,7 @@ Vous pouvez utiliser cette implémentation pour [exiger des appareils gérés po
 
 > [!div class="nextstepaction"]
 > [Joindre un nouvel appareil Windows 10 à Azure AD lors d’une première exécution](azuread-joined-devices-frx.md)
-> [Joindre votre appareil professionnel au réseau de votre organisation](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network)
+> [Joindre votre appareil professionnel au réseau de votre organisation](/azure/active-directory/user-help/user-help-join-device-on-network)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

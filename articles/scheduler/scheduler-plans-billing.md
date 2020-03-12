@@ -1,25 +1,26 @@
 ---
-title: Plans et facturation - Azure Scheduler
+title: Plans et facturation
 description: En savoir plus sur les plans et la facturation pour Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 4b63367ab9686eee66bf3f00dddc2e2efe4cb941
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e821036ff4ddb5a9786bc4f4537bb81539ab2c87
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300867"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898471"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Plans et facturation pour Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est [en cours de retrait](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Pour poursuivre les travaux que vous avez configurés dans Scheduler, [migrez vers Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) dès que possible.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en phase de [mise hors service](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Pour poursuivre les travaux que vous avez configurés dans Scheduler, veuillez [migrer vers Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) dès que possible. 
+>
+> Scheduler n’est plus disponible dans le portail Azure, mais l’[API REST](/rest/api/scheduler) et les [applets de commande Azure Scheduler PowerShell](scheduler-powershell-reference.md) restent disponibles pour vous permettre de gérer vos travaux et collections de travaux.
 
 ## <a name="job-collection-plans"></a>Plans de collections de travaux
 
@@ -80,8 +81,7 @@ Les collections de travaux P20 Premium proposent les mêmes fonctionnalités que
 
   Le service Scheduler facture en fonction du nombre de collections de travaux actives qui sont standard ou premium.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
-* [Présentation d’Azure Scheduler](scheduler-intro.md)
 * [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
 * [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)

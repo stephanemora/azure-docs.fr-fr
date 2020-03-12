@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63aaa0103715a928cdd5332de738a473b329f2e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: da44e8482e335c209f45db478797efa5461bbfe1
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186082"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671855"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Configurer une stratégie d’accès conditionnel en mode Rapport uniquement (préversion)
 
@@ -48,8 +48,8 @@ Pour afficher le résultat d’une stratégie Rapport uniquement pour une connex
 
 Pour afficher l’impact agrégé des stratégies d’accès conditionnel à l’aide du nouveau classeur Insights sur l’accès conditionnel, vous devez intégrer Azure Monitor avec Azure AD et exporter les journaux de connexion. La configuration de cette intégration se fait en deux étapes : 
 
-1. [Souscrivez un abonnement Azure Monitor et créez un espace de travail](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
-1. [Exportez les journaux de connexion d’Azure AD vers Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+1. [Souscrivez un abonnement Azure Monitor et créez un espace de travail](/azure/azure-monitor/learn/quick-create-workspace).
+1. [Exportez les journaux de connexion d’Azure AD vers Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
 
 Pour plus d’informations sur la tarification d’Azure Monitor, voir la [page de tarification d’Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Les ressources pour estimer les coûts, définir un plafond quotidien ou personnaliser la période de conservation des données, sont mentionnées dans l’article [Gérer l’utilisation et les coûts avec les journaux Azure Monitor](../../azure-monitor/platform/manage-cost-storage.md#estimating-the-costs-to-manage-your-environment).
 

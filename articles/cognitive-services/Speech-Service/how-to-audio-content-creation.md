@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: dapine
-ms.openlocfilehash: 4785356963e7df1d7b175ac21ceebc921f851ffb
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ab0d2b8d95b4cb5996dd93fa0bb24085c9de26d5
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913648"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331534"
 ---
 # <a name="improve-synthesis-with-audio-content-creation"></a>Améliorer la synthèse avec la création de contenu audio
 
@@ -43,7 +43,7 @@ Ce diagramme montre les étapes nécessaires pour paramétrer et exporter des so
 
 Suivez ces étapes pour créer une ressource Speech et la connecter à Speech Studio.
 
-1. Suivez ces instructions pour vous [inscrire pour obtenir un compte Azure](get-started.md#new-resource) et pour [créer une ressource Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). Assurez-vous que votre niveau tarifaire est défini sur **S0**. Si vous utilisez l’une des voix neuronales, assurez-vous de créer votre ressource dans une [région prise en charge](regions.md#standard-and-neural-voices).
+1. Suivez ces instructions pour vous [inscrire pour obtenir un compte Azure](get-started.md#new-resource) et pour [créer une ressource Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-the-resource). Assurez-vous que votre niveau tarifaire est défini sur **S0**. Si vous utilisez l’une des voix neuronales, assurez-vous de créer votre ressource dans une [région prise en charge](regions.md#standard-and-neural-voices).
 2. Connectez-vous à [Création de contenu audio](https://aka.ms/audiocontentcreation).
 3. Sélectionnez un projet existant ou cliquez sur **Créer un nouveau**.
 4. Vous pouvez modifier votre abonnement à tout moment avec l’option **Paramètres**, située dans le haut de la section.

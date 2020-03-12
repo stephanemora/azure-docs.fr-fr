@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 934853b80c6e6377923df4c2b5cce7b7d7d57d7c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: bbdd1bedb7b9a9f00a0b65ccc4c108ba6fd2638c
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754926"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398943"
 ---
 # <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Optimisation des coûts de lecture et d’écriture dans Azure Cosmos DB
 
@@ -29,14 +29,6 @@ Vous n’êtes pas obligé de faire attention à ce qui différencie les unités
 |100 Ko |10 unités de requête |50 unités de requête |
 
 La lecture d’un élément de 1 Ko coûte une RU. L’écriture d’un élément de 1 Ko coûte cinq RU. Les coûts de lecture et d’écriture sont applicables avec le [niveau de cohérence](consistency-levels.md) de la session par défaut.  Les considérations relatives aux RU incluent la taille de l’élément, le nombre de propriétés, la cohérence des données, les propriétés indexées, l’indexation et les modèles de requête.
-
-## <a name="normalized-cost-for-1-million-reads-and-writes"></a>Coût normalisé pour 1 million de lectures et d’écritures
-
-La configuration de 1 000 RU/s se traduit par un total de 3,6 millions RU/h, à un coût de 0,08 dollar/heure (aux États-Unis et en Europe). Pour un élément de 1 Ko, vous pouvez effectuer 3,6 millions de lectures ou 0,72 million d’écritures (cette valeur est calculée comme suit : `3.6 million RU / 5`) par heure avec cette configuration de débit. Avec une normalisation à un million de lectures et d’écritures, le coût s’élève à 0,022 dollar pour 1 million de lectures (cette valeur est calculée comme suit : 0,08 dollar/3,6 millions) et 0,111 dollar pour 1 million d’écritures (cette valeur est calculée comme suit : 0,08 dollar/0,72 million).
-
-## <a name="number-of-regions-and-the-request-units-cost"></a>Nombre de régions et coût des unités de requête
-
-Le coût des écritures est constant, quel que soit le nombre de régions associées au compte Azure Cosmos. En d’autres termes, une écriture de 1 Ko coûte cinq RU, quel que soit le nombre de régions associées au compte. Une quantité non négligeable de ressources passe dans la réplication, l’acceptation et le traitement du trafic de réplication sur chaque région. Pour plus d’informations sur l’optimisation des coûts de plusieurs régions, consultez l’article [Optimizing the cost of multi-region Cosmos accounts](optimize-cost-regions.md) (Optimisation du coût des comptes Cosmos sur plusieurs régions).
 
 ## <a name="optimize-the-cost-of-writes-and-reads"></a>Optimiser le coût des lectures et des écritures
 

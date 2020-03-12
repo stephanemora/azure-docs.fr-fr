@@ -3,12 +3,12 @@ title: Vue d’ensemble des coffres Recovery Services
 description: Vue d’ensemble et comparaison entre les coffres Recovery Services et les coffres de sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 886c63856d3be78c241289caf5abbe73ebeda63f
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 94a3e5a0865bcc8c0a9ecb866ca013f20a558e1a
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172833"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673233"
 ---
 # <a name="recovery-services-vaults-overview"></a>Vue d’ensemble des coffres Recovery Services
 
@@ -30,7 +30,7 @@ Les coffres Recovery Services sont basés sur le modèle Azure Resource Manager 
 
 - **Protéger toutes les configurations des machines virtuelles Azure** : les coffres Recovery Services protègent les machines virtuelles basées sur Resource Manager, notamment les disques Premium, les disques managés et les machines virtuelles chiffrées. La mise à niveau d’un coffre de sauvegarde vers un coffre Recovery Services vous donne la possibilité de mettre à niveau vos machines virtuelles basées sur Service Manager vers des machines virtuelles basées sur Resource Manager. Lors de la mise à niveau du coffre, vous pouvez conserver vos points de récupération de machines virtuelles basées sur Service Manager et configurer la protection pour de machines virtuelles (compatibles avec Resource Manager) mises à niveau. [En savoir plus](https://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 
-- **Restauration instantanée de machines virtuelles IaaS** : les coffres Recovery Services vous permettent de restaurer des fichiers et des dossiers depuis une machine virtuelle IaaS, sans restaurer la machine virtuelle entière, ce qui permet d’accélérer les temps de restauration. La restauration instantanée de machines virtuelles IaaS est disponible pour les machines virtuelles Windows et Linux. [En savoir plus](https://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
+- **Restauration instantanée de machines virtuelles IaaS** : les coffres Recovery Services vous permettent de restaurer des fichiers et des dossiers depuis une machine virtuelle IaaS, sans restaurer la machine virtuelle entière, ce qui permet d’accélérer les temps de restauration. La restauration instantanée de machines virtuelles IaaS est disponible pour les machines virtuelles Windows et Linux. [En savoir plus](backup-instant-restore-capability.md)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Gestion des coffres Recovery Services dans le portail
 
@@ -60,7 +60,7 @@ Les sections suivantes contiennent des liens vers des articles qui expliquent co
 
 ### <a name="manage-recovery-points"></a>Gérer les points de récupération
 
-- [Gérer les sauvegardes de machines virtuelles Azure](backup-azure-manage-vms.md)
+- [Gestion des sauvegardes de machines virtuelles Azure](backup-azure-manage-vms.md)
 - [Gestion des fichiers et dossiers](backup-azure-manage-windows-server.md)
 
 ### <a name="restore-data-from-the-vault"></a>Restaurer des données à partir du coffre
@@ -77,4 +77,4 @@ Les sections suivantes contiennent des liens vers des articles qui expliquent co
 Consultez les articles suivants pour :</br>
 [Sauvegarder une machine virtuelle IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Sauvegarder un serveur de sauvegarde Azure](backup-azure-microsoft-azure-backup.md)</br>
-[Sauvegarder un serveur Windows Server](backup-configure-vault.md)
+[Sauvegarder un serveur Windows Server](backup-windows-with-mars-agent.md)

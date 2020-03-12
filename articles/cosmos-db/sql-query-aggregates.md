@@ -1,17 +1,17 @@
 ---
 title: Fonctions d’agrégation dans Azure Cosmos DB
 description: Découvrez la syntaxe de la fonction d’agrégation SQL et les types de fonctions d’agrégation prises en charge par Azure Cosmos DB.
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.author: mjbrown
-ms.openlocfilehash: 1ce3b18dd31944a1a4d4e6fad8fb49e63996dace
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.date: 03/05/2020
+ms.author: tisande
+ms.openlocfilehash: df9700dd51c8915ff28c34cf0a29c2f5e48baa44
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871837"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897827"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Fonctions d’agrégation dans Azure Cosmos DB
 
@@ -67,14 +67,14 @@ L’API SQL prend en charge les fonctions d’agrégation suivantes. SUM et AVG 
 |-------|-------------|
 | COUNT | Renvoie le nombre d’éléments que contient l’expression. |
 | SUM   | Renvoie la somme de toutes les valeurs de l’expression. |
-| MIN   | Renvoie la valeur minimale de l’expression. |
-| MAX   | Renvoie la valeur maximale de l’expression. |
-| MOY   | Renvoie la moyenne des valeurs de l’expression. |
+| MIN   | Retourne la valeur minimale de l'expression. |
+| MAX   | Retourne la valeur maximale de l'expression. |
+| AVG   | Renvoie la moyenne des valeurs de l’expression. |
 
 Vous pouvez également effectuer des agrégations sur les résultats d’une itération de tableau.
 
 > [!NOTE]
-> Dans l’Explorateur de données du portail Azure, les requêtes d’agrégation peuvent agréger des résultats partiels sur une seule page de requête. Le kit SDK génère une valeur cumulée unique sur toutes les pages. Pour effectuer des requêtes d’agrégation à l’aide de code, vous avez besoin du SDK .NET 1.12.0, du SDK .NET Core 1.1.0 ou du SDK Java 1.9.5 ou ultérieur.
+> Dans l’Explorateur de données du portail Azure, les requêtes d’agrégation peuvent agréger des résultats partiels sur une seule page de requête. Le kit SDK génère une valeur cumulée unique sur toutes les pages. Pour effectuer des requêtes d’agrégation à l’aide de code, vous avez besoin du kit SDK .NET 1.12.0, du kit SDK .NET Core 1.1.0 ou du kit SDK Java 1.9.5 ou ultérieur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

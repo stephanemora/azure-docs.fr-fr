@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ce7f6320ffa4d3e8c258c9d05542f12079ee355d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 5b8654500fd697685b38e4f51ba1069e0cf6ccfc
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509000"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942905"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Transférer des données avec la bibliothèque de déplacement de données
 
@@ -32,7 +32,7 @@ Ce document montre comment créer une application de console .NET Core qui s’e
 - copier des fichiers de l’URL vers le Stockage Blob ;
 - copier d’un Stockage Blob à un autre.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - Un [compte de stockage Azure](storage-account-create.md)
@@ -42,7 +42,7 @@ Ce document montre comment créer une application de console .NET Core qui s’e
 1. Consultez le [Guide d’installation de .NET Core](https://www.microsoft.com/net/core) pour installer .NET Core. Lorsque vous sélectionnez votre environnement, choisissez l’option de ligne de commande.
 2. En ligne de commande, créez un répertoire pour votre projet. Accédez à ce répertoire, puis tapez `dotnet new console -o <sample-project-name>` pour créer un projet de console C#.
 3. Ouvrez ce répertoire dans Visual Studio Code. Vous pouvez effectuer rapidement cette étape en tapant `code .` en ligne de commande dans Windows.
-4. Installez [l’extension C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) à partir de la Place de marché Visual Studio. Redémarrez Visual Studio Code.
+4. Installez [l’extension C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) à partir de la Place de marché Visual Studio. Redémarrez Visual Studio Code.
 5. À ce stade, vous devez voir deux invites. L’une permet d’ajouter les « composants requis pour générer et déboguer ». Cliquez sur « Oui ». L’autre invite permet de restaurer les dépendances non résolues. Cliquez sur « Restaurer ».
 6. Modifiez `launch.json` sous `.vscode` pour utiliser un terminal externe comme console. Ce paramètre doit alors être `"console": "externalTerminal"`.
 7. Visual Studio Code vous permet de déboguer les applications .NET Core. Appuyez sur `F5` pour exécuter votre application et vérifier que votre configuration fonctionne. « Hello World! » doit s’imprimer dans la console.

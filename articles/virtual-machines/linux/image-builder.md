@@ -6,13 +6,13 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: gwallace
-ms.openlocfilehash: 1bac04bbb67c7472de92c6da322121bafc20a560
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.subservice: imaging
+ms.openlocfilehash: 15a3b39b1466ffec87971b8f054ca916567d89d7
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695432"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944951"
 ---
 # <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>Aperçu : Créer une machine virtuelle Linux avec le générateur d’images Azure
 
@@ -27,7 +27,7 @@ Vous pouvez également spécifier un `buildTimeoutInMinutes`. La valeur par déf
 Pour configurer l’image, nous allons utiliser un exemple de modèle .json. Le fichier .json que nous utilisons est : [helloImageTemplateLinux.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json). 
 
 > [!IMPORTANT]
-> Le Générateur d’images Azure est actuellement en version préliminaire publique.
+> Le Générateur d’images Azure est actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Inscrire les fonctionnalités

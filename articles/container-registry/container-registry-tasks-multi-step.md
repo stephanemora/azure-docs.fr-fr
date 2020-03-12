@@ -3,12 +3,12 @@ title: Tâche multiétape pour compiler, tester et corriger des images
 description: Présentation des tâches multiétapes, une fonctionnalité d’ACR Tasks dans Azure Container Registry qui assure des workflows basés sur des tâches permettant de compiler, de tester et de corriger des images de conteneurs dans le cloud.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: cf5f90263c75aeb96220967142d28995209f2d86
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 0dcd38559d3f50715f982de4c9c80bfe9c6c8433
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945664"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399701"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Exécuter des tâches de compilation, de test et de correction multiétapes dans les tâches ACR
 
@@ -95,8 +95,11 @@ az acr run --registry <acrName> -f build-push-hello-world.yaml https://github.co
 
 Lorsque vous exécutez la tâche, la sortie doit montrer la progression de chaque étape définie dans le fichier YAML. Dans la sortie suivante, les étapes apparaissent comme `acb_step_0` et `acb_step_1`.
 
-```console
-$ az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
+```azurecli
+az acr run --registry myregistry -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
+```
+
+```output
 Sending context to registry: myregistry...
 Queued a run with ID: yd14
 Waiting for an agent...

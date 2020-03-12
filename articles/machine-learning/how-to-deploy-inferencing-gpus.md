@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 10/25/2019
-ms.openlocfilehash: 39fc57a6da20549447f782399e9571f7a0ffeea7
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 03/05/2020
+ms.openlocfilehash: b0fd537d1930e7c9d5f7a33f56ec5d00b1556562
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122523"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398341"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Déployer un modèle de deep learning pour une inférence avec GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ L’inférence, ou notation de modèle, est la phase au cours de laquelle le mod
 > [!NOTE]
 > Les informations contenues dans cet article s’appuient sur l’article[How to deploy to Azure Kubernetes Service (Comment déployer sur Azure Kubernetes Service)](how-to-deploy-azure-kubernetes-service.md). L’article « How to deploy to Azure Kubernetes Service » couvre généralement le déploiement sur AKS,mais cet article traite du déploiement spécifique au GPU.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un espace de travail Azure Machine Learning. Pour plus d’informations, voir la page [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 

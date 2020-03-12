@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 1d1f71ed56138f2c799c7410508c0bc4899e7887
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b486aaf0ce33e31433c2c3d0f7a1ff2c7089132
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448848"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402649"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutoriel : Visualiser les anomalies à l’aide de la détection par lot et de Power BI
 
@@ -28,14 +28,14 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Intégrer Power BI Desktop à l’API Détecteur d’anomalies pour la détection d’anomalie par lot
 > * Visualisez les anomalies détectées dans vos données, notamment les valeurs attendues et observées, et les limites de détection d’anomalie.
 
-## <a name="prerequisites"></a>Conditions préalables requises
-
+## <a name="prerequisites"></a>Prérequis
+* Un [abonnement Azure](https://azure.microsoft.com/free/)
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), disponible gratuitement
 * Un fichier Excel (.xlsx) contenant des points de données de série chronologique. Les exemples de données pour ce guide de démarrage rapide sont disponibles sur [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)
+* Une fois que vous avez votre abonnement Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="créez une ressource Analyse de texte"  target="_blank">Créer une ressource Analyse de texte <span class="docon docon-navigate-external x-hidden-focus"></span></a> dans le portail Azure pour obtenir votre clé et votre point de terminaison. 
+    * Vous aurez besoin de la clé et du point de terminaison de la ressource que vous créez pour connecter votre application à l’API Analyse de texte. Vous effectuerez cette opération ultérieurement dans le guide de démarrage rapide.
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
-
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
 
 ## <a name="load-and-format-the-time-series-data"></a>Charger et mettre en forme les données de série chronologique
 

@@ -1,26 +1,16 @@
 ---
 title: Calcul des scores de test d’évaluation pour les machines virtuelles Linux Azure
 description: Comparez les scores de test d’évaluation de calcul CoreMark pour les machines virtuelles Azure exécutant Linux.
-services: virtual-machines-linux
-documentationcenter: ''
-author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 93e812c1-79dd-40c5-b97b-aa79f5cd7d76
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 04/09/2018
-ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: 6662f109f9a8227ec45d44a730abc91ebcd8dd70
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 71413e9a1e0b368bf5d3ae26bbc97d7d78da9422
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650842"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969747"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Calcul des scores de test d’évaluation pour les machines virtuelles Linux
 Les scores de test d’évaluation CoreMark suivants montrent les performances de calcul pour la gamme de machines virtuelles hautes performances d’Azure exécutant Ubuntu. Les scores de test d’évaluation de calcul sont également disponibles pour [les machines virtuelles Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -72,7 +62,7 @@ Remarque : Les machines virtuelles de la série Av2 peuvent être déployées 
 | Standard_B8ms | Processeur Intel(R) Xeon(R) E5-2673 v3 à 2,40 GHz | 8 | 1 | 31,4 | 111 929 | 1 562 | 1,40 % | 35 |
 | Standard_B8ms | Processeur Intel(R) Xeon(R) E5-2673 v4 à 2,30 GHz | 8 | 1 | 31,4 | 109 537 | 1 354 | 1,24 % | 665 |
 
-Remarque : Les machines virtuelles de la série B concernent les charges de travail avec des besoins de performance pouvant être en rafale. Les instances de machine virtuelle cumulent les crédits quand elles utilisent moins que leur base de référence. Dès que la machine virtuelle a cumulé des crédits, elle peut s’exécuter en rafale (burst) au-delà de la base de référence en utilisant jusqu’à la totalité pour répondre aux besoins de rafale du processeur. La durée de rafale dépend des crédits disponibles, ce qui est fonction de la taille et du temps de la machine virtuelle.  
+Remarque : Les machines virtuelles de la série B concernent les charges de travail avec des besoins de performance pouvant être en rafale. Les instances de machine virtuelle cumulent des crédits quand elles utilisent moins que leur base de référence. Dès que la machine virtuelle a cumulé des crédits, elle peut s’exécuter en rafale (burst) au-delà de la base de référence en utilisant jusqu’à la totalité pour répondre aux besoins de rafale du processeur. La durée de rafale dépend des crédits disponibles, ce qui est fonction de la taille et du temps de la machine virtuelle.  
 
 CoreMark est un test d’exécution rapide qui est généralement effectué avec les crédits de rafale disponibles.  Par conséquent, les chiffres ci-dessus représentent généralement les performances de rafale de la machine virtuelle, reflétant les performances des charges de travail en rafale courtes (par défaut sur la série B).
 

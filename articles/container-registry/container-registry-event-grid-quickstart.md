@@ -4,12 +4,12 @@ description: Dans ce guide de démarrage rapide, vous activez les événements E
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1ff9572cf8614e3eb5d015a602ca3f878875a0a4
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455348"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78403227"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Démarrage rapide : Envoyer des événements depuis le registre de conteneurs privé à Event Grid
 
@@ -110,7 +110,7 @@ az eventgrid event-subscription create \
 
 Une fois l’abonnement souscrit, vous devez voir un résultat similaire à celui-ci :
 
-```JSON
+```json
 {
   "destination": {
     "endpointBaseUrl": "https://eventgridviewer.azurewebsites.net/api/updates",
@@ -149,8 +149,7 @@ az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://githu
 
 Vous devez voir une sortie similaire à ce qui suit quand ACR Tasks génère, puis envoie (push) votre image. L’exemple de sortie suivant a été tronqué par souci de concision.
 
-```console
-$ az acr build -r $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
+```output
 Sending build context to ACR...
 Queued a build with build ID: aa2
 Waiting for build agent...
@@ -172,8 +171,7 @@ az acr repository show-tags --name $ACR_NAME --repository myimage
 
 L’étiquette « v1 » de l’image que vous avez générée doit apparaître dans la sortie et être similaire à ceci :
 
-```console
-$ az acr repository show-tags --name $ACR_NAME --repository myimage
+```output
 [
   "v1"
 ]
@@ -189,10 +187,9 @@ az acr repository delete --name $ACR_NAME --image myimage:v1
 
 Vous devez voir une sortie similaire à ce qui suit, qui demande une confirmation pour supprimer le manifeste et les images associées :
 
-```console
-$ az acr repository delete --name $ACR_NAME --image myimage:v1
+```output
 This operation will delete the manifest 'sha256:f15fa9d0a69081ba93eee308b0e475a54fac9c682196721e294b2bc20ab23a1b' and all the following images: 'myimage:v1'.
-Are you sure you want to continue? (y/n): y
+Are you sure you want to continue? (y/n): 
 ```
 
 ## <a name="view-registry-events"></a>Afficher des événements du registre
@@ -205,7 +202,7 @@ La capture d’écran suivante montre l’exemple d’application avec les trois
 
 Félicitations ! Si vous voyez les événements `ImagePushed` et `ImageDeleted`, c’est que votre registre envoie des événements à Event Grid, qui à son tour transfère ces événements à votre point de terminaison d’application web.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Une fois que vous en avez terminé avec les ressources créées dans ce guide de démarrage rapide, vous pouvez les supprimer toutes avec la commande Azure CLI suivante. Quand vous supprimez un groupe de ressources, toutes les ressources qu’il contient sont supprimées de façon définitive.
 

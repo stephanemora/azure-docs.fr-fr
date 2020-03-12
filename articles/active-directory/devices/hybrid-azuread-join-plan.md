@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bae957eba627be7fa3b968585a03d28aa5b0af56
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 76d3be0fc00465c35dbc79a258b57db962969cc8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255016"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672329"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -59,7 +59,7 @@ La jointure Azure AD hybride prend en charge un large éventail d’appareils Wi
 - Windows Server 2016
 - Windows Server 2019
 
-Pour les appareils exécutant le système d’exploitation Windows, les versions prises en charge sont répertoriées dans l'article [Informations de publication relatives à Windows 10](https://docs.microsoft.com/windows/release-information/). En guise de meilleure pratique, Microsoft recommande d'effectuer une mise à niveau vers la dernière version de Windows 10.
+Pour les appareils exécutant le système d’exploitation Windows, les versions prises en charge sont répertoriées dans l'article [Informations de publication relatives à Windows 10](/windows/release-information/). En guise de meilleure pratique, Microsoft recommande d'effectuer une mise à niveau vers la dernière version de Windows 10.
 
 ### <a name="windows-down-level-devices"></a>Appareils Windows de bas niveau
 
@@ -87,7 +87,7 @@ La première étape de la planification consiste à examiner l’environnement e
 
 - Si vous utilisez une capture instantanée de machine virtuelle pour créer des machines virtuelles supplémentaires, vérifiez qu’elle ne provient pas d'une machine virtuelle déjà inscrite auprès d'Azure AD en tant que jonction Azure AD Hybride.
 
-- Si vous utilisez [Filtre d’écriture unifié](https://docs.microsoft.com/windows-hardware/customize/enterprise/unified-write-filter) et des technologies similaires qui effacent les modifications apportées au disque au redémarrage, vous devez les appliquer une fois que l’appareil joint à l’Azure AD Hybride. L’activation de ces technologies avant la jonction à l’Azure AD Hybride entraînera la disjonction de l’appareil à chaque redémarrage
+- Si vous utilisez [Filtre d’écriture unifié](/windows-hardware/customize/enterprise/unified-write-filter) et des technologies similaires qui effacent les modifications apportées au disque au redémarrage, vous devez les appliquer une fois que l’appareil joint à l’Azure AD Hybride. L’activation de ces technologies avant la jonction à l’Azure AD Hybride entraînera la disjonction de l’appareil à chaque redémarrage
 
 ### <a name="handling-devices-with-azure-ad-registered-state"></a>Gestion des appareils avec l’état inscrit auprès d’Azure AD
 Si vos appareils Windows 10 joints à un domaine sont [inscrits sur Azure AD](overview.md#getting-devices-in-azure-ad) auprès de votre locataire, cela peut entraîner un double état : appareil joint à Azure AD Hybride et appareil inscrit sur Azure AD. Nous vous recommandons de procéder à une mise à niveau vers Windows 10 1803 (avec KB4489894 appliqué) ou version ultérieure pour répondre automatiquement à ce scénario. Dans les versions antérieures à 1803, vous devrez supprimer manuellement l’état « appareil inscrit sur Azure AD » avant d’activer une jonction Azure AD Hybride. Dans les versions 1803 et ultérieures, les modifications suivantes ont été apportées pour éviter ce double état :
@@ -100,7 +100,7 @@ Si vos appareils Windows 10 joints à un domaine sont [inscrits sur Azure AD](o
 > L’appareil Azure AD inscrit n’est pas automatiquement supprimé s’il est géré par Intune.
 
 ### <a name="additional-considerations"></a>Considérations supplémentaires
-- Si votre environnement utilise l’infrastructure VDI (Virtual Desktop Infrastructure), consultez [Identité d’appareil et la virtualisation des services de Bureau](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
+- Si votre environnement utilise l’infrastructure VDI (Virtual Desktop Infrastructure), consultez [Identité d’appareil et la virtualisation des services de Bureau](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
 - La jonction Azure AD Hybride est prise en charge pour les modules TPM 2.0 compatibles FIPS, mais pas pour les modules TPM 1.2. Si vos appareils sont dotés de modules TPM 1.2 compatibles FIPS, vous devez les désactiver avant de procéder à la jonction Azure AD Hybride. Microsoft ne propose aucun outil permettant de désactiver le mode FIPS pour les modules TPM car il dépend du fabricant de ces modules. Pour obtenir de l'aide, contactez votre fabricant OEM. À compter de la version 1903 de Windows 10, les modules TPM 1.2 ne sont pas utilisés pour les jonctions Azure AD hybrides, et les appareils dotés de ces TPM sont considérés comme n’ayant pas de TPM.
 
@@ -116,7 +116,7 @@ La jointure Azure AD Hybride fonctionne avec les environnements managés et féd
 
 ### <a name="managed-environment"></a>Environnement géré
 
-Un environnement managé peut être déployé par le biais de la [synchronisation de hachage de mot de passe (PHS)](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) ou de l’[authentification directe (PTA)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) avec l’[authentification unique fluide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso).
+Un environnement managé peut être déployé par le biais de la [synchronisation de hachage de mot de passe (PHS)](/azure/active-directory/hybrid/whatis-phs) ou de l’[authentification directe (PTA)](/azure/active-directory/hybrid/how-to-connect-pta) avec l’[authentification unique fluide](/azure/active-directory/hybrid/how-to-connect-sso).
 
 Ces scénarios ne nécessitent pas la configuration d’un serveur de fédération pour l’authentification.
 
@@ -133,7 +133,7 @@ Un environnement fédéré doit disposer d’un fournisseur d’identité qui pr
   `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> **adfs/services/trust/2005/windowstransport** ou **adfs/services/trust/13/windowstransport** doivent tous les deux être activés en tant que points de terminaison uniquement accessibles sur intranet ; ils NE doivent PAS être exposés comme points de terminaison extranet via le proxy d’application web. Pour en savoir plus sur la désactivation des points de terminaison Windows WS-Trust, consultez [Désactiver les points de terminaison Windows WS-Trust sur le proxy](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Vous pouvez visualiser les points de terminaison qui sont activés par le biais de la console de gestion AD FS sous **Service** > **Points de terminaison**.
+> **adfs/services/trust/2005/windowstransport** ou **adfs/services/trust/13/windowstransport** doivent tous les deux être activés en tant que points de terminaison uniquement accessibles sur intranet ; ils NE doivent PAS être exposés comme points de terminaison extranet via le proxy d’application web. Pour en savoir plus sur la désactivation des points de terminaison Windows WS-Trust, consultez [Désactiver les points de terminaison Windows WS-Trust sur le proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Vous pouvez visualiser les points de terminaison qui sont activés par le biais de la console de gestion AD FS sous **Service** > **Points de terminaison**.
 
 > [!NOTE]
 > Azure AD ne prend pas en charge les cartes à puce ou les certificats dans les domaines gérés.
@@ -147,9 +147,9 @@ Selon le scénario correspondant à votre infrastructure d’identité, consulte
 
 ## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Vérifier la prise en charge d’un UPN AD local pour la jonction Azure AD Hybride
 
-Parfois, vos UPN AD locaux peuvent différer de vos UPN AD Azure. Dans ce cas, une jonction Azure AD Hybride Windows 10 offre une prise en charge limitée des UPN AD locaux, variable selon la [méthode d’authentification](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), le type de domaine et la version de Windows 10. Deux types d’UPN AD locaux peuvent exister dans votre environnement :
+Parfois, vos UPN AD locaux peuvent différer de vos UPN AD Azure. Dans ce cas, une jonction Azure AD Hybride Windows 10 offre une prise en charge limitée des UPN AD locaux, variable selon la [méthode d’authentification](/azure/security/fundamentals/choose-ad-authn), le type de domaine et la version de Windows 10. Deux types d’UPN AD locaux peuvent exister dans votre environnement :
 
-- UPN routable : un UPN routable possède un domaine vérifié valide, qui est inscrit auprès d’un bureau d’enregistrement de domaines. Par exemple, si contoso.com est le domaine principal dans Azure AD, contoso.org est le domaine principal dans l’AD local appartenant à Contoso et [vérifié dans Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+- UPN routable : un UPN routable possède un domaine vérifié valide, qui est inscrit auprès d’un bureau d’enregistrement de domaines. Par exemple, si contoso.com est le domaine principal dans Azure AD, contoso.org est le domaine principal dans l’AD local appartenant à Contoso et [vérifié dans Azure AD](/azure/active-directory/fundamentals/add-custom-domain)
 - UPN non routable : un UPN non routable ne dispose pas d’un domaine vérifié. Il est applicable uniquement au sein du réseau privé de votre organisation. Par exemple, si contoso.com est le domaine principal dans Azure AD, contoso.local est le domaine principal dans l’AD local, mais n’est pas un domaine vérifiable sur Internet et n’est utilisé qu’à l’intérieur du réseau de Contoso.
 
 Le tableau ci-dessous fournit des détails sur la prise en charge de ces UPN AD locaux dans une jointure Azure AD Hybride Windows 10

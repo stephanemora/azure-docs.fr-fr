@@ -5,17 +5,17 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: mikhegn
 ms.openlocfilehash: 2a00a352d09562ffe46dc8e6e63a5d4963ac3a3f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464567"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127603"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>Procédure : Déboguer des conteneurs Windows dans Azure Service Fabric à l’aide de Visual Studio 2019
 
 Avec Visual Studio 2019, vous pouvez déboguer des applications .NET dans les conteneurs en tant que services Service Fabric. Cet article explique comment configurer votre environnement, puis déboguer une application .NET dans un conteneur exécuté dans un cluster Service Fabric local.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Dans Windows 10, suivez ce guide de démarrage rapide pour [configurer Windows 10 pour exécuter des conteneurs Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)
 * Dans Windows Server 2016, suivez ce guide de démarrage rapide pour [configurer Windows 2016 pour exécuter des conteneurs Windows](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)

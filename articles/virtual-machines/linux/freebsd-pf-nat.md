@@ -1,25 +1,19 @@
 ---
 title: Utilisation du filtre de paquets de FreeBSD pour créer un pare-feu dans Azure
 description: Découvrez comment déployer un pare-feu NAT à l’aide de FreeBSD PF dans Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: KylieLiang
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 5daceeb2c8f2497288c7891dbe3fb3e0771b2ed5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9b78c0d93b57a3e3f4963088d0b93f121f57483c
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036098"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945104"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Comment utiliser le filtre de paquets de FreeBSD pour créer un pare-feu sécurisé dans Azure
 Cet article explique comment déployer un pare-feu NAT à l’aide du filtre de paquets FreeBSD via le modèle Azure Resource Manager pour un scénario de serveur web courant.
@@ -27,7 +21,7 @@ Cet article explique comment déployer un pare-feu NAT à l’aide du filtre de 
 ## <a name="what-is-pf"></a>Qu’est-ce que PF ?
 PF (filtre de paquets, également écrit pf) est un filtre de paquets avec état sous licence BSD, un élément central des logiciels de pare-feu. PF a évolué rapidement et offre désormais plusieurs avantages par rapport aux autres pare-feu disponibles. La traduction d’adresses réseau (NAT) est intégrée à PF depuis ses débuts. Le planificateur de paquets et la gestion de file d’attente active ont ensuite été intégrés à PF, en intégrant l’ALTQ et en le rendant configurable via la configuration de PF. D’autres fonctionnalités comme pfsync et le CARP pour le basculement et la redondance, authpf pour l’authentification de session et ftp-proxy pour faciliter la protection du difficile protocole FTP sont venues enrichir PF par la suite. En bref, PF est un pare-feu puissant et riche en fonctionnalités. 
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 Si vous souhaitez configurer un pare-feu sécurisé dans le cloud pour vos serveurs web, n’attendons pas une seconde de plus. Vous pouvez également appliquer les scripts utilisés dans ce modèle Azure Resource Manager pour configurer la topologie de votre réseau.
 Le modèle Azure Resource Manager configure une machine virtuelle FreeBSD qui effectue la traduction d’adresses réseau/la redirection à l’aide de PF et deux machines virtuelles FreeBSD avec le serveur web Nginx installé et configuré. Outre l’exécution de NAT pour le trafic de sortie des deux serveurs web, la machine virtuelle NAT/de redirection intercepte les requêtes HTTP et les redirige vers les deux serveurs web de manière alternée. Le réseau virtuel utilise l’espace d’adresses IP non routables privé 10.0.0.2/24 et vous pouvez modifier les paramètres du modèle. Le modèle Azure Resource Manager définit également une table de routage pour le réseau virtuel entier. Il s’agit d’une collection d’itinéraires individuels permettant de remplacer les itinéraires par défaut d’Azure basés sur l’adresse IP de destination. 
 

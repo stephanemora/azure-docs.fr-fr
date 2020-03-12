@@ -1,27 +1,17 @@
 ---
 title: Guide pratique pour redimensionner une machine virtuelle Linux avec Azure CLI
 description: Comment augmenter ou diminuer les capacités d’une machine virtuelle Linux, en en modifiant la taille.
-services: virtual-machines-linux
-documentationcenter: na
 author: mikewasson
-manager: gwallace
-editor: ''
-tags: ''
-ms.assetid: e163f878-b919-45c5-9f5a-75a64f3b14a0
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: mwasson
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6f3f0a937b33b1c5dd1a68d86f80f870a7311d0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 20e7db80b55347c4a4a76b7c95d4d8bec368abda
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036874"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969273"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Redimensionner une machine virtuelle Linux avec Azure CLI 
 
@@ -56,7 +46,7 @@ Pour redimensionner une machine virtuelle, vous devez installer la dernière ver
    > Le fait de libérer la machine virtuelle libère également toutes les adresses IP dynamiques affectées à la machine virtuelle. Les disques de données et du système d’exploitation ne sont pas affectés.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour une évolutivité supplémentaire, exécutez plusieurs instances de machine virtuelle et augmentez leur taille. Pour plus d’informations, consultez [Mettre automatiquement à l’échelle des machines Linux dans un groupe identique de machines virtuelles][scale-set]. 
+Pour une évolutivité supplémentaire, exécutez plusieurs instances de machine virtuelle et effectuez un scale-out. Pour plus d’informations, consultez [Mettre automatiquement à l’échelle des machines Linux dans un groupe identique de machines virtuelles][scale-set]. 
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/

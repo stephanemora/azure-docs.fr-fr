@@ -7,18 +7,19 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: dd9fd135536fc2cb222b908f3d61c1d1430e65b0
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+manager: lizross
+ms.openlocfilehash: 9d07ba42e83d9eec071ab047e9e1e92bac1f1411
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905198"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127492"
 ---
 # <a name="troubleshoot-the-windows-virtual-desktop-management-tool"></a>Résoudre les problèmes de l’outil de gestion Windows Virtual Desktop
 
 Cet article décrit les problèmes qui peuvent survenir lors du déploiement de l'outil de gestion Windows Virtual Desktop et explique comment les résoudre.
 
-## <a name="error-management-tool-services-configured-but-automated-setup-fails"></a>Error: Les services de l'outil de gestion sont configurés, mais l'installation automatisée échoue
+## <a name="error-management-tool-services-configured-but-automated-setup-fails"></a>Erreur : Les services de l'outil de gestion sont configurés, mais l'installation automatisée échoue
 
 Si vous avez réussi à configurer les services pour l'outil de gestion mais que l'installation automatisée échoue, vous verrez ce message d'erreur :
 
@@ -38,7 +39,7 @@ Pour résoudre ce problème :
 3. Visitez la page de consentement de Windows Virtual Desktop et vérifiez que le serveur et les applications clientes ont donné leur consentent.
 4. Passez en revue le tutoriel [Déployer un outil de gestion](manage-resources-using-ui.md) si le problème persiste, puis redéployez l'outil.
 
-## <a name="error-job-with-specified-id-already-exists"></a>Error: La tâche avec l'ID indiqué existe déjà. ID de tâche
+## <a name="error-job-with-specified-id-already-exists"></a>Erreur : La tâche avec l'ID indiqué existe déjà. ID de tâche
 
 Si votre utilisateur voit le message d'erreur « La tâche avec l'ID indiqué existe déjà. ID de tâche », cela signifie qu'il n'a pas fourni de nom unique dans le paramètre « Nom de l’application » lors du déploiement du modèle.
 

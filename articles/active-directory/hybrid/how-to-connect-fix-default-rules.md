@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2f0956b44d6df64fb73e5eee7844574237d8755
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4626e0149028a140d143fb8d0969a03b732201fa
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067631"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79036975"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Résoudre les règles par défaut modifiées dans Azure AD Connect
 
@@ -34,7 +34,7 @@ Depuis la version 1.3.7.0 d’Azure AD Connect, il est facile d’identifier les
 
 Dans l’éditeur, toutes les règles par défaut modifiées sont affichées avec une icône d’avertissement devant leur nom.
 
-![Icône Avertissement](media/how-to-connect-fix-default-rules/default2.png)
+![Icône d'avertissement](media/how-to-connect-fix-default-rules/default2.png)
 
  Une règle désactivée avec le même nom à côté apparaît également (il s’agit de la règle par défaut standard).
 
@@ -73,7 +73,7 @@ Si les extensions ne fonctionnent pas pour vous, essayez d’ajouter deux nouvel
 #### <a name="add-an-inbound-sync-rule"></a>Ajouter une règle de synchronisation entrante
 Une règle de synchronisation entrante signifie que la source de l’attribut est un espace de connecteur et la cible est le métaverse. Par exemple, pour avoir un nouveau flux d’attribut à partir d’Active Directory local vers Azure Active Directory, créez une nouvelle règle de synchronisation entrante. Lancez **l’éditeur de règles de synchronisation**, sélectionnez la direction **Entrante**, puis sélectionnez **Ajouter une nouvelle règle**. 
 
- !Synchronization Rules Editor](media/how-to-connect-fix-default-rules/default3a.png)
+ ![Éditeur de règles de synchronisation](media/how-to-connect-fix-default-rules/default3a.png)
 
 Suivez votre propre convention d’affectation de noms pour nommer la règle. Ici, nous utilisons **Personnalisé Entrante à partir d’AD - utilisateur**. Cela signifie que la règle est une règle personnalisée, et une règle entrante à partir de l’espace de connecteur Active Directory vers le métaverse.   
 

@@ -1,25 +1,19 @@
 ---
 title: Rechercher et supprimer les cartes réseau Azure non attachées
 description: Guide pratique pour rechercher et supprimer des cartes réseau Azure non attachées aux machines virtuelles avec l’interface Azure CLI
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.subservice: networking
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 3d7a0e3405dd87d17c9d7aac2e989ab82531d9b0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 8142b95ee666e205a8328eafd5930f1f386e49af
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036142"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945138"
 ---
 # <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Procédure de recherche et de suppression de carte d’interface réseau non attachées pour les machines virtuelles Azure
 Quand vous supprimez une machine virtuelle dans Azure, les cartes d’interface réseau ne sont pas supprimées par défaut. Si vous créez et supprimez plusieurs machines virtuelles, les cartes réseau non utilisées continuent à valoriser les baux d’adresses IP internes. Quand vous créez d’autres cartes réseau de machines virtuelles, il se peut qu’elles soient dans l’incapacité d’obtenir un bail IP dans l’espace d’adressage du sous-réseau. Cet article vous explique comment rechercher et supprimer les cartes réseau non attachées.

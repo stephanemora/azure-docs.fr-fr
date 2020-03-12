@@ -257,7 +257,7 @@
           displayName: SDK automl
           href: how-to-configure-auto-train.md
         - name: Utiliser le ML automatisé (interface)
-          href: how-to-create-portal-experiments.md
+          href: how-to-use-automated-ml-for-ml-models.md
         - name: Utiliser des cibles de calcul distantes
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md

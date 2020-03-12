@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: bb0962991701dc780e50fec60982083b20d4ab0e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3930e51f63615abd21a7b04199a0f4767925792a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358375"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944509"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Créer et gérer des machines virtuelles Windows dans Azure à l’aide de C# #
 
@@ -70,7 +70,7 @@ Avant de commencer cette étape, assurez-vous que vous avez accès à un [princi
     managementURI=https://management.core.windows.net/
     baseURL=https://management.azure.com/
     authURL=https://login.windows.net/
-    graphURL=https://graph.windows.net/
+    graphURL=https://graph.microsoft.com/
     ```
 
     Remplacez **&lt;subscription-id&gt;** par votre identificateur d’abonnement, **&lt;application-id&gt;** par l’identificateur d’application Active Directory, **&lt;authentication-key&gt;** par la clé d’application et **&lt;tenant-id&gt;** par l’identificateur du locataire.

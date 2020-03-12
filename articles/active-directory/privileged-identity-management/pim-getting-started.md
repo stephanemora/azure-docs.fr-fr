@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/09/2019
+ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0ba7846b60ca6649b4342d5096e92dfd8c96601
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 733743f4680f3197a1754d87b4672641b2321907
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756308"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399343"
 ---
 # <a name="start-using-privileged-identity-management"></a>Commencer à utiliser Privileged Identity Management
 
@@ -62,7 +62,7 @@ Pour commencer à utiliser Privileged Identity Management dans votre répertoire
 
     ![Choisissez une fenêtre de compte pour vérifier votre identité](./media/pim-getting-started/pick-account.png)
 
-1. Si plus d’informations sont nécessaires pour la vérification, vous êtes guidé dans le processus. Pour plus d’informations, consultez [Obtenir de l’aide pour la vérification en deux étapes](https://go.microsoft.com/fwlink/p/?LinkId=708614).
+1. Si plus d’informations sont nécessaires pour la vérification, vous êtes guidé dans le processus. Pour plus d’informations, consultez [Obtenir de l’aide pour la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-troubleshoot.md).
 
     ![Fenêtre Plus d’informations sont nécessaires si votre organisation a besoin de plus d’informations](./media/pim-getting-started/more-information-required.png)
 
@@ -115,7 +115,7 @@ Une fois Privileged Identity Management configuré, vous pouvez démarrer vos t�
 
 Pour faciliter l’ouverture de Privileged Identity Management, vous devez ajouter une mosaïque Privileged Identity Management à votre tableau de bord du portail Azure.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Cliquez sur **Tous les services**, puis recherchez le service **Azure AD Privileged Identity Management**.
 

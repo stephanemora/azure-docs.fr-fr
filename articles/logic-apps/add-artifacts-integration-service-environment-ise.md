@@ -1,27 +1,32 @@
 ---
-title: Ajouter des artefacts à des environnements de service d’intégration
+title: Ajouter des ressources à des environnements de service d’intégration
 description: Ajoutez des applications logiques, des comptes d’intégration, des connecteurs personnalisés et des connecteurs managés à votre environnement de service d’intégration.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: e2505d8ee8b8539f158c0a549bedfcd69a954e24
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/28/2020
+ms.openlocfilehash: 58d2efd0c61045739930ce36ba317b1aa6a40ce8
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191650"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127286"
 ---
-# <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Ajoutez des artefacts à votre environnement de service d’intégration dans Azure Logic Apps
+# <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Ajouter des ressources à votre environnement de service d’intégration (ISE) dans Azure Logic Apps
 
-Après avoir créé un [environnement de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) (ISE, Integration Service Environment), ajoutez des artefacts tels que des applications logiques, des comptes d’intégration et des connecteurs pour qu’ils puissent accéder aux ressources de votre réseau virtuel Azure. Par exemple, les connecteurs ISE managés qui deviennent disponibles une fois que vous avez créé votre ISE n’apparaissent pas automatiquement dans le concepteur d’applications logiques. Avant de pouvoir utiliser ces connecteurs ISE, vous devez manuellement [ajouter et déployer ces connecteurs dans votre ISE](#add-ise-connectors-environment) afin qu’ils apparaissent dans le concepteur d’applications logiques.
+Après avoir créé un [environnement de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) (ISE, Integration Service Environment), ajoutez des ressources telles que des applications logiques, des comptes d’intégration et des connecteurs pour qu’ils puissent accéder aux ressources de votre réseau virtuel Azure. Par exemple, les connecteurs ISE managés qui deviennent disponibles une fois que vous avez créé votre ISE n’apparaissent pas automatiquement dans le concepteur d’applications logiques. Avant de pouvoir utiliser ces connecteurs ISE, vous devez manuellement [ajouter et déployer ces connecteurs dans votre ISE](#add-ise-connectors-environment) afin qu’ils apparaissent dans le concepteur d’applications logiques.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+> [!IMPORTANT]
+> Pour que les applications logiques et les comptes d’intégration fonctionnent ensemble dans un environnement ISE, il faut que tous deux utilisent le *même ISE* que leur emplacement.
+
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
 * L’environnement ISE que vous avez créé pour exécuter vos applications logiques. Si vous ne disposez pas d’un environnement ISE, commencez par [créer cet environnement](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+
+* Pour créer, ajouter ou mettre à jour des ressources qui sont déployées dans un ISE, vous devez disposer du rôle Propriétaire ou Contributeur sur cet ISE, ou avoir des autorisations héritées via l’abonnement Azure ou le groupe de ressources Azure associé à l’ISE. Les personnes qui ne disposent pas d’autorisations de Propriétaire ou de Contributeur, ou d’autorisations héritées, peuvent se voir attribuer le rôle Contributeur de l’environnement de service d’intégration ou Développeur de l’environnement de service d’intégration. Pour plus d’informations sur le contrôle d’accès en fonction du rôle (RBAC), consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure ?](../role-based-access-control/overview.md).
 
 <a name="create-logic-apps-environment"></a>
 
@@ -49,7 +54,7 @@ Pour créer des applications logiques qui s’exécutent dans votre environnemen
 
 1. Continuez à [créer votre application logique de la façon habituelle](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-   Pour connaître les différences dans le fonctionnement des déclencheurs et des actions et dans la façon dont ils sont étiquetés lorsque vous utilisez un ISE par rapport au service global Logic Apps, consultez [Isolé ou global dans la vue d’ensemble de l’ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference).
+   Pour connaître les différences dans le fonctionnement des déclencheurs et des actions et dans la façon dont ils sont étiquetés quand vous utilisez un ISE par rapport au service Logic Apps multilocataire, consultez [Isolé ou multilocataire dans la vue d’ensemble de l’ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference).
 
 1. Pour gérer les applications logiques et les connexions d’API dans votre environnement ISE, consultez [Gérer votre environnement de service d’intégration](../logic-apps/ise-manage-integration-service-environment.md).
 
@@ -82,7 +87,7 @@ Pour créer un compte d’intégration qui utilise un environnement ISE, effectu
 
 1. [Liez votre application logique à votre compte d’intégration de la façon habituelle](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-1. Continuez en ajoutant des artefacts à votre compte d’intégration, tels que des [parties](../logic-apps/logic-apps-enterprise-integration-partners.md) et des [contrats](../logic-apps/logic-apps-enterprise-integration-agreements.md).
+1. Continuez en ajoutant des ressources à votre compte d’intégration, telles que des [parties](../logic-apps/logic-apps-enterprise-integration-partners.md) et des [contrats](../logic-apps/logic-apps-enterprise-integration-agreements.md).
 
 1. Pour gérer les comptes d’intégration dans votre environnement ISE, consultez [Gérer votre environnement de service d’intégration](../logic-apps/ise-manage-integration-service-environment.md).
 

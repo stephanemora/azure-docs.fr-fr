@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 03/09/2020
 ms.author: dapine
-ms.openlocfilehash: 7874a6b274939c233dd1c4e6d146df2a9a409e65
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: cd4ff97902b1ce3d1d5a0ea066608fd33e6bf697
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833987"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037101"
 ---
 # <a name="use-speech-service-containers-with-kubernetes-and-helm"></a>Utiliser les conteneurs du service Speech avec Kubernetes et Helm
 
 L’une des options permettant de gérer vos conteneurs vocaux en local consiste à utiliser Kubernetes et Helm. À l’aide de Kubernetes et de Helm pour définir les images de conteneur de reconnaissance et de synthèse vocale, nous allons créer un package Kubernetes. Ce package sera déployé sur un cluster Kubernetes local. Enfin, nous allons découvrir comment tester les services déployés et diverses options de configuration. Pour plus d’informations sur l’exécution des conteneurs Docker sans orchestration Kubernetes, consultez [Installer et exécuter des conteneurs Speech](speech-container-howto.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 L’utilisation locale des conteneurs Speech est soumise aux prérequis suivants :
 

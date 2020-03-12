@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: 6ba7bca0756b4e2f6fdcb89208fe15e3517a9513
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 3775070320b8c6e96dd06031bd87ea53f37046c5
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661701"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78894849"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Démarrer la surveillance de votre application web ASP.NET
 
@@ -23,7 +23,7 @@ Ce guide de démarrage rapide montre comment ajouter Application Insights à une
 ## <a name="prerequisites"></a>Prérequis
 Pour suivre ce guide de démarrage rapide :
 
-- Installez [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
+- Installez [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=inline+link&utm_content=download+vs2019) avec les charges de travail suivantes :
     - Développement web et ASP.NET
     - Développement Azure
 

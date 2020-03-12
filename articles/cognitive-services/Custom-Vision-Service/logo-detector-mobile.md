@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Utiliser le détecteur de logo personnalisé pour reconnaître les services Azure - Vision personnalisée'
+title: 'Tutoriel : Utiliser le détecteur de logo personnalisé pour reconnaître les services Azure - Vision personnalisée'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez examiner un exemple d’application qui utilise Custom Vision dans le cadre d’un scénario de détection de logo. Découvrez comment le service Vision personnalisée est utilisé avec d’autres composants pour fournir une application de bout en bout.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 6ff12122d541a9dbb160a424e0d11cf03fdcb9fe
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 51fa6d4859eb4b7f059b499ba73d84d9fc65e6f6
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970225"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78398992"
 ---
-# <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Didacticiel : Reconnaître les logos des services Azure dans les images de l’appareil photo
+# <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutoriel : Reconnaître les logos des services Azure dans les images de l’appareil photo
 
 Dans ce tutoriel, vous allez examiner un exemple d’application qui utilise Custom Vision dans le cadre d’un scénario plus vaste. L’application AI Visual Provision, une application Xamarin.Forms pour plateformes mobiles, analyse les images d’appareil photo des logos des services Azure, puis déploie les services eux-mêmes sur le compte Azure de l’utilisateur. Ici, vous verrez comment elle utilise Custom Vision en coordination avec d’autres composants pour fournir une application de bout en bout utile. Vous pouvez exécuter l’intégralité du scénario de l’application pour vous-même, ou effectuer uniquement la partie Custom Vision de l’installation et examiner l’usage qu’en fait l’application.
 
@@ -107,7 +107,7 @@ L’application nécessite un compte de principal de service Azure pour déploye
 
 Vous pouvez créer un principal du service à l’aide d’Azure Cloud Shell ou de l’interface de ligne de commande Azure, comme indiqué ici. Pour commencer, connectez-vous et sélectionnez l’abonnement à utiliser.
 
-```console
+```azurecli
 az login
 az account list
 az account set --subscription "<subscription name or subscription id>"
@@ -115,7 +115,7 @@ az account set --subscription "<subscription name or subscription id>"
 
 Créez ensuite votre principal du service. (Ce processus peut être relativement long.)
 
-```console
+```azurecli
 az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongPassword>
 ```
 
@@ -171,7 +171,7 @@ Pour exécuter l’application, procédez comme suit :
 
     ![Écran de l’application montrant les champs pour la région de déploiement et le groupe de ressources](media/azure-logo-tutorial/app-deployment-options.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous avez suivi toutes les étapes de ce scénario et utilisé l’application pour déployer des services Azure sur votre compte, accédez au [portail Azure](https://ms.portal.azure.com/). Là, annulez les services que vous ne voulez pas utiliser.
 

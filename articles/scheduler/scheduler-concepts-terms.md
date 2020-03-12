@@ -1,26 +1,27 @@
 ---
-title: Concepts, termes et entités - Azure Scheduler | Microsoft Docs
+title: Concepts, termes et entités
 description: Découvrez les concepts, la terminologie et la hiérarchie des entités, notamment les travaux et les collections de travaux, d’Azure Scheduler
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
+ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 7e31f891cfd758b888e4045566ad2cd2d9ab6fb8
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 0a744c2de320ddad2e7959cae7b62d7990879953
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300953"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898575"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concepts, terminologie et entités d’Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en phase de [mise hors service](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Pour poursuivre les travaux que vous avez configurés dans Scheduler, veuillez [migrer vers Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) dès que possible.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en phase de [mise hors service](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Pour poursuivre les travaux que vous avez configurés dans Scheduler, veuillez [migrer vers Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) dès que possible. 
+>
+> Scheduler n’est plus disponible dans le portail Azure, mais l’[API REST](/rest/api/scheduler) et les [applets de commande Azure Scheduler PowerShell](scheduler-powershell-reference.md) restent disponibles pour vous permettre de gérer vos travaux et collections de travaux.
 
 ## <a name="entity-hierarchy"></a>Hiérarchie des entités
 
@@ -84,12 +85,12 @@ Le travail inclut également des données fournies par le système, comme l’he
 | Élément | Obligatoire | Description | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | Non | Heure de début du travail avec un décalage de fuseau horaire au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
-| [**action**](#action) | OUI | Détails de l’action principale, qui peuvent inclure un objet **errorAction** | 
+| [**action**](#action) | Oui | Détails de l’action principale, qui peuvent inclure un objet **errorAction** | 
 | [**errorAction**](#error-action) | Non | Détails de l’action secondaire qui s’exécute si l’action principale échoue |
 | [**recurrence**](#recurrence) | Non | Détails tels que la fréquence et l’intervalle pour un travail périodique | 
 | [**retryPolicy**](#retry-policy) | Non | Détails sur la fréquence à laquelle réessayer une action | 
-| [**state**](#state) | OUI | Détails de l’état actuel du travail |
-| [**status**](#status) | OUI | Détails de l’état actuel du travail, qui est contrôlé par le service |
+| [**state**](#state) | Oui | Détails de l’état actuel du travail |
+| [**status**](#status) | Oui | Détails de l’état actuel du travail, qui est contrôlé par le service |
 ||||
 
 Voici un exemple qui montre une définition complète d’un travail pour une action HTTP avec des éléments détaillés plus complets, décrits dans les sections suivantes : 
@@ -149,7 +150,7 @@ Dans l’objet **startTime**, vous pouvez spécifier l’heure de début et un d
 
 ## <a name="action"></a>action
 
-Votre travail du planificateur exécute une **action** en fonction de la planification spécifiée. Scheduler prend en charge des actions HTTP, de file d’attente de stockage, de file d’attente Service Bus et de rubrique Service Bus. Si **l’action** principale échoue, Scheduler peut exécuter une action [**errorAction** ](#erroraction) secondaire qui gère l’erreur. L’objet **action** décrit ces éléments :
+Votre travail du planificateur exécute une **action** en fonction de la planification spécifiée. Scheduler prend en charge des actions HTTP, de file d’attente de stockage, de file d’attente Service Bus et de rubrique Service Bus. Si **l’action** principale échoue, Scheduler peut exécuter une action [**errorAction**](#erroraction) secondaire qui gère l’erreur. L’objet **action** décrit ces éléments :
 
 * Type de service de l’action
 * Détails de l’action
@@ -245,15 +246,15 @@ Un travail se répète si la définition JSON du travail inclut l’objet **recu
 },
 ```
 
-| Propriété | Obligatoire | Value | Description | 
+| Propriété | Obligatoire | Valeur | Description | 
 |----------|----------|-------|-------------| 
 | **frequency** | Oui, quand **recurrence** est utilisé | "Minute", "Hour", "Day", "Week", "Month", "Year" | Unité de temps entre les occurrences | 
 | **interval** | Non | 1 à 1000 (inclusivement) | Entier positif qui détermine le nombre d’unités de temps entre chaque occurrence, en fonction de **frequency** | 
-| **schedule** | Non | Varie | Détails pour les planifications avancées et plus complexes. Voir **hours**, **minutes**, **weekDays**, **months** et **monthDays** | 
+| **schedule** | Non | Variable | Détails pour les planifications avancées et plus complexes. Voir **hours**, **minutes**, **weekDays**, **months** et **monthDays** | 
 | **hours** | Non | 1 à 24 | Tableau avec les marques d’heures pour le moment où exécuter le travail | 
 | **minutes** | Non | 0 à 59 | Tableau avec les marques de minutes pour le moment où exécuter le travail | 
 | **months** | Non | 1 à 12 | Tableau avec les mois pour le moment où exécuter le travail | 
-| **monthDays** | Non | Varie | Tableau avec les jours du mois pour le moment où exécuter le travail | 
+| **monthDays** | Non | Variable | Tableau avec les jours du mois pour le moment où exécuter le travail | 
 | **weekDays** | Non | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | Tableau avec les jours de la semaine pour le moment où exécuter le travail | 
 | **count** | Non | <*none*> | Nombre de récurrences. Par défaut, le nombre de récurrences est infini. Vous ne pouvez pas utiliser à la fois **count** et **endTime**, mais la règle qui se termine en premier est honorée. | 
 | **endTime** | Non | <*none*> | La date et l’heure d’arrêt de la récurrence. Par défaut, le nombre de récurrences est infini. Vous ne pouvez pas utiliser à la fois **count** et **endTime**, mais la règle qui se termine en premier est honorée. | 
@@ -275,9 +276,9 @@ Dans le cas où un travail du planificateur échoue, vous pouvez configurer une 
 },
 ```
 
-| Propriété | Obligatoire | Value | Description | 
+| Propriété | Obligatoire | Valeur | Description | 
 |----------|----------|-------|-------------| 
-| **retryType** | OUI | **Fixed**, **None** | Détermine si vous spécifiez une stratégie de nouvelle tentative (**fixed**) ou non (**none**). | 
+| **retryType** | Oui | **Fixed**, **None** | Détermine si vous spécifiez une stratégie de nouvelle tentative (**fixed**) ou non (**none**). | 
 | **retryInterval** | Non | PT30S | Spécifie l’intervalle et la fréquence entre les nouvelles tentatives au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). La valeur minimale est 15 secondes, alors que la valeur maximale est 18 mois. | 
 | **retryCount** | Non | 4 | Spécifie le nombre de nouvelles tentatives. La valeur maximale est 20. | 
 ||||
@@ -319,11 +320,9 @@ Par exemple :
 }
 ```
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
-* [Présentation d’Azure Scheduler](scheduler-intro.md)
-* [Concepts, terminologie et hiérarchie des entités](scheduler-concepts-terms.md)
 * [Créer des planifications complexes et des récurrences avancées](scheduler-advanced-complexity.md)
-* [Limites, quotas, valeurs par défaut et codes d’erreur](scheduler-limits-defaults-errors.md)
 * [Informations de référence sur l’API REST d’Azure Scheluler](/rest/api/scheduler)
 * [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)
+* [Limites, quotas, valeurs par défaut et codes d’erreur](scheduler-limits-defaults-errors.md)

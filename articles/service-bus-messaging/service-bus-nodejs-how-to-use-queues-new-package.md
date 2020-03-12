@@ -13,21 +13,17 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 9db359d8331859e3eebf345d91fe5dc6e66c0d4c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: c2e24e9dea2c8463294c85f04c9e4d7d2da17261
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774586"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330649"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Démarrage rapide : Comment utiliser les files d’attente Service Bus avec Node.js et le package azure/service-bus
-> [!div class="op_multi_selector" title1="Langage de programmation" title2="Package Node.js"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
-
 Dans ce tutoriel, vous allez apprendre à écrire un programme Nodejs pour envoyer et recevoir des messages à partir d’une file d’attente Service Bus en utilisant le nouveau package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Ce package utilise le protocole [AMQP 1.0](service-bus-amqp-overview.md) plus rapide, alors que l’ancien package [azure-sb](https://www.npmjs.com/package/azure-sb) utilisait des [API d’exécution REST Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Les exemples sont écrits en JavaScript.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 - Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Si vous n’avez pas de file d’attente à utiliser, suivez les étapes de l’article [Utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) pour créer une file d’attente. Notez la chaîne de connexion pour votre instance Service Bus et le nom de la file d’attente que vous avez créée. Nous allons utiliser ces valeurs dans les exemples.
 

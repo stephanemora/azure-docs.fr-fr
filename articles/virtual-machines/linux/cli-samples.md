@@ -1,26 +1,17 @@
 ---
 title: Exemples d’interface de ligne de commande Azure
 description: Exemples d’interface de ligne de commande Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: eda3154bb921a46bbe3b768713d4e72f1cc45d5f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 76803f8c3a703071eb733c5cfde65482ffd07f40
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036848"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970091"
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>Exemples d’interface de ligne de commande Azure pour machines virtuelles Linux
 
@@ -48,7 +39,7 @@ Le tableau suivant contient des liens vers des scripts Bash créés à l’aide 
 |**Sécuriser les machines virtuelles**||
 | [Chiffrer une machine virtuelle et des disques de données](./../scripts/virtual-machines-linux-cli-sample-encrypt-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Crée une solution Key Vault, une clé de chiffrement et le principal de service, puis chiffre une machine virtuelle. |
 |**Surveiller les machines virtuelles**||
-| [Analyser une machine virtuelle avec Azure Monitor](./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Crée une machine virtuelle, installe l’agent Log Analytics et inscrit la machine virtuelle auprès d’un espace de travail Log Analytics.  |
+| [Superviser une machine virtuelle avec les journaux Azure Monitor](./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Crée une machine virtuelle, installe l’agent Log Analytics et inscrit la machine virtuelle auprès d’un espace de travail Log Analytics.  |
 |**Résoudre les problèmes liés aux machines virtuelles**||
 | [Résoudre les problèmes liés au disque du système d’exploitation de machines virtuelles](./../scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Monte le disque du système d’exploitation d’une machine virtuelle en tant que disque de données sur une seconde machine virtuelle. |
 | | |

@@ -2,25 +2,19 @@
 title: Configuration des pilotes GPU de série N Azure pour Linux
 description: Procédure de configuration des pilotes GPU NVIDIA pour les machines virtuelles série N exécutant Linux dans Azure
 services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ebc991d54ef902eb653cf2d99b2f74f18551568
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b424361f318504f96a57ee67722e725fbafc6561
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035624"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944556"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installer les pilotes GPU NVIDIA sur les machines virtuelles série N exécutant Linux
 
@@ -359,7 +353,7 @@ fi
 
 Ensuite, créez une entrée pour votre script de mise à jour dans `/etc/rc.d/rc3.d` afin qu’il soit appelé en tant que racine au démarrage.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 * Vous pouvez définir le mode de persistance à l’aide de `nvidia-smi`. De cette façon, la sortie de la commande est plus rapide quand vous avez besoin d’effectuer une requête sur les cartes. Pour définir le mode de persistance, exécutez `nvidia-smi -pm 1`. Notez que si la machine virtuelle est redémarrée, le paramètre du mode n’est pas conservé. Vous pouvez toujours définir le paramètre du mode dans un script à exécuter au démarrage.
 * Si vous avez mis à jour les pilotes NVIDIA CUDA vers la dernière version et constatez que le connectivité RDMA ne fonctionne plus, [réinstallez les pilotes RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) pour rétablir cette connectivité. 

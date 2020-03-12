@@ -1,25 +1,17 @@
 ---
 title: Télécharger un disque VHD Linux à partir d’Azure
 description: Télécharger un disque VHD Linux à l’aide de l’interface de ligne de commande Azure et du portail Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
+ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: cynthn
-ms.openlocfilehash: 257f3f723fc8a971b8253699f4beb002cf46ce52
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 02c3ee483e6a31960fd5123070a49f568ac4c690
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036285"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78968797"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Télécharger un disque VHD Linux à partir d’Azure
 
@@ -29,9 +21,9 @@ Si vous ne l’avez pas déjà fait, installez [Azure CLI](https://docs.microsof
 
 ## <a name="stop-the-vm"></a>Arrêtez la machine virtuelle.
 
-Il n’est pas possible de télécharger un disque VHD associé à une machine virtuelle en cours d’exécution à partir d’Azure. Vous devez arrêter la machine virtuelle pour télécharger un disque VHD. Si vous souhaitez utiliser un disque VHD en tant [qu’image](tutorial-custom-images.md) pour créer d’autres machines virtuelles avec de nouveaux disques, vous devez déprovisionner et généraliser le système d’exploitation contenu dans le fichier, puis arrêter la machine virtuelle. Pour utiliser le disque VHD en tant que disque d’une nouvelle instance d’une machine virtuelle ou d’un disque de données existant, il vous suffit d’arrêter et de libérer la machine virtuelle.
+Il n’est pas possible de télécharger un disque VHD associé à une machine virtuelle en cours d’exécution à partir d’Azure. Il vous faut arrêter la machine virtuelle pour télécharger un VHD. Si vous souhaitez utiliser un disque VHD en tant [qu’image](tutorial-custom-images.md) pour créer d’autres machines virtuelles avec de nouveaux disques, vous devez déprovisionner et généraliser le système d’exploitation contenu dans le fichier, puis arrêter la machine virtuelle. Pour utiliser le VHD en tant que disque d’une nouvelle instance d’une machine virtuelle ou d’un disque de données existant, il vous suffit d’arrêter et de libérer de la machine virtuelle.
 
-Pour utiliser le disque VHD en tant qu’image pour créer d’autres machines virtuelles, suivez les étapes ci-dessous :
+Pour utiliser le VHD en tant qu’image pour créer d’autres machines virtuelles, suivez les étapes ci-dessous :
 
 1. Utilisez SSH, le nom du compte et l’adresse IP publique de la machine virtuelle pour vous y connecter et la déprovisionner. Recherchez l’adresse IP publique avec la commande [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az-network-public-ip-show). Le paramètre +user supprime également le dernier compte d’utilisateur approvisionné. Si vous sauvegardez les informations d’identification du compte sur la machine virtuelle, n’insérez pas ce paramètre +user. L’exemple suivant permet de supprimer le dernier compte d’utilisateur approvisionné :
 
@@ -54,9 +46,9 @@ Pour utiliser le disque VHD en tant qu’image pour créer d’autres machines v
     az vm generalize --resource-group myResourceGroup --name myVM
     ``` 
 
-Pour utiliser le disque VHD en tant que disque d’une nouvelle instance d’une machine virtuelle ou d’un disque de données existant, suivez les étapes ci-dessous :
+Pour utiliser le VHD en tant que disque d’une nouvelle instance d’une machine virtuelle ou d’un disque de données existant, suivez les étapes ci-dessous :
 
-1.  Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1.  Connectez-vous au [portail Azure](https://portal.azure.com/).
 2.  Dans le menu de gauche, sélectionnez **Machines virtuelles**.
 3.  Sélectionnez la machine virtuelle dans la liste.
 4.  Sur la page de la machine virtuelle, sélectionnez **Arrêter**.

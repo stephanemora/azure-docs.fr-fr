@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 69c32370b1f7f7cabb642ab140d69dcec57fb4aa
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 58ae39e8dfdf918ae14ca9bb8dac28405828999e
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551979"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330955"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Vérification de la connectivité ExpressRoute
 Cet article vous permet de vérifier et de résoudre les problèmes de connectivité ExpressRoute. ExpressRoute étend un réseau local au cloud de Microsoft via une connexion privée qui est généralement facilitée par un fournisseur de connectivité. La connectivité ExpressRoute implique traditionnellement trois zones de réseau distinctes, comme suit :
@@ -275,7 +275,7 @@ L’exemple suivant montre la réponse de la commande pour un Peering inexistant
 ## <a name="confirm-the-traffic-flow"></a>Confirmation du flux de trafic
 Pour obtenir les statistiques combinées du trafic de chemin d’accès primaire et secondaire (octets en entrée et en sortie) d’un contexte de peering, utilisez la commande suivante :
 
-    Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private
+    Get-AzExpressRouteCircuitStats -ResourceGroupName $RG -ExpressRouteCircuitName $CircuitName -PeeringType 'AzurePrivatePeering'
 
 Voici un exemple de sortie de la commande :
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87a9c9b808e737f8e72da803085bfebd8263319a
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 4ad76835b0c72b691e1ef8810f2c58dedb8f597d
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77194345"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672387"
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ sur l’itinérance des paramètres et des données
 
@@ -35,7 +35,7 @@ Les **Paramètres Windows** : les paramètres du PC intégrés au système d’e
 * *Autres paramètres Windows*, tels ceux de la souris.
 
 > [!NOTE]
-> Cet article s’applique au navigateur HTML hérité Microsoft Edge lancé avec Windows 10 en juillet 2015. L’article ne s’applique pas au nouveau navigateur Microsoft Edge basé sur Chromium publié le 15 janvier 2020. Pour plus d’informations sur le comportement de synchronisation pour le nouveau navigateur Microsoft Edge, consultez l’article [Synchronisation de Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-enterprise-sync).
+> Cet article s’applique au navigateur HTML hérité Microsoft Edge lancé avec Windows 10 en juillet 2015. L’article ne s’applique pas au nouveau navigateur Microsoft Edge basé sur Chromium publié le 15 janvier 2020. Pour plus d’informations sur le comportement de synchronisation pour le nouveau navigateur Microsoft Edge, consultez l’article [Synchronisation de Microsoft Edge](/deployedge/microsoft-edge-enterprise-sync).
 
 **Données d’application** : Les applications Windows universelles peuvent écrire des données de paramètres dans un dossier « roaming » (itinérance), et toutes les données écrites dans ce dossier sont automatiquement synchronisées. Il incombe aux développeurs d’applications de concevoir eux-mêmes une application pour tirer parti de cette fonctionnalité. Pour plus d’informations sur la façon de développer une application Windows universelle qui utilise l’itinérance, consultez [l’API de stockage des données d’application](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) et le [blog des développeurs d’applications itinérantes pour Windows 8](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 

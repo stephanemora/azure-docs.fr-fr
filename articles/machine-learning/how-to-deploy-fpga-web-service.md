@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
-ms.date: 10/25/2019
+ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: fd77c77abc8fe60eb18febde6fcc5bdffe6d7871
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b036dd9c440e01bf32b35ee01c1d39d4ce6e129b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75534573"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402702"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Présentation des FPGA (Field Programmable Gate Arrays) et de la façon dont ils sont déployés
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,7 +46,7 @@ Les FPGA permettent d’obtenir une latence faible pour les requêtes d’infér
 Vous pouvez reconfigurer les FGPA pour différents types de modèles Machine Learning. Cette souplesse permet d’accélérer les applications basées sur la précision numérique la plus optimale et le modèle de mémoire utilisé. Étant donné que les FPGA sont reconfigurables, vous pouvez suivre l’évolution des besoins des algorithmes d’intelligence artificielle.
 
 ## <a name="whats-supported-on-azure"></a>Ce qui est pris en charge sur Azure
-Microsoft Azure constitue le plus important investissement cloud au monde en matière de FPGA. En utilisant cette architecture matérielle compatible avec les FPGA, les réseaux neuronaux entraînés s’exécutent rapidement et avec une latence plus faible. Azure peut mettre en parallèle des réseaux neuronaux profonds préentraînés sur des FPGA pour faire monter en charge votre service. Les réseaux neuronaux profonds peuvent être préentraînés, en tant que caractériseurs profonds pour l’apprentissage du transfert, ou optimisés avec des pondérations mises à jour.
+Microsoft Azure constitue le plus important investissement cloud au monde en matière de FPGA. En utilisant cette architecture matérielle compatible avec les FPGA, les réseaux neuronaux entraînés s’exécutent rapidement et avec une latence plus faible. Azure peut mettre en parallèle des réseaux neuronaux profonds préentraînés sur des FPGA pour effectuer un scale-out de votre service. Les réseaux neuronaux profonds peuvent être préentraînés, en tant que caractériseurs profonds pour l’apprentissage du transfert, ou optimisés avec des pondérations mises à jour.
 
 Les FPGA sur Azure prennent en charge :
 
@@ -88,7 +88,7 @@ Les scénarios suivants utilisent les FPGA :
 Vous pouvez déployer un modèle en tant que service web sur FGPA avec des modèles accélérés matériellement Azure Machine Learning. L’utilisation de FGPA assure une inférence à très faible latence, même avec une taille de lot unique. L’inférence, ou notation du modèle, est la phase où le modèle déployé est utilisé pour la prédiction, généralement sur des données de production.
 
 
-### <a name="prerequisites"></a>Conditions préalables requises
+### <a name="prerequisites"></a>Prérequis
 
 - Un abonnement Azure.  Si vous n’en avez pas, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
@@ -325,7 +325,7 @@ Pour déployer votre modèle en tant que service web de production à grande éc
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
 
-# Specify the Standard_PB6s Azure VM and location. Values for location may be "eastus", "southeastasia", "westeurope", or "westus2”. If no value is specified, the default is "eastus".
+# Specify the Standard_PB6s Azure VM and location. Values for location may be "eastus", "southeastasia", "westeurope", or "westus2". If no value is specified, the default is "eastus".
 prov_config = AksCompute.provisioning_configuration(vm_size = "Standard_PB6s",
                                                     agent_count = 1,
                                                     location = "eastus")

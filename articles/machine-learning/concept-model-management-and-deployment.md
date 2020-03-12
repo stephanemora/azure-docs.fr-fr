@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 02/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 82866d452289a29dcdcacc12db8048acb7a351ba
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 6671b9c83ab71b4a92fe36d647e5a4e4d781154e
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250858"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096195"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps : Gestion, déploiement et surveillance des modèles avec Azure Machine Learning
 
@@ -70,11 +70,6 @@ Les modèles inscrits sont identifiés par leur nom et par leur version. Chaque 
 
 Vous ne pouvez pas supprimer un modèle inscrit qui est utilisé dans un déploiement actif.
 Pour plus d’informations, consultez la section consacrée à l’inscription d’un modèle dans l’article [Déployer des modèles](how-to-deploy-and-where.md#registermodel).
-
-### <a name="profile-models"></a>Modèles de profil
-
-Azure Machine Learning peut vous aider à comprendre les besoins en processeur et en mémoire du service qui sera créé lors du déploiement de votre modèle. Le profilage teste le service qui exécute votre modèle et retourne des informations telles que l’utilisation de l’UC, l’utilisation de la mémoire et la latence de la réponse. Il fournit également une recommandation pour l’UC et la mémoire en fonction de l’utilisation des ressources.
-Pour plus d’informations, voir la section consacrée au déploiement dans [Déployer des modèles](how-to-deploy-and-where.md#profilemodel).
 
 ### <a name="package-and-debug-models"></a>Empaqueter et déboguer des modèles
 

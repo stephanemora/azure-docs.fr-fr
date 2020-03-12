@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: helohr
-ms.openlocfilehash: ee641a694371ffd3fbc691a05edac707e37e959d
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+manager: lizross
+ms.openlocfilehash: a2ff3f6fa9896e45ecd6ab40d40d46a046edf1cb
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607341"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127393"
 ---
 # <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Résoudre les problèmes de machines virtuelles Windows 7 dans Windows Virtual Desktop
 
@@ -30,7 +31,7 @@ Sous Windows 7, Windows Virtual Desktop peut uniquement virtualiser l'intégral
 
 Bien que la mise à l'échelle PPP automatique ne soit pas prise en charge, vous pouvez manuellement modifier la résolution sur votre machine virtuelle en cliquant avec le bouton droit de la souris sur l'icône du client Bureau à distance et en sélectionnant **Résolution**.
 
-## <a name="error-cant-access-the-remote-desktop-user-group"></a>Error: Impossible d'accéder au groupe d'utilisateurs du Bureau à distance
+## <a name="error-cant-access-the-remote-desktop-user-group"></a>Erreur : Impossible d'accéder au groupe d'utilisateurs du Bureau à distance
 
 Si Windows Virtual Desktop ne parvient pas à vous trouver ou à trouver les informations d'identification de vos utilisateurs dans le groupe d'utilisateurs du Bureau à distance, l'un des messages d'erreur suivants peut s'afficher :
 

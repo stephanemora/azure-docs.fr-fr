@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
-ms.openlocfilehash: d16954760d1f2bf11ec5575f912ee32810696590
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: c812e00699cd8f8cfbaf32feea1b43866ffb0990
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108217"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674355"
 ---
 # <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Tutoriel : Utiliser des enrichissements de messages IoT Hub
 
@@ -35,7 +35,7 @@ Dans le cadre de ce tutoriel, vous allez effectuer les tâches suivantes :
 > * Exécutez une application qui simule l’envoi de messages par un appareil IoT au hub.
 > * Affichez les résultats et vérifiez que les enrichissements de messages fonctionnent comme prévu.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Vous devez avoir un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 * Installer [Visual Studio](https://www.visualstudio.com/).
@@ -76,7 +76,7 @@ Si vous ne l’avez pas déjà fait, ouvrez une [fenêtre Azure Cloud Shell](htt
 
 Voici les ressources créées par le script. *Enriched* indique que la ressource correspond aux messages avec enrichissements. *Original* indique que la ressource correspondant aux messages non enrichis.
 
-| Name | Valeur |
+| Nom | Valeur |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | nom du conteneur | ressource d’origine  |
@@ -102,7 +102,7 @@ randomValue=$RANDOM
 # This command installs the IOT Extension for Azure CLI.
 # You only need to install this the first time.
 # You need it to create the device identity.
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Set the values for the resource names that
 #   don't have to be globally unique.
@@ -296,7 +296,7 @@ Vous pouvez utiliser un modèle Resource Manager pour créer et configurer les r
 
    Voici les ressources créées par le chargement du modèle. **Enriched** indique que la ressource correspond aux messages avec enrichissements. **Original** indique que la ressource correspondant aux messages non enrichis. Il s’agit des mêmes valeurs que celles utilisées dans le script Azure CLI.
 
-   | Name | Valeur |
+   | Nom | Valeur |
    |-----|-----|
    | resourceGroup | ContosoResourcesMsgEn |
    | nom du conteneur | ressource d’origine  |

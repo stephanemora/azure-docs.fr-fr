@@ -1,25 +1,17 @@
 ---
 title: Utiliser cloud-init pour exécuter un script bash dans une machine virtuelle Linux sur Azure
 description: Comment utiliser cloud-init pour exécuter un script bash dans une machine virtuelle Linux pendant la création avec Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
 author: rickstercdn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 0e18b740b9b656236bd1958dd191bc9b02283d67
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: e2f19ceb6c7f19ba749b46a3553036587be6a71a
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036799"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969213"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>Utiliser cloud-init pour exécuter un script bash dans une machine virtuelle Linux sur Azure
 Cet article montre comment utiliser [cloud-init](https://cloudinit.readthedocs.io) pour exécuter un script bash existant sur une machine virtuelle Linux ou un groupe de machines virtuelles identiques au moment de l’approvisionnement dans Azure. Ces scripts cloud-init s’exécutent au premier démarrage une fois que les ressources ont été approvisionnées par Azure. Pour plus d’informations sur le fonctionnement de cloud-init en mode natif dans Azure et sur les versions de Linux prises en charge, consultez [Présentation de cloud-init](using-cloud-init.md)
@@ -29,7 +21,7 @@ Avec cloud-init, vous n’avez pas besoin de convertir vos scripts existant en u
 
 Si vous utilisez l’extension Azure de script personnalisé Linux pour exécuter vos scripts, vous pouvez les migrer pour utiliser cloud-init. Toutefois, les extensions Azure ont une fonctionnalité de création de rapports intégrée pour signaler les échecs de script ; un déploiement d’image cloud-init n’échouera PAS si le script échoue.
 
-Pour voir cette fonctionnalité en action, créez un script bash pour le test. Comme le fichier `#cloud-config` cloud-init, ce script doit se trouver en local, à l’emplacement où vous allez exécuter les commandes Azure CLI pour approvisionner votre machine virtuelle.  Pour cet exemple, créez le fichier dans Cloud Shell et non sur votre ordinateur local. Vous pouvez utiliser l’éditeur de votre choix. Entrez `sensible-editor simple_bash.sh` pour créer le fichier et afficher la liste des éditeurs disponibles. Choisissez le n°1 pour utiliser l’éditeur **nano**. Vérifiez que l’intégralité du fichier cloud-init est copiée correctement, en particulier la première ligne.  
+Pour voir cette fonctionnalité en action, créez un script bash pour le test. Comme le fichier `#cloud-config` cloud-init, ce script doit se trouver en local, à l’emplacement où vous allez exécuter les commandes Azure CLI pour approvisionner votre machine virtuelle.  Pour cet exemple, créez le fichier dans Cloud Shell et non sur votre ordinateur local. Vous pouvez utiliser l’éditeur de votre choix. Entrez `sensible-editor simple_bash.sh` pour créer le fichier et afficher la liste des éditeurs disponibles. Choisissez le n°1 pour utiliser l’éditeur **nano**. Vérifiez que l’intégralité du fichier cloud-init est copiée, en particulier la première ligne.  
 
 ```bash
 #!/bin/sh

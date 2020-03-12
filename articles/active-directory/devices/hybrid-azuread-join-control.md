@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2c1a088e4c200dcc4a2ff35db942e3eb8480674
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c6bb57a60b2ed3b39bf83154d3afea88071efbac
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512089"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672418"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validation contrôlée de la jonction Azure AD hybride
 
@@ -82,13 +82,13 @@ Utilisez l’exemple suivant pour créer un objet de stratégie de groupe afin d
 Si vous utilisez AD FS, vous devez d’abord configurer le point de connexion de service côté client en suivant les instructions mentionnées ci-dessus, en liant l’objet de stratégie de groupe à vos serveurs AD FS. L’objet SCP définit la source d’autorité pour les objets d’appareil. Il peut être local ou Azure AD. Quand le point de connexion de service côté client est configuré pour AD FS, la source des objets d’appareil est établie en tant qu’Azure AD.
 
 > [!NOTE]
-> Si vous n'avez pas réussi à configurer SCP côté client sur vos serveurs AD FS, la source des identités des appareils sera considérée comme locale. ADFS commencera alors à supprimer les objets de l’appareil à partir du répertoire local après la période stipulée définie dans l'attribut « MaximumInactiveDays » de l’inscription d’appareil ADFS. Les objets de l’inscription d’appareil ADFS peuvent être identifiés en utilisant l’[applet de commande Get-AdfsDeviceRegistration](https://docs.microsoft.com/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
+> Si vous n'avez pas réussi à configurer SCP côté client sur vos serveurs AD FS, la source des identités des appareils sera considérée comme locale. ADFS commencera alors à supprimer les objets de l’appareil à partir du répertoire local après la période stipulée définie dans l'attribut « MaximumInactiveDays » de l’inscription d’appareil ADFS. Les objets de l’inscription d’appareil ADFS peuvent être identifiés en utilisant l’[applet de commande Get-AdfsDeviceRegistration](/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Validation contrôlée de la jonction Azure AD hybride sur des appareils Windows de bas niveau
 
 Pour inscrire des ordinateurs Windows de bas niveau, les organisations doivent installer [Microsoft Workplace Join pour les ordinateurs non-Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) à partir du Centre de téléchargement Microsoft.
 
-Vous pouvez déployer le package à l’aide d’un système de distribution de logiciels tel que  [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/). Le package prend en charge les options d’installation sans assistance standard avec le paramètre quiet. La branche actuelle de Configuration Manager offre des avantages supplémentaires par rapport aux versions précédentes, comme la possibilité d’effectuer le suivi des inscriptions effectuées.
+Vous pouvez déployer le package à l’aide d’un système de distribution de logiciels tel que  [Microsoft Endpoint Configuration Manager](/configmgr/). Le package prend en charge les options d’installation sans assistance standard avec le paramètre quiet. La branche actuelle de Configuration Manager offre des avantages supplémentaires par rapport aux versions précédentes, comme la possibilité d’effectuer le suivi des inscriptions effectuées.
 
 Le programme d’installation crée une tâche planifiée sur le système, qui s’exécute dans le contexte de l’utilisateur. La tâche est déclenchée lorsque l’utilisateur se connecte à Windows. La tâche joint en mode silencieux l’appareil à Azure AD, au moyen des informations d’identification de l’utilisateur, après son authentification auprès d’Azure AD.
 

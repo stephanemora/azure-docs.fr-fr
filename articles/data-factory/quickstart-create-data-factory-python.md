@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 1f799c8f2e2b209e9939845047c61d50bc1a244d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3b8edd249b19a61f8c80eb5b8c9df25754d4f070
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898535"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399510"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Démarrage rapide : Créer une fabrique de données et un pipeline à l’aide de Python
 
@@ -32,7 +32,7 @@ Azure Data Factory est un service d’intégration de données basé sur le clou
 
 Les pipelines peuvent ingérer des données provenant de différents magasins de données. Les pipelines traitent ou transforment des données à l’aide de services de calcul tels que Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics et Azure Machine Learning. Les pipelines publient des données de sortie vers des magasins de données tels que Azure SQL Data Warehouse pour des applications décisionnelles (BI).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Compte Azure avec un abonnement actif. [Créez-en un gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -379,9 +379,9 @@ def main():
     act_name = 'copyBlobtoBlob'
     blob_source = BlobSource()
     blob_sink = BlobSink()
-    dsin_ref = DatasetReference(ds_name)
-    dsOut_ref = DatasetReference(dsOut_name)
-    copy_activity = CopyActivity(act_name, inputs=[dsin_ref], outputs=[
+    dsin_ref = DatasetReference(reference_name=ds_name)
+    dsOut_ref = DatasetReference(reference_name=dsOut_name)
+    copy_activity = CopyActivity(name=act_name, inputs=[dsin_ref], outputs=[
                                  dsOut_ref], source=blob_source, sink=blob_sink)
 
     # Create a pipeline with the copy activity

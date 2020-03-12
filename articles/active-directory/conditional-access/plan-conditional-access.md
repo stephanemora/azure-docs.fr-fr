@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c8c5e3c2552101437bfed17906f94861e676568
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: e1c75d5022432a9a57b30aabec4dd2c4f76f2f29
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468435"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671828"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procédure : Planifier votre déploiement d’accès conditionnel Azure Active Directory
 
@@ -163,13 +163,13 @@ Le plan de test est important pour comparer les résultats attendus et les résu
 
 |Stratégie |Scénario |Résultat attendu | Résultats |
 |---|---|---|---|
-|[Exiger l’authentification multifacteur en dehors du bureau](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|L’utilisateur autorisé se connecte à l’*application* quand il est dans un emplacement approuvé ou au bureau|L’utilisateur n’est pas invité à utiliser l’authentification multifacteur| |
-|[Exiger l’authentification multifacteur en dehors du bureau](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|L’utilisateur autorisé se connecte à l’*application* quand il n’est pas dans un emplacement approuvé ou au bureau|L’utilisateur est invité à utiliser l’authentification multifacteur et peut se connecter| |
-|[Exiger l’authentification multifacteur (pour les administrateurs)](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|L’administrateur général se connecte à l’*application*|L’administrateur est invité à utiliser l’authentification multifacteur| |
-|[Connexions risquées](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|L’utilisateur se connecte à l’*application* à l’aide d’un [navigateur Tor](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|L’administrateur est invité à utiliser l’authentification multifacteur| |
-|[Gestion des appareils](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|L’utilisateur autorisé tente de se connecter à partir d’un appareil autorisé|Accès accordé| |
-|[Gestion des appareils](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|L’utilisateur autorisé tente de se connecter à partir d’un appareil non autorisé|Accès bloqué| |
-|[Changement de mot de passe pour les utilisateurs à risque](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)|L’utilisateur autorisé tente de se connecter avec des informations d’identification compromises (connexion à haut risque)|L’utilisateur est invité à changer le mot de passe ou l’accès est bloqué selon votre stratégie| |
+|[Exiger l’authentification multifacteur en dehors du bureau](/azure/active-directory/conditional-access/untrusted-networks)|L’utilisateur autorisé se connecte à l’*application* quand il est dans un emplacement approuvé ou au bureau|L’utilisateur n’est pas invité à utiliser l’authentification multifacteur| |
+|[Exiger l’authentification multifacteur en dehors du bureau](/azure/active-directory/conditional-access/untrusted-networks)|L’utilisateur autorisé se connecte à l’*application* quand il n’est pas dans un emplacement approuvé ou au bureau|L’utilisateur est invité à utiliser l’authentification multifacteur et peut se connecter| |
+|[Exiger l’authentification multifacteur (pour les administrateurs)](/azure/active-directory/conditional-access/howto-baseline-protect-administrators)|L’administrateur général se connecte à l’*application*|L’administrateur est invité à utiliser l’authentification multifacteur| |
+|[Connexions risquées](/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|L’utilisateur se connecte à l’*application* à l’aide d’un [navigateur Tor](/azure/active-directory/active-directory-identityprotection-playbook)|L’administrateur est invité à utiliser l’authentification multifacteur| |
+|[Gestion des appareils](/azure/active-directory/conditional-access/require-managed-devices)|L’utilisateur autorisé tente de se connecter à partir d’un appareil autorisé|Accès accordé| |
+|[Gestion des appareils](/azure/active-directory/conditional-access/require-managed-devices)|L’utilisateur autorisé tente de se connecter à partir d’un appareil non autorisé|Accès bloqué| |
+|[Changement de mot de passe pour les utilisateurs à risque](/azure/active-directory/identity-protection/howto-user-risk-policy)|L’utilisateur autorisé tente de se connecter avec des informations d’identification compromises (connexion à haut risque)|L’utilisateur est invité à changer le mot de passe ou l’accès est bloqué selon votre stratégie| |
 
 ### <a name="configure-the-policy"></a>Configurer la stratégie
 

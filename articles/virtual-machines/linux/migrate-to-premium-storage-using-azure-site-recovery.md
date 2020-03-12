@@ -1,21 +1,18 @@
 ---
 title: Migrer vos machines virtuelles Linux vers le stockage Premium Azure avec Azure Site Recovery
 description: Migrez vos machines virtuelles existantes vers le stockage Premium Azure à l'aide de Site Recovery. Premium Storage offre une prise en charge très performante et à faible latence des disques pour les charges de travail utilisant beaucoup d'E/S exécutées sur les machines virtuelles Azure.
-services: virtual-machines-linux,storage
-cloud: Azure
 author: luywang
 ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: b8c299869da003d8dc4e9ac111ba8c5e8bb27345
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0d03c2df720a4e3ccf57fe0be00c2af4fcf72eb0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035824"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944830"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrer vers le stockage Premium à l’aide d’Azure Site Recovery
 
@@ -74,13 +71,13 @@ Voici les prérequis Azure pour ce scénario de migration :
 
 Vous pouvez utiliser Site Recovery pour migrer des machines virtuelles IaaS Azure entre différentes régions ou au sein de la même région. Les instructions suivantes ont été adaptées à ce scénario de migration à partir de l’article [Répliquer des machines virtuelles VMware ou des serveurs physiques sur Azure](../../site-recovery/vmware-walkthrough-overview.md). Suivez les liens pour obtenir des étapes détaillées en plus des instructions de cet article.
 
-### <a name="step-1-create-a-recovery-services-vault"></a>Étape 1 : Créer un coffre Recovery Services
+### <a name="step-1-create-a-recovery-services-vault"></a>Étape 1 : Créer un coffre Recovery Services
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Créer une ressource** > **Gestion** > **Backup** and **Site Recovery (OMS)** . Vous pouvez aussi sélectionner **Parcourir** > **Coffre Recovery Services** > **Ajouter**. 
 3. Spécifiez une région sur laquelle répliquer les machines virtuelles. Pour effectuer une migration au sein de la même région, sélectionnez la région dans laquelle se trouvent vos machines virtuelles source et les comptes de stockage source. 
 
-### <a name="step-2-choose-your-protection-goals"></a>Étape 2 : Sélectionner vos objectifs en matière de protection 
+### <a name="step-2-choose-your-protection-goals"></a>Étape 2 : Sélectionner vos objectifs en matière de protection 
 
 1. Sur la machine virtuelle sur laquelle vous souhaitez installer le serveur de configuration, ouvrez le [portail Azure](https://portal.azure.com).
 2. Accédez à **Coffres Recovery Services** > **Paramètres** > **Site Recovery** > **Étape 1 : préparer l’infrastructure** > **Objectif de protection**.
@@ -203,7 +200,7 @@ Site Recovery crée une instance de machine virtuelle dont le type est identique
 
 3. **Nettoyer l’infrastructure Azure Site Recovery**. Si Site Recovery n’est plus nécessaire, vous pouvez nettoyer son infrastructure. Supprimez les éléments répliqués, le serveur de configuration et la stratégie de récupération, puis supprimez le coffre Azure Site Recovery.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 * [Surveiller et résoudre les problèmes de protection pour les machines virtuelles et les serveurs physiques](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Forum Microsoft Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)

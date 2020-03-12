@@ -1,30 +1,24 @@
 ---
 title: Erreurs courantes lors de la migration de Classic vers Azure Resource Manager
 description: Cet article répertorie les erreurs les plus courantes et leur atténuation lors la migration de ressources IaaS d’Azure Service Management vers la pile Azure Resource Manager.
-services: virtual-machines-linux
-documentationcenter: ''
 author: tanmaygore
 manager: vashan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 5bc03a1b-eb1c-438c-83d9-f0e9d61f1b6a
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 7dc60e6514d4f17ae7fe61bfbc043dc1f650b1d4
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ffeef74179874a0f477ba857ca519ebc67fded64
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77914838"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944722"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Erreurs courantes lors de la migration de Classic vers Azure Resource Manager
 
 > [!IMPORTANT]
-> Aujourd’hui, environ 90 % des machines virtuelles IaaS utilisent [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Depuis le 28 février 2020, les machines virtuelles classiques sont déconseillées et seront entièrement mises hors service le 1er mars 2023. [Apprenez-en davantage]( https://aka.ms/classicvmretirement) sur cette dépréciation et [la façon dont elle vous concerne](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
+> Aujourd'hui, environ 90 % des machines virtuelles IaaS utilisent [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). Depuis le 28 février 2020, les machines virtuelles classiques sont dépréciées. Elles seront entièrement mises hors service le 1er mars 2023. [Apprenez-en davantage]( https://aka.ms/classicvmretirement) sur cette dépréciation et [son impact sur vous](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me).
 
 [!INCLUDE [virtual-machines-common-migration-errors](../../../includes/virtual-machines-common-classic-resource-manager-migration-common-errors.md)]
 

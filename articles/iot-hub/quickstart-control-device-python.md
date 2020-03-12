@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/09/2020
-ms.openlocfilehash: bd9d7f9d261ac9f5f433abbfc2e5f5ac36a8f1b0
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 0ff404e4b13fdb3e174387c17064c5ae58acd246
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470817"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675561"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Démarrage rapide : Contrôler un appareil connecté à un hub IoT (Python)
 
@@ -40,8 +40,10 @@ Dans ce guide de démarrage rapide, vous utilisez une méthode directe pour cont
 Exécutez la commande suivante afin d’ajouter l’extension Microsoft Azure IoT pour Azure CLI à votre instance Cloud Shell. L’extension IoT ajoute des commandes IoT Hub, IoT Edge et du service IoT Hub Device Provisioning (DPS) à Azure CLI.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 

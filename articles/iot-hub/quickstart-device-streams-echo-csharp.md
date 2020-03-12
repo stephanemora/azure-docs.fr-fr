@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: cf182e55e172b308a288c741640538ab680e1103
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 64af62cb6c2c56ca8c7e67e2f1467d4a7e8335a0
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462086"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675519"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Démarrage rapide : Communiquer avec une application d’appareil en C# par le biais de flux d’appareil IoT Hub (préversion)
 
@@ -47,8 +47,10 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 * Ajoutez l’extension Azure IoT pour Azure CLI à votre instance Cloud Shell en exécutant la commande suivante. L’extension IoT ajoute des commandes IoT Hub, IoT Edge et IoT Device Provisioning Service (DPS) à Azure CLI.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
+    az extension add --name azure-iot
     ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 * [Téléchargez les exemples C# Azure IOT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) et extrayez l’archive ZIP. Vous en avez besoin à la fois côté appareil et côté service.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e81039328aa9382a19412c961e28bc3275c08ec8
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: ae8ce24aeb665a7f99326e83dbe18d020e1b6196
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77194464"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672352"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Résolution des problèmes de paramètres Enterprise State Roaming dans Azure Active Directory
 
@@ -25,7 +25,7 @@ Cette rubrique fournit des informations sur la résolution et le diagnostic des 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Cet article s’applique au navigateur HTML hérité Microsoft Edge lancé avec Windows 10 en juillet 2015. L’article ne s’applique pas au nouveau navigateur Microsoft Edge basé sur Chromium publié le 15 janvier 2020. Pour plus d’informations sur le comportement de synchronisation pour le nouveau navigateur Microsoft Edge, consultez l’article [Synchronisation de Microsoft Edge](https://docs.microsoft.com/deployedge/microsoft-edge-enterprise-sync).
+> Cet article s’applique au navigateur HTML hérité Microsoft Edge lancé avec Windows 10 en juillet 2015. L’article ne s’applique pas au nouveau navigateur Microsoft Edge basé sur Chromium publié le 15 janvier 2020. Pour plus d’informations sur le comportement de synchronisation pour le nouveau navigateur Microsoft Edge, consultez l’article [Synchronisation de Microsoft Edge](/deployedge/microsoft-edge-enterprise-sync).
 
 ## <a name="preliminary-steps-for-troubleshooting"></a>Étapes préliminaires pour la résolution des problèmes 
 

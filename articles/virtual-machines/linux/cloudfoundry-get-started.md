@@ -1,26 +1,18 @@
 ---
 title: Prise en main de Cloud Foundry sur Microsoft Azure
 description: Exécuter OSS ou Pivotal Cloud Foundry sur Microsoft Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: seanmck
-manager: gwallace
-editor: ''
-tags: ''
-keywords: ''
-ms.assetid: 2a15ffbf-9f86-41e4-b75b-eb44c1a2a7ab
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 447550d2f6bca570869c9fa93724e4dbaba02132
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ba0b4a636d8f785f1c169e4066c9cf6d25ba81db
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036820"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970050"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry sur Azure
 
@@ -36,7 +28,7 @@ Vous pouvez déployer OSS Cloud Foundry sur Azure en déployant d’abord un dir
 
 Microsoft offre un support de type « Meilleur effort » pour OSS CF, par le biais des canaux communautaires suivants :
 
-- #<a name="bosh-azure-cpi-channel-on-cloud-foundry-slackhttpsslackcloudfoundryorg"></a>Canal bosh-azure-cpi sur [Cloud Foundry Slack](https://slack.cloudfoundry.org/)
+- #<a name="bosh-azure-cpi-channel-on-cloud-foundry-slack"></a>Canal bosh-azure-cpi sur [Cloud Foundry Slack](https://slack.cloudfoundry.org/)
 - [Liste de diffusion cf-bosh](https://lists.cloudfoundry.org/pipermail/cf-bosh)
 - Problèmes GitHub pour le [CPI](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/issues) et [Service Broker](https://github.com/Azure/meta-azure-service-broker/issues)
 

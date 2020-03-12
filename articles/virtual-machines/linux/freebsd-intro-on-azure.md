@@ -1,30 +1,23 @@
 ---
 title: Présentation de FreeBSD sur Azure
 description: Apprenez à utiliser des machines virtuelles FreeBSD sur Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: thomas1206
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 32b87a5f-d024-4da0-8bf0-77e233d1422b
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: d243806d619aa6d7328220eae53804d734737489
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fe64418e254289a29aafd155b92396082bff5b6a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036119"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945083"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Présentation de FreeBSD sur Azure
 Cet article offre une vue d’ensemble de l’exécution d’une machine virtuelle FreeBSD dans Azure.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 FreeBSD pour Microsoft Azure est un système d’exploitation informatique avancé utilisé sur les serveurs, ordinateurs de bureau et plateformes intégrées modernes.
 
 Microsoft Corporation rend disponibles des images de FreeBSD sur Azure avec [l’Agent invité de machine virtuelle Azure](https://github.com/Azure/WALinuxAgent/) préconfiguré. Actuellement, les versions FreeBSD suivantes sont proposées sous forme d’images par Microsoft :

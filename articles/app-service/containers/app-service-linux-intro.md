@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 381f1486f13907aa52558029789e49bc4e5c4961
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 65352b8f8f85f5e7a2e25ae99d5ca3368ad78711
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687617"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126519"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Présentation d’Azure App Service sur Linux
 
@@ -58,7 +58,7 @@ App Service sur Linux n’est pris en charge que par les plans App Service [Grat
 
 Il existe une limitation actuelle pour le même groupe de ressources, qui vous empêche de mélanger les applications Windows et Linux dans la même région.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 > [!NOTE]
 > La [Supervision Azure (préversion)](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview) comprend une nouvelle fonctionnalité de journalisation intégrée. 
@@ -91,7 +91,7 @@ Pour plus d’informations sur App Service sur Linux, consultez :
 * [Configurer des environnements intermédiaires dans App Service](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Déploiement continu Docker Hub](app-service-linux-ci-cd.md)
 
-Vous pouvez poser des questions et signaler vos préoccupations sur [notre forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
+Vous pouvez poser des questions et signaler vos préoccupations sur [notre forum](https://docs.microsoft.com/answers/topics/azure-webapps.html).
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

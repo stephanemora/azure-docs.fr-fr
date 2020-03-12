@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a9fb77ea30aa101653d50e7833876dbec6362093
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e51937dfe2afa0e92ce98b4c305555b53896e5f1
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930145"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78401752"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Visage pour .NET
 
@@ -30,7 +30,7 @@ Utilisez la bibliothèque de client Visage pour .NET afin d’effectuer les op�
 
 [Documentation de référence](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1) | [Exemples](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
 * Version actuelle de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
@@ -64,7 +64,7 @@ dotnet build
 
 La sortie de génération ne doit contenir aucun avertissement ni erreur. 
 
-```console
+```output
 ...
 Build succeeded.
  0 Warning(s)
@@ -94,7 +94,7 @@ Si vous utilisez l’IDE Visual Studio, la bibliothèque de client est disponibl
 
 Les classes et interfaces suivantes gèrent certaines des principales fonctionnalités du SDK .NET Visage :
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) | Cette classe représente votre autorisation d’utiliser le service Visage. Vous en avez besoin pour toutes les fonctionnalités de Visage. Vous pouvez l’instancier avec vos informations d’abonnement et l’utiliser pour produire des instances d’autres classes. |
 |[FaceOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperations?view=azure-dotnet)|Cette classe gère les tâches de détection et de reconnaissance de base que vous pouvez effectuer avec les visages. |

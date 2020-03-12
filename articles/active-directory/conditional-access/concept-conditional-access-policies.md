@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87224c9e3e697b86aab51d1e922af8ab2130ac40
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 2d2ebcc885b4018f4d9c3ff1b525ffc19b1abdda
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186228"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671926"
 ---
 # <a name="building-a-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
@@ -131,6 +131,6 @@ Dans l’article [Stratégies d’accès conditionnel courantes](concept-conditi
 
 [Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud](../authentication/howto-mfa-getstarted.md)
 
-[Gestion de la conformité des appareils avec Intune](https://docs.microsoft.com/intune/device-compliance-get-started)
+[Gestion de la conformité des appareils avec Intune](/intune/device-compliance-get-started)
 
-[Microsoft Cloud App Security et accès conditionnel](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+[Microsoft Cloud App Security et accès conditionnel](/cloud-app-security/proxy-intro-aad)

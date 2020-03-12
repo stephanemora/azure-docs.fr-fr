@@ -1,18 +1,15 @@
 ---
 title: Série de migration Contoso | Microsoft Docs
 description: Fournit une vue d’ensemble de la stratégie et des scénarios de migration utilisés par Contoso pour migrer son centre de données local vers Azure.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/22/2019
+ms.date: 03/09/2020
 ms.author: raynew
-ms.openlocfilehash: d20c0be47f44cdce8ea895007494565d37f5923f
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: d37bee589eb7ee2e6e30c8dcea2531dd1f063481
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179135"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78939183"
 ---
 # <a name="contoso-migration-series"></a>Série de migration Contoso
 
@@ -32,7 +29,7 @@ Les articles de la série sont résumés dans le tableau ci-dessous.
 --- | --- 
 [Article 1 : Vue d’ensemble](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-overview) | Vue d’ensemble de la série d’articles, de la stratégie de migration de Contoso et des exemples d’applications utilisés dans la série. 
 [Article 2 : Déployer une infrastructure Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure) | Contoso prépare son infrastructure locale et son infrastructure Azure pour la migration. La même infrastructure est utilisée pour tous les articles de migration de la série. 
-[Article 3 : Évaluer les ressources locales à migrer vers Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-assessment)  | Contoso évalue son application locale SmartHotel360 qui s’exécute sur VMware. Contoso évalue les machines virtuelles de l’application à l’aide du service Azure Migrate et la base de données SQL Server de l’application à l’aide de l’Assistant Migration de données.
+[Article 3 : Évaluer les ressources locales à migrer vers Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-migration-guide/assess?tabs=Tools)  | Contoso évalue son application locale SmartHotel360 qui s’exécute sur VMware. Contoso évalue les machines virtuelles de l’application à l’aide du service Azure Migrate et la base de données SQL Server de l’application à l’aide de l’Assistant Migration de données.
 [Article 4 : Réhéberger une application sur une machine virtuelle Azure et SQL Database Managed Instance](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-managed-instance) | Contoso exécute une migration lift-and-shift vers Azure pour son application SmartHotel360 locale. Contoso migre la machine virtuelle front-end de l’application à l’aide [d’Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migre la base de données de l’application vers Azure SQL Database Managed Instance à l’aide [d’Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview).
 [Article 5 : Réhéberger une application sur des machines virtuelles Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm) | Contoso migre les machines virtuelles de son application SmartHotel360 vers des machines virtuelles Azure avec le service Site Recovery. 
 [Article 6 : Réhéberger une application sur des machines virtuelles Azure et dans un groupe de disponibilité SQL Server](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-ag) |Contoso migre l’application SmartHotel360. Contoso utilise Site Recovery pour migrer les machines virtuelles d’application. La société utilise Database Migration Service pour migrer la base de données d’application vers un cluster SQL Server protégé par un groupe de disponibilité AlwaysOn. 

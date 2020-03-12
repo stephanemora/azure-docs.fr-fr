@@ -14,21 +14,17 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/16/2020
 ms.author: aschhab
-ms.openlocfilehash: 348a6a50583594d3e608bb16fcef65879b595e67
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 6088b4c54ed16c5ef46d2c0671e619884cad29d4
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263317"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330615"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Démarrage rapide : Utilisation des rubriques et abonnements Service Bus avec Node.js et le package azure/service-bus
-> [!div class="op_multi_selector" title1="Langage de programmation" title2="Package Node.js"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
-
 Ce didacticiel explique comment écrire un programme Node.js pour envoyer des messages à une rubrique Service Bus et recevoir des messages d’un abonnement Service Bus à l’aide du nouveau package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Ce package utilise le protocole [AMQP 1.0](service-bus-amqp-overview.md) plus rapide, alors que l’ancien package [azure-sb](https://www.npmjs.com/package/azure-sb) utilisait des [API d’exécution REST Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Les exemples sont écrits en JavaScript.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 - Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Si vous n’avez pas de rubrique ou d’abonnement à utiliser, suivez les étapes décrites dans l’article [Utiliser le portail Azure pour créer des rubriques et des abonnements Service Bus](service-bus-quickstart-topics-subscriptions-portal.md) afin de les créer. Notez la chaîne de connexion pour votre instance Service Bus et le nom de la rubrique et de l’abonnement que vous avez créés. Nous allons utiliser ces valeurs dans les exemples.
 

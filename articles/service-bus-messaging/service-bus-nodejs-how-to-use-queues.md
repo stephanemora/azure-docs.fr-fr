@@ -15,24 +15,22 @@ ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: fee7ff6ffbd18cf514ce1bfda81aca727ed362c3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 7ee3939c1a1b450f2458267ab0b70e3924a4869b
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773506"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330598"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Démarrage rapide : Utiliser les files d’attente Service Bus dans Azure avec Node.js et le package azure-sb
-
-> [!div class="op_multi_selector" title1="Langage de programmation" title2="Package Node.js"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
-
 Dans ce tutoriel, vous allez apprendre à créer des applications Node.js pour envoyer/recevoir des messages vers/en provenance d’une file d’attente Azure Service Bus en utilisant le package [azure-sb](https://www.npmjs.com/package/azure-sb). Les exemples sont écrits en JavaScript et utilisent le [module Azure](https://www.npmjs.com/package/azure) Node.js, qui utilise en interne le package azure-sb.
 
-Le package [azure-sb](https://www.npmjs.com/package/azure-sb) utilise les [API d’exécution REST Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Vous pouvez bénéficier d’une expérience plus rapide en utilisant le nouveau package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus), qui exploite le [protocole AMQP 1.0](service-bus-amqp-overview.md) plus rapide. Pour en savoir plus sur le nouveau package, consultez [Comment utiliser les files d’attente Service Bus avec Node.js et le @azure/service-buspackage](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), sinon poursuivez votre lecture pour savoir comment utiliser le package [azure](https://www.npmjs.com/package/azure).
+> [!IMPORTANT]
+> Le package [azure-sb](https://www.npmjs.com/package/azure-sb) utilise les [API d’exécution REST Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Vous pouvez bénéficier d’une expérience plus rapide en utilisant le nouveau package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus), qui exploite le [protocole AMQP 1.0](service-bus-amqp-overview.md) plus rapide. 
+> 
+> Pour en savoir plus sur le nouveau package, consultez [Comment utiliser les files d’attente Service Bus avec Node.js et le @azure/service-buspackage](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), sinon poursuivez votre lecture pour savoir comment utiliser le package [azure](https://www.npmjs.com/package/azure).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 - Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Si vous n’avez pas de file d’attente à utiliser, suivez les étapes de l’article [Utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) pour créer une file d’attente.
     1. Consultez la **vue d’ensemble** rapide des **files d’attente** Service Bus. 

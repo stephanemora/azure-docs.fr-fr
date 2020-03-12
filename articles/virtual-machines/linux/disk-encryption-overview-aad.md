@@ -2,17 +2,18 @@
 title: Prérequis d’application Azure Disk Encryption avec Azure AD (version précédente)
 description: Cet article décrit les prérequis pour l’utilisation de Microsoft Azure Disk Encryption pour les machines virtuelles IaaS.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: e1b9df750886af050163a85e2c6a3539bd63c733
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: f38fd7c8e14f58052912f68a277f194fd3866f2e
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457184"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970577"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-previous-release"></a>Azure Disk Encryption avec Azure AD (version précédente)
 
@@ -59,7 +60,7 @@ Pour plus d’informations, consultez [Création et configuration d’un coffre 
  
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Création et configuration d’un coffre de clés pour Azure Disk Encryption avec Azure AD (version précédente)](disk-encryption-key-vault-aad.md).
-- [Activer Azure Disk Encryption avec Azure AD App sur des machines virtuelles Linux (version précédente)](disk-encryption-linux-aad.md)
+- [Création et configuration d’un coffre de clés pour Azure Disk Encryption avec Azure AD (version précédente)](disk-encryption-key-vault-aad.md)
+- [Activer Azure Disk Encryption avec Azure AD sur des machines virtuelles Linux (version précédente)](disk-encryption-linux-aad.md)
 - [Script d’interface CLI des prérequis Azure Disk Encryption](https://github.com/ejarvi/ade-cli-getting-started)
 - [Script PowerShell des prérequis Azure Disk Encryption](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)

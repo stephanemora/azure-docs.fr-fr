@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84c794e6fe751bc1c12b90353ef7b285f31a2331
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: e99b9b87f939d614679fdecf24c9d36d99bf2938
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77192050"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78671918"
 ---
 # <a name="conditional-access-session"></a>Accès conditionnel : session
 
@@ -30,12 +30,12 @@ Les organisations peuvent utiliser ce contrôle pour demander à Azure AD de tra
 
 Pour plus d’informations sur l’utilisation et la configuration de restrictions appliquées par l’application, consultez les articles suivants :
 
-- [Activation d’un accès limité avec SharePoint Online](https://docs.microsoft.com/sharepoint/control-access-from-unmanaged-devices)
+- [Activation d’un accès limité avec SharePoint Online](/sharepoint/control-access-from-unmanaged-devices)
 - [Activation d’un accès limité avec Exchange Online](https://aka.ms/owalimitedaccess)
 
 ## <a name="conditional-access-application-control"></a>Contrôle d’application par accès conditionnel
 
-Le contrôle d’application par accès conditionnel utilise une architecture de proxy inverse et est intégré de manière unique à l’accès conditionnel Azure AD. L’accès conditionnel Azure AD vous permet d’appliquer des contrôles d’accès aux applications de votre organisation en fonction de certaines conditions. Les conditions définissent à qui (utilisateur ou groupe d’utilisateurs), à quoi (quelles applications cloud) et où (quels emplacements et réseaux) s’applique une stratégie d’accès conditionnel. Une fois que vous avez déterminé les conditions, vous pouvez router les utilisateurs vers [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) afin de protéger les données avec un contrôle d’application par accès conditionnel en appliquant des contrôles d’accès et de session.
+Le contrôle d’application par accès conditionnel utilise une architecture de proxy inverse et est intégré de manière unique à l’accès conditionnel Azure AD. L’accès conditionnel Azure AD vous permet d’appliquer des contrôles d’accès aux applications de votre organisation en fonction de certaines conditions. Les conditions définissent à qui (utilisateur ou groupe d’utilisateurs), à quoi (quelles applications cloud) et où (quels emplacements et réseaux) s’applique une stratégie d’accès conditionnel. Une fois que vous avez déterminé les conditions, vous pouvez router les utilisateurs vers [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) afin de protéger les données avec un contrôle d’application par accès conditionnel en appliquant des contrôles d’accès et de session.
 
 Le contrôle d’application par accès conditionnel permet de superviser et de contrôler en temps réel les sessions et accès utilisateur aux applications en fonction des stratégies d’accès et de session. Les stratégies d’accès et de session s’utilisent dans le portail Cloud App Security pour affiner davantage les filtres et définir les actions à effectuer sur un utilisateur. Avec les stratégies d’accès et de session, vous pouvez :
 
@@ -46,7 +46,7 @@ Le contrôle d’application par accès conditionnel permet de superviser et de 
 - Bloquer l’accès : vous pouvez bloquer l’accès de façon précise pour des applications et des utilisateurs spécifiques en fonction de plusieurs facteurs de risque. Par exemple, vous pouvez les bloquer s’ils utilisent des certificats clients comme moyen de gérer les appareils.
 - Bloquer des activités personnalisées : certaines applications ont des scénarios uniques qui comportent un risque, par exemple, l’envoi de messages avec du contenu sensible dans des applications telles que Microsoft Teams ou Slack. Dans ce genre de scénarios, vous pouvez analyser les messages pour rechercher la présence de contenu sensible et les bloquer en temps réel.
 
-Pour plus d’informations, consultez l’article [Déployer le contrôle d’application par accès conditionnel pour les applications proposées](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+Pour plus d’informations, consultez l’article [Déployer le contrôle d’application par accès conditionnel pour les applications proposées](/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="sign-in-frequency-preview"></a>Fréquence de connexion (préversion)
 

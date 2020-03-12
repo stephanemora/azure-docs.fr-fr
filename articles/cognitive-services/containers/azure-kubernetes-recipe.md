@@ -10,18 +10,18 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: 5c8b3ed329c03bd08b2a0b3e26ada7a4e36ceb49
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1968bc03bfddb9d6f6c8fe743a2a1a99722c074d
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716874"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399167"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Déployer le conteneur Détection de langue Analyse de texte sur Azure Kubernetes Service
 
 Découvrez comment déployer le conteneur Détection de langue. Cette procédure vous montre comment créer les conteneurs Docker locaux, envoyer (push) les conteneurs à votre propre registre de conteneurs privés, exécuter le conteneur dans un cluster Kubernetes et le tester dans un navigateur web.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Cette procédure nécessite plusieurs outils qui doivent être installés et exécutés localement. N’utilisez pas Azure Cloud Shell.
 
@@ -80,8 +80,11 @@ Pour déployer le conteneur sur Azure Kubernetes Service, les images de conteneu
 
     Enregistrez les résultats pour obtenir la propriété **loginServer**. Elle fera partie de l’adresse du conteneur hébergé, utilisée ultérieurement dans le fichier `language.yml`.
 
-    ```console
-    > az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
+    ```azurecli-interactive
+    az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
+    ```
+
+    ```output
     {
         "adminUserEnabled": false,
         "creationDate": "2019-01-02T23:49:53.783549+00:00",
@@ -136,8 +139,7 @@ Pour déployer le conteneur sur Azure Kubernetes Service, les images de conteneu
 
     Quand le processus est terminé, les résultats doivent être similaires à ceci :
 
-    ```console
-    > docker push pattyregistry.azurecr.io/language-frontend:v1
+    ```output
     The push refers to repository [pattyregistry.azurecr.io/language-frontend]
     82ff52ee6c73: Pushed
     07599c047227: Pushed
@@ -180,8 +182,7 @@ Les étapes suivantes sont nécessaires pour obtenir les informations permettant
 
     Enregistrez la valeur `appId` des résultats pour le paramètre correspondant à la personne responsable de l’étape 3, `<appId>`. Enregistrez le `password` pour le paramètre de secret du client `<client-secret>` de la section suivante.
 
-    ```console
-    > az ad sp create-for-rbac --skip-assignment
+    ```output
     {
       "appId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "displayName": "azure-cli-2018-12-31-18-39-32",
@@ -199,8 +200,7 @@ Les étapes suivantes sont nécessaires pour obtenir les informations permettant
 
     Enregistrez la sortie pour la valeur du paramètre d’étendue, `<acrId>`, de l’étape suivante. Voici comment il se présente :
 
-    ```console
-    > az acr show --resource-group cogserv-container-rg --name pattyregistry --query "id" --o table
+    ```output
     /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/cogserv-container-rg/providers/Microsoft.ContainerRegistry/registries/pattyregistry
     ```
 
@@ -222,8 +222,7 @@ Les étapes suivantes sont nécessaires pour obtenir les informations permettant
 
     Cette étape peut prendre quelques minutes. Le résultat est le suivant :
 
-    ```console
-    > az aks create --resource-group cogserv-container-rg --name patty-kube --node-count 2  --service-principal <appId>  --client-secret <client-secret>  --generate-ssh-keys
+    ```output
     {
       "aadProfile": null,
       "addonProfiles": null,
@@ -300,8 +299,7 @@ Cette section utilise l’interface CLI **kubectl** pour dialoguer avec Azure Ku
 
     La réponse se présente ainsi :
 
-    ```console
-    > kubectl get nodes
+    ```output
     NAME                       STATUS    ROLES     AGE       VERSION
     aks-nodepool1-13756812-0   Ready     agent     6m        v1.9.11
     aks-nodepool1-13756812-1   Ready     agent     6m        v1.9.11
@@ -337,8 +335,7 @@ Cette section utilise l’interface CLI **kubectl** pour dialoguer avec Azure Ku
 
     La réponse est la suivante :
 
-    ```console
-    > kubectl apply -f language.yml
+    ```output
     service "language-frontend" created
     deployment.apps "language-frontend" created
     service "language" created
@@ -353,8 +350,7 @@ Pour les deux conteneurs, vérifiez que les services `language-frontend` et `lan
 kubectl get all
 ```
 
-```console
-> kubectl get all
+```output
 NAME                                     READY     STATUS    RESTARTS   AGE
 pod/language-586849d8dc-7zvz5            1/1       Running   0          13h
 pod/language-frontend-68b9969969-bz9bg   1/1       Running   1          13h

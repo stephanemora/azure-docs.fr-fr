@@ -3,15 +3,16 @@ title: Créer et chiffrer une machine virtuelle Linux avec Azure PowerShell
 description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser Azure PowerShell pour créer et chiffrer une machine virtuelle Linux
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.openlocfilehash: 14cdd1e15212141e8c631b589c9c470bbdfe38a9
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a2cb8919ac0752c42f22e064d6201c7120fbc9b6
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829022"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970548"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>Démarrage rapide : Créer et chiffrer une machine virtuelle Linux dans Azure avec Azure PowerShell
 
@@ -85,7 +86,7 @@ OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncry
 ProgressMessage            : OS disk encryption started
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, vous pouvez utiliser la cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées :
 

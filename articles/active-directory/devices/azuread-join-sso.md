@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 083433d31f088eae1e138dd9cbd5ac05bbe8a304
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: f9d8c0cd803424e117bd4dc7a3382b7b32df2d05
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773305"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672717"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Fonctionnement de l’authentification unique auprès de ressources locales sur des appareils joints à Azure AD
 
@@ -24,7 +24,7 @@ Ce n’est probablement pas une surprise qu’un appareil joint à Azure Active 
 
 Cet article explique comment cela fonctionne.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
  Si les machines jointes à Azure AD ne sont pas connectées au réseau de votre organisation, un VPN ou une autre infrastructure réseau est nécessaire. L’authentification unique locale exige une communication à visibilité directe avec vos contrôleurs de domaine AD DS locaux.
 
@@ -42,11 +42,11 @@ Un environnement qui a à la fois un annuaire Azure AD et un annuaire AD local e
 Lors d’une tentative d’accès à une ressource demandant Kerberos dans l’environnement local de l’utilisateur, l’appareil :
 
 1. Envoie les informations du domaine local et les informations d’identification au contrôleur de domaine localisé pour authentifier l’utilisateur.
-1. Reçoit un [ticket TGT (Ticket-Granting Ticket)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets) Kerberos qui est utilisé pour accéder aux ressources jointes à AD. Si la tentative visant à obtenir le TGT pour le domaine AAD Connect échoue (le délai d’expiration du DCLocator associé peut entraîner un retard), des entrées du gestionnaire d’informations d’identification sont tentées ou l’utilisateur peut recevoir une fenêtre contextuelle d’authentification demandant des informations d’identification pour la ressource cible.
+1. Reçoit un [ticket TGT (Ticket-Granting Ticket)](/windows/desktop/secauthn/ticket-granting-tickets) Kerberos qui est utilisé pour accéder aux ressources jointes à AD. Si la tentative visant à obtenir le TGT pour le domaine AAD Connect échoue (le délai d’expiration du DCLocator associé peut entraîner un retard), des entrées du gestionnaire d’informations d’identification sont tentées ou l’utilisateur peut recevoir une fenêtre contextuelle d’authentification demandant des informations d’identification pour la ressource cible.
 
 Toutes les applications qui sont configurées pour l’**authentification Windows intégrée** bénéficient automatiquement de l’authentification unique quand un utilisateur tente d’y accéder.
 
-Windows Hello Entreprise nécessite une configuration supplémentaire pour activer l’authentification unique locale depuis un appareil joint à Azure AD. Pour plus d’informations, consultez [Configurer des appareils joints à Azure AD pour l’authentification unique locale avec Windows Hello Entreprise](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
+Windows Hello Entreprise nécessite une configuration supplémentaire pour activer l’authentification unique locale depuis un appareil joint à Azure AD. Pour plus d’informations, consultez [Configurer des appareils joints à Azure AD pour l’authentification unique locale avec Windows Hello Entreprise](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 
 ## <a name="what-you-get"></a>Ce que vous obtenez
 

@@ -2,17 +2,18 @@
 title: Scénarios Azure Disk Encryption sur les machines virtuelles Linux
 description: Cet article fournit des instructions pour l’activation de Microsoft Azure Disk Encryption pour les machines virtuelles Linux dans différents scénarios.
 author: msmbaldwin
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff4ccb4409bd9a41f390668cb94ef91b1b565421
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 19dcfb96f29939fd92f49ba288ddb6d9264e0f9a
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358810"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970591"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Linux
 

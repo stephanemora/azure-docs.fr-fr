@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 03/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 13fa733417558ab8be9ff1e5a9f1e484fb40f445
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9f0a7425fc09d391828a748832f662f02c6022cf
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102943"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970781"
 ---
 # <a name="scaling-media-processing"></a>Mise à l’échelle du traitement multimédia
 
@@ -35,7 +35,7 @@ Le tableau suivant vous aide à choisir entre les différentes vitesses d’enco
 |---|---|---|
 | **S1**|Encodage à débit binaire unique. <br/>Fichiers avec une résolution SD ou inférieure, insensibles à l’heure, à moindre coût.|Avec l'option « H264 – Vitesse de transmission unique – 16 x 9 SD », l'encodage à débit unique sous la forme d'un fichier MP4 de résolution SD prend environ 7 minutes.|
 | **S2**|Encodage à débit binaire unique et à débit binaire multiple.<br/>Utilisation normale de l’encodage SD et HD.|L'encodage avec la présélection « H264 – Vitesse de transmission unique – 720 pixels » prend environ 6 minutes.<br/><br/>L'encodage avec la présélection « H264 – Vitesse de transmission multiple – 720 pixels » prend environ 12 minutes.|
-| **S3**|Encodage à débit binaire unique et à débit binaire multiple.<br/>Vidéos avec une résolution HD complète et 4K. Encodage sensible à l’heure, plus rapide.|L'encodage avec la présélection « H264 – Vitesse de transmission unique – 1080 pixels » prend environ 3 minutes.<br/><br/>L’encodage avec la présélection « H264 à débit binaire multiple 1080p » prend environ 8 minutes.|
+| **S3**|Encodage à débit binaire unique et à débit binaire multiple.<br/>Vidéos avec une résolution HD complète et 4K. Encodage sensible à l’heure, plus rapide.|L’encodage avec la présélection « H264 à débit binaire simple 1080p » prend environ 3 minutes.<br/><br/>L’encodage avec la présélection « H264 à débit binaire multiple 1080p » prend environ 8 minutes.|
 
 ## <a name="considerations"></a>Considérations
 
@@ -46,8 +46,6 @@ Le reste de l’article explique comment utiliser la [CLI Media Services v3](h
 
 > [!NOTE]
 > Pour les travaux d’analyse audio et vidéo déclenchés par Media Services v3 ou Video Indexer, nous vous recommandons de provisionner votre compte avec des MRU 10 S3. Si vous avez besoin de plus de 10 MRU S3, ouvrez un ticket de support à l’aide du [Portail Azure](https://portal.azure.com/).
->
-> Actuellement, vous ne pouvez pas utiliser le Portail Azure pour gérer d’autres ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](media-services-apis-overview.md#sdks) pris en charge.
 
 ## <a name="prerequisites"></a>Prérequis 
 
@@ -76,4 +74,4 @@ Vous êtes facturé en fonction du nombre de minutes pendant lesquelles les unit
 ## <a name="see-also"></a>Voir aussi
 
 * [Quotas et limitations](limits-quotas-constraints.md)
-* [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

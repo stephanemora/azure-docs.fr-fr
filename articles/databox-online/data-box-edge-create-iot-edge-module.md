@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: f57a0431bbdafee2d38038d0039b47a34e5454c7
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 3aa1190fb713c2fbdedcb1ce84a65d4263693827
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315832"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942547"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Développer un module IoT Edge en C# pour déplacer des fichiers vers Data Box Edge
 
@@ -53,7 +53,7 @@ Avant de commencer, assurez-vous que vous disposez  des éléments suivants :
 - Ressources de développement :
 
     - [Visual Studio Code](https://code.visualstudio.com/).
-    - [Extension C# pour Visual Studio Code (développée par OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+    - [Extension C# pour Visual Studio Code (développée par OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
     - [Extension Azure IoT Edge pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
     - [SDK .NET Core 2.1](https://www.microsoft.com/net/download).
     - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows). Vous devrez peut-être créer un compte pour télécharger et installer le logiciel.
@@ -93,7 +93,7 @@ Créez un modèle de solution C# que vous pouvez personnaliser avec votre propre
 
 1. Dans Visual Studio Code, sélectionnez **Affichage > Palette de commandes** pour ouvrir la palette de commandes VS Code.
 2. Dans la palette de commandes, entrez et exécutez la commande **Azure: Sign in** et suivez les instructions pour vous connecter à votre compte Azure. Si vous êtes déjà connecté, vous pouvez ignorer cette étape.
-3. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge: Nouvelle solution IoT Edge**. Dans la palette de commandes, spécifiez les informations suivantes pour créer votre solution :
+3. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge: New IoT Edge solution**. Dans la palette de commandes, spécifiez les informations suivantes pour créer votre solution :
 
     1. Sélectionnez le dossier où vous souhaitez créer la solution.
     2. Spécifiez un nom pour votre solution ou acceptez le nom par défaut **EdgeSolution**.

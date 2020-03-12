@@ -4,12 +4,12 @@ description: Guide pratique pour déployer Azure Blockchain Workbench Preview
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: fab61b5850815e480b4a380fdccd6c1df5b449cd
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 141bb8825e47eb2309f9f551990a2976e8f4e209
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189193"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943200"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Déployer Azure Blockchain Workbench Preview
 
@@ -40,7 +40,7 @@ Voici un exemple de déploiement créé dans le groupe de ressources **myblockch
 
 Le coût associé à Blockchain Workbench est un agrégat du coût des services Azure sous-jacents. Les informations de tarification pour les services Azure peuvent être calculées à l’aide de la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Azure Blockchain Workbench requiert des inscriptions d’applications et la configuration Azure AD. Vous pouvez choisir d’effectuer les [configurations manuellement](#azure-ad-configuration) pour Azure AD avant le déploiement ou l’exécution d’un script post-déploiement. Si vous redéployez Blockchain Workbench, consultez la [configuration Azure AD](#azure-ad-configuration) pour vérifier votre configuration Azure AD.
 
@@ -67,9 +67,9 @@ Une fois que les étapes préalables requises ont été exécutées, vous êtes 
     | SSH | Utilisez une clé publique RSA au format ligne unique et commençant par **ssh-rsa** ou utilisez le format PEM multiligne. Vous pouvez générer des clés SSH à l’aide de `ssh-keygen` sur Linux et OS X, ou à l’aide de PuTTYGen sur Windows. Pour plus d’informations sur les clés SSH, consultez [Comment utiliser des clés SSH avec Windows sur Azure](../../virtual-machines/linux/ssh-from-windows.md). |
     | Mot de passe de base de données et de Blockchain | Spécifiez le mot de passe à utiliser pour accéder à la base de données créée dans le cadre du déploiement. Le mot de passe doit remplir trois des quatre conditions suivantes : il doit comprendre entre 12 et 72 caractères, 1 caractère minuscule, 1 caractère majuscule, 1 chiffre et 1 caractère spécial qui ne soit pas le signe dièze (#), le symbole de pourcentage (%), une virgule (,), une étoile (*), un guillemet inverse (\`), un guillemet double ("), un guillemet unique ('), un tiret (-) ou un point-virgule (;) |
     | Région du déploiement | Spécifiez où déployer les ressources Blockchain Workbench. Pour une disponibilité optimale, cette région doit correspondre au paramètre **Emplacement**. |
-    | Subscription | Spécifiez l’abonnement Azure que vous souhaitez utiliser pour votre déploiement. |
+    | Abonnement | Spécifiez l’abonnement Azure que vous souhaitez utiliser pour votre déploiement. |
     | Groupes de ressources | Créez un groupe de ressources en sélectionnant **Créer** et donnez un nom unique au groupe de ressources. |
-    | Location | Spécifiez la région où vous souhaitez déployer l’infrastructure. |
+    | Emplacement | Spécifiez la région où vous souhaitez déployer l’infrastructure. |
 
 1. Sélectionnez **OK** à la fin de la section de configuration du paramètre de base.
 
@@ -135,7 +135,7 @@ Une fois le déploiement de Blockchain Workbench terminé, un nouveau groupe de 
 
     ![Base App Service](media/deploy/app-service.png)
 
-Pour associer un nom de domaine personnalisé avec Blockchain Workbench, voir [Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager](../../app-service/web-sites-traffic-manager-custom-domain-name.md).
+Pour associer un nom de domaine personnalisé avec Blockchain Workbench, voir [Configuration d’un nom de domaine personnalisé pour une application web dans Azure App Service utilisant Traffic Manager](../../app-service/configure-domain-traffic-manager.md).
 
 ## <a name="azure-ad-configuration-script"></a>Script de configuration Azure AD
 

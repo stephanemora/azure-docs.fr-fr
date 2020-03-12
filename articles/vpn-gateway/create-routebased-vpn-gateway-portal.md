@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: f2b8791c4a8714257f1e085fcf1af5517634daf1
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 6156d689a29ee348f9b1974d1520eb7d186a8d8d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303390"
+ms.locfileid: "78331347"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Créer une passerelle VPN basée sur des itinéraires à l’aide du portail Azure
 
@@ -23,7 +23,7 @@ Les étapes décrites dans cet article permettent de créer un réseau virtuel, 
 
 ## <a name="vnet"></a>Créer un réseau virtuel
 
-[!INCLUDE [Create a virtual network](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
+[!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
 ## <a name="gwvalues"></a>Configurer et créer la passerelle
 
@@ -31,7 +31,7 @@ Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
-[!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
+[!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 >[!NOTE]
 >La référence SKU de passerelle De base ne prend pas en charge IKEv2 ou l’authentification RADIUS. Si vous envisagez de connecter des clients Mac à votre réseau virtuel, n’utilisez pas la référence SKU De base.

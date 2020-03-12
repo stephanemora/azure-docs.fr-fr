@@ -7,15 +7,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: f7d6e98205afad2ed2c4aea30e635254f79acaa1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5499e8362e1107a18b997a6a485e11343c328d0d
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448088"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898374"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Étiqueter une entité issue du Machine Learning dans un exemple d’énoncé
 
@@ -86,7 +86,7 @@ Les rôles d’entité sont étiquetés à l’aide de la palette d’entités.
 1. Dans la page des détails de l’intention, sélectionnez la **palette d’entités** dans la barre d’outils contextuelle.
 1. Une fois la palette d’entités ouverte, sélectionnez l’entité dans la liste des entités.
 1. Accédez à l’**inspecteur d’entité**, puis sélectionnez un rôle existant ou créez-en un.
-1. Dans l’exemple de texte d’énoncé, étiquetez le texte avec le rôle d’entité. 
+1. Dans l’exemple de texte d’énoncé, étiquetez le texte avec le rôle d’entité.
 
 ## <a name="unlabel-entities"></a>Supprimer les étiquettes des entités
 

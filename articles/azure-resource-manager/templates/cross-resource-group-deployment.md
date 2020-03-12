@@ -3,12 +3,12 @@ title: Déployer des ressources inter-abonnements et groupes de ressources
 description: Montre comment cibler plusieurs groupes de ressources et des abonnements Azure pendant le déploiement.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 47573fedd7915d95d6ed98e3fd0aaf840331552b
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 3cc31e64e9595c637a23fc54d9d02274ded40dda
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250606"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944031"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements
 
@@ -331,7 +331,7 @@ New-AzResourceGroupDeployment `
 
 La sortie de l’exemple précédent est :
 
-```powershell
+```output
  Name             Type                       Value
  ===============  =========================  ==========
  parentRG         String                     Parent resource group is parentGroup

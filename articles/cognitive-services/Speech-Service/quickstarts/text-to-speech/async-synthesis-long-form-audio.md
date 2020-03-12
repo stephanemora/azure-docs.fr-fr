@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: afa9437a00c6f30688c7942feea94f7db7ed490a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: d3cd330001bcf53e7bd4fb9e6955c76a9ef20511
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919343"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331074"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Démarrage rapide : Synthèse asynchrone pour l’audio long dans Python (préversion)
 
@@ -30,7 +30,7 @@ Ce démarrage rapide nécessite :
 
 * Python 2.7.x ou 3.x.
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) ou l’éditeur de texte de votre choix.
-* Un abonnement Azure et une clé d’abonnement au service Speech. [Créez un compte Azure](../../get-started.md#new-resource) et [créez une ressource Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) pour obtenir la clé. Lors de la création de la ressource Speech, vérifiez que votre niveau tarifaire est défini sur **S0** et que l’emplacement est défini sur une [région prise en charge](../../regions.md#standard-and-neural-voices).
+* Un abonnement Azure et une clé d’abonnement au service Speech. [Créez un compte Azure](../../get-started.md#new-resource) et [créez une ressource Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-resource) pour obtenir la clé. Lors de la création de la ressource Speech, vérifiez que votre niveau tarifaire est défini sur **S0** et que l’emplacement est défini sur une [région prise en charge](../../regions.md#standard-and-neural-voices).
 
 ## <a name="create-a-project-and-import-required-modules"></a>Créez un projet et importez les modules requis
 

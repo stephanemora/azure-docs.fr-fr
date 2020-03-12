@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24ec4373bceb3cc3c9e5be2c7a0dab1f62197b3c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 40f89fbe19b93601f9e0525f0387e402bd175fe4
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512196"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672679"
 ---
 # <a name="azure-ad-joined-devices"></a>Appareils joints Azure AD
 
@@ -27,7 +27,7 @@ La jonction Azure AD est destinée aux organisations axées en priorité ou uniq
 | **Définition** | Joint uniquement à Azure AD et nécessitant un compte professionnel pour se connecter à l’appareil |
 | **Public principal** | Approprié pour les organisations utilisant uniquement le cloud et pour les organisations hybrides. |
 |   | S’applique à tous les utilisateurs d’une organisation |
-| **Appartenance de l’appareil** | Organization |
+| **Appartenance de l’appareil** | Organisation |
 | **Systèmes d’exploitation** | Tous les appareils Windows 10 |
 | **Approvisionnement** | Libre-service : Windows OOBE ou Paramètres |
 |   | Inscription en bloc |
@@ -45,9 +45,9 @@ La jonction Azure AD est destinée aux organisations axées en priorité ou uniq
 
 Les appareils joints Azure AD sont connectés au moyen d’un compte professionnel Azure AD. L’accès aux ressources de l’organisation peut être limité par ce compte Azure AD et les [stratégies d’accès conditionnel](../conditional-access/overview.md) appliquées à l’identité de l’appareil.
 
-Les administrateurs peuvent sécuriser et mieux contrôler les appareils joints Azure AD à l’aide d’outils de gestion des périphériques mobiles (GPM), tels que Microsoft Intune ou dans des scénarios de cogestion à l’aide de Microsoft Endpoint Configuration Manager. Ces outils permettent d’appliquer les configurations requises par l’organisation, comme l’exigence du chiffrement du stockage, la complexité des mots de passe, les installations de logiciels et les mises à jour logicielles. Les administrateurs peuvent mettre des applications d’organisation à la disposition des appareils joints Azure AD des à l’aide de Configuration Manager pour [gérer des applications à partir des Microsoft Store pour les entreprises et l’enseignement](https://docs.microsoft.com/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
+Les administrateurs peuvent sécuriser et mieux contrôler les appareils joints Azure AD à l’aide d’outils de gestion des périphériques mobiles (GPM), tels que Microsoft Intune ou dans des scénarios de cogestion à l’aide de Microsoft Endpoint Configuration Manager. Ces outils permettent d’appliquer les configurations requises par l’organisation, comme l’exigence du chiffrement du stockage, la complexité des mots de passe, les installations de logiciels et les mises à jour logicielles. Les administrateurs peuvent mettre des applications d’organisation à la disposition des appareils joints Azure AD des à l’aide de Configuration Manager pour [gérer des applications à partir des Microsoft Store pour les entreprises et l’enseignement](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
-La jonction Azure AD peut se faire à l’aide d’options libre-service telles que le mode OOBE (Out of Box Experience), l’inscription en bloc ou [Windows Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot).
+La jonction Azure AD peut se faire à l’aide d’options libre-service telles que le mode OOBE (Out of Box Experience), l’inscription en bloc ou [Windows Autopilot](/intune/enrollment-autopilot).
 
 Les appareils joints AD Azure peuvent conserver un accès avec authentification unique vers les ressources locales lorsqu’ils se trouvent sur le réseau de l’organisation. Les appareils joints Azure AD peuvent toujours s’authentifier sur des serveurs locaux (fichiers, impression et autres applications).
 
@@ -74,8 +74,8 @@ Les appareils joints Azure AD ont pour objectif de simplifier :
 
 Il existe différentes manières de déployer Azure AD Join :
 
-- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
-- [Déploiement en bloc](https://docs.microsoft.com/intune/windows-bulk-enroll)
+- [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot)
+- [Déploiement en bloc](/intune/windows-bulk-enroll)
 - [Expérience en libre-service](azuread-joined-devices-frx.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

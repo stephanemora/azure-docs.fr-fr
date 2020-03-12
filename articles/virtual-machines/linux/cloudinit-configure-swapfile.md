@@ -1,25 +1,18 @@
 ---
 title: Utiliser cloud-init pour configurer une partition d'échange sur une machine virtuelle Linux
 description: Utilisation de cloud-init pour configurer une partition d'échange sur une machine virtuelle Linux lors de la création à l'aide de l'interface Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
 author: rickstercdn
 manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: fad73a7dbed9351d684ef2464cf2fa6fa3489290
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1247652e536042ee249054d86aed3c3f8e7aa7bf
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036767"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969199"
 ---
 # <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>Utiliser cloud-init pour configurer une partition d'échange sur une machine virtuelle Linux
 Cet article vous explique comment utiliser [cloud-init](https://cloudinit.readthedocs.io) pour configurer la partition d'échange sur différentes distributions Linux. La partition d'échange est généralement configurée par l'Agent Linux (WALA) en fonction des distributions qui en ont besoin.  Ce document décrit le processus de création de la partition d'échange à la demande au moment de l'approvisionnement à l'aide de cloud-init.  Pour plus d’informations sur le fonctionnement de cloud-init en mode natif dans Azure et sur les versions de Linux prises en charge, consultez [Présentation de cloud-init](using-cloud-init.md)
@@ -29,7 +22,7 @@ Par défaut sur Azure, les images de la galerie d'Ubuntu ne créent pas de parti
 
 ## <a name="create-swap-partition-for-red-hat-and-centos-based-images"></a>Créer une partition d'échange pour les images basées sur Red Hat et CentOS
 
-Dans l'interpréteur de commandes actuel, créez un fichier nommé *cloud_init_swappart.txt* et collez la configuration suivante. Pour cet exemple, créez le fichier dans Cloud Shell et non sur votre ordinateur local. Vous pouvez utiliser l’éditeur de votre choix. Entrez `sensible-editor cloud_init_swappart.txt` pour créer le fichier et afficher la liste des éditeurs disponibles. Choisissez le n°1 pour utiliser l’éditeur **nano**. Vérifiez que l’intégralité du fichier cloud-init est copiée correctement, en particulier la première ligne.  
+Dans l'interpréteur de commandes actuel, créez un fichier nommé *cloud_init_swappart.txt* et collez la configuration suivante. Pour cet exemple, créez le fichier dans Cloud Shell et non sur votre ordinateur local. Vous pouvez utiliser l’éditeur de votre choix. Entrez `sensible-editor cloud_init_swappart.txt` pour créer le fichier et afficher la liste des éditeurs disponibles. Choisissez le n°1 pour utiliser l’éditeur **nano**. Vérifiez que l’intégralité du fichier cloud-init est copiée, en particulier la première ligne.  
 
 ```yaml
 #cloud-config

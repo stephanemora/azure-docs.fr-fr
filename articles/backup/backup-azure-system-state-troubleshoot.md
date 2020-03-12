@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment résoudre les problèmes de sa
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: f311de435d813cb0e6f8a2c3d932e05d695603f3
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 28647b72334d592692c5fe1b031735330d1a0509
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583297"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969572"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Résoudre les problèmes de sauvegarde de l’état du système
 
@@ -137,7 +137,7 @@ Si le travail échoue, cela indique un problème lié à la Sauvegarde Windows S
 
 | Symptôme | Résolution
 | -- | --
-| - MARS Agent échoue avec le message d’erreur suivant : La sauvegarde a échoué, car le volume de clichés instantanés ne peut pas augmenter en raison d’un espace disque insuffisant sur les volumes contenant les fichiers système. <br/><br/> - Le journal des erreurs/avertissements suivant est présent dans les journaux d’événements système volsnap : « Espace disque insuffisant sur le volume C: pour agrandir l’espace de stockage des clichés instantanés de C:. Suite à cette défaillance, tous les clichés instantanés du volume C: risquent d’être supprimés. » | - Libérez de l’espace dans le volume mis en surbrillance dans le journal des événements afin que l’espace disque soit suffisant pour augmenter le volume des clichés instantanés pendant la sauvegarde en cours. <br/><br/> - Nous pouvons limiter la quantité d’espace utilisé pour les clichés instantanés lors de la configuration de cet espace. Pour plus d’informations, consultez cet [article](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc788050(v=ws.11)#syntax)
+| - MARS Agent échoue avec le message d’erreur suivant : La sauvegarde a échoué, car le volume de clichés instantanés ne peut pas augmenter en raison d’un espace disque insuffisant sur les volumes contenant les fichiers système. <br/><br/> - Le journal des erreurs/avertissements suivant est présent dans les journaux d’événements système volsnap : « Espace disque insuffisant sur le volume C: pour agrandir l’espace de stockage des clichés instantanés de C:. Suite à cette défaillance, tous les clichés instantanés du volume C: risquent d’être supprimés. » | - Libérez de l’espace dans le volume mis en surbrillance dans le journal des événements afin que l’espace disque soit suffisant pour augmenter le volume des clichés instantanés pendant la sauvegarde en cours. <br/><br/> - Nous pouvons limiter la quantité d’espace utilisé pour les clichés instantanés lors de la configuration de cet espace. Pour plus d’informations, consultez cet [article](https://docs.microsoft.com/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
 
 ### <a name="efi-partition-locked"></a>Partition EFI verrouillée
 

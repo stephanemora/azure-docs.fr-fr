@@ -3,12 +3,12 @@ title: Vider les étiquettes et les manifestes
 description: Utilisez une commande de vidage pour supprimer plusieurs balises et manifestes d’un registre de conteneurs Azure en fonction d’un filtre d’âge et d’étiquette, et planifiez éventuellement des opérations de vidage.
 ms.topic: article
 ms.date: 08/14/2019
-ms.openlocfilehash: 0ec1f5f6f5c3c572b8558c971b58e46cce36e3fd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f9d86b628bdd0ce0db3067b02a47517d8aadcba3
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923110"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087337"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Purger automatiquement les images d’un registre de conteneurs Azure
 
@@ -47,7 +47,7 @@ Au minimum, spécifiez les éléments suivants lorsque vous exécutez `acr purge
 
 Pour les paramètres supplémentaires, exécutez `acr purge --help`. 
 
-`acr purge` prend en charge d’autres fonctionnalités des commandes de tâches ACR, notamment les [variables d’exécution](container-registry-tasks-reference-yaml.md#run-variables) et les [journaux d’exécution des tâches](container-registry-tasks-overview.md#view-task-logs) qui sont diffusés en continu et également enregistrés pour une récupération ultérieure.
+`acr purge` prend en charge d’autres fonctionnalités des commandes de tâches ACR, notamment les [variables d’exécution](container-registry-tasks-reference-yaml.md#run-variables) et les [journaux d’exécution des tâches](container-registry-tasks-logs.md) qui sont diffusés en continu et également enregistrés pour une récupération ultérieure.
 
 ### <a name="run-in-an-on-demand-task"></a>Exécuter dans une tâche à la demande
 
@@ -100,7 +100,7 @@ az acr run \
   /dev/null
 ```
 
-## <a name="example-scheduled-purge-of-multiple-repositories-in-a-registry"></a>Exemple : Vidage planifié de plusieurs dépôts dans un registre
+## <a name="example-scheduled-purge-of-multiple-repositories-in-a-registry"></a>Exemple : Vidage planifié de plusieurs dépôts dans un registre
 
 Cet exemple explique comment utiliser `acr purge` pour nettoyer périodiquement plusieurs référentiels dans un registre. Par exemple, vous pouvez avoir un pipeline de développement qui pousse les images vers les référentiels `samples/devimage1` et `samples/devimage2`. Vous importez régulièrement des images de développement dans un référentiel de production pour vos déploiements, vous n’avez donc plus besoin des images de développement. Chaque semaine, vous videz les dépôts `samples/devimage1` et `samples/devimage2`, en préparation du travail de la semaine à venir.
 
@@ -124,7 +124,7 @@ az acr run \
 
 Examinez la sortie de la commande pour voir les étiquettes et les manifestes qui correspondent aux paramètres de sélection. Étant donné que la commande est exécutée avec `--dry-run`, aucune donnée n’est supprimée.
 
-Exemple de sortie :
+Exemple de sortie :
 
 ```console
 [...]

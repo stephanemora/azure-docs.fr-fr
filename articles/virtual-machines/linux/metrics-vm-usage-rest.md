@@ -1,21 +1,19 @@
 ---
 title: Obtenir les données d’utilisation d’une machine virtuelle Azure à l’aide de l’API REST
 description: Utilisez les API REST Azure pour collecter des métriques d’utilisation sur une machine virtuelle.
-services: virtual-machines
 author: rloutlaw
-ms.reviewer: routlaw
-manager: gwallace
-ms.service: load-balancer
+ms.service: virtual-machines
+ms.subservice: monitoring
 ms.custom: REST
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 523b81e53f2b0622b237993dbd88fb9492079c86
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 07e91f3d9fd32f01db91415bfd90746cd1aef403
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035805"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944755"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>Obtenir les métriques d’utilisation d’une machine virtuelle à l’aide de l’API REST
 
@@ -37,8 +35,8 @@ Les en-têtes suivants sont requis :
 
 |En-tête de requête|Description|  
 |--------------------|-----------------|  
-|*Content-Type :*|Requis. Défini sur `application/json`.|  
-|*Authorization :*|Requis. Défini sur un [jeton d’accès](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valide. |  
+|*Content-Type :*|Obligatoire. Défini sur `application/json`.|  
+|*Authorization :*|Obligatoire. Défini sur un [jeton d’accès](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valide. |  
 
 ### <a name="uri-parameters"></a>Paramètres URI
 

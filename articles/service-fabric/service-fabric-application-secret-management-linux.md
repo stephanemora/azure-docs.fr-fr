@@ -5,12 +5,12 @@ author: shsha
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: shsha
-ms.openlocfilehash: 350718e4ce890fcbfaa7f2b10cc4c47dfac4da90
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: b8e0a19e3f654fc561e7c7e26c6a2da463e24d5f
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614704"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969033"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-linux-clusters"></a>Configurer un certificat de chiffrement et chiffrer des secrets sur clusters Linux
 Dans cet article, découvrez comment configurer un certificat de chiffrement et l’utiliser pour chiffrer des secrets sur clusters Linux. Pour les clusters Windows, voir [Configurer un certificat de chiffrement et chiffrer des secrets sur Windows][secret-management-windows-specific-link].
@@ -36,7 +36,7 @@ L’extrait de code suivant permet de chiffrer un secret. Cet extrait de code ch
 
 ```console
 user@linux:$ echo "Hello World!" > plaintext.txt
-user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt -o plaintext_UTF-16.txt
+user@linux:$ iconv -f ASCII -t UTF-16LE plaintext.txt | tr -d '\n' > plaintext_UTF-16.txt
 user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform der TestCert.pem | base64 > encrypted.txt
 ```
 La chaîne encodée en base 64 qui en résulte dans le fichier encrypted.txt contient à la fois le texte chiffré secret et plus d’informations sur le certificat qui a été utilisé pour le chiffrement. Vous pouvez vérifier sa validité en la déchiffrant avec OpenSSL.
@@ -45,7 +45,7 @@ user@linux:$ cat encrypted.txt | base64 -d | openssl smime -decrypt -inform der 
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez comment [Spécifier des secrets chiffrés dans une application.][secret-management-specify-encrypted-secrets-link]
+Découvrez comment [Spécifier des secrets chiffrés dans une application][secret-management-specify-encrypted-secrets-link].
 
 <!-- Links -->
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md

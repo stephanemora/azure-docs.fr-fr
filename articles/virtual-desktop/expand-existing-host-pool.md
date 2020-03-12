@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/21/2020
 ms.author: helohr
-ms.openlocfilehash: 354ee312099902372863ce2ea636d2f9f9943d5c
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+manager: lizross
+ms.openlocfilehash: 37c3e57fd96a0161564b23ce18d01573d0dd73f9
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566490"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127897"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Développer un pool d’hôtes existant avec de nouveaux hôtes de session
 
@@ -76,13 +77,13 @@ Suivez les instructions de la section [Créer un pool d’hôtes en utilisant la
 
 Toutes les valeurs dans cette section doivent correspondre à celles que vous avez fournies lors de la création initiale du pool d’hôtes et des machines virtuelles hôtes de session, à l’exception des *utilisateurs de bureau par défaut* :
 
-1.  Pour *Abonnement*, sélectionnez l’abonnement dans lequel vous avez créé initialement le pool d’hôtes.
-2.  Pour *Groupe de ressources*, sélectionnez le groupe de ressources dans lequel se trouvent les machines virtuelles hôtes de session du pool d’hôtes existant.
-3.  Pour *Région*, sélectionnez la région dans laquelle se trouvent les machines virtuelles hôtes de session du pool d’hôtes existant.
-4.  Pour *Nom du pool d’hôtes*, entrez le nom du pool d’hôtes existant.
-5.  Pour *Type de bureau*, sélectionnez le type de bureau correspondant au pool d’hôtes existant.
-6.  Pour *Utilisateurs de bureau par défaut*, entrez une liste séparée par des virgules des utilisateurs supplémentaires dont vous voulez qu’il se connectent aux clients Windows Virtual Desktop et accèdent à un ordinateur de bureau une fois l’offre de la Place de marché Microsoft Azure terminée. Par exemple, si vous voulez accorder l’accès à user3@contoso.com et user4@contoso.com, entrez user3@contoso.com,user4@contoso.com.
-7.  Sélectionnez **Suivant : Configurer la machine virtuelle**.
+1.    Pour *Abonnement*, sélectionnez l’abonnement dans lequel vous avez créé initialement le pool d’hôtes.
+2.    Pour *Groupe de ressources*, sélectionnez le groupe de ressources dans lequel se trouvent les machines virtuelles hôtes de session du pool d’hôtes existant.
+3.    Pour *Région*, sélectionnez la région dans laquelle se trouvent les machines virtuelles hôtes de session du pool d’hôtes existant.
+4.    Pour *Nom du pool d’hôtes*, entrez le nom du pool d’hôtes existant.
+5.    Pour *Type de bureau*, sélectionnez le type de bureau correspondant au pool d’hôtes existant.
+6.    Pour *Utilisateurs de bureau par défaut*, entrez une liste séparée par des virgules des utilisateurs supplémentaires dont vous voulez qu’il se connectent aux clients Windows Virtual Desktop et accèdent à un ordinateur de bureau une fois l’offre de la Place de marché Microsoft Azure terminée. Par exemple, si vous voulez accorder l’accès à user3@contoso.com et user4@contoso.com, entrez user3@contoso.com,user4@contoso.com.
+7.    Sélectionnez **Suivant : Configurer la machine virtuelle**.
 
 >[!NOTE]
 >À l’exception des *Utilisateurs de bureau par défaut*, tous les champs doivent correspondre exactement à ce qui a été configuré dans le pool d’hôtes existant. S’il existe une discordance qui entraîne un nouveau pool d’hôtes.

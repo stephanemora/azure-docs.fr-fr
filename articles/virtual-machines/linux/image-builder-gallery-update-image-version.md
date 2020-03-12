@@ -6,19 +6,20 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 manager: gwallace
-ms.openlocfilehash: d226a7b31dc9f8cf219c6d0d0f886fb5b21741a6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 4a3a9bd518b9bc695855ad2b0b659d3cf1834c05
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976330"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945041"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Aperçu : Créer une nouvelle version d’image de machine virtuelle à partir d’une version existante à l’aide du Générateur d’images Azure
 
 Cet article explique comment récupérer une version existante d’une image dans une [Bibliothèque d’images partagées](shared-image-galleries.md), la mettre à jour et la publier sous la forme d’une nouvelle version dans la bibliothèque.
 
-Nous utiliserons un exemple de modèle .json.pour configurer l’image. Le fichier en question se trouve à l’emplacement [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json). 
+Pour configurer l’image, nous allons utiliser un exemple de modèle .json. Le fichier en question se trouve à l’emplacement [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json). 
 
 
 ## <a name="register-the-features"></a>Inscrire les fonctionnalités
@@ -73,7 +74,7 @@ imageDefName=myIbImageDef
 runOutputName=aibSIGLinuxUpdate
 ```
 
-Créez une variable pour votre ID d’abonnement. que vous pouvez récupérer avec `az account show | grep id`.
+Créez une variable pour votre ID d’abonnement. Vous pouvez l’obtenir avec `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>

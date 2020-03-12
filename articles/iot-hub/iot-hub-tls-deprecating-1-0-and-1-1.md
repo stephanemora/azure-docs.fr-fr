@@ -7,21 +7,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 8e2f8fd7f99c359949b02959cc442f2f3d3ebfff
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: d61ca8fe7c6f5e7cc400714d7c31a0a7e50b8a88
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912152"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402793"
 ---
 # <a name="deprecation-of-tls-10-and-11-in-iot-hub-and-device-provisioning-service"></a>Dépréciation de TLS 1.0 et 1.1 dans IoT Hub et le service de provisionnement des appareils
 
-Pour offrir un chiffrement optimal, IoT Hub et le Service Device Provisioning (DPS) passent au mécanisme de chiffrement privilégié TLS (Transport Layer Security) 1.2 pour les appareils et services IoT. Par conséquent, la prise en charge héritée de TLS 1.0 et TLS 1.1, ainsi que plusieurs chiffrements hérités non recommandés, sera dépréciée le **1er juillet 2020**.
-
-
-## <a name="impact"></a>Impact
-En fonction des circonstances et des configurations spécifiques des clients, la dépréciation de TLS 1.0 et 1.1 et des chiffrements hérités non recommandés peut représenter un changement important pour les appareils et services IoT communiquant avec IoT Hub ou DPS. Dans certains cas, les appareils et les services incompatibles avec ces modifications ne pourront pas se connecter au hub IoT ou à DPS après la date limite susmentionnée.
-
+Pour offrir un chiffrement optimal, IoT Hub et le Service Device Provisioning (DPS) passent au mécanisme de chiffrement privilégié TLS (Transport Layer Security) 1.2 pour les appareils et services IoT. 
 
 ## <a name="supported-ciphers"></a>Chiffrements pris en charge
 

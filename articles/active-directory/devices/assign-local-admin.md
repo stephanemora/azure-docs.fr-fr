@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8087e9eaa11ced5da9b445af9d33377b4391c0
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 613c5e9f153f2e3f02ab35d3be16ef3b29d15634
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379662"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78672725"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Guide pratique pour gérer le groupe Administrateurs local sur des appareils joints à Azure AD
 
@@ -68,8 +68,8 @@ Les administrateurs d’appareil sont affectés à toutes les appareils joints �
 
 Par défaut, Azure AD ajoute l’utilisateur qui effectue la jonction à Azure AD au groupe Administrateurs sur l’appareil. Si vous souhaitez empêcher les utilisateurs réguliers de devenir des administrateurs locaux, vous disposez des options suivantes :
 
-- [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) : Windows Autopilot offre une option permettant d’empêcher l’utilisateur principal qui effectue la jonction de devenir un administrateur local. Pour cela, vous pouvez [créer un profil Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
-- [Inscription en bloc](https://docs.microsoft.com/intune/windows-bulk-enroll) : une jonction à Azure AD qui est effectuée dans le contexte d’une inscription en bloc se produit dans le contexte d’un utilisateur créé automatiquement. Les utilisateurs qui se connectent après la jonction d’un appareil ne sont pas ajoutés au groupe Administrateurs.   
+- [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot) : Windows Autopilot offre une option permettant d’empêcher l’utilisateur principal qui effectue la jonction de devenir un administrateur local. Pour cela, vous pouvez [créer un profil Autopilot](/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
+- [Inscription en bloc](/intune/windows-bulk-enroll) : une jonction à Azure AD qui est effectuée dans le contexte d’une inscription en bloc se produit dans le contexte d’un utilisateur créé automatiquement. Les utilisateurs qui se connectent après la jonction d’un appareil ne sont pas ajoutés au groupe Administrateurs.   
 
 ## <a name="manually-elevate-a-user-on-a-device"></a>Élever manuellement un utilisateur sur un appareil 
 

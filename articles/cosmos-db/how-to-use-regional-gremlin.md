@@ -5,14 +5,14 @@ author: luisbosquez
 ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: 6bce69889910296f5ff28090e62cfe27c0640d95
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7aa1e0aa6bbbee9d40eb0d48318a8e2908a75f9d
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755028"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897862"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Points de terminaison régionaux pour le compte de graphe Azure Cosmos DB
 Comme la base de données de graphes Azure Cosmos DB est [globalement distribuée](distribute-data-globally.md), les applications peuvent utiliser plusieurs points de terminaison de lecture. Les applications qui ont besoin d’un accès en écriture dans plusieurs emplacements doivent activer la fonctionnalité [multimaître](how-to-multi-master.md).

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 478b6cffb6fbb2be7a87b9b61d5b7e2ee71a74c2
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0723ddc9b0e2f15d5c8e51c96d51f58f1313493a
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840704"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673671"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>Résoudre les problèmes liés à la passerelle de réseau virtuel et aux connexions par le biais de PowerShell d’Azure Network Watcher
 
@@ -47,7 +47,7 @@ La résolution des problèmes liés aux ressources offre la possibilité de rés
 La première étape consiste à récupérer l’instance de Network Watcher. La variable `$networkWatcher` est transmise à l’applet de commande `Start-AzNetworkWatcherResourceTroubleshooting` lors de l’étape 4.
 
 ```powershell
-$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
+$networkWatcher = Get-AzNetworkWatcher -Location "WestCentralUS" 
 ```
 
 ## <a name="retrieve-a-virtual-network-gateway-connection"></a>Récupérer une connexion de passerelle de réseau virtuel
