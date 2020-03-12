@@ -1,20 +1,19 @@
 ---
 title: Présentation d’Apache Hive et HiveQL - Azure HDInsight
 description: Apache Hive est un système d’entrepôt de données pour Apache Hadoop. Vous pouvez interroger les données stockées dans Hive à l’aide de HiveQL, qui est similaire à Transact-SQL. Dans ce document, découvrez comment utiliser Hive et HiveQL avec Azure HDInsight.
-keywords: hiveql,présentation de hive,hadoop hiveql,utilisation de hive,découvrir hive,présentation de hive
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: e07939bd5f0264df637fda439d96be213a8d28d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 02/28/2020
+ms.openlocfilehash: 20fdafc3077d1017c17d1055596dab150dffec72
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499210"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206637"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Présentation d’Apache Hive et HiveQL sur Azure HDInsight
 
@@ -24,13 +23,12 @@ Hive vous permet de concevoir une structure sur des données largement structur�
 
 HDInsight fournit plusieurs types de cluster adaptés à des charges de travail spécifiques. Voici les types de cluster les plus souvent utilisés pour les requêtes Hive :
 
-* __Interactive Query__ : Cluster Hadoop qui offre une fonctionnalité [LLAP (Low Latency Analytical Processing)](https://cwiki.apache.org/confluence/display/Hive/LLAP) afin d’améliorer les temps de réponse des requêtes interactives. Pour plus d’informations, consultez le document [Démarrer avec Interactive Query dans HDInsight](../interactive-query/apache-interactive-query-get-started.md).
-
-* __Hadoop__ : Cluster Hadoop adapté aux charges de travail de traitement par lots. Pour plus d’informations, consultez le document [Démarrer avec Apache Hadoop dans HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
-
-* __Spark__ : Apache Spark intègre une fonctionnalité permettant d’utiliser Hive. Pour plus d’informations, consultez le document [Démarrer avec Apache Spark dans HDInsight](../spark/apache-spark-jupyter-spark-sql.md).
-
-* __HBase__ : HiveQL peut être utilisé pour interroger les données stockées dans Apache HBase. Pour plus d’informations, consultez le document [Démarrer avec Apache HBase dans HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md).
+|Type de cluster |Description|
+|---|---|
+|Interactive Query|Cluster Hadoop qui offre une fonctionnalité [LLAP (Low Latency Analytical Processing)](https://cwiki.apache.org/confluence/display/Hive/LLAP) afin d’améliorer les temps de réponse des requêtes interactives. Pour plus d’informations, consultez le document [Démarrer avec Interactive Query dans HDInsight](../interactive-query/apache-interactive-query-get-started.md).|
+|Hadoop|Cluster Hadoop adapté aux charges de travail de traitement par lots. Pour plus d’informations, consultez le document [Démarrer avec Apache Hadoop dans HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md).|
+|Spark|Apache Spark intègre une fonctionnalité permettant d’utiliser Hive. Pour plus d’informations, consultez le document [Démarrer avec Apache Spark dans HDInsight](../spark/apache-spark-jupyter-spark-sql.md).|
+|hbase|HiveQL peut être utilisé pour interroger les données stockées dans Apache HBase. Pour plus d’informations, consultez le document [Démarrer avec Apache HBase dans HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md).|
 
 ## <a name="how-to-use-hive"></a>Utilisation de Hive
 
@@ -42,7 +40,7 @@ Consultez le tableau suivant pour découvrir les différentes façon d’utilise
 | [Outils HDInsight pour Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
 | [Affichage Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |N’importe lequel (basé sur le navigateur) |
 | [Client Beeline](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux, Unix, Mac OS X ou Windows |
-| [API REST](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X ou Windows |
+| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X ou Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
 ## <a name="hiveql-language-reference"></a>Référence du langage HiveQL
@@ -85,7 +83,7 @@ Hive vous permet de créer deux types de tables :
 
     Utilisez des tables externes lorsque l’une des conditions suivantes s’applique :
 
-    * Les données sont également utilisées en dehors de Hive. Par exemple, les fichiers de données sont mis à jour par un autre processus (qui ne verrouille pas les fichiers.)
+    * Les données sont également utilisées en dehors de Hive. Par exemple, les fichiers de données sont mis à jour par un autre processus (qui ne verrouille pas les fichiers).
     * Les données doivent rester dans l’emplacement sous-jacent, même après suppression de la table.
     * Vous avez besoin d’un emplacement personnalisé, par exemple un compte de stockage non sélectionné par défaut.
     * Un programme autre que Hive gère le format de données, l’emplacement, etc.
@@ -106,11 +104,11 @@ Hive peut également être étendu via des **fonctions définies par l'utilisate
 
 * [Exemple de fonction Apache Hive définie par l’utilisateur pour convertir les formats date/heure en horodatage Hive](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
-## <a id="data"></a>Exemple de données
+## <a name="example-data"></a>Exemple de données
 
 Hive sur HDInsight est préchargé avec une table interne nommée `hivesampletable`. HDInsight fournit également des exemples de jeux de données pouvant être utilisés avec Hive. Ces jeux de données sont stockés dans les répertoires `/example/data` et `/HdiSamples`. Ces répertoires sont disponibles dans le stockage par défaut de votre cluster.
 
-## <a id="job"></a>Exemple de requête Hive
+## <a name="example-hive-query"></a>Exemple de requête Hive
 
 Les instructions HiveQL suivantes projettent des colonnes sur le fichier `/example/data/sample.log` :
 
@@ -133,17 +131,14 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 Dans l’exemple précédent, les instructions HiveQL effectuent les opérations suivantes :
 
-* `DROP TABLE`: Si la table existe déjà, supprimez-la.
-
-* `CREATE EXTERNAL TABLE`: Crée une table **externe** dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l’emplacement d’origine, dans le format d’origine.
-
-* `ROW FORMAT`: Indique à Hive la façon dont les données sont mises en forme. Dans ce cas, les champs de chaque journal sont séparés par un espace.
-
-* `STORED AS TEXTFILE LOCATION`: Indique à Hive où sont stockées les données (répertoire `example/data`) et qu’elles sont stockées sous forme de texte. Les données peuvent être dans un seul fichier ou réparties sur plusieurs fichiers dans le répertoire.
-
-* `SELECT`: Sélectionne toutes les lignes où la colonne **t4** contient la valeur **[ERROR]** . Cette instruction renvoie la valeur **3**, car trois lignes contiennent cette valeur.
-
-* `INPUT__FILE__NAME LIKE '%.log'`- Hive tente d’appliquer le schéma à tous les fichiers dans le répertoire. Dans ce cas, le répertoire contient des fichiers qui ne correspondent pas au schéma. Pour éviter que des données incorrectes n’apparaissent dans les résultats, cette instruction indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log.
+|. |Description |
+|---|---|
+|DROP TABLE|Si la table existe déjà, supprimez-la.|
+|CREATE EXTERNAL TABLE|Crée une table **externe dans Hive. Les tables externes stockent uniquement la définition de table dans Hive. Les données restent à l’emplacement d’origine, dans le format d’origine.|
+|ROW FORMAT|indique à Hive la façon dont les données sont mises en forme. Dans ce cas, les champs de chaque journal sont séparés par un espace.|
+|STORED AS TEXTFILE LOCATION|Indique à Hive où sont stockées les données (répertoire `example/data`) et qu’elles sont stockées sous forme de texte. Les données peuvent être dans un seul fichier ou réparties sur plusieurs fichiers dans le répertoire.|
+|SELECT|Sélectionne toutes les lignes où la colonne **t4**contient la valeur**[ERROR]. Cette instruction renvoie la valeur **3**, car trois lignes contiennent cette valeur.|
+|INPUT__FILE__NAME LIKE '%.log'|Hive tente d’appliquer le schéma à tous les fichiers dans le répertoire. Dans ce cas, le répertoire contient des fichiers qui ne correspondent pas au schéma. Pour éviter que des données incorrectes n’apparaissent dans les résultats, cette instruction indique à Hive de retourner uniquement des données provenant de fichiers se terminant par .log.|
 
 > [!NOTE]  
 > Les tables externes doivent être utilisées lorsque vous vous attendez à ce que les données sous-jacentes soient mises à jour par une source externe, Par exemple, un processus de chargement de données automatisé ou une opération MapReduce.
@@ -169,18 +164,18 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 Ces instructions effectuent les opérations suivantes :
 
-* `CREATE TABLE IF NOT EXISTS`: Si la table n’existe pas, créez-la. Étant donné que le mot clé **EXTERNAL** n’est pas utilisé, cette instruction crée une table interne. La table est stockée dans l’entrepôt de données Hive et gérée intégralement par Hive.
-
-* `STORED AS ORC`: Stocke les données dans un format ORC (Optimized Row Columnar). ORC est un format particulièrement efficace et optimisé pour le stockage de données Hive.
-
-* `INSERT OVERWRITE ... SELECT`: Sélectionne des lignes de la table **log4jLogs** qui contient **[ERROR]** , puis insère les données dans la table **errorLogs**.
+|. |Description |
+|---|---|
+|CREATE TABLE IF NOT EXISTS|Si la table n’existe pas, créez-la. Étant donné que le mot clé **EXTERNAL** n’est pas utilisé, cette instruction crée une table interne. La table est stockée dans l’entrepôt de données Hive et gérée intégralement par Hive.|
+|STORED AS ORC|Stocke les données dans un format ORC (Optimized Row Columnar). ORC est un format particulièrement efficace et optimisé pour le stockage de données Hive.|
+|INSERT OVERWRITE ... SELECT|Sélectionne des lignes de la table **log4jLogs**qui contient**[ERROR] **, puis insère les données dans la table** errorLogs.|
 
 > [!NOTE]  
 > Contrairement aux tables externes, la suppression d’une table interne entraîne également la suppression des données sous-jacentes.
 
 ## <a name="improve-hive-query-performance"></a>Améliorer les performances des requêtes Hive
 
-### <a id="usetez"></a>Apache Tez
+### <a name="apache-tez"></a>Apache Tez
 
 [Apache Tez](https://tez.apache.org) est une infrastructure qui permet une exécution à l'échelle beaucoup plus efficace pour les applications, telles que Hive, qui manipulent de grandes quantités de données. Tez est activé par défaut.  Les [documents de conception Apache Hive sur Tez](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) contiennent des informations détaillées sur les options d’implémentation et les configurations du réglage.
 
@@ -194,7 +189,7 @@ HDInsight fournit la fonctionnalité LLAP dans le cluster de type Interactive Qu
 
 Plusieurs services peuvent être utilisés pour exécuter des requêtes Hive dans le cadre d’un workflow à la demande ou planifié.
 
-### <a name="azure-data-factory"></a>Azure Data Factory
+### <a name="azure-data-factory"></a>Azure Data Factory
 
 Azure Data Factory permet d’utiliser HDInsight dans le cadre d’un pipeline Data Factory. Pour plus d’informations sur l’utilisation de Hive à partir d’un pipeline, consultez le document [Transformer des données à l’aide d’une activité Hive dans Azure Data Factory](../../data-factory/transform-data-using-hadoop-hive.md).
 

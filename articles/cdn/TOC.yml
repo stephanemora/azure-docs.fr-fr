@@ -102,6 +102,8 @@
     - name: Analyser
       href: cdn-log-analysis.md
       items:
+        - name: Journaux bruts HTTP
+          href: enable-raw-logs.md
         - name: Journaux de diagnostics Azure
           href: cdn-azure-diagnostic-logs.md
         - name: Outils d’analyse pour Azure CDN de Verizon

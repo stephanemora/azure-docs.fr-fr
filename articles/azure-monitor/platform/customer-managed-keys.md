@@ -1,18 +1,17 @@
 ---
 title: Configuration de clés gérées par le client dans Azure Monitor
 description: Informations et étapes relatives à la configuration de CMK (Customer-Managed Key) pour chiffrer des données dans vos espaces de travail Log Analytics à l’aide d’une clé Azure Key Vault.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 02/24/2020
-ms.openlocfilehash: 2ea77be0a7aabefaf8f6ed9a5bd841ea1fdda263
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: b3e110766b2e131330f3108b7938e9e5e01e48a4
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620311"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208557"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configuration de clés gérées par le client dans Azure Monitor 
 
@@ -185,7 +184,7 @@ Authorization: Bearer <token>
   "identity": {
     "type": "SystemAssigned",
     "tenantId": "tenant-id",
-    "principalId": "principal-Id"
+    "principalId": "principal-id"
     },
   "properties": {
     "provisioningState": "Succeeded",
@@ -199,10 +198,10 @@ Authorization: Bearer <token>
   }
 ```
 
-« principalId » est un identificateur unique généré par le service d'identité managée pour la ressource de *cluster*.
+« principal-id » est un identificateur unique généré par le service d'identité managée pour la ressource de *cluster*.
 
 > [!IMPORTANT]
-> Copiez et conservez la valeur « cluster-id », car vous en aurez besoin dans les étapes suivantes.
+> Copiez et conservez la valeur « principal-id », car vous en aurez besoin dans les étapes suivantes.
 
 
 ### <a name="grant-key-vault-permissions"></a>Octroi d’autorisations d’accès au coffre de clés
@@ -214,7 +213,7 @@ Mettez à jour votre coffre de clés avec une nouvelle stratégie d’accès qui
 Ouvrez votre coffre de clés dans le portail Azure, puis cliquez sur « Stratégies d’accès », puis sur « + Ajouter une stratégie d’accès » pour créer une stratégie avec les paramètres ci-après :
 
 - Autorisations de clé : sélectionnez « Obtenir », « Inclure la clé » et « Ne pas inclure la clé ».
-- Sélectionner le principal : entrez la valeur cluster-id retournée dans la réponse à l’étape précédente.
+- Sélectionner le principal : entrez la valeur principal-id retournée dans la réponse à l’étape précédente.
 
 ![Octroi d’autorisations d’accès au coffre de clés](media/customer-managed-keys/grant-key-vault-permissions.png)
 
@@ -529,10 +528,10 @@ L’identité est attribuée à la ressource de *cluster* au moment de la créat
   "location": "region-name"
 }
 ```
-« principalId » est un identificateur unique généré par le service d'identité managée.
+« principle-id » est un identificateur unique généré par le service d'identité managée.
 
 > [!IMPORTANT]
-> Copiez et conservez la valeur « cluster-id », car vous en aurez besoin dans les étapes suivantes.
+> Copiez et conservez la valeur « principle-id », car vous en aurez besoin dans les étapes suivantes.
 
 ### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>Associer un composant à une ressource de *cluster* à l’aide de l’API [Composants : créer ou mettre à jour](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate)
 

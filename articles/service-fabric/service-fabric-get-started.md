@@ -3,14 +3,14 @@ title: Configurer un environnement de développement Windows
 description: Installez le runtime, le kit de développement logiciel et créez un cluster de développement local. Une fois la configuration terminée, vous serez prêt à générer des applications sur Windows.
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 02/05/2020
+ms.date: 03/02/2020
 ms.custom: sfrev
-ms.openlocfilehash: 6768f45e61880370295ce7725e553828e66f3d39
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f08c6b0675475b4e15ce6db3a9dbe0e2863b9ddb
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062113"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252769"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Préparer votre environnement de développement sur Windows
 
@@ -23,7 +23,7 @@ ms.locfileid: "77062113"
 
 Pour générer et exécuter des [applications Azure Service Fabric][1] sur votre machine de développement Windows, installez le runtime, le Kit de développement logiciel (SDK) et les outils Service Fabric. Vous devez également [activer l’exécution des scripts Windows PowerShell](#enable-powershell-script-execution) inclus dans le Kit de développement logiciel (SDK).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="supported-operating-system-versions"></a>Versions du système d'exploitation prises en charge
 
@@ -68,8 +68,8 @@ Si vous avez uniquement besoin du SDK, vous pouvez installer ce package :
 
 Les versions actuelles sont les suivantes :
 
-* Kit de développement logiciel (SDK) et outils Service Fabric 4.0.466
-* Runtime Service Fabric 7.0.466
+* SDK et outils Service Fabric 4.0.470
+* Runtime Service Fabric 7.0.470
 
 Pour obtenir la liste des versions prises en charge, consultez [Versions de Service Fabric](service-fabric-versions.md).
 
