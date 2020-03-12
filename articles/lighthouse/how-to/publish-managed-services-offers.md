@@ -3,12 +3,12 @@ title: Publier une offre de services managés sur la Place de marché Azure
 description: Découvrez comment publier une offre de service managé qui intègre des clients à la gestion des ressources déléguées Azure.
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 841cb52791709be5649d66b72f5c18ef35b740ef
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 6ae93759073be6b05d118ccf46f6b6367fff5fc6
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155245"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328940"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publier une offre de services managés sur la Place de marché Azure
 
@@ -155,9 +155,6 @@ Une fois qu’un client a ajouté votre offre, il est en mesure de [déléguer u
 > La délégation doit être effectuée par un compte non invité dans le locataire client qui a le [rôle intégré Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) pour l’abonnement en cours d’intégration (ou qui contient les groupes de ressources en cours d’intégration). Pour voir tous les utilisateurs qui peuvent déléguer l’abonnement, un utilisateur du locataire du client peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** et [afficher tous les utilisateurs ayant le rôle Propriétaire](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 Une fois que le client aura délégué un abonnement (ou un ou plusieurs groupes de ressources d’un abonnement), le fournisseur de ressources **Microsoft.ManagedServices** sera inscrit pour cet abonnement, et les utilisateurs de votre locataire pourront accéder aux ressources déléguées conformément aux autorisations de votre offre.
-
-> [!NOTE]
-> À ce stade, les abonnements (ou les groupes de ressources d’un abonnement) ne peuvent pas être délégués si l’abonnement utilise Azure Databricks. De même, si un abonnement (ou des groupes de ressources d’un abonnement) a déjà été délégué, il est actuellement impossible de créer des espaces de travail Databricks dans cet abonnement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

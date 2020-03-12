@@ -4,12 +4,12 @@ description: Créer une fonction PowerShell serverless déclenchée par HTTP pou
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.custom: ''
-ms.openlocfilehash: 51146886e3f52cb6a60d49da0d57aea1e2c55106
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 9dbb22a2449e4c41bff802ab827da4489fc7ffeb
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196533"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331023"
 ---
 # <a name="tutorial-use-an-http-triggered-azure-function-to-create-a-container-group"></a>Tutoriel : Utiliser une fonction Azure déclenchée par HTTP pour créer un groupe de conteneurs
 
@@ -42,7 +42,7 @@ Cet article part du principe que vous publiez le projet avec le nom *myfunctiona
 
 ## <a name="enable-an-azure-managed-identity-in-the-function-app"></a>Activer une identité managée par Azure dans l’application de fonction
 
-Activez à présent une [identité managée](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#adding-a-system-assigned-identity) affectée par le système dans votre application de fonction. L’hôte PowerShell qui exécute l’application peut s’authentifier automatiquement à l’aide de cette identité, ce qui permet aux fonctions d’effectuer des actions sur les services Azure auxquels l’accès a été accordé à l’identité. Dans ce tutoriel, vous allez accorder à l’identité managée les autorisations nécessaires pour créer des ressources dans le groupe de ressources de l’application de fonction. 
+Activez à présent une [identité managée](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#add-a-system-assigned-identity) affectée par le système dans votre application de fonction. L’hôte PowerShell qui exécute l’application peut s’authentifier automatiquement à l’aide de cette identité, ce qui permet aux fonctions d’effectuer des actions sur les services Azure auxquels l’accès a été accordé à l’identité. Dans ce tutoriel, vous allez accorder à l’identité managée les autorisations nécessaires pour créer des ressources dans le groupe de ressources de l’application de fonction. 
 
 Commencez par utiliser la commande [az group show][az-group-show] pour obtenir l’ID du groupe de ressources de l’application de fonction et le stocker dans une variable d’environnement. Cet exemple part du principe que vous exécutez la commande dans un interpréteur de commandes bash.
 
