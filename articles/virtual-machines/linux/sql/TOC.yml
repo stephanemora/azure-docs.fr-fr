@@ -10,6 +10,8 @@
   items:
     - name: Configuration du groupe de disponibilité de machine virtuelle Azure RHEL avec STONITH
       href: sql-server-linux-rhel-ha-stonith-tutorial.md
+    - name: "Configurer un écouteur groupe de disponibilité pour SQL Server sur des machines virtuelles\_RHEL dans Azure"
+      href: sql-server-linux-rhel-ha-listener-tutorial.md
 - name: Informations de référence
   items:
     - name: Azure CLI

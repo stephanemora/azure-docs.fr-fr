@@ -216,7 +216,7 @@
           href: api-server-authorized-ip-ranges.md
         - name: Contrôler les déploiements avec Azure Policy (préversion)
           href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
-        - name: Mettre à jour les informations d’identification du principal de service de cluster
+        - name: Mettre à jour les informations d’identification du cluster
           href: update-credentials.md
         - name: Limiter et contrôler le trafic sortant du cluster
           href: limit-egress-traffic.md
