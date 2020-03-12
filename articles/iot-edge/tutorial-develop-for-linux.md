@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 38ffd4931f318b15f1ac06fcfd742bde8e5c6838
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 4a127c8c77f97708729cf91d6ced214e98924fb6
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772964"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943007"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutoriel : Développer des modules IoT Edge pour les appareils Linux
 
@@ -22,7 +22,7 @@ Utilisez Visual Studio Code pour développer et déployer du code sur des appare
 
 Dans le guide de démarrage rapide, vous avez créé un appareil IoT Edge à l’aide d’une machine virtuelle Linux et déployé un module à partir de la Place de marché Azure. Ce tutoriel vous montre pas à pas comment développer et déployer votre propre code sur un appareil IoT Edge. Cet article constitue un bon préambule aux autres tutoriels qui abordent plus en détail des langages de programmation ou des services Azure spécifiques.
 
-Ce tutoriel utilise l’exemple de déploiement d’un **module C# sur un appareil Linux**. Cet exemple a été choisi, car il s’agit du scénario le plus courant pour les développeurs de solutions IoT Edge. Même si vous prévoyez d’utiliser un autre langage ou de déployer un service Azure, ce tutoriel est également utile pour en savoir plus sur les outils de développement et les concepts. Suivez cette introduction au processus de développement, puis choisissez votre langage ou service Azure préféré pour vous plonger dans les détails.
+Ce tutoriel utilise l’exemple de déploiement d’un **module C# sur un appareil Linux**. Cet exemple a été choisi, car il s’agit du scénario le plus courant pour les développeurs de solutions IoT Edge. Même si vous prévoyez d’utiliser un autre langage ou de déployer un service Azure, ce didacticiel est également utile pour en savoir plus sur les outils de développement et les concepts. Suivez cette introduction au processus de développement, puis choisissez votre langage ou service Azure préféré pour vous plonger dans les détails.
 
 Dans ce tutoriel, vous allez apprendre à :
 
@@ -57,7 +57,7 @@ Le tableau suivant liste les scénarios de développement pris en charge pour de
 
 Ce tutoriel décrit les étapes de développement pour Visual Studio Code. Si vous préférez utiliser Visual Studio, reportez-vous aux instructions dans [Utiliser Visual Studio 2019 pour développer et déboguer des modules pour Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Une machine de développement :
 
@@ -65,7 +65,7 @@ Une machine de développement :
   * Vérifiez que votre ordinateur de développement prend bien en charge la virtualisation imbriquée. Cette fonctionnalité est nécessaire à l’exécution du moteur de conteneur que vous allez installer dans la section suivante.
 * La plupart des systèmes d’exploitation qui exécutent un moteur de conteneur peuvent servir à développer des modules IoT Edge pour appareils Linux. Ce tutoriel utilise un ordinateur Windows, mais souligne des différences connues sur MacOS ou Linux.
 * Installez [Git](https://git-scm.com/), en vue d’extraire des packages de modèle de module plus loin dans ce tutoriel.  
-* [Extension C# pour Visual Studio Code (développée par OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
+* [Extension C# pour Visual Studio Code (développée par OmniSharp)](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [SDK .NET Core 2.1](https://www.microsoft.com/net/download).
 
 Un appareil Azure IoT Edge sur Linux :
@@ -121,7 +121,7 @@ Utilisez les extensions IoT pour Visual Studio Code pour développer des modules
 
 L’extension Azure IoT Tools fournit des modèles de projet pour tous les langages de module IoT Edge pris en charge dans Visual Studio Code. Ces modèles ont tous les fichiers et tout le code dont vous avez besoin pour déployer un module opérationnel afin de tester IoT Edge. Vous pouvez également vous servir de ces modèles comme point de départ et les personnaliser avec votre propre logique métier.
 
-Pour ce tutoriel, nous utilisons le modèle de module C#, car il s’agit du modèle le plus couramment utilisé.
+Pour ce didacticiel, nous utilisons le modèle de module C#, car il s’agit du modèle le plus couramment utilisé.
 
 ### <a name="create-a-project-template"></a>Créer un modèle de projet
 

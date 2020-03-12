@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d397d179a3f5bd50479e76c04e5eb709a3ef1f
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 7ab8f18c065b283883cfca0a0d555a5fa3bb9d5a
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260733"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897815"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-awardspring"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à AwardSpring
 
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer AwardSpring à Azure Active 
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -99,12 +99,12 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. En plus de ce qui précède, l’application AwardSpring s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 
-    |  Name | Attribut source |
+    |  Nom | Attribut source |
     | ---------------| --------------- |
     | Prénom | user.givenname |
     | Nom | user.surname |
-    | Email | user.mail |
-    | Nom d’utilisateur | user.userprinicipalname |
+    | E-mail | user.mail |
+    | Nom d’utilisateur | user.userprincipalname |
     | StudentID | <ID_étudiant> |
 
     > [!NOTE]

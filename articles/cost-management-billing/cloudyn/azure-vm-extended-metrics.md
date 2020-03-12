@@ -9,12 +9,12 @@ ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.custom: seodec18
-ms.openlocfilehash: 9f1f60fd16aa830372bd0f5b19e22e7003de496b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 84a9d6aa6203b8a518b0e33bed0ec2707c4389a1
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76770321"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082912"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Ajouter des métriques étendues pour les machines virtuelles Azure
 
@@ -34,7 +34,7 @@ Par exemple, vous pouvez souhaiter surveiller les pourcentages d’utilisation d
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Déterminer si les métriques étendues sont activées
 
-1. Connectez-vous au portail Azure sur https://portal.azure.com.
+1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Sous **Machines virtuelles**, sélectionnez une machine virtuelle, puis sous **Surveillance**, sélectionnez **Métriques**. Une liste de métriques disponibles s’affiche.
 3. Sélectionnez certaines métriques ; un graphe affiche alors les données correspondantes.  
     ![Exemple de métrique : pourcentage d’UC (hôte)](./media/azure-vm-extended-metrics/metric01.png)
