@@ -68,6 +68,8 @@
           displayName: 'azure, resource, key, upgrade, pricing, tier,'
         - name: Créer un plan de continuité d’activité
           href: How-To/business-continuity-plan.md
+        - name: Travailler en collaboration
+          href: How-To/collaborate-knowledge-base.md
     - name: Gérer une base de connaissances
       items:
         - name: Créer une base de connaissances
@@ -79,8 +81,6 @@
         - name: Migrer vers une nouvelle base de connaissances
           href: Tutorials/migrate-knowledge-base.md
           displayName: 'metadata, pair'
-        - name: Travailler en collaboration
-          href: How-To/collaborate-knowledge-base.md
         - name: Test
           href: How-To/test-knowledge-base.md
     - name: Gérer les séries de Q/R

@@ -117,18 +117,12 @@
   items:
     - name: Opérations de cluster
       items:
-        - name: Créer un cluster AKS
-          href: '/cli/azure/aks#az-aks-create'
-          maintainContext: true
         - name: Mettre à l’échelle un cluster AKS
           href: scale-cluster.md
         - name: Mettre à niveau un cluster AKS
           href: upgrade-cluster.md
         - name: Traiter les mises à jour de système d’exploitation des nœuds
           href: node-updates-kured.md
-        - name: Supprimer un cluster AKS
-          href: '/cli/azure/aks#az-aks-delete'
-          maintainContext: true
         - name: Intégrer ACR à un cluster AKS
           href: cluster-container-registry-integration.md
         - name: Créer des nœuds virtuels
