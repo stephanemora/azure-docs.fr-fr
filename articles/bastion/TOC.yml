@@ -1,9 +1,13 @@
 - name: Documentation Bastion
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Azure Bastion
       href: bastion-overview.md
+- name: Démarrages rapides
+  items:
+    - name: Créer un hôte bastion à partir des paramètres de machine virtuelle
+      href: quickstart-host-portal.md
 - name: Guides pratiques
   items:
     - name: Créer un hôte bastion
@@ -34,7 +38,7 @@
       href: diagnostic-logs.md
     - name: Superviser et gérer les sessions
       href: session-monitoring.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       href: troubleshoot.md
 - name: Ressources
   items:

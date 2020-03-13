@@ -1,6 +1,6 @@
 - name: Documentation Recherche d’entités Bing
   href: ../Bing-Web-Search/index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Qu’est-ce que la Recherche d’entités Bing ?
       href: overview.md
@@ -26,14 +26,8 @@
           href: quickstarts/ruby.md
     - name: Kit SDK
       items:
-        - name: 'Utilisation de C#'
-          href: quickstarts/entity-sdk-csharp-quickstart.md
-        - name: Utilisation de Node.js
-          href: quickstarts/entity-sdk-node-quickstart.md
-        - name: Utilisation de Python
-          href: quickstarts/entity-sdk-python-quickstart.md
-        - name: Utilisation de Java
-          href: quickstarts/entity-sdk-java-quickstart.md
+        - name: Bibliothèques clientes Recherche d’entités Bing
+          href: ./quickstarts/client-libraries.md
 - name: Tutoriels
   items:
     - name: Application web à page unique

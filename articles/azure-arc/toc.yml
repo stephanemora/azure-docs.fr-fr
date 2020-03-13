@@ -12,6 +12,8 @@
       href: ./servers/onboard-portal.md
     - name: Connecter des ordinateurs à grande échelle avec un principal de service
       href: ./servers/onboard-service-principal.md
+    - name: Connecter des ordinateurs à Azure Arc avec PowerShell DSC
+      href: ./servers/onboard-dsc.md
 - name: Informations de référence
   items:
     - name: Azure Connected Machine Agent – Interface CLI

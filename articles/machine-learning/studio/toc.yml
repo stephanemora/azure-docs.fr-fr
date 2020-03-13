@@ -161,6 +161,9 @@
         - name: Données de la galerie
           displayName: export
           href: ai-gallery-control-personal-data-dsr.md
+        - name: Télécharger des notebooks
+          displayName: export
+          href: download-notebooks-data.md
 - name: Informations de référence
   items:
     - name: Informations de référence sur les algorithmes et les modules
