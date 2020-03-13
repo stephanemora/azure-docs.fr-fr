@@ -116,6 +116,8 @@
       href: how-to-modify-assessment.md
     - name: Ajouter des outils de migration
       href: how-to-migrate.md
+    - name: Migrer des machines virtuelles VMware vers des machines virtuelles Azure chiffrées avec SSE et CMK
+      href: how-to-migrate-vmware-vms-with-cmk-disks.md
     - name: Préparer les machines à la migration
       href: prepare-for-migration.md
     - name: Supprimer un projet Azure Migrate

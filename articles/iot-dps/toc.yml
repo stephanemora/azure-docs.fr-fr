@@ -97,6 +97,8 @@
       href: concepts-security.md
     - name: Service
       href: concepts-service.md
+    - name: Compréhension des adresses IP DPS
+      href: iot-dps-understand-ip-address.md
     - name: Attestation TPM
       href: concepts-tpm-attestation.md
     - name: Attestation de clé symétrique
@@ -127,6 +129,8 @@
           href: how-to-manage-dps-with-cli.md
         - name: Contrôler l’accès aux API du service de provisionnement
           href: how-to-control-access.md
+        - name: Configurer le filtrage d’adresse IP
+          href: iot-dps-ip-filtering.md
     - name: Provisionner des appareils IoT Edge
       items:
         - name: Linux

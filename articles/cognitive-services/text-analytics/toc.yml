@@ -50,6 +50,8 @@
       href: named-entity-types.md
     - name: Prise en charge de la région et de la langue
       href: language-support.md
+    - name: Décalages de texte
+      href: concepts/text-offsets.md
 - name: Guides pratiques
   items:
     - name: Appeler l’API Text Analytics
