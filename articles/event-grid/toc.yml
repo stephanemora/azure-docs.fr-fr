@@ -8,6 +8,8 @@
       href: overview.md
     - name: Comparer les services de messagerie
       href: compare-messaging-services.md
+    - name: Niveaux Premium et niveaux De base
+      href: premium-basic-tiers.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -102,6 +104,8 @@
           href: security-authentication.md
         - name: Autorisation
           href: security-authorization.md
+        - name: Sécurité du réseau
+          href: network-security.md
     - name: Livraison et nouvelle tentative
       href: delivery-and-retry.md
     - name: Filtre d'événement
@@ -118,6 +122,12 @@
       href: geo-disaster-recovery.md
 - name: Guides pratiques
   items:
+    - name: Configurer des points de terminaison privés (préversion)
+      href: configure-private-endpoints.md
+    - name: Configurer le pare-feu IP (préversion)
+      href: configure-firewall.md
+    - name: Mettre à jour un niveau tarifaire
+      href: update-tier.md
     - name: Envoyer des messages dans une rubrique personnalisée
       href: post-to-custom-topic.md
     - name: Recevoir des événements sur un point de terminaison HTTP

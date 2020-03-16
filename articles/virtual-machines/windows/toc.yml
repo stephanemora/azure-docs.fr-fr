@@ -639,8 +639,10 @@
           href: snapshot-copy-managed-disk.md
         - name: Réserver du stockage sur disque
           href: disks-reserved-capacity.md
-        - name: Créer un instantané incrémentiel
+        - name: Créer un instantané incrémentiel - PowerShell
           href: disks-incremental-snapshots.md
+        - name: Créer un instantané incrémentiel - Portail
+          href: disks-incremental-snapshots-portal.md
         - name: Sauvegarder des disques non managés
           href: incremental-snapshots.md
         - name: Migration et conversion

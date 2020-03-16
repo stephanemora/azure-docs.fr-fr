@@ -64,8 +64,6 @@
   items:
     - name: stockage clé-valeur
       href: concept-key-value.md
-    - name: Chiffrer avec des clés gérées par le client
-      href: concept-customer-managed-keys.md
     - name: Capture instantanée à un point dans le temps
       href: concept-point-time-snapshot.md
     - name: Gestion des fonctionnalités
@@ -74,8 +72,12 @@
       href: concept-github-action.md
     - name: Gestion des événements
       href: concept-app-configuration-event.md
-    - name: Authentication
+    - name: Sécurité
       items:
+        - name: Chiffrer avec des clés gérées par le client
+          href: concept-customer-managed-keys.md
+        - name: Sécuriser votre magasin de configuration avec des points de terminaison privés
+          href: concept-private-endpoint.md
         - name: Intégrer avec Azure Managed Identity
           href: howto-integrate-azure-managed-service-identity.md
         - name: "Activer l’accès avec Azure\_Active\_Directory"

@@ -19,13 +19,13 @@
           href: 4me-tutorial.md
         - name: 8X8
           href: 8x8virtualoffice-tutorial.md
-    - name: A
+    - name: Un
       items:
-        - name: Abintegro
+        - name: abintegro
           href: abintegro-tutorial.md
         - name: Absorb LMS
           href: absorblms-tutorial.md
-        - name: Abstract
+        - name: Résumé
           href: abstract-tutorial.md
         - name: Academy Attendance
           href: academy-attendance-tutorial.md
@@ -757,6 +757,8 @@
           href: itslearning-tutorial.md
         - name: Ivanti Service Manager (ISM)
           href: ivanti-service-manager-tutorial.md
+        - name: InVision
+          href: invision-tutorial.md
         - name: iWellnessNow
           href: iwellnessnow-tutorial.md
     - name: J - K

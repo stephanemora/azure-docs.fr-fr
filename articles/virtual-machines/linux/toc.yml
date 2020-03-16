@@ -254,7 +254,7 @@
         - name: Utiliser un modèle ARM
           displayName: Azure Resource Manager
           href: create-ssh-secured-vm-from-template.md
-        - name: Utiliser l’API REST
+        - name: Avec l’API REST
           href: create-vm-rest-api.md
         - name: Copier ou cloner une machine virtuelle
           href: copy-vm.md
@@ -648,8 +648,10 @@
           href: snapshot-copy-managed-disk.md
         - name: Réserver du stockage sur disque
           href: disks-reserved-capacity.md
-        - name: Créer un instantané incrémentiel
+        - name: Créer un instantané incrémentiel - CLI
           href: disks-incremental-snapshots.md
+        - name: Créer un instantané incrémentiel - Portail
+          href: disks-incremental-snapshots-portal.md
         - name: Sauvegarder des disques non managés
           href: incremental-snapshots.md
         - name: Migration et conversion

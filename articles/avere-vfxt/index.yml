@@ -1,24 +1,64 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentation Avere vFXT for Azure
+summary: Avere vFXT for Azure fournit une couche de mise en cache basée sur le cloud pour les tâches haute performance computing (HPC) gourmandes en données.
 metadata:
   title: Documentation Avere vFXT for Azure
-  description: Utilisez Avere vFXT comme une couche de mise en cache pour les tâches haute-performance computing (HPC) gourmandes en lecture
-  services: avere-vfxt
-  author: ekpgh
+  description: Utilisez Avere vFXT comme couche de mise en cache pour les tâches de calcul haute-performance (HPC) gourmandes en lecture.
   ms.service: avere-vfxt
   ms.topic: landing-page
-  ms.date: 12/19/2019
+  author: ronhogue
   ms.author: rohogue
-abstract:
-  description: "Avere vFXT for Azure fournit une couche de mise en cache basée sur le cloud pour les tâches haute performance computing (HPC) gourmandes en données. En mettant en cache les fichiers proches de vos nœuds de traitement, Avere vFXT accélère les temps de lecture et vous permet de travailler plus facilement, même pendant les pics de charge. Avere vFXT fonctionne mieux avec les systèmes comprenant entre 1\_000 et 40\_000 cœurs clients. <p>Average vFXT fonctionne avec votre stockage de données existant pour amener les fichiers à proximité des ressources de calcul Azure. Les fichiers actifs sont toujours stockés à long terme dans votre centre de données."
-sections:
-  - title: Commencer avec Avere vFXT pour Azure
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="avere-vfxt-deploy-plan">Planifier votre système vFXT Avere pour Azure</a>
-          - html: <a href="avere-vfxt-deploy-overview">En savoir plus sur le déploiement Avere vFXT</a>
-          - html: <a href="avere-vfxt-prereqs">Remplir les conditions préalables</a>
-          - html: <a href="avere-vfxt-deploy">Déployer le cluster Avere vFXT</a>
+  ms.date: 03/11/2020
+  ms.openlocfilehash: 9b80c5dae1b9b08a5fc71c321813a28b576e0de4
+  ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 03/13/2020
+  ms.locfileid: "79297779"
+landingContent:
+- title: À propos d’Avere vFXT pour Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: En quoi consiste Avere vFXT pour Azure ?
+      url: avere-vfxt-overview.md
+  - linkListType: concept
+    links:
+    - text: Questions fréquentes (FAQ)
+      url: avere-vfxt-faq.md
+- title: Planifier et préparer
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Planifier votre système Avere vFXT
+      url: avere-vfxt-deploy-plan.md
+  - linkListType: how-to-guide
+    links:
+    - text: Se préparer à la création du système Avere vFXT
+      url: avere-vfxt-prereqs.md
+- title: Création et déploiement
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vue d’ensemble du déploiement
+      url: avere-vfxt-deploy-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Déployer le cluster vFXT
+      url: avere-vfxt-deploy.md
+- title: Connecter et gérer
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Accéder au cluster vFXT
+      url: avere-vfxt-cluster-gui.md
+    - text: Activer les chargements de données de support
+      url: avere-vfxt-enable-support.md
+    - text: Configurer le stockage
+      url: avere-vfxt-add-storage.md
+    - text: Monter le cluster Avere vFXT
+      url: avere-vfxt-mount-clients.md
+    - text: Déplacer les données vers le cluster vFXT
+      url: avere-vfxt-data-ingest.md
+    - text: Gérer le cluster Avere vFXT
+      url: avere-vfxt-manage-cluster.md
