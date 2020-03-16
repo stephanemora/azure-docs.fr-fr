@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: dapine
-ms.openlocfilehash: d2f8603b659fe44f83b725a92fb7b73cfe34cf37
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 11d2f9788f41e259058af50a728b8b82eeb10131
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562730"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78383869"
 ---
 Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser le SDK Speech Devices pour Windows pour créer un produit avec reconnaissance vocale ou pour l’utiliser comme appareil de [transcription de conversation](../conversation-transcription-service.md). Pour la transcription de conversation, seul [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) est pris en charge. Pour les autres utilisations des fonctions vocales, les réseaux de microphones linéaires fournissant une géométrie de réseau de microphones sont pris en charge.
 
@@ -74,7 +74,7 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.9.0</version>
+             <version>1.10.0</version>
         </dependency>
     </dependencies>
    ```

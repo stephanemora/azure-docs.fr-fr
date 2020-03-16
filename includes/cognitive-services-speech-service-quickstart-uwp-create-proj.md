@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: d3e2fa082184ce8de7685d03803360045b89c911
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 6804834dab81b0774dd29b1ede836492d0dfea4b
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77119777"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384039"
 ---
 Pour créer un projet Visual Studio pour le développement UWP (Plateforme Windows universelle), vous devez configurer les options de développement de Visual Studio, créer le projet, sélectionner l’architecture cible, configurer la capture audio et installer le SDK Speech.
 
@@ -104,4 +104,4 @@ Enfin, installez le [package NuGet du SDK Speech](https://aka.ms/csspeech/nuget)
 
 1. Dans la boîte de dialogue **Aperçu des modifications**, sélectionnez **OK**.
 
-1. Dans la boîte de dialogue **Acceptation de la licence**, affichez la licence, puis sélectionnez **J’accepte**. L’installation du package commence et, quand l’installation est terminée, le volet **Sortie** affiche un message similaire au texte suivant : `Successfully installed 'Microsoft.CognitiveServices.Speech 1.9.0' to helloworld`.
+1. Dans la boîte de dialogue **Acceptation de la licence**, affichez la licence, puis sélectionnez **J’accepte**. L’installation du package commence et, quand l’installation est terminée, le volet **Sortie** affiche un message similaire au texte suivant : `Successfully installed 'Microsoft.CognitiveServices.Speech 1.10.0' to helloworld`.

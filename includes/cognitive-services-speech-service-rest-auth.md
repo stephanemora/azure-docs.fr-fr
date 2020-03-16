@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 020055c1629a66ec1aa82beb050501803b2a0f18
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: dc5e251fee00ee22edb2261c1abd8404714834ba
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168313"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668429"
 ---
 ## <a name="authentication"></a>Authentication
 
@@ -22,7 +22,7 @@ Chaque requête nécessite un en-tête d’autorisation. Ce tableau présente le
 
 Lorsque vous utilisez l’en-tête `Ocp-Apim-Subscription-Key`, vous devez uniquement fournir votre clé d’abonnement. Par exemple :
 
-```
+```http
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
@@ -34,7 +34,7 @@ Pour obtenir un jeton d’accès, vous devrez envoyer une demande au point de te
 
 Le format du point de terminaison `issueToken` est le suivant :
 
-```
+```http
 https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
@@ -62,7 +62,7 @@ Le corps de la réponse contient le jeton d’accès au format JSON Web Token (J
 
 Cet exemple est un simple script PowerShell pour obtenir un jeton d’accès. Remplacez `YOUR_SUBSCRIPTION_KEY` par votre clé d’abonnement de service de reconnaissance vocale. Veillez à utiliser le point de terminaison correct pour la région correspondant à votre abonnement. Cet exemple est actuellement configuré pour l’USA Ouest.
 
-```Powershell
+```powershell
 $FetchTokenHeader = @{
   'Content-type'='application/x-www-form-urlencoded';
   'Content-Length'= '0';
@@ -81,7 +81,7 @@ $OAuthToken
 
 cURL est un outil en ligne de commande disponible dans Linux (ainsi que dans le sous-système Windows pour Linux). Cette commande cURL montre comment obtenir un jeton d’accès. Remplacez `YOUR_SUBSCRIPTION_KEY` par votre clé d’abonnement de service de reconnaissance vocale. Veillez à utiliser le point de terminaison correct pour la région correspondant à votre abonnement. Cet exemple est actuellement configuré pour l’USA Ouest.
 
-```cli
+```console
 curl -v -X POST
  "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
  -H "Content-type: application/x-www-form-urlencoded" \
@@ -93,7 +93,7 @@ curl -v -X POST
 
 La classe C# montre comment obtenir un jeton d’accès. Transmettez votre clé d’abonnement du service Speech quand vous instanciez la classe. Si votre abonnement ne figure pas dans la région USA Ouest, modifiez la valeur `FetchTokenUri` afin qu’elle corresponde à la région de votre abonnement.
 
-```cs
+```csharp
 public class Authentication
 {
     public static readonly string FetchTokenUri =

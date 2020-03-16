@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/24/2020
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: f1dc7c5b6e86df3b7b2ecc308e204e4ecb959735
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: c204f8482d46d6586d490cb2bd3dd1a4cddac682
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651745"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78925075"
 ---
 La bibliothèque de client de l’API Recherche Web Bing simplifie l’intégration de l’API dans votre application Java. Dans ce démarrage rapide, vous allez apprendre à envoyer une requête, recevoir une réponse JSON et filtrer et analyser les résultats.
 

@@ -2,14 +2,14 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/02/2020
+ms.date: 03/05/2020
 ms.author: dacoulte
-ms.openlocfilehash: 4f7357c79b9a6a57d7ede7342408d519d2278cbe
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: f11fdf61bd9382cdf7956426871ce562e2a88038
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78262254"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78668584"
 ---
 |Nom |Description |Stratégies |Version |
 |---|---|---|---|
@@ -22,7 +22,7 @@ ms.locfileid: "78262254"
 |[\[Préversion\] : Auditer les contrôles PCI v3.2.1:2018 v3 et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/PCIv3_2_1_2018_audit.json) |Cette initiative comprend des stratégies d’audit et de déploiement d’extension de machine virtuelle répondant à un sous-ensemble de contrôles PCI v3.2.1:2018. Des stratégies supplémentaires seront ajoutées dans les prochaines versions. Pour plus d’informations, visitez https://aka.ms/pciv321-init. |39 |1.0.0-preview |
 |[\[Préversion\] : Auditer les contrôles SWIFT CSP-CSCF v2020 et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/SWIFTv2020_audit.json) |Cette initiative inclut des stratégies d’audit et de déploiement d’extension de machine virtuelle répondant à une partie des contrôles SWIFT CSP-CSCF v2020. Des stratégies supplémentaires seront ajoutées dans les prochaines versions. Pour plus d’informations, visitez https://aka.ms/SWIFT-blueprint. |71 |1.0.0-preview |
 |[\[Préversion\] : Auditer les contrôles UK OFFICIAL et UK NHS, et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences de l’audit](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/ukofficial_audit.json) |Cette initiative comprend des stratégies répondant à un sous-ensemble de contrôles UK OFFICIAL et UK NHS. Des stratégies supplémentaires seront ajoutées dans les prochaines versions. Pour plus d’informations, visitez https://aka.ms/ukofficial-blueprint et https://aka.ms/uknhs-blueprint |66 |2.0.0-preview |
-|[Auditer les recommandations d’Azure Security Benchmark et déployer des extensions de machine virtuelle de prise en charge spécifiques](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json) |Cette initiative inclut des stratégies d’audit et de déploiement d’extension de machine virtuelle répondant à une partie des recommandations d’Azure Security Benchmark. Des stratégies supplémentaires seront ajoutées dans les prochaines versions. Pour plus d’informations, visitez https://aka.ms/azsecbm. |137 |1.0.0-preview |
+|[Auditer les recommandations d’Azure Security Benchmark et déployer des extensions de machine virtuelle de prise en charge spécifiques](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json) |Cette initiative inclut des stratégies d’audit et de déploiement d’extension de machine virtuelle répondant à une partie des recommandations d’Azure Security Benchmark. Des stratégies supplémentaires seront ajoutées dans les prochaines versions. Pour plus d’informations, visitez https://aka.ms/azsecbm. |148 |2.0.0-preview |
 |[Auditer les contrôles FedRAMP High et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/FedRAMP_H_audit.json) |Cette initiative inclut des stratégies d’audit et de déploiement d’extension de machine virtuelle répondant à une partie des contrôles FedRAMP H. Des stratégies supplémentaires seront ajoutées dans les prochaines versions. Pour plus d’informations, visitez https://aka.ms/fedramph-blueprint. |80 |2.0.0-preview |
 |[Auditer les contrôles HITRUST/HIPAA et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/HIPAA_HITRUST_audit.json) |Cette initiative comprend des stratégies répondant à une partie des contrôles HITRUST/HIPAA. Des stratégies supplémentaires seront ajoutées dans les prochaines versions. https://aka.ms/hipaa-blueprint |57 |1.0.0 |
 |[Auditer les contrôles de la MPAA (Motion Picture Association of America) et déployer des extensions de machine virtuelle spécifiques pour prendre en charge les exigences d’audit](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/Media_audit.json) |Cette initiative comprend des stratégies répondant à une partie des contrôles de sécurité et de recommandations de la MPAA (Motion Picture Association of America). Des stratégies supplémentaires seront ajoutées dans les prochaines versions. Pour plus d’informations, visitez https://aka.ms/mpaa-blueprint |45 |1.0.0-preview |

@@ -1,6 +1,6 @@
 ---
-title: Fichier Include
-description: Fichier Include
+title: Fichier include
+description: Fichier include
 services: data-factory
 author: linda33wj
 ms.service: data-factory
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/08/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 34e828a43567ffc701c1645c55f4ff0352b0e8d3
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 217e48ab21439f03e0b52c894c9aace5b51b1502
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75773000"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086165"
 ---
 Azure Data Factory est un service mutualisé qui possède, par défaut, les limites suivantes pour garantir la protection des abonnements clients contre les autres charges de travail. Pour augmenter les limites jusqu'à la limite maximale pour votre abonnement, contactez le support.
 
@@ -21,7 +21,7 @@ Azure Data Factory est un service mutualisé qui possède, par défaut, les lim
 
 | Ressource | Limite par défaut | Limite maximale |
 | -------- | ------------- | ------------- |
-| Fabriques de données d’un abonnement Azure | 50 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Fabriques de données d’un abonnement Azure | 800 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Nombre total d’entités, telles que les pipeline, les jeux de données, les déclencheurs, les services liés et les runtimes d’intégration, dans une fabrique de données | 5 000 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Nombre total de cœurs d’UC pour les runtimes d’intégration Azure-SSIS d’un même abonnement | 256 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Exécutions de pipeline simultanés par fabrique de données qui sont partagées entre tous les pipelines de l’usine | 10 000  | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |

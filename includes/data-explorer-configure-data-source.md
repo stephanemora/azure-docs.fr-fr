@@ -4,12 +4,12 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 11/03/2019
 ms.author: orspodek
-ms.openlocfilehash: f8b3e541dfd55bbd613af2791329a08402cf8670
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3cd9d017429b629acad39f5b902e842886c3c818
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581942"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78305062"
 ---
 ## <a name="configure-the-data-source"></a>Configurer la source de données
 
@@ -29,7 +29,7 @@ Vous pouvez créer le principal de service dans le [portail Azure](#azure-portal
 
 1. Pour créer le principal de service, suivez les instructions données dans la [documentation du portail Azure](/azure/active-directory/develop/howto-create-service-principal-portal).
 
-    1. Dans la section [Affecter l’application à un rôle](/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role), affectez le type de rôle **Lecteur** à votre cluster Azure Data Explorer.
+    1. Dans la section [Affecter l’application à un rôle](/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application), affectez le type de rôle **Lecteur** à votre cluster Azure Data Explorer.
 
     1. Dans la section [Obtenir les valeurs pour la connexion](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), copiez les trois valeurs de propriété décrites dans les étapes : **ID de répertoire** (ID de locataire), **ID d’application** et **Mot de passe**.
 
@@ -37,7 +37,7 @@ Vous pouvez créer le principal de service dans le [portail Azure](#azure-portal
 
     ![ID d’abonnement - portail](media/data-explorer-configure-data-source/subscription-id-portal.png)
 
-#### <a name="azure-cli"></a>D’Azure CLI
+#### <a name="azure-cli"></a>Azure CLI
 
 1. Créer un principal de service. Définissez une étendue appropriée et le type de rôle `reader`.
 
@@ -81,7 +81,7 @@ Maintenant que vous avez un principal de service, ajoutez-le au rôle *observate
 
 1. Dans la section **Vue d’ensemble**, sélectionnez la base de données contenant l’exemple de données StormEvents.
 
-    ![Sélectionner la base de données](media/data-explorer-configure-data-source/select-database.png)
+    ![Sélectionner une base de données](media/data-explorer-configure-data-source/select-database.png)
 
 1. Sélectionnez **Autorisations**, puis **Ajouter**.
 
