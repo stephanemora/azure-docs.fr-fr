@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: d8302b69f1e868536eb954a650a62f41e4006b82
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d264768bf27967d1a778400ae4e9e6f2e054d746
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754527"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942971"
 ---
 # <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Projections dans une base de connaissances dans Recherche cognitive Azure
 
@@ -211,3 +211,8 @@ Enfin, si vous devez exporter vos données de la base de connaissances, Azure Da
 
 > [!div class="nextstepaction"]
 > [Créer une base de connaissances avec REST](knowledge-store-create-rest.md).
+
+Pour un tutoriel sur les concepts de projections avancées, tels que le découpage, la mise en forme inline et les relations, commencez par [définir des projections dans une base de connaissances](knowledge-store-projections-examples.md).
+
+> [!div class="nextstepaction"]
+> [Définir des projections dans une base de connaissances](knowledge-store-projections-examples.md)

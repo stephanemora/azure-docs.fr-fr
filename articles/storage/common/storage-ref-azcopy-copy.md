@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: b9ac15e6909498c38f618a24be6b010dc2774b07
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 431372b930269c3dfa6bdc6e8b2fe4d291a8162e
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905507"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933784"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -171,7 +171,7 @@ Copier un sous-ensemble de compartiments en utilisant un caractère générique 
 
 **--blob-type** string                     Définit le type d’objet blob au niveau de la destination. Utilisé pour charger des objets blob et lors de la copie de données d’un compte à l’autre (par défaut « Detect »). Les valeurs valides sont « Detect », « BlockBlob », « PageBlob » et « AppendBlob ». Lors de la copie entre comptes, la valeur « Detect » contraint AzCopy à utiliser le type de l’objet blob source pour déterminer le type de l’objet blob de destination. Lors du chargement d’un fichier, « Detect » détermine s’il s’agit d’un fichier VHD ou VHDX en fonction de l’extension de fichier. S’il s’agit d’un fichier VHD ou VHDX, AzCopy traite le fichier comme un objet blob de pages. (par défaut : « Detect »)
 
-**--block-blob-tier** string               Charger un objet blob de blocs dans Stockage Azure à l’aide de ce niveau d’objet blob. (par défaut : « None »).
+Chaîne **--block-blob-tier**               Vous permet de charger des objets blob de blocs au [niveau d'accès](../blobs/storage-blob-storage-tiers.md) de votre choix. (par défaut : « None »). Les valeurs valides sont « None », « Hot », « Cool » et « Archive ». Si la valeur « None » est transmise, ou si aucun niveau n'est transmis, l'objet blob hérite du niveau du compte de stockage.
 
 **--block-size-mb** float                  Taille de bloc (spécifiée en Mio) utilisée lors du chargement dans Stockage Azure et le téléchargement à partir de Stockage Azure. La valeur par défaut est calculée automatiquement en fonction de la taille du fichier. Les fractions décimales sont autorisées (par exemple : 0,25).
 
@@ -191,7 +191,7 @@ Copier un sous-ensemble de compartiments en utilisant un caractère générique 
 
 **--decompress**                           Décompresser automatiquement les fichiers lors du téléchargement, si content-encoding indique qu’ils sont compressés. Les valeurs de content-encoding prises en charge sont « gzip » et « deflate ». Les extensions de fichiers « .gz »/« .gzip » ou « .zz » ne sont pas nécessaires, mais seront supprimées si elles sont présentes.
 
-**--exclude-attributes** string            (Windows uniquement) Exclut les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple :  A;S;R
+**--exclude-attributes** string            (Windows uniquement) Exclut les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple : A;S;R
 
 **--exclude-blob-type** string             (Facultatif) Spécifie le type d’objet blob (BlockBlob/PageBlob/AppendBlob) à exclure lors de la copie d’objets blob à partir du conteneur ou du compte. L’utilisation de cet indicateur ne s’applique pas à la copie de données à partir d’un service non Azure. Si vous avez plusieurs objets blob, vous devez les séparer par un point-virgule (« ; »).
 
@@ -205,7 +205,7 @@ Copier un sous-ensemble de compartiments en utilisant un caractère générique 
 
 **-h, --help**                                 Aide pour la copie
 
-**--include-attributes** string            (Windows uniquement) Inclut les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple :  A;S;R
+**--include-attributes** string            (Windows uniquement) Inclut les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple : A;S;R
 
 **--include-path** string                  Inclut uniquement ces chemins lors de la copie. Cette option ne prend pas en charge les caractères génériques (*). Vérifie le préfixe de chemin relatif (Par exemple : myFolder;myFolder/subDirName/file.pdf.).
 

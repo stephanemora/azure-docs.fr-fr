@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: d39ac40e8e29c7ff90e2accc3a519449571c1d58
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.date: 03/10/2020
+ms.openlocfilehash: 2e12952c04373fe47eaebb24b61a4fc563121185
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917405"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037121"
 ---
 # <a name="execute-r-script"></a>Exécuter un script R
 
@@ -67,11 +67,43 @@ azureml_main <- function(dataframe1, dataframe2){
  > [!NOTE]
   > Vérifiez si le package existe déjà avant de l’installer, afin d’éviter de répéter l’installation. Comme `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")` dans l’exemple de code ci-dessus. Répéter l’installation peut entraîner l’expiration des requêtes de service web.     
 
+## <a name="upload-files"></a>Charger des fichiers
+Le module **Exécuter un script R** prend en charge le chargement de fichiers à l'aide du kit de développement logiciel (SDK) Azure Machine Learning R.
+
+L'exemple suivant montre comment charger un fichier image dans le module **Exécuter un script R** :
+```R
+
+# R version: 3.5.1
+# The script MUST contain a function named azureml_main
+# which is the entry point for this module.
+
+# The entry point function can contain up to two input arguments:
+#   Param<dataframe1>: a R DataFrame
+#   Param<dataframe2>: a R DataFrame
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+
+  # Generate a jpeg graph
+  img_file_name <- "rect.jpg"
+  jpeg(file=img_file_name)
+  example(rect)
+  dev.off()
+
+  upload_files_to_run(names = list(file.path("graphic", img_file_name)), paths=list(img_file_name))
+
+
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
+Une fois le pipeline soumis avec succès, vous pouvez afficher un aperçu de l'image dans le panneau de droite du module ![Uploaded-image](media/module/upload-image-in-r-script.png) (Image téléchargée).
+
 ## <a name="how-to-configure-execute-r-script"></a>Comment configurer le module Exécuter un script R
 
 Le module **Exécuter un script R** contient un exemple de code que vous pouvez utiliser comme point de départ. Pour configurer le module **Exécuter un script R**, indiquez un ensemble d’entrées et du code à exécuter.
 
-![R-module](media/module/execute-r-script.png)
+![R-module](media/module/upload-image-in-r-script.png)
 
 Les jeux de données stockés dans le concepteur sont automatiquement convertis en trame de données R quand ils sont chargés avec ce module.
 
@@ -223,7 +255,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 Vous pouvez passer des objets R entre des instances du module **Exécuter un script R** en utilisant le mécanisme de sérialisation interne. Cet exemple suppose que vous souhaitez déplacer l’objet R nommé `A` entre deux modules **Exécuter un script R**.
 
-1. Ajoutez le premier module **Exécuter un script R** à votre pipeline et tapez le code suivant dans la zone de texte **Script R** pour créer un objet sérialisé `A` comme colonne dans la table de données de sortie du module :  
+1. Ajoutez le premier module **Exécuter un script R** à votre pipeline et entrez le code suivant dans la zone de texte **Script R** pour créer un objet sérialisé `A` comme colonne dans la table de données de sortie du module :  
   
     ```R
     azureml_main <- function(dataframe1, dataframe2){

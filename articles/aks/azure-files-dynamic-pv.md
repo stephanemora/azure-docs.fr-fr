@@ -4,12 +4,12 @@ description: Découvrir comment créer un volume persistant de manière dynamiqu
 services: container-service
 ms.topic: article
 ms.date: 09/12/2019
-ms.openlocfilehash: a6e46433354be0d9d958ec69da4529e94a4edd75
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: ef9ef10a5523bd91b346e16e105c5ff5cd9cb669
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596418"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897706"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Créer et utiliser un volume persistant de manière dynamique avec Azure Files dans Azure Kubernetes Service (AKS)
 
@@ -29,11 +29,13 @@ Une classe de stockage permet de définir la façon dont un partage de fichiers 
 
 * *Standard_LRS* : stockage localement redondant (LRS) standard
 * *Standard_GRS* : stockage géoredondant (GRS) standard
+* *Standard_GRS* : stockage redondant interzone (GRS) standard
 * *Standard_RAGRS* : stockage géographiquement redondant avec accès en lecture (RA-GRS) standard
 * *Premium_LRS* - Stockage Premium localement redondant (LRS)
+* *Premium_ZRS* : stockage redondant interzone (GRS) premium
 
 > [!NOTE]
-> Azure Files prend en charge le stockage premium dans les clusters AKS qui exécutent Kubernetes 1.13 ou une version ultérieure.
+> Azure Files prend en charge le stockage premium dans les clusters AKS qui exécutent Kubernetes 1.13 ou version ultérieure. Le partage de fichiers premium minimum est de 100 Go.
 
 Pour plus d’informations sur les classes de stockage Kubernetes pour Azure Files, consultez [Classes de stockage Kubernetes][kubernetes-storage-classes].
 
@@ -48,11 +50,10 @@ provisioner: kubernetes.io/azure-file
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
-  - uid=1000
-  - gid=1000
+  - uid=0
+  - gid=0
   - mfsymlinks
-  - nobrl
-  - cache=none
+  - cache=strict
 parameters:
   skuName: Standard_LRS
 ```
@@ -163,7 +164,7 @@ Volumes:
 
 ## <a name="mount-options"></a>Options de montage
 
-La valeur par défaut de *fileMode* et *dirMode* est *0755* pour Kubernetes 1.9.1 et versions ultérieures. Si vous utilisez un cluster avec Kuberetes 1.8.5 ou ultérieur et que vous créez le volume persistant de manière dynamique avec une classe de stockage, les options de montage peuvent être spécifiées sur l’objet de classe de stockage. L’exemple suivant définit *0777* :
+La valeur par défaut de *fileMode* et *dirMode* est *0777* pour Kubernetes 1.13.0 et versions ultérieures. Si vous créez le volume persistant de manière dynamique avec une classe de stockage, les options de montage peuvent être spécifiées sur l'objet de classe de stockage. L’exemple suivant définit *0777* :
 
 ```yaml
 kind: StorageClass
@@ -174,16 +175,13 @@ provisioner: kubernetes.io/azure-file
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
-  - uid=1000
-  - gid=1000
+  - uid=0
+  - gid=0
   - mfsymlinks
-  - nobrl
-  - cache=none
+  - cache=strict
 parameters:
   skuName: Standard_LRS
 ```
-
-Si vous utilisez un cluster de version 1.8.0 - 1.8.4, un contexte de sécurité peut être spécifié avec la définition de la valeur *runAsUser* sur *0*. Pour plus d’informations sur le contexte de sécurité Pod, consultez [Configurer un contexte de sécurité][kubernetes-security-context].
 
 ## <a name="next-steps"></a>Étapes suivantes
 

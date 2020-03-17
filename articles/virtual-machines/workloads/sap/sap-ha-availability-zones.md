@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/17/2020
+ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ee3d1d896d99d892d0a41799c4c1695633d29c4
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: a7a92bef85cd4ee7530940a065135e88c7530781
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291496"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78675605"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurations de la charge de travail SAP avec des zones de disponibilité Azure
 Les [zones de disponibilité Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) correspondent à l’une des fonctionnalités de haute disponibilité fournies par Azure. L’utilisation de zones de disponibilité améliore la disponibilité globale des charges de travail SAP dans Azure. Cette fonctionnalité est déjà disponible dans certaines [régions Azure](https://azure.microsoft.com/global-infrastructure/regions/). Elle le sera demain dans d’autres régions.
@@ -118,6 +118,9 @@ Les considérations suivantes s’appliquent pour cette configuration :
 - La troisième zone est utilisée pour héberger le périphérique SBD au cas où vous créez un [cluster Pacemaker SUSE Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) ou d’autres instances d’application.
 - Pour obtenir la cohérence d’exécution des processus métier critiques, vous pouvez essayer de diriger certains utilisateurs et tâches de traitement par lots vers des instances d’application qui se trouvent dans la même zone que l’instance SGBD active, à l’aide de groupes de serveurs par lots SAP, de groupes de connexions SAP ou de groupes RFC. Cependant, en cas de basculement entre zones, vous devez déplacer manuellement ces groupes vers les instances qui sont exécutées sur les machines virtuelles qui se trouvent dans la même zone que la machine virtuelle de la base de données active.  
 - Vous pouvez éventuellement déployer des instances de dialogue dormantes dans chacune des zones. Celles-ci permettent un retour immédiat à la capacité de ressources antérieure si une zone utilisée par une partie de vos instances d’application est hors service.
+
+> [!IMPORTANT]
+> Dans ce scénario actif/actif, des frais supplémentaires sont annoncés par Microsoft à partir du 01/04/2020 pour la bande passante. Consultez le document [Détails sur la tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/). Le transfert de données entre la couche d'application SAP et la couche SGBD SAP est assez intensif. Par conséquent, le scénario actif/actif peut en partie contribuer aux coûts. Poursuivez la lecture de cet article pour connaître les coûts exacts. 
 
 
 ## <a name="activepassive-deployment"></a>Déploiement actif/passif

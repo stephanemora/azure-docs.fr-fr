@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/16/2019
-ms.openlocfilehash: 97725099e82c5edb05447d97b47f352c440bd8e8
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.custom: hdinsightactive
+ms.date: 03/04/2020
+ms.openlocfilehash: 2ed7a5b9c81d1b50f80f379a88688b69c49ed382
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529300"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897911"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connecter HDInsight à votre réseau local
 
@@ -24,16 +24,16 @@ Découvrez comment connecter HDInsight à votre réseau local à l’aide de ré
 * la configuration de groupes de sécurité réseau pour restreindre l’accès Internet à HDInsight ;
 * les ports fournis par HDInsight sur le réseau virtuel.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Pour permettre à HDInsight et aux ressources du réseau joint de communiquer par nom, vous devez effectuer les actions suivantes :
 
-* Créez un réseau virtuel Azure.
-* créer un serveur DNS personnalisé dans le réseau virtuel Azure ;
-* configurer le réseau virtuel pour utiliser le serveur DNS personnalisé au lieu du programme de résolution récursive Azure par défaut ;
-* configurer le transfert entre le serveur DNS personnalisé et votre serveur DNS local.
+1. Créez un réseau virtuel Azure.
+1. créer un serveur DNS personnalisé dans le réseau virtuel Azure ;
+1. configurer le réseau virtuel pour utiliser le serveur DNS personnalisé au lieu du programme de résolution récursive Azure par défaut ;
+1. configurer le transfert entre le serveur DNS personnalisé et votre serveur DNS local.
 
-Cette configuration active le comportement suivant :
+Ces configurations déclenchent le comportement suivant :
 
 * Les demandes de noms de domaine complets (FQDN) qui ont le suffixe DNS __pour le réseau virtuel__ sont transférées au serveur DNS personnalisé. Le serveur DNS personnalisé transfère ensuite ces demandes au programme de résolution récursive Azure qui retourne l’adresse IP.
 * Toutes les autres demandes sont transférées au serveur DNS local. Même les demandes de ressources Internet publiques telles que microsoft.com sont transférées au serveur DNS local pour la résolution de noms.
@@ -63,17 +63,19 @@ Pour découvrir comment créer un réseau virtuel Azure connecté à votre rése
 
 Ces étapes utilisent le [portail Azure](https://portal.azure.com) pour créer une machine virtuelle Azure. Pour d’autres manières de créer une machine virtuelle, consultez [Créer une machine virtuelle avec Azure CLI](../virtual-machines/linux/quick-create-cli.md) et [Créer une machine virtuelle avec Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md).  Pour créer une machine virtuelle Linux utilisant le logiciel DNS [Bind](https://www.isc.org/downloads/bind/), procédez comme suit :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
   
-2. Dans le menu gauche, accédez à **+ Créer une ressource** > **Calcul** > **Ubuntu Server 18.04 LTS**.
+1. Dans le menu du haut, sélectionnez **+ Créer une ressource**.
 
-    ![Créer une machine virtuelle Ubuntu](./media/connect-on-premises-network/create-ubuntu-virtual-machine.png)
+    ![Créer une machine virtuelle Ubuntu](./media/connect-on-premises-network/azure-portal-create-resource.png)
 
-3. Sous l’onglet __De base__, entrez les informations suivantes :  
+1. Sélectionnez **Calcul** > **Machine virtuelle** pour accéder à la page **Créer une machine virtuelle**.
+
+1. Sous l’onglet __De base__, entrez les informations suivantes :  
   
     | Champ | Valeur |
     | --- | --- |
-    |Subscription |Sélectionnez votre abonnement approprié.|
+    |Abonnement |sélectionnez votre abonnement approprié.|
     |Resource group |Sélectionnez le groupe de ressources qui contient le réseau virtuel créé précédemment.|
     |Nom de la machine virtuelle | Entrez un nom convivial qui identifie cette machine virtuelle. Cet exemple utilise **DNSProxy**.|
     |Région | Sélectionnez la même région que celle du réseau virtuel créé précédemment.  Certaines tailles de machine virtuelle ne sont pas disponibles dans toutes les régions.  |
@@ -178,7 +180,7 @@ Une fois la machine virtuelle créée, vous recevrez une notification **Déploie
     dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net
     ```
 
-    Le texte `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` est le __suffixe DNS__ de ce réseau virtuel. Enregistrez cette valeur, car vous l’utiliserez plus tard.
+    Le texte `icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net` est le __suffixe DNS__ de ce réseau virtuel. Enregistrez cette valeur, car vous en aurez besoin plus tard.
 
 5. Pour configurer Bind afin de résoudre les noms DNS pour les ressources au sein du réseau virtuel, utilisez le texte suivant en tant que contenu du fichier `/etc/bind/named.conf.local` :
 

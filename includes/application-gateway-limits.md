@@ -2,14 +2,14 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-ms.date: 6/5/2019
+ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: 6ab6c4c2051ccd2fbb22c383b9ca0af53ceb13d3
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 48f4c7497583e872c89e4d8cd92dab52ab4f9239
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77054934"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78304926"
 ---
 | Ressource | Limite par défaut/maximale | Remarque |
 | --- | --- | --- |
@@ -18,7 +18,7 @@ ms.locfileid: "77054934"
 | Ports frontaux |100<sup>1</sup> | |
 | Pool d'adresses principales |100<sup>1</sup> | |
 | Serveurs principaux par pool |1,200 | |
-| Écouteurs HTTP |100<sup>1</sup> | |
+| Écouteurs HTTP |200<sup>1</sup> |Limité à 100 écouteurs actifs qui routent le trafic. Écouteurs actifs = nombre total d’écouteurs - écouteurs non actifs.<br>Si une configuration par défaut à l’intérieur d’une règle de routage est définie pour router le trafic (avec, par exemple, un écouteur, un pool de back-ends et des paramètres HTTP), elle est également considérée comme un écouteur.|
 | Règles d’équilibrage de charge HTTP |100<sup>1</sup> | |
 | Paramètres HTTP du serveur principal |100<sup>1</sup> | |
 | Instances par passerelle |Référence SKU V1 - 32<br>Référence SKU V2 - 125 | |

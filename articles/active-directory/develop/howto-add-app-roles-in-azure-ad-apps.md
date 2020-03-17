@@ -14,12 +14,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5400ede4f3afd9f94d7380c6dfd55d8aa45d08ca
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 3a911db36fd03ebcb5e0fc53d4d7f36d68648249
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834244"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399091"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procédure : Ajouter des rôles d’application dans votre application et les recevoir dans le jeton
 
@@ -44,10 +44,10 @@ Ces rôles d’application sont définis dans le [portail Azure](https://portal.
 1. Modifiez le manifeste d’application en recherchant le paramètre `appRoles` et en ajoutant tous vos rôles d'application.
 
      > [!NOTE]
-     > Chaque définition de rôle d’application dans ce manifeste doit avoir un GUID valide différent dans le contexte du manifeste pour la propriété `id`.    
-     > 
+     > Chaque définition de rôle d’application dans ce manifeste doit avoir un GUID valide différent dans le contexte du manifeste pour la propriété `id`.
+     >
      > La propriété `value` de chaque définition de rôle d’application doit correspondre exactement aux chaînes qui sont utilisées dans le code de l’application. La propriété `value` ne peut pas contenir d’espaces. Si tel est le cas, vous recevrez une erreur lors de l’enregistrement du manifeste.
-     
+
 1. Enregistrez le manifeste.
 
 ### <a name="examples"></a>Exemples
@@ -108,7 +108,7 @@ Une fois que vous avez ajouté des rôles d’application dans votre application
      Si vous ne voyez pas l’application que vous souhaitez afficher ici, utilisez les filtres présents en haut de la liste **Toutes les applications** pour restreindre la liste ou bien faites-la défiler vers le bas pour localiser votre application.
 
 1. Sélectionnez l’application dans laquelle vous souhaitez assigner des utilisateurs ou un groupe de sécurité aux rôles.
-1. Sélectionnez le volet **Utilisateurs et groupes** dans le menu de navigation de gauche de l’application.
+1. Sélectionnez le volet **Utilisateurs et groupes** dans le menu de navigation de gauche de l'application.
 1. En haut de la liste **Utilisateurs et groupes**, sélectionnez le bouton **Ajouter un utilisateur** en haut de la liste pour ouvrir le volet **Ajouter une attribution**.
 1. Sélectionnez le sélecteur **Utilisateurs et groupes** à partir du volet **Ajouter une attribution**.
 
@@ -122,7 +122,7 @@ Une fois que vous avez ajouté des rôles d’application dans votre application
 
 ## <a name="more-information"></a>Informations complémentaires
 
-- [Autorisation dans une application web à l’aide de rôles d’application &amp; revendications de rôle d’Azure AD (exemple)](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims)
+- [Ajouter une autorisation à une application web ASP.NET Core à l'aide de rôles d'application et de revendications de rôles](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
 - [Utilisation de groupes de sécurité et de rôles d’Application dans vos applications (vidéo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
 - [Azure Active Directory, désormais avec les revendications de groupe et les rôles d’application](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Manifeste d’application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)

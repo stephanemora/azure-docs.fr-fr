@@ -1,6 +1,6 @@
 ---
-title: Afficher le rapport d’audit pour les rôles Azure AD dans PIM - Azure AD | Microsoft Docs
-description: Découvrez comment afficher l’historique des audits des rôles Azure AD dans Azure AD Privileged Identity Management (PIM).
+title: Afficher le rapport de journal d’audit pour les rôles Azure AD dans Azure AD PIM | Microsoft Docs
+description: Découvrez comment afficher l’historique du journal d’audit des rôles Azure AD dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2020
+ms.date: 01/07/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a2eccc02d13bf5a2dfc8bf3ceb7887e4962489
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 4b8aef68e0f61e6ca995fc2bb362d59aba73ead2
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498488"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329502"
 ---
-# <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Voir l’historique d’audit pour les rôles Azure AD dans PIM
+# <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Afficher l’historique d’audit des rôles Azure AD dans Privileged Identity Management
 
 Vous pouvez utiliser l’historique d’audit PIM (Privileged Identity Management) pour voir toutes les activations et toutes les affectations de rôles qui ont été effectuées au cours des 30 derniers jours pour tous les rôles privilégiés. Si vous souhaitez consulter l’historique d’audit complet de l’activité dans votre organisation Azure Active Directory (Azure AD), notamment l’activité de l’administrateur, de l’utilisateur final et de la synchronisation, vous pouvez utiliser les [rapports d’activité et de sécurité d’Azure Active Directory](../reports-monitoring/overview-reports.md).
 
@@ -32,7 +32,7 @@ Depuis novembre 2019, la partie Rôles Azure AD de Privileged Identity Manageme
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un utilisateur avec le rôle [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 1. Ouvrez **Azure AD Privileged Identity Management**. Si une bannière figure en haut de la page de présentation, suivez les instructions sous l’onglet **Nouvelle version** de cet article. Sinon, suivez les instructions sous l’onglet **Version précédente**.
 
-    [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+    [![Nouvelle version des rôles Azure AD](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Sélectionner l’onglet correspondant à votre version")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
 # <a name="new-version"></a>[Nouvelle version](#tab/new)
 
@@ -50,7 +50,7 @@ L’audit des ressources vous donne un aperçu de toutes les activités associé
 
 1. Filtrez l’historique en choisissant une date prédéfinie ou une plage personnalisée.
 
-    ![Liste des audits de ressources avec filtres](media/pim-how-to-use-audit-log/resource-audit.png)
+    ![Liste des audits de ressources avec filtres](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 ## <a name="view-my-audit"></a>Afficher mon audit
 
@@ -66,7 +66,7 @@ Mon audit vous permet d’afficher votre activité personnelle de rôle.
 
 1. Filtrez l’historique en choisissant une date prédéfinie ou une plage personnalisée.
 
-    ![Liste d’audits pour l’utilisateur actuel](media/pim-how-to-use-audit-log/audit-time-span.png)
+    ![Liste d’audits pour l’utilisateur actuel](media/azure-pim-resource-rbac/my-audit-time.png)
 
 # <a name="previous-version"></a>[Version précédente](#tab/previous)
 
@@ -84,7 +84,7 @@ Suivez ces étapes pour afficher l’historique des audits pour les rôles Azure
 
     En fonction de l’historique d’audit, un histogramme s’affiche dans lequel figurent le nombre total d’activations, le nombre maximal d’activations par jour et la moyenne d’activations par jour.
 
-    ![Historique d’audit des rôles d’annuaire](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+    [![Nouvelle version des rôles Azure AD](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Afficher l’historique d’audit des rôles d’annuaire")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
     Au bas de la page, un tableau s’affiche avec des informations sur chaque action de l’historique d’audit disponible. Voici la signification de ces colonnes :
 
@@ -113,6 +113,28 @@ Suivez ces étapes pour afficher l’historique des audits pour les rôles Azure
     ![Volet Mettre à jour les paramètres du graphique](media/pim-how-to-use-audit-log/update-chart-parameters.png)
 
 1. Sélectionnez **Terminé** pour voir l’historique d’audit filtré.
+
+## <a name="get-reason-approver-and-ticket-number-for-approval-events"></a>Obtenir la raison, l’approbateur et le numéro de ticket pour les événements d’approbation
+
+1. Connectez-vous au [portail Azure](https://aad.portal.azure.com) avec les autorisations du rôle Administrateur de rôle privilégié, puis ouvrez Azure AD.
+1. Sélectionnez **Journaux d’audit**.
+1. Utilisez le filtre **Service** pour afficher uniquement les événements d’audit qui concernent le service Privileged Identity Management. Sur la page **Journaux d’audit**, vous pouvez :
+
+    - Consulter la raison d’un événement d’audit dans la colonne **Motif du statut**.
+    - Consulter l’approbateur dans la colonne **Initié par (acteur)** pour l’événement « Demande d’ajout de membre au rôle approuvée ».
+
+    [![Nouvelle version des rôles Azure AD](media/pim-how-to-use-audit-log/filter-audit-logs.png "Filtrer le journal d’audit pour le service PIM")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
+
+1. Sélectionnez un événement de journal d’audit pour afficher le numéro de ticket sous l’onglet **Activité** du volet **Détails**.
+  
+    [![Nouvelle version des rôles Azure AD](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "Vérifier le numéro de ticket pour l’événement d’audit")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
+
+1. Vous pouvez afficher le demandeur (personne qui active le rôle) sous l’onglet **Cibles** du volet **Détails** d’un événement d’audit. Il existe deux types de cibles pour les rôles Azure AD :
+
+    - Le rôle (**Type** = Rôle)
+    - Le demandeur (**Type** = Utilisateur)
+
+En règle générale, l’événement de journal d’audit situé juste au-dessus de l’événement d’approbation est un événement « Ajout de membre au rôle terminé » où **Initié par (acteur)** est le demandeur. Dans la plupart des cas, vous n’aurez pas besoin de rechercher le demandeur dans la demande d’approbation du point de vue de l’audit.
 
 ---
 

@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 03/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: c0681024b60827cf589906041c264d912ab209bb
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 0807b535adc45093b439dba5ab8a0ea26b2a0721
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612358"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402947"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Créer une table de routage de hub Virtual WAN pour des appliances réseau virtuelles : Portail Azure
 
-Cet article explique comment diriger le trafic à partir d’une branche (site local) connectée au hub Virtual WAN vers un réseau virtuel spoke via une appliance virtuelle réseau.
+Cet article explique comment diriger le trafic entre une branche (site local) connectée au hub Virtual WAN et un réseau virtuel spoke via une appliance virtuelle réseau.
 
 ![Diagramme WAN virtuel](./media/virtual-wan-route-table/vwanroute.png)
 
@@ -31,13 +31,14 @@ Vérifiez que vous respectez les critères suivants :
 
     * L’appliance réseau virtuelle n’est pas déployée dans le hub virtuel. Elle doit être déployée dans un réseau virtuel distinct.
 
-    *  Le réseau virtuel de l’appliance réseau virtuelle peut avoir un ou plusieurs réseaux virtuels qui y sont connectés. Dans cet article, nous désignons le réseau virtuel de l’appliance réseau virtuelle par le terme « réseau virtuel spoke indirect ». Ces réseaux virtuels peuvent être connectés au réseau virtuel de l’appliance réseau virtuelle à l’aide de VNet Peering. Les liens de peering de réseau virtuel sont représentés par des flèches noires dans la figure ci-dessus, entre le réseau virtuel 1, le réseau virtuel 2 et le réseau virtuel d’appliance virtuelle réseau.
+    *  Un ou plusieurs réseaux virtuels peuvent être connectés au réseau virtuel de l'appliance réseau virtuelle. Dans cet article, nous désignons le réseau virtuel de l'appliance réseau virtuelle par le terme « réseau virtuel spoke indirect ». Ces réseaux virtuels peuvent être connectés au réseau virtuel de l'appliance réseau virtuelle à l'aide de VNet Peering. Les liens VNet Peering sont représentés par des flèches noires dans la figure ci-dessus, entre le réseau virtuel 1, le réseau virtuel 2 et le réseau virtuel d'appliance virtuelle réseau.
 *  Vous avez créé deux réseaux virtuels. Ils seront utilisés en tant que réseaux virtuels spoke.
 
-    * Dans cet exercice, les réseaux virtuels spoke ont les espaces d’adressage suivants : VNet1 : 10.0.2.0/24 et VNet2 : 10.0.3.0/24. Pour plus d’informations sur la création d’un réseau virtuel, consultez [Créer un réseau virtuel](../virtual-network/quick-create-portal.md).
+    * Les espaces d'adressage des réseaux virtuels spoke sont les suivants : VNet1 : 10.0.2.0/24 et VNet2 : 10.0.3.0/24. Pour plus d'informations sur la création d'un réseau virtuel, consultez [Créer un réseau virtuel](../virtual-network/quick-create-portal.md).
 
     * Assurez-vous qu’aucune passerelle de réseau virtuel n’existe dans les réseaux virtuels.
-    * Pour cette configuration, ces réseaux virtuels ne nécessitent pas de sous-réseau de passerelle.
+
+    * Les réseaux virtuels n'ont pas besoin de sous-réseau de passerelle.
 
 ## <a name="signin"></a>1. Se connecter
 
@@ -45,7 +46,7 @@ Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et con
 
 ## <a name="vwan"></a>2. Créer un WAN virtuel
 
-Créez un WAN virtuel. Dans le cadre de cet exercice, vous pouvez utiliser les valeurs suivantes :
+Créez un WAN virtuel. Utilisez les exemples de valeurs suivants :
 
 * **Nom du WAN virtuel :** monWANvirtuel
 * **Groupe de ressources :** testRG
@@ -55,7 +56,7 @@ Créez un WAN virtuel. Dans le cadre de cet exercice, vous pouvez utiliser les v
 
 ## <a name="hub"></a>3. Créer un hub
 
-Créez le hub. Dans le cadre de cet exercice, vous pouvez utiliser les valeurs suivantes :
+Créez le hub. Utilisez les exemples de valeurs suivants :
 
 * **Emplacement :** USA Ouest
 * **Nom :** westushub
@@ -65,7 +66,7 @@ Créez le hub. Dans le cadre de cet exercice, vous pouvez utiliser les valeurs s
 
 ## <a name="route"></a>4. Créer et implémenter une table de routage de hub
 
-Mettez à jour le hub avec une table de routage de hub. Dans le cadre de cet exercice, vous pouvez utiliser les valeurs suivantes :
+Mettez à jour le hub avec une table de routage de hub. Utilisez les exemples de valeurs suivants :
 
 * **Espaces d'adressage du réseau virtuel Spoke :** (VNet1 et VNet2) 10.0.2.0/24 et 10.0.3.0/24
 * **Adresses IP privées pour l’interface réseau de l’appliance réseau virtuelle DMZ :** 10.0.4.5
@@ -79,7 +80,7 @@ Mettez à jour le hub avec une table de routage de hub. Dans le cadre de cet exe
 
 ## <a name="connections"></a>5. Créer les connexions de réseau virtuel
 
-Créez une connexion de réseau virtuel au hub à partir de chaque réseau virtuel spoke indirect (VNet1 et VNet2). Ces connexions de réseau virtuel sont représentées par les flèches bleues dans la figure ci-dessus. Créez ensuite une connexion de réseau virtuel à partir du réseau virtuel d’appliance virtuelle réseau au hub (flèche noire dans la figure). 
+Créez une connexion de réseau virtuel au hub à partir de chaque réseau virtuel spoke indirect (VNet1 et VNet2). Ces connexions de réseau virtuel sont représentées par les flèches bleues dans la figure ci-dessus. Créez ensuite une connexion de réseau virtuel au hub à partir du réseau virtuel d'appliance virtuelle réseau (flèche noire dans la figure).
 
  Pour cette étape, vous pouvez utiliser les valeurs suivantes :
 
@@ -103,4 +104,4 @@ Répétez la procédure suivante pour chaque réseau virtuel que vous souhaitez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur le WAN virtuel, consultez la page [Vue d'ensemble de WAN virtuel](virtual-wan-about.md).
+Pour plus d’informations sur Virtual WAN, consultez la page [Vue d’ensemble de Virtual WAN](virtual-wan-about.md).

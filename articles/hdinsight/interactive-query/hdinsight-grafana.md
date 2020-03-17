@@ -7,24 +7,24 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/27/2019
-ms.openlocfilehash: 6027978b50ca72de5d18ff474b36814e22a94e85
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: cd515bfd1dc57e78a041ed96686e1ba692bf6d3f
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552216"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082861"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Accéder à Grafana dans Azure HDInsight
 
 [Grafana](https://grafana.com/) est un générateur open source de tableaux de bord et de graphes qui est couramment utilisé. Il est doté de nombreuses fonctionnalités : les utilisateurs peuvent créer des tableaux de bord personnalisables et pouvant être partagés, mais aussi se servir de tableaux de bord basés sur un script/modèle, de l’intégration LDAP, de multiples sources de données, etc.
 
-Actuellement, dans Azure HDInsight, Grafana est pris en charge avec les types de cluster Hbase, Kafka et Interactive Query. Il n’est pas pris en charge pour les clusters avec le Pack Sécurité Entreprise activé.
+Dans Azure HDInsight, Grafana est actuellement pris en charge avec les types de cluster Spark, Hbase, Kafka et Interactive Query. Il n’est pas pris en charge pour les clusters avec le Pack Sécurité Entreprise activé.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="create-an-apache-hadoop-cluster"></a>Créer un cluster Apache Hadoop
 
-Consultez [Créer des clusters Apache Hadoop à l’aide du Portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md). Pour **Type de cluster**, sélectionnez **Kafka**, **HBase** ou **Interactive Query**.
+Consultez [Créer des clusters Apache Hadoop à l’aide du Portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md). Pour le **Type de cluster**, sélectionnez **Spark**, **Kafka**, **HBase** ou **Interactive Query**.
 
 ## <a name="access-the-grafana-dashboard"></a>Accéder au tableau de bord Grafana
 

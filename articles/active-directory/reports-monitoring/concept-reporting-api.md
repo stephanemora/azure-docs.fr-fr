@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c841195cacd8c8d7698f69435572587bf04c3d67
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 56f240a5191dd483f89889f3ffe13b1819ca1e53
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008356"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399317"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Prise en main de l’API de création de rapports Azure Active Directory
 
@@ -50,13 +50,10 @@ Pour plus d’instructions, consultez les [prérequis à l’accès à l’API d
 Le point de terminaison de l’API Microsoft Graph pour les journaux d’audit est `https://graph.microsoft.com/beta/auditLogs/directoryAudits` et le point de terminaison de l’API Microsoft Graph pour les connexions est `https://graph.microsoft.com/beta/auditLogs/signIns`. Pour plus d’informations, consultez les [informations de référence sur l’API d’audit](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) et [sur l’API de connexion](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
 
 De plus, vous pouvez utiliser l’[API Identity Protection relative aux détections d’événements à risque](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) pour accéder par programmation aux détections de sécurité à l’aide de Microsoft Graph. Pour plus d’informations, consultez [Prise en main d’Azure Active Directory Identity Protection et de Microsoft Graph](../identity-protection/graph-get-started.md). 
-
-> [!NOTE]
->  Le point de terminaison **https:\/\/graph.windows.net\/\<nom_client\>\/rapports\/** est déprécié. Utilisez les nouveaux points de terminaison API décrits ci-dessus pour accéder par programmation aux rapports d’activité et de sécurité.
   
-## <a name="apis-with-graph-explorer"></a>API avec l’Afficheur Graph
+## <a name="apis-with-microsoft-graph-explorer"></a>API avec l'Afficheur Microsoft Graph
 
-Vous pouvez utiliser l’[Afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) pour vérifier vos données de connexion et d’API d’audit. Veillez à vous connecter à votre compte à l’aide des deux boutons de connexion disponibles dans l’interface utilisateur de l’Explorateur Graph, puis à définir les autorisations **AuditLog.Read.All** et **Directory.ReadAll** pour votre abonné, comme indiqué.   
+Vous pouvez utiliser l'[Afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) pour vérifier vos données de connexion et d'API d'audit. Veillez à vous connecter à votre compte à l’aide des deux boutons de connexion disponibles dans l’interface utilisateur de l’Explorateur Graph, puis à définir les autorisations **AuditLog.Read.All** et **Directory.ReadAll** pour votre abonné, comme indiqué.   
 
 ![Afficheur Graph](./media/concept-reporting-api/graph-explorer.png)
 

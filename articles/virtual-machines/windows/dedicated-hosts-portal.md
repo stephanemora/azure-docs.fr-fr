@@ -1,23 +1,18 @@
 ---
-title: Déployer des hôtes dédiés Azure à l’aide du portail Azure
-description: Déployez des machines virtuelles sur des hôtes dédiés à l’aide du Portail Azure.
-services: virtual-machines-windows
+title: Déployer des hôtes dédiés Azure à l'aide du portail
+description: Déployez des machines virtuelles sur des hôtes dédiés à l'aide du portail.
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-windows
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/26/2019
+ms.date: 03/10/2020
 ms.author: cynthn
-ms.openlocfilehash: aa19c343e003bf1cd55e3d12b18e595113a7189e
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: b6f5e155b76535c4d9e0080983d5f54cec3adb01
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833946"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086944"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Déployer des machines virtuelles sur des hôtes dédiés à l’aide du Portail
 
@@ -40,6 +35,25 @@ Cet article vous guide dans la création d’un [hôte dédié](dedicated-hosts.
 1. Conservez les valeurs par défaut restantes, puis sélectionnez le bouton **Vérifier + créer** en bas de la page.
 1. Lorsque vous voyez le message indiquant que la validation a réussi, sélectionnez **Créer**.
 
+## <a name="add-an-existing-vm"></a>Ajouter une machine virtuelle existante 
+
+Vous pouvez ajouter une machine virtuelle existante à un hôte dédié, mais la machine virtuelle doit d'abord être arrêtée\libérée. Avant de déplacer une machine virtuelle vers un hôte dédié, assurez-vous que la configuration de la machine virtuelle est prise en charge :
+
+- La taille de la machine virtuelle doit appartenir à la même famille de tailles que l'hôte dédié. Par exemple, si votre hôte dédié est DSv3, la taille de la machine virtuelle peut être Standard_D4s_v3, mais pas Standard_A4_v2. 
+- La machine virtuelle doit être située dans la même région que l'hôte dédié.
+- La machine virtuelle ne peut pas faire partie d'un groupe de placements de proximité. Supprimez la machine virtuelle du groupe de placements de proximité avant de la déplacer vers un hôte dédié. Pour plus d'informations, consultez [Déplacer une machine virtuelle hors d'un groupe de placements de proximité](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#move-an-existing-vm-out-of-a-proximity-placement-group).
+- La machine virtuelle ne peut pas se trouver dans un groupe à haute disponibilité.
+- Si la machine virtuelle se trouve dans une zone de disponibilité, il doit s'agir de la même zone de disponibilité que celle du groupe hôte. Les paramètres de zone de disponibilité de la machine virtuelle et du groupe hôte doivent correspondre.
+
+Déplacez la machine virtuelle vers un hôte dédié à l'aide du [portail](https://portal.azure.com).
+
+1. Ouvrez la page de la machine virtuelle.
+1. Sélectionnez **Arrêter** pour arrêter\libérer la machine virtuelle.
+1. Sélectionnez **Configuration** dans le menu de gauche.
+1. Sélectionnez un groupe hôte et un hôte dans les menus déroulants.
+1. Lorsque vous avez terminé, sélectionnez **Enregistrer** en haut de la page.
+1. Une fois la machine virtuelle ajoutée à l'hôte, sélectionnez **Vue d'ensemble** dans le menu de gauche.
+1. En haut de la page, sélectionnez **Démarrer** pour redémarrer la machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

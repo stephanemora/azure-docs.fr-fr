@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 74d9aa8228e841b17313fb3c15efe459ccd7339a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: bce71355eef19ec3cc85525033274f57b1a3e0b9
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613589"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946419"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrez les objets de stratégie de groupe sur un domaine managé Azure AD Domain Services
 
@@ -42,7 +42,11 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 * Un compte d’utilisateur membre du groupe *Administrateurs Azure AD DC* dans votre locataire Azure AD.
 
 > [!NOTE]
-> Comme il n’y a [pas d’accès aux contrôleurs de domaine dans Azure AD DS](faqs.md#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop), vous ne pouvez pas créer et utiliser un magasin central pour les modèles administratifs de stratégie de groupe dans un domaine managé. [Sysvol n’est pas inclus dans la synchronisation Azure AD Connect locale](synchronization.md#what-isnt-synchronized-to-azure-ad-ds). Donc, vous ne pouvez pas non plus créer un magasin central local et le synchroniser à Azure AD DS par le biais d’Azure AD.
+> Vous pouvez utiliser des modèles d'administration de stratégies de groupe en copiant les nouveaux modèles sur la station de travail de gestion. Copiez les fichiers *.admx* sous `%SYSTEMROOT%\PolicyDefinitions` et copiez les fichiers *.adml* spécifiques à l'environnement local sous `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`, sachant que `Language-CountryRegion` correspond à la langue et à la région des fichiers *.adml*.
+>
+> Par exemple, copiez la version Anglais (États-Unis) des fichiers *.adml* dans le dossier `\en-us`.
+>
+> Vous pouvez également centraliser le stockage de votre modèle d'administration des stratégies de groupe sur les contrôleurs de domaine qui appartiennent au domaine managé Azure AD DS. Pour plus d'informations, consultez [Créer et gérer le magasin central des modèles d'administration des stratégies de groupe sous Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## <a name="install-group-policy-management-tools"></a>Installez les outils de gestion de stratégie de groupe
 

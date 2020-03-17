@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 02/27/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: e02de4ee9c36f9c3f0c27bc02ee1c37ce3e4057c
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: e29cdd56d1c43b3d0e8fc6ca233ac19d8b0004ff
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78208183"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78357437"
 ---
-Le tableau suivant présente les limites par défaut pour les comptes de stockage V1, V2 et d’objets blob universels. La limite d’*entrée* désigne toutes les données envoyées à un compte de stockage. La limite de *sortie* désigne toutes les données reçues d’un compte de stockage.
+Le tableau suivant décrit les limites par défaut pour les comptes de stockage Azure v1 universels (GPv1), v2 (GPv2), Blob, Premium BlockBlob et Data Lake Gen2. La limite d’*entrée* désigne toutes les données envoyées à un compte de stockage. La limite de *sortie* désigne toutes les données reçues d’un compte de stockage.
 
 | Ressource | Limite par défaut |
 | --- | --- |
-| Nombre de comptes de stockage par région et par abonnement, y compris les comptes standard et premium | 250 |
+| Nombre de comptes de stockage par région et par abonnement, y compris les comptes Standard, Premium et Data Lake Gen2<sup>3</sup> | 250 |
 | Capacité maximale du compte de stockage | 5 Pio <sup>1</sup>|
 | Nombre maximal de conteneurs d’objets blob, de partages de fichiers, de tables, de files d’attente, d’entités ou de messages par compte de stockage | Aucune limite |
 | Taux de demande maximal<sup>1</sup> par compte de stockage | 20 000 demandes par seconde |
@@ -31,15 +31,17 @@ Le tableau suivant présente les limites par défaut pour les comptes de stockag
 | Nombre maximal de règles de réseau virtuel par compte de stockage | 200 |
 | Nombre maximal de règles d’adresse IP par compte de stockage | 200 |
 
-<sup>1</sup>Les comptes Stockage Azure standard prennent en charge la demande de limites supérieures pour les entrées. Pour demander une augmentation des limites de compte pour la sortie, contactez le [support Azure](https://azure.microsoft.com/support/faq/).
+<sup>1</sup> Les comptes de stockage standard Azure prennent en charge la demande de limites supérieures pour la capacité et les entrées. Pour demander une augmentation des limites de compte, contactez le [support Azure](https://azure.microsoft.com/support/faq/).
 
 <sup>2</sup> Si votre compte de stockage dispose d’un accès en lecture activé avec un stockage géoredondant (RA-GRS) ou un stockage géoredondant dans une zone géographique (RA-GZRS), les cibles de sortie de l’emplacement secondaire sont identiques à celles de l’emplacement principal. Voici certaines options de [réplication du Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) :
 
 [!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
+
+<sup>3</sup> [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) est un ensemble de fonctionnalités dédiées à l’analytique du Big Data et basées sur le stockage Blob Azure. Les limitations du stockage Azure et du stockage Blob s’appliquent à Data Lake Gen2.
 
 > [!NOTE]
 > Microsoft recommande d’utiliser des comptes de stockage universels v2 pour la plupart des scénarios. Vous pouvez facilement mettre à niveau un compte de stockage universel v1 ou un compte de stockage d’objets blob Azure vers un compte universel v2, sans que cela nécessite un temps d’arrêt ou la copie de données. Pour obtenir plus d’informations, consultez [Mettre à niveau vers un compte de stockage v2 à usage général](../articles/storage/common/storage-account-upgrade.md).
 
 Si les besoins de votre application dépassent les objectifs d’extensibilité d’un compte de stockage unique, vous pouvez concevoir votre application afin qu’elle utilise plusieurs comptes de stockage. Ensuite, vous pouvez partitionner vos objets de données sur ces comptes de stockage. Pour plus d’informations sur la tarification en volume, consultez la page [Tarification Stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
 
-Tous les comptes de stockage s’exécutent sur la topologie de réseau plat et prennent en charge les objectifs d'extensibilité et de performances décrits dans cet article, quel que soit le moment où ils ont été créés. Pour plus d'informations sur l'architecture de réseau plat Stockage Azure et sur son extensibilité, consultez [Stockage Microsoft Azure : un service de stockage cloud hautement disponible à cohérence forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
+Tous les comptes de stockage s’exécutent sur une topologie de réseau plat, indépendamment du moment où ils ont été créés. Pour plus d'informations sur l'architecture de réseau plat Stockage Azure et sur son extensibilité, consultez [Stockage Microsoft Azure : un service de stockage cloud hautement disponible à cohérence forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx). Un [espace de noms hiérarchique peut être activé pour un compte Data Lake Gen2](../articles/storage/blobs/data-lake-storage-namespace.md) en plus de l’espace de noms plat pour l’accès multiprotocole. Les comptes de stockage d’espaces de noms plats et hiérarchiques prennent en charge les mêmes objectifs de scalabilité et de performance que ceux décrits dans cet article.

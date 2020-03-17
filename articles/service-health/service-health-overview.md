@@ -3,12 +3,12 @@ title: Présentation de Service Health | Microsoft Docs
 description: Obtenez des informations personnalisées concernant l’incidence des problèmes et de la maintenance actuels et futurs d’Azure sur vos applications Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: db9d74e2883e755c3e5c3dbbe9d6570f1e78c4a6
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: a1c6a10ab48125c030c9a35864f829438404ad97
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654016"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898438"
 ---
 # <a name="service-health-overview"></a>Présentation de Service Health
 
@@ -16,11 +16,12 @@ Service Health fournit un tableau de bord personnalisable qui suit l’intégrit
 
 ## <a name="service-health-events"></a>Événements Service Health
 
-Service Health suit trois types d’événements d’intégrité qui peuvent avoir une incidence sur vos ressources :
+Service Health suit quatre types d'événements d'intégrité qui peuvent avoir une incidence sur vos ressources :
 
 1. **Problèmes liés aux services** : problèmes touchant les services Azure qui vous affectent en ce moment même. 
 2. **Maintenance planifiée** : maintenance à venir qui pourra avoir une incidence sur la disponibilité de vos services.  
 3. **Health advisories** (Avis concernant l’intégrité) : modifications apportées aux services Azure qui nécessitent votre attention. Ce type d’événement se produit par exemple lorsque des fonctionnalités Azure sont déconseillées ou si vous dépassez un quota d’utilisation.
+4. **Avis de sécurité (préversion)**  : notifications liées à la sécurité qui peuvent affecter la disponibilité de vos services Azure.
 
 > [!NOTE]
 > Pour voir les événements Service Health, les utilisateurs doivent [avoir le rôle Lecteur](../role-based-access-control/role-assignments-portal.md) dans un abonnement.
@@ -43,7 +44,7 @@ Choisissez l’onglet **Impact potentiel** pour afficher la liste spécifique de
 
 ## <a name="get-links-and-downloadable-explanations"></a>Obtenir des liens et des explications téléchargeables 
 
-Vous pouvez obtenir un lien pour le problème afin de l’utiliser dans votre système de gestion des problèmes. Vous pouvez télécharger des fichiers PDF et parfois CSV pour les partager avec des collaborateurs qui n’ont pas accès au portail Azure.   
+Vous pouvez obtenir un lien pour le problème afin de l’utiliser dans votre système de gestion des problèmes. Vous pouvez télécharger des fichiers PDF et parfois CSV pour les partager avec des collaborateurs qui n'ont pas accès au portail Azure.   
 
 ![Gestion des problèmes liés aux services - Gestion des problèmes](./media/service-health-overview/azure-service-health-overview-3.png)
 

@@ -6,14 +6,14 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: a2b66cdc7a0704cd3560c0776a0ca5302dc689d2
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 61fdc2a4694405d4f56600b2d2b71e9e37232a7a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78250770"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943243"
 ---
-# <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurer Azure Monitor pour votre application Python (préversion)
+# <a name="set-up-azure-monitor-for-your-python-application"></a>Configurer Azure Monitor pour votre application Python
 
 Azure Monitor prend en charge le traçage distribué, la collecte de métriques et la journalisation des applications Python via l’intégration à [OpenCensus](https://opencensus.io). Cet article vous guidera dans le processus de configuration d’OpenCensus pour Python et d’envoi de vos données de supervision vers Azure Monitor.
 
@@ -425,13 +425,14 @@ Pour obtenir des informations plus détaillées sur l’utilisation des requête
 
 * [OpenCensus Python sur GitHub](https://github.com/census-instrumentation/opencensus-python)
 * [Personnalisation](https://github.com/census-instrumentation/opencensus-python/blob/master/README.rst#customization)
-* [Intégration de Flask](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-flask)
-* [Intégration de Django](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-django)
-* [Intégration de MySQL](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-mysql)
-* [PostgreSQL](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-postgresql)
+* [Exportateurs Azure Monitor sur GitHub](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
+* [Intégrations OpenCensus ](https://github.com/census-instrumentation/opencensus-python#extensions)
+* [Exemples d'applications Azure Monitor](https://github.com/Azure-Samples/azure-monitor-opencensus-python)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [Suivi des demandes entrantes](./../../azure-monitor/app/opencensus-python-dependency.md)
+* [Suivi des demandes sortantes](./../../azure-monitor/app/opencensus-python-request.md)
 * [Plan de l’application](./../../azure-monitor/app/app-map.md)
 * [Analyse des performances de bout en bout](./../../azure-monitor/learn/tutorial-performance.md)
 

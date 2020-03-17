@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c590a27f61c1a555ae30828332e4140a6116f95f
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 2413601db629fda62976b75e349b0340749dc6fa
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443854"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944091"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ d’Azure App Service sur Linux
 
@@ -110,7 +110,7 @@ Oui. Lors d’un déploiement Git, Kudu doit détecter que vous déployez une ap
 
 **J’utilise mon propre conteneur personnalisé. Je souhaite que la plateforme monte un partage SMB dans le répertoire `/home/`.**
 
-Si le paramètre `WEBSITES_ENABLE_APP_SERVICE_STORAGE` est **non spécifié** ou est défini sur *true*, le répertoire `/home/`**sera partagé** par les instances, et les fichiers écrits **seront conservés** après chaque redémarrage. Si vous définissez explicitement `WEBSITES_ENABLE_APP_SERVICE_STORAGE` sur *false*, le montage est désactivé.
+Si le paramètre `WEBSITES_ENABLE_APP_SERVICE_STORAGE` est **non spécifié** ou est défini sur *true*, le répertoire `/home/`**sera partagé** par les instances de mise à l’échelle, et les fichiers écrits **seront conservés** après chaque redémarrage. Si vous définissez explicitement `WEBSITES_ENABLE_APP_SERVICE_STORAGE` sur *false*, le montage est désactivé.
 
 **Mon conteneur personnalisé met longtemps à démarrer, et la plateforme le redémarre avant qu’il ait terminé.**
 
@@ -180,6 +180,10 @@ Voici les règles pour déterminer quel conteneur est accessible, par ordre d’
 Le nombre d’heures d’exécution de votre application vous est facturé, selon les tarifs Azure App Service normaux.
 
 ## <a name="other-questions"></a>Autres questions
+
+**Que signifie « La fonctionnalité demandée n'est pas disponible dans le groupe de ressources » ?**
+
+Ce message peut apparaître lors de la création d'une application web à l'aide d'Azure Resource Manager (ARM). Sur la base d'une limitation actuelle, pour un même groupe de ressources, vous ne pouvez pas mélanger des applications Windows et Linux au sein d'une même région.
 
 **Quels sont les caractères pris en charge dans les noms de paramètres d’application ?**
 

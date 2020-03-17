@@ -2,13 +2,13 @@
 title: Fonctions définies par l’utilisateur dans les modèles
 description: Explique comment définir et utiliser des fonctions définies par l’utilisateur dans un modèle Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 58b9ba7b162736329cf775e2be5a47bfcae0a4ca
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 03/09/2020
+ms.openlocfilehash: 2c09572a460aa028b23987033d2b77e2aad8a0cd
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122472"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943214"
 ---
 # <a name="user-defined-functions-in-azure-resource-manager-template"></a>Fonctions définies par l’utilisateur dans un modèle Azure Resource Manager
 
@@ -18,7 +18,7 @@ Cet article explique comment ajouter des fonctions définies par l’utilisateur
 
 ## <a name="define-the-function"></a>Définir la fonction
 
-Vos fonctions requièrent une valeur pour l’espace de noms afin d’éviter tout conflit avec les fonctions de modèle. L’exemple suivant illustre une fonction qui renvoie un nom de compte de stockage :
+Vos fonctions requièrent une valeur pour l’espace de noms afin d’éviter tout conflit avec les fonctions de modèle. L'exemple suivant illustre une fonction qui renvoie un nom unique :
 
 ```json
 "functions": [
@@ -44,23 +44,53 @@ Vos fonctions requièrent une valeur pour l’espace de noms afin d’éviter to
 
 ## <a name="use-the-function"></a>Utiliser la fonction
 
-L’exemple suivant montre comment appeler votre fonction.
+L'exemple suivant illustre un modèle qui comprend une fonction définie par l'utilisateur. Il utilise cette fonction afin d'obtenir un nom unique pour un compte de stockage. Le modèle comprend un paramètre **storageNamePrefix** qu'il transmet à la fonction sous forme de paramètre.
 
 ```json
-"resources": [
+{
+ "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+ "contentVersion": "1.0.0.0",
+ "parameters": {
+   "storageNamePrefix": {
+     "type": "string",
+     "maxLength": 11
+   }
+ },
+ "functions": [
   {
-    "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
-    "apiVersion": "2016-01-01",
-    "type": "Microsoft.Storage/storageAccounts",
-    "location": "South Central US",
-    "tags": {},
-    "sku": {
-      "name": "Standard_LRS"
-    },
-    "kind": "Storage",
-    "properties": {}
+    "namespace": "contoso",
+    "members": {
+      "uniqueName": {
+        "parameters": [
+          {
+            "name": "namePrefix",
+            "type": "string"
+          }
+        ],
+        "output": {
+          "type": "string",
+          "value": "[concat(toLower(parameters('namePrefix')), uniqueString(resourceGroup().id))]"
+        }
+      }
+    }
   }
-]
+],
+ "resources": [
+   {
+     "type": "Microsoft.Storage/storageAccounts",
+     "apiVersion": "2019-04-01",
+     "name": "[contoso.uniqueName(parameters('storageNamePrefix'))]",
+     "location": "South Central US",
+     "sku": {
+       "name": "Standard_LRS"
+     },
+     "kind": "StorageV2",
+     "properties": {
+       "supportsHttpsTrafficOnly": true
+     }
+   }
+ ]
+}
 ```
 
 ## <a name="limitations"></a>Limites

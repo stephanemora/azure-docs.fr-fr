@@ -8,12 +8,12 @@ ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f218c64d3ffe4955877516551a29376372144598
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: fbdb447905ae43fe92693dfe45c1add710f76355
+ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526720"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78933580"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transférer des données avec AzCopy et le stockage Blob
 
@@ -73,7 +73,8 @@ Pour obtenir des informations de référence détaillées, consultez [azcopy cop
 Vous pouvez également charger un fichier en plaçant un caractère générique (*) n’importe où dans le chemin ou le nom de fichier. Par exemple : `'C:\myDirectory\*.txt'` ou `C:\my*\*.txt`.
 
 > [!NOTE]
-> AzCopy charge par défaut les données dans des objets blob de blocs. Pour charger des fichiers comme des objets blob d’ajout ou de page, utilisez l’indicateur `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+> Par défaut, AzCopy charge les données sous forme d'objets blob de blocs. Pour charger des fichiers sous forme d'objets blob d'ajout ou de page, utilisez l'indicateur `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+> Par défaut, AzCopy charge vos données de manière à ce qu'elles héritent du niveau d'accès compte. Pour charger des fichiers à un [niveau d'accès](../blobs/storage-blob-storage-tiers.md) spécifique, utilisez l'indicateur `--block-blob-tier=[Hot|Cool|Archive]`.
 
 ### <a name="upload-a-directory"></a>Charger un annuaire
 

@@ -6,22 +6,22 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 85d32e96335a9fffa874f1f370f72883ff420df0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de2b99666dbed4eaec3db3e56800e9a7352e10e7
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369862"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898381"
 ---
-# <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Tester une tâche Azure Stream Analytics avec des exemples de données
+# <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Tester une tâche Azure Stream Analytics sur le portail
 
-Dans Azure Stream Analytics, vous pouvez tester votre requête sans démarrer ou arrêter votre travail. Vous pouvez tester des requêtes sur des données entrantes à partir de votre récepteur d’entrée ou des exemples de données chargés à partir d’un fichier local sur le portail Azure. Vous pouvez également tester les requêtes localement à partir de vos exemples de données locaux ou de vos données actives dans [Visual Studio](stream-analytics-live-data-local-testing.md) et [Visual Studio Code](visual-studio-code-local-run-live-input.md).
+Dans Azure Stream Analytics, vous pouvez tester votre requête sans démarrer ou arrêter votre travail. Vous pouvez tester des requêtes sur des données entrantes de vos sources de diffusion en continu ou charger des exemples de données à partir d'un fichier local sur le portail Azure. Vous pouvez également tester les requêtes localement à partir de vos exemples de données locaux ou de vos données actives dans [Visual Studio](stream-analytics-live-data-local-testing.md) et [Visual Studio Code](visual-studio-code-local-run-live-input.md).
 
-## <a name="sample-incoming-data-from-input"></a>Exemple de données entrantes à partir d’une entrée
+## <a name="automatically-sample-incoming-data-from-input"></a>Échantillonner automatiquement les données entrantes à partir d'une entrée
 
-Azure Stream Analytics récupère automatiquement les événements à partir de votre entrée de streaming. Vous pouvez exécuter des requêtes sur l’exemple par défaut ou définir un délai d’exécution spécifique pour l’exemple.
+Azure Stream Analytics récupère automatiquement les événements à partir de vos entrées de diffusion en continu. Vous pouvez exécuter des requêtes sur l’exemple par défaut ou définir un délai d’exécution spécifique pour l’exemple.
 
 1. Connectez-vous au portail Azure.
 
@@ -98,6 +98,7 @@ Au lieu d’utiliser des données actives, vous pouvez utiliser des exemples de 
 10. Après avoir vérifié les résultats affichés dans le navigateur, vous pouvez **Démarrer** le travail.
 
 ## <a name="next-steps"></a>Étapes suivantes
+* [Créer une solution IoT à l'aide de Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics) : ce tutoriel vous aidera à créer une solution de bout en bout avec un générateur de données qui simulera le trafic à un poste de péage.
 
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 
