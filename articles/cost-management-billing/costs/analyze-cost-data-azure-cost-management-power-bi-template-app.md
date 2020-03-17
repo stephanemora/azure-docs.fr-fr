@@ -4,16 +4,16 @@ description: Cet article explique comment installer et utiliser l’application 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/05/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
-ms.openlocfilehash: 4a50ce5c386f1b928e9f767891840c84534938a9
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: bc676910a05dbec97ae05578399029f85f71e1ef
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169706"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399627"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analyser les coûts avec l’application Power BI Azure Cost Management pour les Contrats Entreprise
 
@@ -23,7 +23,7 @@ Vous téléchargez l’application dans Power BI Desktop. Vous pouvez utiliser 
 
 L’application Power BI Azure Cost Management prend actuellement en charge seulement les clients avec un [Contrat Entreprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Une [licence Power BI Pro](/power-bi/service-self-service-signup-for-power-bi) pour installer et utiliser l’application
 - Pour vous connecter à des données, vous devez utiliser un compte [Administrateur d’entreprise](../manage/understand-ea-roles.md)
@@ -43,7 +43,7 @@ Pour installer l’application :
   ![Démarrer avec votre nouvelle application - Connecter](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
 9. Dans la boîte de dialogue qui apparaît, entrez votre numéro d’inscription Contrat Entreprise pour **BillingProfileIdOrEnrollmentNumber**. Spécifiez le nombre de mois de données à obtenir. Conservez la valeur d’**Étendue** par défaut de **Numéro d’inscription**, puis sélectionnez **Suivant**.  
   ![Entrer les informations d’inscription du Contrat Entreprise](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
-10. La boîte de dialogue suivante se connecte à Azure et obtient les données nécessaires pour les recommandations d’instances réservées. Laissez les valeurs par défaut comme elles sont configurées et sélectionnez **Sign in** (Se connecter).  
+10. La boîte de dialogue suivante se connecte à Azure et obtient les données nécessaires pour les recommandations d’instances réservées. *Laissez les valeurs par défaut comme elles sont configurées* et sélectionnez **Sign in** (Se connecter).  
   ![Connexion à Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. La dernière étape de l’installation est de se connecter à votre inscription Contrat Entreprise ; elle nécessite un compte [Administrateur d’entreprise](../manage/understand-ea-roles.md). Sélectionnez **Sign in** (Se connecter) pour vous authentifier avec votre inscription Contrat Entreprise. Cette étape lance également une action d’actualisation des données dans Power BI.  
   ![Se connecter à l’inscription Contrat Entreprise](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
@@ -124,6 +124,50 @@ Pour plus d’informations sur l’utilisation du rapport, consultez la section 
 **RI purchases** (Achats d’instances réservées) - Le rapport montre les achats d’instances réservées sur la période spécifiée.
 
 **Price sheet** (Liste des prix) - Le rapport montre une liste détaillée des prix spécifiques à un compte de facturation ou à une inscription Contrat Entreprise.
+
+## <a name="troubleshoot-problems"></a>Résoudre les problèmes
+
+Si vous rencontrez des problèmes avec l’application Power BI, les informations de dépannage suivantes peuvent vous aider.
+
+### <a name="budgetamount-error"></a>Erreur BudgetAmount
+
+Vous risquez d’obtenir une erreur indiquant :
+
+```
+Something went wrong
+There was an error when processing the data in the dataset.
+Please try again later or contact support. If you contact support, please provide these details.
+Data source error: The 'budgetAmount' column does not exist in the rowset. Table: Budgets.
+```
+
+#### <a name="cause"></a>Cause :
+
+Cette erreur se produit en raison d’un bogue avec les métadonnées sous-jacentes. Le problème est lié à l’absence de budget disponible sous **Gestion des coûts > Budget** dans le portail Azure. La résolution du bogue est en cours de déploiement sur Power BI Desktop et le service Power BI. 
+
+#### <a name="solution"></a>Solution
+
+- Tant que le bogue n’a pas été corrigé, vous pouvez contourner le problème en ajoutant un budget de test dans le portail Azure au niveau du compte de facturation/de l’inscription EA. Le budget de test débloque la connexion avec Power BI. Pour plus d’informations sur la création d’un budget, consultez [Tutoriel : Créer et gérer des budgets Azure](tutorial-acm-create-budgets.md).
+
+
+### <a name="invalid-credentials-for-azureblob-error"></a>Erreur d’informations d’identification non valides pour AzureBlob
+
+Vous risquez d’obtenir une erreur indiquant :
+
+```
+Failed to update data source credentials: The credentials provided for the AzureBlobs source are invalid.
+```
+
+#### <a name="cause"></a>Cause :
+
+Cette erreur se produit si vous changez la méthode d’authentification pour la connexion blob AutoFitComboMeter.
+
+#### <a name="solution"></a>Solution
+
+1. Connectez-vous à vos données.
+1. Après avoir entré votre inscription EA et le nombre de mois, veillez à conserver la valeur par défaut **Anonyme** pour la méthode d’authentification et **Aucun** pour le paramètre niveau de confidentialité.  
+  ![Connexion à Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit-troubleshoot.png)  
+1. Dans la page suivante, définissez **OAuth2** pour la méthode d’authentification et **Aucun** pour le niveau de confidentialité. Ensuite, connectez-vous pour vous authentifier auprès de votre inscription. Cette étape lance également une action d’actualisation des données Power BI.
+
 
 ## <a name="data-reference"></a>Référence de données
 

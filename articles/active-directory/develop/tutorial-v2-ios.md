@@ -13,18 +13,21 @@ ms.date: 08/30/2019
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7704779ff605e28358f6f82c22ccda84d371dba9
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: abf083aacbdc643d780a8061b405752f36e27e45
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084376"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129940"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application iOS ou macOS
 
 Dans ce tutoriel, vous allez apprendre à intégrer une application iOS ou macOS avec la plateforme d’identités Microsoft. L’application va connecter un utilisateur, obtenir un jeton d’accès pour appeler l’API Microsoft Graph et envoyer une requête à l’API Microsoft Graph.  
 
 À la fin de ce guide, votre application acceptera les connexions de comptes Microsoft personnels (y compris outlook.com, live.com et d’autres) et de comptes professionnels ou scolaires de n’importe quelle entreprise ou organisation utilisant Azure Active Directory.
+
+>[!NOTE]
+> Si vous êtes un nouvel utilisateur de la Plateforme d’identités Microsoft, nous vous recommandons de commencer avec l’article [Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application iOS ou macOS](quickstart-v2-ios.md).
 
 ## <a name="how-this-tutorial-works"></a>Fonctionnement de ce tutoriel
 
@@ -44,7 +47,7 @@ Cet exemple utilise la bibliothèque d’authentification Microsoft (MSAL) afin 
 
 Ce tutoriel est applicable aux applications iOS et macOS. Notez que certaines étapes varient d’une plateforme à l’autre. 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - XCode version 10.x ou supérieure est nécessaire pour générer l’application de ce guide. Vous pouvez télécharger XCode sur le [site web iTunes ](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL de téléchargement de XCode").
 - Microsoft Authentication Library ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Vous pouvez utiliser un gestionnaire de dépendances ou ajouter la bibliothèque manuellement. Les instructions ci-dessous montrent comment procéder.

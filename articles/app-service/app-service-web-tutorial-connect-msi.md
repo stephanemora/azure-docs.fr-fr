@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: mvc, cli-validate
-ms.openlocfilehash: b57ee458b857db5692f34e51f388ca8374a3c03b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: af44f4a96567cc86c9f884cdfe5e28ff6b7bd8f3
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77524374"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897690"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutoriel : Sécuriser la connexion Azure SQL Database à partir d’App Service à l’aide d’une identité managée
 
@@ -127,6 +127,9 @@ Dans *Web.config*, depuis le début du fichier, apportez les modifications suiva
 
 - Recherchez la chaîne de connexion appelée `MyDbConnection` et remplacez sa valeur `connectionString` par `"server=tcp:<server-name>.database.windows.net;database=<db-name>;UID=AnyString;Authentication=Active Directory Interactive"`. Remplacez _\<server-name>_ et _\<db-name>_ par le nom de votre serveur et le nom de votre base de données.
 
+> [!NOTE]
+> Le SqlAuthenticationProvider que vous venez d’inscrire est basé sur la bibliothèque AppAuthentication que vous avez installée précédemment. Par défaut, il utilise une identité affectée par le système. Pour tirer parti d’une identité affectée par l’utilisateur, vous devez procéder à une configuration supplémentaire. Pour la bibliothèque AppAuthentication, consultez [Prise en charge de chaînes de connexion](../key-vault/service-to-service-authentication.md#connection-string-support).
+
 C’est tout ce dont vous avez besoin pour vous connecter à SQL Database. Lors du débogage dans Visual Studio, votre code utilise l’utilisateur Azure AD que vous avez configuré dans [Configurer Visual Studio](#set-up-visual-studio). Vous configurerez le serveur SQL Database ultérieurement pour autoriser la connexion à partir de l’identité managée de votre application App Service.
 
 Entrez `Ctrl+F5` pour réexécuter l’application. La même application CRUD dans votre navigateur se connecte maintenant à Azure SQL Database directement, à l’aide de l’authentification Azure AD. Cette configuration vous permet d’exécuter des migrations de base de données à partir de Visual Studio.
@@ -189,6 +192,9 @@ Entrez `Ctrl+F5` pour réexécuter l’application. La même application CRUD da
 
 Ensuite, configurez votre application App Service pour qu’elle se connecte à SQL Database avec une identité managée attribuée par le système.
 
+> [!NOTE]
+> Même si les instructions de cette section concernent une identité affectée par le système, vous pouvez tout à fait utiliser une identité affectée par l’utilisateur. Pour cela, vous devez changer la `az webapp identity assign command` pour affecter l’identité affectée à l’utilisateur souhaité. Ensuite, lorsque vous créez l’utilisateur SQL, veillez à utiliser le nom de la ressource d’identité affectée par l’utilisateur plutôt que le nom du site.
+
 ### <a name="enable-managed-identity-on-app"></a>Activer une identité managée sur l’application
 
 Pour activer une identité managée pour votre application Azure, utilisez la commande [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) dans Cloud Shell. Dans la commande ci-après, remplacez *\<app-name>* par votre propre valeur.
@@ -237,9 +243,12 @@ ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
-*\<identity-name>* est le nom de l’identité managée dans Azure AD. Étant donné qu’il est affecté par le système, il est toujours identique au nom de votre application App Service. Pour accorder des autorisations pour un groupe Azure AD, utilisez à la place le nom d’affichage du groupe (par exemple, *myAzureSQLDBAccessGroup*).
+*\<identity-name>* est le nom de l’identité managée dans Azure AD. Si l’identité est affectée par le système, le nom sera toujours identique à celui de votre application App Service. Pour accorder des autorisations pour un groupe Azure AD, utilisez à la place le nom d’affichage du groupe (par exemple, *myAzureSQLDBAccessGroup*).
 
 Tapez `EXIT` pour revenir à l’invite Cloud Shell.
+
+> [!NOTE]
+> Les services back-end des identités managées [gèrent également un cache de jetons](overview-managed-identity.md#obtain-tokens-for-azure-resources) qui met à jour le jeton d’une ressource cible uniquement lorsque celle-ci expire. Si vous faites une erreur lors de la configuration de vos autorisations SQL Database puis essayez de modifier les autorisations *après* avoir essayé d’obtenir un jeton avec votre application, vous n’obtiendrez pas un nouveau jeton avec les autorisations mises à jour tant que le jeton mis en cache n’a pas expiré.
 
 ### <a name="modify-connection-string"></a>Modifier la chaîne de connexion
 

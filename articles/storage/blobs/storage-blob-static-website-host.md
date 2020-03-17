@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 69acb9152d1dc30d986276939e29e8c183095b18
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 03850315a05f569d2c6ba9405b6ec38bb6b1305d
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539601"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78330393"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -92,8 +92,6 @@ Maintenant, créez une page web Hello World avec Visual Studio Code et déployez
 1. Sélectionnez l’abonnement contenant le compte de stockage pour lequel vous avez activé l’hébergement de site web statique. Ensuite, sélectionnez le compte de stockage quand vous y êtes invité.
 
 Visual Studio Code va maintenant charger vos fichiers sur votre point de terminaison web et afficher la barre d’état de réussite. Lancez le site web pour l’afficher dans Azure.
-
-![Afficher le déploiement de site web statique dans Azure](media/storage-blob-static-website-host/view-static-website-endpoint.png)
 
 Vous avez terminé le tutoriel et déployé un site web statique sur Azure.
 

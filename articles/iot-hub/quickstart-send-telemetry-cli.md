@@ -9,12 +9,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 948dfd25881a6a90dd441ad640091d88812cc298
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 711e15986265324bbb353fb2b4404cbfeb48dc84
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931832"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851419"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT et les surveiller avec Azure CLI
 
@@ -35,6 +35,7 @@ Que vous exécutiez ou non l’interface CLI localement ou dans Cloud Shell, lai
 Dans cette section, vous lancez une instance de Azure Cloud Shell. Si vous utilisez l’interface CLI localement, passez à la section [Préparer deux sessions CLI](#prepare-two-cli-sessions).
 
 Pour lancer Cloud Shell :
+
 1. Sélectionnez le bouton **Cloud Shell** dans la barre de menus en haut à droite du portail Azure. 
 
     ![Bouton Cloud Shell du portail Azure](media/quickstart-send-telemetry-cli/cloud-shell-button.png)
@@ -42,25 +43,30 @@ Pour lancer Cloud Shell :
     > [!NOTE]
     > S’il s’agit de la première fois que vous utilisez Cloud Shell, vous êtes invité à créer un stockage, requis pour utiliser Cloud Shell.  Sélectionnez un abonnement pour créer un compte de stockage et un partage Microsoft Azure Files. 
 
-1. Sélectionnez votre environnement CLI préféré dans la liste déroulante **Sélectionner l’environnement**. Ce démarrage rapide utilise l’environnement **Bash**. Toutes les commandes CLI suivantes fonctionnent également dans l’environnement PowerShell. 
+2. Sélectionnez votre environnement CLI préféré dans la liste déroulante **Sélectionner l’environnement**. Ce démarrage rapide utilise l’environnement **Bash**. Toutes les commandes CLI suivantes fonctionnent également dans l’environnement PowerShell. 
 
     ![Sélectionner l’environnement CLI](media/quickstart-send-telemetry-cli/cloud-shell-environment.png)
 
 ## <a name="prepare-two-cli-sessions"></a>Préparer deux sessions CLI
+
 Dans cette section, vous préparez deux sessions Azure CLI. Si vous utilisez Cloud Shell, vous exécuterez les deux sessions dans des onglets de navigateur distincts. Si vous utilisez un client CLI local, vous exécuterez deux instances CLI distinctes. Vous utiliserez la première session comme appareil simulé et la deuxième session pour surveiller et envoyer des messages. Pour exécuter une commande, sélectionnez **Copier** pour copier un bloc de code dans ce démarrage rapide, collez-le dans votre session d’interpréteur de commandes, puis exécutez-le.
 
 Azure CLI nécessite que vous soyez connecté à votre compte Azure. Toutes les communications entre votre session d’interpréteur de commandes Azure CLI et votre hub IoT sont authentifiées et chiffrées. Par conséquent, ce démarrage rapide n’a pas besoin d’une authentification supplémentaire que vous utiliseriez avec un appareil réel, comme une chaîne de connexion.
 
-1. Exécutez la commande [az extension add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) afin d’ajouter l’extension Microsoft Azure IoT pour Azure CLI à votre interpréteur de commandes CLI. L’extension IoT ajoute des commandes IoT Hub, IoT Edge et IoT Device Provisioning Service (DPS) à Azure CLI.
+*  Exécutez la commande [az extension add](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add) afin d’ajouter l’extension Microsoft Azure IoT pour Azure CLI à votre interpréteur de commandes CLI. L’extension IoT ajoute des commandes IoT Hub, IoT Edge et IoT Device Provisioning Service (DPS) à Azure CLI.
 
    ```azurecli
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    ```
-    Après l’installation de l’extension Azure IOT, vous n’avez pas besoin de l’installer à nouveau dans une session Cloud Shell. 
+   
+   Après l’installation de l’extension Azure IOT, vous n’avez pas besoin de l’installer à nouveau dans une session Cloud Shell. 
 
-1. Ouvrez une deuxième session CLI.  Si vous utilisez Cloud Shell, sélectionnez **Ouvrir une nouvelle session**. Si vous utilisez l’interface CLI localement, ouvrez une deuxième instance. 
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-    ![Ouvrir une nouvelle session Cloud Shell](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
+*  Ouvrez une deuxième session CLI.  Si vous utilisez Cloud Shell, sélectionnez **Ouvrir une nouvelle session**. Si vous utilisez l’interface CLI localement, ouvrez une deuxième instance. 
+
+    >[!div class="mx-imgBorder"]
+    >![Ouvrir une nouvelle session Cloud Shell](media/quickstart-send-telemetry-cli/cloud-shell-new-session.png)
 
 ## <a name="create-an-iot-hub"></a>Création d’un IoT Hub
 Dans cette section, vous utilisez Azure CLI pour créer un groupe de ressources et un hub IoT.  Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. IoT Hub agit en tant que hub de messages central pour la communication bidirectionnelle entre votre application IoT et les appareils. 
@@ -167,7 +173,7 @@ Pour visualiser les métriques de messagerie dans e portail Azure :
 
 5. Si vous le souhaitez, utilisez la liste déroulante **Métrique** pour afficher d’autres métriques sur votre appareil simulé. Par exemple, les *remises de messages C2d terminées* ou le *nombre total d’appareils (préversion)* . 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Si vous n’avez plus besoin des ressources Azure créées dans ce démarrage rapide, vous pouvez utiliser Azure CLI pour les supprimer.
 
 Si vous envisagez de passer à l’article recommandé suivant, vous pouvez conserver et réutiliser les ressources déjà créées. 
@@ -193,4 +199,4 @@ Dans ce démarrage rapide, vous utilisez Azure CLI pour créer un hub IoT, crée
 Si vous êtes un développeur d’appareils, l’étape suivante suggérée est de consulter le guide de démarrage rapide de télémétrie qui utilise le kit de développement logiciel Azure IoT Device SDK for C. Si vous le souhaitez, consultez l’un des articles de démarrage rapide de télémétrie Azure IoT Hub disponibles dans votre langue ou votre kit de développement logiciel (SDK).
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un IoT Hub (C)](quickstart-send-telemetry-c.md)
+> [Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un IoT Hub (C)](quickstart-send-telemetry-c.md)

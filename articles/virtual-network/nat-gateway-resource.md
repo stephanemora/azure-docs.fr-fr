@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 45cb07de9ddc7854e6da8b8739acfaa95dd0ed01
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: d920bde856521f1e662536c1187881e143612039
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304121"
+ms.locfileid: "78359106"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>Conception de réseaux virtuels avec des ressources de passerelle NAT (préversion publique)
 
@@ -335,7 +335,7 @@ Un port SNAT peut être réutilisé pour la même adresse IP de destination et l
 ## <a name="limitations"></a>Limites
 
 - NAT est compatible avec des ressources d’adresses IP publiques, de préfixes d’adresses IP publiques et d’équilibreur de charge de la référence SKU standard.   Les ressources de base (par exemple, un équilibreur de charge de base) et tous les produits dérivés de celles-ci ne sont pas compatibles avec NAT.  Les ressources de base doivent être placées sur un sous-réseau non configuré avec NAT.
-- La famille d’adresses IPv4 est prise en charge.  NAT n’interagit pas avec la famille d’adresses IPv6.
+- La famille d’adresses IPv4 est prise en charge.  NAT n’interagit pas avec la famille d’adresses IPv6.  NAT ne peut pas être déployé sur un sous-réseau avec préfixe IPv6.
 - La journalisation des flux de groupe de sécurité réseau n’est pas prise en charge lors de l’utilisation de NAT.
 - NAT ne peut pas s’étendre sur plusieurs réseaux virtuels.
 
@@ -352,7 +352,7 @@ Nous aimerions savoir comment nous pouvons améliorer le service. Faites-nous pa
 * Découvrez le [service NAT de réseau virtuel](nat-overview.md).
 * Découvrez les [métriques et les alertes pour les ressources de passerelle NAT](nat-metrics.md).
 * Découvrez la [résolution des problèmes liés aux ressources de passerelle NAT](troubleshoot-nat.md).
-* [Dites-nous quoi créer ensuite dans UserVoice](https://aka.ms/natuservoice).
+* [Utilisez UserVoice pour nous faire part des prochains développements dont vous aimeriez bénéficier concernant le service NAT de réseau virtuel](https://aka.ms/natuservoice).
 * [Faites-nous part de vos commentaires sur la préversion publique](https://aka.ms/natfeedback).
 * Tutoriel de validation de NAT Gateway
   - [Azure CLI](tutorial-create-validate-nat-gateway-cli.md)

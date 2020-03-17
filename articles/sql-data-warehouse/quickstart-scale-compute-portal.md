@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Mise à l’échelle du calcul - Portail Azure '
-description: Mettez à l’échelle le calcul dans le pool SQL dans le portail Azure. Montez en charge le calcul pour améliorer les performances, ou réduisez-le pour diminuer les coûts.
+title: Mettre à l’échelle le calcul pour le pool SQL Synapse (portail Azure)
+description: Vous pouvez mettre à l’échelle le calcul pour le pool SQL Synapse (entrepôt de données) à l’aide du portail Azure.
 services: sql-data-warehouse
 author: Antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 7463849223fdf81466237c7d0c912763988e80e6
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: df0b21e98812faf99b6e67f262cec6e9c29db2f1
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78200337"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130264"
 ---
-# <a name="quickstart-scale-compute-in-azure-synapse-analytics-sql-pool-in-the-azure-portal"></a>Démarrage rapide : Mettre à l’échelle le calcul dans le pool SQL Azure Synapse Analytics dans le portail Azure
+# <a name="quickstart-scale-compute-for-synapse-sql-pool-with-the-azure-portal"></a>Démarrage rapide : Mettre à l’échelle le calcul pour le pool SQL Synapse à l’aide du portail Azure
 
-Mettez à l’échelle le calcul dans le pool SQL dans le portail Azure. [Augmentez le calcul](sql-data-warehouse-manage-compute-overview.md) pour améliorer les performances, ou réduisez-le pour diminuer les coûts. 
+Vous pouvez mettre à l’échelle le calcul pour le pool SQL Synapse (entrepôt de données) à l’aide du portail Azure. [Effectuez un scale-out du calcul](sql-data-warehouse-manage-compute-overview.md) pour améliorer les performances, ou réduisez-le pour diminuer les coûts. 
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -30,9 +30,9 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Vous pouvez mettre à l’échelle un pool SQL que vous avez déjà, ou utiliser la section [Démarrage rapide : Créer et connecter - Portail](create-data-warehouse-portal.md) pour créer un pool SQL nommé **mySampleDataWarehouse**.  Ce guide de démarrage rapide met à l’échelle **mySampleDataWarehouse**.
+Vous pouvez mettre à l’échelle un pool SQL que vous avez déjà ou utiliser la section [Démarrage rapide : Créer et connecter - Portail](create-data-warehouse-portal.md) pour créer un pool SQL nommé **mySampleDataWarehouse**. Ce guide de démarrage rapide met à l’échelle **mySampleDataWarehouse**.
 
->[!Note]
+>[!IMPORTANT] 
 >Votre pool SQL doit être en ligne pour la mise à l’échelle. 
 
 ## <a name="scale-compute"></a>Mise à l’échelle des ressources de calcul
@@ -52,7 +52,4 @@ Pour modifier les unités Data Warehouse Unit :
     ![Déplacez le curseur](media/quickstart-scale-compute-portal/scale-dwu.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous savez maintenant mettre à l’échelle le calcul pour le pool SQL. Pour en savoir plus sur le pool SQL, passez au tutoriel sur le chargement des données.
-
-> [!div class="nextstepaction"]
->[Charger des données dans un pool SQL](load-data-from-azure-blob-storage-using-polybase.md)
+Pour en savoir plus sur le pool SQL, consultez le tutoriel [Charger des données dans un pool SQL](load-data-from-azure-blob-storage-using-polybase.md). 

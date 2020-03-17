@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 6fc6479ccda77bff84319d3244b2bd4a0599dc47
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: aeccd604a4dae3b2ca83f5b599d9a6857acee34a
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933993"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037189"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutoriel : Déployer un modèle Machine Learning avec le concepteur (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Vous pouvez déployer le modèle prédictif développé dans la [première parti
 > * Déployez le point de terminaison en temps réel.
 > * Testez le point de terminaison en temps réel.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Suivez la [première partie du tutoriel](tutorial-designer-automobile-price-train-score.md) pour découvrir comment entraîner et évaluer un modèle Machine Learning dans le concepteur.
 
@@ -39,7 +39,7 @@ Pour déployer votre pipeline, vous devez d’abord convertir le pipeline d’en
 
 1. Au-dessus du canevas de pipeline, sélectionnez **Create inference pipeline** > **Real-time inference pipeline** (Créer un pipeline d’inférence > Pipeline d’inférence en temps réel).
 
-    ![Capture d’écran montrant l’emplacement du bouton pour créer un pipeline](./media/tutorial-designer-automobile-price-deploy/create-inference-pipeline.png)
+    ![Capture d’écran montrant l’emplacement du bouton pour créer un pipeline](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
 
     Votre pipeline doit maintenant se présenter comme suit : 
 
@@ -56,7 +56,7 @@ Pour déployer votre pipeline, vous devez d’abord convertir le pipeline d’en
     > Par défaut, l’**entrée de service web** attend le même schéma de données que les données d’entraînement utilisées pour créer le pipeline prédictif. Dans ce scénario, le prix est inclus dans le schéma. Toutefois, le prix n’est pas utilisé comme facteur lors de la prédiction.
     >
 
-1. Sélectionnez **Exécuter**, puis utilisez la même cible de calcul et la même expérience que durant la première partie.
+1. Sélectionnez **Envoyer**, puis utilisez la même cible de calcul et la même expérience que durant la première partie.
 
 1. Sélectionnez **Déployer**.
 
@@ -123,4 +123,4 @@ Une fois le déploiement effectué, vous pouvez tester votre point de terminaiso
 Dans ce tutoriel, vous avez découvert les étapes clés de la création, du déploiement et de la consommation d’un modèle Machine Learning dans le concepteur. Pour en savoir plus sur l’utilisation du concepteur pour résoudre d’autres types de problème, consultez nos autres exemples de pipelines.
 
 > [!div class="nextstepaction"]
-> [Exemple de classification de risque de crédit](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+> [Exemples de concepteur](samples-designer.md)

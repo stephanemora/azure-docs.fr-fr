@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 03/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c58ff181ec144dcd0b1089b0e53f868f241be73f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 98706d0c9a86d53ae31d05bec48d7071f251b651
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985252"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944393"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Workplace by Facebook
 
@@ -30,9 +30,9 @@ Dans ce tutoriel, vous allez apprendre à intégrer Workplace by Facebook à Azu
 * Autoriser les utilisateurs à se connecter automatiquement à Workplace by Facebook avec leur compte Azure AD
 * Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -157,6 +157,8 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificati
     a. Activez l’option **Single-sign on(SSO)** (Authentification unique).
     
     b. Cliquez sur **+Add new SSO Provider** (Ajouter un nouveau fournisseur d’authentification unique).
+    > [!NOTE]
+    > Veillez également à cocher la case Password (Mot de passe). Lorsqu’ils effectuent la substitution du certificat, les administrateurs peuvent avoir besoin de cette option pour continuer d’avoir accès à Workplace.
 
 1. Sous l’onglet **Authentication**, sélectionnez **Single-Sign On (SSO)** (Authentification unique) et procédez comme suit :
 
@@ -238,7 +240,7 @@ Le fait de cliquer sur la vignette Workplace by Facebook dans le panneau d’acc
 
 - [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
@@ -247,4 +249,3 @@ Le fait de cliquer sur la vignette Workplace by Facebook dans le panneau d’acc
 - [Essayer Workplace by Facebook avec Azure AD](https://aad.portal.azure.com)
 
 - [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-

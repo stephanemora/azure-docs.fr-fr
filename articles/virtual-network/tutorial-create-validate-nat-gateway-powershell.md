@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: faaf32b08fdf2415b1c60192f917fc2aedc14704
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: e0fb78be363795bbb09fb0f14bd018fceea34a48
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77660986"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897895"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-powershell-and-test-the-nat-service"></a>Tutoriel : Créer une passerelle NAT avec Azure PowerShell et tester le service NAT
 
@@ -271,7 +271,7 @@ New-AzVirtualNetwork -Name $vdn -ResourceGroupName $rsg -Location $loc -AddressP
 
 ### <a name="create-public-ip-for-destination-vm"></a>Créer une adresse IP publique pour la machine virtuelle de destination
 
-Nous créons une adresse IP publique à utiliser pour accéder à la machine virtuelle source.  Utilisez la commande [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest) pour créer une ressource d’adresse IP publique nommée **myPublicIPdestinationVM** dans **myResourceGroupNAT**.  Le résultat de cette commande est stocké dans une variable nommée **$publicIpdestinationVM** pour une utilisation ultérieure.
+Nous créons une adresse IP publique à utiliser pour accéder à la machine virtuelle de destination.  Utilisez la commande [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=latest) pour créer une ressource d’adresse IP publique nommée **myPublicIPdestinationVM** dans **myResourceGroupNAT**.  Le résultat de cette commande est stocké dans une variable nommée **$publicIpdestinationVM** pour une utilisation ultérieure.
 
 ```azurepowershell-interactive
 $rsg = 'myResourceGroupNAT'

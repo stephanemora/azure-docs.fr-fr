@@ -1,19 +1,19 @@
 ---
 title: S’intégrer au service Azure Private Link
 description: Découvrir comment intégrer Azure Key Vault au service Azure Private Link
-author: msmbaldwin
-ms.author: mbaldwin
-ms.date: 01/28/2020
+author: ShaneBala-keyvault
+ms.author: sudbalas
+ms.date: 03/08/2020
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: e058e643f4c37336f09b43c41cd09aa361a23d15
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6a5cc5bbdb56e308d79b8eb2c8db546184cedb39
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908633"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79080341"
 ---
-# <a name="integrate-key-vault-with-azure-private-link-preview"></a>Intégrer Key Vault à Azure Private Link (préversion)
+# <a name="integrate-key-vault-with-azure-private-link"></a>Intégrer Key Vault avec Azure Private Link
 
 Le service Azure Private Link vous permet d’accéder aux services Azure (par exemple, Azure Key Vault, Stockage Azure et Azure Cosmos DB) ainsi qu’aux services de partenaires ou de clients hébergés par Azure via un point de terminaison privé de votre réseau virtuel.
 
@@ -21,7 +21,7 @@ Un point de terminaison privé Azure est une interface réseau qui vous connecte
 
 Pour plus d’informations, consultez [Qu’est-ce qu’Azure Private Link (préversion) ?](../private-link/private-link-overview.md)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour intégrer un coffre de clés à Azure Private Link (préversion), vous avez besoin des éléments suivants :
 
@@ -34,7 +34,7 @@ Votre point de terminaison privé et votre réseau virtuel doivent se trouver da
 
 Votre point de terminaison privé utilise une adresse IP privée de votre réseau virtuel.
 
-## <a name="establish-a-private-link-connection-to-key-vault"></a>Établir une connexion de liaison privée avec le coffre de clés
+## <a name="establish-a-private-link-connection-to-key-vault-using-the-azure-portal"></a>Établir une connexion de liaison privée avec le coffre de clés à l’aide du portail Azure 
 
 Tout d’abord, créez un réseau virtuel en suivant les étapes décrites dans [Créer un réseau virtuel à partir du portail Azure](../virtual-network/quick-create-portal.md).
 
@@ -79,6 +79,60 @@ Vous pouvez choisir de créer un point de terminaison privé pour n’importe qu
 ![Image](./media/private-link-service-3.png)
 ![Image](./media/private-link-service-4.png)
 
+## <a name="establish-a-private-link-connection-to-key-vault-using-cli"></a>Établir une connexion de liaison privée avec le coffre de clés à l’aide de l’interface CLI
+
+### <a name="login-to-azure-cli"></a>Se connecter à l’interface Azure CLI
+```console
+az login 
+```
+### <a name="select-your-azure-subscription"></a>Sélectionner votre abonnement Azure 
+```console
+az account set --subscription {AZURE SUBSCRIPTION ID}
+```
+### <a name="create-a-new-resource-group"></a>Créer un groupe de ressources 
+```console
+az group create -n {RG} -l {AZURE REGION}
+```
+### <a name="register-microsoftkeyvault-as-a-provider"></a>Inscrire Microsoft.KeyVault comme fournisseur 
+```console
+az provider register -n Microsoft.KeyVault
+```
+### <a name="create-a-new-key-vault"></a>Créer un coffre de clés
+```console
+az keyvault create --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION}
+```
+### <a name="create-a-virtual-network"></a>Création d'un réseau virtuel
+```console
+az network vnet create --resource-group {RG} --name {vNet NAME} --location {AZURE REGION}
+```
+### <a name="add-a-subnet"></a>Ajouter un sous-réseau
+```console
+az network vnet subnet create --resource-group {RG} --vnet-name {vNet NAME} --name {subnet NAME} --address-prefixes {addressPrefix}
+```
+### <a name="disable-virtual-network-policies"></a>Désactiver les stratégies de réseau virtuel 
+```console
+az network vnet subnet update --name {subnet NAME} --resource-group {RG} --vnet-name {vNet NAME} --disable-private-endpoint-network-policies true
+```
+### <a name="add-a-private-dns-zone"></a>Ajouter une zone DNS privée 
+```console
+az network private-dns zone create --resource-group {RG} --name privatelink.vaultcore.azure.net
+```
+### <a name="link-private-dns-zone-to-virtual-network"></a>Lier la zone DNS privée au réseau virtuel 
+```console
+az network private-dns link vnet create --resoruce-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
+```
+### <a name="create-a-private-endpoint-automatically-approve"></a>Créer un point de terminaison privé (approuver automatiquement) 
+```console
+az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION}
+```
+### <a name="create-a-private-endpoint-manually-request-approval"></a>Créer un point de terminaison privé (demander manuellement une approbation) 
+```console
+az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION} --manual-request
+```
+### <a name="show-connection-status"></a>Afficher l’état de la connexion 
+```console
+az network private-endpoint show --resource-group {RG} --name {Private Endpoint Name}
+```
 ## <a name="manage-private-link-connection"></a>Gérer une connexion à liaison privée
 
 Quand vous créez un point de terminaison privé, la connexion doit être approuvée. Si la ressource pour laquelle vous créez un point de terminaison privé se trouve dans votre annuaire, vous pouvez approuver la demande de connexion à condition de bénéficier d’autorisations suffisantes. Si vous vous connectez à une ressource Azure située dans un autre annuaire, vous devez attendre que le propriétaire de cette ressource approuve votre demande de connexion.
@@ -92,7 +146,7 @@ Il existe quatre états de provisionnement :
 | Rejeter | Rejeté | La connexion a été rejetée par le propriétaire de la ressource Private Link. |
 | Supprimer | Déconnecté | La connexion a été supprimée par le propriétaire de la ressource Private Link, le point de terminaison privé devient donc informatif et doit être supprimé dans le cadre d’un nettoyage. |
  
-###  <a name="how-to-manage-a-private-endpoint-connection-to-key-vault"></a>Comment gérer une connexion de point de terminaison privé à un coffre de clés
+###  <a name="how-to-manage-a-private-endpoint-connection-to-key-vault-using-the-azure-portal"></a>Comment gérer une connexion de point de terminaison privé à un coffre de clés à l’aide du portail Azure 
 
 1. Connectez-vous au portail Azure.
 1. Dans la barre de recherche, tapez « coffres de clés ».
@@ -104,6 +158,23 @@ Il existe quatre états de provisionnement :
 1. Si vous voulez rejeter une connexion de point de terminaison privé, qu’il s’agisse d’une demande en attente ou d’une connexion existante, sélectionnez cette connexion et cliquez sur le bouton « Rejeter ».
 
     ![Image](./media/private-link-service-7.png)
+
+##  <a name="how-to-manage-a-private-endpoint-connection-to-key-vault-using-azure-cli"></a>Comment gérer une connexion de point de terminaison privé à un coffre de clés à l’aide de l’interface Azure CLI
+
+### <a name="approve-a-private-link-connection-request"></a>Approuver une demande de connexion de liaison privée
+```console
+az keyvault private-endpoint-connection approve --approval-description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --vault-name {KEY VAULT NAME} –name {PRIVATE LINK CONNECTION NAME}
+```
+
+### <a name="deny-a-private-link-connection-request"></a>Refuser une demande de connexion de liaison privée
+```console
+az keyvault private-endpoint-connection reject --rejection-description {"OPTIONAL DESCRIPTION"} --resource-group {RG} --vault-name {KEY VAULT NAME} –name {PRIVATE LINK CONNECTION NAME}
+```
+
+### <a name="delete-a-private-link-connection-request"></a>Supprimer une demande de connexion de liaison privée
+```console
+az keyvault private-endpoint-connection delete --resource-group {RG} --vault-name {KEY VAULT NAME} --name {PRIVATE LINK CONNECTION NAME}
+```
 
 ## <a name="validate-that-the-private-link-connection-works"></a>Vérifier le fonctionnement de la connexion à liaison privée
 

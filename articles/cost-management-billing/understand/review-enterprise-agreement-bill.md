@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 03/03/2020
+ms.date: 03/06/2020
 ms.author: banders
-ms.openlocfilehash: ca1064ce3414f4a796110c022125b68c0674e0d6
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.openlocfilehash: 5de6baf81f67ef6bee43b54e7aa0d62088c15be9
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78270194"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898652"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Comprendre votre facture Contrat Entreprise Azure
 
@@ -118,7 +118,7 @@ Le tableau suivant liste les termes et descriptions figurant sur la facture ains
 
 Cette section s’applique uniquement si vous vous trouvez en Australie, au Japon ou à Singapour.
 
-Comparez le total de la Place de marché Azure sur **Rapports** > **Récapitulatif de l’utilisation** dans Enterprise Portal avec votre facture de la Place de marché. La facture de la Place de marché concerne uniquement les achats et l’utilisation liés à la Place de marché Azure. Les montants du **Récapitulatif de l’utilisation** n’incluent pas les taxes.
+Comparez le total de la Place de marché Azure sur **Rapports** > **Récapitulatif de l’utilisation** dans Enterprise Portal avec votre facture de la Place de marché. La facture de la Place de marché concerne uniquement les achats et l’utilisation liés à la Place de marché Azure. Les montants figurant dans **Résumé de l’utilisation** incluent déjà une taxe qui est déterminée par le serveur de publication.
 
 Connectez-vous au [portail Entreprise](https://ea.azure.com), puis sélectionnez **Rapports**. En haut à droite de l’onglet, changez de vue en passant de **M** à **C**, et faites correspondre la période sur la facture.  
 

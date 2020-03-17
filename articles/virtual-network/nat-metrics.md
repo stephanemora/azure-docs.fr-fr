@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2020
 ms.author: allensu
-ms.openlocfilehash: 268f5f5b7bf1bed27a01085974bea72af6a84f3b
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 51713db8532eb33f102de9320dea9eaeb98c4019
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304053"
+ms.locfileid: "78359077"
 ---
 # <a name="azure-virtual-network-nat-metrics"></a>Métriques du service NAT du réseau virtuel Azure
 
@@ -57,8 +57,10 @@ Resource Health n’est pas pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez-en davantage sur le service [Nat de Réseau virtuel](nat-overview.md).
-- Découvrir la [ressource de passerelle NAT](nat-gateway-resource.md)
-- Découvrir [Azure Monitor](../azure-monitor/overview.md)
-- Découvrez la [résolution des problèmes liés aux ressources de passerelle NAT](troubleshoot-nat.md).
+* Apprenez-en davantage sur le service [Nat de Réseau virtuel](nat-overview.md).
+* Découvrir la [ressource de passerelle NAT](nat-gateway-resource.md)
+* Découvrir [Azure Monitor](../azure-monitor/overview.md)
+* Découvrez la [résolution des problèmes liés aux ressources de passerelle NAT](troubleshoot-nat.md).
+* [Utilisez UserVoice pour nous faire part des prochains développements dont vous aimeriez bénéficier concernant le service NAT de réseau virtuel](https://aka.ms/natuservoice).
+
 

@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: 1e26af6c4bf86cfd412df7435379e610ffd69e85
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+manager: lizross
+ms.openlocfilehash: 5bdc51f47a170922d4fc33e8538695af29e5159c
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367423"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128118"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutoriel : Créer des principaux de service et des attributions de rôles avec PowerShell
 
@@ -44,7 +45,7 @@ Avant de pouvoir créer des principaux de service et des attributions de rôles,
 
 ## <a name="create-a-service-principal-in-azure-active-directory"></a>Création d’un principal du service dans Azure Active Directory
 
-Une fois que vous avez rempli les prérequis dans votre session PowerShell, exécutez les applets de commande PowerShell suivantes pour créer un principal de service multilocataire dans Azure.
+Quand vous avez rempli les prérequis dans votre session PowerShell, exécutez les applets de commande PowerShell suivantes pour créer un principal de service multilocataire dans Azure.
 
 ```powershell
 Import-Module AzureAD
@@ -54,7 +55,7 @@ $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrin
 ```
 ## <a name="view-your-credentials-in-powershell"></a>Afficher vos informations d’identification dans PowerShell
 
-Avant de créer l’attribution de rôle pour votre principal du service, consultez vos informations d’identification et notez-les pour vous y référer ultérieurement. Le mot de passe est particulièrement important car vous ne pouvez pas le récupérer une fois que vous avez fermé cette session PowerShell.
+Avant de créer l’attribution de rôle pour votre principal du service, consultez vos informations d’identification et notez-les pour vous y référer ultérieurement. Le mot de passe est particulièrement important parce que vous ne pouvez pas le récupérer après avoir fermé cette session PowerShell.
 
 Voici les trois informations d’identification que vous devez noter et les applets de commande que vous devez exécuter pour les obtenir :
 

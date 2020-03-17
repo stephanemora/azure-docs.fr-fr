@@ -1,7 +1,7 @@
 ---
-title: Créer votre première expérience de ML automatisé
+title: Créer des modèles de classification de ML automatisé
 titleSuffix: Azure Machine Learning
-description: Découvrez comment effectuer l’apprentissage d’un modèle de classification et le déployer avec le Machine Learning automatisé dans Azure Machine Learning Studio.
+description: Découvrez comment entraîner et déployer des modèles de classification avec l’interface de ML (machine learning) automatisé d’Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 02/04/2020
-ms.openlocfilehash: 70fcdb1c22664a0bd3091fea88c8e23e3d1b81e5
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 96af942ab68d4ae738df56bf94d8410ee5d8cc34
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048285"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129668"
 ---
-# <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutoriel : Créer votre premier modèle de classification avec Machine Learning automatisé
+# <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutoriel : Créer un modèle de classification avec le ML automatisé dans Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Dans ce tutoriel, vous allez découvrir comment créer votre première expérience de Machine Learning automatisé dans Azure Machine Learning Studio sans écrire une seule ligne de code. Cet exemple crée un modèle de classification pour prédire si un client souscrit à un compte à terme auprès d’une institution financière.
+Dans ce tutoriel, vous allez découvrir comment créer un modèle de classification de base sans écrire une seule ligne de code en utilisant l’interface de machine learning automatisé d’Azure Machine Learning. Ce modèle de classification prédit si un client va souscrire à un compte à terme auprès d’une institution financière.
 
 Avec le machine learning automatisé, vous pouvez automatiser des tâches fastidieuses. Le machine learning automatisé itère rapidement sur de nombreuses combinaisons d’algorithmes et d’hyperparamètres pour vous aider à trouver le meilleur modèle basé sur une métrique de réussite de votre choix.
 
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à effectuer les opérations suivantes :
 > * Voir les détails de l'expérience.
 > * Déployer le modèle.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://aka.ms/AMLFree).
 
@@ -42,7 +42,7 @@ Dans ce tutoriel, vous allez apprendre à effectuer les opérations suivantes :
 
 Un espace de travail Azure Machine Learning est une ressource fondamentale du cloud que vous utilisez pour expérimenter, entraîner et déployer des modèles Machine Learning. Il lie votre abonnement Azure et votre groupe de ressources à un objet facile à consommer dans le service. 
 
-Vous créez un espace de travail par le biais d’Azure Machine Learning Studio, une console web pour la gestion de vos ressources Azure.
+Vous créez un espace de travail par le biais du portail Azure, une console web pour la gestion de vos ressources Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
@@ -51,9 +51,9 @@ Vous créez un espace de travail par le biais d’Azure Machine Learning Studio,
 
 ## <a name="create-and-run-the-experiment"></a>Créer et exécuter l’expérience
 
-Vous effectuez les étapes de configuration et d’exécution d’expérience suivantes dans Azure Machine Learning Studio, une interface centralisée qui comprend des outils de Machine Learning permettant de mettre en œuvre des scénarios de science des données pour les utilisateurs de science des données de tous niveaux de compétence. Studio n’est pas prise en charge par les navigateurs Internet Explorer.
+Vous effectuez les étapes de configuration et d’exécution d’expérience suivantes par le biais d’Azure Machine Learning, accessible à l’adresse https://ml.azure.com. Cette interface web centralisée comprend des outils de machine learning permettant de mettre en œuvre des scénarios de science des données pour les utilisateurs de science des données de tous niveaux de compétence. Cette interface n’est pas prise en charge par les navigateurs Internet Explorer.
 
-1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com).
+1. Connectez-vous à Azure Machine Learning à l’adresse https://ml.azure.com.
 
 1. Sélectionnez votre abonnement et l’espace de travail que vous avez créé.
 
@@ -63,13 +63,13 @@ Vous effectuez les étapes de configuration et d’exécution d’expérience su
 
    Puisqu’il s’agit de votre première expérience de ML automatisé, vous verrez une liste vide et des liens vers la documentation.
 
-   ![Azure Machine Learning Studio](./media/tutorial-first-experiment-automated-ml/get-started.png)
+   ![Page de prise en main](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
 1. Sélectionnez **Nouvelle exécution de ML automatisé**. 
 
 1. Pour créer un jeu de données, sélectionnez **À partir de fichiers locaux** dans la liste déroulante **+ Créer un jeu de données**. 
 
-    1. Dans le formulaire **Informations de base**, donnez un nom unique à votre jeu de données et indiquez éventuellement une description. Le ML automatisé dans Azure Machine Learning Studio ne prend actuellement en charge que les jeux de données tabulaires. Le type de jeu de données par défaut est donc Tabulaire.
+    1. Dans le formulaire **Informations de base**, donnez un nom unique à votre jeu de données et indiquez éventuellement une description. L’interface de ML automatisé ne prend actuellement en charge que les jeux de données tabulaires. Le type de jeu de données par défaut doit donc être *Tabulaire*.
 
     1. Sélectionnez **Suivant** en bas à gauche.
 
@@ -163,9 +163,9 @@ L’exemple suivant parcourt les onglets **Détails du modèle** et **Visualisat
 
 ![Détails sur l’exécution de l’itération](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 
-## <a name="deploy-the-model"></a>Déployer le modèle
+## <a name="deploy-the-best-model"></a>Déployer le meilleur modèle
 
-Dans Azure Machine Learning Studio, le Machine Learning automatisé vous permet de déployer le meilleur modèle en tant que service web en quelques étapes. Le déploiement consiste à intégrer le modèle pour qu’il puisse prédire de nouvelles données et identifier les domaines potentiels d’opportunités. 
+L’interface de machine learning automatisé vous permet de déployer le meilleur modèle comme service web en quelques étapes. Le déploiement consiste à intégrer le modèle pour qu’il puisse prédire de nouvelles données et identifier les domaines potentiels d’opportunités. 
 
 Dans le cadre de cette expérience, le déploiement sur un service web signifie que l’établissement financier dispose désormais d’une solution web itérative et scalable pour identifier les clients potentiels d’un compte à terme. 
 
@@ -201,9 +201,9 @@ Les fichiers de déploiement sont plus volumineux que les fichiers de données e
 
 ### <a name="delete-the-deployment-instance"></a>Supprimer l’instance de déploiement
 
-Supprimez uniquement l’instance de déploiement d’Azure Machine Learning Studio si vous souhaitez conserver le groupe de ressources et l’espace de travail pour d’autres tutoriels et à des fins d’exploration. 
+Supprimez uniquement l’instance de déploiement d’Azure Machine Learning (accessible à l’adresse https://ml.azure.com/ ) si vous souhaitez conserver le groupe de ressources et l’espace de travail pour d’autres tutoriels et à des fins d’exploration. 
 
-1. Accédez à [Azure Machine Learning Studio](https://ml.azure.com/). Accédez à votre espace de travail et, à gauche dans le volet **Ressources**, sélectionnez **Points de terminaison**. 
+1. Accédez à Azure Machine Learning à l’adresse https://ml.azure.com/. Accédez à votre espace de travail et, à gauche dans le volet **Ressources**, sélectionnez **Points de terminaison**. 
 
 1. Sélectionnez le déploiement à supprimer et sélectionnez **Supprimer**. 
 
@@ -215,15 +215,15 @@ Supprimez uniquement l’instance de déploiement d’Azure Machine Learning Stu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel de Machine Learning automatisé, vous avez utilisé Azure Machine Learning Studio pour créer et déployer un modèle de classification. Pour plus d’informations et pour connaître les étapes suivantes, consultez ces articles :
+Dans ce tutoriel sur le machine learning automatisé, vous avez utilisé l’interface de ML automatisé d’Azure Machine Learning pour créer et déployer un modèle de classification. Pour plus d’informations et pour connaître les étapes suivantes, consultez ces articles :
 
 > [!div class="nextstepaction"]
 > [Utiliser un service web](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
-+ Découvrez-en plus sur la [caractérisation](how-to-create-portal-experiments.md#featurization).
-+ En savoir plus sur le [profilage des données](how-to-create-portal-experiments.md#profile).
 + En savoir plus sur le [Machine Learning automatisé](concept-automated-ml.md).
-+ Pour plus d’informations sur les métriques et les graphiques de classification, consultez l’article [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md#classification).
++ Pour plus d’informations sur les métriques et les graphiques de classification, consultez l’article [Comprendre les résultats du machine learning automatisé](how-to-understand-automated-ml.md#classification). Vous pouvez également en apprendre davantage sur la [caractérisation](how-to-use-automated-ml-for-ml-models.md#featurization).
++ En savoir plus sur le [profilage des données](how-to-use-automated-ml-for-ml-models.md#profile).
+
 
 >[!NOTE]
 > Ce jeu de données Bank Marketing est disponible sous licence [Creative Commons (CCO : domaine public)](https://creativecommons.org/publicdomain/zero/1.0/). Tous les droits du contenu individuel de la base de données sont concédés sous [licence du contenu de base de données](https://creativecommons.org/publicdomain/zero/1.0/) et sont disponibles sur [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Ce jeu de données était initialement disponible dans la [base de données Machine Learning UCI](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>

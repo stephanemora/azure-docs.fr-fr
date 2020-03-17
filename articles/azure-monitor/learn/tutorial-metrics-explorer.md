@@ -2,17 +2,16 @@
 title: Tutoriel - Créer un graphique de métriques dans Azure Monitor
 description: Découvrez comment créer votre premier graphique de métrique avec l’explorateur de métriques Azure.
 author: bwren
-services: azure-monitor
+ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
-ms.date: 12/16/2019
-ms.author: bwren
-ms.openlocfilehash: be4f026ba20ce1582f5626ec7483740831c25c1a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/09/2020
+ms.openlocfilehash: d8f72471dd3109bf584d18f032ec2f4d949a4993
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661462"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082810"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Tutoriel : Créer un graphique de métriques dans Azure Monitor
 Metrics Explorer est une fonctionnalité d’Azure Monitor dans le portail Azure qui vous permet de créer des graphiques à partir de valeurs de métriques, de corréler visuellement des tendances et d’examiner des pics et des creux dans des valeurs de métriques. Utilisez Metrics Explorer pour examiner l’intégrité et l’utilisation de vos ressources Azure ou pour tracer des graphiques à partir de métriques personnalisées. 
@@ -23,6 +22,10 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Sélectionner une métrique pour laquelle vous souhaitez tracer un graphique.
 > * Effectuer différentes agrégations de valeurs de métriques.
 > * Modifier l’intervalle de temps et la granularité du graphique.
+
+Voici une vidéo qui présente un scénario plus détaillé que la procédure décrite dans cet article. Si vous débutez avec les métriques, nous vous suggérons de d’abord lire cet article, puis de regarder la vidéo pour plus de détails. 
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4qO59]
 
 ## <a name="prerequisites"></a>Prérequis
 

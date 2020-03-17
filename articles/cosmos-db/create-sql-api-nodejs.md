@@ -8,22 +8,22 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: dech
-ms.openlocfilehash: c36f31ef30b6386677c517b1d7e643f9eacea093
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: 729fd776321a90257289dcf92f13079a8206d9d9
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303288"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927427"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Démarrage rapide : Utiliser Node.js pour se connecter à un compte d’API SQL Azure Cosmos DB et interroger ses données
 
 > [!div class="op_single_selector"]
-> * [.NET V3](create-sql-api-dotnet.md)
-> * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java](create-sql-api-java.md)
-> * [Node.JS](create-sql-api-nodejs.md)
-> * [Python](create-sql-api-python.md)
-> * [Xamarin](create-sql-api-xamarin-dotnet.md)
+> - [.NET V3](create-sql-api-dotnet.md)
+> - [.NET V4](create-sql-api-dotnet-V4.md)
+> - [Java](create-sql-api-java.md)
+> - [Node.JS](create-sql-api-nodejs.md)
+> - [Python](create-sql-api-python.md)
+> - [Xamarin](create-sql-api-xamarin-dotnet.md)
 
 Dans ce guide de démarrage rapide, vous allez créer et gérer un compte d’API SQL Azure Cosmos DB à partir du portail Azure et à l’aide d’une application Node.js clonée à partir de GitHub. Azure Cosmos DB est un service de base de données multimodèle qui vous permet de créer et interroger rapidement des bases de données de documents, de tables, de paires clé/valeur et de graphes avec des capacités de distribution mondiale et de mise à l’échelle horizontale.
 
@@ -33,32 +33,40 @@ Dans ce guide de démarrage rapide, vous allez créer et gérer un compte d’AP
 - [Node.js 6.0.0 ou ultérieur](https://nodejs.org/).
 - [Git](https://www.git-scm.com/downloads).
 
-## <a name="create-a-database"></a>Création d'une base de données
+## <a name="create-an-azure-cosmos-account"></a>Créer un compte Azure Cosmos
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+Pour ce guide de démarrage rapide, vous pouvez utiliser l’option [Essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) pour créer un compte Azure Cosmos.
+
+1. Accédez à la page [Essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/).
+
+1. Choisissez le compte d’API **SQL** et sélectionnez **Créer**. Connectez-vous en utilisant votre compte Microsoft.
+
+1. Votre compte Azure Cosmos doit être prêt dès que vous êtes connecté. Sélectionnez **Ouvrir dans le portail Azure** pour ouvrir le compte que vous venez de créer.
+
+L’option « Essayer Azure Cosmos DB gratuitement » ne nécessite pas d’abonnement Azure et vous permet de disposer d’un compte Azure Cosmos pour une période de 30 jours. Si vous souhaitez utiliser le compte Azure Cosmos plus longtemps, [créez le compte](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) dans votre abonnement Azure.
 
 ## <a name="add-a-container"></a>Ajouter un conteneur
 
-Vous pouvez désormais utiliser l’outil Explorateur de données dans le portail Azure pour créer une base de données et un conteneur. 
+Vous pouvez désormais utiliser l’outil Explorateur de données dans le portail Azure pour créer une base de données et un conteneur.
 
-1. Sélectionnez **Explorateur de données** > **Nouveau conteneur**. 
-    
-    La zone **Ajouter un conteneur** s’affiche à l’extrême droite : il peut donc être nécessaire de faire défiler à droite pour l’afficher.
+1. Sélectionnez **Explorateur de données** > **Nouveau conteneur**.
 
-    ![Explorateur de données du portail Azure, volet Ajouter un conteneur](./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png)
+   La zone **Ajouter un conteneur** s’affiche à l’extrême droite : il peut donc être nécessaire de faire défiler à droite pour l’afficher.
+
+   ![Explorateur de données du portail Azure, volet Ajouter un conteneur](./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png)
 
 2. Dans la page **Ajouter un conteneur**, entrez les paramètres du nouveau conteneur.
 
-    |Paramètre|Valeur suggérée|Description
-    |---|---|---|
-    |**ID de base de données**|Tâches|Entrez *Tasks* comme nom pour la nouvelle base de données. Les noms de base de données doivent comporter entre 1 et 255 caractères, et ne peuvent pas contenir les caractères `/, \\, #, ?`, ni un espace de fin. Cochez l’option **Provisionner le débit de base de données** qui vous permet de partager le débit provisionné pour la base de données entre tous les conteneurs au sein de la base de données. Cette option permet également de réduire les coûts. |
-    |**Débit**|400|Laissez le débit sur 400 unités de requête par seconde (RU/s). Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite.| 
-    |**ID de conteneur**|Éléments|Entrez *Éléments* comme nom de votre nouveau conteneur. Les ID de conteneur sont soumis aux mêmes exigences en termes de caractères que les noms de base de données.|
-    |**Clé de partition**| /category| L’exemple décrit dans cet article utilise */category* comme clé de partition.|
-    
-    Outre les paramètres précédents, vous pouvez ajouter des **clés uniques** pour le conteneur. Laissez le champ vide dans cet exemple. Les clés uniques permettent aux développeurs d’ajouter une couche d’intégrité des données à la base de données. En créant une stratégie de clé unique durant la création d’un conteneur, vous garantissez l’unicité d’une ou de plusieurs valeurs par clé de partition. Pour en savoir plus, référez-vous à l’article [Clés uniques dans Azure Cosmos DB](unique-keys.md).
-    
-    Sélectionnez **OK**. L’Explorateur de données affiche la nouvelle base de données et le nouveau conteneur.
+   | Paramètre           | Valeur suggérée | Description                                                                                                                                                                                                                                                                                                                                                                           |
+   | ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | **ID de base de données**   | Tâches           | Entrez _Tasks_ comme nom pour la nouvelle base de données. Les noms de base de données doivent comporter entre 1 et 255 caractères, et ne peuvent pas contenir les caractères `/, \\, #, ?`, ni un espace de fin. Cochez l’option **Provisionner le débit de base de données** qui vous permet de partager le débit provisionné pour la base de données entre tous les conteneurs au sein de la base de données. Cette option permet également de réduire les coûts. |
+   | **Débit**    | 400             | Laissez le débit sur 400 unités de requête par seconde (RU/s). Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite.                                                                                                                                                                                                                                                    |
+   | **ID de conteneur**  | Éléments           | Entrez _Éléments_ comme nom de votre nouveau conteneur. Les ID de conteneur sont soumis aux mêmes exigences en termes de caractères que les noms de base de données.                                                                                                                                                                                                                                                               |
+   | **Clé de partition** | /category       | L’exemple décrit dans cet article utilise _/category_ comme clé de partition.                                                                                                                                                                                                                                                                                                           |
+
+   Outre les paramètres précédents, vous pouvez ajouter des **clés uniques** pour le conteneur. Laissez le champ vide dans cet exemple. Les clés uniques permettent aux développeurs d’ajouter une couche d’intégrité des données à la base de données. En créant une stratégie de clé unique durant la création d’un conteneur, vous garantissez l’unicité d’une ou de plusieurs valeurs par clé de partition. Pour en savoir plus, référez-vous à l’article [Clés uniques dans Azure Cosmos DB](unique-keys.md).
+
+   Sélectionnez **OK**. L’Explorateur de données affiche la nouvelle base de données et le nouveau conteneur.
 
 ## <a name="add-sample-data"></a>Ajouter un exemple de données
 
@@ -84,9 +92,21 @@ Cette étape est facultative. Pour savoir comment les ressources de base de donn
 
 Si vous connaissez déjà la version précédente du SDK JavaScript SQL, vous avez peut-être l’habitude de voir les termes _collection_ et _document_. Étant donné qu’Azure Cosmos DB prend en charge [plusieurs modèles d’API](introduction.md), les [versions 2.0 et ultérieures du SDK JavaScript](https://www.npmjs.com/package/@azure/cosmos) utilisent les termes génériques _conteneur_, qui peut être une collection, un graphe ou une table, et _élément_ pour décrire le contenu du conteneur.
 
+Le SDK JavaScript Cosmos DB est nommé « @azure/cosmos ». Il peut être installé à partir de npm...
+
+```bash
+npm install @azure/cosmos
+```
+
 Tous les extraits de code suivants proviennent du fichier _app.js_.
 
-- L’objet `CosmosClient` est initialisé.
+- Le `CosmosClient` est importé à partir du package npm `@azure/cosmos`.
+
+  ```javascript
+  const CosmosClient = require("@azure/cosmos").CosmosClient;
+  ```
+
+- Un nouvel objet `CosmosClient` est initialisé.
 
   ```javascript
   const client = new CosmosClient({ endpoint, key });
@@ -115,8 +135,6 @@ Tous les extraits de code suivants proviennent du fichier _app.js_.
   const { resources: results } = await container.items
     .query(querySpec)
     .fetchAll();
-
-  return results;
   ```
 
 - Créer un élément
@@ -134,8 +152,6 @@ Tous les extraits de code suivants proviennent du fichier _app.js_.
   const { resource: itemToUpdate } = await container
     .item(id, category)
     .replace(itemToUpdate);
-
-  return result;
   ```
 
 - Supprimer un élément
@@ -167,23 +183,21 @@ Revenez maintenant au portail Azure pour afficher les détails de la chaîne de 
 
 ## <a name="run-the-app"></a>Exécuter l’application
 
-1. Exécutez `npm install` sur un terminal pour installer les modules npm requis.
+1. Exécutez `npm install` sur un terminal pour installer le package npm « @azure/cosmos ».
 
 2. Exécutez `node app.js` sur un terminal pour démarrer votre application Node.
 
-Vous pouvez maintenant revenir à l’Explorateur de données afin de modifier et d’utiliser ces nouvelles données.
+3. Les deux éléments que vous avez créés précédemment dans le cadre de ce guide de démarrage rapide sont listés. Un autre élément est créé. L’indicateur « isComplete » de cet élément devient « true », puis l’élément est supprimé.
+
+Vous pouvez continuer à effectuer des essais avec cet exemple d’application ou revenir à l’Explorateur de données et modifier et utiliser vos données.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Vérification des contrats SLA dans le portail Azure
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
-
-## <a name="clean-up-resources"></a>Nettoyer les ressources
-
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce guide de démarrage rapide, vous avez appris à créer un compte Azure Cosmos DB, à créer un conteneur avec l’Explorateur de données et à exécuter une application Node.js. Vous pouvez maintenant importer des données supplémentaires dans votre compte Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Importer des données dans Azure Cosmos DB](import-data.md)
+> [Importer des données dans Azure Cosmos DB](import-data.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Kronos | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Kronos | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Kronos.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec568793d717da2493b2c45fe1dca5ad56073886
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4ae90b729db51287f2a98caa36ae43d83a2a207c
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986249"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897794"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kronos"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Kronos
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kronos"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Kronos
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Kronos à Azure Active Directory (Azure AD). Quand vous intégrez Kronos à Azure AD, vous pouvez :
 
@@ -103,11 +103,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     b. Dans la liste **Transformation**, sélectionnez **ExtractMailPrefix()** .
 
-    c. Dans la liste **Paramètre 1**, sélectionnez **user.userprinicipalname**.
+    c. Dans la liste **Paramètre 1**, sélectionnez **user.userprincipalname**.
 
     d. Cliquez sur **Enregistrer**.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**, puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 

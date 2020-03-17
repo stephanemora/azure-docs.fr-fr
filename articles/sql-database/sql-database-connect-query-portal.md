@@ -12,12 +12,12 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 10/24/2019
-ms.openlocfilehash: 3990d7ec63c312d38168fe76269e1a920f1a6817
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b3ccc2a5343cf02127990dca80a1300959fa06a3
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827114"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087173"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Démarrage rapide : Utiliser l’éditeur de requête SQL du portail Azure pour se connecter et interroger des données
 
@@ -31,10 +31,10 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
   || Base de données unique |
   |:--- |:--- |
-  | Créer| [Portal](sql-database-single-database-get-started.md) |
+  | Créer| [Portail](sql-database-single-database-get-started.md) |
   || [INTERFACE DE LIGNE DE COMMANDE](scripts/sql-database-create-and-configure-database-cli.md) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
-  | Configuration | [Règle de pare-feu IP au niveau du serveur](sql-database-server-level-firewall-rule.md)|
+  | Configurer | [Règle de pare-feu IP au niveau du serveur](sql-database-server-level-firewall-rule.md)|
   |||
 
 > [!NOTE]
@@ -42,7 +42,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 ## <a name="sign-in-the-azure-portal"></a>Se connecter au portail Azure
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="connect-using-sql-authentication"></a>Se connecter avec l’authentification SQL
 
@@ -86,7 +86,7 @@ La configuration d’un administrateur Azure Active Directory (Azure AD) vous pe
 
 7. Dans le menu **SQL Server**, sélectionnez **Bases de données SQL**, puis sélectionnez votre base de données SQL.
 
-8. Dans le menu **Base de données SQL**, sélectionnez **Éditeur de requête (préversion)** . Dans la page **Connexion**, sous l’étiquette **Authentification Active Directory**, un message s’affiche indiquant que vous vous êtes connecté si vous êtes un administrateur Azure AD. Sélectionnez ensuite le bouton **Continuer en tant que** *\<votre ID d’utilisateur ou de groupe >* .
+8. Dans le menu **Base de données SQL**, sélectionnez **Éditeur de requête (préversion)** . Dans la page **Connexion**, sous l’étiquette **Authentification Active Directory**, un message s’affiche indiquant que vous vous êtes connecté si vous êtes un administrateur Azure AD. Sélectionnez ensuite le bouton **Continuer en tant que** *\<votre ID d’utilisateur ou de groupe>* .
 
 ## <a name="view-data"></a>Afficher les données
 
@@ -167,6 +167,8 @@ Il y a quelques informations à connaître quand vous travaillez avec l’édite
 
 * L’éditeur de requête utilise les ports 443 et 1443 pour communiquer.  Vérifiez que vous avez activé le trafic HTTPS sortant sur ces ports. Vous devrez également ajouter votre adresse IP sortante aux les règles d’autorisation de pare-feu du serveur pour accéder à vos bases de données et entrepôts de données.
 
+* L’éditeur de requête fonctionne avec Private Link sans qu’il soit nécessaire d’ajouter l’adresse IP du client au pare-feu SQL Database.
+
 * Le fait d’appuyer sur F5 réinitialise la page de l’éditeur de requête, effaçant la requête sur laquelle vous travaillez.
 
 * L’éditeur de requête ne prend pas en charge la connexion à la base de données `master`.
@@ -176,6 +178,8 @@ Il y a quelques informations à connaître quand vous travaillez avec l’édite
 * L’éditeur de requête prend en charge seulement la projection cylindrique des types de données géographiques.
 
 * IntelliSense n’est pas pris en charge pour les tables et les vues de base de données. L’éditeur prend cependant en charge la complétion automatique des noms déjà saisis.
+
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

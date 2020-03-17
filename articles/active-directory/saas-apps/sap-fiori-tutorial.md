@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à SAP Fiori | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à SAP Fiori | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP Fiori.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50d1875ce2529222e8ff7472c48bf6d4dd878667
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 917ba9274276fec5d01a40bdf7219e8d4fee1395
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772870"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897762"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à SAP Fiori
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à SAP Fiori
 
 Dans ce tutoriel, vous allez apprendre à intégrer SAP Fiori à Azure Active Directory (Azure AD). Quand vous intégrez SAP Fiori à Azure AD, vous pouvez :
 
@@ -165,7 +165,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. L’application SAP Fiori attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Pour gérer ces valeurs d’attributs, dans le volet **Configurer l’authentification unique avec SAML**, sélectionnez **Modifier**.
 
-    ![Volet Attributs de l’utilisateur](common/edit-attribute.png)
+    ![Volet Attributs utilisateur](common/edit-attribute.png)
 
 1. Dans le volet **Attributs et revendications de l’utilisateur**, configurez les attributs de jetons SAML comme illustré dans l’image précédente. Effectuez ensuite les tâches suivantes :
 
@@ -173,7 +173,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     1. Dans la liste **Transformation**, sélectionnez **ExtractMailPrefix()** .
 
-    1. Dans la liste **Paramètre 1**, sélectionnez **user.userprinicipalname**.
+    1. Dans la liste **Paramètre 1**, sélectionnez **user.userprincipalname**.
 
     1. Sélectionnez **Enregistrer**.
 

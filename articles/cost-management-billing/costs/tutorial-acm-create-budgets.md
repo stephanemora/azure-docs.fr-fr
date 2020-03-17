@@ -4,17 +4,17 @@ description: Ce tutoriel vous aide à planifier et à prendre en compte les coû
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 03/11/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: f5943e37267a79ad342fbd9afe0256a4ca7182e6
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: b81236fd63d9289f797056cf7aaceb7d826511af
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251190"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79128354"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -54,7 +54,7 @@ Pour plus d’informations sur l’affectation d’une autorisation d’accès a
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-- Connectez-vous au portail Azure sur https://portal.azure.com.
+- Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Créez un budget dans le portail Azure
 
@@ -164,7 +164,7 @@ New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -Star
 ```
 ## <a name="create-a-budget-with-an-azure-resource-manager-template"></a>Créer un budget avec un modèle Azure Resource Manager
 
-Vous pouvez créer un budget en utilisant un modèle Azure Resource Manager. Le modèle vous aide à créer un budget pour un groupe de ressources. Le modèle prend uniquement en charge les clients titulaires d’un contrat Entreprise.
+Vous pouvez créer un budget en utilisant un modèle Azure Resource Manager. Le modèle vous aide à créer un budget pour un groupe de ressources. 
 
 Sélectionnez l’image suivante pour vous connecter au portail Azure et ouvrir le modèle :
 

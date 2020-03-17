@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Créer un entrepôt de données (PowerShell)'
-description: Créez rapidement un serveur logique d’entrepôt de données Azure Synapse Analytics, avec une règle de pare-feu au niveau du serveur à l’aide d’Azure PowerShell.
+title: Créer et interroger un pool SQL synapse avec Azure PowerShell
+description: Créez rapidement un serveur logique de pool SQL Synapse avec une règle de pare-feu au niveau du serveur à l’aide d’Azure PowerShell.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -11,23 +11,23 @@ ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 9df9b4b1bdb33a856d9e31d65981e8654af049d2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 3cf55a400c1894794d555e1362f2197aad44a96b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199986"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79130300"
 ---
-# <a name="quickstart-create--query-a-data-warehouse-with-azure-powershell"></a>Démarrage rapide : Créer et interroger un entrepôt de données avec Azure PowerShell
+# <a name="quickstart-create-and-query-a-synapse-sql-pool-with-azure-powershell"></a>Démarrage rapide : Créer et interroger un pool SQL synapse avec Azure PowerShell
 
-Créez un entrepôt de données Azure Synapse Analytics en provisionnant un pool SQL à l’aide d’Azure PowerShell.
+Créez un pool SQL synapse (entrepôt de données) dans Azure Synapse Analytics à l’aide d’Azure PowerShell.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-> [!NOTE]
-> La création d’un entrepôt peut donner lieu à un nouveau service facturable.  Pour plus d’informations, consultez [Tarification Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> [!IMPORTANT]
+> La création d’un pool SQL peut donner lieu à un nouveau service facturable.  Pour plus d’informations, consultez [Tarification Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -94,7 +94,9 @@ New-AzSqlServer -ResourceGroupName $resourcegroupname `
 
 ## <a name="configure-a-server-firewall-rule"></a>Configurer une règle de pare-feu du serveur
 
-Créez une [règle de pare-feu de niveau serveur SQL Azure](../sql-database/sql-database-firewall-configure.md) avec la commande [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule). Une règle de pare-feu au niveau du serveur permet à une application externe, comme SQL Server Management Studio ou l’utilitaire SQLCMD, de se connecter à un entrepôt de données SQL via le pare-feu du service SQL Data Warehouse. Dans l’exemple suivant, le pare-feu n’est ouvert qu’à d’autres ressources Azure. Pour activer la connectivité externe, remplacez l’adresse IP par une adresse correspondant à votre environnement. Pour ouvrir toutes les adresses IP, utilisez 0.0.0.0 comme adresse IP de début et 255.255.255.255 comme adresse de fin.
+Créez une [règle de pare-feu de niveau serveur SQL Azure](../sql-database/sql-database-firewall-configure.md) avec la commande [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule). Une règle de pare-feu au niveau du serveur permet à une application externe, telle que SQL Server Management Studio ou l’utilitaire SQLCMD, de se connecter à un pool SQL à travers le pare-feu du service de pool SQL. 
+
+Dans l’exemple suivant, le pare-feu n’est ouvert qu’à d’autres ressources Azure. Pour activer la connectivité externe, remplacez l’adresse IP par une adresse correspondant à votre environnement. Pour ouvrir toutes les adresses IP, utilisez 0.0.0.0 comme adresse IP de début et 255.255.255.255 comme adresse de fin.
 
 ```powershell
 New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
@@ -107,8 +109,8 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 >
 
 
-## <a name="create-a-data-warehouse"></a>Créer un entrepôt de données
-Cet exemple crée un entrepôt de données à l’aide de variables préalablement définies.  Il spécifie que l’objectif du service est DW100c, ce qui correspond à un point de départ peu coûteux pour votre entrepôt de données. 
+## <a name="create-a-sql-pool"></a>Créer un pool SQL
+Dans l’exemple suivant, un pool SQL est créé à l’aide des variables préalablement définies.  L’exemple spécifie que l’objectif du service est DW100c, ce qui correspond à un point de départ peu coûteux pour votre pool SQL. 
 
 ```Powershell
 New-AzSqlDatabase `
@@ -124,10 +126,10 @@ New-AzSqlDatabase `
 Les paramètres obligatoires sont :
 
 * **RequestedServiceObjectiveName** : quantité de valeurs [Data Warehouse Unit](what-is-a-data-warehouse-unit-dwu-cdwu.md) que vous demandez. L’augmentation de cette quantité augmente les coûts de calcul. Pour obtenir la liste des valeurs prises en charge, consultez les [limites de mémoire et de concurrence](memory-concurrency-limits.md).
-* **DatabaseName** : nom de l’entrepôt de données que vous créez.
+* **DatabaseName** : nom du pool SQL que vous créez.
 * **ServerName** : nom du serveur que vous utilisez pour la création.
 * **ResourceGroupName** : groupe de ressources que vous utilisez. Pour trouver des groupes de ressources disponibles dans votre abonnement, utilisez Get-AzureResource.
-* **Edition** : doit être « DataWarehouse » pour créer un entrepôt de données.
+* **Edition** : l’édition doit être « DataWarehouse » pour créer un pool SQL.
 
 Les paramètres facultatifs sont :
 
@@ -151,6 +153,4 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez créé un entrepôt de données, créé une règle de pare-feu, vous vous êtes connecté à votre entrepôt de données et vous avez exécuté quelques requêtes. Pour en savoir plus, passez au tutoriel sur le chargement des données.
-> [!div class="nextstepaction"]
->[Charger des données dans un entrepôt de données](load-data-from-azure-blob-storage-using-polybase.md)
+Vous avez créé un pool SQL et une règle de pare-feu, vous vous êtes connecté au pool SQL et vous avez exécuté quelques requêtes. Pour en savoir plus, consultez l’article [Charger des données dans un pool SQL](load-data-from-azure-blob-storage-using-polybase.md).

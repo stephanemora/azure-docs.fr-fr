@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: ec6664e7c55057c29c5b741203b326ce460c6e91
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 635b12cc2ffc4d318eaaa74fffc17e4ce4d58c0b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701227"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79129948"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutoriel : Créer un démon multilocataire qui utilise le point de terminaison de la plateforme d’identités Microsoft
 
@@ -39,7 +39,8 @@ L’application est générée comme une application ASP.NET MVC. Elle utilise 
 
 Le composant « démon » de cet exemple est un contrôleur d’API : `SyncController.cs`. Lorsque le contrôleur est appelé, il tire (pull) une liste d’utilisateurs du locataire Azure Active Directory (Azure AD) à partir de Microsoft Graph. `SyncController.cs` est déclenché par un appel AJAX dans l’application web. Il utilise la [bibliothèque MSAL pour .NET](msal-overview.md) afin d’acquérir un jeton d’accès pour Microsoft Graph.
 
-Pour obtenir un exemple d’application de démon de console plus simple, consultez le [Guide de démarrage rapide du démon .NET Core](quickstart-v2-netcore-daemon.md).
+>[!NOTE]
+> Si vous êtes un nouvel utilisateur de la Plateforme d’identités Microsoft, nous vous recommandons de commencer avec le [guide de démarrage rapide sur le démon .NET Core](quickstart-v2-netcore-daemon.md).
 
 ## <a name="scenario"></a>Scénario
 
@@ -49,7 +50,7 @@ L’application est une application multilocataire destinée aux clients profess
 
 Pour plus d’informations sur les concepts utilisés dans cet exemple, lisez la [documentation relative au protocole d’informations d’identification de client pour le point de terminaison de la plateforme d’identités](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour exécuter l’exemple dans ce guide de démarrage rapide, vous avez besoin des éléments suivants :
 

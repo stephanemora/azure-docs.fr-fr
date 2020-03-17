@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 60ff8769192191ba112008e7baee23740147dfe9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: bd9e916d1e50d9d5bc0717a1d283b3dcf5d383c9
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367035"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037008"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutoriel : Intégration d’Azure Active Directory à SharePoint (local)
 
@@ -271,7 +271,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 10. Configurez le fournisseur de revendications Azure sur la batterie de serveurs SharePoint (local) ou une autre solution de fournisseur de revendications personnalisé.  Dans cet exemple, nous utilisons le fournisseur de revendications Azure.
 
     > [!NOTE]
-    > Veuillez noter que le fournisseur de revendications Azure n’est pas un produit Microsoft ou pris en charge par le Support technique Microsoft. Téléchargez, installez et configurez le fournisseur de revendications Azure sur la batterie de serveurs SharePoint (local) en procédant de la manière décrite dans https://yvand.github.io/AzureCP/. 
+    > Veuillez noter que le fournisseur de revendications Azure n’est pas un produit Microsoft ou pris en charge par le Support technique Microsoft. Téléchargez, installez et configurez le fournisseur de revendications Azure sur la batterie de serveurs SharePoint (local) en procédant de la manière décrite dans [https://yvand.github.io/AzureCP/](https://yvand.github.io/AzureCP/). 
 
 11. **Accordez l’accès au groupe de sécurité Azure Active Directory dans SharePoint (local)**  : les groupes doivent avoir accès à l’application dans SharePoint (local).  Procédez comme suit pour définir les autorisations d’accès à l’application web.
 

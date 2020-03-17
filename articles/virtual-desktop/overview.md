@@ -7,12 +7,13 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 6cb8362b2de1f8345f693b00df021afe84f2d5a5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+manager: lizross
+ms.openlocfilehash: 0a32ee682490c5930b8c48d069087020c4763dcb
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471769"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127753"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Qu’est-ce que Windows Virtual Desktop ? 
 
@@ -29,7 +30,7 @@ Voici ce que vous pouvez faire quand vous exécutez Windows Virtual Desktop sur 
 
 ## <a name="introductory-video"></a>Vidéo d’introduction
 
-Découvrez Windows Virtual Desktop, pourquoi cette solution est unique et les nouveautés dans cette vidéo:
+Découvrez Windows Virtual Desktop, pourquoi il est unique et les nouveautés dans cette vidéo :
 
 <br></br><iframe src="https://www.youtube.com/embed/NQFtI3JLtaU" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 

@@ -1,20 +1,15 @@
 ---
 title: Guide de démarrage rapide – Déployer un conteneur Docker dans une instance de conteneur – Portail
 description: Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour déployer rapidement une application web conteneurisée qui s’exécute dans une instance de conteneur Azure isolé.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: quickstart
-ms.date: 04/17/2019
-ms.author: danlep
+ms.date: 03/09/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e0c5ba57c7664a64c1b11bed215f419f31630d39
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 7a872e955db46b76d3b12f8ffc38d4a8e497ea63
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533526"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087999"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Démarrage rapide : Déployer un instance de conteneur dans Azure à l’aide du portail Azure
 
@@ -40,15 +35,16 @@ Dans la page **De base**, entrez les valeurs suivantes dans les zones de texte 
 
 * Groupe de ressources : **Créer** > `myresourcegroup`
 * Nom du conteneur : `mycontainer`
-* Image du conteneur : `mcr.microsoft.com/azuredocs/aci-helloworld`
+* Source d’image : **Images du guide de démarrage rapide**
+* Image conteneur : `mcr.microsoft.com/azuredocs/aci-helloworld` (Linux)
 
 ![Configuration des paramètres de base pour une nouvelle instance de conteneur dans le portail Azure][aci-portal-03]
 
-Pour ce guide de démarrage rapide, vous utilisez le paramètre **Type d’image** par défaut de **Public** afin de déployer l’image `aci-helloworld` Microsoft publique. Cette image Linux contient une petite application web écrite en Node.js qui se présente sous forme d’une page HTML statique.
+Pour ce guide de démarrage rapide, vous conservez les paramètres par défaut pour déployer l’image Microsoft publique `aci-helloworld`. Cet exemple d’image Linux contient une petite application web écrite en Node.js qui se présente sous la forme d’une page HTML statique. Vous pouvez également utiliser vos propres images conteneur stockées dans Azure Container Registry, Docker Hub ou d’autres registres.
 
 Dans la page **Mise en réseau**, spécifiez une **Étiquette du nom DNS** pour votre conteneur. Le nom doit être unique au sein de la région Azure dans laquelle vous créez l’instance de conteneur. Votre conteneur sera publiquement accessible avec `<dns-name-label>.<region>.azurecontainer.io`. Si vous recevez un message d’erreur « Étiquette de nom DNS indisponible », essayez d’utiliser une autre étiquette de nom DNS.
 
-![Configuration d’une nouvelle instance de conteneur dans le portail Azure][aci-portal-04]
+![Configuration des paramètres réseau pour une nouvelle instance de conteneur dans le portail Azure][aci-portal-04]
 
 Conservez les autres paramètres comme valeurs par défaut, puis sélectionnez **Vérifier + créer**.
 
@@ -56,7 +52,7 @@ Une fois la validation terminée, un résumé des paramètres de votre conteneur
 
 ![Résumé des paramètres d’une nouvelle instance de conteneur dans le portail Azure][aci-portal-05]
 
-Quand le déploiement commence, une notification s’affiche, indiquant que le déploiement est en cours. Une autre notification s’affiche lorsque le groupe de conteneurs a été déployé.
+Quand le déploiement commence, une notification s’affiche indiquant que le déploiement est en cours. Une autre notification s’affiche lorsque le groupe de conteneurs a été déployé.
 
 Ouvrez la vue d’ensemble du groupe de conteneurs en accédant à **Groupes de ressources** > **myresourcegroup** > **mycontainer**. Prenez note du **nom de domaine complet** de l’instance de conteneur, ainsi que de son **état**.
 
@@ -76,7 +72,7 @@ Pour afficher les journaux d’activité du conteneur, sous **Paramètres**, sé
 
 ![Journaux d’activité du conteneur dans le portail Azure][aci-portal-11]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous avez terminé avec le conteneur, sélectionnez **Vue d’ensemble** pour l’instance de conteneur *mycontainer*, puis sélectionnez **Supprimer**.
 

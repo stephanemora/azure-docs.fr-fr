@@ -1,33 +1,33 @@
 ---
-title: 'Didacticiel : Diffusion en continu Apache Spark et Apache Kafka – Azure HDInsight'
+title: 'Tutoriel : Diffusion en continu Apache Spark et Apache Kafka – Azure HDInsight'
 description: Découvrez comment utiliser la diffusion en continu Apache Spark pour échanger des flux de données avec Apache Kafka. Dans ce didacticiel, vous diffusez des données avec un bloc-notes Jupyter à partir de Spark sur HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
-ms.date: 10/08/2019
-ms.openlocfilehash: 96420a3ea4ddc8c3d8210f1b35d6606257eba5ff
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive,seodec18
+ms.date: 03/11/2020
+ms.openlocfilehash: 66bfa0d3ee4cb03f1b48e2db24be7a90d97f60d6
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494377"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117214"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutoriel : Utiliser Apache Spark Structured Streaming avec Apache Kafka sur HDInsight
 
-Ce tutoriel montre comment utiliser [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide) pour lire et écrire des données avec [Apache Kafka](https://kafka.apache.org/) sur Azure HDInsight.
+Ce tutoriel montre comment utiliser [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide) pour lire et écrire des données avec [Apache Kafka](./kafka/apache-kafka-introduction.md) sur Azure HDInsight.
 
 Spark Structured Streaming est un moteur de traitement de flux basé sur Spark SQL. Il vous permet d’exprimer des calculs de diffusion en continu de la même façon que pour les calculs de lot sur les données statiques.  
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Utilisez un modèle Azure Resource Manager pour créer des clusters.
 > * Utiliser Spark Structured Streaming avec Kafka
 
-Lorsque vous avez terminé les étapes décrites dans ce document, n’oubliez pas de supprimer les clusters pour éviter les frais supplémentaires.
+Quand vous avez terminé les étapes décrites dans ce document, n’oubliez pas de supprimer les clusters pour éviter des frais supplémentaires.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -112,7 +112,7 @@ Pour le notebook Jupyter qui est utilisé dans ce tutoriel, la cellule suivante 
 
 ## <a name="create-the-clusters"></a>Création des clusters
 
-Apache Kafka sur HDInsight ne donne pas accès aux répartiteurs Kafka via l’internet public. Tout ce qui utilise Kafka doit se trouver sur le même réseau virtuel Azure. Dans ce didacticiel, les clusters Kafka et Spark se trouvent dans le même réseau virtuel Azure.
+Apache Kafka sur HDInsight ne donne pas accès aux répartiteurs Kafka sur l’Internet public. Tout ce qui utilise Kafka doit se trouver sur le même réseau virtuel Azure. Dans ce didacticiel, les clusters Kafka et Spark se trouvent dans le même réseau virtuel Azure.
 
 Le diagramme suivant illustre les flux de communication entre Spark et Kafka :
 
@@ -142,9 +142,9 @@ Pour créer un réseau virtuel Azure puis les clusters Kafka et Spark qu’il co
 
     | Paramètre | Valeur |
     | --- | --- |
-    | Subscription | Votre abonnement Azure |
+    | Abonnement | Votre abonnement Azure |
     | Resource group | Le groupe de ressources qui contient les ressources. |
-    | Location | La région Azure dans laquelle sont créées les ressources. |
+    | Emplacement | La région Azure dans laquelle sont créées les ressources. |
     | Nom du cluster Spark | Le nom du cluster Spark. Les six premiers caractères doivent être différents du nom de cluster Kafka. |
     | Nom du cluster Kafka | Le nom du cluster Kafka. Les six premiers caractères doivent être différents du nom de cluster Spark. |
     | Nom d’utilisateur de connexion au cluster | Le nom d’utilisateur administrateur pour l’accès aux clusters. |
@@ -168,23 +168,21 @@ Cet exemple montre comment utiliser Spark Structured Streaming avec Kafka sur HD
 1. Collectez les informations concernant l’hôte. Utilisez les commandes curl et [jq](https://stedolan.github.io/jq/) ci-dessous pour obtenir les informations concernant les hôtes Kafka ZooKeeper et les hôtes de répartiteur. Ces commandes sont conçues pour être utilisées dans une invite de commandes Windows. Pour les autres environnements, de légères différences sont à prévoir. Remplacez `KafkaCluster` par le nom de votre cluster Kafka, et remplacez `KafkaPassword` par le mot de passe de connexion de votre cluster. Ensuite, remplacez `C:\HDI\jq-win64.exe` par le chemin de votre installation jq. Entrez les commandes dans une invite de commandes Windows, puis enregistrez la sortie en vue de l’utiliser ultérieurement.
 
     ```cmd
+    REM Enter cluster name in lowercase
+
     set CLUSTERNAME=KafkaCluster
     set PASSWORD=KafkaPassword
-    
+
     curl -u admin:%PASSWORD% -G "https://%CLUSTERNAME%.azurehdinsight.net/api/v1/clusters/%CLUSTERNAME%/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" | C:\HDI\jq-win64.exe -r "["""\(.host_components[].HostRoles.host_name):2181"""] | join(""",""")"
-    
+
     curl -u admin:%PASSWORD% -G "https://%CLUSTERNAME%.azurehdinsight.net/api/v1/clusters/%CLUSTERNAME%/services/KAFKA/components/KAFKA_BROKER" | C:\HDI\jq-win64.exe -r "["""\(.host_components[].HostRoles.host_name):9092"""] | join(""",""")"
     ```
 
-2. Dans votre navigateur web, connectez-vous au bloc-notes Jupyter sur votre cluster Spark. Dans l’URL suivante, remplacez `CLUSTERNAME` par le nom de votre cluster __Spark__ :
+1. Dans un navigateur web, accédez à `https://CLUSTERNAME.azurehdinsight.net/jupyter`, où `CLUSTERNAME` est le nom de votre cluster. Lorsque vous y êtes invité, entrez l’identifiant de connexion (admin) et le mot de passe du cluster utilisés lors de la création du cluster.
 
-        https://CLUSTERNAME.azurehdinsight.net/jupyter
+1. Sélectionnez **Nouveau > Spark** pour créer un notebook.
 
-    Lorsque vous y êtes invité, entrez l’identifiant de connexion (admin) et le mot de passe du cluster utilisés lors de la création du cluster.
-
-3. Sélectionnez **Nouveau > Spark** pour créer un notebook.
-
-4. Le streaming Spark utilise le microtraitement par lots, ce qui signifie que les données sont fournies sous forme de lots et que des exécuteurs s’exécutent sur les lots de données. Si le délai d’inactivité de l’exécuteur est inférieur au temps nécessaire au traitement par lots, l’exécuteur est constamment ajouté puis supprimé. Si le délai d’inactivité de l’exécuteur est supérieur à la durée du lot, l’exécuteur n’est jamais supprimé. Par conséquent, **nous vous recommandons de désactiver l’allocation dynamique en définissant spark.dynamicAllocation.enabled sur false lors de l’exécution d’applications de streaming**.
+1. Le streaming Spark utilise le microtraitement par lots, ce qui signifie que les données sont fournies sous forme de lots et que des exécuteurs s’exécutent sur les lots de données. Si le délai d’inactivité de l’exécuteur est inférieur au temps nécessaire au traitement du lot, l’exécuteur est constamment ajouté puis supprimé. Si le délai d’inactivité de l’exécuteur est supérieur à la durée du lot, l’exécuteur n’est jamais supprimé. Par conséquent, **nous vous recommandons de désactiver l’allocation dynamique en définissant spark.dynamicAllocation.enabled sur false lors de l’exécution d’applications de streaming**.
 
     Chargez les packages utilisés par le notebook en entrant les informations suivantes dans une cellule de notebook. Exécutez la commande à l’aide de **CTRL + ENTRÉE**.
 
@@ -199,7 +197,7 @@ Cet exemple montre comment utiliser Spark Structured Streaming avec Kafka sur HD
     }
     ```
 
-5. Créez la rubrique Kafka. Modifiez la commande ci-dessous en remplaçant `YOUR_ZOOKEEPER_HOSTS` par les informations sur l’hôte Zookeeper qui ont été extraites lors de la première étape. Entrez la commande modifiée dans votre notebook Jupyter pour créer la rubrique `tripdata`.
+1. Créez la rubrique Kafka. Modifiez la commande ci-dessous en remplaçant `YOUR_ZOOKEEPER_HOSTS` par les informations sur l’hôte Zookeeper qui ont été extraites lors de la première étape. Entrez la commande modifiée dans votre notebook Jupyter pour créer la rubrique `tripdata`.
 
     ```scala
     %%bash
@@ -208,7 +206,7 @@ Cet exemple montre comment utiliser Spark Structured Streaming avec Kafka sur HD
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic tripdata --zookeeper $KafkaZookeepers
     ```
 
-6. Récupérez les données concernant les courses de taxi. Entrez la commande dans la cellule suivante pour charger les données sur les courses de taxi de New York. Les données sont chargées dans une trame de données qui est ensuite affichée comme sortie de la cellule.
+1. Récupérez les données concernant les courses de taxi. Entrez la commande dans la cellule suivante pour charger les données sur les courses de taxi de New York. Les données sont chargées dans une trame de données qui est ensuite affichée comme sortie de la cellule.
 
     ```scala
     import spark.implicits._
@@ -224,7 +222,7 @@ Cet exemple montre comment utiliser Spark Structured Streaming avec Kafka sur HD
     taxiDF.show()
     ```
 
-7. Définissez les informations concernant les hôtes de répartiteur Kafka. Remplacez `YOUR_KAFKA_BROKER_HOSTS` par les informations concernant les hôtes de répartiteur que vous avez extraites à l’étape 1.  Entrez la commande modifiée dans la cellule suivante du notebook Jupyter.
+1. Définissez les informations concernant les hôtes de répartiteur Kafka. Remplacez `YOUR_KAFKA_BROKER_HOSTS` par les informations concernant les hôtes de répartiteur que vous avez extraites à l’étape 1.  Entrez la commande modifiée dans la cellule suivante du notebook Jupyter.
 
     ```scala
     // The Kafka broker hosts and topic used to write to Kafka
@@ -234,7 +232,7 @@ Cet exemple montre comment utiliser Spark Structured Streaming avec Kafka sur HD
     println("Finished setting Kafka broker and topic configuration.")
     ```
 
-8. Envoyez les données vers Kafka. Dans la commande suivante, le champ `vendorid`est utilisé comme la valeur de clé du message Kafka. La clé est utilisée par Kafka lors du partitionnement des données. Tous les champs sont stockés dans le message Kafka en tant que valeur de chaîne JSON. Entrez la commande suivante dans Jupyter pour enregistrer les données dans Kafka à l’aide d’une requête par lot.
+1. Envoyez les données vers Kafka. Dans la commande suivante, le champ `vendorid`est utilisé comme la valeur de clé du message Kafka. La clé est utilisée par Kafka lors du partitionnement des données. Tous les champs sont stockés dans le message Kafka en tant que valeur de chaîne JSON. Entrez la commande suivante dans Jupyter pour enregistrer les données dans Kafka à l’aide d’une requête par lot.
 
     ```scala
     // Select the vendorid as the key and save the JSON string as the value.
@@ -243,7 +241,7 @@ Cet exemple montre comment utiliser Spark Structured Streaming avec Kafka sur HD
     println("Data sent to Kafka")
     ```
 
-9. Déclarez un schéma. La commande suivante montre comment utiliser un schéma lorsque vous lisez des données JSON dans Kafka. Entrez la commande dans la cellule Jupyter suivante.
+1. Déclarez un schéma. La commande suivante montre comment utiliser un schéma lorsque vous lisez des données JSON dans Kafka. Entrez la commande dans la cellule Jupyter suivante.
 
     ```scala
     // Import bits useed for declaring schemas and working with JSON data
@@ -279,7 +277,7 @@ Cet exemple montre comment utiliser Spark Structured Streaming avec Kafka sur HD
     println("Schema declared")
     ```
 
-10. Sélectionnez les données et démarrez le flux de données. La commande suivante montre comment récupérer des données à partir de Kafka à l’aide d’une requête par lot, puis comment écrire les résultats dans HDFS, sur le cluster Spark. Dans cet exemple, `select` récupère le message (champ de valeur) à partir de Kafka et lui applique le schéma. Les données sont ensuite écrites dans HDFS (WASB ou ADL) au format parquet. Entrez la commande dans la cellule Jupyter suivante.
+1. Sélectionnez les données et démarrez le flux de données. La commande suivante montre comment récupérer des données à partir de Kafka à l’aide d’une requête par lot, puis comment écrire les résultats dans HDFS, sur le cluster Spark. Dans cet exemple, `select` récupère le message (champ de valeur) à partir de Kafka et lui applique le schéma. Les données sont ensuite écrites dans HDFS (WASB ou ADL) au format parquet. Entrez la commande dans la cellule Jupyter suivante.
 
     ```scala
     // Read a batch from Kafka
@@ -291,14 +289,14 @@ Cet exemple montre comment utiliser Spark Structured Streaming avec Kafka sur HD
     println("Wrote data to file")
     ```
 
-11. Vous pouvez vérifier que les fichiers ont été créés en entrant la commande dans la cellule Jupyter suivante. Celle-ci affiche la liste des fichiers qui se trouvent dans le répertoire `/example/batchtripdata`.
+1. Vous pouvez vérifier que les fichiers ont été créés en entrant la commande dans la cellule Jupyter suivante. Celle-ci affiche la liste des fichiers qui se trouvent dans le répertoire `/example/batchtripdata`.
 
     ```scala
     %%bash
     hdfs dfs -ls /example/batchtripdata
     ```
 
-12. Dans l’exemple précédent, nous avons utilisé une requête par lot. La commande suivante montre comment faire la même chose à l’aide d’une requête de streaming. Entrez la commande dans la cellule Jupyter suivante.
+1. Dans l’exemple précédent, nous avons utilisé une requête par lot. La commande suivante montre comment faire la même chose à l’aide d’une requête de streaming. Entrez la commande dans la cellule Jupyter suivante.
 
     ```scala
     // Stream from Kafka
@@ -309,20 +307,20 @@ Cet exemple montre comment utiliser Spark Structured Streaming avec Kafka sur HD
     println("Wrote data to file")
     ```
 
-13. Exécutez la cellule suivante pour vérifier que les fichiers ont bien été écrits par la requête de streaming.
+1. Exécutez la cellule suivante pour vérifier que les fichiers ont bien été écrits par la requête de streaming.
 
     ```scala
     %%bash
     hdfs dfs -ls /example/streamingtripdata
     ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer les ressources créées par ce didacticiel, vous pouvez supprimer le groupe de ressources. La suppression du groupe de ressources efface également le cluster HDInsight associé et d’autres ressources liées au groupe de ressources.
 
 Pour supprimer le groupe de ressources à l’aide du portail Azure :
 
-1. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez __Groupes de ressources__ pour afficher la liste de vos groupes de ressources.
+1. Sur le [portail Azure](https://portal.azure.com/), développez le menu de gauche pour ouvrir le menu des services, puis sélectionnez __Groupes de ressources__ pour voir la liste de vos groupes de ressources.
 2. Recherchez le groupe de ressources à supprimer, puis faites un clic droit sur le bouton __Plus__ (...) se trouvant à droite de la liste.
 3. Sélectionnez __Supprimer le groupe de ressources__ et confirmez.
 
@@ -333,7 +331,7 @@ Pour supprimer le groupe de ressources à l’aide du portail Azure :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à utiliser [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) pour écrire et lire des données à partir de [Apache Kafka](https://kafka.apache.org/) sur HDInsight. Utilisez le lien suivant pour découvrir comment utiliser [Apache Storm](https://storm.apache.org/) avec Kafka.
+Dans ce tutoriel, vous avez appris à utiliser [Apache Spark Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) pour écrire et lire des données à partir de [Apache Kafka](./kafka/apache-kafka-introduction.md) sur HDInsight. Utilisez le lien suivant pour découvrir comment utiliser [Apache Storm](./storm/apache-storm-overview.md) avec Kafka.
 
 > [!div class="nextstepaction"]
 > [Utiliser Apache Storm avec Apache Kafka](hdinsight-apache-storm-with-kafka.md)

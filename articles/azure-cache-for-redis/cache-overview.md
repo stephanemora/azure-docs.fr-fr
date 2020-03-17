@@ -1,38 +1,37 @@
 ---
 title: Présentation du cache Azure pour Redis
-description: Découvrez Azure Cache for Redis et ses utilisations courantes, notamment le modèle Cache-Aside, la mise en cache du contenu, la mise en cache des sessions utilisateur, la mise en file d’attente des travaux et des messages ainsi que les transactions distribuées.
+description: Découvrez Azure Cache pour Redis et comment mettre en œuvre le modèle cache-aside, la mise en cache du contenu, la mise en cache des sessions utilisateur, la mise en file d’attente des travaux et des messages, et les transactions distribuées.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: overview
-ms.custom: mvc
-ms.date: 03/26/2018
-ms.openlocfilehash: 5224be999ff8ff52c2f52568a504095dc5962398
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/11/2020
+ms.openlocfilehash: 38936000e426d560237295105b5456429d9ae16d
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433422"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126363"
 ---
 # <a name="azure-cache-for-redis-description"></a>Description du cache Azure pour Redis
 
-Le cache Azure pour Redis est dérivé du très populaire logiciel [Redis](https://redis.io/). Il est généralement utilisé en tant que cache pour améliorer les performances et l’évolutivité des systèmes qui reposent grandement sur des banques de données back-end. Les performances sont améliorées en copiant temporairement les données fréquemment sollicitées dans un stockage rapide situé près de l’application. Avec le [cache Azure pour Redis](https://redis.io/), ce stockage rapide est localisé en mémoire plutôt que d’être chargé à partir d’un disque par une base de données.
+Azure Cache pour Redis fournit un magasin de données en mémoire basé sur le logiciel open source [Redis](https://redis.io/). Utilisé comme cache, Redis améliore les performances et la scalabilité des systèmes qui reposent grandement sur des magasins de données back-end. Les performances sont améliorées grâce à la copie des données fréquemment sollicitées dans un stockage rapide situé près de l’application. Avec Azure Cache pour Redis, ce stockage rapide est localisé en mémoire et non chargé à partir d’un disque par une base de données.
 
-Le cache Azure pour Redis peut également être utilisé comme banque de structure de données en mémoire, comme base de données non relationnelle distribuée et comme courtier de messages. Les performances des applications sont améliorées en tirant parti des performances à faible latence et à débit élevé du moteur Redis.
+Azure Cache pour Redis peut être utilisé comme magasin de structure de données en mémoire, comme base de données non relationnelle distribuée et comme répartiteur de messages. Les performances des applications sont améliorées en tirant parti des performances à faible latence et à débit élevé du moteur Redis.
 
-Le cache Azure pour Redis vous permet d’accéder à un cache Redis dédié et sécurisé. Le cache Azure pour Redis est géré par Microsoft, hébergé dans Azure et accessible à toute application à l’intérieur ou à l’extérieur d’Azure.
+Azure Cache pour Redis permet d’accéder à un cache Redis dédié et sécurisé. Le cache Azure pour Redis est géré par Microsoft, hébergé dans Azure et accessible à toute application à l’intérieur ou à l’extérieur d’Azure.
 
 ## <a name="using-azure-cache-for-redis"></a>Utilisation du cache Azure pour Redis
 
-Il existe de nombreux modèles courants où le cache Azure pour Redis est utilisé pour prendre en charge l’architecture applicative ou pour améliorer les performances des applications, notamment les modèles suivants :
+Azure Cache pour Redis améliore les performances des applications grâce à la prise en charge de modèles d’architecture d’application courants. notamment les modèles suivants :
 
 | Modèle      | Description                                        |
 | ------------ | -------------------------------------------------- |
-| [Cache-Aside](cache-web-app-cache-aside-leaderboard.md) | Étant donné qu’une base de données peut être volumineuse, il est déconseillé de charger une base de données entière dans un cache. Le modèle [Cache-Aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) est couramment utilisé pour charger des éléments de données dans le cache uniquement en cas de besoin. Quand le système modifie les données back-end, il peut à ce moment-là également mettre à jour le cache, qui est distribué avec d’autres clients. En outre, le système peut définir un délai d’expiration pour les éléments de données ou utiliser une stratégie d’éviction pour que les mises à jour soient rechargées dans le cache.|
-| [Mise en cache du contenu](cache-aspnet-output-cache-provider.md) | La plupart des pages web sont générées à partir de modèles présentant des en-têtes, des pieds de page, des barres d’outils, des menus, etc. Elles ne changent pas souvent et ne doivent pas être générées dynamiquement. L’utilisation d’un cache en mémoire, comme le cache Azure pour Redis, permettra à vos serveurs web d’accéder plus rapidement à ce type de contenu statique qu’avec des banques de données back-end. Ce modèle réduit le temps de traitement et la charge serveur qui seraient requis pour générer le contenu dynamiquement. Cela augmente la réactivité des serveurs web et peut vous permettre de réduire le nombre de serveurs nécessaires pour gérer les charges. Le cache Azure pour Redis propose le fournisseur de caches de sortie Redis pour faciliter la prise en charge de ce modèle avec ASP.NET.|
-| [Mise en cache des sessions utilisateur](cache-aspnet-session-state-provider.md) | Ce modèle est souvent utilisé avec les paniers d’achat et d’autres informations de type historique utilisateur qu’une application web peut associer avec les cookies des utilisateurs. Le stockage de trop nombreuses informations dans un cookie peut avoir un impact négatif sur les performances à mesure que la taille du cookie augmente, ce dernier devant être transmis et validé à chaque requête. Une solution classique consiste à utiliser le cookie en tant que clé pour interroger les données dans une base de données back-end. L’utilisation d’un cache en mémoire tel que le cache Azure pour Redis pour associer des informations à un utilisateur est beaucoup plus rapide que l’interaction avec une base de données relationnelle complète. |
-| Mise en file d’attente des travaux et des messages | Quand des applications reçoivent des requêtes, l’exécution des opérations associées à la requête prend souvent plus de temps. Il est courant de différer les opérations plus longues en les ajoutant à une file d’attente qui est traitée ultérieurement, potentiellement par un autre serveur. Cette méthode est appelée « mise en file d’attente des tâches ». Il existe de nombreux composants logiciels conçus pour prendre en charge les files d’attente de tâches. Le cache Azure pour Redis remplit également parfaitement ce rôle en tant que file d’attente distribuée.|
-| Transactions distribuées | Les applications doivent souvent être en mesure d’exécuter une série de commandes sur une banque de données back-end comme une seule opération (atomique). Toutes les commandes doivent réussir, ou elles devront toutes être restaurées à leur état initial. Le cache Azure pour Redis prend en charge l’exécution d’un lot de commandes comme une seule opération sous la forme de [transactions](https://redis.io/topics/transactions). |
+| [Cache-Aside](cache-web-app-cache-aside-leaderboard.md) | Les bases de données sont souvent trop grandes pour être chargées directement dans un cache. Le modèle [cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) est couramment utilisé pour charger des données dans le cache uniquement en cas de besoin. Quand le système modifie les données, il peut également mettre à jour le cache, qui est alors distribué à d’autres clients. En outre, le système peut définir un délai d’expiration pour les données ou utiliser une stratégie d’éviction pour déclencher les mises à jour de données dans le cache.|
+| [Mise en cache du contenu](cache-aspnet-output-cache-provider.md) | De nombreuses pages web sont générées à partir de modèles qui utilisent du contenu statique comme des en-têtes, des pieds de page ou des bannières. Ces éléments statiques ne doivent pas changer souvent. Par rapport aux magasins de données back-end, l’utilisation d’un cache en mémoire permet d’accéder rapidement au contenu statique. Ce modèle réduit le temps de traitement et la charge du serveur, améliorant la réactivité des serveurs web. Il peut vous permettre de réduire le nombre de serveurs nécessaires au traitement des charges. Azure Cache pour Redis propose le fournisseur de caches de sortie Redis pour la prise en charge de ce modèle avec ASP.NET.|
+| [Mise en cache des sessions utilisateur](cache-aspnet-session-state-provider.md) | Ce modèle est souvent utilisé avec les paniers d’achat et d’autres données d’historique utilisateur qu’une application web peut associer avec les cookies des utilisateurs. Le stockage de trop nombreuses informations dans un cookie peut avoir un impact négatif sur les performances à mesure que la taille du cookie augmente, ce dernier devant être transmis et validé à chaque requête. Une solution classique consiste à utiliser le cookie comme clé pour interroger les données dans une base de données. L’utilisation d’un cache en mémoire tel que le cache Azure pour Redis pour associer des informations à un utilisateur est beaucoup plus rapide que l’interaction avec une base de données relationnelle complète. |
+| Mise en file d’attente des travaux et des messages | Les applications ajoutent fréquemment des tâches à une file d’attente quand l’exécution des opérations associées à la requête prend un certain temps. Les opérations dont l’exécution est plus longue sont mises en file d’attente pour être traitées en séquence, souvent par un autre serveur.  Cette méthode est appelée « mise en file d’attente des tâches ». Azure Cache pour Redis fournit une file d’attente distribuée pour activer ce modèle dans votre application.|
+| Transactions distribuées | Les applications nécessitent parfois une série de commandes sur un magasin de données back-end pour s’exécuter comme opération atomique unique. Toutes les commandes doivent réussir, ou elles devront toutes être restaurées à leur état initial. Azure Cache pour Redis prend en charge l’exécution d’un lot de commandes comme [transaction](https://redis.io/topics/transactions) unique. |
 
 ## <a name="azure-cache-for-redis-offerings"></a>Offres du cache Azure pour Redis
 
@@ -40,8 +39,8 @@ Les niveaux suivants sont proposés pour le cache Azure pour Redis :
 
 | Niveau | Description |
 |---|---|
-De base | Cache incluant un seul nœud. Ce niveau prend en charge plusieurs tailles de mémoire (de 250 Mo à 53 Go). Il est idéal pour le développement et les tests, ainsi que pour les charges de travail non critiques. Aucun contrat de niveau de service (SLA) ne couvre le niveau De base. |
-| standard | Cache répliqué dans une configuration primaire/secondaire à deux nœuds, géré par Microsoft et assorti d’un contrat SLA garantissant une haute disponibilité (99,9 %). |
+De base | Cache incluant un seul nœud. Ce niveau prend en charge plusieurs tailles de mémoire (250 Mo-53 Go). Il est idéal pour les charges de travail de développement/test et non critiques. Aucun contrat de niveau de service (SLA) ne couvre le niveau De base. |
+| standard | Cache répliqué dans une configuration primaire/secondaire à deux nœuds, géré par Azure et assorti d’un contrat SLA garantissant une haute disponibilité (99,9 %) |
 | Premium | Le niveau Premium est le niveau adapté aux entreprises. Les caches de niveau Premium prennent en charge un plus grand nombre de fonctionnalités et assurent un débit plus élevé avec une latence plus faible. Les caches du niveau Premium sont déployés sur du matériel plus puissant offrant de meilleures performances par rapport au niveau De base ou Standard. Par conséquent, le débit d’un cache de même taille est plus élevé avec le niveau Premium qu’avec le niveau Standard. |
 
 > [!TIP]

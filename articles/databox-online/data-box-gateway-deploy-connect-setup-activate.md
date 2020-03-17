@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 33333f8df1e4809a330815e34074d1bca556cd14
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: c2a0dde496d6af66387210ca9b2ebf9cb4bdae7f
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561831"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087937"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>Tutoriel : Se connecter à Azure Data Box Gateway, le configurer et l’activer
 
@@ -43,7 +43,7 @@ Avant de configurer votre appareil Data Box Gateway, assurez-vous que :
    
    [https://ip-address-of-network-interface](https://ip-address-of-network-interface)
    
-   Utilisez l’URL de connexion notée lors du didacticiel précédent. Une erreur ou un avertissement vous indique qu’il existe un problème avec le certificat de sécurité du site web.
+   Utilisez l’URL de connexion notée lors du didacticiel précédent. Une erreur ou un avertissement vous indique que le certificat de sécurité du site web présente un problème.
 
 2. Sélectionnez **Poursuivre sur cette page web**. Ces étapes peuvent varier en fonction du navigateur que vous utilisez.
    
@@ -92,6 +92,11 @@ Le tableau de bord présente les différents paramètres nécessaires à la conf
    2. Sous **Authentification**, sélectionnez **Aucune** ou **NTLM**.
    3. Si vous utilisez une authentification, entrez un **nom d’utilisateur** et un **mot de passe**.
    4. Cliquez sur **Appliquer** pour valider et appliquer les paramètres du proxy web que vous avez configurés.
+
+   > [!NOTE]
+   > Les fichiers PAC ne sont pas pris en charge. Un fichier PAC définit la manière dont les navigateurs web et les autres agents utilisateurs peuvent choisir automatiquement le serveur proxy approprié (méthode d’accès) pour récupérer une URL donnée.
+   > Les proxys qui tentent d’intercepter et de lire tout le trafic (puis de tout resigner avec leur propre certification) ne sont pas compatibles, car le certificat du proxy n’est pas approuvé.
+   > En général, les proxys transparents fonctionnent bien avec Azure Data Box Gateway.
 
 4. (Facultatif) Dans le volet de gauche, sélectionnez **Paramètres de l’heure**, puis configurez les paramètres de l’heure de votre appareil, notamment le fuseau horaire et les serveurs NTP principal et secondaire. 
 

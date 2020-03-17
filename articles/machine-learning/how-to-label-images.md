@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 1e27fca86613757c36ac664e2e449cabed68d550
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 6d0a9bf172039adcaa756660d38acc1547e91b49
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772446"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898694"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Étiqueter des images dans un projet d’étiquetage
 
@@ -23,7 +23,7 @@ Une fois que votre administrateur de projet a [créé un projet d’étiquetage]
 > * Outils d’étiquetage
 > * Comment utiliser les outils pour des tâches d’étiquetage spécifiques
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * URL du portail d’étiquetage pour un projet d’étiquetage de données en cours d’exécution
 * Un [compte Microsoft](https://account.microsoft.com/account) ou un compte Azure Active Directory pour l’organisation et le projet
@@ -58,6 +58,16 @@ Lorsque toutes les images de la page sont balisées, Azure active le bouton **En
 
 Une fois que vous avez envoyé les étiquettes relatives aux données disponibles, Azure actualise la page en affichant un nouvel ensemble d’images provenant de la file d’attente de travail.
 
+### <a name="assisted-machine-learning"></a>Machine Learning assisté 
+
+Des algorithmes de Machine Learning peuvent être déclenchés au cours d’une tâche de classification multiclasse ou multi-étiquette. Si ces algorithmes sont activés dans votre projet, vous pouvez constater ce qui suit :
+
+* Une fois que certaines de ces images ont été étiquetées,**Tasks clustered** (Tâches regroupées) peut s’afficher en haut de l’écran, en regard du nom du projet.  Cela signifie que les images similaires sont regroupées sur une même page.  Si c’est le cas, basculez vers l’une des vues d’images regroupées pour tirer parti de leur regroupement.  
+
+* Plus tard, **Tasks prelabeled** (Tâches préétiquetées) peut s’afficher en regard du nom du projet.  Les images s’affichent alors avec une suggestion d’étiquette qui provient d’un modèle de classification Machine Learning. Aucun modèle Machine Learning n’est fiable à 100 %. Même si nous utilisons uniquement des images pour lesquelles le modèle est fiable, celles-ci peuvent malgré tout être préétiquetées de façon incorrecte.  Si c’est le cas, corrigez le nom de ces étiquettes avant d’envoyer la page.  
+
+Au tout début d’un projet d’étiquetage, en particulier, un modèle Machine Learning peut n’être capable de préétiqueter correctement qu’un petit sous-ensemble d’images. Une fois ces images étiquetées, le projet d’étiquetage retourne à l’étiquetage manuel afin de collecter plus de données pour le prochain cycle d’entraînement du modèle. Au fil du temps, le modèle sera davantage fiable pour un plus grand nombre d’images, ce qui augmentera le nombre de tâches de préétiquettage plus tard dans le projet.
+
 ## <a name="tag-images-for-multi-class-classification"></a>Étiqueter des images pour une classification multiclasse
 
 Si votre projet est de type « classification multiclasse d’images », vous attribuez une seule balise à l’image entière. Pour passer en revue les instructions à tout moment, accédez à la page **Instructions**, puis sélectionnez **Afficher les instructions détaillées**.
@@ -81,6 +91,7 @@ Pour corriger une erreur, cliquez sur le « **X** » afin d’effacer une éti
 ![Capture d’écran qui illustre plusieurs désélections](./media/how-to-label-images/multiple-deselection.png)
 
 Azure n’activera le bouton **Envoyer** qu’après que vous aurez appliqué au moins une balise à chaque image. Sélectionnez **Envoyer** pour enregistrer votre travail.
+
 
 ## <a name="tag-images-and-specify-bounding-boxes-for-object-detection"></a>Étiqueter des images et spécifier des cadres englobants pour la détection d’objet
 

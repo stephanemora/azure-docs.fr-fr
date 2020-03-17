@@ -3,12 +3,12 @@ title: Vue d’ensemble de l’état Azure | Microsoft Docs
 description: Vue globale de l’intégrité des services Azure
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 4f4a0bf09c9256362e71466b9545389f4341ef38
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 766e9795b01c4a09916a025cba77744dea235faf
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654152"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898336"
 ---
 # <a name="azure-status-overview"></a>Vue d’ensemble de l’état Azure
 
@@ -26,7 +26,7 @@ La page de l’état Azure est mise à jour en temps réel dès que l’intégri
 
 La page de l’état Azure affiche toujours les dernières informations sur l’intégrité, mais vous pouvez afficher des événements plus anciens à l’aide de la [page de l’historique de l’état Azure](https://status.azure.com/status/history/).
 
-Cette page vous permet d’afficher des événements jusqu’à 90 jours dans le passé, notamment une cause racine préliminaire, l’atténuation et les étapes suivantes pour Azure.
+La page d’historique de l’état présente les événements remontant jusqu’aux 365 derniers jours (à compter des événements publiés en novembre 2019) avec une cause racine préliminaire, des informations d’atténuation et les étapes suivantes pour Azure.
 
 ## <a name="rss-feed"></a>Flux RSS
 

@@ -8,16 +8,16 @@ ms.date: 01/24/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.custom: ''
-ms.openlocfilehash: 1c6f03663a7487e814272c6296f6e7862c65c806
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c2d039dbf2ac7cfaeaad7ad038eb669337243cce
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769891"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78970119"
 ---
 # <a name="what-is-azure-cost-management-and-billing"></a>Présentation d’Azure Cost Management + Facturation
 
-Avec les produits et services Azure, vous payez uniquement ce que vous utilisez. Lorsque vous créez et utilisez des ressources Azure, les ressources vous sont facturées. Utilisez les fonctionnalités d’Azure Cost Management + Facturation pour effectuer des tâches de facturation et gérer l’accès de la facturation aux coûts. Vous pouvez également utiliser ses fonctionnalités pour superviser et contrôler les dépenses Azure, ainsi que pour optimiser l’utilisation des ressources Azure.
+Avec les produits et services Azure, vous payez uniquement ce que vous utilisez. Lorsque vous créez et utilisez des ressources Azure, les ressources vous sont facturées. Utilisez les fonctionnalités d’Azure Cost Management + Facturation pour effectuer des tâches de facturation et gérer l’accès de la facturation aux coûts. Vous pouvez aussi utiliser ses fonctionnalités pour superviser et contrôler les dépenses Azure et pour optimiser l’utilisation des ressources Azure.
 
 ## <a name="understand-azure-billing"></a>Comprendre la facturation Azure
 
@@ -43,7 +43,7 @@ Une étendue est un nœud à l’intérieur d’un compte de facturation que vou
 |Étendue  |Définition  |
 |---------|---------|
 |Compte de facturation     | Représente un seul propriétaire (administrateur de compte) pour un ou plusieurs abonnements Azure. Un administrateur de compte est autorisé à effectuer diverses tâches de facturation comme créer des abonnements, afficher des factures ou modifier la facturation des abonnements.  |
-|Subscription     |  Représente un regroupement de ressources Azure. La facture est générée dans l’étendue de l’abonnement. Il a ses propres modes de paiement qui permettent de régler la facture associée.|
+|Abonnement     |  Représente un regroupement de ressources Azure. La facture est générée dans l’étendue de l’abonnement. Il a ses propres modes de paiement qui permettent de régler la facture associée.|
 
 
 #### <a name="enterprise-agreement"></a>Contrat Entreprise

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/07/2019
+ms.date: 03/04/2020
 ms.author: aahi
-ms.openlocfilehash: 66bc1e5441210b8d9153812c826643159fe53d50
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: a9519be591581fa434825f1a1fb31749788a21a8
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251327"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78395732"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Qu’est-ce que l’API Analyse de texte ?
 
@@ -64,6 +64,7 @@ Les données ne sont pas stockées dans votre compte. Les opérations effectuée
 Vous pouvez commencer à utiliser l’API Text Analytics dans votre processus, même si vous n’avez pas beaucoup d’expérience en programmation. Utilisez ces tutoriels pour savoir comment recourir à l’API pour analyser un texte de différentes façons en fonction de votre niveau d’expérience. 
 
 * Expérience de programmation minimale requise :
+    * [Extraire des informations dans Excel avec Analyse de texte et Power Automate](tutorials/extract-excel-information.md)
     * [Utiliser l’API Text Analytics et MS Flow pour identifier les sentiments des commentaires dans un groupe Yammer](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json)
     * [Intégrer Power BI à l’API Text Analytics pour analyser les commentaires des clients](tutorials/tutorial-power-bi-key-phrases.md)
 * Expérience de programmation recommandée :

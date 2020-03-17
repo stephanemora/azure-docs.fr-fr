@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 060399952545c903fec8ecf08d99e438883c9fd1
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 91b9c71e7c735fca08f71ca37ed28734c8d634a1
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902537"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79079873"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Évaluer des serveurs à l’aide de données importées
 
@@ -35,9 +35,9 @@ Tenez compte des points suivants :
 Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Configurer un projet Azure Migrate.
-> * Remplir un fichier CSV avec les informations sur le serveur.
+> * Remplissez un fichier CSV avec les informations sur le serveur.
 > * Importer le fichier pour ajouter les informations sur le serveur dans Server Assessment.
-> * Créer une évaluation et l’examiner.
+> * Créez une évaluation et examinez-la.
 
 > [!NOTE]
 > Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario donné, afin que vous puissiez configurer rapidement une preuve de concept. Ils utilisent des options par défaut, le cas échéant, et ne montrent pas tous les paramètres et chemins possibles. Pour obtenir des instructions détaillées, consultez les guides pratiques.
@@ -109,7 +109,7 @@ Le tableau suivant récapitule les champs du fichier à remplir :
 **Adresse IP** | Non | Adresse du serveur.
 **Cœurs** | Oui | Nombre de cœurs de processeur alloués au serveur.
 **Mémoire** | Oui | RAM totale, en Mo, allouée au serveur.
-**Nom du système d’exploitation** | Oui | Système d’exploitation du serveur.
+**Nom du système d’exploitation** | Oui | Système d’exploitation du serveur. <br/> Les noms de système d’exploitation qui correspondent aux noms ou qui contiennent les noms figurant dans [cette liste](#supported-operating-system-names) sont reconnus par l’évaluation.
 **Version du SE** | Non | Version du système d’exploitation du serveur.
 **Nombre de disques** | Non | Inutile si les détails sur le disque individuel sont fournis.
 **Taille du disque 1**  | Non | Taille maximale du disque, en Go<br/>Vous pouvez ajouter les détails d’autres disques en [ajoutant des colonnes](#add-multiple-disks) dans le modèle. Vous pouvez ajouter jusqu’à huit disques.
@@ -237,9 +237,9 @@ Pour exécuter une évaluation
 
 Une évaluation décrit les éléments suivants :
 
-- **Préparé pour Azure** : indique si les serveurs peuvent faire l’objet d’une migration vers Azure.
+- **Préparé pour Azure** : Indique si les serveurs peuvent faire l’objet d’une migration vers Azure.
 - **Estimation des coûts mensuels** : coûts mensuels de calcul et de stockage estimés pour l’exécution des serveurs dans Azure.
-- **Estimation des coûts de stockage mensuels** : coûts estimés pour le stockage sur disque après la migration.
+- **Estimation des coûts de stockage mensuels** : Coûts estimés pour le stockage sur disque après la migration.
 
 ### <a name="view-an-assessment"></a>Voir une évaluation
 
@@ -433,7 +433,7 @@ Cette vue montre une estimation des coûts de calcul et de stockage liés à l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez :
+Dans ce tutoriel, vous allez :
 
 > [!div class="checklist"]
 > * importés des serveurs dans Azure Migrate : Server Assessment au format CSV.

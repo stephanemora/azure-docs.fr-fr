@@ -11,34 +11,34 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/10/2019
+ms.date: 02/24/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea81f0046d7f73d845ed49325a3d621e6b7735e7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc8ba01ea8a443c4f8a3a8e7b911dcc605ee61ea
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443281"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967708"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec SignalFx
 
-Ce tutoriel explique comment intégrer SignalFx avec Azure Active Directory (Azure AD). Lorsque vous intégrez SignalFx avec Azure AD, vous pouvez :
+Ce tutoriel explique comment intégrer SignalFx à Azure Active Directory (Azure AD). Lorsque vous intégrez SignalFx avec Azure AD, vous pouvez :
 
 * Contrôler dans Azure AD qui a accès à SignalFx.
 * Permettre à vos utilisateurs de se connecter automatiquement à SignalFx avec leur compte Azure AD.
-* Gérer vos comptes à un emplacement central : le Portail Azure.
+* Gérer vos comptes à un seul et même endroit (le portail Azure).
 
-Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Pour plus d’informations sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-Pour commencer, vous devez disposer de ce qui suit :
+Avant de commencer, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Abonnement SignalFx pour lequel l’authentification unique (SSO) est activée.
+* Un abonnement Azure AD
+    * Si vous n’avez pas d’abonnement, vous pouvez [obtenir un compte gratuit](https://azure.microsoft.com/free/).
+* Abonnement SignalFx pour lequel l’authentification unique (SSO) est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -46,150 +46,139 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * SignalFx prend en charge l’authentification unique lancée par le **fournisseur d’identité**
 * SignalFx prend en charge le provisionnement d’utilisateurs **juste-à-temps**
+* Une fois que vous avez configuré SignalFx, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-signalfx-from-the-gallery"></a>Ajout de SignalFx à partir de la galerie
+## <a name="step-1-add-the-signalfx-application-in-azure"></a>Étape 1 : Ajouter l’application SignalFx dans Azure
 
-Pour configurer l’intégration de SignalFx à Azure AD, vous devez ajouter SignalFx à partir de la galerie à votre liste d’applications SaaS gérées.
+Suivez ces instructions pour ajouter l’application SignalFx à votre liste d’applications SaaS managées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
-1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
-1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
-1. Dans la section **Ajouter à partir de la galerie**, tapez **SignalFx** dans la zone de recherche.
-1. Sélectionnez **SignalFx** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Dans la fenêtre de navigation de gauche, sélectionnez **Azure Active Directory**.
+1. Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, dans la zone de recherche, entrez puis sélectionnez **SignalFx**.
+    * Vous aurez peut-être à attendre quelques minutes avant que l’application soit ajoutée à votre locataire.
+1. Laissez le portail Azure ouvert, puis ouvrez un nouvel onglet web.    
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-signalfx"></a>Configurer et tester l’authentification unique Azure AD pour SignalFx
+## <a name="step-2-begin-signalfx-sso-configuration"></a>Étape 2 : Commencer la configuration de l’authentification unique SignalFx
 
-Configurez et testez l’authentification unique Azure AD avec SignalFx à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur SignalFx associé.
+Suivez ces instructions pour commencer le processus de configuration de l’authentification unique SignalFx.
 
-Pour configurer et tester l'authentification unique Azure AD avec SignalFx, suivez les indications des modules ci-après :
+1. Dans l’onglet que vous venez d’ouvrir, accédez à l’interface utilisateur SignalFx pour vous y connecter. 
+1. Dans le menu du haut, cliquez sur **Integrations**. 
+1. Dans le champ de recherche, entrez puis sélectionnez **Azure Active Directory**.
+1. Cliquez sur **Create New Integration** (Créer une intégration).
+1. Dans **Name** (Nom), entrez un nom facilement reconnaissable pour vos utilisateurs.
+1. Activez **Show on Login Page** (Afficher dans la page de connexion).
+    * Cette fonctionnalité affiche un bouton personnalisé dans la page de connexion sur lequel vos utilisateurs peuvent cliquer. 
+    * Les informations que vous avez entrées dans **Name** s’affichent sur le bouton. Vous devez donc entrer un **nom** que vos utilisateurs pourront facilement reconnaître. 
+    * Cette option ne fonctionne que si vous utilisez un sous-domaine personnalisé pour l’application SignalFx, par exemple **nom_de_votre_entreprise.signalfx.com**. Pour obtenir un sous-domaine personnalisé, contactez le support SignalFx. 
+1. Copiez l’**ID d’intégration**. Vous aurez besoin de ces informations dans une prochaine étape. 
+1. Ne fermez pas l’interface utilisateur SignalFx. 
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    * **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-    * **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
-1. **[Configurer l’authentification unique SignalFx](#configure-signalfx-sso)** – pour configurer les paramètres d’authentification unique côté application.
-    * **[Créer un utilisateur de test SignalFx](#create-signalfx-test-user)** – pour avoir un équivalent de B.Simon dans SignalFx qui soit lié à la représentation Azure AD de l’utilisateur.
-1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
+## <a name="step-3-configure-azure-ad-sso"></a>Étape 3 : Configurer l’authentification unique Azure AD
 
-## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+Suivez ces instructions pour activer l’authentification unique Azure AD dans le portail Azure.
 
-Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
-
-1. Dans le [Portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **SignalFx**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Retournez dans le [portail Azure](https://portal.azure.com/). Dans la page d’intégration de l’application **SignalFx**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification (représentée par un stylo) en regard de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, entrez les valeurs pour les champs suivants :
+1. Dans la page **Configurer l’authentification unique avec SAML**, renseignez les champs suivants : 
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL : `https://api.signalfx.com/v1/saml/metadata`
+    a. Dans **Identificateur**, entrez l’URL `https://api.<realm>.signalfx.com/v1/saml/metadata` et remplacez `<realm>` par votre domaine SignalFx. 
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://api.signalfx.com/v1/saml/acs/<integration ID>`
+    b. Dans **URL de réponse**, entrez l’URL `https://api.<realm>.signalfx.com/v1/saml/acs/<integration ID>` et remplacez `<realm>` par votre domaine SignalFx. Ensuite, remplacez `<integration ID>` par l’**ID d’intégration** que vous avez copié précédemment à partir de l’interface utilisateur SignalFx.
 
-    > [!NOTE]
-    > La valeur ci-dessus n’est pas une valeur réelle. Vous mettez à jour la valeur avec l’URL de réponse réelle. La procédure est expliquée plus loin dans le didacticiel.
+1. L’application SignalFx attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jeton SAML. 
+    
+1. Vérifiez que les revendications suivantes correspondent aux attributs sources qui figurent dans Active Directory. 
 
-1. L’application SignalFx attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
-
-    ![image](common/default-attributes.png)
-
-1. En plus de ce qui précède, l’application SignalFx s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
-
-    | Name |  Attribut source|
+    | Nom |  Attribut source|
     | ------------------- | -------------------- |
     | User.FirstName  | user.givenname |
     | User.email  | user.mail |
     | PersonImmutableID       | user.userprincipalname    |
     | User.LastName       | user.surname    |
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+    > [!NOTE]
+    > Ce processus nécessite qu’Active Directory soit configuré avec au moins un domaine personnalisé vérifié, ainsi qu’avec un accès aux comptes de messagerie de ce domaine. Si vous avez des doutes ou si vous avez besoin d’aide pour cette configuration, contactez le support SignalFx.  
+
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger**. Téléchargez le certificat et enregistrez-le sur votre ordinateur. Ensuite, copiez l’**URL des métadonnées de fédération d’application**, car vous en aurez besoin pour une prochaine étape dans l’interface utilisateur SignalFx. 
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-1. Dans la section **Configurer SignalFx**, copiez la ou les URL appropriées en fonction de vos besoins.
+1. Dans la section **Configurer SignalFx**, copiez l’**identificateur Azure AD**. Vous aurez besoin de ces informations pour une prochaine étape dans l’interface utilisateur SignalFx. 
 
-    ![Copier les URL de configuration](common/copy-configuration-urls.png)
+## <a name="step-4-create-an-azure-ad-test-user"></a>Étape 4 : Créer un utilisateur de test Azure AD
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+Suivez ces instructions pour créer un utilisateur de test appelé **B.Simon** dans le portail Azure.
 
-Dans cette section, vous allez créer un utilisateur de test appelé B. Simon dans le portail Azure.
-
-1. Dans le volet gauche du Portail Azure, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
-1. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-1. Dans les propriétés **Utilisateur**, effectuez les étapes suivantes :
-   1. Dans le champ **Nom**, entrez `B.Simon`.  
-   1. Dans le champ **Nom de l’utilisateur**, entrez username@companydomain.extension. Par exemple : `B.Simon@contoso.com`.
-   1. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ **Mot de passe**.
+1. Sur le portail Azure, dans la fenêtre de navigation de gauche, sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Tous les utilisateurs**.
+1. En haut de la page, sélectionnez **Nouvel utilisateur**.
+1. Dans les propriétés **Utilisateur** :
+   1. Dans **Nom d’utilisateur**, entrez `username@companydomain.extension`, par exemple `b.simon@contoso.com`.
+   1. Dans **Nom**, entrez `B.Simon`.
+   1. Activez **Afficher le mot de passe**, puis copiez la valeur affichée dans **Mot de passe**. Vous aurez besoin de ces informations dans une prochaine étape afin de tester cette intégration. 
    1. Cliquez sur **Créer**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+## <a name="step-5-assign-the-azure-ad-test-user"></a>Étape 5 : Affecter l’utilisateur de test Azure AD
 
-Dans cette section, vous allez autoriser B.Simon à utiliser l’authentification unique Azure en lui accordant l’accès à SignalFx.
+Suivez ces instructions pour permettre à l’utilisateur de test d’utiliser l’authentification unique Azure pour SignalFx.
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 1. Dans la liste des applications, sélectionnez **SignalFx**.
-1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer** et sélectionnez **Utilisateurs et groupes**.
+1. Dans la page de vue d’ensemble de l’application, recherchez la section **Gérer**, puis sélectionnez **Utilisateurs et groupes**.
 
    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
 
-1. Sélectionnez **Ajouter un utilisateur**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+1. Sélectionnez **Ajouter un utilisateur** puis, dans la boîte de dialogue **Ajouter une attribution**, sélectionnez **Utilisateurs et groupes**.
 
     ![Lien Ajouter un utilisateur](common/add-assign-user.png)
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
-1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+1. Dans la boîte de dialogue **Utilisateurs et groupes**, dans la liste **Utilisateurs**, sélectionnez **B.Simon**, puis, au bas de la page, cliquez sur **Sélectionner**.
+1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle convenant à l’utilisateur dans la liste, puis cliquez sur **Sélectionner** au bas de la page.
+1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur **Attribuer**.
 
-## <a name="configure-signalfx-sso"></a>Configurer l’authentification unique SignalFx
+## <a name="step-6-complete-the-signalfx-sso-configuration"></a>Étape 6 : Terminer la configuration de l’authentification unique SignalFx 
 
-1. Connectez-vous à votre site d’entreprise SignalFx en tant qu’administrateur.
+1. Ouvrez l’onglet précédent, puis revenez à l’interface utilisateur SignalFx pour afficher la page d’intégration Azure Active Directory. 
+1. En regard de **Certificate (Base64)** (Certificat en base64), cliquez sur **Upload File** (Charger le fichier), puis recherchez le fichier **Base64 encoded certificate** (Certificat encodé en base 64) que vous avez téléchargé précédemment à partir du portail Azure.
+1. En regard de **Azure AD Identifier** collez l’**identificateur Azure AD** que vous avez copié précédemment à partir du portail Azure. 
+1. En regard de **Federation Metadata URL** (URL des métadonnées de fédération), collez la valeur du champ **URL des métadonnées de fédération d’application** que vous avez copiée à partir du portail Azure. 
+1. Cliquez sur **Enregistrer**.
 
-1. Dans SignalFx, en haut de l’écran, cliquez sur **Intégrations** pour ouvrir la page correspondante.
+## <a name="step-7-test-sso"></a>Étape 7 : Tester l’authentification unique (SSO)
 
-    ![Intégration de SignalFx](./media/signalfx-tutorial/tutorial_signalfx_intg.png)
+Lisez les informations suivantes pour savoir comment tester l’authentification unique, et pour connaître les exigences relatives à une première connexion à SignalFx. 
 
-1. Cliquez sur la vignette **Azure Active Directory** sous la section **Services de connexion**.
+### <a name="test-logins"></a>Tester les connexions
 
-    ![SignalFx saml](./media/signalfx-tutorial/tutorial_signalfx_saml.png)
+* Pour tester la connexion, vous devez utiliser une fenêtre privée, ou vous pouvez vous déconnecter du portail Azure. Si ce n’est pas le cas, les cookies de l’utilisateur qui a configuré l’application empêcheront la connexion de l’utilisateur de test.
 
-1. Cliquez sur **NOUVELLE INTÉGRATION** puis, sous l’onglet **INSTALLER**, procédez comme suit :
+* Lorsqu’un utilisateur de test se connecte pour la première fois, Azure force la modification du mot de passe. Dans ce cas, le processus de connexion SSO n’est pas finalisé et l’utilisateur de test est dirigé vers le portail Azure. Pour résoudre ce problème, l’utilisateur de test doit modifier son mot de passe, accéder à la page de connexion SignalFx ou au volet d’accès, puis réessayer.
+    * Lorsque vous cliquez sur la vignette SignalFx dans le volet d’accès, vous devez être connecté automatiquement à SignalFx. 
+        * Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-    ![SignalFx samlintgpage](./media/signalfx-tutorial/tutorial_signalfx_azure.png)
+* L’application SignalFx est accessible à partir du volet d’accès ou via une page de connexion personnalisée attribuée à l’organisation. L’utilisateur de test doit tester l’intégration à partir de l’un de ces emplacements.
+    * L’utilisateur de test peut utiliser les informations d’identification créées précédemment dans ce processus pour **b.simon@contoso.com** .
 
-    a. Dans la zone de texte **Nom**, saisissez un nouveau nom d’intégration, par exemple **NomDeNotreOrg SAML SSO**.
+### <a name="first-time-logins"></a>Premières connexions
 
-    b. Copiez la valeur de l’**ID d’intégration** et ajoutez-la à l’**URL de réponse** à la place de `<integration ID>` dans la zone de texte **URL de réponse** de la section **Configuration SAML de base** du portail Azure.
+* Lorsqu’un utilisateur se connecte pour la première fois à SignalFx à partir de l’authentification unique SAML, il reçoit un e-mail de SignalFx dans lequel se trouve un lien. L’utilisateur doit cliquer sur le lien pour s’authentifier. Cette validation par e-mail n’est à effectuer que lors de la première connexion. 
 
-    c. Cliquez sur **Charger le fichier** pour charger le **certificat encodé en Base64** qui a été téléchargé à partir du portail Azure dans la zone de texte **Certificat**.
-
-    d. Dans la zone de texte **Issuer URL** (URL de l’émetteur), collez la valeur de l’**identifiant Azure AD** que vous avez copiée dans le portail Azure.
-
-    e. Dans la zone de texte **Metadata URL** (URL des métadonnées), collez la valeur **URL de connexion** que vous avez copiée dans le portail Azure.
-
-    f. Cliquez sur **Enregistrer**.
-
-### <a name="create-signalfx-test-user"></a>Créer un utilisateur de test SignalFx
-
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans SignalFx. SignalFx prend en charge l’approvisionnement juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé lors d’une tentative d’accès à SignalFx s’il n’existe pas déjà.
-
-Lorsqu’un utilisateur se connecte pour la première fois à SignalFx à partir de la SSO SAML, [l’équipe de support SignalFx](mailto:kmazzola@signalfx.com) lui envoie un e-mail contenant un lien sur lequel il doit cliquer pour s’authentifier. Cette procédure n’intervient que lors de la première connexion de l’utilisateur ; les tentatives de connexion suivantes ne nécessitent aucune validation par e-mail.
-
-> [!Note]
-> Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support SignalFx](mailto:kmazzola@signalfx.com).
-
-## <a name="test-sso"></a>Tester l’authentification unique (SSO)
-
-Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
-
-Lorsque vous cliquez sur la vignette SignalFx dans le volet d’accès, vous devez être connecté automatiquement à l’application SignalFx pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* SignalFx prend en charge la création d’utilisateur **juste-à-temps**, ce qui signifie que si un utilisateur n’existe pas dans SignalFx, le compte de cet utilisateur sera créé lors de sa première tentative de connexion.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 - [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/what-is-single-sign-on)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Essayer SignalFx avec Azure AD](https://aad.portal.azure.com/)

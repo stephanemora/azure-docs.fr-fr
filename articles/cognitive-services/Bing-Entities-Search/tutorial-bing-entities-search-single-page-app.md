@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 12/11/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 875a83501b00f0b23aa13317493ab6d341e4e283
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d45b9a153b770dd10da9dd61e8a7b3d138345b8a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448604"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943131"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutoriel : Application web à page unique
 
@@ -55,6 +55,10 @@ Dans ce didacticiel, nous abordons seulement certaines parties du code source. L
 
 > [!NOTE]
 > Ce didacticiel est très similaire au [didacticiel sur l’application de recherche Web Bing à page unique](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), mais traite uniquement des résultats de recherche d’entités.
+
+## <a name="prerequisites"></a>Prérequis
+
+Pour suivre ce tutoriel, vous avez besoin de clés d’abonnement pour les API Recherche Bing et Bing Cartes. Si vous n’en avez pas, vous pouvez utiliser une [clé d’essai](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) et une [clé Bing Cartes de base](https://www.microsoft.com/maps/create-a-bing-maps-key).
 
 ## <a name="app-components"></a>Composants de l’application
 

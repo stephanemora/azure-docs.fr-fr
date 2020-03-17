@@ -9,20 +9,20 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 701ae5e70612b89c28e3092571e26e4f06389af0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7a15db6bbbcd9dfd43b025b780fda5a8b1d79da2
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924609"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946158"
 ---
-# <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Didacticiel : Transférer des données avec Azure Data Box Edge
+# <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Tutoriel : Transférer des données avec Azure Data Box Edge
 
 Ce didacticiel explique comment ajouter et se connecter à des partages sur votre appareil Data Box Edge. Une fois que vous avez ajouté les partages, Data Box Edge peut transférer les données vers Azure.
 
 Cette procédure peut prendre environ dix minutes.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Ajouter un partage
@@ -69,7 +69,7 @@ Pour créer un partage, procédez comme suit :
    
     f. Selon que vous avez créé un partage SMB ou un partage NFS, effectuez l’une des étapes suivantes : 
      
-    - **Partage SMB** : Sous **Utilisateur local avec tous les privilèges**, sélectionnez **Créer** ou **Utiliser l’existant**. Si vous créez un nouvel utilisateur local, entrez un nom d’utilisateur et un mot de passe, puis confirmez le mot de passe. Cette action affecte des autorisations à l’utilisateur local. Après avoir attribué les autorisations à cet emplacement, vous pouvez utiliser l’Explorateur de fichiers pour les modifier.
+    - **Partage SMB** : Sous **Utilisateur local avec tous les privilèges**, sélectionnez **Créer** ou **Utiliser l’existant**. Si vous créez un nouvel utilisateur local, entrez un nom d’utilisateur et un mot de passe, puis confirmez le mot de passe. Cette action affecte des autorisations à l’utilisateur local. La modification des autorisations au niveau du partage n’est actuellement pas prise en charge.
 
         Si vous cochez la case **Autoriser uniquement les opérations de lecture** pour ces données de partage, vous pouvez indiquer des utilisateurs en lecture seule.
 
@@ -145,7 +145,7 @@ Sur votre client Linux connecté à votre appareil Data Box Edge, procédez comm
 
 > [!NOTE] 
 > Les mises en garde suivantes s’appliquent à cette version :
-> - Une fois un fichier créé dans le partage, vous ne pouvez plus en modifier le nom. 
+> - Une fois qu’un fichier est créé dans le partage, il ne peut pas être renommé. 
 > - La suppression d’un fichier d’un partage ne supprime pas l’entrée dans le compte de stockage.
 
 ## <a name="next-steps"></a>Étapes suivantes

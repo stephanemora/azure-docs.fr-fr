@@ -7,15 +7,15 @@ titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
-ms.date: 09/17/2019
-ms.openlocfilehash: 427ba0e46f8f4090ce8c2080b1d6780b165e864c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.date: 03/09/2020
+ms.openlocfilehash: ab9c5c5c1134d2e09a790a788a3b7e55f807dd9b
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121078"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945365"
 ---
-# <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Liaison privée pour Azure SQL Database et Data Warehouse (préversion)
+# <a name="private-link-for-azure-sql-database-and-data-warehouse"></a>Liaison privée pour Azure SQL Database et Data Warehouse
 
 Liaison privée vous permet de vous connecter à différents services PaaS dans Azure par le biais d’un **point de terminaison privé**. Pour obtenir la liste des services PaaS prenant en charge la fonctionnalité Liaison privée, accédez à la page [Documentation sur Liaison privée](../private-link/index.yml). Un point de terminaison privé est une adresse IP privée au sein d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) et d’un sous-réseau spécifiques. 
 
@@ -145,7 +145,7 @@ Le résultat indique qu’une adresse IP est active : il s’agit de l’adress
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Vérifier la connectivité à l’aide de SSMS (SQL Server Management Studio)
 > [!NOTE]
->Utilisez le  **nom de domaine complet (FQDN)** du serveur dans les chaînes de connexion de vos clients. Par conception, toute tentative de connexion directe à l’adresse IP échoue.
+> Utilisez le **nom de domaine complet (FQDN)** du serveur dans les chaînes de connexion de vos clients. Toute tentative de connexion directe à l’adresse IP échoue. Ce comportement est normal dans la mesure où le point de terminaison privé route le trafic vers la passerelle SQL dans la région et où le nom de domaine complet doit être spécifié pour que les connexions réussissent.
 
 Suivez les étapes décrites ici afin d’utiliser [SSMS pour vous connecter à la base de données SQL](sql-database-connect-query-ssms.md). Une fois que vous êtes connecté à la base de données SQL à l’aide de SSMS, exécutez la requête suivante pour vérifier que la connexion est établie à partir de l’adresse IP privée de la machine virtuelle Azure :
 
@@ -153,8 +153,9 @@ Suivez les étapes décrites ici afin d’utiliser [SSMS pour vous connecter à 
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
-> [!NOTE]
-> En préversion, les connexions au point de terminaison privé prennent uniquement en charge **Proxy** comme [stratégie de connexion](sql-database-connectivity-architecture.md#connection-policy).
+
+## <a name="limitations"></a>Limites 
+Les connexions au point de terminaison privé prennent uniquement en charge **Proxy** comme [stratégie de connexion](sql-database-connectivity-architecture.md#connection-policy).
 
 
 ## <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Connexion à partir d’une machine virtuelle Azure dans un réseau virtuel appairé 

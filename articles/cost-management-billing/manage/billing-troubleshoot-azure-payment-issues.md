@@ -10,20 +10,37 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/12/2020
+ms.date: 03/06/2020
 ms.author: jaserano
-ms.openlocfilehash: 199d32efef256fe3b56dbcf0a5d3ac6351f2d0b3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: cd9d17eb365937035919b7e712a4b5824f747bda
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200912"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942581"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Résoudre les problèmes de paiement d’Azure
 
 Vous pouvez rencontrer un problème quand vous tentez de mettre à jour les informations du compte de paiement dans le portail Microsoft Azure ou le centre des comptes Azure.
 
 Pour résoudre votre problème, dans la liste ci-dessous, sélectionnez la rubrique qui se rapproche le plus de votre erreur.
+
+## <a name="my-credit-card-was-declined-when-i-tried-to-sign-up-for-azure"></a>Ma carte de crédit a été refusée quand j’ai tenté de m’inscrire à Azure
+
+Pour résoudre les problèmes liés à un refus de carte, reportez-vous à [Résoudre les problèmes de carte refusée lors de l’inscription à Azure](troubleshoot-declined-card.md).
+
+## <a name="unable-to-see-subscriptions-under-my-account-to-update-the-payment-method"></a>Impossible de voir les abonnements sous mon compte pour mettre à jour le mode de paiement
+
+Vous utilisez peut-être un ID de messagerie qui diffère de celui utilisé pour les abonnements.
+
+Pour détecter ce problème, consultez [Aucun abonnement trouvé pour le Portail Azure ou le Centre des comptes Azure](no-subscriptions-found.md).
+
+## <a name="unable-to-use-a-virtual-or-prepaid-credit-or-debit-card-as-a-payment-method"></a>Impossible d’utiliser une carte de débit ou de crédit virtuelle ou prépayée comme mode de paiement
+
+*   Les cartes de crédit virtuelles ou prépayées ne sont pas acceptées comme mode de paiement pour les abonnements Azure.
+*   Les cartes de débit ne sont pas acceptées comme mode de paiement pour les abonnements Azure.
+
+Pour plus d’informations, consultez [Résoudre les problèmes de refus de carte lors de l’inscription à Azure](troubleshoot-declined-card.md).
 
 ## <a name="unable-to-remove-a-credit-card-from-a-saved-billing-payment-method"></a>Impossible de supprimer la carte de crédit du mode de paiement enregistré pour la facturation
 
@@ -33,19 +50,11 @@ Si une carte doit être supprimée, soit une nouvelle carte doit être ajoutée 
 
 ## <a name="unable-to-delete-an-old-payment-method-after-adding-a-new-payment-method"></a>Impossible de supprimer un ancien mode de paiement après en avoir ajouté un nouveau
 
-Le nouvel instrument de paiement n’est peut-être pas associé à l’abonnement. Pour associer plus aisément l’instrument de paiement à l’abonnement, consultez [Ajouter, mettre à jour ou supprimer une carte de crédit ou débit pour Azure](change-credit-card.md).
-
-Pour résoudre les problèmes liés à un refus de carte, reportez-vous à [Comment résoudre les problèmes de carte refusée lors de l’inscription à Azure](troubleshoot-declined-card.md).
+Le nouvel instrument de paiement n’est peut-être pas associé à l’abonnement. Pour associer plus aisément l’instrument de paiement à l’abonnement, consultez [Ajouter, mettre à jour ou supprimer une carte de crédit pour Azure](change-credit-card.md).
 
 ## <a name="unable-to-delete-a-payment-method-because-of-cannot-delete-payment-method-error"></a>Impossible de supprimer un mode de paiement en raison du message d’erreur *Impossible de supprimer le mode de paiement*
 
 Ce problème est dû à un solde impayé. Réglez tous les soldes impayés avant de supprimer le mode de paiement.
-
-## <a name="unable-to-see-subscriptions-under-my-account-to-update-the-payment-method"></a>Impossible de voir les abonnements sous mon compte pour mettre à jour le mode de paiement
-
-Vous utilisez peut-être un ID de messagerie qui diffère de celui utilisé pour les abonnements.
-
-Pour détecter ce problème, consultez [Aucun abonnement trouvé pour le Portail Azure ou le Centre des comptes Azure](no-subscriptions-found.md).
 
 ## <a name="unable-to-make-payment-for-a-subscription"></a>Impossible de procéder au paiement d’un abonnement
 

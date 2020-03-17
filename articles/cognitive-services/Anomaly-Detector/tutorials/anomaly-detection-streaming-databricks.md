@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 93ee5df4327aa396573665cd0c2cbd8222015cce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e0df0773daf8f9be21ac70d8390013adfd93483a
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448900"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402677"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutoriel : Détection d’anomalie sur les données de streaming avec Azure Databricks
 
@@ -40,14 +40,12 @@ Ce tutoriel décrit les tâches suivantes :
 > * Exécuter la détection d’anomalie sur des tweets
 
 > [!Note]
-> Ce tutoriel présente une approche de l’implémentation de l’[architecture de solution](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) recommandée pour l’API Détecteur d’anomalies.
+> * Ce tutoriel présente une approche de l’implémentation de l’[architecture de solution](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) recommandée pour l’API Détecteur d’anomalies.
+> * Vous ne pouvez pas suivre ce tutoriel dans le cadre d’un essai gratuit pour l’API Détecteur d’anomalies ou Azure Databricks. 
 
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Créez un [abonnement Azure](https://azure.microsoft.com/free/) si vous n’en avez pas.
 
-> [!Note]
-> Ce tutoriel ne peut pas être effectué avec une clé d’essai gratuit pour l’API Détecteur d’anomalies. Pour utiliser un compte gratuit pour créer le cluster Azure Databricks, avant de créer le cluster, accédez à votre profil et définissez votre abonnement sur **paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/).
-
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Un [espace de noms Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) et un hub d’événements
 
@@ -165,9 +163,9 @@ Dans ce tutoriel, vous utilisez les [API Détecteur d’anomalies d’Azure Cogn
 
     |Valeur |Description  |
     |---------|---------|
-    |Name     | Nom de la ressource Détecteur d’anomalies.        |
-    |Subscription     | Abonnement Azure avec laquelle la ressource sera associée.        |
-    |Location     | Emplacement Azure.        |
+    |Nom     | Nom de la ressource Détecteur d’anomalies.        |
+    |Abonnement     | Abonnement Azure avec laquelle la ressource sera associée.        |
+    |Emplacement     | Emplacement Azure.        |
     |Niveau tarifaire     | Niveau tarifaire pour le service. Pour en savoir plus sur la tarification de Détecteur d’anomalies, consultez la [page sur la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/).        |
     |Resource group     | Indiquez si vous souhaitez créer un groupe de ressources Azure ou sélectionner un groupe existant.        |
 

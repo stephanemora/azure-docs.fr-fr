@@ -11,12 +11,12 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 01/15/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: ff366468c994d8ba151dd476a5bcccc52bb7309f
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 313ba2c02fd65a967ab1969b6f99893de9a3bdb4
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122832"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037343"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Exécuter l’inférence par lots sur de grandes quantités de données à l’aide d’Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Dans cet article, vous apprenez à effectuer les tâches suivantes :
 > * Créer un [pipeline Machine Learning](concept-ml-pipelines.md) pour inscrire un modèle de classification d’images pré-entraînées basé sur le jeu de données [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) 
 > * Utiliser le modèle pour exécuter une inférence par lots sur les exemples d’images qui sont disponibles dans votre compte Stockage Blob Azure 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -85,7 +85,7 @@ Vous devez maintenant configurer les entrées et les sorties de données, notamm
 - Le répertoire qui contient les étiquettes.
 - Le répertoire de sortie
 
-`Dataset` est une classe permettant d’explorer, de transformer et de gérer les données dans Azure Machine Learning. Cette classe a deux types : `TabularDataset` et `FileDataset`. Dans cet exemple, vous utiliserez `FileDataset` comme entrée pour l’étape de pipeline d’inférence par lots. 
+[`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) est une classe permettant d’explorer, de transformer et de gérer les données dans Azure Machine Learning. Cette classe a deux types : [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) et [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py). Dans cet exemple, vous utiliserez `FileDataset` comme entrée pour l’étape de pipeline d’inférence par lots. 
 
 > [!NOTE] 
 > Pour l’instant, la prise en charge de `FileDataset` dans l’inférence par lots est limitée au stockage Blob Azure. 
@@ -94,7 +94,7 @@ Vous pouvez également référencer d’autres jeux de données dans votre scrip
 
 Pour plus d’informations sur les jeux de données Azure Machine Learning, consultez [Créer des jeux de données et y accéder (préversion)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
-Les objets `PipelineData` sont utilisés pour transférer les données intermédiaires entre chaque étape du pipeline. Dans cet exemple, vous les utiliserez pour les sorties d’inférence.
+Les objets [`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) sont utilisés pour transférer les données intermédiaires entre chaque étape du pipeline. Dans cet exemple, vous les utiliserez pour les sorties d’inférence.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -190,7 +190,7 @@ Le script *doit contenir* deux fonctions :
 - `init()`: utilisez cette fonction pour toute préparation coûteuse ou courante à une prochaine inférence. Par exemple, utilisez-la pour charger le modèle dans un objet global. Cette fonction est appelée une seule fois au début du processus.
 -  `run(mini_batch)`: cette fonction s’exécute pour chaque instance de `mini_batch`.
     -  `mini_batch`: ParallelRunStep appelera la méthode d’exécution et passera soit une liste, soit un dataframe Pandas en tant qu’argument de la méthode. Chaque entrée de min_batch sera un chemin de fichier si l’entrée est un FileDataset (jeu de données de fichiers) ou un dataframe Pandas si l’entrée est un TabularDataset (jeu de données tabulaire).
-    -  `response`: la méthode run() doit retourner un dataframe Pandas ou un tableau. Pour append_row output_action, les éléments retournés sont ajoutés au fichier de sortie commun. Pour summary_only, le contenu des éléments est ignoré. Pour toutes les actions de sortie, chaque élément de sortie retourné indique la réussite de l’exécution d’une entrée dans le mini-lot d’entrée. L’utilisateur doit s’assurer que suffisamment de données sont incluses dans le résultat de l’exécution pour mapper l’entrée au résultat de l’exécution. La sortie de l’exécution sera écrite dans le fichier de sortie mais pas nécessairement dans l’ordre. L’utilisateur doit utiliser une clé dans la sortie pour la mapper à l’entrée.
+    -  `response`: la méthode run() doit retourner un dataframe Pandas ou un tableau. Pour append_row output_action, les éléments retournés sont ajoutés au fichier de sortie commun. Pour summary_only, le contenu des éléments est ignoré. Pour toutes les actions de sortie, chaque élément de sortie retourné indique la réussite de l’exécution d’une entrée dans le mini-lot d’entrée. Vous devez vérifier que suffisamment de données sont incluses dans le résultat de l’exécution pour mapper l’entrée au résultat de l’exécution. La sortie de l’exécution sera écrite dans le fichier de sortie, mais pas nécessairement dans l’ordre. Vous devez utiliser une clé dans la sortie pour la mapper à l’entrée.
 
 ```python
 # Snippets from a sample script.
@@ -331,7 +331,7 @@ parallelrun_step = ParallelRunStep(
 
 ### <a name="run-the-pipeline"></a>Exécuter le pipeline
 
-À présent, exécutez le pipeline. Commencez par créer un objet `Pipeline` en utilisant votre référence d’espace de travail et l’étape de pipeline que vous avez créée. Le paramètre `steps` est un tableau d’étapes. Dans le cas présent, le scoring par lots ne comporte qu’une seule étape. Pour créer des pipelines qui comportent plusieurs étapes, placez ces dernières dans l’ordre dans ce tableau.
+À présent, exécutez le pipeline. Commencez par créer un objet [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) en utilisant votre référence d’espace de travail et l’étape de pipeline que vous avez créée. Le paramètre `steps` est un tableau d’étapes. Dans le cas présent, le scoring par lots ne comporte qu’une seule étape. Pour créer des pipelines qui comportent plusieurs étapes, placez ces dernières dans l’ordre dans ce tableau.
 
 Utilisez ensuite la fonction `Experiment.submit()` pour soumettre l’exécution du pipeline.
 

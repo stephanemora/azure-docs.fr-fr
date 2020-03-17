@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 03/05/2019
 ms.author: aahi
-ms.openlocfilehash: c3d571f494d5f08c7c9e3c551eba88fb86e1ec23
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c7b41f77f8eb57c39489f1e5a69b0ac1c3c9c7d4
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448782"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943912"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Tutoriel : Créer une page web Recherche personnalisée
 
@@ -32,9 +32,9 @@ Les tâches traitées sont les suivantes :
 > - Ajout d’entrées épinglées
 > - Intégration de la recherche personnalisée à une page web
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-- Pour suivre ce tutoriel, vous avez besoin d’une clé d’abonnement pour l’API Recherche personnalisée Bing.  Pour obtenir une clé, consultez [Essayer Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+- Pour suivre ce tutoriel, vous avez besoin d’une clé d’abonnement pour l’API Recherche personnalisée Bing.  Pour obtenir une clé, [créez une ressource Recherche personnalisée Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) dans le portail Azure. Vous pouvez également utiliser une [clé d’essai](https://azure.microsoft.com/try/cognitive-services).
 - Si vous n’avez pas encore installé Visual Studio 2017 ou ultérieur, vous pouvez télécharger et utiliser **gratuitement** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Création d’une instance de recherche personnalisée
@@ -45,7 +45,7 @@ Pour créer une instance Recherche personnalisée Bing :
   
 2. Accédez au [portail](https://customsearch.ai) de la Recherche personnalisée.  
   
-3. Connectez-vous au portail en utilisant un compte Microsoft. Si vous n’avez pas de compte Microsoft, cliquez sur **Create a Microsoft account** (Créer un compte Microsoft). Si c’est la première fois que vous utilisez le portail, des autorisations d’accès à vos données vous sont demandées. Cliquez sur **Oui**.  
+3. Connectez-vous au portail en utilisant un compte Microsoft. Si vous n’avez pas de compte MSA, cliquez sur **Create a Microsoft account**. Si c’est la première fois que vous utilisez le portail, des autorisations d’accès à vos données vous sont demandées. Cliquez sur **Oui**.  
   
 4. Une fois connecté, cliquez sur **New custom search** (Nouvelle recherche personnalisée). Dans la fenêtre **Create a new custom search instance** (Créer une nouvelle instance de recherche personnalisée), entrez un nom explicite et décrivez le type de contenu que la recherche retourne. Vous pouvez modifier le nom à tout moment.  
   
@@ -60,11 +60,11 @@ Pour créer une instance Recherche personnalisée Bing :
 
 Pour inclure les résultats d’URL ou de sites web particuliers, ajoutez-les à l’onglet **Active** (Éléments actifs).
 
-1.  Dans la page **Configuration**, cliquez sur l’onglet **Active** et entrez l’URL d’un ou plusieurs sites web à inclure dans votre recherche.
+1.       Dans la page **Configuration**, cliquez sur l’onglet **Active** et entrez l’URL d’un ou plusieurs sites web à inclure dans votre recherche.
 
     ![Capture d’écran de l’onglet des éléments actifs dans l’éditeur de définitions](../media/customSrchEditor.png)
 
-2.  Pour vérifier que votre instance retourne des résultats, entrez une requête dans le volet de visualisation situé à droite. Bing retourne uniquement les résultats pour les sites web publics qu’il a indexés.
+2.       Pour vérifier que votre instance retourne des résultats, entrez une requête dans le volet de visualisation situé à droite. Bing retourne uniquement les résultats pour les sites web publics qu’il a indexés.
 
 ## <a name="add-blocked-entries"></a>Ajout d’entrées bloquées
 

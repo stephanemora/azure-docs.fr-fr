@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: c96caf7a90f35913bcba04a00553ad1df2689999
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: dbf3531f84d218543b0ab1fb2199a66bdbde2926
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514423"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79117257"
 ---
 ::: zone target = "docs"
 
@@ -46,7 +46,7 @@ Ce guide fournit des instructions sur la façon de passer en revue les prérequi
 
 ::: zone-end
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous que :
 
@@ -100,7 +100,7 @@ Effectuez les étapes suivantes pour brancher les câbles de votre appareil.
 
 Sur l’un des nœuds de l’appareil, effectuez les étapes suivantes pour effectuer un branchement au réseau.
 
-1. Utilisez un câble réseau CAT 6 RJ-45 (câble bleu sur l’image) pour connecter l’ordinateur hôte au port de gestion 1 Gbit/s.
+1. Utilisez un câble réseau RJ-45 CAT 6 (câble raccordé au connecteur MGMT en haut à droite sur l’image) pour connecter l’ordinateur hôte au port de gestion 1 Gbit/s.
 2. Utilisez un câble QSFP + (fibre ou cuivre) pour connecter au moins une interface réseau 40 Gbits/s (plutôt que 1 Gbit/s) pour les données. En cas d’utilisation d’un commutateur 10 Gbits/s, utilisez un câble SFP+ avec une carte QSFP+ à SFP+ (la carte QSA) pour connecter l’interface réseau 40 Gbits/s pour les données.
 
     ![Ports Data Box Heavy câblés](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 07/29/2019
-ms.openlocfilehash: 4332d57c8d5587a34ba3a593deb9bd635132b03d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6070b53e5f906bc378402d98275b8f798f57b505
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820949"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674431"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Bien démarrer avec des bases de données uniques dans Azure SQL Database
 
@@ -34,10 +34,8 @@ Cette section contient une vue d’ensemble des articles disponibles qui peuvent
 
 Vous pouvez utiliser PowerShell ou Azure CLI pour créer, configurer et mettre à l’échelle votre base de données.
 
-- [Créer et configurer une base de données unique à l’aide de PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
-- [Créer et configurer une base de données unique à l’aide d’Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
-- [Mettre à jour votre base de données unique et mettre à l’échelle vos ressources avec PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md)
-- [Mettre à jour votre base de données unique et mettre à l’échelle vos ressources avec Azure CLI](scripts/sql-database-monitor-and-scale-database-cli.md)
+- [Créer et configurer une base de données unique à l’aide de PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) ou d’[Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
+- [Mettre à jour votre base de données unique et mettre à l’échelle vos ressources avec PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md) ou [Azure CLI](scripts/sql-database-monitor-and-scale-database-cli.md)
 
 ## <a name="migrating-to-a-single-database-with-minimal-downtime"></a>Migration vers une base de données unique avec un temps d’arrêt minimal
 

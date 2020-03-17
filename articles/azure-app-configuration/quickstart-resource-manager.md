@@ -6,19 +6,23 @@ ms.author: lcozzens
 ms.date: 03/05/2020
 ms.topic: quickstart
 ms.service: azure-app-configuration
-ms.custom: mvc
-ms.openlocfilehash: 7c6f4b2ea9494c004067a8b19df2c2f098ac2b7f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.custom:
+- mvc
+- subject-armqs
+ms.openlocfilehash: c45f6855c33dff2790ced306fd7f049b98dd1387
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78274508"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79126387"
 ---
-# <a name="quickstart-automated-vm-deployment-with-app-configuration"></a>Démarrage rapide : Déploiement automatique d’une machine virtuelle avec App Configuration
+# <a name="quickstart-automated-vm-deployment-with-app-configuration-and-resource-manager-template"></a>Démarrage rapide : Déploiement automatique d’une machine virtuelle avec un modèle Resource Manager et App Configuration
 
 Le module Azure PowerShell est utilisé pour créer et gérer des ressources Azure à l’aide des applets de commande ou des scripts PowerShell. Ce guide de démarrage rapide vous montre comment utiliser Azure PowerShell et les modèles Azure Resource Manager pour déployer un magasin Azure App Configuration. Ensuite, il vous explique comment déployer une machine virtuelle en utilisant les paires clé-valeur stockées dans le magasin.
 
 Vous utilisez le modèle prérequis pour créer un magasin App Configuration, puis vous ajoutez des paires clé-valeur dans le magasin à l’aide du Portail Azure ou d’Azure CLI. Le modèle principal référence des configurations de paires clé-valeur existantes qui proviennent d’un magasin de configurations déjà créé. Les valeurs récupérées sont ensuite utilisées pour définir les propriétés des ressources créées par le modèle, comme une machine virtuelle dans cet exemple.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -85,7 +89,7 @@ Avant de pouvoir appliquer des paires clé-valeur sur la machine virtuelle, vous
       },
       "skuName": {
         "type": "string",
-        "defaultValue": "free",
+        "defaultValue": "standard",
         "metadata": {
           "description": "Specifies the SKU of the app configuration store."
         }
@@ -332,7 +336,7 @@ Maintenant que vous avez ajouté les paires clé-valeur au magasin, vous êtes p
                     "imageReference": {
                         "publisher": "MicrosoftWindowsServer",
                         "offer": "WindowsServer",
-                        "sku": "[listKeyValue(variables('appConfigRef'), '2019-02-01-preview', variables('windowsOSVersionParameters')).value]",
+                        "sku": "[listKeyValue(variables('appConfigRef'), '2019-10-01', variables('windowsOSVersionParameters')).value]",
                         "version": "latest"
                     },
                     "osDisk": {
@@ -340,7 +344,7 @@ Maintenant que vous avez ajouté les paires clé-valeur au magasin, vous êtes p
                     },
                     "dataDisks": [
                         {
-                            "diskSizeGB": "[listKeyValue(variables('appConfigRef'), '2019-02-01-preview', variables('diskSizeGBParameters')).value]",
+                            "diskSizeGB": "[listKeyValue(variables('appConfigRef'), '2019-10-01', variables('diskSizeGBParameters')).value]",
                             "lun": 0,
                             "createOption": "Empty"
                         }

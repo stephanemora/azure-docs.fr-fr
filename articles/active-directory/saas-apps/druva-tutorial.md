@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory avec Druva | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory avec Druva | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Druva.
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 03/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b23ef246561d052935642c323c2d830e21cbe7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f019d818fb5a017d184bda8d773eb0aaf0f3645a
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "73570249"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944411"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory avec Druva
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory avec Druva
 
 Dans ce tutoriel, vous allez apprendre à intégrer Druva dans Azure Active Directory (Azure AD). Quand vous intégrez Druva à Azure AD, vous pouvez :
 
@@ -44,7 +43,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* Druva prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**
+* Druva prend en charge l’authentification unique lancée par le **fournisseur d’identité**
+* Une fois que vous avez configuré l’authentification unique Druva, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrez comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
@@ -81,11 +81,13 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
 1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
-1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, l’utilisateur n’a rien à faire, car l’application est pré-intégrée avec Azure.
+   ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
+1. Dans la section **Configuration SAML de base**, effectuez les étapes suivantes :
 
-    Dans la zone de texte **URL de connexion**, tapez une URL : `https://login.druva.com/api/commonlogin/samlconsume`
+    a. Dans la zone de texte **Identificateur (ID d’entité)** , tapez la valeur de chaîne suivante : `DCP-login`.
+    
+    b. Dans la zone de texte **URL de réponse (URL Assertion Consumer Service)** , tapez l’URL `https://cloud.druva.com/wrsaml/consume`.
 
 1. Cliquez sur **Enregistrer**.
 
@@ -98,7 +100,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
     | Nom | Attribut source|
     | ------------------- | -------------------- |
     | emailAddress | user.email |
-    | druva_auth_token | Jeton SSO généré à partir de la console d’administration DCP, sans guillemets.  Par exemple :  X-XXXXX-XXXX-S-A-M-P-L-E + TXOXKXEXNX =. Azure ajoute automatiquement des guillemets autour du jeton d’authentification. |
+    | druva_auth_token | Jeton SSO généré à partir de la console d’administration DCP, sans guillemets.  Par exemple : X-XXXXX-XXXX-S-A-M-P-L-E + TXOXKXEXNX =. Azure ajoute automatiquement des guillemets autour du jeton d’authentification. |
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -182,3 +184,5 @@ Quand vous cliquez sur la vignette Druva dans le volet d’accès, vous devez ê
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Essayer Druva avec Azure AD](https://aad.portal.azure.com/)
+
+- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

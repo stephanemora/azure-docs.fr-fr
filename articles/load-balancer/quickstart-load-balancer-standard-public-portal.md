@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 2477d91ac885d4ef39df7b9246f7272d66c3f7ee
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: b424fe315737b84479283eed2d77398c8ce4f148
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78251864"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898828"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge pour équilibrer la charge des machines virtuelles à l’aide du portail Azure
 
@@ -34,7 +34,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 ## <a name="create-a-load-balancer"></a>Créer un équilibreur de charge
 
-Dans cette section, vous créez un équilibreur de charge qui équilibre la charge des machines virtuelles. Vous pouvez créer un équilibreur de charge public ou un équilibreur de charge interne. Lorsque vous créez un équilibreur de charge public, vous devez également créer une adresse IP publique configurée comme le front-end (nommée *LoadBalancerFrontend* par défaut) pour l’équilibreur de charge.
+Dans cette section, vous créez un équilibreur de charge qui équilibre la charge des machines virtuelles. Vous pouvez créer un équilibreur de charge public ou un équilibreur de charge interne. Quand vous créez un équilibreur de charge public, vous devez également créer une adresse IP publique configurée comme le front-end (nommée *LoadBalancerFrontend* par défaut) pour l’équilibreur de charge.
 
 1. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Load Balancer**.
 2. Sous l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Vérifier + créer** :

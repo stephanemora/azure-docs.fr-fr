@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d383acae83f0f42f9c16fcb5d4ea7efbdf2b5f8
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: ccc64fb8dd8bd8abc198d9bfc9d643ef618188ea
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486477"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78967783"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutoriel : Activer la réécriture de la réinitialisation du mot de passe en libre-service Azure Active Directory dans un environnement local
 
@@ -42,6 +42,7 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
     * Si nécessaire, [suivez le tutoriel précédent pour activer la réinitialisation de mot de passe en libre-service Azure AD](tutorial-enable-sspr.md).
 * Un environnement AD DS local existant, configuré avec une version actuelle d’Azure AD Connect.
     * Si nécessaire, configurez Azure AD Connect en utilisant la configuration [Rapide](../hybrid/how-to-connect-install-express.md) ou [Personnalisée](../hybrid/how-to-connect-install-custom.md).
+    * Pour utiliser la réécriture du mot de passe, vos contrôleurs de domaine doivent exécuter Windows Server 2008 R2 ou ultérieur.
 
 ## <a name="configure-account-permissions-for-azure-ad-connect"></a>Configurer les autorisations de compte pour Azure AD Connect
 
@@ -91,15 +92,15 @@ Une des options de configuration dans Azure AD Connect concerne la réécriture 
 Pour activer la réécriture de la réinitialisation du mot de passe en libre-service, commencez par activer l’option de réécriture dans Azure AD Connect. À partir de votre serveur Azure AD Connect, effectuez les étapes suivantes :
 
 1. Connectez-vous à votre serveur Azure AD Connect et démarrez l’Assistant de configuration **Azure AD Connect**.
-1. Dans la page **Accueil**, sélectionnez **Configurer**.
-1. Dans la page **Tâches supplémentaires**, sélectionnez **Personnalisation des options de synchronisation**, puis cliquez sur **Suivant**.
+1. Sur la page d’**accueil**, sélectionnez **Configurer**.
+1. Sur la page **Tâches supplémentaires**, sélectionnez **Personnalisation des options de synchronisation**, puis cliquez sur **Suivant**.
 1. Dans la page **Connexion à Azure AD**, entrez les informations d’identification d’administrateur général pour votre locataire Azure et sélectionnez **Suivant**.
-1. Dans les pages **Connexion des annuaires** et **Filtrage par domaine/unité d’organisation**, sélectionnez **Suivant**.
-1. Dans la page **Fonctionnalités facultatives**, cochez la case située à côté de l’option **Écriture différée de mot de passe**, puis sélectionnez **Suivant**.
+1. Sur les pages **Connexion des annuaires** et **Filtrage par domaine/unité d’organisation**, sélectionnez **Suivant**.
+1. Sur la page **Fonctionnalités facultatives**, cochez la case située à côté de l’option **Écriture différée de mot de passe**, puis sélectionnez **Suivant**.
 
     ![Configurer Azure AD Connect pour la réécriture du mot de passe](media/tutorial-enable-sspr-writeback/enable-password-writeback.png)
 
-1. Dans la page **Prêt à configurer**, sélectionnez **Configurer** et attendez la fin du processus.
+1. Sur la page **Prêt à configurer**, sélectionnez **Configurer** et attendez la fin du processus.
 1. Lorsque la configuration prend fin, sélectionnez **Quitter**.
 
 ## <a name="enable-password-writeback-for-sspr"></a>Activer la réécriture du mot de passe pour SSPR
@@ -132,9 +133,9 @@ Si vous ne souhaitez plus utiliser de fonctionnalités de mot de passe, effectue
 1. Sur la page d’**accueil**, sélectionnez **Configurer**.
 1. Sur la page **Tâches supplémentaires**, sélectionnez **Personnalisation des options de synchronisation**, puis cliquez sur **Suivant**.
 1. Dans la page **Connexion à Azure AD**, entrez les informations d’identification d’administrateur général pour votre locataire Azure et sélectionnez **Suivant**.
-1. Dans les pages **Connexion des annuaires** et **Filtrage par domaine/unité d’organisation**, sélectionnez **Suivant**.
+1. Sur les pages **Connexion des annuaires** et **Filtrage par domaine/unité d’organisation**, sélectionnez **Suivant**.
 1. Dans la page **Fonctionnalités facultatives**, décochez la case située en regard de l’option **Réécriture du mot de passe**, puis sélectionnez **Suivant**.
-1. Dans la page **Prêt à configurer**, sélectionnez **Configurer** et attendez la fin du processus.
+1. Sur la page **Prêt à configurer**, sélectionnez **Configurer** et attendez la fin du processus.
 1. Lorsque la configuration prend fin, sélectionnez **Quitter**.
 
 ## <a name="next-steps"></a>Étapes suivantes

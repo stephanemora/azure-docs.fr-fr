@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Didacticiel : Intégration de l’authentification unique Azure Active Directory à SAP NetWeaver | Microsoft Docs'
+title: 'Tutoriel : Tutoriel : Intégration de l’authentification unique Azure Active Directory à SAP NetWeaver | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP NetWeaver.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d79c953f22bfe587f740bc29050796834309186a
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 700f2ca4d46b3483531fa0784cb78699befb20ca
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103364"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78897751"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à SAP NetWeaver
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à SAP NetWeaver
 
 Dans ce tutoriel, vous allez découvrir comment intégrer SAP NetWeaver à Azure Active Directory (Azure AD). Quand vous intégrez SAP NetWeaver à Azure AD, vous pouvez :
 
@@ -177,7 +177,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     b. Dans la liste **Transformation**, sélectionnez **ExtractMailPrefix()** .
 
-    c. Dans la liste **Paramètre 1**, sélectionnez **user.userprinicipalname**.
+    c. Dans la liste **Paramètre 1**, sélectionnez **user.userprincipalname**.
 
     d. Cliquez sur **Enregistrer**.
 
@@ -225,81 +225,81 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Pour configurer des points de terminaison pour le fournisseur d’identité approuvé (Azure AD), accédez à l’onglet **Trusted Providers** (Fournisseurs approuvés).
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_samlconfig.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_samlconfig.png)
 
 3. Appuyez sur **Add** (Ajouter) et sélectionnez **Upload Metadata File** (Charger le fichier de métadonnées) dans le menu contextuel.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_uploadmetadata.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_uploadmetadata.png)
 
 4. Chargez le fichier de métadonnées que vous avez téléchargé à partir du portail Azure.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
 
 5. Dans l’écran suivant, tapez le nom d’alias. Par exemple, tapez aadsts, puis appuyez sur **Next** (Suivant) pour continuer.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_aliasname.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_aliasname.png)
 
 6. Vérifiez que votre **Digest Algorithm** (Algorithme Digest) est **SHA-256** et qu’aucun changement n’est requis, puis appuyez sur **Next** (Suivant).
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_identityprovider.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_identityprovider.png)
 
 7. Dans **Single Sign-On Endpoints** (Points de terminaison d’authentification unique), utilisez **HTTP POST** et cliquez sur **Next** (Suivant) pour continuer.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect.png)
 
 8. Dans **Single Logout Endpoints** (Points de terminaison Single Logout), utilisez **HTTPRedirect** et cliquez sur **Next** (Suivant) pour continuer.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect1.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect1.png)
 
 9. Dans **Artifact Endpoints** (Points de terminaison d’artefact), appuyez sur **Next** (Suivant) pour continuer.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_artifactendpoint.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_artifactendpoint.png)
 
 10. Dans **Authentication Requirements** (Exigences d’authentification), cliquez sur **Finish** (Terminer).
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_authentication.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_authentication.png)
 
 11. Accédez à l’onglet **Trusted Providers** (Fournisseurs approuvés) > **Identity Federation** (Fédération des identités), en bas de l’écran. Cliquez sur **Modifier**.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_trustedprovider.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_trustedprovider.png)
 
 12. Cliquez sur **Add** (Ajouter) sous l’onglet **Identity Federation** (Fédération des identités), dans la fenêtre du bas.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
 
 13. Dans la fenêtre contextuelle, sélectionnez **Unspecified** (Non spécifié) dans **Supported NameID formats** (Formats d’ID de nom pris en charge), puis cliquez sur OK.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
 
 14. Notez que les valeurs **user ID Source** (source d’identifiant utilisateur) et **user ID mapping mode** (mode mappage d’identifiant utilisateur) déterminent le lien entre l’utilisateur SAP et la revendication Azure AD.  
 
-    #### <a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Scénario : Mappage d’un utilisateur SAP à un utilisateur Azure AD.
+    #### <a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Scénario : Mappage d’un utilisateur SAP à un utilisateur Azure AD.
 
     a. Capture d’écran des détails de NameID à partir de SAP.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/nameiddetails.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/nameiddetails.png)
 
     b. Capture d’écran mentionnant les revendications obligatoires d’Azure AD.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/claimsaad1.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/claimsaad1.png)
 
-    #### <a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Scénario : Sélectionner un identifiant utilisateur SAP en fonction de l’adresse e-mail configurée dans SU01. Dans ce cas, l’ID de l’adresse e-mail doit être configurée dans su01 pour chaque utilisateur nécessitant l’authentification unique.
+    #### <a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Scénario : Sélectionner un identifiant utilisateur SAP en fonction de l’adresse e-mail configurée dans SU01. Dans ce cas, l’ID de l’adresse e-mail doit être configurée dans su01 pour chaque utilisateur nécessitant l’authentification unique.
 
     a.  Capture d’écran des détails de NameID à partir de SAP.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameiddetails1.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameiddetails1.png)
 
     b. Capture d’écran mentionnant les revendications obligatoires d’Azure AD.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/claimsaad2.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/claimsaad2.png)
 
 15. Cliquez sur **Save** (Enregistrer), puis sur **Enable** (Activer) pour activer le fournisseur d’identité.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/configuration1.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/configuration1.png)
 
 16. Cliquez sur **OK** quand vous y êtes invité.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/configuration2.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/configuration2.png)
 
     ### <a name="create-sap-netweaver-test-user"></a>Créer un utilisateur de test SAP NetWeaver
 
@@ -320,7 +320,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. L’URL ci-dessus doit vous diriger vers l’écran mentionné ci-dessous. Si vous pouvez accéder à la page ci-dessous, cela signifie que l’installation de l’authentification unique Azure AD s’est déroulée correctement.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/testingsso.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/testingsso.png)
 
 3. Si une invite demandant à entrer le nom d’utilisateur et le mot de passe apparaît, diagnostiquez le problème en activant la trace. Pour cela, utilisez l’URL ci-dessous.
 
@@ -332,17 +332,17 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Accédez à SPRO et recherchez **Activate and Maintain services** (Activer et maintenir les services).
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/oauth01.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth01.png)
 
 3. Dans cet exemple, nous voulons connecter le service OData `DAAG_MNGGRP` avec OAuth à l’authentification unique Azure AD. Utilisez la recherche de nom du service technique pour le service `DAAG_MNGGRP` et activez-le s’il n’est pas encore actif (recherchez l’état `green` sous l’onglet des nœuds ICF). Vérifiez si l’alias système (le système back-end connecté, où le service est en cours d’exécution) est correct.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/oauth02.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth02.png)
 
     * Cliquez ensuite sur le bouton **OAuth** dans la barre de boutons du haut et affectez `scope` (conservez le nom par défaut proposé).
 
 4. Pour notre exemple, l’étendue est `DAAG_MNGGRP_001` ; elle est générée à partir du nom du service avec un ajout automatique d’un nombre. Vous pouvez utiliser le rapport `/IWFND/R_OAUTH_SCOPES` pour changer le nom de l’étendue ou la créer manuellement.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/oauth03.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth03.png)
 
     > [!NOTE]
     > Message `soft state status is not supported` : vous pouvez l’ignorer sans problème. Pour plus d’informations, cliquez [ici](https://help.sap.com/doc/saphelp_nw74/7.4.16/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true).
@@ -364,23 +364,23 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Accédez à T-Code : **SOAUTH2** et spécifiez la description, puis cliquez sur **Next** (Suivant).
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/oauth04.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth04.png)
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/oauth05.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth05.png)
 
 3. Sélectionnez le **fournisseur d’identité SAML2 - Azure AD** déjà ajouté dans la liste déroulante et enregistrez.
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/oauth06.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth06.png)
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/oauth07.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth07.png)
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/oauth08.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth08.png)
 
 4. Cliquez sur **Add** (Ajouter) sous affectation de l’étendue pour ajouter l’étendue créée précédemment: `DAAG_MNGGRP_001`
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/oauth09.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth09.png)
 
-    ![Configurer l'authentification unique](./media/sapnetweaver-tutorial/oauth10.png)
+    ![Configure Single Sign-On](./media/sapnetweaver-tutorial/oauth10.png)
 
 5. Cliquez sur **Finish** (Terminer).
 

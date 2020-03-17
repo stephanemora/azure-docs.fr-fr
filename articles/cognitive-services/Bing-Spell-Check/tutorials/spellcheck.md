@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
-ms.date: 12/20/2019
+ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 038716f43c18432b1b8e7c86c3ffbcab46f1db8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fa10ab5a4b1c69b359936edf91da767da08d2f98
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75382794"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943104"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutoriel : Générer une page web pour le client de vérification orthographique
 
@@ -27,9 +27,9 @@ Ce didacticiel vous explique les procédures suivantes :
 > - Effectuer une requête simple auprès de l’API Vérification orthographique Bing
 > - Afficher les résultats de la requête
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
-Pour suivre le tutoriel, vous avez besoin d’une clé d’abonnement pour l’API Vérification orthographique Bing. Si vous n’en avez pas, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
+Pour suivre le tutoriel, vous avez besoin d’une clé d’abonnement pour l’API Vérification orthographique Bing. Si vous n’en avez pas, [créez une ressource Vérification orthographique Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7) dans le portail Azure. Vous pouvez également utiliser une [clé d’essai](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 
 ## <a name="create-a-new-web-page"></a>Créer une page web
 

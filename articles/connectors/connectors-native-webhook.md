@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 03/06/2020
 tags: connectors
-ms.openlocfilehash: 24746b7bbbbf3985a9801139b301a829c51a14da
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 1578ca030bc8bab971a44e1afcce1d1ab9e1d5e9
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030084"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674089"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Créer et exécuter des flux de travail automatisés basés sur des événements à l’aide de Webhooks HTTP dans Azure Logic Apps
 
@@ -53,7 +53,7 @@ Pour plus d’informations, consultez les rubriques suivantes :
 * [Webhooks et abonnements](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
 * [Créer des API personnalisées qui prennent en charge un Webhook](../logic-apps/logic-apps-create-api-app.md)
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -65,35 +65,47 @@ Pour plus d’informations, consultez les rubriques suivantes :
 
 ## <a name="add-an-http-webhook-trigger"></a>Ajouter un déclencheur de Webhook HTTP
 
-Ce déclencheur intégré inscrit une URL de rappel avec le service spécifié, et attend que celui-ci envoie une requête HTTP POST à cette URL. Lorsque cet événement se produit, le déclencheur s’active et exécute immédiatement l’application logique.
+Ce déclencheur intégré appelle le point de terminaison d’abonnement sur le service cible et inscrit une URL de rappel auprès de celui-ci. Votre application logique attend ensuite que le service cible envoie une demande `HTTP POST` à l’URL de rappel. Lorsque cet événement se produit, le déclencheur s’active et transmet toutes les données de la demande au workflow.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). Ouvrez votre application logique vide dans le Concepteur d’application logique.
 
-1. Dans le concepteur, dans la zone de recherche, entrez « http webhook » en tant que filtre. Dans la liste **Déclencheurs**, sélectionnez le déclencheur **Webhook HTTP**.
+1. Dans la zone de recherche du concepteur, entrez `http webhook` en tant que filtre. Dans la liste **Déclencheurs**, sélectionnez le déclencheur **Webhook HTTP**.
 
    ![Sélectionner le déclencheur Webhook HTTP](./media/connectors-native-webhook/select-http-webhook-trigger.png)
 
-   Cet exemple renomme le déclencheur « Déclencheur de Webhook HTTP » afin que l’étape porte un nom plus descriptif. Par ailleurs, l’exemple ajoute ensuite une action de Webhook HTTP, et les deux noms doivent être uniques.
+   Cet exemple renomme le déclencheur en `HTTP Webhook trigger` afin que l’étape ait un nom plus descriptif. Par ailleurs, l’exemple ajoute ensuite une action de Webhook HTTP, et les deux noms doivent être uniques.
 
-1. Spécifiez les valeurs des [paramètres du déclencheur de Webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) que vous souhaitez utiliser pour les appels d’abonnement et de désabonnement, par exemple :
+1. Spécifiez les valeurs des [paramètres du déclencheur de Webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) que vous souhaitez utiliser pour les appels d’abonnement et de désabonnement.
+
+   Dans cet exemple, le déclencheur comprend les méthodes, URI et corps de message à utiliser lors de l’exécution des opérations d’abonnement et de désabonnement.
 
    ![Entrer les paramètres du déclencheur de Webhook HTTP](./media/connectors-native-webhook/http-webhook-trigger-parameters.png)
 
-1. Pour ajouter d’autres paramètres disponibles, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres de votre choix.
+   | Propriété | Obligatoire | Description |
+   |----------|----------|-------------|
+   | **Abonnement – Méthode** | Oui | Méthode à utiliser lors de l’abonnement au point de terminaison cible |
+   | **Abonnement – URI** | Oui | URL à utiliser pour l’abonnement au point de terminaison cible |
+   | **Abonnement – Corps** | Non | Corps de message à inclure dans la demande d’abonnement. Cet exemple inclut l’URL de rappel qui identifie de façon unique l’abonné, qui est votre application logique, en utilisant l’expression `@listCallbackUrl()` pour récupérer l’URL de rappel de votre application logique. |
+   | **Désabonnement – Méthode** | Non | Méthode à utiliser lors du désabonnement du point de terminaison cible |
+   | **Désabonnement – URI** | Non | URL à utiliser pour le désabonnement du point de terminaison cible |
+   | **Désabonnement – Corps** | Non | Corps de message facultatif à inclure dans la demande de désabonnement <p><p>**Remarque** : Cette propriété ne prend pas en charge l’utilisation de la fonction `listCallbackUrl()`. Toutefois, le déclencheur inclut et envoie automatiquement les en-têtes `x-ms-client-tracking-id` et `x-ms-workflow-operation-name` que le service cible peut utiliser pour identifier l’abonné de façon unique. |
+   ||||
 
-   Pour en savoir plus sur les types d’authentification disponibles pour Webhook HTTP, consultez [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+1. Pour ajouter d’autres propriétés de déclencheur, ouvrez la liste **Ajouter un nouveau paramètre**.
+
+   ![Ajouter d’autres propriétés de déclencheur](./media/connectors-native-webhook/http-webhook-trigger-add-properties.png)
+
+   Par exemple, si vous avez besoin d’utiliser l’authentification, vous pouvez ajouter les propriétés **Abonnement – Authentification** et **Désabonnement – Authentification**. Pour en savoir plus sur les types d’authentification disponibles pour Webhook HTTP, consultez [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Continuez à générer le flux de travail de votre application logique avec des actions qui s’exécutent quand le déclencheur se déclenche.
 
 1. Lorsque vous avez terminé, pensez à enregistrer votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
-   L’enregistrement de votre application logique a pour effet d’appeler le point de terminaison d’abonnement et d’inscrire l’URL de rappel pour le déclenchement de cette application logique.
-
-1. Dorénavant, chaque fois que le service cible envoie une demande `HTTP POST` à l’URL de rappel, l’application logique se déclenche et inclut toutes les données transmises via la requête.
+   L’enregistrement de votre application logique appelle le point de terminaison d’abonnement sur le service cible et inscrit l’URL de rappel. Votre application logique attend ensuite que le service cible envoie une demande `HTTP POST` à l’URL de rappel. Lorsque cet événement se produit, le déclencheur s’active et transmet toutes les données de la demande au workflow. Si cette opération aboutit, le déclencheur se désabonne du point de terminaison, et votre application logique continue d’exécuter le workflow restant.
 
 ## <a name="add-an-http-webhook-action"></a>Ajouter une action de Webhook HTTP
 
-Cette action intégrée inscrit une URL de rappel avec le service spécifié, suspend le flux de travail de l’application logique, et attend que ce service envoie une requête HTTP POST à cette URL. Lorsque cet événement se produit, l’action reprend l’exécution de l’application logique.
+Cette action intégrée appelle le point de terminaison d’abonnement sur le service cible et inscrit une URL de rappel auprès de celui-ci. Ensuite, votre application logique s’interrompt et attend que le service cible envoie une demande `HTTP POST` à l’URL de rappel. Lorsque cet événement se produit, l’action transmet toutes les données de la demande au workflow. Si l’opération aboutit, l’action se désabonne du point de terminaison, et votre application logique continue d’exécuter le workflow restant.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com). Ouvrez votre application logique dans le Concepteur d’applications logiques.
 
@@ -103,23 +115,37 @@ Cette action intégrée inscrit une URL de rappel avec le service spécifié, su
 
    Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
-1. Dans le concepteur, dans la zone de recherche, entrez « http webhook » en tant que filtre. Dans la liste **Actions**, sélectionnez l’action **Webhook HTTP**.
+1. Dans la zone de recherche du concepteur, entrez `http webhook` en tant que filtre. Dans la liste **Actions**, sélectionnez l’action **Webhook HTTP**.
 
    ![Sélectionner l’action de Webhook HTTP](./media/connectors-native-webhook/select-http-webhook-action.png)
 
    Cet exemple renomme l’action « Action de Webhook HTTP » afin qu’elle ait un nom plus descriptif.
 
-1. Spécifiez les valeurs des paramètres d’action de Webhook HTTP, qui sont similaires aux [paramètres du déclencheur de Webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) que vous souhaitez utiliser pour les appels d’abonnement et de désabonnement, par exemple :
+1. Spécifiez les valeurs des paramètres d’action de Webhook HTTP, qui sont similaires aux [paramètres du déclencheur de Webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) que vous souhaitez utiliser pour les appels d’abonnement et de désabonnement.
+
+   Dans cet exemple, l’action comprend les méthodes, URI et corps de message à utiliser lors de l’exécution des opérations d’abonnement et de désabonnement.
 
    ![Entrer des paramètres d’action de Webhook HTTP](./media/connectors-native-webhook/http-webhook-action-parameters.png)
 
-   Pendant l’exécution du runtime, l’application logique appelle le point de terminaison d’abonnement lors de l’exécution de cette action. Votre application logique suspend ensuite le flux de travail et attend que le service cible envoie une demande `HTTP POST` à l’URL de rappel. Si l’action aboutit, elle se désabonne du point de terminaison, et votre application logique reprend l’exécution du flux de travail.
+   | Propriété | Obligatoire | Description |
+   |----------|----------|-------------|
+   | **Abonnement – Méthode** | Oui | Méthode à utiliser lors de l’abonnement au point de terminaison cible |
+   | **Abonnement – URI** | Oui | URL à utiliser pour l’abonnement au point de terminaison cible |
+   | **Abonnement – Corps** | Non | Corps de message à inclure dans la demande d’abonnement. Cet exemple inclut l’URL de rappel qui identifie de façon unique l’abonné, qui est votre application logique, en utilisant l’expression `@listCallbackUrl()` pour récupérer l’URL de rappel de votre application logique. |
+   | **Désabonnement – Méthode** | Non | Méthode à utiliser lors du désabonnement du point de terminaison cible |
+   | **Désabonnement – URI** | Non | URL à utiliser pour le désabonnement du point de terminaison cible |
+   | **Désabonnement – Corps** | Non | Corps de message facultatif à inclure dans la demande de désabonnement <p><p>**Remarque** : Cette propriété ne prend pas en charge l’utilisation de la fonction `listCallbackUrl()`. Toutefois, l’action inclut et envoie automatiquement les en-têtes `x-ms-client-tracking-id` et `x-ms-workflow-operation-name` que le service cible peut utiliser pour identifier l’abonné de façon unique. |
+   ||||
 
-1. Pour ajouter d’autres paramètres disponibles, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres de votre choix.
+1. Pour ajouter d’autres propriétés d’action, ouvrez la liste **Ajouter un nouveau paramètre**.
 
-   Pour en savoir plus sur les types d’authentification disponibles pour Webhook HTTP, consultez [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+   ![Ajouter d’autres propriétés d’action](./media/connectors-native-webhook/http-webhook-action-add-properties.png)
+
+   Par exemple, si vous avez besoin d’utiliser l’authentification, vous pouvez ajouter les propriétés **Abonnement – Authentification** et **Désabonnement – Authentification**. Pour en savoir plus sur les types d’authentification disponibles pour Webhook HTTP, consultez [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Lorsque vous avez terminé, pensez à enregistrer votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
+
+   Votre application logique appelle le point de terminaison d’abonnement sur le service cible et inscrit l’URL de rappel. L’application logique suspend ensuite le worflow et attend que le service cible envoie une demande `HTTP POST` à l’URL de rappel. Lorsque cet événement se produit, l’action transmet toutes les données de la demande au workflow. Si l’opération aboutit, l’action se désabonne du point de terminaison, et votre application logique continue d’exécuter le workflow restant.
 
 ## <a name="connector-reference"></a>Référence de connecteur
 

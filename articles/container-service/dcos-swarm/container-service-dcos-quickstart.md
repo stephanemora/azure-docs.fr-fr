@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9efedd5b619a2a3bd592019fea3ca48b7244ca10
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 6274e24bae2e2a6eade0122fe244652eb29cacf9
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278495"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399228"
 ---
 # <a name="deprecated-deploy-a-dcos-cluster"></a>(DÉCONSEILLÉ) Déployer un cluster DC/OS
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-DC/OS propose une plateforme distribuée destinée à exécuter des applications en conteneur modernes. Avec Azure Container Service, l’approvisionnement d’un cluster DC/OS prêt pour la production est une opération simple et rapide. Ce démarrage rapide décrit en détail les étapes de base à suivre pour déployer un cluster DC/OS et exécuter une charge de travail de base.
+DC/OS propose une plateforme distribuée destinée à exécuter des applications en conteneur modernes. Avec Azure Container Service, l’approvisionnement d’un cluster DC/OS prêt pour la production est une opération simple et rapide. Ce guide de démarrage rapide décrit en détail les étapes de base à suivre pour déployer un cluster DC/OS et exécuter une charge de travail de base.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -128,19 +128,19 @@ Le mécanisme de planification par défaut d’un cluster ACS DC/OS est Marathon
 
 Exécutez la commande suivante pour planifier l’exécution de l’application sur le cluster DC/OS.
 
-```azurecli
+```console
 dcos marathon app add marathon-app.json
 ```
 
 Pour afficher l’état de déploiement de l’application, exécutez la commande suivante.
 
-```azurecli
+```console
 dcos marathon app list
 ```
 
 Quand la valeur de la colonne **WAITING** passe de *True* à *False*, le déploiement de l’application est terminé.
 
-```azurecli
+```output
 ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD   
 /test   32   1     1/1    ---       ---      False      DOCKER   None
 ```
@@ -165,7 +165,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez déployé un cluster DC/OS et exécuté un conteneur Docker simple sur le cluster. Pour en savoir plus sur Azure Container Service, passez aux didacticiels ACS.
+Dans ce guide de démarrage rapide, vous avez déployé un cluster DC/OS et exécuté un conteneur Docker simple sur le cluster. Pour en savoir plus sur Azure Container Service, passez aux didacticiels ACS.
 
 > [!div class="nextstepaction"]
 > [Gérer un cluster ACS DC/OS](container-service-dcos-manage-tutorial.md)

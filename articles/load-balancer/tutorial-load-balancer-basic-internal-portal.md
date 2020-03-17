@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: d167a157935c6d51c025d2fbb11586343a2ef3f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6f62771d707d1aebccbfaf809dee7d0dedf5fefa
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453521"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096116"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic interne avec un équilibreur de charge de base sur le portail Azure
 
@@ -91,9 +91,9 @@ Créez un équilibreur de charge interne de base à l’aide du portail. Le nom 
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Subscription               | Sélectionnez votre abonnement.    |    
+    | Abonnement               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer** et tapez *MyResourceGroupLB* dans la zone de texte.|
-    | Name                   | *myLoadBalancer*                                   |
+    | Nom                   | *myLoadBalancer*                                   |
     | Région         | Sélectionnez **USA Est**.                                        |
     | Type          | sélectionnez **Interne**.                                        |
     | SKU           | Sélectionnez **De base**.                          |
@@ -121,10 +121,10 @@ Pour répartir le trafic entre les machines virtuelles, l’équilibreur de char
 1. Dans la page **Ajouter un pool de backends**, tapez ou sélectionnez les valeurs suivantes :
    
    - **Name** : entrez *MyBackendPool*.
-   - **Associé à** : Faites défiler la liste déroulante vers le bas, puis sélectionnez **Groupe à haute disponibilité**.
-   - **Groupe à haute disponibilité** : Sélectionnez **MyAvailabilitySet**.
+   - **Associé à** : Faites défiler la liste déroulante vers le bas, puis sélectionnez **Machine virtuelle**.
    
-1. Sélectionnez **Ajouter une configuration IP de réseau cible**. 
+   
+1. Sélectionnez **Machine virtuelle**. 
    1. Ajoutez **MyVM1** et **MyVM2** au pool back-end.
    2. Une fois chaque machine ajoutée, faites défiler la liste déroulante vers le bas, puis sélectionnez sa **Configuration IP réseau**. 
    

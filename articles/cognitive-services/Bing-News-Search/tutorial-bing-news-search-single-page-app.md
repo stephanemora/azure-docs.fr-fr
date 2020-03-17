@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 12/12/2019
+ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e128daa82eca8142a636df0958ddca574e398713
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 801bfcf02174c5dd98d4c7231c674299ef411aff
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383113"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78943113"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutoriel : Créer une application web monopage
 
@@ -39,6 +39,12 @@ L’application du didacticiel illustre les actions suivantes :
 > * Gérer les erreurs qui peuvent se produire
 
 La page du didacticiel est entièrement autonome. Elle n’utilise pas d’infrastructures, de feuilles de style ni de fichiers image externes. Elle a uniquement recours à des fonctionnalités de langage JavaScript largement prises en charge et fonctionne avec les versions actuelles des principaux navigateurs web.
+
+
+## <a name="prerequisites"></a>Prérequis
+
+Pour suivre ce tutoriel, vous avez besoin de clés d’abonnement pour l’API Recherche Bing. Si vous n’en avez pas, vous pouvez utiliser une [clé d’essai](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) et une [clé Bing Cartes de base](https://www.microsoft.com/maps/create-a-bing-maps-key).
+
 
 ## <a name="app-components"></a>Composants de l’application
 Comme n’importe quelle application web à page unique, cette application du didacticiel comprend trois parties :

@@ -8,14 +8,14 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: d930b1db48e3a5c4bda96f0b7d80a9c9f24d53d9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 623ec5e082a8ed889329936d020bf28434a56fbf
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400639"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942530"
 ---
-# <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Didacticiel : Transférer des données avec Azure Data Box Gateway
+# <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Tutoriel : Transférer des données avec Azure Data Box Gateway
 
 
 ## <a name="introduction"></a>Introduction
@@ -24,7 +24,7 @@ Cet article explique comment ajouter et se connecter à des partages sur votre a
 
 Cette procédure peut prendre environ dix minutes.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Ajouter un partage
@@ -61,7 +61,7 @@ Pour créer un partage, procédez comme suit :
    
     5. Cette étape varie selon que vous créez un partage SMB ou NFS.
      
-    - **Partage SMB** : sous **Utilisateur local avec tous les privilèges**, sélectionnez **Créer** ou **Utiliser l’existant**. Si vous créez un utilisateur local, entrez un **nom d’utilisateur** et un **mot de passe**, puis **confirmez le mot de passe**. Cette action affecte les autorisations à l’utilisateur local. Après avoir attribué les autorisations à cet emplacement, vous pouvez utiliser l’Explorateur de fichiers pour les modifier.
+    - **Partage SMB** : sous **Utilisateur local avec tous les privilèges**, sélectionnez **Créer** ou **Utiliser l’existant**. Si vous créez un utilisateur local, entrez un **nom d’utilisateur** et un **mot de passe**, puis **confirmez le mot de passe**. Cette action affecte les autorisations à l’utilisateur local. La modification des autorisations au niveau du partage n’est pas prise en charge.
     
         ![Ajouter un partage SMB](./media/data-box-gateway-deploy-add-shares/add-share-smb-1.png)
         
@@ -133,7 +133,7 @@ Sur votre client Linux connecté à votre appareil Data Box Edge, procédez comm
 
 > [!NOTE] 
 > Les mises en garde suivantes s’appliquent à cette version :
-> - Une fois un fichier créé dans les partages, vous ne pouvez plus en modifier le nom.
+> - Une fois qu’un fichier est créé dans les partages, vous ne pouvez plus le renommer.
 > - La suppression d’un fichier à partir d’un partage ne supprime pas l’entrée du compte de stockage.
 > - Si vous utilisez `rsync` pour copier des données, l’option `rsync -a` n’est pas prise en charge.
 
