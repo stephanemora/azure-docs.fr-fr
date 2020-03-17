@@ -14,12 +14,12 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7b42676fa387914bc4825e2850b3d2f032827a79
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 26030c12d98d796ceb1f66f198aede6e40eebd94
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962116"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78399015"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Informations d’identification de certificat d’authentification d’application de la Plateforme d’identités Microsoft
 
@@ -55,7 +55,7 @@ La signature est calculée en appliquant le certificat, conformément à la [sp�
 
 ## <a name="example-of-a-decoded-jwt-assertion"></a>Exemple d’une assertion JWT décodée
 
-```
+```JSON
 {
   "alg": "RS256",
   "typ": "JWT",
@@ -67,12 +67,11 @@ La signature est calculée en appliquant le certificat, conformément à la [sp�
   "exp": 1484593341,
   "iss": "97e0a5b7-d745-40b6-94fe-5f77d35c6e05",
   "jti": "22b3bb26-e046-42df-9c96-65dbd72c1c81",
-  "nbf": 1484592741,  
+  "nbf": 1484592741,
   "sub": "97e0a5b7-d745-40b6-94fe-5f77d35c6e05"
 }
 .
 "Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
-
 ```
 
 ## <a name="example-of-an-encoded-jwt-assertion"></a>Exemple d’une assertion JWT encodée
@@ -94,10 +93,10 @@ Vous pouvez associer les informations d’identification du certificat à l’ap
 ### <a name="uploading-the-certificate-file"></a>Chargement du fichier de certificat
 
 Dans l’inscription d’application Azure pour l’application cliente :
-1. Cliquez sur **Certificats et secrets**. 
+1. Cliquez sur **Certificats et secrets**.
 2. Cliquez sur **Charger un certificat** et sélectionnez le fichier de certificat à charger.
 3. Cliquez sur **Add**.
-  Une fois le certificat chargé, les valeurs d'empreinte numérique, de date de début et d’expiration s'affichent. 
+  Une fois le certificat chargé, les valeurs d'empreinte numérique, de date de début et d’expiration s'affichent.
 
 ### <a name="updating-the-application-manifest"></a>Mise à jour du manifeste d’application
 
@@ -112,7 +111,7 @@ Dans l’inscription d’application Azure pour l’application cliente :
 1. Sélectionnez **Manifeste** pour ouvrir le manifeste d’application.
 2. Remplacez la propriété *keyCredentials* par les nouvelles informations de votre certificat, en utilisant le schéma suivant.
 
-   ```
+   ```JSON
    "keyCredentials": [
        {
            "customKeyIdentifier": "$base64Thumbprint",
@@ -123,13 +122,13 @@ Dans l’inscription d’application Azure pour l’application cliente :
        }
    ]
    ```
-3. Enregistrez les modifications du manifeste de l’application, puis chargez-le dans la Plateforme d’identités Microsoft. 
+3. Enregistrez les modifications du manifeste de l’application, puis chargez-le dans la Plateforme d’identités Microsoft.
 
    La propriété `keyCredentials` peut avoir plusieurs valeurs. Vous pouvez donc charger plusieurs certificats pour une gestion plus élaborée des clés.
-   
+
 ## <a name="code-sample"></a>Exemple de code
 
 > [!NOTE]
-> Vous devez calculer l’en-tête X5T en le convertissant en une chaîne base64 à l’aide du hachage du certificat. Le code pour effectuer cette opération en C# est le suivant : `System.Convert.ToBase64String(cert.GetCertHash());`
+> Vous devez calculer l’en-tête X5T en le convertissant en une chaîne base64 à l’aide du hachage du certificat. Le code pour effectuer cette opération en C# est `System.Convert.ToBase64String(cert.GetCertHash());`.
 
-L’exemple de code dans [Authentification auprès de la Plateforme d’identités Microsoft dans les applications de démon avec certificats](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) montre comment une application utilise ses propres informations d’identification pour l’authentification. Il montre comment vous pouvez [créer un certificat auto-signé](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) à l’aide de la commande PowerShell `New-SelfSignedCertificate`. Vous pouvez également utiliser les [scripts de création d’application](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) pour créer les certificats, calculer l’empreinte, etc.
+L’exemple de code [Application console de démon .NET Core utilisant la plateforme d’identité Microsoft](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) montre comment une application utilise ses propres informations d’identification pour l’authentification. Il montre comment vous pouvez [créer un certificat auto-signé](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#optional-use-the-automation-script) à l’aide de la commande PowerShell `New-SelfSignedCertificate`. Vous pouvez également utiliser les [scripts de création d’application](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/1-Call-MSGraph/AppCreationScripts-withCert/AppCreationScripts.md) pour créer les certificats, calculer l’empreinte, etc.

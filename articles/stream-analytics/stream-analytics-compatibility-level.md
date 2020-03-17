@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 14b04f7d6068863c79c7060d29b58232be1f40cb
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 03/10/2020
+ms.openlocfilehash: 8f22b1ff97826dc318794aca58973b1276e74209
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201796"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087862"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Niveau de compatibilité pour les travaux Azure Stream Analytics
 
@@ -25,11 +25,9 @@ Le niveau de compatibilité contrôle le comportement d’exécution d’un trav
 
 Azure Stream Analytics prend actuellement en charge trois niveaux de compatibilité :
 
-* 1.0 : comportement précédent
-* 1.1 : comportement par défaut
+* 1.0 : le niveau de compatibilité d’origine a été introduit dans la version en disponibilité générale d’Azure Stream Analytics voici quelques années.
+* 1.1 : comportement précédent
 * 1.2 : comportement le plus récent avec les améliorations les plus récentes
-
-Le niveau de compatibilité 1.0 initial a été introduit dans la version en disponibilité générale d’Azure Stream Analytics voici quelques années.
 
 Lorsque vous créez un travail Stream Analytics, il est recommandé de le créer à l’aide du dernier niveau de compatibilité. Démarrez votre conception de travail en vous basant sur les derniers comportements afin d’éviter un ajout de complexité et de modifications par la suite.
 
@@ -153,4 +151,4 @@ Voici les principales modifications introduites dans le niveau de compatibilité
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Résoudre les problèmes liés aux entrées Azure Stream Analytics](stream-analytics-troubleshoot-input.md)
-* [Intégrité des ressources Stream Analytics](stream-analytics-resource-health.md)
+* [Stream Analytics Resource health](stream-analytics-resource-health.md) (Intégrité des ressources Stream Analytics)

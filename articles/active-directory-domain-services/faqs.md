@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: a25337cad39674bc6016f67bdc46a804518d0b03
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: a57826c79babded6e616548879a5ec0c223307d0
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509017"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78946430"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Forum Aux Questions (FAQ)
 
@@ -33,21 +33,24 @@ Cette page répond aux questions fréquemment posées sur les services de domain
 * [Puis-je rendre les services de domaine Azure AD disponibles dans plusieurs réseaux virtuels au sein de mon abonnement ?](#can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription)
 * [Puis-je activer les services de domaine Azure AD à l’aide de PowerShell ?](#can-i-enable-azure-ad-domain-services-using-powershell)
 * [Puis-je activer Azure AD Domain Services à l’aide d’un modèle Resource Manager ?](#can-i-enable-azure-ad-domain-services-using-a-resource-manager-template)
-* [Puis-je ajouter des contrôleurs de domaine à un domaine managé par Azure AD Domain Services ?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
+* [Puis-je ajouter des contrôleurs de domaine à un domaine géré par les services de domaine Azure AD ?](#can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain)
 * [Les utilisateurs invités de mon annuaire peuvent-ils utiliser Azure Active Directory Domain Services ?](#can-guest-users-invited-to-my-directory-use-azure-ad-domain-services)
 * [Puis-je déplacer un domaine managé Azure AD Domain Services existant vers un abonnement, un groupe de ressources, une région ou un réseau virtuel différent ?](#can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network)
+* [Azure AD Domain Services inclut-il des options de haute disponibilité ?](#does-azure-ad-domain-services-include-high-availability-options)
 
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Puis-je créer plusieurs domaines managés pour un seul annuaire Azure AD ?
 Non. Vous ne pouvez créer qu’un seul domaine managé pris en charge par Azure AD Domain Services par annuaire Azure AD.
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network"></a>Puis-je activer Azure AD Domain Services dans un réseau virtuel Classic ?
-Les réseaux virtuels classiques ne sont pas pris en charge pour les nouveaux déploiements. Les domaines managés existants déployés dans des réseaux virtuels classiques continuent à être pris en charge. Vous pouvez aussi [migrer Azure AD Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager (préversion)](migrate-from-classic-vnet.md).
+Les réseaux virtuels classiques ne sont pas pris en charge pour les nouveaux déploiements. Les domaines managés existants qui sont déployés dans des réseaux virtuels classiques continuent à être pris en charge jusqu’à leur mise hors service le 1er mars 2023. Pour les déploiements existants, vous pouvez [migrer Azure AD Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager](migrate-from-classic-vnet.md).
+
+Pour plus d’informations, consultez l’[annonce de dépréciation officielle](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/).
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Puis-je activer les services de domaine Azure AD dans un réseau virtuel Azure Resource Manager ?
 Oui. Azure AD Domain Services peut être activé dans un réseau virtuel Azure Resource Manager. Les réseaux virtuels Azure classiques ne sont plus disponibles quand vous créez un domaine managé.
 
 ### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Puis-je migrer un domaine managé existant depuis un réseau virtuel Classic vers un réseau Resource Manager virtuel ?
-Oui, cette fonctionnalité est en préversion. Pour plus d'informations, consultez [Migrer Azure Active Directory Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager (préversion)](migrate-from-classic-vnet.md).
+Oui. Pour plus d’informations, consultez [Migrer Azure Active Directory Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager](migrate-from-classic-vnet.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Puis-je activer Azure Active Directory Domain Services dans un abonnement Azure CSP (fournisseur de solutions de Cloud) ?
 Oui. Pour plus d'informations, consultez [Activer Azure Active Directory Domain Services dans les abonnements Azure CSP](csp.md).
@@ -64,47 +67,51 @@ Oui. Pour plus d'informations, consultez [Activer Azure Active Directory Domain 
 ### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Puis-je activer Azure AD Domain Services à l’aide d’un modèle Resource Manager ?
 Oui, vous pouvez créer un domaine managé Azure AD Domain Services à l’aide d’un modèle Resource Manager. Un principal de service et un groupe Azure AD pour l'administration doivent être créés à l'aide du portail Azure ou d'Azure PowerShell avant le déploiement du modèle. Pour plus d’informations, consultez [Créer un domaine managé Azure Active Directory Domain Services à l’aide d’un modèle Resource Manager](template-create-instance.md). Lorsque vous créez un domaine managé Azure AD Domain Services dans le portail Azure, vous avez aussi la possibilité d’exporter le modèle pour l’utiliser avec d’autres déploiements.
 
-### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Puis-je ajouter des contrôleurs de domaine à un domaine managé par Azure AD Domain Services ?
-Non. Le domaine fourni par Azure AD Domain Services est un domaine managé. Vous n’avez pas besoin d’approvisionner, de configurer ou de gérer des contrôleurs de domaine pour ce domaine. Ces activités de gestion sont fournies en tant que service par Microsoft. Par conséquent, vous ne pouvez pas ajouter de contrôleurs de domaine supplémentaires (en lecture/écriture ou en lecture seule) pour le domaine managé.
+### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Puis-je ajouter des contrôleurs de domaine à un domaine géré par les services de domaine Azure AD ?
+Non. Le domaine fourni par les services de domaine Azure AD est un domaine géré. Vous n’avez pas besoin d’approvisionner, de configurer ou de gérer des contrôleurs de domaine pour ce domaine. Ces activités de gestion sont fournies en tant que service par Microsoft. Par conséquent, vous ne pouvez pas ajouter de contrôleurs de domaine supplémentaires (en lecture/écriture ou en lecture seule) pour le domaine géré.
 
 ### <a name="can-guest-users-invited-to-my-directory-use-azure-ad-domain-services"></a>Les utilisateurs invités de mon annuaire peuvent-ils utiliser Azure Active Directory Domain Services ?
-Non. Les utilisateurs invités de votre annuaire Azure AD qui utilisent le processus d’invitation [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) sont synchronisés avec votre domaine managé Azure AD Domain Services. Toutefois, les mots de passe de ces utilisateurs ne sont pas stockés dans votre annuaire Azure AD. C’est pourquoi Azure AD Domain Services n’a aucun moyen de synchroniser les hachages NTLM et Kerberos pour ces utilisateurs dans votre domaine managé. De tels utilisateurs ne peuvent pas se connecter ou joindre des ordinateurs au domaine managé.
+Non. Les utilisateurs invités de votre annuaire Azure AD qui utilisent le processus d’invitation [Azure AD B2B](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md) sont synchronisés avec votre domaine managé Azure AD Domain Services. Toutefois, les mots de passe de ces utilisateurs ne sont pas stockés dans votre annuaire Azure AD. C’est pourquoi Azure AD Domain Services n’a aucun moyen de synchroniser les hachages NTLM et Kerberos pour ces utilisateurs dans votre domaine managé. De tels utilisateurs ne peuvent pas se connecter ou joindre des ordinateurs au domaine géré.
 
 ### <a name="can-i-move-an-existing-azure-ad-domain-services-managed-domain-to-a-different-subscription-resource-group-region-or-virtual-network"></a>Puis-je déplacer un domaine managé Azure AD Domain Services existant vers un abonnement, un groupe de ressources, une région ou un réseau virtuel différent ?
 Non. Après avoir créé un domaine managé Azure AD Domain Services, vous ne pouvez pas déplacer l’instance vers un autre groupe de ressources, réseau virtuel, abonnement, etc. Veillez à sélectionner l’abonnement, le groupe de ressources, la région et le réseau virtuel les plus appropriés quand vous déployez l’instance Azure AD DS.
 
+### <a name="does-azure-ad-domain-services-include-high-availability-options"></a>Azure AD Domain Services inclut-il des options de haute disponibilité ?
+
+Oui. Chaque domaine managé Azure Active Directory Domain Services comprend deux contrôleurs de domaine. Vous ne gérez pas ces contrôleurs de domaine et ne vous y connectez pas, car ils font partie du service géré. Si vous déployez Azure AD Domain Services dans une région qui prend en charge les Zones de disponibilité, les contrôleurs de domaine sont répartis entre les zones. Dans les régions qui ne prennent pas en charge les Zones de disponibilité, les contrôleurs de domaine sont distribués entre les Groupes à haute disponibilité. Vous ne disposez d’aucune option de configuration ou d’aucun contrôle de gestion sur cette distribution. Pour plus d’informations, voir [Options de disponibilité pour les machines virtuelles dans Azure](../virtual-machines/windows/availability.md).
+
 ## <a name="administration-and-operations"></a>Administration et opérations
 
-* [Puis-je me connecter au contrôleur de domaine de mon domaine managé à l’aide du Bureau à distance ?](#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop)
+* [Puis-je me connecter au contrôleur de domaine de mon domaine géré à l’aide du Bureau à distance ?](#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop)
 * [J’ai activé Azure AD Domain Services. Quel compte d’utilisateur dois-je utiliser pour joindre des ordinateurs à ce domaine ?](#ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain)
-* [Est-ce que je dispose des privilèges d’administrateur de domaine pour le domaine managé fourni par Azure AD Domain Services ?](#do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services)
-* [Puis-je modifier les appartenances aux groupes à l’aide de LDAP ou d’autres outils d’administration AD sur des domaines managés ?](#can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains)
-* [Combien de temps faut-il pour que les modifications que j’apporte à mon annuaire Azure AD soient visibles dans mon domaine managé ?](#how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain)
-* [Puis-je étendre le schéma du domaine managé fourni par Azure AD Domain Services ?](#can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services)
-* [Puis-je modifier ou ajouter des enregistrements DNS dans mon domaine managé ?](#can-i-modify-or-add-dns-records-in-my-managed-domain)
+* [Est-ce que je dispose des privilèges d’administrateur de domaine pour le domaine géré fourni par les services de domaine Azure AD ?](#do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services)
+* [Puis-je modifier les appartenances aux groupes à l’aide de LDAP ou d’autres outils d’administration AD sur des domaines gérés ?](#can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains)
+* [Combien de temps faut-il pour que les modifications que j’apporte à mon annuaire Azure AD soient visibles dans mon domaine géré ?](#how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain)
+* [Puis-je étendre le schéma du domaine géré fourni par les services de domaine Azure AD ?](#can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services)
+* [Puis-je modifier ou ajouter des enregistrements DNS dans mon domaine géré ?](#can-i-modify-or-add-dns-records-in-my-managed-domain)
 * [Quelle est la stratégie de durée de vie des mots de passe dans un domaine managé ?](#what-is-the-password-lifetime-policy-on-a-managed-domain)
 * [Le service Azure AD Domain Services assure-t-il une protection par verrouillage du compte AD ?](#does-azure-ad-domain-services-provide-ad-account-lockout-protection)
 
-### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Puis-je me connecter au contrôleur de domaine de mon domaine managé à l’aide du Bureau à distance ?
-Non. Vous n’êtes pas autorisé à vous connecter aux contrôleurs de domaine pour le domaine managé, via le Bureau à distance. Les membres du groupe *AAD DC Administrators* peuvent administrer le domaine managé à l’aide des outils d’administration AD, tels que le centre d’administration d’Active Directory (ADAC) ou AD PowerShell. Ces outils sont installés à l’aide de la fonctionnalité *Outils d’administration de serveur distant* sur un serveur Windows joint au domaine managé. Pour plus d’informations, consultez [Créer une machine virtuelle de gestion pour configurer et administrer un domaine managé Azure AD Domain Services](tutorial-create-management-vm.md).
+### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Puis-je me connecter au contrôleur de domaine de mon domaine géré à l’aide du Bureau à distance ?
+Non. Vous n’êtes pas autorisé à vous connecter aux contrôleurs de domaine pour le domaine géré, via le Bureau à distance. Les membres du groupe *AAD DC Administrators* peuvent administrer le domaine géré à l’aide des outils d’administration AD, tels que le centre d’administration d’Active Directory (ADAC) ou AD PowerShell. Ces outils sont installés à l’aide de la fonctionnalité *Outils d’administration de serveur distant* sur un serveur Windows joint au domaine géré. Pour plus d’informations, consultez [Créer une machine virtuelle de gestion pour configurer et administrer un domaine managé Azure AD Domain Services](tutorial-create-management-vm.md).
 
 ### <a name="ive-enabled-azure-ad-domain-services-what-user-account-do-i-use-to-domain-join-machines-to-this-domain"></a>J’ai activé Azure AD Domain Services. Quel compte d’utilisateur dois-je utiliser pour joindre des ordinateurs à ce domaine ?
-Les membres du groupe d’administration *AAD DC Administrators* peuvent joindre des ordinateurs au domaine. En outre, les membres de ce groupe disposent d’un accès Bureau à distance aux ordinateurs qui ont été joints au domaine.
+Tout compte d’utilisateur faisant partie du domaine managé Azure AD DS peut rejoindre une machine virtuelle. Les membres du groupe *Administrateurs AAD DC* disposent d’un accès Bureau à distance aux machines qui ont été jointes au domaine managé.
 
-### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>Est-ce que je dispose des privilèges d’administrateur de domaine pour le domaine managé fourni par Azure AD Domain Services ?
-Non. Vous ne disposez pas des privilèges d’administrateur sur le domaine managé. Les privilèges *Administrateur de domaine* et *Administrateur d’entreprise* ne sont pas disponibles pour vous dans le domaine. Les membres des groupes d’administrateurs de domaine ou d’administrateurs d’entreprise de votre instance Active Directory locale ne se voient accorder aucun privilège d’administrateur de domaine ou d’entreprise sur le domaine managé.
+### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>Est-ce que je dispose des privilèges d’administrateur de domaine pour le domaine géré fourni par les services de domaine Azure AD ?
+Non. Vous ne disposez pas des privilèges d’administrateur sur le domaine géré. Les privilèges *Administrateur de domaine* et *Administrateur d’entreprise* ne sont pas disponibles pour vous dans le domaine. Les membres des groupes d’administrateurs de domaine ou d’administrateurs d’entreprise de votre instance Active Directory locale ne se voient accorder aucun privilège d’administrateur de domaine ou d’entreprise sur le domaine managé.
 
-### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>Puis-je modifier les appartenances aux groupes à l’aide de LDAP ou d’autres outils d’administration AD sur des domaines managés ?
-Non. Vous ne pouvez pas modifier les appartenances aux groupes dans des domaines pris en charge par les services de domaine Azure AD. Il en va de même pour les attributs d’utilisateur. Vous pouvez modifier les appartenances aux groupes ou les attributs d’utilisateur dans Azure AD ou sur votre domaine local. Les modifications sont synchronisées automatiquement avec les services de domaine Azure AD.
+### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>Puis-je modifier les appartenances aux groupes à l’aide de LDAP ou d’autres outils d’administration AD sur des domaines gérés ?
+Il n’est pas possible de modifier les utilisateurs et les groupes synchronisés à partir d’Azure Active Directory sur Azure AD Domain Services, car leur source d’origine est Azure Active Directory. En revanche, tout utilisateur ou groupe provenant du domaine managé peut être modifié.
 
-### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Combien de temps faut-il pour que les modifications que j’apporte à mon annuaire Azure AD soient visibles dans mon domaine managé ?
-Les modifications apportées à votre annuaire Azure AD à l’aide de l’interface utilisateur d’Azure Active Directory ou de PowerShell sont synchronisées automatiquement avec votre domaine managé. Ce processus de synchronisation se produit en arrière-plan. Il n’y a pas de période définie pour cette synchronisation pour effectuer toutes les modifications d’objets.
+### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Combien de temps faut-il pour que les modifications que j’apporte à mon annuaire Azure AD soient visibles dans mon domaine géré ?
+Les modifications apportées à votre annuaire Azure AD à l’aide de l’interface utilisateur d’Azure Active Directory ou de PowerShell sont synchronisées automatiquement avec votre domaine géré. Ce processus de synchronisation se produit en arrière-plan. Il n’y a pas de période définie pour cette synchronisation pour effectuer toutes les modifications d’objets.
 
-### <a name="can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services"></a>Puis-je étendre le schéma du domaine managé fourni par Azure AD Domain Services ?
-Non. Le schéma est administré par Microsoft pour le domaine managé. Les extensions de schéma ne sont pas prises en charge par les services de domaine Azure AD.
+### <a name="can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services"></a>Puis-je étendre le schéma du domaine géré fourni par les services de domaine Azure AD ?
+Non. Le schéma est administré par Microsoft pour le domaine géré. Les extensions de schéma ne sont pas prises en charge par les services de domaine Azure AD.
 
-### <a name="can-i-modify-or-add-dns-records-in-my-managed-domain"></a>Puis-je modifier ou ajouter des enregistrements DNS dans mon domaine managé ?
-Oui. Les membres du groupe *AAD DC Administrators* bénéficient de privilèges *Administrateur DNS*, afin de modifier les enregistrements DNS sur le domaine managé. Ces utilisateurs peuvent utiliser la console du Gestionnaire DNS sur un ordinateur exécutant Windows Server joint au domaine managé afin de gérer le système DNS. Pour utiliser la console du Gestionnaire DNS, installez les *outils de serveur DNS*, qui font partie de la fonctionnalité facultative *Outils d’administration de serveur distant* sur le serveur. Pour plus d’informations, consultez [Administrer DNS dans un domaine managé Azure AD Domain Services](manage-dns.md).
+### <a name="can-i-modify-or-add-dns-records-in-my-managed-domain"></a>Puis-je modifier ou ajouter des enregistrements DNS dans mon domaine géré ?
+Oui. Les membres du groupe *AAD DC Administrators* bénéficient de privilèges *Administrateur DNS*, afin de modifier les enregistrements DNS sur le domaine géré. Ces utilisateurs peuvent utiliser la console du Gestionnaire DNS sur un ordinateur exécutant Windows Server joint au domaine managé afin de gérer le système DNS. Pour utiliser la console du Gestionnaire DNS, installez les *outils de serveur DNS*, qui font partie de la fonctionnalité facultative *Outils d’administration de serveur distant* sur le serveur. Pour plus d’informations, consultez [Administrer DNS dans un domaine managé Azure AD Domain Services](manage-dns.md).
 
 ### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>Quelle est la stratégie de durée de vie des mots de passe dans un domaine managé ?
 Par défaut, la durée de vie des mots de passe dans un domaine managé Azure AD Domain Services est de 90 jours. Cette durée de vie des mots de passe n’est pas synchronisée avec celle configurée dans Azure AD. Par conséquent, il est possible qu’un mot de passe utilisateur expire dans votre domaine managé, mais soit toujours valide dans Azure AD. Dans les scénarios comme celui-ci, les utilisateurs doivent modifier leur mot de passe dans Azure AD. Le nouveau mot de passe est ensuite synchronisé avec votre domaine managé. De plus, les attributs *password-does-not-expire* et *user-must-change-password-at-next-logon* des comptes d’utilisateur ne sont pas synchronisés avec votre domaine managé.
@@ -116,7 +123,7 @@ Oui. Cinq tentatives de saisie de mot de passe non valide en 2 minutes dans le d
 
 * [Les services de domaine Azure AD sont-ils payants ?](#is-azure-ad-domain-services-a-paid-service)
 * [Le service peut-il être essayé gratuitement ?](#is-there-a-free-trial-for-the-service)
-* [Puis-je suspendre un domaine managé par Azure AD Domain Services ?](#can-i-pause-an-azure-ad-domain-services-managed-domain)
+* [Puis-je suspendre un domaine géré par Azure AD Domain Services ?](#can-i-pause-an-azure-ad-domain-services-managed-domain)
 * [Puis-je basculer Azure AD Domain Services vers une autre région pour un événement de récupération d’urgence ?](#can-i-pause-an-azure-ad-domain-services-managed-domain)
 * [Puis-je obtenir les services de domaine Azure AD dans le cadre d’Enterprise Mobility Suite (EMS) ? Ai-je besoin d’Azure AD Premium pour utiliser les services de domaine Azure AD ?](#can-i-failover-azure-ad-domain-services-to-another-region-for-a-dr-event)
 * [Dans quelles régions Azure le service est-il disponible ?](#can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services)
@@ -127,8 +134,8 @@ Oui. Pour plus d’informations, consultez la [page relative aux prix appliqués
 ### <a name="is-there-a-free-trial-for-the-service"></a>Le service peut-il être essayé gratuitement ?
 Azure AD Domain Services est inclus dans l’essai gratuit d’Azure. Vous pouvez vous inscrire pour bénéficier d’un [essai gratuit d’un mois d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-### <a name="can-i-pause-an-azure-ad-domain-services-managed-domain"></a>Puis-je suspendre un domaine managé par Azure AD Domain Services ?
-Non. Une fois que vous avez activé un domaine managé par Azure AD Domain Services, le service est disponible dans votre réseau virtuel sélectionné jusqu’à ce que vous supprimiez le domaine managé. Il n’existe aucun moyen de suspendre le service. La facturation horaire se poursuivra jusqu’à ce que vous supprimiez le domaine managé.
+### <a name="can-i-pause-an-azure-ad-domain-services-managed-domain"></a>Puis-je suspendre un domaine géré par Azure AD Domain Services ?
+Non. Une fois que vous avez activé un domaine géré par Azure AD Domain Services, le service est disponible dans votre réseau virtuel sélectionné jusqu’à ce que vous supprimiez le domaine géré. Il n’existe aucun moyen de suspendre le service. La facturation horaire se poursuivra jusqu’à ce que vous supprimiez le domaine managé.
 
 ### <a name="can-i-failover-azure-ad-domain-services-to-another-region-for-a-dr-event"></a>Puis-je basculer Azure AD Domain Services vers une autre région pour un événement de récupération d’urgence ?
 Non. Azure AD Domain Services ne fournit pas actuellement de modèle de déploiement géoredondant. Il est limité à un seul réseau virtuel dans une région Azure. Si vous souhaitez utiliser plusieurs régions Azure, vous devez exécuter vos contrôleurs de domaine Active Directory sur des machines virtuelles IaaS Azure. Pour des conseils en architecture, consultez [Étendre votre domaine Active Directory local à Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain).

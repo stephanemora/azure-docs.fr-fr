@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 1aff2815144f776b351e92d8945b267d1451f9f6
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: df2acedd7f472b96d55d9ecc294d47e7173c5f90
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77915705"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78329014"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utiliser l’injection de dépendances dans .NET Azure Functions
 
@@ -131,6 +131,52 @@ Si vous avez besoin de votre propre fournisseur de journalisation, inscrivez un 
 > [!WARNING]
 > - N’ajoutez pas `AddApplicationInsightsTelemetry()` à la collection de services, car il enregistre des services en conflit avec les services fournis par l’environnement.
 > - N’inscrivez pas votre propre `TelemetryConfiguration` ou `TelemetryClient` si vous utilisez la fonctionnalité intégrée Application Insights. Si vous devez configurer votre propre instance `TelemetryClient`, créez-en une via la `TelemetryConfiguration` injectée, comme indiqué dans [Superviser Azure Functions](./functions-monitoring.md#version-2x-and-later-2).
+
+### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> et ILoggerFactory
+
+L’hôte injecte des services `ILogger<T>` et `ILoggerFactory` dans des constructeurs.  Toutefois, par défaut, ces nouveaux filtres de journalisation sont filtrés hors des journaux de fonction.  Vous devrez modifier le fichier `host.json` pour choisir des filtres et des catégories supplémentaires.  L’exemple suivant illustre l’ajout d’un `ILogger<HttpTrigger>` avec des journaux qui seront exposés par l’hôte.
+
+```csharp
+namespace MyNamespace
+{
+    public class HttpTrigger
+    {
+        private readonly ILogger<HttpTrigger> _log;
+
+        public HttpTrigger(ILogger<HttpTrigger> log)
+        {
+            _log = log;
+        }
+
+        [FunctionName("HttpTrigger")]
+        public async Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req)
+        {
+            _log.LogInformation("C# HTTP trigger function processed a request.");
+
+            // ...
+    }
+}
+```
+
+Et un fichier `host.json` qui ajoute le filtre de journal.
+
+```json
+{
+    "version": "2.0",
+    "logging": {
+        "applicationInsights": {
+            "samplingExcludedTypes": "Request",
+            "samplingSettings": {
+                "isEnabled": true
+            }
+        },
+        "logLevel": {
+            "MyNamespace.HttpTrigger": "Information"
+        }
+    }
+}
+```
 
 ## <a name="function-app-provided-services"></a>Services fournis par Function App
 

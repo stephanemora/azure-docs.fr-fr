@@ -3,12 +3,12 @@ title: Sauvegarder une batterie de serveurs SharePoint dans Azure avec MABS
 description: Le serveur de sauvegarde Azure vous permet de sauvegarder et de restaurer vos données SharePoint. Cet article fournit des informations vous permettant de configurer votre batterie de serveurs SharePoint, afin de pouvoir stocker les données souhaitées dans Azure. Vous pouvez restaurer des données SharePoint protégées à partir d’un disque ou d’Azure.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: ba9d79270da839cf99574322d68ccdba27fe2d93
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 441a896f2faa67a1380007ebb9474d7c311a4842
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77584249"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78673142"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure avec MABS
 
@@ -63,12 +63,12 @@ L’exécutable **ConfigureSharePoint.exe** se trouve dans le dossier [Chemin d�
 
 1. Sur le serveur WFE, à l’invite de commandes, accédez à [Emplacement d’installation du serveur de sauvegarde Azure]\bin\
 2. Entrez ConfigureSharePoint -EnableSharePointProtection
-3. Entrez les informations d'identification de l’administrateur de la batterie de serveurs. Ce compte doit être membre du groupe administrateur local sur le serveur Web frontal (WFE). Si l'administrateur de la batterie de serveurs n'est pas un administrateur local, accordez les autorisations suivantes sur le serveur Web frontal (WFE) :
+3. Entrez les informations d'identification de l’administrateur de la batterie de serveurs. Ce compte doit être membre du groupe administrateur local sur le serveur Web frontal (WFE). Si l’administrateur de la batterie de serveurs n’est pas un administrateur local, accordez les autorisations suivantes sur le serveur web frontal (WFE) :
    * Accordez au groupe WSS_Admin_WPG le contrôle total sur le dossier DPM (%Program Files%\Microsoft Azure Backup\DPM).
    * Accordez au groupe WSS_Admin_WPG un droit d'accès en lecture à la clé de registre DPM (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager).
 
 > [!NOTE]
-> Vous devrez réexécuter le fichier ConfigureSharePoint.exe à chaque modification des informations d'identification de l'administrateur de la batterie de serveurs SharePoint.
+> Vous devrez réexécuter le fichier ConfigureSharePoint.exe à chaque modification des informations d’identification de l’administrateur de la batterie de serveurs SharePoint.
 >
 >
 
@@ -127,7 +127,7 @@ Une fois que vous avez configuré le serveur de sauvegarde Azure et la batterie
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     > [!NOTE]
-    > Le serveur de sauvegarde Azure effectue un maximum de deux sauvegardes quotidiennes sur Azure, à partir du dernier point de sauvegarde de disque alors disponible. Azure Backup peut également contrôler la quantité de bande passante WAN qui peut être utilisée pour les sauvegardes aux heures de pointe et aux heures creuses, à l’aide de la [limitation réseau Azure Backup](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > Le serveur de sauvegarde Azure effectue un maximum de deux sauvegardes quotidiennes sur Azure, à partir du dernier point de sauvegarde de disque alors disponible. Azure Backup peut également contrôler la quantité de bande passante WAN qui peut être utilisée pour les sauvegardes aux heures de pointe et aux heures creuses, à l’aide de la [fonctionnalité de limitation du réseau Sauvegarde Azure](backup-windows-with-mars-agent.md#enable-network-throttling).
     >
     >
 11. Selon la planification de sauvegarde que vous avez sélectionnée, sur la page **Spécifier la stratégie de rétention en ligne** , sélectionnez la stratégie de rétention pour les points de sauvegarde quotidiens, hebdomadaires, mensuels et annuels.

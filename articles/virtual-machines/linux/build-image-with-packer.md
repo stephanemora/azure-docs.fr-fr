@@ -1,26 +1,18 @@
 ---
-title: Guide pratique pour créer des images de machines virtuelles Azure Linux avec Packer
+title: Créer des images de machines virtuelles Azure Linux avec Packer
 description: Découvrez comment utiliser Packer pour créer des images de machines virtuelles Linux dans Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: a9f0750908123c236596683ec2ad6de505c46213
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 338541661b335e3d96a267f01590173f8ce8ee89
+ms.sourcegitcommit: 5f39f60c4ae33b20156529a765b8f8c04f181143
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036945"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "78969287"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Comment utiliser Packer pour créer des images de machines virtuelles Linux dans Azure
 Chaque machine virtuelle dans Azure est créée à partir d’une image qui définit la distribution Linux et la version du système d’exploitation. Les images peuvent inclure des configurations et des applications pré-installées. La Place de marché Microsoft Azure fournit de nombreuses images internes et de tiers pour les distributions et environnements d’application les plus courants. Vous pouvez également créer vos propres images personnalisées selon vos besoins. Cet article explique comment utiliser l’outil open source [Packer](https://www.packer.io/) pour définir et générer des images personnalisées dans Azure.
@@ -40,7 +32,7 @@ az group create -n myResourceGroup -l eastus
 
 
 ## <a name="create-azure-credentials"></a>Créer des informations d’identification Azure
-Packer s’authentifie auprès d’Azure à l’aide d’un principal de service. Un principal de service Azure est une identité de sécurité que vous pouvez utiliser avec des applications, des services et des outils d’automatisation comme Packer. Vous contrôlez et définissez les opérations que le principal de service est autorisé à effectuer dans Azure.
+Packer s’authentifie auprès d’Azure à l’aide d’un principal de service. Un principal de service Azure est une identité de sécurité que vous pouvez utiliser avec des applications, des services et des outils d’automatisation comme Packer. Vous contrôlez et vous définissez les opérations que le principal du service est autorisé à effectuer dans Azure.
 
 Créez un principal de service avec la commande [az ad sp create-for-rbac](/cli/azure/ad/sp) et affichez les informations d’identification nécessaires à Packer :
 
@@ -48,7 +40,7 @@ Créez un principal de service avec la commande [az ad sp create-for-rbac](/cli/
 az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
 ```
 
-Voici un exemple de sortie issue des commandes précédentes :
+Voici un exemple de la sortie des commandes précédentes :
 
 ```azurecli
 {
@@ -64,7 +56,7 @@ Pour s’authentifier sur Azure, vous devez également obtenir votre ID d’abon
 az account show --query "{ subscription_id: id }"
 ```
 
-Vous utiliserez la sortie de ces deux commandes à l’étape suivante.
+Vous utilisez la sortie de ces deux commandes à l’étape suivante.
 
 
 ## <a name="define-packer-template"></a>Définition du modèle Packer

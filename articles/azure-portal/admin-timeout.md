@@ -9,12 +9,12 @@ ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 950580048f0496fd8436901938a5b6768c61bab6
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: e27135d09da7060f2a948e37f6026fe66fbef5b3
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132088"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096610"
 ---
 # <a name="set-directory-level-inactivity-timeout"></a>Configurer le délai d’inactivité au niveau du répertoire
 
@@ -43,7 +43,7 @@ Pour confirmer que la stratégie de délai d’inactivité est correctement déf
 Le paramètre prend effet lors des nouvelles sessions. Il ne s’applique pas immédiatement à tous les utilisateurs qui sont déjà connectés.
 
 > [!NOTE]
-> Si un administrateur a configuré un paramètre de délai d’attente au niveau du répertoire, les utilisateurs peuvent remplacer la stratégie et définir leur propre durée de déconnexion inactive. Toutefois, l’utilisateur doit choisir un intervalle de temps inférieur à celui qui est défini au niveau du répertoire.
+> Si un administrateur général a configuré un paramètre de délai d’attente au niveau de l’annuaire, les utilisateurs peuvent remplacer la stratégie et définir leur propre durée de déconnexion inactive. Toutefois, l’utilisateur doit choisir un intervalle de temps inférieur à celui défini au niveau de l’annuaire par l’administrateur général.
 >
 
 ## <a name="next-steps"></a>Étapes suivantes

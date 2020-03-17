@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 89fa2297c50b6f28045f6f934092de3fd5d6c879
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: b2138818a9092999dd54b14664f7146f087c4fed
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77613055"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78328644"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Activer les audits de sécurité pour Azure Active Directory Domain Services
 
@@ -193,7 +193,7 @@ AADDomainServicesAccountManagement
 
 ### <a name="sample-query-2"></a>Exemple de requête 2
 
-Affichez tous les événements de verrouillage de compte (*4740*) survenus entre le 3 février 2020 à 9 h 00 et le 10 février 2019 à minuit, triés par ordre croissant de date et d’heure :
+Affichez tous les événements de verrouillage de compte (*4740*) survenus entre le 3 février 2020 à 9 h 00 et le 10 février 2020 à minuit, triés par ordre croissant de date et d’heure :
 
 ```Kusto
 AADDomainServicesAccountManagement

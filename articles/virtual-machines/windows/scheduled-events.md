@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: c4461856bd5eeb01eb84b0d39afef9507438f8d3
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 2b3aa5d50822863e3aa46fcf9970e0b3e67a6f69
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920659"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944464"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Service de métadonnées Azure : Événements planifiés pour les machines virtuelles Windows
 
@@ -45,7 +45,7 @@ Avec Événements planifiés, votre application peut savoir quand une maintenanc
 
 Le service Événements planifiés fournit des événements dans les cas d’usage suivants :
 - [Maintenance lancée par la plateforme](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (par exemple, redémarrage de machine virtuelle, migration dynamique ou mémoire conservant les mises à jour pour l’hôte)
-- Matériel détérioré
+- La machine virtuelle est en cours d’exécution sur le [matériel hôte détérioré](https://azure.microsoft.com/blog/find-out-when-your-virtual-machine-hardware-is-degraded-with-scheduled-events) dont la défaillance prochaine est prédite
 - Maintenance lancée par l’utilisateur (par exemple, un utilisateur redémarre ou redéploie une machine virtuelle)
 - Évictions d’instances de [machine virtuelle Spot](spot-vms.md) et de [groupe identique Spot](../../virtual-machine-scale-sets/use-spot.md)
 
@@ -135,6 +135,9 @@ Chaque événement est planifié à un minimum de temps dans le futur, en foncti
 | Redeploy | 10 minutes |
 | Preempt | 30 secondes |
 | Terminate | [Configurable par l’utilisateur](../../virtual-machine-scale-sets/virtual-machine-scale-sets-terminate-notification.md#enable-terminate-notifications) : 5 à 15 minutes |
+
+> [!NOTE] 
+> Dans certains cas, Azure est en mesure de prédire une défaillance de l’hôte en raison d’un matériel détérioré, et tente d’atténuer l’interruption du service en planifiant une migration. Les machines virtuelles affectées recevront un événement planifié avec une valeur de temps `NotBefore` généralement définie sur quelques jours dans le futur. La valeur de temps réelle varie en fonction de l’évaluation du risque de la défaillance prédite. Autant que possible, Azure tente de donner un préavis de 7 jours, mais le temps réel varie et peut être inférieur si la prédiction indique qu’il y a de fortes chances que la défaillance du matériel soit imminente. Pour minimiser les risques auxquels votre service est exposé en cas de défaillance du matériel avant la migration initiée par le système, nous vous recommandons de redéployer vous-même votre machine virtuelle au plus tôt.
 
 ### <a name="event-scope"></a>Portée de l’événement     
 Les événements planifiés sont remis à :

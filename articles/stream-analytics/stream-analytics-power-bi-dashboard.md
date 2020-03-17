@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 76f5c1f0cd3186244e9a262358c9c9a652a73fdb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/05/2019
+ms.openlocfilehash: 8466fbcb4325dc244551a3b84fc20581366b7071
+ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431630"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78851152"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics et Power BI : Tableau de bord d’analytique en temps réel des données de streaming
 
@@ -23,12 +23,12 @@ Cet article est la suite du didacticiel [Détection des fraudes en temps réel](
 Vous pouvez visionner [une vidéo](https://www.youtube.com/watch?v=SGUpT-a99MA) illustrant ce scénario.
 
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, veillez à disposer des éléments qui suivent :
 
 * Un compte Azure.
-* Un compte pour Power BI. Vous pouvez utiliser un compte professionnel ou un compte scolaire.
+* Un compte pour Power BI Pro. Vous pouvez utiliser un compte professionnel ou un compte scolaire.
 * Une version terminée du didacticiel [Détection des fraudes en temps réel](stream-analytics-real-time-fraud-detection.md). Le didacticiel comprend une application qui génère des métadonnées d’appels téléphoniques fictifs. Dans le didacticiel, vous créez un concentrateur Event Hub et lui envoyez des données d’appels téléphoniques de diffusion en continu. Vous écrivez une requête qui détecte les appels frauduleux (appels simultanés provenant d’un même numéro à différents emplacements). 
 
 

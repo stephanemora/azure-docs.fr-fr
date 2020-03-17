@@ -7,14 +7,14 @@ manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 7/25/2019
+ms.date: 3/11/2020
 ms.author: evansma
-ms.openlocfilehash: 40d466bd4e5959453f8c3042c4b14f6c3ef605bf
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 80911ce7858308302b1736328b6c7954c0e05a86
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933454"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79095526"
 ---
 # <a name="support-for-the-marketplace"></a>Prise en charge de la Place de marché  
 Voici la liste des options de prise en charge pour la Place de marché.  
@@ -23,13 +23,13 @@ En outre, vous pouvez obtenir une réponse à la plupart de vos questions via le
 
 ## <a name="onboarding"></a>Mise en route
 
-Ouvrez un ticket auprès du [support dédié aux éditeurs de la Place de marché](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) Microsoft pour les problèmes d'intégration et de mise en route, ou auprès du [support dédié aux partenaires](https://partner.microsoft.com/support) Microsoft si vous avez des questions sur Microsoft Partner Network.
+Ouvrez un ticket auprès du [support des éditeurs de la Place de marché Microsoft](https://aka.ms/marketplacepublishersupport) pour tous les problèmes d’intégration et de prise en main.
 
 ## <a name="partner-center-or-cloud-partner-portal"></a>Espace partenaires ou Portail Cloud Partner  
 
 | Canal de support | Description | Disponibilité |  
 |:--- |:--- |:--- |  
-| Pour obtenir une assistance, consultez la page Créer un incident auprès du [support de la Place de marché](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Support pour l’Espace partenaires ou le Portail Cloud Partner. | Le support est disponible de 6 h à 18 h PST. |  
+| Pour obtenir une assistance, consultez la page Créer un incident auprès du [support de la Place de marché](https://aka.ms/marketplacepublishersupport)</li> </ul> | Support pour l’Espace partenaires ou le Portail Cloud Partner. | Le support est fourni 24h/24 et 5j/7. |  
 
 ## <a name="technical"></a>Techniques  
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18ef9d89a2366e6d4db3c3154bae0bd83e0386f1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 3d91203253c08acdaa159fc70f7a34fa7fca20c8
+ms.sourcegitcommit: bc792d0525d83f00d2329bea054ac45b2495315d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654732"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78674148"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide du portail Azure
 
@@ -75,16 +75,16 @@ Cet article explique comment connecter des réseaux virtuels avec une connexion 
 
 - **Paramètres de réseau virtuel**
     - **Name** : VNet1
-    - **Espace d’adressage** : 10.11.0.0/16
+    - **Espace d’adressage** : 10.1.0.0/16
     - **Abonnement**: Sélectionnez l’abonnement que vous souhaitez utiliser.
     - **Groupe de ressources** : TestRG1
     - **Emplacement** : USA Est
     - **Sous-réseau**
         - **Name** : FrontEnd
-        - **Plage d’adresses** : 10.11.0.0/24
+        - **Plage d’adresses** : 10.1.0.0/24
     - **Sous-réseau de passerelle** :
         - **Name** : Le *Sous-réseau de passerelle* est automatiquement renseigné
-        - **Plage d’adresses** : 10.11.255.0/27
+        - **Plage d’adresses** : 10.1.255.0/27
 
 - **Paramètres de passerelle de réseau virtuel**
     - **Name** : VNet1GW
@@ -127,12 +127,7 @@ Si vous disposez déjà d’un réseau virtuel, vérifiez que les paramètres so
 ### <a name="to-create-a-virtual-network"></a>Pour créer un réseau virtuel
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-basic-vnet-rm-portal-include.md)]
 
-## <a name="add-additional-address-space-and-create-subnets"></a>Ajouter des espaces d’adressage supplémentaires et créer des sous-réseaux
-Vous pouvez ajouter des espaces d’adressage supplémentaires et créer des sous-réseaux pour votre réseau virtuel une fois qu’il a été créé.
-
-[!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
-
-## <a name="create-a-virtual-network-gateway"></a>Créer une passerelle de réseau virtuel
+## <a name="create-the-vnet1-gateway"></a>Créer la passerelle VNet1
 Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau virtuel. La création d’une passerelle nécessite généralement au moins 45 minutes, selon la référence SKU de passerelle sélectionnée. Si vous créez cette configuration dans le cadre d’un exercice, consultez les [Exemples de paramètres](#example-settings).
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
@@ -143,7 +138,7 @@ Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau
 [!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="create-and-configure-vnet4"></a>Créer et configurer VNet4
-Après avoir configuré VNet1, créez VNet4 en répétant les étapes précédentes et en remplaçant les valeurs par les valeurs de VNet4. Vous n’avez pas besoin d’attendre que la création de la passerelle de réseau virtuel pour VNet1 soit terminée pour configurer VNet4. Si vous utilisez vos propres valeurs, assurez-vous que les espaces d’adressage ne chevauchent pas les réseaux virtuels auxquels vous souhaitez vous connecter.
+Après avoir configuré VNet1, créez VNet4 et la passerelle VNet4 en répétant les étapes précédentes et en remplaçant les valeurs par les valeurs de VNet4. Vous n’avez pas besoin d’attendre que la création de la passerelle de réseau virtuel pour VNet1 soit terminée pour configurer VNet4. Si vous utilisez vos propres valeurs, assurez-vous que les espaces d’adressage ne chevauchent pas les réseaux virtuels auxquels vous souhaitez vous connecter.
 
 ## <a name="configure-the-vnet1-gateway-connection"></a>Configurer la connexion de passerelle VNet1
 Lorsque les passerelles de réseau virtuel pour VNet1 et VNet4 sont terminées, vous pouvez créer vos connexions de passerelle de réseau virtuel. Dans cette section, vous allez créer une connexion de VNet1 à VNet4. Ces étapes s’appliquent uniquement aux réseaux virtuels situés dans le même abonnement. Si vos réseaux virtuels figurent dans des abonnements différents, vous devrez utiliser [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md) pour établir la connexion. Toutefois, si vos réseaux virtuels se trouvent dans des groupes de ressources différents au sein du même abonnement, vous pouvez les connecter à l’aide du portail.
@@ -153,7 +148,7 @@ Lorsque les passerelles de réseau virtuel pour VNet1 et VNet4 sont terminées, 
    ![Page Connexions](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png "Page Connexions")
 2. Cliquez sur **+Ajouter** pour ouvrir la page **Ajouter une connexion**.
 
-   ![Ajouter une connexion](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-to-vnet4.png "Ajouter une connexion")
+   ![Ajouter une connexion](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4-connection.png "Ajouter une connexion")
 3. Sur la page **Ajouter une connexion**, renseignez les valeurs correspondant à votre connexion :
 
    - **Name** : Entrez un nom pour votre connexion. Par exemple, *VNet1toVNet4*.

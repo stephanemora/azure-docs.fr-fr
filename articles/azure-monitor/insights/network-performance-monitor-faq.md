@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 0ef50dfd4d9c6eb0066e54b76167b9934fbb9cf0
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 443e4b44633e949dd9bd55df1ec7d18ca93d6e04
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654431"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096230"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ relative à la solution Network Performance Monitor
 
@@ -183,7 +183,7 @@ Un tronçon peut ne pas répondre à une détermination d’itinéraire dans un 
 * Les périphériques réseau n'autorisent pas le trafic ICMP_TTL_EXCEEDED.
 * Un pare-feu bloque la réponse ICMP_TTL_EXCEEDED à partir du périphérique réseau.
 
-Quand l’un des points de terminaison se trouve dans Azure, traceroute affiche des sauts non identifiés, car l’infrastructure Azure ne révèle pas l’identité à traceroute. 
+Quand l’un des points de terminaison se trouve dans Azure, traceroute affiche des sauts non identifiés, car l’infrastructure Azure ne révèle pas d’identité à traceroute. 
 
 ### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>Je reçois des alertes de tests non sains, mais aucune valeur élevée n'apparaît sur le graphique de perte et de latence de NPM. Comment vérifier ce qui n'est pas sain ?
 NPM déclenche une alerte si une latence de bout en bout entre une source et une destination dépasse le seuil de tout chemin qui les sépare. Certains réseaux disposent de plusieurs chemins pour relier la même source et la même destination. NPM déclenche une alerte si un chemin n'est pas sain. La perte et la latence représentées sur les graphiques correspondent à la valeur moyenne de tous les chemins. Par conséquent, la valeur exacte d'un chemin individuel n'est pas nécessairement indiquée. Pour comprendre où le seuil a été dépassé, recherchez la colonne « SubType » dans l'alerte. Si le problème est dû à un chemin, la valeur de SubType est NetworkPath (pour les tests de Performance Monitor), EndpointPath (pour les tests de Service Connectivity Monitor) et ExpressRoutePath (pour les tests d'ExpressRoute Monitor). 

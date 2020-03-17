@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 03/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cfa5e2117b2d6fce525e66b25ec44f696d7d450
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: dd923a47c49bfa7a6ab16e822a80c8e7f4f9a3e0
+ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484415"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79096060"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : Forum aux questions
 
@@ -44,7 +44,7 @@ Non. L’authentification directe est uniquement disponible dans l’instance à
 Oui. Toutes les fonctionnalités, y compris l’authentification multifacteur Azure, peuvent être utilisées avec l’authentification directe.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>L’authentification directe prend-elle en charge « l’ID alternatif » comme le nom d’utilisateur, plutôt que « userPrincipalName » ?
-Dans une certaine mesure, l’authentification directe prend en charge le nom d’utilisateur Autre ID lorsqu’elle est configurée dans Azure AD Connect. Le prérequis est qu’Azure AD Connect doit synchroniser l’attribut `UserPrincipalName` Active Directory local sur Azure AD. Ainsi le nom `UserPrincipalName` est identique sur Active Directory localement et Azure AD. Si vous souhaitez utiliser un autre attribut pour effectuer une synchronisation entre l’annuaire Active Directory local en tant que nom d’utilisateur principal (UPN) vers Azure AD, vous devez utiliser la synchronisation de hachage de mot de passe ou AD FS. Pour plus d’informations, consultez [Installation personnalisée d’Azure AD Connect](how-to-connect-install-custom.md). Toutes les applications Office 365 ne prennent pas en charge `Alternate ID`. Reportez-vous à la documentation de l’application qui vous intéresse pour avoir des précisions sur sa prise en charge.
+La connexion à l’aide d’une valeur autre qu’un UPN, telle qu’une autre adresse e-mail, est actuellement testée en préversion privée pour l’authentification directe (PTA) et la synchronisation du hachage de mot de passe (PHS).
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>La synchronisation du hachage de mot de passe agit-elle comme solution de secours pour l’authentification directe ?
 

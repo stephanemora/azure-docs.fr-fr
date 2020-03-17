@@ -5,14 +5,14 @@ services: batch
 author: mscurrell
 ms.service: batch
 ms.topic: article
-ms.date: 12/01/2019
+ms.date: 03/10/2019
 ms.author: markscu
-ms.openlocfilehash: c4e36d76bf85b9715a817dbeb7c690aa77f8d978
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4ace0de6d252680eb64990277b9478adf752f54d
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851931"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79087006"
 ---
 # <a name="job-and-task-error-checking"></a>Vérification des erreurs de travail et de tâche
 
@@ -20,7 +20,7 @@ Plusieurs erreurs peuvent se produire lors de l’ajout de travaux et de tâches
 
 Cet article traite des erreurs qui peuvent se produire après l’envoi de travaux et de tâches. Il répertorie et décrit les erreurs qui doivent être vérifiées et traitées.
 
-## <a name="jobs"></a>Tâches
+## <a name="jobs"></a>travaux
 
 Un travail est un regroupement d’une ou plusieurs tâches, et ce sont ces dernières qui spécifient réellement les lignes de commande à exécuter.
 
@@ -46,7 +46,7 @@ Les propriétés de travail suivantes doivent être vérifiées afin de détecte
 Si une tâche de préparation du travail est spécifiée pour un travail, une instance de cette tâche est alors exécutée la première fois qu’une tâche du travail est exécutée sur un nœud. La tâche de préparation du travail configurée sur le travail peut être considérée comme un modèle de tâche, doté de plusieurs instances de tâche de préparation du travail en cours d’exécution, pouvant aller jusqu’au nombre de nœuds dans un pool.
 
 Les instances de tâche de préparation du travail doivent être vérifiées pour déterminer si des erreurs se sont produites :
-- Quand une tâche de préparation du travail est exécutée, la tâche qui a déclenché la tâche de préparation du travail passe à un [état](https://docs.microsoft.com/rest/api/batchservice/task/get#taskstate) `preparing`. Si la tâche de préparation du travail échoue, la tâche de déclenchement revient à l’état `active` et n’est pas exécutée.  
+- Quand une tâche de préparation du travail est exécutée, la tâche qui a déclenché la tâche de préparation du travail passe à un [état](https://docs.microsoft.com/rest/api/batchservice/task/get#taskstate)`preparing`. Si la tâche de préparation du travail échoue, la tâche de déclenchement revient à l’état `active` et n’est pas exécutée.  
 - Toutes les instances de la tâche de préparation du travail qui ont été exécutées peuvent être obtenues à partir du travail à l’aide de l’API [Répertorier l’état des tâches de préparation et de validation](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus). Comme pour n’importe quelle tâche, des [informations d’exécution](https://docs.microsoft.com/rest/api/batchservice/job/listpreparationandreleasetaskstatus#jobpreparationandreleasetaskexecutioninformation) sont disponibles avec des propriétés telles que `failureInfo`, `exitCode` et `result`.
 - Si les tâches de préparation du travail échouent, les tâches de déclenchement de travail ne sont pas exécutées et le travail n’est pas finalisé et sera bloqué. Le pool peut ne pas être utilisé s’il n’y a pas d’autres travaux dont les tâches peuvent être planifiées.
 
@@ -67,11 +67,22 @@ Les tâches du travail peuvent échouer pour plusieurs raisons :
 
 Dans tous les cas, les erreurs et les informations relatives à ces dernières doivent être vérifiées dans les propriétés suivantes :
 - La propriété [executionInfo](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutioninformation) des tâches contient plusieurs propriétés qui fournissent des informations sur une erreur. [result](https://docs.microsoft.com/rest/api/batchservice/task/get#taskexecutionresult) indique si la tâche a échoué pour une raison quelconque, avec `exitCode` et `failureInfo` fournissant des informations supplémentaires sur l’échec.
-- La tâche passe toujours à l’[état](https://docs.microsoft.com/rest/api/batchservice/task/get#taskstate) `completed`, indépendamment du fait qu’elle a réussi ou échoué.
+- La tâche passe toujours à l’[état](https://docs.microsoft.com/rest/api/batchservice/task/get#taskstate) `completed`, indépendamment de la réussite ou de l’échec de son exécution.
 
 L’impact des échecs de tâche sur le travail et les dépendances de tâches doivent être pris en compte.  La propriété [exitConditions](https://docs.microsoft.com/rest/api/batchservice/task/add#exitconditions) peut être spécifiée pour une tâche afin de configurer une action pour les dépendances et le travail.
 - Pour les dépendances, [DependencyAction](https://docs.microsoft.com/rest/api/batchservice/task/add#dependencyaction) contrôle si les tâches dépendantes de la tâche ayant échoué sont bloquées ou exécutées.
 - Pour le travail, [JobAction](https://docs.microsoft.com/rest/api/batchservice/task/add#jobaction) contrôle si la tâche ayant échoué a pour conséquence que le travail est désactivé, terminé ou laissé inchangé.
+
+### <a name="task-command-line-failures"></a>Échecs de ligne de commande de la tâche
+
+Lors de l’exécution de la ligne de commande de la tâche, la sortie est écrite dans `stderr.txt` et `stdout.txt`. En outre, l’application peut écrire dans des fichiers journaux qui lui sont spécifiques.
+
+Si le nœud de pool sur lequel une tâche a été exécutée existe toujours, il est possible d’obtenir et d’afficher les fichiers journaux. Par exemple, le portail Azure répertorie et peut afficher les fichiers journaux d’une tâche ou d’un nœud de pool. Plusieurs API permettent également de répertorier et d’obtenir des fichiers de tâche. C’est notamment le cas de l’API [Obtenir à partir de la tâche](https://docs.microsoft.com/rest/api/batchservice/file/getfromtask).
+
+Étant donné que les pools et nœuds de pool sont souvent éphémères, avec des ajouts et suppressions continuels de nœuds, il est recommandé de conserver les fichiers journaux. Les [fichiers de sortie de tâche](https://docs.microsoft.com/azure/batch/batch-task-output-files) sont un moyen pratique d’enregistrer des fichiers journaux dans Stockage Azure.
+
+### <a name="output-file-failures"></a>Échecs de sortie de fichiers
+À chaque chargement de fichier, Batch écrit deux fichiers journaux dans le nœud de calcul, `fileuploadout.txt` et `fileuploaderr.txt`. Vous pouvez examiner ces fichiers journaux pour en savoir plus sur un échec spécifique. Si le chargement de fichier n’a jamais été tenté, par exemple, parce que la tâche proprement dite n’a pas pu être exécutée, ces fichiers journaux n’existent pas.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
