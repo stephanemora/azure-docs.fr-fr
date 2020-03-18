@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 46be210ead3816356b63293b910e1c0e7ffc087b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: f3edbc4fc48abd9c7df92aedcdea50dd77a0fd4b
+ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200093"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79086263"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Créer une formule automatique pour la mise à l’échelle des nœuds de calcul dans un pool Batch
 
@@ -128,14 +128,14 @@ Vous pouvez obtenir la valeur des variables définies par le service ci-après p
 | $NetworkInBytes |Nombre d’octets entrants. |
 | $NetworkOutBytes |Nombre d’octets sortants. |
 | $SampleNodeCount |Nombre de nœuds de calcul. |
-| $ActiveTasks |Nombre de tâches prêtes à être exécutées, mais pas encore en cours d’exécution. La valeur $ActiveTasks inclut toutes les tâches qui se trouvent dans un état actif et dont les dépendances ont été satisfaites. Toutes les tâches qui se trouvent dans un état actif mais dont les dépendances n’ont pas été satisfaites sont exclues de la valeur $ActiveTasks.|
+| $ActiveTasks |Nombre de tâches prêtes à être exécutées, mais pas encore en cours d’exécution. La valeur $ActiveTasks inclut toutes les tâches qui se trouvent dans un état actif et dont les dépendances ont été satisfaites. Toutes les tâches qui se trouvent dans un état actif mais dont les dépendances n’ont pas été satisfaites sont exclues de la valeur $ActiveTasks. Dans le cas d’une tâche multi-instance, $ActiveTasks inclura le nombre d’instances définies dans la tâche.|
 | $RunningTasks |Nombre de tâches en cours d’exécution. |
 | $PendingTasks |Somme de $ActiveTasks et de $RunningTasks. |
 | $SucceededTasks |Nombre de tâches ayant abouti. |
 | $FailedTasks |Nombre de tâches ayant échoué. |
 | $CurrentDedicatedNodes |Nombre actuel de nœuds de calcul dédiés. |
 | $CurrentLowPriorityNodes |Nombre actuel de nœuds de calcul de faible priorité, y compris tous les nœuds réalloués. |
-| $PreemptedNodeCount | Nombre de nœuds dans le pool qui sont à l’état Réalloué. |
+| $PreemptedNodeCount | Le nombre de nœuds dans le pool qui sont à l’état Reporté. |
 
 > [!TIP]
 > Les variables en lecture seule qui sont définies par le service et illustrées dans le tableau précédent sont des *objets* fournissant diverses méthodes pour accéder aux données qui leur sont associées. Pour plus d’informations, consultez la section [Obtenir des échantillons de données](#getsampledata) dans la suite de cet article.

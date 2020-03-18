@@ -14,17 +14,17 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45bf71274d8eb1039254cafe48a34587199be724
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 2edf63da0fd09f829f936b54eb088c34dfe029a1
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263504"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79036995"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy d’application et Qlik Sens 
 Le proxy d’application Azure Active Directory et Qlik Sense se sont associés afin de vous permettre d’utiliser facilement le Proxy d’application pour fournir l’accès à distance à votre déploiement Qlik sens.  
 
-## <a name="prerequisites"></a>Conditions préalables requises 
+## <a name="prerequisites"></a>Prérequis 
 Le reste de ce scénario suppose que vous avez effectué les opérations suivantes :
  
 - Vous avez configuré [Qlik sens](https://community.qlik.com/docs/DOC-19822). 
@@ -52,8 +52,8 @@ Suivez ces étapes pour publier votre application. Pour obtenir plus de détails
 ### <a name="application-2"></a>2ème application : 
 Suivez les mêmes étapes que pour la 1ère application, avec les exceptions suivantes : 
 
-**Étape 5** : L’URL interne doit maintenant être l’URL QlikSense avec le port d’authentification utilisé par l’application. La valeur par défaut est **4244** pour HTTPS et **4248** pour HTTP pour les versions QlikSense antérieures à avril 2018. La valeur par défaut pour les versions QlikSense après avril 2018 est **443** pour HTTPS et **80** pour HTTP.  Par exemple, **https&#58;//demo.qlik.com:4244**</br></br> 
-**Étape 10 :** Ne configurez pas l’authentification unique et laissez **l’authentification unique désactivée**
+**Étape 5** : L’URL interne doit maintenant être l’URL QlikSense avec le port d’authentification utilisé par l’application. La valeur par défaut est **4244** pour HTTPS et **4248** pour HTTP pour les versions QlikSense antérieures à avril 2018. La valeur par défaut pour les versions QlikSense après avril 2018 est **443** pour HTTPS et **80** pour HTTP.  Par exemple, **https&#58;//demo.qlik.com:4244**</br></br>
+**Étape 10 :** Ne configurez pas l’authentification unique et laissez **l’authentification unique désactivée**
  
  
 ## <a name="testing"></a>Test 

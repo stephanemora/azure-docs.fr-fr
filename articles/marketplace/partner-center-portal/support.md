@@ -1,19 +1,19 @@
 ---
 title: Obtenir un support technique pour le portail de la Place de marché commerciale dans l’Espace partenaires
 description: En savoir plus sur vos options de support dans le centre de partenaires, notamment comment créer une demande de prise en charge.
-author: ChJenk
+author: qianw211
 manager: evansma
 ms.author: jamwall
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.openlocfilehash: 53d6b5b43a028d552c95c58aebf7268353621759
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 03/07/2020
+ms.openlocfilehash: a85d9ebb03ea0c9ebe078ad49ce6bbf40a5b004d
+ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827901"
+ms.lasthandoff: 03/08/2020
+ms.locfileid: "78927539"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Support technique pour le programme Place de marché commerciale dans l’Espace partenaires
 
@@ -27,68 +27,56 @@ Microsoft prend en charge un large éventail de produits et services. Le fait de
 
 1. Connectez-vous au [programme Place de marché commerciale dans l’Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) avec votre compte professionnel. (Si vous ne l’avez pas encore fait, vous devez créer [un compte Espace partenaires](./create-account.md).)
 
-1. Dans le menu en haut à droite de la page, sélectionnez l’icône d’**Support**. 
+2. Dans le menu en haut à droite de la page, sélectionnez l’icône d’**Support**. 
  
-   ![Icône Support](./media/commercial-marketplace-support.png)
-
-1. Le volet **Aide et support** s’affiche depuis la partie droite de la page. Il y aura une liste déroulante de chaque programme de l’Espace Partenaires pour lequel votre compte est inscrit. Sélectionnez le menu déroulant **Place de marché commerciale**. 
+3. Le volet **Aide et support** s’affiche depuis la partie droite de la page. 
  
    ![Menu déroulant Support](./media/commercial-marketplace-support-pane.png)
 
-1. Sélectionnez **[Documentation](../index.md)** pour passer en revue les réponses complètes aux questions fréquentes et les ressources. 
+    Vous pouvez également accéder au volet **Page d'accueil** et sélectionner **Aide et support**.
 
-1. Sélectionnez **[Forum de communauté partenaire de Place de marché](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** pour répondre à vos questions en tirant parti des connaissances des autres éditeurs Microsoft. 
+   ![Aide et support à partir de la page d'accueil](./media/homepage-help-support.png)
 
-1. Sélectionnez **[Aide supplémentaire](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)** pour ouvrir un ticket **Nouvelle demande de support**. 
+4. Sélectionnez **[Documentation](../index.yml)** pour passer en revue les réponses complètes aux questions fréquentes et les ressources. 
+
+5. Sélectionnez **[Forum de communauté partenaire de Place de marché](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** pour répondre à vos questions en tirant parti des connaissances des autres éditeurs Microsoft. 
+
+6. Sélectionnez **[Aide supplémentaire](https://aka.ms/marketplacepublishersupport)** pour ouvrir un ticket **Nouvelle demande de support**.  
 
 ## <a name="how-to-open-a-support-ticket"></a>Ouverture d’un ticket de support
 
-Sélectionner **Aide supplémentaire** à partir du menu de support de la Place de marché commerciale dans l’Espace partenaires vous dirigera vers la page Support Microsoft pour l’entreprise. Vous verrez plusieurs menus déroulants. Les premiers menus déroulants sont automatiquement remplis pour vous. Pour le support de la Place de marché, identifiez la famille de produits comme étant **Services cloud et en ligne**, le produit comme **Éditeur Marketplace**et la version du produit comme **Publication de Place de marché**. Ne modifiez pas ces sélections préremplies. 
+Vous êtes maintenant prêt à ouvrir un ticket de support dans l’écran **Aide et support**.
 
-- **Sélectionnez une catégorie décrivant le mieux le problème**: Choisissez la catégorie la mieux adaptée à votre question ou votre problème. La sélection d’une catégorie affiche un menu déroulant supplémentaire, vous invitant à sélectionner le problème décrivant au mieux le vôtre.
+![Aide et support](./media/help-and-support.png)
 
-- **Sélectionnez un problème décrivant le mieux le vôtre** : Parmi les options répertoriées, choisissez le problème correspondant le mieux au vôtre. En fonction de votre problème, une nouvelle section peut s’afficher indiquant « Voici quelques informations qui peuvent vous aider », avec des liens utiles pour votre problème. Passez en revue ces liens avant de sélectionner le bouton **Suivant** pour voir si votre question ou votre problème est résolu.
+>[!Note]
+>Si vous êtes connecté à l’Espace partenaires, vous bénéficierez d’une meilleure expérience de support.
 
-En sélectionnant le bouton **Suivant**, vous allez être redirigé vers la page **Détails du problème**. 
+**Option 1 :** Entrer des mots clés tels que : place de marché, application Azure, offre SaaS, gestion des comptes, gestion des prospects, problème de déploiement, paiement, etc.
 
-#### <a name="tell-us-more-about-your-issue"></a>Décrivez votre problème en détail
+**Option 2 :** Parcourir les rubriques -> sélectionnez **Catégorie** = place de marché commerciale -> sélectionnez la **Rubrique** qui convient, puis **Sous-rubrique**.
 
-Dans la section **Détails du problème**, expliquez ce sur quoi vous avez besoin d’aide.
+Une fois la rubrique de votre choix trouvée, sélectionnez **Examiner les solutions**.
 
-- Sélectionnez votre pays.
-- Sélectionnez la langue dans laquelle vous souhaitez recevoir un support technique.
-- Entrez un titre pour votre problème (de 3 à 200 caractères).  
-- Saisissez une brève description de votre problème (2 000 caractères max.).
-- Sélectionnez **Suivant**.
+![Étape suivante](./media/next-step.png)
 
-#### <a name="select-a-support-plan"></a>Sélectionnez un plan de support
+Les options ci-dessous sont alors disponibles :
 
-Aucune information n’est requise dans la section **Plan de Support**. Sélectionnez **Suivant**. 
+* Pour sélectionner une autre rubrique, sélectionnez un lien de rubrique différent sous le **problème sélectionné**.
+* Examinez la description de ce problème, le cas échéant.  Il s’agit du texte qui s'affiche au-dessus des **étapes recommandées**.
+* Examinez les **étapes recommandées**, le cas échéant.
+* Examinez les **documents recommandés**, le cas échéant.
 
-#### <a name="select-the-severity-of-your-issue"></a>Sélectionnez le niveau de gravité de votre problème
+![Solutions recommandées](./media/recommended-solutions.png)
 
-Aucune information n’est requise dans la section **Gravité**. Sélectionnez **Suivant**. 
+Si vous ne trouvez pas de réponse dans les **solutions recommandées**, cliquez sur **Fournir les détails relatifs au problème**.  Remplissez le formulaire et tous les champs requis pour accélérer le processus de résolution.  Cliquez ensuite sur **Envoyer**.
 
-#### <a name="who-should-we-contact"></a>Qui devons-nous contacter
-
-Dans la section **Informations de contact**, vérifiez que le nom, le numéro de téléphone et l’adresse e-mail de votre interlocuteur principal sont corrects. 
-- Mettez à jour ces informations si elles sont incorrectes
-- Vous pouvez ajouter d’autres contacts de votre entreprise à cette demande de support si vous le souhaitez
-- Sélectionnez **Suivant**.
-
-#### <a name="review-and-submit-your-support-request"></a>Passez en revue et envoyez votre demande de support
-
-Passez en revue les informations de votre demande de support dans la section **Revue**. 
-- Si elles sont toutes correctes, sélectionnez **Envoyer**. 
-- Si des informations doivent être mises à jour, sélectionnez le bouton **Modifier** situé à côté de la section à modifier.
+>[!Note]
+>Si vous n’êtes pas connecté à l’Espace partenaires et que la rubrique requiert une authentification, vous serez invité à vous connecter avant de pouvoir continuer.  Pour les rubriques publiques, l’authentification n’est pas requise.
 
 ## <a name="track-your-existing-support-requests"></a>Suivre vos demandes de support existantes 
 
-Pour effectuer le suivi de votre demande de support, visitez la [page de support de la Place de marché commerciale](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). 
-
-Dans la barre de menu bleu en haut, à côté de « support professionnel », sélectionnez le lien **Demandes de support**. 
-
-Passez en revue toutes vos demandes de support ouvertes et fermées dans la section **Support professionnel Microsoft**. 
+Pour examiner tous vos tickets ouverts et fermés, accédez à **Place de marché commerciale** dans la barre de navigation de gauche, puis sélectionnez **Support**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d92c3e51aae70c66dcf9b7ca6dfd631650ace574
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 1dbd1d96cda88d500e16fff885dae03ebfa230f0
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561746"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79079894"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Conditions d’utilisation d’Azure Active Directory
 
@@ -277,7 +277,11 @@ Si un utilisateur utilise Windows 10 et Microsoft Edge, il reçoit un message s
 
 S’il utilise Chrome, il est invité à installer l’[extension Windows 10 Accounts](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
-### <a name="join-an-android-device"></a>Joindre un appareil Android
+### <a name="register-an-ios-device"></a>Inscrire un appareil iOS
+
+Si un utilisateur utilise un appareil iOS, il est invité à installer l’[application Microsoft Authenticator](https://apps.apple.com/us/app/microsoft-authenticator/id983156458).
+
+### <a name="register-an-android-device"></a>Inscrire un appareil Android
 
 Si un utilisateur utilise un appareil Android, il est invité à installer l’[application Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator).
 

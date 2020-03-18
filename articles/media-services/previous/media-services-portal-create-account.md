@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 234c8be8c696ca7381b8860680d072e84820d424
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1904ed9707859f0d00bca3b6e3aef90d1346cea5
+ms.sourcegitcommit: 021ccbbd42dea64d45d4129d70fff5148a1759fd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431974"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78331483"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Créer un compte Media Services avec le portail Azure
 
@@ -37,7 +37,7 @@ Cet article montre comment créer un compte Media Services à l’aide du portai
 > [!NOTE]
 > Pour plus d’informations sur la disponibilité des fonctionnalités Azure Media Services dans des régions différentes, consultez la [disponibilité des fonctionnalités AMS entre les centres de données](scenarios-and-availability.md#availability).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d’informations, consultez [Essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/). 
 
@@ -46,13 +46,9 @@ Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d’inf
 Cette section montre comment créer un compte AMS.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Cliquez sur **+Nouveau** > **Web + Mobile** > **Media Services**.
-   
-    ![Media Services Créer](./media/media-services-create-account/media-services-new1.png)
+2. Cliquez sur **+ Créer une ressource** > **Média** > **Media Services**.
 3. Dans **CREATE MEDIA SERVICES ACCOUNT** (CRÉER UN COMPTE MEDIA SERVICES), entrez les valeurs requises.
-   
-    ![Media Services Créer](./media/media-services-create-account/media-services-new3.png)
-   
+
    1. Dans **Nom du compte**, entrez le nom du nouveau compte AMS. Un nom de compte Media Services se compose de lettres en minuscules ou de chiffres, sans espaces. Sa longueur est comprise entre 3 et 24 caractères.
    2. Dans Abonnement, sélectionnez l’un des abonnements Azure auxquels vous avez accès.
    3. Dans **Groupe de ressources**, sélectionnez la ressource (nouvelle ou existante).  Un groupe de ressources désigne une collection de ressources qui partagent un cycle de vie, des autorisations et des stratégies. En savoir plus [ici](../../azure-resource-manager/management/overview.md#resource-groups).
@@ -71,7 +67,6 @@ Cette section montre comment créer un compte AMS.
 ## <a name="to-manage-your-ams-account"></a>Pour gérer votre compte AMS
 
 Pour gérer votre compte AMS (par exemple, vous connecter à l’API AMS par programme, charger des vidéos, encoder des ressources, configurer la protection du contenu, surveiller la progression du travail) sélectionnez **Paramètres** sur le côté gauche du portail. À partir de **Paramètres**, accédez à l’un des panneaux disponibles (par exemple : **Accès API**, **Ressources**, **Travaux**, **Protection du contenu**).
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

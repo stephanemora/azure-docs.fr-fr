@@ -1,14 +1,14 @@
 ---
 title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
-ms.date: 02/07/2020
+ms.date: 03/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: f5d68be1226a026f8fdfd7595cb2812ce51dfdb6
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 42368bcbc9f15f9ff5ef957b4c88f15bf070f25b
+ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122044"
+ms.lasthandoff: 03/06/2020
+ms.locfileid: "78402084"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -37,7 +37,14 @@ La gestion des ressources déléguées Azure offre davantage de flexibilité pou
 
 Vous pouvez effectuer des tâches de gestion sur les ressources déléguées directement sur le portail ou à l’aide d’API et d’outils de gestion (tels que Azure CLI et Azure PowerShell). Toutes les API existantes peuvent être utilisées lorsque vous travaillez avec des ressources déléguées, tant que la fonctionnalité est prise en charge pour la gestion entre inter-locataires et que l’utilisateur dispose des autorisations appropriées.
 
-Nous fournissons également des API pour effectuer des tâches de gestion des ressources déléguées Azure. Pour plus d’informations, voir la section **Référence**.
+La cmdlet Azure PowerShell [Get-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscription?view=azps-3.5.0) affiche le **tenantID** de chaque abonnement, ce qui vous permet de savoir si un abonnement retourné appartient au locataire de votre fournisseur de services ou à un locataire géré par le client.
+
+De même, des commandes Azure CLI comme [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list) affichent les attributs **homeTenantId** et **managedByTenants**.
+
+> [!TIP]
+> Si vous ne voyez pas ces valeurs lors de l’utilisation d'Azure CLI, essayez d’effacer votre cache en exécutant `az account clear`, puis `az login --identity`.
+
+Nous fournissons également des API spécifiques pour l’exécution de tâches de gestion des ressources déléguées Azure. Pour plus d’informations, voir la section **Référence**.
 
 ## <a name="enhanced-services-and-scenarios"></a>Services et scénarios améliorés
 
@@ -131,7 +138,7 @@ Dans tous les scénarios, gardez à l’esprit les limitations actuelles suivant
 
 - Les demandes traitées par Azure Resource Manager peuvent être effectuées à l’aide de la gestion des ressources déléguées Azure. Les URI d’opération pour ces demandes commencent par `https://management.azure.com`. Toutefois, les demandes qui sont gérées par une instance d’un type de ressource (par exemple, accès aux secrets du coffre de clés ou accès aux données de stockage) ne sont pas prises en charge avec la gestion des ressources déléguées Azure. Les URI d’opération pour ces demandes commencent généralement par une adresse propre à votre instance, telle que `https://myaccount.blob.core.windows.net` ou `https://mykeyvault.vault.azure.net/`. Ces dernières sont également des opérations sur les données plutôt que des opérations de gestion. 
 - Les attributions de rôles doivent utiliser des [rôles intégrés](../../role-based-access-control/built-in-roles.md) de contrôle d’accès en fonction du rôle (RBAC). Tous les rôles intégrés sont actuellement pris en charge avec la gestion des ressources déléguées Azure, à l’exception du propriétaire et des rôles intégrés avec l’autorisation [DataActions](../../role-based-access-control/role-definitions.md#dataactions). Le rôle Administrateur de l’accès utilisateur est pris en charge uniquement pour une utilisation limitée dans [l’affectation de rôles à des identités gérées](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Les rôles personnalisés et les [Rôles Administrateur classique de l’abonnement](../../role-based-access-control/classic-administrators.md) ne sont pas pris en charge.
-- Actuellement, vous ne pouvez pas intégrer un abonnement (ou un groupe de ressources au sein d’un abonnement) pour la gestion des ressources déléguées Azure si l’abonnement utilise Azure Databricks. De même, si un abonnement a été inscrit pour une intégration avec le fournisseur de ressources **Microsoft.ManagedServices**, vous ne pouvez pas actuellement créer d’espace de travail Databricks pour cet abonnement.
+- S'il vous est possible d'intégrer des abonnements utilisant Azure Databricks, les utilisateurs du locataire gestionnaire ne peuvent pas lancer d'espaces de travail Azure Databricks sur un abonnement délégué pour le moment.
 - Bien que vous puissiez intégrer des abonnements et des groupes de ressources pour la gestion des ressources déléguées Azure qui ont des verrous de ressources, ces verrous n’empêchent pas les actions d’être effectuées par les utilisateurs dans le locataire gestionnaire. Les [affectations de refus](../../role-based-access-control/deny-assignments.md), qui protègent les ressources managées par le système, telles que celles créées par les applications managées Azure ou Azure Blueprints (affectations de refus émises par le système), empêchent les utilisateurs du locataire gestionnaire d’agir sur ces ressources. Toutefois, à ce moment-là, les utilisateurs du locataire client ne peuvent pas créer leurs propres affectations de refus (affectations de refus émises par l’utilisateur).
 
 ## <a name="next-steps"></a>Étapes suivantes

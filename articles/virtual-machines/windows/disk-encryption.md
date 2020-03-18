@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: bc15ee42fd7ef8e41b332104b28af808c336789f
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: f3ce439f3e8c2290539e088402c2636974d37821
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77430406"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898845"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Chiffrement côté serveur de Disques managés Azure
 
@@ -72,6 +72,7 @@ Pour le moment, les clés gérées par le client sont soumises aux restrictions 
 - Toutes les ressources liées à vos clés gérées par le client (coffres de clés Azure, jeux de chiffrement de disque, machines virtuelles, disques et instantanés) doivent se trouver dans le même abonnement et la même région.
 - Les disques, les instantanés et les images chiffrées avec des clés gérées par le client ne peuvent pas être déplacés vers un autre abonnement.
 - Si vous utilisez le portail Azure pour créer votre jeu de chiffrement de disque, vous ne pouvez pas utiliser d’instantanés pour l’instant.
+- Les disques managés chiffrés à l’aide de clés gérées par le client ne peuvent pas être chiffrés avec Azure Disk Encryption.
 
 ### <a name="powershell"></a>PowerShell
 

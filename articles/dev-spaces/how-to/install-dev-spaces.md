@@ -5,18 +5,18 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: Découvrez comment activer Azure Dev Spaces sur un cluster AKS et installer les outils côté client.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
-ms.openlocfilehash: 0b7f6cb4a801c84df59bd5157d8c2a1a15eaaf7e
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: a6b3be5ceba5e60b99b2f75e060f3321cd3151f2
+ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78302897"
+ms.lasthandoff: 03/07/2020
+ms.locfileid: "78898952"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Activer Azure Dev Spaces sur un cluster AKS et installer les outils côté client
 
 Cet article montre plusieurs manières d’activer Azure Dev Spaces sur un cluster AKS et comment installer les outils côté client.
 
-## <a name="enable-azure-dev-spaces-using-the-cli"></a>Activer Azure Dev Spaces à l’aide de l’interface CLI
+## <a name="enable-or-remove-azure-dev-spaces-using-the-cli"></a>Activer ou supprimer Azure Dev Spaces à l’aide de l’interface CLI
 
 Pour activer Dev Spaces à l’aide de l’interface CLI, vous avez besoin des éléments suivants :
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit][az-portal-create-account].
@@ -49,7 +49,18 @@ Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is
 
 La commande `use-dev-spaces` installe également l’interface CLI Azure Dev Spaces.
 
-## <a name="enable-azure-dev-spaces-using-the-azure-portal"></a>Activer Azure Dev Spaces à l’aide du portail Azure
+Pour supprimer Azure Dev Spaces de votre cluster AKS, utilisez la commande `azds remove`. Par exemple :
+
+```azurecli
+$ azds remove -g MyResourceGroup -n MyAKS
+Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup' will be deleted. This will remove Azure Dev Spaces instrumentation from the target resource for new workloads. Continue? (y/N): y
+
+Deleting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAks' in resource group 'MyResourceGroup' (takes a few minutes)...
+```
+
+La commande ci-dessus supprime Azure Dev Spaces du cluster *MyAKS* dans *MyResourceGroup*. Les espaces de noms que vous avez créés avec Azure Dev Spaces demeurent, de même que leurs charges de travail, mais les nouvelles charges de travail de ces espaces de noms ne sont pas instrumentées avec Azure Dev Spaces. En outre, si vous redémarrez des pods existants instrumentés avec Azure Dev Spaces, vous risquez de voir des erreurs. Ces pods doivent être redéployés sans les outils Azure Dev Spaces. Pour supprimer complètement Azure Dev Spaces de votre cluster, supprimez tous les pods de tous les espaces de noms où Azure Dev Spaces a été activé.
+
+## <a name="enable-or-remove-azure-dev-spaces-using-the-azure-portal"></a>Activer ou supprimer Azure Dev Spaces à l’aide du portail Azure
 
 Pour activer Dev Spaces à l’aide du portail Azure, vous avez besoin des éléments suivants :
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit][az-portal-create-account].
@@ -64,6 +75,8 @@ Pour activer Azure Dev Spaces à l’aide du portail Azure
 ![Activer Dev Spaces via le portail Azure](../media/how-to-setup-dev-spaces/enable-dev-spaces-portal.png)
 
 L’activation d’Azure Dev Spaces à l’aide du portail Azure n’installe **aucun** outil côté client pour Azure Dev Spaces.
+
+Pour supprimer Azure Dev Spaces de votre cluster AKS, remplacez *Activer Dev Spaces* par *Non*, puis cliquez sur *Enregistrer*. Les espaces de noms que vous avez créés avec Azure Dev Spaces demeurent, de même que leurs charges de travail, mais les nouvelles charges de travail de ces espaces de noms ne sont pas instrumentées avec Azure Dev Spaces. En outre, si vous redémarrez des pods existants instrumentés avec Azure Dev Spaces, vous risquez de voir des erreurs. Ces pods doivent être redéployés sans les outils Azure Dev Spaces. Pour supprimer complètement Azure Dev Spaces de votre cluster, supprimez tous les pods de tous les espaces de noms où Azure Dev Spaces a été activé.
 
 ## <a name="install-the-client-side-tools"></a>Installer les outils côté client
 

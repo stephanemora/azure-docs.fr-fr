@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
-ms.openlocfilehash: 6f4e0744aad5f053cdda0a52b382ad3c86982c2f
-ms.sourcegitcommit: d48afd9a09f850b230709826d4a5cd46e57d19fa
+ms.date: 03/11/2020
+ms.openlocfilehash: fa39c8f65b00283044ef31dc7577a4668b3e634b
+ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75904924"
+ms.lasthandoff: 03/11/2020
+ms.locfileid: "79127637"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurer des clés gérées par le client afin de chiffrer les données au repos pour les environnements de service d’intégration (ISE) dans Azure Logic Apps
 
@@ -19,7 +19,7 @@ Azure Logic Apps s’appuie sur Stockage Azure pour stocker et [chiffrer automat
 
 Quand vous créez un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) pour héberger vos applications logiques et que vous souhaitez davantage de contrôle sur les clés de chiffrement utilisées par Stockage Azure, vous pouvez configurer, utiliser et gérer votre propre clé à l’aide d’[Azure Key Vault](../key-vault/key-vault-overview.md). Cette fonctionnalité est également appelée « Bring Your Own Key » (BYOK) et votre clé est appelée « clé gérée par le client ».
 
-Cette rubrique montre comment configurer et spécifier votre propre clé de chiffrement à utiliser lors de la création de votre ISE. 
+Cette rubrique montre comment configurer et spécifier votre propre clé de chiffrement à utiliser lors de la création de votre ISE à l'aide de l'API REST Logic Apps. Pour connaître les étapes générales permettant de créer un environnement ISE à l'aide de l'API REST Logic Apps, consultez [Créer un environnement de service d'intégration (ISE) à l'aide de l'API REST Logic Apps](../logic-apps/create-integration-service-environment-rest-api.md).
 
 ## <a name="considerations"></a>Considérations
 
@@ -35,7 +35,7 @@ Cette rubrique montre comment configurer et spécifier votre propre clé de chif
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/)
+* Les [conditions préalables](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) et la [configuration requise pour activer l'accès à votre environnement ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) sont les mêmes que lorsque vous créez un environnement ISE à partir du portail Azure.
 
 * Un coffre de clés Azure pour lequel les propriétés **Suppression réversible** et **Ne pas vider** sont activées
 
@@ -67,6 +67,15 @@ Pour créer votre ISE en appelant l’API REST Logic Apps, émettez cette requê
 > [!IMPORTANT]
 > Avec l’API REST version 2019-05-01 de Logic Apps, vous devez émettre votre propre requête PUT HTTP pour les connecteurs ISE.
 
+Le déploiement prend généralement deux heures maximum. Parfois, le déploiement peut prendre jusqu’à quatre heures. Pour suivre l'état du déploiement, accédez au [portail Azure](https://portal.azure.com) et sélectionnez l'icône Notifications sur la barre d'outils Azure. Le volet Notifications s'ouvre alors.
+
+> [!NOTE]
+> Si le déploiement échoue ou si vous supprimez votre ISE, Azure peut prendre jusqu’à une heure avant de libérer vos sous-réseaux. Ce délai signifie que vous devrez peut-être attendre avant de réutiliser ces sous-réseaux dans un autre ISE.
+>
+> Si vous supprimez votre réseau virtuel, Azure a généralement besoin de jusqu'à deux heures pour libérer vos sous-réseaux, mais cette opération peut prendre plus longtemps. 
+> Lors de la suppression de réseaux virtuels, assurez-vous qu’aucune ressource n’est restée connectée. 
+> Consultez [Supprimer un réseau virtuel](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
+
 ### <a name="request-header"></a>En-tête de requête
 
 Dans l’en-tête de la requête, incluez les propriétés suivantes :
@@ -75,14 +84,14 @@ Dans l’en-tête de la requête, incluez les propriétés suivantes :
 
 * `Authorization`: affectez comme valeur de cette propriété le jeton du porteur pour le client qui a accès à l’abonnement Azure ou au groupe de ressources que vous souhaitez utiliser
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de la demande
 
 Dans le corps de la requête, activez la prise en charge de ces éléments supplémentaires en spécifiant leurs informations dans votre définition d’ISE :
 
 * L’identité managée affectée par le système que votre ISE utilise pour accéder à votre coffre de clés
 * Votre coffre de clés et la clé gérée par le client que vous souhaitez utiliser
 
-#### <a name="request-body-syntax"></a>Syntaxe du corps de la requête
+#### <a name="request-body-syntax"></a>Syntaxe du corps de la demande
 
 Voici la syntaxe du corps de la requête, qui décrit les propriétés à utiliser lors de la création de votre ISE :
 

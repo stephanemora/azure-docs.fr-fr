@@ -1,21 +1,21 @@
 ---
 title: Azure Application Insights | Microsoft Docs
-description: ''
+description: Mettez en corrélation les données Application Insights avec d’autres jeux de données, tels que des tables d’enrichissement ou de recherche de données, des sources de données autres qu'Application Insights et des données personnalisées.
 ms.topic: conceptual
 author: eternovsky
 ms.author: evternov
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 75c5bd5bd6a7ded8679c30446a45809a1ea4406a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 121e4699bd6a72f6865d3a6ffdef58c1b3806047
+ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672002"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79082759"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Mise en corrélation de données Application Insights avec des sources de données personnalisées
 
-Application Insights collecte plusieurs types de données différents : exceptions, traces, vues de page, etc. Bien que cela suffise bien souvent pour examiner les performances, la fiabilité et l’utilisation de votre application, il existe des cas où il est utile mettre en corrélation les données stockées dans Application Insights avec d’autres jeux de données entièrement personnalisés.
+Application Insights collecte plusieurs types de données différents : exceptions, traces, vues de page, etc. Bien que cela suffise bien souvent pour examiner les performances, la fiabilité et l’utilisation de votre application, dans certains cas, il est utile mettre en corrélation les données stockées dans Application Insights avec d’autres jeux de données entièrement personnalisés.
 
 Vous pouvez avoir besoin de données personnalisées dans les situations suivantes :
 
@@ -25,17 +25,17 @@ Vous pouvez avoir besoin de données personnalisées dans les situations suivant
 
 ## <a name="how-to-correlate-custom-data-with-application-insights-data"></a>Comment mettre en corrélation des données personnalisées avec des données Application Insights 
 
-Étant donné qu'Application Insights est associé à la puissante plateforme de journaux Azure Monitor, nous sommes en mesure d'exploiter toute la puissance d'Azure Monitor pour ingérer les données. Nous allons ensuite rédiger des requêtes à l’aide de l’opérateur « join », qui mettra en corrélation ces données personnalisées avec les données dont nous disposons dans les journaux d’activité Azure Monitor. 
+Étant donné qu'Application Insights est associé à la puissante plateforme de journaux Azure Monitor, nous sommes en mesure d'exploiter toute la puissance d'Azure Monitor pour ingérer les données. Nous allons ensuite rédiger des requêtes à l’aide de l’opérateur « join » afin de mettre en corrélation ces données personnalisées avec les données dont nous disposons dans les journaux d’activité Azure Monitor. 
 
 ## <a name="ingesting-data"></a>Ingestion des données
 
 Dans cette section, vous allez importer vos données dans les journaux d’activité Azure Monitor.
 
-Si vous ne l’avez pas déjà fait, configurez un nouvel espace de travail Log Analytics en suivant [ces instructions](../learn/quick-collect-azurevm.md) jusqu’à l’étape relative à la création d’un espace de travail.
+Si vous ne l’avez pas déjà fait, configurez un nouvel espace de travail Log Analytics en suivant [ces instructions](../learn/quick-collect-azurevm.md) jusqu’à l’étape relative à la « création d’un espace de travail ».
 
 Pour commencer à envoyer des données de journal dans Azure Monitor. Vous disposez de plusieurs options :
 
-- Pour un mécanisme synchrone, vous pouvez soit appeler directement [l’API Collecte de données](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) soit utiliser notre connecteur Logic App : il vous suffit de rechercher « Azure Log Analytics » et de choisir l’option « Envoyer des données » :
+- Pour un mécanisme synchrone, vous pouvez soit appeler directement [l’API Collecte de données](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) soit utiliser notre connecteur Logic App : il vous suffit de rechercher « Azure Log Analytics » et de sélectionner l’option « Envoyer des données » :
 
   ![Capture d’écran choix et action](./media/custom-data-correlation/01-logic-app-connector.png)  
 
@@ -45,7 +45,7 @@ Pour commencer à envoyer des données de journal dans Azure Monitor. Vous dispo
 
 Application Insights s'appuie sur la plateforme de journaux Azure Monitor. Par conséquent, nous pouvons utiliser des [jointures inter-ressources](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) pour mettre en corrélation des données que nous avons ingérées dans Azure Monitor avec nos données Application Insights.
 
-Par exemple, nous pouvons ingérer notre inventaire et nos emplacements de laboratoire dans une table appelée « LabLocations_CL » dans un espace de travail Log Analytics appelé « myLA ». Si nous voulons ensuite passer en revue nos requêtes surveillées dans l'appli Application Insights appelée « myAI » et mettre en corrélation les noms d'ordinateurs qui ont traité les requêtes avec les emplacements de ces ordinateurs stockés dans la table personnalisée mentionnée précédemment, nous pouvons exécuter la requête suivante à partir du contexte Application Insights ou Azure Monitor :
+Par exemple, nous pouvons ingérer notre inventaire et nos emplacements de laboratoire dans une table appelée « LabLocations_CL » au sein d'un espace de travail Log Analytics appelé « myLA ». Si nous voulons ensuite passer en revue nos requêtes surveillées dans l'application Application Insights appelée « myAI » et mettre en corrélation les noms d'ordinateurs qui ont traité les requêtes avec les emplacements de ces ordinateurs stockés dans la table personnalisée mentionnée précédemment, nous pouvons exécuter la requête suivante à partir du contexte Application Insights ou Azure Monitor :
 
 ```
 app('myAI').requests

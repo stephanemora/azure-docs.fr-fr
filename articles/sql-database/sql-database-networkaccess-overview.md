@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
-ms.date: 08/05/2019
-ms.openlocfilehash: 16ba90aab52c00f77af590f854217cd989df53b3
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.date: 03/09/2020
+ms.openlocfilehash: 822fab5c00501d415c3c184587141e869523e417
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251904"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78945394"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Contrôles d’accès réseau Azure SQL Database et Data Warehouse
 
@@ -27,19 +27,28 @@ ms.locfileid: "77251904"
 > [!IMPORTANT]
 > Cet article ne s’applique *pas* à **Azure SQL Database Managed Instance**. Pour plus d’informations sur la configuration réseau, consultez [Connexion à une instance managée](sql-database-managed-instance-connect-app.md).
 
-Lorsque vous créez un serveur SQL Server Azure à partir du [portail Azure](sql-database-single-database-get-started.md), le résultat est un point de terminaison public au format *votrenomdeserveur.basededonnées.windows.net*. Par défaut, tout accès au point de terminaison public est refusé. Vous pouvez alors utiliser les contrôles d’accès réseau suivants pour autoriser de manière sélective l’accès à SQL Database via le point de terminaison public.
+Lorsque vous créez un serveur SQL Server Azure à partir du [portail Azure](sql-database-single-database-get-started.md), le résultat est un point de terminaison public au format *votrenomdeserveur.basededonnées.windows.net*.
+
+Vous pouvez utiliser les contrôles d’accès réseau suivants pour autoriser de manière sélective l’accès à SQL Database via le point de terminaison public :
 - Autoriser les services Azure : Si défini sur ACTIVÉ, d’autres ressources dans la limite Azure, par exemple une machine virtuelle Azure, peuvent accéder à SQL Database
 
-- Règles de pare-feu IP : Utilisez cette fonctionnalité pour autoriser explicitement les connexions à partir d’une adresse IP spécifique, par exemple à partir d’ordinateurs locaux.
+- Règles de pare-feu IP : Utilisez cette fonctionnalité pour autoriser explicitement les connexions à partir d’une adresse IP spécifique, par exemple à partir d’ordinateurs locaux
 
+Vous pouvez également autoriser l’accès privé à l'instance SQL Database à partir des [réseaux virtuels](../virtual-network/virtual-networks-overview.md) via :
 - Règles de pare-feu de réseau virtuel : Utilisez cette fonctionnalité pour autoriser le trafic à partir d’un réseau virtuel spécifique au sein de la limite Azure.
 
+- Liaison privée : Utilisez cette fonctionnalité pour créer un point de terminaison privé pour Azure SQL Server au sein d’un réseau virtuel spécifique.
+
+
+
+Pour bien comprendre ces contrôles d’accès et ce qu’ils font, visionnez la vidéo ci-dessous :
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
+
 
 ## <a name="allow-azure-services"></a>Autoriser les services Azure 
 Lors de la création d’un serveur Azure SQL Server à partir du [portail Azure](sql-database-single-database-get-started.md), ce paramètre est laissé désactivé.
 
- ![Capture d’écran de la création d’un serveur][1]
+
 
 Vous pouvez aussi changer ce paramètre via le volet du pare-feu une fois le serveur Azure SQL Server créé, comme suit.
   
@@ -129,6 +138,9 @@ Les règles de réseau virtuel constituent une alternative plus facile pour éta
 > [!NOTE]
 > Vous ne pouvez pas encore avoir SQL Database dans un sous-réseau. Si votre serveur Azure SQL Database était un nœud sur un sous-réseau de votre réseau virtuel, tous les nœuds situés dans le réseau virtuel pourraient communiquer avec le serveur SQL Database. Dans ce cas, vos machines virtuelles pourraient communiquer avec le serveur SQL Database sans avoir à utiliser de règles de réseau virtuel ni de règles IP.
 
+## <a name="private-link"></a>Private Link 
+Private Link vous permet de vous connecter à Azure SQL Server par le biais d’un **point de terminaison privé**. Un point de terminaison privé est une adresse IP privée au sein d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) et d’un sous-réseau spécifiques.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour un guide de démarrage rapide sur la création d’une règle de pare-feu IP au niveau du serveur, consultez [Créer une base de données Azure SQL](sql-database-single-database-get-started.md).
@@ -146,3 +158,4 @@ Les règles de réseau virtuel constituent une alternative plus facile pour éta
 <!--Image references-->
 [1]: ./media/sql-database-get-started-portal/new-server2.png
 [2]: ./media/sql-database-get-started-portal/manage-server-firewall.png
+

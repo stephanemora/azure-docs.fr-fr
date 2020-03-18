@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 64e8fab3ac352c906cfb63cd39f89acda4109b18
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 941a1ff23668a3202028e8b693b57d902095b3b2
+ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719753"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78384830"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurer l’accélération GPU pour Windows Virtual Desktop
 
@@ -82,7 +82,7 @@ Pour vérifier que les applications utilisent le GPU pour le rendu, essayez l’
 Pour vérifier que le Bureau à distance utilise le codage avec accélération GPU :
 
 1. Connectez-vous au bureau de la machine virtuelle à l’aide du client Windows Virtual Desktop.
-2. Lancer l’Observateur d’événements et accédez au nœud suivant : **Journaux des applications et services** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreTS** > **Opérationnel**
+2. Lancer l’Observateur d’événements et accédez au nœud suivant : **Journaux des applications et services** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Opérationnel**
 3. Pour déterminer si de codage avec accélération GPU est utilisé, recherchez l’ID d’événement 170. Si vous voyez « Encodeur matériel AVC activé : 1 » alors le codage GPU est utilisé.
 4. Pour déterminer si le mode AVC 444 est utilisé, recherchez l’ID d’événement 162. Si vous voyez « AVC disponible : 1 Profil initial : 2048 » alors AVC 444 est utilisé.
 

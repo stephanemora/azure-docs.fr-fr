@@ -4,12 +4,12 @@ description: Découvrez comment créer un cluster Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: 4b4ba130d9ff63291abdd46617b0692e844a60bf
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 0a05bd15fff97d4f0020f6ce82ee90a2fe995edf
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649505"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944197"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Créer un cluster Azure Kubernetes Service privé (préversion)
 
@@ -100,6 +100,14 @@ az provider register --namespace Microsoft.Network
 ```
 ## <a name="create-a-private-aks-cluster"></a>Créer un cluster AKS privé
 
+### <a name="create-a-resource-group"></a>Créer un groupe de ressources
+
+Créez un groupe de ressources ou utilisez un groupe de ressources existant pour votre cluster AKS.
+
+```azurecli-interactive
+az group create -l westus -n MyResourceGroup
+```
+
 ### <a name="default-basic-networking"></a>Mise en réseau de base par défaut 
 
 ```azurecli-interactive
@@ -126,35 +134,29 @@ Où *--enable-private-cluster* est un indicateur obligatoire pour un cluster pri
 > [!NOTE]
 > Si le CIDR d’adresse de pont Docker (172.17.0.1/16) est en conflit avec le CIDR de sous-réseau, changez l’adresse de pont Docker en conséquence.
 
-## <a name="connect-to-the-private-cluster"></a>Établir une connexion au cluster privé
+## <a name="options-for-connecting-to-the-private-cluster"></a>Options de connexion au cluster privé
 
-Le point de terminaison du serveur d’API n’a pas d’adresse IP publique. Par conséquent, vous devez créer une machine virtuelle Azure dans un réseau virtuel et établir une connexion au serveur d’API. Pour ce faire, procédez comme suit :
+Le point de terminaison du serveur d’API n’a pas d’adresse IP publique. Pour gérer le serveur d’API, vous devez utiliser une machine virtuelle qui a accès au réseau virtuel Azure (VNet) du cluster AKS. Il existe plusieurs options pour établir une connectivité réseau avec le cluster privé.
 
-1. Obtenez les informations d’identification pour vous connecter au cluster.
+* Créez une machine virtuelle dans le même réseau virtuel Azure (VNet) que le cluster AKS.
+* Utilisez une machine virtuelle dans un réseau distinct et configurez l'[appairage de réseaux virtuels][virtual-network-peering].  Pour plus d'informations sur cette option, consultez la section ci-dessous.
+* Utilisez une [connexion ExpressRoute ou VPN][express-route-or-VPN].
 
-   ```azurecli-interactive
-   az aks get-credentials --name MyManagedCluster --resource-group MyResourceGroup
-   ```
+La création d’une machine virtuelle dans le même réseau virtuel que le cluster AKS constitue l’option la plus simple.  ExpressRoute et les VPN présentent des coûts et une complexité de mise en réseau supplémentaires.  L’appairage de réseaux virtuels implique la planification de vos plages CIDR réseau pour veiller à ce qu'aucune plage ne se chevauche.
 
-1. Effectuez l'une des opérations suivantes :
-   * Créez une machine virtuelle dans le même réseau virtuel que le cluster AKS.  
-   * Créez une machine virtuelle dans un autre réseau virtuel et appairez ce réseau virtuel avec le réseau virtuel du cluster AKS.
+## <a name="virtual-network-peering"></a>Peering de réseau virtuel
 
-     Si vous créez une machine virtuelle dans un autre réseau virtuel, configurez un lien entre ce réseau virtuel et la zone DNS privée. Pour ce faire :
+Comme indiqué, l'appairage VNet permet d’accéder à votre cluster privé. Pour utiliser l'appairage VNet, vous devez configurer un lien entre le réseau virtuel et la zone DNS privée.
     
-     a. Accédez au groupe de ressources MC_* dans le portail Azure.  
-     b. Sélectionnez la zone DNS privée.   
-     c. Dans le volet de gauche, sélectionnez le lien **Réseau virtuel**.  
-     d. Créez un lien permettant d’ajouter le réseau virtuel de la machine virtuelle à la zone DNS privée. Il faut quelques minutes pour que le lien de zone DNS soit disponible.  
-     e. Revenez au groupe de ressources MC_* dans le portail Azure.  
-     f. Dans le volet de droite, sélectionnez le réseau virtuel. Le nom du réseau virtuel se présente au format *aks-vnet-\** .  
-     g. Dans le volet de gauche, sélectionnez **Appairages**.  
-     h. Sélectionnez **Ajouter**, ajoutez le réseau virtuel de la machine virtuelle, puis créez l’appairage.  
-     i. Accédez au réseau virtuel sur lequel se trouve la machine virtuelle, sélectionnez **Appairages**, sélectionnez le réseau virtuel AKS, puis créez l’appairage. Si les plages d’adresses sur le réseau virtuel AKS et le réseau virtuel de la machine virtuelle sont en conflit, l’appairage échoue. Pour plus d’informations, consultez [Appairage de réseaux virtuels][virtual-network-peering].
-
-1. Accédez à la machine virtuelle par le biais de Secure Shell (SSH).
-1. Installez l’outil Kubectl, puis exécutez les commandes Kubectl.
-
+1. Accédez au groupe de ressources MC_* dans le portail Azure.  
+2. Sélectionnez la zone DNS privée.   
+3. Dans le volet de gauche, sélectionnez le lien **Réseau virtuel**.  
+4. Créez un lien permettant d’ajouter le réseau virtuel de la machine virtuelle à la zone DNS privée. Il faut quelques minutes pour que le lien de zone DNS soit disponible.  
+5. Revenez au groupe de ressources MC_* dans le portail Azure.  
+6. Dans le volet de droite, sélectionnez le réseau virtuel. Le nom du réseau virtuel se présente au format *aks-vnet-\** .  
+7. Dans le volet de gauche, sélectionnez **Appairages**.  
+8. Sélectionnez **Ajouter**, ajoutez le réseau virtuel de la machine virtuelle, puis créez l’appairage.  
+9. Accédez au réseau virtuel sur lequel se trouve la machine virtuelle, sélectionnez **Appairages**, sélectionnez le réseau virtuel AKS, puis créez l’appairage. Si les plages d’adresses sur le réseau virtuel AKS et le réseau virtuel de la machine virtuelle sont en conflit, l’appairage échoue. Pour plus d’informations, consultez [Appairage de réseaux virtuels][virtual-network-peering].
 
 ## <a name="dependencies"></a>Les dépendances  
 * Le service Liaison privée est pris en charge uniquement sur Azure Load Balancer Standard. Azure Load Balancer De base n’est pas pris en charge.  
@@ -179,6 +181,8 @@ Le point de terminaison du serveur d’API n’a pas d’adresse IP publique. P
 [az-feature-list]: /cli/azure/feature?view=azure-cli-latest#az-feature-list
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[private-link-service]: https://docs.microsoft.com/azure/private-link/private-link-service-overview
+[private-link-service]: /private-link/private-link-service-overview
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
+[azure-bastion]: ../bastion/bastion-create-host-portal.md
+[express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
 

@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f73dd8dbef3f08cd4ea5841e4ec21bac2f55bf
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 70cdb4b42e835a9bfa03f4551ba25088ef8c5226
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276502"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78942851"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser des restrictions liées au locataire pour gérer l’accès aux applications cloud SaaS
 
@@ -104,6 +104,9 @@ Bien que la configuration des restrictions liées au locataire est effectuée su
 3. Sous le titre **Autres fonctionnalités**, sélectionnez **Restrictions liées au locataire**.
 
 L’administrateur du locataire spécifié en tant que locataire Restricted-Access-Context peut utiliser ce rapport pour afficher les connexions bloquées en raison de la stratégie de restrictions liées au locataire, notamment l’identité utilisée et l’ID du répertoire cible. Les connexions sont incluses si le client définissant la restriction est le client de l’utilisateur, ou le client de la ressource pour la connexion.
+
+> [!NOTE]
+> Le rapport peut contenir des informations limitées, telles que l’ID de répertoire cible, lorsqu’un utilisateur situé dans un locataire autre que le locataire Restricted-Access-Context se connecte. Dans ce cas, les informations d’identification de l’utilisateur, telles que le nom et le nom d’utilisateur principal, sont masquées pour protéger les données utilisateur dans d’autres locataires.
 
 Comme pour les autres rapports dans le portail Azure, vous pouvez utiliser des filtres pour spécifier l’étendue de votre rapport. Vous pouvez filtrer par intervalle de temps, utilisateur, application, locataire ou état spécifique. Si vous sélectionnez le boulon **Colonnes**, vous pouvez choisir d’afficher les données avec n’importe quelle combinaison des champs suivants :
 

@@ -9,20 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 03/10/2020
 ms.author: dapine
-ms.openlocfilehash: 6e05dc2136211bcd15a9f0583358b05ccbf96f5a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 65033f9b6599d690b1097b4b78aa01148a40fc39
+ms.sourcegitcommit: b8d0d72dfe8e26eecc42e0f2dbff9a7dd69d3116
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383162"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79037503"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installer et exécuter les conteneurs Analyse de texte
 
 Les conteneurs vous permettent d’exécuter les API d’analyse de texte dans votre propre environnement et sont très utiles pour répondre à vos besoins spécifiques en matière de sécurité et de gouvernance des données. Les conteneurs Analyse de texte fournissent un traitement en langage naturel avancé sur le texte brut et incluent trois fonctions principales : analyse des sentiments, extraction d’expressions clés et détection de la langue. Entity Linking n’est actuellement pas pris en charge dans un conteneur.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+> [!IMPORTANT]
+> Le compte gratuit est limité à 5 000 transactions par mois et seuls les niveaux tarifaires **Gratuit** et **Standard** <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">sont <span class="docon docon-navigate-external x-hidden-focus"></span></a> valides pour les conteneurs. Pour plus d’informations sur les taux de requête de transaction, consultez [Tarification - Transfert de données](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -48,15 +51,15 @@ Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs A
 
 Le tableau suivant décrit les cœurs de processeur minimum et recommandés, d’au moins 2,6 gigahertz (GHz) ou plus rapides, et la mémoire, en gigaoctets (Go), à allouer pour chaque conteneur Analyse de texte.
 
-# <a name="key-phrase-extractiontabkeyphrase"></a>[Extraction d’expressions clés](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extraction d’expressions clés](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-container-requirements](../includes/key-phrase-extraction-container-requirements.md)]
 
-# <a name="language-detectiontablanguage"></a>[Détection de la langue](#tab/language)
+# <a name="language-detection"></a>[Détection de la langue](#tab/language)
 
 [!INCLUDE [language-detection-container-requirements](../includes/language-detection-container-requirements.md)]
 
-# <a name="sentiment-analysistabsentiment"></a>[Analyse des sentiments](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[Analyse des sentiments](#tab/sentiment)
 
 [!INCLUDE [sentiment-analysis-container-requirements](../includes/sentiment-analysis-container-requirements.md)]
 
@@ -71,15 +74,15 @@ Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `-
 
 Images conteneur pour Analyse de texte disponibles dans Microsoft Container Registry.
 
-# <a name="key-phrase-extractiontabkeyphrase"></a>[Extraction d’expressions clés](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extraction d’expressions clés](#tab/keyphrase)
 
 [!INCLUDE [key-phrase-extraction-container-repository](../includes/key-phrase-extraction-container-repository.md)]
 
-# <a name="language-detectiontablanguage"></a>[Détection de la langue](#tab/language)
+# <a name="language-detection"></a>[Détection de la langue](#tab/language)
 
 [!INCLUDE [language-detection-container-repository](../includes/language-detection-container-repository.md)]
 
-# <a name="sentiment-analysistabsentiment"></a>[Analyse des sentiments](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[Analyse des sentiments](#tab/sentiment)
 
 [!INCLUDE [sentiment-analysis-container-repository](../includes/sentiment-analysis-container-repository.md)]
 
@@ -89,15 +92,15 @@ Images conteneur pour Analyse de texte disponibles dans Microsoft Container Regi
 
 ### <a name="docker-pull-for-the-text-analytics-containers"></a>Docker pull pour les conteneurs Analyse de texte
 
-# <a name="key-phrase-extractiontabkeyphrase"></a>[Extraction d’expressions clés](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extraction d’expressions clés](#tab/keyphrase)
 
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-# <a name="language-detectiontablanguage"></a>[Détection de la langue](#tab/language)
+# <a name="language-detection"></a>[Détection de la langue](#tab/language)
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
-# <a name="sentiment-analysistabsentiment"></a>[Analyse des sentiments](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[Analyse des sentiments](#tab/sentiment)
 
 [!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
@@ -116,15 +119,15 @@ Utilisez la commande [docker run](https://docs.docker.com/engine/reference/comma
 
 [Exemples ](../text-analytics-resource-container-config.md#example-docker-run-commands) de la commande `docker run` sont disponibles.
 
-# <a name="key-phrase-extractiontabkeyphrase"></a>[Extraction d’expressions clés](#tab/keyphrase)
+# <a name="key-phrase-extraction"></a>[Extraction d’expressions clés](#tab/keyphrase)
 
 [!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-# <a name="language-detectiontablanguage"></a>[Détection de la langue](#tab/language)
+# <a name="language-detection"></a>[Détection de la langue](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
-# <a name="sentiment-analysistabsentiment"></a>[Analyse des sentiments](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[Analyse des sentiments](#tab/sentiment)
 
 [!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
 
@@ -149,7 +152,7 @@ Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur.
 
 [!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si vous exécutez le conteneur avec un [montage](../text-analytics-resource-container-config.md#mount-settings) de sortie et la journalisation activée, il génère des fichiers journaux qui sont utiles pour résoudre les problèmes qui se produisent lors du démarrage ou de l’exécution du conteneur.
 

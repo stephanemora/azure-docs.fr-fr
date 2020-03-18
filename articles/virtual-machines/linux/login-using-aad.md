@@ -1,25 +1,18 @@
 ---
 title: Se connecter à une machine virtuelle Linux avec les informations d’identification d’Azure Active Directory
 description: Découvrez comment créer et configurer une machine virtuelle Linux pour utiliser l’authentification Azure Active Directory.
-services: virtual-machines-linux
-documentationcenter: ''
 author: iainfoulds
-manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: 9980ad7af4a9e5db1d93ffb389ef7b04209b8c43
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: eb303ecb5657e9312445093841cfa6c501efda18
+ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544614"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78944793"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Aperçu : Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory
 
@@ -113,7 +106,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-Le paramètre *provisioningState* défini sur *Succeeded* s’affiche une fois que l’extension est installée sur la machine virtuelle.
+Le paramètre *provisioningState* défini sur *Succeeded* s’affiche une fois que l’extension est installée sur la machine virtuelle. La machine virtuelle a besoin d’un agent de machine virtuelle en cours d’exécution pour installer l’extension. Pour plus d’informations, consultez [Vue d'ensemble de l'agent de machine virtuelle](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configurer des attributions de rôle pour la machine virtuelle
 
